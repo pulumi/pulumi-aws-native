@@ -160,6 +160,12 @@ namespace Pulumi.AwsNative.Batch.Inputs
             set => _secrets = value;
         }
 
+        [Input("startTimeout")]
+        public Input<int>? StartTimeout { get; set; }
+
+        [Input("stopTimeout")]
+        public Input<int>? StopTimeout { get; set; }
+
         [Input("ulimits")]
         private InputList<Inputs.JobDefinitionUlimitArgs>? _ulimits;
 

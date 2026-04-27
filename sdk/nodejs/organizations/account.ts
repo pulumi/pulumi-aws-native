@@ -66,6 +66,10 @@ export class Account extends pulumi.CustomResource {
      */
     declare public readonly parentIds: pulumi.Output<string[] | undefined>;
     /**
+     * The paths in the organization where the account exists.
+     */
+    declare public /*out*/ readonly paths: pulumi.Output<string[]>;
+    /**
      * The name of an IAM role that AWS Organizations automatically preconfigures in the new member account. Default name is OrganizationAccountAccessRole if not specified.
      */
     declare public readonly roleName: pulumi.Output<string | undefined>;
@@ -105,6 +109,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["joinedMethod"] = undefined /*out*/;
             resourceInputs["joinedTimestamp"] = undefined /*out*/;
+            resourceInputs["paths"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
         } else {
@@ -115,6 +120,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["joinedMethod"] = undefined /*out*/;
             resourceInputs["joinedTimestamp"] = undefined /*out*/;
             resourceInputs["parentIds"] = undefined /*out*/;
+            resourceInputs["paths"] = undefined /*out*/;
             resourceInputs["roleName"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;

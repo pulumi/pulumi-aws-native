@@ -90,10 +90,24 @@
       "maxLength" : 32
     },
     "RemoteOwnerAccount" : {
-      "description" : "The account ID of the remote owner. Required when creating a connection through AWS.",
+      "description" : "Deprecated. Use RemoteAccount instead. The account ID of the remote owner. Required when creating a connection through AWS.",
       "type" : "string",
       "maxLength" : 255,
       "pattern" : "^[-a-zA-Z0-9_@\\.]+$"
+    },
+    "RemoteAccount" : {
+      "description" : "The remote account identifier for the connection. Required when creating a connection through AWS. Replaces RemoteOwnerAccount.",
+      "type" : "object",
+      "properties" : {
+        "Identifier" : {
+          "type" : "string",
+          "description" : "The identifier of the remote account.",
+          "maxLength" : 255,
+          "pattern" : "^[-a-zA-Z0-9_@\\.]+$"
+        }
+      },
+      "required" : [ "Identifier" ],
+      "additionalProperties" : false
     },
     "ActivationKey" : {
       "description" : "The activation key for accepting a connection proposal from a partner CSP. Mutually exclusive with EnvironmentId.",
@@ -141,9 +155,9 @@
   },
   "additionalProperties" : false,
   "required" : [ "AttachPoint" ],
-  "createOnlyProperties" : [ "/properties/AttachPoint", "/properties/EnvironmentId", "/properties/ActivationKey" ],
+  "createOnlyProperties" : [ "/properties/AttachPoint", "/properties/EnvironmentId", "/properties/ActivationKey", "/properties/RemoteAccount" ],
   "readOnlyProperties" : [ "/properties/ConnectionId", "/properties/Arn", "/properties/Provider", "/properties/Type", "/properties/State", "/properties/SharedId", "/properties/OwnerAccount", "/properties/BillingTier" ],
-  "writeOnlyProperties" : [ "/properties/RemoteOwnerAccount" ],
+  "writeOnlyProperties" : [ "/properties/RemoteOwnerAccount", "/properties/RemoteAccount" ],
   "primaryIdentifier" : [ "/properties/Arn" ],
   "additionalIdentifiers" : [ [ "/properties/ConnectionId" ] ],
   "tagging" : {

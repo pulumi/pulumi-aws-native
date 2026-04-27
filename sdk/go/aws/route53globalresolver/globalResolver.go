@@ -28,10 +28,11 @@ type GlobalResolver struct {
 	IpAddressType       GlobalResolverIpAddressTypePtrOutput `pulumi:"ipAddressType"`
 	Name                pulumi.StringOutput                  `pulumi:"name"`
 	ObservabilityRegion pulumi.StringPtrOutput               `pulumi:"observabilityRegion"`
-	Regions             pulumi.StringArrayOutput             `pulumi:"regions"`
-	Status              GlobalResolverCrResourceStatusOutput `pulumi:"status"`
-	Tags                aws.TagArrayOutput                   `pulumi:"tags"`
-	UpdatedAt           pulumi.StringOutput                  `pulumi:"updatedAt"`
+	// A list of regions the Global Resolver will exist in. This list cannot be updated and will stay fixed for the duration of the Global Resolver.
+	Regions   pulumi.StringArrayOutput             `pulumi:"regions"`
+	Status    GlobalResolverCrResourceStatusOutput `pulumi:"status"`
+	Tags      aws.TagArrayOutput                   `pulumi:"tags"`
+	UpdatedAt pulumi.StringOutput                  `pulumi:"updatedAt"`
 }
 
 // NewGlobalResolver registers a new resource with the given unique name, arguments, and options.
@@ -46,7 +47,6 @@ func NewGlobalResolver(ctx *pulumi.Context,
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"clientToken",
-		"regions[*]",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -87,8 +87,9 @@ type globalResolverArgs struct {
 	IpAddressType       *GlobalResolverIpAddressType `pulumi:"ipAddressType"`
 	Name                *string                      `pulumi:"name"`
 	ObservabilityRegion *string                      `pulumi:"observabilityRegion"`
-	Regions             []string                     `pulumi:"regions"`
-	Tags                []aws.Tag                    `pulumi:"tags"`
+	// A list of regions the Global Resolver will exist in. This list cannot be updated and will stay fixed for the duration of the Global Resolver.
+	Regions []string  `pulumi:"regions"`
+	Tags    []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a GlobalResolver resource.
@@ -98,8 +99,9 @@ type GlobalResolverArgs struct {
 	IpAddressType       GlobalResolverIpAddressTypePtrInput
 	Name                pulumi.StringPtrInput
 	ObservabilityRegion pulumi.StringPtrInput
-	Regions             pulumi.StringArrayInput
-	Tags                aws.TagArrayInput
+	// A list of regions the Global Resolver will exist in. This list cannot be updated and will stay fixed for the duration of the Global Resolver.
+	Regions pulumi.StringArrayInput
+	Tags    aws.TagArrayInput
 }
 
 func (GlobalResolverArgs) ElementType() reflect.Type {
@@ -183,6 +185,7 @@ func (o GlobalResolverOutput) ObservabilityRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GlobalResolver) pulumi.StringPtrOutput { return v.ObservabilityRegion }).(pulumi.StringPtrOutput)
 }
 
+// A list of regions the Global Resolver will exist in. This list cannot be updated and will stay fixed for the duration of the Global Resolver.
 func (o GlobalResolverOutput) Regions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GlobalResolver) pulumi.StringArrayOutput { return v.Regions }).(pulumi.StringArrayOutput)
 }

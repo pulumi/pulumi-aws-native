@@ -383,6 +383,9 @@
         "EfsVolumeConfiguration" : {
           "$ref" : "#/definitions/EFSVolumeConfiguration"
         },
+        "S3FilesVolumeConfiguration" : {
+          "$ref" : "#/definitions/S3FilesVolumeConfiguration"
+        },
         "Name" : {
           "type" : "string"
         }
@@ -430,6 +433,25 @@
           "type" : "string"
         }
       }
+    },
+    "S3FilesVolumeConfiguration" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "FileSystemArn" : {
+          "type" : "string"
+        },
+        "RootDirectory" : {
+          "type" : "string"
+        },
+        "TransitEncryptionPort" : {
+          "type" : "integer"
+        },
+        "AccessPointArn" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "FileSystemArn" ]
     },
     "ResourceRequirement" : {
       "type" : "object",
@@ -1124,6 +1146,12 @@
             }
           },
           "required" : [ "Type" ]
+        },
+        "StopTimeout" : {
+          "type" : "integer"
+        },
+        "StartTimeout" : {
+          "type" : "integer"
         }
       },
       "required" : [ "Image" ]

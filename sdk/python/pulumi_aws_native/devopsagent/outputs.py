@@ -21,6 +21,7 @@ __all__ = [
     'AgentSpaceIdcAuthConfiguration',
     'AgentSpaceOperatorApp',
     'AssociationServiceConfiguration',
+    'PrivateConnectionConnectionConfiguration',
     'ServiceAdditionalServiceDetails',
     'ServiceDetails',
 ]
@@ -171,6 +172,18 @@ class AssociationServiceConfiguration(dict):
     def __init__(__self__):
         """
         The configuration that directs how AgentSpace interacts with the given service
+        """
+        pass
+
+
+@pulumi.output_type
+class PrivateConnectionConnectionConfiguration(dict):
+    """
+    The connection configuration, either SelfManaged or ServiceManaged.
+    """
+    def __init__(__self__):
+        """
+        The connection configuration, either SelfManaged or ServiceManaged.
         """
         pass
 

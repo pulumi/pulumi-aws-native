@@ -24,6 +24,8 @@ __all__ = [
     'AgentSpaceOperatorAppArgsDict',
     'AssociationServiceConfigurationArgs',
     'AssociationServiceConfigurationArgsDict',
+    'PrivateConnectionConnectionConfigurationArgs',
+    'PrivateConnectionConnectionConfigurationArgsDict',
     'ServiceDetailsArgs',
     'ServiceDetailsArgsDict',
 ]
@@ -187,6 +189,21 @@ class AssociationServiceConfigurationArgs:
     def __init__(__self__):
         """
         The configuration that directs how AgentSpace interacts with the given service
+        """
+        pass
+
+
+class PrivateConnectionConnectionConfigurationArgsDict(TypedDict):
+    """
+    The connection configuration, either SelfManaged or ServiceManaged.
+    """
+    pass
+
+@pulumi.input_type
+class PrivateConnectionConnectionConfigurationArgs:
+    def __init__(__self__):
+        """
+        The connection configuration, either SelfManaged or ServiceManaged.
         """
         pass
 

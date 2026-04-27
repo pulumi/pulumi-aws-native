@@ -14,6 +14,8 @@ __all__ = [
     'DomainAttributeTypesSelectorAttributeMatchingModel',
     'DomainConflictResolutionConflictResolvingModel',
     'DomainJobScheduleDayOfTheWeek',
+    'DomainObjectTypeFieldContentType',
+    'DomainObjectTypeFieldFeatureType',
     'DomainRuleBasedMatchingStatus',
     'EventStreamState',
     'EventStreamStatus',
@@ -123,6 +125,24 @@ class DomainJobScheduleDayOfTheWeek(_builtins.str, Enum):
     THURSDAY = "THURSDAY"
     FRIDAY = "FRIDAY"
     SATURDAY = "SATURDAY"
+
+
+@pulumi.type_token("aws-native:customerprofiles:DomainObjectTypeFieldContentType")
+class DomainObjectTypeFieldContentType(_builtins.str, Enum):
+    """
+    The content type of the field.
+    """
+    STRING = "STRING"
+    NUMBER = "NUMBER"
+
+
+@pulumi.type_token("aws-native:customerprofiles:DomainObjectTypeFieldFeatureType")
+class DomainObjectTypeFieldFeatureType(_builtins.str, Enum):
+    """
+    The feature type of the field.
+    """
+    TEXTUAL = "TEXTUAL"
+    CATEGORICAL = "CATEGORICAL"
 
 
 @pulumi.type_token("aws-native:customerprofiles:DomainRuleBasedMatchingStatus")

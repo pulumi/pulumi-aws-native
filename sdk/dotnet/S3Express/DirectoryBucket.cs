@@ -46,6 +46,12 @@ namespace Pulumi.AwsNative.S3Express
         public Output<Pulumi.AwsNative.S3Express.DirectoryBucketDataRedundancy> DataRedundancy { get; private set; } = null!;
 
         /// <summary>
+        /// The inventory configuration for an Amazon S3 Express bucket.
+        /// </summary>
+        [Output("inventoryConfigurations")]
+        public Output<ImmutableArray<Outputs.DirectoryBucketInventoryConfiguration>> InventoryConfigurations { get; private set; } = null!;
+
+        /// <summary>
         /// Lifecycle rules that define how Amazon S3 Express manages objects during their lifetime.
         /// </summary>
         [Output("lifecycleConfiguration")]
@@ -137,6 +143,18 @@ namespace Pulumi.AwsNative.S3Express
         /// </summary>
         [Input("dataRedundancy", required: true)]
         public Input<Pulumi.AwsNative.S3Express.DirectoryBucketDataRedundancy> DataRedundancy { get; set; } = null!;
+
+        [Input("inventoryConfigurations")]
+        private InputList<Inputs.DirectoryBucketInventoryConfigurationArgs>? _inventoryConfigurations;
+
+        /// <summary>
+        /// The inventory configuration for an Amazon S3 Express bucket.
+        /// </summary>
+        public InputList<Inputs.DirectoryBucketInventoryConfigurationArgs> InventoryConfigurations
+        {
+            get => _inventoryConfigurations ?? (_inventoryConfigurations = new InputList<Inputs.DirectoryBucketInventoryConfigurationArgs>());
+            set => _inventoryConfigurations = value;
+        }
 
         /// <summary>
         /// Lifecycle rules that define how Amazon S3 Express manages objects during their lifetime.

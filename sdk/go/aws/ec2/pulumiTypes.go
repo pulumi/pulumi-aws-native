@@ -3049,7 +3049,8 @@ type Ec2FleetFleetLaunchTemplateOverridesRequest struct {
 	// Supported only for fleets of type `instant` .
 	//
 	// For more information, see [Block device mappings for volumes on Amazon EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html) in the *Amazon EC2 User Guide* .
-	BlockDeviceMappings []Ec2FleetBlockDeviceMapping `pulumi:"blockDeviceMappings"`
+	BlockDeviceMappings []Ec2FleetBlockDeviceMapping             `pulumi:"blockDeviceMappings"`
+	IamInstanceProfile  *Ec2FleetIamInstanceProfileSpecification `pulumi:"iamInstanceProfile"`
 	// The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with those attributes.
 	//
 	// > If you specify `InstanceRequirements` , you can't specify `InstanceType` .
@@ -3060,12 +3061,15 @@ type Ec2FleetFleetLaunchTemplateOverridesRequest struct {
 	//
 	// > If you specify `InstanceType` , you can't specify `InstanceRequirements` .
 	InstanceType *string `pulumi:"instanceType"`
+	KeyName      *string `pulumi:"keyName"`
 	// The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
 	//
 	// > If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.
 	// >
 	// > If you specify a maximum price, it must be more than USD $0.001. Specifying a value below USD $0.001 will result in an `InvalidParameterValue` error message.
-	MaxPrice *string `pulumi:"maxPrice"`
+	MaxPrice          *string                                        `pulumi:"maxPrice"`
+	MetadataOptions   *Ec2FleetInstanceMetadataOptionsRequest        `pulumi:"metadataOptions"`
+	NetworkInterfaces []Ec2FleetNetworkInterfaceSpecificationRequest `pulumi:"networkInterfaces"`
 	// The location where the instance launched, if applicable.
 	Placement *Ec2FleetPlacement `pulumi:"placement"`
 	// The priority for the launch template override. The highest priority is launched first.
@@ -3111,7 +3115,8 @@ type Ec2FleetFleetLaunchTemplateOverridesRequestArgs struct {
 	// Supported only for fleets of type `instant` .
 	//
 	// For more information, see [Block device mappings for volumes on Amazon EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html) in the *Amazon EC2 User Guide* .
-	BlockDeviceMappings Ec2FleetBlockDeviceMappingArrayInput `pulumi:"blockDeviceMappings"`
+	BlockDeviceMappings Ec2FleetBlockDeviceMappingArrayInput            `pulumi:"blockDeviceMappings"`
+	IamInstanceProfile  Ec2FleetIamInstanceProfileSpecificationPtrInput `pulumi:"iamInstanceProfile"`
 	// The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with those attributes.
 	//
 	// > If you specify `InstanceRequirements` , you can't specify `InstanceType` .
@@ -3122,12 +3127,15 @@ type Ec2FleetFleetLaunchTemplateOverridesRequestArgs struct {
 	//
 	// > If you specify `InstanceType` , you can't specify `InstanceRequirements` .
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
+	KeyName      pulumi.StringPtrInput `pulumi:"keyName"`
 	// The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
 	//
 	// > If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.
 	// >
 	// > If you specify a maximum price, it must be more than USD $0.001. Specifying a value below USD $0.001 will result in an `InvalidParameterValue` error message.
-	MaxPrice pulumi.StringPtrInput `pulumi:"maxPrice"`
+	MaxPrice          pulumi.StringPtrInput                                  `pulumi:"maxPrice"`
+	MetadataOptions   Ec2FleetInstanceMetadataOptionsRequestPtrInput         `pulumi:"metadataOptions"`
+	NetworkInterfaces Ec2FleetNetworkInterfaceSpecificationRequestArrayInput `pulumi:"networkInterfaces"`
 	// The location where the instance launched, if applicable.
 	Placement Ec2FleetPlacementPtrInput `pulumi:"placement"`
 	// The priority for the launch template override. The highest priority is launched first.
@@ -3224,6 +3232,12 @@ func (o Ec2FleetFleetLaunchTemplateOverridesRequestOutput) BlockDeviceMappings()
 	}).(Ec2FleetBlockDeviceMappingArrayOutput)
 }
 
+func (o Ec2FleetFleetLaunchTemplateOverridesRequestOutput) IamInstanceProfile() Ec2FleetIamInstanceProfileSpecificationPtrOutput {
+	return o.ApplyT(func(v Ec2FleetFleetLaunchTemplateOverridesRequest) *Ec2FleetIamInstanceProfileSpecification {
+		return v.IamInstanceProfile
+	}).(Ec2FleetIamInstanceProfileSpecificationPtrOutput)
+}
+
 // The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with those attributes.
 //
 // > If you specify `InstanceRequirements` , you can't specify `InstanceType` .
@@ -3242,6 +3256,10 @@ func (o Ec2FleetFleetLaunchTemplateOverridesRequestOutput) InstanceType() pulumi
 	return o.ApplyT(func(v Ec2FleetFleetLaunchTemplateOverridesRequest) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
+func (o Ec2FleetFleetLaunchTemplateOverridesRequestOutput) KeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Ec2FleetFleetLaunchTemplateOverridesRequest) *string { return v.KeyName }).(pulumi.StringPtrOutput)
+}
+
 // The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
 //
 // > If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.
@@ -3249,6 +3267,18 @@ func (o Ec2FleetFleetLaunchTemplateOverridesRequestOutput) InstanceType() pulumi
 // > If you specify a maximum price, it must be more than USD $0.001. Specifying a value below USD $0.001 will result in an `InvalidParameterValue` error message.
 func (o Ec2FleetFleetLaunchTemplateOverridesRequestOutput) MaxPrice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Ec2FleetFleetLaunchTemplateOverridesRequest) *string { return v.MaxPrice }).(pulumi.StringPtrOutput)
+}
+
+func (o Ec2FleetFleetLaunchTemplateOverridesRequestOutput) MetadataOptions() Ec2FleetInstanceMetadataOptionsRequestPtrOutput {
+	return o.ApplyT(func(v Ec2FleetFleetLaunchTemplateOverridesRequest) *Ec2FleetInstanceMetadataOptionsRequest {
+		return v.MetadataOptions
+	}).(Ec2FleetInstanceMetadataOptionsRequestPtrOutput)
+}
+
+func (o Ec2FleetFleetLaunchTemplateOverridesRequestOutput) NetworkInterfaces() Ec2FleetNetworkInterfaceSpecificationRequestArrayOutput {
+	return o.ApplyT(func(v Ec2FleetFleetLaunchTemplateOverridesRequest) []Ec2FleetNetworkInterfaceSpecificationRequest {
+		return v.NetworkInterfaces
+	}).(Ec2FleetNetworkInterfaceSpecificationRequestArrayOutput)
 }
 
 // The location where the instance launched, if applicable.
@@ -3309,7 +3339,8 @@ type Ec2FleetFleetLaunchTemplateSpecificationRequest struct {
 	// The name of the launch template.
 	//
 	// You must specify the `LaunchTemplateName` or the `LaunchTemplateId` , but not both.
-	LaunchTemplateName *string `pulumi:"launchTemplateName"`
+	LaunchTemplateName                  *string `pulumi:"launchTemplateName"`
+	LaunchTemplateSpecificationUserData *string `pulumi:"launchTemplateSpecificationUserData"`
 	// The launch template version number, `$Latest` , or `$Default` . You must specify a value, otherwise the request fails.
 	//
 	// If the value is `$Latest` , Amazon EC2 uses the latest version of the launch template.
@@ -3337,7 +3368,8 @@ type Ec2FleetFleetLaunchTemplateSpecificationRequestArgs struct {
 	// The name of the launch template.
 	//
 	// You must specify the `LaunchTemplateName` or the `LaunchTemplateId` , but not both.
-	LaunchTemplateName pulumi.StringPtrInput `pulumi:"launchTemplateName"`
+	LaunchTemplateName                  pulumi.StringPtrInput `pulumi:"launchTemplateName"`
+	LaunchTemplateSpecificationUserData pulumi.StringPtrInput `pulumi:"launchTemplateSpecificationUserData"`
 	// The launch template version number, `$Latest` , or `$Default` . You must specify a value, otherwise the request fails.
 	//
 	// If the value is `$Latest` , Amazon EC2 uses the latest version of the launch template.
@@ -3437,6 +3469,12 @@ func (o Ec2FleetFleetLaunchTemplateSpecificationRequestOutput) LaunchTemplateNam
 	return o.ApplyT(func(v Ec2FleetFleetLaunchTemplateSpecificationRequest) *string { return v.LaunchTemplateName }).(pulumi.StringPtrOutput)
 }
 
+func (o Ec2FleetFleetLaunchTemplateSpecificationRequestOutput) LaunchTemplateSpecificationUserData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Ec2FleetFleetLaunchTemplateSpecificationRequest) *string {
+		return v.LaunchTemplateSpecificationUserData
+	}).(pulumi.StringPtrOutput)
+}
+
 // The launch template version number, `$Latest` , or `$Default` . You must specify a value, otherwise the request fails.
 //
 // If the value is `$Latest` , Amazon EC2 uses the latest version of the launch template.
@@ -3494,6 +3532,15 @@ func (o Ec2FleetFleetLaunchTemplateSpecificationRequestPtrOutput) LaunchTemplate
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o Ec2FleetFleetLaunchTemplateSpecificationRequestPtrOutput) LaunchTemplateSpecificationUserData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetFleetLaunchTemplateSpecificationRequest) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LaunchTemplateSpecificationUserData
+	}).(pulumi.StringPtrOutput)
+}
+
 // The launch template version number, `$Latest` , or `$Default` . You must specify a value, otherwise the request fails.
 //
 // If the value is `$Latest` , Amazon EC2 uses the latest version of the launch template.
@@ -3506,6 +3553,321 @@ func (o Ec2FleetFleetLaunchTemplateSpecificationRequestPtrOutput) Version() pulu
 		}
 		return &v.Version
 	}).(pulumi.StringPtrOutput)
+}
+
+type Ec2FleetIamInstanceProfileSpecification struct {
+	Arn  *string `pulumi:"arn"`
+	Name *string `pulumi:"name"`
+}
+
+// Ec2FleetIamInstanceProfileSpecificationInput is an input type that accepts Ec2FleetIamInstanceProfileSpecificationArgs and Ec2FleetIamInstanceProfileSpecificationOutput values.
+// You can construct a concrete instance of `Ec2FleetIamInstanceProfileSpecificationInput` via:
+//
+//	Ec2FleetIamInstanceProfileSpecificationArgs{...}
+type Ec2FleetIamInstanceProfileSpecificationInput interface {
+	pulumi.Input
+
+	ToEc2FleetIamInstanceProfileSpecificationOutput() Ec2FleetIamInstanceProfileSpecificationOutput
+	ToEc2FleetIamInstanceProfileSpecificationOutputWithContext(context.Context) Ec2FleetIamInstanceProfileSpecificationOutput
+}
+
+type Ec2FleetIamInstanceProfileSpecificationArgs struct {
+	Arn  pulumi.StringPtrInput `pulumi:"arn"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (Ec2FleetIamInstanceProfileSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetIamInstanceProfileSpecification)(nil)).Elem()
+}
+
+func (i Ec2FleetIamInstanceProfileSpecificationArgs) ToEc2FleetIamInstanceProfileSpecificationOutput() Ec2FleetIamInstanceProfileSpecificationOutput {
+	return i.ToEc2FleetIamInstanceProfileSpecificationOutputWithContext(context.Background())
+}
+
+func (i Ec2FleetIamInstanceProfileSpecificationArgs) ToEc2FleetIamInstanceProfileSpecificationOutputWithContext(ctx context.Context) Ec2FleetIamInstanceProfileSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetIamInstanceProfileSpecificationOutput)
+}
+
+func (i Ec2FleetIamInstanceProfileSpecificationArgs) ToEc2FleetIamInstanceProfileSpecificationPtrOutput() Ec2FleetIamInstanceProfileSpecificationPtrOutput {
+	return i.ToEc2FleetIamInstanceProfileSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i Ec2FleetIamInstanceProfileSpecificationArgs) ToEc2FleetIamInstanceProfileSpecificationPtrOutputWithContext(ctx context.Context) Ec2FleetIamInstanceProfileSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetIamInstanceProfileSpecificationOutput).ToEc2FleetIamInstanceProfileSpecificationPtrOutputWithContext(ctx)
+}
+
+// Ec2FleetIamInstanceProfileSpecificationPtrInput is an input type that accepts Ec2FleetIamInstanceProfileSpecificationArgs, Ec2FleetIamInstanceProfileSpecificationPtr and Ec2FleetIamInstanceProfileSpecificationPtrOutput values.
+// You can construct a concrete instance of `Ec2FleetIamInstanceProfileSpecificationPtrInput` via:
+//
+//	        Ec2FleetIamInstanceProfileSpecificationArgs{...}
+//
+//	or:
+//
+//	        nil
+type Ec2FleetIamInstanceProfileSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToEc2FleetIamInstanceProfileSpecificationPtrOutput() Ec2FleetIamInstanceProfileSpecificationPtrOutput
+	ToEc2FleetIamInstanceProfileSpecificationPtrOutputWithContext(context.Context) Ec2FleetIamInstanceProfileSpecificationPtrOutput
+}
+
+type ec2FleetIamInstanceProfileSpecificationPtrType Ec2FleetIamInstanceProfileSpecificationArgs
+
+func Ec2FleetIamInstanceProfileSpecificationPtr(v *Ec2FleetIamInstanceProfileSpecificationArgs) Ec2FleetIamInstanceProfileSpecificationPtrInput {
+	return (*ec2FleetIamInstanceProfileSpecificationPtrType)(v)
+}
+
+func (*ec2FleetIamInstanceProfileSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Ec2FleetIamInstanceProfileSpecification)(nil)).Elem()
+}
+
+func (i *ec2FleetIamInstanceProfileSpecificationPtrType) ToEc2FleetIamInstanceProfileSpecificationPtrOutput() Ec2FleetIamInstanceProfileSpecificationPtrOutput {
+	return i.ToEc2FleetIamInstanceProfileSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *ec2FleetIamInstanceProfileSpecificationPtrType) ToEc2FleetIamInstanceProfileSpecificationPtrOutputWithContext(ctx context.Context) Ec2FleetIamInstanceProfileSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetIamInstanceProfileSpecificationPtrOutput)
+}
+
+type Ec2FleetIamInstanceProfileSpecificationOutput struct{ *pulumi.OutputState }
+
+func (Ec2FleetIamInstanceProfileSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetIamInstanceProfileSpecification)(nil)).Elem()
+}
+
+func (o Ec2FleetIamInstanceProfileSpecificationOutput) ToEc2FleetIamInstanceProfileSpecificationOutput() Ec2FleetIamInstanceProfileSpecificationOutput {
+	return o
+}
+
+func (o Ec2FleetIamInstanceProfileSpecificationOutput) ToEc2FleetIamInstanceProfileSpecificationOutputWithContext(ctx context.Context) Ec2FleetIamInstanceProfileSpecificationOutput {
+	return o
+}
+
+func (o Ec2FleetIamInstanceProfileSpecificationOutput) ToEc2FleetIamInstanceProfileSpecificationPtrOutput() Ec2FleetIamInstanceProfileSpecificationPtrOutput {
+	return o.ToEc2FleetIamInstanceProfileSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o Ec2FleetIamInstanceProfileSpecificationOutput) ToEc2FleetIamInstanceProfileSpecificationPtrOutputWithContext(ctx context.Context) Ec2FleetIamInstanceProfileSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Ec2FleetIamInstanceProfileSpecification) *Ec2FleetIamInstanceProfileSpecification {
+		return &v
+	}).(Ec2FleetIamInstanceProfileSpecificationPtrOutput)
+}
+
+func (o Ec2FleetIamInstanceProfileSpecificationOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Ec2FleetIamInstanceProfileSpecification) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+func (o Ec2FleetIamInstanceProfileSpecificationOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Ec2FleetIamInstanceProfileSpecification) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type Ec2FleetIamInstanceProfileSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (Ec2FleetIamInstanceProfileSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Ec2FleetIamInstanceProfileSpecification)(nil)).Elem()
+}
+
+func (o Ec2FleetIamInstanceProfileSpecificationPtrOutput) ToEc2FleetIamInstanceProfileSpecificationPtrOutput() Ec2FleetIamInstanceProfileSpecificationPtrOutput {
+	return o
+}
+
+func (o Ec2FleetIamInstanceProfileSpecificationPtrOutput) ToEc2FleetIamInstanceProfileSpecificationPtrOutputWithContext(ctx context.Context) Ec2FleetIamInstanceProfileSpecificationPtrOutput {
+	return o
+}
+
+func (o Ec2FleetIamInstanceProfileSpecificationPtrOutput) Elem() Ec2FleetIamInstanceProfileSpecificationOutput {
+	return o.ApplyT(func(v *Ec2FleetIamInstanceProfileSpecification) Ec2FleetIamInstanceProfileSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret Ec2FleetIamInstanceProfileSpecification
+		return ret
+	}).(Ec2FleetIamInstanceProfileSpecificationOutput)
+}
+
+func (o Ec2FleetIamInstanceProfileSpecificationPtrOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetIamInstanceProfileSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Arn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o Ec2FleetIamInstanceProfileSpecificationPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetIamInstanceProfileSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+type Ec2FleetInstanceMetadataOptionsRequest struct {
+	HttpEndpoint            *Ec2FleetInstanceMetadataOptionsRequestHttpEndpoint `pulumi:"httpEndpoint"`
+	HttpPutResponseHopLimit *int                                                `pulumi:"httpPutResponseHopLimit"`
+	HttpTokens              *Ec2FleetInstanceMetadataOptionsRequestHttpTokens   `pulumi:"httpTokens"`
+}
+
+// Ec2FleetInstanceMetadataOptionsRequestInput is an input type that accepts Ec2FleetInstanceMetadataOptionsRequestArgs and Ec2FleetInstanceMetadataOptionsRequestOutput values.
+// You can construct a concrete instance of `Ec2FleetInstanceMetadataOptionsRequestInput` via:
+//
+//	Ec2FleetInstanceMetadataOptionsRequestArgs{...}
+type Ec2FleetInstanceMetadataOptionsRequestInput interface {
+	pulumi.Input
+
+	ToEc2FleetInstanceMetadataOptionsRequestOutput() Ec2FleetInstanceMetadataOptionsRequestOutput
+	ToEc2FleetInstanceMetadataOptionsRequestOutputWithContext(context.Context) Ec2FleetInstanceMetadataOptionsRequestOutput
+}
+
+type Ec2FleetInstanceMetadataOptionsRequestArgs struct {
+	HttpEndpoint            Ec2FleetInstanceMetadataOptionsRequestHttpEndpointPtrInput `pulumi:"httpEndpoint"`
+	HttpPutResponseHopLimit pulumi.IntPtrInput                                         `pulumi:"httpPutResponseHopLimit"`
+	HttpTokens              Ec2FleetInstanceMetadataOptionsRequestHttpTokensPtrInput   `pulumi:"httpTokens"`
+}
+
+func (Ec2FleetInstanceMetadataOptionsRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetInstanceMetadataOptionsRequest)(nil)).Elem()
+}
+
+func (i Ec2FleetInstanceMetadataOptionsRequestArgs) ToEc2FleetInstanceMetadataOptionsRequestOutput() Ec2FleetInstanceMetadataOptionsRequestOutput {
+	return i.ToEc2FleetInstanceMetadataOptionsRequestOutputWithContext(context.Background())
+}
+
+func (i Ec2FleetInstanceMetadataOptionsRequestArgs) ToEc2FleetInstanceMetadataOptionsRequestOutputWithContext(ctx context.Context) Ec2FleetInstanceMetadataOptionsRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetInstanceMetadataOptionsRequestOutput)
+}
+
+func (i Ec2FleetInstanceMetadataOptionsRequestArgs) ToEc2FleetInstanceMetadataOptionsRequestPtrOutput() Ec2FleetInstanceMetadataOptionsRequestPtrOutput {
+	return i.ToEc2FleetInstanceMetadataOptionsRequestPtrOutputWithContext(context.Background())
+}
+
+func (i Ec2FleetInstanceMetadataOptionsRequestArgs) ToEc2FleetInstanceMetadataOptionsRequestPtrOutputWithContext(ctx context.Context) Ec2FleetInstanceMetadataOptionsRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetInstanceMetadataOptionsRequestOutput).ToEc2FleetInstanceMetadataOptionsRequestPtrOutputWithContext(ctx)
+}
+
+// Ec2FleetInstanceMetadataOptionsRequestPtrInput is an input type that accepts Ec2FleetInstanceMetadataOptionsRequestArgs, Ec2FleetInstanceMetadataOptionsRequestPtr and Ec2FleetInstanceMetadataOptionsRequestPtrOutput values.
+// You can construct a concrete instance of `Ec2FleetInstanceMetadataOptionsRequestPtrInput` via:
+//
+//	        Ec2FleetInstanceMetadataOptionsRequestArgs{...}
+//
+//	or:
+//
+//	        nil
+type Ec2FleetInstanceMetadataOptionsRequestPtrInput interface {
+	pulumi.Input
+
+	ToEc2FleetInstanceMetadataOptionsRequestPtrOutput() Ec2FleetInstanceMetadataOptionsRequestPtrOutput
+	ToEc2FleetInstanceMetadataOptionsRequestPtrOutputWithContext(context.Context) Ec2FleetInstanceMetadataOptionsRequestPtrOutput
+}
+
+type ec2FleetInstanceMetadataOptionsRequestPtrType Ec2FleetInstanceMetadataOptionsRequestArgs
+
+func Ec2FleetInstanceMetadataOptionsRequestPtr(v *Ec2FleetInstanceMetadataOptionsRequestArgs) Ec2FleetInstanceMetadataOptionsRequestPtrInput {
+	return (*ec2FleetInstanceMetadataOptionsRequestPtrType)(v)
+}
+
+func (*ec2FleetInstanceMetadataOptionsRequestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Ec2FleetInstanceMetadataOptionsRequest)(nil)).Elem()
+}
+
+func (i *ec2FleetInstanceMetadataOptionsRequestPtrType) ToEc2FleetInstanceMetadataOptionsRequestPtrOutput() Ec2FleetInstanceMetadataOptionsRequestPtrOutput {
+	return i.ToEc2FleetInstanceMetadataOptionsRequestPtrOutputWithContext(context.Background())
+}
+
+func (i *ec2FleetInstanceMetadataOptionsRequestPtrType) ToEc2FleetInstanceMetadataOptionsRequestPtrOutputWithContext(ctx context.Context) Ec2FleetInstanceMetadataOptionsRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetInstanceMetadataOptionsRequestPtrOutput)
+}
+
+type Ec2FleetInstanceMetadataOptionsRequestOutput struct{ *pulumi.OutputState }
+
+func (Ec2FleetInstanceMetadataOptionsRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetInstanceMetadataOptionsRequest)(nil)).Elem()
+}
+
+func (o Ec2FleetInstanceMetadataOptionsRequestOutput) ToEc2FleetInstanceMetadataOptionsRequestOutput() Ec2FleetInstanceMetadataOptionsRequestOutput {
+	return o
+}
+
+func (o Ec2FleetInstanceMetadataOptionsRequestOutput) ToEc2FleetInstanceMetadataOptionsRequestOutputWithContext(ctx context.Context) Ec2FleetInstanceMetadataOptionsRequestOutput {
+	return o
+}
+
+func (o Ec2FleetInstanceMetadataOptionsRequestOutput) ToEc2FleetInstanceMetadataOptionsRequestPtrOutput() Ec2FleetInstanceMetadataOptionsRequestPtrOutput {
+	return o.ToEc2FleetInstanceMetadataOptionsRequestPtrOutputWithContext(context.Background())
+}
+
+func (o Ec2FleetInstanceMetadataOptionsRequestOutput) ToEc2FleetInstanceMetadataOptionsRequestPtrOutputWithContext(ctx context.Context) Ec2FleetInstanceMetadataOptionsRequestPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Ec2FleetInstanceMetadataOptionsRequest) *Ec2FleetInstanceMetadataOptionsRequest {
+		return &v
+	}).(Ec2FleetInstanceMetadataOptionsRequestPtrOutput)
+}
+
+func (o Ec2FleetInstanceMetadataOptionsRequestOutput) HttpEndpoint() Ec2FleetInstanceMetadataOptionsRequestHttpEndpointPtrOutput {
+	return o.ApplyT(func(v Ec2FleetInstanceMetadataOptionsRequest) *Ec2FleetInstanceMetadataOptionsRequestHttpEndpoint {
+		return v.HttpEndpoint
+	}).(Ec2FleetInstanceMetadataOptionsRequestHttpEndpointPtrOutput)
+}
+
+func (o Ec2FleetInstanceMetadataOptionsRequestOutput) HttpPutResponseHopLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Ec2FleetInstanceMetadataOptionsRequest) *int { return v.HttpPutResponseHopLimit }).(pulumi.IntPtrOutput)
+}
+
+func (o Ec2FleetInstanceMetadataOptionsRequestOutput) HttpTokens() Ec2FleetInstanceMetadataOptionsRequestHttpTokensPtrOutput {
+	return o.ApplyT(func(v Ec2FleetInstanceMetadataOptionsRequest) *Ec2FleetInstanceMetadataOptionsRequestHttpTokens {
+		return v.HttpTokens
+	}).(Ec2FleetInstanceMetadataOptionsRequestHttpTokensPtrOutput)
+}
+
+type Ec2FleetInstanceMetadataOptionsRequestPtrOutput struct{ *pulumi.OutputState }
+
+func (Ec2FleetInstanceMetadataOptionsRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Ec2FleetInstanceMetadataOptionsRequest)(nil)).Elem()
+}
+
+func (o Ec2FleetInstanceMetadataOptionsRequestPtrOutput) ToEc2FleetInstanceMetadataOptionsRequestPtrOutput() Ec2FleetInstanceMetadataOptionsRequestPtrOutput {
+	return o
+}
+
+func (o Ec2FleetInstanceMetadataOptionsRequestPtrOutput) ToEc2FleetInstanceMetadataOptionsRequestPtrOutputWithContext(ctx context.Context) Ec2FleetInstanceMetadataOptionsRequestPtrOutput {
+	return o
+}
+
+func (o Ec2FleetInstanceMetadataOptionsRequestPtrOutput) Elem() Ec2FleetInstanceMetadataOptionsRequestOutput {
+	return o.ApplyT(func(v *Ec2FleetInstanceMetadataOptionsRequest) Ec2FleetInstanceMetadataOptionsRequest {
+		if v != nil {
+			return *v
+		}
+		var ret Ec2FleetInstanceMetadataOptionsRequest
+		return ret
+	}).(Ec2FleetInstanceMetadataOptionsRequestOutput)
+}
+
+func (o Ec2FleetInstanceMetadataOptionsRequestPtrOutput) HttpEndpoint() Ec2FleetInstanceMetadataOptionsRequestHttpEndpointPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetInstanceMetadataOptionsRequest) *Ec2FleetInstanceMetadataOptionsRequestHttpEndpoint {
+		if v == nil {
+			return nil
+		}
+		return v.HttpEndpoint
+	}).(Ec2FleetInstanceMetadataOptionsRequestHttpEndpointPtrOutput)
+}
+
+func (o Ec2FleetInstanceMetadataOptionsRequestPtrOutput) HttpPutResponseHopLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetInstanceMetadataOptionsRequest) *int {
+		if v == nil {
+			return nil
+		}
+		return v.HttpPutResponseHopLimit
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o Ec2FleetInstanceMetadataOptionsRequestPtrOutput) HttpTokens() Ec2FleetInstanceMetadataOptionsRequestHttpTokensPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetInstanceMetadataOptionsRequest) *Ec2FleetInstanceMetadataOptionsRequestHttpTokens {
+		if v == nil {
+			return nil
+		}
+		return v.HttpTokens
+	}).(Ec2FleetInstanceMetadataOptionsRequestHttpTokensPtrOutput)
 }
 
 type Ec2FleetInstanceRequirementsRequest struct {
@@ -4712,6 +5074,100 @@ func (o Ec2FleetInstanceRequirementsRequestPtrOutput) VCpuCount() Ec2FleetVCpuCo
 	}).(Ec2FleetVCpuCountRangeRequestPtrOutput)
 }
 
+type Ec2FleetIpv6AddressRequest struct {
+	Ipv6Address *string `pulumi:"ipv6Address"`
+}
+
+// Ec2FleetIpv6AddressRequestInput is an input type that accepts Ec2FleetIpv6AddressRequestArgs and Ec2FleetIpv6AddressRequestOutput values.
+// You can construct a concrete instance of `Ec2FleetIpv6AddressRequestInput` via:
+//
+//	Ec2FleetIpv6AddressRequestArgs{...}
+type Ec2FleetIpv6AddressRequestInput interface {
+	pulumi.Input
+
+	ToEc2FleetIpv6AddressRequestOutput() Ec2FleetIpv6AddressRequestOutput
+	ToEc2FleetIpv6AddressRequestOutputWithContext(context.Context) Ec2FleetIpv6AddressRequestOutput
+}
+
+type Ec2FleetIpv6AddressRequestArgs struct {
+	Ipv6Address pulumi.StringPtrInput `pulumi:"ipv6Address"`
+}
+
+func (Ec2FleetIpv6AddressRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetIpv6AddressRequest)(nil)).Elem()
+}
+
+func (i Ec2FleetIpv6AddressRequestArgs) ToEc2FleetIpv6AddressRequestOutput() Ec2FleetIpv6AddressRequestOutput {
+	return i.ToEc2FleetIpv6AddressRequestOutputWithContext(context.Background())
+}
+
+func (i Ec2FleetIpv6AddressRequestArgs) ToEc2FleetIpv6AddressRequestOutputWithContext(ctx context.Context) Ec2FleetIpv6AddressRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetIpv6AddressRequestOutput)
+}
+
+// Ec2FleetIpv6AddressRequestArrayInput is an input type that accepts Ec2FleetIpv6AddressRequestArray and Ec2FleetIpv6AddressRequestArrayOutput values.
+// You can construct a concrete instance of `Ec2FleetIpv6AddressRequestArrayInput` via:
+//
+//	Ec2FleetIpv6AddressRequestArray{ Ec2FleetIpv6AddressRequestArgs{...} }
+type Ec2FleetIpv6AddressRequestArrayInput interface {
+	pulumi.Input
+
+	ToEc2FleetIpv6AddressRequestArrayOutput() Ec2FleetIpv6AddressRequestArrayOutput
+	ToEc2FleetIpv6AddressRequestArrayOutputWithContext(context.Context) Ec2FleetIpv6AddressRequestArrayOutput
+}
+
+type Ec2FleetIpv6AddressRequestArray []Ec2FleetIpv6AddressRequestInput
+
+func (Ec2FleetIpv6AddressRequestArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Ec2FleetIpv6AddressRequest)(nil)).Elem()
+}
+
+func (i Ec2FleetIpv6AddressRequestArray) ToEc2FleetIpv6AddressRequestArrayOutput() Ec2FleetIpv6AddressRequestArrayOutput {
+	return i.ToEc2FleetIpv6AddressRequestArrayOutputWithContext(context.Background())
+}
+
+func (i Ec2FleetIpv6AddressRequestArray) ToEc2FleetIpv6AddressRequestArrayOutputWithContext(ctx context.Context) Ec2FleetIpv6AddressRequestArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetIpv6AddressRequestArrayOutput)
+}
+
+type Ec2FleetIpv6AddressRequestOutput struct{ *pulumi.OutputState }
+
+func (Ec2FleetIpv6AddressRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetIpv6AddressRequest)(nil)).Elem()
+}
+
+func (o Ec2FleetIpv6AddressRequestOutput) ToEc2FleetIpv6AddressRequestOutput() Ec2FleetIpv6AddressRequestOutput {
+	return o
+}
+
+func (o Ec2FleetIpv6AddressRequestOutput) ToEc2FleetIpv6AddressRequestOutputWithContext(ctx context.Context) Ec2FleetIpv6AddressRequestOutput {
+	return o
+}
+
+func (o Ec2FleetIpv6AddressRequestOutput) Ipv6Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Ec2FleetIpv6AddressRequest) *string { return v.Ipv6Address }).(pulumi.StringPtrOutput)
+}
+
+type Ec2FleetIpv6AddressRequestArrayOutput struct{ *pulumi.OutputState }
+
+func (Ec2FleetIpv6AddressRequestArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Ec2FleetIpv6AddressRequest)(nil)).Elem()
+}
+
+func (o Ec2FleetIpv6AddressRequestArrayOutput) ToEc2FleetIpv6AddressRequestArrayOutput() Ec2FleetIpv6AddressRequestArrayOutput {
+	return o
+}
+
+func (o Ec2FleetIpv6AddressRequestArrayOutput) ToEc2FleetIpv6AddressRequestArrayOutputWithContext(ctx context.Context) Ec2FleetIpv6AddressRequestArrayOutput {
+	return o
+}
+
+func (o Ec2FleetIpv6AddressRequestArrayOutput) Index(i pulumi.IntInput) Ec2FleetIpv6AddressRequestOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Ec2FleetIpv6AddressRequest {
+		return vs[0].([]Ec2FleetIpv6AddressRequest)[vs[1].(int)]
+	}).(Ec2FleetIpv6AddressRequestOutput)
+}
+
 type Ec2FleetMaintenanceStrategies struct {
 	// The strategy to use when Amazon EC2 emits a signal that your Spot Instance is at an elevated risk of being interrupted.
 	CapacityRebalance *Ec2FleetCapacityRebalance `pulumi:"capacityRebalance"`
@@ -5471,6 +5927,182 @@ func (o Ec2FleetNetworkInterfaceCountRequestPtrOutput) Min() pulumi.IntPtrOutput
 		}
 		return v.Min
 	}).(pulumi.IntPtrOutput)
+}
+
+type Ec2FleetNetworkInterfaceSpecificationRequest struct {
+	AssociatePublicIpAddress       *bool                                          `pulumi:"associatePublicIpAddress"`
+	DeleteOnTermination            *bool                                          `pulumi:"deleteOnTermination"`
+	Description                    *string                                        `pulumi:"description"`
+	DeviceIndex                    *int                                           `pulumi:"deviceIndex"`
+	Groups                         []string                                       `pulumi:"groups"`
+	InterfaceType                  *string                                        `pulumi:"interfaceType"`
+	Ipv6AddressCount               *int                                           `pulumi:"ipv6AddressCount"`
+	Ipv6Addresses                  []Ec2FleetIpv6AddressRequest                   `pulumi:"ipv6Addresses"`
+	NetworkCardIndex               *int                                           `pulumi:"networkCardIndex"`
+	NetworkInterfaceId             *string                                        `pulumi:"networkInterfaceId"`
+	PrivateIpAddress               *string                                        `pulumi:"privateIpAddress"`
+	PrivateIpAddresses             []Ec2FleetPrivateIpAddressSpecificationRequest `pulumi:"privateIpAddresses"`
+	SecondaryPrivateIpAddressCount *int                                           `pulumi:"secondaryPrivateIpAddressCount"`
+	SubnetId                       *string                                        `pulumi:"subnetId"`
+}
+
+// Ec2FleetNetworkInterfaceSpecificationRequestInput is an input type that accepts Ec2FleetNetworkInterfaceSpecificationRequestArgs and Ec2FleetNetworkInterfaceSpecificationRequestOutput values.
+// You can construct a concrete instance of `Ec2FleetNetworkInterfaceSpecificationRequestInput` via:
+//
+//	Ec2FleetNetworkInterfaceSpecificationRequestArgs{...}
+type Ec2FleetNetworkInterfaceSpecificationRequestInput interface {
+	pulumi.Input
+
+	ToEc2FleetNetworkInterfaceSpecificationRequestOutput() Ec2FleetNetworkInterfaceSpecificationRequestOutput
+	ToEc2FleetNetworkInterfaceSpecificationRequestOutputWithContext(context.Context) Ec2FleetNetworkInterfaceSpecificationRequestOutput
+}
+
+type Ec2FleetNetworkInterfaceSpecificationRequestArgs struct {
+	AssociatePublicIpAddress       pulumi.BoolPtrInput                                    `pulumi:"associatePublicIpAddress"`
+	DeleteOnTermination            pulumi.BoolPtrInput                                    `pulumi:"deleteOnTermination"`
+	Description                    pulumi.StringPtrInput                                  `pulumi:"description"`
+	DeviceIndex                    pulumi.IntPtrInput                                     `pulumi:"deviceIndex"`
+	Groups                         pulumi.StringArrayInput                                `pulumi:"groups"`
+	InterfaceType                  pulumi.StringPtrInput                                  `pulumi:"interfaceType"`
+	Ipv6AddressCount               pulumi.IntPtrInput                                     `pulumi:"ipv6AddressCount"`
+	Ipv6Addresses                  Ec2FleetIpv6AddressRequestArrayInput                   `pulumi:"ipv6Addresses"`
+	NetworkCardIndex               pulumi.IntPtrInput                                     `pulumi:"networkCardIndex"`
+	NetworkInterfaceId             pulumi.StringPtrInput                                  `pulumi:"networkInterfaceId"`
+	PrivateIpAddress               pulumi.StringPtrInput                                  `pulumi:"privateIpAddress"`
+	PrivateIpAddresses             Ec2FleetPrivateIpAddressSpecificationRequestArrayInput `pulumi:"privateIpAddresses"`
+	SecondaryPrivateIpAddressCount pulumi.IntPtrInput                                     `pulumi:"secondaryPrivateIpAddressCount"`
+	SubnetId                       pulumi.StringPtrInput                                  `pulumi:"subnetId"`
+}
+
+func (Ec2FleetNetworkInterfaceSpecificationRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetNetworkInterfaceSpecificationRequest)(nil)).Elem()
+}
+
+func (i Ec2FleetNetworkInterfaceSpecificationRequestArgs) ToEc2FleetNetworkInterfaceSpecificationRequestOutput() Ec2FleetNetworkInterfaceSpecificationRequestOutput {
+	return i.ToEc2FleetNetworkInterfaceSpecificationRequestOutputWithContext(context.Background())
+}
+
+func (i Ec2FleetNetworkInterfaceSpecificationRequestArgs) ToEc2FleetNetworkInterfaceSpecificationRequestOutputWithContext(ctx context.Context) Ec2FleetNetworkInterfaceSpecificationRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetNetworkInterfaceSpecificationRequestOutput)
+}
+
+// Ec2FleetNetworkInterfaceSpecificationRequestArrayInput is an input type that accepts Ec2FleetNetworkInterfaceSpecificationRequestArray and Ec2FleetNetworkInterfaceSpecificationRequestArrayOutput values.
+// You can construct a concrete instance of `Ec2FleetNetworkInterfaceSpecificationRequestArrayInput` via:
+//
+//	Ec2FleetNetworkInterfaceSpecificationRequestArray{ Ec2FleetNetworkInterfaceSpecificationRequestArgs{...} }
+type Ec2FleetNetworkInterfaceSpecificationRequestArrayInput interface {
+	pulumi.Input
+
+	ToEc2FleetNetworkInterfaceSpecificationRequestArrayOutput() Ec2FleetNetworkInterfaceSpecificationRequestArrayOutput
+	ToEc2FleetNetworkInterfaceSpecificationRequestArrayOutputWithContext(context.Context) Ec2FleetNetworkInterfaceSpecificationRequestArrayOutput
+}
+
+type Ec2FleetNetworkInterfaceSpecificationRequestArray []Ec2FleetNetworkInterfaceSpecificationRequestInput
+
+func (Ec2FleetNetworkInterfaceSpecificationRequestArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Ec2FleetNetworkInterfaceSpecificationRequest)(nil)).Elem()
+}
+
+func (i Ec2FleetNetworkInterfaceSpecificationRequestArray) ToEc2FleetNetworkInterfaceSpecificationRequestArrayOutput() Ec2FleetNetworkInterfaceSpecificationRequestArrayOutput {
+	return i.ToEc2FleetNetworkInterfaceSpecificationRequestArrayOutputWithContext(context.Background())
+}
+
+func (i Ec2FleetNetworkInterfaceSpecificationRequestArray) ToEc2FleetNetworkInterfaceSpecificationRequestArrayOutputWithContext(ctx context.Context) Ec2FleetNetworkInterfaceSpecificationRequestArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetNetworkInterfaceSpecificationRequestArrayOutput)
+}
+
+type Ec2FleetNetworkInterfaceSpecificationRequestOutput struct{ *pulumi.OutputState }
+
+func (Ec2FleetNetworkInterfaceSpecificationRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetNetworkInterfaceSpecificationRequest)(nil)).Elem()
+}
+
+func (o Ec2FleetNetworkInterfaceSpecificationRequestOutput) ToEc2FleetNetworkInterfaceSpecificationRequestOutput() Ec2FleetNetworkInterfaceSpecificationRequestOutput {
+	return o
+}
+
+func (o Ec2FleetNetworkInterfaceSpecificationRequestOutput) ToEc2FleetNetworkInterfaceSpecificationRequestOutputWithContext(ctx context.Context) Ec2FleetNetworkInterfaceSpecificationRequestOutput {
+	return o
+}
+
+func (o Ec2FleetNetworkInterfaceSpecificationRequestOutput) AssociatePublicIpAddress() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v Ec2FleetNetworkInterfaceSpecificationRequest) *bool { return v.AssociatePublicIpAddress }).(pulumi.BoolPtrOutput)
+}
+
+func (o Ec2FleetNetworkInterfaceSpecificationRequestOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v Ec2FleetNetworkInterfaceSpecificationRequest) *bool { return v.DeleteOnTermination }).(pulumi.BoolPtrOutput)
+}
+
+func (o Ec2FleetNetworkInterfaceSpecificationRequestOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Ec2FleetNetworkInterfaceSpecificationRequest) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o Ec2FleetNetworkInterfaceSpecificationRequestOutput) DeviceIndex() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Ec2FleetNetworkInterfaceSpecificationRequest) *int { return v.DeviceIndex }).(pulumi.IntPtrOutput)
+}
+
+func (o Ec2FleetNetworkInterfaceSpecificationRequestOutput) Groups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v Ec2FleetNetworkInterfaceSpecificationRequest) []string { return v.Groups }).(pulumi.StringArrayOutput)
+}
+
+func (o Ec2FleetNetworkInterfaceSpecificationRequestOutput) InterfaceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Ec2FleetNetworkInterfaceSpecificationRequest) *string { return v.InterfaceType }).(pulumi.StringPtrOutput)
+}
+
+func (o Ec2FleetNetworkInterfaceSpecificationRequestOutput) Ipv6AddressCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Ec2FleetNetworkInterfaceSpecificationRequest) *int { return v.Ipv6AddressCount }).(pulumi.IntPtrOutput)
+}
+
+func (o Ec2FleetNetworkInterfaceSpecificationRequestOutput) Ipv6Addresses() Ec2FleetIpv6AddressRequestArrayOutput {
+	return o.ApplyT(func(v Ec2FleetNetworkInterfaceSpecificationRequest) []Ec2FleetIpv6AddressRequest {
+		return v.Ipv6Addresses
+	}).(Ec2FleetIpv6AddressRequestArrayOutput)
+}
+
+func (o Ec2FleetNetworkInterfaceSpecificationRequestOutput) NetworkCardIndex() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Ec2FleetNetworkInterfaceSpecificationRequest) *int { return v.NetworkCardIndex }).(pulumi.IntPtrOutput)
+}
+
+func (o Ec2FleetNetworkInterfaceSpecificationRequestOutput) NetworkInterfaceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Ec2FleetNetworkInterfaceSpecificationRequest) *string { return v.NetworkInterfaceId }).(pulumi.StringPtrOutput)
+}
+
+func (o Ec2FleetNetworkInterfaceSpecificationRequestOutput) PrivateIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Ec2FleetNetworkInterfaceSpecificationRequest) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
+}
+
+func (o Ec2FleetNetworkInterfaceSpecificationRequestOutput) PrivateIpAddresses() Ec2FleetPrivateIpAddressSpecificationRequestArrayOutput {
+	return o.ApplyT(func(v Ec2FleetNetworkInterfaceSpecificationRequest) []Ec2FleetPrivateIpAddressSpecificationRequest {
+		return v.PrivateIpAddresses
+	}).(Ec2FleetPrivateIpAddressSpecificationRequestArrayOutput)
+}
+
+func (o Ec2FleetNetworkInterfaceSpecificationRequestOutput) SecondaryPrivateIpAddressCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Ec2FleetNetworkInterfaceSpecificationRequest) *int { return v.SecondaryPrivateIpAddressCount }).(pulumi.IntPtrOutput)
+}
+
+func (o Ec2FleetNetworkInterfaceSpecificationRequestOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Ec2FleetNetworkInterfaceSpecificationRequest) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+}
+
+type Ec2FleetNetworkInterfaceSpecificationRequestArrayOutput struct{ *pulumi.OutputState }
+
+func (Ec2FleetNetworkInterfaceSpecificationRequestArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Ec2FleetNetworkInterfaceSpecificationRequest)(nil)).Elem()
+}
+
+func (o Ec2FleetNetworkInterfaceSpecificationRequestArrayOutput) ToEc2FleetNetworkInterfaceSpecificationRequestArrayOutput() Ec2FleetNetworkInterfaceSpecificationRequestArrayOutput {
+	return o
+}
+
+func (o Ec2FleetNetworkInterfaceSpecificationRequestArrayOutput) ToEc2FleetNetworkInterfaceSpecificationRequestArrayOutputWithContext(ctx context.Context) Ec2FleetNetworkInterfaceSpecificationRequestArrayOutput {
+	return o
+}
+
+func (o Ec2FleetNetworkInterfaceSpecificationRequestArrayOutput) Index(i pulumi.IntInput) Ec2FleetNetworkInterfaceSpecificationRequestOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Ec2FleetNetworkInterfaceSpecificationRequest {
+		return vs[0].([]Ec2FleetNetworkInterfaceSpecificationRequest)[vs[1].(int)]
+	}).(Ec2FleetNetworkInterfaceSpecificationRequestOutput)
 }
 
 type Ec2FleetOnDemandOptionsRequest struct {
@@ -6267,6 +6899,106 @@ func (o Ec2FleetPlacementPtrOutput) Tenancy() pulumi.StringPtrOutput {
 		}
 		return v.Tenancy
 	}).(pulumi.StringPtrOutput)
+}
+
+type Ec2FleetPrivateIpAddressSpecificationRequest struct {
+	Primary          *bool   `pulumi:"primary"`
+	PrivateIpAddress *string `pulumi:"privateIpAddress"`
+}
+
+// Ec2FleetPrivateIpAddressSpecificationRequestInput is an input type that accepts Ec2FleetPrivateIpAddressSpecificationRequestArgs and Ec2FleetPrivateIpAddressSpecificationRequestOutput values.
+// You can construct a concrete instance of `Ec2FleetPrivateIpAddressSpecificationRequestInput` via:
+//
+//	Ec2FleetPrivateIpAddressSpecificationRequestArgs{...}
+type Ec2FleetPrivateIpAddressSpecificationRequestInput interface {
+	pulumi.Input
+
+	ToEc2FleetPrivateIpAddressSpecificationRequestOutput() Ec2FleetPrivateIpAddressSpecificationRequestOutput
+	ToEc2FleetPrivateIpAddressSpecificationRequestOutputWithContext(context.Context) Ec2FleetPrivateIpAddressSpecificationRequestOutput
+}
+
+type Ec2FleetPrivateIpAddressSpecificationRequestArgs struct {
+	Primary          pulumi.BoolPtrInput   `pulumi:"primary"`
+	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
+}
+
+func (Ec2FleetPrivateIpAddressSpecificationRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetPrivateIpAddressSpecificationRequest)(nil)).Elem()
+}
+
+func (i Ec2FleetPrivateIpAddressSpecificationRequestArgs) ToEc2FleetPrivateIpAddressSpecificationRequestOutput() Ec2FleetPrivateIpAddressSpecificationRequestOutput {
+	return i.ToEc2FleetPrivateIpAddressSpecificationRequestOutputWithContext(context.Background())
+}
+
+func (i Ec2FleetPrivateIpAddressSpecificationRequestArgs) ToEc2FleetPrivateIpAddressSpecificationRequestOutputWithContext(ctx context.Context) Ec2FleetPrivateIpAddressSpecificationRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetPrivateIpAddressSpecificationRequestOutput)
+}
+
+// Ec2FleetPrivateIpAddressSpecificationRequestArrayInput is an input type that accepts Ec2FleetPrivateIpAddressSpecificationRequestArray and Ec2FleetPrivateIpAddressSpecificationRequestArrayOutput values.
+// You can construct a concrete instance of `Ec2FleetPrivateIpAddressSpecificationRequestArrayInput` via:
+//
+//	Ec2FleetPrivateIpAddressSpecificationRequestArray{ Ec2FleetPrivateIpAddressSpecificationRequestArgs{...} }
+type Ec2FleetPrivateIpAddressSpecificationRequestArrayInput interface {
+	pulumi.Input
+
+	ToEc2FleetPrivateIpAddressSpecificationRequestArrayOutput() Ec2FleetPrivateIpAddressSpecificationRequestArrayOutput
+	ToEc2FleetPrivateIpAddressSpecificationRequestArrayOutputWithContext(context.Context) Ec2FleetPrivateIpAddressSpecificationRequestArrayOutput
+}
+
+type Ec2FleetPrivateIpAddressSpecificationRequestArray []Ec2FleetPrivateIpAddressSpecificationRequestInput
+
+func (Ec2FleetPrivateIpAddressSpecificationRequestArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Ec2FleetPrivateIpAddressSpecificationRequest)(nil)).Elem()
+}
+
+func (i Ec2FleetPrivateIpAddressSpecificationRequestArray) ToEc2FleetPrivateIpAddressSpecificationRequestArrayOutput() Ec2FleetPrivateIpAddressSpecificationRequestArrayOutput {
+	return i.ToEc2FleetPrivateIpAddressSpecificationRequestArrayOutputWithContext(context.Background())
+}
+
+func (i Ec2FleetPrivateIpAddressSpecificationRequestArray) ToEc2FleetPrivateIpAddressSpecificationRequestArrayOutputWithContext(ctx context.Context) Ec2FleetPrivateIpAddressSpecificationRequestArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetPrivateIpAddressSpecificationRequestArrayOutput)
+}
+
+type Ec2FleetPrivateIpAddressSpecificationRequestOutput struct{ *pulumi.OutputState }
+
+func (Ec2FleetPrivateIpAddressSpecificationRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetPrivateIpAddressSpecificationRequest)(nil)).Elem()
+}
+
+func (o Ec2FleetPrivateIpAddressSpecificationRequestOutput) ToEc2FleetPrivateIpAddressSpecificationRequestOutput() Ec2FleetPrivateIpAddressSpecificationRequestOutput {
+	return o
+}
+
+func (o Ec2FleetPrivateIpAddressSpecificationRequestOutput) ToEc2FleetPrivateIpAddressSpecificationRequestOutputWithContext(ctx context.Context) Ec2FleetPrivateIpAddressSpecificationRequestOutput {
+	return o
+}
+
+func (o Ec2FleetPrivateIpAddressSpecificationRequestOutput) Primary() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v Ec2FleetPrivateIpAddressSpecificationRequest) *bool { return v.Primary }).(pulumi.BoolPtrOutput)
+}
+
+func (o Ec2FleetPrivateIpAddressSpecificationRequestOutput) PrivateIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Ec2FleetPrivateIpAddressSpecificationRequest) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
+}
+
+type Ec2FleetPrivateIpAddressSpecificationRequestArrayOutput struct{ *pulumi.OutputState }
+
+func (Ec2FleetPrivateIpAddressSpecificationRequestArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Ec2FleetPrivateIpAddressSpecificationRequest)(nil)).Elem()
+}
+
+func (o Ec2FleetPrivateIpAddressSpecificationRequestArrayOutput) ToEc2FleetPrivateIpAddressSpecificationRequestArrayOutput() Ec2FleetPrivateIpAddressSpecificationRequestArrayOutput {
+	return o
+}
+
+func (o Ec2FleetPrivateIpAddressSpecificationRequestArrayOutput) ToEc2FleetPrivateIpAddressSpecificationRequestArrayOutputWithContext(ctx context.Context) Ec2FleetPrivateIpAddressSpecificationRequestArrayOutput {
+	return o
+}
+
+func (o Ec2FleetPrivateIpAddressSpecificationRequestArrayOutput) Index(i pulumi.IntInput) Ec2FleetPrivateIpAddressSpecificationRequestOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Ec2FleetPrivateIpAddressSpecificationRequest {
+		return vs[0].([]Ec2FleetPrivateIpAddressSpecificationRequest)[vs[1].(int)]
+	}).(Ec2FleetPrivateIpAddressSpecificationRequestOutput)
 }
 
 type Ec2FleetReservedCapacityOptionsRequest struct {
@@ -38425,8 +39157,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetFleetLaunchTemplateOverridesRequestArrayInput)(nil)).Elem(), Ec2FleetFleetLaunchTemplateOverridesRequestArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetFleetLaunchTemplateSpecificationRequestInput)(nil)).Elem(), Ec2FleetFleetLaunchTemplateSpecificationRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetFleetLaunchTemplateSpecificationRequestPtrInput)(nil)).Elem(), Ec2FleetFleetLaunchTemplateSpecificationRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetIamInstanceProfileSpecificationInput)(nil)).Elem(), Ec2FleetIamInstanceProfileSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetIamInstanceProfileSpecificationPtrInput)(nil)).Elem(), Ec2FleetIamInstanceProfileSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetInstanceMetadataOptionsRequestInput)(nil)).Elem(), Ec2FleetInstanceMetadataOptionsRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetInstanceMetadataOptionsRequestPtrInput)(nil)).Elem(), Ec2FleetInstanceMetadataOptionsRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetInstanceRequirementsRequestInput)(nil)).Elem(), Ec2FleetInstanceRequirementsRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetInstanceRequirementsRequestPtrInput)(nil)).Elem(), Ec2FleetInstanceRequirementsRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetIpv6AddressRequestInput)(nil)).Elem(), Ec2FleetIpv6AddressRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetIpv6AddressRequestArrayInput)(nil)).Elem(), Ec2FleetIpv6AddressRequestArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetMaintenanceStrategiesInput)(nil)).Elem(), Ec2FleetMaintenanceStrategiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetMaintenanceStrategiesPtrInput)(nil)).Elem(), Ec2FleetMaintenanceStrategiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetMemoryGiBPerVCpuRequestInput)(nil)).Elem(), Ec2FleetMemoryGiBPerVCpuRequestArgs{})
@@ -38437,12 +39175,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetNetworkBandwidthGbpsRequestPtrInput)(nil)).Elem(), Ec2FleetNetworkBandwidthGbpsRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetNetworkInterfaceCountRequestInput)(nil)).Elem(), Ec2FleetNetworkInterfaceCountRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetNetworkInterfaceCountRequestPtrInput)(nil)).Elem(), Ec2FleetNetworkInterfaceCountRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetNetworkInterfaceSpecificationRequestInput)(nil)).Elem(), Ec2FleetNetworkInterfaceSpecificationRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetNetworkInterfaceSpecificationRequestArrayInput)(nil)).Elem(), Ec2FleetNetworkInterfaceSpecificationRequestArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetOnDemandOptionsRequestInput)(nil)).Elem(), Ec2FleetOnDemandOptionsRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetOnDemandOptionsRequestPtrInput)(nil)).Elem(), Ec2FleetOnDemandOptionsRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetPerformanceFactorReferenceRequestInput)(nil)).Elem(), Ec2FleetPerformanceFactorReferenceRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetPerformanceFactorReferenceRequestArrayInput)(nil)).Elem(), Ec2FleetPerformanceFactorReferenceRequestArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetPlacementInput)(nil)).Elem(), Ec2FleetPlacementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetPlacementPtrInput)(nil)).Elem(), Ec2FleetPlacementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetPrivateIpAddressSpecificationRequestInput)(nil)).Elem(), Ec2FleetPrivateIpAddressSpecificationRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetPrivateIpAddressSpecificationRequestArrayInput)(nil)).Elem(), Ec2FleetPrivateIpAddressSpecificationRequestArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetReservedCapacityOptionsRequestInput)(nil)).Elem(), Ec2FleetReservedCapacityOptionsRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetReservedCapacityOptionsRequestPtrInput)(nil)).Elem(), Ec2FleetReservedCapacityOptionsRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetSpotOptionsRequestInput)(nil)).Elem(), Ec2FleetSpotOptionsRequestArgs{})
@@ -38817,8 +39559,14 @@ func init() {
 	pulumi.RegisterOutputType(Ec2FleetFleetLaunchTemplateOverridesRequestArrayOutput{})
 	pulumi.RegisterOutputType(Ec2FleetFleetLaunchTemplateSpecificationRequestOutput{})
 	pulumi.RegisterOutputType(Ec2FleetFleetLaunchTemplateSpecificationRequestPtrOutput{})
+	pulumi.RegisterOutputType(Ec2FleetIamInstanceProfileSpecificationOutput{})
+	pulumi.RegisterOutputType(Ec2FleetIamInstanceProfileSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(Ec2FleetInstanceMetadataOptionsRequestOutput{})
+	pulumi.RegisterOutputType(Ec2FleetInstanceMetadataOptionsRequestPtrOutput{})
 	pulumi.RegisterOutputType(Ec2FleetInstanceRequirementsRequestOutput{})
 	pulumi.RegisterOutputType(Ec2FleetInstanceRequirementsRequestPtrOutput{})
+	pulumi.RegisterOutputType(Ec2FleetIpv6AddressRequestOutput{})
+	pulumi.RegisterOutputType(Ec2FleetIpv6AddressRequestArrayOutput{})
 	pulumi.RegisterOutputType(Ec2FleetMaintenanceStrategiesOutput{})
 	pulumi.RegisterOutputType(Ec2FleetMaintenanceStrategiesPtrOutput{})
 	pulumi.RegisterOutputType(Ec2FleetMemoryGiBPerVCpuRequestOutput{})
@@ -38829,12 +39577,16 @@ func init() {
 	pulumi.RegisterOutputType(Ec2FleetNetworkBandwidthGbpsRequestPtrOutput{})
 	pulumi.RegisterOutputType(Ec2FleetNetworkInterfaceCountRequestOutput{})
 	pulumi.RegisterOutputType(Ec2FleetNetworkInterfaceCountRequestPtrOutput{})
+	pulumi.RegisterOutputType(Ec2FleetNetworkInterfaceSpecificationRequestOutput{})
+	pulumi.RegisterOutputType(Ec2FleetNetworkInterfaceSpecificationRequestArrayOutput{})
 	pulumi.RegisterOutputType(Ec2FleetOnDemandOptionsRequestOutput{})
 	pulumi.RegisterOutputType(Ec2FleetOnDemandOptionsRequestPtrOutput{})
 	pulumi.RegisterOutputType(Ec2FleetPerformanceFactorReferenceRequestOutput{})
 	pulumi.RegisterOutputType(Ec2FleetPerformanceFactorReferenceRequestArrayOutput{})
 	pulumi.RegisterOutputType(Ec2FleetPlacementOutput{})
 	pulumi.RegisterOutputType(Ec2FleetPlacementPtrOutput{})
+	pulumi.RegisterOutputType(Ec2FleetPrivateIpAddressSpecificationRequestOutput{})
+	pulumi.RegisterOutputType(Ec2FleetPrivateIpAddressSpecificationRequestArrayOutput{})
 	pulumi.RegisterOutputType(Ec2FleetReservedCapacityOptionsRequestOutput{})
 	pulumi.RegisterOutputType(Ec2FleetReservedCapacityOptionsRequestPtrOutput{})
 	pulumi.RegisterOutputType(Ec2FleetSpotOptionsRequestOutput{})

@@ -18,6 +18,7 @@ from ._enums import *
 __all__ = [
     'ConnectionAttachPoint',
     'ConnectionProvider',
+    'RemoteAccountProperties',
 ]
 
 @pulumi.output_type
@@ -126,5 +127,28 @@ class ConnectionProvider(dict):
         The name of the last mile provider.
         """
         return pulumi.get(self, "last_mile_provider")
+
+
+@pulumi.output_type
+class RemoteAccountProperties(dict):
+    """
+    The remote account identifier for the connection. Required when creating a connection through AWS. Replaces RemoteOwnerAccount.
+    """
+    def __init__(__self__, *,
+                 identifier: _builtins.str):
+        """
+        The remote account identifier for the connection. Required when creating a connection through AWS. Replaces RemoteOwnerAccount.
+
+        :param _builtins.str identifier: The identifier of the remote account.
+        """
+        pulumi.set(__self__, "identifier", identifier)
+
+    @_builtins.property
+    @pulumi.getter
+    def identifier(self) -> _builtins.str:
+        """
+        The identifier of the remote account.
+        """
+        return pulumi.get(self, "identifier")
 
 

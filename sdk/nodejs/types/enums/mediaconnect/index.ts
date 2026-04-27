@@ -519,6 +519,20 @@ export const RouterInputMaintenanceType = {
 
 export type RouterInputMaintenanceType = (typeof RouterInputMaintenanceType)[keyof typeof RouterInputMaintenanceType];
 
+export const RouterInputMediaLiveChannelPipelineId = {
+    Pipeline0: "PIPELINE_0",
+    Pipeline1: "PIPELINE_1",
+} as const;
+
+export type RouterInputMediaLiveChannelPipelineId = (typeof RouterInputMediaLiveChannelPipelineId)[keyof typeof RouterInputMediaLiveChannelPipelineId];
+
+export const RouterInputMediaLiveTransitEncryptionKeyType = {
+    SecretsManager: "SECRETS_MANAGER",
+    Automatic: "AUTOMATIC",
+} as const;
+
+export type RouterInputMediaLiveTransitEncryptionKeyType = (typeof RouterInputMediaLiveTransitEncryptionKeyType)[keyof typeof RouterInputMediaLiveTransitEncryptionKeyType];
+
 export const RouterInputProtocol = {
     Rtp: "RTP",
     Rist: "RIST",
@@ -570,6 +584,7 @@ export const RouterInputType = {
     Failover: "FAILOVER",
     Merge: "MERGE",
     MediaconnectFlow: "MEDIACONNECT_FLOW",
+    MedialiveChannel: "MEDIALIVE_CHANNEL",
 } as const;
 
 export type RouterInputType = (typeof RouterInputType)[keyof typeof RouterInputType];

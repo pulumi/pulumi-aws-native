@@ -114,11 +114,35 @@
         "additionalProperties" : false
       }, {
         "properties" : {
+          "PagerDuty" : {
+            "$ref" : "#/definitions/PagerDutyConfiguration"
+          }
+        },
+        "required" : [ "PagerDuty" ],
+        "additionalProperties" : false
+      }, {
+        "properties" : {
           "EventChannel" : {
             "$ref" : "#/definitions/EventChannelConfiguration"
           }
         },
         "required" : [ "EventChannel" ],
+        "additionalProperties" : false
+      }, {
+        "properties" : {
+          "Azure" : {
+            "$ref" : "#/definitions/AzureConfiguration"
+          }
+        },
+        "required" : [ "Azure" ],
+        "additionalProperties" : false
+      }, {
+        "properties" : {
+          "MCPServerSigV4" : {
+            "$ref" : "#/definitions/MCPServerSigV4Configuration"
+          }
+        },
+        "required" : [ "MCPServerSigV4" ],
         "additionalProperties" : false
       } ]
     },
@@ -476,6 +500,29 @@
       "required" : [ "AccountId", "Endpoint" ],
       "additionalProperties" : false
     },
+    "PagerDutyConfiguration" : {
+      "description" : "PagerDuty integration configuration",
+      "type" : "object",
+      "properties" : {
+        "Services" : {
+          "description" : "List of PagerDuty service IDs available for the association",
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "CustomerEmail" : {
+          "description" : "Email to be used in PagerDuty API header",
+          "type" : "string"
+        },
+        "EnableWebhookUpdates" : {
+          "description" : "When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service",
+          "type" : "boolean"
+        }
+      },
+      "required" : [ "Services", "CustomerEmail" ],
+      "additionalProperties" : false
+    },
     "EventChannelConfiguration" : {
       "description" : "EventChannelconfiguration",
       "type" : "object",
@@ -485,6 +532,34 @@
           "type" : "boolean"
         }
       },
+      "additionalProperties" : false
+    },
+    "AzureConfiguration" : {
+      "description" : "Azure subscription integration configuration",
+      "type" : "object",
+      "properties" : {
+        "SubscriptionId" : {
+          "description" : "Azure subscription ID corresponding to provided resources",
+          "type" : "string"
+        }
+      },
+      "required" : [ "SubscriptionId" ],
+      "additionalProperties" : false
+    },
+    "MCPServerSigV4Configuration" : {
+      "description" : "SigV4-authenticated MCP server configuration",
+      "type" : "object",
+      "properties" : {
+        "Tools" : {
+          "description" : "List of MCP tools available for the association",
+          "type" : "array",
+          "items" : {
+            "type" : "string",
+            "pattern" : "^[a-zA-Z0-9_-]+$"
+          }
+        }
+      },
+      "required" : [ "Tools" ],
       "additionalProperties" : false
     }
   },
@@ -530,7 +605,7 @@
   "required" : [ "AgentSpaceId", "ServiceId", "Configuration" ],
   "createOnlyProperties" : [ "/properties/AgentSpaceId" ],
   "readOnlyProperties" : [ "/properties/AssociationId", "/properties/CreatedAt", "/properties/UpdatedAt" ],
-  "writeOnlyProperties" : [ "/properties/Configuration/Dynatrace/EnableWebhookUpdates", "/properties/Configuration/ServiceNow/EnableWebhookUpdates", "/properties/Configuration/MCPServer/EnableWebhookUpdates", "/properties/Configuration/MCPServerDatadog/EnableWebhookUpdates", "/properties/Configuration/MCPServerSplunk/EnableWebhookUpdates", "/properties/Configuration/GitLab/EnableWebhookUpdates", "/properties/Configuration/EventChannel/EnableWebhookUpdates", "/properties/LinkedAssociationIds" ],
+  "writeOnlyProperties" : [ "/properties/Configuration/Dynatrace/EnableWebhookUpdates", "/properties/Configuration/ServiceNow/EnableWebhookUpdates", "/properties/Configuration/MCPServer/EnableWebhookUpdates", "/properties/Configuration/MCPServerDatadog/EnableWebhookUpdates", "/properties/Configuration/MCPServerSplunk/EnableWebhookUpdates", "/properties/Configuration/GitLab/EnableWebhookUpdates", "/properties/Configuration/PagerDuty/EnableWebhookUpdates", "/properties/Configuration/EventChannel/EnableWebhookUpdates", "/properties/LinkedAssociationIds" ],
   "primaryIdentifier" : [ "/properties/AgentSpaceId", "/properties/AssociationId" ],
   "handlers" : {
     "create" : {

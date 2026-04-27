@@ -76,6 +76,10 @@ namespace Pulumi.AwsNative.Organizations
         /// </summary>
         public readonly string? Name;
         /// <summary>
+        /// The path in the organization where this OU exists.
+        /// </summary>
+        public readonly string? Path;
+        /// <summary>
         /// A list of tags that you want to attach to the newly created OU.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
@@ -88,11 +92,14 @@ namespace Pulumi.AwsNative.Organizations
 
             string? name,
 
+            string? path,
+
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             Id = id;
             Name = name;
+            Path = path;
             Tags = tags;
         }
     }

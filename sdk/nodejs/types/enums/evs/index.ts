@@ -32,6 +32,7 @@ export type EnvironmentCheckType = (typeof EnvironmentCheckType)[keyof typeof En
 
 export const EnvironmentHostInfoForCreateInstanceType = {
     I4iMetal: "i4i.metal",
+    I7iMetal24xl: "i7i.metal-24xl",
 } as const;
 
 /**

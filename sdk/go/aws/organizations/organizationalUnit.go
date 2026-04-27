@@ -157,6 +157,8 @@ type OrganizationalUnit struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The unique identifier (ID) of the parent root or OU that you want to create the new OU in.
 	ParentId pulumi.StringOutput `pulumi:"parentId"`
+	// The path in the organization where this OU exists.
+	Path pulumi.StringOutput `pulumi:"path"`
 	// A list of tags that you want to attach to the newly created OU.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
@@ -281,6 +283,11 @@ func (o OrganizationalUnitOutput) Name() pulumi.StringOutput {
 // The unique identifier (ID) of the parent root or OU that you want to create the new OU in.
 func (o OrganizationalUnitOutput) ParentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *OrganizationalUnit) pulumi.StringOutput { return v.ParentId }).(pulumi.StringOutput)
+}
+
+// The path in the organization where this OU exists.
+func (o OrganizationalUnitOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v *OrganizationalUnit) pulumi.StringOutput { return v.Path }).(pulumi.StringOutput)
 }
 
 // A list of tags that you want to attach to the newly created OU.

@@ -1559,6 +1559,7 @@ _utilities.register(
   "classes": {
    "aws-native:customerprofiles:CalculatedAttributeDefinition": "CalculatedAttributeDefinition",
    "aws-native:customerprofiles:Domain": "Domain",
+   "aws-native:customerprofiles:DomainObjectType": "DomainObjectType",
    "aws-native:customerprofiles:EventStream": "EventStream",
    "aws-native:customerprofiles:EventTrigger": "EventTrigger",
    "aws-native:customerprofiles:Integration": "Integration",
@@ -1689,6 +1690,7 @@ _utilities.register(
   "classes": {
    "aws-native:devopsagent:AgentSpace": "AgentSpace",
    "aws-native:devopsagent:Association": "Association",
+   "aws-native:devopsagent:PrivateConnection": "PrivateConnection",
    "aws-native:devopsagent:Service": "Service"
   }
  },

@@ -258,6 +258,7 @@ class OrganizationalUnit(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["aws_id"] = None
+            __props__.__dict__["path"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["parentId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(OrganizationalUnit, __self__).__init__(
@@ -286,6 +287,7 @@ class OrganizationalUnit(pulumi.CustomResource):
         __props__.__dict__["aws_id"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["parent_id"] = None
+        __props__.__dict__["path"] = None
         __props__.__dict__["tags"] = None
         return OrganizationalUnit(resource_name, opts=opts, __props__=__props__)
 
@@ -320,6 +322,14 @@ class OrganizationalUnit(pulumi.CustomResource):
         The unique identifier (ID) of the parent root or OU that you want to create the new OU in.
         """
         return pulumi.get(self, "parent_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def path(self) -> pulumi.Output[_builtins.str]:
+        """
+        The path in the organization where this OU exists.
+        """
+        return pulumi.get(self, "path")
 
     @_builtins.property
     @pulumi.getter

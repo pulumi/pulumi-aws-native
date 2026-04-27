@@ -15,6 +15,8 @@ __all__ = [
     'Ec2FleetCapacityReservationOptionsRequestUsageStrategy',
     'Ec2FleetEbsBlockDeviceVolumeType',
     'Ec2FleetExcessCapacityTerminationPolicy',
+    'Ec2FleetInstanceMetadataOptionsRequestHttpEndpoint',
+    'Ec2FleetInstanceMetadataOptionsRequestHttpTokens',
     'Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem',
     'Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem',
     'Ec2FleetInstanceRequirementsRequestAcceleratorTypesItem',
@@ -212,6 +214,18 @@ class Ec2FleetExcessCapacityTerminationPolicy(_builtins.str, Enum):
     """
     TERMINATION = "termination"
     NO_TERMINATION = "no-termination"
+
+
+@pulumi.type_token("aws-native:ec2:Ec2FleetInstanceMetadataOptionsRequestHttpEndpoint")
+class Ec2FleetInstanceMetadataOptionsRequestHttpEndpoint(_builtins.str, Enum):
+    DISABLED = "disabled"
+    ENABLED = "enabled"
+
+
+@pulumi.type_token("aws-native:ec2:Ec2FleetInstanceMetadataOptionsRequestHttpTokens")
+class Ec2FleetInstanceMetadataOptionsRequestHttpTokens(_builtins.str, Enum):
+    OPTIONAL = "optional"
+    REQUIRED = "required"
 
 
 @pulumi.type_token("aws-native:ec2:Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem")

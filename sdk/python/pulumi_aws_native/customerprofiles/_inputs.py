@@ -46,6 +46,8 @@ __all__ = [
     'DomainMatchingRuleArgsDict',
     'DomainMatchingArgs',
     'DomainMatchingArgsDict',
+    'DomainObjectTypeFieldArgs',
+    'DomainObjectTypeFieldArgsDict',
     'DomainReadinessArgs',
     'DomainReadinessArgsDict',
     'DomainRuleBasedMatchingArgs',
@@ -1033,6 +1035,98 @@ class DomainMatchingArgs:
     @job_schedule.setter
     def job_schedule(self, value: Optional[pulumi.Input['DomainJobScheduleArgs']]):
         pulumi.set(self, "job_schedule", value)
+
+
+class DomainObjectTypeFieldArgsDict(TypedDict):
+    """
+    Represents a field in a DomainObjectType.
+    """
+    source: pulumi.Input[_builtins.str]
+    """
+    The source field name.
+    """
+    target: pulumi.Input[_builtins.str]
+    """
+    The target field name.
+    """
+    content_type: NotRequired[pulumi.Input['DomainObjectTypeFieldContentType']]
+    """
+    The content type of the field.
+    """
+    feature_type: NotRequired[pulumi.Input['DomainObjectTypeFieldFeatureType']]
+    """
+    The feature type of the field.
+    """
+
+@pulumi.input_type
+class DomainObjectTypeFieldArgs:
+    def __init__(__self__, *,
+                 source: pulumi.Input[_builtins.str],
+                 target: pulumi.Input[_builtins.str],
+                 content_type: Optional[pulumi.Input['DomainObjectTypeFieldContentType']] = None,
+                 feature_type: Optional[pulumi.Input['DomainObjectTypeFieldFeatureType']] = None):
+        """
+        Represents a field in a DomainObjectType.
+
+        :param pulumi.Input[_builtins.str] source: The source field name.
+        :param pulumi.Input[_builtins.str] target: The target field name.
+        :param pulumi.Input['DomainObjectTypeFieldContentType'] content_type: The content type of the field.
+        :param pulumi.Input['DomainObjectTypeFieldFeatureType'] feature_type: The feature type of the field.
+        """
+        pulumi.set(__self__, "source", source)
+        pulumi.set(__self__, "target", target)
+        if content_type is not None:
+            pulumi.set(__self__, "content_type", content_type)
+        if feature_type is not None:
+            pulumi.set(__self__, "feature_type", feature_type)
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> pulumi.Input[_builtins.str]:
+        """
+        The source field name.
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "source", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def target(self) -> pulumi.Input[_builtins.str]:
+        """
+        The target field name.
+        """
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "target", value)
+
+    @_builtins.property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> Optional[pulumi.Input['DomainObjectTypeFieldContentType']]:
+        """
+        The content type of the field.
+        """
+        return pulumi.get(self, "content_type")
+
+    @content_type.setter
+    def content_type(self, value: Optional[pulumi.Input['DomainObjectTypeFieldContentType']]):
+        pulumi.set(self, "content_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="featureType")
+    def feature_type(self) -> Optional[pulumi.Input['DomainObjectTypeFieldFeatureType']]:
+        """
+        The feature type of the field.
+        """
+        return pulumi.get(self, "feature_type")
+
+    @feature_type.setter
+    def feature_type(self, value: Optional[pulumi.Input['DomainObjectTypeFieldFeatureType']]):
+        pulumi.set(self, "feature_type", value)
 
 
 class DomainReadinessArgsDict(TypedDict):

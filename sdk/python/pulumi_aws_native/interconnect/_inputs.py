@@ -18,6 +18,8 @@ from ._enums import *
 __all__ = [
     'ConnectionAttachPointArgs',
     'ConnectionAttachPointArgsDict',
+    'RemoteAccountPropertiesArgs',
+    'RemoteAccountPropertiesArgsDict',
 ]
 
 class ConnectionAttachPointArgsDict(TypedDict):
@@ -72,5 +74,38 @@ class ConnectionAttachPointArgs:
     @direct_connect_gateway.setter
     def direct_connect_gateway(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "direct_connect_gateway", value)
+
+
+class RemoteAccountPropertiesArgsDict(TypedDict):
+    """
+    The remote account identifier for the connection. Required when creating a connection through AWS. Replaces RemoteOwnerAccount.
+    """
+    identifier: pulumi.Input[_builtins.str]
+    """
+    The identifier of the remote account.
+    """
+
+@pulumi.input_type
+class RemoteAccountPropertiesArgs:
+    def __init__(__self__, *,
+                 identifier: pulumi.Input[_builtins.str]):
+        """
+        The remote account identifier for the connection. Required when creating a connection through AWS. Replaces RemoteOwnerAccount.
+
+        :param pulumi.Input[_builtins.str] identifier: The identifier of the remote account.
+        """
+        pulumi.set(__self__, "identifier", identifier)
+
+    @_builtins.property
+    @pulumi.getter
+    def identifier(self) -> pulumi.Input[_builtins.str]:
+        """
+        The identifier of the remote account.
+        """
+        return pulumi.get(self, "identifier")
+
+    @identifier.setter
+    def identifier(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "identifier", value)
 
 

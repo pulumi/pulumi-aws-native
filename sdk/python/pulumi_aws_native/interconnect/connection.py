@@ -29,6 +29,7 @@ class ConnectionArgs:
                  bandwidth: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  environment_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 remote_account: Optional[pulumi.Input['RemoteAccountPropertiesArgs']] = None,
                  remote_owner_account: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
@@ -39,7 +40,8 @@ class ConnectionArgs:
         :param pulumi.Input[_builtins.str] bandwidth: The bandwidth of the connection (e.g., 50Mbps, 1Gbps). Required when creating a connection through AWS.
         :param pulumi.Input[_builtins.str] description: A description of the connection.
         :param pulumi.Input[_builtins.str] environment_id: The ID of the environment for the connection. Required when creating a connection through AWS. Mutually exclusive with ActivationKey.
-        :param pulumi.Input[_builtins.str] remote_owner_account: The account ID of the remote owner. Required when creating a connection through AWS.
+        :param pulumi.Input['RemoteAccountPropertiesArgs'] remote_account: The remote account identifier for the connection. Required when creating a connection through AWS. Replaces RemoteOwnerAccount.
+        :param pulumi.Input[_builtins.str] remote_owner_account: Deprecated. Use RemoteAccount instead. The account ID of the remote owner. Required when creating a connection through AWS.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "attach_point", attach_point)
@@ -51,6 +53,8 @@ class ConnectionArgs:
             pulumi.set(__self__, "description", description)
         if environment_id is not None:
             pulumi.set(__self__, "environment_id", environment_id)
+        if remote_account is not None:
+            pulumi.set(__self__, "remote_account", remote_account)
         if remote_owner_account is not None:
             pulumi.set(__self__, "remote_owner_account", remote_owner_account)
         if tags is not None:
@@ -117,10 +121,22 @@ class ConnectionArgs:
         pulumi.set(self, "environment_id", value)
 
     @_builtins.property
+    @pulumi.getter(name="remoteAccount")
+    def remote_account(self) -> Optional[pulumi.Input['RemoteAccountPropertiesArgs']]:
+        """
+        The remote account identifier for the connection. Required when creating a connection through AWS. Replaces RemoteOwnerAccount.
+        """
+        return pulumi.get(self, "remote_account")
+
+    @remote_account.setter
+    def remote_account(self, value: Optional[pulumi.Input['RemoteAccountPropertiesArgs']]):
+        pulumi.set(self, "remote_account", value)
+
+    @_builtins.property
     @pulumi.getter(name="remoteOwnerAccount")
     def remote_owner_account(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The account ID of the remote owner. Required when creating a connection through AWS.
+        Deprecated. Use RemoteAccount instead. The account ID of the remote owner. Required when creating a connection through AWS.
         """
         return pulumi.get(self, "remote_owner_account")
 
@@ -152,6 +168,7 @@ class Connection(pulumi.CustomResource):
                  bandwidth: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  environment_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 remote_account: Optional[pulumi.Input[Union['RemoteAccountPropertiesArgs', 'RemoteAccountPropertiesArgsDict']]] = None,
                  remote_owner_account: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
@@ -166,7 +183,8 @@ class Connection(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] bandwidth: The bandwidth of the connection (e.g., 50Mbps, 1Gbps). Required when creating a connection through AWS.
         :param pulumi.Input[_builtins.str] description: A description of the connection.
         :param pulumi.Input[_builtins.str] environment_id: The ID of the environment for the connection. Required when creating a connection through AWS. Mutually exclusive with ActivationKey.
-        :param pulumi.Input[_builtins.str] remote_owner_account: The account ID of the remote owner. Required when creating a connection through AWS.
+        :param pulumi.Input[Union['RemoteAccountPropertiesArgs', 'RemoteAccountPropertiesArgsDict']] remote_account: The remote account identifier for the connection. Required when creating a connection through AWS. Replaces RemoteOwnerAccount.
+        :param pulumi.Input[_builtins.str] remote_owner_account: Deprecated. Use RemoteAccount instead. The account ID of the remote owner. Required when creating a connection through AWS.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
@@ -199,6 +217,7 @@ class Connection(pulumi.CustomResource):
                  bandwidth: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  environment_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 remote_account: Optional[pulumi.Input[Union['RemoteAccountPropertiesArgs', 'RemoteAccountPropertiesArgsDict']]] = None,
                  remote_owner_account: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
@@ -217,6 +236,7 @@ class Connection(pulumi.CustomResource):
             __props__.__dict__["bandwidth"] = bandwidth
             __props__.__dict__["description"] = description
             __props__.__dict__["environment_id"] = environment_id
+            __props__.__dict__["remote_account"] = remote_account
             __props__.__dict__["remote_owner_account"] = remote_owner_account
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
@@ -227,7 +247,7 @@ class Connection(pulumi.CustomResource):
             __props__.__dict__["shared_id"] = None
             __props__.__dict__["state"] = None
             __props__.__dict__["type"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["activationKey", "attachPoint", "environmentId"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["activationKey", "attachPoint", "environmentId", "remoteAccount"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Connection, __self__).__init__(
             'aws-native:interconnect:Connection',
@@ -261,6 +281,7 @@ class Connection(pulumi.CustomResource):
         __props__.__dict__["environment_id"] = None
         __props__.__dict__["owner_account"] = None
         __props__.__dict__["provider"] = None
+        __props__.__dict__["remote_account"] = None
         __props__.__dict__["remote_owner_account"] = None
         __props__.__dict__["shared_id"] = None
         __props__.__dict__["state"] = None
@@ -349,10 +370,18 @@ class Connection(pulumi.CustomResource):
         return pulumi.get(self, "provider")
 
     @_builtins.property
+    @pulumi.getter(name="remoteAccount")
+    def remote_account(self) -> pulumi.Output[Optional['outputs.RemoteAccountProperties']]:
+        """
+        The remote account identifier for the connection. Required when creating a connection through AWS. Replaces RemoteOwnerAccount.
+        """
+        return pulumi.get(self, "remote_account")
+
+    @_builtins.property
     @pulumi.getter(name="remoteOwnerAccount")
     def remote_owner_account(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The account ID of the remote owner. Required when creating a connection through AWS.
+        Deprecated. Use RemoteAccount instead. The account ID of the remote owner. Required when creating a connection through AWS.
         """
         return pulumi.get(self, "remote_owner_account")
 

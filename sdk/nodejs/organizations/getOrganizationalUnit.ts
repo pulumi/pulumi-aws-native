@@ -38,6 +38,10 @@ export interface GetOrganizationalUnitResult {
      */
     readonly name?: string;
     /**
+     * The path in the organization where this OU exists.
+     */
+    readonly path?: string;
+    /**
      * A list of tags that you want to attach to the newly created OU.
      */
     readonly tags?: outputs.Tag[];

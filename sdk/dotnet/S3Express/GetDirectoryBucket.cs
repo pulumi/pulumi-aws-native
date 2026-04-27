@@ -76,6 +76,10 @@ namespace Pulumi.AwsNative.S3Express
         /// </summary>
         public readonly Outputs.DirectoryBucketBucketEncryption? BucketEncryption;
         /// <summary>
+        /// The inventory configuration for an Amazon S3 Express bucket.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.DirectoryBucketInventoryConfiguration> InventoryConfigurations;
+        /// <summary>
         /// Lifecycle rules that define how Amazon S3 Express manages objects during their lifetime.
         /// </summary>
         public readonly Outputs.DirectoryBucketLifecycleConfiguration? LifecycleConfiguration;
@@ -96,6 +100,8 @@ namespace Pulumi.AwsNative.S3Express
 
             Outputs.DirectoryBucketBucketEncryption? bucketEncryption,
 
+            ImmutableArray<Outputs.DirectoryBucketInventoryConfiguration> inventoryConfigurations,
+
             Outputs.DirectoryBucketLifecycleConfiguration? lifecycleConfiguration,
 
             ImmutableArray<Outputs.DirectoryBucketMetricsConfiguration> metricsConfigurations,
@@ -105,6 +111,7 @@ namespace Pulumi.AwsNative.S3Express
             Arn = arn;
             AvailabilityZoneName = availabilityZoneName;
             BucketEncryption = bucketEncryption;
+            InventoryConfigurations = inventoryConfigurations;
             LifecycleConfiguration = lifecycleConfiguration;
             MetricsConfigurations = metricsConfigurations;
             Tags = tags;

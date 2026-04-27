@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Ecs.Inputs
 
     public sealed class CapacityProviderManagedInstancesProviderArgs : global::Pulumi.ResourceArgs
     {
+        [Input("autoRepairConfiguration")]
+        public Input<Inputs.CapacityProviderAutoRepairConfigurationArgs>? AutoRepairConfiguration { get; set; }
+
         /// <summary>
         /// Defines how Amazon ECS Managed Instances optimizes the infrastructure in your capacity provider. Configure it to turn on or off the infrastructure optimization in your capacity provider, and to control the idle EC2 instances optimization delay.
         /// </summary>

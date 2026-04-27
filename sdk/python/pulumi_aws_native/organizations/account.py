@@ -181,6 +181,7 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["joined_method"] = None
             __props__.__dict__["joined_timestamp"] = None
+            __props__.__dict__["paths"] = None
             __props__.__dict__["state"] = None
             __props__.__dict__["status"] = None
         super(Account, __self__).__init__(
@@ -212,6 +213,7 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["joined_method"] = None
         __props__.__dict__["joined_timestamp"] = None
         __props__.__dict__["parent_ids"] = None
+        __props__.__dict__["paths"] = None
         __props__.__dict__["role_name"] = None
         __props__.__dict__["state"] = None
         __props__.__dict__["status"] = None
@@ -273,6 +275,14 @@ class Account(pulumi.CustomResource):
         List of parent nodes for the member account. Currently only one parent at a time is supported. Default is root.
         """
         return pulumi.get(self, "parent_ids")
+
+    @_builtins.property
+    @pulumi.getter
+    def paths(self) -> pulumi.Output[Sequence[_builtins.str]]:
+        """
+        The paths in the organization where the account exists.
+        """
+        return pulumi.get(self, "paths")
 
     @_builtins.property
     @pulumi.getter(name="roleName")

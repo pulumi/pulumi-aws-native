@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AgentSpace{}
 	case "aws-native:devopsagent:Association":
 		r = &Association{}
+	case "aws-native:devopsagent:PrivateConnection":
+		r = &PrivateConnection{}
 	case "aws-native:devopsagent:Service":
 		r = &Service{}
 	default:

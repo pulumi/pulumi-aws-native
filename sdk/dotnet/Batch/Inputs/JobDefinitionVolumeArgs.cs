@@ -32,6 +32,9 @@ namespace Pulumi.AwsNative.Batch.Inputs
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("s3FilesVolumeConfiguration")]
+        public Input<Inputs.JobDefinitionS3FilesVolumeConfigurationArgs>? S3FilesVolumeConfiguration { get; set; }
+
         public JobDefinitionVolumeArgs()
         {
         }

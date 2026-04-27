@@ -67,6 +67,10 @@ namespace Pulumi.AwsNative.Route53GlobalResolver
         public readonly Pulumi.AwsNative.Route53GlobalResolver.GlobalResolverIpAddressType? IpAddressType;
         public readonly string? Name;
         public readonly string? ObservabilityRegion;
+        /// <summary>
+        /// A list of regions the Global Resolver will exist in. This list cannot be updated and will stay fixed for the duration of the Global Resolver.
+        /// </summary>
+        public readonly ImmutableArray<string> Regions;
         public readonly Pulumi.AwsNative.Route53GlobalResolver.GlobalResolverCrResourceStatus? Status;
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly string? UpdatedAt;
@@ -93,6 +97,8 @@ namespace Pulumi.AwsNative.Route53GlobalResolver
 
             string? observabilityRegion,
 
+            ImmutableArray<string> regions,
+
             Pulumi.AwsNative.Route53GlobalResolver.GlobalResolverCrResourceStatus? status,
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
@@ -109,6 +115,7 @@ namespace Pulumi.AwsNative.Route53GlobalResolver
             IpAddressType = ipAddressType;
             Name = name;
             ObservabilityRegion = observabilityRegion;
+            Regions = regions;
             Status = status;
             Tags = tags;
             UpdatedAt = updatedAt;

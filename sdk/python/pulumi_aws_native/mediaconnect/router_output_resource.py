@@ -42,7 +42,7 @@ class RouterOutputResourceArgs:
         :param pulumi.Input[_builtins.str] availability_zone: The Availability Zone where you want to create the router output. This must be a valid Availability Zone for the region specified by regionName, or the current region if no regionName is provided.
         :param pulumi.Input[Union['RouterOutputResourceMaintenanceConfiguration0PropertiesArgs', 'RouterOutputResourceMaintenanceConfiguration1PropertiesArgs']] maintenance_configuration: The maintenance configuration settings applied to this router output.
         :param pulumi.Input[_builtins.str] name: The name of the router output.
-        :param pulumi.Input[_builtins.str] region_name: The AWS Region for the router output. Defaults to the current region if not specified.
+        :param pulumi.Input[_builtins.str] region_name: The Amazon Web Services Region for the router output. Defaults to the current region if not specified.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Key-value pairs that can be used to tag this router output.
         """
         pulumi.set(__self__, "configuration", configuration)
@@ -145,7 +145,7 @@ class RouterOutputResourceArgs:
     @pulumi.getter(name="regionName")
     def region_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The AWS Region for the router output. Defaults to the current region if not specified.
+        The Amazon Web Services Region for the router output. Defaults to the current region if not specified.
         """
         return pulumi.get(self, "region_name")
 
@@ -192,7 +192,7 @@ class RouterOutputResource(pulumi.CustomResource):
         :param pulumi.Input[Union[Union['RouterOutputResourceMaintenanceConfiguration0PropertiesArgs', 'RouterOutputResourceMaintenanceConfiguration0PropertiesArgsDict'], Union['RouterOutputResourceMaintenanceConfiguration1PropertiesArgs', 'RouterOutputResourceMaintenanceConfiguration1PropertiesArgsDict']]] maintenance_configuration: The maintenance configuration settings applied to this router output.
         :param pulumi.Input[_builtins.int] maximum_bitrate: The maximum bitrate for the router output.
         :param pulumi.Input[_builtins.str] name: The name of the router output.
-        :param pulumi.Input[_builtins.str] region_name: The AWS Region for the router output. Defaults to the current region if not specified.
+        :param pulumi.Input[_builtins.str] region_name: The Amazon Web Services Region for the router output. Defaults to the current region if not specified.
         :param pulumi.Input['RouterOutputResourceRoutingScope'] routing_scope: Indicates whether the router output is configured for Regional or global routing.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Key-value pairs that can be used to tag this router output.
         :param pulumi.Input['RouterOutputResourceRouterOutputTier'] tier: The tier level of the router output.
@@ -399,7 +399,7 @@ class RouterOutputResource(pulumi.CustomResource):
     @pulumi.getter(name="regionName")
     def region_name(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The AWS Region for the router output. Defaults to the current region if not specified.
+        The Amazon Web Services Region for the router output. Defaults to the current region if not specified.
         """
         return pulumi.get(self, "region_name")
 

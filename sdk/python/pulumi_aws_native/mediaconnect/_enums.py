@@ -56,6 +56,8 @@ __all__ = [
     'RouterInputFlowTransitEncryptionKeyType',
     'RouterInputForwardErrorCorrectionState',
     'RouterInputMaintenanceType',
+    'RouterInputMediaLiveChannelPipelineId',
+    'RouterInputMediaLiveTransitEncryptionKeyType',
     'RouterInputProtocol',
     'RouterInputRoutingScope',
     'RouterInputState',
@@ -547,6 +549,18 @@ class RouterInputMaintenanceType(_builtins.str, Enum):
     DEFAULT = "DEFAULT"
 
 
+@pulumi.type_token("aws-native:mediaconnect:RouterInputMediaLiveChannelPipelineId")
+class RouterInputMediaLiveChannelPipelineId(_builtins.str, Enum):
+    PIPELINE0 = "PIPELINE_0"
+    PIPELINE1 = "PIPELINE_1"
+
+
+@pulumi.type_token("aws-native:mediaconnect:RouterInputMediaLiveTransitEncryptionKeyType")
+class RouterInputMediaLiveTransitEncryptionKeyType(_builtins.str, Enum):
+    SECRETS_MANAGER = "SECRETS_MANAGER"
+    AUTOMATIC = "AUTOMATIC"
+
+
 @pulumi.type_token("aws-native:mediaconnect:RouterInputProtocol")
 class RouterInputProtocol(_builtins.str, Enum):
     RTP = "RTP"
@@ -594,6 +608,7 @@ class RouterInputType(_builtins.str, Enum):
     FAILOVER = "FAILOVER"
     MERGE = "MERGE"
     MEDIACONNECT_FLOW = "MEDIACONNECT_FLOW"
+    MEDIALIVE_CHANNEL = "MEDIALIVE_CHANNEL"
 
 
 @pulumi.type_token("aws-native:mediaconnect:RouterNetworkInterfaceState")

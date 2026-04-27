@@ -9,10 +9,12 @@ import typing
 from ._enums import *
 from .calculated_attribute_definition import *
 from .domain import *
+from .domain_object_type import *
 from .event_stream import *
 from .event_trigger import *
 from .get_calculated_attribute_definition import *
 from .get_domain import *
+from .get_domain_object_type import *
 from .get_event_stream import *
 from .get_event_trigger import *
 from .get_integration import *

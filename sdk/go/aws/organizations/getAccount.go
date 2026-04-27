@@ -43,6 +43,8 @@ type LookupAccountResult struct {
 	JoinedTimestamp *string `pulumi:"joinedTimestamp"`
 	// List of parent nodes for the member account. Currently only one parent at a time is supported. Default is root.
 	ParentIds []string `pulumi:"parentIds"`
+	// The paths in the organization where the account exists.
+	Paths []string `pulumi:"paths"`
 	// The state of the account in the organization.
 	State *AccountStateEnum `pulumi:"state"`
 	// The status of the account in the organization.
@@ -116,6 +118,11 @@ func (o LookupAccountResultOutput) JoinedTimestamp() pulumi.StringPtrOutput {
 // List of parent nodes for the member account. Currently only one parent at a time is supported. Default is root.
 func (o LookupAccountResultOutput) ParentIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupAccountResult) []string { return v.ParentIds }).(pulumi.StringArrayOutput)
+}
+
+// The paths in the organization where the account exists.
+func (o LookupAccountResultOutput) Paths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupAccountResult) []string { return v.Paths }).(pulumi.StringArrayOutput)
 }
 
 // The state of the account in the organization.

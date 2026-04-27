@@ -7,6 +7,7 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'CapacityProviderAutoRepairConfigurationActionsStatus',
     'CapacityProviderAutoScalingGroupProviderManagedDraining',
     'CapacityProviderAutoScalingGroupProviderManagedTerminationProtection',
     'CapacityProviderCapacityReservationRequestReservationPreference',
@@ -51,6 +52,12 @@ __all__ = [
     'TaskSetLaunchType',
     'TaskSetScaleUnit',
 ]
+
+
+@pulumi.type_token("aws-native:ecs:CapacityProviderAutoRepairConfigurationActionsStatus")
+class CapacityProviderAutoRepairConfigurationActionsStatus(_builtins.str, Enum):
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
 
 
 @pulumi.type_token("aws-native:ecs:CapacityProviderAutoScalingGroupProviderManagedDraining")

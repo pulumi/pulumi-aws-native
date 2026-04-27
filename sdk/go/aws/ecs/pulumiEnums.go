@@ -10,6 +10,171 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type CapacityProviderAutoRepairConfigurationActionsStatus string
+
+const (
+	CapacityProviderAutoRepairConfigurationActionsStatusEnabled  = CapacityProviderAutoRepairConfigurationActionsStatus("ENABLED")
+	CapacityProviderAutoRepairConfigurationActionsStatusDisabled = CapacityProviderAutoRepairConfigurationActionsStatus("DISABLED")
+)
+
+func (CapacityProviderAutoRepairConfigurationActionsStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderAutoRepairConfigurationActionsStatus)(nil)).Elem()
+}
+
+func (e CapacityProviderAutoRepairConfigurationActionsStatus) ToCapacityProviderAutoRepairConfigurationActionsStatusOutput() CapacityProviderAutoRepairConfigurationActionsStatusOutput {
+	return pulumi.ToOutput(e).(CapacityProviderAutoRepairConfigurationActionsStatusOutput)
+}
+
+func (e CapacityProviderAutoRepairConfigurationActionsStatus) ToCapacityProviderAutoRepairConfigurationActionsStatusOutputWithContext(ctx context.Context) CapacityProviderAutoRepairConfigurationActionsStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CapacityProviderAutoRepairConfigurationActionsStatusOutput)
+}
+
+func (e CapacityProviderAutoRepairConfigurationActionsStatus) ToCapacityProviderAutoRepairConfigurationActionsStatusPtrOutput() CapacityProviderAutoRepairConfigurationActionsStatusPtrOutput {
+	return e.ToCapacityProviderAutoRepairConfigurationActionsStatusPtrOutputWithContext(context.Background())
+}
+
+func (e CapacityProviderAutoRepairConfigurationActionsStatus) ToCapacityProviderAutoRepairConfigurationActionsStatusPtrOutputWithContext(ctx context.Context) CapacityProviderAutoRepairConfigurationActionsStatusPtrOutput {
+	return CapacityProviderAutoRepairConfigurationActionsStatus(e).ToCapacityProviderAutoRepairConfigurationActionsStatusOutputWithContext(ctx).ToCapacityProviderAutoRepairConfigurationActionsStatusPtrOutputWithContext(ctx)
+}
+
+func (e CapacityProviderAutoRepairConfigurationActionsStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CapacityProviderAutoRepairConfigurationActionsStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CapacityProviderAutoRepairConfigurationActionsStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CapacityProviderAutoRepairConfigurationActionsStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CapacityProviderAutoRepairConfigurationActionsStatusOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderAutoRepairConfigurationActionsStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderAutoRepairConfigurationActionsStatus)(nil)).Elem()
+}
+
+func (o CapacityProviderAutoRepairConfigurationActionsStatusOutput) ToCapacityProviderAutoRepairConfigurationActionsStatusOutput() CapacityProviderAutoRepairConfigurationActionsStatusOutput {
+	return o
+}
+
+func (o CapacityProviderAutoRepairConfigurationActionsStatusOutput) ToCapacityProviderAutoRepairConfigurationActionsStatusOutputWithContext(ctx context.Context) CapacityProviderAutoRepairConfigurationActionsStatusOutput {
+	return o
+}
+
+func (o CapacityProviderAutoRepairConfigurationActionsStatusOutput) ToCapacityProviderAutoRepairConfigurationActionsStatusPtrOutput() CapacityProviderAutoRepairConfigurationActionsStatusPtrOutput {
+	return o.ToCapacityProviderAutoRepairConfigurationActionsStatusPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderAutoRepairConfigurationActionsStatusOutput) ToCapacityProviderAutoRepairConfigurationActionsStatusPtrOutputWithContext(ctx context.Context) CapacityProviderAutoRepairConfigurationActionsStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityProviderAutoRepairConfigurationActionsStatus) *CapacityProviderAutoRepairConfigurationActionsStatus {
+		return &v
+	}).(CapacityProviderAutoRepairConfigurationActionsStatusPtrOutput)
+}
+
+func (o CapacityProviderAutoRepairConfigurationActionsStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderAutoRepairConfigurationActionsStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CapacityProviderAutoRepairConfigurationActionsStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CapacityProviderAutoRepairConfigurationActionsStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderAutoRepairConfigurationActionsStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CapacityProviderAutoRepairConfigurationActionsStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CapacityProviderAutoRepairConfigurationActionsStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderAutoRepairConfigurationActionsStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderAutoRepairConfigurationActionsStatus)(nil)).Elem()
+}
+
+func (o CapacityProviderAutoRepairConfigurationActionsStatusPtrOutput) ToCapacityProviderAutoRepairConfigurationActionsStatusPtrOutput() CapacityProviderAutoRepairConfigurationActionsStatusPtrOutput {
+	return o
+}
+
+func (o CapacityProviderAutoRepairConfigurationActionsStatusPtrOutput) ToCapacityProviderAutoRepairConfigurationActionsStatusPtrOutputWithContext(ctx context.Context) CapacityProviderAutoRepairConfigurationActionsStatusPtrOutput {
+	return o
+}
+
+func (o CapacityProviderAutoRepairConfigurationActionsStatusPtrOutput) Elem() CapacityProviderAutoRepairConfigurationActionsStatusOutput {
+	return o.ApplyT(func(v *CapacityProviderAutoRepairConfigurationActionsStatus) CapacityProviderAutoRepairConfigurationActionsStatus {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityProviderAutoRepairConfigurationActionsStatus
+		return ret
+	}).(CapacityProviderAutoRepairConfigurationActionsStatusOutput)
+}
+
+func (o CapacityProviderAutoRepairConfigurationActionsStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderAutoRepairConfigurationActionsStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CapacityProviderAutoRepairConfigurationActionsStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CapacityProviderAutoRepairConfigurationActionsStatusInput is an input type that accepts values of the CapacityProviderAutoRepairConfigurationActionsStatus enum
+// A concrete instance of `CapacityProviderAutoRepairConfigurationActionsStatusInput` can be one of the following:
+//
+//	CapacityProviderAutoRepairConfigurationActionsStatusEnabled
+//	CapacityProviderAutoRepairConfigurationActionsStatusDisabled
+type CapacityProviderAutoRepairConfigurationActionsStatusInput interface {
+	pulumi.Input
+
+	ToCapacityProviderAutoRepairConfigurationActionsStatusOutput() CapacityProviderAutoRepairConfigurationActionsStatusOutput
+	ToCapacityProviderAutoRepairConfigurationActionsStatusOutputWithContext(context.Context) CapacityProviderAutoRepairConfigurationActionsStatusOutput
+}
+
+var capacityProviderAutoRepairConfigurationActionsStatusPtrType = reflect.TypeOf((**CapacityProviderAutoRepairConfigurationActionsStatus)(nil)).Elem()
+
+type CapacityProviderAutoRepairConfigurationActionsStatusPtrInput interface {
+	pulumi.Input
+
+	ToCapacityProviderAutoRepairConfigurationActionsStatusPtrOutput() CapacityProviderAutoRepairConfigurationActionsStatusPtrOutput
+	ToCapacityProviderAutoRepairConfigurationActionsStatusPtrOutputWithContext(context.Context) CapacityProviderAutoRepairConfigurationActionsStatusPtrOutput
+}
+
+type capacityProviderAutoRepairConfigurationActionsStatusPtr string
+
+func CapacityProviderAutoRepairConfigurationActionsStatusPtr(v string) CapacityProviderAutoRepairConfigurationActionsStatusPtrInput {
+	return (*capacityProviderAutoRepairConfigurationActionsStatusPtr)(&v)
+}
+
+func (*capacityProviderAutoRepairConfigurationActionsStatusPtr) ElementType() reflect.Type {
+	return capacityProviderAutoRepairConfigurationActionsStatusPtrType
+}
+
+func (in *capacityProviderAutoRepairConfigurationActionsStatusPtr) ToCapacityProviderAutoRepairConfigurationActionsStatusPtrOutput() CapacityProviderAutoRepairConfigurationActionsStatusPtrOutput {
+	return pulumi.ToOutput(in).(CapacityProviderAutoRepairConfigurationActionsStatusPtrOutput)
+}
+
+func (in *capacityProviderAutoRepairConfigurationActionsStatusPtr) ToCapacityProviderAutoRepairConfigurationActionsStatusPtrOutputWithContext(ctx context.Context) CapacityProviderAutoRepairConfigurationActionsStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CapacityProviderAutoRepairConfigurationActionsStatusPtrOutput)
+}
+
 // The managed draining option for the Auto Scaling group capacity provider. When you enable this, Amazon ECS manages and gracefully drains the EC2 container instances that are in the Auto Scaling group capacity provider.
 type CapacityProviderAutoScalingGroupProviderManagedDraining string
 
@@ -7210,6 +7375,8 @@ func (in *taskSetScaleUnitPtr) ToTaskSetScaleUnitPtrOutputWithContext(ctx contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderAutoRepairConfigurationActionsStatusInput)(nil)).Elem(), CapacityProviderAutoRepairConfigurationActionsStatus("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderAutoRepairConfigurationActionsStatusPtrInput)(nil)).Elem(), CapacityProviderAutoRepairConfigurationActionsStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderAutoScalingGroupProviderManagedDrainingInput)(nil)).Elem(), CapacityProviderAutoScalingGroupProviderManagedDraining("DISABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderAutoScalingGroupProviderManagedDrainingPtrInput)(nil)).Elem(), CapacityProviderAutoScalingGroupProviderManagedDraining("DISABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionInput)(nil)).Elem(), CapacityProviderAutoScalingGroupProviderManagedTerminationProtection("DISABLED"))
@@ -7295,6 +7462,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskSetLaunchTypePtrInput)(nil)).Elem(), TaskSetLaunchType("EC2"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskSetScaleUnitInput)(nil)).Elem(), TaskSetScaleUnit("PERCENT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskSetScaleUnitPtrInput)(nil)).Elem(), TaskSetScaleUnit("PERCENT"))
+	pulumi.RegisterOutputType(CapacityProviderAutoRepairConfigurationActionsStatusOutput{})
+	pulumi.RegisterOutputType(CapacityProviderAutoRepairConfigurationActionsStatusPtrOutput{})
 	pulumi.RegisterOutputType(CapacityProviderAutoScalingGroupProviderManagedDrainingOutput{})
 	pulumi.RegisterOutputType(CapacityProviderAutoScalingGroupProviderManagedDrainingPtrOutput{})
 	pulumi.RegisterOutputType(CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionOutput{})

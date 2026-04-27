@@ -38,7 +38,7 @@ type RouterInput struct {
 	MaximumBitrate pulumi.IntOutput `pulumi:"maximumBitrate"`
 	// The name of the router input.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region for the router input. Defaults to the current region if not specified.
+	// The Amazon Web Services Region for the router input. Defaults to the current region if not specified.
 	RegionName pulumi.StringPtrOutput `pulumi:"regionName"`
 	// The number of router outputs associated with the router input.
 	RoutedOutputs pulumi.IntOutput `pulumi:"routedOutputs"`
@@ -122,7 +122,7 @@ type routerInputArgs struct {
 	MaximumBitrate int `pulumi:"maximumBitrate"`
 	// The name of the router input.
 	Name *string `pulumi:"name"`
-	// The AWS Region for the router input. Defaults to the current region if not specified.
+	// The Amazon Web Services Region for the router input. Defaults to the current region if not specified.
 	RegionName *string `pulumi:"regionName"`
 	// Indicates whether the router input is configured for Regional or global routing.
 	RoutingScope RouterInputRoutingScope `pulumi:"routingScope"`
@@ -145,7 +145,7 @@ type RouterInputArgs struct {
 	MaximumBitrate pulumi.IntInput
 	// The name of the router input.
 	Name pulumi.StringPtrInput
-	// The AWS Region for the router input. Defaults to the current region if not specified.
+	// The Amazon Web Services Region for the router input. Defaults to the current region if not specified.
 	RegionName pulumi.StringPtrInput
 	// Indicates whether the router input is configured for Regional or global routing.
 	RoutingScope RouterInputRoutingScopeInput
@@ -248,7 +248,7 @@ func (o RouterInputOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouterInput) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region for the router input. Defaults to the current region if not specified.
+// The Amazon Web Services Region for the router input. Defaults to the current region if not specified.
 func (o RouterInputOutput) RegionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouterInput) pulumi.StringPtrOutput { return v.RegionName }).(pulumi.StringPtrOutput)
 }

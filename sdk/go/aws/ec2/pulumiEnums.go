@@ -1355,6 +1355,336 @@ func (in *ec2FleetExcessCapacityTerminationPolicyPtr) ToEc2FleetExcessCapacityTe
 	return pulumi.ToOutputWithContext(ctx, in).(Ec2FleetExcessCapacityTerminationPolicyPtrOutput)
 }
 
+type Ec2FleetInstanceMetadataOptionsRequestHttpEndpoint string
+
+const (
+	Ec2FleetInstanceMetadataOptionsRequestHttpEndpointDisabled = Ec2FleetInstanceMetadataOptionsRequestHttpEndpoint("disabled")
+	Ec2FleetInstanceMetadataOptionsRequestHttpEndpointEnabled  = Ec2FleetInstanceMetadataOptionsRequestHttpEndpoint("enabled")
+)
+
+func (Ec2FleetInstanceMetadataOptionsRequestHttpEndpoint) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetInstanceMetadataOptionsRequestHttpEndpoint)(nil)).Elem()
+}
+
+func (e Ec2FleetInstanceMetadataOptionsRequestHttpEndpoint) ToEc2FleetInstanceMetadataOptionsRequestHttpEndpointOutput() Ec2FleetInstanceMetadataOptionsRequestHttpEndpointOutput {
+	return pulumi.ToOutput(e).(Ec2FleetInstanceMetadataOptionsRequestHttpEndpointOutput)
+}
+
+func (e Ec2FleetInstanceMetadataOptionsRequestHttpEndpoint) ToEc2FleetInstanceMetadataOptionsRequestHttpEndpointOutputWithContext(ctx context.Context) Ec2FleetInstanceMetadataOptionsRequestHttpEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(Ec2FleetInstanceMetadataOptionsRequestHttpEndpointOutput)
+}
+
+func (e Ec2FleetInstanceMetadataOptionsRequestHttpEndpoint) ToEc2FleetInstanceMetadataOptionsRequestHttpEndpointPtrOutput() Ec2FleetInstanceMetadataOptionsRequestHttpEndpointPtrOutput {
+	return e.ToEc2FleetInstanceMetadataOptionsRequestHttpEndpointPtrOutputWithContext(context.Background())
+}
+
+func (e Ec2FleetInstanceMetadataOptionsRequestHttpEndpoint) ToEc2FleetInstanceMetadataOptionsRequestHttpEndpointPtrOutputWithContext(ctx context.Context) Ec2FleetInstanceMetadataOptionsRequestHttpEndpointPtrOutput {
+	return Ec2FleetInstanceMetadataOptionsRequestHttpEndpoint(e).ToEc2FleetInstanceMetadataOptionsRequestHttpEndpointOutputWithContext(ctx).ToEc2FleetInstanceMetadataOptionsRequestHttpEndpointPtrOutputWithContext(ctx)
+}
+
+func (e Ec2FleetInstanceMetadataOptionsRequestHttpEndpoint) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e Ec2FleetInstanceMetadataOptionsRequestHttpEndpoint) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e Ec2FleetInstanceMetadataOptionsRequestHttpEndpoint) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e Ec2FleetInstanceMetadataOptionsRequestHttpEndpoint) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type Ec2FleetInstanceMetadataOptionsRequestHttpEndpointOutput struct{ *pulumi.OutputState }
+
+func (Ec2FleetInstanceMetadataOptionsRequestHttpEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetInstanceMetadataOptionsRequestHttpEndpoint)(nil)).Elem()
+}
+
+func (o Ec2FleetInstanceMetadataOptionsRequestHttpEndpointOutput) ToEc2FleetInstanceMetadataOptionsRequestHttpEndpointOutput() Ec2FleetInstanceMetadataOptionsRequestHttpEndpointOutput {
+	return o
+}
+
+func (o Ec2FleetInstanceMetadataOptionsRequestHttpEndpointOutput) ToEc2FleetInstanceMetadataOptionsRequestHttpEndpointOutputWithContext(ctx context.Context) Ec2FleetInstanceMetadataOptionsRequestHttpEndpointOutput {
+	return o
+}
+
+func (o Ec2FleetInstanceMetadataOptionsRequestHttpEndpointOutput) ToEc2FleetInstanceMetadataOptionsRequestHttpEndpointPtrOutput() Ec2FleetInstanceMetadataOptionsRequestHttpEndpointPtrOutput {
+	return o.ToEc2FleetInstanceMetadataOptionsRequestHttpEndpointPtrOutputWithContext(context.Background())
+}
+
+func (o Ec2FleetInstanceMetadataOptionsRequestHttpEndpointOutput) ToEc2FleetInstanceMetadataOptionsRequestHttpEndpointPtrOutputWithContext(ctx context.Context) Ec2FleetInstanceMetadataOptionsRequestHttpEndpointPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Ec2FleetInstanceMetadataOptionsRequestHttpEndpoint) *Ec2FleetInstanceMetadataOptionsRequestHttpEndpoint {
+		return &v
+	}).(Ec2FleetInstanceMetadataOptionsRequestHttpEndpointPtrOutput)
+}
+
+func (o Ec2FleetInstanceMetadataOptionsRequestHttpEndpointOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o Ec2FleetInstanceMetadataOptionsRequestHttpEndpointOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e Ec2FleetInstanceMetadataOptionsRequestHttpEndpoint) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o Ec2FleetInstanceMetadataOptionsRequestHttpEndpointOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o Ec2FleetInstanceMetadataOptionsRequestHttpEndpointOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e Ec2FleetInstanceMetadataOptionsRequestHttpEndpoint) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type Ec2FleetInstanceMetadataOptionsRequestHttpEndpointPtrOutput struct{ *pulumi.OutputState }
+
+func (Ec2FleetInstanceMetadataOptionsRequestHttpEndpointPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Ec2FleetInstanceMetadataOptionsRequestHttpEndpoint)(nil)).Elem()
+}
+
+func (o Ec2FleetInstanceMetadataOptionsRequestHttpEndpointPtrOutput) ToEc2FleetInstanceMetadataOptionsRequestHttpEndpointPtrOutput() Ec2FleetInstanceMetadataOptionsRequestHttpEndpointPtrOutput {
+	return o
+}
+
+func (o Ec2FleetInstanceMetadataOptionsRequestHttpEndpointPtrOutput) ToEc2FleetInstanceMetadataOptionsRequestHttpEndpointPtrOutputWithContext(ctx context.Context) Ec2FleetInstanceMetadataOptionsRequestHttpEndpointPtrOutput {
+	return o
+}
+
+func (o Ec2FleetInstanceMetadataOptionsRequestHttpEndpointPtrOutput) Elem() Ec2FleetInstanceMetadataOptionsRequestHttpEndpointOutput {
+	return o.ApplyT(func(v *Ec2FleetInstanceMetadataOptionsRequestHttpEndpoint) Ec2FleetInstanceMetadataOptionsRequestHttpEndpoint {
+		if v != nil {
+			return *v
+		}
+		var ret Ec2FleetInstanceMetadataOptionsRequestHttpEndpoint
+		return ret
+	}).(Ec2FleetInstanceMetadataOptionsRequestHttpEndpointOutput)
+}
+
+func (o Ec2FleetInstanceMetadataOptionsRequestHttpEndpointPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o Ec2FleetInstanceMetadataOptionsRequestHttpEndpointPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *Ec2FleetInstanceMetadataOptionsRequestHttpEndpoint) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// Ec2FleetInstanceMetadataOptionsRequestHttpEndpointInput is an input type that accepts values of the Ec2FleetInstanceMetadataOptionsRequestHttpEndpoint enum
+// A concrete instance of `Ec2FleetInstanceMetadataOptionsRequestHttpEndpointInput` can be one of the following:
+//
+//	Ec2FleetInstanceMetadataOptionsRequestHttpEndpointDisabled
+//	Ec2FleetInstanceMetadataOptionsRequestHttpEndpointEnabled
+type Ec2FleetInstanceMetadataOptionsRequestHttpEndpointInput interface {
+	pulumi.Input
+
+	ToEc2FleetInstanceMetadataOptionsRequestHttpEndpointOutput() Ec2FleetInstanceMetadataOptionsRequestHttpEndpointOutput
+	ToEc2FleetInstanceMetadataOptionsRequestHttpEndpointOutputWithContext(context.Context) Ec2FleetInstanceMetadataOptionsRequestHttpEndpointOutput
+}
+
+var ec2FleetInstanceMetadataOptionsRequestHttpEndpointPtrType = reflect.TypeOf((**Ec2FleetInstanceMetadataOptionsRequestHttpEndpoint)(nil)).Elem()
+
+type Ec2FleetInstanceMetadataOptionsRequestHttpEndpointPtrInput interface {
+	pulumi.Input
+
+	ToEc2FleetInstanceMetadataOptionsRequestHttpEndpointPtrOutput() Ec2FleetInstanceMetadataOptionsRequestHttpEndpointPtrOutput
+	ToEc2FleetInstanceMetadataOptionsRequestHttpEndpointPtrOutputWithContext(context.Context) Ec2FleetInstanceMetadataOptionsRequestHttpEndpointPtrOutput
+}
+
+type ec2FleetInstanceMetadataOptionsRequestHttpEndpointPtr string
+
+func Ec2FleetInstanceMetadataOptionsRequestHttpEndpointPtr(v string) Ec2FleetInstanceMetadataOptionsRequestHttpEndpointPtrInput {
+	return (*ec2FleetInstanceMetadataOptionsRequestHttpEndpointPtr)(&v)
+}
+
+func (*ec2FleetInstanceMetadataOptionsRequestHttpEndpointPtr) ElementType() reflect.Type {
+	return ec2FleetInstanceMetadataOptionsRequestHttpEndpointPtrType
+}
+
+func (in *ec2FleetInstanceMetadataOptionsRequestHttpEndpointPtr) ToEc2FleetInstanceMetadataOptionsRequestHttpEndpointPtrOutput() Ec2FleetInstanceMetadataOptionsRequestHttpEndpointPtrOutput {
+	return pulumi.ToOutput(in).(Ec2FleetInstanceMetadataOptionsRequestHttpEndpointPtrOutput)
+}
+
+func (in *ec2FleetInstanceMetadataOptionsRequestHttpEndpointPtr) ToEc2FleetInstanceMetadataOptionsRequestHttpEndpointPtrOutputWithContext(ctx context.Context) Ec2FleetInstanceMetadataOptionsRequestHttpEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(Ec2FleetInstanceMetadataOptionsRequestHttpEndpointPtrOutput)
+}
+
+type Ec2FleetInstanceMetadataOptionsRequestHttpTokens string
+
+const (
+	Ec2FleetInstanceMetadataOptionsRequestHttpTokensOptional = Ec2FleetInstanceMetadataOptionsRequestHttpTokens("optional")
+	Ec2FleetInstanceMetadataOptionsRequestHttpTokensRequired = Ec2FleetInstanceMetadataOptionsRequestHttpTokens("required")
+)
+
+func (Ec2FleetInstanceMetadataOptionsRequestHttpTokens) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetInstanceMetadataOptionsRequestHttpTokens)(nil)).Elem()
+}
+
+func (e Ec2FleetInstanceMetadataOptionsRequestHttpTokens) ToEc2FleetInstanceMetadataOptionsRequestHttpTokensOutput() Ec2FleetInstanceMetadataOptionsRequestHttpTokensOutput {
+	return pulumi.ToOutput(e).(Ec2FleetInstanceMetadataOptionsRequestHttpTokensOutput)
+}
+
+func (e Ec2FleetInstanceMetadataOptionsRequestHttpTokens) ToEc2FleetInstanceMetadataOptionsRequestHttpTokensOutputWithContext(ctx context.Context) Ec2FleetInstanceMetadataOptionsRequestHttpTokensOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(Ec2FleetInstanceMetadataOptionsRequestHttpTokensOutput)
+}
+
+func (e Ec2FleetInstanceMetadataOptionsRequestHttpTokens) ToEc2FleetInstanceMetadataOptionsRequestHttpTokensPtrOutput() Ec2FleetInstanceMetadataOptionsRequestHttpTokensPtrOutput {
+	return e.ToEc2FleetInstanceMetadataOptionsRequestHttpTokensPtrOutputWithContext(context.Background())
+}
+
+func (e Ec2FleetInstanceMetadataOptionsRequestHttpTokens) ToEc2FleetInstanceMetadataOptionsRequestHttpTokensPtrOutputWithContext(ctx context.Context) Ec2FleetInstanceMetadataOptionsRequestHttpTokensPtrOutput {
+	return Ec2FleetInstanceMetadataOptionsRequestHttpTokens(e).ToEc2FleetInstanceMetadataOptionsRequestHttpTokensOutputWithContext(ctx).ToEc2FleetInstanceMetadataOptionsRequestHttpTokensPtrOutputWithContext(ctx)
+}
+
+func (e Ec2FleetInstanceMetadataOptionsRequestHttpTokens) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e Ec2FleetInstanceMetadataOptionsRequestHttpTokens) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e Ec2FleetInstanceMetadataOptionsRequestHttpTokens) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e Ec2FleetInstanceMetadataOptionsRequestHttpTokens) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type Ec2FleetInstanceMetadataOptionsRequestHttpTokensOutput struct{ *pulumi.OutputState }
+
+func (Ec2FleetInstanceMetadataOptionsRequestHttpTokensOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetInstanceMetadataOptionsRequestHttpTokens)(nil)).Elem()
+}
+
+func (o Ec2FleetInstanceMetadataOptionsRequestHttpTokensOutput) ToEc2FleetInstanceMetadataOptionsRequestHttpTokensOutput() Ec2FleetInstanceMetadataOptionsRequestHttpTokensOutput {
+	return o
+}
+
+func (o Ec2FleetInstanceMetadataOptionsRequestHttpTokensOutput) ToEc2FleetInstanceMetadataOptionsRequestHttpTokensOutputWithContext(ctx context.Context) Ec2FleetInstanceMetadataOptionsRequestHttpTokensOutput {
+	return o
+}
+
+func (o Ec2FleetInstanceMetadataOptionsRequestHttpTokensOutput) ToEc2FleetInstanceMetadataOptionsRequestHttpTokensPtrOutput() Ec2FleetInstanceMetadataOptionsRequestHttpTokensPtrOutput {
+	return o.ToEc2FleetInstanceMetadataOptionsRequestHttpTokensPtrOutputWithContext(context.Background())
+}
+
+func (o Ec2FleetInstanceMetadataOptionsRequestHttpTokensOutput) ToEc2FleetInstanceMetadataOptionsRequestHttpTokensPtrOutputWithContext(ctx context.Context) Ec2FleetInstanceMetadataOptionsRequestHttpTokensPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Ec2FleetInstanceMetadataOptionsRequestHttpTokens) *Ec2FleetInstanceMetadataOptionsRequestHttpTokens {
+		return &v
+	}).(Ec2FleetInstanceMetadataOptionsRequestHttpTokensPtrOutput)
+}
+
+func (o Ec2FleetInstanceMetadataOptionsRequestHttpTokensOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o Ec2FleetInstanceMetadataOptionsRequestHttpTokensOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e Ec2FleetInstanceMetadataOptionsRequestHttpTokens) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o Ec2FleetInstanceMetadataOptionsRequestHttpTokensOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o Ec2FleetInstanceMetadataOptionsRequestHttpTokensOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e Ec2FleetInstanceMetadataOptionsRequestHttpTokens) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type Ec2FleetInstanceMetadataOptionsRequestHttpTokensPtrOutput struct{ *pulumi.OutputState }
+
+func (Ec2FleetInstanceMetadataOptionsRequestHttpTokensPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Ec2FleetInstanceMetadataOptionsRequestHttpTokens)(nil)).Elem()
+}
+
+func (o Ec2FleetInstanceMetadataOptionsRequestHttpTokensPtrOutput) ToEc2FleetInstanceMetadataOptionsRequestHttpTokensPtrOutput() Ec2FleetInstanceMetadataOptionsRequestHttpTokensPtrOutput {
+	return o
+}
+
+func (o Ec2FleetInstanceMetadataOptionsRequestHttpTokensPtrOutput) ToEc2FleetInstanceMetadataOptionsRequestHttpTokensPtrOutputWithContext(ctx context.Context) Ec2FleetInstanceMetadataOptionsRequestHttpTokensPtrOutput {
+	return o
+}
+
+func (o Ec2FleetInstanceMetadataOptionsRequestHttpTokensPtrOutput) Elem() Ec2FleetInstanceMetadataOptionsRequestHttpTokensOutput {
+	return o.ApplyT(func(v *Ec2FleetInstanceMetadataOptionsRequestHttpTokens) Ec2FleetInstanceMetadataOptionsRequestHttpTokens {
+		if v != nil {
+			return *v
+		}
+		var ret Ec2FleetInstanceMetadataOptionsRequestHttpTokens
+		return ret
+	}).(Ec2FleetInstanceMetadataOptionsRequestHttpTokensOutput)
+}
+
+func (o Ec2FleetInstanceMetadataOptionsRequestHttpTokensPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o Ec2FleetInstanceMetadataOptionsRequestHttpTokensPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *Ec2FleetInstanceMetadataOptionsRequestHttpTokens) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// Ec2FleetInstanceMetadataOptionsRequestHttpTokensInput is an input type that accepts values of the Ec2FleetInstanceMetadataOptionsRequestHttpTokens enum
+// A concrete instance of `Ec2FleetInstanceMetadataOptionsRequestHttpTokensInput` can be one of the following:
+//
+//	Ec2FleetInstanceMetadataOptionsRequestHttpTokensOptional
+//	Ec2FleetInstanceMetadataOptionsRequestHttpTokensRequired
+type Ec2FleetInstanceMetadataOptionsRequestHttpTokensInput interface {
+	pulumi.Input
+
+	ToEc2FleetInstanceMetadataOptionsRequestHttpTokensOutput() Ec2FleetInstanceMetadataOptionsRequestHttpTokensOutput
+	ToEc2FleetInstanceMetadataOptionsRequestHttpTokensOutputWithContext(context.Context) Ec2FleetInstanceMetadataOptionsRequestHttpTokensOutput
+}
+
+var ec2FleetInstanceMetadataOptionsRequestHttpTokensPtrType = reflect.TypeOf((**Ec2FleetInstanceMetadataOptionsRequestHttpTokens)(nil)).Elem()
+
+type Ec2FleetInstanceMetadataOptionsRequestHttpTokensPtrInput interface {
+	pulumi.Input
+
+	ToEc2FleetInstanceMetadataOptionsRequestHttpTokensPtrOutput() Ec2FleetInstanceMetadataOptionsRequestHttpTokensPtrOutput
+	ToEc2FleetInstanceMetadataOptionsRequestHttpTokensPtrOutputWithContext(context.Context) Ec2FleetInstanceMetadataOptionsRequestHttpTokensPtrOutput
+}
+
+type ec2FleetInstanceMetadataOptionsRequestHttpTokensPtr string
+
+func Ec2FleetInstanceMetadataOptionsRequestHttpTokensPtr(v string) Ec2FleetInstanceMetadataOptionsRequestHttpTokensPtrInput {
+	return (*ec2FleetInstanceMetadataOptionsRequestHttpTokensPtr)(&v)
+}
+
+func (*ec2FleetInstanceMetadataOptionsRequestHttpTokensPtr) ElementType() reflect.Type {
+	return ec2FleetInstanceMetadataOptionsRequestHttpTokensPtrType
+}
+
+func (in *ec2FleetInstanceMetadataOptionsRequestHttpTokensPtr) ToEc2FleetInstanceMetadataOptionsRequestHttpTokensPtrOutput() Ec2FleetInstanceMetadataOptionsRequestHttpTokensPtrOutput {
+	return pulumi.ToOutput(in).(Ec2FleetInstanceMetadataOptionsRequestHttpTokensPtrOutput)
+}
+
+func (in *ec2FleetInstanceMetadataOptionsRequestHttpTokensPtr) ToEc2FleetInstanceMetadataOptionsRequestHttpTokensPtrOutputWithContext(ctx context.Context) Ec2FleetInstanceMetadataOptionsRequestHttpTokensPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(Ec2FleetInstanceMetadataOptionsRequestHttpTokensPtrOutput)
+}
+
 type Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem string
 
 const (
@@ -19685,6 +20015,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetEbsBlockDeviceVolumeTypePtrInput)(nil)).Elem(), Ec2FleetEbsBlockDeviceVolumeType("gp2"))
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetExcessCapacityTerminationPolicyInput)(nil)).Elem(), Ec2FleetExcessCapacityTerminationPolicy("termination"))
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetExcessCapacityTerminationPolicyPtrInput)(nil)).Elem(), Ec2FleetExcessCapacityTerminationPolicy("termination"))
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetInstanceMetadataOptionsRequestHttpEndpointInput)(nil)).Elem(), Ec2FleetInstanceMetadataOptionsRequestHttpEndpoint("disabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetInstanceMetadataOptionsRequestHttpEndpointPtrInput)(nil)).Elem(), Ec2FleetInstanceMetadataOptionsRequestHttpEndpoint("disabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetInstanceMetadataOptionsRequestHttpTokensInput)(nil)).Elem(), Ec2FleetInstanceMetadataOptionsRequestHttpTokens("optional"))
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetInstanceMetadataOptionsRequestHttpTokensPtrInput)(nil)).Elem(), Ec2FleetInstanceMetadataOptionsRequestHttpTokens("optional"))
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItemInput)(nil)).Elem(), Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem("amazon-web-services"))
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrInput)(nil)).Elem(), Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem("amazon-web-services"))
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayInput)(nil)).Elem(), Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArray{})
@@ -19911,6 +20245,10 @@ func init() {
 	pulumi.RegisterOutputType(Ec2FleetEbsBlockDeviceVolumeTypePtrOutput{})
 	pulumi.RegisterOutputType(Ec2FleetExcessCapacityTerminationPolicyOutput{})
 	pulumi.RegisterOutputType(Ec2FleetExcessCapacityTerminationPolicyPtrOutput{})
+	pulumi.RegisterOutputType(Ec2FleetInstanceMetadataOptionsRequestHttpEndpointOutput{})
+	pulumi.RegisterOutputType(Ec2FleetInstanceMetadataOptionsRequestHttpEndpointPtrOutput{})
+	pulumi.RegisterOutputType(Ec2FleetInstanceMetadataOptionsRequestHttpTokensOutput{})
+	pulumi.RegisterOutputType(Ec2FleetInstanceMetadataOptionsRequestHttpTokensPtrOutput{})
 	pulumi.RegisterOutputType(Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput{})
 	pulumi.RegisterOutputType(Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput{})
 	pulumi.RegisterOutputType(Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput{})

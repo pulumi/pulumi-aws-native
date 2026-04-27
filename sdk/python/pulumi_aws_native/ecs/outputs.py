@@ -19,6 +19,7 @@ from ._enums import *
 __all__ = [
     'CapacityProviderAcceleratorCountRequest',
     'CapacityProviderAcceleratorTotalMemoryMiBRequest',
+    'CapacityProviderAutoRepairConfiguration',
     'CapacityProviderAutoScalingGroupProvider',
     'CapacityProviderBaselineEbsBandwidthMbpsRequest',
     'CapacityProviderCapacityReservationRequest',
@@ -213,6 +214,36 @@ class CapacityProviderAcceleratorTotalMemoryMiBRequest(dict):
         The minimum total accelerator memory in MiB. Instance types with less accelerator memory are excluded from selection.
         """
         return pulumi.get(self, "min")
+
+
+@pulumi.output_type
+class CapacityProviderAutoRepairConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionsStatus":
+            suggest = "actions_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CapacityProviderAutoRepairConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CapacityProviderAutoRepairConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CapacityProviderAutoRepairConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 actions_status: Optional['CapacityProviderAutoRepairConfigurationActionsStatus'] = None):
+        if actions_status is not None:
+            pulumi.set(__self__, "actions_status", actions_status)
+
+    @_builtins.property
+    @pulumi.getter(name="actionsStatus")
+    def actions_status(self) -> Optional['CapacityProviderAutoRepairConfigurationActionsStatus']:
+        return pulumi.get(self, "actions_status")
 
 
 @pulumi.output_type
@@ -990,6 +1021,8 @@ class CapacityProviderManagedInstancesProvider(dict):
             suggest = "infrastructure_role_arn"
         elif key == "instanceLaunchTemplate":
             suggest = "instance_launch_template"
+        elif key == "autoRepairConfiguration":
+            suggest = "auto_repair_configuration"
         elif key == "infrastructureOptimization":
             suggest = "infrastructure_optimization"
         elif key == "propagateTags":
@@ -1009,6 +1042,7 @@ class CapacityProviderManagedInstancesProvider(dict):
     def __init__(__self__, *,
                  infrastructure_role_arn: _builtins.str,
                  instance_launch_template: 'outputs.CapacityProviderInstanceLaunchTemplate',
+                 auto_repair_configuration: Optional['outputs.CapacityProviderAutoRepairConfiguration'] = None,
                  infrastructure_optimization: Optional['outputs.CapacityProviderManagedInstancesProviderInfrastructureOptimizationProperties'] = None,
                  propagate_tags: Optional['CapacityProviderManagedInstancesProviderPropagateTags'] = None):
         """
@@ -1023,6 +1057,8 @@ class CapacityProviderManagedInstancesProvider(dict):
         """
         pulumi.set(__self__, "infrastructure_role_arn", infrastructure_role_arn)
         pulumi.set(__self__, "instance_launch_template", instance_launch_template)
+        if auto_repair_configuration is not None:
+            pulumi.set(__self__, "auto_repair_configuration", auto_repair_configuration)
         if infrastructure_optimization is not None:
             pulumi.set(__self__, "infrastructure_optimization", infrastructure_optimization)
         if propagate_tags is not None:
@@ -1047,6 +1083,11 @@ class CapacityProviderManagedInstancesProvider(dict):
         For more information, see [Store instance launch parameters in Amazon EC2 launch templates](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html) in the *Amazon EC2 User Guide* .
         """
         return pulumi.get(self, "instance_launch_template")
+
+    @_builtins.property
+    @pulumi.getter(name="autoRepairConfiguration")
+    def auto_repair_configuration(self) -> Optional['outputs.CapacityProviderAutoRepairConfiguration']:
+        return pulumi.get(self, "auto_repair_configuration")
 
     @_builtins.property
     @pulumi.getter(name="infrastructureOptimization")

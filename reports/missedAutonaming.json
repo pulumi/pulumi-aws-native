@@ -10040,9 +10040,13 @@
         "type": "string",
         "description": "The ID of the environment for the connection. Required when creating a connection through AWS. Mutually exclusive with ActivationKey."
       },
+      "remoteAccount": {
+        "$ref": "#/types/aws-native:interconnect:RemoteAccountProperties",
+        "description": "The remote account identifier for the connection. Required when creating a connection through AWS. Replaces RemoteOwnerAccount."
+      },
       "remoteOwnerAccount": {
         "type": "string",
-        "description": "The account ID of the remote owner. Required when creating a connection through AWS."
+        "description": "Deprecated. Use RemoteAccount instead. The account ID of the remote owner. Required when creating a connection through AWS."
       },
       "tags": {
         "type": "array",

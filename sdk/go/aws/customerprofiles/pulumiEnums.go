@@ -1123,6 +1123,338 @@ func (in *domainJobScheduleDayOfTheWeekPtr) ToDomainJobScheduleDayOfTheWeekPtrOu
 	return pulumi.ToOutputWithContext(ctx, in).(DomainJobScheduleDayOfTheWeekPtrOutput)
 }
 
+// The content type of the field.
+type DomainObjectTypeFieldContentType string
+
+const (
+	DomainObjectTypeFieldContentTypeString = DomainObjectTypeFieldContentType("STRING")
+	DomainObjectTypeFieldContentTypeNumber = DomainObjectTypeFieldContentType("NUMBER")
+)
+
+func (DomainObjectTypeFieldContentType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainObjectTypeFieldContentType)(nil)).Elem()
+}
+
+func (e DomainObjectTypeFieldContentType) ToDomainObjectTypeFieldContentTypeOutput() DomainObjectTypeFieldContentTypeOutput {
+	return pulumi.ToOutput(e).(DomainObjectTypeFieldContentTypeOutput)
+}
+
+func (e DomainObjectTypeFieldContentType) ToDomainObjectTypeFieldContentTypeOutputWithContext(ctx context.Context) DomainObjectTypeFieldContentTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DomainObjectTypeFieldContentTypeOutput)
+}
+
+func (e DomainObjectTypeFieldContentType) ToDomainObjectTypeFieldContentTypePtrOutput() DomainObjectTypeFieldContentTypePtrOutput {
+	return e.ToDomainObjectTypeFieldContentTypePtrOutputWithContext(context.Background())
+}
+
+func (e DomainObjectTypeFieldContentType) ToDomainObjectTypeFieldContentTypePtrOutputWithContext(ctx context.Context) DomainObjectTypeFieldContentTypePtrOutput {
+	return DomainObjectTypeFieldContentType(e).ToDomainObjectTypeFieldContentTypeOutputWithContext(ctx).ToDomainObjectTypeFieldContentTypePtrOutputWithContext(ctx)
+}
+
+func (e DomainObjectTypeFieldContentType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainObjectTypeFieldContentType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainObjectTypeFieldContentType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DomainObjectTypeFieldContentType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DomainObjectTypeFieldContentTypeOutput struct{ *pulumi.OutputState }
+
+func (DomainObjectTypeFieldContentTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainObjectTypeFieldContentType)(nil)).Elem()
+}
+
+func (o DomainObjectTypeFieldContentTypeOutput) ToDomainObjectTypeFieldContentTypeOutput() DomainObjectTypeFieldContentTypeOutput {
+	return o
+}
+
+func (o DomainObjectTypeFieldContentTypeOutput) ToDomainObjectTypeFieldContentTypeOutputWithContext(ctx context.Context) DomainObjectTypeFieldContentTypeOutput {
+	return o
+}
+
+func (o DomainObjectTypeFieldContentTypeOutput) ToDomainObjectTypeFieldContentTypePtrOutput() DomainObjectTypeFieldContentTypePtrOutput {
+	return o.ToDomainObjectTypeFieldContentTypePtrOutputWithContext(context.Background())
+}
+
+func (o DomainObjectTypeFieldContentTypeOutput) ToDomainObjectTypeFieldContentTypePtrOutputWithContext(ctx context.Context) DomainObjectTypeFieldContentTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainObjectTypeFieldContentType) *DomainObjectTypeFieldContentType {
+		return &v
+	}).(DomainObjectTypeFieldContentTypePtrOutput)
+}
+
+func (o DomainObjectTypeFieldContentTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DomainObjectTypeFieldContentTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainObjectTypeFieldContentType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DomainObjectTypeFieldContentTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainObjectTypeFieldContentTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainObjectTypeFieldContentType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainObjectTypeFieldContentTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DomainObjectTypeFieldContentTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainObjectTypeFieldContentType)(nil)).Elem()
+}
+
+func (o DomainObjectTypeFieldContentTypePtrOutput) ToDomainObjectTypeFieldContentTypePtrOutput() DomainObjectTypeFieldContentTypePtrOutput {
+	return o
+}
+
+func (o DomainObjectTypeFieldContentTypePtrOutput) ToDomainObjectTypeFieldContentTypePtrOutputWithContext(ctx context.Context) DomainObjectTypeFieldContentTypePtrOutput {
+	return o
+}
+
+func (o DomainObjectTypeFieldContentTypePtrOutput) Elem() DomainObjectTypeFieldContentTypeOutput {
+	return o.ApplyT(func(v *DomainObjectTypeFieldContentType) DomainObjectTypeFieldContentType {
+		if v != nil {
+			return *v
+		}
+		var ret DomainObjectTypeFieldContentType
+		return ret
+	}).(DomainObjectTypeFieldContentTypeOutput)
+}
+
+func (o DomainObjectTypeFieldContentTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainObjectTypeFieldContentTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DomainObjectTypeFieldContentType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DomainObjectTypeFieldContentTypeInput is an input type that accepts values of the DomainObjectTypeFieldContentType enum
+// A concrete instance of `DomainObjectTypeFieldContentTypeInput` can be one of the following:
+//
+//	DomainObjectTypeFieldContentTypeString
+//	DomainObjectTypeFieldContentTypeNumber
+type DomainObjectTypeFieldContentTypeInput interface {
+	pulumi.Input
+
+	ToDomainObjectTypeFieldContentTypeOutput() DomainObjectTypeFieldContentTypeOutput
+	ToDomainObjectTypeFieldContentTypeOutputWithContext(context.Context) DomainObjectTypeFieldContentTypeOutput
+}
+
+var domainObjectTypeFieldContentTypePtrType = reflect.TypeOf((**DomainObjectTypeFieldContentType)(nil)).Elem()
+
+type DomainObjectTypeFieldContentTypePtrInput interface {
+	pulumi.Input
+
+	ToDomainObjectTypeFieldContentTypePtrOutput() DomainObjectTypeFieldContentTypePtrOutput
+	ToDomainObjectTypeFieldContentTypePtrOutputWithContext(context.Context) DomainObjectTypeFieldContentTypePtrOutput
+}
+
+type domainObjectTypeFieldContentTypePtr string
+
+func DomainObjectTypeFieldContentTypePtr(v string) DomainObjectTypeFieldContentTypePtrInput {
+	return (*domainObjectTypeFieldContentTypePtr)(&v)
+}
+
+func (*domainObjectTypeFieldContentTypePtr) ElementType() reflect.Type {
+	return domainObjectTypeFieldContentTypePtrType
+}
+
+func (in *domainObjectTypeFieldContentTypePtr) ToDomainObjectTypeFieldContentTypePtrOutput() DomainObjectTypeFieldContentTypePtrOutput {
+	return pulumi.ToOutput(in).(DomainObjectTypeFieldContentTypePtrOutput)
+}
+
+func (in *domainObjectTypeFieldContentTypePtr) ToDomainObjectTypeFieldContentTypePtrOutputWithContext(ctx context.Context) DomainObjectTypeFieldContentTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DomainObjectTypeFieldContentTypePtrOutput)
+}
+
+// The feature type of the field.
+type DomainObjectTypeFieldFeatureType string
+
+const (
+	DomainObjectTypeFieldFeatureTypeTextual     = DomainObjectTypeFieldFeatureType("TEXTUAL")
+	DomainObjectTypeFieldFeatureTypeCategorical = DomainObjectTypeFieldFeatureType("CATEGORICAL")
+)
+
+func (DomainObjectTypeFieldFeatureType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainObjectTypeFieldFeatureType)(nil)).Elem()
+}
+
+func (e DomainObjectTypeFieldFeatureType) ToDomainObjectTypeFieldFeatureTypeOutput() DomainObjectTypeFieldFeatureTypeOutput {
+	return pulumi.ToOutput(e).(DomainObjectTypeFieldFeatureTypeOutput)
+}
+
+func (e DomainObjectTypeFieldFeatureType) ToDomainObjectTypeFieldFeatureTypeOutputWithContext(ctx context.Context) DomainObjectTypeFieldFeatureTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DomainObjectTypeFieldFeatureTypeOutput)
+}
+
+func (e DomainObjectTypeFieldFeatureType) ToDomainObjectTypeFieldFeatureTypePtrOutput() DomainObjectTypeFieldFeatureTypePtrOutput {
+	return e.ToDomainObjectTypeFieldFeatureTypePtrOutputWithContext(context.Background())
+}
+
+func (e DomainObjectTypeFieldFeatureType) ToDomainObjectTypeFieldFeatureTypePtrOutputWithContext(ctx context.Context) DomainObjectTypeFieldFeatureTypePtrOutput {
+	return DomainObjectTypeFieldFeatureType(e).ToDomainObjectTypeFieldFeatureTypeOutputWithContext(ctx).ToDomainObjectTypeFieldFeatureTypePtrOutputWithContext(ctx)
+}
+
+func (e DomainObjectTypeFieldFeatureType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainObjectTypeFieldFeatureType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainObjectTypeFieldFeatureType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DomainObjectTypeFieldFeatureType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DomainObjectTypeFieldFeatureTypeOutput struct{ *pulumi.OutputState }
+
+func (DomainObjectTypeFieldFeatureTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainObjectTypeFieldFeatureType)(nil)).Elem()
+}
+
+func (o DomainObjectTypeFieldFeatureTypeOutput) ToDomainObjectTypeFieldFeatureTypeOutput() DomainObjectTypeFieldFeatureTypeOutput {
+	return o
+}
+
+func (o DomainObjectTypeFieldFeatureTypeOutput) ToDomainObjectTypeFieldFeatureTypeOutputWithContext(ctx context.Context) DomainObjectTypeFieldFeatureTypeOutput {
+	return o
+}
+
+func (o DomainObjectTypeFieldFeatureTypeOutput) ToDomainObjectTypeFieldFeatureTypePtrOutput() DomainObjectTypeFieldFeatureTypePtrOutput {
+	return o.ToDomainObjectTypeFieldFeatureTypePtrOutputWithContext(context.Background())
+}
+
+func (o DomainObjectTypeFieldFeatureTypeOutput) ToDomainObjectTypeFieldFeatureTypePtrOutputWithContext(ctx context.Context) DomainObjectTypeFieldFeatureTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainObjectTypeFieldFeatureType) *DomainObjectTypeFieldFeatureType {
+		return &v
+	}).(DomainObjectTypeFieldFeatureTypePtrOutput)
+}
+
+func (o DomainObjectTypeFieldFeatureTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DomainObjectTypeFieldFeatureTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainObjectTypeFieldFeatureType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DomainObjectTypeFieldFeatureTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainObjectTypeFieldFeatureTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainObjectTypeFieldFeatureType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainObjectTypeFieldFeatureTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DomainObjectTypeFieldFeatureTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainObjectTypeFieldFeatureType)(nil)).Elem()
+}
+
+func (o DomainObjectTypeFieldFeatureTypePtrOutput) ToDomainObjectTypeFieldFeatureTypePtrOutput() DomainObjectTypeFieldFeatureTypePtrOutput {
+	return o
+}
+
+func (o DomainObjectTypeFieldFeatureTypePtrOutput) ToDomainObjectTypeFieldFeatureTypePtrOutputWithContext(ctx context.Context) DomainObjectTypeFieldFeatureTypePtrOutput {
+	return o
+}
+
+func (o DomainObjectTypeFieldFeatureTypePtrOutput) Elem() DomainObjectTypeFieldFeatureTypeOutput {
+	return o.ApplyT(func(v *DomainObjectTypeFieldFeatureType) DomainObjectTypeFieldFeatureType {
+		if v != nil {
+			return *v
+		}
+		var ret DomainObjectTypeFieldFeatureType
+		return ret
+	}).(DomainObjectTypeFieldFeatureTypeOutput)
+}
+
+func (o DomainObjectTypeFieldFeatureTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainObjectTypeFieldFeatureTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DomainObjectTypeFieldFeatureType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DomainObjectTypeFieldFeatureTypeInput is an input type that accepts values of the DomainObjectTypeFieldFeatureType enum
+// A concrete instance of `DomainObjectTypeFieldFeatureTypeInput` can be one of the following:
+//
+//	DomainObjectTypeFieldFeatureTypeTextual
+//	DomainObjectTypeFieldFeatureTypeCategorical
+type DomainObjectTypeFieldFeatureTypeInput interface {
+	pulumi.Input
+
+	ToDomainObjectTypeFieldFeatureTypeOutput() DomainObjectTypeFieldFeatureTypeOutput
+	ToDomainObjectTypeFieldFeatureTypeOutputWithContext(context.Context) DomainObjectTypeFieldFeatureTypeOutput
+}
+
+var domainObjectTypeFieldFeatureTypePtrType = reflect.TypeOf((**DomainObjectTypeFieldFeatureType)(nil)).Elem()
+
+type DomainObjectTypeFieldFeatureTypePtrInput interface {
+	pulumi.Input
+
+	ToDomainObjectTypeFieldFeatureTypePtrOutput() DomainObjectTypeFieldFeatureTypePtrOutput
+	ToDomainObjectTypeFieldFeatureTypePtrOutputWithContext(context.Context) DomainObjectTypeFieldFeatureTypePtrOutput
+}
+
+type domainObjectTypeFieldFeatureTypePtr string
+
+func DomainObjectTypeFieldFeatureTypePtr(v string) DomainObjectTypeFieldFeatureTypePtrInput {
+	return (*domainObjectTypeFieldFeatureTypePtr)(&v)
+}
+
+func (*domainObjectTypeFieldFeatureTypePtr) ElementType() reflect.Type {
+	return domainObjectTypeFieldFeatureTypePtrType
+}
+
+func (in *domainObjectTypeFieldFeatureTypePtr) ToDomainObjectTypeFieldFeatureTypePtrOutput() DomainObjectTypeFieldFeatureTypePtrOutput {
+	return pulumi.ToOutput(in).(DomainObjectTypeFieldFeatureTypePtrOutput)
+}
+
+func (in *domainObjectTypeFieldFeatureTypePtr) ToDomainObjectTypeFieldFeatureTypePtrOutputWithContext(ctx context.Context) DomainObjectTypeFieldFeatureTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DomainObjectTypeFieldFeatureTypePtrOutput)
+}
+
 // The status of rule-based matching rule.
 type DomainRuleBasedMatchingStatus string
 
@@ -6388,6 +6720,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainConflictResolutionConflictResolvingModelPtrInput)(nil)).Elem(), DomainConflictResolutionConflictResolvingModel("RECENCY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainJobScheduleDayOfTheWeekInput)(nil)).Elem(), DomainJobScheduleDayOfTheWeek("SUNDAY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainJobScheduleDayOfTheWeekPtrInput)(nil)).Elem(), DomainJobScheduleDayOfTheWeek("SUNDAY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainObjectTypeFieldContentTypeInput)(nil)).Elem(), DomainObjectTypeFieldContentType("STRING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainObjectTypeFieldContentTypePtrInput)(nil)).Elem(), DomainObjectTypeFieldContentType("STRING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainObjectTypeFieldFeatureTypeInput)(nil)).Elem(), DomainObjectTypeFieldFeatureType("TEXTUAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainObjectTypeFieldFeatureTypePtrInput)(nil)).Elem(), DomainObjectTypeFieldFeatureType("TEXTUAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainRuleBasedMatchingStatusInput)(nil)).Elem(), DomainRuleBasedMatchingStatus("PENDING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainRuleBasedMatchingStatusPtrInput)(nil)).Elem(), DomainRuleBasedMatchingStatus("PENDING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EventTriggerLogicalOperatorInput)(nil)).Elem(), EventTriggerLogicalOperator("ANY"))
@@ -6458,6 +6794,10 @@ func init() {
 	pulumi.RegisterOutputType(DomainConflictResolutionConflictResolvingModelPtrOutput{})
 	pulumi.RegisterOutputType(DomainJobScheduleDayOfTheWeekOutput{})
 	pulumi.RegisterOutputType(DomainJobScheduleDayOfTheWeekPtrOutput{})
+	pulumi.RegisterOutputType(DomainObjectTypeFieldContentTypeOutput{})
+	pulumi.RegisterOutputType(DomainObjectTypeFieldContentTypePtrOutput{})
+	pulumi.RegisterOutputType(DomainObjectTypeFieldFeatureTypeOutput{})
+	pulumi.RegisterOutputType(DomainObjectTypeFieldFeatureTypePtrOutput{})
 	pulumi.RegisterOutputType(DomainRuleBasedMatchingStatusOutput{})
 	pulumi.RegisterOutputType(DomainRuleBasedMatchingStatusPtrOutput{})
 	pulumi.RegisterOutputType(EventStreamStateEnumOutput{})

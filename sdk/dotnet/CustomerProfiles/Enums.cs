@@ -239,6 +239,68 @@ namespace Pulumi.AwsNative.CustomerProfiles
     }
 
     /// <summary>
+    /// The content type of the field.
+    /// </summary>
+    [EnumType]
+    public readonly struct DomainObjectTypeFieldContentType : IEquatable<DomainObjectTypeFieldContentType>
+    {
+        private readonly string _value;
+
+        private DomainObjectTypeFieldContentType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DomainObjectTypeFieldContentType String { get; } = new DomainObjectTypeFieldContentType("STRING");
+        public static DomainObjectTypeFieldContentType Number { get; } = new DomainObjectTypeFieldContentType("NUMBER");
+
+        public static bool operator ==(DomainObjectTypeFieldContentType left, DomainObjectTypeFieldContentType right) => left.Equals(right);
+        public static bool operator !=(DomainObjectTypeFieldContentType left, DomainObjectTypeFieldContentType right) => !left.Equals(right);
+
+        public static explicit operator string(DomainObjectTypeFieldContentType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DomainObjectTypeFieldContentType other && Equals(other);
+        public bool Equals(DomainObjectTypeFieldContentType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The feature type of the field.
+    /// </summary>
+    [EnumType]
+    public readonly struct DomainObjectTypeFieldFeatureType : IEquatable<DomainObjectTypeFieldFeatureType>
+    {
+        private readonly string _value;
+
+        private DomainObjectTypeFieldFeatureType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DomainObjectTypeFieldFeatureType Textual { get; } = new DomainObjectTypeFieldFeatureType("TEXTUAL");
+        public static DomainObjectTypeFieldFeatureType Categorical { get; } = new DomainObjectTypeFieldFeatureType("CATEGORICAL");
+
+        public static bool operator ==(DomainObjectTypeFieldFeatureType left, DomainObjectTypeFieldFeatureType right) => left.Equals(right);
+        public static bool operator !=(DomainObjectTypeFieldFeatureType left, DomainObjectTypeFieldFeatureType right) => !left.Equals(right);
+
+        public static explicit operator string(DomainObjectTypeFieldFeatureType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DomainObjectTypeFieldFeatureType other && Equals(other);
+        public bool Equals(DomainObjectTypeFieldFeatureType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The status of rule-based matching rule.
     /// </summary>
     [EnumType]
