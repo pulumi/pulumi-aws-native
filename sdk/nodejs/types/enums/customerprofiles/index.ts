@@ -86,6 +86,26 @@ export const DomainJobScheduleDayOfTheWeek = {
  */
 export type DomainJobScheduleDayOfTheWeek = (typeof DomainJobScheduleDayOfTheWeek)[keyof typeof DomainJobScheduleDayOfTheWeek];
 
+export const DomainObjectTypeFieldContentType = {
+    String: "STRING",
+    Number: "NUMBER",
+} as const;
+
+/**
+ * The content type of the field.
+ */
+export type DomainObjectTypeFieldContentType = (typeof DomainObjectTypeFieldContentType)[keyof typeof DomainObjectTypeFieldContentType];
+
+export const DomainObjectTypeFieldFeatureType = {
+    Textual: "TEXTUAL",
+    Categorical: "CATEGORICAL",
+} as const;
+
+/**
+ * The feature type of the field.
+ */
+export type DomainObjectTypeFieldFeatureType = (typeof DomainObjectTypeFieldFeatureType)[keyof typeof DomainObjectTypeFieldFeatureType];
+
 export const DomainRuleBasedMatchingStatus = {
     Pending: "PENDING",
     InProgress: "IN_PROGRESS",

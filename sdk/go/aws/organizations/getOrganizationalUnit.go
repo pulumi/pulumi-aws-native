@@ -35,6 +35,8 @@ type LookupOrganizationalUnitResult struct {
 	Id *string `pulumi:"id"`
 	// The friendly name of this OU.
 	Name *string `pulumi:"name"`
+	// The path in the organization where this OU exists.
+	Path *string `pulumi:"path"`
 	// A list of tags that you want to attach to the newly created OU.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -84,6 +86,11 @@ func (o LookupOrganizationalUnitResultOutput) Id() pulumi.StringPtrOutput {
 // The friendly name of this OU.
 func (o LookupOrganizationalUnitResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupOrganizationalUnitResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The path in the organization where this OU exists.
+func (o LookupOrganizationalUnitResultOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupOrganizationalUnitResult) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
 // A list of tags that you want to attach to the newly created OU.

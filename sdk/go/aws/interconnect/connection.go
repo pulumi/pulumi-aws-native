@@ -37,7 +37,9 @@ type Connection struct {
 	OwnerAccount pulumi.StringOutput `pulumi:"ownerAccount"`
 	// The partner cloud service provider.
 	Provider ConnectionProviderOutput `pulumi:"provider"`
-	// The account ID of the remote owner. Required when creating a connection through AWS.
+	// The remote account identifier for the connection. Required when creating a connection through AWS. Replaces RemoteOwnerAccount.
+	RemoteAccount RemoteAccountPropertiesPtrOutput `pulumi:"remoteAccount"`
+	// Deprecated. Use RemoteAccount instead. The account ID of the remote owner. Required when creating a connection through AWS.
 	RemoteOwnerAccount pulumi.StringPtrOutput `pulumi:"remoteOwnerAccount"`
 	// The shared identifier for the connection pairing.
 	SharedId pulumi.StringOutput `pulumi:"sharedId"`
@@ -63,6 +65,7 @@ func NewConnection(ctx *pulumi.Context,
 		"activationKey",
 		"attachPoint",
 		"environmentId",
+		"remoteAccount",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -108,7 +111,9 @@ type connectionArgs struct {
 	Description *string `pulumi:"description"`
 	// The ID of the environment for the connection. Required when creating a connection through AWS. Mutually exclusive with ActivationKey.
 	EnvironmentId *string `pulumi:"environmentId"`
-	// The account ID of the remote owner. Required when creating a connection through AWS.
+	// The remote account identifier for the connection. Required when creating a connection through AWS. Replaces RemoteOwnerAccount.
+	RemoteAccount *RemoteAccountProperties `pulumi:"remoteAccount"`
+	// Deprecated. Use RemoteAccount instead. The account ID of the remote owner. Required when creating a connection through AWS.
 	RemoteOwnerAccount *string `pulumi:"remoteOwnerAccount"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -126,7 +131,9 @@ type ConnectionArgs struct {
 	Description pulumi.StringPtrInput
 	// The ID of the environment for the connection. Required when creating a connection through AWS. Mutually exclusive with ActivationKey.
 	EnvironmentId pulumi.StringPtrInput
-	// The account ID of the remote owner. Required when creating a connection through AWS.
+	// The remote account identifier for the connection. Required when creating a connection through AWS. Replaces RemoteOwnerAccount.
+	RemoteAccount RemoteAccountPropertiesPtrInput
+	// Deprecated. Use RemoteAccount instead. The account ID of the remote owner. Required when creating a connection through AWS.
 	RemoteOwnerAccount pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayInput
@@ -219,7 +226,12 @@ func (o ConnectionOutput) Provider() ConnectionProviderOutput {
 	return o.ApplyT(func(v *Connection) ConnectionProviderOutput { return v.Provider }).(ConnectionProviderOutput)
 }
 
-// The account ID of the remote owner. Required when creating a connection through AWS.
+// The remote account identifier for the connection. Required when creating a connection through AWS. Replaces RemoteOwnerAccount.
+func (o ConnectionOutput) RemoteAccount() RemoteAccountPropertiesPtrOutput {
+	return o.ApplyT(func(v *Connection) RemoteAccountPropertiesPtrOutput { return v.RemoteAccount }).(RemoteAccountPropertiesPtrOutput)
+}
+
+// Deprecated. Use RemoteAccount instead. The account ID of the remote owner. Required when creating a connection through AWS.
 func (o ConnectionOutput) RemoteOwnerAccount() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringPtrOutput { return v.RemoteOwnerAccount }).(pulumi.StringPtrOutput)
 }

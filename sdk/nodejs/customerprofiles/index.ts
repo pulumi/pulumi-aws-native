@@ -15,6 +15,11 @@ export type Domain = import("./domain").Domain;
 export const Domain: typeof import("./domain").Domain = null as any;
 utilities.lazyLoad(exports, ["Domain"], () => require("./domain"));
 
+export { DomainObjectTypeArgs } from "./domainObjectType";
+export type DomainObjectType = import("./domainObjectType").DomainObjectType;
+export const DomainObjectType: typeof import("./domainObjectType").DomainObjectType = null as any;
+utilities.lazyLoad(exports, ["DomainObjectType"], () => require("./domainObjectType"));
+
 export { EventStreamArgs } from "./eventStream";
 export type EventStream = import("./eventStream").EventStream;
 export const EventStream: typeof import("./eventStream").EventStream = null as any;
@@ -34,6 +39,11 @@ export { GetDomainArgs, GetDomainResult, GetDomainOutputArgs } from "./getDomain
 export const getDomain: typeof import("./getDomain").getDomain = null as any;
 export const getDomainOutput: typeof import("./getDomain").getDomainOutput = null as any;
 utilities.lazyLoad(exports, ["getDomain","getDomainOutput"], () => require("./getDomain"));
+
+export { GetDomainObjectTypeArgs, GetDomainObjectTypeResult, GetDomainObjectTypeOutputArgs } from "./getDomainObjectType";
+export const getDomainObjectType: typeof import("./getDomainObjectType").getDomainObjectType = null as any;
+export const getDomainObjectTypeOutput: typeof import("./getDomainObjectType").getDomainObjectTypeOutput = null as any;
+utilities.lazyLoad(exports, ["getDomainObjectType","getDomainObjectTypeOutput"], () => require("./getDomainObjectType"));
 
 export { GetEventStreamArgs, GetEventStreamResult, GetEventStreamOutputArgs } from "./getEventStream";
 export const getEventStream: typeof import("./getEventStream").getEventStream = null as any;
@@ -97,6 +107,8 @@ const _module = {
                 return new CalculatedAttributeDefinition(name, <any>undefined, { urn })
             case "aws-native:customerprofiles:Domain":
                 return new Domain(name, <any>undefined, { urn })
+            case "aws-native:customerprofiles:DomainObjectType":
+                return new DomainObjectType(name, <any>undefined, { urn })
             case "aws-native:customerprofiles:EventStream":
                 return new EventStream(name, <any>undefined, { urn })
             case "aws-native:customerprofiles:EventTrigger":

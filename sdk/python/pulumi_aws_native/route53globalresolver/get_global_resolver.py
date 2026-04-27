@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetGlobalResolverResult:
-    def __init__(__self__, arn=None, created_at=None, description=None, dns_name=None, global_resolver_id=None, i_pv4_addresses=None, i_pv6_addresses=None, ip_address_type=None, name=None, observability_region=None, status=None, tags=None, updated_at=None):
+    def __init__(__self__, arn=None, created_at=None, description=None, dns_name=None, global_resolver_id=None, i_pv4_addresses=None, i_pv6_addresses=None, ip_address_type=None, name=None, observability_region=None, regions=None, status=None, tags=None, updated_at=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -56,6 +56,9 @@ class GetGlobalResolverResult:
         if observability_region and not isinstance(observability_region, str):
             raise TypeError("Expected argument 'observability_region' to be a str")
         pulumi.set(__self__, "observability_region", observability_region)
+        if regions and not isinstance(regions, list):
+            raise TypeError("Expected argument 'regions' to be a list")
+        pulumi.set(__self__, "regions", regions)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
@@ -118,6 +121,14 @@ class GetGlobalResolverResult:
 
     @_builtins.property
     @pulumi.getter
+    def regions(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        A list of regions the Global Resolver will exist in. This list cannot be updated and will stay fixed for the duration of the Global Resolver.
+        """
+        return pulumi.get(self, "regions")
+
+    @_builtins.property
+    @pulumi.getter
     def status(self) -> Optional['GlobalResolverCrResourceStatus']:
         return pulumi.get(self, "status")
 
@@ -148,6 +159,7 @@ class AwaitableGetGlobalResolverResult(GetGlobalResolverResult):
             ip_address_type=self.ip_address_type,
             name=self.name,
             observability_region=self.observability_region,
+            regions=self.regions,
             status=self.status,
             tags=self.tags,
             updated_at=self.updated_at)
@@ -174,6 +186,7 @@ def get_global_resolver(global_resolver_id: Optional[_builtins.str] = None,
         ip_address_type=pulumi.get(__ret__, 'ip_address_type'),
         name=pulumi.get(__ret__, 'name'),
         observability_region=pulumi.get(__ret__, 'observability_region'),
+        regions=pulumi.get(__ret__, 'regions'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
@@ -197,6 +210,7 @@ def get_global_resolver_output(global_resolver_id: Optional[pulumi.Input[_builti
         ip_address_type=pulumi.get(__response__, 'ip_address_type'),
         name=pulumi.get(__response__, 'name'),
         observability_region=pulumi.get(__response__, 'observability_region'),
+        regions=pulumi.get(__response__, 'regions'),
         status=pulumi.get(__response__, 'status'),
         tags=pulumi.get(__response__, 'tags'),
         updated_at=pulumi.get(__response__, 'updated_at')))

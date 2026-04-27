@@ -11,7 +11,9 @@ from .agent_space import *
 from .association import *
 from .get_agent_space import *
 from .get_association import *
+from .get_private_connection import *
 from .get_service import *
+from .private_connection import *
 from .service import *
 from ._inputs import *
 from . import outputs

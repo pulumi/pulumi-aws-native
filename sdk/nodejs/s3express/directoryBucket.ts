@@ -58,6 +58,10 @@ export class DirectoryBucket extends pulumi.CustomResource {
      */
     declare public readonly dataRedundancy: pulumi.Output<enums.s3express.DirectoryBucketDataRedundancy>;
     /**
+     * The inventory configuration for an Amazon S3 Express bucket.
+     */
+    declare public readonly inventoryConfigurations: pulumi.Output<outputs.s3express.DirectoryBucketInventoryConfiguration[] | undefined>;
+    /**
      * Lifecycle rules that define how Amazon S3 Express manages objects during their lifetime.
      */
     declare public readonly lifecycleConfiguration: pulumi.Output<outputs.s3express.DirectoryBucketLifecycleConfiguration | undefined>;
@@ -94,6 +98,7 @@ export class DirectoryBucket extends pulumi.CustomResource {
             resourceInputs["bucketEncryption"] = args?.bucketEncryption;
             resourceInputs["bucketName"] = args?.bucketName;
             resourceInputs["dataRedundancy"] = args?.dataRedundancy;
+            resourceInputs["inventoryConfigurations"] = args?.inventoryConfigurations;
             resourceInputs["lifecycleConfiguration"] = args?.lifecycleConfiguration;
             resourceInputs["locationName"] = args?.locationName;
             resourceInputs["metricsConfigurations"] = args?.metricsConfigurations;
@@ -106,6 +111,7 @@ export class DirectoryBucket extends pulumi.CustomResource {
             resourceInputs["bucketEncryption"] = undefined /*out*/;
             resourceInputs["bucketName"] = undefined /*out*/;
             resourceInputs["dataRedundancy"] = undefined /*out*/;
+            resourceInputs["inventoryConfigurations"] = undefined /*out*/;
             resourceInputs["lifecycleConfiguration"] = undefined /*out*/;
             resourceInputs["locationName"] = undefined /*out*/;
             resourceInputs["metricsConfigurations"] = undefined /*out*/;
@@ -134,6 +140,10 @@ export interface DirectoryBucketArgs {
      * Specifies the number of Availability Zone or Local Zone that's used for redundancy for the bucket.
      */
     dataRedundancy: pulumi.Input<enums.s3express.DirectoryBucketDataRedundancy>;
+    /**
+     * The inventory configuration for an Amazon S3 Express bucket.
+     */
+    inventoryConfigurations?: pulumi.Input<pulumi.Input<inputs.s3express.DirectoryBucketInventoryConfigurationArgs>[]>;
     /**
      * Lifecycle rules that define how Amazon S3 Express manages objects during their lifetime.
      */

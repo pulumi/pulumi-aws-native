@@ -489,6 +489,730 @@ func (in *directoryBucketDataRedundancyPtr) ToDirectoryBucketDataRedundancyPtrOu
 	return pulumi.ToOutputWithContext(ctx, in).(DirectoryBucketDataRedundancyPtrOutput)
 }
 
+// Specifies the file format used when exporting data to Amazon S3.
+type DirectoryBucketDestinationFormat string
+
+const (
+	DirectoryBucketDestinationFormatCsv     = DirectoryBucketDestinationFormat("CSV")
+	DirectoryBucketDestinationFormatOrc     = DirectoryBucketDestinationFormat("ORC")
+	DirectoryBucketDestinationFormatParquet = DirectoryBucketDestinationFormat("Parquet")
+)
+
+func (DirectoryBucketDestinationFormat) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryBucketDestinationFormat)(nil)).Elem()
+}
+
+func (e DirectoryBucketDestinationFormat) ToDirectoryBucketDestinationFormatOutput() DirectoryBucketDestinationFormatOutput {
+	return pulumi.ToOutput(e).(DirectoryBucketDestinationFormatOutput)
+}
+
+func (e DirectoryBucketDestinationFormat) ToDirectoryBucketDestinationFormatOutputWithContext(ctx context.Context) DirectoryBucketDestinationFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DirectoryBucketDestinationFormatOutput)
+}
+
+func (e DirectoryBucketDestinationFormat) ToDirectoryBucketDestinationFormatPtrOutput() DirectoryBucketDestinationFormatPtrOutput {
+	return e.ToDirectoryBucketDestinationFormatPtrOutputWithContext(context.Background())
+}
+
+func (e DirectoryBucketDestinationFormat) ToDirectoryBucketDestinationFormatPtrOutputWithContext(ctx context.Context) DirectoryBucketDestinationFormatPtrOutput {
+	return DirectoryBucketDestinationFormat(e).ToDirectoryBucketDestinationFormatOutputWithContext(ctx).ToDirectoryBucketDestinationFormatPtrOutputWithContext(ctx)
+}
+
+func (e DirectoryBucketDestinationFormat) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DirectoryBucketDestinationFormat) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DirectoryBucketDestinationFormat) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DirectoryBucketDestinationFormat) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DirectoryBucketDestinationFormatOutput struct{ *pulumi.OutputState }
+
+func (DirectoryBucketDestinationFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryBucketDestinationFormat)(nil)).Elem()
+}
+
+func (o DirectoryBucketDestinationFormatOutput) ToDirectoryBucketDestinationFormatOutput() DirectoryBucketDestinationFormatOutput {
+	return o
+}
+
+func (o DirectoryBucketDestinationFormatOutput) ToDirectoryBucketDestinationFormatOutputWithContext(ctx context.Context) DirectoryBucketDestinationFormatOutput {
+	return o
+}
+
+func (o DirectoryBucketDestinationFormatOutput) ToDirectoryBucketDestinationFormatPtrOutput() DirectoryBucketDestinationFormatPtrOutput {
+	return o.ToDirectoryBucketDestinationFormatPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryBucketDestinationFormatOutput) ToDirectoryBucketDestinationFormatPtrOutputWithContext(ctx context.Context) DirectoryBucketDestinationFormatPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectoryBucketDestinationFormat) *DirectoryBucketDestinationFormat {
+		return &v
+	}).(DirectoryBucketDestinationFormatPtrOutput)
+}
+
+func (o DirectoryBucketDestinationFormatOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DirectoryBucketDestinationFormatOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectoryBucketDestinationFormat) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DirectoryBucketDestinationFormatOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryBucketDestinationFormatOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectoryBucketDestinationFormat) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DirectoryBucketDestinationFormatPtrOutput struct{ *pulumi.OutputState }
+
+func (DirectoryBucketDestinationFormatPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectoryBucketDestinationFormat)(nil)).Elem()
+}
+
+func (o DirectoryBucketDestinationFormatPtrOutput) ToDirectoryBucketDestinationFormatPtrOutput() DirectoryBucketDestinationFormatPtrOutput {
+	return o
+}
+
+func (o DirectoryBucketDestinationFormatPtrOutput) ToDirectoryBucketDestinationFormatPtrOutputWithContext(ctx context.Context) DirectoryBucketDestinationFormatPtrOutput {
+	return o
+}
+
+func (o DirectoryBucketDestinationFormatPtrOutput) Elem() DirectoryBucketDestinationFormatOutput {
+	return o.ApplyT(func(v *DirectoryBucketDestinationFormat) DirectoryBucketDestinationFormat {
+		if v != nil {
+			return *v
+		}
+		var ret DirectoryBucketDestinationFormat
+		return ret
+	}).(DirectoryBucketDestinationFormatOutput)
+}
+
+func (o DirectoryBucketDestinationFormatPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryBucketDestinationFormatPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DirectoryBucketDestinationFormat) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DirectoryBucketDestinationFormatInput is an input type that accepts values of the DirectoryBucketDestinationFormat enum
+// A concrete instance of `DirectoryBucketDestinationFormatInput` can be one of the following:
+//
+//	DirectoryBucketDestinationFormatCsv
+//	DirectoryBucketDestinationFormatOrc
+//	DirectoryBucketDestinationFormatParquet
+type DirectoryBucketDestinationFormatInput interface {
+	pulumi.Input
+
+	ToDirectoryBucketDestinationFormatOutput() DirectoryBucketDestinationFormatOutput
+	ToDirectoryBucketDestinationFormatOutputWithContext(context.Context) DirectoryBucketDestinationFormatOutput
+}
+
+var directoryBucketDestinationFormatPtrType = reflect.TypeOf((**DirectoryBucketDestinationFormat)(nil)).Elem()
+
+type DirectoryBucketDestinationFormatPtrInput interface {
+	pulumi.Input
+
+	ToDirectoryBucketDestinationFormatPtrOutput() DirectoryBucketDestinationFormatPtrOutput
+	ToDirectoryBucketDestinationFormatPtrOutputWithContext(context.Context) DirectoryBucketDestinationFormatPtrOutput
+}
+
+type directoryBucketDestinationFormatPtr string
+
+func DirectoryBucketDestinationFormatPtr(v string) DirectoryBucketDestinationFormatPtrInput {
+	return (*directoryBucketDestinationFormatPtr)(&v)
+}
+
+func (*directoryBucketDestinationFormatPtr) ElementType() reflect.Type {
+	return directoryBucketDestinationFormatPtrType
+}
+
+func (in *directoryBucketDestinationFormatPtr) ToDirectoryBucketDestinationFormatPtrOutput() DirectoryBucketDestinationFormatPtrOutput {
+	return pulumi.ToOutput(in).(DirectoryBucketDestinationFormatPtrOutput)
+}
+
+func (in *directoryBucketDestinationFormatPtr) ToDirectoryBucketDestinationFormatPtrOutputWithContext(ctx context.Context) DirectoryBucketDestinationFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DirectoryBucketDestinationFormatPtrOutput)
+}
+
+// Object versions to include in the inventory list.
+type DirectoryBucketInventoryConfigurationIncludedObjectVersions string
+
+const (
+	DirectoryBucketInventoryConfigurationIncludedObjectVersionsAll     = DirectoryBucketInventoryConfigurationIncludedObjectVersions("All")
+	DirectoryBucketInventoryConfigurationIncludedObjectVersionsCurrent = DirectoryBucketInventoryConfigurationIncludedObjectVersions("Current")
+)
+
+func (DirectoryBucketInventoryConfigurationIncludedObjectVersions) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryBucketInventoryConfigurationIncludedObjectVersions)(nil)).Elem()
+}
+
+func (e DirectoryBucketInventoryConfigurationIncludedObjectVersions) ToDirectoryBucketInventoryConfigurationIncludedObjectVersionsOutput() DirectoryBucketInventoryConfigurationIncludedObjectVersionsOutput {
+	return pulumi.ToOutput(e).(DirectoryBucketInventoryConfigurationIncludedObjectVersionsOutput)
+}
+
+func (e DirectoryBucketInventoryConfigurationIncludedObjectVersions) ToDirectoryBucketInventoryConfigurationIncludedObjectVersionsOutputWithContext(ctx context.Context) DirectoryBucketInventoryConfigurationIncludedObjectVersionsOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DirectoryBucketInventoryConfigurationIncludedObjectVersionsOutput)
+}
+
+func (e DirectoryBucketInventoryConfigurationIncludedObjectVersions) ToDirectoryBucketInventoryConfigurationIncludedObjectVersionsPtrOutput() DirectoryBucketInventoryConfigurationIncludedObjectVersionsPtrOutput {
+	return e.ToDirectoryBucketInventoryConfigurationIncludedObjectVersionsPtrOutputWithContext(context.Background())
+}
+
+func (e DirectoryBucketInventoryConfigurationIncludedObjectVersions) ToDirectoryBucketInventoryConfigurationIncludedObjectVersionsPtrOutputWithContext(ctx context.Context) DirectoryBucketInventoryConfigurationIncludedObjectVersionsPtrOutput {
+	return DirectoryBucketInventoryConfigurationIncludedObjectVersions(e).ToDirectoryBucketInventoryConfigurationIncludedObjectVersionsOutputWithContext(ctx).ToDirectoryBucketInventoryConfigurationIncludedObjectVersionsPtrOutputWithContext(ctx)
+}
+
+func (e DirectoryBucketInventoryConfigurationIncludedObjectVersions) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DirectoryBucketInventoryConfigurationIncludedObjectVersions) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DirectoryBucketInventoryConfigurationIncludedObjectVersions) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DirectoryBucketInventoryConfigurationIncludedObjectVersions) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DirectoryBucketInventoryConfigurationIncludedObjectVersionsOutput struct{ *pulumi.OutputState }
+
+func (DirectoryBucketInventoryConfigurationIncludedObjectVersionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryBucketInventoryConfigurationIncludedObjectVersions)(nil)).Elem()
+}
+
+func (o DirectoryBucketInventoryConfigurationIncludedObjectVersionsOutput) ToDirectoryBucketInventoryConfigurationIncludedObjectVersionsOutput() DirectoryBucketInventoryConfigurationIncludedObjectVersionsOutput {
+	return o
+}
+
+func (o DirectoryBucketInventoryConfigurationIncludedObjectVersionsOutput) ToDirectoryBucketInventoryConfigurationIncludedObjectVersionsOutputWithContext(ctx context.Context) DirectoryBucketInventoryConfigurationIncludedObjectVersionsOutput {
+	return o
+}
+
+func (o DirectoryBucketInventoryConfigurationIncludedObjectVersionsOutput) ToDirectoryBucketInventoryConfigurationIncludedObjectVersionsPtrOutput() DirectoryBucketInventoryConfigurationIncludedObjectVersionsPtrOutput {
+	return o.ToDirectoryBucketInventoryConfigurationIncludedObjectVersionsPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryBucketInventoryConfigurationIncludedObjectVersionsOutput) ToDirectoryBucketInventoryConfigurationIncludedObjectVersionsPtrOutputWithContext(ctx context.Context) DirectoryBucketInventoryConfigurationIncludedObjectVersionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectoryBucketInventoryConfigurationIncludedObjectVersions) *DirectoryBucketInventoryConfigurationIncludedObjectVersions {
+		return &v
+	}).(DirectoryBucketInventoryConfigurationIncludedObjectVersionsPtrOutput)
+}
+
+func (o DirectoryBucketInventoryConfigurationIncludedObjectVersionsOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DirectoryBucketInventoryConfigurationIncludedObjectVersionsOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectoryBucketInventoryConfigurationIncludedObjectVersions) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DirectoryBucketInventoryConfigurationIncludedObjectVersionsOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryBucketInventoryConfigurationIncludedObjectVersionsOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectoryBucketInventoryConfigurationIncludedObjectVersions) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DirectoryBucketInventoryConfigurationIncludedObjectVersionsPtrOutput struct{ *pulumi.OutputState }
+
+func (DirectoryBucketInventoryConfigurationIncludedObjectVersionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectoryBucketInventoryConfigurationIncludedObjectVersions)(nil)).Elem()
+}
+
+func (o DirectoryBucketInventoryConfigurationIncludedObjectVersionsPtrOutput) ToDirectoryBucketInventoryConfigurationIncludedObjectVersionsPtrOutput() DirectoryBucketInventoryConfigurationIncludedObjectVersionsPtrOutput {
+	return o
+}
+
+func (o DirectoryBucketInventoryConfigurationIncludedObjectVersionsPtrOutput) ToDirectoryBucketInventoryConfigurationIncludedObjectVersionsPtrOutputWithContext(ctx context.Context) DirectoryBucketInventoryConfigurationIncludedObjectVersionsPtrOutput {
+	return o
+}
+
+func (o DirectoryBucketInventoryConfigurationIncludedObjectVersionsPtrOutput) Elem() DirectoryBucketInventoryConfigurationIncludedObjectVersionsOutput {
+	return o.ApplyT(func(v *DirectoryBucketInventoryConfigurationIncludedObjectVersions) DirectoryBucketInventoryConfigurationIncludedObjectVersions {
+		if v != nil {
+			return *v
+		}
+		var ret DirectoryBucketInventoryConfigurationIncludedObjectVersions
+		return ret
+	}).(DirectoryBucketInventoryConfigurationIncludedObjectVersionsOutput)
+}
+
+func (o DirectoryBucketInventoryConfigurationIncludedObjectVersionsPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryBucketInventoryConfigurationIncludedObjectVersionsPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DirectoryBucketInventoryConfigurationIncludedObjectVersions) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DirectoryBucketInventoryConfigurationIncludedObjectVersionsInput is an input type that accepts values of the DirectoryBucketInventoryConfigurationIncludedObjectVersions enum
+// A concrete instance of `DirectoryBucketInventoryConfigurationIncludedObjectVersionsInput` can be one of the following:
+//
+//	DirectoryBucketInventoryConfigurationIncludedObjectVersionsAll
+//	DirectoryBucketInventoryConfigurationIncludedObjectVersionsCurrent
+type DirectoryBucketInventoryConfigurationIncludedObjectVersionsInput interface {
+	pulumi.Input
+
+	ToDirectoryBucketInventoryConfigurationIncludedObjectVersionsOutput() DirectoryBucketInventoryConfigurationIncludedObjectVersionsOutput
+	ToDirectoryBucketInventoryConfigurationIncludedObjectVersionsOutputWithContext(context.Context) DirectoryBucketInventoryConfigurationIncludedObjectVersionsOutput
+}
+
+var directoryBucketInventoryConfigurationIncludedObjectVersionsPtrType = reflect.TypeOf((**DirectoryBucketInventoryConfigurationIncludedObjectVersions)(nil)).Elem()
+
+type DirectoryBucketInventoryConfigurationIncludedObjectVersionsPtrInput interface {
+	pulumi.Input
+
+	ToDirectoryBucketInventoryConfigurationIncludedObjectVersionsPtrOutput() DirectoryBucketInventoryConfigurationIncludedObjectVersionsPtrOutput
+	ToDirectoryBucketInventoryConfigurationIncludedObjectVersionsPtrOutputWithContext(context.Context) DirectoryBucketInventoryConfigurationIncludedObjectVersionsPtrOutput
+}
+
+type directoryBucketInventoryConfigurationIncludedObjectVersionsPtr string
+
+func DirectoryBucketInventoryConfigurationIncludedObjectVersionsPtr(v string) DirectoryBucketInventoryConfigurationIncludedObjectVersionsPtrInput {
+	return (*directoryBucketInventoryConfigurationIncludedObjectVersionsPtr)(&v)
+}
+
+func (*directoryBucketInventoryConfigurationIncludedObjectVersionsPtr) ElementType() reflect.Type {
+	return directoryBucketInventoryConfigurationIncludedObjectVersionsPtrType
+}
+
+func (in *directoryBucketInventoryConfigurationIncludedObjectVersionsPtr) ToDirectoryBucketInventoryConfigurationIncludedObjectVersionsPtrOutput() DirectoryBucketInventoryConfigurationIncludedObjectVersionsPtrOutput {
+	return pulumi.ToOutput(in).(DirectoryBucketInventoryConfigurationIncludedObjectVersionsPtrOutput)
+}
+
+func (in *directoryBucketInventoryConfigurationIncludedObjectVersionsPtr) ToDirectoryBucketInventoryConfigurationIncludedObjectVersionsPtrOutputWithContext(ctx context.Context) DirectoryBucketInventoryConfigurationIncludedObjectVersionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DirectoryBucketInventoryConfigurationIncludedObjectVersionsPtrOutput)
+}
+
+type DirectoryBucketInventoryConfigurationOptionalFieldsItem string
+
+const (
+	DirectoryBucketInventoryConfigurationOptionalFieldsItemSize                    = DirectoryBucketInventoryConfigurationOptionalFieldsItem("Size")
+	DirectoryBucketInventoryConfigurationOptionalFieldsItemLastModifiedDate        = DirectoryBucketInventoryConfigurationOptionalFieldsItem("LastModifiedDate")
+	DirectoryBucketInventoryConfigurationOptionalFieldsItemStorageClass            = DirectoryBucketInventoryConfigurationOptionalFieldsItem("StorageClass")
+	DirectoryBucketInventoryConfigurationOptionalFieldsItemETag                    = DirectoryBucketInventoryConfigurationOptionalFieldsItem("ETag")
+	DirectoryBucketInventoryConfigurationOptionalFieldsItemIsMultipartUploaded     = DirectoryBucketInventoryConfigurationOptionalFieldsItem("IsMultipartUploaded")
+	DirectoryBucketInventoryConfigurationOptionalFieldsItemEncryptionStatus        = DirectoryBucketInventoryConfigurationOptionalFieldsItem("EncryptionStatus")
+	DirectoryBucketInventoryConfigurationOptionalFieldsItemBucketKeyStatus         = DirectoryBucketInventoryConfigurationOptionalFieldsItem("BucketKeyStatus")
+	DirectoryBucketInventoryConfigurationOptionalFieldsItemChecksumAlgorithm       = DirectoryBucketInventoryConfigurationOptionalFieldsItem("ChecksumAlgorithm")
+	DirectoryBucketInventoryConfigurationOptionalFieldsItemLifecycleExpirationDate = DirectoryBucketInventoryConfigurationOptionalFieldsItem("LifecycleExpirationDate")
+)
+
+func (DirectoryBucketInventoryConfigurationOptionalFieldsItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryBucketInventoryConfigurationOptionalFieldsItem)(nil)).Elem()
+}
+
+func (e DirectoryBucketInventoryConfigurationOptionalFieldsItem) ToDirectoryBucketInventoryConfigurationOptionalFieldsItemOutput() DirectoryBucketInventoryConfigurationOptionalFieldsItemOutput {
+	return pulumi.ToOutput(e).(DirectoryBucketInventoryConfigurationOptionalFieldsItemOutput)
+}
+
+func (e DirectoryBucketInventoryConfigurationOptionalFieldsItem) ToDirectoryBucketInventoryConfigurationOptionalFieldsItemOutputWithContext(ctx context.Context) DirectoryBucketInventoryConfigurationOptionalFieldsItemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DirectoryBucketInventoryConfigurationOptionalFieldsItemOutput)
+}
+
+func (e DirectoryBucketInventoryConfigurationOptionalFieldsItem) ToDirectoryBucketInventoryConfigurationOptionalFieldsItemPtrOutput() DirectoryBucketInventoryConfigurationOptionalFieldsItemPtrOutput {
+	return e.ToDirectoryBucketInventoryConfigurationOptionalFieldsItemPtrOutputWithContext(context.Background())
+}
+
+func (e DirectoryBucketInventoryConfigurationOptionalFieldsItem) ToDirectoryBucketInventoryConfigurationOptionalFieldsItemPtrOutputWithContext(ctx context.Context) DirectoryBucketInventoryConfigurationOptionalFieldsItemPtrOutput {
+	return DirectoryBucketInventoryConfigurationOptionalFieldsItem(e).ToDirectoryBucketInventoryConfigurationOptionalFieldsItemOutputWithContext(ctx).ToDirectoryBucketInventoryConfigurationOptionalFieldsItemPtrOutputWithContext(ctx)
+}
+
+func (e DirectoryBucketInventoryConfigurationOptionalFieldsItem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DirectoryBucketInventoryConfigurationOptionalFieldsItem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DirectoryBucketInventoryConfigurationOptionalFieldsItem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DirectoryBucketInventoryConfigurationOptionalFieldsItem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DirectoryBucketInventoryConfigurationOptionalFieldsItemOutput struct{ *pulumi.OutputState }
+
+func (DirectoryBucketInventoryConfigurationOptionalFieldsItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryBucketInventoryConfigurationOptionalFieldsItem)(nil)).Elem()
+}
+
+func (o DirectoryBucketInventoryConfigurationOptionalFieldsItemOutput) ToDirectoryBucketInventoryConfigurationOptionalFieldsItemOutput() DirectoryBucketInventoryConfigurationOptionalFieldsItemOutput {
+	return o
+}
+
+func (o DirectoryBucketInventoryConfigurationOptionalFieldsItemOutput) ToDirectoryBucketInventoryConfigurationOptionalFieldsItemOutputWithContext(ctx context.Context) DirectoryBucketInventoryConfigurationOptionalFieldsItemOutput {
+	return o
+}
+
+func (o DirectoryBucketInventoryConfigurationOptionalFieldsItemOutput) ToDirectoryBucketInventoryConfigurationOptionalFieldsItemPtrOutput() DirectoryBucketInventoryConfigurationOptionalFieldsItemPtrOutput {
+	return o.ToDirectoryBucketInventoryConfigurationOptionalFieldsItemPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryBucketInventoryConfigurationOptionalFieldsItemOutput) ToDirectoryBucketInventoryConfigurationOptionalFieldsItemPtrOutputWithContext(ctx context.Context) DirectoryBucketInventoryConfigurationOptionalFieldsItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectoryBucketInventoryConfigurationOptionalFieldsItem) *DirectoryBucketInventoryConfigurationOptionalFieldsItem {
+		return &v
+	}).(DirectoryBucketInventoryConfigurationOptionalFieldsItemPtrOutput)
+}
+
+func (o DirectoryBucketInventoryConfigurationOptionalFieldsItemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DirectoryBucketInventoryConfigurationOptionalFieldsItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectoryBucketInventoryConfigurationOptionalFieldsItem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DirectoryBucketInventoryConfigurationOptionalFieldsItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryBucketInventoryConfigurationOptionalFieldsItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectoryBucketInventoryConfigurationOptionalFieldsItem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DirectoryBucketInventoryConfigurationOptionalFieldsItemPtrOutput struct{ *pulumi.OutputState }
+
+func (DirectoryBucketInventoryConfigurationOptionalFieldsItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectoryBucketInventoryConfigurationOptionalFieldsItem)(nil)).Elem()
+}
+
+func (o DirectoryBucketInventoryConfigurationOptionalFieldsItemPtrOutput) ToDirectoryBucketInventoryConfigurationOptionalFieldsItemPtrOutput() DirectoryBucketInventoryConfigurationOptionalFieldsItemPtrOutput {
+	return o
+}
+
+func (o DirectoryBucketInventoryConfigurationOptionalFieldsItemPtrOutput) ToDirectoryBucketInventoryConfigurationOptionalFieldsItemPtrOutputWithContext(ctx context.Context) DirectoryBucketInventoryConfigurationOptionalFieldsItemPtrOutput {
+	return o
+}
+
+func (o DirectoryBucketInventoryConfigurationOptionalFieldsItemPtrOutput) Elem() DirectoryBucketInventoryConfigurationOptionalFieldsItemOutput {
+	return o.ApplyT(func(v *DirectoryBucketInventoryConfigurationOptionalFieldsItem) DirectoryBucketInventoryConfigurationOptionalFieldsItem {
+		if v != nil {
+			return *v
+		}
+		var ret DirectoryBucketInventoryConfigurationOptionalFieldsItem
+		return ret
+	}).(DirectoryBucketInventoryConfigurationOptionalFieldsItemOutput)
+}
+
+func (o DirectoryBucketInventoryConfigurationOptionalFieldsItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryBucketInventoryConfigurationOptionalFieldsItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DirectoryBucketInventoryConfigurationOptionalFieldsItem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DirectoryBucketInventoryConfigurationOptionalFieldsItemInput is an input type that accepts values of the DirectoryBucketInventoryConfigurationOptionalFieldsItem enum
+// A concrete instance of `DirectoryBucketInventoryConfigurationOptionalFieldsItemInput` can be one of the following:
+//
+//	DirectoryBucketInventoryConfigurationOptionalFieldsItemSize
+//	DirectoryBucketInventoryConfigurationOptionalFieldsItemLastModifiedDate
+//	DirectoryBucketInventoryConfigurationOptionalFieldsItemStorageClass
+//	DirectoryBucketInventoryConfigurationOptionalFieldsItemETag
+//	DirectoryBucketInventoryConfigurationOptionalFieldsItemIsMultipartUploaded
+//	DirectoryBucketInventoryConfigurationOptionalFieldsItemEncryptionStatus
+//	DirectoryBucketInventoryConfigurationOptionalFieldsItemBucketKeyStatus
+//	DirectoryBucketInventoryConfigurationOptionalFieldsItemChecksumAlgorithm
+//	DirectoryBucketInventoryConfigurationOptionalFieldsItemLifecycleExpirationDate
+type DirectoryBucketInventoryConfigurationOptionalFieldsItemInput interface {
+	pulumi.Input
+
+	ToDirectoryBucketInventoryConfigurationOptionalFieldsItemOutput() DirectoryBucketInventoryConfigurationOptionalFieldsItemOutput
+	ToDirectoryBucketInventoryConfigurationOptionalFieldsItemOutputWithContext(context.Context) DirectoryBucketInventoryConfigurationOptionalFieldsItemOutput
+}
+
+var directoryBucketInventoryConfigurationOptionalFieldsItemPtrType = reflect.TypeOf((**DirectoryBucketInventoryConfigurationOptionalFieldsItem)(nil)).Elem()
+
+type DirectoryBucketInventoryConfigurationOptionalFieldsItemPtrInput interface {
+	pulumi.Input
+
+	ToDirectoryBucketInventoryConfigurationOptionalFieldsItemPtrOutput() DirectoryBucketInventoryConfigurationOptionalFieldsItemPtrOutput
+	ToDirectoryBucketInventoryConfigurationOptionalFieldsItemPtrOutputWithContext(context.Context) DirectoryBucketInventoryConfigurationOptionalFieldsItemPtrOutput
+}
+
+type directoryBucketInventoryConfigurationOptionalFieldsItemPtr string
+
+func DirectoryBucketInventoryConfigurationOptionalFieldsItemPtr(v string) DirectoryBucketInventoryConfigurationOptionalFieldsItemPtrInput {
+	return (*directoryBucketInventoryConfigurationOptionalFieldsItemPtr)(&v)
+}
+
+func (*directoryBucketInventoryConfigurationOptionalFieldsItemPtr) ElementType() reflect.Type {
+	return directoryBucketInventoryConfigurationOptionalFieldsItemPtrType
+}
+
+func (in *directoryBucketInventoryConfigurationOptionalFieldsItemPtr) ToDirectoryBucketInventoryConfigurationOptionalFieldsItemPtrOutput() DirectoryBucketInventoryConfigurationOptionalFieldsItemPtrOutput {
+	return pulumi.ToOutput(in).(DirectoryBucketInventoryConfigurationOptionalFieldsItemPtrOutput)
+}
+
+func (in *directoryBucketInventoryConfigurationOptionalFieldsItemPtr) ToDirectoryBucketInventoryConfigurationOptionalFieldsItemPtrOutputWithContext(ctx context.Context) DirectoryBucketInventoryConfigurationOptionalFieldsItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DirectoryBucketInventoryConfigurationOptionalFieldsItemPtrOutput)
+}
+
+// DirectoryBucketInventoryConfigurationOptionalFieldsItemArrayInput is an input type that accepts DirectoryBucketInventoryConfigurationOptionalFieldsItemArray and DirectoryBucketInventoryConfigurationOptionalFieldsItemArrayOutput values.
+// You can construct a concrete instance of `DirectoryBucketInventoryConfigurationOptionalFieldsItemArrayInput` via:
+//
+//	DirectoryBucketInventoryConfigurationOptionalFieldsItemArray{ DirectoryBucketInventoryConfigurationOptionalFieldsItemArgs{...} }
+type DirectoryBucketInventoryConfigurationOptionalFieldsItemArrayInput interface {
+	pulumi.Input
+
+	ToDirectoryBucketInventoryConfigurationOptionalFieldsItemArrayOutput() DirectoryBucketInventoryConfigurationOptionalFieldsItemArrayOutput
+	ToDirectoryBucketInventoryConfigurationOptionalFieldsItemArrayOutputWithContext(context.Context) DirectoryBucketInventoryConfigurationOptionalFieldsItemArrayOutput
+}
+
+type DirectoryBucketInventoryConfigurationOptionalFieldsItemArray []DirectoryBucketInventoryConfigurationOptionalFieldsItem
+
+func (DirectoryBucketInventoryConfigurationOptionalFieldsItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DirectoryBucketInventoryConfigurationOptionalFieldsItem)(nil)).Elem()
+}
+
+func (i DirectoryBucketInventoryConfigurationOptionalFieldsItemArray) ToDirectoryBucketInventoryConfigurationOptionalFieldsItemArrayOutput() DirectoryBucketInventoryConfigurationOptionalFieldsItemArrayOutput {
+	return i.ToDirectoryBucketInventoryConfigurationOptionalFieldsItemArrayOutputWithContext(context.Background())
+}
+
+func (i DirectoryBucketInventoryConfigurationOptionalFieldsItemArray) ToDirectoryBucketInventoryConfigurationOptionalFieldsItemArrayOutputWithContext(ctx context.Context) DirectoryBucketInventoryConfigurationOptionalFieldsItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryBucketInventoryConfigurationOptionalFieldsItemArrayOutput)
+}
+
+type DirectoryBucketInventoryConfigurationOptionalFieldsItemArrayOutput struct{ *pulumi.OutputState }
+
+func (DirectoryBucketInventoryConfigurationOptionalFieldsItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DirectoryBucketInventoryConfigurationOptionalFieldsItem)(nil)).Elem()
+}
+
+func (o DirectoryBucketInventoryConfigurationOptionalFieldsItemArrayOutput) ToDirectoryBucketInventoryConfigurationOptionalFieldsItemArrayOutput() DirectoryBucketInventoryConfigurationOptionalFieldsItemArrayOutput {
+	return o
+}
+
+func (o DirectoryBucketInventoryConfigurationOptionalFieldsItemArrayOutput) ToDirectoryBucketInventoryConfigurationOptionalFieldsItemArrayOutputWithContext(ctx context.Context) DirectoryBucketInventoryConfigurationOptionalFieldsItemArrayOutput {
+	return o
+}
+
+func (o DirectoryBucketInventoryConfigurationOptionalFieldsItemArrayOutput) Index(i pulumi.IntInput) DirectoryBucketInventoryConfigurationOptionalFieldsItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DirectoryBucketInventoryConfigurationOptionalFieldsItem {
+		return vs[0].([]DirectoryBucketInventoryConfigurationOptionalFieldsItem)[vs[1].(int)]
+	}).(DirectoryBucketInventoryConfigurationOptionalFieldsItemOutput)
+}
+
+// Specifies the schedule for generating inventory results.
+type DirectoryBucketInventoryConfigurationScheduleFrequency string
+
+const (
+	DirectoryBucketInventoryConfigurationScheduleFrequencyDaily  = DirectoryBucketInventoryConfigurationScheduleFrequency("Daily")
+	DirectoryBucketInventoryConfigurationScheduleFrequencyWeekly = DirectoryBucketInventoryConfigurationScheduleFrequency("Weekly")
+)
+
+func (DirectoryBucketInventoryConfigurationScheduleFrequency) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryBucketInventoryConfigurationScheduleFrequency)(nil)).Elem()
+}
+
+func (e DirectoryBucketInventoryConfigurationScheduleFrequency) ToDirectoryBucketInventoryConfigurationScheduleFrequencyOutput() DirectoryBucketInventoryConfigurationScheduleFrequencyOutput {
+	return pulumi.ToOutput(e).(DirectoryBucketInventoryConfigurationScheduleFrequencyOutput)
+}
+
+func (e DirectoryBucketInventoryConfigurationScheduleFrequency) ToDirectoryBucketInventoryConfigurationScheduleFrequencyOutputWithContext(ctx context.Context) DirectoryBucketInventoryConfigurationScheduleFrequencyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DirectoryBucketInventoryConfigurationScheduleFrequencyOutput)
+}
+
+func (e DirectoryBucketInventoryConfigurationScheduleFrequency) ToDirectoryBucketInventoryConfigurationScheduleFrequencyPtrOutput() DirectoryBucketInventoryConfigurationScheduleFrequencyPtrOutput {
+	return e.ToDirectoryBucketInventoryConfigurationScheduleFrequencyPtrOutputWithContext(context.Background())
+}
+
+func (e DirectoryBucketInventoryConfigurationScheduleFrequency) ToDirectoryBucketInventoryConfigurationScheduleFrequencyPtrOutputWithContext(ctx context.Context) DirectoryBucketInventoryConfigurationScheduleFrequencyPtrOutput {
+	return DirectoryBucketInventoryConfigurationScheduleFrequency(e).ToDirectoryBucketInventoryConfigurationScheduleFrequencyOutputWithContext(ctx).ToDirectoryBucketInventoryConfigurationScheduleFrequencyPtrOutputWithContext(ctx)
+}
+
+func (e DirectoryBucketInventoryConfigurationScheduleFrequency) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DirectoryBucketInventoryConfigurationScheduleFrequency) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DirectoryBucketInventoryConfigurationScheduleFrequency) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DirectoryBucketInventoryConfigurationScheduleFrequency) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DirectoryBucketInventoryConfigurationScheduleFrequencyOutput struct{ *pulumi.OutputState }
+
+func (DirectoryBucketInventoryConfigurationScheduleFrequencyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryBucketInventoryConfigurationScheduleFrequency)(nil)).Elem()
+}
+
+func (o DirectoryBucketInventoryConfigurationScheduleFrequencyOutput) ToDirectoryBucketInventoryConfigurationScheduleFrequencyOutput() DirectoryBucketInventoryConfigurationScheduleFrequencyOutput {
+	return o
+}
+
+func (o DirectoryBucketInventoryConfigurationScheduleFrequencyOutput) ToDirectoryBucketInventoryConfigurationScheduleFrequencyOutputWithContext(ctx context.Context) DirectoryBucketInventoryConfigurationScheduleFrequencyOutput {
+	return o
+}
+
+func (o DirectoryBucketInventoryConfigurationScheduleFrequencyOutput) ToDirectoryBucketInventoryConfigurationScheduleFrequencyPtrOutput() DirectoryBucketInventoryConfigurationScheduleFrequencyPtrOutput {
+	return o.ToDirectoryBucketInventoryConfigurationScheduleFrequencyPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryBucketInventoryConfigurationScheduleFrequencyOutput) ToDirectoryBucketInventoryConfigurationScheduleFrequencyPtrOutputWithContext(ctx context.Context) DirectoryBucketInventoryConfigurationScheduleFrequencyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectoryBucketInventoryConfigurationScheduleFrequency) *DirectoryBucketInventoryConfigurationScheduleFrequency {
+		return &v
+	}).(DirectoryBucketInventoryConfigurationScheduleFrequencyPtrOutput)
+}
+
+func (o DirectoryBucketInventoryConfigurationScheduleFrequencyOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DirectoryBucketInventoryConfigurationScheduleFrequencyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectoryBucketInventoryConfigurationScheduleFrequency) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DirectoryBucketInventoryConfigurationScheduleFrequencyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryBucketInventoryConfigurationScheduleFrequencyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectoryBucketInventoryConfigurationScheduleFrequency) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DirectoryBucketInventoryConfigurationScheduleFrequencyPtrOutput struct{ *pulumi.OutputState }
+
+func (DirectoryBucketInventoryConfigurationScheduleFrequencyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectoryBucketInventoryConfigurationScheduleFrequency)(nil)).Elem()
+}
+
+func (o DirectoryBucketInventoryConfigurationScheduleFrequencyPtrOutput) ToDirectoryBucketInventoryConfigurationScheduleFrequencyPtrOutput() DirectoryBucketInventoryConfigurationScheduleFrequencyPtrOutput {
+	return o
+}
+
+func (o DirectoryBucketInventoryConfigurationScheduleFrequencyPtrOutput) ToDirectoryBucketInventoryConfigurationScheduleFrequencyPtrOutputWithContext(ctx context.Context) DirectoryBucketInventoryConfigurationScheduleFrequencyPtrOutput {
+	return o
+}
+
+func (o DirectoryBucketInventoryConfigurationScheduleFrequencyPtrOutput) Elem() DirectoryBucketInventoryConfigurationScheduleFrequencyOutput {
+	return o.ApplyT(func(v *DirectoryBucketInventoryConfigurationScheduleFrequency) DirectoryBucketInventoryConfigurationScheduleFrequency {
+		if v != nil {
+			return *v
+		}
+		var ret DirectoryBucketInventoryConfigurationScheduleFrequency
+		return ret
+	}).(DirectoryBucketInventoryConfigurationScheduleFrequencyOutput)
+}
+
+func (o DirectoryBucketInventoryConfigurationScheduleFrequencyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryBucketInventoryConfigurationScheduleFrequencyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DirectoryBucketInventoryConfigurationScheduleFrequency) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DirectoryBucketInventoryConfigurationScheduleFrequencyInput is an input type that accepts values of the DirectoryBucketInventoryConfigurationScheduleFrequency enum
+// A concrete instance of `DirectoryBucketInventoryConfigurationScheduleFrequencyInput` can be one of the following:
+//
+//	DirectoryBucketInventoryConfigurationScheduleFrequencyDaily
+//	DirectoryBucketInventoryConfigurationScheduleFrequencyWeekly
+type DirectoryBucketInventoryConfigurationScheduleFrequencyInput interface {
+	pulumi.Input
+
+	ToDirectoryBucketInventoryConfigurationScheduleFrequencyOutput() DirectoryBucketInventoryConfigurationScheduleFrequencyOutput
+	ToDirectoryBucketInventoryConfigurationScheduleFrequencyOutputWithContext(context.Context) DirectoryBucketInventoryConfigurationScheduleFrequencyOutput
+}
+
+var directoryBucketInventoryConfigurationScheduleFrequencyPtrType = reflect.TypeOf((**DirectoryBucketInventoryConfigurationScheduleFrequency)(nil)).Elem()
+
+type DirectoryBucketInventoryConfigurationScheduleFrequencyPtrInput interface {
+	pulumi.Input
+
+	ToDirectoryBucketInventoryConfigurationScheduleFrequencyPtrOutput() DirectoryBucketInventoryConfigurationScheduleFrequencyPtrOutput
+	ToDirectoryBucketInventoryConfigurationScheduleFrequencyPtrOutputWithContext(context.Context) DirectoryBucketInventoryConfigurationScheduleFrequencyPtrOutput
+}
+
+type directoryBucketInventoryConfigurationScheduleFrequencyPtr string
+
+func DirectoryBucketInventoryConfigurationScheduleFrequencyPtr(v string) DirectoryBucketInventoryConfigurationScheduleFrequencyPtrInput {
+	return (*directoryBucketInventoryConfigurationScheduleFrequencyPtr)(&v)
+}
+
+func (*directoryBucketInventoryConfigurationScheduleFrequencyPtr) ElementType() reflect.Type {
+	return directoryBucketInventoryConfigurationScheduleFrequencyPtrType
+}
+
+func (in *directoryBucketInventoryConfigurationScheduleFrequencyPtr) ToDirectoryBucketInventoryConfigurationScheduleFrequencyPtrOutput() DirectoryBucketInventoryConfigurationScheduleFrequencyPtrOutput {
+	return pulumi.ToOutput(in).(DirectoryBucketInventoryConfigurationScheduleFrequencyPtrOutput)
+}
+
+func (in *directoryBucketInventoryConfigurationScheduleFrequencyPtr) ToDirectoryBucketInventoryConfigurationScheduleFrequencyPtrOutputWithContext(ctx context.Context) DirectoryBucketInventoryConfigurationScheduleFrequencyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DirectoryBucketInventoryConfigurationScheduleFrequencyPtrOutput)
+}
+
 // If `Enabled` , the rule is currently being applied. If `Disabled` , the rule is not currently being applied.
 type DirectoryBucketRuleStatus string
 
@@ -829,6 +1553,15 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointScopePermissionsItemArrayInput)(nil)).Elem(), AccessPointScopePermissionsItemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryBucketDataRedundancyInput)(nil)).Elem(), DirectoryBucketDataRedundancy("SingleAvailabilityZone"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryBucketDataRedundancyPtrInput)(nil)).Elem(), DirectoryBucketDataRedundancy("SingleAvailabilityZone"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryBucketDestinationFormatInput)(nil)).Elem(), DirectoryBucketDestinationFormat("CSV"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryBucketDestinationFormatPtrInput)(nil)).Elem(), DirectoryBucketDestinationFormat("CSV"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryBucketInventoryConfigurationIncludedObjectVersionsInput)(nil)).Elem(), DirectoryBucketInventoryConfigurationIncludedObjectVersions("All"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryBucketInventoryConfigurationIncludedObjectVersionsPtrInput)(nil)).Elem(), DirectoryBucketInventoryConfigurationIncludedObjectVersions("All"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryBucketInventoryConfigurationOptionalFieldsItemInput)(nil)).Elem(), DirectoryBucketInventoryConfigurationOptionalFieldsItem("Size"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryBucketInventoryConfigurationOptionalFieldsItemPtrInput)(nil)).Elem(), DirectoryBucketInventoryConfigurationOptionalFieldsItem("Size"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryBucketInventoryConfigurationOptionalFieldsItemArrayInput)(nil)).Elem(), DirectoryBucketInventoryConfigurationOptionalFieldsItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryBucketInventoryConfigurationScheduleFrequencyInput)(nil)).Elem(), DirectoryBucketInventoryConfigurationScheduleFrequency("Daily"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryBucketInventoryConfigurationScheduleFrequencyPtrInput)(nil)).Elem(), DirectoryBucketInventoryConfigurationScheduleFrequency("Daily"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryBucketRuleStatusInput)(nil)).Elem(), DirectoryBucketRuleStatus("Enabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryBucketRuleStatusPtrInput)(nil)).Elem(), DirectoryBucketRuleStatus("Enabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryBucketServerSideEncryptionByDefaultSseAlgorithmInput)(nil)).Elem(), DirectoryBucketServerSideEncryptionByDefaultSseAlgorithm("aws:kms"))
@@ -840,6 +1573,15 @@ func init() {
 	pulumi.RegisterOutputType(AccessPointScopePermissionsItemArrayOutput{})
 	pulumi.RegisterOutputType(DirectoryBucketDataRedundancyOutput{})
 	pulumi.RegisterOutputType(DirectoryBucketDataRedundancyPtrOutput{})
+	pulumi.RegisterOutputType(DirectoryBucketDestinationFormatOutput{})
+	pulumi.RegisterOutputType(DirectoryBucketDestinationFormatPtrOutput{})
+	pulumi.RegisterOutputType(DirectoryBucketInventoryConfigurationIncludedObjectVersionsOutput{})
+	pulumi.RegisterOutputType(DirectoryBucketInventoryConfigurationIncludedObjectVersionsPtrOutput{})
+	pulumi.RegisterOutputType(DirectoryBucketInventoryConfigurationOptionalFieldsItemOutput{})
+	pulumi.RegisterOutputType(DirectoryBucketInventoryConfigurationOptionalFieldsItemPtrOutput{})
+	pulumi.RegisterOutputType(DirectoryBucketInventoryConfigurationOptionalFieldsItemArrayOutput{})
+	pulumi.RegisterOutputType(DirectoryBucketInventoryConfigurationScheduleFrequencyOutput{})
+	pulumi.RegisterOutputType(DirectoryBucketInventoryConfigurationScheduleFrequencyPtrOutput{})
 	pulumi.RegisterOutputType(DirectoryBucketRuleStatusOutput{})
 	pulumi.RegisterOutputType(DirectoryBucketRuleStatusPtrOutput{})
 	pulumi.RegisterOutputType(DirectoryBucketServerSideEncryptionByDefaultSseAlgorithmOutput{})

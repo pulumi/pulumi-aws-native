@@ -25,10 +25,20 @@ export const getAssociation: typeof import("./getAssociation").getAssociation = 
 export const getAssociationOutput: typeof import("./getAssociation").getAssociationOutput = null as any;
 utilities.lazyLoad(exports, ["getAssociation","getAssociationOutput"], () => require("./getAssociation"));
 
+export { GetPrivateConnectionArgs, GetPrivateConnectionResult, GetPrivateConnectionOutputArgs } from "./getPrivateConnection";
+export const getPrivateConnection: typeof import("./getPrivateConnection").getPrivateConnection = null as any;
+export const getPrivateConnectionOutput: typeof import("./getPrivateConnection").getPrivateConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateConnection","getPrivateConnectionOutput"], () => require("./getPrivateConnection"));
+
 export { GetServiceArgs, GetServiceResult, GetServiceOutputArgs } from "./getService";
 export const getService: typeof import("./getService").getService = null as any;
 export const getServiceOutput: typeof import("./getService").getServiceOutput = null as any;
 utilities.lazyLoad(exports, ["getService","getServiceOutput"], () => require("./getService"));
+
+export { PrivateConnectionArgs } from "./privateConnection";
+export type PrivateConnection = import("./privateConnection").PrivateConnection;
+export const PrivateConnection: typeof import("./privateConnection").PrivateConnection = null as any;
+utilities.lazyLoad(exports, ["PrivateConnection"], () => require("./privateConnection"));
 
 export { ServiceArgs } from "./service";
 export type Service = import("./service").Service;
@@ -47,6 +57,8 @@ const _module = {
                 return new AgentSpace(name, <any>undefined, { urn })
             case "aws-native:devopsagent:Association":
                 return new Association(name, <any>undefined, { urn })
+            case "aws-native:devopsagent:PrivateConnection":
+                return new PrivateConnection(name, <any>undefined, { urn })
             case "aws-native:devopsagent:Service":
                 return new Service(name, <any>undefined, { urn })
             default:

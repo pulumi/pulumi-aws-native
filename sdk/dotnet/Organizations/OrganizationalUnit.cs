@@ -138,6 +138,12 @@ namespace Pulumi.AwsNative.Organizations
         public Output<string> ParentId { get; private set; } = null!;
 
         /// <summary>
+        /// The path in the organization where this OU exists.
+        /// </summary>
+        [Output("path")]
+        public Output<string> Path { get; private set; } = null!;
+
+        /// <summary>
         /// A list of tags that you want to attach to the newly created OU.
         /// </summary>
         [Output("tags")]

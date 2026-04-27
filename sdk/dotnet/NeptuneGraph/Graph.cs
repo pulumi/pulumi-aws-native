@@ -52,6 +52,12 @@ namespace Pulumi.AwsNative.NeptuneGraph
         public Output<string?> GraphName { get; private set; } = null!;
 
         /// <summary>
+        /// The ARN of the KMS key used to encrypt data in the Neptune Analytics graph. If not specified, the graph is encrypted with an AWS managed key.
+        /// </summary>
+        [Output("kmsKeyIdentifier")]
+        public Output<string?> KmsKeyIdentifier { get; private set; } = null!;
+
+        /// <summary>
         /// Memory for the Graph.
         /// </summary>
         [Output("provisionedMemory")]
@@ -117,6 +123,7 @@ namespace Pulumi.AwsNative.NeptuneGraph
                 ReplaceOnChanges =
                 {
                     "graphName",
+                    "kmsKeyIdentifier",
                     "replicaCount",
                     "vectorSearchConfiguration",
                 },
@@ -159,6 +166,12 @@ namespace Pulumi.AwsNative.NeptuneGraph
         /// </summary>
         [Input("graphName")]
         public Input<string>? GraphName { get; set; }
+
+        /// <summary>
+        /// The ARN of the KMS key used to encrypt data in the Neptune Analytics graph. If not specified, the graph is encrypted with an AWS managed key.
+        /// </summary>
+        [Input("kmsKeyIdentifier")]
+        public Input<string>? KmsKeyIdentifier { get; set; }
 
         /// <summary>
         /// Memory for the Graph.

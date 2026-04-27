@@ -10,6 +10,100 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The status of the Private Connection.
+type PrivateConnectionStatus string
+
+const (
+	PrivateConnectionStatusActive           = PrivateConnectionStatus("ACTIVE")
+	PrivateConnectionStatusCreateInProgress = PrivateConnectionStatus("CREATE_IN_PROGRESS")
+	PrivateConnectionStatusCreateFailed     = PrivateConnectionStatus("CREATE_FAILED")
+	PrivateConnectionStatusDeleteInProgress = PrivateConnectionStatus("DELETE_IN_PROGRESS")
+	PrivateConnectionStatusDeleteFailed     = PrivateConnectionStatus("DELETE_FAILED")
+)
+
+type PrivateConnectionStatusOutput struct{ *pulumi.OutputState }
+
+func (PrivateConnectionStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateConnectionStatus)(nil)).Elem()
+}
+
+func (o PrivateConnectionStatusOutput) ToPrivateConnectionStatusOutput() PrivateConnectionStatusOutput {
+	return o
+}
+
+func (o PrivateConnectionStatusOutput) ToPrivateConnectionStatusOutputWithContext(ctx context.Context) PrivateConnectionStatusOutput {
+	return o
+}
+
+func (o PrivateConnectionStatusOutput) ToPrivateConnectionStatusPtrOutput() PrivateConnectionStatusPtrOutput {
+	return o.ToPrivateConnectionStatusPtrOutputWithContext(context.Background())
+}
+
+func (o PrivateConnectionStatusOutput) ToPrivateConnectionStatusPtrOutputWithContext(ctx context.Context) PrivateConnectionStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateConnectionStatus) *PrivateConnectionStatus {
+		return &v
+	}).(PrivateConnectionStatusPtrOutput)
+}
+
+func (o PrivateConnectionStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PrivateConnectionStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PrivateConnectionStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PrivateConnectionStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PrivateConnectionStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PrivateConnectionStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PrivateConnectionStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (PrivateConnectionStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateConnectionStatus)(nil)).Elem()
+}
+
+func (o PrivateConnectionStatusPtrOutput) ToPrivateConnectionStatusPtrOutput() PrivateConnectionStatusPtrOutput {
+	return o
+}
+
+func (o PrivateConnectionStatusPtrOutput) ToPrivateConnectionStatusPtrOutputWithContext(ctx context.Context) PrivateConnectionStatusPtrOutput {
+	return o
+}
+
+func (o PrivateConnectionStatusPtrOutput) Elem() PrivateConnectionStatusOutput {
+	return o.ApplyT(func(v *PrivateConnectionStatus) PrivateConnectionStatus {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateConnectionStatus
+		return ret
+	}).(PrivateConnectionStatusOutput)
+}
+
+func (o PrivateConnectionStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PrivateConnectionStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PrivateConnectionStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // The type of service being registered
 type ServiceType string
 
@@ -20,6 +114,9 @@ const (
 	ServiceTypeMcpservernewrelic = ServiceType("mcpservernewrelic")
 	ServiceTypeGitlab            = ServiceType("gitlab")
 	ServiceTypeServicenow        = ServiceType("servicenow")
+	ServiceTypePagerduty         = ServiceType("pagerduty")
+	ServiceTypeAzureidentity     = ServiceType("azureidentity")
+	ServiceTypeMcpserversigv4    = ServiceType("mcpserversigv4")
 )
 
 func (ServiceType) ElementType() reflect.Type {
@@ -150,6 +247,9 @@ func (o ServiceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) 
 //	ServiceTypeMcpservernewrelic
 //	ServiceTypeGitlab
 //	ServiceTypeServicenow
+//	ServiceTypePagerduty
+//	ServiceTypeAzureidentity
+//	ServiceTypeMcpserversigv4
 type ServiceTypeInput interface {
 	pulumi.Input
 
@@ -187,6 +287,8 @@ func (in *serviceTypePtr) ToServiceTypePtrOutputWithContext(ctx context.Context)
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceTypeInput)(nil)).Elem(), ServiceType("dynatrace"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceTypePtrInput)(nil)).Elem(), ServiceType("dynatrace"))
+	pulumi.RegisterOutputType(PrivateConnectionStatusOutput{})
+	pulumi.RegisterOutputType(PrivateConnectionStatusPtrOutput{})
 	pulumi.RegisterOutputType(ServiceTypeOutput{})
 	pulumi.RegisterOutputType(ServiceTypePtrOutput{})
 }

@@ -95,6 +95,8 @@ namespace Pulumi.AwsNative.Batch.Outputs
         /// The secrets to pass to the container. For more information, see [Specifying Sensitive Data](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html) in the Amazon Elastic Container Service Developer Guide.
         /// </summary>
         public readonly ImmutableArray<Outputs.JobDefinitionSecret> Secrets;
+        public readonly int? StartTimeout;
+        public readonly int? StopTimeout;
         /// <summary>
         /// A list of `ulimits` to set in the container. If a `ulimit` value is specified in a task definition, it overrides the default values set by Docker. This parameter maps to `Ulimits` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the `--ulimit` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) .
         /// 
@@ -155,6 +157,10 @@ namespace Pulumi.AwsNative.Batch.Outputs
 
             ImmutableArray<Outputs.JobDefinitionSecret> secrets,
 
+            int? startTimeout,
+
+            int? stopTimeout,
+
             ImmutableArray<Outputs.JobDefinitionUlimit> ulimits,
 
             string? user)
@@ -174,6 +180,8 @@ namespace Pulumi.AwsNative.Batch.Outputs
             RepositoryCredentials = repositoryCredentials;
             ResourceRequirements = resourceRequirements;
             Secrets = secrets;
+            StartTimeout = startTimeout;
+            StopTimeout = stopTimeout;
             Ulimits = ulimits;
             User = user;
         }

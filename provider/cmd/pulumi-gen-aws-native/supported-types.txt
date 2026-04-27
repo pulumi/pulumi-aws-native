@@ -323,6 +323,7 @@ AWS::ControlTower::EnabledControl
 AWS::ControlTower::LandingZone
 AWS::CustomerProfiles::CalculatedAttributeDefinition
 AWS::CustomerProfiles::Domain
+AWS::CustomerProfiles::DomainObjectType
 AWS::CustomerProfiles::EventStream
 AWS::CustomerProfiles::EventTrigger
 AWS::CustomerProfiles::Integration
@@ -390,6 +391,7 @@ AWS::Detective::MemberInvitation
 AWS::Detective::OrganizationAdmin
 AWS::DevOpsAgent::AgentSpace
 AWS::DevOpsAgent::Association
+AWS::DevOpsAgent::PrivateConnection
 AWS::DevOpsAgent::Service
 AWS::DevOpsGuru::LogAnomalyDetectionIntegration
 AWS::DevOpsGuru::NotificationChannel

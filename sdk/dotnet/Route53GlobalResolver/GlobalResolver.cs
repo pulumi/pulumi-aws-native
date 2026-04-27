@@ -48,6 +48,9 @@ namespace Pulumi.AwsNative.Route53GlobalResolver
         [Output("observabilityRegion")]
         public Output<string?> ObservabilityRegion { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of regions the Global Resolver will exist in. This list cannot be updated and will stay fixed for the duration of the Global Resolver.
+        /// </summary>
         [Output("regions")]
         public Output<ImmutableArray<string>> Regions { get; private set; } = null!;
 
@@ -86,7 +89,6 @@ namespace Pulumi.AwsNative.Route53GlobalResolver
                 ReplaceOnChanges =
                 {
                     "clientToken",
-                    "regions[*]",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -127,6 +129,10 @@ namespace Pulumi.AwsNative.Route53GlobalResolver
 
         [Input("regions", required: true)]
         private InputList<string>? _regions;
+
+        /// <summary>
+        /// A list of regions the Global Resolver will exist in. This list cannot be updated and will stay fixed for the duration of the Global Resolver.
+        /// </summary>
         public InputList<string> Regions
         {
             get => _regions ?? (_regions = new InputList<string>());

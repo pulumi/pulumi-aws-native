@@ -35,6 +35,51 @@ export const DirectoryBucketDataRedundancy = {
  */
 export type DirectoryBucketDataRedundancy = (typeof DirectoryBucketDataRedundancy)[keyof typeof DirectoryBucketDataRedundancy];
 
+export const DirectoryBucketDestinationFormat = {
+    Csv: "CSV",
+    Orc: "ORC",
+    Parquet: "Parquet",
+} as const;
+
+/**
+ * Specifies the file format used when exporting data to Amazon S3.
+ */
+export type DirectoryBucketDestinationFormat = (typeof DirectoryBucketDestinationFormat)[keyof typeof DirectoryBucketDestinationFormat];
+
+export const DirectoryBucketInventoryConfigurationIncludedObjectVersions = {
+    All: "All",
+    Current: "Current",
+} as const;
+
+/**
+ * Object versions to include in the inventory list.
+ */
+export type DirectoryBucketInventoryConfigurationIncludedObjectVersions = (typeof DirectoryBucketInventoryConfigurationIncludedObjectVersions)[keyof typeof DirectoryBucketInventoryConfigurationIncludedObjectVersions];
+
+export const DirectoryBucketInventoryConfigurationOptionalFieldsItem = {
+    Size: "Size",
+    LastModifiedDate: "LastModifiedDate",
+    StorageClass: "StorageClass",
+    ETag: "ETag",
+    IsMultipartUploaded: "IsMultipartUploaded",
+    EncryptionStatus: "EncryptionStatus",
+    BucketKeyStatus: "BucketKeyStatus",
+    ChecksumAlgorithm: "ChecksumAlgorithm",
+    LifecycleExpirationDate: "LifecycleExpirationDate",
+} as const;
+
+export type DirectoryBucketInventoryConfigurationOptionalFieldsItem = (typeof DirectoryBucketInventoryConfigurationOptionalFieldsItem)[keyof typeof DirectoryBucketInventoryConfigurationOptionalFieldsItem];
+
+export const DirectoryBucketInventoryConfigurationScheduleFrequency = {
+    Daily: "Daily",
+    Weekly: "Weekly",
+} as const;
+
+/**
+ * Specifies the schedule for generating inventory results.
+ */
+export type DirectoryBucketInventoryConfigurationScheduleFrequency = (typeof DirectoryBucketInventoryConfigurationScheduleFrequency)[keyof typeof DirectoryBucketInventoryConfigurationScheduleFrequency];
+
 export const DirectoryBucketRuleStatus = {
     Enabled: "Enabled",
     Disabled: "Disabled",

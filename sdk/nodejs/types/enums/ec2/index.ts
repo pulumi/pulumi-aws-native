@@ -98,6 +98,20 @@ export const Ec2FleetExcessCapacityTerminationPolicy = {
  */
 export type Ec2FleetExcessCapacityTerminationPolicy = (typeof Ec2FleetExcessCapacityTerminationPolicy)[keyof typeof Ec2FleetExcessCapacityTerminationPolicy];
 
+export const Ec2FleetInstanceMetadataOptionsRequestHttpEndpoint = {
+    Disabled: "disabled",
+    Enabled: "enabled",
+} as const;
+
+export type Ec2FleetInstanceMetadataOptionsRequestHttpEndpoint = (typeof Ec2FleetInstanceMetadataOptionsRequestHttpEndpoint)[keyof typeof Ec2FleetInstanceMetadataOptionsRequestHttpEndpoint];
+
+export const Ec2FleetInstanceMetadataOptionsRequestHttpTokens = {
+    Optional: "optional",
+    Required: "required",
+} as const;
+
+export type Ec2FleetInstanceMetadataOptionsRequestHttpTokens = (typeof Ec2FleetInstanceMetadataOptionsRequestHttpTokens)[keyof typeof Ec2FleetInstanceMetadataOptionsRequestHttpTokens];
+
 export const Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem = {
     AmazonWebServices: "amazon-web-services",
     Amd: "amd",

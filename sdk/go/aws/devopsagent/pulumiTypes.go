@@ -595,6 +595,60 @@ func (o AssociationServiceConfigurationPtrOutput) Elem() AssociationServiceConfi
 	}).(AssociationServiceConfigurationOutput)
 }
 
+// The connection configuration, either SelfManaged or ServiceManaged.
+type PrivateConnectionConnectionConfiguration struct {
+}
+
+// PrivateConnectionConnectionConfigurationInput is an input type that accepts PrivateConnectionConnectionConfigurationArgs and PrivateConnectionConnectionConfigurationOutput values.
+// You can construct a concrete instance of `PrivateConnectionConnectionConfigurationInput` via:
+//
+//	PrivateConnectionConnectionConfigurationArgs{...}
+type PrivateConnectionConnectionConfigurationInput interface {
+	pulumi.Input
+
+	ToPrivateConnectionConnectionConfigurationOutput() PrivateConnectionConnectionConfigurationOutput
+	ToPrivateConnectionConnectionConfigurationOutputWithContext(context.Context) PrivateConnectionConnectionConfigurationOutput
+}
+
+// The connection configuration, either SelfManaged or ServiceManaged.
+type PrivateConnectionConnectionConfigurationArgs struct {
+}
+
+func (PrivateConnectionConnectionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateConnectionConnectionConfiguration)(nil)).Elem()
+}
+
+func (i PrivateConnectionConnectionConfigurationArgs) ToPrivateConnectionConnectionConfigurationOutput() PrivateConnectionConnectionConfigurationOutput {
+	return i.ToPrivateConnectionConnectionConfigurationOutputWithContext(context.Background())
+}
+
+func (i PrivateConnectionConnectionConfigurationArgs) ToPrivateConnectionConnectionConfigurationOutputWithContext(ctx context.Context) PrivateConnectionConnectionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateConnectionConnectionConfigurationOutput)
+}
+
+// The connection configuration, either SelfManaged or ServiceManaged.
+type PrivateConnectionConnectionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (PrivateConnectionConnectionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateConnectionConnectionConfiguration)(nil)).Elem()
+}
+
+func (o PrivateConnectionConnectionConfigurationOutput) ToPrivateConnectionConnectionConfigurationOutput() PrivateConnectionConnectionConfigurationOutput {
+	return o
+}
+
+func (o PrivateConnectionConnectionConfigurationOutput) ToPrivateConnectionConnectionConfigurationOutputWithContext(ctx context.Context) PrivateConnectionConnectionConfigurationOutput {
+	return o
+}
+
+// A key-value pair to associate with a resource.
+type PrivateConnectionTag struct {
+	// The key name of the tag.
+	Key string `pulumi:"key"`
+	// The value for the tag.
+	Value string `pulumi:"value"`
+}
+
 // Additional details specific to the service type returned after registration
 type ServiceAdditionalServiceDetails struct {
 }
@@ -775,6 +829,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentSpaceOperatorAppInput)(nil)).Elem(), AgentSpaceOperatorAppArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentSpaceOperatorAppPtrInput)(nil)).Elem(), AgentSpaceOperatorAppArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssociationServiceConfigurationInput)(nil)).Elem(), AssociationServiceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateConnectionConnectionConfigurationInput)(nil)).Elem(), PrivateConnectionConnectionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDetailsInput)(nil)).Elem(), ServiceDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDetailsPtrInput)(nil)).Elem(), ServiceDetailsArgs{})
 	pulumi.RegisterOutputType(AgentSpaceIamAuthConfigurationOutput{})
@@ -785,6 +840,7 @@ func init() {
 	pulumi.RegisterOutputType(AgentSpaceOperatorAppPtrOutput{})
 	pulumi.RegisterOutputType(AssociationServiceConfigurationOutput{})
 	pulumi.RegisterOutputType(AssociationServiceConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(PrivateConnectionConnectionConfigurationOutput{})
 	pulumi.RegisterOutputType(ServiceAdditionalServiceDetailsOutput{})
 	pulumi.RegisterOutputType(ServiceAdditionalServiceDetailsPtrOutput{})
 	pulumi.RegisterOutputType(ServiceDetailsOutput{})

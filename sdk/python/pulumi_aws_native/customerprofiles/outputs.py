@@ -34,6 +34,7 @@ __all__ = [
     'DomainJobSchedule',
     'DomainMatching',
     'DomainMatchingRule',
+    'DomainObjectTypeField',
     'DomainReadiness',
     'DomainRuleBasedMatching',
     'DomainS3ExportingConfig',
@@ -924,6 +925,83 @@ class DomainMatchingRule(dict):
         A single rule level of the `MatchRules` . Configures how the rule-based matching process should match profiles.
         """
         return pulumi.get(self, "rule")
+
+
+@pulumi.output_type
+class DomainObjectTypeField(dict):
+    """
+    Represents a field in a DomainObjectType.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contentType":
+            suggest = "content_type"
+        elif key == "featureType":
+            suggest = "feature_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainObjectTypeField. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainObjectTypeField.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainObjectTypeField.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 source: _builtins.str,
+                 target: _builtins.str,
+                 content_type: Optional['DomainObjectTypeFieldContentType'] = None,
+                 feature_type: Optional['DomainObjectTypeFieldFeatureType'] = None):
+        """
+        Represents a field in a DomainObjectType.
+
+        :param _builtins.str source: The source field name.
+        :param _builtins.str target: The target field name.
+        :param 'DomainObjectTypeFieldContentType' content_type: The content type of the field.
+        :param 'DomainObjectTypeFieldFeatureType' feature_type: The feature type of the field.
+        """
+        pulumi.set(__self__, "source", source)
+        pulumi.set(__self__, "target", target)
+        if content_type is not None:
+            pulumi.set(__self__, "content_type", content_type)
+        if feature_type is not None:
+            pulumi.set(__self__, "feature_type", feature_type)
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> _builtins.str:
+        """
+        The source field name.
+        """
+        return pulumi.get(self, "source")
+
+    @_builtins.property
+    @pulumi.getter
+    def target(self) -> _builtins.str:
+        """
+        The target field name.
+        """
+        return pulumi.get(self, "target")
+
+    @_builtins.property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> Optional['DomainObjectTypeFieldContentType']:
+        """
+        The content type of the field.
+        """
+        return pulumi.get(self, "content_type")
+
+    @_builtins.property
+    @pulumi.getter(name="featureType")
+    def feature_type(self) -> Optional['DomainObjectTypeFieldFeatureType']:
+        """
+        The feature type of the field.
+        """
+        return pulumi.get(self, "feature_type")
 
 
 @pulumi.output_type

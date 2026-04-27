@@ -20,6 +20,8 @@ __all__ = [
     'CapacityProviderAcceleratorCountRequestArgsDict',
     'CapacityProviderAcceleratorTotalMemoryMiBRequestArgs',
     'CapacityProviderAcceleratorTotalMemoryMiBRequestArgsDict',
+    'CapacityProviderAutoRepairConfigurationArgs',
+    'CapacityProviderAutoRepairConfigurationArgsDict',
     'CapacityProviderAutoScalingGroupProviderArgs',
     'CapacityProviderAutoScalingGroupProviderArgsDict',
     'CapacityProviderBaselineEbsBandwidthMbpsRequestArgs',
@@ -370,6 +372,26 @@ class CapacityProviderAcceleratorTotalMemoryMiBRequestArgs:
     @min.setter
     def min(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "min", value)
+
+
+class CapacityProviderAutoRepairConfigurationArgsDict(TypedDict):
+    actions_status: NotRequired[pulumi.Input['CapacityProviderAutoRepairConfigurationActionsStatus']]
+
+@pulumi.input_type
+class CapacityProviderAutoRepairConfigurationArgs:
+    def __init__(__self__, *,
+                 actions_status: Optional[pulumi.Input['CapacityProviderAutoRepairConfigurationActionsStatus']] = None):
+        if actions_status is not None:
+            pulumi.set(__self__, "actions_status", actions_status)
+
+    @_builtins.property
+    @pulumi.getter(name="actionsStatus")
+    def actions_status(self) -> Optional[pulumi.Input['CapacityProviderAutoRepairConfigurationActionsStatus']]:
+        return pulumi.get(self, "actions_status")
+
+    @actions_status.setter
+    def actions_status(self, value: Optional[pulumi.Input['CapacityProviderAutoRepairConfigurationActionsStatus']]):
+        pulumi.set(self, "actions_status", value)
 
 
 class CapacityProviderAutoScalingGroupProviderArgsDict(TypedDict):
@@ -1388,6 +1410,7 @@ class CapacityProviderManagedInstancesProviderArgsDict(TypedDict):
 
     For more information, see [Store instance launch parameters in Amazon EC2 launch templates](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html) in the *Amazon EC2 User Guide* .
     """
+    auto_repair_configuration: NotRequired[pulumi.Input['CapacityProviderAutoRepairConfigurationArgsDict']]
     infrastructure_optimization: NotRequired[pulumi.Input['CapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesArgsDict']]
     """
     Defines how Amazon ECS Managed Instances optimizes the infrastructure in your capacity provider. Configure it to turn on or off the infrastructure optimization in your capacity provider, and to control the idle EC2 instances optimization delay.
@@ -1402,6 +1425,7 @@ class CapacityProviderManagedInstancesProviderArgs:
     def __init__(__self__, *,
                  infrastructure_role_arn: pulumi.Input[_builtins.str],
                  instance_launch_template: pulumi.Input['CapacityProviderInstanceLaunchTemplateArgs'],
+                 auto_repair_configuration: Optional[pulumi.Input['CapacityProviderAutoRepairConfigurationArgs']] = None,
                  infrastructure_optimization: Optional[pulumi.Input['CapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesArgs']] = None,
                  propagate_tags: Optional[pulumi.Input['CapacityProviderManagedInstancesProviderPropagateTags']] = None):
         """
@@ -1416,6 +1440,8 @@ class CapacityProviderManagedInstancesProviderArgs:
         """
         pulumi.set(__self__, "infrastructure_role_arn", infrastructure_role_arn)
         pulumi.set(__self__, "instance_launch_template", instance_launch_template)
+        if auto_repair_configuration is not None:
+            pulumi.set(__self__, "auto_repair_configuration", auto_repair_configuration)
         if infrastructure_optimization is not None:
             pulumi.set(__self__, "infrastructure_optimization", infrastructure_optimization)
         if propagate_tags is not None:
@@ -1448,6 +1474,15 @@ class CapacityProviderManagedInstancesProviderArgs:
     @instance_launch_template.setter
     def instance_launch_template(self, value: pulumi.Input['CapacityProviderInstanceLaunchTemplateArgs']):
         pulumi.set(self, "instance_launch_template", value)
+
+    @_builtins.property
+    @pulumi.getter(name="autoRepairConfiguration")
+    def auto_repair_configuration(self) -> Optional[pulumi.Input['CapacityProviderAutoRepairConfigurationArgs']]:
+        return pulumi.get(self, "auto_repair_configuration")
+
+    @auto_repair_configuration.setter
+    def auto_repair_configuration(self, value: Optional[pulumi.Input['CapacityProviderAutoRepairConfigurationArgs']]):
+        pulumi.set(self, "auto_repair_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="infrastructureOptimization")

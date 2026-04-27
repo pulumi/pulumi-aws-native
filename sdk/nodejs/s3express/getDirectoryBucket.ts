@@ -38,6 +38,10 @@ export interface GetDirectoryBucketResult {
      */
     readonly bucketEncryption?: outputs.s3express.DirectoryBucketBucketEncryption;
     /**
+     * The inventory configuration for an Amazon S3 Express bucket.
+     */
+    readonly inventoryConfigurations?: outputs.s3express.DirectoryBucketInventoryConfiguration[];
+    /**
      * Lifecycle rules that define how Amazon S3 Express manages objects during their lifetime.
      */
     readonly lifecycleConfiguration?: outputs.s3express.DirectoryBucketLifecycleConfiguration;

@@ -31,6 +31,8 @@ type Account struct {
 	JoinedTimestamp pulumi.StringOutput `pulumi:"joinedTimestamp"`
 	// List of parent nodes for the member account. Currently only one parent at a time is supported. Default is root.
 	ParentIds pulumi.StringArrayOutput `pulumi:"parentIds"`
+	// The paths in the organization where the account exists.
+	Paths pulumi.StringArrayOutput `pulumi:"paths"`
 	// The name of an IAM role that AWS Organizations automatically preconfigures in the new member account. Default name is OrganizationAccountAccessRole if not specified.
 	RoleName pulumi.StringPtrOutput `pulumi:"roleName"`
 	// The state of the account in the organization.
@@ -180,6 +182,11 @@ func (o AccountOutput) JoinedTimestamp() pulumi.StringOutput {
 // List of parent nodes for the member account. Currently only one parent at a time is supported. Default is root.
 func (o AccountOutput) ParentIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringArrayOutput { return v.ParentIds }).(pulumi.StringArrayOutput)
+}
+
+// The paths in the organization where the account exists.
+func (o AccountOutput) Paths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringArrayOutput { return v.Paths }).(pulumi.StringArrayOutput)
 }
 
 // The name of an IAM role that AWS Organizations automatically preconfigures in the new member account. Default name is OrganizationAccountAccessRole if not specified.

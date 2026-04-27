@@ -27,6 +27,8 @@ type DirectoryBucket struct {
 	BucketName pulumi.StringPtrOutput `pulumi:"bucketName"`
 	// Specifies the number of Availability Zone or Local Zone that's used for redundancy for the bucket.
 	DataRedundancy DirectoryBucketDataRedundancyOutput `pulumi:"dataRedundancy"`
+	// The inventory configuration for an Amazon S3 Express bucket.
+	InventoryConfigurations DirectoryBucketInventoryConfigurationArrayOutput `pulumi:"inventoryConfigurations"`
 	// Lifecycle rules that define how Amazon S3 Express manages objects during their lifetime.
 	LifecycleConfiguration DirectoryBucketLifecycleConfigurationPtrOutput `pulumi:"lifecycleConfiguration"`
 	// Specifies the Zone ID of the Availability Zone or Local Zone where the directory bucket will be created. An example Availability Zone ID value is 'use1-az5'.
@@ -95,6 +97,8 @@ type directoryBucketArgs struct {
 	BucketName *string `pulumi:"bucketName"`
 	// Specifies the number of Availability Zone or Local Zone that's used for redundancy for the bucket.
 	DataRedundancy DirectoryBucketDataRedundancy `pulumi:"dataRedundancy"`
+	// The inventory configuration for an Amazon S3 Express bucket.
+	InventoryConfigurations []DirectoryBucketInventoryConfiguration `pulumi:"inventoryConfigurations"`
 	// Lifecycle rules that define how Amazon S3 Express manages objects during their lifetime.
 	LifecycleConfiguration *DirectoryBucketLifecycleConfiguration `pulumi:"lifecycleConfiguration"`
 	// Specifies the Zone ID of the Availability Zone or Local Zone where the directory bucket will be created. An example Availability Zone ID value is 'use1-az5'.
@@ -113,6 +117,8 @@ type DirectoryBucketArgs struct {
 	BucketName pulumi.StringPtrInput
 	// Specifies the number of Availability Zone or Local Zone that's used for redundancy for the bucket.
 	DataRedundancy DirectoryBucketDataRedundancyInput
+	// The inventory configuration for an Amazon S3 Express bucket.
+	InventoryConfigurations DirectoryBucketInventoryConfigurationArrayInput
 	// Lifecycle rules that define how Amazon S3 Express manages objects during their lifetime.
 	LifecycleConfiguration DirectoryBucketLifecycleConfigurationPtrInput
 	// Specifies the Zone ID of the Availability Zone or Local Zone where the directory bucket will be created. An example Availability Zone ID value is 'use1-az5'.
@@ -183,6 +189,13 @@ func (o DirectoryBucketOutput) BucketName() pulumi.StringPtrOutput {
 // Specifies the number of Availability Zone or Local Zone that's used for redundancy for the bucket.
 func (o DirectoryBucketOutput) DataRedundancy() DirectoryBucketDataRedundancyOutput {
 	return o.ApplyT(func(v *DirectoryBucket) DirectoryBucketDataRedundancyOutput { return v.DataRedundancy }).(DirectoryBucketDataRedundancyOutput)
+}
+
+// The inventory configuration for an Amazon S3 Express bucket.
+func (o DirectoryBucketOutput) InventoryConfigurations() DirectoryBucketInventoryConfigurationArrayOutput {
+	return o.ApplyT(func(v *DirectoryBucket) DirectoryBucketInventoryConfigurationArrayOutput {
+		return v.InventoryConfigurations
+	}).(DirectoryBucketInventoryConfigurationArrayOutput)
 }
 
 // Lifecycle rules that define how Amazon S3 Express manages objects during their lifetime.

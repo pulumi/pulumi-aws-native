@@ -2,6 +2,13 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const CapacityProviderAutoRepairConfigurationActionsStatus = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+export type CapacityProviderAutoRepairConfigurationActionsStatus = (typeof CapacityProviderAutoRepairConfigurationActionsStatus)[keyof typeof CapacityProviderAutoRepairConfigurationActionsStatus];
+
 export const CapacityProviderAutoScalingGroupProviderManagedDraining = {
     Disabled: "DISABLED",
     Enabled: "ENABLED",

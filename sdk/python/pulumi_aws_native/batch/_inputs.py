@@ -114,6 +114,8 @@ __all__ = [
     'JobDefinitionRetryStrategyArgsDict',
     'JobDefinitionRuntimePlatformArgs',
     'JobDefinitionRuntimePlatformArgsDict',
+    'JobDefinitionS3FilesVolumeConfigurationArgs',
+    'JobDefinitionS3FilesVolumeConfigurationArgsDict',
     'JobDefinitionSecretArgs',
     'JobDefinitionSecretArgsDict',
     'JobDefinitionTaskContainerDependencyArgs',
@@ -828,6 +830,7 @@ class ComputeEnvironmentEc2ConfigurationObjectArgsDict(TypedDict):
     > Amazon Linux 2023 does not support `A1` instances.
     - **EKS_AL2023_NVIDIA** - [Amazon Linux 2023 (accelerated)](https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html) : Default for GPU instance families and can be used for all non AWS Graviton-based instance types.
     """
+    batch_image_status: NotRequired[pulumi.Input[_builtins.str]]
     image_id_override: NotRequired[pulumi.Input[_builtins.str]]
     """
     The AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the `imageId` set in the `computeResource` object.
@@ -843,6 +846,7 @@ class ComputeEnvironmentEc2ConfigurationObjectArgsDict(TypedDict):
 class ComputeEnvironmentEc2ConfigurationObjectArgs:
     def __init__(__self__, *,
                  image_type: pulumi.Input[_builtins.str],
+                 batch_image_status: Optional[pulumi.Input[_builtins.str]] = None,
                  image_id_override: Optional[pulumi.Input[_builtins.str]] = None,
                  image_kubernetes_version: Optional[pulumi.Input[_builtins.str]] = None):
         """
@@ -878,6 +882,8 @@ class ComputeEnvironmentEc2ConfigurationObjectArgs:
         :param pulumi.Input[_builtins.str] image_kubernetes_version: The Kubernetes version for the compute environment. If you don't specify a value, the latest version that AWS Batch supports is used.
         """
         pulumi.set(__self__, "image_type", image_type)
+        if batch_image_status is not None:
+            pulumi.set(__self__, "batch_image_status", batch_image_status)
         if image_id_override is not None:
             pulumi.set(__self__, "image_id_override", image_id_override)
         if image_kubernetes_version is not None:
@@ -919,6 +925,15 @@ class ComputeEnvironmentEc2ConfigurationObjectArgs:
     @image_type.setter
     def image_type(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "image_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="batchImageStatus")
+    def batch_image_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "batch_image_status")
+
+    @batch_image_status.setter
+    def batch_image_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "batch_image_status", value)
 
     @_builtins.property
     @pulumi.getter(name="imageIdOverride")
@@ -5729,6 +5744,64 @@ class JobDefinitionRuntimePlatformArgs:
         pulumi.set(self, "operating_system_family", value)
 
 
+class JobDefinitionS3FilesVolumeConfigurationArgsDict(TypedDict):
+    file_system_arn: pulumi.Input[_builtins.str]
+    access_point_arn: NotRequired[pulumi.Input[_builtins.str]]
+    root_directory: NotRequired[pulumi.Input[_builtins.str]]
+    transit_encryption_port: NotRequired[pulumi.Input[_builtins.int]]
+
+@pulumi.input_type
+class JobDefinitionS3FilesVolumeConfigurationArgs:
+    def __init__(__self__, *,
+                 file_system_arn: pulumi.Input[_builtins.str],
+                 access_point_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 root_directory: Optional[pulumi.Input[_builtins.str]] = None,
+                 transit_encryption_port: Optional[pulumi.Input[_builtins.int]] = None):
+        pulumi.set(__self__, "file_system_arn", file_system_arn)
+        if access_point_arn is not None:
+            pulumi.set(__self__, "access_point_arn", access_point_arn)
+        if root_directory is not None:
+            pulumi.set(__self__, "root_directory", root_directory)
+        if transit_encryption_port is not None:
+            pulumi.set(__self__, "transit_encryption_port", transit_encryption_port)
+
+    @_builtins.property
+    @pulumi.getter(name="fileSystemArn")
+    def file_system_arn(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "file_system_arn")
+
+    @file_system_arn.setter
+    def file_system_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "file_system_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="accessPointArn")
+    def access_point_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "access_point_arn")
+
+    @access_point_arn.setter
+    def access_point_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "access_point_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="rootDirectory")
+    def root_directory(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "root_directory")
+
+    @root_directory.setter
+    def root_directory(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "root_directory", value)
+
+    @_builtins.property
+    @pulumi.getter(name="transitEncryptionPort")
+    def transit_encryption_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+        return pulumi.get(self, "transit_encryption_port")
+
+    @transit_encryption_port.setter
+    def transit_encryption_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "transit_encryption_port", value)
+
+
 class JobDefinitionSecretArgsDict(TypedDict):
     name: pulumi.Input[_builtins.str]
     """
@@ -5962,6 +6035,8 @@ class JobDefinitionTaskContainerPropertiesArgsDict(TypedDict):
     """
     The secrets to pass to the container. For more information, see [Specifying Sensitive Data](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html) in the Amazon Elastic Container Service Developer Guide.
     """
+    start_timeout: NotRequired[pulumi.Input[_builtins.int]]
+    stop_timeout: NotRequired[pulumi.Input[_builtins.int]]
     ulimits: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobDefinitionUlimitArgsDict']]]]
     """
     A list of `ulimits` to set in the container. If a `ulimit` value is specified in a task definition, it overrides the default values set by Docker. This parameter maps to `Ulimits` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the `--ulimit` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) .
@@ -6008,6 +6083,8 @@ class JobDefinitionTaskContainerPropertiesArgs:
                  repository_credentials: Optional[pulumi.Input['JobDefinitionRepositoryCredentialsArgs']] = None,
                  resource_requirements: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionResourceRequirementArgs']]]] = None,
                  secrets: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionSecretArgs']]]] = None,
+                 start_timeout: Optional[pulumi.Input[_builtins.int]] = None,
+                 stop_timeout: Optional[pulumi.Input[_builtins.int]] = None,
                  ulimits: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionUlimitArgs']]]] = None,
                  user: Optional[pulumi.Input[_builtins.str]] = None):
         """
@@ -6099,6 +6176,10 @@ class JobDefinitionTaskContainerPropertiesArgs:
             pulumi.set(__self__, "resource_requirements", resource_requirements)
         if secrets is not None:
             pulumi.set(__self__, "secrets", secrets)
+        if start_timeout is not None:
+            pulumi.set(__self__, "start_timeout", start_timeout)
+        if stop_timeout is not None:
+            pulumi.set(__self__, "stop_timeout", stop_timeout)
         if ulimits is not None:
             pulumi.set(__self__, "ulimits", ulimits)
         if user is not None:
@@ -6307,6 +6388,24 @@ class JobDefinitionTaskContainerPropertiesArgs:
         pulumi.set(self, "secrets", value)
 
     @_builtins.property
+    @pulumi.getter(name="startTimeout")
+    def start_timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+        return pulumi.get(self, "start_timeout")
+
+    @start_timeout.setter
+    def start_timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "start_timeout", value)
+
+    @_builtins.property
+    @pulumi.getter(name="stopTimeout")
+    def stop_timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+        return pulumi.get(self, "stop_timeout")
+
+    @stop_timeout.setter
+    def stop_timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "stop_timeout", value)
+
+    @_builtins.property
     @pulumi.getter
     def ulimits(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionUlimitArgs']]]]:
         """
@@ -6504,13 +6603,15 @@ class JobDefinitionVolumeArgsDict(TypedDict):
     """
     The name of the volume. It can be up to 255 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_). This name is referenced in the `sourceVolume` parameter of container definition `mountPoints` .
     """
+    s3_files_volume_configuration: NotRequired[pulumi.Input['JobDefinitionS3FilesVolumeConfigurationArgsDict']]
 
 @pulumi.input_type
 class JobDefinitionVolumeArgs:
     def __init__(__self__, *,
                  efs_volume_configuration: Optional[pulumi.Input['JobDefinitionEfsVolumeConfigurationArgs']] = None,
                  host: Optional[pulumi.Input['JobDefinitionHostArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 s3_files_volume_configuration: Optional[pulumi.Input['JobDefinitionS3FilesVolumeConfigurationArgs']] = None):
         """
         :param pulumi.Input['JobDefinitionEfsVolumeConfigurationArgs'] efs_volume_configuration: This parameter is specified when you're using an Amazon Elastic File System file system for job storage. Jobs that are running on Fargate resources must specify a `platformVersion` of at least `1.4.0` .
         :param pulumi.Input['JobDefinitionHostArgs'] host: The contents of the `host` parameter determine whether your data volume persists on the host container instance and where it's stored. If the host parameter is empty, then the Docker daemon assigns a host path for your data volume. However, the data isn't guaranteed to persist after the containers that are associated with it stop running.
@@ -6524,6 +6625,8 @@ class JobDefinitionVolumeArgs:
             pulumi.set(__self__, "host", host)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if s3_files_volume_configuration is not None:
+            pulumi.set(__self__, "s3_files_volume_configuration", s3_files_volume_configuration)
 
     @_builtins.property
     @pulumi.getter(name="efsVolumeConfiguration")
@@ -6562,6 +6665,15 @@ class JobDefinitionVolumeArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="s3FilesVolumeConfiguration")
+    def s3_files_volume_configuration(self) -> Optional[pulumi.Input['JobDefinitionS3FilesVolumeConfigurationArgs']]:
+        return pulumi.get(self, "s3_files_volume_configuration")
+
+    @s3_files_volume_configuration.setter
+    def s3_files_volume_configuration(self, value: Optional[pulumi.Input['JobDefinitionS3FilesVolumeConfigurationArgs']]):
+        pulumi.set(self, "s3_files_volume_configuration", value)
 
 
 class JobQueueComputeEnvironmentOrderArgsDict(TypedDict):

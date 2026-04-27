@@ -24,7 +24,7 @@ __all__ = ['RouterInputArgs', 'RouterInput']
 @pulumi.input_type
 class RouterInputArgs:
     def __init__(__self__, *,
-                 configuration: pulumi.Input[Union['RouterInputConfiguration0PropertiesArgs', 'RouterInputConfiguration1PropertiesArgs', 'RouterInputConfiguration2PropertiesArgs', 'RouterInputConfiguration3PropertiesArgs']],
+                 configuration: pulumi.Input[Union['RouterInputConfiguration0PropertiesArgs', 'RouterInputConfiguration1PropertiesArgs', 'RouterInputConfiguration2PropertiesArgs', 'RouterInputConfiguration3PropertiesArgs', 'RouterInputConfiguration4PropertiesArgs']],
                  maximum_bitrate: pulumi.Input[_builtins.int],
                  routing_scope: pulumi.Input['RouterInputRoutingScope'],
                  tier: pulumi.Input['RouterInputTier'],
@@ -43,7 +43,7 @@ class RouterInputArgs:
         :param pulumi.Input[_builtins.str] availability_zone: The Availability Zone where you want to create the router input. This must be a valid Availability Zone for the region specified by regionName, or the current region if no regionName is provided.
         :param pulumi.Input[Union['RouterInputMaintenanceConfiguration0PropertiesArgs', 'RouterInputMaintenanceConfiguration1PropertiesArgs']] maintenance_configuration: The maintenance configuration settings applied to this router input.
         :param pulumi.Input[_builtins.str] name: The name of the router input.
-        :param pulumi.Input[_builtins.str] region_name: The AWS Region for the router input. Defaults to the current region if not specified.
+        :param pulumi.Input[_builtins.str] region_name: The Amazon Web Services Region for the router input. Defaults to the current region if not specified.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Key-value pairs that can be used to tag and organize this router input.
         :param pulumi.Input['RouterInputTransitEncryptionArgs'] transit_encryption: Encryption information.
         """
@@ -66,11 +66,11 @@ class RouterInputArgs:
 
     @_builtins.property
     @pulumi.getter
-    def configuration(self) -> pulumi.Input[Union['RouterInputConfiguration0PropertiesArgs', 'RouterInputConfiguration1PropertiesArgs', 'RouterInputConfiguration2PropertiesArgs', 'RouterInputConfiguration3PropertiesArgs']]:
+    def configuration(self) -> pulumi.Input[Union['RouterInputConfiguration0PropertiesArgs', 'RouterInputConfiguration1PropertiesArgs', 'RouterInputConfiguration2PropertiesArgs', 'RouterInputConfiguration3PropertiesArgs', 'RouterInputConfiguration4PropertiesArgs']]:
         return pulumi.get(self, "configuration")
 
     @configuration.setter
-    def configuration(self, value: pulumi.Input[Union['RouterInputConfiguration0PropertiesArgs', 'RouterInputConfiguration1PropertiesArgs', 'RouterInputConfiguration2PropertiesArgs', 'RouterInputConfiguration3PropertiesArgs']]):
+    def configuration(self, value: pulumi.Input[Union['RouterInputConfiguration0PropertiesArgs', 'RouterInputConfiguration1PropertiesArgs', 'RouterInputConfiguration2PropertiesArgs', 'RouterInputConfiguration3PropertiesArgs', 'RouterInputConfiguration4PropertiesArgs']]):
         pulumi.set(self, "configuration", value)
 
     @_builtins.property
@@ -149,7 +149,7 @@ class RouterInputArgs:
     @pulumi.getter(name="regionName")
     def region_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The AWS Region for the router input. Defaults to the current region if not specified.
+        The Amazon Web Services Region for the router input. Defaults to the current region if not specified.
         """
         return pulumi.get(self, "region_name")
 
@@ -189,7 +189,7 @@ class RouterInput(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 configuration: Optional[pulumi.Input[Union[Union['RouterInputConfiguration0PropertiesArgs', 'RouterInputConfiguration0PropertiesArgsDict'], Union['RouterInputConfiguration1PropertiesArgs', 'RouterInputConfiguration1PropertiesArgsDict'], Union['RouterInputConfiguration2PropertiesArgs', 'RouterInputConfiguration2PropertiesArgsDict'], Union['RouterInputConfiguration3PropertiesArgs', 'RouterInputConfiguration3PropertiesArgsDict']]]] = None,
+                 configuration: Optional[pulumi.Input[Union[Union['RouterInputConfiguration0PropertiesArgs', 'RouterInputConfiguration0PropertiesArgsDict'], Union['RouterInputConfiguration1PropertiesArgs', 'RouterInputConfiguration1PropertiesArgsDict'], Union['RouterInputConfiguration2PropertiesArgs', 'RouterInputConfiguration2PropertiesArgsDict'], Union['RouterInputConfiguration3PropertiesArgs', 'RouterInputConfiguration3PropertiesArgsDict'], Union['RouterInputConfiguration4PropertiesArgs', 'RouterInputConfiguration4PropertiesArgsDict']]]] = None,
                  maintenance_configuration: Optional[pulumi.Input[Union[Union['RouterInputMaintenanceConfiguration0PropertiesArgs', 'RouterInputMaintenanceConfiguration0PropertiesArgsDict'], Union['RouterInputMaintenanceConfiguration1PropertiesArgs', 'RouterInputMaintenanceConfiguration1PropertiesArgsDict']]]] = None,
                  maximum_bitrate: Optional[pulumi.Input[_builtins.int]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -209,7 +209,7 @@ class RouterInput(pulumi.CustomResource):
         :param pulumi.Input[Union[Union['RouterInputMaintenanceConfiguration0PropertiesArgs', 'RouterInputMaintenanceConfiguration0PropertiesArgsDict'], Union['RouterInputMaintenanceConfiguration1PropertiesArgs', 'RouterInputMaintenanceConfiguration1PropertiesArgsDict']]] maintenance_configuration: The maintenance configuration settings applied to this router input.
         :param pulumi.Input[_builtins.int] maximum_bitrate: The maximum bitrate for the router input.
         :param pulumi.Input[_builtins.str] name: The name of the router input.
-        :param pulumi.Input[_builtins.str] region_name: The AWS Region for the router input. Defaults to the current region if not specified.
+        :param pulumi.Input[_builtins.str] region_name: The Amazon Web Services Region for the router input. Defaults to the current region if not specified.
         :param pulumi.Input['RouterInputRoutingScope'] routing_scope: Indicates whether the router input is configured for Regional or global routing.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Key-value pairs that can be used to tag and organize this router input.
         :param pulumi.Input['RouterInputTier'] tier: The tier level of the router input.
@@ -241,7 +241,7 @@ class RouterInput(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 configuration: Optional[pulumi.Input[Union[Union['RouterInputConfiguration0PropertiesArgs', 'RouterInputConfiguration0PropertiesArgsDict'], Union['RouterInputConfiguration1PropertiesArgs', 'RouterInputConfiguration1PropertiesArgsDict'], Union['RouterInputConfiguration2PropertiesArgs', 'RouterInputConfiguration2PropertiesArgsDict'], Union['RouterInputConfiguration3PropertiesArgs', 'RouterInputConfiguration3PropertiesArgsDict']]]] = None,
+                 configuration: Optional[pulumi.Input[Union[Union['RouterInputConfiguration0PropertiesArgs', 'RouterInputConfiguration0PropertiesArgsDict'], Union['RouterInputConfiguration1PropertiesArgs', 'RouterInputConfiguration1PropertiesArgsDict'], Union['RouterInputConfiguration2PropertiesArgs', 'RouterInputConfiguration2PropertiesArgsDict'], Union['RouterInputConfiguration3PropertiesArgs', 'RouterInputConfiguration3PropertiesArgsDict'], Union['RouterInputConfiguration4PropertiesArgs', 'RouterInputConfiguration4PropertiesArgsDict']]]] = None,
                  maintenance_configuration: Optional[pulumi.Input[Union[Union['RouterInputMaintenanceConfiguration0PropertiesArgs', 'RouterInputMaintenanceConfiguration0PropertiesArgsDict'], Union['RouterInputMaintenanceConfiguration1PropertiesArgs', 'RouterInputMaintenanceConfiguration1PropertiesArgsDict']]]] = None,
                  maximum_bitrate: Optional[pulumi.Input[_builtins.int]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -420,7 +420,7 @@ class RouterInput(pulumi.CustomResource):
     @pulumi.getter(name="regionName")
     def region_name(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The AWS Region for the router input. Defaults to the current region if not specified.
+        The Amazon Web Services Region for the router input. Defaults to the current region if not specified.
         """
         return pulumi.get(self, "region_name")
 

@@ -252,10 +252,10 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "ecr:BatchGetRepositoryScanningConfiguration", "iam:GetRole", "iam:PassRole", "iam:CreateServiceLinkedRole", "imagebuilder:TagResource", "imagebuilder:GetImagePipeline", "imagebuilder:GetImageRecipe", "imagebuilder:GetInfrastructureConfiguration", "imagebuilder:GetDistributionConfiguration", "imagebuilder:CreateImagePipeline", "imagebuilder:GetWorkflow", "inspector2:BatchGetAccountStatus" ]
+      "permissions" : [ "ecr:BatchGetRepositoryScanningConfiguration", "iam:GetRole", "iam:PassRole", "iam:CreateServiceLinkedRole", "imagebuilder:TagResource", "imagebuilder:GetImagePipeline", "imagebuilder:GetImageRecipe", "imagebuilder:GetContainerRecipe", "imagebuilder:GetInfrastructureConfiguration", "imagebuilder:GetDistributionConfiguration", "imagebuilder:CreateImagePipeline", "imagebuilder:GetWorkflow", "inspector2:BatchGetAccountStatus" ]
     },
     "update" : {
-      "permissions" : [ "iam:PassRole", "imagebuilder:GetImagePipeline", "imagebuilder:UpdateImagePipeline", "imagebuilder:GetWorkflow", "imagebuilder:TagResource", "imagebuilder:UntagResource" ]
+      "permissions" : [ "iam:PassRole", "imagebuilder:GetImagePipeline", "imagebuilder:UpdateImagePipeline", "imagebuilder:GetImageRecipe", "imagebuilder:GetContainerRecipe", "imagebuilder:GetInfrastructureConfiguration", "imagebuilder:GetDistributionConfiguration", "imagebuilder:GetWorkflow", "imagebuilder:TagResource", "imagebuilder:UntagResource" ]
     },
     "read" : {
       "permissions" : [ "imagebuilder:GetImagePipeline" ]

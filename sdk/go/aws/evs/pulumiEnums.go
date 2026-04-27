@@ -206,7 +206,8 @@ func (o EnvironmentCheckTypePtrOutput) ToStringPtrOutputWithContext(ctx context.
 type EnvironmentHostInfoForCreateInstanceType string
 
 const (
-	EnvironmentHostInfoForCreateInstanceTypeI4iMetal = EnvironmentHostInfoForCreateInstanceType("i4i.metal")
+	EnvironmentHostInfoForCreateInstanceTypeI4iMetal     = EnvironmentHostInfoForCreateInstanceType("i4i.metal")
+	EnvironmentHostInfoForCreateInstanceTypeI7iMetal24xl = EnvironmentHostInfoForCreateInstanceType("i7i.metal-24xl")
 )
 
 func (EnvironmentHostInfoForCreateInstanceType) ElementType() reflect.Type {
@@ -332,6 +333,7 @@ func (o EnvironmentHostInfoForCreateInstanceTypePtrOutput) ToStringPtrOutputWith
 // A concrete instance of `EnvironmentHostInfoForCreateInstanceTypeInput` can be one of the following:
 //
 //	EnvironmentHostInfoForCreateInstanceTypeI4iMetal
+//	EnvironmentHostInfoForCreateInstanceTypeI7iMetal24xl
 type EnvironmentHostInfoForCreateInstanceTypeInput interface {
 	pulumi.Input
 

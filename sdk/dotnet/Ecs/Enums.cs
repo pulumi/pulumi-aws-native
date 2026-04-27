@@ -7,6 +7,34 @@ using Pulumi;
 
 namespace Pulumi.AwsNative.Ecs
 {
+    [EnumType]
+    public readonly struct CapacityProviderAutoRepairConfigurationActionsStatus : IEquatable<CapacityProviderAutoRepairConfigurationActionsStatus>
+    {
+        private readonly string _value;
+
+        private CapacityProviderAutoRepairConfigurationActionsStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CapacityProviderAutoRepairConfigurationActionsStatus Enabled { get; } = new CapacityProviderAutoRepairConfigurationActionsStatus("ENABLED");
+        public static CapacityProviderAutoRepairConfigurationActionsStatus Disabled { get; } = new CapacityProviderAutoRepairConfigurationActionsStatus("DISABLED");
+
+        public static bool operator ==(CapacityProviderAutoRepairConfigurationActionsStatus left, CapacityProviderAutoRepairConfigurationActionsStatus right) => left.Equals(right);
+        public static bool operator !=(CapacityProviderAutoRepairConfigurationActionsStatus left, CapacityProviderAutoRepairConfigurationActionsStatus right) => !left.Equals(right);
+
+        public static explicit operator string(CapacityProviderAutoRepairConfigurationActionsStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CapacityProviderAutoRepairConfigurationActionsStatus other && Equals(other);
+        public bool Equals(CapacityProviderAutoRepairConfigurationActionsStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// The managed draining option for the Auto Scaling group capacity provider. When you enable this, Amazon ECS manages and gracefully drains the EC2 container instances that are in the Auto Scaling group capacity provider.
     /// </summary>

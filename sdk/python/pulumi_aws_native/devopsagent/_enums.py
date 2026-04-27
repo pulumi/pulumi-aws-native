@@ -7,8 +7,21 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'PrivateConnectionStatus',
     'ServiceType',
 ]
+
+
+@pulumi.type_token("aws-native:devopsagent:PrivateConnectionStatus")
+class PrivateConnectionStatus(_builtins.str, Enum):
+    """
+    The status of the Private Connection.
+    """
+    ACTIVE = "ACTIVE"
+    CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS"
+    CREATE_FAILED = "CREATE_FAILED"
+    DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS"
+    DELETE_FAILED = "DELETE_FAILED"
 
 
 @pulumi.type_token("aws-native:devopsagent:ServiceType")
@@ -22,3 +35,6 @@ class ServiceType(_builtins.str, Enum):
     MCPSERVERNEWRELIC = "mcpservernewrelic"
     GITLAB = "gitlab"
     SERVICENOW = "servicenow"
+    PAGERDUTY = "pagerduty"
+    AZUREIDENTITY = "azureidentity"
+    MCPSERVERSIGV4 = "mcpserversigv4"

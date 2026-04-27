@@ -120,6 +120,10 @@ export class OrganizationalUnit extends pulumi.CustomResource {
      */
     declare public readonly parentId: pulumi.Output<string>;
     /**
+     * The path in the organization where this OU exists.
+     */
+    declare public /*out*/ readonly path: pulumi.Output<string>;
+    /**
      * A list of tags that you want to attach to the newly created OU.
      */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
@@ -143,11 +147,13 @@ export class OrganizationalUnit extends pulumi.CustomResource {
             resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
+            resourceInputs["path"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["parentId"] = undefined /*out*/;
+            resourceInputs["path"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

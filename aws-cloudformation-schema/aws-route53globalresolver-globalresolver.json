@@ -4,7 +4,7 @@
   "primaryIdentifier" : [ "/properties/GlobalResolverId" ],
   "additionalIdentifiers" : [ [ "/properties/Arn" ] ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/GlobalResolverId", "/properties/DnsName", "/properties/IPv4Addresses", "/properties/IPv6Addresses", "/properties/CreatedAt", "/properties/UpdatedAt", "/properties/Status" ],
-  "createOnlyProperties" : [ "/properties/Regions", "/properties/ClientToken" ],
+  "createOnlyProperties" : [ "/properties/ClientToken" ],
   "writeOnlyProperties" : [ "/properties/ClientToken" ],
   "required" : [ "Name", "Regions" ],
   "additionalProperties" : false,
@@ -35,7 +35,7 @@
       "type" : "string",
       "maxLength" : 39,
       "minLength" : 1,
-      "pattern" : "(?:[A-F0-9]{1,4}:){7}[A-F0-9]{1,4}"
+      "pattern" : "(?:[A-Fa-f0-9]{1,4}:){7}[A-Fa-f0-9]{1,4}"
     },
     "GlobalResolverIpAddressType" : {
       "type" : "string",
@@ -84,7 +84,8 @@
       "type" : "array",
       "items" : {
         "$ref" : "#/definitions/Region"
-      }
+      },
+      "description" : "A list of regions the Global Resolver will exist in. This list cannot be updated and will stay fixed for the duration of the Global Resolver."
     },
     "ObservabilityRegion" : {
       "$ref" : "#/definitions/Region"

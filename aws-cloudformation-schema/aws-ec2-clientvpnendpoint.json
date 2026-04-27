@@ -70,6 +70,9 @@
     "SelfServicePortal" : {
       "type" : "string"
     },
+    "TransitGatewayConfiguration" : {
+      "$ref" : "#/definitions/TransitGatewayConfiguration"
+    },
     "TransportProtocol" : {
       "type" : "string"
     },
@@ -158,6 +161,30 @@
       },
       "required" : [ "DirectoryId" ]
     },
+    "TransitGatewayConfiguration" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "TransitGatewayId" : {
+          "type" : "string"
+        },
+        "AvailabilityZoneIds" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "AvailabilityZones" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "type" : "string"
+          }
+        }
+      },
+      "required" : [ "TransitGatewayId" ]
+    },
     "CertificateAuthenticationRequest" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -219,7 +246,7 @@
     }
   },
   "required" : [ "ConnectionLogOptions", "AuthenticationOptions", "ServerCertificateArn" ],
-  "createOnlyProperties" : [ "/properties/TransportProtocol", "/properties/ClientCidrBlock", "/properties/TagSpecifications", "/properties/AuthenticationOptions", "/properties/EndpointIpAddressType", "/properties/TrafficIpAddressType" ],
+  "createOnlyProperties" : [ "/properties/TransportProtocol", "/properties/ClientCidrBlock", "/properties/TagSpecifications", "/properties/AuthenticationOptions", "/properties/TransitGatewayConfiguration", "/properties/EndpointIpAddressType", "/properties/TrafficIpAddressType" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "readOnlyProperties" : [ "/properties/Id" ]
 }

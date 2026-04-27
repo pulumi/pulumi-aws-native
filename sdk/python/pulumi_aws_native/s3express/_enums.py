@@ -10,6 +10,10 @@ __all__ = [
     'AccessPointNetworkOrigin',
     'AccessPointScopePermissionsItem',
     'DirectoryBucketDataRedundancy',
+    'DirectoryBucketDestinationFormat',
+    'DirectoryBucketInventoryConfigurationIncludedObjectVersions',
+    'DirectoryBucketInventoryConfigurationOptionalFieldsItem',
+    'DirectoryBucketInventoryConfigurationScheduleFrequency',
     'DirectoryBucketRuleStatus',
     'DirectoryBucketServerSideEncryptionByDefaultSseAlgorithm',
 ]
@@ -43,6 +47,47 @@ class DirectoryBucketDataRedundancy(_builtins.str, Enum):
     """
     SINGLE_AVAILABILITY_ZONE = "SingleAvailabilityZone"
     SINGLE_LOCAL_ZONE = "SingleLocalZone"
+
+
+@pulumi.type_token("aws-native:s3express:DirectoryBucketDestinationFormat")
+class DirectoryBucketDestinationFormat(_builtins.str, Enum):
+    """
+    Specifies the file format used when exporting data to Amazon S3.
+    """
+    CSV = "CSV"
+    ORC = "ORC"
+    PARQUET = "Parquet"
+
+
+@pulumi.type_token("aws-native:s3express:DirectoryBucketInventoryConfigurationIncludedObjectVersions")
+class DirectoryBucketInventoryConfigurationIncludedObjectVersions(_builtins.str, Enum):
+    """
+    Object versions to include in the inventory list.
+    """
+    ALL = "All"
+    CURRENT = "Current"
+
+
+@pulumi.type_token("aws-native:s3express:DirectoryBucketInventoryConfigurationOptionalFieldsItem")
+class DirectoryBucketInventoryConfigurationOptionalFieldsItem(_builtins.str, Enum):
+    SIZE = "Size"
+    LAST_MODIFIED_DATE = "LastModifiedDate"
+    STORAGE_CLASS = "StorageClass"
+    E_TAG = "ETag"
+    IS_MULTIPART_UPLOADED = "IsMultipartUploaded"
+    ENCRYPTION_STATUS = "EncryptionStatus"
+    BUCKET_KEY_STATUS = "BucketKeyStatus"
+    CHECKSUM_ALGORITHM = "ChecksumAlgorithm"
+    LIFECYCLE_EXPIRATION_DATE = "LifecycleExpirationDate"
+
+
+@pulumi.type_token("aws-native:s3express:DirectoryBucketInventoryConfigurationScheduleFrequency")
+class DirectoryBucketInventoryConfigurationScheduleFrequency(_builtins.str, Enum):
+    """
+    Specifies the schedule for generating inventory results.
+    """
+    DAILY = "Daily"
+    WEEKLY = "Weekly"
 
 
 @pulumi.type_token("aws-native:s3express:DirectoryBucketRuleStatus")

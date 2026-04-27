@@ -31,6 +31,8 @@ class GlobalResolverArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a GlobalResolver resource.
+
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: A list of regions the Global Resolver will exist in. This list cannot be updated and will stay fixed for the duration of the Global Resolver.
         """
         pulumi.set(__self__, "regions", regions)
         if client_token is not None:
@@ -49,6 +51,9 @@ class GlobalResolverArgs:
     @_builtins.property
     @pulumi.getter
     def regions(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        A list of regions the Global Resolver will exist in. This list cannot be updated and will stay fixed for the duration of the Global Resolver.
+        """
         return pulumi.get(self, "regions")
 
     @regions.setter
@@ -130,6 +135,7 @@ class GlobalResolver(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: A list of regions the Global Resolver will exist in. This list cannot be updated and will stay fixed for the duration of the Global Resolver.
         """
         ...
     @overload
@@ -189,7 +195,7 @@ class GlobalResolver(pulumi.CustomResource):
             __props__.__dict__["i_pv6_addresses"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["updated_at"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["clientToken", "regions[*]"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["clientToken"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(GlobalResolver, __self__).__init__(
             'aws-native:route53globalresolver:GlobalResolver',
@@ -288,6 +294,9 @@ class GlobalResolver(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def regions(self) -> pulumi.Output[Sequence[_builtins.str]]:
+        """
+        A list of regions the Global Resolver will exist in. This list cannot be updated and will stay fixed for the duration of the Global Resolver.
+        """
         return pulumi.get(self, "regions")
 
     @_builtins.property
