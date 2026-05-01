@@ -1088,6 +1088,7 @@ func TestStandardResourceDiffUsesActualOutputBaseline(t *testing.T) {
 					Inputs: map[string]schema.PropertySpec{
 						"backupTarget": {TypeSpec: schema.TypeSpec{Type: "string"}},
 						"engine":       {TypeSpec: schema.TypeSpec{Type: "string"}},
+						"password":     {TypeSpec: schema.TypeSpec{Type: "string"}},
 						"tags": {
 							TypeSpec: schema.TypeSpec{
 								Type:                 "object",
@@ -1105,6 +1106,7 @@ func TestStandardResourceDiffUsesActualOutputBaseline(t *testing.T) {
 							},
 						},
 					},
+					WriteOnly: []string{"password"},
 				},
 			},
 			Types: map[string]metadata.CloudAPIType{},
@@ -1212,6 +1214,21 @@ func TestStandardResourceDiffUsesActualOutputBaseline(t *testing.T) {
 				"__inputs": resource.MakeSecret(resource.NewObjectProperty(desiredTags)),
 			}),
 			News: mustMarshalProperties(t, desiredTags),
+		})
+		require.NoError(t, err)
+		assert.Equal(t, pulumirpc.DiffResponse_DIFF_NONE, resp.Changes)
+	})
+
+	t.Run("write-only input from checkpoint does not become a diff", func(t *testing.T) {
+		oldInputs := resource.PropertyMap{
+			"password": resource.NewStringProperty("secret"),
+		}
+		resp, err := provider.Diff(ctx, &pulumirpc.DiffRequest{
+			Urn: string(urn),
+			Olds: mustMarshalProperties(t, resource.PropertyMap{
+				"__inputs": resource.MakeSecret(resource.NewObjectProperty(oldInputs)),
+			}),
+			News: mustMarshalProperties(t, oldInputs),
 		})
 		require.NoError(t, err)
 		assert.Equal(t, pulumirpc.DiffResponse_DIFF_NONE, resp.Changes)

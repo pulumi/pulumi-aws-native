@@ -16,6 +16,7 @@ const (
 	arrayType  = "array"
 )
 
+// PathKind describes how a slash-delimited SDK property path maps to schema.
 type PathKind int
 
 const (
@@ -25,6 +26,7 @@ const (
 	UnknownPath
 )
 
+// PathInfo is the schema and metadata classification for one concrete path.
 type PathInfo struct {
 	Path       string
 	Kind       PathKind
@@ -36,6 +38,12 @@ type PathInfo struct {
 	CreateOnly bool
 }
 
+// PathClassifier projects CloudControl output state into writable input shape
+// and decides which input-shaped actual paths should be treated as user-owned.
+//
+// Paths use SDK names with slash separators. For example, Lambda image URI
+// metadata is represented as "code/imageUri", and array metadata can use
+// wildcards such as "defaultActions/*/authenticateOidcConfig/clientSecret".
 type PathClassifier struct {
 	res        *metadata.CloudAPIResource
 	types      map[string]metadata.CloudAPIType
@@ -45,6 +53,14 @@ type PathClassifier struct {
 	required   pathSet
 }
 
+// NewPathClassifier creates a classifier for a Cloud API resource and its
+// referenced object types.
+//
+// The classifier combines top-level resource metadata with nested type metadata.
+// For example, if a resource input refers to "#/types/aws-native:test:Settings"
+// and that type marks "name" as required, the classifier treats
+// "settings/name" as required when deciding whether a returned value is
+// optional-computed style.
 func NewPathClassifier(res *metadata.CloudAPIResource, types map[string]metadata.CloudAPIType) *PathClassifier {
 	c := &PathClassifier{
 		res:        res,
@@ -58,6 +74,11 @@ func NewPathClassifier(res *metadata.CloudAPIResource, types map[string]metadata
 	return c
 }
 
+// Classify returns schema and metadata information for a concrete SDK path.
+//
+// For example, Classify("code/s3Bucket") returns a ConcreteField for a nested
+// object property, while Classify("tags/owner") returns a MapKey when "tags" is
+// modeled as an object with additionalProperties.
 func (c *PathClassifier) Classify(path string) (PathInfo, bool) {
 	info, ok := c.classify(path)
 	if !ok {
@@ -70,6 +91,21 @@ func (c *PathClassifier) Classify(path string) (PathInfo, bool) {
 	return info, true
 }
 
+// ProjectActualInputs converts output state to writable input shape.
+//
+// Read-only and write-only paths are excluded. Read-only values are not valid
+// desired inputs, and write-only values cannot be read back from CloudControl.
+// User-owned write-only values are restored later by ActualInputBaseline from
+// checkpointed old desired inputs.
+//
+// For example, if outputs contain:
+//
+//	code: {s3Bucket: "b", imageUri: "secret", resolvedImageUri: "sha"}
+//
+// with "code/imageUri" marked write-only and "code/resolvedImageUri" marked
+// read-only, the projected input value is:
+//
+//	code: {s3Bucket: "b"}
 func (c *PathClassifier) ProjectActualInputs(outputs resource.PropertyMap) resource.PropertyMap {
 	result := resource.PropertyMap{}
 	for name, input := range c.res.Inputs {
@@ -85,6 +121,14 @@ func (c *PathClassifier) ProjectActualInputs(outputs resource.PropertyMap) resou
 	return result
 }
 
+// ActualInputBaseline builds the old-input baseline the engine should compare
+// with the next program inputs.
+//
+// It starts from projected actual state, restores user-owned non-create-only
+// write-only values from oldDesired, and prunes optional-computed fields that
+// are present in actual state but absent from both oldDesired and newDesired.
+// For maps and arrays, ownership is at the containing property, so extra map
+// keys or array elements remain visible when the containing property was owned.
 func (c *PathClassifier) ActualInputBaseline(
 	oldDesired, actualInputs, newDesired resource.PropertyMap,
 ) resource.PropertyMap {
@@ -94,6 +138,12 @@ func (c *PathClassifier) ActualInputBaseline(
 	return result
 }
 
+// SuppressBaselineDiffs applies refresh-time diff suppression to a candidate
+// actual baseline before it is persisted to __inputs.
+//
+// For example, if oldDesired has tags {"owner": "team"} and baseline has tags
+// {"owner": "team", "aws:managed": "x"}, the returned baseline keeps only the
+// user-owned "owner" tag while preserving the AWS-managed tag in output state.
 func SuppressBaselineDiffs(
 	resourceToken string,
 	spec *metadata.CloudAPIResource,
@@ -105,21 +155,8 @@ func SuppressBaselineDiffs(
 	return ApplyDiff(oldDesired, diff)
 }
 
-func GetPath(m resource.PropertyMap, path string) (resource.PropertyValue, bool) {
-	if path == "" {
-		return resource.NewObjectProperty(m), true
-	}
-	return slashPathForValue(resource.NewObjectProperty(m), path).Get(resource.NewObjectProperty(m))
-}
-
-func SetPath(m resource.PropertyMap, path string, v resource.PropertyValue) {
-	_, _ = slashPathForValue(resource.NewObjectProperty(m), path).Add(resource.NewObjectProperty(m), v)
-}
-
-func DeletePath(m resource.PropertyMap, path string) {
-	_ = slashPathForValue(resource.NewObjectProperty(m), path).Delete(resource.NewObjectProperty(m))
-}
-
+// classify does the schema-only part of Classify before metadata path sets are
+// applied.
 func (c *PathClassifier) classify(path string) (PathInfo, bool) {
 	segments := strings.Split(path, "/")
 	if len(segments) == 0 || segments[0] == "" {
@@ -142,6 +179,11 @@ func (c *PathClassifier) classify(path string) (PathInfo, bool) {
 	return c.classifyType(path, segments[1:], typ, isInput, isOutput)
 }
 
+// classifyType walks a type spec using remaining slash path segments.
+//
+// For object refs it resolves named properties, for additionalProperties it
+// returns MapKey, and for arrays it treats the index segment as ArrayElement
+// before continuing into the item type.
 func (c *PathClassifier) classifyType(
 	path string, segments []string, typ *pschema.TypeSpec, input, output bool,
 ) (PathInfo, bool) {
@@ -175,6 +217,8 @@ func (c *PathClassifier) classifyType(
 	return PathInfo{Path: path, Kind: UnknownPath, Input: input, Output: output}, false
 }
 
+// projectValue recursively projects one output value through an input type
+// shape, dropping read-only and write-only child paths along the way.
 func (c *PathClassifier) projectValue(path string, typ pschema.TypeSpec, value resource.PropertyValue) (resource.PropertyValue, bool) {
 	if typ.Ref != "" && typ.Ref != anyRef {
 		if !value.IsObject() {
@@ -215,12 +259,19 @@ func (c *PathClassifier) projectValue(path string, typ pschema.TypeSpec, value r
 	return value, true
 }
 
+// addNestedRequired expands required metadata from referenced object types into
+// concrete slash paths rooted at each resource input.
 func (c *PathClassifier) addNestedRequired() {
 	for name, input := range c.res.Inputs {
 		c.addNestedRequiredForType(name, &input.TypeSpec)
 	}
 }
 
+// addNestedRequiredForType recursively records required fields from referenced
+// object types.
+//
+// Required fields under array item types are stored with wildcard paths such as
+// "rules/*/name" so they match concrete paths like "rules/0/name".
 func (c *PathClassifier) addNestedRequiredForType(path string, typ *pschema.TypeSpec) {
 	if typ == nil || typ.Ref == "" || typ.Ref == anyRef {
 		if typ != nil && typ.Type == arrayType {
@@ -241,6 +292,12 @@ func (c *PathClassifier) addNestedRequiredForType(path string, typ *pschema.Type
 	}
 }
 
+// addWriteOnlyFallbacks restores user-owned write-only values from old desired
+// inputs into an actual baseline.
+//
+// CloudControl cannot return write-only values, so excluding them from
+// ProjectActualInputs does not lose ownership: values set on create remain in
+// __inputs and are added back here before Diff or Update patch generation.
 func (c *PathClassifier) addWriteOnlyFallbacks(result, oldDesired resource.PropertyMap) {
 	for _, path := range c.writeOnly.paths {
 		if c.createOnly.matches(path) {
@@ -254,48 +311,17 @@ func (c *PathClassifier) addWriteOnlyFallbacks(result, oldDesired resource.Prope
 	}
 }
 
+// AddWriteOnlyFallbacks restores user-owned write-only values into result.
+//
+// This is used by provider Read before output checkpointing so write-only values
+// that the user previously supplied remain available in state even though AWS
+// does not return them.
 func (c *PathClassifier) AddWriteOnlyFallbacks(result, oldDesired resource.PropertyMap) {
 	c.addWriteOnlyFallbacks(result, oldDesired)
 }
 
-func ExpandMatchingPaths(m resource.PropertyMap, pattern string) []string {
-	if !strings.Contains(pattern, "*") {
-		if _, ok := GetPath(m, pattern); ok {
-			return []string{pattern}
-		}
-		return nil
-	}
-	var result []string
-	expandMatchingPaths(resource.NewObjectProperty(m), strings.Split(pattern, "/"), nil, &result)
-	return result
-}
-
-func expandMatchingPaths(v resource.PropertyValue, segments []string, prefix []string, result *[]string) {
-	if len(segments) == 0 {
-		*result = append(*result, strings.Join(prefix, "/"))
-		return
-	}
-	segment := segments[0]
-	if segment == "*" {
-		if v.IsArray() {
-			for i, child := range v.ArrayValue() {
-				expandMatchingPaths(child, segments[1:], append(prefix, strconv.Itoa(i)), result)
-			}
-		}
-		if v.IsObject() {
-			for key, child := range v.ObjectValue() {
-				expandMatchingPaths(child, segments[1:], append(prefix, string(key)), result)
-			}
-		}
-		return
-	}
-	child, ok := getPathChild(v, segment)
-	if !ok {
-		return
-	}
-	expandMatchingPaths(child, segments[1:], append(prefix, segment), result)
-}
-
+// pruneUnownedComputed removes actual values for optional-computed-style fields
+// that the user did not previously own and is not starting to own now.
 func (c *PathClassifier) pruneUnownedComputed(
 	actual, oldDesired, newDesired resource.PropertyMap, prefix string,
 ) {
@@ -327,123 +353,15 @@ func (c *PathClassifier) pruneUnownedComputed(
 	}
 }
 
+// isSchemaObject reports whether path names a schema-declared field rather than
+// a freeform map key or array element.
 func isSchemaObject(c *PathClassifier, path string) bool {
 	info, ok := c.Classify(path)
 	return ok && info.Kind == ConcreteField
 }
 
+// hasPath reports whether a slash-delimited path exists in a property map.
 func hasPath(m resource.PropertyMap, path string) bool {
 	_, ok := GetPath(m, path)
 	return ok
-}
-
-func slashPathForValue(root resource.PropertyValue, path string) resource.PropertyPath {
-	segments := strings.Split(path, "/")
-	result := make(resource.PropertyPath, 0, len(segments))
-	current := root
-	for _, segment := range segments {
-		if current.IsArray() {
-			i, err := strconv.Atoi(segment)
-			if err == nil {
-				result = append(result, i)
-				if i >= 0 && i < len(current.ArrayValue()) {
-					current = current.ArrayValue()[i]
-				} else {
-					current = resource.PropertyValue{}
-				}
-				continue
-			}
-		}
-		result = append(result, segment)
-		if current.IsObject() {
-			if child, ok := current.ObjectValue()[resource.PropertyKey(segment)]; ok {
-				current = child
-				continue
-			}
-		}
-		current = resource.PropertyValue{}
-	}
-	return result
-}
-
-func getPathChild(v resource.PropertyValue, segment string) (resource.PropertyValue, bool) {
-	if v.IsObject() {
-		child, ok := v.ObjectValue()[resource.PropertyKey(segment)]
-		return child, ok
-	}
-	if v.IsArray() {
-		i, err := strconv.Atoi(segment)
-		if err != nil || i < 0 || i >= len(v.ArrayValue()) {
-			return resource.PropertyValue{}, false
-		}
-		return v.ArrayValue()[i], true
-	}
-	return resource.PropertyValue{}, false
-}
-
-func slashPath(path string) resource.PropertyPath {
-	segments := strings.Split(path, "/")
-	result := make(resource.PropertyPath, 0, len(segments))
-	for _, segment := range segments {
-		result = append(result, segment)
-	}
-	return result
-}
-
-func clonePropertyMap(m resource.PropertyMap) resource.PropertyMap {
-	result := resource.PropertyMap{}
-	for k, v := range m {
-		result[k] = clonePropertyValue(v)
-	}
-	return result
-}
-
-func clonePropertyValue(v resource.PropertyValue) resource.PropertyValue {
-	switch {
-	case v.IsObject():
-		return resource.NewObjectProperty(clonePropertyMap(v.ObjectValue()))
-	case v.IsArray():
-		values := v.ArrayValue()
-		cloned := make([]resource.PropertyValue, len(values))
-		for i, item := range values {
-			cloned[i] = clonePropertyValue(item)
-		}
-		return resource.NewArrayProperty(cloned)
-	case v.IsSecret():
-		return resource.MakeSecret(clonePropertyValue(v.SecretValue().Element))
-	default:
-		return v
-	}
-}
-
-func joinPath(parent, child string) string {
-	if parent == "" {
-		return child
-	}
-	return parent + "/" + child
-}
-
-type pathSet struct {
-	paths []string
-}
-
-func newPathSet(paths []string) pathSet {
-	return pathSet{paths: append([]string(nil), paths...)}
-}
-
-func (s *pathSet) add(path string) {
-	s.paths = append(s.paths, path)
-}
-
-func (s pathSet) matches(path string) bool {
-	for _, pattern := range s.paths {
-		if pathMatches(pattern, path) {
-			return true
-		}
-	}
-	return false
-}
-
-func pathMatches(pattern, path string) bool {
-	return slashPath(pattern).Contains(slashPath(path)) && len(strings.Split(pattern, "/")) == len(strings.Split(path, "/"))
 }
