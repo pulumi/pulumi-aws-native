@@ -9,6 +9,7 @@ import (
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 )
 
 func TestCalcPatch(t *testing.T) {
@@ -132,6 +133,116 @@ func TestCalcPatch(t *testing.T) {
 			})
 		})
 	}
+}
+
+func TestCalcPatchWithActualBaseline(t *testing.T) {
+	t.Run("write-only falls back to old desired input", func(t *testing.T) {
+		spec := metadata.CloudAPIResource{
+			Inputs: map[string]schema.PropertySpec{
+				"password": {TypeSpec: schema.TypeSpec{Type: "string"}},
+				"name":     {TypeSpec: schema.TypeSpec{Type: "string"}},
+			},
+			WriteOnly: []string{"password"},
+		}
+		patch, err := CalcPatchWithActualBaseline(
+			resource.PropertyMap{
+				"password": resource.NewStringProperty("old-secret"),
+				"name":     resource.NewStringProperty("old-name"),
+			},
+			resource.PropertyMap{
+				"name": resource.NewStringProperty("old-name"),
+			},
+			resource.PropertyMap{
+				"password": resource.NewStringProperty("old-secret"),
+				"name":     resource.NewStringProperty("new-name"),
+			},
+			spec, nil, nil, "", nil)
+		require.NoError(t, err)
+		assert.Equal(t, []jsonpatch.JsonPatchOperation{
+			{Operation: "replace", Path: "/Name", Value: "new-name"},
+			{Operation: "add", Path: "/Password", Value: "old-secret"},
+		}, patch)
+	})
+
+	t.Run("owned map drift is reconciled", func(t *testing.T) {
+		spec := metadata.CloudAPIResource{
+			Inputs: map[string]schema.PropertySpec{
+				"tags": {
+					TypeSpec: schema.TypeSpec{
+						Type:                 "object",
+						AdditionalProperties: &schema.TypeSpec{Type: "string"},
+					},
+				},
+			},
+			Outputs: map[string]schema.PropertySpec{
+				"tags": {
+					TypeSpec: schema.TypeSpec{
+						Type:                 "object",
+						AdditionalProperties: &schema.TypeSpec{Type: "string"},
+					},
+				},
+			},
+		}
+		patch, err := CalcPatchWithActualBaseline(
+			resource.PropertyMap{"tags": resource.NewObjectProperty(resource.PropertyMap{
+				"owner": resource.NewStringProperty("team"),
+			})},
+			resource.PropertyMap{"tags": resource.NewObjectProperty(resource.PropertyMap{
+				"owner": resource.NewStringProperty("team"),
+				"extra": resource.NewStringProperty("external"),
+			})},
+			resource.PropertyMap{"tags": resource.NewObjectProperty(resource.PropertyMap{
+				"owner": resource.NewStringProperty("team"),
+			})},
+			spec, nil, nil, "", nil)
+		require.NoError(t, err)
+		assert.Equal(t, []jsonpatch.JsonPatchOperation{
+			{
+				Operation: "replace",
+				Path:      "/Tags",
+				Value: map[string]interface{}{
+					"owner": "team",
+				},
+			},
+		}, patch)
+	})
+
+	t.Run("aws managed tag drift is suppressed", func(t *testing.T) {
+		spec := metadata.CloudAPIResource{
+			TagsProperty: "tags",
+			Inputs: map[string]schema.PropertySpec{
+				"tags": {
+					TypeSpec: schema.TypeSpec{
+						Type:                 "object",
+						AdditionalProperties: &schema.TypeSpec{Type: "string"},
+					},
+				},
+			},
+			Outputs: map[string]schema.PropertySpec{
+				"tags": {
+					TypeSpec: schema.TypeSpec{
+						Type:                 "object",
+						AdditionalProperties: &schema.TypeSpec{Type: "string"},
+					},
+				},
+			},
+		}
+		patch, err := CalcPatchWithActualBaseline(
+			resource.PropertyMap{"tags": resource.NewObjectProperty(resource.PropertyMap{
+				"owner": resource.NewStringProperty("team"),
+			})},
+			resource.PropertyMap{"tags": resource.NewObjectProperty(resource.PropertyMap{
+				"owner":       resource.NewStringProperty("team"),
+				"aws:managed": resource.NewStringProperty("external"),
+			})},
+			resource.PropertyMap{"tags": resource.NewObjectProperty(resource.PropertyMap{
+				"owner": resource.NewStringProperty("team"),
+			})},
+			spec, nil, nil, "aws-native:test:Resource", NewTransformCache())
+		require.NoError(t, err)
+		assert.Empty(t, patch)
+	})
+
 }
 
 // Map applies the given function to each element of the given slice and returns a new slice with the results.

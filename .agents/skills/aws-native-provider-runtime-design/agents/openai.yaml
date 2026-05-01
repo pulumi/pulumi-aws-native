@@ -1,0 +1,7 @@
+interface:
+  display_name: "AWS Native Runtime Design"
+  short_description: "Plan AWS Native provider lifecycle changes"
+  default_prompt: "Use $aws-native-provider-runtime-design to turn this AWS Native provider runtime issue into a repo-grounded behavior/design spec."
+
+policy:
+  allow_implicit_invocation: true

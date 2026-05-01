@@ -30,6 +30,18 @@ func SuppressAWSManagedDiffs(
 	originalInputs resource.PropertyMap,
 	transformCache *TransformCache,
 ) *resource.ObjectDiff {
+	return SuppressAWSManagedDiffsWithContext(resourceToken, spec, diff, originalInputs, originalInputs, originalInputs, transformCache)
+}
+
+func SuppressAWSManagedDiffsWithContext(
+	resourceToken string,
+	spec *metadata.CloudAPIResource,
+	diff *resource.ObjectDiff,
+	originalInputs resource.PropertyMap,
+	actualInputs resource.PropertyMap,
+	desiredInputs resource.PropertyMap,
+	transformCache *TransformCache,
+) *resource.ObjectDiff {
 	if diff == nil {
 		return nil
 	}
@@ -44,7 +56,7 @@ func SuppressAWSManagedDiffs(
 
 	// 3. PropertyTransform-based suppressions
 	if len(spec.PropertyTransforms) > 0 {
-		diff = suppressPropertyTransformDiffs(resourceToken, spec, diff, originalInputs, transformCache)
+		diff = suppressPropertyTransformDiffsWithContext(resourceToken, spec, diff, actualInputs, desiredInputs, transformCache)
 	}
 
 	return diff
@@ -72,14 +84,15 @@ func suppressAWSManagedTagAdditions(
 
 	// Check if tags are being updated
 	if updatedTags, isUpdate := diff.Updates[tagsKey]; isUpdate {
-		filtered := filterAWSPrefixedTags(updatedTags.New, originalInputs[tagsKey])
-		if filtered.DeepEquals(updatedTags.Old) {
+		filteredOld := filterAWSPrefixedTags(updatedTags.Old, originalInputs[tagsKey])
+		filteredNew := filterAWSPrefixedTags(updatedTags.New, originalInputs[tagsKey])
+		if filteredNew.DeepEquals(filteredOld) {
 			// After filtering, old and new are the same - no real change
 			delete(diff.Updates, tagsKey)
 		} else {
 			diff.Updates[tagsKey] = resource.ValueDiff{
-				Old: updatedTags.Old,
-				New: filtered,
+				Old: filteredOld,
+				New: filteredNew,
 			}
 		}
 	}
@@ -189,19 +202,33 @@ func suppressPropertyTransformDiffs(
 	originalInputs resource.PropertyMap,
 	cache *TransformCache,
 ) *resource.ObjectDiff {
+	return suppressPropertyTransformDiffsWithContext(resourceToken, spec, diff, originalInputs, originalInputs, cache)
+}
+
+func suppressPropertyTransformDiffsWithContext(
+	resourceToken string,
+	spec *metadata.CloudAPIResource,
+	diff *resource.ObjectDiff,
+	actualInputs resource.PropertyMap,
+	desiredInputs resource.PropertyMap,
+	cache *TransformCache,
+) *resource.ObjectDiff {
+	if cache == nil {
+		cache = GlobalTransformCache
+	}
 	transforms := cache.GetOrCompile(resourceToken, spec)
 	if len(transforms) == 0 {
 		return diff
 	}
 
-	// Convert originalInputs to a map[string]interface{} for JSONata evaluation
-	inputsMap := propertyMapToMap(originalInputs)
+	actualInputsMap := propertyMapToMap(actualInputs)
+	desiredInputsMap := propertyMapToMap(desiredInputs)
 
 	// Process updates by walking the pre-computed ValueDiff tree
 	for key, valueDiff := range diff.Updates {
 		path := string(key)
 
-		if shouldSuppressValueDiff(transforms, path, valueDiff, inputsMap, spec.IrreversibleNames) {
+		if shouldSuppressValueDiff(transforms, path, valueDiff, actualInputsMap, desiredInputsMap, spec.IrreversibleNames) {
 			glog.V(7).Infof("Suppressing diff for %s.%s via propertyTransform", resourceToken, path)
 			delete(diff.Updates, key)
 		}
@@ -222,7 +249,8 @@ func shouldSuppressValueDiff(
 	transforms []CompiledTransform,
 	path string,
 	diff resource.ValueDiff,
-	inputsMap map[string]interface{},
+	actualInputsMap map[string]interface{},
+	desiredInputsMap map[string]interface{},
 	irreversibleNames map[string]string,
 ) bool {
 	// Handle nested object diffs
@@ -234,7 +262,7 @@ func shouldSuppressValueDiff(
 		// Recursively check all property updates
 		for k, childDiff := range diff.Object.Updates {
 			childPath := path + "/" + string(k)
-			if !shouldSuppressValueDiff(transforms, childPath, childDiff, inputsMap, irreversibleNames) {
+			if !shouldSuppressValueDiff(transforms, childPath, childDiff, actualInputsMap, desiredInputsMap, irreversibleNames) {
 				return false
 			}
 		}
@@ -250,7 +278,7 @@ func shouldSuppressValueDiff(
 		// Recursively check all element updates
 		for idx, childDiff := range diff.Array.Updates {
 			childPath := fmt.Sprintf("%s/%d", path, idx)
-			if !shouldSuppressValueDiff(transforms, childPath, childDiff, inputsMap, irreversibleNames) {
+			if !shouldSuppressValueDiff(transforms, childPath, childDiff, actualInputsMap, desiredInputsMap, irreversibleNames) {
 				return false
 			}
 		}
@@ -262,7 +290,7 @@ func shouldSuppressValueDiff(
 	if transform != nil {
 		oldVal := resourcex.DecodeValue(diff.Old)
 		newVal := resourcex.DecodeValue(diff.New)
-		return evaluateAndCompare(transform, oldVal, newVal, inputsMap, path, irreversibleNames)
+		return evaluateAndCompare(transform, oldVal, newVal, actualInputsMap, desiredInputsMap, path, irreversibleNames)
 	}
 
 	// No transform for this leaf - cannot suppress
@@ -273,21 +301,26 @@ func shouldSuppressValueDiff(
 func evaluateAndCompare(
 	transform *CompiledTransform,
 	oldVal, newVal interface{},
-	inputsMap map[string]interface{},
+	actualInputsMap map[string]interface{},
+	desiredInputsMap map[string]interface{},
 	path string,
 	irreversibleNames map[string]string,
 ) bool {
 	// Build the context for JSONata evaluation
 	// The context should include sibling properties for expressions that reference them
-	context := ExtractPropertyContext(inputsMap, path)
-	if context == nil {
-		context = inputsMap
+	oldContextMap := ExtractPropertyContext(actualInputsMap, path)
+	if oldContextMap == nil {
+		oldContextMap = actualInputsMap
+	}
+	newContextMap := ExtractPropertyContext(desiredInputsMap, path)
+	if newContextMap == nil {
+		newContextMap = desiredInputsMap
 	}
 
 	// Also add the property values themselves, using CloudFormation naming
 	// JSONata expressions reference properties by their CFN names (e.g., "IpProtocol")
-	oldContext := buildCfnContext(context, path, oldVal, irreversibleNames)
-	newContext := buildCfnContext(context, path, newVal, irreversibleNames)
+	oldContext := buildCfnContext(oldContextMap, path, oldVal, irreversibleNames)
+	newContext := buildCfnContext(newContextMap, path, newVal, irreversibleNames)
 
 	// Evaluate transform on old value
 	transformedOld, err := EvaluateTransform(*transform, oldVal, oldContext)

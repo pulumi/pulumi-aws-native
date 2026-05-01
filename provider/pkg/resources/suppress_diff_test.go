@@ -242,6 +242,36 @@ func TestSuppressAWSManagedTagAdditions(t *testing.T) {
 		assert.False(t, hasUpdate, "update should be removed when filtered tags match old")
 	})
 
+	t.Run("filters aws: tags from old actual values under refreshed input baseline", func(t *testing.T) {
+		oldTags := resource.NewObjectProperty(resource.PropertyMap{
+			"Name":            resource.NewStringProperty("my-resource"),
+			"aws:managed:tag": resource.NewStringProperty("value"),
+		})
+		newTags := resource.NewObjectProperty(resource.PropertyMap{
+			"Name": resource.NewStringProperty("my-resource"),
+		})
+
+		diff := &resource.ObjectDiff{
+			Adds: resource.PropertyMap{},
+			Updates: map[resource.PropertyKey]resource.ValueDiff{
+				"tags": {Old: oldTags, New: newTags},
+			},
+			Deletes: resource.PropertyMap{},
+			Sames:   resource.PropertyMap{},
+		}
+
+		originalInputs := resource.PropertyMap{
+			"tags": resource.NewObjectProperty(resource.PropertyMap{
+				"Name": resource.NewStringProperty("my-resource"),
+			}),
+		}
+
+		result := suppressAWSManagedTagAdditions("tags", diff, originalInputs)
+
+		_, hasUpdate := result.Updates["tags"]
+		assert.False(t, hasUpdate, "aws: tag in the old actual baseline should not become removal drift")
+	})
+
 	t.Run("keeps user tag updates when aws: tags are filtered out (array)", func(t *testing.T) {
 		oldTags := resource.NewArrayProperty([]resource.PropertyValue{
 			resource.NewObjectProperty(resource.PropertyMap{
@@ -421,6 +451,39 @@ func TestSuppressAWSManagedDiffs(t *testing.T) {
 
 		_, hasUpdate := result.Updates["fileSystemProtection"]
 		assert.False(t, hasUpdate, "DISABLED -> REPLICATING should be suppressed via propertyTransform")
+	})
+
+	t.Run("propertyTransform uses actual and desired sibling contexts", func(t *testing.T) {
+		spec := &metadata.CloudAPIResource{
+			PropertyTransforms: map[string]string{
+				"identifier": "AccountId & Identifier",
+			},
+		}
+		diff := &resource.ObjectDiff{
+			Updates: map[resource.PropertyKey]resource.ValueDiff{
+				"identifier": {
+					Old: resource.NewStringProperty("X"),
+					New: resource.NewStringProperty(""),
+				},
+			},
+			Adds:    resource.PropertyMap{},
+			Deletes: resource.PropertyMap{},
+			Sames:   resource.PropertyMap{},
+		}
+		oldDesired := resource.PropertyMap{}
+		actualInputs := resource.PropertyMap{
+			"accountId":  resource.NewStringProperty("A"),
+			"identifier": resource.NewStringProperty("X"),
+		}
+		desiredInputs := resource.PropertyMap{
+			"accountId":  resource.NewStringProperty("AX"),
+			"identifier": resource.NewStringProperty(""),
+		}
+
+		result := SuppressAWSManagedDiffsWithContext(
+			"aws-native:test:Resource", spec, diff, oldDesired, actualInputs, desiredInputs, NewTransformCache())
+
+		assert.Empty(t, result.Updates, "sibling context should come from old actual and new desired inputs")
 	})
 
 	t.Run("skips tag filtering when no TagsProperty", func(t *testing.T) {

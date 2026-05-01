@@ -1413,6 +1413,7 @@ func (ctx *cfSchemaContext) propertyTypeSpec(parentName string, propSchema *jssc
 				ctx.metadata.Types[tok] = metadata.CloudAPIType{
 					Type:              "object",
 					Properties:        specs,
+					Required:          requiredSpecs.SortedValues(),
 					IrreversibleNames: irreversibleNames,
 				}
 			}
@@ -1444,6 +1445,7 @@ func (ctx *cfSchemaContext) propertyTypeSpec(parentName string, propSchema *jssc
 		ctx.metadata.Types[tok] = metadata.CloudAPIType{
 			Type:              "object",
 			Properties:        specs,
+			Required:          requiredSpecs.SortedValues(),
 			IrreversibleNames: irreversibleNames,
 		}
 		referencedTypeName := fmt.Sprintf("#/types/%s", tok)

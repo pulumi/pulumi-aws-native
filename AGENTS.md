@@ -30,6 +30,8 @@ Generated or externally sourced (do not hand-edit):
 - `aws-cloudformation-schema/**`, `aws-cloudformation-user-guide/**` submodule content
 
 ## Command Canon
+Run all `make` commands through `mise exec -- make ...` so the pinned toolchain is used.
+
 - Workspace bootstrap: `make prepare_local_workspace`
 - Dependency/setup: `make ensure`
 - Build codegen binary: `make codegen`
@@ -42,8 +44,14 @@ Generated or externally sourced (do not hand-edit):
 - Integration suite (slow): `make test`
 - Regenerate CI from `.ci-mgmt.yaml`: `make ci-mgmt`
 
+### Local Test Safety
+- Do not run package-wide provider tests by default on this machine. In particular, avoid `mise exec -- make test_provider_fast`, `mise exec -- make test_provider`, and broad `go test ./pkg/...` / `go test ./pkg/provider` commands unless the user explicitly asks for them.
+- The `provider.test` process can grow until the machine becomes unresponsive when broad provider test targets run locally.
+- Prefer targeted tests for the changed code, for example `mise exec -- go test -count=1 ./pkg/resources -run '<TestNamePattern>'` or `mise exec -- go test -count=1 ./pkg/provider -run '<TestNamePattern>'`.
+- If broader validation is needed, explain the risk and hand it off to CI instead of running it locally.
+
 ## If You Change X, Also Do Y
-- `provider/pkg/**`: `make lint && make test_provider_fast` (example: runtime/resource mapper bug fix)
+- `provider/pkg/**`: normally `make lint && make test_provider_fast`, but on this machine follow Local Test Safety above and run targeted `go test -run` filters unless the user explicitly asks for the broad target.
 - codegen/schema logic (`provider/cmd/pulumi-gen-aws-native/**`, schema overlays, `meta/**`): `make codegen && make generate_schema` (example: new schema overlay)
 - SDK surface: `make local_generate`
 - `.ci-mgmt.yaml`: `make ci-mgmt`

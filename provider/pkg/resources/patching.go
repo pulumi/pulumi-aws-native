@@ -14,7 +14,28 @@ import (
 )
 
 func CalcPatch(oldInputs resource.PropertyMap, newInputs resource.PropertyMap, spec metadata.CloudAPIResource, types map[string]metadata.CloudAPIType) ([]jsonpatch.JsonPatchOperation, error) {
-	diff := oldInputs.Diff(newInputs)
+	classifier := NewPathClassifier(&spec, types)
+	return CalcPatchWithActualBaseline(oldInputs, oldInputs, newInputs, spec, types, classifier, "", nil)
+}
+
+func CalcPatchWithActualBaseline(
+	oldInputs resource.PropertyMap,
+	actualInputs resource.PropertyMap,
+	newInputs resource.PropertyMap,
+	spec metadata.CloudAPIResource,
+	types map[string]metadata.CloudAPIType,
+	classifier *PathClassifier,
+	resourceToken string,
+	transformCache *TransformCache,
+) ([]jsonpatch.JsonPatchOperation, error) {
+	if classifier == nil {
+		classifier = NewPathClassifier(&spec, types)
+	}
+	baseline := classifier.ActualInputBaseline(oldInputs, actualInputs, newInputs)
+	diff := baseline.Diff(newInputs)
+	if resourceToken != "" {
+		diff = SuppressAWSManagedDiffsWithContext(resourceToken, &spec, diff, oldInputs, baseline, newInputs, transformCache)
+	}
 
 	// Write-only properties can't even be read internally within the CloudControl service so they must be included in
 	// patch requests as adds to ensure the updated model validates.
@@ -41,10 +62,16 @@ func CalcPatch(oldInputs resource.PropertyMap, newInputs resource.PropertyMap, s
 	}
 
 	for _, writeOnlyPropName := range mustSendProps.SortedValues() {
-		propKey := resource.PropertyKey(writeOnlyPropName)
+		propName := writeOnlyPropName
+		if strings.Contains(writeOnlyPropName, "/") {
+			propName = strings.Split(writeOnlyPropName, "/")[0]
+		}
+		propKey := resource.PropertyKey(propName)
 		if _, ok := diff.Sames[propKey]; ok || isDiffEmpty {
 			delete(diff.Sames, propKey)
-			diff.Adds[propKey] = newInputs[propKey]
+			if value, ok := newInputs[propKey]; ok {
+				diff.Adds[propKey] = value
+			}
 		}
 	}
 
