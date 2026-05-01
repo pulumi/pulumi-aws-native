@@ -91,12 +91,16 @@ func (c *PathClassifier) Classify(path string) (PathInfo, bool) {
 	return info, true
 }
 
-// ProjectActualInputs converts output state to writable input shape.
+// ProjectWritableOutputState converts output state to writable input shape.
 //
 // Read-only and write-only paths are excluded. Read-only values are not valid
 // desired inputs, and write-only values cannot be read back from CloudControl.
 // User-owned write-only values are restored later by ActualInputBaseline from
 // checkpointed old desired inputs.
+//
+// This projection is not ownership-filtered and should not be returned as
+// refreshed inputs for an existing resource. Use ActualInputBaselineFromOutputs
+// when old desired inputs are available.
 //
 // For example, if outputs contain:
 //
@@ -106,7 +110,7 @@ func (c *PathClassifier) Classify(path string) (PathInfo, bool) {
 // read-only, the projected input value is:
 //
 //	code: {s3Bucket: "b"}
-func (c *PathClassifier) ProjectActualInputs(outputs resource.PropertyMap) resource.PropertyMap {
+func (c *PathClassifier) ProjectWritableOutputState(outputs resource.PropertyMap) resource.PropertyMap {
 	result := resource.PropertyMap{}
 	for name, input := range c.res.Inputs {
 		key := resource.PropertyKey(name)
@@ -121,19 +125,33 @@ func (c *PathClassifier) ProjectActualInputs(outputs resource.PropertyMap) resou
 	return result
 }
 
-// ActualInputBaseline builds the old-input baseline the engine should compare
+// ActualInputBaselineFromOutputs builds the engine old-input baseline directly
+// from output state.
+//
+// For example, if AWS returns optional input/output field backupTarget but the
+// old desired inputs omitted it, the returned baseline still omits backupTarget.
+// If old desired inputs contained managed field settings/name and AWS now
+// returns a drifted value, the returned baseline contains the drifted value so
+// the next engine diff can repair it.
+func (c *PathClassifier) ActualInputBaselineFromOutputs(
+	oldDesired, outputs, newDesired resource.PropertyMap,
+) resource.PropertyMap {
+	return c.actualInputBaseline(oldDesired, c.ProjectWritableOutputState(outputs), newDesired)
+}
+
+// actualInputBaseline builds the old-input baseline the engine should compare
 // with the next program inputs.
 //
-// It starts from projected actual state, restores user-owned non-create-only
-// write-only values from oldDesired, and prunes optional-computed fields that
-// are present in actual state but absent from both oldDesired and newDesired.
-// For maps and arrays, ownership is at the containing property, so extra map
-// keys or array elements remain visible when the containing property was owned.
-func (c *PathClassifier) ActualInputBaseline(
-	oldDesired, actualInputs, newDesired resource.PropertyMap,
+// It starts from projected actual state, restores user-owned write-only values
+// from oldDesired, and prunes optional-computed fields that are present in
+// actual state but absent from both oldDesired and newDesired. For maps and
+// arrays, ownership is at the containing property, so extra map keys or array
+// elements remain visible when the containing property was owned.
+func (c *PathClassifier) actualInputBaseline(
+	oldDesired, projectedActual, newDesired resource.PropertyMap,
 ) resource.PropertyMap {
-	result := clonePropertyMap(actualInputs)
-	c.addWriteOnlyFallbacks(result, oldDesired)
+	result := clonePropertyMap(projectedActual)
+	c.addWriteOnlyFallbacks(result, oldDesired, true)
 	c.pruneUnownedComputed(result, oldDesired, newDesired, "")
 	return result
 }
@@ -296,28 +314,32 @@ func (c *PathClassifier) addNestedRequiredForType(path string, typ *pschema.Type
 // inputs into an actual baseline.
 //
 // CloudControl cannot return write-only values, so excluding them from
-// ProjectActualInputs does not lose ownership: values set on create remain in
-// __inputs and are added back here before Diff or Update patch generation.
-func (c *PathClassifier) addWriteOnlyFallbacks(result, oldDesired resource.PropertyMap) {
+// ProjectWritableOutputState does not lose ownership: values set on create
+// remain in __inputs and are added back here before Diff or Update patch
+// generation.
+func (c *PathClassifier) addWriteOnlyFallbacks(
+	result, oldDesired resource.PropertyMap, includeCreateOnly bool,
+) {
 	for _, path := range c.writeOnly.paths {
-		if c.createOnly.matches(path) {
+		if !includeCreateOnly && c.createOnly.matches(path) {
 			continue
 		}
 		for _, concretePath := range ExpandMatchingPaths(oldDesired, path) {
 			if value, ok := GetPath(oldDesired, concretePath); ok {
-				SetPath(result, concretePath, value)
+				SetPathWithShape(result, oldDesired, concretePath, value)
 			}
 		}
 	}
 }
 
-// AddWriteOnlyFallbacks restores user-owned write-only values into result.
+// AddWriteOnlyOutputFallbacks restores user-owned write-only values into
+// output state, including create-only paths.
 //
-// This is used by provider Read before output checkpointing so write-only values
-// that the user previously supplied remain available in state even though AWS
-// does not return them.
-func (c *PathClassifier) AddWriteOnlyFallbacks(result, oldDesired resource.PropertyMap) {
-	c.addWriteOnlyFallbacks(result, oldDesired)
+// This is used before output checkpointing so write-only values that the user
+// previously supplied remain available in state even though AWS does not return
+// them.
+func (c *PathClassifier) AddWriteOnlyOutputFallbacks(result, oldDesired resource.PropertyMap) {
+	c.addWriteOnlyFallbacks(result, oldDesired, true)
 }
 
 // pruneUnownedComputed removes actual values for optional-computed-style fields

@@ -33,6 +33,14 @@ func SetPath(m resource.PropertyMap, path string, v resource.PropertyValue) {
 	_, _ = slashPathForValue(resource.NewObjectProperty(m), path).Add(resource.NewObjectProperty(m), v)
 }
 
+// SetPathWithShape writes a slash-delimited SDK path into a property map,
+// using shape as a guide for array indices that do not already exist in m.
+func SetPathWithShape(m resource.PropertyMap, shape resource.PropertyMap, path string, v resource.PropertyValue) {
+	_, _ = slashPathForValueWithShape(
+		resource.NewObjectProperty(m), resource.NewObjectProperty(shape), path,
+	).Add(resource.NewObjectProperty(m), v)
+}
+
 // DeletePath removes a slash-delimited SDK path from a property map.
 //
 // For example, DeletePath(inputs, "code/imageUri") removes only the nested
@@ -125,6 +133,55 @@ func slashPathForValue(root resource.PropertyValue, path string) resource.Proper
 			}
 		}
 		current = resource.PropertyValue{}
+	}
+	return result
+}
+
+// slashPathForValueWithShape is like slashPathForValue, but treats numeric
+// segments as array indices when either the destination or guide value at that
+// point is an array.
+func slashPathForValueWithShape(root, shape resource.PropertyValue, path string) resource.PropertyPath {
+	segments := strings.Split(path, "/")
+	result := make(resource.PropertyPath, 0, len(segments))
+	current := root
+	currentShape := shape
+	for _, segment := range segments {
+		if current.IsArray() || currentShape.IsArray() {
+			i, err := strconv.Atoi(segment)
+			if err == nil {
+				result = append(result, i)
+				if current.IsArray() && i >= 0 && i < len(current.ArrayValue()) {
+					current = current.ArrayValue()[i]
+				} else {
+					current = resource.PropertyValue{}
+				}
+				if currentShape.IsArray() && i >= 0 && i < len(currentShape.ArrayValue()) {
+					currentShape = currentShape.ArrayValue()[i]
+				} else {
+					currentShape = resource.PropertyValue{}
+				}
+				continue
+			}
+		}
+		result = append(result, segment)
+		if current.IsObject() {
+			if child, ok := current.ObjectValue()[resource.PropertyKey(segment)]; ok {
+				current = child
+			} else {
+				current = resource.PropertyValue{}
+			}
+		} else {
+			current = resource.PropertyValue{}
+		}
+		if currentShape.IsObject() {
+			if child, ok := currentShape.ObjectValue()[resource.PropertyKey(segment)]; ok {
+				currentShape = child
+			} else {
+				currentShape = resource.PropertyValue{}
+			}
+		} else {
+			currentShape = resource.PropertyValue{}
+		}
 	}
 	return result
 }

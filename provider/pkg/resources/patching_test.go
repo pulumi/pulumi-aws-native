@@ -135,7 +135,7 @@ func TestCalcPatch(t *testing.T) {
 	}
 }
 
-func TestCalcPatchWithActualBaseline(t *testing.T) {
+func TestCalcPatchWithActualOutputs(t *testing.T) {
 	t.Run("write-only falls back to old desired input", func(t *testing.T) {
 		spec := metadata.CloudAPIResource{
 			Inputs: map[string]schema.PropertySpec{
@@ -144,7 +144,7 @@ func TestCalcPatchWithActualBaseline(t *testing.T) {
 			},
 			WriteOnly: []string{"password"},
 		}
-		patch, err := CalcPatchWithActualBaseline(
+		patch, err := CalcPatchWithActualOutputs(
 			resource.PropertyMap{
 				"password": resource.NewStringProperty("old-secret"),
 				"name":     resource.NewStringProperty("old-name"),
@@ -161,6 +161,34 @@ func TestCalcPatchWithActualBaseline(t *testing.T) {
 		assert.Equal(t, []jsonpatch.JsonPatchOperation{
 			{Operation: "replace", Path: "/Name", Value: "new-name"},
 			{Operation: "add", Path: "/Password", Value: "old-secret"},
+		}, patch)
+	})
+
+	t.Run("create-only write-only falls back without resend", func(t *testing.T) {
+		spec := metadata.CloudAPIResource{
+			Inputs: map[string]schema.PropertySpec{
+				"password": {TypeSpec: schema.TypeSpec{Type: "string"}},
+				"name":     {TypeSpec: schema.TypeSpec{Type: "string"}},
+			},
+			WriteOnly:  []string{"password"},
+			CreateOnly: []string{"password"},
+		}
+		patch, err := CalcPatchWithActualOutputs(
+			resource.PropertyMap{
+				"password": resource.NewStringProperty("old-secret"),
+				"name":     resource.NewStringProperty("old-name"),
+			},
+			resource.PropertyMap{
+				"name": resource.NewStringProperty("old-name"),
+			},
+			resource.PropertyMap{
+				"password": resource.NewStringProperty("old-secret"),
+				"name":     resource.NewStringProperty("new-name"),
+			},
+			spec, nil, nil, "", nil)
+		require.NoError(t, err)
+		assert.Equal(t, []jsonpatch.JsonPatchOperation{
+			{Operation: "replace", Path: "/Name", Value: "new-name"},
 		}, patch)
 	})
 
@@ -183,7 +211,7 @@ func TestCalcPatchWithActualBaseline(t *testing.T) {
 				},
 			},
 		}
-		patch, err := CalcPatchWithActualBaseline(
+		patch, err := CalcPatchWithActualOutputs(
 			resource.PropertyMap{"tags": resource.NewObjectProperty(resource.PropertyMap{
 				"owner": resource.NewStringProperty("team"),
 			})},
@@ -227,7 +255,7 @@ func TestCalcPatchWithActualBaseline(t *testing.T) {
 				},
 			},
 		}
-		patch, err := CalcPatchWithActualBaseline(
+		patch, err := CalcPatchWithActualOutputs(
 			resource.PropertyMap{"tags": resource.NewObjectProperty(resource.PropertyMap{
 				"owner": resource.NewStringProperty("team"),
 			})},

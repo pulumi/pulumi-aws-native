@@ -1044,6 +1044,47 @@ func TestUpdate(t *testing.T) {
 		assert.Equal(t, "secret", props["password"].StringValue())
 	})
 
+	t.Run("StandardResource/CreateOnlyWriteOnlyCarriedButNotResent", func(t *testing.T) {
+		provider.resourceMap.Resources["aws:rds/dbInstance:DBInstance"] = metadata.CloudAPIResource{
+			CfType: "AWS::RDS::DBInstance",
+			Inputs: map[string]schema.PropertySpec{
+				"password": {TypeSpec: schema.TypeSpec{Type: "string"}},
+				"engine":   {TypeSpec: schema.TypeSpec{Type: "string"}},
+			},
+			Outputs: map[string]schema.PropertySpec{
+				"engine": {TypeSpec: schema.TypeSpec{Type: "string"}},
+			},
+			WriteOnly:  []string{"password"},
+			CreateOnly: []string{"password"},
+		}
+		req.Urn = string(resource.NewURN("stack", "project", "parent", "aws:rds/dbInstance:DBInstance", "name"))
+		req.News = mustMarshalProperties(t, resource.PropertyMap{
+			"password": resource.NewStringProperty("secret"),
+			"engine":   resource.NewStringProperty("mysql"),
+		})
+		req.Olds = mustMarshalProperties(t, resource.PropertyMap{
+			"engine": resource.NewStringProperty("postgres"),
+			"__inputs": resource.MakeSecret(resource.NewObjectProperty(resource.PropertyMap{
+				"password": resource.NewStringProperty("secret"),
+				"engine":   resource.NewStringProperty("postgres"),
+			})),
+		})
+
+		mockCCC.EXPECT().Update(ctx, gomock.Any(), "AWS::RDS::DBInstance", "resource-id", jsonPatchEquals([]jsonpatch.JsonPatchOperation{
+			{Operation: "replace", Path: "/Engine", Value: "mysql"},
+		})).Return(
+			map[string]interface{}{
+				"engine": "mysql",
+			}, nil,
+		)
+
+		resp, err := provider.Update(ctx, req)
+		require.NoError(t, err)
+		props := mustUnmarshalProperties(t, resp.Properties)
+		assert.Equal(t, "mysql", props["engine"].StringValue())
+		assert.Equal(t, "secret", props["password"].StringValue())
+	})
+
 	t.Run("StandardResource/Error", func(t *testing.T) {
 		provider.resourceMap.Resources["aws:s3/bucket:Bucket"] = metadata.CloudAPIResource{
 			CfType: "AWS::S3::Bucket",
@@ -1233,6 +1274,35 @@ func TestStandardResourceDiffUsesActualOutputBaseline(t *testing.T) {
 		require.NoError(t, err)
 		assert.Equal(t, pulumirpc.DiffResponse_DIFF_NONE, resp.Changes)
 	})
+
+	t.Run("custom resource uses old input diff fallback", func(t *testing.T) {
+		mockCustomResource := resources.NewMockCustomResource(ctrl)
+		provider.customResources["custom:resource"] = mockCustomResource
+		oldInputs := resource.PropertyMap{"name": resource.NewStringProperty("old")}
+		resp, err := provider.Diff(ctx, &pulumirpc.DiffRequest{
+			Urn: string(resource.NewURN("stack", "project", "parent", "custom:resource", "name")),
+			Olds: mustMarshalProperties(t, resource.PropertyMap{
+				"__inputs": resource.MakeSecret(resource.NewObjectProperty(oldInputs)),
+			}),
+			News: mustMarshalProperties(t, resource.PropertyMap{
+				"name": resource.NewStringProperty("new"),
+			}),
+		})
+		require.NoError(t, err)
+		assert.Equal(t, pulumirpc.DiffResponse_DIFF_UNKNOWN, resp.Changes)
+	})
+
+	t.Run("missing standard spec returns error", func(t *testing.T) {
+		_, err := provider.Diff(ctx, &pulumirpc.DiffRequest{
+			Urn: string(resource.NewURN("stack", "project", "parent", "aws:missing:Resource", "name")),
+			Olds: mustMarshalProperties(t, resource.PropertyMap{
+				"__inputs": resource.MakeSecret(resource.NewObjectProperty(resource.PropertyMap{})),
+			}),
+			News: mustMarshalProperties(t, resource.PropertyMap{}),
+		})
+		require.Error(t, err)
+		assert.Contains(t, err.Error(), "Resource type aws:missing:Resource not found")
+	})
 }
 
 func TestStandardResourceReadReturnsOwnershipFilteredInputs(t *testing.T) {
@@ -1250,6 +1320,7 @@ func TestStandardResourceReadReturnsOwnershipFilteredInputs(t *testing.T) {
 					Inputs: map[string]schema.PropertySpec{
 						"backupTarget": {TypeSpec: schema.TypeSpec{Type: "string"}},
 						"engine":       {TypeSpec: schema.TypeSpec{Type: "string"}},
+						"password":     {TypeSpec: schema.TypeSpec{Type: "string"}},
 						"tags": {
 							TypeSpec: schema.TypeSpec{
 								Type:                 "object",
@@ -1268,6 +1339,8 @@ func TestStandardResourceReadReturnsOwnershipFilteredInputs(t *testing.T) {
 						},
 					},
 					TagsProperty: "tags",
+					WriteOnly:    []string{"password"},
+					CreateOnly:   []string{"password"},
 				},
 			},
 			Types: map[string]metadata.CloudAPIType{},
@@ -1398,6 +1471,36 @@ func TestStandardResourceReadReturnsOwnershipFilteredInputs(t *testing.T) {
 		assert.False(t, inputTags.HasValue("aws:managed"))
 		checkpointTags := props["__inputs"].SecretValue().Element.ObjectValue()["tags"].ObjectValue()
 		assert.False(t, checkpointTags.HasValue("aws:managed"))
+	})
+
+	t.Run("create-only write-only value is carried forward through refresh", func(t *testing.T) {
+		oldInputs := resource.PropertyMap{
+			"engine":   resource.NewStringProperty("postgres"),
+			"password": resource.NewStringProperty("secret"),
+		}
+		mockCCC.EXPECT().Read(ctx, "AWS::RDS::DBInstance", "resource-id").Return(
+			map[string]interface{}{
+				"engine": "postgres",
+			}, true, nil,
+		)
+
+		resp, err := provider.Read(ctx, &pulumirpc.ReadRequest{
+			Urn: string(urn),
+			Id:  "resource-id",
+			Properties: mustMarshalProperties(t, resource.PropertyMap{
+				"engine":   resource.NewStringProperty("postgres"),
+				"password": resource.NewStringProperty("secret"),
+				"__inputs": resource.MakeSecret(resource.NewObjectProperty(oldInputs)),
+			}),
+		})
+		require.NoError(t, err)
+
+		props := mustUnmarshalProperties(t, resp.Properties)
+		assert.Equal(t, "secret", props["password"].StringValue())
+		inputs := mustUnmarshalProperties(t, resp.Inputs)
+		assert.Equal(t, "secret", inputs["password"].StringValue())
+		checkpoint := props["__inputs"].SecretValue().Element.ObjectValue()
+		assert.Equal(t, "secret", checkpoint["password"].StringValue())
 	})
 }
 

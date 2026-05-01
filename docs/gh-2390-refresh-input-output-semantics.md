@@ -34,21 +34,21 @@ This means old inputs are durable even when the provider reconstructs them from 
 
 For standard resources, `Read` starts with old output state from `req.Properties` and extracts old inputs from checkpointed `__inputs`.
 
-- `provider/pkg/provider/provider.go:1003` unmarshals old state.
-- `provider/pkg/provider/provider.go:1010` extracts `inputs := resources.ParseCheckpointObject(oldState)`.
-- `provider/pkg/provider/provider.go:1032` reads live state from CloudControl.
-- `provider/pkg/provider/provider.go:1041` converts CloudFormation casing to SDK casing.
+- `provider/pkg/provider/provider.go:999` unmarshals old state.
+- `provider/pkg/provider/provider.go:1006` extracts `inputs := resources.ParseCheckpointObject(oldState)`.
+- `provider/pkg/provider/provider.go:1029` reads live state from CloudControl.
+- `provider/pkg/provider/provider.go:1037` converts CloudFormation casing to SDK casing.
 
 If `inputs == nil`, `Read` treats the operation like import and derives inputs from live state:
 
-- `provider/pkg/provider/provider.go:1043` enters the import/no-checkpoint branch.
-- `provider/pkg/provider/provider.go:1047` creates a `PathClassifier`.
-- `provider/pkg/provider/provider.go:1048` calls `classifier.ProjectActualInputs`.
+- `provider/pkg/provider/provider.go:1039` enters the import/no-checkpoint branch.
+- `provider/pkg/provider/provider.go:1043` creates a `PathClassifier`.
+- `provider/pkg/provider/provider.go:1044` calls `classifier.ProjectWritableOutputState`.
 
 If `inputs != nil`, `Read` builds ownership-filtered refreshed inputs:
 
 1. Create a `PathClassifier` for the resource schema.
-2. Rehydrate non-create-only write-only fields from checkpointed `__inputs` into the live state because CloudControl cannot return them.
+2. Rehydrate write-only fields from checkpointed `__inputs` into the live output state because CloudControl cannot return them. This output-state rehydration includes create-only write-only fields so checkpoint continuity is preserved.
 3. Project live state into writable input shape.
 4. Build an actual input baseline from projected live state plus the checkpointed ownership source.
 5. Prune unowned optional-computed fields from that baseline.
@@ -65,8 +65,8 @@ The recursive helper lives in `provider/pkg/resources/path_classifier.go`. It pr
 - `provider/pkg/provider/provider.go:834` reads old output state from `req.Olds`.
 - `provider/pkg/provider/provider.go:845` extracts old inputs from `__inputs`.
 - `provider/pkg/provider/provider.go:849` creates a `PathClassifier`.
-- `provider/pkg/provider/provider.go:850` projects old output state into writable input shape.
-- `provider/pkg/provider/provider.go:851` builds the actual input baseline.
+- `provider/pkg/provider/provider.go:850` builds the actual input baseline from old outputs.
+- `provider/pkg/provider/provider.go:851` diffs that baseline against new inputs.
 - `provider/pkg/provider/provider.go:857` suppresses AWS-managed and normalized changes.
 
 AWS Native returns `DIFF_UNKNOWN` plus `DeleteBeforeReplace: true` for standard-resource changes. The Pulumi engine normalizes `DIFF_UNKNOWN` by computing its own old-input/new-input diff. Generated SDK `replaceOnChanges` entries only get useful property attribution if the refreshed old inputs differ from new program inputs on the relevant paths.
@@ -75,14 +75,18 @@ AWS Native returns `DIFF_UNKNOWN` plus `DeleteBeforeReplace: true` for standard-
 
 `Update` follows the same old-input model:
 
-- `provider/pkg/provider/provider.go:1121` reads new desired inputs from `req.News`.
-- `provider/pkg/provider/provider.go:1131` reads old output state from `req.Olds`.
-- `provider/pkg/provider/provider.go:1113` extracts old inputs from `__inputs`.
-- `provider/pkg/provider/provider.go:1155` creates a `PathClassifier`.
-- `provider/pkg/provider/provider.go:1156` projects old output state into writable input shape.
-- `provider/pkg/provider/provider.go:1157` calls `resources.CalcPatchWithActualBaseline(...)`.
+- `provider/pkg/provider/provider.go:1089` reads new desired inputs from `req.News`.
+- `provider/pkg/provider/provider.go:1099` reads old output state from `req.Olds`.
+- `provider/pkg/provider/provider.go:1108` extracts old inputs from `__inputs`.
+- `provider/pkg/provider/provider.go:1150` creates a `PathClassifier`.
+- `provider/pkg/provider/provider.go:1151` calls `resources.CalcPatchWithActualOutputs(...)`.
 
-`CalcPatchWithActualBaseline` builds CloudControl patches from actual projected state to new desired inputs. It still uses checkpointed `__inputs` for ownership and write-only fallback, then applies AWS-managed/property-transform suppression before converting the diff to a CloudControl JSON patch.
+`CalcPatchWithActualOutputs` builds CloudControl patches from live output state to new desired inputs. It still uses checkpointed `__inputs` for ownership and write-only fallback, then applies AWS-managed/property-transform suppression before converting the diff to a CloudControl JSON patch.
+
+Patch generation deliberately keeps two write-only modes separate:
+
+- output rehydration preserves write-only values, including create-only write-only values, so state does not forget values CloudControl can never return;
+- update patch resend forces non-create-only write-only values into patches when needed for CloudControl model validation, but does not force create-only write-only values into update patches.
 
 ## Problem
 
@@ -174,6 +178,12 @@ Under the GH-2390 model, create-only changes are handled before standard-resourc
 a concrete reachable `Update` path for create-only diffs is identified later,
 handle that path explicitly with evidence.
 
+Precise leaf-level patch generation for nested write-only paths is intentionally
+not required for GH-2390. The current resend path still operates through
+top-level `resource.ObjectDiff` keys before `naming.DiffToPatch`; broader
+metadata-aware CloudControl patch precision is tracked by
+[#2944](https://github.com/pulumi/pulumi-aws-native/issues/2944).
+
 ### Ownership Classification
 
 The provider needs a recursive classifier that can answer both projection and ownership questions.
@@ -217,7 +227,7 @@ Write-only properties cannot be read from CloudControl, so live outputs cannot p
 - refresh should preserve the old input value if the path was managed;
 - import should warn because the value cannot be inferred;
 - patch generation should keep existing behavior where write-only, non-create-only properties are resent when required for CloudControl model validation;
-- if a property is both write-only and create-only, do not include it in update patches.
+- if a property is both write-only and create-only, preserve it in output state/checkpoint continuity but do not force it into update patches.
 
 ### Create-Only Properties
 
@@ -484,6 +494,8 @@ Unit tests under `provider/pkg/provider` cover standard-resource lifecycle behav
 
 7. **Write-only fallback**
    - A write-only property absent from outputs still uses old input values for refresh and patch generation where current behavior requires it.
+   - Create-only write-only properties are carried forward in output/checkpoint state.
+   - Create-only write-only properties are not forced into update patches.
    - Nested and wildcard write-only paths such as `code/imageUri` and `defaultActions/*/authenticateOidcConfig/clientSecret` are expanded to concrete paths before rehydration/resend.
 
 8. **Map/tag drift**
@@ -522,4 +534,7 @@ If schema metadata or generated artifacts change, use the repo command canon fro
 
 ## Open Decisions
 
-No semantic open decisions remain. Implementation should validate the helper shape against concrete tests and adjust names/signatures only where the code proves a simpler equivalent API.
+No semantic open decisions remain for this PR. Precise nested CloudControl patch
+generation is follow-up work under
+[#2944](https://github.com/pulumi/pulumi-aws-native/issues/2944), not a blocker
+for GH-2390.

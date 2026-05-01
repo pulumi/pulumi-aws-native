@@ -849,8 +849,7 @@ func (p *cfnProvider) Diff(ctx context.Context, req *pulumirpc.DiffRequest) (*pu
 	resourceToken := string(urn.Type())
 	if spec, hasSpec := p.resourceMap.Resources[resourceToken]; hasSpec {
 		classifier := resources.NewPathClassifier(&spec, p.resourceMap.Types)
-		actualInputs := classifier.ProjectActualInputs(oldState)
-		baseline := classifier.ActualInputBaseline(oldInputs, actualInputs, newInputs)
+		baseline := classifier.ActualInputBaselineFromOutputs(oldInputs, oldState, newInputs)
 		diff := baseline.Diff(newInputs)
 
 		// Apply propertyTransform-based diff suppression for semantically equivalent values.
@@ -861,8 +860,13 @@ func (p *cfnProvider) Diff(ctx context.Context, req *pulumirpc.DiffRequest) (*pu
 		if diff == nil || (len(diff.Adds) == 0 && len(diff.Updates) == 0 && len(diff.Deletes) == 0) {
 			return &pulumirpc.DiffResponse{Changes: pulumirpc.DiffResponse_DIFF_NONE}, nil
 		}
-	} else if diff := oldInputs.Diff(newInputs); diff == nil {
-		return &pulumirpc.DiffResponse{Changes: pulumirpc.DiffResponse_DIFF_NONE}, nil
+	} else {
+		if _, ok := p.customResources[resourceToken]; !ok {
+			return nil, errors.Errorf("Resource type %s not found", resourceToken)
+		}
+		if diff := oldInputs.Diff(newInputs); diff == nil {
+			return &pulumirpc.DiffResponse{Changes: pulumirpc.DiffResponse_DIFF_NONE}, nil
+		}
 	}
 
 	return &pulumirpc.DiffResponse{
@@ -947,16 +951,8 @@ func (p *cfnProvider) Create(ctx context.Context, req *pulumirpc.CreateRequest) 
 		// Write-only properties are not returned in the outputs, so we assume they should have the same value we sent from the inputs.
 		if hasSpec && len(spec.WriteOnly) > 0 {
 			outputProps := resource.NewPropertyMapFromMap(rawOutputs)
-			for _, writeOnlyProp := range spec.WriteOnly {
-				for _, inputPath := range resources.ExpandMatchingPaths(inputs, writeOnlyProp) {
-					if _, ok := resources.GetPath(outputProps, inputPath); !ok {
-						inputValue, ok := resources.GetPath(inputs, inputPath)
-						if ok {
-							resources.SetPath(outputProps, inputPath, inputValue)
-						}
-					}
-				}
-			}
+			classifier := resources.NewPathClassifier(&spec, p.resourceMap.Types)
+			classifier.AddWriteOnlyOutputFallbacks(outputProps, inputs)
 			rawOutputs = resourcex.Decode(outputProps)
 		}
 		outputs = resources.CheckpointObject(inputs, rawOutputs)
@@ -1053,7 +1049,7 @@ func (p *cfnProvider) Read(ctx context.Context, req *pulumirpc.ReadRequest) (*pu
 			// Extract inputs from the response body.
 			newStateProps := resource.NewPropertyMapFromMap(rawState)
 			classifier := resources.NewPathClassifier(&spec, p.resourceMap.Types)
-			newInputs = classifier.ProjectActualInputs(newStateProps)
+			newInputs = classifier.ProjectWritableOutputState(newStateProps)
 			if len(spec.WriteOnly) > 0 {
 				_ = p.host.Log(ctx, diag.Warning, urn,
 					fmt.Sprintf("Can't import write-only properties: %s", strings.Join(spec.WriteOnly, ", ")))
@@ -1061,10 +1057,9 @@ func (p *cfnProvider) Read(ctx context.Context, req *pulumirpc.ReadRequest) (*pu
 		} else {
 			newStateProps := resource.NewPropertyMapFromMap(rawState)
 			classifier := resources.NewPathClassifier(&spec, p.resourceMap.Types)
-			classifier.AddWriteOnlyFallbacks(newStateProps, inputs)
+			classifier.AddWriteOnlyOutputFallbacks(newStateProps, inputs)
 			rawState = resourcex.Decode(newStateProps)
-			actualInputs := classifier.ProjectActualInputs(newStateProps)
-			baseline := classifier.ActualInputBaseline(inputs, actualInputs, inputs)
+			baseline := classifier.ActualInputBaselineFromOutputs(inputs, newStateProps, inputs)
 			newInputs = resources.SuppressBaselineDiffs(resourceToken, &spec, inputs, baseline, p.transformCache)
 		}
 
@@ -1161,9 +1156,8 @@ func (p *cfnProvider) Update(ctx context.Context, req *pulumirpc.UpdateRequest) 
 		}
 
 		classifier := resources.NewPathClassifier(&spec, p.resourceMap.Types)
-		actualInputs := classifier.ProjectActualInputs(oldState)
-		ops, err := resources.CalcPatchWithActualBaseline(
-			oldInputs, actualInputs, newInputs, spec, p.resourceMap.Types, classifier, resourceToken, p.transformCache)
+		ops, err := resources.CalcPatchWithActualOutputs(
+			oldInputs, oldState, newInputs, spec, p.resourceMap.Types, classifier, resourceToken, p.transformCache)
 		if err != nil {
 			return nil, err
 		}
@@ -1180,16 +1174,7 @@ func (p *cfnProvider) Update(ctx context.Context, req *pulumirpc.UpdateRequest) 
 		// Write-only properties are not returned in the outputs, so we assume they should have the same value we sent from the inputs.
 		if len(spec.WriteOnly) > 0 {
 			outputProps := resource.NewPropertyMapFromMap(rawOutputs)
-			for _, writeOnlyProp := range spec.WriteOnly {
-				for _, inputPath := range resources.ExpandMatchingPaths(newInputs, writeOnlyProp) {
-					if _, ok := resources.GetPath(outputProps, inputPath); !ok {
-						inputValue, ok := resources.GetPath(newInputs, inputPath)
-						if ok {
-							resources.SetPath(outputProps, inputPath, inputValue)
-						}
-					}
-				}
-			}
+			classifier.AddWriteOnlyOutputFallbacks(outputProps, newInputs)
 			rawOutputs = resourcex.Decode(outputProps)
 		}
 		outputs = resources.CheckpointObject(newInputs, rawOutputs)

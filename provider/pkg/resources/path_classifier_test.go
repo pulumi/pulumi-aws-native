@@ -10,7 +10,7 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-func TestPathClassifierProjectActualInputs(t *testing.T) {
+func TestPathClassifierProjectWritableOutputState(t *testing.T) {
 	spec := metadata.CloudAPIResource{
 		Inputs: map[string]pschema.PropertySpec{
 			"code": {TypeSpec: pschema.TypeSpec{Ref: "#/types/aws-native:lambda:FunctionCode"}},
@@ -36,7 +36,7 @@ func TestPathClassifierProjectActualInputs(t *testing.T) {
 	}
 	classifier := NewPathClassifier(&spec, types)
 
-	projected := classifier.ProjectActualInputs(resource.PropertyMap{
+	projected := classifier.ProjectWritableOutputState(resource.PropertyMap{
 		"arn": resource.NewStringProperty("arn"),
 		"code": resource.NewObjectProperty(resource.PropertyMap{
 			"imageUri":         resource.NewStringProperty("secret"),
@@ -119,7 +119,7 @@ func TestPathClassifierActualInputBaselineOwnership(t *testing.T) {
 		}),
 	}
 
-	baseline := classifier.ActualInputBaseline(oldDesired, actual, newDesired)
+	baseline := classifier.actualInputBaseline(oldDesired, actual, newDesired)
 
 	assert.False(t, baseline.HasValue("backupTarget"))
 	settings := baseline["settings"].ObjectValue()
@@ -164,7 +164,7 @@ func TestPathClassifierArrayOwnership(t *testing.T) {
 	require.True(t, ok)
 	assert.Equal(t, ConcreteField, info.Kind)
 
-	baseline := classifier.ActualInputBaseline(
+	baseline := classifier.actualInputBaseline(
 		resource.PropertyMap{
 			"rules": resource.NewArrayProperty([]resource.PropertyValue{
 				resource.NewObjectProperty(resource.PropertyMap{
@@ -204,6 +204,25 @@ func TestPathHelpersNestedReadWriteDelete(t *testing.T) {
 	DeletePath(m, "code/imageUri")
 	_, ok = GetPath(m, "code/imageUri")
 	assert.False(t, ok)
+}
+
+func TestPathHelpersSetPathWithShapeUsesArrayGuide(t *testing.T) {
+	shape := resource.PropertyMap{
+		"defaultActions": resource.NewArrayProperty([]resource.PropertyValue{
+			resource.NewObjectProperty(resource.PropertyMap{
+				"authenticateOidcConfig": resource.NewObjectProperty(resource.PropertyMap{
+					"clientSecret": resource.NewStringProperty("old-secret"),
+				}),
+			}),
+		}),
+	}
+	m := resource.PropertyMap{}
+	SetPathWithShape(m, shape, "defaultActions/0/authenticateOidcConfig/clientSecret", resource.NewStringProperty("secret"))
+
+	require.True(t, m["defaultActions"].IsArray())
+	secret, ok := GetPath(m, "defaultActions/0/authenticateOidcConfig/clientSecret")
+	require.True(t, ok)
+	assert.Equal(t, "secret", secret.StringValue())
 }
 
 func TestExpandMatchingPaths(t *testing.T) {
@@ -285,9 +304,64 @@ func TestPathClassifierWriteOnlyWildcardFallback(t *testing.T) {
 		}),
 	}
 
-	baseline := classifier.ActualInputBaseline(oldDesired, actual, oldDesired)
+	baseline := classifier.actualInputBaseline(oldDesired, actual, oldDesired)
 	require.True(t, baseline["defaultActions"].IsArray())
 	secret, ok := GetPath(baseline, "defaultActions/0/authenticateOidcConfig/clientSecret")
+	require.True(t, ok)
+	assert.Equal(t, "secret", secret.StringValue())
+}
+
+func TestPathClassifierWriteOnlyOutputFallbackPreservesCreateOnlyAndArrayShape(t *testing.T) {
+	spec := metadata.CloudAPIResource{
+		Inputs: map[string]pschema.PropertySpec{
+			"defaultActions": {
+				TypeSpec: pschema.TypeSpec{
+					Type:  "array",
+					Items: &pschema.TypeSpec{Ref: "#/types/aws-native:test:Action"},
+				},
+			},
+		},
+		Outputs: map[string]pschema.PropertySpec{
+			"defaultActions": {
+				TypeSpec: pschema.TypeSpec{
+					Type:  "array",
+					Items: &pschema.TypeSpec{Ref: "#/types/aws-native:test:Action"},
+				},
+			},
+		},
+		WriteOnly:  []string{"defaultActions/*/authenticateOidcConfig/clientSecret"},
+		CreateOnly: []string{"defaultActions/*/authenticateOidcConfig/clientSecret"},
+	}
+	types := map[string]metadata.CloudAPIType{
+		"aws-native:test:Action": {
+			Type: "object",
+			Properties: map[string]pschema.PropertySpec{
+				"authenticateOidcConfig": {TypeSpec: pschema.TypeSpec{Ref: "#/types/aws-native:test:AuthenticateOidcConfig"}},
+			},
+		},
+		"aws-native:test:AuthenticateOidcConfig": {
+			Type: "object",
+			Properties: map[string]pschema.PropertySpec{
+				"clientSecret": {TypeSpec: pschema.TypeSpec{Type: "string"}},
+			},
+		},
+	}
+	classifier := NewPathClassifier(&spec, types)
+
+	oldDesired := resource.PropertyMap{
+		"defaultActions": resource.NewArrayProperty([]resource.PropertyValue{
+			resource.NewObjectProperty(resource.PropertyMap{
+				"authenticateOidcConfig": resource.NewObjectProperty(resource.PropertyMap{
+					"clientSecret": resource.NewStringProperty("secret"),
+				}),
+			}),
+		}),
+	}
+	outputs := resource.PropertyMap{}
+	classifier.AddWriteOnlyOutputFallbacks(outputs, oldDesired)
+
+	require.True(t, outputs["defaultActions"].IsArray())
+	secret, ok := GetPath(outputs, "defaultActions/0/authenticateOidcConfig/clientSecret")
 	require.True(t, ok)
 	assert.Equal(t, "secret", secret.StringValue())
 }
