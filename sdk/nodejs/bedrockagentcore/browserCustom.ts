@@ -50,6 +50,10 @@ export class BrowserCustom extends pulumi.CustomResource {
      */
     declare public readonly browserSigning: pulumi.Output<outputs.bedrockagentcore.BrowserCustomBrowserSigning | undefined>;
     /**
+     * List of root CA certificates in PEM format.
+     */
+    declare public readonly certificates: pulumi.Output<outputs.bedrockagentcore.BrowserCustomCertificate[] | undefined>;
+    /**
      * Timestamp when the browser was created.
      */
     declare public /*out*/ readonly createdAt: pulumi.Output<string>;
@@ -57,6 +61,10 @@ export class BrowserCustom extends pulumi.CustomResource {
      * The description of the browser.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
+    /**
+     * A list of enterprise policy files for the browser.
+     */
+    declare public readonly enterprisePolicies: pulumi.Output<outputs.bedrockagentcore.BrowserCustomBrowserEnterprisePolicy[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role that the browser uses to access resources.
      */
@@ -105,7 +113,9 @@ export class BrowserCustom extends pulumi.CustomResource {
                 throw new Error("Missing required property 'networkConfiguration'");
             }
             resourceInputs["browserSigning"] = args?.browserSigning;
+            resourceInputs["certificates"] = args?.certificates;
             resourceInputs["description"] = args?.description;
+            resourceInputs["enterprisePolicies"] = args?.enterprisePolicies;
             resourceInputs["executionRoleArn"] = args?.executionRoleArn;
             resourceInputs["name"] = args?.name;
             resourceInputs["networkConfiguration"] = args?.networkConfiguration;
@@ -121,8 +131,10 @@ export class BrowserCustom extends pulumi.CustomResource {
             resourceInputs["browserArn"] = undefined /*out*/;
             resourceInputs["browserId"] = undefined /*out*/;
             resourceInputs["browserSigning"] = undefined /*out*/;
+            resourceInputs["certificates"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["enterprisePolicies"] = undefined /*out*/;
             resourceInputs["executionRoleArn"] = undefined /*out*/;
             resourceInputs["failureReason"] = undefined /*out*/;
             resourceInputs["lastUpdatedAt"] = undefined /*out*/;
@@ -133,7 +145,7 @@ export class BrowserCustom extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["browserSigning", "description", "executionRoleArn", "name", "networkConfiguration", "recordingConfig"] };
+        const replaceOnChanges = { replaceOnChanges: ["browserSigning", "certificates[*]", "description", "enterprisePolicies[*]", "executionRoleArn", "name", "networkConfiguration", "recordingConfig"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(BrowserCustom.__pulumiType, name, resourceInputs, opts);
     }
@@ -148,9 +160,17 @@ export interface BrowserCustomArgs {
      */
     browserSigning?: pulumi.Input<inputs.bedrockagentcore.BrowserCustomBrowserSigningArgs>;
     /**
+     * List of root CA certificates in PEM format.
+     */
+    certificates?: pulumi.Input<pulumi.Input<inputs.bedrockagentcore.BrowserCustomCertificateArgs>[]>;
+    /**
      * The description of the browser.
      */
     description?: pulumi.Input<string>;
+    /**
+     * A list of enterprise policy files for the browser.
+     */
+    enterprisePolicies?: pulumi.Input<pulumi.Input<inputs.bedrockagentcore.BrowserCustomBrowserEnterprisePolicyArgs>[]>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role that the browser uses to access resources.
      */

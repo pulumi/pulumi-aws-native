@@ -22,9 +22,10 @@ type Memory struct {
 	// The memory encryption key Amazon Resource Name (ARN).
 	EncryptionKeyArn pulumi.StringPtrOutput `pulumi:"encryptionKeyArn"`
 	// Duration in days until memory events expire
-	EventExpiryDuration pulumi.IntOutput    `pulumi:"eventExpiryDuration"`
-	FailureReason       pulumi.StringOutput `pulumi:"failureReason"`
-	MemoryArn           pulumi.StringOutput `pulumi:"memoryArn"`
+	EventExpiryDuration pulumi.IntOutput            `pulumi:"eventExpiryDuration"`
+	FailureReason       pulumi.StringOutput         `pulumi:"failureReason"`
+	IndexedKeys         MemoryIndexedKeyArrayOutput `pulumi:"indexedKeys"`
+	MemoryArn           pulumi.StringOutput         `pulumi:"memoryArn"`
 	// The memory role ARN.
 	MemoryExecutionRoleArn pulumi.StringPtrOutput `pulumi:"memoryExecutionRoleArn"`
 	// The memory ID.
@@ -93,7 +94,8 @@ type memoryArgs struct {
 	// The memory encryption key Amazon Resource Name (ARN).
 	EncryptionKeyArn *string `pulumi:"encryptionKeyArn"`
 	// Duration in days until memory events expire
-	EventExpiryDuration int `pulumi:"eventExpiryDuration"`
+	EventExpiryDuration int                `pulumi:"eventExpiryDuration"`
+	IndexedKeys         []MemoryIndexedKey `pulumi:"indexedKeys"`
 	// The memory role ARN.
 	MemoryExecutionRoleArn *string `pulumi:"memoryExecutionRoleArn"`
 	// The memory strategies.
@@ -112,6 +114,7 @@ type MemoryArgs struct {
 	EncryptionKeyArn pulumi.StringPtrInput
 	// Duration in days until memory events expire
 	EventExpiryDuration pulumi.IntInput
+	IndexedKeys         MemoryIndexedKeyArrayInput
 	// The memory role ARN.
 	MemoryExecutionRoleArn pulumi.StringPtrInput
 	// The memory strategies.
@@ -181,6 +184,10 @@ func (o MemoryOutput) EventExpiryDuration() pulumi.IntOutput {
 
 func (o MemoryOutput) FailureReason() pulumi.StringOutput {
 	return o.ApplyT(func(v *Memory) pulumi.StringOutput { return v.FailureReason }).(pulumi.StringOutput)
+}
+
+func (o MemoryOutput) IndexedKeys() MemoryIndexedKeyArrayOutput {
+	return o.ApplyT(func(v *Memory) MemoryIndexedKeyArrayOutput { return v.IndexedKeys }).(MemoryIndexedKeyArrayOutput)
 }
 
 func (o MemoryOutput) MemoryArn() pulumi.StringOutput {

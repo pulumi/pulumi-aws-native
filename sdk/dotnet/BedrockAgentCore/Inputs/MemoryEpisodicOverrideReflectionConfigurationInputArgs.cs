@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
         [Input("appendToPrompt", required: true)]
         public Input<string> AppendToPrompt { get; set; } = null!;
 
+        [Input("memoryRecordSchema")]
+        public Input<Inputs.MemoryRecordSchemaArgs>? MemoryRecordSchema { get; set; }
+
         [Input("modelId", required: true)]
         public Input<string> ModelId { get; set; } = null!;
 

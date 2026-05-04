@@ -13,8 +13,8 @@ export const AccessLogSubscriptionServiceNetworkLogType = {
 export type AccessLogSubscriptionServiceNetworkLogType = (typeof AccessLogSubscriptionServiceNetworkLogType)[keyof typeof AccessLogSubscriptionServiceNetworkLogType];
 
 export const AuthPolicyState = {
-    Active: "ACTIVE",
-    Inactive: "INACTIVE",
+    Active: "Active",
+    Inactive: "Inactive",
 } as const;
 
 /**
@@ -98,6 +98,13 @@ export const ResourceGatewayIpAddressType = {
  * The type of IP address used by the resource gateway.
  */
 export type ResourceGatewayIpAddressType = (typeof ResourceGatewayIpAddressType)[keyof typeof ResourceGatewayIpAddressType];
+
+export const ResourceGatewayResourceConfigDnsResolution = {
+    InVpc: "IN_VPC",
+    Public: "PUBLIC",
+} as const;
+
+export type ResourceGatewayResourceConfigDnsResolution = (typeof ResourceGatewayResourceConfigDnsResolution)[keyof typeof ResourceGatewayResourceConfigDnsResolution];
 
 export const RuleHttpMatchMethod = {
     Connect: "CONNECT",

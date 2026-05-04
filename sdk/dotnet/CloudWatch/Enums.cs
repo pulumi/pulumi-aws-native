@@ -38,4 +38,35 @@ namespace Pulumi.AwsNative.CloudWatch
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// Current status of OTel enrichment (RUNNING or STOPPED).
+    /// </summary>
+    [EnumType]
+    public readonly struct OTelEnrichmentStatus : IEquatable<OTelEnrichmentStatus>
+    {
+        private readonly string _value;
+
+        private OTelEnrichmentStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OTelEnrichmentStatus Running { get; } = new OTelEnrichmentStatus("RUNNING");
+        public static OTelEnrichmentStatus Stopped { get; } = new OTelEnrichmentStatus("STOPPED");
+
+        public static bool operator ==(OTelEnrichmentStatus left, OTelEnrichmentStatus right) => left.Equals(right);
+        public static bool operator !=(OTelEnrichmentStatus left, OTelEnrichmentStatus right) => !left.Equals(right);
+
+        public static explicit operator string(OTelEnrichmentStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OTelEnrichmentStatus other && Equals(other);
+        public bool Equals(OTelEnrichmentStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

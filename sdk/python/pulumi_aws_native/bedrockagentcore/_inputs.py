@@ -16,16 +16,26 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'BrowserCustomBrowserEnterprisePolicyArgs',
+    'BrowserCustomBrowserEnterprisePolicyArgsDict',
     'BrowserCustomBrowserNetworkConfigurationArgs',
     'BrowserCustomBrowserNetworkConfigurationArgsDict',
     'BrowserCustomBrowserSigningArgs',
     'BrowserCustomBrowserSigningArgsDict',
+    'BrowserCustomCertificateLocationArgs',
+    'BrowserCustomCertificateLocationArgsDict',
+    'BrowserCustomCertificateArgs',
+    'BrowserCustomCertificateArgsDict',
     'BrowserCustomRecordingConfigArgs',
     'BrowserCustomRecordingConfigArgsDict',
     'BrowserCustomS3LocationArgs',
     'BrowserCustomS3LocationArgsDict',
     'BrowserCustomVpcConfigArgs',
     'BrowserCustomVpcConfigArgsDict',
+    'CodeInterpreterCustomCertificateLocationArgs',
+    'CodeInterpreterCustomCertificateLocationArgsDict',
+    'CodeInterpreterCustomCertificateArgs',
+    'CodeInterpreterCustomCertificateArgsDict',
     'CodeInterpreterCustomCodeInterpreterNetworkConfigurationArgs',
     'CodeInterpreterCustomCodeInterpreterNetworkConfigurationArgsDict',
     'CodeInterpreterCustomVpcConfigArgs',
@@ -142,12 +152,24 @@ __all__ = [
     'MemoryEpisodicOverrideArgsDict',
     'MemoryEpisodicReflectionConfigurationInputArgs',
     'MemoryEpisodicReflectionConfigurationInputArgsDict',
+    'MemoryExtractionConfigArgs',
+    'MemoryExtractionConfigArgsDict',
+    'MemoryIndexedKeyArgs',
+    'MemoryIndexedKeyArgsDict',
     'MemoryInvocationConfigurationInputArgs',
     'MemoryInvocationConfigurationInputArgsDict',
     'MemoryKinesisResourceArgs',
     'MemoryKinesisResourceArgsDict',
+    'MemoryLlmExtractionConfigArgs',
+    'MemoryLlmExtractionConfigArgsDict',
     'MemoryMessageBasedTriggerInputArgs',
     'MemoryMessageBasedTriggerInputArgsDict',
+    'MemoryMetadataSchemaEntryArgs',
+    'MemoryMetadataSchemaEntryArgsDict',
+    'MemoryNumberValidationArgs',
+    'MemoryNumberValidationArgsDict',
+    'MemoryRecordSchemaArgs',
+    'MemoryRecordSchemaArgsDict',
     'MemorySelfManagedConfigurationArgs',
     'MemorySelfManagedConfigurationArgsDict',
     'MemorySemanticMemoryStrategyArgs',
@@ -164,6 +186,10 @@ __all__ = [
     'MemoryStreamDeliveryResourcesArgsDict',
     'MemoryStreamDeliveryResourceArgs',
     'MemoryStreamDeliveryResourceArgsDict',
+    'MemoryStringListValidationArgs',
+    'MemoryStringListValidationArgsDict',
+    'MemoryStringValidationArgs',
+    'MemoryStringValidationArgsDict',
     'MemorySummaryMemoryStrategyArgs',
     'MemorySummaryMemoryStrategyArgsDict',
     'MemorySummaryOverrideConsolidationConfigurationInputArgs',
@@ -184,6 +210,8 @@ __all__ = [
     'MemoryUserPreferenceOverrideExtractionConfigurationInputArgsDict',
     'MemoryUserPreferenceOverrideArgs',
     'MemoryUserPreferenceOverrideArgsDict',
+    'MemoryValidationArgs',
+    'MemoryValidationArgsDict',
     'OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputArgs',
     'OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputArgsDict',
     'OAuth2CredentialProviderCustomOauth2ProviderConfigInputArgs',
@@ -262,6 +290,58 @@ __all__ = [
     'RuntimeVpcConfigArgsDict',
 ]
 
+class BrowserCustomBrowserEnterprisePolicyArgsDict(TypedDict):
+    """
+    Browser enterprise policy configuration.
+    """
+    location: pulumi.Input['BrowserCustomS3LocationArgsDict']
+    """
+    The S3 location of the enterprise policy file.
+    """
+    type: pulumi.Input['BrowserCustomBrowserEnterprisePolicyType']
+    """
+    The type of browser enterprise policy.
+    """
+
+@pulumi.input_type
+class BrowserCustomBrowserEnterprisePolicyArgs:
+    def __init__(__self__, *,
+                 location: pulumi.Input['BrowserCustomS3LocationArgs'],
+                 type: pulumi.Input['BrowserCustomBrowserEnterprisePolicyType']):
+        """
+        Browser enterprise policy configuration.
+
+        :param pulumi.Input['BrowserCustomS3LocationArgs'] location: The S3 location of the enterprise policy file.
+        :param pulumi.Input['BrowserCustomBrowserEnterprisePolicyType'] type: The type of browser enterprise policy.
+        """
+        pulumi.set(__self__, "location", location)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def location(self) -> pulumi.Input['BrowserCustomS3LocationArgs']:
+        """
+        The S3 location of the enterprise policy file.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: pulumi.Input['BrowserCustomS3LocationArgs']):
+        pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['BrowserCustomBrowserEnterprisePolicyType']:
+        """
+        The type of browser enterprise policy.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['BrowserCustomBrowserEnterprisePolicyType']):
+        pulumi.set(self, "type", value)
+
+
 class BrowserCustomBrowserNetworkConfigurationArgsDict(TypedDict):
     """
     Network configuration for browser
@@ -334,6 +414,72 @@ class BrowserCustomBrowserSigningArgs:
         pulumi.set(self, "enabled", value)
 
 
+class BrowserCustomCertificateLocationArgsDict(TypedDict):
+    """
+    Certificate location in Secrets Manager.
+    """
+    secret_arn: pulumi.Input[_builtins.str]
+    """
+    Secrets Manager secret ARN.
+    """
+
+@pulumi.input_type
+class BrowserCustomCertificateLocationArgs:
+    def __init__(__self__, *,
+                 secret_arn: pulumi.Input[_builtins.str]):
+        """
+        Certificate location in Secrets Manager.
+
+        :param pulumi.Input[_builtins.str] secret_arn: Secrets Manager secret ARN.
+        """
+        pulumi.set(__self__, "secret_arn", secret_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        Secrets Manager secret ARN.
+        """
+        return pulumi.get(self, "secret_arn")
+
+    @secret_arn.setter
+    def secret_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "secret_arn", value)
+
+
+class BrowserCustomCertificateArgsDict(TypedDict):
+    """
+    A root CA certificate configuration.
+    """
+    certificate_location: pulumi.Input['BrowserCustomCertificateLocationArgsDict']
+    """
+    Certificate location in Secrets Manager.
+    """
+
+@pulumi.input_type
+class BrowserCustomCertificateArgs:
+    def __init__(__self__, *,
+                 certificate_location: pulumi.Input['BrowserCustomCertificateLocationArgs']):
+        """
+        A root CA certificate configuration.
+
+        :param pulumi.Input['BrowserCustomCertificateLocationArgs'] certificate_location: Certificate location in Secrets Manager.
+        """
+        pulumi.set(__self__, "certificate_location", certificate_location)
+
+    @_builtins.property
+    @pulumi.getter(name="certificateLocation")
+    def certificate_location(self) -> pulumi.Input['BrowserCustomCertificateLocationArgs']:
+        """
+        Certificate location in Secrets Manager.
+        """
+        return pulumi.get(self, "certificate_location")
+
+    @certificate_location.setter
+    def certificate_location(self, value: pulumi.Input['BrowserCustomCertificateLocationArgs']):
+        pulumi.set(self, "certificate_location", value)
+
+
 class BrowserCustomRecordingConfigArgsDict(TypedDict):
     """
     Recording configuration for browser
@@ -393,13 +539,7 @@ class BrowserCustomS3LocationArgsDict(TypedDict):
     S3 Location Configuration
     """
     bucket: pulumi.Input[_builtins.str]
-    """
-    The S3 location bucket name.
-    """
     prefix: pulumi.Input[_builtins.str]
-    """
-    The S3 location object prefix.
-    """
 
 @pulumi.input_type
 class BrowserCustomS3LocationArgs:
@@ -408,9 +548,6 @@ class BrowserCustomS3LocationArgs:
                  prefix: pulumi.Input[_builtins.str]):
         """
         S3 Location Configuration
-
-        :param pulumi.Input[_builtins.str] bucket: The S3 location bucket name.
-        :param pulumi.Input[_builtins.str] prefix: The S3 location object prefix.
         """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "prefix", prefix)
@@ -418,9 +555,6 @@ class BrowserCustomS3LocationArgs:
     @_builtins.property
     @pulumi.getter
     def bucket(self) -> pulumi.Input[_builtins.str]:
-        """
-        The S3 location bucket name.
-        """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
@@ -430,9 +564,6 @@ class BrowserCustomS3LocationArgs:
     @_builtins.property
     @pulumi.getter
     def prefix(self) -> pulumi.Input[_builtins.str]:
-        """
-        The S3 location object prefix.
-        """
         return pulumi.get(self, "prefix")
 
     @prefix.setter
@@ -475,6 +606,72 @@ class BrowserCustomVpcConfigArgs:
     @subnets.setter
     def subnets(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         pulumi.set(self, "subnets", value)
+
+
+class CodeInterpreterCustomCertificateLocationArgsDict(TypedDict):
+    """
+    Certificate location in Secrets Manager.
+    """
+    secret_arn: pulumi.Input[_builtins.str]
+    """
+    Secrets Manager secret ARN.
+    """
+
+@pulumi.input_type
+class CodeInterpreterCustomCertificateLocationArgs:
+    def __init__(__self__, *,
+                 secret_arn: pulumi.Input[_builtins.str]):
+        """
+        Certificate location in Secrets Manager.
+
+        :param pulumi.Input[_builtins.str] secret_arn: Secrets Manager secret ARN.
+        """
+        pulumi.set(__self__, "secret_arn", secret_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        Secrets Manager secret ARN.
+        """
+        return pulumi.get(self, "secret_arn")
+
+    @secret_arn.setter
+    def secret_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "secret_arn", value)
+
+
+class CodeInterpreterCustomCertificateArgsDict(TypedDict):
+    """
+    A root CA certificate configuration.
+    """
+    certificate_location: pulumi.Input['CodeInterpreterCustomCertificateLocationArgsDict']
+    """
+    Certificate location in Secrets Manager.
+    """
+
+@pulumi.input_type
+class CodeInterpreterCustomCertificateArgs:
+    def __init__(__self__, *,
+                 certificate_location: pulumi.Input['CodeInterpreterCustomCertificateLocationArgs']):
+        """
+        A root CA certificate configuration.
+
+        :param pulumi.Input['CodeInterpreterCustomCertificateLocationArgs'] certificate_location: Certificate location in Secrets Manager.
+        """
+        pulumi.set(__self__, "certificate_location", certificate_location)
+
+    @_builtins.property
+    @pulumi.getter(name="certificateLocation")
+    def certificate_location(self) -> pulumi.Input['CodeInterpreterCustomCertificateLocationArgs']:
+        """
+        Certificate location in Secrets Manager.
+        """
+        return pulumi.get(self, "certificate_location")
+
+    @certificate_location.setter
+    def certificate_location(self, value: pulumi.Input['CodeInterpreterCustomCertificateLocationArgs']):
+        pulumi.set(self, "certificate_location", value)
 
 
 class CodeInterpreterCustomCodeInterpreterNetworkConfigurationArgsDict(TypedDict):
@@ -2446,6 +2643,7 @@ class MemoryCustomMemoryStrategyArgsDict(TypedDict):
     Creation timestamp of the memory strategy
     """
     description: NotRequired[pulumi.Input[_builtins.str]]
+    memory_record_schema: NotRequired[pulumi.Input['MemoryRecordSchemaArgsDict']]
     namespace_templates: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     namespaces: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     status: NotRequired[pulumi.Input['MemoryCustomMemoryStrategyStatus']]
@@ -2472,6 +2670,7 @@ class MemoryCustomMemoryStrategyArgs:
                  configuration: Optional[pulumi.Input['MemoryCustomConfigurationInputArgs']] = None,
                  created_at: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 memory_record_schema: Optional[pulumi.Input['MemoryRecordSchemaArgs']] = None,
                  namespace_templates: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  namespaces: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  status: Optional[pulumi.Input['MemoryCustomMemoryStrategyStatus']] = None,
@@ -2492,6 +2691,8 @@ class MemoryCustomMemoryStrategyArgs:
             pulumi.set(__self__, "created_at", created_at)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if memory_record_schema is not None:
+            pulumi.set(__self__, "memory_record_schema", memory_record_schema)
         if namespace_templates is not None:
             pulumi.set(__self__, "namespace_templates", namespace_templates)
         if namespaces is not None:
@@ -2543,6 +2744,15 @@ class MemoryCustomMemoryStrategyArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="memoryRecordSchema")
+    def memory_record_schema(self) -> Optional[pulumi.Input['MemoryRecordSchemaArgs']]:
+        return pulumi.get(self, "memory_record_schema")
+
+    @memory_record_schema.setter
+    def memory_record_schema(self, value: Optional[pulumi.Input['MemoryRecordSchemaArgs']]):
+        pulumi.set(self, "memory_record_schema", value)
 
     @_builtins.property
     @pulumi.getter(name="namespaceTemplates")
@@ -2618,6 +2828,7 @@ class MemoryEpisodicMemoryStrategyArgsDict(TypedDict):
     Creation timestamp of the memory strategy
     """
     description: NotRequired[pulumi.Input[_builtins.str]]
+    memory_record_schema: NotRequired[pulumi.Input['MemoryRecordSchemaArgsDict']]
     namespace_templates: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     namespaces: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     reflection_configuration: NotRequired[pulumi.Input['MemoryEpisodicReflectionConfigurationInputArgsDict']]
@@ -2644,6 +2855,7 @@ class MemoryEpisodicMemoryStrategyArgs:
                  name: pulumi.Input[_builtins.str],
                  created_at: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 memory_record_schema: Optional[pulumi.Input['MemoryRecordSchemaArgs']] = None,
                  namespace_templates: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  namespaces: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  reflection_configuration: Optional[pulumi.Input['MemoryEpisodicReflectionConfigurationInputArgs']] = None,
@@ -2663,6 +2875,8 @@ class MemoryEpisodicMemoryStrategyArgs:
             pulumi.set(__self__, "created_at", created_at)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if memory_record_schema is not None:
+            pulumi.set(__self__, "memory_record_schema", memory_record_schema)
         if namespace_templates is not None:
             pulumi.set(__self__, "namespace_templates", namespace_templates)
         if namespaces is not None:
@@ -2707,6 +2921,15 @@ class MemoryEpisodicMemoryStrategyArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="memoryRecordSchema")
+    def memory_record_schema(self) -> Optional[pulumi.Input['MemoryRecordSchemaArgs']]:
+        return pulumi.get(self, "memory_record_schema")
+
+    @memory_record_schema.setter
+    def memory_record_schema(self, value: Optional[pulumi.Input['MemoryRecordSchemaArgs']]):
+        pulumi.set(self, "memory_record_schema", value)
 
     @_builtins.property
     @pulumi.getter(name="namespaceTemplates")
@@ -2849,6 +3072,7 @@ class MemoryEpisodicOverrideExtractionConfigurationInputArgs:
 class MemoryEpisodicOverrideReflectionConfigurationInputArgsDict(TypedDict):
     append_to_prompt: pulumi.Input[_builtins.str]
     model_id: pulumi.Input[_builtins.str]
+    memory_record_schema: NotRequired[pulumi.Input['MemoryRecordSchemaArgsDict']]
     namespace_templates: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     namespaces: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
 
@@ -2857,10 +3081,13 @@ class MemoryEpisodicOverrideReflectionConfigurationInputArgs:
     def __init__(__self__, *,
                  append_to_prompt: pulumi.Input[_builtins.str],
                  model_id: pulumi.Input[_builtins.str],
+                 memory_record_schema: Optional[pulumi.Input['MemoryRecordSchemaArgs']] = None,
                  namespace_templates: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  namespaces: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         pulumi.set(__self__, "append_to_prompt", append_to_prompt)
         pulumi.set(__self__, "model_id", model_id)
+        if memory_record_schema is not None:
+            pulumi.set(__self__, "memory_record_schema", memory_record_schema)
         if namespace_templates is not None:
             pulumi.set(__self__, "namespace_templates", namespace_templates)
         if namespaces is not None:
@@ -2883,6 +3110,15 @@ class MemoryEpisodicOverrideReflectionConfigurationInputArgs:
     @model_id.setter
     def model_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "model_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="memoryRecordSchema")
+    def memory_record_schema(self) -> Optional[pulumi.Input['MemoryRecordSchemaArgs']]:
+        return pulumi.get(self, "memory_record_schema")
+
+    @memory_record_schema.setter
+    def memory_record_schema(self, value: Optional[pulumi.Input['MemoryRecordSchemaArgs']]):
+        pulumi.set(self, "memory_record_schema", value)
 
     @_builtins.property
     @pulumi.getter(name="namespaceTemplates")
@@ -2950,18 +3186,31 @@ class MemoryEpisodicOverrideArgs:
 
 
 class MemoryEpisodicReflectionConfigurationInputArgsDict(TypedDict):
+    memory_record_schema: NotRequired[pulumi.Input['MemoryRecordSchemaArgsDict']]
     namespace_templates: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     namespaces: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
 
 @pulumi.input_type
 class MemoryEpisodicReflectionConfigurationInputArgs:
     def __init__(__self__, *,
+                 memory_record_schema: Optional[pulumi.Input['MemoryRecordSchemaArgs']] = None,
                  namespace_templates: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  namespaces: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        if memory_record_schema is not None:
+            pulumi.set(__self__, "memory_record_schema", memory_record_schema)
         if namespace_templates is not None:
             pulumi.set(__self__, "namespace_templates", namespace_templates)
         if namespaces is not None:
             pulumi.set(__self__, "namespaces", namespaces)
+
+    @_builtins.property
+    @pulumi.getter(name="memoryRecordSchema")
+    def memory_record_schema(self) -> Optional[pulumi.Input['MemoryRecordSchemaArgs']]:
+        return pulumi.get(self, "memory_record_schema")
+
+    @memory_record_schema.setter
+    def memory_record_schema(self, value: Optional[pulumi.Input['MemoryRecordSchemaArgs']]):
+        pulumi.set(self, "memory_record_schema", value)
 
     @_builtins.property
     @pulumi.getter(name="namespaceTemplates")
@@ -2980,6 +3229,57 @@ class MemoryEpisodicReflectionConfigurationInputArgs:
     @namespaces.setter
     def namespaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "namespaces", value)
+
+
+class MemoryExtractionConfigArgsDict(TypedDict):
+    llm_extraction_config: NotRequired[pulumi.Input['MemoryLlmExtractionConfigArgsDict']]
+
+@pulumi.input_type
+class MemoryExtractionConfigArgs:
+    def __init__(__self__, *,
+                 llm_extraction_config: Optional[pulumi.Input['MemoryLlmExtractionConfigArgs']] = None):
+        if llm_extraction_config is not None:
+            pulumi.set(__self__, "llm_extraction_config", llm_extraction_config)
+
+    @_builtins.property
+    @pulumi.getter(name="llmExtractionConfig")
+    def llm_extraction_config(self) -> Optional[pulumi.Input['MemoryLlmExtractionConfigArgs']]:
+        return pulumi.get(self, "llm_extraction_config")
+
+    @llm_extraction_config.setter
+    def llm_extraction_config(self, value: Optional[pulumi.Input['MemoryLlmExtractionConfigArgs']]):
+        pulumi.set(self, "llm_extraction_config", value)
+
+
+class MemoryIndexedKeyArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    type: pulumi.Input['MemoryMetadataValueType']
+
+@pulumi.input_type
+class MemoryIndexedKeyArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[_builtins.str],
+                 type: pulumi.Input['MemoryMetadataValueType']):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['MemoryMetadataValueType']:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['MemoryMetadataValueType']):
+        pulumi.set(self, "type", value)
 
 
 class MemoryInvocationConfigurationInputArgsDict(TypedDict):
@@ -3046,6 +3346,51 @@ class MemoryKinesisResourceArgs:
         pulumi.set(self, "data_stream_arn", value)
 
 
+class MemoryLlmExtractionConfigArgsDict(TypedDict):
+    definition: pulumi.Input[_builtins.str]
+    llm_extraction_instruction: NotRequired[pulumi.Input[_builtins.str]]
+    validation: NotRequired[pulumi.Input['MemoryValidationArgsDict']]
+
+@pulumi.input_type
+class MemoryLlmExtractionConfigArgs:
+    def __init__(__self__, *,
+                 definition: pulumi.Input[_builtins.str],
+                 llm_extraction_instruction: Optional[pulumi.Input[_builtins.str]] = None,
+                 validation: Optional[pulumi.Input['MemoryValidationArgs']] = None):
+        pulumi.set(__self__, "definition", definition)
+        if llm_extraction_instruction is not None:
+            pulumi.set(__self__, "llm_extraction_instruction", llm_extraction_instruction)
+        if validation is not None:
+            pulumi.set(__self__, "validation", validation)
+
+    @_builtins.property
+    @pulumi.getter
+    def definition(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "definition")
+
+    @definition.setter
+    def definition(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "definition", value)
+
+    @_builtins.property
+    @pulumi.getter(name="llmExtractionInstruction")
+    def llm_extraction_instruction(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "llm_extraction_instruction")
+
+    @llm_extraction_instruction.setter
+    def llm_extraction_instruction(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "llm_extraction_instruction", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def validation(self) -> Optional[pulumi.Input['MemoryValidationArgs']]:
+        return pulumi.get(self, "validation")
+
+    @validation.setter
+    def validation(self, value: Optional[pulumi.Input['MemoryValidationArgs']]):
+        pulumi.set(self, "validation", value)
+
+
 class MemoryMessageBasedTriggerInputArgsDict(TypedDict):
     message_count: NotRequired[pulumi.Input[_builtins.int]]
 
@@ -3064,6 +3409,104 @@ class MemoryMessageBasedTriggerInputArgs:
     @message_count.setter
     def message_count(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "message_count", value)
+
+
+class MemoryMetadataSchemaEntryArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    extraction_config: NotRequired[pulumi.Input['MemoryExtractionConfigArgsDict']]
+    type: NotRequired[pulumi.Input['MemoryMetadataValueType']]
+
+@pulumi.input_type
+class MemoryMetadataSchemaEntryArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[_builtins.str],
+                 extraction_config: Optional[pulumi.Input['MemoryExtractionConfigArgs']] = None,
+                 type: Optional[pulumi.Input['MemoryMetadataValueType']] = None):
+        pulumi.set(__self__, "key", key)
+        if extraction_config is not None:
+            pulumi.set(__self__, "extraction_config", extraction_config)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="extractionConfig")
+    def extraction_config(self) -> Optional[pulumi.Input['MemoryExtractionConfigArgs']]:
+        return pulumi.get(self, "extraction_config")
+
+    @extraction_config.setter
+    def extraction_config(self, value: Optional[pulumi.Input['MemoryExtractionConfigArgs']]):
+        pulumi.set(self, "extraction_config", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input['MemoryMetadataValueType']]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input['MemoryMetadataValueType']]):
+        pulumi.set(self, "type", value)
+
+
+class MemoryNumberValidationArgsDict(TypedDict):
+    max_value: NotRequired[pulumi.Input[_builtins.float]]
+    min_value: NotRequired[pulumi.Input[_builtins.float]]
+
+@pulumi.input_type
+class MemoryNumberValidationArgs:
+    def __init__(__self__, *,
+                 max_value: Optional[pulumi.Input[_builtins.float]] = None,
+                 min_value: Optional[pulumi.Input[_builtins.float]] = None):
+        if max_value is not None:
+            pulumi.set(__self__, "max_value", max_value)
+        if min_value is not None:
+            pulumi.set(__self__, "min_value", min_value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxValue")
+    def max_value(self) -> Optional[pulumi.Input[_builtins.float]]:
+        return pulumi.get(self, "max_value")
+
+    @max_value.setter
+    def max_value(self, value: Optional[pulumi.Input[_builtins.float]]):
+        pulumi.set(self, "max_value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="minValue")
+    def min_value(self) -> Optional[pulumi.Input[_builtins.float]]:
+        return pulumi.get(self, "min_value")
+
+    @min_value.setter
+    def min_value(self, value: Optional[pulumi.Input[_builtins.float]]):
+        pulumi.set(self, "min_value", value)
+
+
+class MemoryRecordSchemaArgsDict(TypedDict):
+    metadata_schema: NotRequired[pulumi.Input[Sequence[pulumi.Input['MemoryMetadataSchemaEntryArgsDict']]]]
+
+@pulumi.input_type
+class MemoryRecordSchemaArgs:
+    def __init__(__self__, *,
+                 metadata_schema: Optional[pulumi.Input[Sequence[pulumi.Input['MemoryMetadataSchemaEntryArgs']]]] = None):
+        if metadata_schema is not None:
+            pulumi.set(__self__, "metadata_schema", metadata_schema)
+
+    @_builtins.property
+    @pulumi.getter(name="metadataSchema")
+    def metadata_schema(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MemoryMetadataSchemaEntryArgs']]]]:
+        return pulumi.get(self, "metadata_schema")
+
+    @metadata_schema.setter
+    def metadata_schema(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MemoryMetadataSchemaEntryArgs']]]]):
+        pulumi.set(self, "metadata_schema", value)
 
 
 class MemorySelfManagedConfigurationArgsDict(TypedDict):
@@ -3119,6 +3562,7 @@ class MemorySemanticMemoryStrategyArgsDict(TypedDict):
     Creation timestamp of the memory strategy
     """
     description: NotRequired[pulumi.Input[_builtins.str]]
+    memory_record_schema: NotRequired[pulumi.Input['MemoryRecordSchemaArgsDict']]
     namespace_templates: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     namespaces: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     status: NotRequired[pulumi.Input['MemorySemanticMemoryStrategyStatus']]
@@ -3144,6 +3588,7 @@ class MemorySemanticMemoryStrategyArgs:
                  name: pulumi.Input[_builtins.str],
                  created_at: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 memory_record_schema: Optional[pulumi.Input['MemoryRecordSchemaArgs']] = None,
                  namespace_templates: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  namespaces: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  status: Optional[pulumi.Input['MemorySemanticMemoryStrategyStatus']] = None,
@@ -3162,6 +3607,8 @@ class MemorySemanticMemoryStrategyArgs:
             pulumi.set(__self__, "created_at", created_at)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if memory_record_schema is not None:
+            pulumi.set(__self__, "memory_record_schema", memory_record_schema)
         if namespace_templates is not None:
             pulumi.set(__self__, "namespace_templates", namespace_templates)
         if namespaces is not None:
@@ -3204,6 +3651,15 @@ class MemorySemanticMemoryStrategyArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="memoryRecordSchema")
+    def memory_record_schema(self) -> Optional[pulumi.Input['MemoryRecordSchemaArgs']]:
+        return pulumi.get(self, "memory_record_schema")
+
+    @memory_record_schema.setter
+    def memory_record_schema(self, value: Optional[pulumi.Input['MemoryRecordSchemaArgs']]):
+        pulumi.set(self, "memory_record_schema", value)
 
     @_builtins.property
     @pulumi.getter(name="namespaceTemplates")
@@ -3478,6 +3934,58 @@ class MemoryStreamDeliveryResourceArgs:
         pulumi.set(self, "kinesis", value)
 
 
+class MemoryStringListValidationArgsDict(TypedDict):
+    allowed_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    max_items: NotRequired[pulumi.Input[_builtins.int]]
+
+@pulumi.input_type
+class MemoryStringListValidationArgs:
+    def __init__(__self__, *,
+                 allowed_values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 max_items: Optional[pulumi.Input[_builtins.int]] = None):
+        if allowed_values is not None:
+            pulumi.set(__self__, "allowed_values", allowed_values)
+        if max_items is not None:
+            pulumi.set(__self__, "max_items", max_items)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedValues")
+    def allowed_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "allowed_values")
+
+    @allowed_values.setter
+    def allowed_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "allowed_values", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxItems")
+    def max_items(self) -> Optional[pulumi.Input[_builtins.int]]:
+        return pulumi.get(self, "max_items")
+
+    @max_items.setter
+    def max_items(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "max_items", value)
+
+
+class MemoryStringValidationArgsDict(TypedDict):
+    allowed_values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+
+@pulumi.input_type
+class MemoryStringValidationArgs:
+    def __init__(__self__, *,
+                 allowed_values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(__self__, "allowed_values", allowed_values)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedValues")
+    def allowed_values(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        return pulumi.get(self, "allowed_values")
+
+    @allowed_values.setter
+    def allowed_values(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "allowed_values", value)
+
+
 class MemorySummaryMemoryStrategyArgsDict(TypedDict):
     name: pulumi.Input[_builtins.str]
     created_at: NotRequired[pulumi.Input[_builtins.str]]
@@ -3485,6 +3993,7 @@ class MemorySummaryMemoryStrategyArgsDict(TypedDict):
     Creation timestamp of the memory strategy
     """
     description: NotRequired[pulumi.Input[_builtins.str]]
+    memory_record_schema: NotRequired[pulumi.Input['MemoryRecordSchemaArgsDict']]
     namespace_templates: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     namespaces: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     status: NotRequired[pulumi.Input['MemorySummaryMemoryStrategyStatus']]
@@ -3510,6 +4019,7 @@ class MemorySummaryMemoryStrategyArgs:
                  name: pulumi.Input[_builtins.str],
                  created_at: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 memory_record_schema: Optional[pulumi.Input['MemoryRecordSchemaArgs']] = None,
                  namespace_templates: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  namespaces: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  status: Optional[pulumi.Input['MemorySummaryMemoryStrategyStatus']] = None,
@@ -3528,6 +4038,8 @@ class MemorySummaryMemoryStrategyArgs:
             pulumi.set(__self__, "created_at", created_at)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if memory_record_schema is not None:
+            pulumi.set(__self__, "memory_record_schema", memory_record_schema)
         if namespace_templates is not None:
             pulumi.set(__self__, "namespace_templates", namespace_templates)
         if namespaces is not None:
@@ -3570,6 +4082,15 @@ class MemorySummaryMemoryStrategyArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="memoryRecordSchema")
+    def memory_record_schema(self) -> Optional[pulumi.Input['MemoryRecordSchemaArgs']]:
+        return pulumi.get(self, "memory_record_schema")
+
+    @memory_record_schema.setter
+    def memory_record_schema(self, value: Optional[pulumi.Input['MemoryRecordSchemaArgs']]):
+        pulumi.set(self, "memory_record_schema", value)
 
     @_builtins.property
     @pulumi.getter(name="namespaceTemplates")
@@ -3782,6 +4303,7 @@ class MemoryUserPreferenceMemoryStrategyArgsDict(TypedDict):
     Creation timestamp of the memory strategy
     """
     description: NotRequired[pulumi.Input[_builtins.str]]
+    memory_record_schema: NotRequired[pulumi.Input['MemoryRecordSchemaArgsDict']]
     namespace_templates: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     namespaces: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     status: NotRequired[pulumi.Input['MemoryUserPreferenceMemoryStrategyStatus']]
@@ -3807,6 +4329,7 @@ class MemoryUserPreferenceMemoryStrategyArgs:
                  name: pulumi.Input[_builtins.str],
                  created_at: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 memory_record_schema: Optional[pulumi.Input['MemoryRecordSchemaArgs']] = None,
                  namespace_templates: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  namespaces: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  status: Optional[pulumi.Input['MemoryUserPreferenceMemoryStrategyStatus']] = None,
@@ -3825,6 +4348,8 @@ class MemoryUserPreferenceMemoryStrategyArgs:
             pulumi.set(__self__, "created_at", created_at)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if memory_record_schema is not None:
+            pulumi.set(__self__, "memory_record_schema", memory_record_schema)
         if namespace_templates is not None:
             pulumi.set(__self__, "namespace_templates", namespace_templates)
         if namespaces is not None:
@@ -3867,6 +4392,15 @@ class MemoryUserPreferenceMemoryStrategyArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="memoryRecordSchema")
+    def memory_record_schema(self) -> Optional[pulumi.Input['MemoryRecordSchemaArgs']]:
+        return pulumi.get(self, "memory_record_schema")
+
+    @memory_record_schema.setter
+    def memory_record_schema(self, value: Optional[pulumi.Input['MemoryRecordSchemaArgs']]):
+        pulumi.set(self, "memory_record_schema", value)
 
     @_builtins.property
     @pulumi.getter(name="namespaceTemplates")
@@ -4028,6 +4562,52 @@ class MemoryUserPreferenceOverrideArgs:
     @extraction.setter
     def extraction(self, value: Optional[pulumi.Input['MemoryUserPreferenceOverrideExtractionConfigurationInputArgs']]):
         pulumi.set(self, "extraction", value)
+
+
+class MemoryValidationArgsDict(TypedDict):
+    number_validation: NotRequired[pulumi.Input['MemoryNumberValidationArgsDict']]
+    string_list_validation: NotRequired[pulumi.Input['MemoryStringListValidationArgsDict']]
+    string_validation: NotRequired[pulumi.Input['MemoryStringValidationArgsDict']]
+
+@pulumi.input_type
+class MemoryValidationArgs:
+    def __init__(__self__, *,
+                 number_validation: Optional[pulumi.Input['MemoryNumberValidationArgs']] = None,
+                 string_list_validation: Optional[pulumi.Input['MemoryStringListValidationArgs']] = None,
+                 string_validation: Optional[pulumi.Input['MemoryStringValidationArgs']] = None):
+        if number_validation is not None:
+            pulumi.set(__self__, "number_validation", number_validation)
+        if string_list_validation is not None:
+            pulumi.set(__self__, "string_list_validation", string_list_validation)
+        if string_validation is not None:
+            pulumi.set(__self__, "string_validation", string_validation)
+
+    @_builtins.property
+    @pulumi.getter(name="numberValidation")
+    def number_validation(self) -> Optional[pulumi.Input['MemoryNumberValidationArgs']]:
+        return pulumi.get(self, "number_validation")
+
+    @number_validation.setter
+    def number_validation(self, value: Optional[pulumi.Input['MemoryNumberValidationArgs']]):
+        pulumi.set(self, "number_validation", value)
+
+    @_builtins.property
+    @pulumi.getter(name="stringListValidation")
+    def string_list_validation(self) -> Optional[pulumi.Input['MemoryStringListValidationArgs']]:
+        return pulumi.get(self, "string_list_validation")
+
+    @string_list_validation.setter
+    def string_list_validation(self, value: Optional[pulumi.Input['MemoryStringListValidationArgs']]):
+        pulumi.set(self, "string_list_validation", value)
+
+    @_builtins.property
+    @pulumi.getter(name="stringValidation")
+    def string_validation(self) -> Optional[pulumi.Input['MemoryStringValidationArgs']]:
+        return pulumi.get(self, "string_validation")
+
+    @string_validation.setter
+    def string_validation(self, value: Optional[pulumi.Input['MemoryStringValidationArgs']]):
+        pulumi.set(self, "string_validation", value)
 
 
 class OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputArgsDict(TypedDict):

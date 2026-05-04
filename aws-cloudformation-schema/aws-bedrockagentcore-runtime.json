@@ -354,7 +354,7 @@
     "AgentManagedRuntimeType" : {
       "type" : "string",
       "description" : "Managed runtime types",
-      "enum" : [ "PYTHON_3_10", "PYTHON_3_11", "PYTHON_3_12", "PYTHON_3_13", "PYTHON_3_14" ]
+      "enum" : [ "PYTHON_3_10", "PYTHON_3_11", "PYTHON_3_12", "PYTHON_3_13", "PYTHON_3_14", "NODE_22" ]
     },
     "EntryPoints" : {
       "type" : "array",

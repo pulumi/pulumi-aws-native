@@ -26,7 +26,8 @@ type ResourceGateway struct {
 	// The number of IPv4 addresses to allocate per ENI for the resource gateway
 	Ipv4AddressesPerEni pulumi.IntPtrOutput `pulumi:"ipv4AddressesPerEni"`
 	// The name of the resource gateway.
-	Name pulumi.StringOutput `pulumi:"name"`
+	Name                        pulumi.StringOutput                                 `pulumi:"name"`
+	ResourceConfigDnsResolution ResourceGatewayResourceConfigDnsResolutionPtrOutput `pulumi:"resourceConfigDnsResolution"`
 	// The ID of one or more security groups to associate with the endpoint network interface.
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
 	// The ID of one or more subnets in which to create an endpoint network interface.
@@ -53,6 +54,7 @@ func NewResourceGateway(ctx *pulumi.Context,
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"ipAddressType",
 		"name",
+		"resourceConfigDnsResolution",
 		"subnetIds[*]",
 		"vpcIdentifier",
 	})
@@ -95,7 +97,8 @@ type resourceGatewayArgs struct {
 	// The number of IPv4 addresses to allocate per ENI for the resource gateway
 	Ipv4AddressesPerEni *int `pulumi:"ipv4AddressesPerEni"`
 	// The name of the resource gateway.
-	Name *string `pulumi:"name"`
+	Name                        *string                                     `pulumi:"name"`
+	ResourceConfigDnsResolution *ResourceGatewayResourceConfigDnsResolution `pulumi:"resourceConfigDnsResolution"`
 	// The ID of one or more security groups to associate with the endpoint network interface.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// The ID of one or more subnets in which to create an endpoint network interface.
@@ -113,7 +116,8 @@ type ResourceGatewayArgs struct {
 	// The number of IPv4 addresses to allocate per ENI for the resource gateway
 	Ipv4AddressesPerEni pulumi.IntPtrInput
 	// The name of the resource gateway.
-	Name pulumi.StringPtrInput
+	Name                        pulumi.StringPtrInput
+	ResourceConfigDnsResolution ResourceGatewayResourceConfigDnsResolutionPtrInput
 	// The ID of one or more security groups to associate with the endpoint network interface.
 	SecurityGroupIds pulumi.StringArrayInput
 	// The ID of one or more subnets in which to create an endpoint network interface.
@@ -184,6 +188,12 @@ func (o ResourceGatewayOutput) Ipv4AddressesPerEni() pulumi.IntPtrOutput {
 // The name of the resource gateway.
 func (o ResourceGatewayOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceGateway) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o ResourceGatewayOutput) ResourceConfigDnsResolution() ResourceGatewayResourceConfigDnsResolutionPtrOutput {
+	return o.ApplyT(func(v *ResourceGateway) ResourceGatewayResourceConfigDnsResolutionPtrOutput {
+		return v.ResourceConfigDnsResolution
+	}).(ResourceGatewayResourceConfigDnsResolutionPtrOutput)
 }
 
 // The ID of one or more security groups to associate with the endpoint network interface.

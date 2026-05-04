@@ -38,6 +38,10 @@ export class CodeInterpreterCustom extends pulumi.CustomResource {
     }
 
     /**
+     * List of root CA certificates in PEM format.
+     */
+    declare public readonly certificates: pulumi.Output<outputs.bedrockagentcore.CodeInterpreterCustomCertificate[] | undefined>;
+    /**
      * The ARN of a CodeInterpreter resource.
      */
     declare public /*out*/ readonly codeInterpreterArn: pulumi.Output<string>;
@@ -96,6 +100,7 @@ export class CodeInterpreterCustom extends pulumi.CustomResource {
             if (args?.networkConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkConfiguration'");
             }
+            resourceInputs["certificates"] = args?.certificates;
             resourceInputs["description"] = args?.description;
             resourceInputs["executionRoleArn"] = args?.executionRoleArn;
             resourceInputs["name"] = args?.name;
@@ -108,6 +113,7 @@ export class CodeInterpreterCustom extends pulumi.CustomResource {
             resourceInputs["lastUpdatedAt"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
         } else {
+            resourceInputs["certificates"] = undefined /*out*/;
             resourceInputs["codeInterpreterArn"] = undefined /*out*/;
             resourceInputs["codeInterpreterId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
@@ -121,7 +127,7 @@ export class CodeInterpreterCustom extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["description", "executionRoleArn", "name", "networkConfiguration"] };
+        const replaceOnChanges = { replaceOnChanges: ["certificates[*]", "description", "executionRoleArn", "name", "networkConfiguration"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(CodeInterpreterCustom.__pulumiType, name, resourceInputs, opts);
     }
@@ -131,6 +137,10 @@ export class CodeInterpreterCustom extends pulumi.CustomResource {
  * The set of arguments for constructing a CodeInterpreterCustom resource.
  */
 export interface CodeInterpreterCustomArgs {
+    /**
+     * List of root CA certificates in PEM format.
+     */
+    certificates?: pulumi.Input<pulumi.Input<inputs.bedrockagentcore.CodeInterpreterCustomCertificateArgs>[]>;
     /**
      * The description of the code interpreter.
      */

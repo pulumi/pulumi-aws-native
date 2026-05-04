@@ -78,6 +78,115 @@ type ApiKeyCredentialProviderTag struct {
 	Value string `pulumi:"value"`
 }
 
+// Browser enterprise policy configuration.
+type BrowserCustomBrowserEnterprisePolicy struct {
+	// The S3 location of the enterprise policy file.
+	Location BrowserCustomS3Location `pulumi:"location"`
+	// The type of browser enterprise policy.
+	Type BrowserCustomBrowserEnterprisePolicyType `pulumi:"type"`
+}
+
+// BrowserCustomBrowserEnterprisePolicyInput is an input type that accepts BrowserCustomBrowserEnterprisePolicyArgs and BrowserCustomBrowserEnterprisePolicyOutput values.
+// You can construct a concrete instance of `BrowserCustomBrowserEnterprisePolicyInput` via:
+//
+//	BrowserCustomBrowserEnterprisePolicyArgs{...}
+type BrowserCustomBrowserEnterprisePolicyInput interface {
+	pulumi.Input
+
+	ToBrowserCustomBrowserEnterprisePolicyOutput() BrowserCustomBrowserEnterprisePolicyOutput
+	ToBrowserCustomBrowserEnterprisePolicyOutputWithContext(context.Context) BrowserCustomBrowserEnterprisePolicyOutput
+}
+
+// Browser enterprise policy configuration.
+type BrowserCustomBrowserEnterprisePolicyArgs struct {
+	// The S3 location of the enterprise policy file.
+	Location BrowserCustomS3LocationInput `pulumi:"location"`
+	// The type of browser enterprise policy.
+	Type BrowserCustomBrowserEnterprisePolicyTypeInput `pulumi:"type"`
+}
+
+func (BrowserCustomBrowserEnterprisePolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BrowserCustomBrowserEnterprisePolicy)(nil)).Elem()
+}
+
+func (i BrowserCustomBrowserEnterprisePolicyArgs) ToBrowserCustomBrowserEnterprisePolicyOutput() BrowserCustomBrowserEnterprisePolicyOutput {
+	return i.ToBrowserCustomBrowserEnterprisePolicyOutputWithContext(context.Background())
+}
+
+func (i BrowserCustomBrowserEnterprisePolicyArgs) ToBrowserCustomBrowserEnterprisePolicyOutputWithContext(ctx context.Context) BrowserCustomBrowserEnterprisePolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BrowserCustomBrowserEnterprisePolicyOutput)
+}
+
+// BrowserCustomBrowserEnterprisePolicyArrayInput is an input type that accepts BrowserCustomBrowserEnterprisePolicyArray and BrowserCustomBrowserEnterprisePolicyArrayOutput values.
+// You can construct a concrete instance of `BrowserCustomBrowserEnterprisePolicyArrayInput` via:
+//
+//	BrowserCustomBrowserEnterprisePolicyArray{ BrowserCustomBrowserEnterprisePolicyArgs{...} }
+type BrowserCustomBrowserEnterprisePolicyArrayInput interface {
+	pulumi.Input
+
+	ToBrowserCustomBrowserEnterprisePolicyArrayOutput() BrowserCustomBrowserEnterprisePolicyArrayOutput
+	ToBrowserCustomBrowserEnterprisePolicyArrayOutputWithContext(context.Context) BrowserCustomBrowserEnterprisePolicyArrayOutput
+}
+
+type BrowserCustomBrowserEnterprisePolicyArray []BrowserCustomBrowserEnterprisePolicyInput
+
+func (BrowserCustomBrowserEnterprisePolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BrowserCustomBrowserEnterprisePolicy)(nil)).Elem()
+}
+
+func (i BrowserCustomBrowserEnterprisePolicyArray) ToBrowserCustomBrowserEnterprisePolicyArrayOutput() BrowserCustomBrowserEnterprisePolicyArrayOutput {
+	return i.ToBrowserCustomBrowserEnterprisePolicyArrayOutputWithContext(context.Background())
+}
+
+func (i BrowserCustomBrowserEnterprisePolicyArray) ToBrowserCustomBrowserEnterprisePolicyArrayOutputWithContext(ctx context.Context) BrowserCustomBrowserEnterprisePolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BrowserCustomBrowserEnterprisePolicyArrayOutput)
+}
+
+// Browser enterprise policy configuration.
+type BrowserCustomBrowserEnterprisePolicyOutput struct{ *pulumi.OutputState }
+
+func (BrowserCustomBrowserEnterprisePolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BrowserCustomBrowserEnterprisePolicy)(nil)).Elem()
+}
+
+func (o BrowserCustomBrowserEnterprisePolicyOutput) ToBrowserCustomBrowserEnterprisePolicyOutput() BrowserCustomBrowserEnterprisePolicyOutput {
+	return o
+}
+
+func (o BrowserCustomBrowserEnterprisePolicyOutput) ToBrowserCustomBrowserEnterprisePolicyOutputWithContext(ctx context.Context) BrowserCustomBrowserEnterprisePolicyOutput {
+	return o
+}
+
+// The S3 location of the enterprise policy file.
+func (o BrowserCustomBrowserEnterprisePolicyOutput) Location() BrowserCustomS3LocationOutput {
+	return o.ApplyT(func(v BrowserCustomBrowserEnterprisePolicy) BrowserCustomS3Location { return v.Location }).(BrowserCustomS3LocationOutput)
+}
+
+// The type of browser enterprise policy.
+func (o BrowserCustomBrowserEnterprisePolicyOutput) Type() BrowserCustomBrowserEnterprisePolicyTypeOutput {
+	return o.ApplyT(func(v BrowserCustomBrowserEnterprisePolicy) BrowserCustomBrowserEnterprisePolicyType { return v.Type }).(BrowserCustomBrowserEnterprisePolicyTypeOutput)
+}
+
+type BrowserCustomBrowserEnterprisePolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (BrowserCustomBrowserEnterprisePolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BrowserCustomBrowserEnterprisePolicy)(nil)).Elem()
+}
+
+func (o BrowserCustomBrowserEnterprisePolicyArrayOutput) ToBrowserCustomBrowserEnterprisePolicyArrayOutput() BrowserCustomBrowserEnterprisePolicyArrayOutput {
+	return o
+}
+
+func (o BrowserCustomBrowserEnterprisePolicyArrayOutput) ToBrowserCustomBrowserEnterprisePolicyArrayOutputWithContext(ctx context.Context) BrowserCustomBrowserEnterprisePolicyArrayOutput {
+	return o
+}
+
+func (o BrowserCustomBrowserEnterprisePolicyArrayOutput) Index(i pulumi.IntInput) BrowserCustomBrowserEnterprisePolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BrowserCustomBrowserEnterprisePolicy {
+		return vs[0].([]BrowserCustomBrowserEnterprisePolicy)[vs[1].(int)]
+	}).(BrowserCustomBrowserEnterprisePolicyOutput)
+}
+
 // Network configuration for browser
 type BrowserCustomBrowserNetworkConfiguration struct {
 	// The network mode.
@@ -275,6 +384,161 @@ func (o BrowserCustomBrowserSigningPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// A root CA certificate configuration.
+type BrowserCustomCertificate struct {
+	// Certificate location in Secrets Manager.
+	CertificateLocation BrowserCustomCertificateLocation `pulumi:"certificateLocation"`
+}
+
+// BrowserCustomCertificateInput is an input type that accepts BrowserCustomCertificateArgs and BrowserCustomCertificateOutput values.
+// You can construct a concrete instance of `BrowserCustomCertificateInput` via:
+//
+//	BrowserCustomCertificateArgs{...}
+type BrowserCustomCertificateInput interface {
+	pulumi.Input
+
+	ToBrowserCustomCertificateOutput() BrowserCustomCertificateOutput
+	ToBrowserCustomCertificateOutputWithContext(context.Context) BrowserCustomCertificateOutput
+}
+
+// A root CA certificate configuration.
+type BrowserCustomCertificateArgs struct {
+	// Certificate location in Secrets Manager.
+	CertificateLocation BrowserCustomCertificateLocationInput `pulumi:"certificateLocation"`
+}
+
+func (BrowserCustomCertificateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BrowserCustomCertificate)(nil)).Elem()
+}
+
+func (i BrowserCustomCertificateArgs) ToBrowserCustomCertificateOutput() BrowserCustomCertificateOutput {
+	return i.ToBrowserCustomCertificateOutputWithContext(context.Background())
+}
+
+func (i BrowserCustomCertificateArgs) ToBrowserCustomCertificateOutputWithContext(ctx context.Context) BrowserCustomCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BrowserCustomCertificateOutput)
+}
+
+// BrowserCustomCertificateArrayInput is an input type that accepts BrowserCustomCertificateArray and BrowserCustomCertificateArrayOutput values.
+// You can construct a concrete instance of `BrowserCustomCertificateArrayInput` via:
+//
+//	BrowserCustomCertificateArray{ BrowserCustomCertificateArgs{...} }
+type BrowserCustomCertificateArrayInput interface {
+	pulumi.Input
+
+	ToBrowserCustomCertificateArrayOutput() BrowserCustomCertificateArrayOutput
+	ToBrowserCustomCertificateArrayOutputWithContext(context.Context) BrowserCustomCertificateArrayOutput
+}
+
+type BrowserCustomCertificateArray []BrowserCustomCertificateInput
+
+func (BrowserCustomCertificateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BrowserCustomCertificate)(nil)).Elem()
+}
+
+func (i BrowserCustomCertificateArray) ToBrowserCustomCertificateArrayOutput() BrowserCustomCertificateArrayOutput {
+	return i.ToBrowserCustomCertificateArrayOutputWithContext(context.Background())
+}
+
+func (i BrowserCustomCertificateArray) ToBrowserCustomCertificateArrayOutputWithContext(ctx context.Context) BrowserCustomCertificateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BrowserCustomCertificateArrayOutput)
+}
+
+// A root CA certificate configuration.
+type BrowserCustomCertificateOutput struct{ *pulumi.OutputState }
+
+func (BrowserCustomCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BrowserCustomCertificate)(nil)).Elem()
+}
+
+func (o BrowserCustomCertificateOutput) ToBrowserCustomCertificateOutput() BrowserCustomCertificateOutput {
+	return o
+}
+
+func (o BrowserCustomCertificateOutput) ToBrowserCustomCertificateOutputWithContext(ctx context.Context) BrowserCustomCertificateOutput {
+	return o
+}
+
+// Certificate location in Secrets Manager.
+func (o BrowserCustomCertificateOutput) CertificateLocation() BrowserCustomCertificateLocationOutput {
+	return o.ApplyT(func(v BrowserCustomCertificate) BrowserCustomCertificateLocation { return v.CertificateLocation }).(BrowserCustomCertificateLocationOutput)
+}
+
+type BrowserCustomCertificateArrayOutput struct{ *pulumi.OutputState }
+
+func (BrowserCustomCertificateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BrowserCustomCertificate)(nil)).Elem()
+}
+
+func (o BrowserCustomCertificateArrayOutput) ToBrowserCustomCertificateArrayOutput() BrowserCustomCertificateArrayOutput {
+	return o
+}
+
+func (o BrowserCustomCertificateArrayOutput) ToBrowserCustomCertificateArrayOutputWithContext(ctx context.Context) BrowserCustomCertificateArrayOutput {
+	return o
+}
+
+func (o BrowserCustomCertificateArrayOutput) Index(i pulumi.IntInput) BrowserCustomCertificateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BrowserCustomCertificate {
+		return vs[0].([]BrowserCustomCertificate)[vs[1].(int)]
+	}).(BrowserCustomCertificateOutput)
+}
+
+// Certificate location in Secrets Manager.
+type BrowserCustomCertificateLocation struct {
+	// Secrets Manager secret ARN.
+	SecretArn string `pulumi:"secretArn"`
+}
+
+// BrowserCustomCertificateLocationInput is an input type that accepts BrowserCustomCertificateLocationArgs and BrowserCustomCertificateLocationOutput values.
+// You can construct a concrete instance of `BrowserCustomCertificateLocationInput` via:
+//
+//	BrowserCustomCertificateLocationArgs{...}
+type BrowserCustomCertificateLocationInput interface {
+	pulumi.Input
+
+	ToBrowserCustomCertificateLocationOutput() BrowserCustomCertificateLocationOutput
+	ToBrowserCustomCertificateLocationOutputWithContext(context.Context) BrowserCustomCertificateLocationOutput
+}
+
+// Certificate location in Secrets Manager.
+type BrowserCustomCertificateLocationArgs struct {
+	// Secrets Manager secret ARN.
+	SecretArn pulumi.StringInput `pulumi:"secretArn"`
+}
+
+func (BrowserCustomCertificateLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BrowserCustomCertificateLocation)(nil)).Elem()
+}
+
+func (i BrowserCustomCertificateLocationArgs) ToBrowserCustomCertificateLocationOutput() BrowserCustomCertificateLocationOutput {
+	return i.ToBrowserCustomCertificateLocationOutputWithContext(context.Background())
+}
+
+func (i BrowserCustomCertificateLocationArgs) ToBrowserCustomCertificateLocationOutputWithContext(ctx context.Context) BrowserCustomCertificateLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BrowserCustomCertificateLocationOutput)
+}
+
+// Certificate location in Secrets Manager.
+type BrowserCustomCertificateLocationOutput struct{ *pulumi.OutputState }
+
+func (BrowserCustomCertificateLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BrowserCustomCertificateLocation)(nil)).Elem()
+}
+
+func (o BrowserCustomCertificateLocationOutput) ToBrowserCustomCertificateLocationOutput() BrowserCustomCertificateLocationOutput {
+	return o
+}
+
+func (o BrowserCustomCertificateLocationOutput) ToBrowserCustomCertificateLocationOutputWithContext(ctx context.Context) BrowserCustomCertificateLocationOutput {
+	return o
+}
+
+// Secrets Manager secret ARN.
+func (o BrowserCustomCertificateLocationOutput) SecretArn() pulumi.StringOutput {
+	return o.ApplyT(func(v BrowserCustomCertificateLocation) string { return v.SecretArn }).(pulumi.StringOutput)
+}
+
 // Recording configuration for browser
 type BrowserCustomRecordingConfig struct {
 	// The recording configuration for a browser. This structure defines how browser sessions are recorded.
@@ -436,9 +700,7 @@ func (o BrowserCustomRecordingConfigPtrOutput) S3Location() BrowserCustomS3Locat
 
 // S3 Location Configuration
 type BrowserCustomS3Location struct {
-	// The S3 location bucket name.
 	Bucket string `pulumi:"bucket"`
-	// The S3 location object prefix.
 	Prefix string `pulumi:"prefix"`
 }
 
@@ -455,9 +717,7 @@ type BrowserCustomS3LocationInput interface {
 
 // S3 Location Configuration
 type BrowserCustomS3LocationArgs struct {
-	// The S3 location bucket name.
 	Bucket pulumi.StringInput `pulumi:"bucket"`
-	// The S3 location object prefix.
 	Prefix pulumi.StringInput `pulumi:"prefix"`
 }
 
@@ -539,12 +799,10 @@ func (o BrowserCustomS3LocationOutput) ToBrowserCustomS3LocationPtrOutputWithCon
 	}).(BrowserCustomS3LocationPtrOutput)
 }
 
-// The S3 location bucket name.
 func (o BrowserCustomS3LocationOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v BrowserCustomS3Location) string { return v.Bucket }).(pulumi.StringOutput)
 }
 
-// The S3 location object prefix.
 func (o BrowserCustomS3LocationOutput) Prefix() pulumi.StringOutput {
 	return o.ApplyT(func(v BrowserCustomS3Location) string { return v.Prefix }).(pulumi.StringOutput)
 }
@@ -573,7 +831,6 @@ func (o BrowserCustomS3LocationPtrOutput) Elem() BrowserCustomS3LocationOutput {
 	}).(BrowserCustomS3LocationOutput)
 }
 
-// The S3 location bucket name.
 func (o BrowserCustomS3LocationPtrOutput) Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BrowserCustomS3Location) *string {
 		if v == nil {
@@ -583,7 +840,6 @@ func (o BrowserCustomS3LocationPtrOutput) Bucket() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The S3 location object prefix.
 func (o BrowserCustomS3LocationPtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BrowserCustomS3Location) *string {
 		if v == nil {
@@ -742,6 +998,163 @@ func (o BrowserCustomVpcConfigPtrOutput) Subnets() pulumi.StringArrayOutput {
 		}
 		return v.Subnets
 	}).(pulumi.StringArrayOutput)
+}
+
+// A root CA certificate configuration.
+type CodeInterpreterCustomCertificate struct {
+	// Certificate location in Secrets Manager.
+	CertificateLocation CodeInterpreterCustomCertificateLocation `pulumi:"certificateLocation"`
+}
+
+// CodeInterpreterCustomCertificateInput is an input type that accepts CodeInterpreterCustomCertificateArgs and CodeInterpreterCustomCertificateOutput values.
+// You can construct a concrete instance of `CodeInterpreterCustomCertificateInput` via:
+//
+//	CodeInterpreterCustomCertificateArgs{...}
+type CodeInterpreterCustomCertificateInput interface {
+	pulumi.Input
+
+	ToCodeInterpreterCustomCertificateOutput() CodeInterpreterCustomCertificateOutput
+	ToCodeInterpreterCustomCertificateOutputWithContext(context.Context) CodeInterpreterCustomCertificateOutput
+}
+
+// A root CA certificate configuration.
+type CodeInterpreterCustomCertificateArgs struct {
+	// Certificate location in Secrets Manager.
+	CertificateLocation CodeInterpreterCustomCertificateLocationInput `pulumi:"certificateLocation"`
+}
+
+func (CodeInterpreterCustomCertificateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CodeInterpreterCustomCertificate)(nil)).Elem()
+}
+
+func (i CodeInterpreterCustomCertificateArgs) ToCodeInterpreterCustomCertificateOutput() CodeInterpreterCustomCertificateOutput {
+	return i.ToCodeInterpreterCustomCertificateOutputWithContext(context.Background())
+}
+
+func (i CodeInterpreterCustomCertificateArgs) ToCodeInterpreterCustomCertificateOutputWithContext(ctx context.Context) CodeInterpreterCustomCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CodeInterpreterCustomCertificateOutput)
+}
+
+// CodeInterpreterCustomCertificateArrayInput is an input type that accepts CodeInterpreterCustomCertificateArray and CodeInterpreterCustomCertificateArrayOutput values.
+// You can construct a concrete instance of `CodeInterpreterCustomCertificateArrayInput` via:
+//
+//	CodeInterpreterCustomCertificateArray{ CodeInterpreterCustomCertificateArgs{...} }
+type CodeInterpreterCustomCertificateArrayInput interface {
+	pulumi.Input
+
+	ToCodeInterpreterCustomCertificateArrayOutput() CodeInterpreterCustomCertificateArrayOutput
+	ToCodeInterpreterCustomCertificateArrayOutputWithContext(context.Context) CodeInterpreterCustomCertificateArrayOutput
+}
+
+type CodeInterpreterCustomCertificateArray []CodeInterpreterCustomCertificateInput
+
+func (CodeInterpreterCustomCertificateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CodeInterpreterCustomCertificate)(nil)).Elem()
+}
+
+func (i CodeInterpreterCustomCertificateArray) ToCodeInterpreterCustomCertificateArrayOutput() CodeInterpreterCustomCertificateArrayOutput {
+	return i.ToCodeInterpreterCustomCertificateArrayOutputWithContext(context.Background())
+}
+
+func (i CodeInterpreterCustomCertificateArray) ToCodeInterpreterCustomCertificateArrayOutputWithContext(ctx context.Context) CodeInterpreterCustomCertificateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CodeInterpreterCustomCertificateArrayOutput)
+}
+
+// A root CA certificate configuration.
+type CodeInterpreterCustomCertificateOutput struct{ *pulumi.OutputState }
+
+func (CodeInterpreterCustomCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CodeInterpreterCustomCertificate)(nil)).Elem()
+}
+
+func (o CodeInterpreterCustomCertificateOutput) ToCodeInterpreterCustomCertificateOutput() CodeInterpreterCustomCertificateOutput {
+	return o
+}
+
+func (o CodeInterpreterCustomCertificateOutput) ToCodeInterpreterCustomCertificateOutputWithContext(ctx context.Context) CodeInterpreterCustomCertificateOutput {
+	return o
+}
+
+// Certificate location in Secrets Manager.
+func (o CodeInterpreterCustomCertificateOutput) CertificateLocation() CodeInterpreterCustomCertificateLocationOutput {
+	return o.ApplyT(func(v CodeInterpreterCustomCertificate) CodeInterpreterCustomCertificateLocation {
+		return v.CertificateLocation
+	}).(CodeInterpreterCustomCertificateLocationOutput)
+}
+
+type CodeInterpreterCustomCertificateArrayOutput struct{ *pulumi.OutputState }
+
+func (CodeInterpreterCustomCertificateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CodeInterpreterCustomCertificate)(nil)).Elem()
+}
+
+func (o CodeInterpreterCustomCertificateArrayOutput) ToCodeInterpreterCustomCertificateArrayOutput() CodeInterpreterCustomCertificateArrayOutput {
+	return o
+}
+
+func (o CodeInterpreterCustomCertificateArrayOutput) ToCodeInterpreterCustomCertificateArrayOutputWithContext(ctx context.Context) CodeInterpreterCustomCertificateArrayOutput {
+	return o
+}
+
+func (o CodeInterpreterCustomCertificateArrayOutput) Index(i pulumi.IntInput) CodeInterpreterCustomCertificateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CodeInterpreterCustomCertificate {
+		return vs[0].([]CodeInterpreterCustomCertificate)[vs[1].(int)]
+	}).(CodeInterpreterCustomCertificateOutput)
+}
+
+// Certificate location in Secrets Manager.
+type CodeInterpreterCustomCertificateLocation struct {
+	// Secrets Manager secret ARN.
+	SecretArn string `pulumi:"secretArn"`
+}
+
+// CodeInterpreterCustomCertificateLocationInput is an input type that accepts CodeInterpreterCustomCertificateLocationArgs and CodeInterpreterCustomCertificateLocationOutput values.
+// You can construct a concrete instance of `CodeInterpreterCustomCertificateLocationInput` via:
+//
+//	CodeInterpreterCustomCertificateLocationArgs{...}
+type CodeInterpreterCustomCertificateLocationInput interface {
+	pulumi.Input
+
+	ToCodeInterpreterCustomCertificateLocationOutput() CodeInterpreterCustomCertificateLocationOutput
+	ToCodeInterpreterCustomCertificateLocationOutputWithContext(context.Context) CodeInterpreterCustomCertificateLocationOutput
+}
+
+// Certificate location in Secrets Manager.
+type CodeInterpreterCustomCertificateLocationArgs struct {
+	// Secrets Manager secret ARN.
+	SecretArn pulumi.StringInput `pulumi:"secretArn"`
+}
+
+func (CodeInterpreterCustomCertificateLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CodeInterpreterCustomCertificateLocation)(nil)).Elem()
+}
+
+func (i CodeInterpreterCustomCertificateLocationArgs) ToCodeInterpreterCustomCertificateLocationOutput() CodeInterpreterCustomCertificateLocationOutput {
+	return i.ToCodeInterpreterCustomCertificateLocationOutputWithContext(context.Background())
+}
+
+func (i CodeInterpreterCustomCertificateLocationArgs) ToCodeInterpreterCustomCertificateLocationOutputWithContext(ctx context.Context) CodeInterpreterCustomCertificateLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CodeInterpreterCustomCertificateLocationOutput)
+}
+
+// Certificate location in Secrets Manager.
+type CodeInterpreterCustomCertificateLocationOutput struct{ *pulumi.OutputState }
+
+func (CodeInterpreterCustomCertificateLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CodeInterpreterCustomCertificateLocation)(nil)).Elem()
+}
+
+func (o CodeInterpreterCustomCertificateLocationOutput) ToCodeInterpreterCustomCertificateLocationOutput() CodeInterpreterCustomCertificateLocationOutput {
+	return o
+}
+
+func (o CodeInterpreterCustomCertificateLocationOutput) ToCodeInterpreterCustomCertificateLocationOutputWithContext(ctx context.Context) CodeInterpreterCustomCertificateLocationOutput {
+	return o
+}
+
+// Secrets Manager secret ARN.
+func (o CodeInterpreterCustomCertificateLocationOutput) SecretArn() pulumi.StringOutput {
+	return o.ApplyT(func(v CodeInterpreterCustomCertificateLocation) string { return v.SecretArn }).(pulumi.StringOutput)
 }
 
 // Network configuration for code interpreter
@@ -6921,11 +7334,12 @@ func (o MemoryCustomConfigurationInputPtrOutput) UserPreferenceOverride() Memory
 type MemoryCustomMemoryStrategy struct {
 	Configuration *MemoryCustomConfigurationInput `pulumi:"configuration"`
 	// Creation timestamp of the memory strategy
-	CreatedAt          *string  `pulumi:"createdAt"`
-	Description        *string  `pulumi:"description"`
-	Name               string   `pulumi:"name"`
-	NamespaceTemplates []string `pulumi:"namespaceTemplates"`
-	Namespaces         []string `pulumi:"namespaces"`
+	CreatedAt          *string             `pulumi:"createdAt"`
+	Description        *string             `pulumi:"description"`
+	MemoryRecordSchema *MemoryRecordSchema `pulumi:"memoryRecordSchema"`
+	Name               string              `pulumi:"name"`
+	NamespaceTemplates []string            `pulumi:"namespaceTemplates"`
+	Namespaces         []string            `pulumi:"namespaces"`
 	// Status of the memory strategy
 	Status *MemoryCustomMemoryStrategyStatus `pulumi:"status"`
 	// Unique identifier for the memory strategy
@@ -6950,11 +7364,12 @@ type MemoryCustomMemoryStrategyInput interface {
 type MemoryCustomMemoryStrategyArgs struct {
 	Configuration MemoryCustomConfigurationInputPtrInput `pulumi:"configuration"`
 	// Creation timestamp of the memory strategy
-	CreatedAt          pulumi.StringPtrInput   `pulumi:"createdAt"`
-	Description        pulumi.StringPtrInput   `pulumi:"description"`
-	Name               pulumi.StringInput      `pulumi:"name"`
-	NamespaceTemplates pulumi.StringArrayInput `pulumi:"namespaceTemplates"`
-	Namespaces         pulumi.StringArrayInput `pulumi:"namespaces"`
+	CreatedAt          pulumi.StringPtrInput      `pulumi:"createdAt"`
+	Description        pulumi.StringPtrInput      `pulumi:"description"`
+	MemoryRecordSchema MemoryRecordSchemaPtrInput `pulumi:"memoryRecordSchema"`
+	Name               pulumi.StringInput         `pulumi:"name"`
+	NamespaceTemplates pulumi.StringArrayInput    `pulumi:"namespaceTemplates"`
+	Namespaces         pulumi.StringArrayInput    `pulumi:"namespaces"`
 	// Status of the memory strategy
 	Status MemoryCustomMemoryStrategyStatusPtrInput `pulumi:"status"`
 	// Unique identifier for the memory strategy
@@ -7055,6 +7470,10 @@ func (o MemoryCustomMemoryStrategyOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MemoryCustomMemoryStrategy) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+func (o MemoryCustomMemoryStrategyOutput) MemoryRecordSchema() MemoryRecordSchemaPtrOutput {
+	return o.ApplyT(func(v MemoryCustomMemoryStrategy) *MemoryRecordSchema { return v.MemoryRecordSchema }).(MemoryRecordSchemaPtrOutput)
+}
+
 func (o MemoryCustomMemoryStrategyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v MemoryCustomMemoryStrategy) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -7139,6 +7558,15 @@ func (o MemoryCustomMemoryStrategyPtrOutput) Description() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o MemoryCustomMemoryStrategyPtrOutput) MemoryRecordSchema() MemoryRecordSchemaPtrOutput {
+	return o.ApplyT(func(v *MemoryCustomMemoryStrategy) *MemoryRecordSchema {
+		if v == nil {
+			return nil
+		}
+		return v.MemoryRecordSchema
+	}).(MemoryRecordSchemaPtrOutput)
+}
+
 func (o MemoryCustomMemoryStrategyPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MemoryCustomMemoryStrategy) *string {
 		if v == nil {
@@ -7210,6 +7638,7 @@ type MemoryEpisodicMemoryStrategy struct {
 	// Creation timestamp of the memory strategy
 	CreatedAt               *string                                     `pulumi:"createdAt"`
 	Description             *string                                     `pulumi:"description"`
+	MemoryRecordSchema      *MemoryRecordSchema                         `pulumi:"memoryRecordSchema"`
 	Name                    string                                      `pulumi:"name"`
 	NamespaceTemplates      []string                                    `pulumi:"namespaceTemplates"`
 	Namespaces              []string                                    `pulumi:"namespaces"`
@@ -7239,6 +7668,7 @@ type MemoryEpisodicMemoryStrategyArgs struct {
 	// Creation timestamp of the memory strategy
 	CreatedAt               pulumi.StringPtrInput                              `pulumi:"createdAt"`
 	Description             pulumi.StringPtrInput                              `pulumi:"description"`
+	MemoryRecordSchema      MemoryRecordSchemaPtrInput                         `pulumi:"memoryRecordSchema"`
 	Name                    pulumi.StringInput                                 `pulumi:"name"`
 	NamespaceTemplates      pulumi.StringArrayInput                            `pulumi:"namespaceTemplates"`
 	Namespaces              pulumi.StringArrayInput                            `pulumi:"namespaces"`
@@ -7339,6 +7769,10 @@ func (o MemoryEpisodicMemoryStrategyOutput) Description() pulumi.StringPtrOutput
 	return o.ApplyT(func(v MemoryEpisodicMemoryStrategy) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+func (o MemoryEpisodicMemoryStrategyOutput) MemoryRecordSchema() MemoryRecordSchemaPtrOutput {
+	return o.ApplyT(func(v MemoryEpisodicMemoryStrategy) *MemoryRecordSchema { return v.MemoryRecordSchema }).(MemoryRecordSchemaPtrOutput)
+}
+
 func (o MemoryEpisodicMemoryStrategyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v MemoryEpisodicMemoryStrategy) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -7418,6 +7852,15 @@ func (o MemoryEpisodicMemoryStrategyPtrOutput) Description() pulumi.StringPtrOut
 		}
 		return v.Description
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o MemoryEpisodicMemoryStrategyPtrOutput) MemoryRecordSchema() MemoryRecordSchemaPtrOutput {
+	return o.ApplyT(func(v *MemoryEpisodicMemoryStrategy) *MemoryRecordSchema {
+		if v == nil {
+			return nil
+		}
+		return v.MemoryRecordSchema
+	}).(MemoryRecordSchemaPtrOutput)
 }
 
 func (o MemoryEpisodicMemoryStrategyPtrOutput) Name() pulumi.StringPtrOutput {
@@ -7962,10 +8405,11 @@ func (o MemoryEpisodicOverrideExtractionConfigurationInputPtrOutput) ModelId() p
 }
 
 type MemoryEpisodicOverrideReflectionConfigurationInput struct {
-	AppendToPrompt     string   `pulumi:"appendToPrompt"`
-	ModelId            string   `pulumi:"modelId"`
-	NamespaceTemplates []string `pulumi:"namespaceTemplates"`
-	Namespaces         []string `pulumi:"namespaces"`
+	AppendToPrompt     string              `pulumi:"appendToPrompt"`
+	MemoryRecordSchema *MemoryRecordSchema `pulumi:"memoryRecordSchema"`
+	ModelId            string              `pulumi:"modelId"`
+	NamespaceTemplates []string            `pulumi:"namespaceTemplates"`
+	Namespaces         []string            `pulumi:"namespaces"`
 }
 
 // MemoryEpisodicOverrideReflectionConfigurationInputInput is an input type that accepts MemoryEpisodicOverrideReflectionConfigurationInputArgs and MemoryEpisodicOverrideReflectionConfigurationInputOutput values.
@@ -7980,10 +8424,11 @@ type MemoryEpisodicOverrideReflectionConfigurationInputInput interface {
 }
 
 type MemoryEpisodicOverrideReflectionConfigurationInputArgs struct {
-	AppendToPrompt     pulumi.StringInput      `pulumi:"appendToPrompt"`
-	ModelId            pulumi.StringInput      `pulumi:"modelId"`
-	NamespaceTemplates pulumi.StringArrayInput `pulumi:"namespaceTemplates"`
-	Namespaces         pulumi.StringArrayInput `pulumi:"namespaces"`
+	AppendToPrompt     pulumi.StringInput         `pulumi:"appendToPrompt"`
+	MemoryRecordSchema MemoryRecordSchemaPtrInput `pulumi:"memoryRecordSchema"`
+	ModelId            pulumi.StringInput         `pulumi:"modelId"`
+	NamespaceTemplates pulumi.StringArrayInput    `pulumi:"namespaceTemplates"`
+	Namespaces         pulumi.StringArrayInput    `pulumi:"namespaces"`
 }
 
 func (MemoryEpisodicOverrideReflectionConfigurationInputArgs) ElementType() reflect.Type {
@@ -8067,6 +8512,12 @@ func (o MemoryEpisodicOverrideReflectionConfigurationInputOutput) AppendToPrompt
 	return o.ApplyT(func(v MemoryEpisodicOverrideReflectionConfigurationInput) string { return v.AppendToPrompt }).(pulumi.StringOutput)
 }
 
+func (o MemoryEpisodicOverrideReflectionConfigurationInputOutput) MemoryRecordSchema() MemoryRecordSchemaPtrOutput {
+	return o.ApplyT(func(v MemoryEpisodicOverrideReflectionConfigurationInput) *MemoryRecordSchema {
+		return v.MemoryRecordSchema
+	}).(MemoryRecordSchemaPtrOutput)
+}
+
 func (o MemoryEpisodicOverrideReflectionConfigurationInputOutput) ModelId() pulumi.StringOutput {
 	return o.ApplyT(func(v MemoryEpisodicOverrideReflectionConfigurationInput) string { return v.ModelId }).(pulumi.StringOutput)
 }
@@ -8112,6 +8563,15 @@ func (o MemoryEpisodicOverrideReflectionConfigurationInputPtrOutput) AppendToPro
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o MemoryEpisodicOverrideReflectionConfigurationInputPtrOutput) MemoryRecordSchema() MemoryRecordSchemaPtrOutput {
+	return o.ApplyT(func(v *MemoryEpisodicOverrideReflectionConfigurationInput) *MemoryRecordSchema {
+		if v == nil {
+			return nil
+		}
+		return v.MemoryRecordSchema
+	}).(MemoryRecordSchemaPtrOutput)
+}
+
 func (o MemoryEpisodicOverrideReflectionConfigurationInputPtrOutput) ModelId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MemoryEpisodicOverrideReflectionConfigurationInput) *string {
 		if v == nil {
@@ -8140,8 +8600,9 @@ func (o MemoryEpisodicOverrideReflectionConfigurationInputPtrOutput) Namespaces(
 }
 
 type MemoryEpisodicReflectionConfigurationInput struct {
-	NamespaceTemplates []string `pulumi:"namespaceTemplates"`
-	Namespaces         []string `pulumi:"namespaces"`
+	MemoryRecordSchema *MemoryRecordSchema `pulumi:"memoryRecordSchema"`
+	NamespaceTemplates []string            `pulumi:"namespaceTemplates"`
+	Namespaces         []string            `pulumi:"namespaces"`
 }
 
 // MemoryEpisodicReflectionConfigurationInputInput is an input type that accepts MemoryEpisodicReflectionConfigurationInputArgs and MemoryEpisodicReflectionConfigurationInputOutput values.
@@ -8156,8 +8617,9 @@ type MemoryEpisodicReflectionConfigurationInputInput interface {
 }
 
 type MemoryEpisodicReflectionConfigurationInputArgs struct {
-	NamespaceTemplates pulumi.StringArrayInput `pulumi:"namespaceTemplates"`
-	Namespaces         pulumi.StringArrayInput `pulumi:"namespaces"`
+	MemoryRecordSchema MemoryRecordSchemaPtrInput `pulumi:"memoryRecordSchema"`
+	NamespaceTemplates pulumi.StringArrayInput    `pulumi:"namespaceTemplates"`
+	Namespaces         pulumi.StringArrayInput    `pulumi:"namespaces"`
 }
 
 func (MemoryEpisodicReflectionConfigurationInputArgs) ElementType() reflect.Type {
@@ -8237,6 +8699,10 @@ func (o MemoryEpisodicReflectionConfigurationInputOutput) ToMemoryEpisodicReflec
 	}).(MemoryEpisodicReflectionConfigurationInputPtrOutput)
 }
 
+func (o MemoryEpisodicReflectionConfigurationInputOutput) MemoryRecordSchema() MemoryRecordSchemaPtrOutput {
+	return o.ApplyT(func(v MemoryEpisodicReflectionConfigurationInput) *MemoryRecordSchema { return v.MemoryRecordSchema }).(MemoryRecordSchemaPtrOutput)
+}
+
 func (o MemoryEpisodicReflectionConfigurationInputOutput) NamespaceTemplates() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v MemoryEpisodicReflectionConfigurationInput) []string { return v.NamespaceTemplates }).(pulumi.StringArrayOutput)
 }
@@ -8269,6 +8735,15 @@ func (o MemoryEpisodicReflectionConfigurationInputPtrOutput) Elem() MemoryEpisod
 	}).(MemoryEpisodicReflectionConfigurationInputOutput)
 }
 
+func (o MemoryEpisodicReflectionConfigurationInputPtrOutput) MemoryRecordSchema() MemoryRecordSchemaPtrOutput {
+	return o.ApplyT(func(v *MemoryEpisodicReflectionConfigurationInput) *MemoryRecordSchema {
+		if v == nil {
+			return nil
+		}
+		return v.MemoryRecordSchema
+	}).(MemoryRecordSchemaPtrOutput)
+}
+
 func (o MemoryEpisodicReflectionConfigurationInputPtrOutput) NamespaceTemplates() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *MemoryEpisodicReflectionConfigurationInput) []string {
 		if v == nil {
@@ -8285,6 +8760,239 @@ func (o MemoryEpisodicReflectionConfigurationInputPtrOutput) Namespaces() pulumi
 		}
 		return v.Namespaces
 	}).(pulumi.StringArrayOutput)
+}
+
+type MemoryExtractionConfig struct {
+	LlmExtractionConfig *MemoryLlmExtractionConfig `pulumi:"llmExtractionConfig"`
+}
+
+// MemoryExtractionConfigInput is an input type that accepts MemoryExtractionConfigArgs and MemoryExtractionConfigOutput values.
+// You can construct a concrete instance of `MemoryExtractionConfigInput` via:
+//
+//	MemoryExtractionConfigArgs{...}
+type MemoryExtractionConfigInput interface {
+	pulumi.Input
+
+	ToMemoryExtractionConfigOutput() MemoryExtractionConfigOutput
+	ToMemoryExtractionConfigOutputWithContext(context.Context) MemoryExtractionConfigOutput
+}
+
+type MemoryExtractionConfigArgs struct {
+	LlmExtractionConfig MemoryLlmExtractionConfigPtrInput `pulumi:"llmExtractionConfig"`
+}
+
+func (MemoryExtractionConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemoryExtractionConfig)(nil)).Elem()
+}
+
+func (i MemoryExtractionConfigArgs) ToMemoryExtractionConfigOutput() MemoryExtractionConfigOutput {
+	return i.ToMemoryExtractionConfigOutputWithContext(context.Background())
+}
+
+func (i MemoryExtractionConfigArgs) ToMemoryExtractionConfigOutputWithContext(ctx context.Context) MemoryExtractionConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemoryExtractionConfigOutput)
+}
+
+func (i MemoryExtractionConfigArgs) ToMemoryExtractionConfigPtrOutput() MemoryExtractionConfigPtrOutput {
+	return i.ToMemoryExtractionConfigPtrOutputWithContext(context.Background())
+}
+
+func (i MemoryExtractionConfigArgs) ToMemoryExtractionConfigPtrOutputWithContext(ctx context.Context) MemoryExtractionConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemoryExtractionConfigOutput).ToMemoryExtractionConfigPtrOutputWithContext(ctx)
+}
+
+// MemoryExtractionConfigPtrInput is an input type that accepts MemoryExtractionConfigArgs, MemoryExtractionConfigPtr and MemoryExtractionConfigPtrOutput values.
+// You can construct a concrete instance of `MemoryExtractionConfigPtrInput` via:
+//
+//	        MemoryExtractionConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type MemoryExtractionConfigPtrInput interface {
+	pulumi.Input
+
+	ToMemoryExtractionConfigPtrOutput() MemoryExtractionConfigPtrOutput
+	ToMemoryExtractionConfigPtrOutputWithContext(context.Context) MemoryExtractionConfigPtrOutput
+}
+
+type memoryExtractionConfigPtrType MemoryExtractionConfigArgs
+
+func MemoryExtractionConfigPtr(v *MemoryExtractionConfigArgs) MemoryExtractionConfigPtrInput {
+	return (*memoryExtractionConfigPtrType)(v)
+}
+
+func (*memoryExtractionConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MemoryExtractionConfig)(nil)).Elem()
+}
+
+func (i *memoryExtractionConfigPtrType) ToMemoryExtractionConfigPtrOutput() MemoryExtractionConfigPtrOutput {
+	return i.ToMemoryExtractionConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *memoryExtractionConfigPtrType) ToMemoryExtractionConfigPtrOutputWithContext(ctx context.Context) MemoryExtractionConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemoryExtractionConfigPtrOutput)
+}
+
+type MemoryExtractionConfigOutput struct{ *pulumi.OutputState }
+
+func (MemoryExtractionConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemoryExtractionConfig)(nil)).Elem()
+}
+
+func (o MemoryExtractionConfigOutput) ToMemoryExtractionConfigOutput() MemoryExtractionConfigOutput {
+	return o
+}
+
+func (o MemoryExtractionConfigOutput) ToMemoryExtractionConfigOutputWithContext(ctx context.Context) MemoryExtractionConfigOutput {
+	return o
+}
+
+func (o MemoryExtractionConfigOutput) ToMemoryExtractionConfigPtrOutput() MemoryExtractionConfigPtrOutput {
+	return o.ToMemoryExtractionConfigPtrOutputWithContext(context.Background())
+}
+
+func (o MemoryExtractionConfigOutput) ToMemoryExtractionConfigPtrOutputWithContext(ctx context.Context) MemoryExtractionConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MemoryExtractionConfig) *MemoryExtractionConfig {
+		return &v
+	}).(MemoryExtractionConfigPtrOutput)
+}
+
+func (o MemoryExtractionConfigOutput) LlmExtractionConfig() MemoryLlmExtractionConfigPtrOutput {
+	return o.ApplyT(func(v MemoryExtractionConfig) *MemoryLlmExtractionConfig { return v.LlmExtractionConfig }).(MemoryLlmExtractionConfigPtrOutput)
+}
+
+type MemoryExtractionConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (MemoryExtractionConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MemoryExtractionConfig)(nil)).Elem()
+}
+
+func (o MemoryExtractionConfigPtrOutput) ToMemoryExtractionConfigPtrOutput() MemoryExtractionConfigPtrOutput {
+	return o
+}
+
+func (o MemoryExtractionConfigPtrOutput) ToMemoryExtractionConfigPtrOutputWithContext(ctx context.Context) MemoryExtractionConfigPtrOutput {
+	return o
+}
+
+func (o MemoryExtractionConfigPtrOutput) Elem() MemoryExtractionConfigOutput {
+	return o.ApplyT(func(v *MemoryExtractionConfig) MemoryExtractionConfig {
+		if v != nil {
+			return *v
+		}
+		var ret MemoryExtractionConfig
+		return ret
+	}).(MemoryExtractionConfigOutput)
+}
+
+func (o MemoryExtractionConfigPtrOutput) LlmExtractionConfig() MemoryLlmExtractionConfigPtrOutput {
+	return o.ApplyT(func(v *MemoryExtractionConfig) *MemoryLlmExtractionConfig {
+		if v == nil {
+			return nil
+		}
+		return v.LlmExtractionConfig
+	}).(MemoryLlmExtractionConfigPtrOutput)
+}
+
+type MemoryIndexedKey struct {
+	Key  string                  `pulumi:"key"`
+	Type MemoryMetadataValueType `pulumi:"type"`
+}
+
+// MemoryIndexedKeyInput is an input type that accepts MemoryIndexedKeyArgs and MemoryIndexedKeyOutput values.
+// You can construct a concrete instance of `MemoryIndexedKeyInput` via:
+//
+//	MemoryIndexedKeyArgs{...}
+type MemoryIndexedKeyInput interface {
+	pulumi.Input
+
+	ToMemoryIndexedKeyOutput() MemoryIndexedKeyOutput
+	ToMemoryIndexedKeyOutputWithContext(context.Context) MemoryIndexedKeyOutput
+}
+
+type MemoryIndexedKeyArgs struct {
+	Key  pulumi.StringInput           `pulumi:"key"`
+	Type MemoryMetadataValueTypeInput `pulumi:"type"`
+}
+
+func (MemoryIndexedKeyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemoryIndexedKey)(nil)).Elem()
+}
+
+func (i MemoryIndexedKeyArgs) ToMemoryIndexedKeyOutput() MemoryIndexedKeyOutput {
+	return i.ToMemoryIndexedKeyOutputWithContext(context.Background())
+}
+
+func (i MemoryIndexedKeyArgs) ToMemoryIndexedKeyOutputWithContext(ctx context.Context) MemoryIndexedKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemoryIndexedKeyOutput)
+}
+
+// MemoryIndexedKeyArrayInput is an input type that accepts MemoryIndexedKeyArray and MemoryIndexedKeyArrayOutput values.
+// You can construct a concrete instance of `MemoryIndexedKeyArrayInput` via:
+//
+//	MemoryIndexedKeyArray{ MemoryIndexedKeyArgs{...} }
+type MemoryIndexedKeyArrayInput interface {
+	pulumi.Input
+
+	ToMemoryIndexedKeyArrayOutput() MemoryIndexedKeyArrayOutput
+	ToMemoryIndexedKeyArrayOutputWithContext(context.Context) MemoryIndexedKeyArrayOutput
+}
+
+type MemoryIndexedKeyArray []MemoryIndexedKeyInput
+
+func (MemoryIndexedKeyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MemoryIndexedKey)(nil)).Elem()
+}
+
+func (i MemoryIndexedKeyArray) ToMemoryIndexedKeyArrayOutput() MemoryIndexedKeyArrayOutput {
+	return i.ToMemoryIndexedKeyArrayOutputWithContext(context.Background())
+}
+
+func (i MemoryIndexedKeyArray) ToMemoryIndexedKeyArrayOutputWithContext(ctx context.Context) MemoryIndexedKeyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemoryIndexedKeyArrayOutput)
+}
+
+type MemoryIndexedKeyOutput struct{ *pulumi.OutputState }
+
+func (MemoryIndexedKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemoryIndexedKey)(nil)).Elem()
+}
+
+func (o MemoryIndexedKeyOutput) ToMemoryIndexedKeyOutput() MemoryIndexedKeyOutput {
+	return o
+}
+
+func (o MemoryIndexedKeyOutput) ToMemoryIndexedKeyOutputWithContext(ctx context.Context) MemoryIndexedKeyOutput {
+	return o
+}
+
+func (o MemoryIndexedKeyOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v MemoryIndexedKey) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o MemoryIndexedKeyOutput) Type() MemoryMetadataValueTypeOutput {
+	return o.ApplyT(func(v MemoryIndexedKey) MemoryMetadataValueType { return v.Type }).(MemoryMetadataValueTypeOutput)
+}
+
+type MemoryIndexedKeyArrayOutput struct{ *pulumi.OutputState }
+
+func (MemoryIndexedKeyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MemoryIndexedKey)(nil)).Elem()
+}
+
+func (o MemoryIndexedKeyArrayOutput) ToMemoryIndexedKeyArrayOutput() MemoryIndexedKeyArrayOutput {
+	return o
+}
+
+func (o MemoryIndexedKeyArrayOutput) ToMemoryIndexedKeyArrayOutputWithContext(ctx context.Context) MemoryIndexedKeyArrayOutput {
+	return o
+}
+
+func (o MemoryIndexedKeyArrayOutput) Index(i pulumi.IntInput) MemoryIndexedKeyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MemoryIndexedKey {
+		return vs[0].([]MemoryIndexedKey)[vs[1].(int)]
+	}).(MemoryIndexedKeyOutput)
 }
 
 type MemoryInvocationConfigurationInput struct {
@@ -8583,6 +9291,169 @@ func (o MemoryKinesisResourcePtrOutput) DataStreamArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type MemoryLlmExtractionConfig struct {
+	Definition               string            `pulumi:"definition"`
+	LlmExtractionInstruction *string           `pulumi:"llmExtractionInstruction"`
+	Validation               *MemoryValidation `pulumi:"validation"`
+}
+
+// MemoryLlmExtractionConfigInput is an input type that accepts MemoryLlmExtractionConfigArgs and MemoryLlmExtractionConfigOutput values.
+// You can construct a concrete instance of `MemoryLlmExtractionConfigInput` via:
+//
+//	MemoryLlmExtractionConfigArgs{...}
+type MemoryLlmExtractionConfigInput interface {
+	pulumi.Input
+
+	ToMemoryLlmExtractionConfigOutput() MemoryLlmExtractionConfigOutput
+	ToMemoryLlmExtractionConfigOutputWithContext(context.Context) MemoryLlmExtractionConfigOutput
+}
+
+type MemoryLlmExtractionConfigArgs struct {
+	Definition               pulumi.StringInput       `pulumi:"definition"`
+	LlmExtractionInstruction pulumi.StringPtrInput    `pulumi:"llmExtractionInstruction"`
+	Validation               MemoryValidationPtrInput `pulumi:"validation"`
+}
+
+func (MemoryLlmExtractionConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemoryLlmExtractionConfig)(nil)).Elem()
+}
+
+func (i MemoryLlmExtractionConfigArgs) ToMemoryLlmExtractionConfigOutput() MemoryLlmExtractionConfigOutput {
+	return i.ToMemoryLlmExtractionConfigOutputWithContext(context.Background())
+}
+
+func (i MemoryLlmExtractionConfigArgs) ToMemoryLlmExtractionConfigOutputWithContext(ctx context.Context) MemoryLlmExtractionConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemoryLlmExtractionConfigOutput)
+}
+
+func (i MemoryLlmExtractionConfigArgs) ToMemoryLlmExtractionConfigPtrOutput() MemoryLlmExtractionConfigPtrOutput {
+	return i.ToMemoryLlmExtractionConfigPtrOutputWithContext(context.Background())
+}
+
+func (i MemoryLlmExtractionConfigArgs) ToMemoryLlmExtractionConfigPtrOutputWithContext(ctx context.Context) MemoryLlmExtractionConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemoryLlmExtractionConfigOutput).ToMemoryLlmExtractionConfigPtrOutputWithContext(ctx)
+}
+
+// MemoryLlmExtractionConfigPtrInput is an input type that accepts MemoryLlmExtractionConfigArgs, MemoryLlmExtractionConfigPtr and MemoryLlmExtractionConfigPtrOutput values.
+// You can construct a concrete instance of `MemoryLlmExtractionConfigPtrInput` via:
+//
+//	        MemoryLlmExtractionConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type MemoryLlmExtractionConfigPtrInput interface {
+	pulumi.Input
+
+	ToMemoryLlmExtractionConfigPtrOutput() MemoryLlmExtractionConfigPtrOutput
+	ToMemoryLlmExtractionConfigPtrOutputWithContext(context.Context) MemoryLlmExtractionConfigPtrOutput
+}
+
+type memoryLlmExtractionConfigPtrType MemoryLlmExtractionConfigArgs
+
+func MemoryLlmExtractionConfigPtr(v *MemoryLlmExtractionConfigArgs) MemoryLlmExtractionConfigPtrInput {
+	return (*memoryLlmExtractionConfigPtrType)(v)
+}
+
+func (*memoryLlmExtractionConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MemoryLlmExtractionConfig)(nil)).Elem()
+}
+
+func (i *memoryLlmExtractionConfigPtrType) ToMemoryLlmExtractionConfigPtrOutput() MemoryLlmExtractionConfigPtrOutput {
+	return i.ToMemoryLlmExtractionConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *memoryLlmExtractionConfigPtrType) ToMemoryLlmExtractionConfigPtrOutputWithContext(ctx context.Context) MemoryLlmExtractionConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemoryLlmExtractionConfigPtrOutput)
+}
+
+type MemoryLlmExtractionConfigOutput struct{ *pulumi.OutputState }
+
+func (MemoryLlmExtractionConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemoryLlmExtractionConfig)(nil)).Elem()
+}
+
+func (o MemoryLlmExtractionConfigOutput) ToMemoryLlmExtractionConfigOutput() MemoryLlmExtractionConfigOutput {
+	return o
+}
+
+func (o MemoryLlmExtractionConfigOutput) ToMemoryLlmExtractionConfigOutputWithContext(ctx context.Context) MemoryLlmExtractionConfigOutput {
+	return o
+}
+
+func (o MemoryLlmExtractionConfigOutput) ToMemoryLlmExtractionConfigPtrOutput() MemoryLlmExtractionConfigPtrOutput {
+	return o.ToMemoryLlmExtractionConfigPtrOutputWithContext(context.Background())
+}
+
+func (o MemoryLlmExtractionConfigOutput) ToMemoryLlmExtractionConfigPtrOutputWithContext(ctx context.Context) MemoryLlmExtractionConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MemoryLlmExtractionConfig) *MemoryLlmExtractionConfig {
+		return &v
+	}).(MemoryLlmExtractionConfigPtrOutput)
+}
+
+func (o MemoryLlmExtractionConfigOutput) Definition() pulumi.StringOutput {
+	return o.ApplyT(func(v MemoryLlmExtractionConfig) string { return v.Definition }).(pulumi.StringOutput)
+}
+
+func (o MemoryLlmExtractionConfigOutput) LlmExtractionInstruction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MemoryLlmExtractionConfig) *string { return v.LlmExtractionInstruction }).(pulumi.StringPtrOutput)
+}
+
+func (o MemoryLlmExtractionConfigOutput) Validation() MemoryValidationPtrOutput {
+	return o.ApplyT(func(v MemoryLlmExtractionConfig) *MemoryValidation { return v.Validation }).(MemoryValidationPtrOutput)
+}
+
+type MemoryLlmExtractionConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (MemoryLlmExtractionConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MemoryLlmExtractionConfig)(nil)).Elem()
+}
+
+func (o MemoryLlmExtractionConfigPtrOutput) ToMemoryLlmExtractionConfigPtrOutput() MemoryLlmExtractionConfigPtrOutput {
+	return o
+}
+
+func (o MemoryLlmExtractionConfigPtrOutput) ToMemoryLlmExtractionConfigPtrOutputWithContext(ctx context.Context) MemoryLlmExtractionConfigPtrOutput {
+	return o
+}
+
+func (o MemoryLlmExtractionConfigPtrOutput) Elem() MemoryLlmExtractionConfigOutput {
+	return o.ApplyT(func(v *MemoryLlmExtractionConfig) MemoryLlmExtractionConfig {
+		if v != nil {
+			return *v
+		}
+		var ret MemoryLlmExtractionConfig
+		return ret
+	}).(MemoryLlmExtractionConfigOutput)
+}
+
+func (o MemoryLlmExtractionConfigPtrOutput) Definition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MemoryLlmExtractionConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Definition
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o MemoryLlmExtractionConfigPtrOutput) LlmExtractionInstruction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MemoryLlmExtractionConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LlmExtractionInstruction
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o MemoryLlmExtractionConfigPtrOutput) Validation() MemoryValidationPtrOutput {
+	return o.ApplyT(func(v *MemoryLlmExtractionConfig) *MemoryValidation {
+		if v == nil {
+			return nil
+		}
+		return v.Validation
+	}).(MemoryValidationPtrOutput)
+}
+
 type MemoryMessageBasedTriggerInput struct {
 	MessageCount *int `pulumi:"messageCount"`
 }
@@ -8714,6 +9585,393 @@ func (o MemoryMessageBasedTriggerInputPtrOutput) MessageCount() pulumi.IntPtrOut
 		}
 		return v.MessageCount
 	}).(pulumi.IntPtrOutput)
+}
+
+type MemoryMetadataSchemaEntry struct {
+	ExtractionConfig *MemoryExtractionConfig  `pulumi:"extractionConfig"`
+	Key              string                   `pulumi:"key"`
+	Type             *MemoryMetadataValueType `pulumi:"type"`
+}
+
+// MemoryMetadataSchemaEntryInput is an input type that accepts MemoryMetadataSchemaEntryArgs and MemoryMetadataSchemaEntryOutput values.
+// You can construct a concrete instance of `MemoryMetadataSchemaEntryInput` via:
+//
+//	MemoryMetadataSchemaEntryArgs{...}
+type MemoryMetadataSchemaEntryInput interface {
+	pulumi.Input
+
+	ToMemoryMetadataSchemaEntryOutput() MemoryMetadataSchemaEntryOutput
+	ToMemoryMetadataSchemaEntryOutputWithContext(context.Context) MemoryMetadataSchemaEntryOutput
+}
+
+type MemoryMetadataSchemaEntryArgs struct {
+	ExtractionConfig MemoryExtractionConfigPtrInput  `pulumi:"extractionConfig"`
+	Key              pulumi.StringInput              `pulumi:"key"`
+	Type             MemoryMetadataValueTypePtrInput `pulumi:"type"`
+}
+
+func (MemoryMetadataSchemaEntryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemoryMetadataSchemaEntry)(nil)).Elem()
+}
+
+func (i MemoryMetadataSchemaEntryArgs) ToMemoryMetadataSchemaEntryOutput() MemoryMetadataSchemaEntryOutput {
+	return i.ToMemoryMetadataSchemaEntryOutputWithContext(context.Background())
+}
+
+func (i MemoryMetadataSchemaEntryArgs) ToMemoryMetadataSchemaEntryOutputWithContext(ctx context.Context) MemoryMetadataSchemaEntryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemoryMetadataSchemaEntryOutput)
+}
+
+// MemoryMetadataSchemaEntryArrayInput is an input type that accepts MemoryMetadataSchemaEntryArray and MemoryMetadataSchemaEntryArrayOutput values.
+// You can construct a concrete instance of `MemoryMetadataSchemaEntryArrayInput` via:
+//
+//	MemoryMetadataSchemaEntryArray{ MemoryMetadataSchemaEntryArgs{...} }
+type MemoryMetadataSchemaEntryArrayInput interface {
+	pulumi.Input
+
+	ToMemoryMetadataSchemaEntryArrayOutput() MemoryMetadataSchemaEntryArrayOutput
+	ToMemoryMetadataSchemaEntryArrayOutputWithContext(context.Context) MemoryMetadataSchemaEntryArrayOutput
+}
+
+type MemoryMetadataSchemaEntryArray []MemoryMetadataSchemaEntryInput
+
+func (MemoryMetadataSchemaEntryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MemoryMetadataSchemaEntry)(nil)).Elem()
+}
+
+func (i MemoryMetadataSchemaEntryArray) ToMemoryMetadataSchemaEntryArrayOutput() MemoryMetadataSchemaEntryArrayOutput {
+	return i.ToMemoryMetadataSchemaEntryArrayOutputWithContext(context.Background())
+}
+
+func (i MemoryMetadataSchemaEntryArray) ToMemoryMetadataSchemaEntryArrayOutputWithContext(ctx context.Context) MemoryMetadataSchemaEntryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemoryMetadataSchemaEntryArrayOutput)
+}
+
+type MemoryMetadataSchemaEntryOutput struct{ *pulumi.OutputState }
+
+func (MemoryMetadataSchemaEntryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemoryMetadataSchemaEntry)(nil)).Elem()
+}
+
+func (o MemoryMetadataSchemaEntryOutput) ToMemoryMetadataSchemaEntryOutput() MemoryMetadataSchemaEntryOutput {
+	return o
+}
+
+func (o MemoryMetadataSchemaEntryOutput) ToMemoryMetadataSchemaEntryOutputWithContext(ctx context.Context) MemoryMetadataSchemaEntryOutput {
+	return o
+}
+
+func (o MemoryMetadataSchemaEntryOutput) ExtractionConfig() MemoryExtractionConfigPtrOutput {
+	return o.ApplyT(func(v MemoryMetadataSchemaEntry) *MemoryExtractionConfig { return v.ExtractionConfig }).(MemoryExtractionConfigPtrOutput)
+}
+
+func (o MemoryMetadataSchemaEntryOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v MemoryMetadataSchemaEntry) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o MemoryMetadataSchemaEntryOutput) Type() MemoryMetadataValueTypePtrOutput {
+	return o.ApplyT(func(v MemoryMetadataSchemaEntry) *MemoryMetadataValueType { return v.Type }).(MemoryMetadataValueTypePtrOutput)
+}
+
+type MemoryMetadataSchemaEntryArrayOutput struct{ *pulumi.OutputState }
+
+func (MemoryMetadataSchemaEntryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MemoryMetadataSchemaEntry)(nil)).Elem()
+}
+
+func (o MemoryMetadataSchemaEntryArrayOutput) ToMemoryMetadataSchemaEntryArrayOutput() MemoryMetadataSchemaEntryArrayOutput {
+	return o
+}
+
+func (o MemoryMetadataSchemaEntryArrayOutput) ToMemoryMetadataSchemaEntryArrayOutputWithContext(ctx context.Context) MemoryMetadataSchemaEntryArrayOutput {
+	return o
+}
+
+func (o MemoryMetadataSchemaEntryArrayOutput) Index(i pulumi.IntInput) MemoryMetadataSchemaEntryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MemoryMetadataSchemaEntry {
+		return vs[0].([]MemoryMetadataSchemaEntry)[vs[1].(int)]
+	}).(MemoryMetadataSchemaEntryOutput)
+}
+
+type MemoryNumberValidation struct {
+	MaxValue *float64 `pulumi:"maxValue"`
+	MinValue *float64 `pulumi:"minValue"`
+}
+
+// MemoryNumberValidationInput is an input type that accepts MemoryNumberValidationArgs and MemoryNumberValidationOutput values.
+// You can construct a concrete instance of `MemoryNumberValidationInput` via:
+//
+//	MemoryNumberValidationArgs{...}
+type MemoryNumberValidationInput interface {
+	pulumi.Input
+
+	ToMemoryNumberValidationOutput() MemoryNumberValidationOutput
+	ToMemoryNumberValidationOutputWithContext(context.Context) MemoryNumberValidationOutput
+}
+
+type MemoryNumberValidationArgs struct {
+	MaxValue pulumi.Float64PtrInput `pulumi:"maxValue"`
+	MinValue pulumi.Float64PtrInput `pulumi:"minValue"`
+}
+
+func (MemoryNumberValidationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemoryNumberValidation)(nil)).Elem()
+}
+
+func (i MemoryNumberValidationArgs) ToMemoryNumberValidationOutput() MemoryNumberValidationOutput {
+	return i.ToMemoryNumberValidationOutputWithContext(context.Background())
+}
+
+func (i MemoryNumberValidationArgs) ToMemoryNumberValidationOutputWithContext(ctx context.Context) MemoryNumberValidationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemoryNumberValidationOutput)
+}
+
+func (i MemoryNumberValidationArgs) ToMemoryNumberValidationPtrOutput() MemoryNumberValidationPtrOutput {
+	return i.ToMemoryNumberValidationPtrOutputWithContext(context.Background())
+}
+
+func (i MemoryNumberValidationArgs) ToMemoryNumberValidationPtrOutputWithContext(ctx context.Context) MemoryNumberValidationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemoryNumberValidationOutput).ToMemoryNumberValidationPtrOutputWithContext(ctx)
+}
+
+// MemoryNumberValidationPtrInput is an input type that accepts MemoryNumberValidationArgs, MemoryNumberValidationPtr and MemoryNumberValidationPtrOutput values.
+// You can construct a concrete instance of `MemoryNumberValidationPtrInput` via:
+//
+//	        MemoryNumberValidationArgs{...}
+//
+//	or:
+//
+//	        nil
+type MemoryNumberValidationPtrInput interface {
+	pulumi.Input
+
+	ToMemoryNumberValidationPtrOutput() MemoryNumberValidationPtrOutput
+	ToMemoryNumberValidationPtrOutputWithContext(context.Context) MemoryNumberValidationPtrOutput
+}
+
+type memoryNumberValidationPtrType MemoryNumberValidationArgs
+
+func MemoryNumberValidationPtr(v *MemoryNumberValidationArgs) MemoryNumberValidationPtrInput {
+	return (*memoryNumberValidationPtrType)(v)
+}
+
+func (*memoryNumberValidationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MemoryNumberValidation)(nil)).Elem()
+}
+
+func (i *memoryNumberValidationPtrType) ToMemoryNumberValidationPtrOutput() MemoryNumberValidationPtrOutput {
+	return i.ToMemoryNumberValidationPtrOutputWithContext(context.Background())
+}
+
+func (i *memoryNumberValidationPtrType) ToMemoryNumberValidationPtrOutputWithContext(ctx context.Context) MemoryNumberValidationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemoryNumberValidationPtrOutput)
+}
+
+type MemoryNumberValidationOutput struct{ *pulumi.OutputState }
+
+func (MemoryNumberValidationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemoryNumberValidation)(nil)).Elem()
+}
+
+func (o MemoryNumberValidationOutput) ToMemoryNumberValidationOutput() MemoryNumberValidationOutput {
+	return o
+}
+
+func (o MemoryNumberValidationOutput) ToMemoryNumberValidationOutputWithContext(ctx context.Context) MemoryNumberValidationOutput {
+	return o
+}
+
+func (o MemoryNumberValidationOutput) ToMemoryNumberValidationPtrOutput() MemoryNumberValidationPtrOutput {
+	return o.ToMemoryNumberValidationPtrOutputWithContext(context.Background())
+}
+
+func (o MemoryNumberValidationOutput) ToMemoryNumberValidationPtrOutputWithContext(ctx context.Context) MemoryNumberValidationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MemoryNumberValidation) *MemoryNumberValidation {
+		return &v
+	}).(MemoryNumberValidationPtrOutput)
+}
+
+func (o MemoryNumberValidationOutput) MaxValue() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v MemoryNumberValidation) *float64 { return v.MaxValue }).(pulumi.Float64PtrOutput)
+}
+
+func (o MemoryNumberValidationOutput) MinValue() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v MemoryNumberValidation) *float64 { return v.MinValue }).(pulumi.Float64PtrOutput)
+}
+
+type MemoryNumberValidationPtrOutput struct{ *pulumi.OutputState }
+
+func (MemoryNumberValidationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MemoryNumberValidation)(nil)).Elem()
+}
+
+func (o MemoryNumberValidationPtrOutput) ToMemoryNumberValidationPtrOutput() MemoryNumberValidationPtrOutput {
+	return o
+}
+
+func (o MemoryNumberValidationPtrOutput) ToMemoryNumberValidationPtrOutputWithContext(ctx context.Context) MemoryNumberValidationPtrOutput {
+	return o
+}
+
+func (o MemoryNumberValidationPtrOutput) Elem() MemoryNumberValidationOutput {
+	return o.ApplyT(func(v *MemoryNumberValidation) MemoryNumberValidation {
+		if v != nil {
+			return *v
+		}
+		var ret MemoryNumberValidation
+		return ret
+	}).(MemoryNumberValidationOutput)
+}
+
+func (o MemoryNumberValidationPtrOutput) MaxValue() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *MemoryNumberValidation) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MaxValue
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o MemoryNumberValidationPtrOutput) MinValue() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *MemoryNumberValidation) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MinValue
+	}).(pulumi.Float64PtrOutput)
+}
+
+type MemoryRecordSchema struct {
+	MetadataSchema []MemoryMetadataSchemaEntry `pulumi:"metadataSchema"`
+}
+
+// MemoryRecordSchemaInput is an input type that accepts MemoryRecordSchemaArgs and MemoryRecordSchemaOutput values.
+// You can construct a concrete instance of `MemoryRecordSchemaInput` via:
+//
+//	MemoryRecordSchemaArgs{...}
+type MemoryRecordSchemaInput interface {
+	pulumi.Input
+
+	ToMemoryRecordSchemaOutput() MemoryRecordSchemaOutput
+	ToMemoryRecordSchemaOutputWithContext(context.Context) MemoryRecordSchemaOutput
+}
+
+type MemoryRecordSchemaArgs struct {
+	MetadataSchema MemoryMetadataSchemaEntryArrayInput `pulumi:"metadataSchema"`
+}
+
+func (MemoryRecordSchemaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemoryRecordSchema)(nil)).Elem()
+}
+
+func (i MemoryRecordSchemaArgs) ToMemoryRecordSchemaOutput() MemoryRecordSchemaOutput {
+	return i.ToMemoryRecordSchemaOutputWithContext(context.Background())
+}
+
+func (i MemoryRecordSchemaArgs) ToMemoryRecordSchemaOutputWithContext(ctx context.Context) MemoryRecordSchemaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemoryRecordSchemaOutput)
+}
+
+func (i MemoryRecordSchemaArgs) ToMemoryRecordSchemaPtrOutput() MemoryRecordSchemaPtrOutput {
+	return i.ToMemoryRecordSchemaPtrOutputWithContext(context.Background())
+}
+
+func (i MemoryRecordSchemaArgs) ToMemoryRecordSchemaPtrOutputWithContext(ctx context.Context) MemoryRecordSchemaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemoryRecordSchemaOutput).ToMemoryRecordSchemaPtrOutputWithContext(ctx)
+}
+
+// MemoryRecordSchemaPtrInput is an input type that accepts MemoryRecordSchemaArgs, MemoryRecordSchemaPtr and MemoryRecordSchemaPtrOutput values.
+// You can construct a concrete instance of `MemoryRecordSchemaPtrInput` via:
+//
+//	        MemoryRecordSchemaArgs{...}
+//
+//	or:
+//
+//	        nil
+type MemoryRecordSchemaPtrInput interface {
+	pulumi.Input
+
+	ToMemoryRecordSchemaPtrOutput() MemoryRecordSchemaPtrOutput
+	ToMemoryRecordSchemaPtrOutputWithContext(context.Context) MemoryRecordSchemaPtrOutput
+}
+
+type memoryRecordSchemaPtrType MemoryRecordSchemaArgs
+
+func MemoryRecordSchemaPtr(v *MemoryRecordSchemaArgs) MemoryRecordSchemaPtrInput {
+	return (*memoryRecordSchemaPtrType)(v)
+}
+
+func (*memoryRecordSchemaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MemoryRecordSchema)(nil)).Elem()
+}
+
+func (i *memoryRecordSchemaPtrType) ToMemoryRecordSchemaPtrOutput() MemoryRecordSchemaPtrOutput {
+	return i.ToMemoryRecordSchemaPtrOutputWithContext(context.Background())
+}
+
+func (i *memoryRecordSchemaPtrType) ToMemoryRecordSchemaPtrOutputWithContext(ctx context.Context) MemoryRecordSchemaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemoryRecordSchemaPtrOutput)
+}
+
+type MemoryRecordSchemaOutput struct{ *pulumi.OutputState }
+
+func (MemoryRecordSchemaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemoryRecordSchema)(nil)).Elem()
+}
+
+func (o MemoryRecordSchemaOutput) ToMemoryRecordSchemaOutput() MemoryRecordSchemaOutput {
+	return o
+}
+
+func (o MemoryRecordSchemaOutput) ToMemoryRecordSchemaOutputWithContext(ctx context.Context) MemoryRecordSchemaOutput {
+	return o
+}
+
+func (o MemoryRecordSchemaOutput) ToMemoryRecordSchemaPtrOutput() MemoryRecordSchemaPtrOutput {
+	return o.ToMemoryRecordSchemaPtrOutputWithContext(context.Background())
+}
+
+func (o MemoryRecordSchemaOutput) ToMemoryRecordSchemaPtrOutputWithContext(ctx context.Context) MemoryRecordSchemaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MemoryRecordSchema) *MemoryRecordSchema {
+		return &v
+	}).(MemoryRecordSchemaPtrOutput)
+}
+
+func (o MemoryRecordSchemaOutput) MetadataSchema() MemoryMetadataSchemaEntryArrayOutput {
+	return o.ApplyT(func(v MemoryRecordSchema) []MemoryMetadataSchemaEntry { return v.MetadataSchema }).(MemoryMetadataSchemaEntryArrayOutput)
+}
+
+type MemoryRecordSchemaPtrOutput struct{ *pulumi.OutputState }
+
+func (MemoryRecordSchemaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MemoryRecordSchema)(nil)).Elem()
+}
+
+func (o MemoryRecordSchemaPtrOutput) ToMemoryRecordSchemaPtrOutput() MemoryRecordSchemaPtrOutput {
+	return o
+}
+
+func (o MemoryRecordSchemaPtrOutput) ToMemoryRecordSchemaPtrOutputWithContext(ctx context.Context) MemoryRecordSchemaPtrOutput {
+	return o
+}
+
+func (o MemoryRecordSchemaPtrOutput) Elem() MemoryRecordSchemaOutput {
+	return o.ApplyT(func(v *MemoryRecordSchema) MemoryRecordSchema {
+		if v != nil {
+			return *v
+		}
+		var ret MemoryRecordSchema
+		return ret
+	}).(MemoryRecordSchemaOutput)
+}
+
+func (o MemoryRecordSchemaPtrOutput) MetadataSchema() MemoryMetadataSchemaEntryArrayOutput {
+	return o.ApplyT(func(v *MemoryRecordSchema) []MemoryMetadataSchemaEntry {
+		if v == nil {
+			return nil
+		}
+		return v.MetadataSchema
+	}).(MemoryMetadataSchemaEntryArrayOutput)
 }
 
 type MemorySelfManagedConfiguration struct {
@@ -8883,11 +10141,12 @@ func (o MemorySelfManagedConfigurationPtrOutput) TriggerConditions() MemoryTrigg
 
 type MemorySemanticMemoryStrategy struct {
 	// Creation timestamp of the memory strategy
-	CreatedAt          *string  `pulumi:"createdAt"`
-	Description        *string  `pulumi:"description"`
-	Name               string   `pulumi:"name"`
-	NamespaceTemplates []string `pulumi:"namespaceTemplates"`
-	Namespaces         []string `pulumi:"namespaces"`
+	CreatedAt          *string             `pulumi:"createdAt"`
+	Description        *string             `pulumi:"description"`
+	MemoryRecordSchema *MemoryRecordSchema `pulumi:"memoryRecordSchema"`
+	Name               string              `pulumi:"name"`
+	NamespaceTemplates []string            `pulumi:"namespaceTemplates"`
+	Namespaces         []string            `pulumi:"namespaces"`
 	// Status of the memory strategy
 	Status *MemorySemanticMemoryStrategyStatus `pulumi:"status"`
 	// Unique identifier for the memory strategy
@@ -8911,11 +10170,12 @@ type MemorySemanticMemoryStrategyInput interface {
 
 type MemorySemanticMemoryStrategyArgs struct {
 	// Creation timestamp of the memory strategy
-	CreatedAt          pulumi.StringPtrInput   `pulumi:"createdAt"`
-	Description        pulumi.StringPtrInput   `pulumi:"description"`
-	Name               pulumi.StringInput      `pulumi:"name"`
-	NamespaceTemplates pulumi.StringArrayInput `pulumi:"namespaceTemplates"`
-	Namespaces         pulumi.StringArrayInput `pulumi:"namespaces"`
+	CreatedAt          pulumi.StringPtrInput      `pulumi:"createdAt"`
+	Description        pulumi.StringPtrInput      `pulumi:"description"`
+	MemoryRecordSchema MemoryRecordSchemaPtrInput `pulumi:"memoryRecordSchema"`
+	Name               pulumi.StringInput         `pulumi:"name"`
+	NamespaceTemplates pulumi.StringArrayInput    `pulumi:"namespaceTemplates"`
+	Namespaces         pulumi.StringArrayInput    `pulumi:"namespaces"`
 	// Status of the memory strategy
 	Status MemorySemanticMemoryStrategyStatusPtrInput `pulumi:"status"`
 	// Unique identifier for the memory strategy
@@ -9012,6 +10272,10 @@ func (o MemorySemanticMemoryStrategyOutput) Description() pulumi.StringPtrOutput
 	return o.ApplyT(func(v MemorySemanticMemoryStrategy) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+func (o MemorySemanticMemoryStrategyOutput) MemoryRecordSchema() MemoryRecordSchemaPtrOutput {
+	return o.ApplyT(func(v MemorySemanticMemoryStrategy) *MemoryRecordSchema { return v.MemoryRecordSchema }).(MemoryRecordSchemaPtrOutput)
+}
+
 func (o MemorySemanticMemoryStrategyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v MemorySemanticMemoryStrategy) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -9085,6 +10349,15 @@ func (o MemorySemanticMemoryStrategyPtrOutput) Description() pulumi.StringPtrOut
 		}
 		return v.Description
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o MemorySemanticMemoryStrategyPtrOutput) MemoryRecordSchema() MemoryRecordSchemaPtrOutput {
+	return o.ApplyT(func(v *MemorySemanticMemoryStrategy) *MemoryRecordSchema {
+		if v == nil {
+			return nil
+		}
+		return v.MemoryRecordSchema
+	}).(MemoryRecordSchemaPtrOutput)
 }
 
 func (o MemorySemanticMemoryStrategyPtrOutput) Name() pulumi.StringPtrOutput {
@@ -9947,13 +11220,295 @@ func (o MemoryStreamDeliveryResourcesPtrOutput) Resources() MemoryStreamDelivery
 	}).(MemoryStreamDeliveryResourceArrayOutput)
 }
 
+type MemoryStringListValidation struct {
+	AllowedValues []string `pulumi:"allowedValues"`
+	MaxItems      *int     `pulumi:"maxItems"`
+}
+
+// MemoryStringListValidationInput is an input type that accepts MemoryStringListValidationArgs and MemoryStringListValidationOutput values.
+// You can construct a concrete instance of `MemoryStringListValidationInput` via:
+//
+//	MemoryStringListValidationArgs{...}
+type MemoryStringListValidationInput interface {
+	pulumi.Input
+
+	ToMemoryStringListValidationOutput() MemoryStringListValidationOutput
+	ToMemoryStringListValidationOutputWithContext(context.Context) MemoryStringListValidationOutput
+}
+
+type MemoryStringListValidationArgs struct {
+	AllowedValues pulumi.StringArrayInput `pulumi:"allowedValues"`
+	MaxItems      pulumi.IntPtrInput      `pulumi:"maxItems"`
+}
+
+func (MemoryStringListValidationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemoryStringListValidation)(nil)).Elem()
+}
+
+func (i MemoryStringListValidationArgs) ToMemoryStringListValidationOutput() MemoryStringListValidationOutput {
+	return i.ToMemoryStringListValidationOutputWithContext(context.Background())
+}
+
+func (i MemoryStringListValidationArgs) ToMemoryStringListValidationOutputWithContext(ctx context.Context) MemoryStringListValidationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemoryStringListValidationOutput)
+}
+
+func (i MemoryStringListValidationArgs) ToMemoryStringListValidationPtrOutput() MemoryStringListValidationPtrOutput {
+	return i.ToMemoryStringListValidationPtrOutputWithContext(context.Background())
+}
+
+func (i MemoryStringListValidationArgs) ToMemoryStringListValidationPtrOutputWithContext(ctx context.Context) MemoryStringListValidationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemoryStringListValidationOutput).ToMemoryStringListValidationPtrOutputWithContext(ctx)
+}
+
+// MemoryStringListValidationPtrInput is an input type that accepts MemoryStringListValidationArgs, MemoryStringListValidationPtr and MemoryStringListValidationPtrOutput values.
+// You can construct a concrete instance of `MemoryStringListValidationPtrInput` via:
+//
+//	        MemoryStringListValidationArgs{...}
+//
+//	or:
+//
+//	        nil
+type MemoryStringListValidationPtrInput interface {
+	pulumi.Input
+
+	ToMemoryStringListValidationPtrOutput() MemoryStringListValidationPtrOutput
+	ToMemoryStringListValidationPtrOutputWithContext(context.Context) MemoryStringListValidationPtrOutput
+}
+
+type memoryStringListValidationPtrType MemoryStringListValidationArgs
+
+func MemoryStringListValidationPtr(v *MemoryStringListValidationArgs) MemoryStringListValidationPtrInput {
+	return (*memoryStringListValidationPtrType)(v)
+}
+
+func (*memoryStringListValidationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MemoryStringListValidation)(nil)).Elem()
+}
+
+func (i *memoryStringListValidationPtrType) ToMemoryStringListValidationPtrOutput() MemoryStringListValidationPtrOutput {
+	return i.ToMemoryStringListValidationPtrOutputWithContext(context.Background())
+}
+
+func (i *memoryStringListValidationPtrType) ToMemoryStringListValidationPtrOutputWithContext(ctx context.Context) MemoryStringListValidationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemoryStringListValidationPtrOutput)
+}
+
+type MemoryStringListValidationOutput struct{ *pulumi.OutputState }
+
+func (MemoryStringListValidationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemoryStringListValidation)(nil)).Elem()
+}
+
+func (o MemoryStringListValidationOutput) ToMemoryStringListValidationOutput() MemoryStringListValidationOutput {
+	return o
+}
+
+func (o MemoryStringListValidationOutput) ToMemoryStringListValidationOutputWithContext(ctx context.Context) MemoryStringListValidationOutput {
+	return o
+}
+
+func (o MemoryStringListValidationOutput) ToMemoryStringListValidationPtrOutput() MemoryStringListValidationPtrOutput {
+	return o.ToMemoryStringListValidationPtrOutputWithContext(context.Background())
+}
+
+func (o MemoryStringListValidationOutput) ToMemoryStringListValidationPtrOutputWithContext(ctx context.Context) MemoryStringListValidationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MemoryStringListValidation) *MemoryStringListValidation {
+		return &v
+	}).(MemoryStringListValidationPtrOutput)
+}
+
+func (o MemoryStringListValidationOutput) AllowedValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MemoryStringListValidation) []string { return v.AllowedValues }).(pulumi.StringArrayOutput)
+}
+
+func (o MemoryStringListValidationOutput) MaxItems() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MemoryStringListValidation) *int { return v.MaxItems }).(pulumi.IntPtrOutput)
+}
+
+type MemoryStringListValidationPtrOutput struct{ *pulumi.OutputState }
+
+func (MemoryStringListValidationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MemoryStringListValidation)(nil)).Elem()
+}
+
+func (o MemoryStringListValidationPtrOutput) ToMemoryStringListValidationPtrOutput() MemoryStringListValidationPtrOutput {
+	return o
+}
+
+func (o MemoryStringListValidationPtrOutput) ToMemoryStringListValidationPtrOutputWithContext(ctx context.Context) MemoryStringListValidationPtrOutput {
+	return o
+}
+
+func (o MemoryStringListValidationPtrOutput) Elem() MemoryStringListValidationOutput {
+	return o.ApplyT(func(v *MemoryStringListValidation) MemoryStringListValidation {
+		if v != nil {
+			return *v
+		}
+		var ret MemoryStringListValidation
+		return ret
+	}).(MemoryStringListValidationOutput)
+}
+
+func (o MemoryStringListValidationPtrOutput) AllowedValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *MemoryStringListValidation) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedValues
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o MemoryStringListValidationPtrOutput) MaxItems() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MemoryStringListValidation) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxItems
+	}).(pulumi.IntPtrOutput)
+}
+
+type MemoryStringValidation struct {
+	AllowedValues []string `pulumi:"allowedValues"`
+}
+
+// MemoryStringValidationInput is an input type that accepts MemoryStringValidationArgs and MemoryStringValidationOutput values.
+// You can construct a concrete instance of `MemoryStringValidationInput` via:
+//
+//	MemoryStringValidationArgs{...}
+type MemoryStringValidationInput interface {
+	pulumi.Input
+
+	ToMemoryStringValidationOutput() MemoryStringValidationOutput
+	ToMemoryStringValidationOutputWithContext(context.Context) MemoryStringValidationOutput
+}
+
+type MemoryStringValidationArgs struct {
+	AllowedValues pulumi.StringArrayInput `pulumi:"allowedValues"`
+}
+
+func (MemoryStringValidationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemoryStringValidation)(nil)).Elem()
+}
+
+func (i MemoryStringValidationArgs) ToMemoryStringValidationOutput() MemoryStringValidationOutput {
+	return i.ToMemoryStringValidationOutputWithContext(context.Background())
+}
+
+func (i MemoryStringValidationArgs) ToMemoryStringValidationOutputWithContext(ctx context.Context) MemoryStringValidationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemoryStringValidationOutput)
+}
+
+func (i MemoryStringValidationArgs) ToMemoryStringValidationPtrOutput() MemoryStringValidationPtrOutput {
+	return i.ToMemoryStringValidationPtrOutputWithContext(context.Background())
+}
+
+func (i MemoryStringValidationArgs) ToMemoryStringValidationPtrOutputWithContext(ctx context.Context) MemoryStringValidationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemoryStringValidationOutput).ToMemoryStringValidationPtrOutputWithContext(ctx)
+}
+
+// MemoryStringValidationPtrInput is an input type that accepts MemoryStringValidationArgs, MemoryStringValidationPtr and MemoryStringValidationPtrOutput values.
+// You can construct a concrete instance of `MemoryStringValidationPtrInput` via:
+//
+//	        MemoryStringValidationArgs{...}
+//
+//	or:
+//
+//	        nil
+type MemoryStringValidationPtrInput interface {
+	pulumi.Input
+
+	ToMemoryStringValidationPtrOutput() MemoryStringValidationPtrOutput
+	ToMemoryStringValidationPtrOutputWithContext(context.Context) MemoryStringValidationPtrOutput
+}
+
+type memoryStringValidationPtrType MemoryStringValidationArgs
+
+func MemoryStringValidationPtr(v *MemoryStringValidationArgs) MemoryStringValidationPtrInput {
+	return (*memoryStringValidationPtrType)(v)
+}
+
+func (*memoryStringValidationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MemoryStringValidation)(nil)).Elem()
+}
+
+func (i *memoryStringValidationPtrType) ToMemoryStringValidationPtrOutput() MemoryStringValidationPtrOutput {
+	return i.ToMemoryStringValidationPtrOutputWithContext(context.Background())
+}
+
+func (i *memoryStringValidationPtrType) ToMemoryStringValidationPtrOutputWithContext(ctx context.Context) MemoryStringValidationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemoryStringValidationPtrOutput)
+}
+
+type MemoryStringValidationOutput struct{ *pulumi.OutputState }
+
+func (MemoryStringValidationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemoryStringValidation)(nil)).Elem()
+}
+
+func (o MemoryStringValidationOutput) ToMemoryStringValidationOutput() MemoryStringValidationOutput {
+	return o
+}
+
+func (o MemoryStringValidationOutput) ToMemoryStringValidationOutputWithContext(ctx context.Context) MemoryStringValidationOutput {
+	return o
+}
+
+func (o MemoryStringValidationOutput) ToMemoryStringValidationPtrOutput() MemoryStringValidationPtrOutput {
+	return o.ToMemoryStringValidationPtrOutputWithContext(context.Background())
+}
+
+func (o MemoryStringValidationOutput) ToMemoryStringValidationPtrOutputWithContext(ctx context.Context) MemoryStringValidationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MemoryStringValidation) *MemoryStringValidation {
+		return &v
+	}).(MemoryStringValidationPtrOutput)
+}
+
+func (o MemoryStringValidationOutput) AllowedValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MemoryStringValidation) []string { return v.AllowedValues }).(pulumi.StringArrayOutput)
+}
+
+type MemoryStringValidationPtrOutput struct{ *pulumi.OutputState }
+
+func (MemoryStringValidationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MemoryStringValidation)(nil)).Elem()
+}
+
+func (o MemoryStringValidationPtrOutput) ToMemoryStringValidationPtrOutput() MemoryStringValidationPtrOutput {
+	return o
+}
+
+func (o MemoryStringValidationPtrOutput) ToMemoryStringValidationPtrOutputWithContext(ctx context.Context) MemoryStringValidationPtrOutput {
+	return o
+}
+
+func (o MemoryStringValidationPtrOutput) Elem() MemoryStringValidationOutput {
+	return o.ApplyT(func(v *MemoryStringValidation) MemoryStringValidation {
+		if v != nil {
+			return *v
+		}
+		var ret MemoryStringValidation
+		return ret
+	}).(MemoryStringValidationOutput)
+}
+
+func (o MemoryStringValidationPtrOutput) AllowedValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *MemoryStringValidation) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedValues
+	}).(pulumi.StringArrayOutput)
+}
+
 type MemorySummaryMemoryStrategy struct {
 	// Creation timestamp of the memory strategy
-	CreatedAt          *string  `pulumi:"createdAt"`
-	Description        *string  `pulumi:"description"`
-	Name               string   `pulumi:"name"`
-	NamespaceTemplates []string `pulumi:"namespaceTemplates"`
-	Namespaces         []string `pulumi:"namespaces"`
+	CreatedAt          *string             `pulumi:"createdAt"`
+	Description        *string             `pulumi:"description"`
+	MemoryRecordSchema *MemoryRecordSchema `pulumi:"memoryRecordSchema"`
+	Name               string              `pulumi:"name"`
+	NamespaceTemplates []string            `pulumi:"namespaceTemplates"`
+	Namespaces         []string            `pulumi:"namespaces"`
 	// Status of the memory strategy
 	Status *MemorySummaryMemoryStrategyStatus `pulumi:"status"`
 	// Unique identifier for the memory strategy
@@ -9977,11 +11532,12 @@ type MemorySummaryMemoryStrategyInput interface {
 
 type MemorySummaryMemoryStrategyArgs struct {
 	// Creation timestamp of the memory strategy
-	CreatedAt          pulumi.StringPtrInput   `pulumi:"createdAt"`
-	Description        pulumi.StringPtrInput   `pulumi:"description"`
-	Name               pulumi.StringInput      `pulumi:"name"`
-	NamespaceTemplates pulumi.StringArrayInput `pulumi:"namespaceTemplates"`
-	Namespaces         pulumi.StringArrayInput `pulumi:"namespaces"`
+	CreatedAt          pulumi.StringPtrInput      `pulumi:"createdAt"`
+	Description        pulumi.StringPtrInput      `pulumi:"description"`
+	MemoryRecordSchema MemoryRecordSchemaPtrInput `pulumi:"memoryRecordSchema"`
+	Name               pulumi.StringInput         `pulumi:"name"`
+	NamespaceTemplates pulumi.StringArrayInput    `pulumi:"namespaceTemplates"`
+	Namespaces         pulumi.StringArrayInput    `pulumi:"namespaces"`
 	// Status of the memory strategy
 	Status MemorySummaryMemoryStrategyStatusPtrInput `pulumi:"status"`
 	// Unique identifier for the memory strategy
@@ -10078,6 +11634,10 @@ func (o MemorySummaryMemoryStrategyOutput) Description() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v MemorySummaryMemoryStrategy) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+func (o MemorySummaryMemoryStrategyOutput) MemoryRecordSchema() MemoryRecordSchemaPtrOutput {
+	return o.ApplyT(func(v MemorySummaryMemoryStrategy) *MemoryRecordSchema { return v.MemoryRecordSchema }).(MemoryRecordSchemaPtrOutput)
+}
+
 func (o MemorySummaryMemoryStrategyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v MemorySummaryMemoryStrategy) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -10151,6 +11711,15 @@ func (o MemorySummaryMemoryStrategyPtrOutput) Description() pulumi.StringPtrOutp
 		}
 		return v.Description
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o MemorySummaryMemoryStrategyPtrOutput) MemoryRecordSchema() MemoryRecordSchemaPtrOutput {
+	return o.ApplyT(func(v *MemorySummaryMemoryStrategy) *MemoryRecordSchema {
+		if v == nil {
+			return nil
+		}
+		return v.MemoryRecordSchema
+	}).(MemoryRecordSchemaPtrOutput)
 }
 
 func (o MemorySummaryMemoryStrategyPtrOutput) Name() pulumi.StringPtrOutput {
@@ -10877,11 +12446,12 @@ func (o MemoryTriggerConditionInputArrayOutput) Index(i pulumi.IntInput) MemoryT
 
 type MemoryUserPreferenceMemoryStrategy struct {
 	// Creation timestamp of the memory strategy
-	CreatedAt          *string  `pulumi:"createdAt"`
-	Description        *string  `pulumi:"description"`
-	Name               string   `pulumi:"name"`
-	NamespaceTemplates []string `pulumi:"namespaceTemplates"`
-	Namespaces         []string `pulumi:"namespaces"`
+	CreatedAt          *string             `pulumi:"createdAt"`
+	Description        *string             `pulumi:"description"`
+	MemoryRecordSchema *MemoryRecordSchema `pulumi:"memoryRecordSchema"`
+	Name               string              `pulumi:"name"`
+	NamespaceTemplates []string            `pulumi:"namespaceTemplates"`
+	Namespaces         []string            `pulumi:"namespaces"`
 	// Status of the memory strategy
 	Status *MemoryUserPreferenceMemoryStrategyStatus `pulumi:"status"`
 	// Unique identifier for the memory strategy
@@ -10905,11 +12475,12 @@ type MemoryUserPreferenceMemoryStrategyInput interface {
 
 type MemoryUserPreferenceMemoryStrategyArgs struct {
 	// Creation timestamp of the memory strategy
-	CreatedAt          pulumi.StringPtrInput   `pulumi:"createdAt"`
-	Description        pulumi.StringPtrInput   `pulumi:"description"`
-	Name               pulumi.StringInput      `pulumi:"name"`
-	NamespaceTemplates pulumi.StringArrayInput `pulumi:"namespaceTemplates"`
-	Namespaces         pulumi.StringArrayInput `pulumi:"namespaces"`
+	CreatedAt          pulumi.StringPtrInput      `pulumi:"createdAt"`
+	Description        pulumi.StringPtrInput      `pulumi:"description"`
+	MemoryRecordSchema MemoryRecordSchemaPtrInput `pulumi:"memoryRecordSchema"`
+	Name               pulumi.StringInput         `pulumi:"name"`
+	NamespaceTemplates pulumi.StringArrayInput    `pulumi:"namespaceTemplates"`
+	Namespaces         pulumi.StringArrayInput    `pulumi:"namespaces"`
 	// Status of the memory strategy
 	Status MemoryUserPreferenceMemoryStrategyStatusPtrInput `pulumi:"status"`
 	// Unique identifier for the memory strategy
@@ -11006,6 +12577,10 @@ func (o MemoryUserPreferenceMemoryStrategyOutput) Description() pulumi.StringPtr
 	return o.ApplyT(func(v MemoryUserPreferenceMemoryStrategy) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+func (o MemoryUserPreferenceMemoryStrategyOutput) MemoryRecordSchema() MemoryRecordSchemaPtrOutput {
+	return o.ApplyT(func(v MemoryUserPreferenceMemoryStrategy) *MemoryRecordSchema { return v.MemoryRecordSchema }).(MemoryRecordSchemaPtrOutput)
+}
+
 func (o MemoryUserPreferenceMemoryStrategyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v MemoryUserPreferenceMemoryStrategy) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -11079,6 +12654,15 @@ func (o MemoryUserPreferenceMemoryStrategyPtrOutput) Description() pulumi.String
 		}
 		return v.Description
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o MemoryUserPreferenceMemoryStrategyPtrOutput) MemoryRecordSchema() MemoryRecordSchemaPtrOutput {
+	return o.ApplyT(func(v *MemoryUserPreferenceMemoryStrategy) *MemoryRecordSchema {
+		if v == nil {
+			return nil
+		}
+		return v.MemoryRecordSchema
+	}).(MemoryRecordSchemaPtrOutput)
 }
 
 func (o MemoryUserPreferenceMemoryStrategyPtrOutput) Name() pulumi.StringPtrOutput {
@@ -11594,6 +13178,169 @@ func (o MemoryUserPreferenceOverrideExtractionConfigurationInputPtrOutput) Model
 		}
 		return &v.ModelId
 	}).(pulumi.StringPtrOutput)
+}
+
+type MemoryValidation struct {
+	NumberValidation     *MemoryNumberValidation     `pulumi:"numberValidation"`
+	StringListValidation *MemoryStringListValidation `pulumi:"stringListValidation"`
+	StringValidation     *MemoryStringValidation     `pulumi:"stringValidation"`
+}
+
+// MemoryValidationInput is an input type that accepts MemoryValidationArgs and MemoryValidationOutput values.
+// You can construct a concrete instance of `MemoryValidationInput` via:
+//
+//	MemoryValidationArgs{...}
+type MemoryValidationInput interface {
+	pulumi.Input
+
+	ToMemoryValidationOutput() MemoryValidationOutput
+	ToMemoryValidationOutputWithContext(context.Context) MemoryValidationOutput
+}
+
+type MemoryValidationArgs struct {
+	NumberValidation     MemoryNumberValidationPtrInput     `pulumi:"numberValidation"`
+	StringListValidation MemoryStringListValidationPtrInput `pulumi:"stringListValidation"`
+	StringValidation     MemoryStringValidationPtrInput     `pulumi:"stringValidation"`
+}
+
+func (MemoryValidationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemoryValidation)(nil)).Elem()
+}
+
+func (i MemoryValidationArgs) ToMemoryValidationOutput() MemoryValidationOutput {
+	return i.ToMemoryValidationOutputWithContext(context.Background())
+}
+
+func (i MemoryValidationArgs) ToMemoryValidationOutputWithContext(ctx context.Context) MemoryValidationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemoryValidationOutput)
+}
+
+func (i MemoryValidationArgs) ToMemoryValidationPtrOutput() MemoryValidationPtrOutput {
+	return i.ToMemoryValidationPtrOutputWithContext(context.Background())
+}
+
+func (i MemoryValidationArgs) ToMemoryValidationPtrOutputWithContext(ctx context.Context) MemoryValidationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemoryValidationOutput).ToMemoryValidationPtrOutputWithContext(ctx)
+}
+
+// MemoryValidationPtrInput is an input type that accepts MemoryValidationArgs, MemoryValidationPtr and MemoryValidationPtrOutput values.
+// You can construct a concrete instance of `MemoryValidationPtrInput` via:
+//
+//	        MemoryValidationArgs{...}
+//
+//	or:
+//
+//	        nil
+type MemoryValidationPtrInput interface {
+	pulumi.Input
+
+	ToMemoryValidationPtrOutput() MemoryValidationPtrOutput
+	ToMemoryValidationPtrOutputWithContext(context.Context) MemoryValidationPtrOutput
+}
+
+type memoryValidationPtrType MemoryValidationArgs
+
+func MemoryValidationPtr(v *MemoryValidationArgs) MemoryValidationPtrInput {
+	return (*memoryValidationPtrType)(v)
+}
+
+func (*memoryValidationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MemoryValidation)(nil)).Elem()
+}
+
+func (i *memoryValidationPtrType) ToMemoryValidationPtrOutput() MemoryValidationPtrOutput {
+	return i.ToMemoryValidationPtrOutputWithContext(context.Background())
+}
+
+func (i *memoryValidationPtrType) ToMemoryValidationPtrOutputWithContext(ctx context.Context) MemoryValidationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemoryValidationPtrOutput)
+}
+
+type MemoryValidationOutput struct{ *pulumi.OutputState }
+
+func (MemoryValidationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemoryValidation)(nil)).Elem()
+}
+
+func (o MemoryValidationOutput) ToMemoryValidationOutput() MemoryValidationOutput {
+	return o
+}
+
+func (o MemoryValidationOutput) ToMemoryValidationOutputWithContext(ctx context.Context) MemoryValidationOutput {
+	return o
+}
+
+func (o MemoryValidationOutput) ToMemoryValidationPtrOutput() MemoryValidationPtrOutput {
+	return o.ToMemoryValidationPtrOutputWithContext(context.Background())
+}
+
+func (o MemoryValidationOutput) ToMemoryValidationPtrOutputWithContext(ctx context.Context) MemoryValidationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MemoryValidation) *MemoryValidation {
+		return &v
+	}).(MemoryValidationPtrOutput)
+}
+
+func (o MemoryValidationOutput) NumberValidation() MemoryNumberValidationPtrOutput {
+	return o.ApplyT(func(v MemoryValidation) *MemoryNumberValidation { return v.NumberValidation }).(MemoryNumberValidationPtrOutput)
+}
+
+func (o MemoryValidationOutput) StringListValidation() MemoryStringListValidationPtrOutput {
+	return o.ApplyT(func(v MemoryValidation) *MemoryStringListValidation { return v.StringListValidation }).(MemoryStringListValidationPtrOutput)
+}
+
+func (o MemoryValidationOutput) StringValidation() MemoryStringValidationPtrOutput {
+	return o.ApplyT(func(v MemoryValidation) *MemoryStringValidation { return v.StringValidation }).(MemoryStringValidationPtrOutput)
+}
+
+type MemoryValidationPtrOutput struct{ *pulumi.OutputState }
+
+func (MemoryValidationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MemoryValidation)(nil)).Elem()
+}
+
+func (o MemoryValidationPtrOutput) ToMemoryValidationPtrOutput() MemoryValidationPtrOutput {
+	return o
+}
+
+func (o MemoryValidationPtrOutput) ToMemoryValidationPtrOutputWithContext(ctx context.Context) MemoryValidationPtrOutput {
+	return o
+}
+
+func (o MemoryValidationPtrOutput) Elem() MemoryValidationOutput {
+	return o.ApplyT(func(v *MemoryValidation) MemoryValidation {
+		if v != nil {
+			return *v
+		}
+		var ret MemoryValidation
+		return ret
+	}).(MemoryValidationOutput)
+}
+
+func (o MemoryValidationPtrOutput) NumberValidation() MemoryNumberValidationPtrOutput {
+	return o.ApplyT(func(v *MemoryValidation) *MemoryNumberValidation {
+		if v == nil {
+			return nil
+		}
+		return v.NumberValidation
+	}).(MemoryNumberValidationPtrOutput)
+}
+
+func (o MemoryValidationPtrOutput) StringListValidation() MemoryStringListValidationPtrOutput {
+	return o.ApplyT(func(v *MemoryValidation) *MemoryStringListValidation {
+		if v == nil {
+			return nil
+		}
+		return v.StringListValidation
+	}).(MemoryStringListValidationPtrOutput)
+}
+
+func (o MemoryValidationPtrOutput) StringValidation() MemoryStringValidationPtrOutput {
+	return o.ApplyT(func(v *MemoryValidation) *MemoryStringValidation {
+		if v == nil {
+			return nil
+		}
+		return v.StringValidation
+	}).(MemoryStringValidationPtrOutput)
 }
 
 // Input configuration for an Atlassian OAuth2 provider
@@ -17107,15 +18854,23 @@ type WorkloadIdentityTag struct {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BrowserCustomBrowserEnterprisePolicyInput)(nil)).Elem(), BrowserCustomBrowserEnterprisePolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BrowserCustomBrowserEnterprisePolicyArrayInput)(nil)).Elem(), BrowserCustomBrowserEnterprisePolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BrowserCustomBrowserNetworkConfigurationInput)(nil)).Elem(), BrowserCustomBrowserNetworkConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BrowserCustomBrowserSigningInput)(nil)).Elem(), BrowserCustomBrowserSigningArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BrowserCustomBrowserSigningPtrInput)(nil)).Elem(), BrowserCustomBrowserSigningArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BrowserCustomCertificateInput)(nil)).Elem(), BrowserCustomCertificateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BrowserCustomCertificateArrayInput)(nil)).Elem(), BrowserCustomCertificateArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BrowserCustomCertificateLocationInput)(nil)).Elem(), BrowserCustomCertificateLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BrowserCustomRecordingConfigInput)(nil)).Elem(), BrowserCustomRecordingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BrowserCustomRecordingConfigPtrInput)(nil)).Elem(), BrowserCustomRecordingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BrowserCustomS3LocationInput)(nil)).Elem(), BrowserCustomS3LocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BrowserCustomS3LocationPtrInput)(nil)).Elem(), BrowserCustomS3LocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BrowserCustomVpcConfigInput)(nil)).Elem(), BrowserCustomVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BrowserCustomVpcConfigPtrInput)(nil)).Elem(), BrowserCustomVpcConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CodeInterpreterCustomCertificateInput)(nil)).Elem(), CodeInterpreterCustomCertificateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CodeInterpreterCustomCertificateArrayInput)(nil)).Elem(), CodeInterpreterCustomCertificateArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CodeInterpreterCustomCertificateLocationInput)(nil)).Elem(), CodeInterpreterCustomCertificateLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeInterpreterCustomCodeInterpreterNetworkConfigurationInput)(nil)).Elem(), CodeInterpreterCustomCodeInterpreterNetworkConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeInterpreterCustomVpcConfigInput)(nil)).Elem(), CodeInterpreterCustomVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeInterpreterCustomVpcConfigPtrInput)(nil)).Elem(), CodeInterpreterCustomVpcConfigArgs{})
@@ -17212,12 +18967,24 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryEpisodicOverrideReflectionConfigurationInputPtrInput)(nil)).Elem(), MemoryEpisodicOverrideReflectionConfigurationInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryEpisodicReflectionConfigurationInputInput)(nil)).Elem(), MemoryEpisodicReflectionConfigurationInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryEpisodicReflectionConfigurationInputPtrInput)(nil)).Elem(), MemoryEpisodicReflectionConfigurationInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MemoryExtractionConfigInput)(nil)).Elem(), MemoryExtractionConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MemoryExtractionConfigPtrInput)(nil)).Elem(), MemoryExtractionConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MemoryIndexedKeyInput)(nil)).Elem(), MemoryIndexedKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MemoryIndexedKeyArrayInput)(nil)).Elem(), MemoryIndexedKeyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryInvocationConfigurationInputInput)(nil)).Elem(), MemoryInvocationConfigurationInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryInvocationConfigurationInputPtrInput)(nil)).Elem(), MemoryInvocationConfigurationInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryKinesisResourceInput)(nil)).Elem(), MemoryKinesisResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryKinesisResourcePtrInput)(nil)).Elem(), MemoryKinesisResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MemoryLlmExtractionConfigInput)(nil)).Elem(), MemoryLlmExtractionConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MemoryLlmExtractionConfigPtrInput)(nil)).Elem(), MemoryLlmExtractionConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryMessageBasedTriggerInputInput)(nil)).Elem(), MemoryMessageBasedTriggerInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryMessageBasedTriggerInputPtrInput)(nil)).Elem(), MemoryMessageBasedTriggerInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MemoryMetadataSchemaEntryInput)(nil)).Elem(), MemoryMetadataSchemaEntryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MemoryMetadataSchemaEntryArrayInput)(nil)).Elem(), MemoryMetadataSchemaEntryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MemoryNumberValidationInput)(nil)).Elem(), MemoryNumberValidationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MemoryNumberValidationPtrInput)(nil)).Elem(), MemoryNumberValidationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MemoryRecordSchemaInput)(nil)).Elem(), MemoryRecordSchemaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MemoryRecordSchemaPtrInput)(nil)).Elem(), MemoryRecordSchemaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MemorySelfManagedConfigurationInput)(nil)).Elem(), MemorySelfManagedConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MemorySelfManagedConfigurationPtrInput)(nil)).Elem(), MemorySelfManagedConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MemorySemanticMemoryStrategyInput)(nil)).Elem(), MemorySemanticMemoryStrategyArgs{})
@@ -17234,6 +19001,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryStreamDeliveryResourceArrayInput)(nil)).Elem(), MemoryStreamDeliveryResourceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryStreamDeliveryResourcesInput)(nil)).Elem(), MemoryStreamDeliveryResourcesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryStreamDeliveryResourcesPtrInput)(nil)).Elem(), MemoryStreamDeliveryResourcesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MemoryStringListValidationInput)(nil)).Elem(), MemoryStringListValidationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MemoryStringListValidationPtrInput)(nil)).Elem(), MemoryStringListValidationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MemoryStringValidationInput)(nil)).Elem(), MemoryStringValidationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MemoryStringValidationPtrInput)(nil)).Elem(), MemoryStringValidationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MemorySummaryMemoryStrategyInput)(nil)).Elem(), MemorySummaryMemoryStrategyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MemorySummaryMemoryStrategyPtrInput)(nil)).Elem(), MemorySummaryMemoryStrategyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MemorySummaryOverrideInput)(nil)).Elem(), MemorySummaryOverrideArgs{})
@@ -17254,6 +19025,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryUserPreferenceOverrideConsolidationConfigurationInputPtrInput)(nil)).Elem(), MemoryUserPreferenceOverrideConsolidationConfigurationInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryUserPreferenceOverrideExtractionConfigurationInputInput)(nil)).Elem(), MemoryUserPreferenceOverrideExtractionConfigurationInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryUserPreferenceOverrideExtractionConfigurationInputPtrInput)(nil)).Elem(), MemoryUserPreferenceOverrideExtractionConfigurationInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MemoryValidationInput)(nil)).Elem(), MemoryValidationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MemoryValidationPtrInput)(nil)).Elem(), MemoryValidationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputInput)(nil)).Elem(), OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputPtrInput)(nil)).Elem(), OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderCustomOauth2ProviderConfigInputInput)(nil)).Elem(), OAuth2CredentialProviderCustomOauth2ProviderConfigInputArgs{})
@@ -17321,15 +19094,23 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeVpcConfigPtrInput)(nil)).Elem(), RuntimeVpcConfigArgs{})
 	pulumi.RegisterOutputType(ApiKeyCredentialProviderApiKeySecretArnOutput{})
 	pulumi.RegisterOutputType(ApiKeyCredentialProviderApiKeySecretArnPtrOutput{})
+	pulumi.RegisterOutputType(BrowserCustomBrowserEnterprisePolicyOutput{})
+	pulumi.RegisterOutputType(BrowserCustomBrowserEnterprisePolicyArrayOutput{})
 	pulumi.RegisterOutputType(BrowserCustomBrowserNetworkConfigurationOutput{})
 	pulumi.RegisterOutputType(BrowserCustomBrowserSigningOutput{})
 	pulumi.RegisterOutputType(BrowserCustomBrowserSigningPtrOutput{})
+	pulumi.RegisterOutputType(BrowserCustomCertificateOutput{})
+	pulumi.RegisterOutputType(BrowserCustomCertificateArrayOutput{})
+	pulumi.RegisterOutputType(BrowserCustomCertificateLocationOutput{})
 	pulumi.RegisterOutputType(BrowserCustomRecordingConfigOutput{})
 	pulumi.RegisterOutputType(BrowserCustomRecordingConfigPtrOutput{})
 	pulumi.RegisterOutputType(BrowserCustomS3LocationOutput{})
 	pulumi.RegisterOutputType(BrowserCustomS3LocationPtrOutput{})
 	pulumi.RegisterOutputType(BrowserCustomVpcConfigOutput{})
 	pulumi.RegisterOutputType(BrowserCustomVpcConfigPtrOutput{})
+	pulumi.RegisterOutputType(CodeInterpreterCustomCertificateOutput{})
+	pulumi.RegisterOutputType(CodeInterpreterCustomCertificateArrayOutput{})
+	pulumi.RegisterOutputType(CodeInterpreterCustomCertificateLocationOutput{})
 	pulumi.RegisterOutputType(CodeInterpreterCustomCodeInterpreterNetworkConfigurationOutput{})
 	pulumi.RegisterOutputType(CodeInterpreterCustomVpcConfigOutput{})
 	pulumi.RegisterOutputType(CodeInterpreterCustomVpcConfigPtrOutput{})
@@ -17444,12 +19225,24 @@ func init() {
 	pulumi.RegisterOutputType(MemoryEpisodicOverrideReflectionConfigurationInputPtrOutput{})
 	pulumi.RegisterOutputType(MemoryEpisodicReflectionConfigurationInputOutput{})
 	pulumi.RegisterOutputType(MemoryEpisodicReflectionConfigurationInputPtrOutput{})
+	pulumi.RegisterOutputType(MemoryExtractionConfigOutput{})
+	pulumi.RegisterOutputType(MemoryExtractionConfigPtrOutput{})
+	pulumi.RegisterOutputType(MemoryIndexedKeyOutput{})
+	pulumi.RegisterOutputType(MemoryIndexedKeyArrayOutput{})
 	pulumi.RegisterOutputType(MemoryInvocationConfigurationInputOutput{})
 	pulumi.RegisterOutputType(MemoryInvocationConfigurationInputPtrOutput{})
 	pulumi.RegisterOutputType(MemoryKinesisResourceOutput{})
 	pulumi.RegisterOutputType(MemoryKinesisResourcePtrOutput{})
+	pulumi.RegisterOutputType(MemoryLlmExtractionConfigOutput{})
+	pulumi.RegisterOutputType(MemoryLlmExtractionConfigPtrOutput{})
 	pulumi.RegisterOutputType(MemoryMessageBasedTriggerInputOutput{})
 	pulumi.RegisterOutputType(MemoryMessageBasedTriggerInputPtrOutput{})
+	pulumi.RegisterOutputType(MemoryMetadataSchemaEntryOutput{})
+	pulumi.RegisterOutputType(MemoryMetadataSchemaEntryArrayOutput{})
+	pulumi.RegisterOutputType(MemoryNumberValidationOutput{})
+	pulumi.RegisterOutputType(MemoryNumberValidationPtrOutput{})
+	pulumi.RegisterOutputType(MemoryRecordSchemaOutput{})
+	pulumi.RegisterOutputType(MemoryRecordSchemaPtrOutput{})
 	pulumi.RegisterOutputType(MemorySelfManagedConfigurationOutput{})
 	pulumi.RegisterOutputType(MemorySelfManagedConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(MemorySemanticMemoryStrategyOutput{})
@@ -17466,6 +19259,10 @@ func init() {
 	pulumi.RegisterOutputType(MemoryStreamDeliveryResourceArrayOutput{})
 	pulumi.RegisterOutputType(MemoryStreamDeliveryResourcesOutput{})
 	pulumi.RegisterOutputType(MemoryStreamDeliveryResourcesPtrOutput{})
+	pulumi.RegisterOutputType(MemoryStringListValidationOutput{})
+	pulumi.RegisterOutputType(MemoryStringListValidationPtrOutput{})
+	pulumi.RegisterOutputType(MemoryStringValidationOutput{})
+	pulumi.RegisterOutputType(MemoryStringValidationPtrOutput{})
 	pulumi.RegisterOutputType(MemorySummaryMemoryStrategyOutput{})
 	pulumi.RegisterOutputType(MemorySummaryMemoryStrategyPtrOutput{})
 	pulumi.RegisterOutputType(MemorySummaryOverrideOutput{})
@@ -17486,6 +19283,8 @@ func init() {
 	pulumi.RegisterOutputType(MemoryUserPreferenceOverrideConsolidationConfigurationInputPtrOutput{})
 	pulumi.RegisterOutputType(MemoryUserPreferenceOverrideExtractionConfigurationInputOutput{})
 	pulumi.RegisterOutputType(MemoryUserPreferenceOverrideExtractionConfigurationInputPtrOutput{})
+	pulumi.RegisterOutputType(MemoryValidationOutput{})
+	pulumi.RegisterOutputType(MemoryValidationPtrOutput{})
 	pulumi.RegisterOutputType(OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputOutput{})
 	pulumi.RegisterOutputType(OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputPtrOutput{})
 	pulumi.RegisterOutputType(OAuth2CredentialProviderClientSecretArnOutput{})

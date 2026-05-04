@@ -14,6 +14,8 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['FunctionArgs', 'Function']
@@ -25,7 +27,8 @@ class FunctionArgs:
                  function_config: pulumi.Input['FunctionConfigArgs'],
                  auto_publish: Optional[pulumi.Input[_builtins.bool]] = None,
                  function_metadata: Optional[pulumi.Input['FunctionMetadataArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Function resource.
 
@@ -43,6 +46,8 @@ class FunctionArgs:
             pulumi.set(__self__, "function_metadata", function_metadata)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
     @pulumi.getter(name="functionCode")
@@ -104,6 +109,15 @@ class FunctionArgs:
     def name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "name", value)
 
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 @pulumi.type_token("aws-native:cloudfront:Function")
 class Function(pulumi.CustomResource):
@@ -116,6 +130,7 @@ class Function(pulumi.CustomResource):
                  function_config: Optional[pulumi.Input[Union['FunctionConfigArgs', 'FunctionConfigArgsDict']]] = None,
                  function_metadata: Optional[pulumi.Input[Union['FunctionMetadataArgs', 'FunctionMetadataArgsDict']]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Creates a CF function.
@@ -167,6 +182,7 @@ class Function(pulumi.CustomResource):
                  function_config: Optional[pulumi.Input[Union['FunctionConfigArgs', 'FunctionConfigArgsDict']]] = None,
                  function_metadata: Optional[pulumi.Input[Union['FunctionMetadataArgs', 'FunctionMetadataArgsDict']]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -185,6 +201,7 @@ class Function(pulumi.CustomResource):
             __props__.__dict__["function_config"] = function_config
             __props__.__dict__["function_metadata"] = function_metadata
             __props__.__dict__["name"] = name
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["function_arn"] = None
             __props__.__dict__["stage"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
@@ -218,6 +235,7 @@ class Function(pulumi.CustomResource):
         __props__.__dict__["function_metadata"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["stage"] = None
+        __props__.__dict__["tags"] = None
         return Function(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -278,4 +296,9 @@ class Function(pulumi.CustomResource):
     @pulumi.getter
     def stage(self) -> pulumi.Output[_builtins.str]:
         return pulumi.get(self, "stage")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        return pulumi.get(self, "tags")
 

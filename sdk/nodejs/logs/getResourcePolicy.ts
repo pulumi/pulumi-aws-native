@@ -24,8 +24,10 @@ export interface GetResourcePolicyArgs {
 export interface GetResourcePolicyResult {
     /**
      * The policy document
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::ResourcePolicy` for more information about the expected schema for this property.
      */
-    readonly policyDocument?: string;
+    readonly policyDocument?: any;
 }
 /**
  * The resource schema for AWSLogs ResourcePolicy

@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Rds
     [AwsNativeResourceType("aws-native:rds:CustomDbEngineVersion")]
     public partial class CustomDbEngineVersion : global::Pulumi.CustomResource
     {
+        [Output("databaseInstallationFiles")]
+        public Output<ImmutableArray<string>> DatabaseInstallationFiles { get; private set; } = null!;
+
         /// <summary>
         /// The name of an Amazon S3 bucket that contains database installation files for your CEV. For example, a valid bucket name is ``my-custom-installation-files``.
         /// </summary>
@@ -128,6 +131,7 @@ namespace Pulumi.AwsNative.Rds
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
+                    "databaseInstallationFiles[*]",
                     "databaseInstallationFilesS3BucketName",
                     "databaseInstallationFilesS3Prefix",
                     "engine",
@@ -160,6 +164,14 @@ namespace Pulumi.AwsNative.Rds
 
     public sealed class CustomDbEngineVersionArgs : global::Pulumi.ResourceArgs
     {
+        [Input("databaseInstallationFiles")]
+        private InputList<string>? _databaseInstallationFiles;
+        public InputList<string> DatabaseInstallationFiles
+        {
+            get => _databaseInstallationFiles ?? (_databaseInstallationFiles = new InputList<string>());
+            set => _databaseInstallationFiles = value;
+        }
+
         /// <summary>
         /// The name of an Amazon S3 bucket that contains database installation files for your CEV. For example, a valid bucket name is ``my-custom-installation-files``.
         /// </summary>

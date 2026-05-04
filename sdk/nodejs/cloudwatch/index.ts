@@ -50,10 +50,20 @@ export const getMetricStream: typeof import("./getMetricStream").getMetricStream
 export const getMetricStreamOutput: typeof import("./getMetricStream").getMetricStreamOutput = null as any;
 utilities.lazyLoad(exports, ["getMetricStream","getMetricStreamOutput"], () => require("./getMetricStream"));
 
+export { GetOTelEnrichmentArgs, GetOTelEnrichmentResult, GetOTelEnrichmentOutputArgs } from "./getOTelEnrichment";
+export const getOTelEnrichment: typeof import("./getOTelEnrichment").getOTelEnrichment = null as any;
+export const getOTelEnrichmentOutput: typeof import("./getOTelEnrichment").getOTelEnrichmentOutput = null as any;
+utilities.lazyLoad(exports, ["getOTelEnrichment","getOTelEnrichmentOutput"], () => require("./getOTelEnrichment"));
+
 export { MetricStreamArgs } from "./metricStream";
 export type MetricStream = import("./metricStream").MetricStream;
 export const MetricStream: typeof import("./metricStream").MetricStream = null as any;
 utilities.lazyLoad(exports, ["MetricStream"], () => require("./metricStream"));
+
+export { OTelEnrichmentArgs } from "./otelEnrichment";
+export type OTelEnrichment = import("./otelEnrichment").OTelEnrichment;
+export const OTelEnrichment: typeof import("./otelEnrichment").OTelEnrichment = null as any;
+utilities.lazyLoad(exports, ["OTelEnrichment"], () => require("./otelEnrichment"));
 
 
 // Export enums:
@@ -73,6 +83,8 @@ const _module = {
                 return new Dashboard(name, <any>undefined, { urn })
             case "aws-native:cloudwatch:MetricStream":
                 return new MetricStream(name, <any>undefined, { urn })
+            case "aws-native:cloudwatch:OTelEnrichment":
+                return new OTelEnrichment(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

@@ -178,7 +178,6 @@ namespace Pulumi.AwsNative.Ec2
                     "remoteIpv6NetworkCidr",
                     "staticRoutesOnly",
                     "transportTransitGatewayAttachmentId",
-                    "tunnelBandwidth",
                     "tunnelInsideIpVersion",
                     "type",
                     "vpnConcentratorId",

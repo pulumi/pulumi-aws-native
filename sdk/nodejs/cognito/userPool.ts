@@ -179,6 +179,7 @@ export class UserPool extends pulumi.CustomResource {
      * Set the email message type that corresponds to your `DefaultEmailOption` selection. For `CONFIRM_WITH_LINK` , specify an `EmailMessageByLink` and leave `EmailMessage` blank. For `CONFIRM_WITH_CODE` , specify an `EmailMessage` and leave `EmailMessageByLink` blank. When you supply both parameters with either choice, Amazon Cognito returns an error.
      */
     declare public readonly verificationMessageTemplate: pulumi.Output<outputs.cognito.UserPoolVerificationMessageTemplate | undefined>;
+    declare public readonly webAuthnFactorConfiguration: pulumi.Output<enums.cognito.UserPoolWebAuthnFactorConfiguration | undefined>;
     /**
      * Sets or displays the authentication domain, typically your user pool domain, that passkey providers must use as a relying party (RP) in their configuration.
      *
@@ -232,6 +233,7 @@ export class UserPool extends pulumi.CustomResource {
             resourceInputs["usernameAttributes"] = args?.usernameAttributes;
             resourceInputs["usernameConfiguration"] = args?.usernameConfiguration;
             resourceInputs["verificationMessageTemplate"] = args?.verificationMessageTemplate;
+            resourceInputs["webAuthnFactorConfiguration"] = args?.webAuthnFactorConfiguration;
             resourceInputs["webAuthnRelyingPartyId"] = args?.webAuthnRelyingPartyId;
             resourceInputs["webAuthnUserVerification"] = args?.webAuthnUserVerification;
             resourceInputs["arn"] = undefined /*out*/;
@@ -270,6 +272,7 @@ export class UserPool extends pulumi.CustomResource {
             resourceInputs["usernameAttributes"] = undefined /*out*/;
             resourceInputs["usernameConfiguration"] = undefined /*out*/;
             resourceInputs["verificationMessageTemplate"] = undefined /*out*/;
+            resourceInputs["webAuthnFactorConfiguration"] = undefined /*out*/;
             resourceInputs["webAuthnRelyingPartyId"] = undefined /*out*/;
             resourceInputs["webAuthnUserVerification"] = undefined /*out*/;
         }
@@ -408,6 +411,7 @@ export interface UserPoolArgs {
      * Set the email message type that corresponds to your `DefaultEmailOption` selection. For `CONFIRM_WITH_LINK` , specify an `EmailMessageByLink` and leave `EmailMessage` blank. For `CONFIRM_WITH_CODE` , specify an `EmailMessage` and leave `EmailMessageByLink` blank. When you supply both parameters with either choice, Amazon Cognito returns an error.
      */
     verificationMessageTemplate?: pulumi.Input<inputs.cognito.UserPoolVerificationMessageTemplateArgs>;
+    webAuthnFactorConfiguration?: pulumi.Input<enums.cognito.UserPoolWebAuthnFactorConfiguration>;
     /**
      * Sets or displays the authentication domain, typically your user pool domain, that passkey providers must use as a relying party (RP) in their configuration.
      *

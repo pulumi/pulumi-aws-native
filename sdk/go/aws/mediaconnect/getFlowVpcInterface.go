@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -38,6 +39,8 @@ type LookupFlowVpcInterfaceResult struct {
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// Subnet must be in the AZ of the Flow
 	SubnetId *string `pulumi:"subnetId"`
+	// Key-value pairs that can be used to tag and organize this VPC network interface.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupFlowVpcInterfaceOutput(ctx *pulumi.Context, args LookupFlowVpcInterfaceOutputArgs, opts ...pulumi.InvokeOption) LookupFlowVpcInterfaceResultOutput {
@@ -92,6 +95,11 @@ func (o LookupFlowVpcInterfaceResultOutput) SecurityGroupIds() pulumi.StringArra
 // Subnet must be in the AZ of the Flow
 func (o LookupFlowVpcInterfaceResultOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFlowVpcInterfaceResult) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+}
+
+// Key-value pairs that can be used to tag and organize this VPC network interface.
+func (o LookupFlowVpcInterfaceResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupFlowVpcInterfaceResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

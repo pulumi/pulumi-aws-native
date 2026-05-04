@@ -45,6 +45,9 @@ namespace Pulumi.AwsNative.VpcLattice
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        [Output("resourceConfigDnsResolution")]
+        public Output<Pulumi.AwsNative.VpcLattice.ResourceGatewayResourceConfigDnsResolution?> ResourceConfigDnsResolution { get; private set; } = null!;
+
         /// <summary>
         /// The ID of one or more security groups to associate with the endpoint network interface.
         /// </summary>
@@ -96,6 +99,7 @@ namespace Pulumi.AwsNative.VpcLattice
                 {
                     "ipAddressType",
                     "name",
+                    "resourceConfigDnsResolution",
                     "subnetIds[*]",
                     "vpcIdentifier",
                 },
@@ -138,6 +142,9 @@ namespace Pulumi.AwsNative.VpcLattice
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("resourceConfigDnsResolution")]
+        public Input<Pulumi.AwsNative.VpcLattice.ResourceGatewayResourceConfigDnsResolution>? ResourceConfigDnsResolution { get; set; }
 
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;

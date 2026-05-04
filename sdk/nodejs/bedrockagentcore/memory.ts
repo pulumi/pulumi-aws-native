@@ -51,6 +51,7 @@ export class Memory extends pulumi.CustomResource {
      */
     declare public readonly eventExpiryDuration: pulumi.Output<number>;
     declare public /*out*/ readonly failureReason: pulumi.Output<string>;
+    declare public readonly indexedKeys: pulumi.Output<outputs.bedrockagentcore.MemoryIndexedKey[] | undefined>;
     declare public /*out*/ readonly memoryArn: pulumi.Output<string>;
     /**
      * The memory role ARN.
@@ -96,6 +97,7 @@ export class Memory extends pulumi.CustomResource {
             resourceInputs["description"] = args?.description;
             resourceInputs["encryptionKeyArn"] = args?.encryptionKeyArn;
             resourceInputs["eventExpiryDuration"] = args?.eventExpiryDuration;
+            resourceInputs["indexedKeys"] = args?.indexedKeys;
             resourceInputs["memoryExecutionRoleArn"] = args?.memoryExecutionRoleArn;
             resourceInputs["memoryStrategies"] = args?.memoryStrategies;
             resourceInputs["name"] = args?.name;
@@ -113,6 +115,7 @@ export class Memory extends pulumi.CustomResource {
             resourceInputs["encryptionKeyArn"] = undefined /*out*/;
             resourceInputs["eventExpiryDuration"] = undefined /*out*/;
             resourceInputs["failureReason"] = undefined /*out*/;
+            resourceInputs["indexedKeys"] = undefined /*out*/;
             resourceInputs["memoryArn"] = undefined /*out*/;
             resourceInputs["memoryExecutionRoleArn"] = undefined /*out*/;
             resourceInputs["memoryId"] = undefined /*out*/;
@@ -143,6 +146,7 @@ export interface MemoryArgs {
      * Duration in days until memory events expire
      */
     eventExpiryDuration: pulumi.Input<number>;
+    indexedKeys?: pulumi.Input<pulumi.Input<inputs.bedrockagentcore.MemoryIndexedKeyArgs>[]>;
     /**
      * The memory role ARN.
      */

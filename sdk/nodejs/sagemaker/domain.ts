@@ -104,7 +104,7 @@ export class Domain extends pulumi.CustomResource {
     /**
      * A list of tags to apply to the user profile.
      */
-    declare public readonly tags: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The URL to the created domain.
      */
@@ -172,7 +172,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["vpcId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["authMode", "domainName", "domainSettings.rStudioServerProDomainSettings.defaultResourceSpec", "kmsKeyId", "tags[*]"] };
+        const replaceOnChanges = { replaceOnChanges: ["authMode", "domainName", "domainSettings.rStudioServerProDomainSettings.defaultResourceSpec", "kmsKeyId"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Domain.__pulumiType, name, resourceInputs, opts);
     }
@@ -225,7 +225,7 @@ export interface DomainArgs {
     /**
      * A list of tags to apply to the user profile.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
      */

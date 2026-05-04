@@ -2764,6 +2764,139 @@ func (o DistributionCacheBehaviorArrayOutput) Index(i pulumi.IntInput) Distribut
 	}).(DistributionCacheBehaviorOutput)
 }
 
+type DistributionCacheTagConfig struct {
+	HeaderName string `pulumi:"headerName"`
+}
+
+// DistributionCacheTagConfigInput is an input type that accepts DistributionCacheTagConfigArgs and DistributionCacheTagConfigOutput values.
+// You can construct a concrete instance of `DistributionCacheTagConfigInput` via:
+//
+//	DistributionCacheTagConfigArgs{...}
+type DistributionCacheTagConfigInput interface {
+	pulumi.Input
+
+	ToDistributionCacheTagConfigOutput() DistributionCacheTagConfigOutput
+	ToDistributionCacheTagConfigOutputWithContext(context.Context) DistributionCacheTagConfigOutput
+}
+
+type DistributionCacheTagConfigArgs struct {
+	HeaderName pulumi.StringInput `pulumi:"headerName"`
+}
+
+func (DistributionCacheTagConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionCacheTagConfig)(nil)).Elem()
+}
+
+func (i DistributionCacheTagConfigArgs) ToDistributionCacheTagConfigOutput() DistributionCacheTagConfigOutput {
+	return i.ToDistributionCacheTagConfigOutputWithContext(context.Background())
+}
+
+func (i DistributionCacheTagConfigArgs) ToDistributionCacheTagConfigOutputWithContext(ctx context.Context) DistributionCacheTagConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionCacheTagConfigOutput)
+}
+
+func (i DistributionCacheTagConfigArgs) ToDistributionCacheTagConfigPtrOutput() DistributionCacheTagConfigPtrOutput {
+	return i.ToDistributionCacheTagConfigPtrOutputWithContext(context.Background())
+}
+
+func (i DistributionCacheTagConfigArgs) ToDistributionCacheTagConfigPtrOutputWithContext(ctx context.Context) DistributionCacheTagConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionCacheTagConfigOutput).ToDistributionCacheTagConfigPtrOutputWithContext(ctx)
+}
+
+// DistributionCacheTagConfigPtrInput is an input type that accepts DistributionCacheTagConfigArgs, DistributionCacheTagConfigPtr and DistributionCacheTagConfigPtrOutput values.
+// You can construct a concrete instance of `DistributionCacheTagConfigPtrInput` via:
+//
+//	        DistributionCacheTagConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type DistributionCacheTagConfigPtrInput interface {
+	pulumi.Input
+
+	ToDistributionCacheTagConfigPtrOutput() DistributionCacheTagConfigPtrOutput
+	ToDistributionCacheTagConfigPtrOutputWithContext(context.Context) DistributionCacheTagConfigPtrOutput
+}
+
+type distributionCacheTagConfigPtrType DistributionCacheTagConfigArgs
+
+func DistributionCacheTagConfigPtr(v *DistributionCacheTagConfigArgs) DistributionCacheTagConfigPtrInput {
+	return (*distributionCacheTagConfigPtrType)(v)
+}
+
+func (*distributionCacheTagConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionCacheTagConfig)(nil)).Elem()
+}
+
+func (i *distributionCacheTagConfigPtrType) ToDistributionCacheTagConfigPtrOutput() DistributionCacheTagConfigPtrOutput {
+	return i.ToDistributionCacheTagConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *distributionCacheTagConfigPtrType) ToDistributionCacheTagConfigPtrOutputWithContext(ctx context.Context) DistributionCacheTagConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionCacheTagConfigPtrOutput)
+}
+
+type DistributionCacheTagConfigOutput struct{ *pulumi.OutputState }
+
+func (DistributionCacheTagConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionCacheTagConfig)(nil)).Elem()
+}
+
+func (o DistributionCacheTagConfigOutput) ToDistributionCacheTagConfigOutput() DistributionCacheTagConfigOutput {
+	return o
+}
+
+func (o DistributionCacheTagConfigOutput) ToDistributionCacheTagConfigOutputWithContext(ctx context.Context) DistributionCacheTagConfigOutput {
+	return o
+}
+
+func (o DistributionCacheTagConfigOutput) ToDistributionCacheTagConfigPtrOutput() DistributionCacheTagConfigPtrOutput {
+	return o.ToDistributionCacheTagConfigPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionCacheTagConfigOutput) ToDistributionCacheTagConfigPtrOutputWithContext(ctx context.Context) DistributionCacheTagConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionCacheTagConfig) *DistributionCacheTagConfig {
+		return &v
+	}).(DistributionCacheTagConfigPtrOutput)
+}
+
+func (o DistributionCacheTagConfigOutput) HeaderName() pulumi.StringOutput {
+	return o.ApplyT(func(v DistributionCacheTagConfig) string { return v.HeaderName }).(pulumi.StringOutput)
+}
+
+type DistributionCacheTagConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (DistributionCacheTagConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionCacheTagConfig)(nil)).Elem()
+}
+
+func (o DistributionCacheTagConfigPtrOutput) ToDistributionCacheTagConfigPtrOutput() DistributionCacheTagConfigPtrOutput {
+	return o
+}
+
+func (o DistributionCacheTagConfigPtrOutput) ToDistributionCacheTagConfigPtrOutputWithContext(ctx context.Context) DistributionCacheTagConfigPtrOutput {
+	return o
+}
+
+func (o DistributionCacheTagConfigPtrOutput) Elem() DistributionCacheTagConfigOutput {
+	return o.ApplyT(func(v *DistributionCacheTagConfig) DistributionCacheTagConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DistributionCacheTagConfig
+		return ret
+	}).(DistributionCacheTagConfigOutput)
+}
+
+func (o DistributionCacheTagConfigPtrOutput) HeaderName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributionCacheTagConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.HeaderName
+	}).(pulumi.StringPtrOutput)
+}
+
 // A distribution configuration.
 type DistributionConfig struct {
 	// This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
@@ -2774,6 +2907,7 @@ type DistributionConfig struct {
 	AnycastIpListId *string `pulumi:"anycastIpListId"`
 	// A complex type that contains zero or more ``CacheBehavior`` elements.
 	CacheBehaviors []DistributionCacheBehavior `pulumi:"cacheBehaviors"`
+	CacheTagConfig *DistributionCacheTagConfig `pulumi:"cacheTagConfig"`
 	// An alias for the CF distribution's domain name.
 	//   This property is legacy. We recommend that you use [Aliases](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-aliases) instead.
 	Cnames []string `pulumi:"cnames"`
@@ -2876,6 +3010,7 @@ type DistributionConfigArgs struct {
 	AnycastIpListId pulumi.StringPtrInput `pulumi:"anycastIpListId"`
 	// A complex type that contains zero or more ``CacheBehavior`` elements.
 	CacheBehaviors DistributionCacheBehaviorArrayInput `pulumi:"cacheBehaviors"`
+	CacheTagConfig DistributionCacheTagConfigPtrInput  `pulumi:"cacheTagConfig"`
 	// An alias for the CF distribution's domain name.
 	//   This property is legacy. We recommend that you use [Aliases](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-aliases) instead.
 	Cnames pulumi.StringArrayInput `pulumi:"cnames"`
@@ -3001,6 +3136,10 @@ func (o DistributionConfigOutput) AnycastIpListId() pulumi.StringPtrOutput {
 // A complex type that contains zero or more “CacheBehavior“ elements.
 func (o DistributionConfigOutput) CacheBehaviors() DistributionCacheBehaviorArrayOutput {
 	return o.ApplyT(func(v DistributionConfig) []DistributionCacheBehavior { return v.CacheBehaviors }).(DistributionCacheBehaviorArrayOutput)
+}
+
+func (o DistributionConfigOutput) CacheTagConfig() DistributionCacheTagConfigPtrOutput {
+	return o.ApplyT(func(v DistributionConfig) *DistributionCacheTagConfig { return v.CacheTagConfig }).(DistributionCacheTagConfigPtrOutput)
 }
 
 // An alias for the CF distribution's domain name.
@@ -3225,6 +3364,15 @@ func (o DistributionConfigPtrOutput) CacheBehaviors() DistributionCacheBehaviorA
 		}
 		return v.CacheBehaviors
 	}).(DistributionCacheBehaviorArrayOutput)
+}
+
+func (o DistributionConfigPtrOutput) CacheTagConfig() DistributionCacheTagConfigPtrOutput {
+	return o.ApplyT(func(v *DistributionConfig) *DistributionCacheTagConfig {
+		if v == nil {
+			return nil
+		}
+		return v.CacheTagConfig
+	}).(DistributionCacheTagConfigPtrOutput)
 }
 
 // An alias for the CF distribution's domain name.
@@ -10801,6 +10949,11 @@ func (o FunctionMetadataPtrOutput) FunctionArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type FunctionTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
 // A key group configuration.
 //
 //	A key group contains a list of public keys that you can use with [CloudFront signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html).
@@ -16188,6 +16341,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ContinuousDeploymentPolicyTrafficConfigPtrInput)(nil)).Elem(), ContinuousDeploymentPolicyTrafficConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionCacheBehaviorInput)(nil)).Elem(), DistributionCacheBehaviorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionCacheBehaviorArrayInput)(nil)).Elem(), DistributionCacheBehaviorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionCacheTagConfigInput)(nil)).Elem(), DistributionCacheTagConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionCacheTagConfigPtrInput)(nil)).Elem(), DistributionCacheTagConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigInput)(nil)).Elem(), DistributionConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigTenantConfigPropertiesInput)(nil)).Elem(), DistributionConfigTenantConfigPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigTenantConfigPropertiesPtrInput)(nil)).Elem(), DistributionConfigTenantConfigPropertiesArgs{})
@@ -16354,6 +16509,8 @@ func init() {
 	pulumi.RegisterOutputType(ContinuousDeploymentPolicyTrafficConfigPtrOutput{})
 	pulumi.RegisterOutputType(DistributionCacheBehaviorOutput{})
 	pulumi.RegisterOutputType(DistributionCacheBehaviorArrayOutput{})
+	pulumi.RegisterOutputType(DistributionCacheTagConfigOutput{})
+	pulumi.RegisterOutputType(DistributionCacheTagConfigPtrOutput{})
 	pulumi.RegisterOutputType(DistributionConfigOutput{})
 	pulumi.RegisterOutputType(DistributionConfigPtrOutput{})
 	pulumi.RegisterOutputType(DistributionConfigTenantConfigPropertiesOutput{})

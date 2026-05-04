@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import outputs as _root_outputs
 from ._enums import *
 
 __all__ = [
@@ -25,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDomainResult:
-    def __init__(__self__, app_network_access_type=None, app_security_group_management=None, default_space_settings=None, default_user_settings=None, domain_arn=None, domain_id=None, domain_settings=None, home_efs_file_system_id=None, security_group_id_for_domain_boundary=None, single_sign_on_application_arn=None, single_sign_on_managed_application_instance_id=None, subnet_ids=None, tag_propagation=None, url=None, vpc_id=None):
+    def __init__(__self__, app_network_access_type=None, app_security_group_management=None, default_space_settings=None, default_user_settings=None, domain_arn=None, domain_id=None, domain_settings=None, home_efs_file_system_id=None, security_group_id_for_domain_boundary=None, single_sign_on_application_arn=None, single_sign_on_managed_application_instance_id=None, subnet_ids=None, tag_propagation=None, tags=None, url=None, vpc_id=None):
         if app_network_access_type and not isinstance(app_network_access_type, str):
             raise TypeError("Expected argument 'app_network_access_type' to be a str")
         pulumi.set(__self__, "app_network_access_type", app_network_access_type)
@@ -65,6 +66,9 @@ class GetDomainResult:
         if tag_propagation and not isinstance(tag_propagation, str):
             raise TypeError("Expected argument 'tag_propagation' to be a str")
         pulumi.set(__self__, "tag_propagation", tag_propagation)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
         if url and not isinstance(url, str):
             raise TypeError("Expected argument 'url' to be a str")
         pulumi.set(__self__, "url", url)
@@ -178,6 +182,14 @@ class GetDomainResult:
 
     @_builtins.property
     @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        A list of tags to apply to the user profile.
+        """
+        return pulumi.get(self, "tags")
+
+    @_builtins.property
+    @pulumi.getter
     def url(self) -> Optional[_builtins.str]:
         """
         The URL to the created domain.
@@ -212,6 +224,7 @@ class AwaitableGetDomainResult(GetDomainResult):
             single_sign_on_managed_application_instance_id=self.single_sign_on_managed_application_instance_id,
             subnet_ids=self.subnet_ids,
             tag_propagation=self.tag_propagation,
+            tags=self.tags,
             url=self.url,
             vpc_id=self.vpc_id)
 
@@ -243,6 +256,7 @@ def get_domain(domain_id: Optional[_builtins.str] = None,
         single_sign_on_managed_application_instance_id=pulumi.get(__ret__, 'single_sign_on_managed_application_instance_id'),
         subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
         tag_propagation=pulumi.get(__ret__, 'tag_propagation'),
+        tags=pulumi.get(__ret__, 'tags'),
         url=pulumi.get(__ret__, 'url'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
 def get_domain_output(domain_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -271,5 +285,6 @@ def get_domain_output(domain_id: Optional[pulumi.Input[_builtins.str]] = None,
         single_sign_on_managed_application_instance_id=pulumi.get(__response__, 'single_sign_on_managed_application_instance_id'),
         subnet_ids=pulumi.get(__response__, 'subnet_ids'),
         tag_propagation=pulumi.get(__response__, 'tag_propagation'),
+        tags=pulumi.get(__response__, 'tags'),
         url=pulumi.get(__response__, 'url'),
         vpc_id=pulumi.get(__response__, 'vpc_id')))

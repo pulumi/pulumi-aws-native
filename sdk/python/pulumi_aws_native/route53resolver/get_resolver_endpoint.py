@@ -26,10 +26,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetResolverEndpointResult:
-    def __init__(__self__, arn=None, host_vpc_id=None, ip_address_count=None, ip_addresses=None, name=None, protocols=None, resolver_endpoint_id=None, resolver_endpoint_type=None, rni_enhanced_metrics_enabled=None, tags=None, target_name_server_metrics_enabled=None):
+    def __init__(__self__, arn=None, dns64_enabled=None, host_vpc_id=None, ip_address_count=None, ip_addresses=None, ipv6_internet_access_enabled=None, name=None, protocols=None, resolver_endpoint_id=None, resolver_endpoint_type=None, rni_enhanced_metrics_enabled=None, tags=None, target_name_server_metrics_enabled=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if dns64_enabled and not isinstance(dns64_enabled, bool):
+            raise TypeError("Expected argument 'dns64_enabled' to be a bool")
+        pulumi.set(__self__, "dns64_enabled", dns64_enabled)
         if host_vpc_id and not isinstance(host_vpc_id, str):
             raise TypeError("Expected argument 'host_vpc_id' to be a str")
         pulumi.set(__self__, "host_vpc_id", host_vpc_id)
@@ -39,6 +42,9 @@ class GetResolverEndpointResult:
         if ip_addresses and not isinstance(ip_addresses, list):
             raise TypeError("Expected argument 'ip_addresses' to be a list")
         pulumi.set(__self__, "ip_addresses", ip_addresses)
+        if ipv6_internet_access_enabled and not isinstance(ipv6_internet_access_enabled, bool):
+            raise TypeError("Expected argument 'ipv6_internet_access_enabled' to be a bool")
+        pulumi.set(__self__, "ipv6_internet_access_enabled", ipv6_internet_access_enabled)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -70,6 +76,14 @@ class GetResolverEndpointResult:
         return pulumi.get(self, "arn")
 
     @_builtins.property
+    @pulumi.getter(name="dns64Enabled")
+    def dns64_enabled(self) -> Optional[_builtins.bool]:
+        """
+        Specifies whether DNS64 is enabled for the Inbound Resolver Endpoint. When set to true, if a DNS AAAA query is made for a domain that has only an A (IPv4) record, the resolver automatically synthesizes an AAAA (IPv6) response by embedding the IPv4 address into the well-known prefix 64:ff9b::/96. Default is false.
+        """
+        return pulumi.get(self, "dns64_enabled")
+
+    @_builtins.property
     @pulumi.getter(name="hostVpcId")
     def host_vpc_id(self) -> Optional[_builtins.str]:
         """
@@ -92,6 +106,14 @@ class GetResolverEndpointResult:
         The subnets and IP addresses in your VPC that DNS queries originate from (for outbound endpoints) or that you forward DNS queries to (for inbound endpoints). The subnet ID uniquely identifies a VPC.
         """
         return pulumi.get(self, "ip_addresses")
+
+    @_builtins.property
+    @pulumi.getter(name="ipv6InternetAccessEnabled")
+    def ipv6_internet_access_enabled(self) -> Optional[_builtins.bool]:
+        """
+        Specifies whether IPv6 Internet Gateway access is enabled through the Outbound Resolver Endpoint. When set to true, this property allows your Endpoint ENIs to reach public IPv6 target nameservers through an internet gateway. Default is false.
+        """
+        return pulumi.get(self, "ipv6_internet_access_enabled")
 
     @_builtins.property
     @pulumi.getter
@@ -157,9 +179,11 @@ class AwaitableGetResolverEndpointResult(GetResolverEndpointResult):
             yield self
         return GetResolverEndpointResult(
             arn=self.arn,
+            dns64_enabled=self.dns64_enabled,
             host_vpc_id=self.host_vpc_id,
             ip_address_count=self.ip_address_count,
             ip_addresses=self.ip_addresses,
+            ipv6_internet_access_enabled=self.ipv6_internet_access_enabled,
             name=self.name,
             protocols=self.protocols,
             resolver_endpoint_id=self.resolver_endpoint_id,
@@ -184,9 +208,11 @@ def get_resolver_endpoint(resolver_endpoint_id: Optional[_builtins.str] = None,
 
     return AwaitableGetResolverEndpointResult(
         arn=pulumi.get(__ret__, 'arn'),
+        dns64_enabled=pulumi.get(__ret__, 'dns64_enabled'),
         host_vpc_id=pulumi.get(__ret__, 'host_vpc_id'),
         ip_address_count=pulumi.get(__ret__, 'ip_address_count'),
         ip_addresses=pulumi.get(__ret__, 'ip_addresses'),
+        ipv6_internet_access_enabled=pulumi.get(__ret__, 'ipv6_internet_access_enabled'),
         name=pulumi.get(__ret__, 'name'),
         protocols=pulumi.get(__ret__, 'protocols'),
         resolver_endpoint_id=pulumi.get(__ret__, 'resolver_endpoint_id'),
@@ -208,9 +234,11 @@ def get_resolver_endpoint_output(resolver_endpoint_id: Optional[pulumi.Input[_bu
     __ret__ = pulumi.runtime.invoke_output('aws-native:route53resolver:getResolverEndpoint', __args__, opts=opts, typ=GetResolverEndpointResult)
     return __ret__.apply(lambda __response__: GetResolverEndpointResult(
         arn=pulumi.get(__response__, 'arn'),
+        dns64_enabled=pulumi.get(__response__, 'dns64_enabled'),
         host_vpc_id=pulumi.get(__response__, 'host_vpc_id'),
         ip_address_count=pulumi.get(__response__, 'ip_address_count'),
         ip_addresses=pulumi.get(__response__, 'ip_addresses'),
+        ipv6_internet_access_enabled=pulumi.get(__response__, 'ipv6_internet_access_enabled'),
         name=pulumi.get(__response__, 'name'),
         protocols=pulumi.get(__response__, 'protocols'),
         resolver_endpoint_id=pulumi.get(__response__, 'resolver_endpoint_id'),

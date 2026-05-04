@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetVpnConnectionResult:
-    def __init__(__self__, customer_gateway_id=None, tags=None, transit_gateway_id=None, vpn_connection_id=None, vpn_gateway_id=None, vpn_tunnel_options_specifications=None):
+    def __init__(__self__, customer_gateway_id=None, tags=None, transit_gateway_id=None, tunnel_bandwidth=None, vpn_connection_id=None, vpn_gateway_id=None, vpn_tunnel_options_specifications=None):
         if customer_gateway_id and not isinstance(customer_gateway_id, str):
             raise TypeError("Expected argument 'customer_gateway_id' to be a str")
         pulumi.set(__self__, "customer_gateway_id", customer_gateway_id)
@@ -36,6 +36,9 @@ class GetVpnConnectionResult:
         if transit_gateway_id and not isinstance(transit_gateway_id, str):
             raise TypeError("Expected argument 'transit_gateway_id' to be a str")
         pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
+        if tunnel_bandwidth and not isinstance(tunnel_bandwidth, str):
+            raise TypeError("Expected argument 'tunnel_bandwidth' to be a str")
+        pulumi.set(__self__, "tunnel_bandwidth", tunnel_bandwidth)
         if vpn_connection_id and not isinstance(vpn_connection_id, str):
             raise TypeError("Expected argument 'vpn_connection_id' to be a str")
         pulumi.set(__self__, "vpn_connection_id", vpn_connection_id)
@@ -72,6 +75,14 @@ class GetVpnConnectionResult:
         return pulumi.get(self, "transit_gateway_id")
 
     @_builtins.property
+    @pulumi.getter(name="tunnelBandwidth")
+    def tunnel_bandwidth(self) -> Optional['VpnConnectionTunnelBandwidth']:
+        """
+        The desired bandwidth specification for the VPN tunnel, used when creating or modifying VPN connection options to set the tunnel's throughput capacity. ``standard`` supports up to 1.25 Gbps per tunnel, while ``large`` supports up to 5 Gbps per tunnel. The default value is ``standard``. Existing VPN connections without a bandwidth setting will automatically default to ``standard``.
+        """
+        return pulumi.get(self, "tunnel_bandwidth")
+
+    @_builtins.property
     @pulumi.getter(name="vpnConnectionId")
     def vpn_connection_id(self) -> Optional[_builtins.str]:
         """
@@ -106,6 +117,7 @@ class AwaitableGetVpnConnectionResult(GetVpnConnectionResult):
             customer_gateway_id=self.customer_gateway_id,
             tags=self.tags,
             transit_gateway_id=self.transit_gateway_id,
+            tunnel_bandwidth=self.tunnel_bandwidth,
             vpn_connection_id=self.vpn_connection_id,
             vpn_gateway_id=self.vpn_gateway_id,
             vpn_tunnel_options_specifications=self.vpn_tunnel_options_specifications)
@@ -131,6 +143,7 @@ def get_vpn_connection(vpn_connection_id: Optional[_builtins.str] = None,
         customer_gateway_id=pulumi.get(__ret__, 'customer_gateway_id'),
         tags=pulumi.get(__ret__, 'tags'),
         transit_gateway_id=pulumi.get(__ret__, 'transit_gateway_id'),
+        tunnel_bandwidth=pulumi.get(__ret__, 'tunnel_bandwidth'),
         vpn_connection_id=pulumi.get(__ret__, 'vpn_connection_id'),
         vpn_gateway_id=pulumi.get(__ret__, 'vpn_gateway_id'),
         vpn_tunnel_options_specifications=pulumi.get(__ret__, 'vpn_tunnel_options_specifications'))
@@ -153,6 +166,7 @@ def get_vpn_connection_output(vpn_connection_id: Optional[pulumi.Input[_builtins
         customer_gateway_id=pulumi.get(__response__, 'customer_gateway_id'),
         tags=pulumi.get(__response__, 'tags'),
         transit_gateway_id=pulumi.get(__response__, 'transit_gateway_id'),
+        tunnel_bandwidth=pulumi.get(__response__, 'tunnel_bandwidth'),
         vpn_connection_id=pulumi.get(__response__, 'vpn_connection_id'),
         vpn_gateway_id=pulumi.get(__response__, 'vpn_gateway_id'),
         vpn_tunnel_options_specifications=pulumi.get(__response__, 'vpn_tunnel_options_specifications')))

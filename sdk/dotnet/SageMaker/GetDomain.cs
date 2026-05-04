@@ -116,6 +116,10 @@ namespace Pulumi.AwsNative.SageMaker
         /// </summary>
         public readonly Pulumi.AwsNative.SageMaker.DomainTagPropagation? TagPropagation;
         /// <summary>
+        /// A list of tags to apply to the user profile.
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
         /// The URL to the created domain.
         /// </summary>
         public readonly string? Url;
@@ -152,6 +156,8 @@ namespace Pulumi.AwsNative.SageMaker
 
             Pulumi.AwsNative.SageMaker.DomainTagPropagation? tagPropagation,
 
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
+
             string? url,
 
             string? vpcId)
@@ -169,6 +175,7 @@ namespace Pulumi.AwsNative.SageMaker
             SingleSignOnManagedApplicationInstanceId = singleSignOnManagedApplicationInstanceId;
             SubnetIds = subnetIds;
             TagPropagation = tagPropagation;
+            Tags = tags;
             Url = url;
             VpcId = vpcId;
         }

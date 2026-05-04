@@ -217,7 +217,7 @@
     "permissions" : [ "cloudfront:TagResource", "cloudfront:UntagResource", "cloudfront:ListTagsForResource" ],
     "tagOnCreate" : true,
     "tagProperty" : "/properties/Tags",
-    "tagUpdatable" : false,
+    "tagUpdatable" : true,
     "taggable" : true
   },
   "typeName" : "AWS::CloudFront::AnycastIpList"

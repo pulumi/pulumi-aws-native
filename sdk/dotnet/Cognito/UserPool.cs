@@ -219,6 +219,9 @@ namespace Pulumi.AwsNative.Cognito
         [Output("verificationMessageTemplate")]
         public Output<Outputs.UserPoolVerificationMessageTemplate?> VerificationMessageTemplate { get; private set; } = null!;
 
+        [Output("webAuthnFactorConfiguration")]
+        public Output<Pulumi.AwsNative.Cognito.UserPoolWebAuthnFactorConfiguration?> WebAuthnFactorConfiguration { get; private set; } = null!;
+
         /// <summary>
         /// Sets or displays the authentication domain, typically your user pool domain, that passkey providers must use as a relying party (RP) in their configuration.
         /// 
@@ -497,6 +500,9 @@ namespace Pulumi.AwsNative.Cognito
         /// </summary>
         [Input("verificationMessageTemplate")]
         public Input<Inputs.UserPoolVerificationMessageTemplateArgs>? VerificationMessageTemplate { get; set; }
+
+        [Input("webAuthnFactorConfiguration")]
+        public Input<Pulumi.AwsNative.Cognito.UserPoolWebAuthnFactorConfiguration>? WebAuthnFactorConfiguration { get; set; }
 
         /// <summary>
         /// Sets or displays the authentication domain, typically your user pool domain, that passkey providers must use as a relying party (RP) in their configuration.

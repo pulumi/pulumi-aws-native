@@ -49,6 +49,10 @@ export class ResolverEndpoint extends pulumi.CustomResource {
      */
     declare public readonly direction: pulumi.Output<string>;
     /**
+     * Specifies whether DNS64 is enabled for the Inbound Resolver Endpoint. When set to true, if a DNS AAAA query is made for a domain that has only an A (IPv4) record, the resolver automatically synthesizes an AAAA (IPv6) response by embedding the IPv4 address into the well-known prefix 64:ff9b::/96. Default is false.
+     */
+    declare public readonly dns64Enabled: pulumi.Output<boolean | undefined>;
+    /**
      * The ID of the VPC that you want to create the resolver endpoint in.
      */
     declare public /*out*/ readonly hostVpcId: pulumi.Output<string>;
@@ -60,6 +64,10 @@ export class ResolverEndpoint extends pulumi.CustomResource {
      * The subnets and IP addresses in your VPC that DNS queries originate from (for outbound endpoints) or that you forward DNS queries to (for inbound endpoints). The subnet ID uniquely identifies a VPC.
      */
     declare public readonly ipAddresses: pulumi.Output<outputs.route53resolver.ResolverEndpointIpAddressRequest[]>;
+    /**
+     * Specifies whether IPv6 Internet Gateway access is enabled through the Outbound Resolver Endpoint. When set to true, this property allows your Endpoint ENIs to reach public IPv6 target nameservers through an internet gateway. Default is false.
+     */
+    declare public readonly ipv6InternetAccessEnabled: pulumi.Output<boolean | undefined>;
     /**
      * A friendly name that lets you easily find a configuration in the Resolver dashboard in the Route 53 console.
      */
@@ -122,7 +130,9 @@ export class ResolverEndpoint extends pulumi.CustomResource {
                 throw new Error("Missing required property 'securityGroupIds'");
             }
             resourceInputs["direction"] = args?.direction;
+            resourceInputs["dns64Enabled"] = args?.dns64Enabled;
             resourceInputs["ipAddresses"] = args?.ipAddresses;
+            resourceInputs["ipv6InternetAccessEnabled"] = args?.ipv6InternetAccessEnabled;
             resourceInputs["name"] = args?.name;
             resourceInputs["outpostArn"] = args?.outpostArn;
             resourceInputs["preferredInstanceType"] = args?.preferredInstanceType;
@@ -139,9 +149,11 @@ export class ResolverEndpoint extends pulumi.CustomResource {
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["direction"] = undefined /*out*/;
+            resourceInputs["dns64Enabled"] = undefined /*out*/;
             resourceInputs["hostVpcId"] = undefined /*out*/;
             resourceInputs["ipAddressCount"] = undefined /*out*/;
             resourceInputs["ipAddresses"] = undefined /*out*/;
+            resourceInputs["ipv6InternetAccessEnabled"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["outpostArn"] = undefined /*out*/;
             resourceInputs["preferredInstanceType"] = undefined /*out*/;
@@ -172,9 +184,17 @@ export interface ResolverEndpointArgs {
      */
     direction: pulumi.Input<string>;
     /**
+     * Specifies whether DNS64 is enabled for the Inbound Resolver Endpoint. When set to true, if a DNS AAAA query is made for a domain that has only an A (IPv4) record, the resolver automatically synthesizes an AAAA (IPv6) response by embedding the IPv4 address into the well-known prefix 64:ff9b::/96. Default is false.
+     */
+    dns64Enabled?: pulumi.Input<boolean>;
+    /**
      * The subnets and IP addresses in your VPC that DNS queries originate from (for outbound endpoints) or that you forward DNS queries to (for inbound endpoints). The subnet ID uniquely identifies a VPC.
      */
     ipAddresses: pulumi.Input<pulumi.Input<inputs.route53resolver.ResolverEndpointIpAddressRequestArgs>[]>;
+    /**
+     * Specifies whether IPv6 Internet Gateway access is enabled through the Outbound Resolver Endpoint. When set to true, this property allows your Endpoint ENIs to reach public IPv6 target nameservers through an internet gateway. Default is false.
+     */
+    ipv6InternetAccessEnabled?: pulumi.Input<boolean>;
     /**
      * A friendly name that lets you easily find a configuration in the Resolver dashboard in the Route 53 console.
      */

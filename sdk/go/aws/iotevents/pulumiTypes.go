@@ -1670,17 +1670,17 @@ type AlarmModelDynamoDb struct {
 	// The name of the hash key (also called the partition key). The ``hashKeyField`` value must match the partition key of the target DynamoDB table.
 	HashKeyField string `pulumi:"hashKeyField"`
 	// The data type for the hash key (also called the partition key). You can specify the following values:
-	//   +   ``'STRING'`` - The hash key is a string.
-	//   +   ``'NUMBER'`` - The hash key is a number.
+	//   +  ``'STRING'`` - The hash key is a string.
+	//   +  ``'NUMBER'`` - The hash key is a number.
 	//
 	//  If you don't specify ``hashKeyType``, the default value is ``'STRING'``.
 	HashKeyType *string `pulumi:"hashKeyType"`
 	// The value of the hash key (also called the partition key).
 	HashKeyValue string `pulumi:"hashKeyValue"`
 	// The type of operation to perform. You can specify the following values:
-	//   +   ``'INSERT'`` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
-	//   +   ``'UPDATE'`` - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
-	//   +   ``'DELETE'`` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
+	//   +  ``'INSERT'`` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
+	//   +  ``'UPDATE'`` - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
+	//   +  ``'DELETE'`` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
 	//
 	//  If you don't specify this parameter, ITE triggers the ``'INSERT'`` operation.
 	Operation *string `pulumi:"operation"`
@@ -1693,8 +1693,8 @@ type AlarmModelDynamoDb struct {
 	// The name of the range key (also called the sort key). The ``rangeKeyField`` value must match the sort key of the target DynamoDB table.
 	RangeKeyField *string `pulumi:"rangeKeyField"`
 	// The data type for the range key (also called the sort key), You can specify the following values:
-	//   +   ``'STRING'`` - The range key is a string.
-	//   +   ``'NUMBER'`` - The range key is number.
+	//   +  ``'STRING'`` - The range key is a string.
+	//   +  ``'NUMBER'`` - The range key is number.
 	//
 	//  If you don't specify ``rangeKeyField``, the default value is ``'STRING'``.
 	RangeKeyType *string `pulumi:"rangeKeyType"`
@@ -1734,17 +1734,17 @@ type AlarmModelDynamoDbArgs struct {
 	// The name of the hash key (also called the partition key). The ``hashKeyField`` value must match the partition key of the target DynamoDB table.
 	HashKeyField pulumi.StringInput `pulumi:"hashKeyField"`
 	// The data type for the hash key (also called the partition key). You can specify the following values:
-	//   +   ``'STRING'`` - The hash key is a string.
-	//   +   ``'NUMBER'`` - The hash key is a number.
+	//   +  ``'STRING'`` - The hash key is a string.
+	//   +  ``'NUMBER'`` - The hash key is a number.
 	//
 	//  If you don't specify ``hashKeyType``, the default value is ``'STRING'``.
 	HashKeyType pulumi.StringPtrInput `pulumi:"hashKeyType"`
 	// The value of the hash key (also called the partition key).
 	HashKeyValue pulumi.StringInput `pulumi:"hashKeyValue"`
 	// The type of operation to perform. You can specify the following values:
-	//   +   ``'INSERT'`` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
-	//   +   ``'UPDATE'`` - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
-	//   +   ``'DELETE'`` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
+	//   +  ``'INSERT'`` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
+	//   +  ``'UPDATE'`` - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
+	//   +  ``'DELETE'`` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
 	//
 	//  If you don't specify this parameter, ITE triggers the ``'INSERT'`` operation.
 	Operation pulumi.StringPtrInput `pulumi:"operation"`
@@ -1757,8 +1757,8 @@ type AlarmModelDynamoDbArgs struct {
 	// The name of the range key (also called the sort key). The ``rangeKeyField`` value must match the sort key of the target DynamoDB table.
 	RangeKeyField pulumi.StringPtrInput `pulumi:"rangeKeyField"`
 	// The data type for the range key (also called the sort key), You can specify the following values:
-	//   +   ``'STRING'`` - The range key is a string.
-	//   +   ``'NUMBER'`` - The range key is number.
+	//   +  ``'STRING'`` - The range key is a string.
+	//   +  ``'NUMBER'`` - The range key is number.
 	//
 	//  If you don't specify ``rangeKeyField``, the default value is ``'STRING'``.
 	RangeKeyType pulumi.StringPtrInput `pulumi:"rangeKeyType"`
@@ -5114,17 +5114,17 @@ type DetectorModelDynamoDb struct {
 	// The name of the hash key (also called the partition key). The ``hashKeyField`` value must match the partition key of the target DynamoDB table.
 	HashKeyField string `pulumi:"hashKeyField"`
 	// The data type for the hash key (also called the partition key). You can specify the following values:
-	//   +   ``'STRING'`` - The hash key is a string.
-	//   +   ``'NUMBER'`` - The hash key is a number.
+	//   +  ``'STRING'`` - The hash key is a string.
+	//   +  ``'NUMBER'`` - The hash key is a number.
 	//
 	//  If you don't specify ``hashKeyType``, the default value is ``'STRING'``.
 	HashKeyType *string `pulumi:"hashKeyType"`
 	// The value of the hash key (also called the partition key).
 	HashKeyValue string `pulumi:"hashKeyValue"`
 	// The type of operation to perform. You can specify the following values:
-	//   +   ``'INSERT'`` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
-	//   +   ``'UPDATE'`` - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
-	//   +   ``'DELETE'`` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
+	//   +  ``'INSERT'`` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
+	//   +  ``'UPDATE'`` - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
+	//   +  ``'DELETE'`` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
 	//
 	//  If you don't specify this parameter, ITE triggers the ``'INSERT'`` operation.
 	Operation *string `pulumi:"operation"`
@@ -5137,8 +5137,8 @@ type DetectorModelDynamoDb struct {
 	// The name of the range key (also called the sort key). The ``rangeKeyField`` value must match the sort key of the target DynamoDB table.
 	RangeKeyField *string `pulumi:"rangeKeyField"`
 	// The data type for the range key (also called the sort key), You can specify the following values:
-	//   +   ``'STRING'`` - The range key is a string.
-	//   +   ``'NUMBER'`` - The range key is number.
+	//   +  ``'STRING'`` - The range key is a string.
+	//   +  ``'NUMBER'`` - The range key is number.
 	//
 	//  If you don't specify ``rangeKeyField``, the default value is ``'STRING'``.
 	RangeKeyType *string `pulumi:"rangeKeyType"`
@@ -5178,17 +5178,17 @@ type DetectorModelDynamoDbArgs struct {
 	// The name of the hash key (also called the partition key). The ``hashKeyField`` value must match the partition key of the target DynamoDB table.
 	HashKeyField pulumi.StringInput `pulumi:"hashKeyField"`
 	// The data type for the hash key (also called the partition key). You can specify the following values:
-	//   +   ``'STRING'`` - The hash key is a string.
-	//   +   ``'NUMBER'`` - The hash key is a number.
+	//   +  ``'STRING'`` - The hash key is a string.
+	//   +  ``'NUMBER'`` - The hash key is a number.
 	//
 	//  If you don't specify ``hashKeyType``, the default value is ``'STRING'``.
 	HashKeyType pulumi.StringPtrInput `pulumi:"hashKeyType"`
 	// The value of the hash key (also called the partition key).
 	HashKeyValue pulumi.StringInput `pulumi:"hashKeyValue"`
 	// The type of operation to perform. You can specify the following values:
-	//   +   ``'INSERT'`` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
-	//   +   ``'UPDATE'`` - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
-	//   +   ``'DELETE'`` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
+	//   +  ``'INSERT'`` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
+	//   +  ``'UPDATE'`` - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
+	//   +  ``'DELETE'`` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
 	//
 	//  If you don't specify this parameter, ITE triggers the ``'INSERT'`` operation.
 	Operation pulumi.StringPtrInput `pulumi:"operation"`
@@ -5201,8 +5201,8 @@ type DetectorModelDynamoDbArgs struct {
 	// The name of the range key (also called the sort key). The ``rangeKeyField`` value must match the sort key of the target DynamoDB table.
 	RangeKeyField pulumi.StringPtrInput `pulumi:"rangeKeyField"`
 	// The data type for the range key (also called the sort key), You can specify the following values:
-	//   +   ``'STRING'`` - The range key is a string.
-	//   +   ``'NUMBER'`` - The range key is number.
+	//   +  ``'STRING'`` - The range key is a string.
+	//   +  ``'NUMBER'`` - The range key is number.
 	//
 	//  If you don't specify ``rangeKeyField``, the default value is ``'STRING'``.
 	RangeKeyType pulumi.StringPtrInput `pulumi:"rangeKeyType"`

@@ -14,6 +14,7 @@ __all__ = [
     'TermsSourceType',
     'UserPoolClientRefreshTokenRotationFeature',
     'UserPoolTier',
+    'UserPoolWebAuthnFactorConfiguration',
 ]
 
 
@@ -79,3 +80,9 @@ class UserPoolTier(_builtins.str, Enum):
     LITE = "LITE"
     ESSENTIALS = "ESSENTIALS"
     PLUS = "PLUS"
+
+
+@pulumi.type_token("aws-native:cognito:UserPoolWebAuthnFactorConfiguration")
+class UserPoolWebAuthnFactorConfiguration(_builtins.str, Enum):
+    SINGLE_FACTOR = "SINGLE_FACTOR"
+    MULTI_FACTOR_WITH_USER_VERIFICATION = "MULTI_FACTOR_WITH_USER_VERIFICATION"

@@ -13,15 +13,19 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
     [OutputType]
     public sealed class MemoryEpisodicReflectionConfigurationInput
     {
+        public readonly Outputs.MemoryRecordSchema? MemoryRecordSchema;
         public readonly ImmutableArray<string> NamespaceTemplates;
         public readonly ImmutableArray<string> Namespaces;
 
         [OutputConstructor]
         private MemoryEpisodicReflectionConfigurationInput(
+            Outputs.MemoryRecordSchema? memoryRecordSchema,
+
             ImmutableArray<string> namespaceTemplates,
 
             ImmutableArray<string> namespaces)
         {
+            MemoryRecordSchema = memoryRecordSchema;
             NamespaceTemplates = namespaceTemplates;
             Namespaces = namespaces;
         }

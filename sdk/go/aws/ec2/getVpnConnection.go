@@ -40,6 +40,8 @@ type LookupVpnConnectionResult struct {
 	// The ID of the transit gateway associated with the VPN connection.
 	//  You must specify either ``TransitGatewayId`` or ``VpnGatewayId``, but not both.
 	TransitGatewayId *string `pulumi:"transitGatewayId"`
+	// The desired bandwidth specification for the VPN tunnel, used when creating or modifying VPN connection options to set the tunnel's throughput capacity. ``standard`` supports up to 1.25 Gbps per tunnel, while ``large`` supports up to 5 Gbps per tunnel. The default value is ``standard``. Existing VPN connections without a bandwidth setting will automatically default to ``standard``.
+	TunnelBandwidth *VpnConnectionTunnelBandwidth `pulumi:"tunnelBandwidth"`
 	// The ID of the VPN connection.
 	VpnConnectionId *string `pulumi:"vpnConnectionId"`
 	// The ID of the virtual private gateway at the AWS side of the VPN connection.
@@ -96,6 +98,11 @@ func (o LookupVpnConnectionResultOutput) Tags() aws.TagArrayOutput {
 //	You must specify either ``TransitGatewayId`` or ``VpnGatewayId``, but not both.
 func (o LookupVpnConnectionResultOutput) TransitGatewayId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVpnConnectionResult) *string { return v.TransitGatewayId }).(pulumi.StringPtrOutput)
+}
+
+// The desired bandwidth specification for the VPN tunnel, used when creating or modifying VPN connection options to set the tunnel's throughput capacity. “standard“ supports up to 1.25 Gbps per tunnel, while “large“ supports up to 5 Gbps per tunnel. The default value is “standard“. Existing VPN connections without a bandwidth setting will automatically default to “standard“.
+func (o LookupVpnConnectionResultOutput) TunnelBandwidth() VpnConnectionTunnelBandwidthPtrOutput {
+	return o.ApplyT(func(v LookupVpnConnectionResult) *VpnConnectionTunnelBandwidth { return v.TunnelBandwidth }).(VpnConnectionTunnelBandwidthPtrOutput)
 }
 
 // The ID of the VPN connection.

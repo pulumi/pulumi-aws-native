@@ -16,6 +16,7 @@ __all__ = [
     'ResourceConfigurationProtocolType',
     'ResourceConfigurationType',
     'ResourceGatewayIpAddressType',
+    'ResourceGatewayResourceConfigDnsResolution',
     'RuleHttpMatchMethod',
     'ServiceAuthType',
     'ServiceNetworkAuthType',
@@ -48,8 +49,8 @@ class AuthPolicyState(_builtins.str, Enum):
     """
     The state of the auth policy. The auth policy is only active when the auth type is set to `AWS _IAM` . If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the auth type is `NONE` , then any auth policy you provide will remain inactive.
     """
-    ACTIVE = "ACTIVE"
-    INACTIVE = "INACTIVE"
+    ACTIVE = "Active"
+    INACTIVE = "Inactive"
 
 
 @pulumi.type_token("aws-native:vpclattice:DomainVerificationStatus")
@@ -120,6 +121,12 @@ class ResourceGatewayIpAddressType(_builtins.str, Enum):
     IPV4 = "IPV4"
     IPV6 = "IPV6"
     DUALSTACK = "DUALSTACK"
+
+
+@pulumi.type_token("aws-native:vpclattice:ResourceGatewayResourceConfigDnsResolution")
+class ResourceGatewayResourceConfigDnsResolution(_builtins.str, Enum):
+    IN_VPC = "IN_VPC"
+    PUBLIC = "PUBLIC"
 
 
 @pulumi.type_token("aws-native:vpclattice:RuleHttpMatchMethod")

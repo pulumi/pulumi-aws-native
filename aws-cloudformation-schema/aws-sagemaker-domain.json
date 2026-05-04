@@ -690,7 +690,7 @@
           "description" : "The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.",
           "uniqueItems" : false,
           "insertionOrder" : false,
-          "minItems" : 1,
+          "minItems" : 0,
           "maxItems" : 3,
           "items" : {
             "type" : "string",
@@ -950,26 +950,33 @@
     }
   },
   "required" : [ "AuthMode", "DefaultUserSettings", "DomainName" ],
-  "createOnlyProperties" : [ "/properties/AuthMode", "/properties/DomainName", "/properties/DomainSettings/RStudioServerProDomainSettings/DefaultResourceSpec", "/properties/KmsKeyId", "/properties/Tags" ],
+  "createOnlyProperties" : [ "/properties/AuthMode", "/properties/DomainName", "/properties/DomainSettings/RStudioServerProDomainSettings/DefaultResourceSpec", "/properties/KmsKeyId" ],
   "conditionalCreateOnlyProperties" : [ "/properties/VpcId" ],
-  "writeOnlyProperties" : [ "/properties/Tags" ],
   "primaryIdentifier" : [ "/properties/DomainId" ],
   "readOnlyProperties" : [ "/properties/DomainArn", "/properties/Url", "/properties/DomainId", "/properties/HomeEfsFileSystemId", "/properties/SecurityGroupIdForDomainBoundary", "/properties/SingleSignOnManagedApplicationInstanceId", "/properties/SingleSignOnApplicationArn" ],
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "sagemaker:AddTags", "sagemaker:ListTags", "sagemaker:DeleteTags" ]
+  },
   "handlers" : {
     "create" : {
-      "permissions" : [ "sagemaker:CreateApp", "sagemaker:CreateDomain", "sagemaker:DescribeDomain", "sagemaker:DescribeImage", "sagemaker:DescribeImageVersion", "iam:CreateServiceLinkedRole", "iam:PassRole", "efs:CreateFileSystem", "kms:CreateGrant", "kms:Decrypt", "kms:DescribeKey", "kms:GenerateDataKeyWithoutPlainText" ]
+      "permissions" : [ "sagemaker:CreateApp", "sagemaker:CreateDomain", "sagemaker:DescribeDomain", "sagemaker:DescribeImage", "sagemaker:DescribeImageVersion", "iam:CreateServiceLinkedRole", "iam:PassRole", "efs:CreateFileSystem", "kms:CreateGrant", "kms:Decrypt", "kms:DescribeKey", "kms:GenerateDataKeyWithoutPlainText", "sagemaker:AddTags", "sagemaker:DeleteTags", "sagemaker:ListTags" ]
     },
     "read" : {
-      "permissions" : [ "sagemaker:DescribeDomain" ]
+      "permissions" : [ "sagemaker:DescribeDomain", "sagemaker:DescribeApp", "sagemaker:DescribeUserProfile", "sagemaker:DescribeImage", "sagemaker:DescribeImageVersion", "sagemaker:ListTags" ]
     },
     "update" : {
-      "permissions" : [ "sagemaker:CreateApp", "sagemaker:UpdateDomain", "sagemaker:DescribeDomain", "sagemaker:DescribeImage", "sagemaker:DescribeImageVersion", "iam:PassRole" ]
+      "permissions" : [ "sagemaker:CreateApp", "sagemaker:UpdateDomain", "sagemaker:DescribeDomain", "sagemaker:DescribeImage", "sagemaker:DescribeImageVersion", "iam:PassRole", "sagemaker:AddTags", "sagemaker:DeleteTags", "sagemaker:ListTags" ]
     },
     "delete" : {
-      "permissions" : [ "sagemaker:DeleteApp", "sagemaker:DeleteDomain", "sagemaker:DescribeDomain" ]
+      "permissions" : [ "sagemaker:DeleteApp", "sagemaker:DeleteDomain", "sagemaker:DescribeDomain", "sagemaker:AddTags", "sagemaker:DeleteTags", "sagemaker:ListTags", "efs:DescribeMountTargets", "efs:DeleteMountTarget", "efs:DeleteFileSystem" ]
     },
     "list" : {
-      "permissions" : [ "sagemaker:ListDomains" ]
+      "permissions" : [ "sagemaker:ListDomains", "sagemaker:ListTags" ]
     }
   }
 }

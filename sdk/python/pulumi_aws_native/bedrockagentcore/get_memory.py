@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetMemoryResult:
-    def __init__(__self__, created_at=None, description=None, event_expiry_duration=None, failure_reason=None, memory_arn=None, memory_execution_role_arn=None, memory_id=None, memory_strategies=None, status=None, stream_delivery_resources=None, tags=None, updated_at=None):
+    def __init__(__self__, created_at=None, description=None, event_expiry_duration=None, failure_reason=None, indexed_keys=None, memory_arn=None, memory_execution_role_arn=None, memory_id=None, memory_strategies=None, status=None, stream_delivery_resources=None, tags=None, updated_at=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -38,6 +38,9 @@ class GetMemoryResult:
         if failure_reason and not isinstance(failure_reason, str):
             raise TypeError("Expected argument 'failure_reason' to be a str")
         pulumi.set(__self__, "failure_reason", failure_reason)
+        if indexed_keys and not isinstance(indexed_keys, list):
+            raise TypeError("Expected argument 'indexed_keys' to be a list")
+        pulumi.set(__self__, "indexed_keys", indexed_keys)
         if memory_arn and not isinstance(memory_arn, str):
             raise TypeError("Expected argument 'memory_arn' to be a str")
         pulumi.set(__self__, "memory_arn", memory_arn)
@@ -88,6 +91,11 @@ class GetMemoryResult:
     @pulumi.getter(name="failureReason")
     def failure_reason(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "failure_reason")
+
+    @_builtins.property
+    @pulumi.getter(name="indexedKeys")
+    def indexed_keys(self) -> Optional[Sequence['outputs.MemoryIndexedKey']]:
+        return pulumi.get(self, "indexed_keys")
 
     @_builtins.property
     @pulumi.getter(name="memoryArn")
@@ -155,6 +163,7 @@ class AwaitableGetMemoryResult(GetMemoryResult):
             description=self.description,
             event_expiry_duration=self.event_expiry_duration,
             failure_reason=self.failure_reason,
+            indexed_keys=self.indexed_keys,
             memory_arn=self.memory_arn,
             memory_execution_role_arn=self.memory_execution_role_arn,
             memory_id=self.memory_id,
@@ -180,6 +189,7 @@ def get_memory(memory_arn: Optional[_builtins.str] = None,
         description=pulumi.get(__ret__, 'description'),
         event_expiry_duration=pulumi.get(__ret__, 'event_expiry_duration'),
         failure_reason=pulumi.get(__ret__, 'failure_reason'),
+        indexed_keys=pulumi.get(__ret__, 'indexed_keys'),
         memory_arn=pulumi.get(__ret__, 'memory_arn'),
         memory_execution_role_arn=pulumi.get(__ret__, 'memory_execution_role_arn'),
         memory_id=pulumi.get(__ret__, 'memory_id'),
@@ -202,6 +212,7 @@ def get_memory_output(memory_arn: Optional[pulumi.Input[_builtins.str]] = None,
         description=pulumi.get(__response__, 'description'),
         event_expiry_duration=pulumi.get(__response__, 'event_expiry_duration'),
         failure_reason=pulumi.get(__response__, 'failure_reason'),
+        indexed_keys=pulumi.get(__response__, 'indexed_keys'),
         memory_arn=pulumi.get(__response__, 'memory_arn'),
         memory_execution_role_arn=pulumi.get(__response__, 'memory_execution_role_arn'),
         memory_id=pulumi.get(__response__, 'memory_id'),

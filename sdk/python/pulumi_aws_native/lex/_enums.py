@@ -107,6 +107,7 @@ class BotSpeechModelPreference(_builtins.str, Enum):
     STANDARD = "Standard"
     NEURAL = "Neural"
     DEEPGRAM = "Deepgram"
+    ENHANCED = "Enhanced"
 
 
 @pulumi.type_token("aws-native:lex:BotVoiceSettingsEngine")

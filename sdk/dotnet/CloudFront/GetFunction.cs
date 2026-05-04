@@ -110,6 +110,7 @@ namespace Pulumi.AwsNative.CloudFront
         /// </summary>
         public readonly Outputs.FunctionMetadata? FunctionMetadata;
         public readonly string? Stage;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetFunctionResult(
@@ -121,13 +122,16 @@ namespace Pulumi.AwsNative.CloudFront
 
             Outputs.FunctionMetadata? functionMetadata,
 
-            string? stage)
+            string? stage,
+
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             FunctionArn = functionArn;
             FunctionCode = functionCode;
             FunctionConfig = functionConfig;
             FunctionMetadata = functionMetadata;
             Stage = stage;
+            Tags = tags;
         }
     }
 }

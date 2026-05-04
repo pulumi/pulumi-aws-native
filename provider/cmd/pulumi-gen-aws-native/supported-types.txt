@@ -240,6 +240,7 @@ AWS::CloudWatch::AlarmMuteRule
 AWS::CloudWatch::CompositeAlarm
 AWS::CloudWatch::Dashboard
 AWS::CloudWatch::MetricStream
+AWS::CloudWatch::OTelEnrichment
 AWS::CodeArtifact::Domain
 AWS::CodeArtifact::PackageGroup
 AWS::CodeArtifact::Repository

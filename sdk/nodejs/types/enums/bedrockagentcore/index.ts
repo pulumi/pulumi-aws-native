@@ -2,6 +2,16 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const BrowserCustomBrowserEnterprisePolicyType = {
+    Managed: "MANAGED",
+    Recommended: "RECOMMENDED",
+} as const;
+
+/**
+ * The type of browser enterprise policy.
+ */
+export type BrowserCustomBrowserEnterprisePolicyType = (typeof BrowserCustomBrowserEnterprisePolicyType)[keyof typeof BrowserCustomBrowserEnterprisePolicyType];
+
 export const BrowserCustomBrowserNetworkMode = {
     Public: "PUBLIC",
     Vpc: "VPC",
@@ -284,6 +294,17 @@ export const MemoryEpisodicMemoryStrategyType = {
  */
 export type MemoryEpisodicMemoryStrategyType = (typeof MemoryEpisodicMemoryStrategyType)[keyof typeof MemoryEpisodicMemoryStrategyType];
 
+export const MemoryMetadataValueType = {
+    String: "STRING",
+    Stringlist: "STRINGLIST",
+    Number: "NUMBER",
+} as const;
+
+/**
+ * Supported data types for metadata values
+ */
+export type MemoryMetadataValueType = (typeof MemoryMetadataValueType)[keyof typeof MemoryMetadataValueType];
+
 export const MemorySemanticMemoryStrategyStatus = {
     Creating: "CREATING",
     Active: "ACTIVE",
@@ -478,6 +499,7 @@ export const RuntimeAgentManagedRuntimeType = {
     Python312: "PYTHON_3_12",
     Python313: "PYTHON_3_13",
     Python314: "PYTHON_3_14",
+    Node22: "NODE_22",
 } as const;
 
 /**

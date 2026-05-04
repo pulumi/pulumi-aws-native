@@ -24,7 +24,9 @@ class BrowserCustomArgs:
     def __init__(__self__, *,
                  network_configuration: pulumi.Input['BrowserCustomBrowserNetworkConfigurationArgs'],
                  browser_signing: Optional[pulumi.Input['BrowserCustomBrowserSigningArgs']] = None,
+                 certificates: Optional[pulumi.Input[Sequence[pulumi.Input['BrowserCustomCertificateArgs']]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 enterprise_policies: Optional[pulumi.Input[Sequence[pulumi.Input['BrowserCustomBrowserEnterprisePolicyArgs']]]] = None,
                  execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  recording_config: Optional[pulumi.Input['BrowserCustomRecordingConfigArgs']] = None,
@@ -34,7 +36,9 @@ class BrowserCustomArgs:
 
         :param pulumi.Input['BrowserCustomBrowserNetworkConfigurationArgs'] network_configuration: Network configuration for browser.
         :param pulumi.Input['BrowserCustomBrowserSigningArgs'] browser_signing: Browser signing configuration.
+        :param pulumi.Input[Sequence[pulumi.Input['BrowserCustomCertificateArgs']]] certificates: List of root CA certificates in PEM format.
         :param pulumi.Input[_builtins.str] description: The description of the browser.
+        :param pulumi.Input[Sequence[pulumi.Input['BrowserCustomBrowserEnterprisePolicyArgs']]] enterprise_policies: A list of enterprise policy files for the browser.
         :param pulumi.Input[_builtins.str] execution_role_arn: The Amazon Resource Name (ARN) of the IAM role that the browser uses to access resources.
         :param pulumi.Input[_builtins.str] name: The name of the browser.
         :param pulumi.Input['BrowserCustomRecordingConfigArgs'] recording_config: Recording configuration for browser.
@@ -43,8 +47,12 @@ class BrowserCustomArgs:
         pulumi.set(__self__, "network_configuration", network_configuration)
         if browser_signing is not None:
             pulumi.set(__self__, "browser_signing", browser_signing)
+        if certificates is not None:
+            pulumi.set(__self__, "certificates", certificates)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if enterprise_policies is not None:
+            pulumi.set(__self__, "enterprise_policies", enterprise_policies)
         if execution_role_arn is not None:
             pulumi.set(__self__, "execution_role_arn", execution_role_arn)
         if name is not None:
@@ -80,6 +88,18 @@ class BrowserCustomArgs:
 
     @_builtins.property
     @pulumi.getter
+    def certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BrowserCustomCertificateArgs']]]]:
+        """
+        List of root CA certificates in PEM format.
+        """
+        return pulumi.get(self, "certificates")
+
+    @certificates.setter
+    def certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BrowserCustomCertificateArgs']]]]):
+        pulumi.set(self, "certificates", value)
+
+    @_builtins.property
+    @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The description of the browser.
@@ -89,6 +109,18 @@ class BrowserCustomArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="enterprisePolicies")
+    def enterprise_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BrowserCustomBrowserEnterprisePolicyArgs']]]]:
+        """
+        A list of enterprise policy files for the browser.
+        """
+        return pulumi.get(self, "enterprise_policies")
+
+    @enterprise_policies.setter
+    def enterprise_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BrowserCustomBrowserEnterprisePolicyArgs']]]]):
+        pulumi.set(self, "enterprise_policies", value)
 
     @_builtins.property
     @pulumi.getter(name="executionRoleArn")
@@ -146,7 +178,9 @@ class BrowserCustom(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  browser_signing: Optional[pulumi.Input[Union['BrowserCustomBrowserSigningArgs', 'BrowserCustomBrowserSigningArgsDict']]] = None,
+                 certificates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BrowserCustomCertificateArgs', 'BrowserCustomCertificateArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 enterprise_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BrowserCustomBrowserEnterprisePolicyArgs', 'BrowserCustomBrowserEnterprisePolicyArgsDict']]]]] = None,
                  execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  network_configuration: Optional[pulumi.Input[Union['BrowserCustomBrowserNetworkConfigurationArgs', 'BrowserCustomBrowserNetworkConfigurationArgsDict']]] = None,
@@ -160,7 +194,9 @@ class BrowserCustom(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['BrowserCustomBrowserSigningArgs', 'BrowserCustomBrowserSigningArgsDict']] browser_signing: Browser signing configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BrowserCustomCertificateArgs', 'BrowserCustomCertificateArgsDict']]]] certificates: List of root CA certificates in PEM format.
         :param pulumi.Input[_builtins.str] description: The description of the browser.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BrowserCustomBrowserEnterprisePolicyArgs', 'BrowserCustomBrowserEnterprisePolicyArgsDict']]]] enterprise_policies: A list of enterprise policy files for the browser.
         :param pulumi.Input[_builtins.str] execution_role_arn: The Amazon Resource Name (ARN) of the IAM role that the browser uses to access resources.
         :param pulumi.Input[_builtins.str] name: The name of the browser.
         :param pulumi.Input[Union['BrowserCustomBrowserNetworkConfigurationArgs', 'BrowserCustomBrowserNetworkConfigurationArgsDict']] network_configuration: Network configuration for browser.
@@ -193,7 +229,9 @@ class BrowserCustom(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  browser_signing: Optional[pulumi.Input[Union['BrowserCustomBrowserSigningArgs', 'BrowserCustomBrowserSigningArgsDict']]] = None,
+                 certificates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BrowserCustomCertificateArgs', 'BrowserCustomCertificateArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 enterprise_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BrowserCustomBrowserEnterprisePolicyArgs', 'BrowserCustomBrowserEnterprisePolicyArgsDict']]]]] = None,
                  execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  network_configuration: Optional[pulumi.Input[Union['BrowserCustomBrowserNetworkConfigurationArgs', 'BrowserCustomBrowserNetworkConfigurationArgsDict']]] = None,
@@ -209,7 +247,9 @@ class BrowserCustom(pulumi.CustomResource):
             __props__ = BrowserCustomArgs.__new__(BrowserCustomArgs)
 
             __props__.__dict__["browser_signing"] = browser_signing
+            __props__.__dict__["certificates"] = certificates
             __props__.__dict__["description"] = description
+            __props__.__dict__["enterprise_policies"] = enterprise_policies
             __props__.__dict__["execution_role_arn"] = execution_role_arn
             __props__.__dict__["name"] = name
             if network_configuration is None and not opts.urn:
@@ -223,7 +263,7 @@ class BrowserCustom(pulumi.CustomResource):
             __props__.__dict__["failure_reason"] = None
             __props__.__dict__["last_updated_at"] = None
             __props__.__dict__["status"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["browserSigning", "description", "executionRoleArn", "name", "networkConfiguration", "recordingConfig"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["browserSigning", "certificates[*]", "description", "enterprisePolicies[*]", "executionRoleArn", "name", "networkConfiguration", "recordingConfig"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(BrowserCustom, __self__).__init__(
             'aws-native:bedrockagentcore:BrowserCustom',
@@ -250,8 +290,10 @@ class BrowserCustom(pulumi.CustomResource):
         __props__.__dict__["browser_arn"] = None
         __props__.__dict__["browser_id"] = None
         __props__.__dict__["browser_signing"] = None
+        __props__.__dict__["certificates"] = None
         __props__.__dict__["created_at"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["enterprise_policies"] = None
         __props__.__dict__["execution_role_arn"] = None
         __props__.__dict__["failure_reason"] = None
         __props__.__dict__["last_updated_at"] = None
@@ -287,6 +329,14 @@ class BrowserCustom(pulumi.CustomResource):
         return pulumi.get(self, "browser_signing")
 
     @_builtins.property
+    @pulumi.getter
+    def certificates(self) -> pulumi.Output[Optional[Sequence['outputs.BrowserCustomCertificate']]]:
+        """
+        List of root CA certificates in PEM format.
+        """
+        return pulumi.get(self, "certificates")
+
+    @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[_builtins.str]:
         """
@@ -301,6 +351,14 @@ class BrowserCustom(pulumi.CustomResource):
         The description of the browser.
         """
         return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="enterprisePolicies")
+    def enterprise_policies(self) -> pulumi.Output[Optional[Sequence['outputs.BrowserCustomBrowserEnterprisePolicy']]]:
+        """
+        A list of enterprise policy files for the browser.
+        """
+        return pulumi.get(self, "enterprise_policies")
 
     @_builtins.property
     @pulumi.getter(name="executionRoleArn")

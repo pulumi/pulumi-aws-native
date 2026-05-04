@@ -24,15 +24,17 @@ __all__ = [
 @pulumi.output_type
 class GetResourcePolicyResult:
     def __init__(__self__, policy_document=None):
-        if policy_document and not isinstance(policy_document, str):
-            raise TypeError("Expected argument 'policy_document' to be a str")
+        if policy_document and not isinstance(policy_document, dict):
+            raise TypeError("Expected argument 'policy_document' to be a dict")
         pulumi.set(__self__, "policy_document", policy_document)
 
     @_builtins.property
     @pulumi.getter(name="policyDocument")
-    def policy_document(self) -> Optional[_builtins.str]:
+    def policy_document(self) -> Optional[Any]:
         """
         The policy document
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::ResourcePolicy` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "policy_document")
 

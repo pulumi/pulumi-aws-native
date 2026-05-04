@@ -18,6 +18,10 @@ namespace Pulumi.AwsNative.EmrServerless.Outputs
         /// </summary>
         public readonly bool? LivyEndpointEnabled;
         /// <summary>
+        /// Enables interactive sessions on the application
+        /// </summary>
+        public readonly bool? SessionEnabled;
+        /// <summary>
         /// Enabled you to connect an Application to Amazon EMR Studio to run interactive workloads in a notebook
         /// </summary>
         public readonly bool? StudioEnabled;
@@ -26,9 +30,12 @@ namespace Pulumi.AwsNative.EmrServerless.Outputs
         private ApplicationInteractiveConfiguration(
             bool? livyEndpointEnabled,
 
+            bool? sessionEnabled,
+
             bool? studioEnabled)
         {
             LivyEndpointEnabled = livyEndpointEnabled;
+            SessionEnabled = sessionEnabled;
             StudioEnabled = studioEnabled;
         }
     }

@@ -23,6 +23,7 @@ __all__ = ['CodeInterpreterCustomArgs', 'CodeInterpreterCustom']
 class CodeInterpreterCustomArgs:
     def __init__(__self__, *,
                  network_configuration: pulumi.Input['CodeInterpreterCustomCodeInterpreterNetworkConfigurationArgs'],
+                 certificates: Optional[pulumi.Input[Sequence[pulumi.Input['CodeInterpreterCustomCertificateArgs']]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -31,12 +32,15 @@ class CodeInterpreterCustomArgs:
         The set of arguments for constructing a CodeInterpreterCustom resource.
 
         :param pulumi.Input['CodeInterpreterCustomCodeInterpreterNetworkConfigurationArgs'] network_configuration: Network configuration for code interpreter.
+        :param pulumi.Input[Sequence[pulumi.Input['CodeInterpreterCustomCertificateArgs']]] certificates: List of root CA certificates in PEM format.
         :param pulumi.Input[_builtins.str] description: The description of the code interpreter.
         :param pulumi.Input[_builtins.str] execution_role_arn: The ARN of the IAM role that the code interpreter uses to access resources.
         :param pulumi.Input[_builtins.str] name: The name of the code interpreter.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The tags for the code interpreter.
         """
         pulumi.set(__self__, "network_configuration", network_configuration)
+        if certificates is not None:
+            pulumi.set(__self__, "certificates", certificates)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if execution_role_arn is not None:
@@ -57,6 +61,18 @@ class CodeInterpreterCustomArgs:
     @network_configuration.setter
     def network_configuration(self, value: pulumi.Input['CodeInterpreterCustomCodeInterpreterNetworkConfigurationArgs']):
         pulumi.set(self, "network_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CodeInterpreterCustomCertificateArgs']]]]:
+        """
+        List of root CA certificates in PEM format.
+        """
+        return pulumi.get(self, "certificates")
+
+    @certificates.setter
+    def certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CodeInterpreterCustomCertificateArgs']]]]):
+        pulumi.set(self, "certificates", value)
 
     @_builtins.property
     @pulumi.getter
@@ -113,6 +129,7 @@ class CodeInterpreterCustom(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 certificates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CodeInterpreterCustomCertificateArgs', 'CodeInterpreterCustomCertificateArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -125,6 +142,7 @@ class CodeInterpreterCustom(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CodeInterpreterCustomCertificateArgs', 'CodeInterpreterCustomCertificateArgsDict']]]] certificates: List of root CA certificates in PEM format.
         :param pulumi.Input[_builtins.str] description: The description of the code interpreter.
         :param pulumi.Input[_builtins.str] execution_role_arn: The ARN of the IAM role that the code interpreter uses to access resources.
         :param pulumi.Input[_builtins.str] name: The name of the code interpreter.
@@ -156,6 +174,7 @@ class CodeInterpreterCustom(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 certificates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CodeInterpreterCustomCertificateArgs', 'CodeInterpreterCustomCertificateArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -170,6 +189,7 @@ class CodeInterpreterCustom(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CodeInterpreterCustomArgs.__new__(CodeInterpreterCustomArgs)
 
+            __props__.__dict__["certificates"] = certificates
             __props__.__dict__["description"] = description
             __props__.__dict__["execution_role_arn"] = execution_role_arn
             __props__.__dict__["name"] = name
@@ -183,7 +203,7 @@ class CodeInterpreterCustom(pulumi.CustomResource):
             __props__.__dict__["failure_reason"] = None
             __props__.__dict__["last_updated_at"] = None
             __props__.__dict__["status"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["description", "executionRoleArn", "name", "networkConfiguration"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["certificates[*]", "description", "executionRoleArn", "name", "networkConfiguration"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(CodeInterpreterCustom, __self__).__init__(
             'aws-native:bedrockagentcore:CodeInterpreterCustom',
@@ -207,6 +227,7 @@ class CodeInterpreterCustom(pulumi.CustomResource):
 
         __props__ = CodeInterpreterCustomArgs.__new__(CodeInterpreterCustomArgs)
 
+        __props__.__dict__["certificates"] = None
         __props__.__dict__["code_interpreter_arn"] = None
         __props__.__dict__["code_interpreter_id"] = None
         __props__.__dict__["created_at"] = None
@@ -219,6 +240,14 @@ class CodeInterpreterCustom(pulumi.CustomResource):
         __props__.__dict__["status"] = None
         __props__.__dict__["tags"] = None
         return CodeInterpreterCustom(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter
+    def certificates(self) -> pulumi.Output[Optional[Sequence['outputs.CodeInterpreterCustomCertificate']]]:
+        """
+        List of root CA certificates in PEM format.
+        """
+        return pulumi.get(self, "certificates")
 
     @_builtins.property
     @pulumi.getter(name="codeInterpreterArn")

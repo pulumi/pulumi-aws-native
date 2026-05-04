@@ -32,6 +32,7 @@ export interface GetMemoryResult {
      */
     readonly eventExpiryDuration?: number;
     readonly failureReason?: string;
+    readonly indexedKeys?: outputs.bedrockagentcore.MemoryIndexedKey[];
     readonly memoryArn?: string;
     /**
      * The memory role ARN.

@@ -341,6 +341,7 @@ namespace Pulumi.AwsNative.Lex
         public static BotSpeechModelPreference Standard { get; } = new BotSpeechModelPreference("Standard");
         public static BotSpeechModelPreference Neural { get; } = new BotSpeechModelPreference("Neural");
         public static BotSpeechModelPreference Deepgram { get; } = new BotSpeechModelPreference("Deepgram");
+        public static BotSpeechModelPreference Enhanced { get; } = new BotSpeechModelPreference("Enhanced");
 
         public static bool operator ==(BotSpeechModelPreference left, BotSpeechModelPreference right) => left.Equals(right);
         public static bool operator !=(BotSpeechModelPreference left, BotSpeechModelPreference right) => !left.Equals(right);

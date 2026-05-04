@@ -17,7 +17,9 @@ type ResourcePolicy struct {
 	pulumi.CustomResourceState
 
 	// The policy document
-	PolicyDocument pulumi.StringOutput `pulumi:"policyDocument"`
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::ResourcePolicy` for more information about the expected schema for this property.
+	PolicyDocument pulumi.AnyOutput `pulumi:"policyDocument"`
 	// A name for resource policy
 	PolicyName pulumi.StringOutput `pulumi:"policyName"`
 }
@@ -70,7 +72,9 @@ func (ResourcePolicyState) ElementType() reflect.Type {
 
 type resourcePolicyArgs struct {
 	// The policy document
-	PolicyDocument string `pulumi:"policyDocument"`
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::ResourcePolicy` for more information about the expected schema for this property.
+	PolicyDocument interface{} `pulumi:"policyDocument"`
 	// A name for resource policy
 	PolicyName *string `pulumi:"policyName"`
 }
@@ -78,7 +82,9 @@ type resourcePolicyArgs struct {
 // The set of arguments for constructing a ResourcePolicy resource.
 type ResourcePolicyArgs struct {
 	// The policy document
-	PolicyDocument pulumi.StringInput
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::ResourcePolicy` for more information about the expected schema for this property.
+	PolicyDocument pulumi.Input
 	// A name for resource policy
 	PolicyName pulumi.StringPtrInput
 }
@@ -121,8 +127,10 @@ func (o ResourcePolicyOutput) ToResourcePolicyOutputWithContext(ctx context.Cont
 }
 
 // The policy document
-func (o ResourcePolicyOutput) PolicyDocument() pulumi.StringOutput {
-	return o.ApplyT(func(v *ResourcePolicy) pulumi.StringOutput { return v.PolicyDocument }).(pulumi.StringOutput)
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::ResourcePolicy` for more information about the expected schema for this property.
+func (o ResourcePolicyOutput) PolicyDocument() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ResourcePolicy) pulumi.AnyOutput { return v.PolicyDocument }).(pulumi.AnyOutput)
 }
 
 // A name for resource policy

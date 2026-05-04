@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
 
     public sealed class MemoryEpisodicReflectionConfigurationInputArgs : global::Pulumi.ResourceArgs
     {
+        [Input("memoryRecordSchema")]
+        public Input<Inputs.MemoryRecordSchemaArgs>? MemoryRecordSchema { get; set; }
+
         [Input("namespaceTemplates")]
         private InputList<string>? _namespaceTemplates;
         public InputList<string> NamespaceTemplates

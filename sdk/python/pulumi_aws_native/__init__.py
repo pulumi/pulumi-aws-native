@@ -1349,7 +1349,8 @@ _utilities.register(
    "aws-native:cloudwatch:AlarmMuteRule": "AlarmMuteRule",
    "aws-native:cloudwatch:CompositeAlarm": "CompositeAlarm",
    "aws-native:cloudwatch:Dashboard": "Dashboard",
-   "aws-native:cloudwatch:MetricStream": "MetricStream"
+   "aws-native:cloudwatch:MetricStream": "MetricStream",
+   "aws-native:cloudwatch:OTelEnrichment": "OTelEnrichment"
   }
  },
  {

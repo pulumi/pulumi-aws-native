@@ -27,6 +27,8 @@ class ResolverEndpointArgs:
                  direction: pulumi.Input[_builtins.str],
                  ip_addresses: pulumi.Input[Sequence[pulumi.Input['ResolverEndpointIpAddressRequestArgs']]],
                  security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 dns64_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 ipv6_internet_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  outpost_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  preferred_instance_type: Optional[pulumi.Input[_builtins.str]] = None,
@@ -44,6 +46,8 @@ class ResolverEndpointArgs:
                - INBOUND_DELEGATION: allows DNS queries to your VPC from your network with authoritative answers from private hosted zones
         :param pulumi.Input[Sequence[pulumi.Input['ResolverEndpointIpAddressRequestArgs']]] ip_addresses: The subnets and IP addresses in your VPC that DNS queries originate from (for outbound endpoints) or that you forward DNS queries to (for inbound endpoints). The subnet ID uniquely identifies a VPC.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The ID of one or more security groups that control access to this VPC. The security group must include one or more inbound rules (for inbound endpoints) or outbound rules (for outbound endpoints). Inbound and outbound rules must allow TCP and UDP access. For inbound access, open port 53. For outbound access, open the port that you're using for DNS queries on your network.
+        :param pulumi.Input[_builtins.bool] dns64_enabled: Specifies whether DNS64 is enabled for the Inbound Resolver Endpoint. When set to true, if a DNS AAAA query is made for a domain that has only an A (IPv4) record, the resolver automatically synthesizes an AAAA (IPv6) response by embedding the IPv4 address into the well-known prefix 64:ff9b::/96. Default is false.
+        :param pulumi.Input[_builtins.bool] ipv6_internet_access_enabled: Specifies whether IPv6 Internet Gateway access is enabled through the Outbound Resolver Endpoint. When set to true, this property allows your Endpoint ENIs to reach public IPv6 target nameservers through an internet gateway. Default is false.
         :param pulumi.Input[_builtins.str] name: A friendly name that lets you easily find a configuration in the Resolver dashboard in the Route 53 console.
         :param pulumi.Input[_builtins.str] outpost_arn: The ARN (Amazon Resource Name) for the Outpost.
         :param pulumi.Input[_builtins.str] preferred_instance_type: The Amazon EC2 instance type.
@@ -56,6 +60,10 @@ class ResolverEndpointArgs:
         pulumi.set(__self__, "direction", direction)
         pulumi.set(__self__, "ip_addresses", ip_addresses)
         pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if dns64_enabled is not None:
+            pulumi.set(__self__, "dns64_enabled", dns64_enabled)
+        if ipv6_internet_access_enabled is not None:
+            pulumi.set(__self__, "ipv6_internet_access_enabled", ipv6_internet_access_enabled)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if outpost_arn is not None:
@@ -111,6 +119,30 @@ class ResolverEndpointArgs:
     @security_group_ids.setter
     def security_group_ids(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         pulumi.set(self, "security_group_ids", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dns64Enabled")
+    def dns64_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Specifies whether DNS64 is enabled for the Inbound Resolver Endpoint. When set to true, if a DNS AAAA query is made for a domain that has only an A (IPv4) record, the resolver automatically synthesizes an AAAA (IPv6) response by embedding the IPv4 address into the well-known prefix 64:ff9b::/96. Default is false.
+        """
+        return pulumi.get(self, "dns64_enabled")
+
+    @dns64_enabled.setter
+    def dns64_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "dns64_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ipv6InternetAccessEnabled")
+    def ipv6_internet_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Specifies whether IPv6 Internet Gateway access is enabled through the Outbound Resolver Endpoint. When set to true, this property allows your Endpoint ENIs to reach public IPv6 target nameservers through an internet gateway. Default is false.
+        """
+        return pulumi.get(self, "ipv6_internet_access_enabled")
+
+    @ipv6_internet_access_enabled.setter
+    def ipv6_internet_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "ipv6_internet_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter
@@ -216,7 +248,9 @@ class ResolverEndpoint(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  direction: Optional[pulumi.Input[_builtins.str]] = None,
+                 dns64_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResolverEndpointIpAddressRequestArgs', 'ResolverEndpointIpAddressRequestArgsDict']]]]] = None,
+                 ipv6_internet_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  outpost_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  preferred_instance_type: Optional[pulumi.Input[_builtins.str]] = None,
@@ -237,7 +271,9 @@ class ResolverEndpoint(pulumi.CustomResource):
                - INBOUND: allows DNS queries to your VPC from your network 
                - OUTBOUND: allows DNS queries from your VPC to your network 
                - INBOUND_DELEGATION: allows DNS queries to your VPC from your network with authoritative answers from private hosted zones
+        :param pulumi.Input[_builtins.bool] dns64_enabled: Specifies whether DNS64 is enabled for the Inbound Resolver Endpoint. When set to true, if a DNS AAAA query is made for a domain that has only an A (IPv4) record, the resolver automatically synthesizes an AAAA (IPv6) response by embedding the IPv4 address into the well-known prefix 64:ff9b::/96. Default is false.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ResolverEndpointIpAddressRequestArgs', 'ResolverEndpointIpAddressRequestArgsDict']]]] ip_addresses: The subnets and IP addresses in your VPC that DNS queries originate from (for outbound endpoints) or that you forward DNS queries to (for inbound endpoints). The subnet ID uniquely identifies a VPC.
+        :param pulumi.Input[_builtins.bool] ipv6_internet_access_enabled: Specifies whether IPv6 Internet Gateway access is enabled through the Outbound Resolver Endpoint. When set to true, this property allows your Endpoint ENIs to reach public IPv6 target nameservers through an internet gateway. Default is false.
         :param pulumi.Input[_builtins.str] name: A friendly name that lets you easily find a configuration in the Resolver dashboard in the Route 53 console.
         :param pulumi.Input[_builtins.str] outpost_arn: The ARN (Amazon Resource Name) for the Outpost.
         :param pulumi.Input[_builtins.str] preferred_instance_type: The Amazon EC2 instance type.
@@ -274,7 +310,9 @@ class ResolverEndpoint(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  direction: Optional[pulumi.Input[_builtins.str]] = None,
+                 dns64_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResolverEndpointIpAddressRequestArgs', 'ResolverEndpointIpAddressRequestArgsDict']]]]] = None,
+                 ipv6_internet_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  outpost_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  preferred_instance_type: Optional[pulumi.Input[_builtins.str]] = None,
@@ -296,9 +334,11 @@ class ResolverEndpoint(pulumi.CustomResource):
             if direction is None and not opts.urn:
                 raise TypeError("Missing required property 'direction'")
             __props__.__dict__["direction"] = direction
+            __props__.__dict__["dns64_enabled"] = dns64_enabled
             if ip_addresses is None and not opts.urn:
                 raise TypeError("Missing required property 'ip_addresses'")
             __props__.__dict__["ip_addresses"] = ip_addresses
+            __props__.__dict__["ipv6_internet_access_enabled"] = ipv6_internet_access_enabled
             __props__.__dict__["name"] = name
             __props__.__dict__["outpost_arn"] = outpost_arn
             __props__.__dict__["preferred_instance_type"] = preferred_instance_type
@@ -340,9 +380,11 @@ class ResolverEndpoint(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = None
         __props__.__dict__["direction"] = None
+        __props__.__dict__["dns64_enabled"] = None
         __props__.__dict__["host_vpc_id"] = None
         __props__.__dict__["ip_address_count"] = None
         __props__.__dict__["ip_addresses"] = None
+        __props__.__dict__["ipv6_internet_access_enabled"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["outpost_arn"] = None
         __props__.__dict__["preferred_instance_type"] = None
@@ -375,6 +417,14 @@ class ResolverEndpoint(pulumi.CustomResource):
         return pulumi.get(self, "direction")
 
     @_builtins.property
+    @pulumi.getter(name="dns64Enabled")
+    def dns64_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Specifies whether DNS64 is enabled for the Inbound Resolver Endpoint. When set to true, if a DNS AAAA query is made for a domain that has only an A (IPv4) record, the resolver automatically synthesizes an AAAA (IPv6) response by embedding the IPv4 address into the well-known prefix 64:ff9b::/96. Default is false.
+        """
+        return pulumi.get(self, "dns64_enabled")
+
+    @_builtins.property
     @pulumi.getter(name="hostVpcId")
     def host_vpc_id(self) -> pulumi.Output[_builtins.str]:
         """
@@ -397,6 +447,14 @@ class ResolverEndpoint(pulumi.CustomResource):
         The subnets and IP addresses in your VPC that DNS queries originate from (for outbound endpoints) or that you forward DNS queries to (for inbound endpoints). The subnet ID uniquely identifies a VPC.
         """
         return pulumi.get(self, "ip_addresses")
+
+    @_builtins.property
+    @pulumi.getter(name="ipv6InternetAccessEnabled")
+    def ipv6_internet_access_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Specifies whether IPv6 Internet Gateway access is enabled through the Outbound Resolver Endpoint. When set to true, this property allows your Endpoint ENIs to reach public IPv6 target nameservers through an internet gateway. Default is false.
+        """
+        return pulumi.get(self, "ipv6_internet_access_enabled")
 
     @_builtins.property
     @pulumi.getter

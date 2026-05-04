@@ -86,6 +86,10 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public readonly string? TransitGatewayId;
         /// <summary>
+        /// The desired bandwidth specification for the VPN tunnel, used when creating or modifying VPN connection options to set the tunnel's throughput capacity. ``standard`` supports up to 1.25 Gbps per tunnel, while ``large`` supports up to 5 Gbps per tunnel. The default value is ``standard``. Existing VPN connections without a bandwidth setting will automatically default to ``standard``.
+        /// </summary>
+        public readonly Pulumi.AwsNative.Ec2.VpnConnectionTunnelBandwidth? TunnelBandwidth;
+        /// <summary>
         /// The ID of the VPN connection.
         /// </summary>
         public readonly string? VpnConnectionId;
@@ -107,6 +111,8 @@ namespace Pulumi.AwsNative.Ec2
 
             string? transitGatewayId,
 
+            Pulumi.AwsNative.Ec2.VpnConnectionTunnelBandwidth? tunnelBandwidth,
+
             string? vpnConnectionId,
 
             string? vpnGatewayId,
@@ -116,6 +122,7 @@ namespace Pulumi.AwsNative.Ec2
             CustomerGatewayId = customerGatewayId;
             Tags = tags;
             TransitGatewayId = transitGatewayId;
+            TunnelBandwidth = tunnelBandwidth;
             VpnConnectionId = vpnConnectionId;
             VpnGatewayId = vpnGatewayId;
             VpnTunnelOptionsSpecifications = vpnTunnelOptionsSpecifications;

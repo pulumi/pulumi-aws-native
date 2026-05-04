@@ -16,6 +16,8 @@ import (
 type CodeInterpreterCustom struct {
 	pulumi.CustomResourceState
 
+	// List of root CA certificates in PEM format.
+	Certificates CodeInterpreterCustomCertificateArrayOutput `pulumi:"certificates"`
 	// The ARN of a CodeInterpreter resource.
 	CodeInterpreterArn pulumi.StringOutput `pulumi:"codeInterpreterArn"`
 	// The id of the code interpreter.
@@ -51,6 +53,7 @@ func NewCodeInterpreterCustom(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'NetworkConfiguration'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"certificates[*]",
 		"description",
 		"executionRoleArn",
 		"name",
@@ -90,6 +93,8 @@ func (CodeInterpreterCustomState) ElementType() reflect.Type {
 }
 
 type codeInterpreterCustomArgs struct {
+	// List of root CA certificates in PEM format.
+	Certificates []CodeInterpreterCustomCertificate `pulumi:"certificates"`
 	// The description of the code interpreter.
 	Description *string `pulumi:"description"`
 	// The ARN of the IAM role that the code interpreter uses to access resources.
@@ -104,6 +109,8 @@ type codeInterpreterCustomArgs struct {
 
 // The set of arguments for constructing a CodeInterpreterCustom resource.
 type CodeInterpreterCustomArgs struct {
+	// List of root CA certificates in PEM format.
+	Certificates CodeInterpreterCustomCertificateArrayInput
 	// The description of the code interpreter.
 	Description pulumi.StringPtrInput
 	// The ARN of the IAM role that the code interpreter uses to access resources.
@@ -151,6 +158,11 @@ func (o CodeInterpreterCustomOutput) ToCodeInterpreterCustomOutput() CodeInterpr
 
 func (o CodeInterpreterCustomOutput) ToCodeInterpreterCustomOutputWithContext(ctx context.Context) CodeInterpreterCustomOutput {
 	return o
+}
+
+// List of root CA certificates in PEM format.
+func (o CodeInterpreterCustomOutput) Certificates() CodeInterpreterCustomCertificateArrayOutput {
+	return o.ApplyT(func(v *CodeInterpreterCustom) CodeInterpreterCustomCertificateArrayOutput { return v.Certificates }).(CodeInterpreterCustomCertificateArrayOutput)
 }
 
 // The ARN of a CodeInterpreter resource.

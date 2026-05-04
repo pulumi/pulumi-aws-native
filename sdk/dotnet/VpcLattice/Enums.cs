@@ -51,8 +51,8 @@ namespace Pulumi.AwsNative.VpcLattice
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static AuthPolicyState Active { get; } = new AuthPolicyState("ACTIVE");
-        public static AuthPolicyState Inactive { get; } = new AuthPolicyState("INACTIVE");
+        public static AuthPolicyState Active { get; } = new AuthPolicyState("Active");
+        public static AuthPolicyState Inactive { get; } = new AuthPolicyState("Inactive");
 
         public static bool operator ==(AuthPolicyState left, AuthPolicyState right) => left.Equals(right);
         public static bool operator !=(AuthPolicyState left, AuthPolicyState right) => !left.Equals(right);
@@ -286,6 +286,34 @@ namespace Pulumi.AwsNative.VpcLattice
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ResourceGatewayIpAddressType other && Equals(other);
         public bool Equals(ResourceGatewayIpAddressType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ResourceGatewayResourceConfigDnsResolution : IEquatable<ResourceGatewayResourceConfigDnsResolution>
+    {
+        private readonly string _value;
+
+        private ResourceGatewayResourceConfigDnsResolution(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ResourceGatewayResourceConfigDnsResolution InVpc { get; } = new ResourceGatewayResourceConfigDnsResolution("IN_VPC");
+        public static ResourceGatewayResourceConfigDnsResolution Public { get; } = new ResourceGatewayResourceConfigDnsResolution("PUBLIC");
+
+        public static bool operator ==(ResourceGatewayResourceConfigDnsResolution left, ResourceGatewayResourceConfigDnsResolution right) => left.Equals(right);
+        public static bool operator !=(ResourceGatewayResourceConfigDnsResolution left, ResourceGatewayResourceConfigDnsResolution right) => !left.Equals(right);
+
+        public static explicit operator string(ResourceGatewayResourceConfigDnsResolution value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ResourceGatewayResourceConfigDnsResolution other && Equals(other);
+        public bool Equals(ResourceGatewayResourceConfigDnsResolution other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
