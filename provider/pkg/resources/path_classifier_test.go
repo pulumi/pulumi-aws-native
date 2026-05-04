@@ -194,7 +194,7 @@ func TestPathClassifierArrayOwnership(t *testing.T) {
 	assert.Equal(t, resource.NewStringProperty("drifted"), rule["managed"])
 }
 
-func TestPathClassifierNestedRequiredHandlesRecursiveTypes(t *testing.T) {
+func TestPathClassifierNestedRequiredHandlesRecursiveTypesAtArbitraryDepth(t *testing.T) {
 	spec := metadata.CloudAPIResource{
 		Inputs: map[string]pschema.PropertySpec{
 			"children": {
@@ -227,9 +227,46 @@ func TestPathClassifierNestedRequiredHandlesRecursiveTypes(t *testing.T) {
 	require.True(t, ok)
 	assert.True(t, info.Required)
 
-	info, ok = classifier.Classify("children/0/children/0/name")
+	info, ok = classifier.Classify("children/0/children/0/children/0/name")
 	require.True(t, ok)
 	assert.True(t, info.Required)
+}
+
+func TestPathClassifierNestedRequiredHandlesRealRecursiveType(t *testing.T) {
+	spec := metadata.CloudAPIResource{
+		Inputs: map[string]pschema.PropertySpec{
+			"children": {
+				TypeSpec: pschema.TypeSpec{
+					Type:  "array",
+					Items: &pschema.TypeSpec{Ref: "#/types/aws-native:amplifyuibuilder:ComponentChild"},
+				},
+			},
+		},
+	}
+	types := map[string]metadata.CloudAPIType{
+		"aws-native:amplifyuibuilder:ComponentChild": {
+			Type:     "object",
+			Required: []string{"componentType", "name", "properties"},
+			Properties: map[string]pschema.PropertySpec{
+				"children": {
+					TypeSpec: pschema.TypeSpec{
+						Type:  "array",
+						Items: &pschema.TypeSpec{Ref: "#/types/aws-native:amplifyuibuilder:ComponentChild"},
+					},
+				},
+				"componentType": {TypeSpec: pschema.TypeSpec{Type: "string"}},
+				"name":          {TypeSpec: pschema.TypeSpec{Type: "string"}},
+				"properties":    {TypeSpec: pschema.TypeSpec{Type: "object"}},
+			},
+		},
+	}
+
+	classifier := NewPathClassifier(&spec, types)
+
+	info, ok := classifier.Classify("children/0/children/0/children/0/name")
+	require.True(t, ok)
+	assert.True(t, info.Required)
+	assert.Equal(t, ConcreteField, info.Kind)
 }
 
 func TestPathHelpersNestedReadWriteDelete(t *testing.T) {

@@ -70,7 +70,6 @@ func NewPathClassifier(res *metadata.CloudAPIResource, types map[string]metadata
 		createOnly: newPathSet(res.CreateOnly),
 		required:   newPathSet(res.Required),
 	}
-	c.addNestedRequired()
 	return c
 }
 
@@ -87,7 +86,7 @@ func (c *PathClassifier) Classify(path string) (PathInfo, bool) {
 	info.ReadOnly = c.readOnly.matches(path)
 	info.WriteOnly = c.writeOnly.matches(path)
 	info.CreateOnly = c.createOnly.matches(path)
-	info.Required = c.required.matches(path)
+	info.Required = info.Required || c.required.matches(path)
 	return info, true
 }
 
@@ -218,8 +217,9 @@ func (c *PathClassifier) classifyType(
 		if !ok {
 			return PathInfo{Path: path, Kind: UnknownPath, Input: input, Output: output}, false
 		}
+		required := stringInSlice(typeSpec.Required, segments[0])
 		if len(segments) == 1 {
-			return PathInfo{Path: path, Kind: ConcreteField, Input: input, Output: output}, true
+			return PathInfo{Path: path, Kind: ConcreteField, Input: input, Output: output, Required: required}, true
 		}
 		return c.classifyType(path, segments[1:], &prop.TypeSpec, input, output)
 	}
@@ -275,51 +275,6 @@ func (c *PathClassifier) projectValue(path string, typ pschema.TypeSpec, value r
 		return resource.NewArrayProperty(result), true
 	}
 	return value, true
-}
-
-// addNestedRequired expands required metadata from referenced object types into
-// concrete slash paths rooted at each resource input.
-func (c *PathClassifier) addNestedRequired() {
-	for name, input := range c.res.Inputs {
-		c.addNestedRequiredForType(name, &input.TypeSpec, nil)
-	}
-}
-
-// addNestedRequiredForType recursively records required fields from referenced
-// object types.
-//
-// Required fields under array item types are stored with wildcard paths such as
-// "rules/*/name" so they match concrete paths like "rules/0/name".
-func (c *PathClassifier) addNestedRequiredForType(path string, typ *pschema.TypeSpec, seen map[string]bool) {
-	if typ == nil {
-		return
-	}
-	if typ.Type == arrayType {
-		c.addNestedRequiredForType(joinPath(path, "*"), typ.Items, seen)
-		return
-	}
-	if typ.Ref == "" || typ.Ref == anyRef {
-		return
-	}
-	typeName := strings.TrimPrefix(typ.Ref, "#/types/")
-	typeSpec, ok := c.types[typeName]
-	if !ok {
-		return
-	}
-	for _, required := range typeSpec.Required {
-		c.required.add(joinPath(path, required))
-	}
-	if seen[typeName] {
-		return
-	}
-	nextSeen := make(map[string]bool, len(seen)+1)
-	for name, ok := range seen {
-		nextSeen[name] = ok
-	}
-	nextSeen[typeName] = true
-	for name, prop := range typeSpec.Properties {
-		c.addNestedRequiredForType(joinPath(path, name), &prop.TypeSpec, nextSeen)
-	}
 }
 
 // addWriteOnlyFallbacks restores user-owned write-only values from old desired
@@ -398,4 +353,13 @@ func isSchemaObject(c *PathClassifier, path string) bool {
 func hasPath(m resource.PropertyMap, path string) bool {
 	_, ok := GetPath(m, path)
 	return ok
+}
+
+func stringInSlice(values []string, value string) bool {
+	for _, candidate := range values {
+		if candidate == value {
+			return true
+		}
+	}
+	return false
 }
