@@ -281,7 +281,7 @@ func (c *PathClassifier) projectValue(path string, typ pschema.TypeSpec, value r
 // concrete slash paths rooted at each resource input.
 func (c *PathClassifier) addNestedRequired() {
 	for name, input := range c.res.Inputs {
-		c.addNestedRequiredForType(name, &input.TypeSpec)
+		c.addNestedRequiredForType(name, &input.TypeSpec, nil)
 	}
 }
 
@@ -290,11 +290,15 @@ func (c *PathClassifier) addNestedRequired() {
 //
 // Required fields under array item types are stored with wildcard paths such as
 // "rules/*/name" so they match concrete paths like "rules/0/name".
-func (c *PathClassifier) addNestedRequiredForType(path string, typ *pschema.TypeSpec) {
-	if typ == nil || typ.Ref == "" || typ.Ref == anyRef {
-		if typ != nil && typ.Type == arrayType {
-			c.addNestedRequiredForType(joinPath(path, "*"), typ.Items)
-		}
+func (c *PathClassifier) addNestedRequiredForType(path string, typ *pschema.TypeSpec, seen map[string]bool) {
+	if typ == nil {
+		return
+	}
+	if typ.Type == arrayType {
+		c.addNestedRequiredForType(joinPath(path, "*"), typ.Items, seen)
+		return
+	}
+	if typ.Ref == "" || typ.Ref == anyRef {
 		return
 	}
 	typeName := strings.TrimPrefix(typ.Ref, "#/types/")
@@ -305,8 +309,16 @@ func (c *PathClassifier) addNestedRequiredForType(path string, typ *pschema.Type
 	for _, required := range typeSpec.Required {
 		c.required.add(joinPath(path, required))
 	}
+	if seen[typeName] {
+		return
+	}
+	nextSeen := make(map[string]bool, len(seen)+1)
+	for name, ok := range seen {
+		nextSeen[name] = ok
+	}
+	nextSeen[typeName] = true
 	for name, prop := range typeSpec.Properties {
-		c.addNestedRequiredForType(joinPath(path, name), &prop.TypeSpec)
+		c.addNestedRequiredForType(joinPath(path, name), &prop.TypeSpec, nextSeen)
 	}
 }
 

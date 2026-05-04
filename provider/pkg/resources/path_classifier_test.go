@@ -194,6 +194,44 @@ func TestPathClassifierArrayOwnership(t *testing.T) {
 	assert.Equal(t, resource.NewStringProperty("drifted"), rule["managed"])
 }
 
+func TestPathClassifierNestedRequiredHandlesRecursiveTypes(t *testing.T) {
+	spec := metadata.CloudAPIResource{
+		Inputs: map[string]pschema.PropertySpec{
+			"children": {
+				TypeSpec: pschema.TypeSpec{
+					Type:  "array",
+					Items: &pschema.TypeSpec{Ref: "#/types/aws-native:test:Child"},
+				},
+			},
+		},
+	}
+	types := map[string]metadata.CloudAPIType{
+		"aws-native:test:Child": {
+			Type:     "object",
+			Required: []string{"name"},
+			Properties: map[string]pschema.PropertySpec{
+				"name": {TypeSpec: pschema.TypeSpec{Type: "string"}},
+				"children": {
+					TypeSpec: pschema.TypeSpec{
+						Type:  "array",
+						Items: &pschema.TypeSpec{Ref: "#/types/aws-native:test:Child"},
+					},
+				},
+			},
+		},
+	}
+
+	classifier := NewPathClassifier(&spec, types)
+
+	info, ok := classifier.Classify("children/0/name")
+	require.True(t, ok)
+	assert.True(t, info.Required)
+
+	info, ok = classifier.Classify("children/0/children/0/name")
+	require.True(t, ok)
+	assert.True(t, info.Required)
+}
+
 func TestPathHelpersNestedReadWriteDelete(t *testing.T) {
 	m := resource.PropertyMap{}
 	SetPath(m, "code/imageUri", resource.NewStringProperty("image"))
