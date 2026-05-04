@@ -204,7 +204,7 @@ ref-db-report::
 	(cd provider/tools/ref-parser && go build -o ../../../bin/ref-parser)
 	./bin/ref-parser -guide ./aws-cloudformation-user-guide -schema ./aws-cloudformation-schema -db ./meta/ref-db.json -report
 
-.PHONY: ensure prepare_local_workspace generate_schema generate provider build test_provider_fast verify
+.PHONY: ensure prepare_local_workspace generate_schema generate provider build test_provider_fast verify docs
 
 # Set these variables to enable signing of the windows binary with Azure Trusted Signing.
 AZURE_SIGNING_CLIENT_ID ?=
