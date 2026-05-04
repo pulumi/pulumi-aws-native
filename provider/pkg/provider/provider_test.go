@@ -20,6 +20,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/autonaming"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/client"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/default_tags"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/resources"
 )
@@ -1149,8 +1150,37 @@ func TestStandardResourceDiffUsesActualOutputBaseline(t *testing.T) {
 					},
 					WriteOnly: []string{"password"},
 				},
+				"aws:logs/logGroup:LogGroup": {
+					CfType:       "AWS::Logs::LogGroup",
+					TagsProperty: "tags",
+					TagsStyle:    default_tags.TagsStyleKeyValueArray,
+					Inputs: map[string]schema.PropertySpec{
+						"tags": {
+							TypeSpec: schema.TypeSpec{
+								Type:  "array",
+								Items: &schema.TypeSpec{Ref: "#/types/aws-native:index:Tag"},
+							},
+						},
+					},
+					Outputs: map[string]schema.PropertySpec{
+						"tags": {
+							TypeSpec: schema.TypeSpec{
+								Type:  "array",
+								Items: &schema.TypeSpec{Ref: "#/types/aws-native:index:Tag"},
+							},
+						},
+					},
+				},
 			},
-			Types: map[string]metadata.CloudAPIType{},
+			Types: map[string]metadata.CloudAPIType{
+				"aws-native:index:Tag": {
+					Type: "object",
+					Properties: map[string]schema.PropertySpec{
+						"key":   {TypeSpec: schema.TypeSpec{Type: "string"}},
+						"value": {TypeSpec: schema.TypeSpec{Type: "string"}},
+					},
+				},
+			},
 		},
 		customResources: map[string]resources.CustomResource{},
 		ccc:             client.NewMockCloudControlClient(ctrl),
@@ -1260,6 +1290,41 @@ func TestStandardResourceDiffUsesActualOutputBaseline(t *testing.T) {
 		assert.Equal(t, pulumirpc.DiffResponse_DIFF_NONE, resp.Changes)
 	})
 
+	t.Run("key value array tag reorder in actual baseline does not report diff", func(t *testing.T) {
+		arrayURN := resource.NewURN("stack", "project", "parent", "aws:logs/logGroup:LogGroup", "name")
+		oldTags := resource.NewArrayProperty([]resource.PropertyValue{
+			resource.NewObjectProperty(resource.PropertyMap{
+				"key":   resource.NewStringProperty("Environment"),
+				"value": resource.NewStringProperty("prod"),
+			}),
+			resource.NewObjectProperty(resource.PropertyMap{
+				"key":   resource.NewStringProperty("Name"),
+				"value": resource.NewStringProperty("my-resource"),
+			}),
+		})
+		actualTags := resource.NewArrayProperty([]resource.PropertyValue{
+			resource.NewObjectProperty(resource.PropertyMap{
+				"key":   resource.NewStringProperty("Name"),
+				"value": resource.NewStringProperty("my-resource"),
+			}),
+			resource.NewObjectProperty(resource.PropertyMap{
+				"key":   resource.NewStringProperty("Environment"),
+				"value": resource.NewStringProperty("prod"),
+			}),
+		})
+		desiredTags := resource.PropertyMap{"tags": oldTags}
+		resp, err := provider.Diff(ctx, &pulumirpc.DiffRequest{
+			Urn: string(arrayURN),
+			Olds: mustMarshalProperties(t, resource.PropertyMap{
+				"tags":     actualTags,
+				"__inputs": resource.MakeSecret(resource.NewObjectProperty(desiredTags)),
+			}),
+			News: mustMarshalProperties(t, desiredTags),
+		})
+		require.NoError(t, err)
+		assert.Equal(t, pulumirpc.DiffResponse_DIFF_NONE, resp.Changes)
+	})
+
 	t.Run("write-only input from checkpoint does not become a diff", func(t *testing.T) {
 		oldInputs := resource.PropertyMap{
 			"password": resource.NewStringProperty("secret"),
@@ -1342,8 +1407,40 @@ func TestStandardResourceReadReturnsOwnershipFilteredInputs(t *testing.T) {
 					WriteOnly:    []string{"password"},
 					CreateOnly:   []string{"password"},
 				},
+				"aws:logs/logGroup:LogGroup": {
+					CfType: "AWS::Logs::LogGroup",
+					Inputs: map[string]schema.PropertySpec{
+						"tags": {
+							TypeSpec: schema.TypeSpec{
+								Type: "array",
+								Items: &schema.TypeSpec{
+									Ref: "#/types/aws-native:index:Tag",
+								},
+							},
+						},
+					},
+					Outputs: map[string]schema.PropertySpec{
+						"tags": {
+							TypeSpec: schema.TypeSpec{
+								Type: "array",
+								Items: &schema.TypeSpec{
+									Ref: "#/types/aws-native:index:Tag",
+								},
+							},
+						},
+					},
+					TagsProperty: "tags",
+					TagsStyle:    default_tags.TagsStyleKeyValueArray,
+				},
 			},
-			Types: map[string]metadata.CloudAPIType{},
+			Types: map[string]metadata.CloudAPIType{
+				"aws-native:index:Tag": {
+					Properties: map[string]schema.PropertySpec{
+						"key":   {TypeSpec: schema.TypeSpec{Type: "string"}},
+						"value": {TypeSpec: schema.TypeSpec{Type: "string"}},
+					},
+				},
+			},
 		},
 		customResources: map[string]resources.CustomResource{},
 		ccc:             mockCCC,
@@ -1471,6 +1568,48 @@ func TestStandardResourceReadReturnsOwnershipFilteredInputs(t *testing.T) {
 		assert.False(t, inputTags.HasValue("aws:managed"))
 		checkpointTags := props["__inputs"].SecretValue().Element.ObjectValue()["tags"].ObjectValue()
 		assert.False(t, checkpointTags.HasValue("aws:managed"))
+	})
+
+	t.Run("key value array tag reorder is not checkpointed as owned input drift", func(t *testing.T) {
+		arrayURN := resource.NewURN("stack", "project", "parent", "aws:logs/logGroup:LogGroup", "name")
+		oldTags := resource.NewArrayProperty([]resource.PropertyValue{
+			resource.NewObjectProperty(resource.PropertyMap{
+				"key":   resource.NewStringProperty("Environment"),
+				"value": resource.NewStringProperty("prod"),
+			}),
+			resource.NewObjectProperty(resource.PropertyMap{
+				"key":   resource.NewStringProperty("Name"),
+				"value": resource.NewStringProperty("my-resource"),
+			}),
+		})
+		refreshedTags := []interface{}{
+			map[string]interface{}{"key": "Name", "value": "my-resource"},
+			map[string]interface{}{"key": "Environment", "value": "prod"},
+		}
+		oldInputs := resource.PropertyMap{
+			"tags": oldTags,
+		}
+		mockCCC.EXPECT().Read(ctx, "AWS::Logs::LogGroup", "resource-id").Return(
+			map[string]interface{}{
+				"tags": refreshedTags,
+			}, true, nil,
+		)
+
+		resp, err := provider.Read(ctx, &pulumirpc.ReadRequest{
+			Urn: string(arrayURN),
+			Id:  "resource-id",
+			Properties: mustMarshalProperties(t, resource.PropertyMap{
+				"tags":     oldTags,
+				"__inputs": resource.MakeSecret(resource.NewObjectProperty(oldInputs)),
+			}),
+		})
+		require.NoError(t, err)
+
+		inputs := mustUnmarshalProperties(t, resp.Inputs)
+		assert.True(t, oldTags.DeepEquals(inputs["tags"]))
+		props := mustUnmarshalProperties(t, resp.Properties)
+		checkpointTags := props["__inputs"].SecretValue().Element.ObjectValue()["tags"]
+		assert.True(t, oldTags.DeepEquals(checkpointTags))
 	})
 
 	t.Run("create-only write-only value is carried forward through refresh", func(t *testing.T) {

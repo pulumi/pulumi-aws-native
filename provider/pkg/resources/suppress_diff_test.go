@@ -5,6 +5,7 @@ package resources
 import (
 	"testing"
 
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/default_tags"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/stretchr/testify/assert"
@@ -173,7 +174,7 @@ func TestSuppressAWSManagedTagAdditions(t *testing.T) {
 
 		originalInputs := resource.PropertyMap{}
 
-		result := suppressAWSManagedTagAdditions("fileSystemTags", diff, originalInputs)
+		result := suppressAWSManagedTagAdditions("fileSystemTags", default_tags.TagsStyleKeyValueArray, diff, originalInputs)
 
 		_, hasAdd := result.Adds["fileSystemTags"]
 		assert.False(t, hasAdd, "aws: prefixed tag addition should be removed")
@@ -196,7 +197,7 @@ func TestSuppressAWSManagedTagAdditions(t *testing.T) {
 
 		originalInputs := resource.PropertyMap{}
 
-		result := suppressAWSManagedTagAdditions("tags", diff, originalInputs)
+		result := suppressAWSManagedTagAdditions("tags", default_tags.TagsStyleKeyValueArray, diff, originalInputs)
 
 		addedTags, hasAdd := result.Adds["tags"]
 		assert.True(t, hasAdd)
@@ -235,7 +236,7 @@ func TestSuppressAWSManagedTagAdditions(t *testing.T) {
 			"tags": oldTags,
 		}
 
-		result := suppressAWSManagedTagAdditions("tags", diff, originalInputs)
+		result := suppressAWSManagedTagAdditions("tags", default_tags.TagsStyleKeyValueArray, diff, originalInputs)
 
 		// After filtering aws: tag, old and new should be equal, so update should be removed
 		_, hasUpdate := result.Updates["tags"]
@@ -266,10 +267,92 @@ func TestSuppressAWSManagedTagAdditions(t *testing.T) {
 			}),
 		}
 
-		result := suppressAWSManagedTagAdditions("tags", diff, originalInputs)
+		result := suppressAWSManagedTagAdditions("tags", default_tags.TagsStyleKeyValueArrayUpperCase, diff, originalInputs)
 
 		_, hasUpdate := result.Updates["tags"]
 		assert.False(t, hasUpdate, "aws: tag in the old actual baseline should not become removal drift")
+	})
+
+	t.Run("treats key value array tag reordering as no-op", func(t *testing.T) {
+		oldTags := resource.NewArrayProperty([]resource.PropertyValue{
+			resource.NewObjectProperty(resource.PropertyMap{
+				"key":   resource.NewStringProperty("Name"),
+				"value": resource.NewStringProperty("my-resource"),
+			}),
+			resource.NewObjectProperty(resource.PropertyMap{
+				"key":   resource.NewStringProperty("Environment"),
+				"value": resource.NewStringProperty("prod"),
+			}),
+		})
+		newTags := resource.NewArrayProperty([]resource.PropertyValue{
+			resource.NewObjectProperty(resource.PropertyMap{
+				"key":   resource.NewStringProperty("Environment"),
+				"value": resource.NewStringProperty("prod"),
+			}),
+			resource.NewObjectProperty(resource.PropertyMap{
+				"key":   resource.NewStringProperty("Name"),
+				"value": resource.NewStringProperty("my-resource"),
+			}),
+		})
+
+		diff := &resource.ObjectDiff{
+			Adds: resource.PropertyMap{},
+			Updates: map[resource.PropertyKey]resource.ValueDiff{
+				"tags": {Old: oldTags, New: newTags},
+			},
+			Deletes: resource.PropertyMap{},
+			Sames:   resource.PropertyMap{},
+		}
+
+		originalInputs := resource.PropertyMap{
+			"tags": oldTags,
+		}
+
+		result := suppressAWSManagedTagAdditions("tags", default_tags.TagsStyleKeyValueArray, diff, originalInputs)
+
+		_, hasUpdate := result.Updates["tags"]
+		assert.False(t, hasUpdate, "reordered key/value tags should not register as drift")
+	})
+
+	t.Run("treats uppercase key value array tag reordering as no-op", func(t *testing.T) {
+		oldTags := resource.NewArrayProperty([]resource.PropertyValue{
+			resource.NewObjectProperty(resource.PropertyMap{
+				"Key":   resource.NewStringProperty("Name"),
+				"Value": resource.NewStringProperty("my-resource"),
+			}),
+			resource.NewObjectProperty(resource.PropertyMap{
+				"Key":   resource.NewStringProperty("Environment"),
+				"Value": resource.NewStringProperty("prod"),
+			}),
+		})
+		newTags := resource.NewArrayProperty([]resource.PropertyValue{
+			resource.NewObjectProperty(resource.PropertyMap{
+				"Key":   resource.NewStringProperty("Environment"),
+				"Value": resource.NewStringProperty("prod"),
+			}),
+			resource.NewObjectProperty(resource.PropertyMap{
+				"Key":   resource.NewStringProperty("Name"),
+				"Value": resource.NewStringProperty("my-resource"),
+			}),
+		})
+
+		diff := &resource.ObjectDiff{
+			Adds: resource.PropertyMap{},
+			Updates: map[resource.PropertyKey]resource.ValueDiff{
+				"tags": {Old: oldTags, New: newTags},
+			},
+			Deletes: resource.PropertyMap{},
+			Sames:   resource.PropertyMap{},
+		}
+
+		originalInputs := resource.PropertyMap{
+			"tags": oldTags,
+		}
+
+		result := suppressAWSManagedTagAdditions("tags", default_tags.TagsStyleKeyValueArrayUpperCase, diff, originalInputs)
+
+		_, hasUpdate := result.Updates["tags"]
+		assert.False(t, hasUpdate, "uppercase reordered key/value tags should not register as drift")
 	})
 
 	t.Run("keeps user tag updates when aws: tags are filtered out (array)", func(t *testing.T) {
@@ -304,7 +387,7 @@ func TestSuppressAWSManagedTagAdditions(t *testing.T) {
 			"tags": oldTags,
 		}
 
-		result := suppressAWSManagedTagAdditions("tags", diff, originalInputs)
+		result := suppressAWSManagedTagAdditions("tags", default_tags.TagsStyleKeyValueArray, diff, originalInputs)
 
 		update, hasUpdate := result.Updates["tags"]
 		assert.True(t, hasUpdate, "non-aws tag change should be preserved")
@@ -335,7 +418,7 @@ func TestSuppressAWSManagedTagAdditions(t *testing.T) {
 			"tags": oldTags,
 		}
 
-		result := suppressAWSManagedTagAdditions("tags", diff, originalInputs)
+		result := suppressAWSManagedTagAdditions("tags", default_tags.TagsStyleStringMap, diff, originalInputs)
 
 		update, hasUpdate := result.Updates["tags"]
 		assert.True(t, hasUpdate, "non-aws tag change should be preserved")

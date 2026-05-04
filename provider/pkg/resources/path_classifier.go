@@ -331,7 +331,19 @@ func (c *PathClassifier) pruneUnownedComputed(
 				delete(actual, key)
 			}
 		}
+		if value.IsSecret() {
+			secretValue := value.SecretValue().Element
+			if secretValue.IsObject() && isSchemaObject(c, path) {
+				c.pruneUnownedComputed(secretValue.ObjectValue(), oldDesired, newDesired, path)
+				if len(secretValue.ObjectValue()) == 0 && !hasPath(oldDesired, path) && !hasPath(newDesired, path) {
+					delete(actual, key)
+				}
+			}
+		}
 		if value.IsArray() {
+			// Arrays are owned at the containing property. We can prune
+			// unowned optional-computed fields inside object elements, but we
+			// intentionally do not delete emptied array elements here.
 			for i, item := range value.ArrayValue() {
 				if item.IsObject() {
 					c.pruneUnownedComputed(

@@ -521,7 +521,8 @@ Helper tests under `provider/pkg/resources` cover:
 
 ### Commands
 
-Follow `AGENTS.md` local test safety. Do not run broad provider test targets locally by default.
+Follow `AGENTS.md` local test safety. `mise exec -- make test_provider_fast`
+is acceptable for broad fast provider validation on this machine.
 
 Use targeted tests for changed provider/runtime logic, for example:
 
@@ -529,6 +530,11 @@ Use targeted tests for changed provider/runtime logic, for example:
 mise exec -- go test -count=1 ./pkg/resources -run 'TestPathClassifier|TestCalcPatch|TestSuppressAWSManagedDiffs'
 mise exec -- go test -count=1 ./pkg/provider -run 'TestStandardResource(Read|Diff|Update)'
 ```
+
+Do not run the full provider suite locally by default. The
+`mise exec -- make test_provider` target can run provider 2e2 tests that require
+live AWS credentials and may spend several minutes retrying EC2 IMDS when
+credentials are unavailable.
 
 If schema metadata or generated artifacts change, use the repo command canon from `AGENTS.md` instead of hand-editing generated files.
 

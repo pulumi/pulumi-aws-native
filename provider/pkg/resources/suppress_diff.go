@@ -4,9 +4,11 @@ package resources
 
 import (
 	"fmt"
+	"sort"
 	"strings"
 
 	"github.com/golang/glog"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/default_tags"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/naming"
 	"github.com/pulumi/pulumi-go-provider/resourcex"
@@ -38,8 +40,8 @@ func SuppressAWSManagedDiffsWithContext(
 	spec *metadata.CloudAPIResource,
 	diff *resource.ObjectDiff,
 	originalInputs resource.PropertyMap,
-	actualInputs resource.PropertyMap,
-	desiredInputs resource.PropertyMap,
+	oldSideContext resource.PropertyMap,
+	newSideContext resource.PropertyMap,
 	transformCache *TransformCache,
 ) *resource.ObjectDiff {
 	if diff == nil {
@@ -48,7 +50,7 @@ func SuppressAWSManagedDiffsWithContext(
 
 	// 1. Generic: Suppress aws:* prefixed tag additions
 	if spec.TagsProperty != "" {
-		diff = suppressAWSManagedTagAdditions(spec.TagsProperty, diff, originalInputs)
+		diff = suppressAWSManagedTagAdditions(spec.TagsProperty, spec.TagsStyle, diff, originalInputs)
 	}
 
 	// 2. Resource-specific suppressions
@@ -56,7 +58,12 @@ func SuppressAWSManagedDiffsWithContext(
 
 	// 3. PropertyTransform-based suppressions
 	if len(spec.PropertyTransforms) > 0 {
-		diff = suppressPropertyTransformDiffsWithContext(resourceToken, spec, diff, actualInputs, desiredInputs, transformCache)
+		// The contexts correspond to the old and new sides of diff. During
+		// refresh suppression those are old desired inputs and the live-output
+		// baseline; during update patching they are the live-output baseline
+		// and new desired inputs.
+		diff = suppressPropertyTransformDiffsWithContext(resourceToken, spec, diff,
+			oldSideContext, newSideContext, transformCache)
 	}
 
 	return diff
@@ -67,6 +74,7 @@ func SuppressAWSManagedDiffsWithContext(
 // aws:servicecatalog:applicationName) and users cannot manage them.
 func suppressAWSManagedTagAdditions(
 	tagsProperty string,
+	tagsStyle default_tags.TagsStyle,
 	diff *resource.ObjectDiff,
 	originalInputs resource.PropertyMap,
 ) *resource.ObjectDiff {
@@ -86,7 +94,9 @@ func suppressAWSManagedTagAdditions(
 	if updatedTags, isUpdate := diff.Updates[tagsKey]; isUpdate {
 		filteredOld := filterAWSPrefixedTags(updatedTags.Old, originalInputs[tagsKey])
 		filteredNew := filterAWSPrefixedTags(updatedTags.New, originalInputs[tagsKey])
-		if filteredNew.DeepEquals(filteredOld) {
+		compareOld := normalizeKeyValueArrayTagOrder(filteredOld, tagsStyle)
+		compareNew := normalizeKeyValueArrayTagOrder(filteredNew, tagsStyle)
+		if compareNew.DeepEquals(compareOld) {
 			// After filtering, old and new are the same - no real change
 			delete(diff.Updates, tagsKey)
 		} else {
@@ -98,6 +108,36 @@ func suppressAWSManagedTagAdditions(
 	}
 
 	return diff
+}
+
+// normalizeKeyValueArrayTagOrder sorts key/value-array tags for comparison.
+// CloudControl can return tags in arbitrary order, while Pulumi array diffs are
+// order-sensitive.
+func normalizeKeyValueArrayTagOrder(tags resource.PropertyValue, tagsStyle default_tags.TagsStyle) resource.PropertyValue {
+	if !tagsStyle.IsKeyValueArray() || !tags.IsArray() {
+		return tags
+	}
+
+	keyProp := resource.PropertyKey("key")
+	if tagsStyle == default_tags.TagsStyleKeyValueArrayUpperCase {
+		keyProp = resource.PropertyKey("Key")
+	}
+
+	sorted := append([]resource.PropertyValue(nil), tags.ArrayValue()...)
+	for _, tag := range sorted {
+		if !tag.IsObject() {
+			return tags
+		}
+		key, ok := tag.ObjectValue()[keyProp]
+		if !ok || !key.IsString() {
+			return tags
+		}
+	}
+
+	sort.SliceStable(sorted, func(i, j int) bool {
+		return sorted[i].ObjectValue()[keyProp].StringValue() < sorted[j].ObjectValue()[keyProp].StringValue()
+	})
+	return resource.NewArrayProperty(sorted)
 }
 
 // filterAWSPrefixedTags removes aws:* prefixed tags that weren't in originalTags.

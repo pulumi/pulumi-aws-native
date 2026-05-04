@@ -4,6 +4,7 @@ import (
 	"testing"
 
 	"github.com/mattbaird/jsonpatch"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/default_tags"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/naming"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
@@ -192,6 +193,83 @@ func TestCalcPatchWithActualOutputs(t *testing.T) {
 		}, patch)
 	})
 
+	t.Run("write-only descendant of create-only parent falls back without resend", func(t *testing.T) {
+		spec := metadata.CloudAPIResource{
+			Inputs: map[string]schema.PropertySpec{
+				"configurationProperties": {
+					TypeSpec: schema.TypeSpec{
+						Type:  "array",
+						Items: &schema.TypeSpec{Ref: "#/types/aws-native:test:ConfigurationProperty"},
+					},
+				},
+				"tags": {
+					TypeSpec: schema.TypeSpec{
+						Type:                 "object",
+						AdditionalProperties: &schema.TypeSpec{Type: "string"},
+					},
+				},
+			},
+			Outputs: map[string]schema.PropertySpec{
+				"configurationProperties": {
+					TypeSpec: schema.TypeSpec{
+						Type:  "array",
+						Items: &schema.TypeSpec{Ref: "#/types/aws-native:test:ConfigurationProperty"},
+					},
+				},
+				"tags": {
+					TypeSpec: schema.TypeSpec{
+						Type:                 "object",
+						AdditionalProperties: &schema.TypeSpec{Type: "string"},
+					},
+				},
+			},
+			WriteOnly:  []string{"configurationProperties/*/type"},
+			CreateOnly: []string{"configurationProperties"},
+		}
+		types := map[string]metadata.CloudAPIType{
+			"aws-native:test:ConfigurationProperty": {
+				Type: "object",
+				Properties: map[string]schema.PropertySpec{
+					"name": {TypeSpec: schema.TypeSpec{Type: "string"}},
+					"type": {TypeSpec: schema.TypeSpec{Type: "string"}},
+				},
+			},
+		}
+		oldInputs := resource.PropertyMap{
+			"configurationProperties": resource.NewArrayProperty([]resource.PropertyValue{
+				resource.NewObjectProperty(resource.PropertyMap{
+					"name": resource.NewStringProperty("Owner"),
+					"type": resource.NewStringProperty("String"),
+				}),
+			}),
+			"tags": resource.NewObjectProperty(resource.PropertyMap{
+				"env": resource.NewStringProperty("old"),
+			}),
+		}
+		actualOutputs := resource.PropertyMap{
+			"configurationProperties": resource.NewArrayProperty([]resource.PropertyValue{
+				resource.NewObjectProperty(resource.PropertyMap{
+					"name": resource.NewStringProperty("Owner"),
+				}),
+			}),
+			"tags": resource.NewObjectProperty(resource.PropertyMap{
+				"env": resource.NewStringProperty("old"),
+			}),
+		}
+		newInputs := resource.PropertyMap{
+			"configurationProperties": oldInputs["configurationProperties"],
+			"tags": resource.NewObjectProperty(resource.PropertyMap{
+				"env": resource.NewStringProperty("new"),
+			}),
+		}
+
+		patch, err := CalcPatchWithActualOutputs(oldInputs, actualOutputs, newInputs, spec, types, nil, "", nil)
+		require.NoError(t, err)
+		assert.Equal(t, []jsonpatch.JsonPatchOperation{
+			{Operation: "replace", Path: "/Tags", Value: map[string]interface{}{"env": "new"}},
+		}, patch)
+	})
+
 	t.Run("owned map drift is reconciled", func(t *testing.T) {
 		spec := metadata.CloudAPIResource{
 			Inputs: map[string]schema.PropertySpec{
@@ -267,6 +345,65 @@ func TestCalcPatchWithActualOutputs(t *testing.T) {
 				"owner": resource.NewStringProperty("team"),
 			})},
 			spec, nil, nil, "aws-native:test:Resource", NewTransformCache())
+		require.NoError(t, err)
+		assert.Empty(t, patch)
+	})
+
+	t.Run("key value array tag reorder is suppressed", func(t *testing.T) {
+		spec := metadata.CloudAPIResource{
+			TagsProperty: "tags",
+			TagsStyle:    default_tags.TagsStyleKeyValueArray,
+			Inputs: map[string]schema.PropertySpec{
+				"tags": {
+					TypeSpec: schema.TypeSpec{
+						Type:  "array",
+						Items: &schema.TypeSpec{Ref: "#/types/aws-native:test:Tag"},
+					},
+				},
+			},
+			Outputs: map[string]schema.PropertySpec{
+				"tags": {
+					TypeSpec: schema.TypeSpec{
+						Type:  "array",
+						Items: &schema.TypeSpec{Ref: "#/types/aws-native:test:Tag"},
+					},
+				},
+			},
+		}
+		types := map[string]metadata.CloudAPIType{
+			"aws-native:test:Tag": {
+				Type: "object",
+				Properties: map[string]schema.PropertySpec{
+					"key":   {TypeSpec: schema.TypeSpec{Type: "string"}},
+					"value": {TypeSpec: schema.TypeSpec{Type: "string"}},
+				},
+			},
+		}
+		oldTags := resource.NewArrayProperty([]resource.PropertyValue{
+			resource.NewObjectProperty(resource.PropertyMap{
+				"key":   resource.NewStringProperty("Environment"),
+				"value": resource.NewStringProperty("prod"),
+			}),
+			resource.NewObjectProperty(resource.PropertyMap{
+				"key":   resource.NewStringProperty("Name"),
+				"value": resource.NewStringProperty("my-resource"),
+			}),
+		})
+		actualTags := resource.NewArrayProperty([]resource.PropertyValue{
+			resource.NewObjectProperty(resource.PropertyMap{
+				"key":   resource.NewStringProperty("Name"),
+				"value": resource.NewStringProperty("my-resource"),
+			}),
+			resource.NewObjectProperty(resource.PropertyMap{
+				"key":   resource.NewStringProperty("Environment"),
+				"value": resource.NewStringProperty("prod"),
+			}),
+		})
+		patch, err := CalcPatchWithActualOutputs(
+			resource.PropertyMap{"tags": oldTags},
+			resource.PropertyMap{"tags": actualTags},
+			resource.PropertyMap{"tags": oldTags},
+			spec, types, nil, "aws-native:test:Resource", NewTransformCache())
 		require.NoError(t, err)
 		assert.Empty(t, patch)
 	})

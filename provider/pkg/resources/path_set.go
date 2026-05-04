@@ -35,6 +35,20 @@ func (s pathSet) matches(path string) bool {
 	return false
 }
 
+// covers reports whether path is equal to or nested under any stored metadata
+// path pattern.
+//
+// For example, a stored create-only path "configurationProperties" covers
+// "configurationProperties/*/type".
+func (s pathSet) covers(path string) bool {
+	for _, pattern := range s.paths {
+		if slashPath(pattern).Contains(slashPath(path)) {
+			return true
+		}
+	}
+	return false
+}
+
 // pathMatches reports whether one metadata path pattern matches one concrete
 // path with the same number of segments.
 func pathMatches(pattern, path string) bool {

@@ -77,7 +77,7 @@ Map every important invariant to concrete verification:
 - Use helper tests under `provider/pkg/resources` or `provider/pkg/schema` only when behavior is factored there.
 - Prefer tests that model old checkpoint/new metadata or old provider/new provider shape when the bug is schema-evolution-related.
 - Include cases for input/output overlap, nested object fields, maps/tags, arrays, write-only fields, and create-only fields when the design depends on them.
-- Follow `AGENTS.md` local test safety. For `provider/pkg/**` changes on this machine, prefer targeted `mise exec -- go test -count=1 ./pkg/<package> -run '<TestNamePattern>'` commands and leave broad provider targets such as `mise exec -- make test_provider_fast` to CI unless the user explicitly asks to run them locally.
+- Follow `AGENTS.md` local test safety. For `provider/pkg/**` changes on this machine, targeted `mise exec -- go test -count=1 ./pkg/<package> -run '<TestNamePattern>'` commands are appropriate for narrow changes, and `mise exec -- make test_provider_fast` is acceptable for broad fast provider validation. Do not run the full provider suite locally by default because it can run provider 2e2 tests that require live AWS credentials and may spend several minutes retrying EC2 IMDS when credentials are unavailable.
 
 ## Stop Conditions
 

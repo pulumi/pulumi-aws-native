@@ -55,9 +55,14 @@ func calcPatchFromBaseline(
 	// patch requests as adds to ensure the updated model validates.
 	// If a property is both write-only and create-only, we should not include it in the patch request
 	// because create-only properties can't be updated and even doing an add of the same value is rejected.
-	createOnlyProps := codegen.NewStringSet(spec.CreateOnly...)
-	writeOnlyProps := codegen.NewStringSet(spec.WriteOnly...)
-	mustSendProps := writeOnlyProps.Subtract(createOnlyProps)
+	createOnlyPaths := newPathSet(spec.CreateOnly)
+	mustSendProps := codegen.NewStringSet()
+	for _, writeOnlyPropName := range spec.WriteOnly {
+		if createOnlyPaths.covers(writeOnlyPropName) {
+			continue
+		}
+		mustSendProps.Add(writeOnlyPropName)
+	}
 
 	isDiffEmpty := diff == nil
 	if isDiffEmpty {
