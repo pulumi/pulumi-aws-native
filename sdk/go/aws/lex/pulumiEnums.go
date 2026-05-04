@@ -1775,6 +1775,7 @@ const (
 	BotSpeechModelPreferenceStandard = BotSpeechModelPreference("Standard")
 	BotSpeechModelPreferenceNeural   = BotSpeechModelPreference("Neural")
 	BotSpeechModelPreferenceDeepgram = BotSpeechModelPreference("Deepgram")
+	BotSpeechModelPreferenceEnhanced = BotSpeechModelPreference("Enhanced")
 )
 
 func (BotSpeechModelPreference) ElementType() reflect.Type {
@@ -1902,6 +1903,7 @@ func (o BotSpeechModelPreferencePtrOutput) ToStringPtrOutputWithContext(ctx cont
 //	BotSpeechModelPreferenceStandard
 //	BotSpeechModelPreferenceNeural
 //	BotSpeechModelPreferenceDeepgram
+//	BotSpeechModelPreferenceEnhanced
 type BotSpeechModelPreferenceInput interface {
 	pulumi.Input
 

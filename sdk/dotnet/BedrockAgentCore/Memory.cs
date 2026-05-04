@@ -39,6 +39,9 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         [Output("failureReason")]
         public Output<string> FailureReason { get; private set; } = null!;
 
+        [Output("indexedKeys")]
+        public Output<ImmutableArray<Outputs.MemoryIndexedKey>> IndexedKeys { get; private set; } = null!;
+
         [Output("memoryArn")]
         public Output<string> MemoryArn { get; private set; } = null!;
 
@@ -148,6 +151,14 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         /// </summary>
         [Input("eventExpiryDuration", required: true)]
         public Input<int> EventExpiryDuration { get; set; } = null!;
+
+        [Input("indexedKeys")]
+        private InputList<Inputs.MemoryIndexedKeyArgs>? _indexedKeys;
+        public InputList<Inputs.MemoryIndexedKeyArgs> IndexedKeys
+        {
+            get => _indexedKeys ?? (_indexedKeys = new InputList<Inputs.MemoryIndexedKeyArgs>());
+            set => _indexedKeys = value;
+        }
 
         /// <summary>
         /// The memory role ARN.

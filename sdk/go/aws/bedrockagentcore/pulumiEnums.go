@@ -10,6 +10,172 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The type of browser enterprise policy.
+type BrowserCustomBrowserEnterprisePolicyType string
+
+const (
+	BrowserCustomBrowserEnterprisePolicyTypeManaged     = BrowserCustomBrowserEnterprisePolicyType("MANAGED")
+	BrowserCustomBrowserEnterprisePolicyTypeRecommended = BrowserCustomBrowserEnterprisePolicyType("RECOMMENDED")
+)
+
+func (BrowserCustomBrowserEnterprisePolicyType) ElementType() reflect.Type {
+	return reflect.TypeOf((*BrowserCustomBrowserEnterprisePolicyType)(nil)).Elem()
+}
+
+func (e BrowserCustomBrowserEnterprisePolicyType) ToBrowserCustomBrowserEnterprisePolicyTypeOutput() BrowserCustomBrowserEnterprisePolicyTypeOutput {
+	return pulumi.ToOutput(e).(BrowserCustomBrowserEnterprisePolicyTypeOutput)
+}
+
+func (e BrowserCustomBrowserEnterprisePolicyType) ToBrowserCustomBrowserEnterprisePolicyTypeOutputWithContext(ctx context.Context) BrowserCustomBrowserEnterprisePolicyTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(BrowserCustomBrowserEnterprisePolicyTypeOutput)
+}
+
+func (e BrowserCustomBrowserEnterprisePolicyType) ToBrowserCustomBrowserEnterprisePolicyTypePtrOutput() BrowserCustomBrowserEnterprisePolicyTypePtrOutput {
+	return e.ToBrowserCustomBrowserEnterprisePolicyTypePtrOutputWithContext(context.Background())
+}
+
+func (e BrowserCustomBrowserEnterprisePolicyType) ToBrowserCustomBrowserEnterprisePolicyTypePtrOutputWithContext(ctx context.Context) BrowserCustomBrowserEnterprisePolicyTypePtrOutput {
+	return BrowserCustomBrowserEnterprisePolicyType(e).ToBrowserCustomBrowserEnterprisePolicyTypeOutputWithContext(ctx).ToBrowserCustomBrowserEnterprisePolicyTypePtrOutputWithContext(ctx)
+}
+
+func (e BrowserCustomBrowserEnterprisePolicyType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BrowserCustomBrowserEnterprisePolicyType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BrowserCustomBrowserEnterprisePolicyType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e BrowserCustomBrowserEnterprisePolicyType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type BrowserCustomBrowserEnterprisePolicyTypeOutput struct{ *pulumi.OutputState }
+
+func (BrowserCustomBrowserEnterprisePolicyTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BrowserCustomBrowserEnterprisePolicyType)(nil)).Elem()
+}
+
+func (o BrowserCustomBrowserEnterprisePolicyTypeOutput) ToBrowserCustomBrowserEnterprisePolicyTypeOutput() BrowserCustomBrowserEnterprisePolicyTypeOutput {
+	return o
+}
+
+func (o BrowserCustomBrowserEnterprisePolicyTypeOutput) ToBrowserCustomBrowserEnterprisePolicyTypeOutputWithContext(ctx context.Context) BrowserCustomBrowserEnterprisePolicyTypeOutput {
+	return o
+}
+
+func (o BrowserCustomBrowserEnterprisePolicyTypeOutput) ToBrowserCustomBrowserEnterprisePolicyTypePtrOutput() BrowserCustomBrowserEnterprisePolicyTypePtrOutput {
+	return o.ToBrowserCustomBrowserEnterprisePolicyTypePtrOutputWithContext(context.Background())
+}
+
+func (o BrowserCustomBrowserEnterprisePolicyTypeOutput) ToBrowserCustomBrowserEnterprisePolicyTypePtrOutputWithContext(ctx context.Context) BrowserCustomBrowserEnterprisePolicyTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BrowserCustomBrowserEnterprisePolicyType) *BrowserCustomBrowserEnterprisePolicyType {
+		return &v
+	}).(BrowserCustomBrowserEnterprisePolicyTypePtrOutput)
+}
+
+func (o BrowserCustomBrowserEnterprisePolicyTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o BrowserCustomBrowserEnterprisePolicyTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BrowserCustomBrowserEnterprisePolicyType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o BrowserCustomBrowserEnterprisePolicyTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BrowserCustomBrowserEnterprisePolicyTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BrowserCustomBrowserEnterprisePolicyType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type BrowserCustomBrowserEnterprisePolicyTypePtrOutput struct{ *pulumi.OutputState }
+
+func (BrowserCustomBrowserEnterprisePolicyTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BrowserCustomBrowserEnterprisePolicyType)(nil)).Elem()
+}
+
+func (o BrowserCustomBrowserEnterprisePolicyTypePtrOutput) ToBrowserCustomBrowserEnterprisePolicyTypePtrOutput() BrowserCustomBrowserEnterprisePolicyTypePtrOutput {
+	return o
+}
+
+func (o BrowserCustomBrowserEnterprisePolicyTypePtrOutput) ToBrowserCustomBrowserEnterprisePolicyTypePtrOutputWithContext(ctx context.Context) BrowserCustomBrowserEnterprisePolicyTypePtrOutput {
+	return o
+}
+
+func (o BrowserCustomBrowserEnterprisePolicyTypePtrOutput) Elem() BrowserCustomBrowserEnterprisePolicyTypeOutput {
+	return o.ApplyT(func(v *BrowserCustomBrowserEnterprisePolicyType) BrowserCustomBrowserEnterprisePolicyType {
+		if v != nil {
+			return *v
+		}
+		var ret BrowserCustomBrowserEnterprisePolicyType
+		return ret
+	}).(BrowserCustomBrowserEnterprisePolicyTypeOutput)
+}
+
+func (o BrowserCustomBrowserEnterprisePolicyTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BrowserCustomBrowserEnterprisePolicyTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *BrowserCustomBrowserEnterprisePolicyType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// BrowserCustomBrowserEnterprisePolicyTypeInput is an input type that accepts values of the BrowserCustomBrowserEnterprisePolicyType enum
+// A concrete instance of `BrowserCustomBrowserEnterprisePolicyTypeInput` can be one of the following:
+//
+//	BrowserCustomBrowserEnterprisePolicyTypeManaged
+//	BrowserCustomBrowserEnterprisePolicyTypeRecommended
+type BrowserCustomBrowserEnterprisePolicyTypeInput interface {
+	pulumi.Input
+
+	ToBrowserCustomBrowserEnterprisePolicyTypeOutput() BrowserCustomBrowserEnterprisePolicyTypeOutput
+	ToBrowserCustomBrowserEnterprisePolicyTypeOutputWithContext(context.Context) BrowserCustomBrowserEnterprisePolicyTypeOutput
+}
+
+var browserCustomBrowserEnterprisePolicyTypePtrType = reflect.TypeOf((**BrowserCustomBrowserEnterprisePolicyType)(nil)).Elem()
+
+type BrowserCustomBrowserEnterprisePolicyTypePtrInput interface {
+	pulumi.Input
+
+	ToBrowserCustomBrowserEnterprisePolicyTypePtrOutput() BrowserCustomBrowserEnterprisePolicyTypePtrOutput
+	ToBrowserCustomBrowserEnterprisePolicyTypePtrOutputWithContext(context.Context) BrowserCustomBrowserEnterprisePolicyTypePtrOutput
+}
+
+type browserCustomBrowserEnterprisePolicyTypePtr string
+
+func BrowserCustomBrowserEnterprisePolicyTypePtr(v string) BrowserCustomBrowserEnterprisePolicyTypePtrInput {
+	return (*browserCustomBrowserEnterprisePolicyTypePtr)(&v)
+}
+
+func (*browserCustomBrowserEnterprisePolicyTypePtr) ElementType() reflect.Type {
+	return browserCustomBrowserEnterprisePolicyTypePtrType
+}
+
+func (in *browserCustomBrowserEnterprisePolicyTypePtr) ToBrowserCustomBrowserEnterprisePolicyTypePtrOutput() BrowserCustomBrowserEnterprisePolicyTypePtrOutput {
+	return pulumi.ToOutput(in).(BrowserCustomBrowserEnterprisePolicyTypePtrOutput)
+}
+
+func (in *browserCustomBrowserEnterprisePolicyTypePtr) ToBrowserCustomBrowserEnterprisePolicyTypePtrOutputWithContext(ctx context.Context) BrowserCustomBrowserEnterprisePolicyTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(BrowserCustomBrowserEnterprisePolicyTypePtrOutput)
+}
+
 // Network modes supported by browser
 type BrowserCustomBrowserNetworkMode string
 
@@ -4348,6 +4514,174 @@ func (in *memoryEpisodicMemoryStrategyTypePtr) ToMemoryEpisodicMemoryStrategyTyp
 	return pulumi.ToOutputWithContext(ctx, in).(MemoryEpisodicMemoryStrategyTypePtrOutput)
 }
 
+// Supported data types for metadata values
+type MemoryMetadataValueType string
+
+const (
+	MemoryMetadataValueTypeString     = MemoryMetadataValueType("STRING")
+	MemoryMetadataValueTypeStringlist = MemoryMetadataValueType("STRINGLIST")
+	MemoryMetadataValueTypeNumber     = MemoryMetadataValueType("NUMBER")
+)
+
+func (MemoryMetadataValueType) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemoryMetadataValueType)(nil)).Elem()
+}
+
+func (e MemoryMetadataValueType) ToMemoryMetadataValueTypeOutput() MemoryMetadataValueTypeOutput {
+	return pulumi.ToOutput(e).(MemoryMetadataValueTypeOutput)
+}
+
+func (e MemoryMetadataValueType) ToMemoryMetadataValueTypeOutputWithContext(ctx context.Context) MemoryMetadataValueTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(MemoryMetadataValueTypeOutput)
+}
+
+func (e MemoryMetadataValueType) ToMemoryMetadataValueTypePtrOutput() MemoryMetadataValueTypePtrOutput {
+	return e.ToMemoryMetadataValueTypePtrOutputWithContext(context.Background())
+}
+
+func (e MemoryMetadataValueType) ToMemoryMetadataValueTypePtrOutputWithContext(ctx context.Context) MemoryMetadataValueTypePtrOutput {
+	return MemoryMetadataValueType(e).ToMemoryMetadataValueTypeOutputWithContext(ctx).ToMemoryMetadataValueTypePtrOutputWithContext(ctx)
+}
+
+func (e MemoryMetadataValueType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MemoryMetadataValueType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MemoryMetadataValueType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e MemoryMetadataValueType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type MemoryMetadataValueTypeOutput struct{ *pulumi.OutputState }
+
+func (MemoryMetadataValueTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemoryMetadataValueType)(nil)).Elem()
+}
+
+func (o MemoryMetadataValueTypeOutput) ToMemoryMetadataValueTypeOutput() MemoryMetadataValueTypeOutput {
+	return o
+}
+
+func (o MemoryMetadataValueTypeOutput) ToMemoryMetadataValueTypeOutputWithContext(ctx context.Context) MemoryMetadataValueTypeOutput {
+	return o
+}
+
+func (o MemoryMetadataValueTypeOutput) ToMemoryMetadataValueTypePtrOutput() MemoryMetadataValueTypePtrOutput {
+	return o.ToMemoryMetadataValueTypePtrOutputWithContext(context.Background())
+}
+
+func (o MemoryMetadataValueTypeOutput) ToMemoryMetadataValueTypePtrOutputWithContext(ctx context.Context) MemoryMetadataValueTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MemoryMetadataValueType) *MemoryMetadataValueType {
+		return &v
+	}).(MemoryMetadataValueTypePtrOutput)
+}
+
+func (o MemoryMetadataValueTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o MemoryMetadataValueTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MemoryMetadataValueType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o MemoryMetadataValueTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MemoryMetadataValueTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MemoryMetadataValueType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type MemoryMetadataValueTypePtrOutput struct{ *pulumi.OutputState }
+
+func (MemoryMetadataValueTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MemoryMetadataValueType)(nil)).Elem()
+}
+
+func (o MemoryMetadataValueTypePtrOutput) ToMemoryMetadataValueTypePtrOutput() MemoryMetadataValueTypePtrOutput {
+	return o
+}
+
+func (o MemoryMetadataValueTypePtrOutput) ToMemoryMetadataValueTypePtrOutputWithContext(ctx context.Context) MemoryMetadataValueTypePtrOutput {
+	return o
+}
+
+func (o MemoryMetadataValueTypePtrOutput) Elem() MemoryMetadataValueTypeOutput {
+	return o.ApplyT(func(v *MemoryMetadataValueType) MemoryMetadataValueType {
+		if v != nil {
+			return *v
+		}
+		var ret MemoryMetadataValueType
+		return ret
+	}).(MemoryMetadataValueTypeOutput)
+}
+
+func (o MemoryMetadataValueTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MemoryMetadataValueTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *MemoryMetadataValueType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// MemoryMetadataValueTypeInput is an input type that accepts values of the MemoryMetadataValueType enum
+// A concrete instance of `MemoryMetadataValueTypeInput` can be one of the following:
+//
+//	MemoryMetadataValueTypeString
+//	MemoryMetadataValueTypeStringlist
+//	MemoryMetadataValueTypeNumber
+type MemoryMetadataValueTypeInput interface {
+	pulumi.Input
+
+	ToMemoryMetadataValueTypeOutput() MemoryMetadataValueTypeOutput
+	ToMemoryMetadataValueTypeOutputWithContext(context.Context) MemoryMetadataValueTypeOutput
+}
+
+var memoryMetadataValueTypePtrType = reflect.TypeOf((**MemoryMetadataValueType)(nil)).Elem()
+
+type MemoryMetadataValueTypePtrInput interface {
+	pulumi.Input
+
+	ToMemoryMetadataValueTypePtrOutput() MemoryMetadataValueTypePtrOutput
+	ToMemoryMetadataValueTypePtrOutputWithContext(context.Context) MemoryMetadataValueTypePtrOutput
+}
+
+type memoryMetadataValueTypePtr string
+
+func MemoryMetadataValueTypePtr(v string) MemoryMetadataValueTypePtrInput {
+	return (*memoryMetadataValueTypePtr)(&v)
+}
+
+func (*memoryMetadataValueTypePtr) ElementType() reflect.Type {
+	return memoryMetadataValueTypePtrType
+}
+
+func (in *memoryMetadataValueTypePtr) ToMemoryMetadataValueTypePtrOutput() MemoryMetadataValueTypePtrOutput {
+	return pulumi.ToOutput(in).(MemoryMetadataValueTypePtrOutput)
+}
+
+func (in *memoryMetadataValueTypePtr) ToMemoryMetadataValueTypePtrOutputWithContext(ctx context.Context) MemoryMetadataValueTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(MemoryMetadataValueTypePtrOutput)
+}
+
 // Status of the memory strategy
 type MemorySemanticMemoryStrategyStatus string
 
@@ -6481,6 +6815,7 @@ const (
 	RuntimeAgentManagedRuntimeTypePython312 = RuntimeAgentManagedRuntimeType("PYTHON_3_12")
 	RuntimeAgentManagedRuntimeTypePython313 = RuntimeAgentManagedRuntimeType("PYTHON_3_13")
 	RuntimeAgentManagedRuntimeTypePython314 = RuntimeAgentManagedRuntimeType("PYTHON_3_14")
+	RuntimeAgentManagedRuntimeTypeNode22    = RuntimeAgentManagedRuntimeType("NODE_22")
 )
 
 func (RuntimeAgentManagedRuntimeType) ElementType() reflect.Type {
@@ -6610,6 +6945,7 @@ func (o RuntimeAgentManagedRuntimeTypePtrOutput) ToStringPtrOutputWithContext(ct
 //	RuntimeAgentManagedRuntimeTypePython312
 //	RuntimeAgentManagedRuntimeTypePython313
 //	RuntimeAgentManagedRuntimeTypePython314
+//	RuntimeAgentManagedRuntimeTypeNode22
 type RuntimeAgentManagedRuntimeTypeInput interface {
 	pulumi.Input
 
@@ -7502,6 +7838,8 @@ func (in *runtimeProtocolConfigurationPtr) ToRuntimeProtocolConfigurationPtrOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BrowserCustomBrowserEnterprisePolicyTypeInput)(nil)).Elem(), BrowserCustomBrowserEnterprisePolicyType("MANAGED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BrowserCustomBrowserEnterprisePolicyTypePtrInput)(nil)).Elem(), BrowserCustomBrowserEnterprisePolicyType("MANAGED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BrowserCustomBrowserNetworkModeInput)(nil)).Elem(), BrowserCustomBrowserNetworkMode("PUBLIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BrowserCustomBrowserNetworkModePtrInput)(nil)).Elem(), BrowserCustomBrowserNetworkMode("PUBLIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeInterpreterCustomCodeInterpreterNetworkModeInput)(nil)).Elem(), CodeInterpreterCustomCodeInterpreterNetworkMode("PUBLIC"))
@@ -7548,6 +7886,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryEpisodicMemoryStrategyStatusPtrInput)(nil)).Elem(), MemoryEpisodicMemoryStrategyStatus("CREATING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryEpisodicMemoryStrategyTypeInput)(nil)).Elem(), MemoryEpisodicMemoryStrategyType("SEMANTIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryEpisodicMemoryStrategyTypePtrInput)(nil)).Elem(), MemoryEpisodicMemoryStrategyType("SEMANTIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MemoryMetadataValueTypeInput)(nil)).Elem(), MemoryMetadataValueType("STRING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MemoryMetadataValueTypePtrInput)(nil)).Elem(), MemoryMetadataValueType("STRING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MemorySemanticMemoryStrategyStatusInput)(nil)).Elem(), MemorySemanticMemoryStrategyStatus("CREATING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MemorySemanticMemoryStrategyStatusPtrInput)(nil)).Elem(), MemorySemanticMemoryStrategyStatus("CREATING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MemorySemanticMemoryStrategyTypeInput)(nil)).Elem(), MemorySemanticMemoryStrategyType("SEMANTIC"))
@@ -7578,6 +7918,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeNetworkModePtrInput)(nil)).Elem(), RuntimeNetworkMode("PUBLIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeProtocolConfigurationInput)(nil)).Elem(), RuntimeProtocolConfiguration("MCP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeProtocolConfigurationPtrInput)(nil)).Elem(), RuntimeProtocolConfiguration("MCP"))
+	pulumi.RegisterOutputType(BrowserCustomBrowserEnterprisePolicyTypeOutput{})
+	pulumi.RegisterOutputType(BrowserCustomBrowserEnterprisePolicyTypePtrOutput{})
 	pulumi.RegisterOutputType(BrowserCustomBrowserNetworkModeOutput{})
 	pulumi.RegisterOutputType(BrowserCustomBrowserNetworkModePtrOutput{})
 	pulumi.RegisterOutputType(BrowserCustomBrowserStatusOutput{})
@@ -7636,6 +7978,8 @@ func init() {
 	pulumi.RegisterOutputType(MemoryEpisodicMemoryStrategyStatusPtrOutput{})
 	pulumi.RegisterOutputType(MemoryEpisodicMemoryStrategyTypeOutput{})
 	pulumi.RegisterOutputType(MemoryEpisodicMemoryStrategyTypePtrOutput{})
+	pulumi.RegisterOutputType(MemoryMetadataValueTypeOutput{})
+	pulumi.RegisterOutputType(MemoryMetadataValueTypePtrOutput{})
 	pulumi.RegisterOutputType(MemorySemanticMemoryStrategyStatusOutput{})
 	pulumi.RegisterOutputType(MemorySemanticMemoryStrategyStatusPtrOutput{})
 	pulumi.RegisterOutputType(MemorySemanticMemoryStrategyTypeOutput{})

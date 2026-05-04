@@ -31,6 +31,12 @@ namespace Pulumi.AwsNative.Route53Resolver
         public Output<string> Direction { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies whether DNS64 is enabled for the Inbound Resolver Endpoint. When set to true, if a DNS AAAA query is made for a domain that has only an A (IPv4) record, the resolver automatically synthesizes an AAAA (IPv6) response by embedding the IPv4 address into the well-known prefix 64:ff9b::/96. Default is false.
+        /// </summary>
+        [Output("dns64Enabled")]
+        public Output<bool?> Dns64Enabled { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the VPC that you want to create the resolver endpoint in.
         /// </summary>
         [Output("hostVpcId")]
@@ -47,6 +53,12 @@ namespace Pulumi.AwsNative.Route53Resolver
         /// </summary>
         [Output("ipAddresses")]
         public Output<ImmutableArray<Outputs.ResolverEndpointIpAddressRequest>> IpAddresses { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies whether IPv6 Internet Gateway access is enabled through the Outbound Resolver Endpoint. When set to true, this property allows your Endpoint ENIs to reach public IPv6 target nameservers through an internet gateway. Default is false.
+        /// </summary>
+        [Output("ipv6InternetAccessEnabled")]
+        public Output<bool?> Ipv6InternetAccessEnabled { get; private set; } = null!;
 
         /// <summary>
         /// A friendly name that lets you easily find a configuration in the Resolver dashboard in the Route 53 console.
@@ -169,6 +181,12 @@ namespace Pulumi.AwsNative.Route53Resolver
         [Input("direction", required: true)]
         public Input<string> Direction { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies whether DNS64 is enabled for the Inbound Resolver Endpoint. When set to true, if a DNS AAAA query is made for a domain that has only an A (IPv4) record, the resolver automatically synthesizes an AAAA (IPv6) response by embedding the IPv4 address into the well-known prefix 64:ff9b::/96. Default is false.
+        /// </summary>
+        [Input("dns64Enabled")]
+        public Input<bool>? Dns64Enabled { get; set; }
+
         [Input("ipAddresses", required: true)]
         private InputList<Inputs.ResolverEndpointIpAddressRequestArgs>? _ipAddresses;
 
@@ -180,6 +198,12 @@ namespace Pulumi.AwsNative.Route53Resolver
             get => _ipAddresses ?? (_ipAddresses = new InputList<Inputs.ResolverEndpointIpAddressRequestArgs>());
             set => _ipAddresses = value;
         }
+
+        /// <summary>
+        /// Specifies whether IPv6 Internet Gateway access is enabled through the Outbound Resolver Endpoint. When set to true, this property allows your Endpoint ENIs to reach public IPv6 target nameservers through an internet gateway. Default is false.
+        /// </summary>
+        [Input("ipv6InternetAccessEnabled")]
+        public Input<bool>? Ipv6InternetAccessEnabled { get; set; }
 
         /// <summary>
         /// A friendly name that lets you easily find a configuration in the Resolver dashboard in the Route 53 console.

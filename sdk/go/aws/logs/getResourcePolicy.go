@@ -29,7 +29,9 @@ type LookupResourcePolicyArgs struct {
 
 type LookupResourcePolicyResult struct {
 	// The policy document
-	PolicyDocument *string `pulumi:"policyDocument"`
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::ResourcePolicy` for more information about the expected schema for this property.
+	PolicyDocument interface{} `pulumi:"policyDocument"`
 }
 
 func LookupResourcePolicyOutput(ctx *pulumi.Context, args LookupResourcePolicyOutputArgs, opts ...pulumi.InvokeOption) LookupResourcePolicyResultOutput {
@@ -65,8 +67,10 @@ func (o LookupResourcePolicyResultOutput) ToLookupResourcePolicyResultOutputWith
 }
 
 // The policy document
-func (o LookupResourcePolicyResultOutput) PolicyDocument() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupResourcePolicyResult) *string { return v.PolicyDocument }).(pulumi.StringPtrOutput)
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::ResourcePolicy` for more information about the expected schema for this property.
+func (o LookupResourcePolicyResultOutput) PolicyDocument() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupResourcePolicyResult) interface{} { return v.PolicyDocument }).(pulumi.AnyOutput)
 }
 
 func init() {

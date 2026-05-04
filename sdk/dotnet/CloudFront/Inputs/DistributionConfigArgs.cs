@@ -47,6 +47,9 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
             set => _cacheBehaviors = value;
         }
 
+        [Input("cacheTagConfig")]
+        public Input<Inputs.DistributionCacheTagConfigArgs>? CacheTagConfig { get; set; }
+
         [Input("cnames")]
         private InputList<string>? _cnames;
 

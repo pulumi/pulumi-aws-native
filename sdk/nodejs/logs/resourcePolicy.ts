@@ -36,8 +36,10 @@ export class ResourcePolicy extends pulumi.CustomResource {
 
     /**
      * The policy document
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::ResourcePolicy` for more information about the expected schema for this property.
      */
-    declare public readonly policyDocument: pulumi.Output<string>;
+    declare public readonly policyDocument: pulumi.Output<any>;
     /**
      * A name for resource policy
      */
@@ -76,8 +78,10 @@ export class ResourcePolicy extends pulumi.CustomResource {
 export interface ResourcePolicyArgs {
     /**
      * The policy document
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::ResourcePolicy` for more information about the expected schema for this property.
      */
-    policyDocument: pulumi.Input<string>;
+    policyDocument: any;
     /**
      * A name for resource policy
      */

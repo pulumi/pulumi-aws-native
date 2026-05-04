@@ -57,6 +57,7 @@ export class ResourceGateway extends pulumi.CustomResource {
      * The name of the resource gateway.
      */
     declare public readonly name: pulumi.Output<string>;
+    declare public readonly resourceConfigDnsResolution: pulumi.Output<enums.vpclattice.ResourceGatewayResourceConfigDnsResolution | undefined>;
     /**
      * The ID of one or more security groups to associate with the endpoint network interface.
      */
@@ -94,6 +95,7 @@ export class ResourceGateway extends pulumi.CustomResource {
             resourceInputs["ipAddressType"] = args?.ipAddressType;
             resourceInputs["ipv4AddressesPerEni"] = args?.ipv4AddressesPerEni;
             resourceInputs["name"] = args?.name;
+            resourceInputs["resourceConfigDnsResolution"] = args?.resourceConfigDnsResolution;
             resourceInputs["securityGroupIds"] = args?.securityGroupIds;
             resourceInputs["subnetIds"] = args?.subnetIds;
             resourceInputs["tags"] = args?.tags;
@@ -106,13 +108,14 @@ export class ResourceGateway extends pulumi.CustomResource {
             resourceInputs["ipAddressType"] = undefined /*out*/;
             resourceInputs["ipv4AddressesPerEni"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["resourceConfigDnsResolution"] = undefined /*out*/;
             resourceInputs["securityGroupIds"] = undefined /*out*/;
             resourceInputs["subnetIds"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["vpcIdentifier"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["ipAddressType", "name", "subnetIds[*]", "vpcIdentifier"] };
+        const replaceOnChanges = { replaceOnChanges: ["ipAddressType", "name", "resourceConfigDnsResolution", "subnetIds[*]", "vpcIdentifier"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ResourceGateway.__pulumiType, name, resourceInputs, opts);
     }
@@ -134,6 +137,7 @@ export interface ResourceGatewayArgs {
      * The name of the resource gateway.
      */
     name?: pulumi.Input<string>;
+    resourceConfigDnsResolution?: pulumi.Input<enums.vpclattice.ResourceGatewayResourceConfigDnsResolution>;
     /**
      * The ID of one or more security groups to associate with the endpoint network interface.
      */

@@ -9947,6 +9947,11 @@ func (o FlowVpcInterfaceAttachmentPtrOutput) VpcInterfaceName() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+type FlowVpcInterfaceTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
 // The network settings for a gateway.
 type GatewayNetwork struct {
 	// A unique IP address range to use for this network. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.

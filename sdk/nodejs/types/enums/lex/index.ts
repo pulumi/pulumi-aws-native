@@ -96,6 +96,7 @@ export const BotSpeechModelPreference = {
     Standard: "Standard",
     Neural: "Neural",
     Deepgram: "Deepgram",
+    Enhanced: "Enhanced",
 } as const;
 
 export type BotSpeechModelPreference = (typeof BotSpeechModelPreference)[keyof typeof BotSpeechModelPreference];

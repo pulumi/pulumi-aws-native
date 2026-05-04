@@ -48,6 +48,8 @@ __all__ = [
     'ContinuousDeploymentPolicyTrafficConfigArgsDict',
     'DistributionCacheBehaviorArgs',
     'DistributionCacheBehaviorArgsDict',
+    'DistributionCacheTagConfigArgs',
+    'DistributionCacheTagConfigArgsDict',
     'DistributionConfigTenantConfigPropertiesArgs',
     'DistributionConfigTenantConfigPropertiesArgsDict',
     'DistributionConfigArgs',
@@ -1823,6 +1825,25 @@ class DistributionCacheBehaviorArgs:
         pulumi.set(self, "trusted_signers", value)
 
 
+class DistributionCacheTagConfigArgsDict(TypedDict):
+    header_name: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class DistributionCacheTagConfigArgs:
+    def __init__(__self__, *,
+                 header_name: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "header_name", header_name)
+
+    @_builtins.property
+    @pulumi.getter(name="headerName")
+    def header_name(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "header_name")
+
+    @header_name.setter
+    def header_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "header_name", value)
+
+
 class DistributionConfigTenantConfigPropertiesArgsDict(TypedDict):
     """
     This field only supports multi-tenant distributions. You can't specify this field for standard distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
@@ -1877,6 +1898,7 @@ class DistributionConfigArgsDict(TypedDict):
     """
     A complex type that contains zero or more ``CacheBehavior`` elements.
     """
+    cache_tag_config: NotRequired[pulumi.Input['DistributionCacheTagConfigArgsDict']]
     cnames: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     """
     An alias for the CF distribution's domain name.
@@ -2003,6 +2025,7 @@ class DistributionConfigArgs:
                  aliases: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  anycast_ip_list_id: Optional[pulumi.Input[_builtins.str]] = None,
                  cache_behaviors: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionCacheBehaviorArgs']]]] = None,
+                 cache_tag_config: Optional[pulumi.Input['DistributionCacheTagConfigArgs']] = None,
                  cnames: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  comment: Optional[pulumi.Input[_builtins.str]] = None,
                  connection_function_association: Optional[pulumi.Input['DistributionConnectionFunctionAssociationArgs']] = None,
@@ -2097,6 +2120,8 @@ class DistributionConfigArgs:
             pulumi.set(__self__, "anycast_ip_list_id", anycast_ip_list_id)
         if cache_behaviors is not None:
             pulumi.set(__self__, "cache_behaviors", cache_behaviors)
+        if cache_tag_config is not None:
+            pulumi.set(__self__, "cache_tag_config", cache_tag_config)
         if cnames is not None:
             pulumi.set(__self__, "cnames", cnames)
         if comment is not None:
@@ -2201,6 +2226,15 @@ class DistributionConfigArgs:
     @cache_behaviors.setter
     def cache_behaviors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionCacheBehaviorArgs']]]]):
         pulumi.set(self, "cache_behaviors", value)
+
+    @_builtins.property
+    @pulumi.getter(name="cacheTagConfig")
+    def cache_tag_config(self) -> Optional[pulumi.Input['DistributionCacheTagConfigArgs']]:
+        return pulumi.get(self, "cache_tag_config")
+
+    @cache_tag_config.setter
+    def cache_tag_config(self, value: Optional[pulumi.Input['DistributionCacheTagConfigArgs']]):
+        pulumi.set(self, "cache_tag_config", value)
 
     @_builtins.property
     @pulumi.getter

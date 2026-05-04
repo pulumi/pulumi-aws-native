@@ -5,7 +5,7 @@
   "primaryIdentifier" : [ "/properties/PolicyArn" ],
   "readOnlyProperties" : [ "/properties/Version", "/properties/PolicyId", "/properties/PolicyArn", "/properties/DefinitionHash", "/properties/CreatedAt", "/properties/UpdatedAt", "/properties/KmsKeyArn" ],
   "createOnlyProperties" : [ "/properties/KmsKeyId", "/properties/ForceDelete" ],
-  "writeOnlyProperties" : [ "/properties/KmsKeyId", "/properties/ForceDelete" ],
+  "writeOnlyProperties" : [ "/properties/KmsKeyId", "/properties/ForceDelete", "/properties/PolicyDefinition" ],
   "definitions" : {
     "Name" : {
       "type" : "string",
@@ -298,10 +298,10 @@
   "required" : [ "Name" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "bedrock:CreateAutomatedReasoningPolicy", "bedrock:GetAutomatedReasoningPolicy", "bedrock:ExportAutomatedReasoningPolicyVersion", "bedrock:TagResource", "bedrock:ListTagsForResource", "kms:DescribeKey", "kms:GenerateDataKey", "kms:Decrypt" ]
+      "permissions" : [ "bedrock:CreateAutomatedReasoningPolicy", "bedrock:GetAutomatedReasoningPolicy", "bedrock:TagResource", "bedrock:ListTagsForResource", "kms:DescribeKey", "kms:GenerateDataKey", "kms:Decrypt" ]
     },
     "read" : {
-      "permissions" : [ "bedrock:GetAutomatedReasoningPolicy", "bedrock:ExportAutomatedReasoningPolicyVersion", "bedrock:ListTagsForResource", "kms:Decrypt", "kms:DescribeKey", "kms:GenerateDataKey" ]
+      "permissions" : [ "bedrock:GetAutomatedReasoningPolicy", "bedrock:ListTagsForResource" ]
     },
     "update" : {
       "permissions" : [ "bedrock:UpdateAutomatedReasoningPolicy", "bedrock:GetAutomatedReasoningPolicy", "bedrock:ExportAutomatedReasoningPolicyVersion", "bedrock:ListTagsForResource", "bedrock:TagResource", "bedrock:UntagResource", "kms:DescribeKey", "kms:GenerateDataKey", "kms:Decrypt" ]

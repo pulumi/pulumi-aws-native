@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -54,6 +55,8 @@ type LookupDomainResult struct {
 	SubnetIds []string `pulumi:"subnetIds"`
 	// Indicates whether the tags added to Domain, User Profile and Space entity is propagated to all SageMaker resources.
 	TagPropagation *DomainTagPropagation `pulumi:"tagPropagation"`
+	// A list of tags to apply to the user profile.
+	Tags []aws.Tag `pulumi:"tags"`
 	// The URL to the created domain.
 	Url *string `pulumi:"url"`
 	// The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
@@ -155,6 +158,11 @@ func (o LookupDomainResultOutput) SubnetIds() pulumi.StringArrayOutput {
 // Indicates whether the tags added to Domain, User Profile and Space entity is propagated to all SageMaker resources.
 func (o LookupDomainResultOutput) TagPropagation() DomainTagPropagationPtrOutput {
 	return o.ApplyT(func(v LookupDomainResult) *DomainTagPropagation { return v.TagPropagation }).(DomainTagPropagationPtrOutput)
+}
+
+// A list of tags to apply to the user profile.
+func (o LookupDomainResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupDomainResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The URL to the created domain.

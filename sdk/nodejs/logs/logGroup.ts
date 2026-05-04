@@ -45,6 +45,9 @@ export class LogGroup extends pulumi.CustomResource {
      * The ARN of the log group, such as `arn:aws:logs:us-west-1:123456789012:log-group:/mystack-testgroup-12ABC1AB12A1:*`
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
+    /**
+     * Indicates whether bearer token authentication is enabled for this log group. When enabled, bearer token authentication is allowed on operations until it is explicitly disabled.
+     */
     declare public readonly bearerTokenAuthenticationEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Creates a data protection policy and assigns it to the log group. A data protection policy can help safeguard sensitive data that's ingested by the log group by auditing and masking the sensitive log data. When a user who does not have permission to view masked data views a log event that includes masked data, the sensitive data is replaced by asterisks.
@@ -144,6 +147,9 @@ export class LogGroup extends pulumi.CustomResource {
  * The set of arguments for constructing a LogGroup resource.
  */
 export interface LogGroupArgs {
+    /**
+     * Indicates whether bearer token authentication is enabled for this log group. When enabled, bearer token authentication is allowed on operations until it is explicitly disabled.
+     */
     bearerTokenAuthenticationEnabled?: pulumi.Input<boolean>;
     /**
      * Creates a data protection policy and assigns it to the log group. A data protection policy can help safeguard sensitive data that's ingested by the log group by auditing and masking the sensitive log data. When a user who does not have permission to view masked data views a log event that includes masked data, the sensitive data is replaced by asterisks.

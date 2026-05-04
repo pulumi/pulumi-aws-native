@@ -68,6 +68,9 @@ class GetLogGroupResult:
     @_builtins.property
     @pulumi.getter(name="bearerTokenAuthenticationEnabled")
     def bearer_token_authentication_enabled(self) -> Optional[_builtins.bool]:
+        """
+        Indicates whether bearer token authentication is enabled for this log group. When enabled, bearer token authentication is allowed on operations until it is explicitly disabled.
+        """
         return pulumi.get(self, "bearer_token_authentication_enabled")
 
     @_builtins.property

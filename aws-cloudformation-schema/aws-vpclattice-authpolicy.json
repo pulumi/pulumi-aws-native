@@ -14,7 +14,7 @@
     },
     "State" : {
       "type" : "string",
-      "enum" : [ "ACTIVE", "INACTIVE" ]
+      "enum" : [ "Active", "Inactive" ]
     }
   },
   "required" : [ "ResourceIdentifier", "Policy" ],

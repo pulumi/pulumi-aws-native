@@ -840,14 +840,14 @@ class AlarmModelDynamoDb(dict):
         :param _builtins.str hash_key_value: The value of the hash key (also called the partition key).
         :param _builtins.str table_name: The name of the DynamoDB table. The ``tableName`` value must match the table name of the target DynamoDB table.
         :param _builtins.str hash_key_type: The data type for the hash key (also called the partition key). You can specify the following values:
-                 +   ``'STRING'`` - The hash key is a string.
-                 +   ``'NUMBER'`` - The hash key is a number.
+                 +  ``'STRING'`` - The hash key is a string.
+                 +  ``'NUMBER'`` - The hash key is a number.
                  
                 If you don't specify ``hashKeyType``, the default value is ``'STRING'``.
         :param _builtins.str operation: The type of operation to perform. You can specify the following values: 
-                 +   ``'INSERT'`` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
-                 +   ``'UPDATE'`` - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
-                 +   ``'DELETE'`` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
+                 +  ``'INSERT'`` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
+                 +  ``'UPDATE'`` - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
+                 +  ``'DELETE'`` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
                  
                 If you don't specify this parameter, ITE triggers the ``'INSERT'`` operation.
         :param 'AlarmModelPayload' payload: Information needed to configure the payload.
@@ -856,8 +856,8 @@ class AlarmModelDynamoDb(dict):
                 If you don't specify this parameter, the name of the DynamoDB column is ``payload``.
         :param _builtins.str range_key_field: The name of the range key (also called the sort key). The ``rangeKeyField`` value must match the sort key of the target DynamoDB table.
         :param _builtins.str range_key_type: The data type for the range key (also called the sort key), You can specify the following values:
-                 +   ``'STRING'`` - The range key is a string.
-                 +   ``'NUMBER'`` - The range key is number.
+                 +  ``'STRING'`` - The range key is a string.
+                 +  ``'NUMBER'`` - The range key is number.
                  
                 If you don't specify ``rangeKeyField``, the default value is ``'STRING'``.
         :param _builtins.str range_key_value: The value of the range key (also called the sort key).
@@ -909,8 +909,8 @@ class AlarmModelDynamoDb(dict):
     def hash_key_type(self) -> Optional[_builtins.str]:
         """
         The data type for the hash key (also called the partition key). You can specify the following values:
-          +   ``'STRING'`` - The hash key is a string.
-          +   ``'NUMBER'`` - The hash key is a number.
+          +  ``'STRING'`` - The hash key is a string.
+          +  ``'NUMBER'`` - The hash key is a number.
           
          If you don't specify ``hashKeyType``, the default value is ``'STRING'``.
         """
@@ -921,9 +921,9 @@ class AlarmModelDynamoDb(dict):
     def operation(self) -> Optional[_builtins.str]:
         """
         The type of operation to perform. You can specify the following values: 
-          +   ``'INSERT'`` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
-          +   ``'UPDATE'`` - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
-          +   ``'DELETE'`` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
+          +  ``'INSERT'`` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
+          +  ``'UPDATE'`` - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
+          +  ``'DELETE'`` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
           
          If you don't specify this parameter, ITE triggers the ``'INSERT'`` operation.
         """
@@ -960,8 +960,8 @@ class AlarmModelDynamoDb(dict):
     def range_key_type(self) -> Optional[_builtins.str]:
         """
         The data type for the range key (also called the sort key), You can specify the following values:
-          +   ``'STRING'`` - The range key is a string.
-          +   ``'NUMBER'`` - The range key is number.
+          +  ``'STRING'`` - The range key is a string.
+          +  ``'NUMBER'`` - The range key is number.
           
          If you don't specify ``rangeKeyField``, the default value is ``'STRING'``.
         """
@@ -2276,14 +2276,14 @@ class DetectorModelDynamoDb(dict):
         :param _builtins.str hash_key_value: The value of the hash key (also called the partition key).
         :param _builtins.str table_name: The name of the DynamoDB table. The ``tableName`` value must match the table name of the target DynamoDB table.
         :param _builtins.str hash_key_type: The data type for the hash key (also called the partition key). You can specify the following values:
-                 +   ``'STRING'`` - The hash key is a string.
-                 +   ``'NUMBER'`` - The hash key is a number.
+                 +  ``'STRING'`` - The hash key is a string.
+                 +  ``'NUMBER'`` - The hash key is a number.
                  
                 If you don't specify ``hashKeyType``, the default value is ``'STRING'``.
         :param _builtins.str operation: The type of operation to perform. You can specify the following values: 
-                 +   ``'INSERT'`` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
-                 +   ``'UPDATE'`` - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
-                 +   ``'DELETE'`` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
+                 +  ``'INSERT'`` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
+                 +  ``'UPDATE'`` - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
+                 +  ``'DELETE'`` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
                  
                 If you don't specify this parameter, ITE triggers the ``'INSERT'`` operation.
         :param 'DetectorModelPayload' payload: Information needed to configure the payload.
@@ -2292,8 +2292,8 @@ class DetectorModelDynamoDb(dict):
                 If you don't specify this parameter, the name of the DynamoDB column is ``payload``.
         :param _builtins.str range_key_field: The name of the range key (also called the sort key). The ``rangeKeyField`` value must match the sort key of the target DynamoDB table.
         :param _builtins.str range_key_type: The data type for the range key (also called the sort key), You can specify the following values:
-                 +   ``'STRING'`` - The range key is a string.
-                 +   ``'NUMBER'`` - The range key is number.
+                 +  ``'STRING'`` - The range key is a string.
+                 +  ``'NUMBER'`` - The range key is number.
                  
                 If you don't specify ``rangeKeyField``, the default value is ``'STRING'``.
         :param _builtins.str range_key_value: The value of the range key (also called the sort key).
@@ -2345,8 +2345,8 @@ class DetectorModelDynamoDb(dict):
     def hash_key_type(self) -> Optional[_builtins.str]:
         """
         The data type for the hash key (also called the partition key). You can specify the following values:
-          +   ``'STRING'`` - The hash key is a string.
-          +   ``'NUMBER'`` - The hash key is a number.
+          +  ``'STRING'`` - The hash key is a string.
+          +  ``'NUMBER'`` - The hash key is a number.
           
          If you don't specify ``hashKeyType``, the default value is ``'STRING'``.
         """
@@ -2357,9 +2357,9 @@ class DetectorModelDynamoDb(dict):
     def operation(self) -> Optional[_builtins.str]:
         """
         The type of operation to perform. You can specify the following values: 
-          +   ``'INSERT'`` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
-          +   ``'UPDATE'`` - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
-          +   ``'DELETE'`` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
+          +  ``'INSERT'`` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
+          +  ``'UPDATE'`` - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
+          +  ``'DELETE'`` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
           
          If you don't specify this parameter, ITE triggers the ``'INSERT'`` operation.
         """
@@ -2396,8 +2396,8 @@ class DetectorModelDynamoDb(dict):
     def range_key_type(self) -> Optional[_builtins.str]:
         """
         The data type for the range key (also called the sort key), You can specify the following values:
-          +   ``'STRING'`` - The range key is a string.
-          +   ``'NUMBER'`` - The range key is number.
+          +  ``'STRING'`` - The range key is a string.
+          +  ``'NUMBER'`` - The range key is number.
           
          If you don't specify ``rangeKeyField``, the default value is ``'STRING'``.
         """

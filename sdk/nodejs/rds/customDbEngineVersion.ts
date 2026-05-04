@@ -37,6 +37,7 @@ export class CustomDbEngineVersion extends pulumi.CustomResource {
         return obj['__pulumiType'] === CustomDbEngineVersion.__pulumiType;
     }
 
+    declare public readonly databaseInstallationFiles: pulumi.Output<string[] | undefined>;
     /**
      * The name of an Amazon S3 bucket that contains database installation files for your CEV. For example, a valid bucket name is ``my-custom-installation-files``.
      */
@@ -117,6 +118,7 @@ export class CustomDbEngineVersion extends pulumi.CustomResource {
             if (args?.engineVersion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'engineVersion'");
             }
+            resourceInputs["databaseInstallationFiles"] = args?.databaseInstallationFiles;
             resourceInputs["databaseInstallationFilesS3BucketName"] = args?.databaseInstallationFilesS3BucketName;
             resourceInputs["databaseInstallationFilesS3Prefix"] = args?.databaseInstallationFilesS3Prefix;
             resourceInputs["description"] = args?.description;
@@ -131,6 +133,7 @@ export class CustomDbEngineVersion extends pulumi.CustomResource {
             resourceInputs["useAwsProvidedLatestImage"] = args?.useAwsProvidedLatestImage;
             resourceInputs["dbEngineVersionArn"] = undefined /*out*/;
         } else {
+            resourceInputs["databaseInstallationFiles"] = undefined /*out*/;
             resourceInputs["databaseInstallationFilesS3BucketName"] = undefined /*out*/;
             resourceInputs["databaseInstallationFilesS3Prefix"] = undefined /*out*/;
             resourceInputs["dbEngineVersionArn"] = undefined /*out*/;
@@ -146,7 +149,7 @@ export class CustomDbEngineVersion extends pulumi.CustomResource {
             resourceInputs["useAwsProvidedLatestImage"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["databaseInstallationFilesS3BucketName", "databaseInstallationFilesS3Prefix", "engine", "engineVersion", "imageId", "kmsKeyId", "manifest", "sourceCustomDbEngineVersionIdentifier", "useAwsProvidedLatestImage"] };
+        const replaceOnChanges = { replaceOnChanges: ["databaseInstallationFiles[*]", "databaseInstallationFilesS3BucketName", "databaseInstallationFilesS3Prefix", "engine", "engineVersion", "imageId", "kmsKeyId", "manifest", "sourceCustomDbEngineVersionIdentifier", "useAwsProvidedLatestImage"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(CustomDbEngineVersion.__pulumiType, name, resourceInputs, opts);
     }
@@ -156,6 +159,7 @@ export class CustomDbEngineVersion extends pulumi.CustomResource {
  * The set of arguments for constructing a CustomDbEngineVersion resource.
  */
 export interface CustomDbEngineVersionArgs {
+    databaseInstallationFiles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of an Amazon S3 bucket that contains database installation files for your CEV. For example, a valid bucket name is ``my-custom-installation-files``.
      */

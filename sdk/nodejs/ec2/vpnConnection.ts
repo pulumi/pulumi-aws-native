@@ -187,7 +187,7 @@ export class VpnConnection extends pulumi.CustomResource {
             resourceInputs["vpnTunnelOptionsSpecifications"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["enableAcceleration", "localIpv4NetworkCidr", "localIpv6NetworkCidr", "outsideIpAddressType", "preSharedKeyStorage", "remoteIpv4NetworkCidr", "remoteIpv6NetworkCidr", "staticRoutesOnly", "transportTransitGatewayAttachmentId", "tunnelBandwidth", "tunnelInsideIpVersion", "type", "vpnConcentratorId"] };
+        const replaceOnChanges = { replaceOnChanges: ["enableAcceleration", "localIpv4NetworkCidr", "localIpv6NetworkCidr", "outsideIpAddressType", "preSharedKeyStorage", "remoteIpv4NetworkCidr", "remoteIpv6NetworkCidr", "staticRoutesOnly", "transportTransitGatewayAttachmentId", "tunnelInsideIpVersion", "type", "vpnConcentratorId"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(VpnConnection.__pulumiType, name, resourceInputs, opts);
     }

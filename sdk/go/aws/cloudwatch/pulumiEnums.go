@@ -102,7 +102,100 @@ func (o AlarmMuteRuleStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
+// Current status of OTel enrichment (RUNNING or STOPPED).
+type OTelEnrichmentStatus string
+
+const (
+	OTelEnrichmentStatusRunning = OTelEnrichmentStatus("RUNNING")
+	OTelEnrichmentStatusStopped = OTelEnrichmentStatus("STOPPED")
+)
+
+type OTelEnrichmentStatusOutput struct{ *pulumi.OutputState }
+
+func (OTelEnrichmentStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OTelEnrichmentStatus)(nil)).Elem()
+}
+
+func (o OTelEnrichmentStatusOutput) ToOTelEnrichmentStatusOutput() OTelEnrichmentStatusOutput {
+	return o
+}
+
+func (o OTelEnrichmentStatusOutput) ToOTelEnrichmentStatusOutputWithContext(ctx context.Context) OTelEnrichmentStatusOutput {
+	return o
+}
+
+func (o OTelEnrichmentStatusOutput) ToOTelEnrichmentStatusPtrOutput() OTelEnrichmentStatusPtrOutput {
+	return o.ToOTelEnrichmentStatusPtrOutputWithContext(context.Background())
+}
+
+func (o OTelEnrichmentStatusOutput) ToOTelEnrichmentStatusPtrOutputWithContext(ctx context.Context) OTelEnrichmentStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OTelEnrichmentStatus) *OTelEnrichmentStatus {
+		return &v
+	}).(OTelEnrichmentStatusPtrOutput)
+}
+
+func (o OTelEnrichmentStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o OTelEnrichmentStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OTelEnrichmentStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o OTelEnrichmentStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OTelEnrichmentStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OTelEnrichmentStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type OTelEnrichmentStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (OTelEnrichmentStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OTelEnrichmentStatus)(nil)).Elem()
+}
+
+func (o OTelEnrichmentStatusPtrOutput) ToOTelEnrichmentStatusPtrOutput() OTelEnrichmentStatusPtrOutput {
+	return o
+}
+
+func (o OTelEnrichmentStatusPtrOutput) ToOTelEnrichmentStatusPtrOutputWithContext(ctx context.Context) OTelEnrichmentStatusPtrOutput {
+	return o
+}
+
+func (o OTelEnrichmentStatusPtrOutput) Elem() OTelEnrichmentStatusOutput {
+	return o.ApplyT(func(v *OTelEnrichmentStatus) OTelEnrichmentStatus {
+		if v != nil {
+			return *v
+		}
+		var ret OTelEnrichmentStatus
+		return ret
+	}).(OTelEnrichmentStatusOutput)
+}
+
+func (o OTelEnrichmentStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OTelEnrichmentStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *OTelEnrichmentStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AlarmMuteRuleStatusOutput{})
 	pulumi.RegisterOutputType(AlarmMuteRuleStatusPtrOutput{})
+	pulumi.RegisterOutputType(OTelEnrichmentStatusOutput{})
+	pulumi.RegisterOutputType(OTelEnrichmentStatusPtrOutput{})
 }

@@ -25,6 +25,9 @@ namespace Pulumi.AwsNative.Logs
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Indicates whether bearer token authentication is enabled for this log group. When enabled, bearer token authentication is allowed on operations until it is explicitly disabled.
+        /// </summary>
         [Output("bearerTokenAuthenticationEnabled")]
         public Output<bool?> BearerTokenAuthenticationEnabled { get; private set; } = null!;
 
@@ -146,6 +149,9 @@ namespace Pulumi.AwsNative.Logs
 
     public sealed class LogGroupArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Indicates whether bearer token authentication is enabled for this log group. When enabled, bearer token authentication is allowed on operations until it is explicitly disabled.
+        /// </summary>
         [Input("bearerTokenAuthenticationEnabled")]
         public Input<bool>? BearerTokenAuthenticationEnabled { get; set; }
 

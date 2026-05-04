@@ -25,6 +25,7 @@ class MemoryArgs:
                  event_expiry_duration: pulumi.Input[_builtins.int],
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  encryption_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 indexed_keys: Optional[pulumi.Input[Sequence[pulumi.Input['MemoryIndexedKeyArgs']]]] = None,
                  memory_execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  memory_strategies: Optional[pulumi.Input[Sequence[pulumi.Input['MemoryStrategyArgs']]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -45,6 +46,8 @@ class MemoryArgs:
             pulumi.set(__self__, "description", description)
         if encryption_key_arn is not None:
             pulumi.set(__self__, "encryption_key_arn", encryption_key_arn)
+        if indexed_keys is not None:
+            pulumi.set(__self__, "indexed_keys", indexed_keys)
         if memory_execution_role_arn is not None:
             pulumi.set(__self__, "memory_execution_role_arn", memory_execution_role_arn)
         if memory_strategies is not None:
@@ -88,6 +91,15 @@ class MemoryArgs:
     @encryption_key_arn.setter
     def encryption_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "encryption_key_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="indexedKeys")
+    def indexed_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MemoryIndexedKeyArgs']]]]:
+        return pulumi.get(self, "indexed_keys")
+
+    @indexed_keys.setter
+    def indexed_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MemoryIndexedKeyArgs']]]]):
+        pulumi.set(self, "indexed_keys", value)
 
     @_builtins.property
     @pulumi.getter(name="memoryExecutionRoleArn")
@@ -156,6 +168,7 @@ class Memory(pulumi.CustomResource):
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  encryption_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  event_expiry_duration: Optional[pulumi.Input[_builtins.int]] = None,
+                 indexed_keys: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MemoryIndexedKeyArgs', 'MemoryIndexedKeyArgsDict']]]]] = None,
                  memory_execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  memory_strategies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MemoryStrategyArgs', 'MemoryStrategyArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -203,6 +216,7 @@ class Memory(pulumi.CustomResource):
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  encryption_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  event_expiry_duration: Optional[pulumi.Input[_builtins.int]] = None,
+                 indexed_keys: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MemoryIndexedKeyArgs', 'MemoryIndexedKeyArgsDict']]]]] = None,
                  memory_execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  memory_strategies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MemoryStrategyArgs', 'MemoryStrategyArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -222,6 +236,7 @@ class Memory(pulumi.CustomResource):
             if event_expiry_duration is None and not opts.urn:
                 raise TypeError("Missing required property 'event_expiry_duration'")
             __props__.__dict__["event_expiry_duration"] = event_expiry_duration
+            __props__.__dict__["indexed_keys"] = indexed_keys
             __props__.__dict__["memory_execution_role_arn"] = memory_execution_role_arn
             __props__.__dict__["memory_strategies"] = memory_strategies
             __props__.__dict__["name"] = name
@@ -262,6 +277,7 @@ class Memory(pulumi.CustomResource):
         __props__.__dict__["encryption_key_arn"] = None
         __props__.__dict__["event_expiry_duration"] = None
         __props__.__dict__["failure_reason"] = None
+        __props__.__dict__["indexed_keys"] = None
         __props__.__dict__["memory_arn"] = None
         __props__.__dict__["memory_execution_role_arn"] = None
         __props__.__dict__["memory_id"] = None
@@ -306,6 +322,11 @@ class Memory(pulumi.CustomResource):
     @pulumi.getter(name="failureReason")
     def failure_reason(self) -> pulumi.Output[_builtins.str]:
         return pulumi.get(self, "failure_reason")
+
+    @_builtins.property
+    @pulumi.getter(name="indexedKeys")
+    def indexed_keys(self) -> pulumi.Output[Optional[Sequence['outputs.MemoryIndexedKey']]]:
+        return pulumi.get(self, "indexed_keys")
 
     @_builtins.property
     @pulumi.getter(name="memoryArn")

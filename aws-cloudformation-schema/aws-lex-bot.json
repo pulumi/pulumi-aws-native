@@ -1,56 +1,472 @@
 {
+  "tagging" : {
+    "permissions" : [ "lex:ListTagsForResource", "lex:TagResource", "lex:UntagResource" ],
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "tagProperty" : "/properties/BotTags",
+    "cloudFormationSystemTags" : true
+  },
   "typeName" : "AWS::Lex::Bot",
+  "readOnlyProperties" : [ "/properties/Id", "/properties/Arn" ],
   "description" : "Resource Type definition for an Amazon Lex conversational bot performing automated tasks such as ordering a pizza, booking a hotel, and so on.",
+  "primaryIdentifier" : [ "/properties/Id" ],
+  "required" : [ "Name", "RoleArn", "DataPrivacy", "IdleSessionTTLInSeconds" ],
   "sourceUrl" : "https://docs.aws.amazon.com/lexv2/latest/dg/build-create.html",
-  "definitions" : {
-    "ReplicaRegion" : {
-      "description" : "The secondary region that will be used in the replication of the source bot.",
-      "type" : "string",
-      "minLength" : 2,
-      "maxLength" : 25
+  "handlers" : {
+    "read" : {
+      "permissions" : [ "lex:DescribeBot", "lex:ListTagsForResource", "lex:DescribeBotReplica", "lex:ListBotAliases", "lex:ListBotLocales", "lex:ListIntents", "lex:ListSlots", "lex:ListSlotTypes", "lex:ListCustomVocabularies", "lex:DescribeBotAlias", "lex:GetBotAlias" ]
     },
-    "Replication" : {
+    "create" : {
+      "permissions" : [ "iam:PassRole", "lex:DescribeBot", "lex:CreateUploadUrl", "lex:StartImport", "lex:DescribeImport", "lex:ListTagsForResource", "lex:TagResource", "lex:UntagResource", "lex:CreateBot", "lex:CreateBotLocale", "lex:CreateIntent", "lex:CreateSlot", "lex:CreateSlotType", "lex:UpdateBot", "lex:UpdateBotLocale", "lex:UpdateIntent", "lex:UpdateSlot", "lex:UpdateSlotType", "lex:DeleteBotLocale", "lex:DeleteIntent", "lex:DeleteSlot", "lex:DeleteSlotType", "lex:DescribeBotLocale", "lex:BuildBotLocale", "lex:ListBots", "lex:ListBotLocales", "lex:CreateCustomVocabulary", "lex:UpdateCustomVocabulary", "lex:DeleteCustomVocabulary", "s3:GetObject", "lex:UpdateBotAlias", "iam:CreateServiceLinkedRole", "iam:GetRole", "lex:CreateBotReplica", "lex:DescribeBotReplica", "lex:DeleteBotReplica", "lex:CreateBotAlias", "lex:DescribeBotAlias", "lex:ListBotAliases", "lex:BuildBotLocale", "s3:PutObject", "kms:GenerateDataKey", "kms:Decrypt", "cloudwatch:PutMetricData", "logs:CreateLogGroup", "logs:CreateLogStream", "logs:PutLogEvents" ]
+    },
+    "update" : {
+      "permissions" : [ "iam:PassRole", "lex:DescribeBot", "lex:CreateUploadUrl", "lex:StartImport", "lex:DescribeImport", "lex:ListTagsForResource", "lex:TagResource", "lex:UntagResource", "lex:CreateBot", "lex:CreateBotLocale", "lex:CreateIntent", "lex:CreateSlot", "lex:CreateSlotType", "lex:UpdateBot", "lex:UpdateBotLocale", "lex:UpdateIntent", "lex:UpdateSlot", "lex:UpdateSlotType", "lex:DeleteBotLocale", "lex:DeleteIntent", "lex:DeleteSlot", "lex:DeleteSlotType", "lex:DescribeBotLocale", "lex:BuildBotLocale", "lex:ListBots", "lex:ListBotLocales", "lex:CreateCustomVocabulary", "lex:UpdateCustomVocabulary", "lex:DeleteCustomVocabulary", "s3:GetObject", "lex:UpdateBotAlias", "lex:CreateBotReplica", "lex:DescribeBotReplica", "lex:DeleteBotReplica", "lex:CreateBotAlias", "lex:DescribeBotAlias", "lex:ListBotAliases", "lex:UpdateBotAlias", "s3:PutObject" ]
+    },
+    "list" : {
+      "permissions" : [ "lex:ListBots", "lex:ListBotReplicas", "lex:ListBotAliases", "lex:ListBotLocales", "lex:ListIntents", "lex:ListSlots", "lex:ListSlotTypes", "lex:ListCustomVocabularies", "lex:ListTagsForResource" ]
+    },
+    "delete" : {
+      "permissions" : [ "lex:DeleteBot", "lex:BatchDeleteCustomVocabularyItem", "lex:DescribeBot", "lex:DescribeBotAlias", "lex:DeleteBotLocale", "lex:DeleteIntent", "lex:DeleteSlotType", "lex:DeleteSlot", "lex:DeleteBotVersion", "lex:DeleteBotChannel", "lex:DeleteBotAlias", "lex:DeleteCustomVocabulary", "lex:DeleteBotReplica", "lex:DeleteExport", "lex:DeleteUtterances", "lex:DeleteImport", "lex:DeleteSession", "lex:DeleteTestSet", "lex:DeleteResourcePolicyStatement", "lex:DeleteResourcePolicy", "lex:UntagResource" ]
+    }
+  },
+  "writeOnlyProperties" : [ "/properties/BotLocales", "/properties/BotFileS3Location", "/properties/AutoBuildBotLocales", "/properties/TestBotAliasTags", "/properties/Replication", "/properties/TestBotAliasSettings" ],
+  "additionalProperties" : false,
+  "definitions" : {
+    "AttachmentTitle" : {
+      "minLength" : 1,
+      "type" : "string",
+      "maxLength" : 250
+    },
+    "ResponseSpecification" : {
+      "additionalProperties" : false,
       "type" : "object",
       "properties" : {
-        "ReplicaRegions" : {
-          "type" : "array",
-          "uniqueItems" : true,
-          "maxItems" : 1,
-          "minItems" : 1,
+        "MessageGroupsList" : {
+          "$ref" : "#/definitions/MessageGroupsList"
+        },
+        "AllowInterrupt" : {
+          "type" : "boolean"
+        }
+      },
+      "required" : [ "MessageGroupsList" ]
+    },
+    "MessageGroup" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "Message" : {
+          "$ref" : "#/definitions/Message"
+        },
+        "Variations" : {
+          "maxItems" : 2,
           "insertionOrder" : false,
+          "type" : "array",
           "items" : {
-            "$ref" : "#/definitions/ReplicaRegion"
+            "$ref" : "#/definitions/Message"
           }
         }
       },
-      "required" : [ "ReplicaRegions" ],
-      "additionalProperties" : false
+      "required" : [ "Message" ]
+    },
+    "IntentDisambiguationSettings" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "MaxDisambiguationIntents" : {
+          "maximum" : 5,
+          "type" : "integer",
+          "minimum" : 2
+        },
+        "Enabled" : {
+          "type" : "boolean"
+        },
+        "CustomDisambiguationMessage" : {
+          "minLength" : 1,
+          "type" : "string",
+          "maxLength" : 1000
+        }
+      },
+      "required" : [ "Enabled" ]
+    },
+    "SpeechDetectionSensitivity" : {
+      "type" : "string",
+      "enum" : [ "Default", "HighNoiseTolerance", "MaximumNoiseTolerance" ]
+    },
+    "SlotDefaultValue" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "DefaultValue" : {
+          "minLength" : 1,
+          "type" : "string",
+          "maxLength" : 202
+        }
+      },
+      "required" : [ "DefaultValue" ]
+    },
+    "ExternalSourceSetting" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "GrammarSlotTypeSetting" : {
+          "$ref" : "#/definitions/GrammarSlotTypeSetting"
+        }
+      }
+    },
+    "Conditional" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "IsActive" : {
+          "type" : "boolean"
+        },
+        "ConditionalBranches" : {
+          "$ref" : "#/definitions/ConditionalBranches"
+        }
+      },
+      "required" : [ "IsActive", "ConditionalBranches" ]
     },
     "BotAliasLocaleSettingsList" : {
-      "type" : "array",
-      "uniqueItems" : true,
       "maxItems" : 50,
+      "uniqueItems" : true,
       "insertionOrder" : false,
+      "type" : "array",
       "items" : {
         "$ref" : "#/definitions/BotAliasLocaleSettingsItem"
       }
     },
-    "BotAliasLocaleSettingsItem" : {
+    "BedrockModelSpecification" : {
+      "additionalProperties" : false,
       "type" : "object",
       "properties" : {
-        "LocaleId" : {
-          "type" : "string",
+        "ModelArn" : {
           "minLength" : 1,
-          "maxLength" : 128
+          "type" : "string",
+          "maxLength" : 5000
         },
-        "BotAliasLocaleSetting" : {
-          "$ref" : "#/definitions/BotAliasLocaleSettings"
+        "BedrockTraceStatus" : {
+          "type" : "string",
+          "enum" : [ "ENABLED", "DISABLED" ]
+        },
+        "BedrockModelCustomPrompt" : {
+          "minLength" : 1,
+          "type" : "string",
+          "maxLength" : 5000
+        },
+        "BedrockGuardrailConfiguration" : {
+          "additionalProperties" : false,
+          "type" : "object",
+          "properties" : {
+            "BedrockGuardrailVersion" : {
+              "minLength" : 1,
+              "type" : "string",
+              "maxLength" : 5000
+            },
+            "BedrockGuardrailIdentifier" : {
+              "minLength" : 1,
+              "type" : "string",
+              "maxLength" : 5000
+            }
+          }
         }
       },
-      "required" : [ "LocaleId", "BotAliasLocaleSetting" ],
-      "additionalProperties" : false
+      "required" : [ "ModelArn" ]
+    },
+    "SubSlotSetting" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "Expression" : {
+          "minLength" : 1,
+          "pattern" : "[0-9A-Za-z_\\-\\s\\(\\)]+",
+          "type" : "string",
+          "maxLength" : 1000
+        },
+        "SlotSpecifications" : {
+          "patternProperties" : {
+            "^([0-9a-zA-Z][_-]?){1,100}$" : {
+              "$ref" : "#/definitions/Specifications"
+            }
+          },
+          "maxProperties" : 6,
+          "additionalProperties" : false,
+          "type" : "object",
+          "minProperties" : 0
+        }
+      }
+    },
+    "CustomVocabularyItem" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "DisplayAs" : {
+          "minLength" : 1,
+          "type" : "string",
+          "maxLength" : 100
+        },
+        "Phrase" : {
+          "minLength" : 1,
+          "type" : "string",
+          "maxLength" : 100
+        },
+        "Weight" : {
+          "maximum" : 3,
+          "type" : "integer",
+          "minimum" : 0
+        }
+      },
+      "required" : [ "Phrase" ]
+    },
+    "SlotValues" : {
+      "insertionOrder" : false,
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/SlotValueOverride"
+      }
+    },
+    "PostDialogCodeHookInvocationSpecification" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "SuccessResponse" : {
+          "$ref" : "#/definitions/ResponseSpecification"
+        },
+        "FailureConditional" : {
+          "$ref" : "#/definitions/ConditionalSpecification"
+        },
+        "TimeoutNextStep" : {
+          "$ref" : "#/definitions/DialogState"
+        },
+        "SuccessConditional" : {
+          "$ref" : "#/definitions/ConditionalSpecification"
+        },
+        "TimeoutResponse" : {
+          "$ref" : "#/definitions/ResponseSpecification"
+        },
+        "SuccessNextStep" : {
+          "$ref" : "#/definitions/DialogState"
+        },
+        "FailureResponse" : {
+          "$ref" : "#/definitions/ResponseSpecification"
+        },
+        "FailureNextStep" : {
+          "$ref" : "#/definitions/DialogState"
+        },
+        "TimeoutConditional" : {
+          "$ref" : "#/definitions/ConditionalSpecification"
+        }
+      }
+    },
+    "QnAKendraConfiguration" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "QueryFilterString" : {
+          "minLength" : 1,
+          "type" : "string",
+          "maxLength" : 5000
+        },
+        "QueryFilterStringEnabled" : {
+          "type" : "boolean"
+        },
+        "KendraIndex" : {
+          "minLength" : 1,
+          "type" : "string",
+          "maxLength" : 5000
+        },
+        "ExactResponse" : {
+          "type" : "boolean"
+        }
+      },
+      "required" : [ "KendraIndex", "QueryFilterStringEnabled", "ExactResponse" ]
+    },
+    "AudioLogDestination" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "S3Bucket" : {
+          "$ref" : "#/definitions/S3BucketLogDestination"
+        }
+      },
+      "required" : [ "S3Bucket" ]
+    },
+    "InputContextsList" : {
+      "maxItems" : 5,
+      "insertionOrder" : false,
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/InputContext"
+      }
+    },
+    "LocaleId" : {
+      "type" : "string"
+    },
+    "Button" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "Value" : {
+          "minLength" : 1,
+          "type" : "string",
+          "maxLength" : 50
+        },
+        "Text" : {
+          "minLength" : 1,
+          "type" : "string",
+          "maxLength" : 50
+        }
+      },
+      "required" : [ "Text", "Value" ]
+    },
+    "DialogCodeHookInvocationSetting" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "EnableCodeHookInvocation" : {
+          "type" : "boolean"
+        },
+        "InvocationLabel" : {
+          "$ref" : "#/definitions/Name"
+        },
+        "IsActive" : {
+          "type" : "boolean"
+        },
+        "PostCodeHookSpecification" : {
+          "$ref" : "#/definitions/PostDialogCodeHookInvocationSpecification"
+        }
+      },
+      "required" : [ "IsActive", "EnableCodeHookInvocation", "PostCodeHookSpecification" ]
+    },
+    "FulfillmentStartResponseSpecification" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "DelayInSeconds" : {
+          "maximum" : 900,
+          "type" : "integer",
+          "minimum" : 1
+        },
+        "MessageGroups" : {
+          "$ref" : "#/definitions/MessageGroupsList"
+        },
+        "AllowInterrupt" : {
+          "type" : "boolean"
+        }
+      },
+      "required" : [ "DelayInSeconds", "MessageGroups" ]
+    },
+    "ContextTurnsToLive" : {
+      "maximum" : 20,
+      "type" : "integer",
+      "minimum" : 1
+    },
+    "StillWaitingResponseSpecification" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "MessageGroupsList" : {
+          "$ref" : "#/definitions/MessageGroupsList"
+        },
+        "TimeoutInSeconds" : {
+          "$ref" : "#/definitions/StillWaitingResponseTimeout"
+        },
+        "AllowInterrupt" : {
+          "type" : "boolean"
+        },
+        "FrequencyInSeconds" : {
+          "$ref" : "#/definitions/StillWaitingResponseFrequency"
+        }
+      },
+      "required" : [ "MessageGroupsList", "FrequencyInSeconds", "TimeoutInSeconds" ]
+    },
+    "PromptSpecification" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "MaxRetries" : {
+          "$ref" : "#/definitions/PromptMaxRetries"
+        },
+        "MessageGroupsList" : {
+          "$ref" : "#/definitions/MessageGroupsList"
+        },
+        "PromptAttemptsSpecification" : {
+          "patternProperties" : {
+            "^(Initial|Retry1|Retry2|Retry3|Retry4|Retry5)$" : {
+              "$ref" : "#/definitions/PromptAttemptSpecification"
+            }
+          },
+          "additionalProperties" : false,
+          "type" : "object"
+        },
+        "AllowInterrupt" : {
+          "type" : "boolean"
+        },
+        "MessageSelectionStrategy" : {
+          "$ref" : "#/definitions/MessageSelectionStrategy"
+        }
+      },
+      "required" : [ "MessageGroupsList", "MaxRetries" ]
+    },
+    "ConditionalSpecification" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "DefaultBranch" : {
+          "$ref" : "#/definitions/DefaultConditionalBranch"
+        },
+        "IsActive" : {
+          "type" : "boolean"
+        },
+        "ConditionalBranches" : {
+          "$ref" : "#/definitions/ConditionalBranches"
+        }
+      },
+      "required" : [ "IsActive", "ConditionalBranches", "DefaultBranch" ]
+    },
+    "DialogCodeHookSetting" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "Enabled" : {
+          "type" : "boolean"
+        }
+      },
+      "required" : [ "Enabled" ]
+    },
+    "DialogState" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "DialogAction" : {
+          "$ref" : "#/definitions/DialogAction"
+        },
+        "SessionAttributes" : {
+          "insertionOrder" : false,
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/SessionAttribute"
+          }
+        },
+        "Intent" : {
+          "$ref" : "#/definitions/IntentOverride"
+        }
+      }
+    },
+    "ErrorLogSettings" : {
+      "description" : "Error logs configuration for this bot. This is used by Amazon Lex to emit any errors that occur during Lex Runtime API invocations.",
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "Enabled" : {
+          "description" : "Specify whether error log feature has been enabled",
+          "type" : "boolean"
+        }
+      },
+      "required" : [ "Enabled" ]
     },
     "BotAliasLocaleSettings" : {
+      "additionalProperties" : false,
       "type" : "object",
       "properties" : {
         "CodeHookSpecification" : {
@@ -60,67 +476,32 @@
           "type" : "boolean"
         }
       },
-      "required" : [ "Enabled" ],
-      "additionalProperties" : false
+      "required" : [ "Enabled" ]
     },
-    "CodeHookSpecification" : {
+    "ContextTimeToLiveInSeconds" : {
+      "maximum" : 86400,
+      "type" : "integer",
+      "minimum" : 5
+    },
+    "SlotValue" : {
+      "additionalProperties" : false,
       "type" : "object",
       "properties" : {
-        "LambdaCodeHook" : {
-          "$ref" : "#/definitions/LambdaCodeHook"
-        }
-      },
-      "required" : [ "LambdaCodeHook" ],
-      "additionalProperties" : false
-    },
-    "LambdaCodeHook" : {
-      "type" : "object",
-      "properties" : {
-        "CodeHookInterfaceVersion" : {
-          "type" : "string",
+        "InterpretedValue" : {
           "minLength" : 1,
-          "maxLength" : 5
-        },
-        "LambdaArn" : {
           "type" : "string",
-          "minLength" : 20,
-          "maxLength" : 2048
+          "maxLength" : 202
         }
-      },
-      "required" : [ "CodeHookInterfaceVersion", "LambdaArn" ],
-      "additionalProperties" : false
-    },
-    "ConversationLogSettings" : {
-      "type" : "object",
-      "properties" : {
-        "AudioLogSettings" : {
-          "$ref" : "#/definitions/AudioLogSettings"
-        },
-        "TextLogSettings" : {
-          "$ref" : "#/definitions/TextLogSettings"
-        }
-      },
-      "additionalProperties" : false
-    },
-    "AudioLogSettings" : {
-      "type" : "array",
-      "maxItems" : 1,
-      "uniqueItems" : true,
-      "insertionOrder" : false,
-      "items" : {
-        "$ref" : "#/definitions/AudioLogSetting"
       }
     },
-    "TextLogSettings" : {
-      "type" : "array",
-      "maxItems" : 1,
-      "uniqueItems" : true,
-      "insertionOrder" : false,
-      "items" : {
-        "$ref" : "#/definitions/TextLogSetting"
-      }
+    "S3ObjectKey" : {
+      "minLength" : 1,
+      "pattern" : "[\\.\\-\\!\\*\\_\\'\\(\\)a-zA-Z0-9][\\.\\-\\!\\*\\_\\'\\(\\)\\/a-zA-Z0-9]*$",
+      "type" : "string",
+      "maxLength" : 1024
     },
     "AudioLogSetting" : {
+      "additionalProperties" : false,
       "type" : "object",
       "properties" : {
         "Destination" : {
@@ -130,1969 +511,49 @@
           "type" : "boolean"
         }
       },
-      "required" : [ "Destination", "Enabled" ],
-      "additionalProperties" : false
+      "required" : [ "Destination", "Enabled" ]
     },
-    "TextLogSetting" : {
+    "PriorityValue" : {
+      "maximum" : 100,
+      "type" : "integer",
+      "minimum" : 0
+    },
+    "S3BucketLogDestination" : {
+      "additionalProperties" : false,
       "type" : "object",
       "properties" : {
-        "Destination" : {
-          "$ref" : "#/definitions/TextLogDestination"
-        },
-        "Enabled" : {
-          "type" : "boolean"
-        }
-      },
-      "required" : [ "Destination", "Enabled" ],
-      "additionalProperties" : false
-    },
-    "AudioLogDestination" : {
-      "type" : "object",
-      "properties" : {
-        "S3Bucket" : {
-          "$ref" : "#/definitions/S3BucketLogDestination"
-        }
-      },
-      "required" : [ "S3Bucket" ],
-      "additionalProperties" : false
-    },
-    "TextLogDestination" : {
-      "type" : "object",
-      "properties" : {
-        "CloudWatch" : {
-          "$ref" : "#/definitions/CloudWatchLogGroupLogDestination"
-        }
-      },
-      "required" : [ "CloudWatch" ],
-      "additionalProperties" : false
-    },
-    "CloudWatchLogGroupLogDestination" : {
-      "type" : "object",
-      "properties" : {
-        "CloudWatchLogGroupArn" : {
+        "KmsKeyArn" : {
+          "minLength" : 20,
+          "pattern" : "^arn:[\\w\\-]+:kms:[\\w\\-]+:[\\d]{12}:(?:key\\/[\\w\\-]+|alias\\/[a-zA-Z0-9:\\/_\\-]{1,256})$",
           "type" : "string",
-          "minLength" : 1,
           "maxLength" : 2048
         },
         "LogPrefix" : {
-          "type" : "string",
           "minLength" : 0,
+          "type" : "string",
           "maxLength" : 1024
-        }
-      },
-      "required" : [ "CloudWatchLogGroupArn", "LogPrefix" ],
-      "additionalProperties" : false
-    },
-    "S3BucketLogDestination" : {
-      "type" : "object",
-      "properties" : {
+        },
         "S3BucketArn" : {
-          "type" : "string",
           "minLength" : 1,
-          "maxLength" : 2048,
-          "pattern" : "^arn:[\\w\\-]+:s3:::[a-z0-9][\\.\\-a-z0-9]{1,61}[a-z0-9]$"
-        },
-        "LogPrefix" : {
+          "pattern" : "^arn:[\\w\\-]+:s3:::[a-z0-9][\\.\\-a-z0-9]{1,61}[a-z0-9]$",
           "type" : "string",
-          "minLength" : 0,
-          "maxLength" : 1024
-        },
-        "KmsKeyArn" : {
-          "type" : "string",
-          "minLength" : 20,
-          "maxLength" : 2048,
-          "pattern" : "^arn:[\\w\\-]+:kms:[\\w\\-]+:[\\d]{12}:(?:key\\/[\\w\\-]+|alias\\/[a-zA-Z0-9:\\/_\\-]{1,256})$"
+          "maxLength" : 2048
         }
       },
-      "required" : [ "LogPrefix", "S3BucketArn" ],
-      "additionalProperties" : false
-    },
-    "TestBotAliasSettings" : {
-      "type" : "object",
-      "properties" : {
-        "BotAliasLocaleSettings" : {
-          "$ref" : "#/definitions/BotAliasLocaleSettingsList"
-        },
-        "ConversationLogSettings" : {
-          "$ref" : "#/definitions/ConversationLogSettings"
-        },
-        "Description" : {
-          "$ref" : "#/definitions/Description"
-        },
-        "SentimentAnalysisSettings" : {
-          "type" : "object",
-          "properties" : {
-            "DetectSentiment" : {
-              "type" : "boolean"
-            }
-          },
-          "required" : [ "DetectSentiment" ],
-          "additionalProperties" : false
-        }
-      },
-      "additionalProperties" : false
-    },
-    "RoleArn" : {
-      "type" : "string",
-      "minLength" : 32,
-      "maxLength" : 2048,
-      "pattern" : "^arn:aws[a-zA-Z-]*:iam::[0-9]{12}:role/.*$"
-    },
-    "Id" : {
-      "type" : "string",
-      "minLength" : 10,
-      "maxLength" : 10,
-      "pattern" : "^[0-9a-zA-Z]+$"
-    },
-    "BotArn" : {
-      "type" : "string",
-      "minLength" : 1,
-      "maxLength" : 1011,
-      "pattern" : "^arn:aws[a-zA-Z-]*:lex:[a-z]+-(?:[a-z]+-)*[0-9]:[0-9]{12}:bot/[0-9a-zA-Z]+$"
-    },
-    "Name" : {
-      "type" : "string",
-      "minLength" : 1,
-      "maxLength" : 100,
-      "pattern" : "^([0-9a-zA-Z][_-]?)+$"
-    },
-    "DisplayName" : {
-      "type" : "string",
-      "minLength" : 1,
-      "maxLength" : 100
-    },
-    "Description" : {
-      "description" : "A description of the resource",
-      "type" : "string",
-      "maxLength" : 2000
-    },
-    "DataPrivacy" : {
-      "type" : "object",
-      "properties" : {
-        "ChildDirected" : {
-          "type" : "boolean"
-        }
-      },
-      "required" : [ "ChildDirected" ],
-      "additionalProperties" : false
-    },
-    "ErrorLogSettings" : {
-      "description" : "Error logs configuration for this bot. This is used by Amazon Lex to emit any errors that occur during Lex Runtime API invocations.",
-      "type" : "object",
-      "properties" : {
-        "Enabled" : {
-          "type" : "boolean",
-          "description" : "Specify whether error log feature has been enabled"
-        }
-      },
-      "required" : [ "Enabled" ],
-      "additionalProperties" : false
-    },
-    "IdleSessionTTLInSeconds" : {
-      "type" : "integer",
-      "minimum" : 60,
-      "maximum" : 86400
-    },
-    "Utterance" : {
-      "type" : "string"
-    },
-    "SampleUtterance" : {
-      "type" : "object",
-      "properties" : {
-        "Utterance" : {
-          "$ref" : "#/definitions/Utterance"
-        }
-      },
-      "required" : [ "Utterance" ],
-      "additionalProperties" : false
-    },
-    "SampleUtterancesList" : {
-      "type" : "array",
-      "insertionOrder" : false,
-      "items" : {
-        "$ref" : "#/definitions/SampleUtterance"
-      }
-    },
-    "Tag" : {
-      "type" : "object",
-      "properties" : {
-        "Key" : {
-          "type" : "string",
-          "minLength" : 1,
-          "maxLength" : 128
-        },
-        "Value" : {
-          "type" : "string",
-          "minLength" : 0,
-          "maxLength" : 256
-        }
-      },
-      "required" : [ "Key", "Value" ],
-      "additionalProperties" : false
-    },
-    "LocaleId" : {
-      "type" : "string"
-    },
-    "VoiceSettings" : {
-      "type" : "object",
-      "properties" : {
-        "VoiceId" : {
-          "type" : "string"
-        },
-        "Engine" : {
-          "type" : "string",
-          "enum" : [ "standard", "neural", "long-form", "generative" ]
-        }
-      },
-      "required" : [ "VoiceId" ],
-      "additionalProperties" : false
-    },
-    "UnifiedSpeechSettings" : {
-      "type" : "object",
-      "properties" : {
-        "SpeechFoundationModel" : {
-          "type" : "object",
-          "properties" : {
-            "ModelArn" : {
-              "type" : "string"
-            },
-            "VoiceId" : {
-              "type" : "string"
-            }
-          },
-          "required" : [ "ModelArn" ],
-          "additionalProperties" : false
-        }
-      },
-      "required" : [ "SpeechFoundationModel" ],
-      "additionalProperties" : false
-    },
-    "GenerativeAISettings" : {
-      "type" : "object",
-      "properties" : {
-        "BuildtimeSettings" : {
-          "type" : "object",
-          "properties" : {
-            "DescriptiveBotBuilderSpecification" : {
-              "type" : "object",
-              "properties" : {
-                "Enabled" : {
-                  "type" : "boolean"
-                },
-                "BedrockModelSpecification" : {
-                  "$ref" : "#/definitions/BedrockModelSpecification"
-                }
-              },
-              "required" : [ "Enabled" ],
-              "additionalProperties" : false
-            },
-            "SampleUtteranceGenerationSpecification" : {
-              "type" : "object",
-              "properties" : {
-                "Enabled" : {
-                  "type" : "boolean"
-                },
-                "BedrockModelSpecification" : {
-                  "$ref" : "#/definitions/BedrockModelSpecification"
-                }
-              },
-              "required" : [ "Enabled" ],
-              "additionalProperties" : false
-            }
-          },
-          "additionalProperties" : false
-        },
-        "RuntimeSettings" : {
-          "type" : "object",
-          "properties" : {
-            "NluImprovementSpecification" : {
-              "type" : "object",
-              "properties" : {
-                "Enabled" : {
-                  "type" : "boolean"
-                },
-                "AssistedNluMode" : {
-                  "type" : "string",
-                  "enum" : [ "Primary", "Fallback" ]
-                },
-                "IntentDisambiguationSettings" : {
-                  "$ref" : "#/definitions/IntentDisambiguationSettings"
-                }
-              },
-              "required" : [ "Enabled" ],
-              "additionalProperties" : false
-            },
-            "SlotResolutionImprovementSpecification" : {
-              "type" : "object",
-              "properties" : {
-                "Enabled" : {
-                  "type" : "boolean"
-                },
-                "BedrockModelSpecification" : {
-                  "$ref" : "#/definitions/BedrockModelSpecification"
-                }
-              },
-              "required" : [ "Enabled" ],
-              "additionalProperties" : false
-            }
-          },
-          "additionalProperties" : false
-        }
-      },
-      "additionalProperties" : false
-    },
-    "ConfidenceThreshold" : {
-      "type" : "number",
-      "minimum" : 0,
-      "maximum" : 1
-    },
-    "SpeechDetectionSensitivity" : {
-      "type" : "string",
-      "enum" : [ "Default", "HighNoiseTolerance", "MaximumNoiseTolerance" ]
-    },
-    "ParentIntentSignature" : {
-      "type" : "string"
-    },
-    "DialogCodeHookSetting" : {
-      "type" : "object",
-      "properties" : {
-        "Enabled" : {
-          "type" : "boolean"
-        }
-      },
-      "required" : [ "Enabled" ],
-      "additionalProperties" : false
-    },
-    "FulfillmentStartResponseSpecification" : {
-      "type" : "object",
-      "properties" : {
-        "MessageGroups" : {
-          "$ref" : "#/definitions/MessageGroupsList"
-        },
-        "DelayInSeconds" : {
-          "type" : "integer",
-          "minimum" : 1,
-          "maximum" : 900
-        },
-        "AllowInterrupt" : {
-          "type" : "boolean"
-        }
-      },
-      "required" : [ "DelayInSeconds", "MessageGroups" ],
-      "additionalProperties" : false
-    },
-    "FulfillmentUpdateResponseSpecification" : {
-      "type" : "object",
-      "properties" : {
-        "MessageGroups" : {
-          "$ref" : "#/definitions/MessageGroupsList"
-        },
-        "FrequencyInSeconds" : {
-          "type" : "integer",
-          "minimum" : 1,
-          "maximum" : 900
-        },
-        "AllowInterrupt" : {
-          "type" : "boolean"
-        }
-      },
-      "required" : [ "FrequencyInSeconds", "MessageGroups" ],
-      "additionalProperties" : false
-    },
-    "FulfillmentUpdatesSpecification" : {
-      "type" : "object",
-      "properties" : {
-        "StartResponse" : {
-          "$ref" : "#/definitions/FulfillmentStartResponseSpecification"
-        },
-        "UpdateResponse" : {
-          "$ref" : "#/definitions/FulfillmentUpdateResponseSpecification"
-        },
-        "TimeoutInSeconds" : {
-          "type" : "integer",
-          "minimum" : 1,
-          "maximum" : 900
-        },
-        "Active" : {
-          "type" : "boolean"
-        }
-      },
-      "required" : [ "Active" ],
-      "additionalProperties" : false
-    },
-    "PostFulfillmentStatusSpecification" : {
-      "type" : "object",
-      "properties" : {
-        "SuccessResponse" : {
-          "$ref" : "#/definitions/ResponseSpecification"
-        },
-        "SuccessNextStep" : {
-          "$ref" : "#/definitions/DialogState"
-        },
-        "SuccessConditional" : {
-          "$ref" : "#/definitions/ConditionalSpecification"
-        },
-        "FailureResponse" : {
-          "$ref" : "#/definitions/ResponseSpecification"
-        },
-        "FailureNextStep" : {
-          "$ref" : "#/definitions/DialogState"
-        },
-        "FailureConditional" : {
-          "$ref" : "#/definitions/ConditionalSpecification"
-        },
-        "TimeoutResponse" : {
-          "$ref" : "#/definitions/ResponseSpecification"
-        },
-        "TimeoutNextStep" : {
-          "$ref" : "#/definitions/DialogState"
-        },
-        "TimeoutConditional" : {
-          "$ref" : "#/definitions/ConditionalSpecification"
-        }
-      },
-      "required" : [ ],
-      "additionalProperties" : false
-    },
-    "FulfillmentCodeHookSetting" : {
-      "type" : "object",
-      "properties" : {
-        "FulfillmentUpdatesSpecification" : {
-          "$ref" : "#/definitions/FulfillmentUpdatesSpecification"
-        },
-        "PostFulfillmentStatusSpecification" : {
-          "$ref" : "#/definitions/PostFulfillmentStatusSpecification"
-        },
-        "Enabled" : {
-          "type" : "boolean"
-        },
-        "IsActive" : {
-          "type" : "boolean"
-        }
-      },
-      "required" : [ "Enabled" ],
-      "additionalProperties" : false
-    },
-    "Button" : {
-      "type" : "object",
-      "properties" : {
-        "Text" : {
-          "type" : "string",
-          "minLength" : 1,
-          "maxLength" : 50
-        },
-        "Value" : {
-          "type" : "string",
-          "minLength" : 1,
-          "maxLength" : 50
-        }
-      },
-      "required" : [ "Text", "Value" ],
-      "additionalProperties" : false
-    },
-    "AttachmentTitle" : {
-      "type" : "string",
-      "minLength" : 1,
-      "maxLength" : 250
-    },
-    "AttachmentUrl" : {
-      "type" : "string",
-      "minLength" : 1,
-      "maxLength" : 250
-    },
-    "ImageResponseCard" : {
-      "type" : "object",
-      "properties" : {
-        "Title" : {
-          "$ref" : "#/definitions/AttachmentTitle"
-        },
-        "Subtitle" : {
-          "$ref" : "#/definitions/AttachmentTitle"
-        },
-        "ImageUrl" : {
-          "$ref" : "#/definitions/AttachmentUrl"
-        },
-        "Buttons" : {
-          "type" : "array",
-          "maxItems" : 5,
-          "insertionOrder" : false,
-          "items" : {
-            "$ref" : "#/definitions/Button"
-          }
-        }
-      },
-      "required" : [ "Title" ],
-      "additionalProperties" : false
-    },
-    "PlainTextMessage" : {
-      "type" : "object",
-      "properties" : {
-        "Value" : {
-          "type" : "string",
-          "minLength" : 1,
-          "maxLength" : 1000
-        }
-      },
-      "required" : [ "Value" ],
-      "additionalProperties" : false
-    },
-    "CustomPayload" : {
-      "type" : "object",
-      "properties" : {
-        "Value" : {
-          "type" : "string",
-          "minLength" : 1,
-          "maxLength" : 1000
-        }
-      },
-      "required" : [ "Value" ],
-      "additionalProperties" : false
-    },
-    "SSMLMessage" : {
-      "type" : "object",
-      "properties" : {
-        "Value" : {
-          "type" : "string",
-          "minLength" : 1,
-          "maxLength" : 1000
-        }
-      },
-      "required" : [ "Value" ],
-      "additionalProperties" : false
-    },
-    "Message" : {
-      "type" : "object",
-      "properties" : {
-        "PlainTextMessage" : {
-          "$ref" : "#/definitions/PlainTextMessage"
-        },
-        "CustomPayload" : {
-          "$ref" : "#/definitions/CustomPayload"
-        },
-        "SSMLMessage" : {
-          "$ref" : "#/definitions/SSMLMessage"
-        },
-        "ImageResponseCard" : {
-          "$ref" : "#/definitions/ImageResponseCard"
-        }
-      },
-      "required" : [ ],
-      "additionalProperties" : false
-    },
-    "MessageGroup" : {
-      "type" : "object",
-      "properties" : {
-        "Message" : {
-          "$ref" : "#/definitions/Message"
-        },
-        "Variations" : {
-          "type" : "array",
-          "maxItems" : 2,
-          "insertionOrder" : false,
-          "items" : {
-            "$ref" : "#/definitions/Message"
-          }
-        }
-      },
-      "required" : [ "Message" ],
-      "additionalProperties" : false
-    },
-    "MessageGroupsList" : {
-      "type" : "array",
-      "minItems" : 1,
-      "maxItems" : 5,
-      "insertionOrder" : false,
-      "items" : {
-        "$ref" : "#/definitions/MessageGroup"
-      }
-    },
-    "PromptMaxRetries" : {
-      "type" : "integer",
-      "minimum" : 0,
-      "maximum" : 5
-    },
-    "MessageSelectionStrategy" : {
-      "type" : "string",
-      "enum" : [ "Random", "Ordered" ]
-    },
-    "AllowedInputTypes" : {
-      "type" : "object",
-      "properties" : {
-        "AllowAudioInput" : {
-          "type" : "boolean"
-        },
-        "AllowDTMFInput" : {
-          "type" : "boolean"
-        }
-      },
-      "required" : [ "AllowAudioInput", "AllowDTMFInput" ],
-      "additionalProperties" : false
-    },
-    "DTMFSpecification" : {
-      "type" : "object",
-      "properties" : {
-        "DeletionCharacter" : {
-          "type" : "string",
-          "pattern" : "^[A-D0-9#*]{1}$"
-        },
-        "EndCharacter" : {
-          "type" : "string",
-          "pattern" : "^[A-D0-9#*]{1}$"
-        },
-        "EndTimeoutMs" : {
-          "type" : "integer",
-          "minimum" : 1
-        },
-        "MaxLength" : {
-          "type" : "integer",
-          "minimum" : 1,
-          "maximum" : 1024
-        }
-      },
-      "required" : [ "DeletionCharacter", "EndCharacter", "EndTimeoutMs", "MaxLength" ],
-      "additionalProperties" : false
-    },
-    "AudioSpecification" : {
-      "type" : "object",
-      "properties" : {
-        "EndTimeoutMs" : {
-          "type" : "integer",
-          "minimum" : 1
-        },
-        "MaxLengthMs" : {
-          "type" : "integer",
-          "minimum" : 1
-        }
-      },
-      "required" : [ "EndTimeoutMs", "MaxLengthMs" ],
-      "additionalProperties" : false
-    },
-    "AudioAndDTMFInputSpecification" : {
-      "type" : "object",
-      "properties" : {
-        "StartTimeoutMs" : {
-          "type" : "integer",
-          "minimum" : 1
-        },
-        "DTMFSpecification" : {
-          "$ref" : "#/definitions/DTMFSpecification"
-        },
-        "AudioSpecification" : {
-          "$ref" : "#/definitions/AudioSpecification"
-        }
-      },
-      "required" : [ "StartTimeoutMs" ],
-      "additionalProperties" : false
-    },
-    "TextInputSpecification" : {
-      "type" : "object",
-      "properties" : {
-        "StartTimeoutMs" : {
-          "type" : "integer",
-          "minimum" : 1
-        }
-      },
-      "required" : [ "StartTimeoutMs" ],
-      "additionalProperties" : false
-    },
-    "PromptAttemptSpecification" : {
-      "type" : "object",
-      "properties" : {
-        "AllowedInputTypes" : {
-          "$ref" : "#/definitions/AllowedInputTypes"
-        },
-        "AllowInterrupt" : {
-          "type" : "boolean"
-        },
-        "AudioAndDTMFInputSpecification" : {
-          "$ref" : "#/definitions/AudioAndDTMFInputSpecification"
-        },
-        "TextInputSpecification" : {
-          "$ref" : "#/definitions/TextInputSpecification"
-        }
-      },
-      "required" : [ "AllowedInputTypes" ],
-      "additionalProperties" : false
-    },
-    "PromptSpecification" : {
-      "type" : "object",
-      "properties" : {
-        "MessageGroupsList" : {
-          "$ref" : "#/definitions/MessageGroupsList"
-        },
-        "MaxRetries" : {
-          "$ref" : "#/definitions/PromptMaxRetries"
-        },
-        "AllowInterrupt" : {
-          "type" : "boolean"
-        },
-        "MessageSelectionStrategy" : {
-          "$ref" : "#/definitions/MessageSelectionStrategy"
-        },
-        "PromptAttemptsSpecification" : {
-          "type" : "object",
-          "patternProperties" : {
-            "^(Initial|Retry1|Retry2|Retry3|Retry4|Retry5)$" : {
-              "$ref" : "#/definitions/PromptAttemptSpecification"
-            }
-          },
-          "additionalProperties" : false
-        }
-      },
-      "required" : [ "MessageGroupsList", "MaxRetries" ],
-      "additionalProperties" : false
-    },
-    "ResponseSpecification" : {
-      "type" : "object",
-      "properties" : {
-        "MessageGroupsList" : {
-          "$ref" : "#/definitions/MessageGroupsList"
-        },
-        "AllowInterrupt" : {
-          "type" : "boolean"
-        }
-      },
-      "required" : [ "MessageGroupsList" ],
-      "additionalProperties" : false
-    },
-    "StillWaitingResponseFrequency" : {
-      "type" : "integer",
-      "minimum" : 1,
-      "maximum" : 300
-    },
-    "StillWaitingResponseTimeout" : {
-      "type" : "integer",
-      "minimum" : 1,
-      "maximum" : 900
-    },
-    "StillWaitingResponseSpecification" : {
-      "type" : "object",
-      "properties" : {
-        "MessageGroupsList" : {
-          "$ref" : "#/definitions/MessageGroupsList"
-        },
-        "FrequencyInSeconds" : {
-          "$ref" : "#/definitions/StillWaitingResponseFrequency"
-        },
-        "TimeoutInSeconds" : {
-          "$ref" : "#/definitions/StillWaitingResponseTimeout"
-        },
-        "AllowInterrupt" : {
-          "type" : "boolean"
-        }
-      },
-      "required" : [ "MessageGroupsList", "FrequencyInSeconds", "TimeoutInSeconds" ],
-      "additionalProperties" : false
-    },
-    "IntentConfirmationSetting" : {
-      "type" : "object",
-      "properties" : {
-        "PromptSpecification" : {
-          "$ref" : "#/definitions/PromptSpecification"
-        },
-        "IsActive" : {
-          "type" : "boolean"
-        },
-        "ConfirmationResponse" : {
-          "$ref" : "#/definitions/ResponseSpecification"
-        },
-        "ConfirmationNextStep" : {
-          "$ref" : "#/definitions/DialogState"
-        },
-        "ConfirmationConditional" : {
-          "$ref" : "#/definitions/ConditionalSpecification"
-        },
-        "DeclinationResponse" : {
-          "$ref" : "#/definitions/ResponseSpecification"
-        },
-        "DeclinationNextStep" : {
-          "$ref" : "#/definitions/DialogState"
-        },
-        "DeclinationConditional" : {
-          "$ref" : "#/definitions/ConditionalSpecification"
-        },
-        "FailureResponse" : {
-          "$ref" : "#/definitions/ResponseSpecification"
-        },
-        "FailureNextStep" : {
-          "$ref" : "#/definitions/DialogState"
-        },
-        "FailureConditional" : {
-          "$ref" : "#/definitions/ConditionalSpecification"
-        },
-        "CodeHook" : {
-          "$ref" : "#/definitions/DialogCodeHookInvocationSetting"
-        },
-        "ElicitationCodeHook" : {
-          "$ref" : "#/definitions/ElicitationCodeHookInvocationSetting"
-        }
-      },
-      "required" : [ "PromptSpecification" ],
-      "additionalProperties" : false
-    },
-    "IntentClosingSetting" : {
-      "type" : "object",
-      "properties" : {
-        "ClosingResponse" : {
-          "$ref" : "#/definitions/ResponseSpecification"
-        },
-        "IsActive" : {
-          "type" : "boolean"
-        },
-        "Conditional" : {
-          "$ref" : "#/definitions/ConditionalSpecification"
-        },
-        "NextStep" : {
-          "$ref" : "#/definitions/DialogState"
-        }
-      },
-      "additionalProperties" : false
-    },
-    "InputContext" : {
-      "type" : "object",
-      "properties" : {
-        "Name" : {
-          "$ref" : "#/definitions/Name"
-        }
-      },
-      "required" : [ "Name" ],
-      "additionalProperties" : false
-    },
-    "InputContextsList" : {
-      "type" : "array",
-      "maxItems" : 5,
-      "insertionOrder" : false,
-      "items" : {
-        "$ref" : "#/definitions/InputContext"
-      }
-    },
-    "ContextTimeToLiveInSeconds" : {
-      "type" : "integer",
-      "minimum" : 5,
-      "maximum" : 86400
-    },
-    "ContextTurnsToLive" : {
-      "type" : "integer",
-      "minimum" : 1,
-      "maximum" : 20
-    },
-    "OutputContext" : {
-      "type" : "object",
-      "properties" : {
-        "Name" : {
-          "$ref" : "#/definitions/Name"
-        },
-        "TimeToLiveInSeconds" : {
-          "$ref" : "#/definitions/ContextTimeToLiveInSeconds"
-        },
-        "TurnsToLive" : {
-          "$ref" : "#/definitions/ContextTurnsToLive"
-        }
-      },
-      "required" : [ "Name", "TimeToLiveInSeconds", "TurnsToLive" ],
-      "additionalProperties" : false
-    },
-    "OutputContextsList" : {
-      "type" : "array",
-      "maxItems" : 10,
-      "insertionOrder" : false,
-      "items" : {
-        "$ref" : "#/definitions/OutputContext"
-      }
-    },
-    "KendraIndexArn" : {
-      "type" : "string",
-      "minLength" : 32,
-      "maxLength" : 2048,
-      "pattern" : "^arn:aws[a-zA-Z-]*:kendra:[a-z]+-(?:[a-z]+-)*[0-9]:[0-9]{12}:index/[a-zA-Z0-9][a-zA-Z0-9_-]*$"
-    },
-    "QueryFilterString" : {
-      "type" : "string",
-      "minLength" : 1,
-      "maxLength" : 5000
-    },
-    "BedrockModelSpecification" : {
-      "type" : "object",
-      "properties" : {
-        "ModelArn" : {
-          "type" : "string",
-          "minLength" : 1,
-          "maxLength" : 5000
-        },
-        "BedrockGuardrailConfiguration" : {
-          "type" : "object",
-          "properties" : {
-            "BedrockGuardrailIdentifier" : {
-              "type" : "string",
-              "minLength" : 1,
-              "maxLength" : 5000
-            },
-            "BedrockGuardrailVersion" : {
-              "type" : "string",
-              "minLength" : 1,
-              "maxLength" : 5000
-            }
-          },
-          "additionalProperties" : false
-        },
-        "BedrockTraceStatus" : {
-          "type" : "string",
-          "enum" : [ "ENABLED", "DISABLED" ]
-        },
-        "BedrockModelCustomPrompt" : {
-          "type" : "string",
-          "minLength" : 1,
-          "maxLength" : 5000
-        }
-      },
-      "required" : [ "ModelArn" ],
-      "additionalProperties" : false
-    },
-    "IntentDisambiguationSettings" : {
-      "type" : "object",
-      "properties" : {
-        "Enabled" : {
-          "type" : "boolean"
-        },
-        "MaxDisambiguationIntents" : {
-          "type" : "integer",
-          "minimum" : 2,
-          "maximum" : 5
-        },
-        "CustomDisambiguationMessage" : {
-          "type" : "string",
-          "minLength" : 1,
-          "maxLength" : 1000
-        }
-      },
-      "required" : [ "Enabled" ],
-      "additionalProperties" : false
-    },
-    "KendraConfiguration" : {
-      "type" : "object",
-      "properties" : {
-        "KendraIndex" : {
-          "$ref" : "#/definitions/KendraIndexArn"
-        },
-        "QueryFilterStringEnabled" : {
-          "type" : "boolean"
-        },
-        "QueryFilterString" : {
-          "$ref" : "#/definitions/QueryFilterString"
-        }
-      },
-      "required" : [ "KendraIndex" ],
-      "additionalProperties" : false
-    },
-    "QnAIntentConfiguration" : {
-      "type" : "object",
-      "properties" : {
-        "DataSourceConfiguration" : {
-          "type" : "object",
-          "properties" : {
-            "OpensearchConfiguration" : {
-              "type" : "object",
-              "properties" : {
-                "DomainEndpoint" : {
-                  "type" : "string",
-                  "minLength" : 1,
-                  "maxLength" : 5000
-                },
-                "IndexName" : {
-                  "type" : "string",
-                  "minLength" : 1,
-                  "maxLength" : 5000
-                },
-                "IncludeFields" : {
-                  "type" : "array",
-                  "insertionOrder" : false,
-                  "items" : {
-                    "type" : "string",
-                    "minLength" : 1,
-                    "maxLength" : 5000
-                  }
-                },
-                "ExactResponse" : {
-                  "type" : "boolean"
-                },
-                "ExactResponseFields" : {
-                  "type" : "object",
-                  "properties" : {
-                    "QuestionField" : {
-                      "type" : "string",
-                      "minLength" : 1,
-                      "maxLength" : 5000
-                    },
-                    "AnswerField" : {
-                      "type" : "string",
-                      "minLength" : 1,
-                      "maxLength" : 5000
-                    }
-                  },
-                  "additionalProperties" : false
-                }
-              },
-              "additionalProperties" : false
-            },
-            "BedrockKnowledgeStoreConfiguration" : {
-              "type" : "object",
-              "properties" : {
-                "BedrockKnowledgeBaseArn" : {
-                  "type" : "string",
-                  "minLength" : 1,
-                  "maxLength" : 5000
-                },
-                "ExactResponse" : {
-                  "type" : "boolean"
-                },
-                "BKBExactResponseFields" : {
-                  "type" : "object",
-                  "properties" : {
-                    "AnswerField" : {
-                      "type" : "string",
-                      "minLength" : 1,
-                      "maxLength" : 5000
-                    }
-                  },
-                  "additionalProperties" : false
-                }
-              },
-              "additionalProperties" : false
-            },
-            "KendraConfiguration" : {
-              "$ref" : "#/definitions/QnAKendraConfiguration"
-            }
-          },
-          "additionalProperties" : false
-        },
-        "BedrockModelConfiguration" : {
-          "$ref" : "#/definitions/BedrockModelSpecification"
-        }
-      },
-      "required" : [ "DataSourceConfiguration", "BedrockModelConfiguration" ],
-      "additionalProperties" : false
-    },
-    "QInConnectIntentConfiguration" : {
-      "type" : "object",
-      "properties" : {
-        "QInConnectAssistantConfiguration" : {
-          "type" : "object",
-          "properties" : {
-            "AssistantArn" : {
-              "type" : "string",
-              "minLength" : 1,
-              "maxLength" : 200,
-              "pattern" : "^arn:[a-z-]*?:wisdom:[a-z0-9-]*?:[0-9]{12}:[a-z-]*?/[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}(?:/[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}){0,2}$"
-            }
-          },
-          "required" : [ "AssistantArn" ],
-          "additionalProperties" : false
-        }
-      },
-      "additionalProperties" : false
-    },
-    "QnAKendraConfiguration" : {
-      "type" : "object",
-      "properties" : {
-        "KendraIndex" : {
-          "type" : "string",
-          "minLength" : 1,
-          "maxLength" : 5000
-        },
-        "QueryFilterString" : {
-          "type" : "string",
-          "minLength" : 1,
-          "maxLength" : 5000
-        },
-        "QueryFilterStringEnabled" : {
-          "type" : "boolean"
-        },
-        "ExactResponse" : {
-          "type" : "boolean"
-        }
-      },
-      "required" : [ "KendraIndex", "QueryFilterStringEnabled", "ExactResponse" ],
-      "additionalProperties" : false
-    },
-    "BedrockAgentIntentConfiguration" : {
-      "type" : "object",
-      "properties" : {
-        "BedrockAgentConfiguration" : {
-          "type" : "object",
-          "properties" : {
-            "BedrockAgentId" : {
-              "type" : "string",
-              "minLength" : 1,
-              "maxLength" : 5000
-            },
-            "BedrockAgentAliasId" : {
-              "type" : "string",
-              "minLength" : 1,
-              "maxLength" : 5000
-            }
-          },
-          "additionalProperties" : false
-        },
-        "BedrockAgentIntentKnowledgeBaseConfiguration" : {
-          "type" : "object",
-          "properties" : {
-            "BedrockKnowledgeBaseArn" : {
-              "type" : "string",
-              "minLength" : 1,
-              "maxLength" : 5000
-            },
-            "BedrockModelConfiguration" : {
-              "$ref" : "#/definitions/BedrockModelSpecification"
-            }
-          },
-          "required" : [ "BedrockKnowledgeBaseArn", "BedrockModelConfiguration" ],
-          "additionalProperties" : false
-        }
-      },
-      "additionalProperties" : false
-    },
-    "PriorityValue" : {
-      "type" : "integer",
-      "minimum" : 0,
-      "maximum" : 100
-    },
-    "SlotPriority" : {
-      "type" : "object",
-      "properties" : {
-        "Priority" : {
-          "$ref" : "#/definitions/PriorityValue"
-        },
-        "SlotName" : {
-          "$ref" : "#/definitions/Name"
-        }
-      },
-      "required" : [ "SlotName", "Priority" ],
-      "additionalProperties" : false
-    },
-    "SlotPrioritiesList" : {
-      "type" : "array",
-      "insertionOrder" : false,
-      "items" : {
-        "$ref" : "#/definitions/SlotPriority"
-      }
-    },
-    "Intent" : {
-      "type" : "object",
-      "properties" : {
-        "Name" : {
-          "$ref" : "#/definitions/Name"
-        },
-        "DisplayName" : {
-          "$ref" : "#/definitions/DisplayName"
-        },
-        "Description" : {
-          "description" : "Resource Type definition for the intent.",
-          "$ref" : "#/definitions/Description"
-        },
-        "ParentIntentSignature" : {
-          "$ref" : "#/definitions/ParentIntentSignature"
-        },
-        "SampleUtterances" : {
-          "$ref" : "#/definitions/SampleUtterancesList"
-        },
-        "DialogCodeHook" : {
-          "$ref" : "#/definitions/DialogCodeHookSetting"
-        },
-        "FulfillmentCodeHook" : {
-          "$ref" : "#/definitions/FulfillmentCodeHookSetting"
-        },
-        "IntentConfirmationSetting" : {
-          "$ref" : "#/definitions/IntentConfirmationSetting"
-        },
-        "IntentClosingSetting" : {
-          "$ref" : "#/definitions/IntentClosingSetting"
-        },
-        "InitialResponseSetting" : {
-          "$ref" : "#/definitions/InitialResponseSetting"
-        },
-        "InputContexts" : {
-          "$ref" : "#/definitions/InputContextsList"
-        },
-        "OutputContexts" : {
-          "$ref" : "#/definitions/OutputContextsList"
-        },
-        "KendraConfiguration" : {
-          "$ref" : "#/definitions/KendraConfiguration"
-        },
-        "QnAIntentConfiguration" : {
-          "$ref" : "#/definitions/QnAIntentConfiguration"
-        },
-        "QInConnectIntentConfiguration" : {
-          "$ref" : "#/definitions/QInConnectIntentConfiguration"
-        },
-        "BedrockAgentIntentConfiguration" : {
-          "$ref" : "#/definitions/BedrockAgentIntentConfiguration"
-        },
-        "SlotPriorities" : {
-          "$ref" : "#/definitions/SlotPrioritiesList"
-        },
-        "Slots" : {
-          "type" : "array",
-          "maxItems" : 100,
-          "uniqueItems" : true,
-          "insertionOrder" : false,
-          "items" : {
-            "$ref" : "#/definitions/Slot"
-          }
-        }
-      },
-      "required" : [ "Name" ],
-      "additionalProperties" : false
-    },
-    "ParentSlotTypeSignature" : {
-      "type" : "string"
-    },
-    "SlotTypeName" : {
-      "type" : "string"
-    },
-    "SampleValue" : {
-      "type" : "object",
-      "properties" : {
-        "Value" : {
-          "type" : "string",
-          "minLength" : 1,
-          "maxLength" : 140
-        }
-      },
-      "required" : [ "Value" ],
-      "additionalProperties" : false
-    },
-    "SynonymList" : {
-      "type" : "array",
-      "maxItems" : 10000,
-      "insertionOrder" : false,
-      "items" : {
-        "$ref" : "#/definitions/SampleValue"
-      }
-    },
-    "SlotTypeValue" : {
-      "type" : "object",
-      "properties" : {
-        "SampleValue" : {
-          "$ref" : "#/definitions/SampleValue"
-        },
-        "Synonyms" : {
-          "$ref" : "#/definitions/SynonymList"
-        }
-      },
-      "required" : [ "SampleValue" ],
-      "additionalProperties" : false
-    },
-    "SlotTypeValues" : {
-      "type" : "array",
-      "maxItems" : 10000,
-      "insertionOrder" : false,
-      "items" : {
-        "$ref" : "#/definitions/SlotTypeValue"
-      }
-    },
-    "SlotValueResolutionStrategy" : {
-      "type" : "string",
-      "enum" : [ "ORIGINAL_VALUE", "TOP_RESOLUTION", "CONCATENATION" ]
-    },
-    "SlotValueRegexFilter" : {
-      "type" : "object",
-      "properties" : {
-        "Pattern" : {
-          "type" : "string",
-          "minLength" : 1,
-          "maxLength" : 300
-        }
-      },
-      "required" : [ "Pattern" ],
-      "additionalProperties" : false
-    },
-    "AudioRecognitionStrategy" : {
-      "type" : "string",
-      "enum" : [ "UseSlotValuesAsCustomVocabulary" ]
-    },
-    "AdvancedRecognitionSetting" : {
-      "type" : "object",
-      "properties" : {
-        "AudioRecognitionStrategy" : {
-          "$ref" : "#/definitions/AudioRecognitionStrategy"
-        }
-      },
-      "additionalProperties" : false
-    },
-    "SlotValueSelectionSetting" : {
-      "type" : "object",
-      "properties" : {
-        "ResolutionStrategy" : {
-          "$ref" : "#/definitions/SlotValueResolutionStrategy"
-        },
-        "RegexFilter" : {
-          "$ref" : "#/definitions/SlotValueRegexFilter"
-        },
-        "AdvancedRecognitionSetting" : {
-          "$ref" : "#/definitions/AdvancedRecognitionSetting"
-        }
-      },
-      "required" : [ "ResolutionStrategy" ],
-      "additionalProperties" : false
-    },
-    "S3BucketName" : {
-      "type" : "string",
-      "minLength" : 3,
-      "maxLength" : 63,
-      "pattern" : "^[a-z0-9][\\.\\-a-z0-9]{1,61}[a-z0-9]$"
-    },
-    "S3ObjectKey" : {
-      "type" : "string",
-      "minLength" : 1,
-      "maxLength" : 1024,
-      "pattern" : "[\\.\\-\\!\\*\\_\\'\\(\\)a-zA-Z0-9][\\.\\-\\!\\*\\_\\'\\(\\)\\/a-zA-Z0-9]*$"
-    },
-    "GrammarSlotTypeSource" : {
-      "type" : "object",
-      "properties" : {
-        "S3BucketName" : {
-          "$ref" : "#/definitions/S3BucketName"
-        },
-        "S3ObjectKey" : {
-          "$ref" : "#/definitions/S3ObjectKey"
-        },
-        "KmsKeyArn" : {
-          "type" : "string",
-          "minLength" : 20,
-          "maxLength" : 2048,
-          "pattern" : "^arn:[\\w\\-]+:kms:[\\w\\-]+:[\\d]{12}:(?:key\\/[\\w\\-]+|alias\\/[a-zA-Z0-9:\\/_\\-]{1,256})$"
-        }
-      },
-      "required" : [ "S3BucketName", "S3ObjectKey" ],
-      "additionalProperties" : false
-    },
-    "GrammarSlotTypeSetting" : {
-      "type" : "object",
-      "properties" : {
-        "Source" : {
-          "$ref" : "#/definitions/GrammarSlotTypeSource"
-        }
-      },
-      "additionalProperties" : false
-    },
-    "ExternalSourceSetting" : {
-      "type" : "object",
-      "properties" : {
-        "GrammarSlotTypeSetting" : {
-          "$ref" : "#/definitions/GrammarSlotTypeSetting"
-        }
-      },
-      "additionalProperties" : false
-    },
-    "CompositeSlotTypeSetting" : {
-      "type" : "object",
-      "properties" : {
-        "SubSlots" : {
-          "type" : "array",
-          "minItems" : 1,
-          "maxItems" : 6,
-          "uniqueItems" : true,
-          "insertionOrder" : true,
-          "items" : {
-            "$ref" : "#/definitions/SubSlotTypeComposition"
-          }
-        }
-      },
-      "additionalProperties" : false
-    },
-    "SubSlotTypeComposition" : {
-      "type" : "object",
-      "properties" : {
-        "Name" : {
-          "type" : "string",
-          "minLength" : 1,
-          "maxLength" : 100,
-          "pattern" : "^([0-9a-zA-Z][_-]?){1,100}$"
-        },
-        "SlotTypeId" : {
-          "$ref" : "#/definitions/SlotTypeId"
-        },
-        "SlotTypeName" : {
-          "$ref" : "#/definitions/SlotTypeName"
-        }
-      },
-      "required" : [ "Name" ],
-      "oneOf" : [ {
-        "required" : [ "SlotTypeId" ]
-      }, {
-        "required" : [ "SlotTypeName" ]
-      } ],
-      "additionalProperties" : false
-    },
-    "SubSlotSetting" : {
-      "type" : "object",
-      "properties" : {
-        "Expression" : {
-          "type" : "string",
-          "minLength" : 1,
-          "maxLength" : 1000,
-          "pattern" : "[0-9A-Za-z_\\-\\s\\(\\)]+"
-        },
-        "SlotSpecifications" : {
-          "type" : "object",
-          "minProperties" : 0,
-          "maxProperties" : 6,
-          "patternProperties" : {
-            "^([0-9a-zA-Z][_-]?){1,100}$" : {
-              "$ref" : "#/definitions/Specifications"
-            }
-          },
-          "additionalProperties" : false
-        }
-      },
-      "additionalProperties" : false
-    },
-    "Specifications" : {
-      "type" : "object",
-      "properties" : {
-        "SlotTypeId" : {
-          "$ref" : "#/definitions/SlotTypeId"
-        },
-        "SlotTypeName" : {
-          "$ref" : "#/definitions/SlotTypeName"
-        },
-        "ValueElicitationSetting" : {
-          "$ref" : "#/definitions/SubSlotValueElicitationSetting"
-        }
-      },
-      "required" : [ "ValueElicitationSetting" ],
-      "oneOf" : [ {
-        "required" : [ "SlotTypeId" ]
-      }, {
-        "required" : [ "SlotTypeName" ]
-      } ],
-      "additionalProperties" : false
-    },
-    "SlotTypeId" : {
-      "type" : "string",
-      "minLength" : 1,
-      "maxLength" : 25,
-      "pattern" : "^((AMAZON\\.)[a-zA-Z_]+?|[0-9a-zA-Z]+)$"
-    },
-    "SubSlotValueElicitationSetting" : {
-      "type" : "object",
-      "properties" : {
-        "PromptSpecification" : {
-          "$ref" : "#/definitions/PromptSpecification"
-        },
-        "DefaultValueSpecification" : {
-          "$ref" : "#/definitions/SlotDefaultValueSpecification"
-        },
-        "SampleUtterances" : {
-          "$ref" : "#/definitions/SampleUtterancesList"
-        },
-        "WaitAndContinueSpecification" : {
-          "$ref" : "#/definitions/WaitAndContinueSpecification"
-        }
-      },
-      "additionalProperties" : false
-    },
-    "SlotType" : {
-      "type" : "object",
-      "properties" : {
-        "Name" : {
-          "$ref" : "#/definitions/Name"
-        },
-        "Description" : {
-          "$ref" : "#/definitions/Description"
-        },
-        "ParentSlotTypeSignature" : {
-          "$ref" : "#/definitions/ParentSlotTypeSignature"
-        },
-        "SlotTypeValues" : {
-          "$ref" : "#/definitions/SlotTypeValues"
-        },
-        "ValueSelectionSetting" : {
-          "$ref" : "#/definitions/SlotValueSelectionSetting"
-        },
-        "ExternalSourceSetting" : {
-          "$ref" : "#/definitions/ExternalSourceSetting"
-        },
-        "CompositeSlotTypeSetting" : {
-          "$ref" : "#/definitions/CompositeSlotTypeSetting"
-        }
-      },
-      "required" : [ "Name" ],
-      "additionalProperties" : false
-    },
-    "CustomVocabularyItem" : {
-      "type" : "object",
-      "properties" : {
-        "Phrase" : {
-          "type" : "string",
-          "minLength" : 1,
-          "maxLength" : 100
-        },
-        "Weight" : {
-          "type" : "integer",
-          "minimum" : 0,
-          "maximum" : 3
-        },
-        "DisplayAs" : {
-          "type" : "string",
-          "minLength" : 1,
-          "maxLength" : 100
-        }
-      },
-      "required" : [ "Phrase" ],
-      "additionalProperties" : false
-    },
-    "CustomVocabularyItems" : {
-      "type" : "array",
-      "maxItems" : 500,
-      "uniqueItems" : true,
-      "insertionOrder" : false,
-      "items" : {
-        "$ref" : "#/definitions/CustomVocabularyItem"
-      }
+      "required" : [ "LogPrefix", "S3BucketArn" ]
     },
     "CustomVocabulary" : {
+      "additionalProperties" : false,
       "type" : "object",
       "properties" : {
         "CustomVocabularyItems" : {
           "$ref" : "#/definitions/CustomVocabularyItems"
         }
       },
-      "required" : [ "CustomVocabularyItems" ],
-      "additionalProperties" : false
-    },
-    "SpeechModelPreference" : {
-      "type" : "string",
-      "enum" : [ "Standard", "Neural", "Deepgram" ]
-    },
-    "DeepgramModelId" : {
-      "type" : "string",
-      "minLength" : 4,
-      "maxLength" : 32,
-      "pattern" : "[A-Za-z0-9-_]+"
-    },
-    "SecretsManagerSecretArn" : {
-      "type" : "string",
-      "minLength" : 20,
-      "maxLength" : 2048,
-      "pattern" : "^arn:aws[A-Za-z-]*:secretsmanager:[a-z0-9-]{1,20}:[0-9]{12}:secret:[A-Za-z0-9/_+=.@-]{1,512}-[A-Za-z0-9]{6}$"
-    },
-    "DeepgramSpeechModelConfig" : {
-      "type" : "object",
-      "properties" : {
-        "ApiTokenSecretArn" : {
-          "$ref" : "#/definitions/SecretsManagerSecretArn"
-        },
-        "ModelId" : {
-          "$ref" : "#/definitions/DeepgramModelId"
-        }
-      },
-      "required" : [ "ApiTokenSecretArn" ],
-      "additionalProperties" : false
-    },
-    "SpeechModelConfig" : {
-      "type" : "object",
-      "properties" : {
-        "DeepgramConfig" : {
-          "$ref" : "#/definitions/DeepgramSpeechModelConfig"
-        }
-      },
-      "additionalProperties" : false
-    },
-    "SpeechRecognitionSettings" : {
-      "type" : "object",
-      "properties" : {
-        "SpeechModelPreference" : {
-          "$ref" : "#/definitions/SpeechModelPreference"
-        },
-        "SpeechModelConfig" : {
-          "$ref" : "#/definitions/SpeechModelConfig"
-        }
-      },
-      "additionalProperties" : false
-    },
-    "SlotDefaultValue" : {
-      "type" : "object",
-      "properties" : {
-        "DefaultValue" : {
-          "type" : "string",
-          "minLength" : 1,
-          "maxLength" : 202
-        }
-      },
-      "required" : [ "DefaultValue" ],
-      "additionalProperties" : false
-    },
-    "SlotDefaultValueSpecification" : {
-      "type" : "object",
-      "properties" : {
-        "DefaultValueList" : {
-          "type" : "array",
-          "maxItems" : 10,
-          "insertionOrder" : false,
-          "items" : {
-            "$ref" : "#/definitions/SlotDefaultValue"
-          }
-        }
-      },
-      "required" : [ "DefaultValueList" ],
-      "additionalProperties" : false
-    },
-    "SlotConstraint" : {
-      "type" : "string",
-      "enum" : [ "Required", "Optional" ]
-    },
-    "WaitAndContinueSpecification" : {
-      "type" : "object",
-      "properties" : {
-        "WaitingResponse" : {
-          "$ref" : "#/definitions/ResponseSpecification"
-        },
-        "ContinueResponse" : {
-          "$ref" : "#/definitions/ResponseSpecification"
-        },
-        "StillWaitingResponse" : {
-          "$ref" : "#/definitions/StillWaitingResponseSpecification"
-        },
-        "IsActive" : {
-          "type" : "boolean"
-        }
-      },
-      "required" : [ "WaitingResponse", "ContinueResponse" ],
-      "additionalProperties" : false
-    },
-    "SlotValueElicitationSetting" : {
-      "type" : "object",
-      "properties" : {
-        "DefaultValueSpecification" : {
-          "$ref" : "#/definitions/SlotDefaultValueSpecification"
-        },
-        "SlotConstraint" : {
-          "$ref" : "#/definitions/SlotConstraint"
-        },
-        "PromptSpecification" : {
-          "$ref" : "#/definitions/PromptSpecification"
-        },
-        "SampleUtterances" : {
-          "$ref" : "#/definitions/SampleUtterancesList"
-        },
-        "WaitAndContinueSpecification" : {
-          "$ref" : "#/definitions/WaitAndContinueSpecification"
-        },
-        "SlotCaptureSetting" : {
-          "$ref" : "#/definitions/SlotCaptureSetting"
-        }
-      },
-      "required" : [ "SlotConstraint" ],
-      "additionalProperties" : false
-    },
-    "ObfuscationSetting" : {
-      "type" : "object",
-      "properties" : {
-        "ObfuscationSettingType" : {
-          "type" : "string",
-          "enum" : [ "None", "DefaultObfuscation" ]
-        }
-      },
-      "required" : [ "ObfuscationSettingType" ],
-      "additionalProperties" : false
-    },
-    "MultipleValuesSetting" : {
-      "type" : "object",
-      "properties" : {
-        "AllowMultipleValues" : {
-          "type" : "boolean"
-        }
-      },
-      "required" : [ ],
-      "additionalProperties" : false
-    },
-    "Slot" : {
-      "type" : "object",
-      "properties" : {
-        "Name" : {
-          "$ref" : "#/definitions/Name"
-        },
-        "Description" : {
-          "$ref" : "#/definitions/Description"
-        },
-        "SlotTypeName" : {
-          "$ref" : "#/definitions/SlotTypeName"
-        },
-        "ValueElicitationSetting" : {
-          "$ref" : "#/definitions/SlotValueElicitationSetting"
-        },
-        "ObfuscationSetting" : {
-          "$ref" : "#/definitions/ObfuscationSetting"
-        },
-        "MultipleValuesSetting" : {
-          "$ref" : "#/definitions/MultipleValuesSetting"
-        },
-        "SubSlotSetting" : {
-          "$ref" : "#/definitions/SubSlotSetting"
-        }
-      },
-      "required" : [ "Name", "SlotTypeName", "ValueElicitationSetting" ],
-      "additionalProperties" : false
-    },
-    "BotLocale" : {
-      "type" : "object",
-      "properties" : {
-        "LocaleId" : {
-          "$ref" : "#/definitions/LocaleId"
-        },
-        "Description" : {
-          "$ref" : "#/definitions/Description"
-        },
-        "VoiceSettings" : {
-          "$ref" : "#/definitions/VoiceSettings"
-        },
-        "UnifiedSpeechSettings" : {
-          "$ref" : "#/definitions/UnifiedSpeechSettings"
-        },
-        "GenerativeAISettings" : {
-          "$ref" : "#/definitions/GenerativeAISettings"
-        },
-        "NluConfidenceThreshold" : {
-          "$ref" : "#/definitions/ConfidenceThreshold"
-        },
-        "SpeechDetectionSensitivity" : {
-          "$ref" : "#/definitions/SpeechDetectionSensitivity"
-        },
-        "SpeechRecognitionSettings" : {
-          "$ref" : "#/definitions/SpeechRecognitionSettings"
-        },
-        "Intents" : {
-          "type" : "array",
-          "maxItems" : 1000,
-          "uniqueItems" : true,
-          "insertionOrder" : false,
-          "items" : {
-            "$ref" : "#/definitions/Intent"
-          }
-        },
-        "SlotTypes" : {
-          "type" : "array",
-          "maxItems" : 250,
-          "uniqueItems" : true,
-          "insertionOrder" : false,
-          "items" : {
-            "$ref" : "#/definitions/SlotType"
-          }
-        },
-        "CustomVocabulary" : {
-          "$ref" : "#/definitions/CustomVocabulary"
-        }
-      },
-      "required" : [ "LocaleId", "NluConfidenceThreshold" ],
-      "additionalProperties" : false
-    },
-    "S3Location" : {
-      "type" : "object",
-      "properties" : {
-        "S3Bucket" : {
-          "$ref" : "#/definitions/S3BucketName"
-        },
-        "S3ObjectKey" : {
-          "$ref" : "#/definitions/S3ObjectKey"
-        },
-        "S3ObjectVersion" : {
-          "type" : "string",
-          "minLength" : 1,
-          "maxLength" : 1024
-        }
-      },
-      "required" : [ "S3Bucket", "S3ObjectKey" ],
-      "additionalProperties" : false
-    },
-    "Condition" : {
-      "type" : "object",
-      "properties" : {
-        "ExpressionString" : {
-          "$ref" : "#/definitions/ConditionExpression"
-        }
-      },
-      "required" : [ "ExpressionString" ],
-      "additionalProperties" : false
-    },
-    "Conditional" : {
-      "type" : "object",
-      "properties" : {
-        "IsActive" : {
-          "type" : "boolean"
-        },
-        "ConditionalBranches" : {
-          "$ref" : "#/definitions/ConditionalBranches"
-        }
-      },
-      "required" : [ "IsActive", "ConditionalBranches" ],
-      "additionalProperties" : false
-    },
-    "ConditionalSpecification" : {
-      "type" : "object",
-      "properties" : {
-        "IsActive" : {
-          "type" : "boolean"
-        },
-        "ConditionalBranches" : {
-          "$ref" : "#/definitions/ConditionalBranches"
-        },
-        "DefaultBranch" : {
-          "$ref" : "#/definitions/DefaultConditionalBranch"
-        }
-      },
-      "required" : [ "IsActive", "ConditionalBranches", "DefaultBranch" ],
-      "additionalProperties" : false
-    },
-    "DefaultConditionalBranch" : {
-      "type" : "object",
-      "properties" : {
-        "NextStep" : {
-          "$ref" : "#/definitions/DialogState"
-        },
-        "Response" : {
-          "$ref" : "#/definitions/ResponseSpecification"
-        }
-      },
-      "additionalProperties" : false
-    },
-    "ConditionalBranch" : {
-      "type" : "object",
-      "properties" : {
-        "Name" : {
-          "$ref" : "#/definitions/Name"
-        },
-        "Condition" : {
-          "$ref" : "#/definitions/Condition"
-        },
-        "NextStep" : {
-          "$ref" : "#/definitions/DialogState"
-        },
-        "Response" : {
-          "$ref" : "#/definitions/ResponseSpecification"
-        }
-      },
-      "required" : [ "Name", "Condition", "NextStep" ],
-      "additionalProperties" : false
-    },
-    "ConditionalBranches" : {
-      "type" : "array",
-      "minItems" : 1,
-      "maxItems" : 4,
-      "insertionOrder" : true,
-      "items" : {
-        "$ref" : "#/definitions/ConditionalBranch"
-      }
-    },
-    "InitialResponseSetting" : {
-      "type" : "object",
-      "properties" : {
-        "InitialResponse" : {
-          "$ref" : "#/definitions/ResponseSpecification"
-        },
-        "NextStep" : {
-          "$ref" : "#/definitions/DialogState"
-        },
-        "Conditional" : {
-          "$ref" : "#/definitions/ConditionalSpecification"
-        },
-        "CodeHook" : {
-          "$ref" : "#/definitions/DialogCodeHookInvocationSetting"
-        }
-      },
-      "additionalProperties" : false
-    },
-    "ConditionExpression" : {
-      "type" : "string",
-      "minLength" : 1,
-      "maxLength" : 1024
-    },
-    "DialogCodeHookInvocationSetting" : {
-      "type" : "object",
-      "properties" : {
-        "EnableCodeHookInvocation" : {
-          "type" : "boolean"
-        },
-        "IsActive" : {
-          "type" : "boolean"
-        },
-        "InvocationLabel" : {
-          "$ref" : "#/definitions/Name"
-        },
-        "PostCodeHookSpecification" : {
-          "$ref" : "#/definitions/PostDialogCodeHookInvocationSpecification"
-        }
-      },
-      "required" : [ "IsActive", "EnableCodeHookInvocation", "PostCodeHookSpecification" ],
-      "additionalProperties" : false
-    },
-    "ElicitationCodeHookInvocationSetting" : {
-      "type" : "object",
-      "properties" : {
-        "EnableCodeHookInvocation" : {
-          "type" : "boolean"
-        },
-        "InvocationLabel" : {
-          "$ref" : "#/definitions/Name"
-        }
-      },
-      "required" : [ "EnableCodeHookInvocation" ],
-      "additionalProperties" : false
-    },
-    "PostDialogCodeHookInvocationSpecification" : {
-      "type" : "object",
-      "properties" : {
-        "SuccessResponse" : {
-          "$ref" : "#/definitions/ResponseSpecification"
-        },
-        "SuccessNextStep" : {
-          "$ref" : "#/definitions/DialogState"
-        },
-        "SuccessConditional" : {
-          "$ref" : "#/definitions/ConditionalSpecification"
-        },
-        "FailureResponse" : {
-          "$ref" : "#/definitions/ResponseSpecification"
-        },
-        "FailureNextStep" : {
-          "$ref" : "#/definitions/DialogState"
-        },
-        "FailureConditional" : {
-          "$ref" : "#/definitions/ConditionalSpecification"
-        },
-        "TimeoutResponse" : {
-          "$ref" : "#/definitions/ResponseSpecification"
-        },
-        "TimeoutNextStep" : {
-          "$ref" : "#/definitions/DialogState"
-        },
-        "TimeoutConditional" : {
-          "$ref" : "#/definitions/ConditionalSpecification"
-        }
-      },
-      "additionalProperties" : false
-    },
-    "DialogState" : {
-      "type" : "object",
-      "properties" : {
-        "DialogAction" : {
-          "$ref" : "#/definitions/DialogAction"
-        },
-        "Intent" : {
-          "$ref" : "#/definitions/IntentOverride"
-        },
-        "SessionAttributes" : {
-          "type" : "array",
-          "insertionOrder" : false,
-          "items" : {
-            "$ref" : "#/definitions/SessionAttribute"
-          }
-        }
-      },
-      "additionalProperties" : false
+      "required" : [ "CustomVocabularyItems" ]
     },
     "DialogAction" : {
+      "additionalProperties" : false,
       "type" : "object",
       "properties" : {
         "Type" : {
@@ -2105,47 +566,890 @@
           "type" : "boolean"
         }
       },
-      "required" : [ "Type" ],
-      "additionalProperties" : false
+      "required" : [ "Type" ]
+    },
+    "ConditionalBranches" : {
+      "minItems" : 1,
+      "maxItems" : 4,
+      "insertionOrder" : true,
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/ConditionalBranch"
+      }
+    },
+    "Slot" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "Description" : {
+          "$ref" : "#/definitions/Description"
+        },
+        "SlotTypeName" : {
+          "$ref" : "#/definitions/SlotTypeName"
+        },
+        "ValueElicitationSetting" : {
+          "$ref" : "#/definitions/SlotValueElicitationSetting"
+        },
+        "SubSlotSetting" : {
+          "$ref" : "#/definitions/SubSlotSetting"
+        },
+        "ObfuscationSetting" : {
+          "$ref" : "#/definitions/ObfuscationSetting"
+        },
+        "Name" : {
+          "$ref" : "#/definitions/Name"
+        },
+        "MultipleValuesSetting" : {
+          "$ref" : "#/definitions/MultipleValuesSetting"
+        }
+      },
+      "required" : [ "Name", "SlotTypeName", "ValueElicitationSetting" ]
+    },
+    "Id" : {
+      "minLength" : 10,
+      "pattern" : "^[0-9a-zA-Z]+$",
+      "type" : "string",
+      "maxLength" : 10
+    },
+    "AudioRecognitionStrategy" : {
+      "type" : "string",
+      "enum" : [ "UseSlotValuesAsCustomVocabulary" ]
+    },
+    "PromptMaxRetries" : {
+      "maximum" : 5,
+      "type" : "integer",
+      "minimum" : 0
+    },
+    "DefaultConditionalBranch" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "Response" : {
+          "$ref" : "#/definitions/ResponseSpecification"
+        },
+        "NextStep" : {
+          "$ref" : "#/definitions/DialogState"
+        }
+      }
+    },
+    "DataPrivacy" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "ChildDirected" : {
+          "type" : "boolean"
+        }
+      },
+      "required" : [ "ChildDirected" ]
+    },
+    "QInConnectIntentConfiguration" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "QInConnectAssistantConfiguration" : {
+          "additionalProperties" : false,
+          "type" : "object",
+          "properties" : {
+            "AssistantArn" : {
+              "minLength" : 1,
+              "pattern" : "^arn:[a-z-]*?:wisdom:[a-z0-9-]*?:[0-9]{12}:[a-z-]*?/[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}(?:/[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}){0,2}$",
+              "type" : "string",
+              "maxLength" : 200
+            }
+          },
+          "required" : [ "AssistantArn" ]
+        }
+      }
+    },
+    "Description" : {
+      "description" : "A description of the resource",
+      "type" : "string",
+      "maxLength" : 2000
+    },
+    "StillWaitingResponseTimeout" : {
+      "maximum" : 900,
+      "type" : "integer",
+      "minimum" : 1
+    },
+    "SpeechRecognitionSettings" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "SpeechModelPreference" : {
+          "$ref" : "#/definitions/SpeechModelPreference"
+        },
+        "SpeechModelConfig" : {
+          "$ref" : "#/definitions/SpeechModelConfig"
+        }
+      }
+    },
+    "PromptAttemptSpecification" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "TextInputSpecification" : {
+          "$ref" : "#/definitions/TextInputSpecification"
+        },
+        "AllowInterrupt" : {
+          "type" : "boolean"
+        },
+        "AllowedInputTypes" : {
+          "$ref" : "#/definitions/AllowedInputTypes"
+        },
+        "AudioAndDTMFInputSpecification" : {
+          "$ref" : "#/definitions/AudioAndDTMFInputSpecification"
+        }
+      },
+      "required" : [ "AllowedInputTypes" ]
+    },
+    "SecretsManagerSecretArn" : {
+      "minLength" : 20,
+      "pattern" : "^arn:aws[A-Za-z-]*:secretsmanager:[a-z0-9-]{1,20}:[0-9]{12}:secret:[A-Za-z0-9/_+=.@-]{1,512}-[A-Za-z0-9]{6}$",
+      "type" : "string",
+      "maxLength" : 2048
+    },
+    "SlotTypeValues" : {
+      "maxItems" : 10000,
+      "insertionOrder" : false,
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/SlotTypeValue"
+      }
+    },
+    "DeepgramModelId" : {
+      "minLength" : 4,
+      "pattern" : "[A-Za-z0-9-_]+",
+      "type" : "string",
+      "maxLength" : 32
+    },
+    "WaitAndContinueSpecification" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "WaitingResponse" : {
+          "$ref" : "#/definitions/ResponseSpecification"
+        },
+        "StillWaitingResponse" : {
+          "$ref" : "#/definitions/StillWaitingResponseSpecification"
+        },
+        "IsActive" : {
+          "type" : "boolean"
+        },
+        "ContinueResponse" : {
+          "$ref" : "#/definitions/ResponseSpecification"
+        }
+      },
+      "required" : [ "WaitingResponse", "ContinueResponse" ]
     },
     "DialogActionType" : {
       "type" : "string",
       "enum" : [ "CloseIntent", "ConfirmIntent", "ElicitIntent", "ElicitSlot", "StartIntent", "FulfillIntent", "EndConversation", "EvaluateConditional", "InvokeDialogCodeHook" ]
     },
-    "SessionAttribute" : {
+    "Specifications" : {
+      "oneOf" : [ {
+        "required" : [ "SlotTypeId" ]
+      }, {
+        "required" : [ "SlotTypeName" ]
+      } ],
+      "additionalProperties" : false,
       "type" : "object",
       "properties" : {
-        "Key" : {
-          "type" : "string",
-          "minLength" : 1,
-          "maxLength" : 1024
+        "SlotTypeName" : {
+          "$ref" : "#/definitions/SlotTypeName"
         },
-        "Value" : {
-          "type" : "string",
-          "minLength" : 0,
-          "maxLength" : 1024
+        "ValueElicitationSetting" : {
+          "$ref" : "#/definitions/SubSlotValueElicitationSetting"
+        },
+        "SlotTypeId" : {
+          "$ref" : "#/definitions/SlotTypeId"
         }
       },
-      "required" : [ "Key" ],
-      "additionalProperties" : false
+      "required" : [ "ValueElicitationSetting" ]
     },
-    "IntentOverride" : {
+    "KendraConfiguration" : {
+      "additionalProperties" : false,
       "type" : "object",
       "properties" : {
+        "QueryFilterString" : {
+          "$ref" : "#/definitions/QueryFilterString"
+        },
+        "QueryFilterStringEnabled" : {
+          "type" : "boolean"
+        },
+        "KendraIndex" : {
+          "$ref" : "#/definitions/KendraIndexArn"
+        }
+      },
+      "required" : [ "KendraIndex" ]
+    },
+    "SlotTypeName" : {
+      "type" : "string"
+    },
+    "SpeechModelPreference" : {
+      "type" : "string",
+      "enum" : [ "Standard", "Neural", "Deepgram", "Enhanced" ]
+    },
+    "UnifiedSpeechSettings" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "SpeechFoundationModel" : {
+          "additionalProperties" : false,
+          "type" : "object",
+          "properties" : {
+            "ModelArn" : {
+              "type" : "string"
+            },
+            "VoiceId" : {
+              "type" : "string"
+            }
+          },
+          "required" : [ "ModelArn" ]
+        }
+      },
+      "required" : [ "SpeechFoundationModel" ]
+    },
+    "PostFulfillmentStatusSpecification" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "SuccessResponse" : {
+          "$ref" : "#/definitions/ResponseSpecification"
+        },
+        "FailureConditional" : {
+          "$ref" : "#/definitions/ConditionalSpecification"
+        },
+        "TimeoutNextStep" : {
+          "$ref" : "#/definitions/DialogState"
+        },
+        "SuccessConditional" : {
+          "$ref" : "#/definitions/ConditionalSpecification"
+        },
+        "TimeoutResponse" : {
+          "$ref" : "#/definitions/ResponseSpecification"
+        },
+        "SuccessNextStep" : {
+          "$ref" : "#/definitions/DialogState"
+        },
+        "FailureResponse" : {
+          "$ref" : "#/definitions/ResponseSpecification"
+        },
+        "FailureNextStep" : {
+          "$ref" : "#/definitions/DialogState"
+        },
+        "TimeoutConditional" : {
+          "$ref" : "#/definitions/ConditionalSpecification"
+        }
+      },
+      "required" : [ ]
+    },
+    "CustomVocabularyItems" : {
+      "maxItems" : 500,
+      "uniqueItems" : true,
+      "insertionOrder" : false,
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/CustomVocabularyItem"
+      }
+    },
+    "FulfillmentUpdatesSpecification" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "UpdateResponse" : {
+          "$ref" : "#/definitions/FulfillmentUpdateResponseSpecification"
+        },
+        "Active" : {
+          "type" : "boolean"
+        },
+        "TimeoutInSeconds" : {
+          "maximum" : 900,
+          "type" : "integer",
+          "minimum" : 1
+        },
+        "StartResponse" : {
+          "$ref" : "#/definitions/FulfillmentStartResponseSpecification"
+        }
+      },
+      "required" : [ "Active" ]
+    },
+    "SlotTypeValue" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "Synonyms" : {
+          "$ref" : "#/definitions/SynonymList"
+        },
+        "SampleValue" : {
+          "$ref" : "#/definitions/SampleValue"
+        }
+      },
+      "required" : [ "SampleValue" ]
+    },
+    "SlotValueElicitationSetting" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "PromptSpecification" : {
+          "$ref" : "#/definitions/PromptSpecification"
+        },
+        "WaitAndContinueSpecification" : {
+          "$ref" : "#/definitions/WaitAndContinueSpecification"
+        },
+        "SlotConstraint" : {
+          "$ref" : "#/definitions/SlotConstraint"
+        },
+        "SlotCaptureSetting" : {
+          "$ref" : "#/definitions/SlotCaptureSetting"
+        },
+        "SampleUtterances" : {
+          "$ref" : "#/definitions/SampleUtterancesList"
+        },
+        "DefaultValueSpecification" : {
+          "$ref" : "#/definitions/SlotDefaultValueSpecification"
+        }
+      },
+      "required" : [ "SlotConstraint" ]
+    },
+    "InitialResponseSetting" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "CodeHook" : {
+          "$ref" : "#/definitions/DialogCodeHookInvocationSetting"
+        },
+        "InitialResponse" : {
+          "$ref" : "#/definitions/ResponseSpecification"
+        },
+        "Conditional" : {
+          "$ref" : "#/definitions/ConditionalSpecification"
+        },
+        "NextStep" : {
+          "$ref" : "#/definitions/DialogState"
+        }
+      }
+    },
+    "MessageSelectionStrategy" : {
+      "type" : "string",
+      "enum" : [ "Random", "Ordered" ]
+    },
+    "Intent" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "QInConnectIntentConfiguration" : {
+          "$ref" : "#/definitions/QInConnectIntentConfiguration"
+        },
+        "Description" : {
+          "description" : "Resource Type definition for the intent.",
+          "$ref" : "#/definitions/Description"
+        },
+        "ParentIntentSignature" : {
+          "$ref" : "#/definitions/ParentIntentSignature"
+        },
+        "InitialResponseSetting" : {
+          "$ref" : "#/definitions/InitialResponseSetting"
+        },
+        "BedrockAgentIntentConfiguration" : {
+          "$ref" : "#/definitions/BedrockAgentIntentConfiguration"
+        },
+        "FulfillmentCodeHook" : {
+          "$ref" : "#/definitions/FulfillmentCodeHookSetting"
+        },
+        "IntentConfirmationSetting" : {
+          "$ref" : "#/definitions/IntentConfirmationSetting"
+        },
         "Name" : {
           "$ref" : "#/definitions/Name"
         },
         "Slots" : {
-          "type" : "array",
+          "maxItems" : 100,
+          "uniqueItems" : true,
           "insertionOrder" : false,
+          "type" : "array",
           "items" : {
-            "$ref" : "#/definitions/SlotValueOverrideMap"
+            "$ref" : "#/definitions/Slot"
+          }
+        },
+        "QnAIntentConfiguration" : {
+          "$ref" : "#/definitions/QnAIntentConfiguration"
+        },
+        "DialogCodeHook" : {
+          "$ref" : "#/definitions/DialogCodeHookSetting"
+        },
+        "InputContexts" : {
+          "$ref" : "#/definitions/InputContextsList"
+        },
+        "KendraConfiguration" : {
+          "$ref" : "#/definitions/KendraConfiguration"
+        },
+        "IntentClosingSetting" : {
+          "$ref" : "#/definitions/IntentClosingSetting"
+        },
+        "DisplayName" : {
+          "$ref" : "#/definitions/DisplayName"
+        },
+        "OutputContexts" : {
+          "$ref" : "#/definitions/OutputContextsList"
+        },
+        "SlotPriorities" : {
+          "$ref" : "#/definitions/SlotPrioritiesList"
+        },
+        "SampleUtterances" : {
+          "$ref" : "#/definitions/SampleUtterancesList"
+        }
+      },
+      "required" : [ "Name" ]
+    },
+    "SynonymList" : {
+      "maxItems" : 10000,
+      "insertionOrder" : false,
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/SampleValue"
+      }
+    },
+    "SlotTypeId" : {
+      "minLength" : 1,
+      "pattern" : "^((AMAZON\\.)[a-zA-Z_]+?|[0-9a-zA-Z]+)$",
+      "type" : "string",
+      "maxLength" : 25
+    },
+    "SlotType" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "SlotTypeValues" : {
+          "$ref" : "#/definitions/SlotTypeValues"
+        },
+        "Description" : {
+          "$ref" : "#/definitions/Description"
+        },
+        "ParentSlotTypeSignature" : {
+          "$ref" : "#/definitions/ParentSlotTypeSignature"
+        },
+        "ValueSelectionSetting" : {
+          "$ref" : "#/definitions/SlotValueSelectionSetting"
+        },
+        "CompositeSlotTypeSetting" : {
+          "$ref" : "#/definitions/CompositeSlotTypeSetting"
+        },
+        "ExternalSourceSetting" : {
+          "$ref" : "#/definitions/ExternalSourceSetting"
+        },
+        "Name" : {
+          "$ref" : "#/definitions/Name"
+        }
+      },
+      "required" : [ "Name" ]
+    },
+    "AdvancedRecognitionSetting" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "AudioRecognitionStrategy" : {
+          "$ref" : "#/definitions/AudioRecognitionStrategy"
+        }
+      }
+    },
+    "DTMFSpecification" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "DeletionCharacter" : {
+          "pattern" : "^[A-D0-9#*]{1}$",
+          "type" : "string"
+        },
+        "EndTimeoutMs" : {
+          "type" : "integer",
+          "minimum" : 1
+        },
+        "EndCharacter" : {
+          "pattern" : "^[A-D0-9#*]{1}$",
+          "type" : "string"
+        },
+        "MaxLength" : {
+          "maximum" : 1024,
+          "type" : "integer",
+          "minimum" : 1
+        }
+      },
+      "required" : [ "DeletionCharacter", "EndCharacter", "EndTimeoutMs", "MaxLength" ]
+    },
+    "BotLocale" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "NluConfidenceThreshold" : {
+          "$ref" : "#/definitions/ConfidenceThreshold"
+        },
+        "LocaleId" : {
+          "$ref" : "#/definitions/LocaleId"
+        },
+        "Description" : {
+          "$ref" : "#/definitions/Description"
+        },
+        "GenerativeAISettings" : {
+          "$ref" : "#/definitions/GenerativeAISettings"
+        },
+        "CustomVocabulary" : {
+          "$ref" : "#/definitions/CustomVocabulary"
+        },
+        "SpeechRecognitionSettings" : {
+          "$ref" : "#/definitions/SpeechRecognitionSettings"
+        },
+        "SlotTypes" : {
+          "maxItems" : 250,
+          "uniqueItems" : true,
+          "insertionOrder" : false,
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/SlotType"
+          }
+        },
+        "UnifiedSpeechSettings" : {
+          "$ref" : "#/definitions/UnifiedSpeechSettings"
+        },
+        "SpeechDetectionSensitivity" : {
+          "$ref" : "#/definitions/SpeechDetectionSensitivity"
+        },
+        "Intents" : {
+          "maxItems" : 1000,
+          "uniqueItems" : true,
+          "insertionOrder" : false,
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Intent"
+          }
+        },
+        "VoiceSettings" : {
+          "$ref" : "#/definitions/VoiceSettings"
+        }
+      },
+      "required" : [ "LocaleId", "NluConfidenceThreshold" ]
+    },
+    "Tag" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "Value" : {
+          "minLength" : 0,
+          "type" : "string",
+          "maxLength" : 256
+        },
+        "Key" : {
+          "minLength" : 1,
+          "type" : "string",
+          "maxLength" : 128
+        }
+      },
+      "required" : [ "Key", "Value" ]
+    },
+    "S3BucketName" : {
+      "minLength" : 3,
+      "pattern" : "^[a-z0-9][\\.\\-a-z0-9]{1,61}[a-z0-9]$",
+      "type" : "string",
+      "maxLength" : 63
+    },
+    "SlotValueSelectionSetting" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "AdvancedRecognitionSetting" : {
+          "$ref" : "#/definitions/AdvancedRecognitionSetting"
+        },
+        "RegexFilter" : {
+          "$ref" : "#/definitions/SlotValueRegexFilter"
+        },
+        "ResolutionStrategy" : {
+          "$ref" : "#/definitions/SlotValueResolutionStrategy"
+        }
+      },
+      "required" : [ "ResolutionStrategy" ]
+    },
+    "TextInputSpecification" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "StartTimeoutMs" : {
+          "type" : "integer",
+          "minimum" : 1
+        }
+      },
+      "required" : [ "StartTimeoutMs" ]
+    },
+    "BedrockAgentIntentConfiguration" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "BedrockAgentConfiguration" : {
+          "additionalProperties" : false,
+          "type" : "object",
+          "properties" : {
+            "BedrockAgentId" : {
+              "minLength" : 1,
+              "type" : "string",
+              "maxLength" : 5000
+            },
+            "BedrockAgentAliasId" : {
+              "minLength" : 1,
+              "type" : "string",
+              "maxLength" : 5000
+            }
+          }
+        },
+        "BedrockAgentIntentKnowledgeBaseConfiguration" : {
+          "additionalProperties" : false,
+          "type" : "object",
+          "properties" : {
+            "BedrockModelConfiguration" : {
+              "$ref" : "#/definitions/BedrockModelSpecification"
+            },
+            "BedrockKnowledgeBaseArn" : {
+              "minLength" : 1,
+              "type" : "string",
+              "maxLength" : 5000
+            }
+          },
+          "required" : [ "BedrockKnowledgeBaseArn", "BedrockModelConfiguration" ]
+        }
+      }
+    },
+    "SlotDefaultValueSpecification" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "DefaultValueList" : {
+          "maxItems" : 10,
+          "insertionOrder" : false,
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/SlotDefaultValue"
           }
         }
       },
-      "additionalProperties" : false
+      "required" : [ "DefaultValueList" ]
+    },
+    "ParentSlotTypeSignature" : {
+      "type" : "string"
+    },
+    "CompositeSlotTypeSetting" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "SubSlots" : {
+          "minItems" : 1,
+          "maxItems" : 6,
+          "uniqueItems" : true,
+          "insertionOrder" : true,
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/SubSlotTypeComposition"
+          }
+        }
+      }
+    },
+    "ReplicaRegion" : {
+      "minLength" : 2,
+      "description" : "The secondary region that will be used in the replication of the source bot.",
+      "type" : "string",
+      "maxLength" : 25
+    },
+    "FulfillmentUpdateResponseSpecification" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "MessageGroups" : {
+          "$ref" : "#/definitions/MessageGroupsList"
+        },
+        "AllowInterrupt" : {
+          "type" : "boolean"
+        },
+        "FrequencyInSeconds" : {
+          "maximum" : 900,
+          "type" : "integer",
+          "minimum" : 1
+        }
+      },
+      "required" : [ "FrequencyInSeconds", "MessageGroups" ]
+    },
+    "S3Location" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "S3ObjectVersion" : {
+          "minLength" : 1,
+          "type" : "string",
+          "maxLength" : 1024
+        },
+        "S3Bucket" : {
+          "$ref" : "#/definitions/S3BucketName"
+        },
+        "S3ObjectKey" : {
+          "$ref" : "#/definitions/S3ObjectKey"
+        }
+      },
+      "required" : [ "S3Bucket", "S3ObjectKey" ]
+    },
+    "Name" : {
+      "minLength" : 1,
+      "pattern" : "^([0-9a-zA-Z][_-]?)+$",
+      "type" : "string",
+      "maxLength" : 100
+    },
+    "SSMLMessage" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "Value" : {
+          "minLength" : 1,
+          "type" : "string",
+          "maxLength" : 1000
+        }
+      },
+      "required" : [ "Value" ]
+    },
+    "TextLogSetting" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "Destination" : {
+          "$ref" : "#/definitions/TextLogDestination"
+        },
+        "Enabled" : {
+          "type" : "boolean"
+        }
+      },
+      "required" : [ "Destination", "Enabled" ]
+    },
+    "SlotShape" : {
+      "type" : "string",
+      "enum" : [ "Scalar", "List" ]
+    },
+    "PlainTextMessage" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "Value" : {
+          "minLength" : 1,
+          "type" : "string",
+          "maxLength" : 1000
+        }
+      },
+      "required" : [ "Value" ]
+    },
+    "StillWaitingResponseFrequency" : {
+      "maximum" : 300,
+      "type" : "integer",
+      "minimum" : 1
+    },
+    "SubSlotTypeComposition" : {
+      "oneOf" : [ {
+        "required" : [ "SlotTypeId" ]
+      }, {
+        "required" : [ "SlotTypeName" ]
+      } ],
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "SlotTypeName" : {
+          "$ref" : "#/definitions/SlotTypeName"
+        },
+        "SlotTypeId" : {
+          "$ref" : "#/definitions/SlotTypeId"
+        },
+        "Name" : {
+          "minLength" : 1,
+          "pattern" : "^([0-9a-zA-Z][_-]?){1,100}$",
+          "type" : "string",
+          "maxLength" : 100
+        }
+      },
+      "required" : [ "Name" ]
+    },
+    "SlotValueRegexFilter" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "Pattern" : {
+          "minLength" : 1,
+          "type" : "string",
+          "maxLength" : 300
+        }
+      },
+      "required" : [ "Pattern" ]
+    },
+    "CloudWatchLogGroupLogDestination" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "CloudWatchLogGroupArn" : {
+          "minLength" : 1,
+          "type" : "string",
+          "maxLength" : 2048
+        },
+        "LogPrefix" : {
+          "minLength" : 0,
+          "type" : "string",
+          "maxLength" : 1024
+        }
+      },
+      "required" : [ "CloudWatchLogGroupArn", "LogPrefix" ]
+    },
+    "AudioAndDTMFInputSpecification" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "DTMFSpecification" : {
+          "$ref" : "#/definitions/DTMFSpecification"
+        },
+        "AudioSpecification" : {
+          "$ref" : "#/definitions/AudioSpecification"
+        },
+        "StartTimeoutMs" : {
+          "type" : "integer",
+          "minimum" : 1
+        }
+      },
+      "required" : [ "StartTimeoutMs" ]
+    },
+    "ParentIntentSignature" : {
+      "type" : "string"
+    },
+    "MessageGroupsList" : {
+      "minItems" : 1,
+      "maxItems" : 5,
+      "insertionOrder" : false,
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/MessageGroup"
+      }
+    },
+    "ElicitationCodeHookInvocationSetting" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "EnableCodeHookInvocation" : {
+          "type" : "boolean"
+        },
+        "InvocationLabel" : {
+          "$ref" : "#/definitions/Name"
+        }
+      },
+      "required" : [ "EnableCodeHookInvocation" ]
+    },
+    "CodeHookSpecification" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "LambdaCodeHook" : {
+          "$ref" : "#/definitions/LambdaCodeHook"
+        }
+      },
+      "required" : [ "LambdaCodeHook" ]
     },
     "SlotValueOverrideMap" : {
+      "additionalProperties" : false,
       "type" : "object",
       "properties" : {
         "SlotName" : {
@@ -2154,10 +1458,383 @@
         "SlotValueOverride" : {
           "$ref" : "#/definitions/SlotValueOverride"
         }
+      }
+    },
+    "AudioLogSettings" : {
+      "maxItems" : 1,
+      "uniqueItems" : true,
+      "insertionOrder" : false,
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/AudioLogSetting"
+      }
+    },
+    "SpeechModelConfig" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "DeepgramConfig" : {
+          "$ref" : "#/definitions/DeepgramSpeechModelConfig"
+        }
+      }
+    },
+    "KendraIndexArn" : {
+      "minLength" : 32,
+      "pattern" : "^arn:aws[a-zA-Z-]*:kendra:[a-z]+-(?:[a-z]+-)*[0-9]:[0-9]{12}:index/[a-zA-Z0-9][a-zA-Z0-9_-]*$",
+      "type" : "string",
+      "maxLength" : 2048
+    },
+    "RoleArn" : {
+      "minLength" : 32,
+      "pattern" : "^arn:aws[a-zA-Z-]*:iam::[0-9]{12}:role/.*$",
+      "type" : "string",
+      "maxLength" : 2048
+    },
+    "IntentConfirmationSetting" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "PromptSpecification" : {
+          "$ref" : "#/definitions/PromptSpecification"
+        },
+        "ConfirmationResponse" : {
+          "$ref" : "#/definitions/ResponseSpecification"
+        },
+        "DeclinationConditional" : {
+          "$ref" : "#/definitions/ConditionalSpecification"
+        },
+        "FailureConditional" : {
+          "$ref" : "#/definitions/ConditionalSpecification"
+        },
+        "ConfirmationConditional" : {
+          "$ref" : "#/definitions/ConditionalSpecification"
+        },
+        "IsActive" : {
+          "type" : "boolean"
+        },
+        "FailureResponse" : {
+          "$ref" : "#/definitions/ResponseSpecification"
+        },
+        "CodeHook" : {
+          "$ref" : "#/definitions/DialogCodeHookInvocationSetting"
+        },
+        "DeclinationNextStep" : {
+          "$ref" : "#/definitions/DialogState"
+        },
+        "ElicitationCodeHook" : {
+          "$ref" : "#/definitions/ElicitationCodeHookInvocationSetting"
+        },
+        "ConfirmationNextStep" : {
+          "$ref" : "#/definitions/DialogState"
+        },
+        "FailureNextStep" : {
+          "$ref" : "#/definitions/DialogState"
+        },
+        "DeclinationResponse" : {
+          "$ref" : "#/definitions/ResponseSpecification"
+        }
       },
-      "additionalProperties" : false
+      "required" : [ "PromptSpecification" ]
+    },
+    "Utterance" : {
+      "type" : "string"
+    },
+    "SlotPriority" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "Priority" : {
+          "$ref" : "#/definitions/PriorityValue"
+        },
+        "SlotName" : {
+          "$ref" : "#/definitions/Name"
+        }
+      },
+      "required" : [ "SlotName", "Priority" ]
+    },
+    "GenerativeAISettings" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "RuntimeSettings" : {
+          "additionalProperties" : false,
+          "type" : "object",
+          "properties" : {
+            "SlotResolutionImprovementSpecification" : {
+              "additionalProperties" : false,
+              "type" : "object",
+              "properties" : {
+                "Enabled" : {
+                  "type" : "boolean"
+                },
+                "BedrockModelSpecification" : {
+                  "$ref" : "#/definitions/BedrockModelSpecification"
+                }
+              },
+              "required" : [ "Enabled" ]
+            },
+            "NluImprovementSpecification" : {
+              "additionalProperties" : false,
+              "type" : "object",
+              "properties" : {
+                "AssistedNluMode" : {
+                  "type" : "string",
+                  "enum" : [ "Primary", "Fallback" ]
+                },
+                "IntentDisambiguationSettings" : {
+                  "$ref" : "#/definitions/IntentDisambiguationSettings"
+                },
+                "Enabled" : {
+                  "type" : "boolean"
+                }
+              },
+              "required" : [ "Enabled" ]
+            }
+          }
+        },
+        "BuildtimeSettings" : {
+          "additionalProperties" : false,
+          "type" : "object",
+          "properties" : {
+            "DescriptiveBotBuilderSpecification" : {
+              "additionalProperties" : false,
+              "type" : "object",
+              "properties" : {
+                "Enabled" : {
+                  "type" : "boolean"
+                },
+                "BedrockModelSpecification" : {
+                  "$ref" : "#/definitions/BedrockModelSpecification"
+                }
+              },
+              "required" : [ "Enabled" ]
+            },
+            "SampleUtteranceGenerationSpecification" : {
+              "additionalProperties" : false,
+              "type" : "object",
+              "properties" : {
+                "Enabled" : {
+                  "type" : "boolean"
+                },
+                "BedrockModelSpecification" : {
+                  "$ref" : "#/definitions/BedrockModelSpecification"
+                }
+              },
+              "required" : [ "Enabled" ]
+            }
+          }
+        }
+      }
+    },
+    "AudioSpecification" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "EndTimeoutMs" : {
+          "type" : "integer",
+          "minimum" : 1
+        },
+        "MaxLengthMs" : {
+          "type" : "integer",
+          "minimum" : 1
+        }
+      },
+      "required" : [ "EndTimeoutMs", "MaxLengthMs" ]
+    },
+    "BotAliasLocaleSettingsItem" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "LocaleId" : {
+          "minLength" : 1,
+          "type" : "string",
+          "maxLength" : 128
+        },
+        "BotAliasLocaleSetting" : {
+          "$ref" : "#/definitions/BotAliasLocaleSettings"
+        }
+      },
+      "required" : [ "LocaleId", "BotAliasLocaleSetting" ]
+    },
+    "Replication" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "ReplicaRegions" : {
+          "minItems" : 1,
+          "maxItems" : 1,
+          "uniqueItems" : true,
+          "insertionOrder" : false,
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/ReplicaRegion"
+          }
+        }
+      },
+      "required" : [ "ReplicaRegions" ]
+    },
+    "ConfidenceThreshold" : {
+      "maximum" : 1,
+      "type" : "number",
+      "minimum" : 0
+    },
+    "ObfuscationSetting" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "ObfuscationSettingType" : {
+          "type" : "string",
+          "enum" : [ "None", "DefaultObfuscation" ]
+        }
+      },
+      "required" : [ "ObfuscationSettingType" ]
+    },
+    "SampleUtterancesList" : {
+      "insertionOrder" : false,
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/SampleUtterance"
+      }
+    },
+    "SampleUtterance" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "Utterance" : {
+          "$ref" : "#/definitions/Utterance"
+        }
+      },
+      "required" : [ "Utterance" ]
+    },
+    "OutputContextsList" : {
+      "maxItems" : 10,
+      "insertionOrder" : false,
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/OutputContext"
+      }
+    },
+    "SampleValue" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "Value" : {
+          "minLength" : 1,
+          "type" : "string",
+          "maxLength" : 140
+        }
+      },
+      "required" : [ "Value" ]
+    },
+    "Message" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "CustomPayload" : {
+          "$ref" : "#/definitions/CustomPayload"
+        },
+        "ImageResponseCard" : {
+          "$ref" : "#/definitions/ImageResponseCard"
+        },
+        "PlainTextMessage" : {
+          "$ref" : "#/definitions/PlainTextMessage"
+        },
+        "SSMLMessage" : {
+          "$ref" : "#/definitions/SSMLMessage"
+        }
+      },
+      "required" : [ ]
+    },
+    "BotArn" : {
+      "minLength" : 1,
+      "pattern" : "^arn:aws[a-zA-Z-]*:lex:[a-z]+-(?:[a-z]+-)*[0-9]:[0-9]{12}:bot/[0-9a-zA-Z]+$",
+      "type" : "string",
+      "maxLength" : 1011
+    },
+    "ConditionalBranch" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "Condition" : {
+          "$ref" : "#/definitions/Condition"
+        },
+        "Response" : {
+          "$ref" : "#/definitions/ResponseSpecification"
+        },
+        "Name" : {
+          "$ref" : "#/definitions/Name"
+        },
+        "NextStep" : {
+          "$ref" : "#/definitions/DialogState"
+        }
+      },
+      "required" : [ "Name", "Condition", "NextStep" ]
+    },
+    "FulfillmentCodeHookSetting" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "PostFulfillmentStatusSpecification" : {
+          "$ref" : "#/definitions/PostFulfillmentStatusSpecification"
+        },
+        "FulfillmentUpdatesSpecification" : {
+          "$ref" : "#/definitions/FulfillmentUpdatesSpecification"
+        },
+        "IsActive" : {
+          "type" : "boolean"
+        },
+        "Enabled" : {
+          "type" : "boolean"
+        }
+      },
+      "required" : [ "Enabled" ]
+    },
+    "SlotCaptureSetting" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "CaptureConditional" : {
+          "$ref" : "#/definitions/ConditionalSpecification"
+        },
+        "FailureConditional" : {
+          "$ref" : "#/definitions/ConditionalSpecification"
+        },
+        "CaptureResponse" : {
+          "$ref" : "#/definitions/ResponseSpecification"
+        },
+        "CaptureNextStep" : {
+          "$ref" : "#/definitions/DialogState"
+        },
+        "FailureResponse" : {
+          "$ref" : "#/definitions/ResponseSpecification"
+        },
+        "CodeHook" : {
+          "$ref" : "#/definitions/DialogCodeHookInvocationSetting"
+        },
+        "FailureNextStep" : {
+          "$ref" : "#/definitions/DialogState"
+        },
+        "ElicitationCodeHook" : {
+          "$ref" : "#/definitions/ElicitationCodeHookInvocationSetting"
+        }
+      }
+    },
+    "VoiceSettings" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "VoiceId" : {
+          "type" : "string"
+        },
+        "Engine" : {
+          "type" : "string",
+          "enum" : [ "standard", "neural", "long-form", "generative" ]
+        }
+      },
+      "required" : [ "VoiceId" ]
     },
     "SlotValueOverride" : {
+      "additionalProperties" : false,
       "type" : "object",
       "properties" : {
         "Shape" : {
@@ -2169,128 +1846,449 @@
         "Values" : {
           "$ref" : "#/definitions/SlotValues"
         }
-      },
-      "additionalProperties" : false
-    },
-    "SlotValue" : {
-      "type" : "object",
-      "properties" : {
-        "InterpretedValue" : {
-          "type" : "string",
-          "minLength" : 1,
-          "maxLength" : 202
-        }
-      },
-      "additionalProperties" : false
-    },
-    "SlotValues" : {
-      "type" : "array",
-      "insertionOrder" : false,
-      "items" : {
-        "$ref" : "#/definitions/SlotValueOverride"
       }
     },
-    "SlotShape" : {
-      "type" : "string",
-      "enum" : [ "Scalar", "List" ]
-    },
-    "SlotCaptureSetting" : {
+    "LambdaCodeHook" : {
+      "additionalProperties" : false,
       "type" : "object",
       "properties" : {
-        "CaptureResponse" : {
-          "$ref" : "#/definitions/ResponseSpecification"
+        "LambdaArn" : {
+          "minLength" : 20,
+          "type" : "string",
+          "maxLength" : 2048
         },
-        "CaptureNextStep" : {
-          "$ref" : "#/definitions/DialogState"
-        },
-        "CaptureConditional" : {
-          "$ref" : "#/definitions/ConditionalSpecification"
-        },
-        "FailureResponse" : {
-          "$ref" : "#/definitions/ResponseSpecification"
-        },
-        "FailureNextStep" : {
-          "$ref" : "#/definitions/DialogState"
-        },
-        "FailureConditional" : {
-          "$ref" : "#/definitions/ConditionalSpecification"
-        },
-        "CodeHook" : {
-          "$ref" : "#/definitions/DialogCodeHookInvocationSetting"
-        },
-        "ElicitationCodeHook" : {
-          "$ref" : "#/definitions/ElicitationCodeHookInvocationSetting"
+        "CodeHookInterfaceVersion" : {
+          "minLength" : 1,
+          "type" : "string",
+          "maxLength" : 5
         }
       },
-      "additionalProperties" : false
-    }
-  },
-  "properties" : {
-    "Id" : {
-      "$ref" : "#/definitions/Id"
+      "required" : [ "CodeHookInterfaceVersion", "LambdaArn" ]
     },
-    "Arn" : {
-      "$ref" : "#/definitions/BotArn"
+    "QueryFilterString" : {
+      "minLength" : 1,
+      "type" : "string",
+      "maxLength" : 5000
     },
-    "Name" : {
-      "$ref" : "#/definitions/Name"
+    "SlotConstraint" : {
+      "type" : "string",
+      "enum" : [ "Required", "Optional" ]
     },
-    "Description" : {
-      "$ref" : "#/definitions/Description"
-    },
-    "RoleArn" : {
-      "$ref" : "#/definitions/RoleArn"
-    },
-    "DataPrivacy" : {
+    "IntentClosingSetting" : {
+      "additionalProperties" : false,
       "type" : "object",
       "properties" : {
-        "ChildDirected" : {
+        "IsActive" : {
+          "type" : "boolean"
+        },
+        "ClosingResponse" : {
+          "$ref" : "#/definitions/ResponseSpecification"
+        },
+        "Conditional" : {
+          "$ref" : "#/definitions/ConditionalSpecification"
+        },
+        "NextStep" : {
+          "$ref" : "#/definitions/DialogState"
+        }
+      }
+    },
+    "ConditionExpression" : {
+      "minLength" : 1,
+      "type" : "string",
+      "maxLength" : 1024
+    },
+    "TextLogDestination" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "CloudWatch" : {
+          "$ref" : "#/definitions/CloudWatchLogGroupLogDestination"
+        }
+      },
+      "required" : [ "CloudWatch" ]
+    },
+    "IdleSessionTTLInSeconds" : {
+      "maximum" : 86400,
+      "type" : "integer",
+      "minimum" : 60
+    },
+    "DisplayName" : {
+      "minLength" : 1,
+      "type" : "string",
+      "maxLength" : 100
+    },
+    "TestBotAliasSettings" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "Description" : {
+          "$ref" : "#/definitions/Description"
+        },
+        "BotAliasLocaleSettings" : {
+          "$ref" : "#/definitions/BotAliasLocaleSettingsList"
+        },
+        "ConversationLogSettings" : {
+          "$ref" : "#/definitions/ConversationLogSettings"
+        },
+        "SentimentAnalysisSettings" : {
+          "additionalProperties" : false,
+          "type" : "object",
+          "properties" : {
+            "DetectSentiment" : {
+              "type" : "boolean"
+            }
+          },
+          "required" : [ "DetectSentiment" ]
+        }
+      }
+    },
+    "ConversationLogSettings" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "TextLogSettings" : {
+          "$ref" : "#/definitions/TextLogSettings"
+        },
+        "AudioLogSettings" : {
+          "$ref" : "#/definitions/AudioLogSettings"
+        }
+      }
+    },
+    "MultipleValuesSetting" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "AllowMultipleValues" : {
           "type" : "boolean"
         }
       },
-      "required" : [ "ChildDirected" ],
-      "additionalProperties" : false
+      "required" : [ ]
+    },
+    "SlotPrioritiesList" : {
+      "insertionOrder" : false,
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/SlotPriority"
+      }
+    },
+    "Condition" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "ExpressionString" : {
+          "$ref" : "#/definitions/ConditionExpression"
+        }
+      },
+      "required" : [ "ExpressionString" ]
+    },
+    "AttachmentUrl" : {
+      "minLength" : 1,
+      "type" : "string",
+      "maxLength" : 250
+    },
+    "CustomPayload" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "Value" : {
+          "minLength" : 1,
+          "type" : "string",
+          "maxLength" : 1000
+        }
+      },
+      "required" : [ "Value" ]
+    },
+    "ImageResponseCard" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "Subtitle" : {
+          "$ref" : "#/definitions/AttachmentTitle"
+        },
+        "Title" : {
+          "$ref" : "#/definitions/AttachmentTitle"
+        },
+        "ImageUrl" : {
+          "$ref" : "#/definitions/AttachmentUrl"
+        },
+        "Buttons" : {
+          "maxItems" : 5,
+          "insertionOrder" : false,
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Button"
+          }
+        }
+      },
+      "required" : [ "Title" ]
+    },
+    "InputContext" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "Name" : {
+          "$ref" : "#/definitions/Name"
+        }
+      },
+      "required" : [ "Name" ]
+    },
+    "SlotValueResolutionStrategy" : {
+      "type" : "string",
+      "enum" : [ "ORIGINAL_VALUE", "TOP_RESOLUTION", "CONCATENATION" ]
+    },
+    "AllowedInputTypes" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "AllowDTMFInput" : {
+          "type" : "boolean"
+        },
+        "AllowAudioInput" : {
+          "type" : "boolean"
+        }
+      },
+      "required" : [ "AllowAudioInput", "AllowDTMFInput" ]
+    },
+    "OutputContext" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "TurnsToLive" : {
+          "$ref" : "#/definitions/ContextTurnsToLive"
+        },
+        "TimeToLiveInSeconds" : {
+          "$ref" : "#/definitions/ContextTimeToLiveInSeconds"
+        },
+        "Name" : {
+          "$ref" : "#/definitions/Name"
+        }
+      },
+      "required" : [ "Name", "TimeToLiveInSeconds", "TurnsToLive" ]
+    },
+    "SessionAttribute" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "Value" : {
+          "minLength" : 0,
+          "type" : "string",
+          "maxLength" : 1024
+        },
+        "Key" : {
+          "minLength" : 1,
+          "type" : "string",
+          "maxLength" : 1024
+        }
+      },
+      "required" : [ "Key" ]
+    },
+    "IntentOverride" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "Slots" : {
+          "insertionOrder" : false,
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/SlotValueOverrideMap"
+          }
+        },
+        "Name" : {
+          "$ref" : "#/definitions/Name"
+        }
+      }
+    },
+    "QnAIntentConfiguration" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "BedrockModelConfiguration" : {
+          "$ref" : "#/definitions/BedrockModelSpecification"
+        },
+        "DataSourceConfiguration" : {
+          "additionalProperties" : false,
+          "type" : "object",
+          "properties" : {
+            "BedrockKnowledgeStoreConfiguration" : {
+              "additionalProperties" : false,
+              "type" : "object",
+              "properties" : {
+                "BKBExactResponseFields" : {
+                  "additionalProperties" : false,
+                  "type" : "object",
+                  "properties" : {
+                    "AnswerField" : {
+                      "minLength" : 1,
+                      "type" : "string",
+                      "maxLength" : 5000
+                    }
+                  }
+                },
+                "ExactResponse" : {
+                  "type" : "boolean"
+                },
+                "BedrockKnowledgeBaseArn" : {
+                  "minLength" : 1,
+                  "type" : "string",
+                  "maxLength" : 5000
+                }
+              }
+            },
+            "KendraConfiguration" : {
+              "$ref" : "#/definitions/QnAKendraConfiguration"
+            },
+            "OpensearchConfiguration" : {
+              "additionalProperties" : false,
+              "type" : "object",
+              "properties" : {
+                "IndexName" : {
+                  "minLength" : 1,
+                  "type" : "string",
+                  "maxLength" : 5000
+                },
+                "DomainEndpoint" : {
+                  "minLength" : 1,
+                  "type" : "string",
+                  "maxLength" : 5000
+                },
+                "ExactResponseFields" : {
+                  "additionalProperties" : false,
+                  "type" : "object",
+                  "properties" : {
+                    "QuestionField" : {
+                      "minLength" : 1,
+                      "type" : "string",
+                      "maxLength" : 5000
+                    },
+                    "AnswerField" : {
+                      "minLength" : 1,
+                      "type" : "string",
+                      "maxLength" : 5000
+                    }
+                  }
+                },
+                "ExactResponse" : {
+                  "type" : "boolean"
+                },
+                "IncludeFields" : {
+                  "insertionOrder" : false,
+                  "type" : "array",
+                  "items" : {
+                    "minLength" : 1,
+                    "type" : "string",
+                    "maxLength" : 5000
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "required" : [ "DataSourceConfiguration", "BedrockModelConfiguration" ]
+    },
+    "GrammarSlotTypeSource" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "KmsKeyArn" : {
+          "minLength" : 20,
+          "pattern" : "^arn:[\\w\\-]+:kms:[\\w\\-]+:[\\d]{12}:(?:key\\/[\\w\\-]+|alias\\/[a-zA-Z0-9:\\/_\\-]{1,256})$",
+          "type" : "string",
+          "maxLength" : 2048
+        },
+        "S3BucketName" : {
+          "$ref" : "#/definitions/S3BucketName"
+        },
+        "S3ObjectKey" : {
+          "$ref" : "#/definitions/S3ObjectKey"
+        }
+      },
+      "required" : [ "S3BucketName", "S3ObjectKey" ]
+    },
+    "GrammarSlotTypeSetting" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "Source" : {
+          "$ref" : "#/definitions/GrammarSlotTypeSource"
+        }
+      }
+    },
+    "DeepgramSpeechModelConfig" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "ApiTokenSecretArn" : {
+          "$ref" : "#/definitions/SecretsManagerSecretArn"
+        },
+        "ModelId" : {
+          "$ref" : "#/definitions/DeepgramModelId"
+        }
+      },
+      "required" : [ "ApiTokenSecretArn" ]
+    },
+    "TextLogSettings" : {
+      "maxItems" : 1,
+      "uniqueItems" : true,
+      "insertionOrder" : false,
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/TextLogSetting"
+      }
+    },
+    "SubSlotValueElicitationSetting" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "PromptSpecification" : {
+          "$ref" : "#/definitions/PromptSpecification"
+        },
+        "WaitAndContinueSpecification" : {
+          "$ref" : "#/definitions/WaitAndContinueSpecification"
+        },
+        "SampleUtterances" : {
+          "$ref" : "#/definitions/SampleUtterancesList"
+        },
+        "DefaultValueSpecification" : {
+          "$ref" : "#/definitions/SlotDefaultValueSpecification"
+        }
+      }
+    }
+  },
+  "properties" : {
+    "Description" : {
+      "$ref" : "#/definitions/Description"
     },
     "ErrorLogSettings" : {
+      "additionalProperties" : false,
       "type" : "object",
       "properties" : {
         "Enabled" : {
           "type" : "boolean"
         }
       },
-      "required" : [ "Enabled" ],
-      "additionalProperties" : false
+      "required" : [ "Enabled" ]
     },
-    "IdleSessionTTLInSeconds" : {
-      "type" : "integer",
-      "minimum" : 60,
-      "maximum" : 86400
+    "RoleArn" : {
+      "$ref" : "#/definitions/RoleArn"
     },
-    "BotLocales" : {
-      "type" : "array",
-      "uniqueItems" : true,
-      "insertionOrder" : false,
-      "items" : {
-        "$ref" : "#/definitions/BotLocale"
-      }
-    },
-    "BotFileS3Location" : {
-      "$ref" : "#/definitions/S3Location"
+    "Name" : {
+      "$ref" : "#/definitions/Name"
     },
     "BotTags" : {
-      "type" : "array",
-      "uniqueItems" : true,
       "maxItems" : 200,
+      "uniqueItems" : true,
       "insertionOrder" : false,
+      "type" : "array",
       "items" : {
         "$ref" : "#/definitions/Tag"
       }
     },
     "TestBotAliasTags" : {
-      "type" : "array",
-      "uniqueItems" : true,
       "maxItems" : 200,
+      "uniqueItems" : true,
       "insertionOrder" : false,
+      "type" : "array",
       "items" : {
         "$ref" : "#/definitions/Tag"
       }
@@ -2298,41 +2296,43 @@
     "AutoBuildBotLocales" : {
       "type" : "boolean"
     },
-    "TestBotAliasSettings" : {
-      "$ref" : "#/definitions/TestBotAliasSettings"
+    "BotLocales" : {
+      "uniqueItems" : true,
+      "insertionOrder" : false,
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/BotLocale"
+      }
+    },
+    "IdleSessionTTLInSeconds" : {
+      "maximum" : 86400,
+      "type" : "integer",
+      "minimum" : 60
+    },
+    "BotFileS3Location" : {
+      "$ref" : "#/definitions/S3Location"
     },
     "Replication" : {
       "$ref" : "#/definitions/Replication"
+    },
+    "TestBotAliasSettings" : {
+      "$ref" : "#/definitions/TestBotAliasSettings"
+    },
+    "Id" : {
+      "$ref" : "#/definitions/Id"
+    },
+    "Arn" : {
+      "$ref" : "#/definitions/BotArn"
+    },
+    "DataPrivacy" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "ChildDirected" : {
+          "type" : "boolean"
+        }
+      },
+      "required" : [ "ChildDirected" ]
     }
-  },
-  "additionalProperties" : false,
-  "required" : [ "Name", "RoleArn", "DataPrivacy", "IdleSessionTTLInSeconds" ],
-  "primaryIdentifier" : [ "/properties/Id" ],
-  "readOnlyProperties" : [ "/properties/Id", "/properties/Arn" ],
-  "writeOnlyProperties" : [ "/properties/BotLocales", "/properties/BotFileS3Location", "/properties/AutoBuildBotLocales", "/properties/TestBotAliasTags", "/properties/Replication", "/properties/TestBotAliasSettings" ],
-  "handlers" : {
-    "create" : {
-      "permissions" : [ "iam:PassRole", "lex:DescribeBot", "lex:CreateUploadUrl", "lex:StartImport", "lex:DescribeImport", "lex:ListTagsForResource", "lex:TagResource", "lex:UntagResource", "lex:CreateBot", "lex:CreateBotLocale", "lex:CreateIntent", "lex:CreateSlot", "lex:CreateSlotType", "lex:UpdateBot", "lex:UpdateBotLocale", "lex:UpdateIntent", "lex:UpdateSlot", "lex:UpdateSlotType", "lex:DeleteBotLocale", "lex:DeleteIntent", "lex:DeleteSlot", "lex:DeleteSlotType", "lex:DescribeBotLocale", "lex:BuildBotLocale", "lex:ListBots", "lex:ListBotLocales", "lex:CreateCustomVocabulary", "lex:UpdateCustomVocabulary", "lex:DeleteCustomVocabulary", "s3:GetObject", "lex:UpdateBotAlias", "iam:CreateServiceLinkedRole", "iam:GetRole", "lex:CreateBotReplica", "lex:DescribeBotReplica", "lex:DeleteBotReplica", "lex:CreateBotAlias", "lex:DescribeBotAlias", "lex:ListBotAliases", "lex:BuildBotLocale", "s3:PutObject", "kms:GenerateDataKey", "kms:Decrypt", "cloudwatch:PutMetricData", "logs:CreateLogGroup", "logs:CreateLogStream", "logs:PutLogEvents" ]
-    },
-    "read" : {
-      "permissions" : [ "lex:DescribeBot", "lex:ListTagsForResource", "lex:DescribeBotReplica", "lex:ListBotAliases", "lex:ListBotLocales", "lex:ListIntents", "lex:ListSlots", "lex:ListSlotTypes", "lex:ListCustomVocabularies", "lex:DescribeBotAlias", "lex:GetBotAlias" ]
-    },
-    "update" : {
-      "permissions" : [ "iam:PassRole", "lex:DescribeBot", "lex:CreateUploadUrl", "lex:StartImport", "lex:DescribeImport", "lex:ListTagsForResource", "lex:TagResource", "lex:UntagResource", "lex:CreateBot", "lex:CreateBotLocale", "lex:CreateIntent", "lex:CreateSlot", "lex:CreateSlotType", "lex:UpdateBot", "lex:UpdateBotLocale", "lex:UpdateIntent", "lex:UpdateSlot", "lex:UpdateSlotType", "lex:DeleteBotLocale", "lex:DeleteIntent", "lex:DeleteSlot", "lex:DeleteSlotType", "lex:DescribeBotLocale", "lex:BuildBotLocale", "lex:ListBots", "lex:ListBotLocales", "lex:CreateCustomVocabulary", "lex:UpdateCustomVocabulary", "lex:DeleteCustomVocabulary", "s3:GetObject", "lex:UpdateBotAlias", "lex:CreateBotReplica", "lex:DescribeBotReplica", "lex:DeleteBotReplica", "lex:CreateBotAlias", "lex:DescribeBotAlias", "lex:ListBotAliases", "lex:UpdateBotAlias", "s3:PutObject" ]
-    },
-    "delete" : {
-      "permissions" : [ "lex:DeleteBot", "lex:BatchDeleteCustomVocabularyItem", "lex:DescribeBot", "lex:DescribeBotAlias", "lex:DeleteBotLocale", "lex:DeleteIntent", "lex:DeleteSlotType", "lex:DeleteSlot", "lex:DeleteBotVersion", "lex:DeleteBotChannel", "lex:DeleteBotAlias", "lex:DeleteCustomVocabulary", "lex:DeleteBotReplica", "lex:DeleteExport", "lex:DeleteUtterances", "lex:DeleteImport", "lex:DeleteSession", "lex:DeleteTestSet", "lex:DeleteResourcePolicyStatement", "lex:DeleteResourcePolicy", "lex:UntagResource" ]
-    },
-    "list" : {
-      "permissions" : [ "lex:ListBots", "lex:ListBotReplicas", "lex:ListBotAliases", "lex:ListBotLocales", "lex:ListIntents", "lex:ListSlots", "lex:ListSlotTypes", "lex:ListCustomVocabularies", "lex:ListTagsForResource" ]
-    }
-  },
-  "tagging" : {
-    "taggable" : true,
-    "tagProperty" : "/properties/BotTags",
-    "tagOnCreate" : true,
-    "permissions" : [ "lex:ListTagsForResource", "lex:TagResource", "lex:UntagResource" ],
-    "cloudFormationSystemTags" : true,
-    "tagUpdatable" : true
   }
 }

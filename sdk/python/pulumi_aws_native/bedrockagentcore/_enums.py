@@ -7,6 +7,7 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'BrowserCustomBrowserEnterprisePolicyType',
     'BrowserCustomBrowserNetworkMode',
     'BrowserCustomBrowserStatus',
     'BrowserProfileStatus',
@@ -35,6 +36,7 @@ __all__ = [
     'MemoryCustomMemoryStrategyType',
     'MemoryEpisodicMemoryStrategyStatus',
     'MemoryEpisodicMemoryStrategyType',
+    'MemoryMetadataValueType',
     'MemorySemanticMemoryStrategyStatus',
     'MemorySemanticMemoryStrategyType',
     'MemoryStatus',
@@ -57,6 +59,15 @@ __all__ = [
     'RuntimeNetworkMode',
     'RuntimeProtocolConfiguration',
 ]
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:BrowserCustomBrowserEnterprisePolicyType")
+class BrowserCustomBrowserEnterprisePolicyType(_builtins.str, Enum):
+    """
+    The type of browser enterprise policy.
+    """
+    MANAGED = "MANAGED"
+    RECOMMENDED = "RECOMMENDED"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:BrowserCustomBrowserNetworkMode")
@@ -313,6 +324,16 @@ class MemoryEpisodicMemoryStrategyType(_builtins.str, Enum):
     EPISODIC = "EPISODIC"
 
 
+@pulumi.type_token("aws-native:bedrockagentcore:MemoryMetadataValueType")
+class MemoryMetadataValueType(_builtins.str, Enum):
+    """
+    Supported data types for metadata values
+    """
+    STRING = "STRING"
+    STRINGLIST = "STRINGLIST"
+    NUMBER = "NUMBER"
+
+
 @pulumi.type_token("aws-native:bedrockagentcore:MemorySemanticMemoryStrategyStatus")
 class MemorySemanticMemoryStrategyStatus(_builtins.str, Enum):
     """
@@ -497,6 +518,7 @@ class RuntimeAgentManagedRuntimeType(_builtins.str, Enum):
     PYTHON312 = "PYTHON_3_12"
     PYTHON313 = "PYTHON_3_13"
     PYTHON314 = "PYTHON_3_14"
+    NODE22 = "NODE_22"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:RuntimeAgentStatus")

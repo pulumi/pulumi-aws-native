@@ -180,8 +180,8 @@ func (in *accessLogSubscriptionServiceNetworkLogTypePtr) ToAccessLogSubscription
 type AuthPolicyStateEnum string
 
 const (
-	AuthPolicyStateEnumActive   = AuthPolicyStateEnum("ACTIVE")
-	AuthPolicyStateEnumInactive = AuthPolicyStateEnum("INACTIVE")
+	AuthPolicyStateEnumActive   = AuthPolicyStateEnum("Active")
+	AuthPolicyStateEnumInactive = AuthPolicyStateEnum("Inactive")
 )
 
 type AuthPolicyStateEnumOutput struct{ *pulumi.OutputState }
@@ -1365,6 +1365,171 @@ func (in *resourceGatewayIpAddressTypePtr) ToResourceGatewayIpAddressTypePtrOutp
 
 func (in *resourceGatewayIpAddressTypePtr) ToResourceGatewayIpAddressTypePtrOutputWithContext(ctx context.Context) ResourceGatewayIpAddressTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ResourceGatewayIpAddressTypePtrOutput)
+}
+
+type ResourceGatewayResourceConfigDnsResolution string
+
+const (
+	ResourceGatewayResourceConfigDnsResolutionInVpc  = ResourceGatewayResourceConfigDnsResolution("IN_VPC")
+	ResourceGatewayResourceConfigDnsResolutionPublic = ResourceGatewayResourceConfigDnsResolution("PUBLIC")
+)
+
+func (ResourceGatewayResourceConfigDnsResolution) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceGatewayResourceConfigDnsResolution)(nil)).Elem()
+}
+
+func (e ResourceGatewayResourceConfigDnsResolution) ToResourceGatewayResourceConfigDnsResolutionOutput() ResourceGatewayResourceConfigDnsResolutionOutput {
+	return pulumi.ToOutput(e).(ResourceGatewayResourceConfigDnsResolutionOutput)
+}
+
+func (e ResourceGatewayResourceConfigDnsResolution) ToResourceGatewayResourceConfigDnsResolutionOutputWithContext(ctx context.Context) ResourceGatewayResourceConfigDnsResolutionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ResourceGatewayResourceConfigDnsResolutionOutput)
+}
+
+func (e ResourceGatewayResourceConfigDnsResolution) ToResourceGatewayResourceConfigDnsResolutionPtrOutput() ResourceGatewayResourceConfigDnsResolutionPtrOutput {
+	return e.ToResourceGatewayResourceConfigDnsResolutionPtrOutputWithContext(context.Background())
+}
+
+func (e ResourceGatewayResourceConfigDnsResolution) ToResourceGatewayResourceConfigDnsResolutionPtrOutputWithContext(ctx context.Context) ResourceGatewayResourceConfigDnsResolutionPtrOutput {
+	return ResourceGatewayResourceConfigDnsResolution(e).ToResourceGatewayResourceConfigDnsResolutionOutputWithContext(ctx).ToResourceGatewayResourceConfigDnsResolutionPtrOutputWithContext(ctx)
+}
+
+func (e ResourceGatewayResourceConfigDnsResolution) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ResourceGatewayResourceConfigDnsResolution) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ResourceGatewayResourceConfigDnsResolution) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ResourceGatewayResourceConfigDnsResolution) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ResourceGatewayResourceConfigDnsResolutionOutput struct{ *pulumi.OutputState }
+
+func (ResourceGatewayResourceConfigDnsResolutionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceGatewayResourceConfigDnsResolution)(nil)).Elem()
+}
+
+func (o ResourceGatewayResourceConfigDnsResolutionOutput) ToResourceGatewayResourceConfigDnsResolutionOutput() ResourceGatewayResourceConfigDnsResolutionOutput {
+	return o
+}
+
+func (o ResourceGatewayResourceConfigDnsResolutionOutput) ToResourceGatewayResourceConfigDnsResolutionOutputWithContext(ctx context.Context) ResourceGatewayResourceConfigDnsResolutionOutput {
+	return o
+}
+
+func (o ResourceGatewayResourceConfigDnsResolutionOutput) ToResourceGatewayResourceConfigDnsResolutionPtrOutput() ResourceGatewayResourceConfigDnsResolutionPtrOutput {
+	return o.ToResourceGatewayResourceConfigDnsResolutionPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceGatewayResourceConfigDnsResolutionOutput) ToResourceGatewayResourceConfigDnsResolutionPtrOutputWithContext(ctx context.Context) ResourceGatewayResourceConfigDnsResolutionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceGatewayResourceConfigDnsResolution) *ResourceGatewayResourceConfigDnsResolution {
+		return &v
+	}).(ResourceGatewayResourceConfigDnsResolutionPtrOutput)
+}
+
+func (o ResourceGatewayResourceConfigDnsResolutionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ResourceGatewayResourceConfigDnsResolutionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ResourceGatewayResourceConfigDnsResolution) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ResourceGatewayResourceConfigDnsResolutionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceGatewayResourceConfigDnsResolutionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ResourceGatewayResourceConfigDnsResolution) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ResourceGatewayResourceConfigDnsResolutionPtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceGatewayResourceConfigDnsResolutionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceGatewayResourceConfigDnsResolution)(nil)).Elem()
+}
+
+func (o ResourceGatewayResourceConfigDnsResolutionPtrOutput) ToResourceGatewayResourceConfigDnsResolutionPtrOutput() ResourceGatewayResourceConfigDnsResolutionPtrOutput {
+	return o
+}
+
+func (o ResourceGatewayResourceConfigDnsResolutionPtrOutput) ToResourceGatewayResourceConfigDnsResolutionPtrOutputWithContext(ctx context.Context) ResourceGatewayResourceConfigDnsResolutionPtrOutput {
+	return o
+}
+
+func (o ResourceGatewayResourceConfigDnsResolutionPtrOutput) Elem() ResourceGatewayResourceConfigDnsResolutionOutput {
+	return o.ApplyT(func(v *ResourceGatewayResourceConfigDnsResolution) ResourceGatewayResourceConfigDnsResolution {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceGatewayResourceConfigDnsResolution
+		return ret
+	}).(ResourceGatewayResourceConfigDnsResolutionOutput)
+}
+
+func (o ResourceGatewayResourceConfigDnsResolutionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceGatewayResourceConfigDnsResolutionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ResourceGatewayResourceConfigDnsResolution) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ResourceGatewayResourceConfigDnsResolutionInput is an input type that accepts values of the ResourceGatewayResourceConfigDnsResolution enum
+// A concrete instance of `ResourceGatewayResourceConfigDnsResolutionInput` can be one of the following:
+//
+//	ResourceGatewayResourceConfigDnsResolutionInVpc
+//	ResourceGatewayResourceConfigDnsResolutionPublic
+type ResourceGatewayResourceConfigDnsResolutionInput interface {
+	pulumi.Input
+
+	ToResourceGatewayResourceConfigDnsResolutionOutput() ResourceGatewayResourceConfigDnsResolutionOutput
+	ToResourceGatewayResourceConfigDnsResolutionOutputWithContext(context.Context) ResourceGatewayResourceConfigDnsResolutionOutput
+}
+
+var resourceGatewayResourceConfigDnsResolutionPtrType = reflect.TypeOf((**ResourceGatewayResourceConfigDnsResolution)(nil)).Elem()
+
+type ResourceGatewayResourceConfigDnsResolutionPtrInput interface {
+	pulumi.Input
+
+	ToResourceGatewayResourceConfigDnsResolutionPtrOutput() ResourceGatewayResourceConfigDnsResolutionPtrOutput
+	ToResourceGatewayResourceConfigDnsResolutionPtrOutputWithContext(context.Context) ResourceGatewayResourceConfigDnsResolutionPtrOutput
+}
+
+type resourceGatewayResourceConfigDnsResolutionPtr string
+
+func ResourceGatewayResourceConfigDnsResolutionPtr(v string) ResourceGatewayResourceConfigDnsResolutionPtrInput {
+	return (*resourceGatewayResourceConfigDnsResolutionPtr)(&v)
+}
+
+func (*resourceGatewayResourceConfigDnsResolutionPtr) ElementType() reflect.Type {
+	return resourceGatewayResourceConfigDnsResolutionPtrType
+}
+
+func (in *resourceGatewayResourceConfigDnsResolutionPtr) ToResourceGatewayResourceConfigDnsResolutionPtrOutput() ResourceGatewayResourceConfigDnsResolutionPtrOutput {
+	return pulumi.ToOutput(in).(ResourceGatewayResourceConfigDnsResolutionPtrOutput)
+}
+
+func (in *resourceGatewayResourceConfigDnsResolutionPtr) ToResourceGatewayResourceConfigDnsResolutionPtrOutputWithContext(ctx context.Context) ResourceGatewayResourceConfigDnsResolutionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ResourceGatewayResourceConfigDnsResolutionPtrOutput)
 }
 
 // The HTTP method type.
@@ -3615,6 +3780,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceConfigurationTypePtrInput)(nil)).Elem(), ResourceConfigurationType("GROUP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGatewayIpAddressTypeInput)(nil)).Elem(), ResourceGatewayIpAddressType("IPV4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGatewayIpAddressTypePtrInput)(nil)).Elem(), ResourceGatewayIpAddressType("IPV4"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGatewayResourceConfigDnsResolutionInput)(nil)).Elem(), ResourceGatewayResourceConfigDnsResolution("IN_VPC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGatewayResourceConfigDnsResolutionPtrInput)(nil)).Elem(), ResourceGatewayResourceConfigDnsResolution("IN_VPC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleHttpMatchMethodInput)(nil)).Elem(), RuleHttpMatchMethod("CONNECT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleHttpMatchMethodPtrInput)(nil)).Elem(), RuleHttpMatchMethod("CONNECT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAuthTypeInput)(nil)).Elem(), ServiceAuthType("NONE"))
@@ -3655,6 +3822,8 @@ func init() {
 	pulumi.RegisterOutputType(ResourceConfigurationTypePtrOutput{})
 	pulumi.RegisterOutputType(ResourceGatewayIpAddressTypeOutput{})
 	pulumi.RegisterOutputType(ResourceGatewayIpAddressTypePtrOutput{})
+	pulumi.RegisterOutputType(ResourceGatewayResourceConfigDnsResolutionOutput{})
+	pulumi.RegisterOutputType(ResourceGatewayResourceConfigDnsResolutionPtrOutput{})
 	pulumi.RegisterOutputType(RuleHttpMatchMethodOutput{})
 	pulumi.RegisterOutputType(RuleHttpMatchMethodPtrOutput{})
 	pulumi.RegisterOutputType(ServiceAuthTypeOutput{})

@@ -17,6 +17,7 @@ import (
 type CustomDbEngineVersion struct {
 	pulumi.CustomResourceState
 
+	DatabaseInstallationFiles pulumi.StringArrayOutput `pulumi:"databaseInstallationFiles"`
 	// The name of an Amazon S3 bucket that contains database installation files for your CEV. For example, a valid bucket name is ``my-custom-installation-files``.
 	DatabaseInstallationFilesS3BucketName pulumi.StringPtrOutput `pulumi:"databaseInstallationFilesS3BucketName"`
 	// The Amazon S3 directory that contains the database installation files for your CEV. For example, a valid bucket name is ``123456789012/cev1``. If this setting isn't specified, no prefix is assumed.
@@ -69,6 +70,7 @@ func NewCustomDbEngineVersion(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'EngineVersion'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"databaseInstallationFiles[*]",
 		"databaseInstallationFilesS3BucketName",
 		"databaseInstallationFilesS3Prefix",
 		"engine",
@@ -113,6 +115,7 @@ func (CustomDbEngineVersionState) ElementType() reflect.Type {
 }
 
 type customDbEngineVersionArgs struct {
+	DatabaseInstallationFiles []string `pulumi:"databaseInstallationFiles"`
 	// The name of an Amazon S3 bucket that contains database installation files for your CEV. For example, a valid bucket name is ``my-custom-installation-files``.
 	DatabaseInstallationFilesS3BucketName *string `pulumi:"databaseInstallationFilesS3BucketName"`
 	// The Amazon S3 directory that contains the database installation files for your CEV. For example, a valid bucket name is ``123456789012/cev1``. If this setting isn't specified, no prefix is assumed.
@@ -151,6 +154,7 @@ type customDbEngineVersionArgs struct {
 
 // The set of arguments for constructing a CustomDbEngineVersion resource.
 type CustomDbEngineVersionArgs struct {
+	DatabaseInstallationFiles pulumi.StringArrayInput
 	// The name of an Amazon S3 bucket that contains database installation files for your CEV. For example, a valid bucket name is ``my-custom-installation-files``.
 	DatabaseInstallationFilesS3BucketName pulumi.StringPtrInput
 	// The Amazon S3 directory that contains the database installation files for your CEV. For example, a valid bucket name is ``123456789012/cev1``. If this setting isn't specified, no prefix is assumed.
@@ -222,6 +226,10 @@ func (o CustomDbEngineVersionOutput) ToCustomDbEngineVersionOutput() CustomDbEng
 
 func (o CustomDbEngineVersionOutput) ToCustomDbEngineVersionOutputWithContext(ctx context.Context) CustomDbEngineVersionOutput {
 	return o
+}
+
+func (o CustomDbEngineVersionOutput) DatabaseInstallationFiles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CustomDbEngineVersion) pulumi.StringArrayOutput { return v.DatabaseInstallationFiles }).(pulumi.StringArrayOutput)
 }
 
 // The name of an Amazon S3 bucket that contains database installation files for your CEV. For example, a valid bucket name is “my-custom-installation-files“.

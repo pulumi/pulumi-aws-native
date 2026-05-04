@@ -99,6 +99,7 @@ type UserPool struct {
 	//
 	// Set the email message type that corresponds to your `DefaultEmailOption` selection. For `CONFIRM_WITH_LINK` , specify an `EmailMessageByLink` and leave `EmailMessage` blank. For `CONFIRM_WITH_CODE` , specify an `EmailMessage` and leave `EmailMessageByLink` blank. When you supply both parameters with either choice, Amazon Cognito returns an error.
 	VerificationMessageTemplate UserPoolVerificationMessageTemplatePtrOutput `pulumi:"verificationMessageTemplate"`
+	WebAuthnFactorConfiguration UserPoolWebAuthnFactorConfigurationPtrOutput `pulumi:"webAuthnFactorConfiguration"`
 	// Sets or displays the authentication domain, typically your user pool domain, that passkey providers must use as a relying party (RP) in their configuration.
 	//
 	// Under the following conditions, the passkey relying party ID must be the fully-qualified domain name of your custom domain:
@@ -227,6 +228,7 @@ type userPoolArgs struct {
 	//
 	// Set the email message type that corresponds to your `DefaultEmailOption` selection. For `CONFIRM_WITH_LINK` , specify an `EmailMessageByLink` and leave `EmailMessage` blank. For `CONFIRM_WITH_CODE` , specify an `EmailMessage` and leave `EmailMessageByLink` blank. When you supply both parameters with either choice, Amazon Cognito returns an error.
 	VerificationMessageTemplate *UserPoolVerificationMessageTemplate `pulumi:"verificationMessageTemplate"`
+	WebAuthnFactorConfiguration *UserPoolWebAuthnFactorConfiguration `pulumi:"webAuthnFactorConfiguration"`
 	// Sets or displays the authentication domain, typically your user pool domain, that passkey providers must use as a relying party (RP) in their configuration.
 	//
 	// Under the following conditions, the passkey relying party ID must be the fully-qualified domain name of your custom domain:
@@ -317,6 +319,7 @@ type UserPoolArgs struct {
 	//
 	// Set the email message type that corresponds to your `DefaultEmailOption` selection. For `CONFIRM_WITH_LINK` , specify an `EmailMessageByLink` and leave `EmailMessage` blank. For `CONFIRM_WITH_CODE` , specify an `EmailMessage` and leave `EmailMessageByLink` blank. When you supply both parameters with either choice, Amazon Cognito returns an error.
 	VerificationMessageTemplate UserPoolVerificationMessageTemplatePtrInput
+	WebAuthnFactorConfiguration UserPoolWebAuthnFactorConfigurationPtrInput
 	// Sets or displays the authentication domain, typically your user pool domain, that passkey providers must use as a relying party (RP) in their configuration.
 	//
 	// Under the following conditions, the passkey relying party ID must be the fully-qualified domain name of your custom domain:
@@ -541,6 +544,10 @@ func (o UserPoolOutput) UsernameConfiguration() UserPoolUsernameConfigurationPtr
 // Set the email message type that corresponds to your `DefaultEmailOption` selection. For `CONFIRM_WITH_LINK` , specify an `EmailMessageByLink` and leave `EmailMessage` blank. For `CONFIRM_WITH_CODE` , specify an `EmailMessage` and leave `EmailMessageByLink` blank. When you supply both parameters with either choice, Amazon Cognito returns an error.
 func (o UserPoolOutput) VerificationMessageTemplate() UserPoolVerificationMessageTemplatePtrOutput {
 	return o.ApplyT(func(v *UserPool) UserPoolVerificationMessageTemplatePtrOutput { return v.VerificationMessageTemplate }).(UserPoolVerificationMessageTemplatePtrOutput)
+}
+
+func (o UserPoolOutput) WebAuthnFactorConfiguration() UserPoolWebAuthnFactorConfigurationPtrOutput {
+	return o.ApplyT(func(v *UserPool) UserPoolWebAuthnFactorConfigurationPtrOutput { return v.WebAuthnFactorConfiguration }).(UserPoolWebAuthnFactorConfigurationPtrOutput)
 }
 
 // Sets or displays the authentication domain, typically your user pool domain, that passkey providers must use as a relying party (RP) in their configuration.

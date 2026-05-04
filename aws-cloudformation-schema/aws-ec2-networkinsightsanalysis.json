@@ -5,7 +5,7 @@
     "tagOnCreate" : true,
     "tagUpdatable" : true,
     "tagProperty" : "/properties/Tags",
-    "cloudFormationSystemTags" : false
+    "cloudFormationSystemTags" : true
   },
   "typeName" : "AWS::EC2::NetworkInsightsAnalysis",
   "readOnlyProperties" : [ "/properties/NetworkInsightsAnalysisId", "/properties/NetworkInsightsAnalysisArn", "/properties/StartDate", "/properties/Status", "/properties/StatusMessage", "/properties/NetworkPathFound", "/properties/ForwardPathComponents", "/properties/ReturnPathComponents", "/properties/Explanations", "/properties/AlternatePathHints", "/properties/SuggestedAccounts" ],

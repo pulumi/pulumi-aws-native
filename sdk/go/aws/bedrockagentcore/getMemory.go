@@ -31,9 +31,10 @@ type LookupMemoryResult struct {
 	CreatedAt   *string `pulumi:"createdAt"`
 	Description *string `pulumi:"description"`
 	// Duration in days until memory events expire
-	EventExpiryDuration *int    `pulumi:"eventExpiryDuration"`
-	FailureReason       *string `pulumi:"failureReason"`
-	MemoryArn           *string `pulumi:"memoryArn"`
+	EventExpiryDuration *int               `pulumi:"eventExpiryDuration"`
+	FailureReason       *string            `pulumi:"failureReason"`
+	IndexedKeys         []MemoryIndexedKey `pulumi:"indexedKeys"`
+	MemoryArn           *string            `pulumi:"memoryArn"`
 	// The memory role ARN.
 	MemoryExecutionRoleArn *string `pulumi:"memoryExecutionRoleArn"`
 	// The memory ID.
@@ -95,6 +96,10 @@ func (o LookupMemoryResultOutput) EventExpiryDuration() pulumi.IntPtrOutput {
 
 func (o LookupMemoryResultOutput) FailureReason() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupMemoryResult) *string { return v.FailureReason }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupMemoryResultOutput) IndexedKeys() MemoryIndexedKeyArrayOutput {
+	return o.ApplyT(func(v LookupMemoryResult) []MemoryIndexedKey { return v.IndexedKeys }).(MemoryIndexedKeyArrayOutput)
 }
 
 func (o LookupMemoryResultOutput) MemoryArn() pulumi.StringPtrOutput {

@@ -33,6 +33,7 @@ __all__ = [
     'ContinuousDeploymentPolicySingleWeightConfig',
     'ContinuousDeploymentPolicyTrafficConfig',
     'DistributionCacheBehavior',
+    'DistributionCacheTagConfig',
     'DistributionConfig',
     'DistributionConfigTenantConfigProperties',
     'DistributionConnectionFunctionAssociation',
@@ -1440,6 +1441,35 @@ class DistributionCacheBehavior(dict):
 
 
 @pulumi.output_type
+class DistributionCacheTagConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "headerName":
+            suggest = "header_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DistributionCacheTagConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DistributionCacheTagConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DistributionCacheTagConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 header_name: _builtins.str):
+        pulumi.set(__self__, "header_name", header_name)
+
+    @_builtins.property
+    @pulumi.getter(name="headerName")
+    def header_name(self) -> _builtins.str:
+        return pulumi.get(self, "header_name")
+
+
+@pulumi.output_type
 class DistributionConfig(dict):
     """
     A distribution configuration.
@@ -1453,6 +1483,8 @@ class DistributionConfig(dict):
             suggest = "anycast_ip_list_id"
         elif key == "cacheBehaviors":
             suggest = "cache_behaviors"
+        elif key == "cacheTagConfig":
+            suggest = "cache_tag_config"
         elif key == "connectionFunctionAssociation":
             suggest = "connection_function_association"
         elif key == "connectionMode":
@@ -1501,6 +1533,7 @@ class DistributionConfig(dict):
                  aliases: Optional[Sequence[_builtins.str]] = None,
                  anycast_ip_list_id: Optional[_builtins.str] = None,
                  cache_behaviors: Optional[Sequence['outputs.DistributionCacheBehavior']] = None,
+                 cache_tag_config: Optional['outputs.DistributionCacheTagConfig'] = None,
                  cnames: Optional[Sequence[_builtins.str]] = None,
                  comment: Optional[_builtins.str] = None,
                  connection_function_association: Optional['outputs.DistributionConnectionFunctionAssociation'] = None,
@@ -1595,6 +1628,8 @@ class DistributionConfig(dict):
             pulumi.set(__self__, "anycast_ip_list_id", anycast_ip_list_id)
         if cache_behaviors is not None:
             pulumi.set(__self__, "cache_behaviors", cache_behaviors)
+        if cache_tag_config is not None:
+            pulumi.set(__self__, "cache_tag_config", cache_tag_config)
         if cnames is not None:
             pulumi.set(__self__, "cnames", cnames)
         if comment is not None:
@@ -1679,6 +1714,11 @@ class DistributionConfig(dict):
         A complex type that contains zero or more ``CacheBehavior`` elements.
         """
         return pulumi.get(self, "cache_behaviors")
+
+    @_builtins.property
+    @pulumi.getter(name="cacheTagConfig")
+    def cache_tag_config(self) -> Optional['outputs.DistributionCacheTagConfig']:
+        return pulumi.get(self, "cache_tag_config")
 
     @_builtins.property
     @pulumi.getter

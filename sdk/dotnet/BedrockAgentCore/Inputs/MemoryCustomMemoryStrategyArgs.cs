@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        [Input("memoryRecordSchema")]
+        public Input<Inputs.MemoryRecordSchemaArgs>? MemoryRecordSchema { get; set; }
+
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

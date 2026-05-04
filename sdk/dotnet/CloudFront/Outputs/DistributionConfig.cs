@@ -30,6 +30,7 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
         /// A complex type that contains zero or more ``CacheBehavior`` elements.
         /// </summary>
         public readonly ImmutableArray<Outputs.DistributionCacheBehavior> CacheBehaviors;
+        public readonly Outputs.DistributionCacheTagConfig? CacheTagConfig;
         /// <summary>
         /// An alias for the CF distribution's domain name.
         ///   This property is legacy. We recommend that you use [Aliases](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-aliases) instead.
@@ -164,6 +165,8 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
 
             ImmutableArray<Outputs.DistributionCacheBehavior> cacheBehaviors,
 
+            Outputs.DistributionCacheTagConfig? cacheTagConfig,
+
             ImmutableArray<string> cnames,
 
             string? comment,
@@ -213,6 +216,7 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
             Aliases = aliases;
             AnycastIpListId = anycastIpListId;
             CacheBehaviors = cacheBehaviors;
+            CacheTagConfig = cacheTagConfig;
             Cnames = cnames;
             Comment = comment;
             ConnectionFunctionAssociation = connectionFunctionAssociation;

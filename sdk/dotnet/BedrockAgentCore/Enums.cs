@@ -8,6 +8,37 @@ using Pulumi;
 namespace Pulumi.AwsNative.BedrockAgentCore
 {
     /// <summary>
+    /// The type of browser enterprise policy.
+    /// </summary>
+    [EnumType]
+    public readonly struct BrowserCustomBrowserEnterprisePolicyType : IEquatable<BrowserCustomBrowserEnterprisePolicyType>
+    {
+        private readonly string _value;
+
+        private BrowserCustomBrowserEnterprisePolicyType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static BrowserCustomBrowserEnterprisePolicyType Managed { get; } = new BrowserCustomBrowserEnterprisePolicyType("MANAGED");
+        public static BrowserCustomBrowserEnterprisePolicyType Recommended { get; } = new BrowserCustomBrowserEnterprisePolicyType("RECOMMENDED");
+
+        public static bool operator ==(BrowserCustomBrowserEnterprisePolicyType left, BrowserCustomBrowserEnterprisePolicyType right) => left.Equals(right);
+        public static bool operator !=(BrowserCustomBrowserEnterprisePolicyType left, BrowserCustomBrowserEnterprisePolicyType right) => !left.Equals(right);
+
+        public static explicit operator string(BrowserCustomBrowserEnterprisePolicyType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BrowserCustomBrowserEnterprisePolicyType other && Equals(other);
+        public bool Equals(BrowserCustomBrowserEnterprisePolicyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Network modes supported by browser
     /// </summary>
     [EnumType]
@@ -878,6 +909,38 @@ namespace Pulumi.AwsNative.BedrockAgentCore
     }
 
     /// <summary>
+    /// Supported data types for metadata values
+    /// </summary>
+    [EnumType]
+    public readonly struct MemoryMetadataValueType : IEquatable<MemoryMetadataValueType>
+    {
+        private readonly string _value;
+
+        private MemoryMetadataValueType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MemoryMetadataValueType String { get; } = new MemoryMetadataValueType("STRING");
+        public static MemoryMetadataValueType Stringlist { get; } = new MemoryMetadataValueType("STRINGLIST");
+        public static MemoryMetadataValueType Number { get; } = new MemoryMetadataValueType("NUMBER");
+
+        public static bool operator ==(MemoryMetadataValueType left, MemoryMetadataValueType right) => left.Equals(right);
+        public static bool operator !=(MemoryMetadataValueType left, MemoryMetadataValueType right) => !left.Equals(right);
+
+        public static explicit operator string(MemoryMetadataValueType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MemoryMetadataValueType other && Equals(other);
+        public bool Equals(MemoryMetadataValueType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Status of the memory strategy
     /// </summary>
     [EnumType]
@@ -1377,6 +1440,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         public static RuntimeAgentManagedRuntimeType Python312 { get; } = new RuntimeAgentManagedRuntimeType("PYTHON_3_12");
         public static RuntimeAgentManagedRuntimeType Python313 { get; } = new RuntimeAgentManagedRuntimeType("PYTHON_3_13");
         public static RuntimeAgentManagedRuntimeType Python314 { get; } = new RuntimeAgentManagedRuntimeType("PYTHON_3_14");
+        public static RuntimeAgentManagedRuntimeType Node22 { get; } = new RuntimeAgentManagedRuntimeType("NODE_22");
 
         public static bool operator ==(RuntimeAgentManagedRuntimeType left, RuntimeAgentManagedRuntimeType right) => left.Equals(right);
         public static bool operator !=(RuntimeAgentManagedRuntimeType left, RuntimeAgentManagedRuntimeType right) => !left.Equals(right);

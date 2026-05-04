@@ -2349,6 +2349,10 @@
       }
     }
   },
+  "aws-native:cloudwatch:OTelEnrichment": {
+    "cfTypeName": "AWS::CloudWatch::OTelEnrichment",
+    "properties": {}
+  },
   "aws-native:codeartifact:PackageGroup": {
     "cfTypeName": "AWS::CodeArtifact::PackageGroup",
     "properties": {
@@ -13465,6 +13469,12 @@
   "aws-native:rds:CustomDbEngineVersion": {
     "cfTypeName": "AWS::RDS::CustomDBEngineVersion",
     "properties": {
+      "databaseInstallationFiles": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
       "databaseInstallationFilesS3BucketName": {
         "type": "string",
         "description": "The name of an Amazon S3 bucket that contains database installation files for your CEV. For example, a valid bucket name is ``my-custom-installation-files``."

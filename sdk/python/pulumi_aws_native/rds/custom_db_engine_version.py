@@ -24,6 +24,7 @@ class CustomDbEngineVersionArgs:
     def __init__(__self__, *,
                  engine: pulumi.Input[_builtins.str],
                  engine_version: pulumi.Input[_builtins.str],
+                 database_installation_files: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  database_installation_files_s3_bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
                  database_installation_files_s3_prefix: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
@@ -62,6 +63,8 @@ class CustomDbEngineVersionArgs:
         """
         pulumi.set(__self__, "engine", engine)
         pulumi.set(__self__, "engine_version", engine_version)
+        if database_installation_files is not None:
+            pulumi.set(__self__, "database_installation_files", database_installation_files)
         if database_installation_files_s3_bucket_name is not None:
             pulumi.set(__self__, "database_installation_files_s3_bucket_name", database_installation_files_s3_bucket_name)
         if database_installation_files_s3_prefix is not None:
@@ -111,6 +114,15 @@ class CustomDbEngineVersionArgs:
     @engine_version.setter
     def engine_version(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "engine_version", value)
+
+    @_builtins.property
+    @pulumi.getter(name="databaseInstallationFiles")
+    def database_installation_files(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "database_installation_files")
+
+    @database_installation_files.setter
+    def database_installation_files(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "database_installation_files", value)
 
     @_builtins.property
     @pulumi.getter(name="databaseInstallationFilesS3BucketName")
@@ -244,6 +256,7 @@ class CustomDbEngineVersion(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 database_installation_files: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  database_installation_files_s3_bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
                  database_installation_files_s3_prefix: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
@@ -311,6 +324,7 @@ class CustomDbEngineVersion(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 database_installation_files: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  database_installation_files_s3_bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
                  database_installation_files_s3_prefix: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
@@ -332,6 +346,7 @@ class CustomDbEngineVersion(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CustomDbEngineVersionArgs.__new__(CustomDbEngineVersionArgs)
 
+            __props__.__dict__["database_installation_files"] = database_installation_files
             __props__.__dict__["database_installation_files_s3_bucket_name"] = database_installation_files_s3_bucket_name
             __props__.__dict__["database_installation_files_s3_prefix"] = database_installation_files_s3_prefix
             __props__.__dict__["description"] = description
@@ -349,7 +364,7 @@ class CustomDbEngineVersion(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["use_aws_provided_latest_image"] = use_aws_provided_latest_image
             __props__.__dict__["db_engine_version_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["databaseInstallationFilesS3BucketName", "databaseInstallationFilesS3Prefix", "engine", "engineVersion", "imageId", "kmsKeyId", "manifest", "sourceCustomDbEngineVersionIdentifier", "useAwsProvidedLatestImage"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["databaseInstallationFiles[*]", "databaseInstallationFilesS3BucketName", "databaseInstallationFilesS3Prefix", "engine", "engineVersion", "imageId", "kmsKeyId", "manifest", "sourceCustomDbEngineVersionIdentifier", "useAwsProvidedLatestImage"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(CustomDbEngineVersion, __self__).__init__(
             'aws-native:rds:CustomDbEngineVersion',
@@ -373,6 +388,7 @@ class CustomDbEngineVersion(pulumi.CustomResource):
 
         __props__ = CustomDbEngineVersionArgs.__new__(CustomDbEngineVersionArgs)
 
+        __props__.__dict__["database_installation_files"] = None
         __props__.__dict__["database_installation_files_s3_bucket_name"] = None
         __props__.__dict__["database_installation_files_s3_prefix"] = None
         __props__.__dict__["db_engine_version_arn"] = None
@@ -387,6 +403,11 @@ class CustomDbEngineVersion(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["use_aws_provided_latest_image"] = None
         return CustomDbEngineVersion(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter(name="databaseInstallationFiles")
+    def database_installation_files(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        return pulumi.get(self, "database_installation_files")
 
     @_builtins.property
     @pulumi.getter(name="databaseInstallationFilesS3BucketName")

@@ -31,6 +31,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Dashboard{}
 	case "aws-native:cloudwatch:MetricStream":
 		r = &MetricStream{}
+	case "aws-native:cloudwatch:OTelEnrichment":
+		r = &OTelEnrichment{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

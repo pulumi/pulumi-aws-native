@@ -67,6 +67,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         /// </summary>
         public readonly int? EventExpiryDuration;
         public readonly string? FailureReason;
+        public readonly ImmutableArray<Outputs.MemoryIndexedKey> IndexedKeys;
         public readonly string? MemoryArn;
         /// <summary>
         /// The memory role ARN.
@@ -101,6 +102,8 @@ namespace Pulumi.AwsNative.BedrockAgentCore
 
             string? failureReason,
 
+            ImmutableArray<Outputs.MemoryIndexedKey> indexedKeys,
+
             string? memoryArn,
 
             string? memoryExecutionRoleArn,
@@ -121,6 +124,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
             Description = description;
             EventExpiryDuration = eventExpiryDuration;
             FailureReason = failureReason;
+            IndexedKeys = indexedKeys;
             MemoryArn = memoryArn;
             MemoryExecutionRoleArn = memoryExecutionRoleArn;
             MemoryId = memoryId;

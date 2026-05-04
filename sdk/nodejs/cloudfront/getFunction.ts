@@ -58,6 +58,7 @@ export interface GetFunctionResult {
      */
     readonly functionMetadata?: outputs.cloudfront.FunctionMetadata;
     readonly stage?: string;
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Creates a CF function.
