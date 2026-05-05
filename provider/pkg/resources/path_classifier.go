@@ -150,6 +150,7 @@ func (c *PathClassifier) actualInputBaseline(
 	oldDesired, projectedActual, newDesired resource.PropertyMap,
 ) resource.PropertyMap {
 	result := clonePropertyMap(projectedActual)
+	PreserveSecretWrappers(result, oldDesired)
 	c.addWriteOnlyFallbacks(result, oldDesired, true)
 	c.pruneUnownedComputed(result, oldDesired, newDesired, "")
 	return result
@@ -365,6 +366,43 @@ func isSchemaObject(c *PathClassifier, path string) bool {
 func hasPath(m resource.PropertyMap, path string) bool {
 	_, ok := GetPath(m, path)
 	return ok
+}
+
+// PreserveSecretWrappers reapplies secret markers from old desired inputs to
+// matching actual values without overwriting the refreshed underlying values.
+func PreserveSecretWrappers(actual, oldDesired resource.PropertyMap) {
+	for key, oldValue := range oldDesired {
+		actualValue, ok := actual[key]
+		if !ok {
+			continue
+		}
+		actual[key] = preserveSecretWrapper(actualValue, oldValue)
+	}
+}
+
+func preserveSecretWrapper(actual, oldDesired resource.PropertyValue) resource.PropertyValue {
+	if oldDesired.IsSecret() {
+		return resource.MakeSecret(preserveSecretWrapper(actual, oldDesired.SecretValue().Element))
+	}
+	if actual.IsSecret() {
+		return actual
+	}
+	if actual.IsObject() && oldDesired.IsObject() {
+		PreserveSecretWrappers(actual.ObjectValue(), oldDesired.ObjectValue())
+		return actual
+	}
+	if actual.IsArray() && oldDesired.IsArray() {
+		actualValues := actual.ArrayValue()
+		oldValues := oldDesired.ArrayValue()
+		for i := range actualValues {
+			if i >= len(oldValues) {
+				break
+			}
+			actualValues[i] = preserveSecretWrapper(actualValues[i], oldValues[i])
+		}
+		return resource.NewArrayProperty(actualValues)
+	}
+	return actual
 }
 
 func stringInSlice(values []string, value string) bool {

@@ -316,6 +316,39 @@ func TestSuppressAWSManagedTagAdditions(t *testing.T) {
 		assert.False(t, hasUpdate, "reordered key/value tags should not register as drift")
 	})
 
+	t.Run("treats secret and plaintext key value array tags with same value as no-op", func(t *testing.T) {
+		oldTags := resource.NewArrayProperty([]resource.PropertyValue{
+			resource.NewObjectProperty(resource.PropertyMap{
+				"key":   resource.NewStringProperty("secretfoo"),
+				"value": resource.MakeSecret(resource.NewStringProperty("secretbar")),
+			}),
+		})
+		newTags := resource.NewArrayProperty([]resource.PropertyValue{
+			resource.NewObjectProperty(resource.PropertyMap{
+				"key":   resource.NewStringProperty("secretfoo"),
+				"value": resource.NewStringProperty("secretbar"),
+			}),
+		})
+
+		diff := &resource.ObjectDiff{
+			Adds: resource.PropertyMap{},
+			Updates: map[resource.PropertyKey]resource.ValueDiff{
+				"tags": {Old: oldTags, New: newTags},
+			},
+			Deletes: resource.PropertyMap{},
+			Sames:   resource.PropertyMap{},
+		}
+
+		originalInputs := resource.PropertyMap{
+			"tags": oldTags,
+		}
+
+		result := suppressAWSManagedTagAdditions("tags", default_tags.TagsStyleKeyValueArray, diff, originalInputs)
+
+		_, hasUpdate := result.Updates["tags"]
+		assert.False(t, hasUpdate, "secret/plaintext wrapper differences should not register as tag drift")
+	})
+
 	t.Run("treats uppercase key value array tag reordering as no-op", func(t *testing.T) {
 		oldTags := resource.NewArrayProperty([]resource.PropertyValue{
 			resource.NewObjectProperty(resource.PropertyMap{

@@ -125,6 +125,7 @@ This design is forward-looking. It prevents future refreshes from adopting newly
 10. Import remains distinct: when there is no prior desired-input record, the provider may infer initial inputs from live state.
 11. If a path was present in old inputs and absent from new program inputs, the user intentionally removed it. For create-only paths, removal should be replacement-significant.
 12. Map and array ownership is at the containing property. If the user manages a map or array input, provider refresh and patch generation should reconcile the actual collection back to the desired collection, except for explicitly suppressed AWS-managed values such as `aws:*` tags.
+13. If a managed refreshed path was secret in old inputs, refresh may update the underlying actual value but must preserve the secret wrapper in returned inputs, checkpointed `__inputs`, and the matching output checkpoint value.
 
 ## Design
 
@@ -141,6 +142,7 @@ For existing standard resources, `Read` should:
    - for managed paths, use the live projected actual value;
    - for unowned optional-computed paths, keep the path absent;
    - for write-only paths, preserve the old input value because CloudControl cannot return live actual state;
+   - for paths previously marked secret, preserve the old secret wrapper around the refreshed value in both the input baseline and matching output state;
    - for maps and arrays, apply ownership at the containing property.
 5. Store the same refreshed inputs in `__inputs`.
 6. Return those refreshed inputs in `ReadResponse.Inputs`.

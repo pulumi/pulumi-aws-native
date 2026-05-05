@@ -112,7 +112,7 @@ func suppressAWSManagedTagAdditions(
 		filteredNew := filterAWSPrefixedTags(updatedTags.New, originalInputs[tagsKey])
 		compareOld := normalizeKeyValueArrayTagOrder(filteredOld, tagsStyle)
 		compareNew := normalizeKeyValueArrayTagOrder(filteredNew, tagsStyle)
-		if compareNew.DeepEquals(compareOld) {
+		if propertyValuesEqualIgnoringSecrets(compareNew, compareOld) {
 			// After filtering, old and new are the same - no real change
 			delete(diff.Updates, tagsKey)
 		} else {
@@ -154,6 +154,13 @@ func normalizeKeyValueArrayTagOrder(tags resource.PropertyValue, tagsStyle defau
 		return sorted[i].ObjectValue()[keyProp].StringValue() < sorted[j].ObjectValue()[keyProp].StringValue()
 	})
 	return resource.NewArrayProperty(sorted)
+}
+
+func propertyValuesEqualIgnoringSecrets(a, b resource.PropertyValue) bool {
+	if a.DeepEquals(b) {
+		return true
+	}
+	return preserveSecretWrapper(clonePropertyValue(a), b).DeepEquals(preserveSecretWrapper(clonePropertyValue(b), a))
 }
 
 const (

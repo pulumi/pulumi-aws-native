@@ -1735,6 +1735,51 @@ func TestStandardResourceReadReturnsOwnershipFilteredInputs(t *testing.T) {
 		assert.True(t, oldTags.DeepEquals(checkpointTags))
 	})
 
+	t.Run("secret tag value remains secret after refresh", func(t *testing.T) {
+		arrayURN := resource.NewURN("stack", "project", "parent", "aws:logs/logGroup:LogGroup", "name")
+		oldTags := resource.NewArrayProperty([]resource.PropertyValue{
+			resource.NewObjectProperty(resource.PropertyMap{
+				"key":   resource.NewStringProperty("secretfoo"),
+				"value": resource.MakeSecret(resource.NewStringProperty("secretbar")),
+			}),
+		})
+		oldInputs := resource.PropertyMap{
+			"tags": oldTags,
+		}
+		mockCCC.EXPECT().Read(ctx, "AWS::Logs::LogGroup", "resource-id").Return(
+			map[string]interface{}{
+				"tags": []interface{}{
+					map[string]interface{}{"key": "secretfoo", "value": "secretbar"},
+				},
+			}, true, nil,
+		)
+
+		resp, err := provider.Read(ctx, &pulumirpc.ReadRequest{
+			Urn: string(arrayURN),
+			Id:  "resource-id",
+			Properties: mustMarshalProperties(t, resource.PropertyMap{
+				"tags":     oldTags,
+				"__inputs": resource.MakeSecret(resource.NewObjectProperty(oldInputs)),
+			}),
+		})
+		require.NoError(t, err)
+
+		inputs := mustUnmarshalProperties(t, resp.Inputs)
+		inputTagValue := inputs["tags"].ArrayValue()[0].ObjectValue()["value"]
+		require.True(t, inputTagValue.IsSecret())
+		assert.Equal(t, resource.NewStringProperty("secretbar"), inputTagValue.SecretValue().Element)
+
+		props := mustUnmarshalProperties(t, resp.Properties)
+		outputTagValue := props["tags"].ArrayValue()[0].ObjectValue()["value"]
+		require.True(t, outputTagValue.IsSecret())
+		assert.Equal(t, resource.NewStringProperty("secretbar"), outputTagValue.SecretValue().Element)
+
+		checkpointTagValue := props["__inputs"].SecretValue().Element.ObjectValue()["tags"].
+			ArrayValue()[0].ObjectValue()["value"]
+		require.True(t, checkpointTagValue.IsSecret())
+		assert.Equal(t, resource.NewStringProperty("secretbar"), checkpointTagValue.SecretValue().Element)
+	})
+
 	t.Run("normalized IAM policy document is not checkpointed as owned input drift", func(t *testing.T) {
 		roleURN := resource.NewURN("stack", "project", "parent", "aws:iam:Role", "name")
 		oldInputs := resource.PropertyMap{

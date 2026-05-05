@@ -1058,12 +1058,14 @@ func (p *cfnProvider) Read(ctx context.Context, req *pulumirpc.ReadRequest) (*pu
 			newStateProps := resource.NewPropertyMapFromMap(rawState)
 			classifier := resources.NewPathClassifier(&spec, p.resourceMap.Types)
 			classifier.AddWriteOnlyOutputFallbacks(newStateProps, inputs)
-			rawState = resourcex.Decode(newStateProps)
+			resources.PreserveSecretWrappers(newStateProps, inputs)
 			baseline := classifier.ActualInputBaselineFromOutputs(inputs, newStateProps, inputs)
 			newInputs = resources.SuppressBaselineDiffs(resourceToken, &spec, inputs, baseline, p.transformCache)
+			newState = resources.CheckpointPropertyMap(newInputs, newStateProps)
 		}
-
-		newState = resources.CheckpointObject(newInputs, rawState)
+		if newState == nil {
+			newState = resources.CheckpointObject(newInputs, rawState)
+		}
 	}
 	// Store both outputs and inputs into the state checkpoint.
 	checkpoint, err := plugin.MarshalProperties(

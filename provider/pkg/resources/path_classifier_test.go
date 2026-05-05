@@ -130,6 +130,73 @@ func TestPathClassifierActualInputBaselineOwnership(t *testing.T) {
 	assert.Equal(t, resource.NewStringProperty("external"), tags["extra"])
 }
 
+func TestPathClassifierActualInputBaselinePreservesSecretWrappers(t *testing.T) {
+	spec := metadata.CloudAPIResource{
+		Inputs: map[string]pschema.PropertySpec{
+			"settings": {TypeSpec: pschema.TypeSpec{Ref: "#/types/aws-native:test:Settings"}},
+			"tags": {
+				TypeSpec: pschema.TypeSpec{
+					Type:                 "object",
+					AdditionalProperties: &pschema.TypeSpec{Type: "string"},
+				},
+			},
+		},
+		Outputs: map[string]pschema.PropertySpec{
+			"settings": {TypeSpec: pschema.TypeSpec{Ref: "#/types/aws-native:test:Settings"}},
+			"tags": {
+				TypeSpec: pschema.TypeSpec{
+					Type:                 "object",
+					AdditionalProperties: &pschema.TypeSpec{Type: "string"},
+				},
+			},
+		},
+	}
+	types := map[string]metadata.CloudAPIType{
+		"aws-native:test:Settings": {
+			Type: "object",
+			Properties: map[string]pschema.PropertySpec{
+				"password": {TypeSpec: pschema.TypeSpec{Type: "string"}},
+			},
+		},
+	}
+	classifier := NewPathClassifier(&spec, types)
+
+	baseline := classifier.actualInputBaseline(
+		resource.PropertyMap{
+			"settings": resource.NewObjectProperty(resource.PropertyMap{
+				"password": resource.MakeSecret(resource.NewStringProperty("old")),
+			}),
+			"tags": resource.NewObjectProperty(resource.PropertyMap{
+				"secret": resource.MakeSecret(resource.NewStringProperty("old")),
+			}),
+		},
+		resource.PropertyMap{
+			"settings": resource.NewObjectProperty(resource.PropertyMap{
+				"password": resource.NewStringProperty("drifted"),
+			}),
+			"tags": resource.NewObjectProperty(resource.PropertyMap{
+				"secret": resource.NewStringProperty("drifted"),
+				"plain":  resource.NewStringProperty("value"),
+			}),
+		},
+		resource.PropertyMap{
+			"settings": resource.NewObjectProperty(resource.PropertyMap{
+				"password": resource.MakeSecret(resource.NewStringProperty("old")),
+			}),
+			"tags": resource.NewObjectProperty(resource.PropertyMap{
+				"secret": resource.MakeSecret(resource.NewStringProperty("old")),
+			}),
+		})
+
+	password := baseline["settings"].ObjectValue()["password"]
+	require.True(t, password.IsSecret())
+	assert.Equal(t, resource.NewStringProperty("drifted"), password.SecretValue().Element)
+	secretTag := baseline["tags"].ObjectValue()["secret"]
+	require.True(t, secretTag.IsSecret())
+	assert.Equal(t, resource.NewStringProperty("drifted"), secretTag.SecretValue().Element)
+	assert.False(t, baseline["tags"].ObjectValue()["plain"].IsSecret())
+}
+
 func TestPathClassifierArrayOwnership(t *testing.T) {
 	spec := metadata.CloudAPIResource{
 		Inputs: map[string]pschema.PropertySpec{
