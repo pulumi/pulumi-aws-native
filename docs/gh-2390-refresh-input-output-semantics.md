@@ -290,7 +290,9 @@ This is not a rule to ignore all live-output differences. Suppression is only co
 
 Some AWS resources expose IAM policy documents through `pulumi.json#/Any` input fields. These values are not plain structural maps for diff purposes. IAM accepts policy documents with IAM/CloudFormation JSON key casing such as `Version`, `Statement`, `Action`, and `Principal`. Lower-camel policy keys such as `version` and `statement` are not valid write inputs for IAM role policy documents.
 
-CloudControl read/refresh output still passes through the provider-wide CloudFormation-to-SDK conversion path. As a result, a valid IAM policy document written with `Version` and `Statement` can be returned in Pulumi state as `version` and `statement`. CloudControl can also normalize the value shape. In the live IAM Role repro, a trust policy authored as:
+CloudControl read/refresh output still passes through the provider-wide CloudFormation-to-SDK conversion path. CloudControl returns resource state using CloudFormation property names, which are usually PascalCase. Pulumi schema and SDK property names are lower-camel-case. After the provider decodes the CloudControl JSON object, it calls `naming.CfnToSdk` before storing outputs or projecting live state back into input shape. That helper recursively walks maps and arrays and converts every map key with `naming.ToSdkName`, so a resource property such as `RoleName` becomes `roleName`.
+
+That recursive conversion is correct for normal resource properties, including nested resource properties. It is awkward for untyped JSON blobs embedded inside a resource property. An IAM policy document is a JSON value whose keys have IAM meaning, not AWS Native schema-property meaning, but it is still represented as a map inside the decoded CloudControl output. The recursive conversion therefore rewrites policy JSON keys too. As a result, a valid IAM policy document written with `Version` and `Statement` can be returned in Pulumi state as `version` and `statement`. CloudControl can also normalize the value shape. In the live IAM Role repro, a trust policy authored as:
 
 ```json
 {
