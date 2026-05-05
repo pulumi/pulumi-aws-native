@@ -269,16 +269,24 @@ removals must be represented as engine-visible old-input/new-input diffs so
 generated SDK `replaceOnChanges` can replace the resource before provider
 `Update`.
 
-### AWS-Managed Diff Suppression
+### AWS-Returned Normalization Suppression
 
-`SuppressAWSManagedDiffs` receives checkpointed old desired inputs plus actual/desired context. Under ownership-aware refresh, suppression should remain tied to ownership:
+Ownership-aware refresh intentionally uses live CloudControl output to build the next old-input baseline for user-managed paths. That makes real drift visible to the engine, but it also exposes a broader provider behavior: AWS and CloudControl can return a value in a different but semantically equivalent representation than the value the user supplied.
+
+Before GH-2390, these differences were often hidden because refresh did not consistently use live output as the managed input baseline. Once refresh and patch generation compare actual live values against desired inputs more accurately, representation differences can appear as phantom diffs unless the provider suppresses the AWS-returned normalization.
+
+This is not a rule to ignore all live-output differences. Suppression is only correct when the provider can identify a narrow AWS-owned or AWS-normalized representation change that is semantically equivalent to the user's desired value. If the user manages the containing property and AWS returns a materially different value, that should remain visible drift.
+
+`SuppressAWSManagedDiffs` receives checkpointed old desired inputs plus actual/desired context. Under ownership-aware refresh and actual-output patching, suppression should remain tied to the specific normalization being handled:
 
 - AWS-managed tag keys such as `aws:*` should not become user-owned merely because AWS returns them.
 - Non-`aws:*` keys in a user-owned tag map should remain visible drift.
 - Suppression should filter AWS-managed tag keys from both the old actual baseline and the new desired value; otherwise an `aws:*` tag present only in refreshed actual inputs becomes false removal drift.
+- For key/value-array tags, CloudControl can return the same tag set in a different order. Tag order is not semantically meaningful, so comparison should normalize order for tag arrays while still preserving real tag additions, removals, and value changes.
+- IAM policy documents can be returned with different JSON shape and key casing while representing the same IAM policy.
 - Property transforms should receive enough context to compare actual and desired values without reusing a tag-ownership argument for unrelated semantics.
 
-### IAM Policy Document Normalization
+#### IAM Policy Document Normalization
 
 Some AWS resources expose IAM policy documents through `pulumi.json#/Any` input fields. These values are not plain structural maps for diff purposes. IAM accepts policy documents with IAM/CloudFormation JSON key casing such as `Version`, `Statement`, `Action`, and `Principal`. Lower-camel policy keys such as `version` and `statement` are not valid write inputs for IAM role policy documents.
 
