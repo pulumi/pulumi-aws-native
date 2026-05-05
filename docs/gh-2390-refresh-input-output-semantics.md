@@ -278,6 +278,48 @@ generated SDK `replaceOnChanges` can replace the resource before provider
 - Suppression should filter AWS-managed tag keys from both the old actual baseline and the new desired value; otherwise an `aws:*` tag present only in refreshed actual inputs becomes false removal drift.
 - Property transforms should receive enough context to compare actual and desired values without reusing a tag-ownership argument for unrelated semantics.
 
+### IAM Policy Document Normalization
+
+Some AWS resources expose IAM policy documents through `pulumi.json#/Any` input fields. These values are not plain structural maps for diff purposes. IAM accepts policy documents with IAM/CloudFormation JSON key casing such as `Version`, `Statement`, `Action`, and `Principal`. Lower-camel policy keys such as `version` and `statement` are not valid write inputs for IAM role policy documents.
+
+CloudControl read/refresh output still passes through the provider-wide CloudFormation-to-SDK conversion path. As a result, a valid IAM policy document written with `Version` and `Statement` can be returned in Pulumi state as `version` and `statement`. CloudControl can also normalize the value shape. In the live IAM Role repro, a trust policy authored as:
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [{
+    "Action": ["sts:AssumeRole"],
+    "Effect": "Allow",
+    "Principal": { "Service": "ec2.amazonaws.com" }
+  }]
+}
+```
+
+was returned as:
+
+```json
+{
+  "version": "2012-10-17",
+  "statement": [{
+    "action": "sts:AssumeRole",
+    "effect": "Allow",
+    "principal": { "service": "ec2.amazonaws.com" }
+  }]
+}
+```
+
+This is a normalized representation of the same IAM policy, not user-managed drift. If refresh checkpoints the normalized value as a new input baseline without suppression, the next diff can plan a phantom update for `assumeRolePolicyDocument`.
+
+The suppression should stay narrow:
+
+- only apply to known IAM Role policy document paths, currently `assumeRolePolicyDocument` and `policies/*/policyDocument`;
+- parse JSON strings before comparison because users can author trust policies as strings while CloudControl returns objects;
+- restore known lower-camel IAM policy keys to IAM JSON casing before semantic comparison;
+- delegate IAM-specific equivalence rules such as scalar versus singleton-array `Action` to `github.com/hashicorp/awspolicyequivalence`;
+- preserve structural diffs outside the policy document value, such as adding or deleting an inline policy entry.
+
+Do not apply policy-document equivalence to arbitrary `pulumi.json#/Any` maps. The casing mismatch here is a result of IAM policy JSON semantics interacting with the provider's SDK-name output conversion, and the safe equivalence rules are IAM-specific.
+
 ## Edge Cases
 
 ### External Drift On Managed Input
