@@ -600,12 +600,12 @@ func TestSuppressAWSManagedDiffs(t *testing.T) {
 		}
 		newProps := resource.PropertyMap{
 			"assumeRolePolicyDocument": resource.NewObjectProperty(resource.PropertyMap{
-				"version": resource.NewStringProperty("2012-10-17"),
-				"statement": resource.NewArrayProperty([]resource.PropertyValue{
+				"Version": resource.NewStringProperty("2012-10-17"),
+				"Statement": resource.NewArrayProperty([]resource.PropertyValue{
 					resource.NewObjectProperty(resource.PropertyMap{
-						"effect":    resource.NewStringProperty("Allow"),
-						"action":    resource.NewStringProperty("sts:AssumeRole"),
-						"principal": resource.NewObjectProperty(resource.PropertyMap{"service": resource.NewStringProperty("ec2.amazonaws.com")}),
+						"Effect":    resource.NewStringProperty("Allow"),
+						"Action":    resource.NewArrayProperty([]resource.PropertyValue{resource.NewStringProperty("sts:AssumeRole")}),
+						"Principal": resource.NewObjectProperty(resource.PropertyMap{"Service": resource.NewStringProperty("ec2.amazonaws.com")}),
 					}),
 				}),
 			}),
@@ -613,12 +613,12 @@ func TestSuppressAWSManagedDiffs(t *testing.T) {
 				resource.NewObjectProperty(resource.PropertyMap{
 					"policyName": resource.NewStringProperty("test-policy"),
 					"policyDocument": resource.NewObjectProperty(resource.PropertyMap{
-						"version": resource.NewStringProperty("2012-10-17"),
-						"statement": resource.NewArrayProperty([]resource.PropertyValue{
+						"Version": resource.NewStringProperty("2012-10-17"),
+						"Statement": resource.NewArrayProperty([]resource.PropertyValue{
 							resource.NewObjectProperty(resource.PropertyMap{
-								"effect":   resource.NewStringProperty("Allow"),
-								"action":   resource.NewStringProperty("*"),
-								"resource": resource.NewStringProperty("*"),
+								"Effect":   resource.NewStringProperty("Allow"),
+								"Action":   resource.NewArrayProperty([]resource.PropertyValue{resource.NewStringProperty("*")}),
+								"Resource": resource.NewStringProperty("*"),
 							}),
 						}),
 					}),
@@ -667,12 +667,12 @@ func TestSuppressAWSManagedDiffs(t *testing.T) {
 		}
 		newProps := resource.PropertyMap{
 			"assumeRolePolicyDocument": resource.NewObjectProperty(resource.PropertyMap{
-				"version": resource.NewStringProperty("2012-10-17"),
-				"statement": resource.NewArrayProperty([]resource.PropertyValue{
+				"Version": resource.NewStringProperty("2012-10-17"),
+				"Statement": resource.NewArrayProperty([]resource.PropertyValue{
 					resource.NewObjectProperty(resource.PropertyMap{
-						"effect":    resource.NewStringProperty("Allow"),
-						"action":    resource.NewStringProperty("sts:AssumeRole"),
-						"principal": resource.NewObjectProperty(resource.PropertyMap{"service": resource.NewStringProperty("ec2.amazonaws.com")}),
+						"Effect":    resource.NewStringProperty("Allow"),
+						"Action":    resource.NewStringProperty("sts:AssumeRole"),
+						"Principal": resource.NewObjectProperty(resource.PropertyMap{"Service": resource.NewStringProperty("ec2.amazonaws.com")}),
 					}),
 				}),
 			}),

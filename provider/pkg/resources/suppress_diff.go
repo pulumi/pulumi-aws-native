@@ -166,9 +166,9 @@ const (
 //
 // IAM accepts policy documents as JSON strings or structured objects. During
 // refresh, CloudControl can return the same policy as a normalized object with
-// different key casing or object key order. For example, a user-authored
+// different scalar/array shape or object key order. For example, a user-authored
 // `{"Version":"2012-10-17","Statement":[...]}` string and a live
-// `{version:"2012-10-17", statement:[...]}` object should not rewrite
+// `{Version:"2012-10-17", Statement:[...]}` object should not rewrite
 // checkpointed inputs or generate an update patch.
 func suppressIAMPolicyDocumentDiffs(resourceToken string, diff *resource.ObjectDiff) *resource.ObjectDiff {
 	if resourceToken != awsNativeIAMRoleToken && resourceToken != awsIAMRoleToken {
@@ -240,11 +240,8 @@ func isIAMRolePolicyDocumentPath(path string) bool {
 // policyDocumentsSemanticallyEqual compares two IAM policy document values
 // after converting JSON strings and object-shaped values to IAM JSON.
 //
-// CloudControl returns policy document objects after provider-wide SDK-name
-// conversion, so keys like `Version` and `Action` can appear as `version` and
-// `action`. After restoring IAM key casing, comparison is delegated to
-// awspolicyequivalence, which covers IAM-specific equivalence such as
-// singleton arrays versus scalar strings.
+// Comparison is delegated to awspolicyequivalence, which covers IAM-specific
+// equivalence such as singleton arrays versus scalar strings.
 func policyDocumentsSemanticallyEqual(oldValue, newValue resource.PropertyValue) bool {
 	oldDoc, ok := canonicalIAMPolicyDocumentJSON(oldValue)
 	if !ok {
@@ -264,114 +261,38 @@ func policyDocumentsSemanticallyEqual(oldValue, newValue resource.PropertyValue)
 }
 
 // canonicalIAMPolicyDocumentJSON unwraps Pulumi secret/output wrappers and
-// returns an IAM-cased JSON document suitable for awspolicyequivalence.
+// returns a JSON document suitable for awspolicyequivalence.
 //
-// A JSON string is parsed before normalization, while object-shaped values are
-// decoded directly. Values that are not valid JSON strings return false so the
-// caller preserves the original diff.
+// JSON strings are validated and otherwise preserved as-authored, while
+// object-shaped values are marshaled directly. Values that are not valid JSON
+// strings return false so the caller preserves the original diff.
 func canonicalIAMPolicyDocumentJSON(value resource.PropertyValue) (string, bool) {
 	return canonicalIAMPolicyDocumentValueJSON(resourcex.DecodeValue(value))
 }
 
 // canonicalIAMPolicyDocumentValueJSON converts a decoded policy document into
-// JSON with IAM policy key casing restored.
+// JSON without changing IAM document keys.
 //
 // Examples:
-//   - JSON strings are parsed before comparison.
-//   - Object keys such as `version` and `statement` are restored to `Version`
-//     and `Statement`.
-//   - Nested policy objects receive the same key normalization recursively.
+//   - A JSON string such as `{"Statement":[...]}` is passed through after
+//     validation.
+//   - An object such as `{"Statement":[{"Action":["sts:AssumeRole"]}]}` is
+//     marshaled so awspolicyequivalence can compare it against another JSON
+//     representation.
 func canonicalIAMPolicyDocumentValueJSON(value interface{}) (string, bool) {
 	if text, ok := value.(string); ok {
-		decoder := json.NewDecoder(strings.NewReader(strings.TrimSpace(text)))
-		decoder.UseNumber()
-		var parsed interface{}
-		if err := decoder.Decode(&parsed); err != nil {
+		text = strings.TrimSpace(text)
+		if !json.Valid([]byte(text)) {
 			return "", false
 		}
-		value = parsed
+		return text, true
 	}
 
-	normalized := normalizeIAMPolicyDocumentValue(value)
-	bytes, err := json.Marshal(normalized)
+	bytes, err := json.Marshal(value)
 	if err != nil {
 		return "", false
 	}
 	return string(bytes), true
-}
-
-// normalizeIAMPolicyDocumentValue recursively normalizes policy document object
-// keys to IAM casing while preserving scalar values and array order.
-//
-// This makes a CloudFormation-shaped object like
-// `{ "Statement": [{ "Action": "*" }] }` compare equal to the CloudControl
-// output object `{ "statement": [{ "action": "*" }] }`. Unknown keys are
-// preserved so condition keys like `aws:SourceArn` are not rewritten.
-func normalizeIAMPolicyDocumentValue(value interface{}) interface{} {
-	switch typed := value.(type) {
-	case map[string]interface{}:
-		result := make(map[string]interface{}, len(typed))
-		for key, child := range typed {
-			result[iamPolicyDocumentKey(key)] = normalizeIAMPolicyDocumentValue(child)
-		}
-		return result
-	case []interface{}:
-		result := make([]interface{}, len(typed))
-		for i, child := range typed {
-			result[i] = normalizeIAMPolicyDocumentValue(child)
-		}
-		return result
-	case json.Number:
-		return typed.String()
-	default:
-		return typed
-	}
-}
-
-// iamPolicyDocumentKey restores the IAM/JSON spelling for keys that
-// CloudControl output may have passed through provider SDK-name conversion.
-//
-// Examples:
-//   - `version` becomes `Version`.
-//   - `notAction` becomes `NotAction`.
-//   - `aws:SourceArn` is unknown to this table and remains unchanged.
-func iamPolicyDocumentKey(key string) string {
-	switch key {
-	case "version", "Version":
-		return "Version"
-	case "id", "Id":
-		return "Id"
-	case "statement", "Statement":
-		return "Statement"
-	case "sid", "Sid":
-		return "Sid"
-	case "effect", "Effect":
-		return "Effect"
-	case "action", "Action":
-		return "Action"
-	case "notAction", "NotAction":
-		return "NotAction"
-	case "resource", "Resource":
-		return "Resource"
-	case "notResource", "NotResource":
-		return "NotResource"
-	case "principal", "Principal":
-		return "Principal"
-	case "notPrincipal", "NotPrincipal":
-		return "NotPrincipal"
-	case "condition", "Condition":
-		return "Condition"
-	case "aws", "AWS":
-		return "AWS"
-	case "service", "Service":
-		return "Service"
-	case "federated", "Federated":
-		return "Federated"
-	case "canonicalUser", "CanonicalUser":
-		return "CanonicalUser"
-	default:
-		return key
-	}
 }
 
 // filterAWSPrefixedTags removes aws:* prefixed tags that weren't in originalTags.

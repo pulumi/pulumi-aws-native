@@ -1382,12 +1382,12 @@ func TestStandardResourceDiffUsesActualOutputBaseline(t *testing.T) {
 		}
 		actualOutputs := resource.PropertyMap{
 			"assumeRolePolicyDocument": resource.NewObjectProperty(resource.PropertyMap{
-				"version": resource.NewStringProperty("2012-10-17"),
-				"statement": resource.NewArrayProperty([]resource.PropertyValue{
+				"Version": resource.NewStringProperty("2012-10-17"),
+				"Statement": resource.NewArrayProperty([]resource.PropertyValue{
 					resource.NewObjectProperty(resource.PropertyMap{
-						"effect":    resource.NewStringProperty("Allow"),
-						"principal": resource.NewObjectProperty(resource.PropertyMap{"service": resource.NewStringProperty("ec2.amazonaws.com")}),
-						"action":    resource.NewStringProperty("sts:AssumeRole"),
+						"Effect":    resource.NewStringProperty("Allow"),
+						"Principal": resource.NewObjectProperty(resource.PropertyMap{"Service": resource.NewStringProperty("ec2.amazonaws.com")}),
+						"Action":    resource.NewStringProperty("sts:AssumeRole"),
 					}),
 				}),
 			}),
@@ -1395,12 +1395,12 @@ func TestStandardResourceDiffUsesActualOutputBaseline(t *testing.T) {
 				resource.NewObjectProperty(resource.PropertyMap{
 					"policyName": resource.NewStringProperty("test-policy"),
 					"policyDocument": resource.NewObjectProperty(resource.PropertyMap{
-						"version": resource.NewStringProperty("2012-10-17"),
-						"statement": resource.NewArrayProperty([]resource.PropertyValue{
+						"Version": resource.NewStringProperty("2012-10-17"),
+						"Statement": resource.NewArrayProperty([]resource.PropertyValue{
 							resource.NewObjectProperty(resource.PropertyMap{
-								"effect":   resource.NewStringProperty("Allow"),
-								"action":   resource.NewStringProperty("*"),
-								"resource": resource.NewStringProperty("*"),
+								"Effect":   resource.NewStringProperty("Allow"),
+								"Action":   resource.NewArrayProperty([]resource.PropertyValue{resource.NewStringProperty("*")}),
+								"Resource": resource.NewStringProperty("*"),
 							}),
 						}),
 					}),
