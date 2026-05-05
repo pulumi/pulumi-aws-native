@@ -48,6 +48,19 @@ import (
 	"github.com/golang/glog"
 	pbempty "github.com/golang/protobuf/ptypes/empty"
 	"github.com/pkg/errors"
+	"google.golang.org/grpc/codes"
+	"google.golang.org/grpc/status"
+	"google.golang.org/protobuf/types/known/emptypb"
+	"google.golang.org/protobuf/types/known/structpb"
+
+	"github.com/pulumi/pulumi-go-provider/resourcex"
+	"github.com/pulumi/pulumi/pkg/v3/resource/provider"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/diag"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/resource/plugin"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/rpcutil/rpcerror"
+	pulumirpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
+
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/autonaming"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/client"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/default_tags"
@@ -56,17 +69,6 @@ import (
 	pOutputs "github.com/pulumi/pulumi-aws-native/provider/pkg/outputs"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/resources"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/schema"
-	"github.com/pulumi/pulumi-go-provider/resourcex"
-	"github.com/pulumi/pulumi/pkg/v3/resource/provider"
-	"github.com/pulumi/pulumi/sdk/v3/go/common/diag"
-	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
-	"github.com/pulumi/pulumi/sdk/v3/go/common/resource/plugin"
-	"github.com/pulumi/pulumi/sdk/v3/go/common/util/rpcutil/rpcerror"
-	pulumirpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
-	"google.golang.org/grpc/codes"
-	"google.golang.org/grpc/status"
-	"google.golang.org/protobuf/types/known/emptypb"
-	"google.golang.org/protobuf/types/known/structpb"
 )
 
 // The APN 1.1 AWS Marketplace identifier to should be used in the User-Agent header.
@@ -925,7 +927,7 @@ func (p *cfnProvider) Create(ctx context.Context, req *pulumirpc.CreateRequest) 
 		// Convert SDK inputs to CFN payload.
 		payload, err := naming.SdkToCfn(&spec, p.resourceMap.Types, resourcex.Decode(inputs))
 		if err != nil {
-			return nil, fmt.Errorf("Failed to convert value for %s: %w", resourceToken, err)
+			return nil, fmt.Errorf("failed to convert value for %s: %w", resourceToken, err)
 		}
 
 		// Create the resource with Cloud API.
@@ -936,7 +938,10 @@ func (p *cfnProvider) Create(ctx context.Context, req *pulumirpc.CreateRequest) 
 			return nil, errors.Wrapf(createErr, "creating resource")
 		}
 
-		rawOutputs := naming.CfnToSdk(resourceState)
+		rawOutputs, err := naming.CfnToSdkV2(&spec, p.resourceMap.Types, resourceState)
+		if err != nil {
+			return nil, fmt.Errorf("failed to convert value for %s: %w", resourceToken, err)
+		}
 		// Write-only properties are not returned in the outputs, so we assume they should have the same value we sent from the inputs.
 		if hasSpec && len(spec.WriteOnly) > 0 {
 			inputsMap := inputs.Mappable()
@@ -1033,7 +1038,10 @@ func (p *cfnProvider) Read(ctx context.Context, req *pulumirpc.ReadRequest) (*pu
 			// Not Exists means that the resource was deleted.
 			return &pulumirpc.ReadResponse{Id: ""}, nil
 		}
-		rawState := naming.CfnToSdk(resourceState)
+		rawState, err := naming.CfnToSdkV2(&spec, p.resourceMap.Types, resourceState)
+		if err != nil {
+			return nil, fmt.Errorf("failed to convert value for %s: %w", resourceToken, err)
+		}
 
 		if inputs == nil {
 			// There may be no old state (i.e., importing a new resource).
@@ -1189,7 +1197,10 @@ func (p *cfnProvider) Update(ctx context.Context, req *pulumirpc.UpdateRequest) 
 		if err != nil {
 			return nil, err
 		}
-		rawOutputs := naming.CfnToSdk(resourceState)
+		rawOutputs, err := naming.CfnToSdkV2(&spec, p.resourceMap.Types, resourceState)
+		if err != nil {
+			return nil, fmt.Errorf("failed to convert value for %s: %w", resourceToken, err)
+		}
 
 		// Write-only properties are not returned in the outputs, so we assume they should have the same value we sent from the inputs.
 		if len(spec.WriteOnly) > 0 {

@@ -7,17 +7,251 @@ import (
 	"testing"
 
 	"github.com/mattbaird/jsonpatch"
-
-	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
-	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
-	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+
+	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
+
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
 )
 
 func TestCfnToSdk(t *testing.T) {
 	actual := CfnToSdk(cfnPayload)
 	assert.Equal(t, sdkState, actual)
+}
+
+func TestCfnToSdkV2(t *testing.T) {
+	t.Run("typed resource properties", func(t *testing.T) {
+		res := sampleSchema.Resources["aws-native:ecs:Service"]
+		actual, err := CfnToSdkV2(&res, sampleSchema.Types, cfnPayload)
+		require.NoError(t, err)
+		assert.Equal(t, sdkState, actual)
+	})
+
+	t.Run("schema names and Any values", func(t *testing.T) {
+		res := metadata.CloudAPIResource{
+			Inputs: map[string]pschema.PropertySpec{
+				"assumeRolePolicyDocument": {
+					TypeSpec: pschema.TypeSpec{Ref: "pulumi.json#/Any"},
+				},
+				"policyDocuments": {
+					TypeSpec: pschema.TypeSpec{
+						Type:  "array",
+						Items: &pschema.TypeSpec{Ref: "pulumi.json#/Any"},
+					},
+				},
+				"namedPolicies": {
+					TypeSpec: pschema.TypeSpec{
+						Type:                 "object",
+						AdditionalProperties: &pschema.TypeSpec{Ref: "pulumi.json#/Any"},
+					},
+				},
+			},
+			Outputs: map[string]pschema.PropertySpec{
+				"awsId": {TypeSpec: pschema.TypeSpec{Type: "string"}},
+			},
+			IrreversibleNames: map[string]string{
+				"awsId": "Id",
+			},
+		}
+		state := map[string]interface{}{
+			"Id": "resource-id",
+			"AssumeRolePolicyDocument": map[string]interface{}{
+				"Version": "2012-10-17",
+				"Statement": []interface{}{
+					map[string]interface{}{"Action": "sts:AssumeRole"},
+				},
+			},
+			"PolicyDocuments": []interface{}{
+				map[string]interface{}{"Statement": []interface{}{map[string]interface{}{"Action": "s3:GetObject"}}},
+			},
+			"NamedPolicies": map[string]interface{}{
+				"AdminPolicy": map[string]interface{}{"Statement": []interface{}{map[string]interface{}{"Action": "*"}}},
+			},
+			"UnknownObject": map[string]interface{}{"NestedKey": "value"},
+		}
+
+		actual, err := CfnToSdkV2(&res, nil, state)
+		require.NoError(t, err)
+		assert.Equal(t, map[string]interface{}{
+			"awsId": "resource-id",
+			"assumeRolePolicyDocument": map[string]interface{}{
+				"Version": "2012-10-17",
+				"Statement": []interface{}{
+					map[string]interface{}{"Action": "sts:AssumeRole"},
+				},
+			},
+			"policyDocuments": []interface{}{
+				map[string]interface{}{"Statement": []interface{}{map[string]interface{}{"Action": "s3:GetObject"}}},
+			},
+			"namedPolicies": map[string]interface{}{
+				"AdminPolicy": map[string]interface{}{"Statement": []interface{}{map[string]interface{}{"Action": "*"}}},
+			},
+			"unknownObject": map[string]interface{}{"nestedKey": "value"},
+		}, actual)
+	})
+
+	t.Run("typed objects use nested schema names and preserve nested Any", func(t *testing.T) {
+		res := metadata.CloudAPIResource{
+			Inputs: map[string]pschema.PropertySpec{
+				"configuration": {
+					TypeSpec: pschema.TypeSpec{Ref: "#/types/custom:Configuration"},
+				},
+				"configurations": {
+					TypeSpec: pschema.TypeSpec{
+						Type:  "array",
+						Items: &pschema.TypeSpec{Ref: "#/types/custom:Configuration"},
+					},
+				},
+				"namedConfigurations": {
+					TypeSpec: pschema.TypeSpec{
+						Type:                 "object",
+						AdditionalProperties: &pschema.TypeSpec{Ref: "#/types/custom:Configuration"},
+					},
+				},
+			},
+		}
+		types := map[string]metadata.CloudAPIType{
+			"custom:Configuration": {
+				Type: "object",
+				Properties: map[string]pschema.PropertySpec{
+					"awsId":          {TypeSpec: pschema.TypeSpec{Type: "string"}},
+					"policyDocument": {TypeSpec: pschema.TypeSpec{Ref: "pulumi.json#/Any"}},
+				},
+				IrreversibleNames: map[string]string{
+					"awsId": "Id",
+				},
+			},
+		}
+		policy := map[string]interface{}{
+			"Version": "2012-10-17",
+			"Statement": []interface{}{
+				map[string]interface{}{"Action": "sts:AssumeRole"},
+			},
+		}
+
+		actual, err := CfnToSdkV2(&res, types, map[string]interface{}{
+			"Configuration": map[string]interface{}{
+				"Id":             "primary",
+				"PolicyDocument": policy,
+			},
+			"Configurations": []interface{}{
+				map[string]interface{}{
+					"Id":             "array-item",
+					"PolicyDocument": policy,
+				},
+			},
+			"NamedConfigurations": map[string]interface{}{
+				"main": map[string]interface{}{
+					"Id":             "map-item",
+					"PolicyDocument": policy,
+				},
+			},
+		})
+		require.NoError(t, err)
+		assert.Equal(t, map[string]interface{}{
+			"configuration": map[string]interface{}{
+				"awsId":          "primary",
+				"policyDocument": policy,
+			},
+			"configurations": []interface{}{
+				map[string]interface{}{
+					"awsId":          "array-item",
+					"policyDocument": policy,
+				},
+			},
+			"namedConfigurations": map[string]interface{}{
+				"main": map[string]interface{}{
+					"awsId":          "map-item",
+					"policyDocument": policy,
+				},
+			},
+		}, actual)
+	})
+
+	t.Run("missing ref and unexpected typed object shapes fall back to legacy conversion", func(t *testing.T) {
+		res := metadata.CloudAPIResource{
+			Inputs: map[string]pschema.PropertySpec{
+				"missing": {
+					TypeSpec: pschema.TypeSpec{Ref: "#/types/custom:Missing"},
+				},
+				"typed": {
+					TypeSpec: pschema.TypeSpec{Ref: "#/types/custom:Typed"},
+				},
+			},
+		}
+		types := map[string]metadata.CloudAPIType{
+			"custom:Typed": {
+				Type: "object",
+				Properties: map[string]pschema.PropertySpec{
+					"nestedValue": {TypeSpec: pschema.TypeSpec{Type: "string"}},
+				},
+			},
+		}
+
+		actual, err := CfnToSdkV2(&res, types, map[string]interface{}{
+			"Missing": map[string]interface{}{"NestedValue": "fallback"},
+			"Typed":   "not-an-object",
+		})
+		require.NoError(t, err)
+		assert.Equal(t, map[string]interface{}{
+			"missing": map[string]interface{}{"nestedValue": "fallback"},
+			"typed":   "not-an-object",
+		}, actual)
+	})
+
+	t.Run("oneOf values use schema-aware conversion", func(t *testing.T) {
+		res := metadata.CloudAPIResource{
+			Inputs: map[string]pschema.PropertySpec{
+				"configuration": {
+					TypeSpec: pschema.TypeSpec{
+						OneOf: []pschema.TypeSpec{
+							{Ref: "#/types/custom:PrimaryConfiguration"},
+							{Ref: "#/types/custom:SecondaryConfiguration"},
+						},
+					},
+				},
+			},
+		}
+		types := map[string]metadata.CloudAPIType{
+			"custom:PrimaryConfiguration": {
+				Type: "object",
+				Properties: map[string]pschema.PropertySpec{
+					"awsId":          {TypeSpec: pschema.TypeSpec{Type: "string"}},
+					"policyDocument": {TypeSpec: pschema.TypeSpec{Ref: "pulumi.json#/Any"}},
+				},
+				IrreversibleNames: map[string]string{
+					"awsId": "Id",
+				},
+			},
+			"custom:SecondaryConfiguration": {
+				Type: "object",
+				Properties: map[string]pschema.PropertySpec{
+					"secondaryValue": {TypeSpec: pschema.TypeSpec{Type: "string"}},
+				},
+			},
+		}
+		policy := map[string]interface{}{
+			"Statement": []interface{}{
+				map[string]interface{}{"Action": "sts:AssumeRole"},
+			},
+		}
+
+		actual, err := CfnToSdkV2(&res, types, map[string]interface{}{
+			"Configuration": map[string]interface{}{
+				"Id":             "primary",
+				"PolicyDocument": policy,
+			},
+		})
+		require.NoError(t, err)
+		assert.Equal(t, map[string]interface{}{
+			"configuration": map[string]interface{}{
+				"awsId":          "primary",
+				"policyDocument": policy,
+			},
+		}, actual)
+	})
 }
 
 func TestSdkToCfn(t *testing.T) {
@@ -97,34 +331,34 @@ func TestSdkToCfnOneOfAmbiguous(t *testing.T) {
 		},
 	}
 	types := map[string]metadata.CloudAPIType{
-		"aws-native:datazone:DataSourceConfigurationInput0Properties": metadata.CloudAPIType{
+		"aws-native:datazone:DataSourceConfigurationInput0Properties": {
 			Type: "object",
 			Properties: map[string]pschema.PropertySpec{
-				"glueRunConfiguration": pschema.PropertySpec{
+				"glueRunConfiguration": {
 					TypeSpec: pschema.TypeSpec{
 						Ref: "#/types/aws-native:datazone:DataSourceGlueRunConfigurationInput",
 					},
 				},
 			},
 		},
-		"aws-native:datazone:DataSourceGlueRunConfigurationInput": metadata.CloudAPIType{
+		"aws-native:datazone:DataSourceGlueRunConfigurationInput": {
 			Type: "object",
 			Properties: map[string]pschema.PropertySpec{
-				"dataAccessRole": pschema.PropertySpec{TypeSpec: pschema.TypeSpec{Type: "string"}},
+				"dataAccessRole": {TypeSpec: pschema.TypeSpec{Type: "string"}},
 			},
 		},
-		"aws-native:datazone:DataSourceConfigurationInput1Properties": metadata.CloudAPIType{
+		"aws-native:datazone:DataSourceConfigurationInput1Properties": {
 			Type: "object",
-			Properties: map[string]pschema.PropertySpec{"redshiftRunConfiguration": pschema.PropertySpec{
+			Properties: map[string]pschema.PropertySpec{"redshiftRunConfiguration": {
 				TypeSpec: pschema.TypeSpec{
 					Ref: "#/types/aws-native:datazone:DataSourceRedshiftRunConfigurationInput",
 				},
 			}},
 		},
-		"aws-native:datazone:DataSourceRedshiftRunConfigurationInput": metadata.CloudAPIType{
+		"aws-native:datazone:DataSourceRedshiftRunConfigurationInput": {
 			Type: "object",
 			Properties: map[string]pschema.PropertySpec{
-				"dataAccessRole": pschema.PropertySpec{TypeSpec: pschema.TypeSpec{Type: "string"}},
+				"dataAccessRole": {TypeSpec: pschema.TypeSpec{Type: "string"}},
 			},
 		},
 	}

@@ -5,19 +5,21 @@ import (
 	"testing"
 	"time"
 
-	"github.com/pulumi/pulumi-aws-native/provider/pkg/autonaming"
-	"github.com/pulumi/pulumi-aws-native/provider/pkg/client"
-	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
-	"github.com/pulumi/pulumi-aws-native/provider/pkg/resources"
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
+	gomock "go.uber.org/mock/gomock"
+	"google.golang.org/protobuf/types/known/structpb"
+
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource/plugin"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/rpcutil/rpcerror"
 	pulumirpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
-	"github.com/stretchr/testify/assert"
-	"github.com/stretchr/testify/require"
-	gomock "go.uber.org/mock/gomock"
-	"google.golang.org/protobuf/types/known/structpb"
+
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/autonaming"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/client"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/resources"
 )
 
 func TestConfigure(t *testing.T) {
@@ -220,7 +222,7 @@ func TestCreatePreview(t *testing.T) {
 	provider := &cfnProvider{
 		name: "test-provider",
 		resourceMap: &metadata.CloudAPIMetadata{Resources: map[string]metadata.CloudAPIResource{
-			"aws-native:s3:Bucket": metadata.CloudAPIResource{
+			"aws-native:s3:Bucket": {
 				CfType: "AWS::S3::Bucket",
 				Outputs: map[string]schema.PropertySpec{
 					"arn":        {TypeSpec: schema.TypeSpec{Type: "string"}},
@@ -293,7 +295,7 @@ func TestUpdatePreview(t *testing.T) {
 	provider := &cfnProvider{
 		name: "test-provider",
 		resourceMap: &metadata.CloudAPIMetadata{Resources: map[string]metadata.CloudAPIResource{
-			"aws-native:s3:Bucket": metadata.CloudAPIResource{
+			"aws-native:s3:Bucket": {
 				CfType: "AWS::S3::Bucket",
 				Outputs: map[string]schema.PropertySpec{
 					"arn":        {TypeSpec: schema.TypeSpec{Type: "string"}},
@@ -432,6 +434,56 @@ func TestCreate(t *testing.T) {
 		assert.Equal(t, "input value", inputs["my"].StringValue())
 	})
 
+	t.Run("StandardResource/PreservesAnyPropertyKeys", func(t *testing.T) {
+		provider.resourceMap.Resources["aws:iam/role:Role"] = metadata.CloudAPIResource{
+			CfType: "AWS::IAM::Role",
+			Inputs: map[string]schema.PropertySpec{
+				"assumeRolePolicyDocument": {TypeSpec: schema.TypeSpec{Ref: "pulumi.json#/Any"}},
+			},
+			Outputs: map[string]schema.PropertySpec{
+				"awsId": {TypeSpec: schema.TypeSpec{Type: "string"}},
+			},
+			IrreversibleNames: map[string]string{
+				"awsId": "Id",
+			},
+		}
+		req.Urn = string(resource.NewURN("stack", "project", "parent", "aws:iam/role:Role", "name"))
+		policyDocument := resource.NewObjectProperty(resource.PropertyMap{
+			"Version": resource.NewStringProperty("2012-10-17"),
+			"Statement": resource.NewArrayProperty([]resource.PropertyValue{
+				resource.NewObjectProperty(resource.PropertyMap{
+					"Action": resource.NewStringProperty("sts:AssumeRole"),
+				}),
+			}),
+		})
+		req.Properties = mustMarshalProperties(t, resource.PropertyMap{
+			"assumeRolePolicyDocument": policyDocument,
+		})
+
+		mockCCC.EXPECT().Create(ctx, gomock.Any(), "AWS::IAM::Role", gomock.Any()).Return(
+			stringPtr("role-id"),
+			map[string]interface{}{
+				"Id": "role-output-id",
+				"AssumeRolePolicyDocument": map[string]interface{}{
+					"Version": "2012-10-17",
+					"Statement": []interface{}{
+						map[string]interface{}{"Action": "sts:AssumeRole"},
+					},
+				},
+			}, nil,
+		)
+
+		resp, err := provider.Create(ctx, req)
+		assert.NoError(t, err)
+		require.NotNil(t, resp.Properties)
+		props := mustUnmarshalProperties(t, resp.Properties)
+		assert.Equal(t, "role-output-id", props["awsId"].StringValue())
+		doc := props["assumeRolePolicyDocument"].ObjectValue()
+		assert.Equal(t, "2012-10-17", doc["Version"].StringValue())
+		statement := doc["Statement"].ArrayValue()[0].ObjectValue()
+		assert.Equal(t, "sts:AssumeRole", statement["Action"].StringValue())
+	})
+
 	t.Run("StandardResource/NotFound", func(t *testing.T) {
 		req.Urn = string(resource.NewURN("stack", "project", "parent", "unknown:resource", "name"))
 
@@ -460,6 +512,7 @@ func TestCreate(t *testing.T) {
 			CfType: "AWS::S3::Bucket",
 		}
 		req.Urn = string(resource.NewURN("stack", "project", "parent", "aws:s3/bucket:Bucket", "name"))
+		req.Properties = mustMarshalProperties(t, resource.PropertyMap{"my": resource.NewStringProperty("input value")})
 
 		mockCCC.EXPECT().Create(ctx, gomock.Any(), "AWS::S3::Bucket", gomock.Any()).Return(
 			stringPtr("bucket-id"), map[string]interface{}{"foo": "bar"}, assert.AnError,
@@ -591,6 +644,45 @@ func TestRead(t *testing.T) {
 		assert.Equal(t, "my-bucket", inputs["bucketName"].StringValue())
 		assert.True(t, inputs.HasValue("objectLockEnabled"), "Expected 'objectLockEnabled' property in inputs")
 		assert.True(t, inputs["objectLockEnabled"].BoolValue())
+	})
+
+	t.Run("StandardResource/ImportPreservesAnyPropertyKeys", func(t *testing.T) {
+		provider.resourceMap.Resources["aws:iam/role:Role"] = metadata.CloudAPIResource{
+			CfType: "AWS::IAM::Role",
+			Inputs: map[string]schema.PropertySpec{
+				"assumeRolePolicyDocument": {TypeSpec: schema.TypeSpec{Ref: "pulumi.json#/Any"}},
+			},
+		}
+		req.Urn = string(resource.NewURN("stack", "project", "parent", "aws:iam/role:Role", "name"))
+		req.Properties = mustMarshalProperties(t, resource.PropertyMap{"foo": resource.NewStringProperty("bar")})
+
+		mockCCC.EXPECT().Read(ctx, "AWS::IAM::Role", "resource-id").Return(
+			map[string]interface{}{
+				"AssumeRolePolicyDocument": map[string]interface{}{
+					"Version": "2012-10-17",
+					"Statement": []interface{}{
+						map[string]interface{}{"Action": "sts:AssumeRole"},
+					},
+				},
+			}, true, nil,
+		)
+
+		resp, err := provider.Read(ctx, req)
+		assert.NoError(t, err)
+		require.NotNil(t, resp.Properties)
+		props := mustUnmarshalProperties(t, resp.Properties)
+		doc := props["assumeRolePolicyDocument"].ObjectValue()
+		assert.True(t, doc.HasValue("Version"), "Expected Any property key to be preserved")
+		assert.Equal(t, "2012-10-17", doc["Version"].StringValue())
+		statement := doc["Statement"].ArrayValue()[0].ObjectValue()
+		assert.True(t, statement.HasValue("Action"), "Expected nested Any property key to be preserved")
+		assert.Equal(t, "sts:AssumeRole", statement["Action"].StringValue())
+
+		require.NotNil(t, resp.Inputs)
+		inputs := mustUnmarshalProperties(t, resp.Inputs)
+		inputDoc := inputs["assumeRolePolicyDocument"].ObjectValue()
+		assert.True(t, inputDoc.HasValue("Version"), "Expected imported inputs to preserve Any property key")
+		assert.Equal(t, "2012-10-17", inputDoc["Version"].StringValue())
 	})
 
 	t.Run("StandardResource/NotFound", func(t *testing.T) {
@@ -807,6 +899,64 @@ func TestUpdate(t *testing.T) {
 		assert.Equal(t, "new-bucket", checkpoint["bucketName"].StringValue())
 		require.True(t, checkpoint.HasValue("objectLockEnabled"), "Expected 'objectLockEnabled' property in '__inputs'")
 		assert.False(t, checkpoint["objectLockEnabled"].BoolValue())
+	})
+
+	t.Run("StandardResource/PreservesAnyPropertyKeys", func(t *testing.T) {
+		provider.resourceMap.Resources["aws:iam/role:Role"] = metadata.CloudAPIResource{
+			CfType: "AWS::IAM::Role",
+			Inputs: map[string]schema.PropertySpec{
+				"assumeRolePolicyDocument": {TypeSpec: schema.TypeSpec{Ref: "pulumi.json#/Any"}},
+			},
+			Outputs: map[string]schema.PropertySpec{
+				"awsId": {TypeSpec: schema.TypeSpec{Type: "string"}},
+			},
+			IrreversibleNames: map[string]string{
+				"awsId": "Id",
+			},
+		}
+		req.Urn = string(resource.NewURN("stack", "project", "parent", "aws:iam/role:Role", "name"))
+		oldPolicyDocument := resource.NewObjectProperty(resource.PropertyMap{
+			"Version": resource.NewStringProperty("2012-10-17"),
+		})
+		newPolicyDocument := resource.NewObjectProperty(resource.PropertyMap{
+			"Version": resource.NewStringProperty("2012-10-17"),
+			"Statement": resource.NewArrayProperty([]resource.PropertyValue{
+				resource.NewObjectProperty(resource.PropertyMap{
+					"Action": resource.NewStringProperty("sts:AssumeRole"),
+				}),
+			}),
+		})
+		req.News = mustMarshalProperties(t, resource.PropertyMap{
+			"assumeRolePolicyDocument": newPolicyDocument,
+		})
+		req.Olds = mustMarshalProperties(t, resource.PropertyMap{
+			"assumeRolePolicyDocument": oldPolicyDocument,
+			"__inputs": resource.MakeSecret(resource.NewObjectProperty(resource.PropertyMap{
+				"assumeRolePolicyDocument": oldPolicyDocument,
+			})),
+		})
+
+		mockCCC.EXPECT().Update(ctx, gomock.Any(), "AWS::IAM::Role", "resource-id", gomock.Any()).Return(
+			map[string]interface{}{
+				"Id": "role-output-id",
+				"AssumeRolePolicyDocument": map[string]interface{}{
+					"Version": "2012-10-17",
+					"Statement": []interface{}{
+						map[string]interface{}{"Action": "sts:AssumeRole"},
+					},
+				},
+			}, nil,
+		)
+
+		resp, err := provider.Update(ctx, req)
+		assert.NoError(t, err)
+		require.NotNil(t, resp.Properties)
+		props := mustUnmarshalProperties(t, resp.Properties)
+		assert.Equal(t, "role-output-id", props["awsId"].StringValue())
+		doc := props["assumeRolePolicyDocument"].ObjectValue()
+		assert.Equal(t, "2012-10-17", doc["Version"].StringValue())
+		statement := doc["Statement"].ArrayValue()[0].ObjectValue()
+		assert.Equal(t, "sts:AssumeRole", statement["Action"].StringValue())
 	})
 
 	t.Run("StandardResource/Error", func(t *testing.T) {
