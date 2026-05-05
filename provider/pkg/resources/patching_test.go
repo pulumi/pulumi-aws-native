@@ -4,13 +4,15 @@ import (
 	"testing"
 
 	"github.com/mattbaird/jsonpatch"
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
+
+	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
+
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/default_tags"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/naming"
-	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
-	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
-	"github.com/stretchr/testify/assert"
-	"github.com/stretchr/testify/require"
 )
 
 func TestCalcPatch(t *testing.T) {
@@ -404,6 +406,94 @@ func TestCalcPatchWithActualOutputs(t *testing.T) {
 			resource.PropertyMap{"tags": actualTags},
 			resource.PropertyMap{"tags": oldTags},
 			spec, types, nil, "aws-native:test:Resource", NewTransformCache())
+		require.NoError(t, err)
+		assert.Empty(t, patch)
+	})
+
+	t.Run("normalized IAM policy document is suppressed", func(t *testing.T) {
+		spec := metadata.CloudAPIResource{
+			Inputs: map[string]schema.PropertySpec{
+				"assumeRolePolicyDocument": {TypeSpec: schema.TypeSpec{Ref: "pulumi.json#/Any"}},
+				"policies": {
+					TypeSpec: schema.TypeSpec{
+						Type:  "array",
+						Items: &schema.TypeSpec{Ref: "#/types/aws-native:iam:RolePolicy"},
+					},
+				},
+			},
+			Outputs: map[string]schema.PropertySpec{
+				"assumeRolePolicyDocument": {TypeSpec: schema.TypeSpec{Ref: "pulumi.json#/Any"}},
+				"policies": {
+					TypeSpec: schema.TypeSpec{
+						Type:  "array",
+						Items: &schema.TypeSpec{Ref: "#/types/aws-native:iam:RolePolicy"},
+					},
+				},
+			},
+		}
+		types := map[string]metadata.CloudAPIType{
+			"aws-native:iam:RolePolicy": {
+				Type: "object",
+				Properties: map[string]schema.PropertySpec{
+					"policyDocument": {TypeSpec: schema.TypeSpec{Ref: "pulumi.json#/Any"}},
+					"policyName":     {TypeSpec: schema.TypeSpec{Type: "string"}},
+				},
+			},
+		}
+		oldInputs := resource.PropertyMap{
+			"assumeRolePolicyDocument": resource.NewStringProperty(`{
+				"Version": "2012-10-17",
+				"Statement": [{
+					"Effect": "Allow",
+					"Principal": {"Service": "ec2.amazonaws.com"},
+					"Action": "sts:AssumeRole"
+				}]
+			}`),
+			"policies": resource.NewArrayProperty([]resource.PropertyValue{
+				resource.NewObjectProperty(resource.PropertyMap{
+					"policyName": resource.NewStringProperty("test-policy"),
+					"policyDocument": resource.NewObjectProperty(resource.PropertyMap{
+						"Version": resource.NewStringProperty("2012-10-17"),
+						"Statement": resource.NewArrayProperty([]resource.PropertyValue{
+							resource.NewObjectProperty(resource.PropertyMap{
+								"Effect":   resource.NewStringProperty("Allow"),
+								"Action":   resource.NewStringProperty("*"),
+								"Resource": resource.NewStringProperty("*"),
+							}),
+						}),
+					}),
+				}),
+			}),
+		}
+		actualOutputs := resource.PropertyMap{
+			"assumeRolePolicyDocument": resource.NewObjectProperty(resource.PropertyMap{
+				"version": resource.NewStringProperty("2012-10-17"),
+				"statement": resource.NewArrayProperty([]resource.PropertyValue{
+					resource.NewObjectProperty(resource.PropertyMap{
+						"effect":    resource.NewStringProperty("Allow"),
+						"principal": resource.NewObjectProperty(resource.PropertyMap{"service": resource.NewStringProperty("ec2.amazonaws.com")}),
+						"action":    resource.NewStringProperty("sts:AssumeRole"),
+					}),
+				}),
+			}),
+			"policies": resource.NewArrayProperty([]resource.PropertyValue{
+				resource.NewObjectProperty(resource.PropertyMap{
+					"policyName": resource.NewStringProperty("test-policy"),
+					"policyDocument": resource.NewObjectProperty(resource.PropertyMap{
+						"version": resource.NewStringProperty("2012-10-17"),
+						"statement": resource.NewArrayProperty([]resource.PropertyValue{
+							resource.NewObjectProperty(resource.PropertyMap{
+								"effect":   resource.NewStringProperty("Allow"),
+								"action":   resource.NewStringProperty("*"),
+								"resource": resource.NewStringProperty("*"),
+							}),
+						}),
+					}),
+				}),
+			}),
+		}
+		patch, err := CalcPatchWithActualOutputs(
+			oldInputs, actualOutputs, oldInputs, spec, types, nil, "aws-native:iam:Role", NewTransformCache())
 		require.NoError(t, err)
 		assert.Empty(t, patch)
 	})

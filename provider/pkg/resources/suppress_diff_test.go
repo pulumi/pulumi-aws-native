@@ -5,11 +5,13 @@ package resources
 import (
 	"testing"
 
-	"github.com/pulumi/pulumi-aws-native/provider/pkg/default_tags"
-	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
-	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+
+	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
+
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/default_tags"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
 )
 
 func TestFilterAWSPrefixedTags(t *testing.T) {
@@ -567,6 +569,121 @@ func TestSuppressAWSManagedDiffs(t *testing.T) {
 			"aws-native:test:Resource", spec, diff, oldDesired, actualInputs, desiredInputs, NewTransformCache())
 
 		assert.Empty(t, result.Updates, "sibling context should come from old actual and new desired inputs")
+	})
+
+	t.Run("suppresses semantically equal IAM policy document updates", func(t *testing.T) {
+		spec := &metadata.CloudAPIResource{}
+		oldProps := resource.PropertyMap{
+			"assumeRolePolicyDocument": resource.NewStringProperty(`{
+				"Version": "2012-10-17",
+				"Statement": [{
+					"Effect": "Allow",
+					"Action": "sts:AssumeRole",
+					"Principal": {"Service": "ec2.amazonaws.com"}
+				}]
+			}`),
+			"policies": resource.NewArrayProperty([]resource.PropertyValue{
+				resource.NewObjectProperty(resource.PropertyMap{
+					"policyName": resource.NewStringProperty("test-policy"),
+					"policyDocument": resource.NewObjectProperty(resource.PropertyMap{
+						"Version": resource.NewStringProperty("2012-10-17"),
+						"Statement": resource.NewArrayProperty([]resource.PropertyValue{
+							resource.NewObjectProperty(resource.PropertyMap{
+								"Effect":   resource.NewStringProperty("Allow"),
+								"Action":   resource.NewStringProperty("*"),
+								"Resource": resource.NewStringProperty("*"),
+							}),
+						}),
+					}),
+				}),
+			}),
+		}
+		newProps := resource.PropertyMap{
+			"assumeRolePolicyDocument": resource.NewObjectProperty(resource.PropertyMap{
+				"version": resource.NewStringProperty("2012-10-17"),
+				"statement": resource.NewArrayProperty([]resource.PropertyValue{
+					resource.NewObjectProperty(resource.PropertyMap{
+						"effect":    resource.NewStringProperty("Allow"),
+						"action":    resource.NewStringProperty("sts:AssumeRole"),
+						"principal": resource.NewObjectProperty(resource.PropertyMap{"service": resource.NewStringProperty("ec2.amazonaws.com")}),
+					}),
+				}),
+			}),
+			"policies": resource.NewArrayProperty([]resource.PropertyValue{
+				resource.NewObjectProperty(resource.PropertyMap{
+					"policyName": resource.NewStringProperty("test-policy"),
+					"policyDocument": resource.NewObjectProperty(resource.PropertyMap{
+						"version": resource.NewStringProperty("2012-10-17"),
+						"statement": resource.NewArrayProperty([]resource.PropertyValue{
+							resource.NewObjectProperty(resource.PropertyMap{
+								"effect":   resource.NewStringProperty("Allow"),
+								"action":   resource.NewStringProperty("*"),
+								"resource": resource.NewStringProperty("*"),
+							}),
+						}),
+					}),
+				}),
+			}),
+		}
+		diff := oldProps.Diff(newProps)
+		require.NotNil(t, diff)
+
+		result := SuppressAWSManagedDiffs(
+			"aws-native:iam:Role", spec, diff, oldProps, NewTransformCache())
+
+		assert.Empty(t, result.Updates)
+	})
+
+	t.Run("preserves real IAM policy document updates", func(t *testing.T) {
+		spec := &metadata.CloudAPIResource{}
+		oldProps := resource.PropertyMap{
+			"assumeRolePolicyDocument": resource.NewStringProperty(`{"Statement":[{"Action":"sts:AssumeRole"}]}`),
+		}
+		newProps := resource.PropertyMap{
+			"assumeRolePolicyDocument": resource.NewStringProperty(`{"Statement":[{"Action":"sts:TagSession"}]}`),
+		}
+		diff := oldProps.Diff(newProps)
+		require.NotNil(t, diff)
+
+		result := SuppressAWSManagedDiffs(
+			"aws-native:iam:Role", spec, diff, oldProps, NewTransformCache())
+
+		assert.Contains(t, result.Updates, resource.PropertyKey("assumeRolePolicyDocument"))
+	})
+
+	t.Run("suppresses IAM trust policy singleton array normalization", func(t *testing.T) {
+		spec := &metadata.CloudAPIResource{}
+		oldProps := resource.PropertyMap{
+			"assumeRolePolicyDocument": resource.NewObjectProperty(resource.PropertyMap{
+				"Version": resource.NewStringProperty("2012-10-17"),
+				"Statement": resource.NewArrayProperty([]resource.PropertyValue{
+					resource.NewObjectProperty(resource.PropertyMap{
+						"Effect":    resource.NewStringProperty("Allow"),
+						"Action":    resource.NewArrayProperty([]resource.PropertyValue{resource.NewStringProperty("sts:AssumeRole")}),
+						"Principal": resource.NewObjectProperty(resource.PropertyMap{"Service": resource.NewStringProperty("ec2.amazonaws.com")}),
+					}),
+				}),
+			}),
+		}
+		newProps := resource.PropertyMap{
+			"assumeRolePolicyDocument": resource.NewObjectProperty(resource.PropertyMap{
+				"version": resource.NewStringProperty("2012-10-17"),
+				"statement": resource.NewArrayProperty([]resource.PropertyValue{
+					resource.NewObjectProperty(resource.PropertyMap{
+						"effect":    resource.NewStringProperty("Allow"),
+						"action":    resource.NewStringProperty("sts:AssumeRole"),
+						"principal": resource.NewObjectProperty(resource.PropertyMap{"service": resource.NewStringProperty("ec2.amazonaws.com")}),
+					}),
+				}),
+			}),
+		}
+		diff := oldProps.Diff(newProps)
+		require.NotNil(t, diff)
+
+		result := SuppressAWSManagedDiffs(
+			"aws-native:iam:Role", spec, diff, oldProps, NewTransformCache())
+
+		assert.Empty(t, result.Updates)
 	})
 
 	t.Run("skips tag filtering when no TagsProperty", func(t *testing.T) {

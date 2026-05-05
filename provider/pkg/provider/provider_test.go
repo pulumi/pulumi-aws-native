@@ -1171,6 +1171,27 @@ func TestStandardResourceDiffUsesActualOutputBaseline(t *testing.T) {
 						},
 					},
 				},
+				"aws:iam:Role": {
+					CfType: "AWS::IAM::Role",
+					Inputs: map[string]schema.PropertySpec{
+						"assumeRolePolicyDocument": {TypeSpec: schema.TypeSpec{Ref: "pulumi.json#/Any"}},
+						"policies": {
+							TypeSpec: schema.TypeSpec{
+								Type:  "array",
+								Items: &schema.TypeSpec{Ref: "#/types/aws-native:iam:RolePolicy"},
+							},
+						},
+					},
+					Outputs: map[string]schema.PropertySpec{
+						"assumeRolePolicyDocument": {TypeSpec: schema.TypeSpec{Ref: "pulumi.json#/Any"}},
+						"policies": {
+							TypeSpec: schema.TypeSpec{
+								Type:  "array",
+								Items: &schema.TypeSpec{Ref: "#/types/aws-native:iam:RolePolicy"},
+							},
+						},
+					},
+				},
 			},
 			Types: map[string]metadata.CloudAPIType{
 				"aws-native:index:Tag": {
@@ -1178,6 +1199,13 @@ func TestStandardResourceDiffUsesActualOutputBaseline(t *testing.T) {
 					Properties: map[string]schema.PropertySpec{
 						"key":   {TypeSpec: schema.TypeSpec{Type: "string"}},
 						"value": {TypeSpec: schema.TypeSpec{Type: "string"}},
+					},
+				},
+				"aws-native:iam:RolePolicy": {
+					Type: "object",
+					Properties: map[string]schema.PropertySpec{
+						"policyDocument": {TypeSpec: schema.TypeSpec{Ref: "pulumi.json#/Any"}},
+						"policyName":     {TypeSpec: schema.TypeSpec{Type: "string"}},
 					},
 				},
 			},
@@ -1325,6 +1353,73 @@ func TestStandardResourceDiffUsesActualOutputBaseline(t *testing.T) {
 		assert.Equal(t, pulumirpc.DiffResponse_DIFF_NONE, resp.Changes)
 	})
 
+	t.Run("normalized IAM policy document actual baseline does not report diff", func(t *testing.T) {
+		roleURN := resource.NewURN("stack", "project", "parent", "aws:iam:Role", "name")
+		oldInputs := resource.PropertyMap{
+			"assumeRolePolicyDocument": resource.NewStringProperty(`{
+				"Version": "2012-10-17",
+				"Statement": [{
+					"Effect": "Allow",
+					"Principal": {"Service": "ec2.amazonaws.com"},
+					"Action": "sts:AssumeRole"
+				}]
+			}`),
+			"policies": resource.NewArrayProperty([]resource.PropertyValue{
+				resource.NewObjectProperty(resource.PropertyMap{
+					"policyName": resource.NewStringProperty("test-policy"),
+					"policyDocument": resource.NewObjectProperty(resource.PropertyMap{
+						"Version": resource.NewStringProperty("2012-10-17"),
+						"Statement": resource.NewArrayProperty([]resource.PropertyValue{
+							resource.NewObjectProperty(resource.PropertyMap{
+								"Effect":   resource.NewStringProperty("Allow"),
+								"Action":   resource.NewStringProperty("*"),
+								"Resource": resource.NewStringProperty("*"),
+							}),
+						}),
+					}),
+				}),
+			}),
+		}
+		actualOutputs := resource.PropertyMap{
+			"assumeRolePolicyDocument": resource.NewObjectProperty(resource.PropertyMap{
+				"version": resource.NewStringProperty("2012-10-17"),
+				"statement": resource.NewArrayProperty([]resource.PropertyValue{
+					resource.NewObjectProperty(resource.PropertyMap{
+						"effect":    resource.NewStringProperty("Allow"),
+						"principal": resource.NewObjectProperty(resource.PropertyMap{"service": resource.NewStringProperty("ec2.amazonaws.com")}),
+						"action":    resource.NewStringProperty("sts:AssumeRole"),
+					}),
+				}),
+			}),
+			"policies": resource.NewArrayProperty([]resource.PropertyValue{
+				resource.NewObjectProperty(resource.PropertyMap{
+					"policyName": resource.NewStringProperty("test-policy"),
+					"policyDocument": resource.NewObjectProperty(resource.PropertyMap{
+						"version": resource.NewStringProperty("2012-10-17"),
+						"statement": resource.NewArrayProperty([]resource.PropertyValue{
+							resource.NewObjectProperty(resource.PropertyMap{
+								"effect":   resource.NewStringProperty("Allow"),
+								"action":   resource.NewStringProperty("*"),
+								"resource": resource.NewStringProperty("*"),
+							}),
+						}),
+					}),
+				}),
+			}),
+		}
+		resp, err := provider.Diff(ctx, &pulumirpc.DiffRequest{
+			Urn: string(roleURN),
+			Olds: mustMarshalProperties(t, resource.PropertyMap{
+				"assumeRolePolicyDocument": actualOutputs["assumeRolePolicyDocument"],
+				"policies":                 actualOutputs["policies"],
+				"__inputs":                 resource.MakeSecret(resource.NewObjectProperty(oldInputs)),
+			}),
+			News: mustMarshalProperties(t, oldInputs),
+		})
+		require.NoError(t, err)
+		assert.Equal(t, pulumirpc.DiffResponse_DIFF_NONE, resp.Changes)
+	})
+
 	t.Run("write-only input from checkpoint does not become a diff", func(t *testing.T) {
 		oldInputs := resource.PropertyMap{
 			"password": resource.NewStringProperty("secret"),
@@ -1432,12 +1527,40 @@ func TestStandardResourceReadReturnsOwnershipFilteredInputs(t *testing.T) {
 					TagsProperty: "tags",
 					TagsStyle:    default_tags.TagsStyleKeyValueArray,
 				},
+				"aws:iam:Role": {
+					CfType: "AWS::IAM::Role",
+					Inputs: map[string]schema.PropertySpec{
+						"assumeRolePolicyDocument": {TypeSpec: schema.TypeSpec{Ref: "pulumi.json#/Any"}},
+						"policies": {
+							TypeSpec: schema.TypeSpec{
+								Type:  "array",
+								Items: &schema.TypeSpec{Ref: "#/types/aws-native:iam:RolePolicy"},
+							},
+						},
+					},
+					Outputs: map[string]schema.PropertySpec{
+						"assumeRolePolicyDocument": {TypeSpec: schema.TypeSpec{Ref: "pulumi.json#/Any"}},
+						"policies": {
+							TypeSpec: schema.TypeSpec{
+								Type:  "array",
+								Items: &schema.TypeSpec{Ref: "#/types/aws-native:iam:RolePolicy"},
+							},
+						},
+					},
+				},
 			},
 			Types: map[string]metadata.CloudAPIType{
 				"aws-native:index:Tag": {
 					Properties: map[string]schema.PropertySpec{
 						"key":   {TypeSpec: schema.TypeSpec{Type: "string"}},
 						"value": {TypeSpec: schema.TypeSpec{Type: "string"}},
+					},
+				},
+				"aws-native:iam:RolePolicy": {
+					Type: "object",
+					Properties: map[string]schema.PropertySpec{
+						"policyDocument": {TypeSpec: schema.TypeSpec{Ref: "pulumi.json#/Any"}},
+						"policyName":     {TypeSpec: schema.TypeSpec{Type: "string"}},
 					},
 				},
 			},
@@ -1610,6 +1733,83 @@ func TestStandardResourceReadReturnsOwnershipFilteredInputs(t *testing.T) {
 		props := mustUnmarshalProperties(t, resp.Properties)
 		checkpointTags := props["__inputs"].SecretValue().Element.ObjectValue()["tags"]
 		assert.True(t, oldTags.DeepEquals(checkpointTags))
+	})
+
+	t.Run("normalized IAM policy document is not checkpointed as owned input drift", func(t *testing.T) {
+		roleURN := resource.NewURN("stack", "project", "parent", "aws:iam:Role", "name")
+		oldInputs := resource.PropertyMap{
+			"assumeRolePolicyDocument": resource.NewStringProperty(`{
+				"Version": "2012-10-17",
+				"Statement": [{
+					"Effect": "Allow",
+					"Principal": {"Service": "ec2.amazonaws.com"},
+					"Action": "sts:AssumeRole"
+				}]
+			}`),
+			"policies": resource.NewArrayProperty([]resource.PropertyValue{
+				resource.NewObjectProperty(resource.PropertyMap{
+					"policyName": resource.NewStringProperty("test-policy"),
+					"policyDocument": resource.NewObjectProperty(resource.PropertyMap{
+						"Version": resource.NewStringProperty("2012-10-17"),
+						"Statement": resource.NewArrayProperty([]resource.PropertyValue{
+							resource.NewObjectProperty(resource.PropertyMap{
+								"Effect":   resource.NewStringProperty("Allow"),
+								"Action":   resource.NewStringProperty("*"),
+								"Resource": resource.NewStringProperty("*"),
+							}),
+						}),
+					}),
+				}),
+			}),
+		}
+		mockCCC.EXPECT().Read(ctx, "AWS::IAM::Role", "resource-id").Return(
+			map[string]interface{}{
+				"AssumeRolePolicyDocument": map[string]interface{}{
+					"Version": "2012-10-17",
+					"Statement": []interface{}{
+						map[string]interface{}{
+							"Effect":    "Allow",
+							"Principal": map[string]interface{}{"Service": "ec2.amazonaws.com"},
+							"Action":    "sts:AssumeRole",
+						},
+					},
+				},
+				"Policies": []interface{}{
+					map[string]interface{}{
+						"PolicyName": "test-policy",
+						"PolicyDocument": map[string]interface{}{
+							"Version": "2012-10-17",
+							"Statement": []interface{}{
+								map[string]interface{}{
+									"Effect":   "Allow",
+									"Action":   "*",
+									"Resource": "*",
+								},
+							},
+						},
+					},
+				},
+			}, true, nil,
+		)
+
+		resp, err := provider.Read(ctx, &pulumirpc.ReadRequest{
+			Urn: string(roleURN),
+			Id:  "resource-id",
+			Properties: mustMarshalProperties(t, resource.PropertyMap{
+				"assumeRolePolicyDocument": oldInputs["assumeRolePolicyDocument"],
+				"policies":                 oldInputs["policies"],
+				"__inputs":                 resource.MakeSecret(resource.NewObjectProperty(oldInputs)),
+			}),
+		})
+		require.NoError(t, err)
+
+		inputs := mustUnmarshalProperties(t, resp.Inputs)
+		assert.True(t, oldInputs["assumeRolePolicyDocument"].DeepEquals(inputs["assumeRolePolicyDocument"]))
+		assert.True(t, oldInputs["policies"].DeepEquals(inputs["policies"]))
+		props := mustUnmarshalProperties(t, resp.Properties)
+		checkpoint := props["__inputs"].SecretValue().Element.ObjectValue()
+		assert.True(t, oldInputs["assumeRolePolicyDocument"].DeepEquals(checkpoint["assumeRolePolicyDocument"]))
+		assert.True(t, oldInputs["policies"].DeepEquals(checkpoint["policies"]))
 	})
 
 	t.Run("create-only write-only value is carried forward through refresh", func(t *testing.T) {
