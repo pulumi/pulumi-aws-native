@@ -5,10 +5,13 @@ package resources
 import (
 	"testing"
 
-	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
-	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+
+	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
+
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/default_tags"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
 )
 
 func TestFilterAWSPrefixedTags(t *testing.T) {
@@ -173,7 +176,7 @@ func TestSuppressAWSManagedTagAdditions(t *testing.T) {
 
 		originalInputs := resource.PropertyMap{}
 
-		result := suppressAWSManagedTagAdditions("fileSystemTags", diff, originalInputs)
+		result := suppressAWSManagedTagAdditions("fileSystemTags", default_tags.TagsStyleKeyValueArray, diff, originalInputs)
 
 		_, hasAdd := result.Adds["fileSystemTags"]
 		assert.False(t, hasAdd, "aws: prefixed tag addition should be removed")
@@ -196,7 +199,7 @@ func TestSuppressAWSManagedTagAdditions(t *testing.T) {
 
 		originalInputs := resource.PropertyMap{}
 
-		result := suppressAWSManagedTagAdditions("tags", diff, originalInputs)
+		result := suppressAWSManagedTagAdditions("tags", default_tags.TagsStyleKeyValueArray, diff, originalInputs)
 
 		addedTags, hasAdd := result.Adds["tags"]
 		assert.True(t, hasAdd)
@@ -235,11 +238,156 @@ func TestSuppressAWSManagedTagAdditions(t *testing.T) {
 			"tags": oldTags,
 		}
 
-		result := suppressAWSManagedTagAdditions("tags", diff, originalInputs)
+		result := suppressAWSManagedTagAdditions("tags", default_tags.TagsStyleKeyValueArray, diff, originalInputs)
 
 		// After filtering aws: tag, old and new should be equal, so update should be removed
 		_, hasUpdate := result.Updates["tags"]
 		assert.False(t, hasUpdate, "update should be removed when filtered tags match old")
+	})
+
+	t.Run("filters aws: tags from old actual values under refreshed input baseline", func(t *testing.T) {
+		oldTags := resource.NewObjectProperty(resource.PropertyMap{
+			"Name":            resource.NewStringProperty("my-resource"),
+			"aws:managed:tag": resource.NewStringProperty("value"),
+		})
+		newTags := resource.NewObjectProperty(resource.PropertyMap{
+			"Name": resource.NewStringProperty("my-resource"),
+		})
+
+		diff := &resource.ObjectDiff{
+			Adds: resource.PropertyMap{},
+			Updates: map[resource.PropertyKey]resource.ValueDiff{
+				"tags": {Old: oldTags, New: newTags},
+			},
+			Deletes: resource.PropertyMap{},
+			Sames:   resource.PropertyMap{},
+		}
+
+		originalInputs := resource.PropertyMap{
+			"tags": resource.NewObjectProperty(resource.PropertyMap{
+				"Name": resource.NewStringProperty("my-resource"),
+			}),
+		}
+
+		result := suppressAWSManagedTagAdditions("tags", default_tags.TagsStyleKeyValueArrayUpperCase, diff, originalInputs)
+
+		_, hasUpdate := result.Updates["tags"]
+		assert.False(t, hasUpdate, "aws: tag in the old actual baseline should not become removal drift")
+	})
+
+	t.Run("treats key value array tag reordering as no-op", func(t *testing.T) {
+		oldTags := resource.NewArrayProperty([]resource.PropertyValue{
+			resource.NewObjectProperty(resource.PropertyMap{
+				"key":   resource.NewStringProperty("Name"),
+				"value": resource.NewStringProperty("my-resource"),
+			}),
+			resource.NewObjectProperty(resource.PropertyMap{
+				"key":   resource.NewStringProperty("Environment"),
+				"value": resource.NewStringProperty("prod"),
+			}),
+		})
+		newTags := resource.NewArrayProperty([]resource.PropertyValue{
+			resource.NewObjectProperty(resource.PropertyMap{
+				"key":   resource.NewStringProperty("Environment"),
+				"value": resource.NewStringProperty("prod"),
+			}),
+			resource.NewObjectProperty(resource.PropertyMap{
+				"key":   resource.NewStringProperty("Name"),
+				"value": resource.NewStringProperty("my-resource"),
+			}),
+		})
+
+		diff := &resource.ObjectDiff{
+			Adds: resource.PropertyMap{},
+			Updates: map[resource.PropertyKey]resource.ValueDiff{
+				"tags": {Old: oldTags, New: newTags},
+			},
+			Deletes: resource.PropertyMap{},
+			Sames:   resource.PropertyMap{},
+		}
+
+		originalInputs := resource.PropertyMap{
+			"tags": oldTags,
+		}
+
+		result := suppressAWSManagedTagAdditions("tags", default_tags.TagsStyleKeyValueArray, diff, originalInputs)
+
+		_, hasUpdate := result.Updates["tags"]
+		assert.False(t, hasUpdate, "reordered key/value tags should not register as drift")
+	})
+
+	t.Run("treats secret and plaintext key value array tags with same value as no-op", func(t *testing.T) {
+		oldTags := resource.NewArrayProperty([]resource.PropertyValue{
+			resource.NewObjectProperty(resource.PropertyMap{
+				"key":   resource.NewStringProperty("secretfoo"),
+				"value": resource.MakeSecret(resource.NewStringProperty("secretbar")),
+			}),
+		})
+		newTags := resource.NewArrayProperty([]resource.PropertyValue{
+			resource.NewObjectProperty(resource.PropertyMap{
+				"key":   resource.NewStringProperty("secretfoo"),
+				"value": resource.NewStringProperty("secretbar"),
+			}),
+		})
+
+		diff := &resource.ObjectDiff{
+			Adds: resource.PropertyMap{},
+			Updates: map[resource.PropertyKey]resource.ValueDiff{
+				"tags": {Old: oldTags, New: newTags},
+			},
+			Deletes: resource.PropertyMap{},
+			Sames:   resource.PropertyMap{},
+		}
+
+		originalInputs := resource.PropertyMap{
+			"tags": oldTags,
+		}
+
+		result := suppressAWSManagedTagAdditions("tags", default_tags.TagsStyleKeyValueArray, diff, originalInputs)
+
+		_, hasUpdate := result.Updates["tags"]
+		assert.False(t, hasUpdate, "secret/plaintext wrapper differences should not register as tag drift")
+	})
+
+	t.Run("treats uppercase key value array tag reordering as no-op", func(t *testing.T) {
+		oldTags := resource.NewArrayProperty([]resource.PropertyValue{
+			resource.NewObjectProperty(resource.PropertyMap{
+				"Key":   resource.NewStringProperty("Name"),
+				"Value": resource.NewStringProperty("my-resource"),
+			}),
+			resource.NewObjectProperty(resource.PropertyMap{
+				"Key":   resource.NewStringProperty("Environment"),
+				"Value": resource.NewStringProperty("prod"),
+			}),
+		})
+		newTags := resource.NewArrayProperty([]resource.PropertyValue{
+			resource.NewObjectProperty(resource.PropertyMap{
+				"Key":   resource.NewStringProperty("Environment"),
+				"Value": resource.NewStringProperty("prod"),
+			}),
+			resource.NewObjectProperty(resource.PropertyMap{
+				"Key":   resource.NewStringProperty("Name"),
+				"Value": resource.NewStringProperty("my-resource"),
+			}),
+		})
+
+		diff := &resource.ObjectDiff{
+			Adds: resource.PropertyMap{},
+			Updates: map[resource.PropertyKey]resource.ValueDiff{
+				"tags": {Old: oldTags, New: newTags},
+			},
+			Deletes: resource.PropertyMap{},
+			Sames:   resource.PropertyMap{},
+		}
+
+		originalInputs := resource.PropertyMap{
+			"tags": oldTags,
+		}
+
+		result := suppressAWSManagedTagAdditions("tags", default_tags.TagsStyleKeyValueArrayUpperCase, diff, originalInputs)
+
+		_, hasUpdate := result.Updates["tags"]
+		assert.False(t, hasUpdate, "uppercase reordered key/value tags should not register as drift")
 	})
 
 	t.Run("keeps user tag updates when aws: tags are filtered out (array)", func(t *testing.T) {
@@ -274,7 +422,7 @@ func TestSuppressAWSManagedTagAdditions(t *testing.T) {
 			"tags": oldTags,
 		}
 
-		result := suppressAWSManagedTagAdditions("tags", diff, originalInputs)
+		result := suppressAWSManagedTagAdditions("tags", default_tags.TagsStyleKeyValueArray, diff, originalInputs)
 
 		update, hasUpdate := result.Updates["tags"]
 		assert.True(t, hasUpdate, "non-aws tag change should be preserved")
@@ -305,7 +453,7 @@ func TestSuppressAWSManagedTagAdditions(t *testing.T) {
 			"tags": oldTags,
 		}
 
-		result := suppressAWSManagedTagAdditions("tags", diff, originalInputs)
+		result := suppressAWSManagedTagAdditions("tags", default_tags.TagsStyleStringMap, diff, originalInputs)
 
 		update, hasUpdate := result.Updates["tags"]
 		assert.True(t, hasUpdate, "non-aws tag change should be preserved")
@@ -421,6 +569,154 @@ func TestSuppressAWSManagedDiffs(t *testing.T) {
 
 		_, hasUpdate := result.Updates["fileSystemProtection"]
 		assert.False(t, hasUpdate, "DISABLED -> REPLICATING should be suppressed via propertyTransform")
+	})
+
+	t.Run("propertyTransform uses actual and desired sibling contexts", func(t *testing.T) {
+		spec := &metadata.CloudAPIResource{
+			PropertyTransforms: map[string]string{
+				"identifier": "AccountId & Identifier",
+			},
+		}
+		diff := &resource.ObjectDiff{
+			Updates: map[resource.PropertyKey]resource.ValueDiff{
+				"identifier": {
+					Old: resource.NewStringProperty("X"),
+					New: resource.NewStringProperty(""),
+				},
+			},
+			Adds:    resource.PropertyMap{},
+			Deletes: resource.PropertyMap{},
+			Sames:   resource.PropertyMap{},
+		}
+		oldDesired := resource.PropertyMap{}
+		actualInputs := resource.PropertyMap{
+			"accountId":  resource.NewStringProperty("A"),
+			"identifier": resource.NewStringProperty("X"),
+		}
+		desiredInputs := resource.PropertyMap{
+			"accountId":  resource.NewStringProperty("AX"),
+			"identifier": resource.NewStringProperty(""),
+		}
+
+		result := SuppressAWSManagedDiffsWithContext(
+			"aws-native:test:Resource", spec, diff, oldDesired, actualInputs, desiredInputs, NewTransformCache())
+
+		assert.Empty(t, result.Updates, "sibling context should come from old actual and new desired inputs")
+	})
+
+	t.Run("suppresses semantically equal IAM policy document updates", func(t *testing.T) {
+		spec := &metadata.CloudAPIResource{}
+		oldProps := resource.PropertyMap{
+			"assumeRolePolicyDocument": resource.NewStringProperty(`{
+				"Version": "2012-10-17",
+				"Statement": [{
+					"Effect": "Allow",
+					"Action": "sts:AssumeRole",
+					"Principal": {"Service": "ec2.amazonaws.com"}
+				}]
+			}`),
+			"policies": resource.NewArrayProperty([]resource.PropertyValue{
+				resource.NewObjectProperty(resource.PropertyMap{
+					"policyName": resource.NewStringProperty("test-policy"),
+					"policyDocument": resource.NewObjectProperty(resource.PropertyMap{
+						"Version": resource.NewStringProperty("2012-10-17"),
+						"Statement": resource.NewArrayProperty([]resource.PropertyValue{
+							resource.NewObjectProperty(resource.PropertyMap{
+								"Effect":   resource.NewStringProperty("Allow"),
+								"Action":   resource.NewStringProperty("*"),
+								"Resource": resource.NewStringProperty("*"),
+							}),
+						}),
+					}),
+				}),
+			}),
+		}
+		newProps := resource.PropertyMap{
+			"assumeRolePolicyDocument": resource.NewObjectProperty(resource.PropertyMap{
+				"Version": resource.NewStringProperty("2012-10-17"),
+				"Statement": resource.NewArrayProperty([]resource.PropertyValue{
+					resource.NewObjectProperty(resource.PropertyMap{
+						"Effect":    resource.NewStringProperty("Allow"),
+						"Action":    resource.NewArrayProperty([]resource.PropertyValue{resource.NewStringProperty("sts:AssumeRole")}),
+						"Principal": resource.NewObjectProperty(resource.PropertyMap{"Service": resource.NewStringProperty("ec2.amazonaws.com")}),
+					}),
+				}),
+			}),
+			"policies": resource.NewArrayProperty([]resource.PropertyValue{
+				resource.NewObjectProperty(resource.PropertyMap{
+					"policyName": resource.NewStringProperty("test-policy"),
+					"policyDocument": resource.NewObjectProperty(resource.PropertyMap{
+						"Version": resource.NewStringProperty("2012-10-17"),
+						"Statement": resource.NewArrayProperty([]resource.PropertyValue{
+							resource.NewObjectProperty(resource.PropertyMap{
+								"Effect":   resource.NewStringProperty("Allow"),
+								"Action":   resource.NewArrayProperty([]resource.PropertyValue{resource.NewStringProperty("*")}),
+								"Resource": resource.NewStringProperty("*"),
+							}),
+						}),
+					}),
+				}),
+			}),
+		}
+		diff := oldProps.Diff(newProps)
+		require.NotNil(t, diff)
+
+		result := SuppressAWSManagedDiffs(
+			"aws-native:iam:Role", spec, diff, oldProps, NewTransformCache())
+
+		assert.Empty(t, result.Updates)
+	})
+
+	t.Run("preserves real IAM policy document updates", func(t *testing.T) {
+		spec := &metadata.CloudAPIResource{}
+		oldProps := resource.PropertyMap{
+			"assumeRolePolicyDocument": resource.NewStringProperty(`{"Statement":[{"Action":"sts:AssumeRole"}]}`),
+		}
+		newProps := resource.PropertyMap{
+			"assumeRolePolicyDocument": resource.NewStringProperty(`{"Statement":[{"Action":"sts:TagSession"}]}`),
+		}
+		diff := oldProps.Diff(newProps)
+		require.NotNil(t, diff)
+
+		result := SuppressAWSManagedDiffs(
+			"aws-native:iam:Role", spec, diff, oldProps, NewTransformCache())
+
+		assert.Contains(t, result.Updates, resource.PropertyKey("assumeRolePolicyDocument"))
+	})
+
+	t.Run("suppresses IAM trust policy singleton array normalization", func(t *testing.T) {
+		spec := &metadata.CloudAPIResource{}
+		oldProps := resource.PropertyMap{
+			"assumeRolePolicyDocument": resource.NewObjectProperty(resource.PropertyMap{
+				"Version": resource.NewStringProperty("2012-10-17"),
+				"Statement": resource.NewArrayProperty([]resource.PropertyValue{
+					resource.NewObjectProperty(resource.PropertyMap{
+						"Effect":    resource.NewStringProperty("Allow"),
+						"Action":    resource.NewArrayProperty([]resource.PropertyValue{resource.NewStringProperty("sts:AssumeRole")}),
+						"Principal": resource.NewObjectProperty(resource.PropertyMap{"Service": resource.NewStringProperty("ec2.amazonaws.com")}),
+					}),
+				}),
+			}),
+		}
+		newProps := resource.PropertyMap{
+			"assumeRolePolicyDocument": resource.NewObjectProperty(resource.PropertyMap{
+				"Version": resource.NewStringProperty("2012-10-17"),
+				"Statement": resource.NewArrayProperty([]resource.PropertyValue{
+					resource.NewObjectProperty(resource.PropertyMap{
+						"Effect":    resource.NewStringProperty("Allow"),
+						"Action":    resource.NewStringProperty("sts:AssumeRole"),
+						"Principal": resource.NewObjectProperty(resource.PropertyMap{"Service": resource.NewStringProperty("ec2.amazonaws.com")}),
+					}),
+				}),
+			}),
+		}
+		diff := oldProps.Diff(newProps)
+		require.NotNil(t, diff)
+
+		result := SuppressAWSManagedDiffs(
+			"aws-native:iam:Role", spec, diff, oldProps, NewTransformCache())
+
+		assert.Empty(t, result.Updates)
 	})
 
 	t.Run("skips tag filtering when no TagsProperty", func(t *testing.T) {

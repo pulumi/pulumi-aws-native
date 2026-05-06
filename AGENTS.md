@@ -30,6 +30,8 @@ Generated or externally sourced (do not hand-edit):
 - `aws-cloudformation-schema/**`, `aws-cloudformation-user-guide/**` submodule content
 
 ## Command Canon
+Run all `make` commands through `mise exec -- make ...` so the pinned toolchain is used.
+
 - Workspace bootstrap: `make prepare_local_workspace`
 - Dependency/setup: `make ensure`
 - Build codegen binary: `make codegen`
@@ -42,8 +44,15 @@ Generated or externally sourced (do not hand-edit):
 - Integration suite (slow): `make test`
 - Regenerate CI from `.ci-mgmt.yaml`: `make ci-mgmt`
 
+### Local Test Safety
+- `mise exec -- make test_provider_fast` is acceptable for broad fast provider validation on this machine.
+- Do not run full provider tests by default. In particular, avoid `mise exec -- make test_provider` and broad non-short `go test ./pkg/...` / `go test ./pkg/provider` commands unless the user explicitly asks for them.
+- The full provider suite can run provider 2e2 tests that require live AWS credentials and may spend several minutes retrying EC2 IMDS when credentials are unavailable.
+- Prefer targeted tests for narrow changes, for example `mise exec -- go test -count=1 ./pkg/resources -run '<TestNamePattern>'` or `mise exec -- go test -count=1 ./pkg/provider -run '<TestNamePattern>'`.
+- If full validation is needed, confirm credentials/environment expectations or hand it off to CI instead of running it locally.
+
 ## If You Change X, Also Do Y
-- `provider/pkg/**`: `make lint && make test_provider_fast` (example: runtime/resource mapper bug fix)
+- `provider/pkg/**`: normally `make lint && make test_provider_fast`; for narrow changes, targeted `go test -run` filters are still acceptable.
 - codegen/schema logic (`provider/cmd/pulumi-gen-aws-native/**`, schema overlays, `meta/**`): `make codegen && make generate_schema` (example: new schema overlay)
 - SDK surface: `make local_generate`
 - `.ci-mgmt.yaml`: `make ci-mgmt`

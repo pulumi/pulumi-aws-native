@@ -3,23 +3,30 @@
 package resources
 
 import (
+	"encoding/json"
 	"fmt"
+	"sort"
 	"strings"
 
 	"github.com/golang/glog"
-	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
-	"github.com/pulumi/pulumi-aws-native/provider/pkg/naming"
+	awspolicy "github.com/hashicorp/awspolicyequivalence"
+
 	"github.com/pulumi/pulumi-go-provider/resourcex"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
+
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/default_tags"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/naming"
 )
 
 // SuppressAWSManagedDiffs modifies a diff to remove changes that are AWS-managed
 // and should not be reflected in the user's inputs during refresh.
 //
-// This handles three categories of suppressions:
+// This handles four categories of suppressions:
 // 1. Generic: AWS-managed tags (aws:* prefix) that AWS adds automatically
-// 2. Resource-specific: State transitions that AWS manages (e.g., EFS replication)
-// 3. PropertyTransform: CloudFormation propertyTransform normalization (e.g., case, numeric mappings)
+// 2. Generic: IAM policy documents that AWS returns in normalized JSON form
+// 3. Resource-specific: State transitions that AWS manages (e.g., EFS replication)
+// 4. PropertyTransform: CloudFormation propertyTransform normalization (e.g., case, numeric mappings)
 //
 // The transformCache parameter holds compiled JSONata expressions for propertyTransform
 // evaluation. Pass the provider's cache instance for production use.
@@ -30,21 +37,49 @@ func SuppressAWSManagedDiffs(
 	originalInputs resource.PropertyMap,
 	transformCache *TransformCache,
 ) *resource.ObjectDiff {
+	return SuppressAWSManagedDiffsWithContext(resourceToken, spec, diff, originalInputs, originalInputs, originalInputs, transformCache)
+}
+
+// SuppressAWSManagedDiffsWithContext is SuppressAWSManagedDiffs with explicit
+// old/new-side context maps for suppressions that need sibling values.
+//
+// For refresh checkpoint suppression, the old side is the old desired inputs
+// and the new side is the live-output baseline. For update patch suppression,
+// the old side is the live-output baseline and the new side is the new desired
+// inputs. Property transforms use these maps to evaluate expressions that
+// reference sibling fields.
+func SuppressAWSManagedDiffsWithContext(
+	resourceToken string,
+	spec *metadata.CloudAPIResource,
+	diff *resource.ObjectDiff,
+	originalInputs resource.PropertyMap,
+	oldSideContext resource.PropertyMap,
+	newSideContext resource.PropertyMap,
+	transformCache *TransformCache,
+) *resource.ObjectDiff {
 	if diff == nil {
 		return nil
 	}
 
 	// 1. Generic: Suppress aws:* prefixed tag additions
 	if spec.TagsProperty != "" {
-		diff = suppressAWSManagedTagAdditions(spec.TagsProperty, diff, originalInputs)
+		diff = suppressAWSManagedTagAdditions(spec.TagsProperty, spec.TagsStyle, diff, originalInputs)
 	}
 
-	// 2. Resource-specific suppressions
+	// 2. Generic: Suppress semantically equivalent IAM policy document diffs
+	diff = suppressIAMPolicyDocumentDiffs(resourceToken, diff)
+
+	// 3. Resource-specific suppressions
 	diff = suppressResourceSpecificChanges(resourceToken, diff)
 
-	// 3. PropertyTransform-based suppressions
+	// 4. PropertyTransform-based suppressions
 	if len(spec.PropertyTransforms) > 0 {
-		diff = suppressPropertyTransformDiffs(resourceToken, spec, diff, originalInputs, transformCache)
+		// The contexts correspond to the old and new sides of diff. During
+		// refresh suppression those are old desired inputs and the live-output
+		// baseline; during update patching they are the live-output baseline
+		// and new desired inputs.
+		diff = suppressPropertyTransformDiffsWithContext(resourceToken, spec, diff,
+			oldSideContext, newSideContext, transformCache)
 	}
 
 	return diff
@@ -55,6 +90,7 @@ func SuppressAWSManagedDiffs(
 // aws:servicecatalog:applicationName) and users cannot manage them.
 func suppressAWSManagedTagAdditions(
 	tagsProperty string,
+	tagsStyle default_tags.TagsStyle,
 	diff *resource.ObjectDiff,
 	originalInputs resource.PropertyMap,
 ) *resource.ObjectDiff {
@@ -72,19 +108,198 @@ func suppressAWSManagedTagAdditions(
 
 	// Check if tags are being updated
 	if updatedTags, isUpdate := diff.Updates[tagsKey]; isUpdate {
-		filtered := filterAWSPrefixedTags(updatedTags.New, originalInputs[tagsKey])
-		if filtered.DeepEquals(updatedTags.Old) {
+		filteredOld := filterAWSPrefixedTags(updatedTags.Old, originalInputs[tagsKey])
+		filteredNew := filterAWSPrefixedTags(updatedTags.New, originalInputs[tagsKey])
+		compareOld := normalizeKeyValueArrayTagOrder(filteredOld, tagsStyle)
+		compareNew := normalizeKeyValueArrayTagOrder(filteredNew, tagsStyle)
+		if propertyValuesEqualIgnoringSecrets(compareNew, compareOld) {
 			// After filtering, old and new are the same - no real change
 			delete(diff.Updates, tagsKey)
 		} else {
 			diff.Updates[tagsKey] = resource.ValueDiff{
-				Old: updatedTags.Old,
-				New: filtered,
+				Old: filteredOld,
+				New: filteredNew,
 			}
 		}
 	}
 
 	return diff
+}
+
+// normalizeKeyValueArrayTagOrder sorts key/value-array tags for comparison.
+// CloudControl can return tags in arbitrary order, while Pulumi array diffs are
+// order-sensitive.
+func normalizeKeyValueArrayTagOrder(tags resource.PropertyValue, tagsStyle default_tags.TagsStyle) resource.PropertyValue {
+	if !tagsStyle.IsKeyValueArray() || !tags.IsArray() {
+		return tags
+	}
+
+	keyProp := resource.PropertyKey("key")
+	if tagsStyle == default_tags.TagsStyleKeyValueArrayUpperCase {
+		keyProp = resource.PropertyKey("Key")
+	}
+
+	sorted := append([]resource.PropertyValue(nil), tags.ArrayValue()...)
+	for _, tag := range sorted {
+		if !tag.IsObject() {
+			return tags
+		}
+		key, ok := tag.ObjectValue()[keyProp]
+		if !ok || !key.IsString() {
+			return tags
+		}
+	}
+
+	sort.SliceStable(sorted, func(i, j int) bool {
+		return sorted[i].ObjectValue()[keyProp].StringValue() < sorted[j].ObjectValue()[keyProp].StringValue()
+	})
+	return resource.NewArrayProperty(sorted)
+}
+
+func propertyValuesEqualIgnoringSecrets(a, b resource.PropertyValue) bool {
+	if a.DeepEquals(b) {
+		return true
+	}
+	return preserveSecretWrapper(clonePropertyValue(a), b).DeepEquals(preserveSecretWrapper(clonePropertyValue(b), a))
+}
+
+const (
+	awsNativeIAMRoleToken = "aws-native:iam:Role" //nolint:gosec // Resource type token, not a credential.
+	awsIAMRoleToken       = "aws:iam:Role"        //nolint:gosec // Resource type token, not a credential.
+)
+
+// suppressIAMPolicyDocumentDiffs removes IAM Role policy-document updates when
+// AWS returned the same policy in a normalized JSON shape.
+//
+// IAM accepts policy documents as JSON strings or structured objects. During
+// refresh, CloudControl can return the same policy as a normalized object with
+// different scalar/array shape or object key order. For example, a user-authored
+// `{"Version":"2012-10-17","Statement":[...]}` string and a live
+// `{Version:"2012-10-17", Statement:[...]}` object should not rewrite
+// checkpointed inputs or generate an update patch.
+func suppressIAMPolicyDocumentDiffs(resourceToken string, diff *resource.ObjectDiff) *resource.ObjectDiff {
+	if resourceToken != awsNativeIAMRoleToken && resourceToken != awsIAMRoleToken {
+		return diff
+	}
+	for key, valueDiff := range diff.Updates {
+		if shouldSuppressIAMPolicyDocumentDiff(string(key), valueDiff) {
+			delete(diff.Updates, key)
+		}
+	}
+	return diff
+}
+
+// shouldSuppressIAMPolicyDocumentDiff walks a nested diff and reports whether
+// every changed leaf is an IAM Role policy-document value that is semantically
+// equal after JSON canonicalization.
+//
+// A top-level `assumeRolePolicyDocument` update can be suppressed directly. A
+// `policies` update is only suppressed if all nested element updates are under
+// `policies/<index>/policyDocument` and those policy documents canonicalize to
+// the same JSON value. Structural changes, such as adding a new policy element,
+// are preserved as real diffs.
+func shouldSuppressIAMPolicyDocumentDiff(path string, diff resource.ValueDiff) bool {
+	if isIAMRolePolicyDocumentPath(path) {
+		return policyDocumentsSemanticallyEqual(diff.Old, diff.New)
+	}
+
+	if diff.Object != nil {
+		if len(diff.Object.Adds) > 0 || len(diff.Object.Deletes) > 0 {
+			return false
+		}
+		for key, childDiff := range diff.Object.Updates {
+			if !shouldSuppressIAMPolicyDocumentDiff(joinPath(path, string(key)), childDiff) {
+				return false
+			}
+		}
+		return len(diff.Object.Updates) > 0
+	}
+
+	if diff.Array != nil {
+		if len(diff.Array.Adds) > 0 || len(diff.Array.Deletes) > 0 {
+			return false
+		}
+		for index, childDiff := range diff.Array.Updates {
+			if !shouldSuppressIAMPolicyDocumentDiff(joinPath(path, fmt.Sprintf("%d", index)), childDiff) {
+				return false
+			}
+		}
+		return len(diff.Array.Updates) > 0
+	}
+
+	return false
+}
+
+// isIAMRolePolicyDocumentPath identifies the IAM Role policy document paths
+// whose values have policy-document semantics instead of plain structural
+// PropertyValue semantics.
+//
+// The provider diff paths use SDK names, so the two supported paths are
+// `assumeRolePolicyDocument` and `policies/<index>/policyDocument`.
+func isIAMRolePolicyDocumentPath(path string) bool {
+	if path == "assumeRolePolicyDocument" {
+		return true
+	}
+	segments := strings.Split(path, "/")
+	return len(segments) == 3 && segments[0] == "policies" && segments[2] == "policyDocument"
+}
+
+// policyDocumentsSemanticallyEqual compares two IAM policy document values
+// after converting JSON strings and object-shaped values to IAM JSON.
+//
+// Comparison is delegated to awspolicyequivalence, which covers IAM-specific
+// equivalence such as singleton arrays versus scalar strings.
+func policyDocumentsSemanticallyEqual(oldValue, newValue resource.PropertyValue) bool {
+	oldDoc, ok := canonicalIAMPolicyDocumentJSON(oldValue)
+	if !ok {
+		return false
+	}
+	newDoc, ok := canonicalIAMPolicyDocumentJSON(newValue)
+	if !ok {
+		return false
+	}
+
+	equal, err := awspolicy.PoliciesAreEquivalent(oldDoc, newDoc)
+	if err != nil {
+		glog.V(9).Infof("IAM policy document equivalence failed: %v", err)
+		return false
+	}
+	return equal
+}
+
+// canonicalIAMPolicyDocumentJSON unwraps Pulumi secret/output wrappers and
+// returns a JSON document suitable for awspolicyequivalence.
+//
+// JSON strings are validated and otherwise preserved as-authored, while
+// object-shaped values are marshaled directly. Values that are not valid JSON
+// strings return false so the caller preserves the original diff.
+func canonicalIAMPolicyDocumentJSON(value resource.PropertyValue) (string, bool) {
+	return canonicalIAMPolicyDocumentValueJSON(resourcex.DecodeValue(value))
+}
+
+// canonicalIAMPolicyDocumentValueJSON converts a decoded policy document into
+// JSON without changing IAM document keys.
+//
+// Examples:
+//   - A JSON string such as `{"Statement":[...]}` is passed through after
+//     validation.
+//   - An object such as `{"Statement":[{"Action":["sts:AssumeRole"]}]}` is
+//     marshaled so awspolicyequivalence can compare it against another JSON
+//     representation.
+func canonicalIAMPolicyDocumentValueJSON(value interface{}) (string, bool) {
+	if text, ok := value.(string); ok {
+		text = strings.TrimSpace(text)
+		if !json.Valid([]byte(text)) {
+			return "", false
+		}
+		return text, true
+	}
+
+	bytes, err := json.Marshal(value)
+	if err != nil {
+		return "", false
+	}
+	return string(bytes), true
 }
 
 // filterAWSPrefixedTags removes aws:* prefixed tags that weren't in originalTags.
@@ -189,19 +404,33 @@ func suppressPropertyTransformDiffs(
 	originalInputs resource.PropertyMap,
 	cache *TransformCache,
 ) *resource.ObjectDiff {
+	return suppressPropertyTransformDiffsWithContext(resourceToken, spec, diff, originalInputs, originalInputs, cache)
+}
+
+func suppressPropertyTransformDiffsWithContext(
+	resourceToken string,
+	spec *metadata.CloudAPIResource,
+	diff *resource.ObjectDiff,
+	actualInputs resource.PropertyMap,
+	desiredInputs resource.PropertyMap,
+	cache *TransformCache,
+) *resource.ObjectDiff {
+	if cache == nil {
+		cache = GlobalTransformCache
+	}
 	transforms := cache.GetOrCompile(resourceToken, spec)
 	if len(transforms) == 0 {
 		return diff
 	}
 
-	// Convert originalInputs to a map[string]interface{} for JSONata evaluation
-	inputsMap := propertyMapToMap(originalInputs)
+	actualInputsMap := propertyMapToMap(actualInputs)
+	desiredInputsMap := propertyMapToMap(desiredInputs)
 
 	// Process updates by walking the pre-computed ValueDiff tree
 	for key, valueDiff := range diff.Updates {
 		path := string(key)
 
-		if shouldSuppressValueDiff(transforms, path, valueDiff, inputsMap, spec.IrreversibleNames) {
+		if shouldSuppressValueDiff(transforms, path, valueDiff, actualInputsMap, desiredInputsMap, spec.IrreversibleNames) {
 			glog.V(7).Infof("Suppressing diff for %s.%s via propertyTransform", resourceToken, path)
 			delete(diff.Updates, key)
 		}
@@ -222,7 +451,8 @@ func shouldSuppressValueDiff(
 	transforms []CompiledTransform,
 	path string,
 	diff resource.ValueDiff,
-	inputsMap map[string]interface{},
+	actualInputsMap map[string]interface{},
+	desiredInputsMap map[string]interface{},
 	irreversibleNames map[string]string,
 ) bool {
 	// Handle nested object diffs
@@ -234,7 +464,7 @@ func shouldSuppressValueDiff(
 		// Recursively check all property updates
 		for k, childDiff := range diff.Object.Updates {
 			childPath := path + "/" + string(k)
-			if !shouldSuppressValueDiff(transforms, childPath, childDiff, inputsMap, irreversibleNames) {
+			if !shouldSuppressValueDiff(transforms, childPath, childDiff, actualInputsMap, desiredInputsMap, irreversibleNames) {
 				return false
 			}
 		}
@@ -250,7 +480,7 @@ func shouldSuppressValueDiff(
 		// Recursively check all element updates
 		for idx, childDiff := range diff.Array.Updates {
 			childPath := fmt.Sprintf("%s/%d", path, idx)
-			if !shouldSuppressValueDiff(transforms, childPath, childDiff, inputsMap, irreversibleNames) {
+			if !shouldSuppressValueDiff(transforms, childPath, childDiff, actualInputsMap, desiredInputsMap, irreversibleNames) {
 				return false
 			}
 		}
@@ -262,7 +492,7 @@ func shouldSuppressValueDiff(
 	if transform != nil {
 		oldVal := resourcex.DecodeValue(diff.Old)
 		newVal := resourcex.DecodeValue(diff.New)
-		return evaluateAndCompare(transform, oldVal, newVal, inputsMap, path, irreversibleNames)
+		return evaluateAndCompare(transform, oldVal, newVal, actualInputsMap, desiredInputsMap, path, irreversibleNames)
 	}
 
 	// No transform for this leaf - cannot suppress
@@ -273,21 +503,26 @@ func shouldSuppressValueDiff(
 func evaluateAndCompare(
 	transform *CompiledTransform,
 	oldVal, newVal interface{},
-	inputsMap map[string]interface{},
+	actualInputsMap map[string]interface{},
+	desiredInputsMap map[string]interface{},
 	path string,
 	irreversibleNames map[string]string,
 ) bool {
 	// Build the context for JSONata evaluation
 	// The context should include sibling properties for expressions that reference them
-	context := ExtractPropertyContext(inputsMap, path)
-	if context == nil {
-		context = inputsMap
+	oldContextMap := ExtractPropertyContext(actualInputsMap, path)
+	if oldContextMap == nil {
+		oldContextMap = actualInputsMap
+	}
+	newContextMap := ExtractPropertyContext(desiredInputsMap, path)
+	if newContextMap == nil {
+		newContextMap = desiredInputsMap
 	}
 
 	// Also add the property values themselves, using CloudFormation naming
 	// JSONata expressions reference properties by their CFN names (e.g., "IpProtocol")
-	oldContext := buildCfnContext(context, path, oldVal, irreversibleNames)
-	newContext := buildCfnContext(context, path, newVal, irreversibleNames)
+	oldContext := buildCfnContext(oldContextMap, path, oldVal, irreversibleNames)
+	newContext := buildCfnContext(newContextMap, path, newVal, irreversibleNames)
 
 	// Evaluate transform on old value
 	transformedOld, err := EvaluateTransform(*transform, oldVal, oldContext)

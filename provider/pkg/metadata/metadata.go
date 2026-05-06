@@ -3,8 +3,9 @@
 package metadata
 
 import (
-	"github.com/pulumi/pulumi-aws-native/provider/pkg/default_tags"
 	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
+
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/default_tags"
 )
 
 // CloudAPIMetadata is a collection of all resources and types in the AWS Cloud Control API.
@@ -77,6 +78,7 @@ type AutoNamingSpec struct {
 type CloudAPIType struct {
 	Type              string                          `json:"type"`
 	Properties        map[string]pschema.PropertySpec `json:"properties,omitempty"`
+	Required          []string                        `json:"required,omitempty"`
 	IrreversibleNames map[string]string               `json:"irreversibleNames,omitempty"`
 }
 

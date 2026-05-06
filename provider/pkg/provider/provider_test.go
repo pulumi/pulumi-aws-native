@@ -2,22 +2,25 @@ package provider
 
 import (
 	"context"
+	"fmt"
+	"reflect"
 	"testing"
 	"time"
 
-	"github.com/stretchr/testify/assert"
-	"github.com/stretchr/testify/require"
-	gomock "go.uber.org/mock/gomock"
-	"google.golang.org/protobuf/types/known/structpb"
-
+	"github.com/mattbaird/jsonpatch"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource/plugin"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/rpcutil/rpcerror"
 	pulumirpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
+	gomock "go.uber.org/mock/gomock"
+	"google.golang.org/protobuf/types/known/structpb"
 
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/autonaming"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/client"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/default_tags"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/resources"
 )
@@ -867,15 +870,22 @@ func TestUpdate(t *testing.T) {
 			"bucketName":        resource.NewStringProperty("new-bucket"),
 			"objectLockEnabled": resource.NewBoolProperty(false),
 		}
+		oldInputs := resource.PropertyMap{
+			"bucketName":        resource.NewStringProperty("my-bucket"),
+			"objectLockEnabled": resource.NewBoolProperty(true),
+		}
 		req.News = mustMarshalProperties(t, inputs)
 
 		req.Olds = mustMarshalProperties(t, resource.PropertyMap{
 			"bucketName":        resource.NewStringProperty("my-bucket"),
 			"objectLockEnabled": resource.NewBoolProperty(true),
-			"__inputs":          resource.MakeSecret(resource.NewObjectProperty(inputs)),
+			"__inputs":          resource.MakeSecret(resource.NewObjectProperty(oldInputs)),
 		})
 
-		mockCCC.EXPECT().Update(ctx, gomock.Any(), "AWS::S3::Bucket", "resource-id", gomock.Any()).Return(
+		mockCCC.EXPECT().Update(ctx, gomock.Any(), "AWS::S3::Bucket", "resource-id", jsonPatchEquals([]jsonpatch.JsonPatchOperation{
+			{Operation: "replace", Path: "/BucketName", Value: "new-bucket"},
+			{Operation: "replace", Path: "/ObjectLockEnabled", Value: false},
+		})).Return(
 			map[string]interface{}{
 				// Change the bucket name and object lock status according to the inputs
 				"bucketName":        resource.NewStringProperty("new-bucket"),
@@ -959,19 +969,922 @@ func TestUpdate(t *testing.T) {
 		assert.Equal(t, "sts:AssumeRole", statement["Action"].StringValue())
 	})
 
+	t.Run("StandardResource/ActualBaselineRepairDrift", func(t *testing.T) {
+		provider.resourceMap.Resources["aws:s3/bucket:Bucket"] = metadata.CloudAPIResource{
+			CfType: "AWS::S3::Bucket",
+			Inputs: map[string]schema.PropertySpec{
+				"bucketName": {TypeSpec: schema.TypeSpec{Type: "string"}},
+			},
+			Outputs: map[string]schema.PropertySpec{
+				"bucketName": {TypeSpec: schema.TypeSpec{Type: "string"}},
+			},
+		}
+		req.Urn = string(resource.NewURN("stack", "project", "parent", "aws:s3/bucket:Bucket", "name"))
+		req.News = mustMarshalProperties(t, resource.PropertyMap{
+			"bucketName": resource.NewStringProperty("desired-bucket"),
+		})
+		req.Olds = mustMarshalProperties(t, resource.PropertyMap{
+			"bucketName": resource.NewStringProperty("actual-drifted-bucket"),
+			"__inputs": resource.MakeSecret(resource.NewObjectProperty(resource.PropertyMap{
+				"bucketName": resource.NewStringProperty("desired-bucket"),
+			})),
+		})
+
+		mockCCC.EXPECT().Update(ctx, gomock.Any(), "AWS::S3::Bucket", "resource-id", jsonPatchEquals([]jsonpatch.JsonPatchOperation{
+			{Operation: "replace", Path: "/BucketName", Value: "desired-bucket"},
+		})).Return(
+			map[string]interface{}{
+				"bucketName": "desired-bucket",
+			}, nil,
+		)
+
+		resp, err := provider.Update(ctx, req)
+		require.NoError(t, err)
+		props := mustUnmarshalProperties(t, resp.Properties)
+		assert.Equal(t, "desired-bucket", props["bucketName"].StringValue())
+	})
+
+	t.Run("StandardResource/WriteOnlyResend", func(t *testing.T) {
+		provider.resourceMap.Resources["aws:rds/dbInstance:DBInstance"] = metadata.CloudAPIResource{
+			CfType: "AWS::RDS::DBInstance",
+			Inputs: map[string]schema.PropertySpec{
+				"password": {TypeSpec: schema.TypeSpec{Type: "string"}},
+				"engine":   {TypeSpec: schema.TypeSpec{Type: "string"}},
+			},
+			Outputs: map[string]schema.PropertySpec{
+				"engine": {TypeSpec: schema.TypeSpec{Type: "string"}},
+			},
+			WriteOnly: []string{"password"},
+		}
+		req.Urn = string(resource.NewURN("stack", "project", "parent", "aws:rds/dbInstance:DBInstance", "name"))
+		req.News = mustMarshalProperties(t, resource.PropertyMap{
+			"password": resource.NewStringProperty("secret"),
+			"engine":   resource.NewStringProperty("mysql"),
+		})
+		req.Olds = mustMarshalProperties(t, resource.PropertyMap{
+			"engine": resource.NewStringProperty("postgres"),
+			"__inputs": resource.MakeSecret(resource.NewObjectProperty(resource.PropertyMap{
+				"password": resource.NewStringProperty("secret"),
+				"engine":   resource.NewStringProperty("postgres"),
+			})),
+		})
+
+		mockCCC.EXPECT().Update(ctx, gomock.Any(), "AWS::RDS::DBInstance", "resource-id", jsonPatchEquals([]jsonpatch.JsonPatchOperation{
+			{Operation: "replace", Path: "/Engine", Value: "mysql"},
+			{Operation: "add", Path: "/Password", Value: "secret"},
+		})).Return(
+			map[string]interface{}{
+				"engine": "mysql",
+			}, nil,
+		)
+
+		resp, err := provider.Update(ctx, req)
+		require.NoError(t, err)
+		props := mustUnmarshalProperties(t, resp.Properties)
+		assert.Equal(t, "mysql", props["engine"].StringValue())
+		assert.Equal(t, "secret", props["password"].StringValue())
+	})
+
+	t.Run("StandardResource/CreateOnlyWriteOnlyCarriedButNotResent", func(t *testing.T) {
+		provider.resourceMap.Resources["aws:rds/dbInstance:DBInstance"] = metadata.CloudAPIResource{
+			CfType: "AWS::RDS::DBInstance",
+			Inputs: map[string]schema.PropertySpec{
+				"password": {TypeSpec: schema.TypeSpec{Type: "string"}},
+				"engine":   {TypeSpec: schema.TypeSpec{Type: "string"}},
+			},
+			Outputs: map[string]schema.PropertySpec{
+				"engine": {TypeSpec: schema.TypeSpec{Type: "string"}},
+			},
+			WriteOnly:  []string{"password"},
+			CreateOnly: []string{"password"},
+		}
+		req.Urn = string(resource.NewURN("stack", "project", "parent", "aws:rds/dbInstance:DBInstance", "name"))
+		req.News = mustMarshalProperties(t, resource.PropertyMap{
+			"password": resource.NewStringProperty("secret"),
+			"engine":   resource.NewStringProperty("mysql"),
+		})
+		req.Olds = mustMarshalProperties(t, resource.PropertyMap{
+			"engine": resource.NewStringProperty("postgres"),
+			"__inputs": resource.MakeSecret(resource.NewObjectProperty(resource.PropertyMap{
+				"password": resource.NewStringProperty("secret"),
+				"engine":   resource.NewStringProperty("postgres"),
+			})),
+		})
+
+		mockCCC.EXPECT().Update(ctx, gomock.Any(), "AWS::RDS::DBInstance", "resource-id", jsonPatchEquals([]jsonpatch.JsonPatchOperation{
+			{Operation: "replace", Path: "/Engine", Value: "mysql"},
+		})).Return(
+			map[string]interface{}{
+				"engine": "mysql",
+			}, nil,
+		)
+
+		resp, err := provider.Update(ctx, req)
+		require.NoError(t, err)
+		props := mustUnmarshalProperties(t, resp.Properties)
+		assert.Equal(t, "mysql", props["engine"].StringValue())
+		assert.Equal(t, "secret", props["password"].StringValue())
+	})
+
 	t.Run("StandardResource/Error", func(t *testing.T) {
 		provider.resourceMap.Resources["aws:s3/bucket:Bucket"] = metadata.CloudAPIResource{
 			CfType: "AWS::S3::Bucket",
+			Inputs: map[string]schema.PropertySpec{
+				"bucketName": {TypeSpec: schema.TypeSpec{Type: "string"}},
+			},
 		}
 		req.Urn = string(resource.NewURN("stack", "project", "parent", "aws:s3/bucket:Bucket", "name"))
+		req.News = mustMarshalProperties(t, resource.PropertyMap{
+			"bucketName": resource.NewStringProperty("new-bucket"),
+		})
+		req.Olds = mustMarshalProperties(t, resource.PropertyMap{
+			"bucketName": resource.NewStringProperty("old-bucket"),
+			"__inputs":   resource.MakeSecret(resource.NewObjectProperty(resource.PropertyMap{"bucketName": resource.NewStringProperty("old-bucket")})),
+		})
 
-		mockCCC.EXPECT().Update(ctx, gomock.Any(), "AWS::S3::Bucket", "resource-id", gomock.Any()).Return(
+		mockCCC.EXPECT().Update(ctx, gomock.Any(), "AWS::S3::Bucket", "resource-id", jsonPatchEquals([]jsonpatch.JsonPatchOperation{
+			{Operation: "replace", Path: "/BucketName", Value: "new-bucket"},
+		})).Return(
 			nil, assert.AnError,
 		)
 
 		resp, err := provider.Update(ctx, req)
 		assert.Error(t, err)
 		assert.Nil(t, resp)
+	})
+
+}
+
+func TestStandardResourceDiffUsesActualOutputBaseline(t *testing.T) {
+	ctrl := gomock.NewController(t)
+	defer ctrl.Finish()
+
+	ctx, cancel := context.WithCancel(context.Background())
+	provider := &cfnProvider{
+		name: "test-provider",
+		resourceMap: &metadata.CloudAPIMetadata{
+			Resources: map[string]metadata.CloudAPIResource{
+				"aws:rds/dbInstance:DBInstance": {
+					CfType:       "AWS::RDS::DBInstance",
+					TagsProperty: "tags",
+					Inputs: map[string]schema.PropertySpec{
+						"backupTarget": {TypeSpec: schema.TypeSpec{Type: "string"}},
+						"engine":       {TypeSpec: schema.TypeSpec{Type: "string"}},
+						"password":     {TypeSpec: schema.TypeSpec{Type: "string"}},
+						"tags": {
+							TypeSpec: schema.TypeSpec{
+								Type:                 "object",
+								AdditionalProperties: &schema.TypeSpec{Type: "string"},
+							},
+						},
+					},
+					Outputs: map[string]schema.PropertySpec{
+						"backupTarget": {TypeSpec: schema.TypeSpec{Type: "string"}},
+						"engine":       {TypeSpec: schema.TypeSpec{Type: "string"}},
+						"tags": {
+							TypeSpec: schema.TypeSpec{
+								Type:                 "object",
+								AdditionalProperties: &schema.TypeSpec{Type: "string"},
+							},
+						},
+					},
+					WriteOnly: []string{"password"},
+				},
+				"aws:logs/logGroup:LogGroup": {
+					CfType:       "AWS::Logs::LogGroup",
+					TagsProperty: "tags",
+					TagsStyle:    default_tags.TagsStyleKeyValueArray,
+					Inputs: map[string]schema.PropertySpec{
+						"tags": {
+							TypeSpec: schema.TypeSpec{
+								Type:  "array",
+								Items: &schema.TypeSpec{Ref: "#/types/aws-native:index:Tag"},
+							},
+						},
+					},
+					Outputs: map[string]schema.PropertySpec{
+						"tags": {
+							TypeSpec: schema.TypeSpec{
+								Type:  "array",
+								Items: &schema.TypeSpec{Ref: "#/types/aws-native:index:Tag"},
+							},
+						},
+					},
+				},
+				"aws:iam:Role": {
+					CfType: "AWS::IAM::Role",
+					Inputs: map[string]schema.PropertySpec{
+						"assumeRolePolicyDocument": {TypeSpec: schema.TypeSpec{Ref: "pulumi.json#/Any"}},
+						"policies": {
+							TypeSpec: schema.TypeSpec{
+								Type:  "array",
+								Items: &schema.TypeSpec{Ref: "#/types/aws-native:iam:RolePolicy"},
+							},
+						},
+					},
+					Outputs: map[string]schema.PropertySpec{
+						"assumeRolePolicyDocument": {TypeSpec: schema.TypeSpec{Ref: "pulumi.json#/Any"}},
+						"policies": {
+							TypeSpec: schema.TypeSpec{
+								Type:  "array",
+								Items: &schema.TypeSpec{Ref: "#/types/aws-native:iam:RolePolicy"},
+							},
+						},
+					},
+				},
+			},
+			Types: map[string]metadata.CloudAPIType{
+				"aws-native:index:Tag": {
+					Type: "object",
+					Properties: map[string]schema.PropertySpec{
+						"key":   {TypeSpec: schema.TypeSpec{Type: "string"}},
+						"value": {TypeSpec: schema.TypeSpec{Type: "string"}},
+					},
+				},
+				"aws-native:iam:RolePolicy": {
+					Type: "object",
+					Properties: map[string]schema.PropertySpec{
+						"policyDocument": {TypeSpec: schema.TypeSpec{Ref: "pulumi.json#/Any"}},
+						"policyName":     {TypeSpec: schema.TypeSpec{Type: "string"}},
+					},
+				},
+			},
+		},
+		customResources: map[string]resources.CustomResource{},
+		ccc:             client.NewMockCloudControlClient(ctrl),
+		canceler: &cancellationContext{
+			context: ctx,
+			cancel:  cancel,
+		},
+	}
+	urn := resource.NewURN("stack", "project", "parent", "aws:rds/dbInstance:DBInstance", "name")
+
+	t.Run("external drift on managed input reports diff", func(t *testing.T) {
+		oldInputs := resource.PropertyMap{"engine": resource.NewStringProperty("abc")}
+		resp, err := provider.Diff(ctx, &pulumirpc.DiffRequest{
+			Urn: string(urn),
+			Olds: mustMarshalProperties(t, resource.PropertyMap{
+				"engine":   resource.NewStringProperty("xyz"),
+				"__inputs": resource.MakeSecret(resource.NewObjectProperty(oldInputs)),
+			}),
+			News: mustMarshalProperties(t, oldInputs),
+		})
+		require.NoError(t, err)
+		assert.Equal(t, pulumirpc.DiffResponse_DIFF_UNKNOWN, resp.Changes)
+	})
+
+	t.Run("newly visible optional computed default is ignored when unowned", func(t *testing.T) {
+		resp, err := provider.Diff(ctx, &pulumirpc.DiffRequest{
+			Urn: string(urn),
+			Olds: mustMarshalProperties(t, resource.PropertyMap{
+				"backupTarget": resource.NewStringProperty("region"),
+				"__inputs":     resource.MakeSecret(resource.NewObjectProperty(resource.PropertyMap{})),
+			}),
+			News: mustMarshalProperties(t, resource.PropertyMap{}),
+		})
+		require.NoError(t, err)
+		assert.Equal(t, pulumirpc.DiffResponse_DIFF_NONE, resp.Changes)
+	})
+
+	t.Run("user starts managing same optional computed value without cloud operation", func(t *testing.T) {
+		resp, err := provider.Diff(ctx, &pulumirpc.DiffRequest{
+			Urn: string(urn),
+			Olds: mustMarshalProperties(t, resource.PropertyMap{
+				"backupTarget": resource.NewStringProperty("region"),
+				"__inputs":     resource.MakeSecret(resource.NewObjectProperty(resource.PropertyMap{})),
+			}),
+			News: mustMarshalProperties(t, resource.PropertyMap{
+				"backupTarget": resource.NewStringProperty("region"),
+			}),
+		})
+		require.NoError(t, err)
+		assert.Equal(t, pulumirpc.DiffResponse_DIFF_NONE, resp.Changes)
+	})
+
+	t.Run("user starts managing different optional computed value reports diff", func(t *testing.T) {
+		resp, err := provider.Diff(ctx, &pulumirpc.DiffRequest{
+			Urn: string(urn),
+			Olds: mustMarshalProperties(t, resource.PropertyMap{
+				"backupTarget": resource.NewStringProperty("region"),
+				"__inputs":     resource.MakeSecret(resource.NewObjectProperty(resource.PropertyMap{})),
+			}),
+			News: mustMarshalProperties(t, resource.PropertyMap{
+				"backupTarget": resource.NewStringProperty("local"),
+			}),
+		})
+		require.NoError(t, err)
+		assert.Equal(t, pulumirpc.DiffResponse_DIFF_UNKNOWN, resp.Changes)
+	})
+
+	t.Run("owned tag map drift reports diff", func(t *testing.T) {
+		desiredTags := resource.PropertyMap{
+			"tags": resource.NewObjectProperty(resource.PropertyMap{
+				"owner": resource.NewStringProperty("team"),
+			}),
+		}
+		resp, err := provider.Diff(ctx, &pulumirpc.DiffRequest{
+			Urn: string(urn),
+			Olds: mustMarshalProperties(t, resource.PropertyMap{
+				"tags": resource.NewObjectProperty(resource.PropertyMap{
+					"owner": resource.NewStringProperty("team"),
+					"extra": resource.NewStringProperty("external"),
+				}),
+				"__inputs": resource.MakeSecret(resource.NewObjectProperty(desiredTags)),
+			}),
+			News: mustMarshalProperties(t, desiredTags),
+		})
+		require.NoError(t, err)
+		assert.Equal(t, pulumirpc.DiffResponse_DIFF_UNKNOWN, resp.Changes)
+	})
+
+	t.Run("aws managed tag in actual baseline does not report diff", func(t *testing.T) {
+		desiredTags := resource.PropertyMap{
+			"tags": resource.NewObjectProperty(resource.PropertyMap{
+				"owner": resource.NewStringProperty("team"),
+			}),
+		}
+		resp, err := provider.Diff(ctx, &pulumirpc.DiffRequest{
+			Urn: string(urn),
+			Olds: mustMarshalProperties(t, resource.PropertyMap{
+				"tags": resource.NewObjectProperty(resource.PropertyMap{
+					"owner":       resource.NewStringProperty("team"),
+					"aws:managed": resource.NewStringProperty("external"),
+				}),
+				"__inputs": resource.MakeSecret(resource.NewObjectProperty(desiredTags)),
+			}),
+			News: mustMarshalProperties(t, desiredTags),
+		})
+		require.NoError(t, err)
+		assert.Equal(t, pulumirpc.DiffResponse_DIFF_NONE, resp.Changes)
+	})
+
+	t.Run("key value array tag reorder in actual baseline does not report diff", func(t *testing.T) {
+		arrayURN := resource.NewURN("stack", "project", "parent", "aws:logs/logGroup:LogGroup", "name")
+		oldTags := resource.NewArrayProperty([]resource.PropertyValue{
+			resource.NewObjectProperty(resource.PropertyMap{
+				"key":   resource.NewStringProperty("Environment"),
+				"value": resource.NewStringProperty("prod"),
+			}),
+			resource.NewObjectProperty(resource.PropertyMap{
+				"key":   resource.NewStringProperty("Name"),
+				"value": resource.NewStringProperty("my-resource"),
+			}),
+		})
+		actualTags := resource.NewArrayProperty([]resource.PropertyValue{
+			resource.NewObjectProperty(resource.PropertyMap{
+				"key":   resource.NewStringProperty("Name"),
+				"value": resource.NewStringProperty("my-resource"),
+			}),
+			resource.NewObjectProperty(resource.PropertyMap{
+				"key":   resource.NewStringProperty("Environment"),
+				"value": resource.NewStringProperty("prod"),
+			}),
+		})
+		desiredTags := resource.PropertyMap{"tags": oldTags}
+		resp, err := provider.Diff(ctx, &pulumirpc.DiffRequest{
+			Urn: string(arrayURN),
+			Olds: mustMarshalProperties(t, resource.PropertyMap{
+				"tags":     actualTags,
+				"__inputs": resource.MakeSecret(resource.NewObjectProperty(desiredTags)),
+			}),
+			News: mustMarshalProperties(t, desiredTags),
+		})
+		require.NoError(t, err)
+		assert.Equal(t, pulumirpc.DiffResponse_DIFF_NONE, resp.Changes)
+	})
+
+	t.Run("normalized IAM policy document actual baseline does not report diff", func(t *testing.T) {
+		roleURN := resource.NewURN("stack", "project", "parent", "aws:iam:Role", "name")
+		oldInputs := resource.PropertyMap{
+			"assumeRolePolicyDocument": resource.NewStringProperty(`{
+				"Version": "2012-10-17",
+				"Statement": [{
+					"Effect": "Allow",
+					"Principal": {"Service": "ec2.amazonaws.com"},
+					"Action": "sts:AssumeRole"
+				}]
+			}`),
+			"policies": resource.NewArrayProperty([]resource.PropertyValue{
+				resource.NewObjectProperty(resource.PropertyMap{
+					"policyName": resource.NewStringProperty("test-policy"),
+					"policyDocument": resource.NewObjectProperty(resource.PropertyMap{
+						"Version": resource.NewStringProperty("2012-10-17"),
+						"Statement": resource.NewArrayProperty([]resource.PropertyValue{
+							resource.NewObjectProperty(resource.PropertyMap{
+								"Effect":   resource.NewStringProperty("Allow"),
+								"Action":   resource.NewStringProperty("*"),
+								"Resource": resource.NewStringProperty("*"),
+							}),
+						}),
+					}),
+				}),
+			}),
+		}
+		actualOutputs := resource.PropertyMap{
+			"assumeRolePolicyDocument": resource.NewObjectProperty(resource.PropertyMap{
+				"Version": resource.NewStringProperty("2012-10-17"),
+				"Statement": resource.NewArrayProperty([]resource.PropertyValue{
+					resource.NewObjectProperty(resource.PropertyMap{
+						"Effect":    resource.NewStringProperty("Allow"),
+						"Principal": resource.NewObjectProperty(resource.PropertyMap{"Service": resource.NewStringProperty("ec2.amazonaws.com")}),
+						"Action":    resource.NewStringProperty("sts:AssumeRole"),
+					}),
+				}),
+			}),
+			"policies": resource.NewArrayProperty([]resource.PropertyValue{
+				resource.NewObjectProperty(resource.PropertyMap{
+					"policyName": resource.NewStringProperty("test-policy"),
+					"policyDocument": resource.NewObjectProperty(resource.PropertyMap{
+						"Version": resource.NewStringProperty("2012-10-17"),
+						"Statement": resource.NewArrayProperty([]resource.PropertyValue{
+							resource.NewObjectProperty(resource.PropertyMap{
+								"Effect":   resource.NewStringProperty("Allow"),
+								"Action":   resource.NewArrayProperty([]resource.PropertyValue{resource.NewStringProperty("*")}),
+								"Resource": resource.NewStringProperty("*"),
+							}),
+						}),
+					}),
+				}),
+			}),
+		}
+		resp, err := provider.Diff(ctx, &pulumirpc.DiffRequest{
+			Urn: string(roleURN),
+			Olds: mustMarshalProperties(t, resource.PropertyMap{
+				"assumeRolePolicyDocument": actualOutputs["assumeRolePolicyDocument"],
+				"policies":                 actualOutputs["policies"],
+				"__inputs":                 resource.MakeSecret(resource.NewObjectProperty(oldInputs)),
+			}),
+			News: mustMarshalProperties(t, oldInputs),
+		})
+		require.NoError(t, err)
+		assert.Equal(t, pulumirpc.DiffResponse_DIFF_NONE, resp.Changes)
+	})
+
+	t.Run("write-only input from checkpoint does not become a diff", func(t *testing.T) {
+		oldInputs := resource.PropertyMap{
+			"password": resource.NewStringProperty("secret"),
+		}
+		resp, err := provider.Diff(ctx, &pulumirpc.DiffRequest{
+			Urn: string(urn),
+			Olds: mustMarshalProperties(t, resource.PropertyMap{
+				"__inputs": resource.MakeSecret(resource.NewObjectProperty(oldInputs)),
+			}),
+			News: mustMarshalProperties(t, oldInputs),
+		})
+		require.NoError(t, err)
+		assert.Equal(t, pulumirpc.DiffResponse_DIFF_NONE, resp.Changes)
+	})
+
+	t.Run("custom resource uses old input diff fallback", func(t *testing.T) {
+		mockCustomResource := resources.NewMockCustomResource(ctrl)
+		provider.customResources["custom:resource"] = mockCustomResource
+		oldInputs := resource.PropertyMap{"name": resource.NewStringProperty("old")}
+		resp, err := provider.Diff(ctx, &pulumirpc.DiffRequest{
+			Urn: string(resource.NewURN("stack", "project", "parent", "custom:resource", "name")),
+			Olds: mustMarshalProperties(t, resource.PropertyMap{
+				"__inputs": resource.MakeSecret(resource.NewObjectProperty(oldInputs)),
+			}),
+			News: mustMarshalProperties(t, resource.PropertyMap{
+				"name": resource.NewStringProperty("new"),
+			}),
+		})
+		require.NoError(t, err)
+		assert.Equal(t, pulumirpc.DiffResponse_DIFF_UNKNOWN, resp.Changes)
+	})
+
+	t.Run("missing standard spec returns error", func(t *testing.T) {
+		_, err := provider.Diff(ctx, &pulumirpc.DiffRequest{
+			Urn: string(resource.NewURN("stack", "project", "parent", "aws:missing:Resource", "name")),
+			Olds: mustMarshalProperties(t, resource.PropertyMap{
+				"__inputs": resource.MakeSecret(resource.NewObjectProperty(resource.PropertyMap{})),
+			}),
+			News: mustMarshalProperties(t, resource.PropertyMap{}),
+		})
+		require.Error(t, err)
+		assert.Contains(t, err.Error(), "Resource type aws:missing:Resource not found")
+	})
+}
+
+func TestStandardResourceReadReturnsOwnershipFilteredInputs(t *testing.T) {
+	ctrl := gomock.NewController(t)
+	defer ctrl.Finish()
+
+	mockCCC := client.NewMockCloudControlClient(ctrl)
+	ctx, cancel := context.WithCancel(context.Background())
+	provider := &cfnProvider{
+		name: "test-provider",
+		resourceMap: &metadata.CloudAPIMetadata{
+			Resources: map[string]metadata.CloudAPIResource{
+				"aws:rds/dbInstance:DBInstance": {
+					CfType: "AWS::RDS::DBInstance",
+					Inputs: map[string]schema.PropertySpec{
+						"backupTarget": {TypeSpec: schema.TypeSpec{Type: "string"}},
+						"engine":       {TypeSpec: schema.TypeSpec{Type: "string"}},
+						"password":     {TypeSpec: schema.TypeSpec{Type: "string"}},
+						"tags": {
+							TypeSpec: schema.TypeSpec{
+								Type:                 "object",
+								AdditionalProperties: &schema.TypeSpec{Type: "string"},
+							},
+						},
+					},
+					Outputs: map[string]schema.PropertySpec{
+						"backupTarget": {TypeSpec: schema.TypeSpec{Type: "string"}},
+						"engine":       {TypeSpec: schema.TypeSpec{Type: "string"}},
+						"tags": {
+							TypeSpec: schema.TypeSpec{
+								Type:                 "object",
+								AdditionalProperties: &schema.TypeSpec{Type: "string"},
+							},
+						},
+					},
+					TagsProperty: "tags",
+					WriteOnly:    []string{"password"},
+					CreateOnly:   []string{"password"},
+				},
+				"aws:logs/logGroup:LogGroup": {
+					CfType: "AWS::Logs::LogGroup",
+					Inputs: map[string]schema.PropertySpec{
+						"tags": {
+							TypeSpec: schema.TypeSpec{
+								Type: "array",
+								Items: &schema.TypeSpec{
+									Ref: "#/types/aws-native:index:Tag",
+								},
+							},
+						},
+					},
+					Outputs: map[string]schema.PropertySpec{
+						"tags": {
+							TypeSpec: schema.TypeSpec{
+								Type: "array",
+								Items: &schema.TypeSpec{
+									Ref: "#/types/aws-native:index:Tag",
+								},
+							},
+						},
+					},
+					TagsProperty: "tags",
+					TagsStyle:    default_tags.TagsStyleKeyValueArray,
+				},
+				"aws:iam:Role": {
+					CfType: "AWS::IAM::Role",
+					Inputs: map[string]schema.PropertySpec{
+						"assumeRolePolicyDocument": {TypeSpec: schema.TypeSpec{Ref: "pulumi.json#/Any"}},
+						"policies": {
+							TypeSpec: schema.TypeSpec{
+								Type:  "array",
+								Items: &schema.TypeSpec{Ref: "#/types/aws-native:iam:RolePolicy"},
+							},
+						},
+					},
+					Outputs: map[string]schema.PropertySpec{
+						"assumeRolePolicyDocument": {TypeSpec: schema.TypeSpec{Ref: "pulumi.json#/Any"}},
+						"policies": {
+							TypeSpec: schema.TypeSpec{
+								Type:  "array",
+								Items: &schema.TypeSpec{Ref: "#/types/aws-native:iam:RolePolicy"},
+							},
+						},
+					},
+				},
+			},
+			Types: map[string]metadata.CloudAPIType{
+				"aws-native:index:Tag": {
+					Properties: map[string]schema.PropertySpec{
+						"key":   {TypeSpec: schema.TypeSpec{Type: "string"}},
+						"value": {TypeSpec: schema.TypeSpec{Type: "string"}},
+					},
+				},
+				"aws-native:iam:RolePolicy": {
+					Type: "object",
+					Properties: map[string]schema.PropertySpec{
+						"policyDocument": {TypeSpec: schema.TypeSpec{Ref: "pulumi.json#/Any"}},
+						"policyName":     {TypeSpec: schema.TypeSpec{Type: "string"}},
+					},
+				},
+			},
+		},
+		customResources: map[string]resources.CustomResource{},
+		ccc:             mockCCC,
+		canceler: &cancellationContext{
+			context: ctx,
+			cancel:  cancel,
+		},
+	}
+	urn := resource.NewURN("stack", "project", "parent", "aws:rds/dbInstance:DBInstance", "name")
+
+	t.Run("managed drift uses live actual value", func(t *testing.T) {
+		oldInputs := resource.PropertyMap{"engine": resource.NewStringProperty("postgres")}
+		mockCCC.EXPECT().Read(ctx, "AWS::RDS::DBInstance", "resource-id").Return(
+			map[string]interface{}{
+				"engine": "mysql",
+			}, true, nil,
+		)
+
+		resp, err := provider.Read(ctx, &pulumirpc.ReadRequest{
+			Urn: string(urn),
+			Id:  "resource-id",
+			Properties: mustMarshalProperties(t, resource.PropertyMap{
+				"engine":   resource.NewStringProperty("postgres"),
+				"__inputs": resource.MakeSecret(resource.NewObjectProperty(oldInputs)),
+			}),
+		})
+		require.NoError(t, err)
+
+		props := mustUnmarshalProperties(t, resp.Properties)
+		assert.Equal(t, "mysql", props["engine"].StringValue())
+		inputs := mustUnmarshalProperties(t, resp.Inputs)
+		assert.Equal(t, "mysql", inputs["engine"].StringValue())
+		checkpoint := props["__inputs"].SecretValue().Element.ObjectValue()
+		assert.Equal(t, "mysql", checkpoint["engine"].StringValue())
+	})
+
+	t.Run("managed optional computed drift uses live actual value", func(t *testing.T) {
+		oldInputs := resource.PropertyMap{
+			"backupTarget": resource.NewStringProperty("local"),
+		}
+		mockCCC.EXPECT().Read(ctx, "AWS::RDS::DBInstance", "resource-id").Return(
+			map[string]interface{}{
+				"backupTarget": "region",
+			}, true, nil,
+		)
+
+		resp, err := provider.Read(ctx, &pulumirpc.ReadRequest{
+			Urn: string(urn),
+			Id:  "resource-id",
+			Properties: mustMarshalProperties(t, resource.PropertyMap{
+				"backupTarget": resource.NewStringProperty("local"),
+				"__inputs":     resource.MakeSecret(resource.NewObjectProperty(oldInputs)),
+			}),
+		})
+		require.NoError(t, err)
+
+		props := mustUnmarshalProperties(t, resp.Properties)
+		assert.Equal(t, "region", props["backupTarget"].StringValue())
+		inputs := mustUnmarshalProperties(t, resp.Inputs)
+		assert.Equal(t, "region", inputs["backupTarget"].StringValue())
+		checkpoint := props["__inputs"].SecretValue().Element.ObjectValue()
+		assert.Equal(t, "region", checkpoint["backupTarget"].StringValue())
+	})
+
+	t.Run("unowned optional computed default stays absent from inputs", func(t *testing.T) {
+		oldInputs := resource.PropertyMap{"engine": resource.NewStringProperty("postgres")}
+		mockCCC.EXPECT().Read(ctx, "AWS::RDS::DBInstance", "resource-id").Return(
+			map[string]interface{}{
+				"engine":       "postgres",
+				"backupTarget": "region",
+			}, true, nil,
+		)
+
+		resp, err := provider.Read(ctx, &pulumirpc.ReadRequest{
+			Urn: string(urn),
+			Id:  "resource-id",
+			Properties: mustMarshalProperties(t, resource.PropertyMap{
+				"engine":   resource.NewStringProperty("postgres"),
+				"__inputs": resource.MakeSecret(resource.NewObjectProperty(oldInputs)),
+			}),
+		})
+		require.NoError(t, err)
+
+		props := mustUnmarshalProperties(t, resp.Properties)
+		assert.Equal(t, "region", props["backupTarget"].StringValue())
+		inputs := mustUnmarshalProperties(t, resp.Inputs)
+		assert.False(t, inputs.HasValue("backupTarget"))
+		assert.Equal(t, "postgres", inputs["engine"].StringValue())
+		checkpoint := props["__inputs"].SecretValue().Element.ObjectValue()
+		assert.False(t, checkpoint.HasValue("backupTarget"))
+		assert.Equal(t, "postgres", checkpoint["engine"].StringValue())
+	})
+
+	t.Run("aws managed tag drift is not checkpointed as owned input", func(t *testing.T) {
+		oldInputs := resource.PropertyMap{
+			"tags": resource.NewObjectProperty(resource.PropertyMap{
+				"owner": resource.NewStringProperty("team"),
+			}),
+		}
+		mockCCC.EXPECT().Read(ctx, "AWS::RDS::DBInstance", "resource-id").Return(
+			map[string]interface{}{
+				"tags": map[string]interface{}{
+					"owner":       "team",
+					"aws:managed": "external",
+				},
+			}, true, nil,
+		)
+
+		resp, err := provider.Read(ctx, &pulumirpc.ReadRequest{
+			Urn: string(urn),
+			Id:  "resource-id",
+			Properties: mustMarshalProperties(t, resource.PropertyMap{
+				"tags":     resource.NewObjectProperty(oldInputs["tags"].ObjectValue()),
+				"__inputs": resource.MakeSecret(resource.NewObjectProperty(oldInputs)),
+			}),
+		})
+		require.NoError(t, err)
+
+		props := mustUnmarshalProperties(t, resp.Properties)
+		stateTags := props["tags"].ObjectValue()
+		assert.Equal(t, resource.NewStringProperty("external"), stateTags["aws:managed"])
+
+		inputs := mustUnmarshalProperties(t, resp.Inputs)
+		inputTags := inputs["tags"].ObjectValue()
+		assert.False(t, inputTags.HasValue("aws:managed"))
+		checkpointTags := props["__inputs"].SecretValue().Element.ObjectValue()["tags"].ObjectValue()
+		assert.False(t, checkpointTags.HasValue("aws:managed"))
+	})
+
+	t.Run("key value array tag reorder is not checkpointed as owned input drift", func(t *testing.T) {
+		arrayURN := resource.NewURN("stack", "project", "parent", "aws:logs/logGroup:LogGroup", "name")
+		oldTags := resource.NewArrayProperty([]resource.PropertyValue{
+			resource.NewObjectProperty(resource.PropertyMap{
+				"key":   resource.NewStringProperty("Environment"),
+				"value": resource.NewStringProperty("prod"),
+			}),
+			resource.NewObjectProperty(resource.PropertyMap{
+				"key":   resource.NewStringProperty("Name"),
+				"value": resource.NewStringProperty("my-resource"),
+			}),
+		})
+		refreshedTags := []interface{}{
+			map[string]interface{}{"key": "Name", "value": "my-resource"},
+			map[string]interface{}{"key": "Environment", "value": "prod"},
+		}
+		oldInputs := resource.PropertyMap{
+			"tags": oldTags,
+		}
+		mockCCC.EXPECT().Read(ctx, "AWS::Logs::LogGroup", "resource-id").Return(
+			map[string]interface{}{
+				"tags": refreshedTags,
+			}, true, nil,
+		)
+
+		resp, err := provider.Read(ctx, &pulumirpc.ReadRequest{
+			Urn: string(arrayURN),
+			Id:  "resource-id",
+			Properties: mustMarshalProperties(t, resource.PropertyMap{
+				"tags":     oldTags,
+				"__inputs": resource.MakeSecret(resource.NewObjectProperty(oldInputs)),
+			}),
+		})
+		require.NoError(t, err)
+
+		inputs := mustUnmarshalProperties(t, resp.Inputs)
+		assert.True(t, oldTags.DeepEquals(inputs["tags"]))
+		props := mustUnmarshalProperties(t, resp.Properties)
+		checkpointTags := props["__inputs"].SecretValue().Element.ObjectValue()["tags"]
+		assert.True(t, oldTags.DeepEquals(checkpointTags))
+	})
+
+	t.Run("secret tag value remains secret after refresh", func(t *testing.T) {
+		arrayURN := resource.NewURN("stack", "project", "parent", "aws:logs/logGroup:LogGroup", "name")
+		oldTags := resource.NewArrayProperty([]resource.PropertyValue{
+			resource.NewObjectProperty(resource.PropertyMap{
+				"key":   resource.NewStringProperty("secretfoo"),
+				"value": resource.MakeSecret(resource.NewStringProperty("secretbar")),
+			}),
+		})
+		oldInputs := resource.PropertyMap{
+			"tags": oldTags,
+		}
+		mockCCC.EXPECT().Read(ctx, "AWS::Logs::LogGroup", "resource-id").Return(
+			map[string]interface{}{
+				"tags": []interface{}{
+					map[string]interface{}{"key": "secretfoo", "value": "secretbar"},
+				},
+			}, true, nil,
+		)
+
+		resp, err := provider.Read(ctx, &pulumirpc.ReadRequest{
+			Urn: string(arrayURN),
+			Id:  "resource-id",
+			Properties: mustMarshalProperties(t, resource.PropertyMap{
+				"tags":     oldTags,
+				"__inputs": resource.MakeSecret(resource.NewObjectProperty(oldInputs)),
+			}),
+		})
+		require.NoError(t, err)
+
+		inputs := mustUnmarshalProperties(t, resp.Inputs)
+		inputTagValue := inputs["tags"].ArrayValue()[0].ObjectValue()["value"]
+		require.True(t, inputTagValue.IsSecret())
+		assert.Equal(t, resource.NewStringProperty("secretbar"), inputTagValue.SecretValue().Element)
+
+		props := mustUnmarshalProperties(t, resp.Properties)
+		outputTagValue := props["tags"].ArrayValue()[0].ObjectValue()["value"]
+		require.True(t, outputTagValue.IsSecret())
+		assert.Equal(t, resource.NewStringProperty("secretbar"), outputTagValue.SecretValue().Element)
+
+		checkpointTagValue := props["__inputs"].SecretValue().Element.ObjectValue()["tags"].
+			ArrayValue()[0].ObjectValue()["value"]
+		require.True(t, checkpointTagValue.IsSecret())
+		assert.Equal(t, resource.NewStringProperty("secretbar"), checkpointTagValue.SecretValue().Element)
+	})
+
+	t.Run("normalized IAM policy document is not checkpointed as owned input drift", func(t *testing.T) {
+		roleURN := resource.NewURN("stack", "project", "parent", "aws:iam:Role", "name")
+		oldInputs := resource.PropertyMap{
+			"assumeRolePolicyDocument": resource.NewStringProperty(`{
+				"Version": "2012-10-17",
+				"Statement": [{
+					"Effect": "Allow",
+					"Principal": {"Service": "ec2.amazonaws.com"},
+					"Action": "sts:AssumeRole"
+				}]
+			}`),
+			"policies": resource.NewArrayProperty([]resource.PropertyValue{
+				resource.NewObjectProperty(resource.PropertyMap{
+					"policyName": resource.NewStringProperty("test-policy"),
+					"policyDocument": resource.NewObjectProperty(resource.PropertyMap{
+						"Version": resource.NewStringProperty("2012-10-17"),
+						"Statement": resource.NewArrayProperty([]resource.PropertyValue{
+							resource.NewObjectProperty(resource.PropertyMap{
+								"Effect":   resource.NewStringProperty("Allow"),
+								"Action":   resource.NewStringProperty("*"),
+								"Resource": resource.NewStringProperty("*"),
+							}),
+						}),
+					}),
+				}),
+			}),
+		}
+		mockCCC.EXPECT().Read(ctx, "AWS::IAM::Role", "resource-id").Return(
+			map[string]interface{}{
+				"AssumeRolePolicyDocument": map[string]interface{}{
+					"Version": "2012-10-17",
+					"Statement": []interface{}{
+						map[string]interface{}{
+							"Effect":    "Allow",
+							"Principal": map[string]interface{}{"Service": "ec2.amazonaws.com"},
+							"Action":    "sts:AssumeRole",
+						},
+					},
+				},
+				"Policies": []interface{}{
+					map[string]interface{}{
+						"PolicyName": "test-policy",
+						"PolicyDocument": map[string]interface{}{
+							"Version": "2012-10-17",
+							"Statement": []interface{}{
+								map[string]interface{}{
+									"Effect":   "Allow",
+									"Action":   "*",
+									"Resource": "*",
+								},
+							},
+						},
+					},
+				},
+			}, true, nil,
+		)
+
+		resp, err := provider.Read(ctx, &pulumirpc.ReadRequest{
+			Urn: string(roleURN),
+			Id:  "resource-id",
+			Properties: mustMarshalProperties(t, resource.PropertyMap{
+				"assumeRolePolicyDocument": oldInputs["assumeRolePolicyDocument"],
+				"policies":                 oldInputs["policies"],
+				"__inputs":                 resource.MakeSecret(resource.NewObjectProperty(oldInputs)),
+			}),
+		})
+		require.NoError(t, err)
+
+		inputs := mustUnmarshalProperties(t, resp.Inputs)
+		assert.True(t, oldInputs["assumeRolePolicyDocument"].DeepEquals(inputs["assumeRolePolicyDocument"]))
+		assert.True(t, oldInputs["policies"].DeepEquals(inputs["policies"]))
+		props := mustUnmarshalProperties(t, resp.Properties)
+		checkpoint := props["__inputs"].SecretValue().Element.ObjectValue()
+		assert.True(t, oldInputs["assumeRolePolicyDocument"].DeepEquals(checkpoint["assumeRolePolicyDocument"]))
+		assert.True(t, oldInputs["policies"].DeepEquals(checkpoint["policies"]))
+	})
+
+	t.Run("create-only write-only value is carried forward through refresh", func(t *testing.T) {
+		oldInputs := resource.PropertyMap{
+			"engine":   resource.NewStringProperty("postgres"),
+			"password": resource.NewStringProperty("secret"),
+		}
+		mockCCC.EXPECT().Read(ctx, "AWS::RDS::DBInstance", "resource-id").Return(
+			map[string]interface{}{
+				"engine": "postgres",
+			}, true, nil,
+		)
+
+		resp, err := provider.Read(ctx, &pulumirpc.ReadRequest{
+			Urn: string(urn),
+			Id:  "resource-id",
+			Properties: mustMarshalProperties(t, resource.PropertyMap{
+				"engine":   resource.NewStringProperty("postgres"),
+				"password": resource.NewStringProperty("secret"),
+				"__inputs": resource.MakeSecret(resource.NewObjectProperty(oldInputs)),
+			}),
+		})
+		require.NoError(t, err)
+
+		props := mustUnmarshalProperties(t, resp.Properties)
+		assert.Equal(t, "secret", props["password"].StringValue())
+		inputs := mustUnmarshalProperties(t, resp.Inputs)
+		assert.Equal(t, "secret", inputs["password"].StringValue())
+		checkpoint := props["__inputs"].SecretValue().Element.ObjectValue()
+		assert.Equal(t, "secret", checkpoint["password"].StringValue())
 	})
 }
 
@@ -1068,6 +1981,23 @@ func mustUnmarshalProperties(t *testing.T, props *structpb.Struct) resource.Prop
 		t.Fatalf("failed to unmarshal properties: %v", err)
 	}
 	return unmarshaled
+}
+
+func jsonPatchEquals(expected []jsonpatch.JsonPatchOperation) gomock.Matcher {
+	return jsonPatchMatcher{expected: expected}
+}
+
+type jsonPatchMatcher struct {
+	expected []jsonpatch.JsonPatchOperation
+}
+
+func (m jsonPatchMatcher) Matches(x interface{}) bool {
+	actual, ok := x.([]jsonpatch.JsonPatchOperation)
+	return ok && reflect.DeepEqual(m.expected, actual)
+}
+
+func (m jsonPatchMatcher) String() string {
+	return fmt.Sprintf("equals JSON patch %v", m.expected)
 }
 
 func parsePluginError(err error) (

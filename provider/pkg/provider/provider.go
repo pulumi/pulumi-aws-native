@@ -846,19 +846,25 @@ func (p *cfnProvider) Diff(ctx context.Context, req *pulumirpc.DiffRequest) (*pu
 	// Extract old inputs from the `__inputs` field of the old state.
 	oldInputs := resources.ParseCheckpointObject(oldState)
 
-	diff := oldInputs.Diff(newInputs)
-
-	if diff == nil {
-		return &pulumirpc.DiffResponse{Changes: pulumirpc.DiffResponse_DIFF_NONE}, nil
-	}
-
-	// Apply propertyTransform-based diff suppression for semantically equivalent values.
-	// This handles cases where AWS returns normalized values (e.g., lowercase identifiers,
-	// REPLICATING instead of DISABLED for EFS replication) that should not trigger updates.
 	resourceToken := string(urn.Type())
 	if spec, hasSpec := p.resourceMap.Resources[resourceToken]; hasSpec {
-		diff = resources.SuppressAWSManagedDiffs(resourceToken, &spec, diff, oldInputs, p.transformCache)
+		classifier := resources.NewPathClassifier(&spec, p.resourceMap.Types)
+		baseline := classifier.ActualInputBaselineFromOutputs(oldInputs, oldState, newInputs)
+		diff := baseline.Diff(newInputs)
+
+		// Apply propertyTransform-based diff suppression for semantically equivalent values.
+		// This handles cases where AWS returns normalized values (e.g., lowercase identifiers,
+		// REPLICATING instead of DISABLED for EFS replication) that should not trigger updates.
+		diff = resources.SuppressAWSManagedDiffsWithContext(
+			resourceToken, &spec, diff, oldInputs, baseline, newInputs, p.transformCache)
 		if diff == nil || (len(diff.Adds) == 0 && len(diff.Updates) == 0 && len(diff.Deletes) == 0) {
+			return &pulumirpc.DiffResponse{Changes: pulumirpc.DiffResponse_DIFF_NONE}, nil
+		}
+	} else {
+		if _, ok := p.customResources[resourceToken]; !ok {
+			return nil, errors.Errorf("Resource type %s not found", resourceToken)
+		}
+		if diff := oldInputs.Diff(newInputs); diff == nil {
 			return &pulumirpc.DiffResponse{Changes: pulumirpc.DiffResponse_DIFF_NONE}, nil
 		}
 	}
@@ -944,15 +950,10 @@ func (p *cfnProvider) Create(ctx context.Context, req *pulumirpc.CreateRequest) 
 		}
 		// Write-only properties are not returned in the outputs, so we assume they should have the same value we sent from the inputs.
 		if hasSpec && len(spec.WriteOnly) > 0 {
-			inputsMap := inputs.Mappable()
-			for _, writeOnlyProp := range spec.WriteOnly {
-				if _, ok := rawOutputs[writeOnlyProp]; !ok {
-					inputValue, ok := inputsMap[writeOnlyProp]
-					if ok {
-						rawOutputs[writeOnlyProp] = inputValue
-					}
-				}
-			}
+			outputProps := resource.NewPropertyMapFromMap(rawOutputs)
+			classifier := resources.NewPathClassifier(&spec, p.resourceMap.Types)
+			classifier.AddWriteOnlyOutputFallbacks(outputProps, inputs)
+			rawOutputs = resourcex.Decode(outputProps)
 		}
 		outputs = resources.CheckpointObject(inputs, rawOutputs)
 	}
@@ -1047,55 +1048,24 @@ func (p *cfnProvider) Read(ctx context.Context, req *pulumirpc.ReadRequest) (*pu
 			// There may be no old state (i.e., importing a new resource).
 			// Extract inputs from the response body.
 			newStateProps := resource.NewPropertyMapFromMap(rawState)
-			newInputs, err = schema.GetInputsFromState(&spec, newStateProps)
-			if err != nil {
-				return nil, err
-			}
+			classifier := resources.NewPathClassifier(&spec, p.resourceMap.Types)
+			newInputs = classifier.ProjectWritableOutputState(newStateProps)
 			if len(spec.WriteOnly) > 0 {
-				p.host.Log(ctx, diag.Warning, urn, fmt.Sprintf("Can't import write-only properties: %s", strings.Join(spec.WriteOnly, ", ")))
+				_ = p.host.Log(ctx, diag.Warning, urn,
+					fmt.Sprintf("Can't import write-only properties: %s", strings.Join(spec.WriteOnly, ", ")))
 			}
 		} else {
-			// It's hard to infer the changes in the inputs shape based on the outputs without false positives.
-			// The current approach is complicated but it's aimed to minimize the noise while refreshing:
-			// 0. We have "old" inputs and outputs before refresh and "new" outputs read from AWS.
-			// 1. Project old outputs to their corresponding input shape (exclude attributes).
-			oldInputProjection, err := schema.GetInputsFromState(&spec, oldState)
-			if err != nil {
-				return nil, err
-			}
-			oldStateMap := oldState.Mappable()
-			// Fill in the write-only properties from the old state as they won't included when reading.
-			if len(spec.WriteOnly) > 0 {
-				missingProps := make([]string, 0, len(spec.WriteOnly))
-				for _, writeOnlyProp := range spec.WriteOnly {
-					if _, ok := rawState[writeOnlyProp]; !ok {
-						oldValue, ok := oldStateMap[writeOnlyProp]
-						missingProps = append(missingProps, writeOnlyProp)
-						if ok {
-							rawState[writeOnlyProp] = oldValue
-						}
-					}
-				}
-				p.host.Log(ctx, diag.Warning, urn, fmt.Sprintf("Can't refresh write-only properties: %s", strings.Join(missingProps, ", ")))
-			}
-			// 2. Project new outputs to their corresponding input shape (exclude attributes).
 			newStateProps := resource.NewPropertyMapFromMap(rawState)
-			newInputProjection, err := schema.GetInputsFromState(&spec, newStateProps)
-			if err != nil {
-				return nil, err
-			}
-			// 3. Calculate the difference between two projections. This should give us actual significant changes
-			// that happened in AWS between the last resource update and its current state.
-			diff := oldInputProjection.Diff(newInputProjection)
-			// 4. Suppress AWS-managed changes from the diff. This removes:
-			//    - aws:* prefixed tags that AWS adds automatically (users cannot manage these)
-			//    - Resource-specific state transitions (e.g., EFS replication protection)
-			diff = resources.SuppressAWSManagedDiffs(resourceToken, &spec, diff, inputs, p.transformCache)
-			// 5. Apply this difference to the actual inputs (not a projection) that we have in state.
-			newInputs = resources.ApplyDiff(inputs, diff)
+			classifier := resources.NewPathClassifier(&spec, p.resourceMap.Types)
+			classifier.AddWriteOnlyOutputFallbacks(newStateProps, inputs)
+			resources.PreserveSecretWrappers(newStateProps, inputs)
+			baseline := classifier.ActualInputBaselineFromOutputs(inputs, newStateProps, inputs)
+			newInputs = resources.SuppressBaselineDiffs(resourceToken, &spec, inputs, baseline, p.transformCache)
+			newState = resources.CheckpointPropertyMap(newInputs, newStateProps)
 		}
-
-		newState = resources.CheckpointObject(newInputs, rawState)
+		if newState == nil {
+			newState = resources.CheckpointObject(newInputs, rawState)
+		}
 	}
 	// Store both outputs and inputs into the state checkpoint.
 	checkpoint, err := plugin.MarshalProperties(
@@ -1187,11 +1157,12 @@ func (p *cfnProvider) Update(ctx context.Context, req *pulumirpc.UpdateRequest) 
 			return nil, errors.Errorf("Resource type %s not found", resourceToken)
 		}
 
-		ops, err := resources.CalcPatch(oldInputs, newInputs, spec, p.resourceMap.Types)
+		classifier := resources.NewPathClassifier(&spec, p.resourceMap.Types)
+		ops, err := resources.CalcPatchWithActualOutputs(
+			oldInputs, oldState, newInputs, spec, p.resourceMap.Types, classifier, resourceToken, p.transformCache)
 		if err != nil {
 			return nil, err
 		}
-
 		glog.V(9).Infof("%s.UpdateResource %q id %q state %+v", label, spec.CfType, id, ops)
 		resourceState, err := p.ccc.Update(p.canceler.context, urn, spec.CfType, id, ops)
 		if err != nil {
@@ -1204,15 +1175,9 @@ func (p *cfnProvider) Update(ctx context.Context, req *pulumirpc.UpdateRequest) 
 
 		// Write-only properties are not returned in the outputs, so we assume they should have the same value we sent from the inputs.
 		if len(spec.WriteOnly) > 0 {
-			inputsMap := newInputs.Mappable()
-			for _, writeOnlyProp := range spec.WriteOnly {
-				if _, ok := rawOutputs[writeOnlyProp]; !ok {
-					inputValue, ok := inputsMap[writeOnlyProp]
-					if ok {
-						rawOutputs[writeOnlyProp] = inputValue
-					}
-				}
-			}
+			outputProps := resource.NewPropertyMapFromMap(rawOutputs)
+			classifier.AddWriteOnlyOutputFallbacks(outputProps, newInputs)
+			rawOutputs = resourcex.Decode(outputProps)
 		}
 		outputs = resources.CheckpointObject(newInputs, rawOutputs)
 	}

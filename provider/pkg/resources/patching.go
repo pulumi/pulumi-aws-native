@@ -14,15 +14,55 @@ import (
 )
 
 func CalcPatch(oldInputs resource.PropertyMap, newInputs resource.PropertyMap, spec metadata.CloudAPIResource, types map[string]metadata.CloudAPIType) ([]jsonpatch.JsonPatchOperation, error) {
-	diff := oldInputs.Diff(newInputs)
+	return calcPatchFromBaseline(oldInputs, oldInputs, newInputs, spec, types, "", nil)
+}
+
+// CalcPatchWithActualOutputs builds a CloudControl patch from live output state
+// to desired input state, using old inputs only for ownership and write-only
+// fallback decisions.
+func CalcPatchWithActualOutputs(
+	oldInputs resource.PropertyMap,
+	actualOutputs resource.PropertyMap,
+	newInputs resource.PropertyMap,
+	spec metadata.CloudAPIResource,
+	types map[string]metadata.CloudAPIType,
+	classifier *PathClassifier,
+	resourceToken string,
+	transformCache *TransformCache,
+) ([]jsonpatch.JsonPatchOperation, error) {
+	if classifier == nil {
+		classifier = NewPathClassifier(&spec, types)
+	}
+	baseline := classifier.ActualInputBaselineFromOutputs(oldInputs, actualOutputs, newInputs)
+	return calcPatchFromBaseline(oldInputs, baseline, newInputs, spec, types, resourceToken, transformCache)
+}
+
+func calcPatchFromBaseline(
+	oldInputs resource.PropertyMap,
+	baseline resource.PropertyMap,
+	newInputs resource.PropertyMap,
+	spec metadata.CloudAPIResource,
+	types map[string]metadata.CloudAPIType,
+	resourceToken string,
+	transformCache *TransformCache,
+) ([]jsonpatch.JsonPatchOperation, error) {
+	diff := baseline.Diff(newInputs)
+	if resourceToken != "" {
+		diff = SuppressAWSManagedDiffsWithContext(resourceToken, &spec, diff, oldInputs, baseline, newInputs, transformCache)
+	}
 
 	// Write-only properties can't even be read internally within the CloudControl service so they must be included in
 	// patch requests as adds to ensure the updated model validates.
 	// If a property is both write-only and create-only, we should not include it in the patch request
 	// because create-only properties can't be updated and even doing an add of the same value is rejected.
-	createOnlyProps := codegen.NewStringSet(spec.CreateOnly...)
-	writeOnlyProps := codegen.NewStringSet(spec.WriteOnly...)
-	mustSendProps := writeOnlyProps.Subtract(createOnlyProps)
+	createOnlyPaths := newPathSet(spec.CreateOnly)
+	mustSendProps := codegen.NewStringSet()
+	for _, writeOnlyPropName := range spec.WriteOnly {
+		if createOnlyPaths.covers(writeOnlyPropName) {
+			continue
+		}
+		mustSendProps.Add(writeOnlyPropName)
+	}
 
 	isDiffEmpty := diff == nil
 	if isDiffEmpty {
@@ -41,10 +81,16 @@ func CalcPatch(oldInputs resource.PropertyMap, newInputs resource.PropertyMap, s
 	}
 
 	for _, writeOnlyPropName := range mustSendProps.SortedValues() {
-		propKey := resource.PropertyKey(writeOnlyPropName)
+		propName := writeOnlyPropName
+		if strings.Contains(writeOnlyPropName, "/") {
+			propName = strings.Split(writeOnlyPropName, "/")[0]
+		}
+		propKey := resource.PropertyKey(propName)
 		if _, ok := diff.Sames[propKey]; ok || isDiffEmpty {
 			delete(diff.Sames, propKey)
-			diff.Adds[propKey] = newInputs[propKey]
+			if value, ok := newInputs[propKey]; ok {
+				diff.Adds[propKey] = value
+			}
 		}
 	}
 
