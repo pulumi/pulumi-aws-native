@@ -101,21 +101,21 @@ export interface CodeSecurityScanConfigurationArgs {
     /**
      * Code Security Scan Configuration
      */
-    configuration?: pulumi.Input<inputs.inspectorv2.CodeSecurityScanConfigurationArgs>;
+    configuration?: pulumi.Input<inputs.inspectorv2.CodeSecurityScanConfigurationArgs | undefined>;
     /**
      * Configuration Level
      */
-    level?: pulumi.Input<enums.inspectorv2.CodeSecurityScanConfigurationConfigurationLevel>;
+    level?: pulumi.Input<enums.inspectorv2.CodeSecurityScanConfigurationConfigurationLevel | undefined>;
     /**
      * Code Security Scan Configuration name
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Scope Settings
      */
-    scopeSettings?: pulumi.Input<inputs.inspectorv2.CodeSecurityScanConfigurationScopeSettingsArgs>;
+    scopeSettings?: pulumi.Input<inputs.inspectorv2.CodeSecurityScanConfigurationScopeSettingsArgs | undefined>;
     /**
      * The tags to apply to the scan configuration.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

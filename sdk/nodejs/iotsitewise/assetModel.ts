@@ -131,37 +131,37 @@ export interface AssetModelArgs {
     /**
      * The composite asset models that are part of this asset model. Composite asset models are asset models that contain specific properties.
      */
-    assetModelCompositeModels?: pulumi.Input<pulumi.Input<inputs.iotsitewise.AssetModelCompositeModelArgs>[]>;
+    assetModelCompositeModels?: pulumi.Input<pulumi.Input<inputs.iotsitewise.AssetModelCompositeModelArgs>[] | undefined>;
     /**
      * A description for the asset model.
      */
-    assetModelDescription?: pulumi.Input<string>;
+    assetModelDescription?: pulumi.Input<string | undefined>;
     /**
      * The external ID of the asset model.
      */
-    assetModelExternalId?: pulumi.Input<string>;
+    assetModelExternalId?: pulumi.Input<string | undefined>;
     /**
      * The hierarchy definitions of the asset model. Each hierarchy specifies an asset model whose assets can be children of any other assets created from this asset model. You can specify up to 10 hierarchies per asset model.
      */
-    assetModelHierarchies?: pulumi.Input<pulumi.Input<inputs.iotsitewise.AssetModelHierarchyArgs>[]>;
+    assetModelHierarchies?: pulumi.Input<pulumi.Input<inputs.iotsitewise.AssetModelHierarchyArgs>[] | undefined>;
     /**
      * A unique, friendly name for the asset model.
      */
-    assetModelName?: pulumi.Input<string>;
+    assetModelName?: pulumi.Input<string | undefined>;
     /**
      * The property definitions of the asset model. You can specify up to 200 properties per asset model.
      */
-    assetModelProperties?: pulumi.Input<pulumi.Input<inputs.iotsitewise.AssetModelPropertyArgs>[]>;
+    assetModelProperties?: pulumi.Input<pulumi.Input<inputs.iotsitewise.AssetModelPropertyArgs>[] | undefined>;
     /**
      * The type of the asset model (ASSET_MODEL OR COMPONENT_MODEL or INTERFACE)
      */
-    assetModelType?: pulumi.Input<string>;
+    assetModelType?: pulumi.Input<string | undefined>;
     /**
      * a list of asset model and interface relationships
      */
-    enforcedAssetModelInterfaceRelationships?: pulumi.Input<pulumi.Input<inputs.iotsitewise.AssetModelEnforcedAssetModelInterfaceRelationshipArgs>[]>;
+    enforcedAssetModelInterfaceRelationships?: pulumi.Input<pulumi.Input<inputs.iotsitewise.AssetModelEnforcedAssetModelInterfaceRelationshipArgs>[] | undefined>;
     /**
      * A list of key-value pairs that contain metadata for the asset model.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

@@ -83,6 +83,6 @@ export class WorkspaceInstance extends pulumi.CustomResource {
  * The set of arguments for constructing a WorkspaceInstance resource.
  */
 export interface WorkspaceInstanceArgs {
-    managedInstance?: pulumi.Input<inputs.workspacesinstances.ManagedInstancePropertiesArgs>;
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    managedInstance?: pulumi.Input<inputs.workspacesinstances.ManagedInstancePropertiesArgs | undefined>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

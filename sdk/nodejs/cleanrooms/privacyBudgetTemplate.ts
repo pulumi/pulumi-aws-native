@@ -157,5 +157,5 @@ export interface PrivacyBudgetTemplateArgs {
     /**
      * An arbitrary set of tags (key-value pairs) for this cleanrooms privacy budget template.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

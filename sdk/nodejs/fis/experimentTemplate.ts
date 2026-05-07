@@ -205,7 +205,7 @@ export interface ExperimentTemplateArgs {
     /**
      * The actions for the experiment.
      */
-    actions?: pulumi.Input<{[key: string]: pulumi.Input<inputs.fis.ExperimentTemplateActionArgs>}>;
+    actions?: pulumi.Input<{[key: string]: pulumi.Input<inputs.fis.ExperimentTemplateActionArgs>} | undefined>;
     /**
      * The description for the experiment template.
      */
@@ -213,15 +213,15 @@ export interface ExperimentTemplateArgs {
     /**
      * The experiment options for an experiment template.
      */
-    experimentOptions?: pulumi.Input<inputs.fis.ExperimentTemplateExperimentOptionsArgs>;
+    experimentOptions?: pulumi.Input<inputs.fis.ExperimentTemplateExperimentOptionsArgs | undefined>;
     /**
      * Describes the report configuration for the experiment template.
      */
-    experimentReportConfiguration?: pulumi.Input<inputs.fis.ExperimentTemplateExperimentReportConfigurationArgs>;
+    experimentReportConfiguration?: pulumi.Input<inputs.fis.ExperimentTemplateExperimentReportConfigurationArgs | undefined>;
     /**
      * The configuration for experiment logging.
      */
-    logConfiguration?: pulumi.Input<inputs.fis.ExperimentTemplateLogConfigurationArgs>;
+    logConfiguration?: pulumi.Input<inputs.fis.ExperimentTemplateLogConfigurationArgs | undefined>;
     /**
      * The Amazon Resource Name (ARN) of an IAM role.
      */
@@ -233,7 +233,7 @@ export interface ExperimentTemplateArgs {
     /**
      * The tags for the experiment template.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The targets for the experiment.
      */

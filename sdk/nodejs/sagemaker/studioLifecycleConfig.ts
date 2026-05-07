@@ -109,9 +109,9 @@ export interface StudioLifecycleConfigArgs {
     /**
      * The name of the Amazon SageMaker Studio Lifecycle Configuration.
      */
-    studioLifecycleConfigName?: pulumi.Input<string>;
+    studioLifecycleConfigName?: pulumi.Input<string | undefined>;
     /**
      * Tags to be associated with the Lifecycle Configuration. Each tag consists of a key and an optional value. Tag keys must be unique per resource. Tags are searchable using the Search API.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[] | undefined>;
 }

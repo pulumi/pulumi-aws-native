@@ -105,11 +105,11 @@ export interface RuleGroupsNamespaceArgs {
     /**
      * The RuleGroupsNamespace name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * Required to identify a specific APS Workspace associated with this RuleGroupsNamespace.
      */

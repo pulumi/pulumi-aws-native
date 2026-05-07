@@ -92,7 +92,7 @@ export interface PreparedStatementArgs {
     /**
      * The description of the prepared statement.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The query string for the prepared statement.
      */
@@ -100,7 +100,7 @@ export interface PreparedStatementArgs {
     /**
      * The name of the prepared statement.
      */
-    statementName?: pulumi.Input<string>;
+    statementName?: pulumi.Input<string | undefined>;
     /**
      * The name of the workgroup to which the prepared statement belongs.
      */

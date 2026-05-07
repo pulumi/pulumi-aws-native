@@ -126,7 +126,7 @@ export interface NetworkSettingsArgs {
     /**
      * The tags to add to the network settings resource. A tag is a key-value pair.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The VPC that streaming instances will connect to.
      *

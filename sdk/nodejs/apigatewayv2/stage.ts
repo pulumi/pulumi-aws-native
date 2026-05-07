@@ -146,7 +146,7 @@ export interface StageArgs {
     /**
      * Settings for logging access in this stage.
      */
-    accessLogSettings?: pulumi.Input<inputs.apigatewayv2.StageAccessLogSettingsArgs>;
+    accessLogSettings?: pulumi.Input<inputs.apigatewayv2.StageAccessLogSettingsArgs | undefined>;
     /**
      * The API identifier.
      */
@@ -154,43 +154,43 @@ export interface StageArgs {
     /**
      * Specifies whether updates to an API automatically trigger a new deployment. The default value is `false` .
      */
-    autoDeploy?: pulumi.Input<boolean>;
+    autoDeploy?: pulumi.Input<boolean | undefined>;
     /**
      * The identifier of a client certificate for a `Stage` . Supported only for WebSocket APIs.
      */
-    clientCertificateId?: pulumi.Input<string>;
+    clientCertificateId?: pulumi.Input<string | undefined>;
     /**
      * The default route settings for the stage.
      */
-    defaultRouteSettings?: pulumi.Input<inputs.apigatewayv2.StageRouteSettingsArgs>;
+    defaultRouteSettings?: pulumi.Input<inputs.apigatewayv2.StageRouteSettingsArgs | undefined>;
     /**
      * The deployment identifier for the API stage. Can't be updated if `autoDeploy` is enabled.
      */
-    deploymentId?: pulumi.Input<string>;
+    deploymentId?: pulumi.Input<string | undefined>;
     /**
      * The description for the API stage.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Route settings for the stage.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Stage` for more information about the expected schema for this property.
      */
-    routeSettings?: any;
+    routeSettings?: any | undefined;
     /**
      * The stage name. Stage names can contain only alphanumeric characters, hyphens, and underscores, or be `$default` . Maximum length is 128 characters.
      */
-    stageName?: pulumi.Input<string>;
+    stageName?: pulumi.Input<string | undefined>;
     /**
      * A map that defines the stage variables for a `Stage` . Variable names can have alphanumeric and underscore characters, and the values must match [A-Za-z0-9-._~:/?#&=,]+.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Stage` for more information about the expected schema for this property.
      */
-    stageVariables?: any;
+    stageVariables?: any | undefined;
     /**
      * The collection of tags. Each tag element is associated with a given resource.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Stage` for more information about the expected schema for this property.
      */
-    tags?: any;
+    tags?: any | undefined;
 }

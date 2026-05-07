@@ -96,12 +96,12 @@ export class ConfiguredModelAlgorithmAssociation extends pulumi.CustomResource {
  */
 export interface ConfiguredModelAlgorithmAssociationArgs {
     configuredModelAlgorithmArn: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     membershipIdentifier: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    privacyConfiguration?: pulumi.Input<inputs.cleanroomsml.ConfiguredModelAlgorithmAssociationPrivacyConfigurationArgs>;
+    name?: pulumi.Input<string | undefined>;
+    privacyConfiguration?: pulumi.Input<inputs.cleanroomsml.ConfiguredModelAlgorithmAssociationPrivacyConfigurationArgs | undefined>;
     /**
      * An arbitrary set of tags (key-value pairs) for this cleanrooms-ml configured model algorithm association.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

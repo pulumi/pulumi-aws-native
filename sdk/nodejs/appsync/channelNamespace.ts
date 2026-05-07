@@ -126,29 +126,29 @@ export interface ChannelNamespaceArgs {
     /**
      * The event handler functions that run custom business logic to process published events and subscribe requests.
      */
-    codeHandlers?: pulumi.Input<string>;
+    codeHandlers?: pulumi.Input<string | undefined>;
     /**
      * The Amazon S3 endpoint where the code is located.
      */
-    codeS3Location?: pulumi.Input<string>;
+    codeS3Location?: pulumi.Input<string | undefined>;
     /**
      * The configuration for the `OnPublish` and `OnSubscribe` handlers.
      */
-    handlerConfigs?: pulumi.Input<inputs.appsync.ChannelNamespaceHandlerConfigsArgs>;
+    handlerConfigs?: pulumi.Input<inputs.appsync.ChannelNamespaceHandlerConfigsArgs | undefined>;
     /**
      * The name of the channel namespace. This name must be unique within the `Api` .
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * List of AuthModes supported for Publish operations.
      */
-    publishAuthModes?: pulumi.Input<pulumi.Input<inputs.appsync.ChannelNamespaceAuthModeArgs>[]>;
+    publishAuthModes?: pulumi.Input<pulumi.Input<inputs.appsync.ChannelNamespaceAuthModeArgs>[] | undefined>;
     /**
      * List of AuthModes supported for Subscribe operations.
      */
-    subscribeAuthModes?: pulumi.Input<pulumi.Input<inputs.appsync.ChannelNamespaceAuthModeArgs>[]>;
+    subscribeAuthModes?: pulumi.Input<pulumi.Input<inputs.appsync.ChannelNamespaceAuthModeArgs>[] | undefined>;
     /**
      * A set of tags (key-value pairs) for this channel namespace.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

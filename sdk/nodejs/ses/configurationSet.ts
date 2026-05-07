@@ -231,37 +231,37 @@ export class ConfigurationSet extends pulumi.CustomResource {
  * The set of arguments for constructing a ConfigurationSet resource.
  */
 export interface ConfigurationSetArgs {
-    archivingOptions?: pulumi.Input<inputs.ses.ConfigurationSetArchivingOptionsArgs>;
+    archivingOptions?: pulumi.Input<inputs.ses.ConfigurationSetArchivingOptionsArgs | undefined>;
     /**
      * Specifies the name of the dedicated IP pool to associate with the configuration set and whether messages that use the configuration set are required to use Transport Layer Security (TLS).
      */
-    deliveryOptions?: pulumi.Input<inputs.ses.ConfigurationSetDeliveryOptionsArgs>;
+    deliveryOptions?: pulumi.Input<inputs.ses.ConfigurationSetDeliveryOptionsArgs | undefined>;
     /**
      * The name of the configuration set.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
      */
-    reputationOptions?: pulumi.Input<inputs.ses.ConfigurationSetReputationOptionsArgs>;
+    reputationOptions?: pulumi.Input<inputs.ses.ConfigurationSetReputationOptionsArgs | undefined>;
     /**
      * An object that defines whether or not Amazon SES can send email that you send using the configuration set.
      */
-    sendingOptions?: pulumi.Input<inputs.ses.ConfigurationSetSendingOptionsArgs>;
+    sendingOptions?: pulumi.Input<inputs.ses.ConfigurationSetSendingOptionsArgs | undefined>;
     /**
      * An object that contains information about the suppression list preferences for your account.
      */
-    suppressionOptions?: pulumi.Input<inputs.ses.ConfigurationSetSuppressionOptionsArgs>;
+    suppressionOptions?: pulumi.Input<inputs.ses.ConfigurationSetSuppressionOptionsArgs | undefined>;
     /**
      * The tags (keys and values) associated with the contact list.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * An object that defines the open and click tracking options for emails that you send using the configuration set.
      */
-    trackingOptions?: pulumi.Input<inputs.ses.ConfigurationSetTrackingOptionsArgs>;
+    trackingOptions?: pulumi.Input<inputs.ses.ConfigurationSetTrackingOptionsArgs | undefined>;
     /**
      * The Virtual Deliverability Manager (VDM) options that apply to the configuration set.
      */
-    vdmOptions?: pulumi.Input<inputs.ses.ConfigurationSetVdmOptionsArgs>;
+    vdmOptions?: pulumi.Input<inputs.ses.ConfigurationSetVdmOptionsArgs | undefined>;
 }

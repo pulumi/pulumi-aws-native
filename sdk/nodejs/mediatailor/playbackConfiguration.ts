@@ -200,8 +200,8 @@ export interface PlaybackConfigurationArgs {
     /**
      * The setting that indicates what conditioning MediaTailor will perform on ads that the ad decision server (ADS) returns, and what priority MediaTailor uses when inserting ads.
      */
-    adConditioningConfiguration?: pulumi.Input<inputs.mediatailor.PlaybackConfigurationAdConditioningConfigurationArgs>;
-    adDecisionServerConfiguration?: pulumi.Input<inputs.mediatailor.PlaybackConfigurationAdDecisionServerConfigurationArgs>;
+    adConditioningConfiguration?: pulumi.Input<inputs.mediatailor.PlaybackConfigurationAdConditioningConfigurationArgs | undefined>;
+    adDecisionServerConfiguration?: pulumi.Input<inputs.mediatailor.PlaybackConfigurationAdDecisionServerConfigurationArgs | undefined>;
     /**
      * The URL for the ad decision server (ADS). This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing you can provide a static VAST URL. The maximum length is 25,000 characters.
      */
@@ -209,63 +209,63 @@ export interface PlaybackConfigurationArgs {
     /**
      * The configuration for avail suppression, also known as ad suppression. For more information about ad suppression, see Ad Suppression (https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html).
      */
-    availSuppression?: pulumi.Input<inputs.mediatailor.PlaybackConfigurationAvailSuppressionArgs>;
+    availSuppression?: pulumi.Input<inputs.mediatailor.PlaybackConfigurationAvailSuppressionArgs | undefined>;
     /**
      * The configuration for bumpers. Bumpers are short audio or video clips that play at the start or before the end of an ad break. To learn more about bumpers, see Bumpers (https://docs.aws.amazon.com/mediatailor/latest/ug/bumpers.html).
      */
-    bumper?: pulumi.Input<inputs.mediatailor.PlaybackConfigurationBumperArgs>;
+    bumper?: pulumi.Input<inputs.mediatailor.PlaybackConfigurationBumperArgs | undefined>;
     /**
      * The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management.
      */
-    cdnConfiguration?: pulumi.Input<inputs.mediatailor.PlaybackConfigurationCdnConfigurationArgs>;
+    cdnConfiguration?: pulumi.Input<inputs.mediatailor.PlaybackConfigurationCdnConfigurationArgs | undefined>;
     /**
      * The player parameters and aliases used as dynamic variables during session initialization. For more information, see Domain Variables. 
      */
-    configurationAliases?: pulumi.Input<{[key: string]: any}>;
+    configurationAliases?: pulumi.Input<{[key: string]: any} | undefined>;
     /**
      * The configuration for DASH content.
      */
-    dashConfiguration?: pulumi.Input<inputs.mediatailor.PlaybackConfigurationDashConfigurationArgs>;
+    dashConfiguration?: pulumi.Input<inputs.mediatailor.PlaybackConfigurationDashConfigurationArgs | undefined>;
     /**
      * The configuration for HLS content.
      */
-    hlsConfiguration?: pulumi.Input<inputs.mediatailor.PlaybackConfigurationHlsConfigurationArgs>;
+    hlsConfiguration?: pulumi.Input<inputs.mediatailor.PlaybackConfigurationHlsConfigurationArgs | undefined>;
     /**
      * The setting that controls whether players can use stitched or guided ad insertion. The default, STITCHED_ONLY, forces all player sessions to use stitched (server-side) ad insertion. Choosing PLAYER_SELECT allows players to select either stitched or guided ad insertion at session-initialization time. The default for players that do not specify an insertion mode is stitched.
      */
-    insertionMode?: pulumi.Input<enums.mediatailor.PlaybackConfigurationInsertionMode>;
+    insertionMode?: pulumi.Input<enums.mediatailor.PlaybackConfigurationInsertionMode | undefined>;
     /**
      * The configuration for pre-roll ad insertion.
      */
-    livePreRollConfiguration?: pulumi.Input<inputs.mediatailor.PlaybackConfigurationLivePreRollConfigurationArgs>;
+    livePreRollConfiguration?: pulumi.Input<inputs.mediatailor.PlaybackConfigurationLivePreRollConfigurationArgs | undefined>;
     /**
      * The configuration that defines where AWS Elemental MediaTailor sends logs for the playback configuration.
      */
-    logConfiguration?: pulumi.Input<inputs.mediatailor.PlaybackConfigurationLogConfigurationArgs>;
+    logConfiguration?: pulumi.Input<inputs.mediatailor.PlaybackConfigurationLogConfigurationArgs | undefined>;
     /**
      * The configuration for manifest processing rules. Manifest processing rules enable customization of the personalized manifests created by MediaTailor.
      */
-    manifestProcessingRules?: pulumi.Input<inputs.mediatailor.PlaybackConfigurationManifestProcessingRulesArgs>;
+    manifestProcessingRules?: pulumi.Input<inputs.mediatailor.PlaybackConfigurationManifestProcessingRulesArgs | undefined>;
     /**
      * The identifier for the playback configuration.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Defines the maximum duration of underfilled ad time (in seconds) allowed in an ad break. If the duration of underfilled ad time exceeds the personalization threshold, then the personalization of the ad break is abandoned and the underlying content is shown. This feature applies to ad replacement in live and VOD streams, rather than ad insertion, because it relies on an underlying content stream. For more information about ad break behavior, including ad replacement and insertion, see Ad Behavior in AWS Elemental MediaTailor (https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html).
      */
-    personalizationThresholdSeconds?: pulumi.Input<number>;
+    personalizationThresholdSeconds?: pulumi.Input<number | undefined>;
     /**
      * The URL for a high-quality video asset to transcode and use to fill in time that's not used by ads. AWS Elemental MediaTailor shows the slate to fill in gaps in media content. Configuring the slate is optional for non-VPAID configurations. For VPAID, the slate is required because MediaTailor provides it in the slots that are designated for dynamic ad content. The slate must be a high-quality asset that contains both audio and video.
      */
-    slateAdUrl?: pulumi.Input<string>;
+    slateAdUrl?: pulumi.Input<string | undefined>;
     /**
      * The tags to assign to the playback configuration.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The name that is used to associate this playback configuration with a custom transcode profile. This overrides the dynamic transcoding defaults of MediaTailor. Use this only if you have already set up custom profiles with the help of AWS Support.
      */
-    transcodeProfileName?: pulumi.Input<string>;
+    transcodeProfileName?: pulumi.Input<string | undefined>;
     /**
      * The URL prefix for the parent manifest for the stream, minus the asset ID. The maximum length is 512 characters.
      */

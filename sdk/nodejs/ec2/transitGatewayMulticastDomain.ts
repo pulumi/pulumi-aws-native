@@ -110,11 +110,11 @@ export interface TransitGatewayMulticastDomainArgs {
     /**
      * The options for the transit gateway multicast domain.
      */
-    options?: pulumi.Input<inputs.ec2.OptionsPropertiesArgs>;
+    options?: pulumi.Input<inputs.ec2.OptionsPropertiesArgs | undefined>;
     /**
      * The tags for the transit gateway multicast domain.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The ID of the transit gateway.
      */

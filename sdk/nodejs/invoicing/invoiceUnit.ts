@@ -119,7 +119,7 @@ export interface InvoiceUnitArgs {
     /**
      * The assigned description for an invoice unit. This information can't be modified or deleted.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The account that receives invoices related to the invoice unit.
      */
@@ -127,11 +127,11 @@ export interface InvoiceUnitArgs {
     /**
      * A unique name that is distinctive within your AWS .
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The tag structure that contains a tag key and value.
      */
-    resourceTags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    resourceTags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * An `InvoiceUnitRule` object used the categorize invoice units.
      */
@@ -139,5 +139,5 @@ export interface InvoiceUnitArgs {
     /**
      * Whether the invoice unit based tax inheritance is/ should be enabled or disabled.
      */
-    taxInheritanceDisabled?: pulumi.Input<boolean>;
+    taxInheritanceDisabled?: pulumi.Input<boolean | undefined>;
 }

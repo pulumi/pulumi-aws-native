@@ -158,7 +158,7 @@ export interface ApplicationArgs {
     /**
      * The endpoint URL of the Amazon API Gateway proxy.
      */
-    apiGatewayProxy?: pulumi.Input<inputs.refactorspaces.ApplicationApiGatewayProxyInputArgs>;
+    apiGatewayProxy?: pulumi.Input<inputs.refactorspaces.ApplicationApiGatewayProxyInputArgs | undefined>;
     /**
      * The unique identifier of the environment.
      */
@@ -166,7 +166,7 @@ export interface ApplicationArgs {
     /**
      * The name of the application.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The proxy type of the proxy created within the application.
      */
@@ -174,7 +174,7 @@ export interface ApplicationArgs {
     /**
      * Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The ID of the virtual private cloud (VPC).
      */

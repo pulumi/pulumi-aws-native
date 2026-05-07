@@ -138,22 +138,22 @@ export interface GeofenceCollectionArgs {
      * - Must be a unique geofence collection name.
      * - No spaces allowed. For example, `ExampleGeofenceCollection` .
      */
-    collectionName?: pulumi.Input<string>;
+    collectionName?: pulumi.Input<string | undefined>;
     /**
      * An optional description for the geofence collection.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A key identifier for an [AWS KMS customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) . Enter a key ID, key ARN, alias name, or alias ARN.
      */
-    kmsKeyId?: pulumi.Input<string>;
-    pricingPlan?: pulumi.Input<enums.location.GeofenceCollectionPricingPlan>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
+    pricingPlan?: pulumi.Input<enums.location.GeofenceCollectionPricingPlan | undefined>;
     /**
      * This shape is deprecated since 2022-02-01: Deprecated. No longer allowed.
      */
-    pricingPlanDataSource?: pulumi.Input<string>;
+    pricingPlanDataSource?: pulumi.Input<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

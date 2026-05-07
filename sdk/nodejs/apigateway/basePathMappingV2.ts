@@ -98,7 +98,7 @@ export interface BasePathMappingV2Args {
     /**
      * The base path name that callers of the API must provide in the URL after the domain name.
      */
-    basePath?: pulumi.Input<string>;
+    basePath?: pulumi.Input<string | undefined>;
     /**
      * The Arn of an AWS::ApiGateway::DomainNameV2 resource.
      */
@@ -110,5 +110,5 @@ export interface BasePathMappingV2Args {
     /**
      * The name of the API's stage.
      */
-    stage?: pulumi.Input<string>;
+    stage?: pulumi.Input<string | undefined>;
 }

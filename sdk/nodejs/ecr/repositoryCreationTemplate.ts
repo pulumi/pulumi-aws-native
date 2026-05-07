@@ -147,27 +147,27 @@ export interface RepositoryCreationTemplateArgs {
     /**
      * The ARN of the role to be assumed by Amazon ECR. Amazon ECR will assume your supplied role when the customRoleArn is specified. When this field isn't specified, Amazon ECR will use the service-linked role for the repository creation template.
      */
-    customRoleArn?: pulumi.Input<string>;
+    customRoleArn?: pulumi.Input<string | undefined>;
     /**
      * The description associated with the repository creation template.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The encryption configuration associated with the repository creation template.
      */
-    encryptionConfiguration?: pulumi.Input<inputs.ecr.RepositoryCreationTemplateEncryptionConfigurationArgs>;
+    encryptionConfiguration?: pulumi.Input<inputs.ecr.RepositoryCreationTemplateEncryptionConfigurationArgs | undefined>;
     /**
      * The tag mutability setting for the repository. If this parameter is omitted, the default setting of ``MUTABLE`` will be used which will allow image tags to be overwritten. If ``IMMUTABLE`` is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
      */
-    imageTagMutability?: pulumi.Input<enums.ecr.RepositoryCreationTemplateImageTagMutability>;
+    imageTagMutability?: pulumi.Input<enums.ecr.RepositoryCreationTemplateImageTagMutability | undefined>;
     /**
      * A list of filters that specify which image tags are excluded from the repository creation template's image tag mutability setting.
      */
-    imageTagMutabilityExclusionFilters?: pulumi.Input<pulumi.Input<inputs.ecr.RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgs>[]>;
+    imageTagMutabilityExclusionFilters?: pulumi.Input<pulumi.Input<inputs.ecr.RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgs>[] | undefined>;
     /**
      * The lifecycle policy to use for repositories created using the template.
      */
-    lifecyclePolicy?: pulumi.Input<string>;
+    lifecyclePolicy?: pulumi.Input<string | undefined>;
     /**
      * The repository namespace prefix associated with the repository creation template.
      */
@@ -175,9 +175,9 @@ export interface RepositoryCreationTemplateArgs {
     /**
      * The repository policy to apply to repositories created using the template. A repository policy is a permissions policy associated with a repository to control access permissions.
      */
-    repositoryPolicy?: pulumi.Input<string>;
+    repositoryPolicy?: pulumi.Input<string | undefined>;
     /**
      * The metadata to apply to the repository to help you categorize and organize. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
      */
-    resourceTags?: pulumi.Input<pulumi.Input<inputs.ecr.RepositoryCreationTemplateTagArgs>[]>;
+    resourceTags?: pulumi.Input<pulumi.Input<inputs.ecr.RepositoryCreationTemplateTagArgs>[] | undefined>;
 }

@@ -148,7 +148,7 @@ export interface DbShardGroupArgs {
      *   +  1 - Creates a DB shard group with a standby DB data access shard in a different Availability Zone (AZ).
      *   +  2 - Creates a DB shard group with two standby DB data access shard in two different AZs.
      */
-    computeRedundancy?: pulumi.Input<number>;
+    computeRedundancy?: pulumi.Input<number | undefined>;
     /**
      * The name of the primary DB cluster for the DB shard group.
      */
@@ -156,7 +156,7 @@ export interface DbShardGroupArgs {
     /**
      * The name of the DB shard group.
      */
-    dbShardGroupIdentifier?: pulumi.Input<string>;
+    dbShardGroupIdentifier?: pulumi.Input<string | undefined>;
     /**
      * The maximum capacity of the DB shard group in Aurora capacity units (ACUs).
      */
@@ -164,7 +164,7 @@ export interface DbShardGroupArgs {
     /**
      * The minimum capacity of the DB shard group in Aurora capacity units (ACUs).
      */
-    minAcu?: pulumi.Input<number>;
+    minAcu?: pulumi.Input<number | undefined>;
     /**
      * Specifies whether the DB shard group is publicly accessible.
      *  When the DB shard group is publicly accessible, its Domain Name System (DNS) endpoint resolves to the private IP address from within the DB shard group's virtual private cloud (VPC). It resolves to the public IP address from outside of the DB shard group's VPC. Access to the DB shard group is ultimately controlled by the security group it uses. That public access is not permitted if the security group assigned to the DB shard group doesn't permit it.
@@ -178,9 +178,9 @@ export interface DbShardGroupArgs {
      *   +  If the subnets are part of a VPC that doesn’t have an internet gateway attached to it, the DB shard group is private.
      *   +  If the subnets are part of a VPC that has an internet gateway attached to it, the DB shard group is public.
      */
-    publiclyAccessible?: pulumi.Input<boolean>;
+    publiclyAccessible?: pulumi.Input<boolean | undefined>;
     /**
      * An optional set of key-value pairs to associate arbitrary data of your choosing with the DB shard group.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

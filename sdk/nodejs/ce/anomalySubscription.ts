@@ -246,7 +246,7 @@ export interface AnomalySubscriptionArgs {
     /**
      * Tags to assign to subscription.
      */
-    resourceTags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
+    resourceTags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[] | undefined>;
     /**
      * A list of subscriber
      */
@@ -254,13 +254,13 @@ export interface AnomalySubscriptionArgs {
     /**
      * The name of the subscription.
      */
-    subscriptionName?: pulumi.Input<string>;
+    subscriptionName?: pulumi.Input<string | undefined>;
     /**
      * The dollar value that triggers a notification if the threshold is exceeded. 
      */
-    threshold?: pulumi.Input<number>;
+    threshold?: pulumi.Input<number | undefined>;
     /**
      * An Expression object in JSON String format used to specify the anomalies that you want to generate alerts for.
      */
-    thresholdExpression?: pulumi.Input<string>;
+    thresholdExpression?: pulumi.Input<string | undefined>;
 }

@@ -217,61 +217,61 @@ export interface AppArgs {
      *
      * Existing Amplify apps deployed from a GitHub repository using OAuth continue to work with CI/CD. However, we strongly recommend that you migrate these apps to use the GitHub App. For more information, see [Migrating an existing OAuth app to the Amplify GitHub App](https://docs.aws.amazon.com/amplify/latest/userguide/setting-up-GitHub-access.html#migrating-to-github-app-auth) in the *Amplify User Guide* .
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Sets the configuration for your automatic branch creation.
      */
-    autoBranchCreationConfig?: pulumi.Input<inputs.amplify.AppAutoBranchCreationConfigArgs>;
+    autoBranchCreationConfig?: pulumi.Input<inputs.amplify.AppAutoBranchCreationConfigArgs | undefined>;
     /**
      * The credentials for basic authorization for an Amplify app. You must base64-encode the authorization credentials and provide them in the format `user:password` .
      */
-    basicAuthConfig?: pulumi.Input<inputs.amplify.AppBasicAuthConfigArgs>;
+    basicAuthConfig?: pulumi.Input<inputs.amplify.AppBasicAuthConfigArgs | undefined>;
     /**
      * The build specification (build spec) for an Amplify app.
      */
-    buildSpec?: pulumi.Input<string>;
+    buildSpec?: pulumi.Input<string | undefined>;
     /**
      * The cache configuration for the Amplify app. If you don't specify the cache configuration `type` , Amplify uses the default `AMPLIFY_MANAGED` setting.
      */
-    cacheConfig?: pulumi.Input<inputs.amplify.AppCacheConfigArgs>;
+    cacheConfig?: pulumi.Input<inputs.amplify.AppCacheConfigArgs | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role for an SSR app. The Compute role allows the Amplify Hosting compute service to securely access specific AWS resources based on the role's permissions. For more information about the SSR Compute role, see [Adding an SSR Compute role](https://docs.aws.amazon.com/amplify/latest/userguide/amplify-SSR-compute-role.html) in the *Amplify User Guide* .
      */
-    computeRoleArn?: pulumi.Input<string>;
+    computeRoleArn?: pulumi.Input<string | undefined>;
     /**
      * The custom HTTP headers for an Amplify app.
      */
-    customHeaders?: pulumi.Input<string>;
+    customHeaders?: pulumi.Input<string | undefined>;
     /**
      * The custom rewrite and redirect rules for an Amplify app.
      */
-    customRules?: pulumi.Input<pulumi.Input<inputs.amplify.AppCustomRuleArgs>[]>;
+    customRules?: pulumi.Input<pulumi.Input<inputs.amplify.AppCustomRuleArgs>[] | undefined>;
     /**
      * The description of the Amplify app.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Automatically disconnect a branch in Amplify Hosting when you delete a branch from your Git repository.
      */
-    enableBranchAutoDeletion?: pulumi.Input<boolean>;
+    enableBranchAutoDeletion?: pulumi.Input<boolean | undefined>;
     /**
      * The environment variables for the Amplify app.
      *
      * For a list of the environment variables that are accessible to Amplify by default, see [Amplify Environment variables](https://docs.aws.amazon.com/amplify/latest/userguide/amplify-console-environment-variables.html) in the *Amplify Hosting User Guide* .
      */
-    environmentVariables?: pulumi.Input<pulumi.Input<inputs.amplify.AppEnvironmentVariableArgs>[]>;
+    environmentVariables?: pulumi.Input<pulumi.Input<inputs.amplify.AppEnvironmentVariableArgs>[] | undefined>;
     /**
      * AWS Identity and Access Management ( IAM ) service role for the Amazon Resource Name (ARN) of the Amplify app.
      */
-    iamServiceRole?: pulumi.Input<string>;
+    iamServiceRole?: pulumi.Input<string | undefined>;
     /**
      * The configuration details that apply to the jobs for an Amplify app.
      */
-    jobConfig?: pulumi.Input<inputs.amplify.AppJobConfigArgs>;
+    jobConfig?: pulumi.Input<inputs.amplify.AppJobConfigArgs | undefined>;
     /**
      * The name of the Amplify app.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key using SSH cloning. The OAuth token is not stored.
      *
@@ -281,19 +281,19 @@ export interface AppArgs {
      *
      * Existing Amplify apps deployed from a GitHub repository using OAuth continue to work with CI/CD. However, we strongly recommend that you migrate these apps to use the GitHub App. For more information, see [Migrating an existing OAuth app to the Amplify GitHub App](https://docs.aws.amazon.com/amplify/latest/userguide/setting-up-GitHub-access.html#migrating-to-github-app-auth) in the *Amplify User Guide* .
      */
-    oauthToken?: pulumi.Input<string>;
+    oauthToken?: pulumi.Input<string | undefined>;
     /**
      * The platform for the Amplify app. For a static app, set the platform type to `WEB` . For a dynamic server-side rendered (SSR) app, set the platform type to `WEB_COMPUTE` . For an app requiring Amplify Hosting's original SSR support only, set the platform type to `WEB_DYNAMIC` .
      *
      * If you are deploying an SSG only app with Next.js version 14 or later, you must set the platform type to `WEB_COMPUTE` and set the artifacts `baseDirectory` to `.next` in the application's build settings. For an example of the build specification settings, see [Amplify build settings for a Next.js 14 SSG application](https://docs.aws.amazon.com/amplify/latest/userguide/deploy-nextjs-app.html#build-setting-detection-ssg-14) in the *Amplify Hosting User Guide* .
      */
-    platform?: pulumi.Input<enums.amplify.AppPlatform>;
+    platform?: pulumi.Input<enums.amplify.AppPlatform | undefined>;
     /**
      * The Git repository for the Amplify app.
      */
-    repository?: pulumi.Input<string>;
+    repository?: pulumi.Input<string | undefined>;
     /**
      * The tag for an Amplify app.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

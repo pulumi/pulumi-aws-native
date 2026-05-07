@@ -105,5 +105,5 @@ export interface DomainVerificationArgs {
     /**
      * The tags associated with the domain verification.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

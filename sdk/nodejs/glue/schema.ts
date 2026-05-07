@@ -131,7 +131,7 @@ export interface SchemaArgs {
     /**
      * Specify the `VersionNumber` or the `IsLatest` for setting the checkpoint for the schema. This is only required for updating a checkpoint.
      */
-    checkpointVersion?: pulumi.Input<inputs.glue.SchemaVersionArgs>;
+    checkpointVersion?: pulumi.Input<inputs.glue.SchemaVersionArgs | undefined>;
     /**
      * Compatibility setting for the schema.
      */
@@ -143,21 +143,21 @@ export interface SchemaArgs {
     /**
      * A description of the schema. If description is not provided, there will not be any default value for this.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Name of the schema.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The registry where a schema is stored.
      */
-    registry?: pulumi.Input<inputs.glue.SchemaRegistryArgs>;
+    registry?: pulumi.Input<inputs.glue.SchemaRegistryArgs | undefined>;
     /**
      * Definition for the initial schema version in plain-text.
      */
-    schemaDefinition?: pulumi.Input<string>;
+    schemaDefinition?: pulumi.Input<string | undefined>;
     /**
      * List of tags to tag the schema
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

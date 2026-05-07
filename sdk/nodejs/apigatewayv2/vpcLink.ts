@@ -95,11 +95,11 @@ export interface VpcLinkArgs {
     /**
      * The name of the VPC link.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A list of security group IDs for the VPC link.
      */
-    securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    securityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A list of subnet IDs to include in the VPC link.
      */
@@ -107,5 +107,5 @@ export interface VpcLinkArgs {
     /**
      * The collection of tags. Each tag element is associated with a given resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

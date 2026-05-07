@@ -103,6 +103,6 @@ export interface PolicyArgs {
     /**
      * The policy name.
      */
-    policyName?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    policyName?: pulumi.Input<string | undefined>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

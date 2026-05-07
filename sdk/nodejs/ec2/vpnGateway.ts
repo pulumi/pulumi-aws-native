@@ -93,11 +93,11 @@ export interface VpnGatewayArgs {
     /**
      * The private Autonomous System Number (ASN) for the Amazon side of a BGP session.
      */
-    amazonSideAsn?: pulumi.Input<number>;
+    amazonSideAsn?: pulumi.Input<number | undefined>;
     /**
      * Any tags assigned to the virtual private gateway.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The type of VPN connection the virtual private gateway supports.
      */

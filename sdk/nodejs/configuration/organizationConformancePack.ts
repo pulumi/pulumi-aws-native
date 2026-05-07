@@ -135,29 +135,29 @@ export interface OrganizationConformancePackArgs {
     /**
      * A list of ConformancePackInputParameter objects.
      */
-    conformancePackInputParameters?: pulumi.Input<pulumi.Input<inputs.configuration.OrganizationConformancePackConformancePackInputParameterArgs>[]>;
+    conformancePackInputParameters?: pulumi.Input<pulumi.Input<inputs.configuration.OrganizationConformancePackConformancePackInputParameterArgs>[] | undefined>;
     /**
      * AWS Config stores intermediate files while processing conformance pack template.
      */
-    deliveryS3Bucket?: pulumi.Input<string>;
+    deliveryS3Bucket?: pulumi.Input<string | undefined>;
     /**
      * The prefix for the delivery S3 bucket.
      */
-    deliveryS3KeyPrefix?: pulumi.Input<string>;
+    deliveryS3KeyPrefix?: pulumi.Input<string | undefined>;
     /**
      * A list of AWS accounts to be excluded from an organization conformance pack while deploying a conformance pack.
      */
-    excludedAccounts?: pulumi.Input<pulumi.Input<string>[]>;
+    excludedAccounts?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name of the organization conformance pack.
      */
-    organizationConformancePackName?: pulumi.Input<string>;
+    organizationConformancePackName?: pulumi.Input<string | undefined>;
     /**
      * A string containing full conformance pack template body.
      */
-    templateBody?: pulumi.Input<string>;
+    templateBody?: pulumi.Input<string | undefined>;
     /**
      * Location of file containing the template body.
      */
-    templateS3Uri?: pulumi.Input<string>;
+    templateS3Uri?: pulumi.Input<string | undefined>;
 }

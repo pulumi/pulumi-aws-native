@@ -208,51 +208,51 @@ export interface DashboardArgs {
      * - `AvailabilityStatus` for `ExecutiveSummaryOption` - This status can be either `ENABLED` or `DISABLED` . The option to build an executive summary is disabled when this is set to `DISABLED` . This option is `ENABLED` by default.
      * - `AvailabilityStatus` for `DataStoriesSharingOption` - This status can be either `ENABLED` or `DISABLED` . The option to share a data story is disabled when this is set to `DISABLED` . This option is `ENABLED` by default.
      */
-    dashboardPublishOptions?: pulumi.Input<inputs.quicksight.DashboardPublishOptionsArgs>;
-    definition?: pulumi.Input<inputs.quicksight.DashboardVersionDefinitionArgs>;
-    folderArns?: pulumi.Input<pulumi.Input<string>[]>;
+    dashboardPublishOptions?: pulumi.Input<inputs.quicksight.DashboardPublishOptionsArgs | undefined>;
+    definition?: pulumi.Input<inputs.quicksight.DashboardVersionDefinitionArgs | undefined>;
+    folderArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A list of analysis Amazon Resource Names (ARNs) to be linked to the dashboard.
      */
-    linkEntities?: pulumi.Input<pulumi.Input<string>[]>;
+    linkEntities?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A structure that contains the link sharing configurations that you want to apply overrides to.
      */
-    linkSharingConfiguration?: pulumi.Input<inputs.quicksight.DashboardLinkSharingConfigurationArgs>;
+    linkSharingConfiguration?: pulumi.Input<inputs.quicksight.DashboardLinkSharingConfigurationArgs | undefined>;
     /**
      * The display name of the dashboard.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values.
      */
-    parameters?: pulumi.Input<inputs.quicksight.DashboardParametersArgs>;
+    parameters?: pulumi.Input<inputs.quicksight.DashboardParametersArgs | undefined>;
     /**
      * A structure that contains the permissions of the dashboard. You can use this structure for granting permissions by providing a list of IAM action information for each principal ARN.
      *
      * To specify no permissions, omit the permissions list.
      */
-    permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardResourcePermissionArgs>[]>;
+    permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardResourcePermissionArgs>[] | undefined>;
     /**
      * The entity that you are using as a source when you create the dashboard. In `SourceEntity` , you specify the type of object that you want to use. You can only create a dashboard from a template, so you use a `SourceTemplate` entity. If you need to create a dashboard from an analysis, first convert the analysis to a template by using the `CreateTemplate` API operation. For `SourceTemplate` , specify the Amazon Resource Name (ARN) of the source template. The `SourceTemplate` ARN can contain any AWS account; and any QuickSight-supported AWS Region .
      *
      * Use the `DataSetReferences` entity within `SourceTemplate` to list the replacement datasets for the placeholders listed in the original. The schema in each dataset must match its placeholder.
      */
-    sourceEntity?: pulumi.Input<inputs.quicksight.DashboardSourceEntityArgs>;
+    sourceEntity?: pulumi.Input<inputs.quicksight.DashboardSourceEntityArgs | undefined>;
     /**
      * Contains a map of the key-value pairs for the resource tag or tags assigned to the dashboard.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. If you add a value for this field, it overrides the value that is used in the source entity. The theme ARN must exist in the same AWS account where you create the dashboard.
      */
-    themeArn?: pulumi.Input<string>;
+    themeArn?: pulumi.Input<string | undefined>;
     /**
      * The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to `LENIENT` , validation is skipped for specific errors.
      */
-    validationStrategy?: pulumi.Input<inputs.quicksight.DashboardValidationStrategyArgs>;
+    validationStrategy?: pulumi.Input<inputs.quicksight.DashboardValidationStrategyArgs | undefined>;
     /**
      * A description for the first version of the dashboard being created.
      */
-    versionDescription?: pulumi.Input<string>;
+    versionDescription?: pulumi.Input<string | undefined>;
 }

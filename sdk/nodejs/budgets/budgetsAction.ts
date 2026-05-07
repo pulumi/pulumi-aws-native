@@ -154,7 +154,7 @@ export interface BudgetsActionArgs {
     /**
      * This specifies if the action needs manual or automatic approval.
      */
-    approvalModel?: pulumi.Input<enums.budgets.BudgetsActionApprovalModel>;
+    approvalModel?: pulumi.Input<enums.budgets.BudgetsActionApprovalModel | undefined>;
     /**
      * A string that represents the budget name. ":" and "\" characters aren't allowed.
      */
@@ -174,7 +174,7 @@ export interface BudgetsActionArgs {
     /**
      * An optional list of tags to associate with the specified budget action. Each tag consists of a key and a value, and each key must be unique for the resource.
      */
-    resourceTags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    resourceTags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * A list of subscribers.
      */

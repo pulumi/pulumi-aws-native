@@ -115,5 +115,5 @@ export interface GroupProfileArgs {
     /**
      * The status of a group profile.
      */
-    status?: pulumi.Input<enums.datazone.GroupProfileStatus>;
+    status?: pulumi.Input<enums.datazone.GroupProfileStatus | undefined>;
 }

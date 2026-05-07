@@ -104,14 +104,14 @@ export interface KeyValueStoreArgs {
     /**
      * A comment for the key value store.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * The import source for the key value store.
      */
-    importSource?: pulumi.Input<inputs.cloudfront.KeyValueStoreImportSourceArgs>;
+    importSource?: pulumi.Input<inputs.cloudfront.KeyValueStoreImportSourceArgs | undefined>;
     /**
      * The name of the key value store.
      */
-    name?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    name?: pulumi.Input<string | undefined>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

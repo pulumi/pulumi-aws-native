@@ -147,15 +147,15 @@ export interface ModelCardArgs {
     /**
      * Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.
      */
-    createdBy?: pulumi.Input<inputs.sagemaker.ModelCardUserContextArgs>;
+    createdBy?: pulumi.Input<inputs.sagemaker.ModelCardUserContextArgs | undefined>;
     /**
      * Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.
      */
-    lastModifiedBy?: pulumi.Input<inputs.sagemaker.ModelCardUserContextArgs>;
+    lastModifiedBy?: pulumi.Input<inputs.sagemaker.ModelCardUserContextArgs | undefined>;
     /**
      * The unique name of the model card.
      */
-    modelCardName?: pulumi.Input<string>;
+    modelCardName?: pulumi.Input<string | undefined>;
     /**
      * The approval status of the model card within your organization. Different organizations might have different criteria for model card review and approval.
      */
@@ -163,9 +163,9 @@ export interface ModelCardArgs {
     /**
      * The security configuration used to protect model card data.
      */
-    securityConfig?: pulumi.Input<inputs.sagemaker.ModelCardSecurityConfigArgs>;
+    securityConfig?: pulumi.Input<inputs.sagemaker.ModelCardSecurityConfigArgs | undefined>;
     /**
      * Key-value pairs used to manage metadata for model cards.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

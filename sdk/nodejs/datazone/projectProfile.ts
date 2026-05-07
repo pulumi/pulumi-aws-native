@@ -152,32 +152,32 @@ export class ProjectProfile extends pulumi.CustomResource {
  * The set of arguments for constructing a ProjectProfile resource.
  */
 export interface ProjectProfileArgs {
-    allowCustomProjectResourceTags?: pulumi.Input<boolean>;
+    allowCustomProjectResourceTags?: pulumi.Input<boolean | undefined>;
     /**
      * The description of the project profile.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A domain ID of the project profile.
      */
-    domainIdentifier?: pulumi.Input<string>;
+    domainIdentifier?: pulumi.Input<string | undefined>;
     /**
      * A domain unit ID of the project profile.
      */
-    domainUnitIdentifier?: pulumi.Input<string>;
+    domainUnitIdentifier?: pulumi.Input<string | undefined>;
     /**
      * Environment configurations of a project profile.
      */
-    environmentConfigurations?: pulumi.Input<pulumi.Input<inputs.datazone.ProjectProfileEnvironmentConfigurationArgs>[]>;
+    environmentConfigurations?: pulumi.Input<pulumi.Input<inputs.datazone.ProjectProfileEnvironmentConfigurationArgs>[] | undefined>;
     /**
      * The name of a project profile.
      */
-    name?: pulumi.Input<string>;
-    projectResourceTags?: pulumi.Input<pulumi.Input<inputs.datazone.ProjectProfileResourceTagParameterArgs>[]>;
-    projectResourceTagsDescription?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
+    projectResourceTags?: pulumi.Input<pulumi.Input<inputs.datazone.ProjectProfileResourceTagParameterArgs>[] | undefined>;
+    projectResourceTagsDescription?: pulumi.Input<string | undefined>;
     /**
      * The status of a project profile.
      */
-    status?: pulumi.Input<enums.datazone.ProjectProfileStatus>;
-    useDefaultConfigurations?: pulumi.Input<boolean>;
+    status?: pulumi.Input<enums.datazone.ProjectProfileStatus | undefined>;
+    useDefaultConfigurations?: pulumi.Input<boolean | undefined>;
 }

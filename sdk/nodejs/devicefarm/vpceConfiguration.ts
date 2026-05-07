@@ -115,15 +115,15 @@ export interface VpceConfigurationArgs {
      *
      * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * An optional description that provides details about your VPC endpoint configuration.
      */
-    vpceConfigurationDescription?: pulumi.Input<string>;
+    vpceConfigurationDescription?: pulumi.Input<string | undefined>;
     /**
      * The friendly name you give to your VPC endpoint configuration to manage your configurations more easily.
      */
-    vpceConfigurationName?: pulumi.Input<string>;
+    vpceConfigurationName?: pulumi.Input<string | undefined>;
     /**
      * The name of the VPC endpoint service that you want to access from Device Farm.
      *

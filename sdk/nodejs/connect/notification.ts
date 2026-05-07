@@ -129,7 +129,7 @@ export interface NotificationArgs {
     /**
      * The time a notification will expire
      */
-    expiresAt?: pulumi.Input<string>;
+    expiresAt?: pulumi.Input<string | undefined>;
     /**
      * The identifier of the Amazon Connect instance.
      */
@@ -137,13 +137,13 @@ export interface NotificationArgs {
     /**
      * The priority of the notification.
      */
-    priority?: pulumi.Input<enums.connect.NotificationPriority>;
+    priority?: pulumi.Input<enums.connect.NotificationPriority | undefined>;
     /**
      * The recipients of the notification.
      */
-    recipients?: pulumi.Input<pulumi.Input<string>[]>;
+    recipients?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * One or more tags.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

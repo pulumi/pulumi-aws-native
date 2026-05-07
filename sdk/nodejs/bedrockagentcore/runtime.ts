@@ -205,23 +205,23 @@ export interface RuntimeArgs {
     /**
      * Authorizer configuration for the agent runtime
      */
-    authorizerConfiguration?: pulumi.Input<inputs.bedrockagentcore.RuntimeAuthorizerConfigurationArgs>;
+    authorizerConfiguration?: pulumi.Input<inputs.bedrockagentcore.RuntimeAuthorizerConfigurationArgs | undefined>;
     /**
      * Description of the resource
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Environment variables for the agent runtime
      */
-    environmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    environmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Filesystem configurations for the agent runtime
      */
-    filesystemConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrockagentcore.RuntimeFilesystemConfigurationArgs>[]>;
+    filesystemConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrockagentcore.RuntimeFilesystemConfigurationArgs>[] | undefined>;
     /**
      * Lifecycle configuration for managing runtime sessions
      */
-    lifecycleConfiguration?: pulumi.Input<inputs.bedrockagentcore.RuntimeLifecycleConfigurationArgs>;
+    lifecycleConfiguration?: pulumi.Input<inputs.bedrockagentcore.RuntimeLifecycleConfigurationArgs | undefined>;
     /**
      * Network access configuration for the Agent
      */
@@ -229,11 +229,11 @@ export interface RuntimeArgs {
     /**
      * Protocol configuration for the agent runtime
      */
-    protocolConfiguration?: pulumi.Input<enums.bedrockagentcore.RuntimeProtocolConfiguration>;
+    protocolConfiguration?: pulumi.Input<enums.bedrockagentcore.RuntimeProtocolConfiguration | undefined>;
     /**
      * Configuration for HTTP request headers
      */
-    requestHeaderConfiguration?: pulumi.Input<inputs.bedrockagentcore.RuntimeRequestHeaderConfigurationArgs>;
+    requestHeaderConfiguration?: pulumi.Input<inputs.bedrockagentcore.RuntimeRequestHeaderConfigurationArgs | undefined>;
     /**
      * Amazon Resource Name (ARN) of an IAM role
      */
@@ -241,5 +241,5 @@ export interface RuntimeArgs {
     /**
      * The tags for the agent.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

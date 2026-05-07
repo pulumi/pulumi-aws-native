@@ -171,23 +171,23 @@ export interface AutomationRuleArgs {
     /**
      * Filter criteria that specify which recommended actions qualify for implementation.
      */
-    criteria?: pulumi.Input<inputs.computeoptimizer.AutomationRuleCriteriaArgs>;
+    criteria?: pulumi.Input<inputs.computeoptimizer.AutomationRuleCriteriaArgs | undefined>;
     /**
      * The description of the automation rule.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the automation rule.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Organization configuration for organization rules, including rule apply order and account scope.
      */
-    organizationConfiguration?: pulumi.Input<inputs.computeoptimizer.AutomationRuleOrganizationConfigurationArgs>;
+    organizationConfiguration?: pulumi.Input<inputs.computeoptimizer.AutomationRuleOrganizationConfigurationArgs | undefined>;
     /**
      * Rule priority within its group
      */
-    priority?: pulumi.Input<string>;
+    priority?: pulumi.Input<string | undefined>;
     /**
      * The types of recommended actions this rule will implement.
      */
@@ -207,5 +207,5 @@ export interface AutomationRuleArgs {
     /**
      * Tags associated with the automation rule.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

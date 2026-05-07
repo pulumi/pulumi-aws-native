@@ -135,7 +135,7 @@ export interface AssetArgs {
     /**
      * The list of egress endpoints available for the Asset.
      */
-    egressEndpoints?: pulumi.Input<pulumi.Input<inputs.mediapackage.AssetEgressEndpointArgs>[]>;
+    egressEndpoints?: pulumi.Input<pulumi.Input<inputs.mediapackage.AssetEgressEndpointArgs>[] | undefined>;
     /**
      * The ID of the PackagingGroup for the Asset.
      */
@@ -143,7 +143,7 @@ export interface AssetArgs {
     /**
      * The resource ID to include in SPEKE key requests.
      */
-    resourceId?: pulumi.Input<string>;
+    resourceId?: pulumi.Input<string | undefined>;
     /**
      * ARN of the source object in S3.
      */
@@ -155,5 +155,5 @@ export interface AssetArgs {
     /**
      * A collection of tags associated with a resource
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[] | undefined>;
 }

@@ -132,15 +132,15 @@ export interface DataMigrationArgs {
     /**
      * The property describes an ARN of the data migration.
      */
-    dataMigrationIdentifier?: pulumi.Input<string>;
+    dataMigrationIdentifier?: pulumi.Input<string | undefined>;
     /**
      * The property describes a name to identify the data migration.
      */
-    dataMigrationName?: pulumi.Input<string>;
+    dataMigrationName?: pulumi.Input<string | undefined>;
     /**
      * The property describes the settings for the data migration.
      */
-    dataMigrationSettings?: pulumi.Input<inputs.dms.DataMigrationSettingsArgs>;
+    dataMigrationSettings?: pulumi.Input<inputs.dms.DataMigrationSettingsArgs | undefined>;
     /**
      * The property describes the type of migration.
      */
@@ -156,9 +156,9 @@ export interface DataMigrationArgs {
     /**
      * The property describes the settings for the data migration.
      */
-    sourceDataSettings?: pulumi.Input<pulumi.Input<inputs.dms.DataMigrationSourceDataSettingsArgs>[]>;
+    sourceDataSettings?: pulumi.Input<pulumi.Input<inputs.dms.DataMigrationSourceDataSettingsArgs>[] | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

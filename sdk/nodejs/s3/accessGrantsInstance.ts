@@ -89,9 +89,9 @@ export interface AccessGrantsInstanceArgs {
     /**
      * The Amazon Resource Name (ARN) of the specified AWS Identity Center.
      */
-    identityCenterArn?: pulumi.Input<string>;
+    identityCenterArn?: pulumi.Input<string | undefined>;
     /**
      * The AWS resource tags that you are adding to the S3 Access Grants instance. Each tag is a label consisting of a user-defined key and value. Tags can help you manage, identify, organize, search for, and filter resources.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[] | undefined>;
 }

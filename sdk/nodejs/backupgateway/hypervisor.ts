@@ -113,29 +113,29 @@ export interface HypervisorArgs {
     /**
      * The server host of the hypervisor. This can be either an IP address or a fully-qualified domain name (FQDN).
      */
-    host?: pulumi.Input<string>;
+    host?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the AWS Key Management Service used to encrypt the hypervisor.
      */
-    kmsKeyArn?: pulumi.Input<string>;
+    kmsKeyArn?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the group of gateways within the requested log.
      */
-    logGroupArn?: pulumi.Input<string>;
+    logGroupArn?: pulumi.Input<string | undefined>;
     /**
      * The name of the hypervisor.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The password for the hypervisor.
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * The tags of the hypervisor configuration to import.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[] | undefined>;
     /**
      * The username for the hypervisor.
      */
-    username?: pulumi.Input<string>;
+    username?: pulumi.Input<string | undefined>;
 }

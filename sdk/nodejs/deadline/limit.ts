@@ -128,7 +128,7 @@ export interface LimitArgs {
      *
      * > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the limit used in lists to identify the limit.
      *

@@ -165,11 +165,11 @@ export interface GuardHookArgs {
     /**
      * S3 Bucket where the guard validate report will be uploaded to
      */
-    logBucket?: pulumi.Input<string>;
+    logBucket?: pulumi.Input<string | undefined>;
     /**
      * Specifies the S3 location of your input parameters.
      */
-    options?: pulumi.Input<inputs.cloudformation.OptionsPropertiesArgs>;
+    options?: pulumi.Input<inputs.cloudformation.OptionsPropertiesArgs | undefined>;
     /**
      * Specifies the S3 location of your Guard rules.
      */
@@ -177,11 +177,11 @@ export interface GuardHookArgs {
     /**
      * Filters to allow hooks to target specific stack attributes
      */
-    stackFilters?: pulumi.Input<inputs.cloudformation.StackFiltersPropertiesArgs>;
+    stackFilters?: pulumi.Input<inputs.cloudformation.StackFiltersPropertiesArgs | undefined>;
     /**
      * Attribute to specify which targets should invoke the hook
      */
-    targetFilters?: pulumi.Input<inputs.cloudformation.TargetFilters0PropertiesArgs | inputs.cloudformation.TargetFilters1PropertiesArgs>;
+    targetFilters?: pulumi.Input<inputs.cloudformation.TargetFilters0PropertiesArgs | inputs.cloudformation.TargetFilters1PropertiesArgs | undefined>;
     /**
      * Which operations should this Hook run against? Resource changes, stacks or change sets.
      */

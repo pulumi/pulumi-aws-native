@@ -122,15 +122,15 @@ export interface CaseRuleArgs {
     /**
      * A description explaining the purpose and behavior of this case rule. Helps administrators understand when and why this rule applies to case fields.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The unique identifier of the Cases domain.
      */
-    domainId?: pulumi.Input<string>;
+    domainId?: pulumi.Input<string | undefined>;
     /**
      * A descriptive name for the case rule. Must be unique within the domain and should clearly indicate the rule's purpose (e.g., 'Priority Field Required for Urgent Cases').
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Represents what rule type should take place, under what conditions.
      */
@@ -138,5 +138,5 @@ export interface CaseRuleArgs {
     /**
      * The tags that you attach to this case rule.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

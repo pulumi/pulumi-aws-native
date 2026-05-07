@@ -128,20 +128,20 @@ export interface ThreatIntelSetArgs {
     /**
      * A boolean value that determines if GuardDuty can start using this list for custom threat detection. For GuardDuty to be able to generate findings based on an activity associated with these entries, this list must be active.
      */
-    activate?: pulumi.Input<boolean>;
+    activate?: pulumi.Input<boolean | undefined>;
     /**
      * The unique ID of the detector of the GuardDuty account for which you want to create a `threatIntelSet` .
      *
      * To find the `detectorId` in the current Region, see the
      * Settings page in the GuardDuty console, or run the [ListDetectors](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html) API.
      */
-    detectorId?: pulumi.Input<string>;
+    detectorId?: pulumi.Input<string | undefined>;
     /**
      * The AWS account ID that owns the Amazon S3 bucket specified in the *Location* field.
      *
      * When you provide this account ID, GuardDuty will validate that the S3 bucket belongs to this account. If you don't specify an account ID owner, GuardDuty doesn't perform any validation.
      */
-    expectedBucketOwner?: pulumi.Input<string>;
+    expectedBucketOwner?: pulumi.Input<string | undefined>;
     /**
      * The format of the file that contains the `ThreatIntelSet` . For information about supported formats, see [List formats](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_upload-lists.html#prepare_list) in the *Amazon GuardDuty User Guide* .
      */
@@ -155,11 +155,11 @@ export interface ThreatIntelSetArgs {
      *
      * The name of your list must be unique within an AWS account and Region. Valid characters are alphanumeric, whitespace, dash (-), and underscores (_).
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The tags to be added to a new threat entity set resource. Each tag consists of a key and an optional value, both of which you define.
      *
      * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

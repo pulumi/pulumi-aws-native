@@ -164,15 +164,15 @@ export interface InstanceConnectEndpointArgs {
     /**
      * The client token of the instance connect endpoint.
      */
-    clientToken?: pulumi.Input<string>;
+    clientToken?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether your client's IP address is preserved as the source when you connect to a resource.
      */
-    preserveClientIp?: pulumi.Input<boolean>;
+    preserveClientIp?: pulumi.Input<boolean | undefined>;
     /**
      * The security groups associated with the endpoint.
      */
-    securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    securityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The ID of the subnet in which the EC2 Instance Connect Endpoint was created.
      */
@@ -180,5 +180,5 @@ export interface InstanceConnectEndpointArgs {
     /**
      * The tags assigned to the EC2 Instance Connect Endpoint.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

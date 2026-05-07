@@ -95,13 +95,13 @@ export interface CellArgs {
     /**
      * The name of the cell to create.
      */
-    cellName?: pulumi.Input<string>;
+    cellName?: pulumi.Input<string | undefined>;
     /**
      * A list of cell Amazon Resource Names (ARNs) contained within this cell, for use in nested cells. For example, Availability Zones within specific Regions.
      */
-    cells?: pulumi.Input<pulumi.Input<string>[]>;
+    cells?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A collection of tags associated with a resource
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

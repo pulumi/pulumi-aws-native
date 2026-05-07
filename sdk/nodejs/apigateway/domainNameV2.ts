@@ -127,35 +127,35 @@ export interface DomainNameV2Args {
     /**
      * The reference to an AWS -managed certificate that will be used by the private endpoint for this domain name. AWS Certificate Manager is the only supported source.
      */
-    certificateArn?: pulumi.Input<string>;
+    certificateArn?: pulumi.Input<string | undefined>;
     /**
      * Represents a custom domain name as a user-friendly host name of an API (RestApi).
      */
-    domainName?: pulumi.Input<string>;
+    domainName?: pulumi.Input<string | undefined>;
     /**
      * The endpoint access mode for your DomainName.
      */
-    endpointAccessMode?: pulumi.Input<string>;
+    endpointAccessMode?: pulumi.Input<string | undefined>;
     /**
      * The endpoint configuration to indicate the types of endpoints an API (RestApi) or its custom domain name (DomainName) has and the IP address types that can invoke it.
      */
-    endpointConfiguration?: pulumi.Input<inputs.apigateway.DomainNameV2EndpointConfigurationArgs>;
+    endpointConfiguration?: pulumi.Input<inputs.apigateway.DomainNameV2EndpointConfigurationArgs | undefined>;
     /**
      * A stringified JSON policy document that applies to the `execute-api` service for this DomainName regardless of the caller and Method configuration. You can use `Fn::ToJsonString` to enter your `policy` . For more information, see [Fn::ToJsonString](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ToJsonString.html) .
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::DomainNameV2` for more information about the expected schema for this property.
      */
-    policy?: any;
+    policy?: any | undefined;
     /**
      * The valid routing modes are [BASE_PATH_MAPPING_ONLY], [ROUTING_RULE_THEN_BASE_PATH_MAPPING] and [ROUTING_RULE_ONLY]. All other inputs are invalid.
      */
-    routingMode?: pulumi.Input<enums.apigateway.DomainNameV2RoutingMode>;
+    routingMode?: pulumi.Input<enums.apigateway.DomainNameV2RoutingMode | undefined>;
     /**
      * The Transport Layer Security (TLS) version + cipher suite for this DomainName.
      */
-    securityPolicy?: pulumi.Input<string>;
+    securityPolicy?: pulumi.Input<string | undefined>;
     /**
      * The collection of tags. Each tag element is associated with a given resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

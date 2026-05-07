@@ -116,7 +116,7 @@ export interface EndpointArgs {
     /**
      * Specifies deployment configuration for updating the SageMaker endpoint. Includes rollback and update policies.
      */
-    deploymentConfig?: pulumi.Input<inputs.sagemaker.EndpointDeploymentConfigArgs>;
+    deploymentConfig?: pulumi.Input<inputs.sagemaker.EndpointDeploymentConfigArgs | undefined>;
     /**
      * The name of the endpoint configuration for the SageMaker endpoint. This is a required property.
      */
@@ -124,21 +124,21 @@ export interface EndpointArgs {
     /**
      * The name of the SageMaker endpoint. This name must be unique within an AWS Region.
      */
-    endpointName?: pulumi.Input<string>;
+    endpointName?: pulumi.Input<string | undefined>;
     /**
      * Specifies a list of variant properties that you want to exclude when updating an endpoint.
      */
-    excludeRetainedVariantProperties?: pulumi.Input<pulumi.Input<inputs.sagemaker.EndpointVariantPropertyArgs>[]>;
+    excludeRetainedVariantProperties?: pulumi.Input<pulumi.Input<inputs.sagemaker.EndpointVariantPropertyArgs>[] | undefined>;
     /**
      * When set to true, retains all variant properties for an endpoint when it is updated.
      */
-    retainAllVariantProperties?: pulumi.Input<boolean>;
+    retainAllVariantProperties?: pulumi.Input<boolean | undefined>;
     /**
      * When set to true, retains the deployment configuration during endpoint updates.
      */
-    retainDeploymentConfig?: pulumi.Input<boolean>;
+    retainDeploymentConfig?: pulumi.Input<boolean | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

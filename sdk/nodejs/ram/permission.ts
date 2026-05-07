@@ -124,7 +124,7 @@ export interface PermissionArgs {
     /**
      * The name of the permission.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Policy template for the permission.
      *
@@ -138,5 +138,5 @@ export interface PermissionArgs {
     /**
      * Specifies a list of one or more tag key and value pairs to attach to the permission.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

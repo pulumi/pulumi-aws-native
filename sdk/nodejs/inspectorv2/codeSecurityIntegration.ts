@@ -131,21 +131,21 @@ export interface CodeSecurityIntegrationArgs {
     /**
      * Create Integration Details
      */
-    createIntegrationDetails?: pulumi.Input<inputs.inspectorv2.CodeSecurityIntegrationCreateDetailsArgs>;
+    createIntegrationDetails?: pulumi.Input<inputs.inspectorv2.CodeSecurityIntegrationCreateDetailsArgs | undefined>;
     /**
      * Code Security Integration name
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The tags to apply to the code security integration.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Integration Type
      */
-    type?: pulumi.Input<enums.inspectorv2.CodeSecurityIntegrationIntegrationType>;
+    type?: pulumi.Input<enums.inspectorv2.CodeSecurityIntegrationIntegrationType | undefined>;
     /**
      * Update Integration Details
      */
-    updateIntegrationDetails?: pulumi.Input<inputs.inspectorv2.CodeSecurityIntegrationUpdateDetailsArgs>;
+    updateIntegrationDetails?: pulumi.Input<inputs.inspectorv2.CodeSecurityIntegrationUpdateDetailsArgs | undefined>;
 }

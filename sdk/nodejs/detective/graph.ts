@@ -81,9 +81,9 @@ export interface GraphArgs {
     /**
      * Indicates whether to automatically enable new organization accounts as member accounts in the organization behavior graph.
      */
-    autoEnableMembers?: pulumi.Input<boolean>;
+    autoEnableMembers?: pulumi.Input<boolean | undefined>;
     /**
      * The tag values to assign to the new behavior graph.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

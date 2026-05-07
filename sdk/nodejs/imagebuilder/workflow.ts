@@ -137,27 +137,27 @@ export interface WorkflowArgs {
     /**
      * The change description of the workflow.
      */
-    changeDescription?: pulumi.Input<string>;
+    changeDescription?: pulumi.Input<string | undefined>;
     /**
      * The data of the workflow.
      */
-    data?: pulumi.Input<string>;
+    data?: pulumi.Input<string | undefined>;
     /**
      * The description of the workflow.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The KMS key identifier used to encrypt the workflow.
      */
-    kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * The name of the workflow.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The tags associated with the workflow.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The type of the workflow denotes whether the workflow is used to build, test, or distribute.
      */
@@ -165,7 +165,7 @@ export interface WorkflowArgs {
     /**
      * The uri of the workflow.
      */
-    uri?: pulumi.Input<string>;
+    uri?: pulumi.Input<string | undefined>;
     /**
      * The version of the workflow.
      */

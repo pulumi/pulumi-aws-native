@@ -140,19 +140,19 @@ export interface CodeInterpreterCustomArgs {
     /**
      * List of root CA certificates in PEM format.
      */
-    certificates?: pulumi.Input<pulumi.Input<inputs.bedrockagentcore.CodeInterpreterCustomCertificateArgs>[]>;
+    certificates?: pulumi.Input<pulumi.Input<inputs.bedrockagentcore.CodeInterpreterCustomCertificateArgs>[] | undefined>;
     /**
      * The description of the code interpreter.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the IAM role that the code interpreter uses to access resources.
      */
-    executionRoleArn?: pulumi.Input<string>;
+    executionRoleArn?: pulumi.Input<string | undefined>;
     /**
      * The name of the code interpreter.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Network configuration for code interpreter.
      */
@@ -160,5 +160,5 @@ export interface CodeInterpreterCustomArgs {
     /**
      * The tags for the code interpreter.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

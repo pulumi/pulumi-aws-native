@@ -171,7 +171,7 @@ export interface DataRepositoryAssociationArgs {
     /**
      * A boolean flag indicating whether an import data repository task to import metadata should run after the data repository association is created. The task runs if this flag is set to true.
      */
-    batchImportMetaDataOnCreate?: pulumi.Input<boolean>;
+    batchImportMetaDataOnCreate?: pulumi.Input<boolean | undefined>;
     /**
      * The path to the Amazon S3 data repository that will be linked to the file system. The path can be an S3 bucket or prefix in the format s3://myBucket/myPrefix/ . This path specifies where in the S3 data repository files will be imported from or exported to.
      */
@@ -187,13 +187,13 @@ export interface DataRepositoryAssociationArgs {
     /**
      * For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. The maximum number of disks that a single file can be striped across is limited by the total number of disks that make up the file system.
      */
-    importedFileChunkSize?: pulumi.Input<number>;
+    importedFileChunkSize?: pulumi.Input<number | undefined>;
     /**
      * The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
      */
-    s3?: pulumi.Input<inputs.fsx.DataRepositoryAssociationS3Args>;
+    s3?: pulumi.Input<inputs.fsx.DataRepositoryAssociationS3Args | undefined>;
     /**
      * A list of Tag values, with a maximum of 50 elements.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

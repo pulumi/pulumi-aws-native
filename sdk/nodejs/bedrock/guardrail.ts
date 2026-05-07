@@ -194,7 +194,7 @@ export interface GuardrailArgs {
     /**
      * Configuration settings for integrating Automated Reasoning policies with Amazon Bedrock Guardrails.
      */
-    automatedReasoningPolicyConfig?: pulumi.Input<inputs.bedrock.GuardrailAutomatedReasoningPolicyConfigArgs>;
+    automatedReasoningPolicyConfig?: pulumi.Input<inputs.bedrock.GuardrailAutomatedReasoningPolicyConfigArgs | undefined>;
     /**
      * Messaging for when violations are detected in text
      */
@@ -206,40 +206,40 @@ export interface GuardrailArgs {
     /**
      * The content filter policies to configure for the guardrail.
      */
-    contentPolicyConfig?: pulumi.Input<inputs.bedrock.GuardrailContentPolicyConfigArgs>;
-    contextualGroundingPolicyConfig?: pulumi.Input<inputs.bedrock.GuardrailContextualGroundingPolicyConfigArgs>;
+    contentPolicyConfig?: pulumi.Input<inputs.bedrock.GuardrailContentPolicyConfigArgs | undefined>;
+    contextualGroundingPolicyConfig?: pulumi.Input<inputs.bedrock.GuardrailContextualGroundingPolicyConfigArgs | undefined>;
     /**
      * The system-defined guardrail profile that you're using with your guardrail. Guardrail profiles define the destination AWS Regions where guardrail inference requests can be automatically routed. Using guardrail profiles helps maintain guardrail performance and reliability when demand increases.
      *
      * For more information, see the [Amazon Bedrock User Guide](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html) .
      */
-    crossRegionConfig?: pulumi.Input<inputs.bedrock.GuardrailCrossRegionConfigArgs>;
+    crossRegionConfig?: pulumi.Input<inputs.bedrock.GuardrailCrossRegionConfigArgs | undefined>;
     /**
      * Description of the guardrail or its version
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The KMS key with which the guardrail was encrypted at rest
      */
-    kmsKeyArn?: pulumi.Input<string>;
+    kmsKeyArn?: pulumi.Input<string | undefined>;
     /**
      * Name of the guardrail
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The sensitive information policy to configure for the guardrail.
      */
-    sensitiveInformationPolicyConfig?: pulumi.Input<inputs.bedrock.GuardrailSensitiveInformationPolicyConfigArgs>;
+    sensitiveInformationPolicyConfig?: pulumi.Input<inputs.bedrock.GuardrailSensitiveInformationPolicyConfigArgs | undefined>;
     /**
      * List of Tags
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The topic policies to configure for the guardrail.
      */
-    topicPolicyConfig?: pulumi.Input<inputs.bedrock.GuardrailTopicPolicyConfigArgs>;
+    topicPolicyConfig?: pulumi.Input<inputs.bedrock.GuardrailTopicPolicyConfigArgs | undefined>;
     /**
      * The word policy you configure for the guardrail.
      */
-    wordPolicyConfig?: pulumi.Input<inputs.bedrock.GuardrailWordPolicyConfigArgs>;
+    wordPolicyConfig?: pulumi.Input<inputs.bedrock.GuardrailWordPolicyConfigArgs | undefined>;
 }

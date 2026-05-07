@@ -156,34 +156,34 @@ export interface ApiKeyArgs {
     /**
      * An AWS Marketplace customer identifier, when integrating with the AWS SaaS Marketplace.
      */
-    customerId?: pulumi.Input<string>;
+    customerId?: pulumi.Input<string | undefined>;
     /**
      * The description of the ApiKey.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the ApiKey can be used by callers.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies whether ( `true` ) or not ( `false` ) the key identifier is distinct from the created API key value. This parameter is deprecated and should not be used.
      */
-    generateDistinctId?: pulumi.Input<boolean>;
+    generateDistinctId?: pulumi.Input<boolean | undefined>;
     /**
      * A name for the API key. If you don't specify a name, CFN generates a unique physical ID and uses that ID for the API key name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
      *   If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * DEPRECATED FOR USAGE PLANS - Specifies stages associated with the API key.
      */
-    stageKeys?: pulumi.Input<pulumi.Input<inputs.apigateway.ApiKeyStageKeyArgs>[]>;
+    stageKeys?: pulumi.Input<pulumi.Input<inputs.apigateway.ApiKeyStageKeyArgs>[] | undefined>;
     /**
      * The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with `aws:` . The tag value can be up to 256 characters.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * Specifies a value of the API key.
      */
-    value?: pulumi.Input<string>;
+    value?: pulumi.Input<string | undefined>;
 }

@@ -113,11 +113,11 @@ export interface TargetDomainArgs {
     /**
      * Tags for the target domain
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * Domain name of the target domain
      */
-    targetDomainName?: pulumi.Input<string>;
+    targetDomainName?: pulumi.Input<string | undefined>;
     /**
      * Verification method for the target domain
      */

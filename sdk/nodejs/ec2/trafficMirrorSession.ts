@@ -135,7 +135,7 @@ export interface TrafficMirrorSessionArgs {
     /**
      * The description of the Traffic Mirror session.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The ID of the source network interface.
      */
@@ -143,11 +143,11 @@ export interface TrafficMirrorSessionArgs {
     /**
      * The ID of the account that owns the Traffic Mirror session.
      */
-    ownerId?: pulumi.Input<string>;
+    ownerId?: pulumi.Input<string | undefined>;
     /**
      * The number of bytes in each packet to mirror.
      */
-    packetLength?: pulumi.Input<number>;
+    packetLength?: pulumi.Input<number | undefined>;
     /**
      * The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
      */
@@ -155,7 +155,7 @@ export interface TrafficMirrorSessionArgs {
     /**
      * The tags assigned to the Traffic Mirror session.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The ID of a Traffic Mirror filter.
      */
@@ -167,5 +167,5 @@ export interface TrafficMirrorSessionArgs {
     /**
      * The VXLAN ID for the Traffic Mirror session.
      */
-    virtualNetworkId?: pulumi.Input<number>;
+    virtualNetworkId?: pulumi.Input<number | undefined>;
 }

@@ -176,48 +176,48 @@ export class WorkflowVersion extends pulumi.CustomResource {
  * The set of arguments for constructing a WorkflowVersion resource.
  */
 export interface WorkflowVersionArgs {
-    accelerators?: pulumi.Input<enums.omics.WorkflowVersionAccelerators>;
+    accelerators?: pulumi.Input<enums.omics.WorkflowVersionAccelerators | undefined>;
     /**
      * Use a container registry map to specify mappings between the ECR private repository and one or more upstream registries. For more information, see [Container images](https://docs.aws.amazon.com/omics/latest/dev/workflows-ecr.html) in the *AWS HealthOmics User Guide* .
      */
-    containerRegistryMap?: pulumi.Input<inputs.omics.WorkflowVersionContainerRegistryMapArgs>;
-    containerRegistryMapUri?: pulumi.Input<string>;
+    containerRegistryMap?: pulumi.Input<inputs.omics.WorkflowVersionContainerRegistryMapArgs | undefined>;
+    containerRegistryMapUri?: pulumi.Input<string | undefined>;
     /**
      * Contains information about a source code repository that hosts the workflow definition files.
      */
-    definitionRepository?: pulumi.Input<inputs.omics.WorkflowVersionDefinitionRepositoryArgs>;
-    definitionUri?: pulumi.Input<string>;
+    definitionRepository?: pulumi.Input<inputs.omics.WorkflowVersionDefinitionRepositoryArgs | undefined>;
+    definitionUri?: pulumi.Input<string | undefined>;
     /**
      * The description of the workflow version.
      */
-    description?: pulumi.Input<string>;
-    engine?: pulumi.Input<enums.omics.WorkflowVersionWorkflowEngine>;
-    main?: pulumi.Input<string>;
-    parameterTemplate?: pulumi.Input<{[key: string]: pulumi.Input<inputs.omics.WorkflowVersionWorkflowParameterArgs>}>;
+    description?: pulumi.Input<string | undefined>;
+    engine?: pulumi.Input<enums.omics.WorkflowVersionWorkflowEngine | undefined>;
+    main?: pulumi.Input<string | undefined>;
+    parameterTemplate?: pulumi.Input<{[key: string]: pulumi.Input<inputs.omics.WorkflowVersionWorkflowParameterArgs>} | undefined>;
     /**
      * Path to the primary workflow parameter template JSON file inside the repository
      */
-    parameterTemplatePath?: pulumi.Input<string>;
+    parameterTemplatePath?: pulumi.Input<string | undefined>;
     /**
      * The markdown content for the workflow's README file. This provides documentation and usage information for users of the workflow.
      */
-    readmeMarkdown?: pulumi.Input<string>;
+    readmeMarkdown?: pulumi.Input<string | undefined>;
     /**
      * The path to the workflow README markdown file within the repository. This file provides documentation and usage information for the workflow. If not specified, the README.md file from the root directory of the repository will be used.
      */
-    readmePath?: pulumi.Input<string>;
+    readmePath?: pulumi.Input<string | undefined>;
     /**
      * The S3 URI of the README file for the workflow. This file provides documentation and usage information for the workflow. The S3 URI must begin with s3://USER-OWNED-BUCKET/. The requester must have access to the S3 bucket and object. The max README content length is 500 KiB.
      */
-    readmeUri?: pulumi.Input<string>;
-    storageCapacity?: pulumi.Input<number>;
-    storageType?: pulumi.Input<enums.omics.WorkflowVersionStorageType>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readmeUri?: pulumi.Input<string | undefined>;
+    storageCapacity?: pulumi.Input<number | undefined>;
+    storageType?: pulumi.Input<enums.omics.WorkflowVersionStorageType | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The name of the workflow version.
      */
-    versionName?: pulumi.Input<string>;
-    workflowBucketOwnerId?: pulumi.Input<string>;
+    versionName?: pulumi.Input<string | undefined>;
+    workflowBucketOwnerId?: pulumi.Input<string | undefined>;
     /**
      * The workflow's ID.
      */

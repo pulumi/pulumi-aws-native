@@ -132,5 +132,5 @@ export interface NetworkInsightsAccessScopeAnalysisArgs {
     /**
      * The tags.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

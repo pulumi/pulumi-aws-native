@@ -140,7 +140,7 @@ export interface PromptVersionArgs {
     /**
      * Description for a prompt version resource.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * ARN of a prompt resource possibly with a version
      */
@@ -148,5 +148,5 @@ export interface PromptVersionArgs {
     /**
      * A map of tags attached to the prompt version and their values.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

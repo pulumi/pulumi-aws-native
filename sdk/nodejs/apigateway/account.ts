@@ -73,5 +73,5 @@ export interface AccountArgs {
     /**
      * The ARN of an Amazon CloudWatch role for the current Account.
      */
-    cloudWatchRoleArn?: pulumi.Input<string>;
+    cloudWatchRoleArn?: pulumi.Input<string | undefined>;
 }

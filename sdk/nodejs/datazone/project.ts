@@ -158,7 +158,7 @@ export interface ProjectArgs {
     /**
      * The description of the Amazon DataZone project.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Amazon DataZone domain in which this project is created.
      */
@@ -166,29 +166,29 @@ export interface ProjectArgs {
     /**
      * The ID of the domain unit.
      */
-    domainUnitId?: pulumi.Input<string>;
+    domainUnitId?: pulumi.Input<string | undefined>;
     /**
      * The glossary terms that can be used in this Amazon DataZone project.
      */
-    glossaryTerms?: pulumi.Input<pulumi.Input<string>[]>;
+    glossaryTerms?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name of the Amazon DataZone project.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The project profile ID.
      */
-    projectProfileId?: pulumi.Input<string>;
+    projectProfileId?: pulumi.Input<string | undefined>;
     /**
      * The project profile version to which the project should be updated. You can only specify the following string for this parameter: latest.
      */
-    projectProfileVersion?: pulumi.Input<string>;
+    projectProfileVersion?: pulumi.Input<string | undefined>;
     /**
      * The resource tags of the project.
      */
-    resourceTags?: pulumi.Input<pulumi.Input<inputs.datazone.ProjectResourceTagArgs>[]>;
+    resourceTags?: pulumi.Input<pulumi.Input<inputs.datazone.ProjectResourceTagArgs>[] | undefined>;
     /**
      * The user parameters of the project.
      */
-    userParameters?: pulumi.Input<pulumi.Input<inputs.datazone.ProjectEnvironmentConfigurationUserParameterArgs>[]>;
+    userParameters?: pulumi.Input<pulumi.Input<inputs.datazone.ProjectEnvironmentConfigurationUserParameterArgs>[] | undefined>;
 }

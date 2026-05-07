@@ -159,35 +159,35 @@ export interface CrawlerArgs {
     /**
      * A list of UTF-8 strings that specify the names of custom classifiers that are associated with the crawler.
      */
-    classifiers?: pulumi.Input<pulumi.Input<string>[]>;
+    classifiers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Crawler configuration information. This versioned JSON string allows users to specify aspects of a crawler's behavior.
      */
-    configuration?: pulumi.Input<string>;
+    configuration?: pulumi.Input<string | undefined>;
     /**
      * The name of the SecurityConfiguration structure to be used by this crawler.
      */
-    crawlerSecurityConfiguration?: pulumi.Input<string>;
+    crawlerSecurityConfiguration?: pulumi.Input<string | undefined>;
     /**
      * The name of the database in which the crawler's output is stored.
      */
-    databaseName?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string | undefined>;
     /**
      * A description of the crawler.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the crawler should use AWS Lake Formation credentials for the crawler instead of the IAM role credentials.
      */
-    lakeFormationConfiguration?: pulumi.Input<inputs.glue.CrawlerLakeFormationConfigurationArgs>;
+    lakeFormationConfiguration?: pulumi.Input<inputs.glue.CrawlerLakeFormationConfigurationArgs | undefined>;
     /**
      * The name of the crawler.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.
      */
-    recrawlPolicy?: pulumi.Input<inputs.glue.CrawlerRecrawlPolicyArgs>;
+    recrawlPolicy?: pulumi.Input<inputs.glue.CrawlerRecrawlPolicyArgs | undefined>;
     /**
      * The Amazon Resource Name (ARN) of an IAM role that's used to access customer resources, such as Amazon Simple Storage Service (Amazon S3) data.
      */
@@ -195,23 +195,23 @@ export interface CrawlerArgs {
     /**
      * For scheduled crawlers, the schedule when the crawler runs.
      */
-    schedule?: pulumi.Input<inputs.glue.CrawlerScheduleArgs>;
+    schedule?: pulumi.Input<inputs.glue.CrawlerScheduleArgs | undefined>;
     /**
      * The policy that specifies update and delete behaviors for the crawler. The policy tells the crawler what to do in the event that it detects a change in a table that already exists in the customer's database at the time of the crawl. The `SchemaChangePolicy` does not affect whether or how new tables and partitions are added. New tables and partitions are always created regardless of the `SchemaChangePolicy` on a crawler.
      *
      * The SchemaChangePolicy consists of two components, `UpdateBehavior` and `DeleteBehavior` .
      */
-    schemaChangePolicy?: pulumi.Input<inputs.glue.CrawlerSchemaChangePolicyArgs>;
+    schemaChangePolicy?: pulumi.Input<inputs.glue.CrawlerSchemaChangePolicyArgs | undefined>;
     /**
      * The prefix added to the names of tables that are created.
      */
-    tablePrefix?: pulumi.Input<string>;
+    tablePrefix?: pulumi.Input<string | undefined>;
     /**
      * The tags to use with this crawler.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Crawler` for more information about the expected schema for this property.
      */
-    tags?: any;
+    tags?: any | undefined;
     /**
      * A collection of targets to crawl.
      */

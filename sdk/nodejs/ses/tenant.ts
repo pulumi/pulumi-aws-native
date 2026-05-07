@@ -89,13 +89,13 @@ export interface TenantArgs {
     /**
      * The list of resources to associate with the tenant.
      */
-    resourceAssociations?: pulumi.Input<pulumi.Input<inputs.ses.TenantResourceAssociationArgs>[]>;
+    resourceAssociations?: pulumi.Input<pulumi.Input<inputs.ses.TenantResourceAssociationArgs>[] | undefined>;
     /**
      * The tags (keys and values) associated with the tenant.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The name of the tenant.
      */
-    tenantName?: pulumi.Input<string>;
+    tenantName?: pulumi.Input<string | undefined>;
 }

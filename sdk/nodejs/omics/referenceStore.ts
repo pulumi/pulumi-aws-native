@@ -107,17 +107,17 @@ export interface ReferenceStoreArgs {
     /**
      * A description for the store.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A name for the store.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Server-side encryption (SSE) settings for the store.
      */
-    sseConfig?: pulumi.Input<inputs.omics.ReferenceStoreSseConfigArgs>;
+    sseConfig?: pulumi.Input<inputs.omics.ReferenceStoreSseConfigArgs | undefined>;
     /**
      * Tags for the store.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -189,7 +189,7 @@ export interface KeyPairArgs {
      * The format of the key pair.
      *  Default: ``pem``
      */
-    keyFormat?: pulumi.Input<enums.ec2.KeyPairKeyFormat>;
+    keyFormat?: pulumi.Input<enums.ec2.KeyPairKeyFormat | undefined>;
     /**
      * A unique name for the key pair.
      *  Constraints: Up to 255 ASCII characters
@@ -200,13 +200,13 @@ export interface KeyPairArgs {
      *  If the ``PublicKeyMaterial`` property is specified, the ``KeyType`` property is ignored, and the key type is inferred from the ``PublicKeyMaterial`` value.
      *  Default: ``rsa``
      */
-    keyType?: pulumi.Input<enums.ec2.KeyPairKeyType>;
+    keyType?: pulumi.Input<enums.ec2.KeyPairKeyType | undefined>;
     /**
      * The public key material. The ``PublicKeyMaterial`` property is used to import a key pair. If this property is not specified, then a new key pair will be created.
      */
-    publicKeyMaterial?: pulumi.Input<string>;
+    publicKeyMaterial?: pulumi.Input<string | undefined>;
     /**
      * The tags to apply to the key pair.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[] | undefined>;
 }

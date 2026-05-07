@@ -167,61 +167,61 @@ export interface ContainerRecipeArgs {
     /**
      * Components for build and test that are included in the container recipe.
      */
-    components?: pulumi.Input<pulumi.Input<inputs.imagebuilder.ContainerRecipeComponentConfigurationArgs>[]>;
+    components?: pulumi.Input<pulumi.Input<inputs.imagebuilder.ContainerRecipeComponentConfigurationArgs>[] | undefined>;
     /**
      * Specifies the type of container, such as Docker.
      */
-    containerType?: pulumi.Input<enums.imagebuilder.ContainerRecipeContainerType>;
+    containerType?: pulumi.Input<enums.imagebuilder.ContainerRecipeContainerType | undefined>;
     /**
      * The description of the container recipe.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Dockerfiles are text documents that are used to build Docker containers, and ensure that they contain all of the elements required by the application running inside. The template data consists of contextual variables where Image Builder places build information or scripts, based on your container image recipe.
      */
-    dockerfileTemplateData?: pulumi.Input<string>;
+    dockerfileTemplateData?: pulumi.Input<string | undefined>;
     /**
      * The S3 URI for the Dockerfile that will be used to build your container image.
      */
-    dockerfileTemplateUri?: pulumi.Input<string>;
+    dockerfileTemplateUri?: pulumi.Input<string | undefined>;
     /**
      * Specifies the operating system version for the source image.
      */
-    imageOsVersionOverride?: pulumi.Input<string>;
+    imageOsVersionOverride?: pulumi.Input<string | undefined>;
     /**
      * A group of options that can be used to configure an instance for building and testing container images.
      */
-    instanceConfiguration?: pulumi.Input<inputs.imagebuilder.ContainerRecipeInstanceConfigurationArgs>;
+    instanceConfiguration?: pulumi.Input<inputs.imagebuilder.ContainerRecipeInstanceConfigurationArgs | undefined>;
     /**
      * Identifies which KMS key is used to encrypt the container image.
      */
-    kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * The name of the container recipe.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The source image for the container recipe.
      */
-    parentImage?: pulumi.Input<string>;
+    parentImage?: pulumi.Input<string | undefined>;
     /**
      * Specifies the operating system platform when you use a custom source image.
      */
-    platformOverride?: pulumi.Input<enums.imagebuilder.ContainerRecipePlatformOverride>;
+    platformOverride?: pulumi.Input<enums.imagebuilder.ContainerRecipePlatformOverride | undefined>;
     /**
      * Tags that are attached to the container recipe.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The destination repository for the container image.
      */
-    targetRepository?: pulumi.Input<inputs.imagebuilder.ContainerRecipeTargetContainerRepositoryArgs>;
+    targetRepository?: pulumi.Input<inputs.imagebuilder.ContainerRecipeTargetContainerRepositoryArgs | undefined>;
     /**
      * The semantic version of the container recipe (<major>.<minor>.<patch>).
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
     /**
      * The working directory to be used during build and test workflows.
      */
-    workingDirectory?: pulumi.Input<string>;
+    workingDirectory?: pulumi.Input<string | undefined>;
 }

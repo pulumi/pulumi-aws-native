@@ -152,15 +152,15 @@ export interface PortalArgs {
     /**
      * Contains the configuration information of an alarm created in an AWS IoT SiteWise Monitor portal. You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range.
      */
-    alarms?: pulumi.Input<inputs.iotsitewise.AlarmsPropertiesArgs>;
+    alarms?: pulumi.Input<inputs.iotsitewise.AlarmsPropertiesArgs | undefined>;
     /**
      * The email address that sends alarm notifications.
      */
-    notificationSenderEmail?: pulumi.Input<string>;
+    notificationSenderEmail?: pulumi.Input<string | undefined>;
     /**
      * The service to use to authenticate users to the portal. Choose from SSO or IAM. You can't change this value after you create a portal.
      */
-    portalAuthMode?: pulumi.Input<string>;
+    portalAuthMode?: pulumi.Input<string | undefined>;
     /**
      * The AWS administrator's contact email address.
      */
@@ -168,16 +168,16 @@ export interface PortalArgs {
     /**
      * A description for the portal.
      */
-    portalDescription?: pulumi.Input<string>;
+    portalDescription?: pulumi.Input<string | undefined>;
     /**
      * A friendly name for the portal.
      */
-    portalName?: pulumi.Input<string>;
+    portalName?: pulumi.Input<string | undefined>;
     /**
      * The type of portal
      */
-    portalType?: pulumi.Input<enums.iotsitewise.PortalType>;
-    portalTypeConfiguration?: pulumi.Input<{[key: string]: pulumi.Input<inputs.iotsitewise.PortalTypeEntryArgs>}>;
+    portalType?: pulumi.Input<enums.iotsitewise.PortalType | undefined>;
+    portalTypeConfiguration?: pulumi.Input<{[key: string]: pulumi.Input<inputs.iotsitewise.PortalTypeEntryArgs>} | undefined>;
     /**
      * The ARN of a service role that allows the portal's users to access your AWS IoT SiteWise resources on your behalf.
      */
@@ -185,5 +185,5 @@ export interface PortalArgs {
     /**
      * A list of key-value pairs that contain metadata for the portal.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

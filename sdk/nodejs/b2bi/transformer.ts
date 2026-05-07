@@ -147,36 +147,36 @@ export class Transformer extends pulumi.CustomResource {
  * The set of arguments for constructing a Transformer resource.
  */
 export interface TransformerArgs {
-    ediType?: pulumi.Input<inputs.b2bi.TransformerEdiTypePropertiesArgs>;
-    fileFormat?: pulumi.Input<enums.b2bi.TransformerFileFormat>;
+    ediType?: pulumi.Input<inputs.b2bi.TransformerEdiTypePropertiesArgs | undefined>;
+    fileFormat?: pulumi.Input<enums.b2bi.TransformerFileFormat | undefined>;
     /**
      * Returns a structure that contains the format options for the transformation.
      */
-    inputConversion?: pulumi.Input<inputs.b2bi.TransformerInputConversionArgs>;
+    inputConversion?: pulumi.Input<inputs.b2bi.TransformerInputConversionArgs | undefined>;
     /**
      * Returns the structure that contains the mapping template and its language (either XSLT or JSONATA).
      */
-    mapping?: pulumi.Input<inputs.b2bi.TransformerMappingArgs>;
+    mapping?: pulumi.Input<inputs.b2bi.TransformerMappingArgs | undefined>;
     /**
      * This shape is deprecated: This is a legacy trait. Please use input-conversion or output-conversion.
      */
-    mappingTemplate?: pulumi.Input<string>;
+    mappingTemplate?: pulumi.Input<string | undefined>;
     /**
      * Returns the descriptive name for the transformer.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Returns the `OutputConversion` object, which contains the format options for the outbound transformation.
      */
-    outputConversion?: pulumi.Input<inputs.b2bi.TransformerOutputConversionArgs>;
+    outputConversion?: pulumi.Input<inputs.b2bi.TransformerOutputConversionArgs | undefined>;
     /**
      * This shape is deprecated: This is a legacy trait. Please use input-conversion or output-conversion.
      */
-    sampleDocument?: pulumi.Input<string>;
+    sampleDocument?: pulumi.Input<string | undefined>;
     /**
      * Returns a structure that contains the Amazon S3 bucket and an array of the corresponding keys used to identify the location for your sample documents.
      */
-    sampleDocuments?: pulumi.Input<inputs.b2bi.TransformerSampleDocumentsArgs>;
+    sampleDocuments?: pulumi.Input<inputs.b2bi.TransformerSampleDocumentsArgs | undefined>;
     /**
      * Returns the state of the newly created transformer. The transformer can be either `active` or `inactive` . For the transformer to be used in a capability, its status must `active` .
      */
@@ -184,5 +184,5 @@ export interface TransformerArgs {
     /**
      * A key-value pair for a specific transformer. Tags are metadata that you can use to search for and group capabilities for various purposes.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

@@ -104,11 +104,11 @@ export interface WorkflowArgs {
     /**
      * A textual description for the workflow.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies the steps (actions) to take if any errors are encountered during execution of the workflow.
      */
-    onExceptionSteps?: pulumi.Input<pulumi.Input<inputs.transfer.WorkflowStepArgs>[]>;
+    onExceptionSteps?: pulumi.Input<pulumi.Input<inputs.transfer.WorkflowStepArgs>[] | undefined>;
     /**
      * Specifies the details for the steps that are in the specified workflow.
      */
@@ -116,5 +116,5 @@ export interface WorkflowArgs {
     /**
      * Key-value pairs that can be used to group and search for workflows. Tags are metadata attached to workflows for any purpose.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

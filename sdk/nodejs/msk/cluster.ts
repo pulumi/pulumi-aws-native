@@ -165,23 +165,23 @@ export interface ClusterArgs {
     /**
      * Includes all client authentication related information.
      */
-    clientAuthentication?: pulumi.Input<inputs.msk.ClusterClientAuthenticationArgs>;
+    clientAuthentication?: pulumi.Input<inputs.msk.ClusterClientAuthenticationArgs | undefined>;
     /**
      * The name of the cluster.
      */
-    clusterName?: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string | undefined>;
     /**
      * Represents the configuration that you want MSK to use for the cluster.
      */
-    configurationInfo?: pulumi.Input<inputs.msk.ClusterConfigurationInfoArgs>;
+    configurationInfo?: pulumi.Input<inputs.msk.ClusterConfigurationInfoArgs | undefined>;
     /**
      * Includes all encryption-related information.
      */
-    encryptionInfo?: pulumi.Input<inputs.msk.ClusterEncryptionInfoArgs>;
+    encryptionInfo?: pulumi.Input<inputs.msk.ClusterEncryptionInfoArgs | undefined>;
     /**
      * Specifies the level of monitoring for the MSK cluster.
      */
-    enhancedMonitoring?: pulumi.Input<enums.msk.ClusterEnhancedMonitoring>;
+    enhancedMonitoring?: pulumi.Input<enums.msk.ClusterEnhancedMonitoring | undefined>;
     /**
      * The version of Apache Kafka. You can use Amazon MSK to create clusters that use [supported Apache Kafka versions](https://docs.aws.amazon.com/msk/latest/developerguide/supported-kafka-versions.html) .
      */
@@ -189,7 +189,7 @@ export interface ClusterArgs {
     /**
      * Logging info details for the cluster.
      */
-    loggingInfo?: pulumi.Input<inputs.msk.ClusterLoggingInfoArgs>;
+    loggingInfo?: pulumi.Input<inputs.msk.ClusterLoggingInfoArgs | undefined>;
     /**
      * The number of broker nodes in the cluster.
      */
@@ -197,14 +197,14 @@ export interface ClusterArgs {
     /**
      * The settings for open monitoring.
      */
-    openMonitoring?: pulumi.Input<inputs.msk.ClusterOpenMonitoringArgs>;
-    rebalancing?: pulumi.Input<inputs.msk.ClusterRebalancingArgs>;
+    openMonitoring?: pulumi.Input<inputs.msk.ClusterOpenMonitoringArgs | undefined>;
+    rebalancing?: pulumi.Input<inputs.msk.ClusterRebalancingArgs | undefined>;
     /**
      * This controls storage mode for supported storage tiers.
      */
-    storageMode?: pulumi.Input<enums.msk.ClusterStorageMode>;
+    storageMode?: pulumi.Input<enums.msk.ClusterStorageMode | undefined>;
     /**
      * A key-value pair to associate with a resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -120,13 +120,13 @@ export interface InAppTemplateArgs {
     /**
      * An object that contains information about the content of an in-app message, including its title and body text, text colors, background colors, images, buttons, and behaviors.
      */
-    content?: pulumi.Input<pulumi.Input<inputs.pinpoint.InAppTemplateInAppMessageContentArgs>[]>;
+    content?: pulumi.Input<pulumi.Input<inputs.pinpoint.InAppTemplateInAppMessageContentArgs>[] | undefined>;
     /**
      * Custom data, in the form of key-value pairs, that is included in an in-app messaging payload.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::InAppTemplate` for more information about the expected schema for this property.
      */
-    customConfig?: any;
+    customConfig?: any | undefined;
     /**
      * A string that determines the appearance of the in-app message. You can specify one of the following:
      *
@@ -137,7 +137,7 @@ export interface InAppTemplateArgs {
      * - `MIDDLE_BANNER` – a message that appears as a banner in the middle of the page.
      * - `CAROUSEL` – a scrollable layout of up to five unique messages.
      */
-    layout?: pulumi.Input<enums.pinpoint.InAppTemplateLayout>;
+    layout?: pulumi.Input<enums.pinpoint.InAppTemplateLayout | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      *
@@ -145,13 +145,13 @@ export interface InAppTemplateArgs {
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::InAppTemplate` for more information about the expected schema for this property.
      */
-    tags?: any;
+    tags?: any | undefined;
     /**
      * An optional description of the in-app template.
      */
-    templateDescription?: pulumi.Input<string>;
+    templateDescription?: pulumi.Input<string | undefined>;
     /**
      * The name of the in-app message template.
      */
-    templateName?: pulumi.Input<string>;
+    templateName?: pulumi.Input<string | undefined>;
 }

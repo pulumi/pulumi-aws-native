@@ -146,31 +146,31 @@ export interface EntityArgs {
     /**
      * A map that sets information about a component type.
      */
-    components?: pulumi.Input<{[key: string]: pulumi.Input<inputs.iottwinmaker.EntityComponentArgs>}>;
+    components?: pulumi.Input<{[key: string]: pulumi.Input<inputs.iottwinmaker.EntityComponentArgs>} | undefined>;
     /**
      * A map that sets information about a composite component.
      */
-    compositeComponents?: pulumi.Input<{[key: string]: pulumi.Input<inputs.iottwinmaker.EntityCompositeComponentArgs>}>;
+    compositeComponents?: pulumi.Input<{[key: string]: pulumi.Input<inputs.iottwinmaker.EntityCompositeComponentArgs>} | undefined>;
     /**
      * The description of the entity.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The ID of the entity.
      */
-    entityId?: pulumi.Input<string>;
+    entityId?: pulumi.Input<string | undefined>;
     /**
      * The name of the entity.
      */
-    entityName?: pulumi.Input<string>;
+    entityName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the parent entity.
      */
-    parentEntityId?: pulumi.Input<string>;
+    parentEntityId?: pulumi.Input<string | undefined>;
     /**
      * A key-value pair to associate with a resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The ID of the workspace.
      */

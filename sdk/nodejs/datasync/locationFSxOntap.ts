@@ -119,7 +119,7 @@ export interface LocationFSxOntapArgs {
     /**
      * Specifies the data transfer protocol that DataSync uses to access your Amazon FSx file system.
      */
-    protocol?: pulumi.Input<inputs.datasync.LocationFSxOntapProtocolArgs>;
+    protocol?: pulumi.Input<inputs.datasync.LocationFSxOntapProtocolArgs | undefined>;
     /**
      * The ARNs of the security groups that are to use to configure the FSx ONTAP file system.
      */
@@ -131,9 +131,9 @@ export interface LocationFSxOntapArgs {
     /**
      * A subdirectory in the location's path.
      */
-    subdirectory?: pulumi.Input<string>;
+    subdirectory?: pulumi.Input<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

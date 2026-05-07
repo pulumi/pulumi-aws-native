@@ -137,7 +137,7 @@ export interface DbProxyEndpointArgs {
     /**
      * The identifier for the DB proxy endpoint. This name must be unique for all DB proxy endpoints owned by your AWS account in the specified AWS Region.
      */
-    dbProxyEndpointName?: pulumi.Input<string>;
+    dbProxyEndpointName?: pulumi.Input<string | undefined>;
     /**
      * The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
      */
@@ -145,19 +145,19 @@ export interface DbProxyEndpointArgs {
     /**
      * The network type of the DB proxy endpoint. The network type determines the IP version that the proxy endpoint supports.
      */
-    endpointNetworkType?: pulumi.Input<enums.rds.DbProxyEndpointEndpointNetworkType>;
+    endpointNetworkType?: pulumi.Input<enums.rds.DbProxyEndpointEndpointNetworkType | undefined>;
     /**
      * An optional set of key-value pairs to associate arbitrary data of your choosing with the DB proxy endpoint.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * A value that indicates whether the DB proxy endpoint can be used for read/write or read-only operations.
      */
-    targetRole?: pulumi.Input<enums.rds.DbProxyEndpointTargetRole>;
+    targetRole?: pulumi.Input<enums.rds.DbProxyEndpointTargetRole | undefined>;
     /**
      * VPC security group IDs to associate with the new DB proxy endpoint.
      */
-    vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * VPC subnet IDs to associate with the new DB proxy endpoint.
      */

@@ -291,7 +291,7 @@ export interface EnvironmentArgs {
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MWAA::Environment` for more information about the expected schema for this property.
      */
-    airflowConfigurationOptions?: any;
+    airflowConfigurationOptions?: any | undefined;
     /**
      * The version of Apache Airflow to use for the environment. If no value is specified, defaults to the latest version.
      *
@@ -299,86 +299,86 @@ export interface EnvironmentArgs {
      *
      * *Allowed Values* : `2.7.2` | `2.8.1` | `2.9.2` | `2.10.1` | `2.10.3` | `3.0.6` (latest)
      */
-    airflowVersion?: pulumi.Input<string>;
+    airflowVersion?: pulumi.Input<string | undefined>;
     /**
      * The relative path to the DAGs folder on your Amazon S3 bucket. For example, `dags` . To learn more, see [Adding or updating DAGs](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-folder.html) .
      */
-    dagS3Path?: pulumi.Input<string>;
+    dagS3Path?: pulumi.Input<string | undefined>;
     /**
      * Defines whether the VPC endpoints configured for the environment are created, and managed, by the customer or by Amazon MWAA. If set to `SERVICE` , Amazon MWAA will create and manage the required VPC endpoints in your VPC. If set to `CUSTOMER` , you must create, and manage, the VPC endpoints in your VPC.
      */
-    endpointManagement?: pulumi.Input<enums.mwaa.EnvironmentEndpointManagement>;
+    endpointManagement?: pulumi.Input<enums.mwaa.EnvironmentEndpointManagement | undefined>;
     /**
      * The environment class type. Valid values: `mw1.micro` , `mw1.small` , `mw1.medium` , `mw1.large` , `mw1.1large` , and `mw1.2large` . To learn more, see [Amazon MWAA environment class](https://docs.aws.amazon.com/mwaa/latest/userguide/environment-class.html) .
      */
-    environmentClass?: pulumi.Input<string>;
+    environmentClass?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the execution role in IAM that allows MWAA to access AWS resources in your environment. For example, `arn:aws:iam::123456789:role/my-execution-role` . To learn more, see [Amazon MWAA Execution role](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) .
      */
-    executionRoleArn?: pulumi.Input<string>;
+    executionRoleArn?: pulumi.Input<string | undefined>;
     /**
      * The AWS Key Management Service (KMS) key to encrypt and decrypt the data in your environment. You can use an AWS KMS key managed by MWAA, or a customer-managed KMS key (advanced).
      */
-    kmsKey?: pulumi.Input<string>;
+    kmsKey?: pulumi.Input<string | undefined>;
     /**
      * The Apache Airflow logs being sent to CloudWatch Logs: `DagProcessingLogs` , `SchedulerLogs` , `TaskLogs` , `WebserverLogs` , `WorkerLogs` .
      */
-    loggingConfiguration?: pulumi.Input<inputs.mwaa.EnvironmentLoggingConfigurationArgs>;
+    loggingConfiguration?: pulumi.Input<inputs.mwaa.EnvironmentLoggingConfigurationArgs | undefined>;
     /**
      * The maximum number of web servers that you want to run in your environment. Amazon MWAA scales the number of Apache Airflow web servers up to the number you specify for `MaxWebservers` when you interact with your Apache Airflow environment using Apache Airflow REST API, or the Apache Airflow CLI. For example, in scenarios where your workload requires network calls to the Apache Airflow REST API with a high transaction-per-second (TPS) rate, Amazon MWAA will increase the number of web servers up to the number set in `MaxWebserers` . As TPS rates decrease Amazon MWAA disposes of the additional web servers, and scales down to the number set in `MinxWebserers` .
      *
      * Valid values: For environments larger than mw1.micro, accepts values from `2` to `5` . Defaults to `2` for all environment sizes except mw1.micro, which defaults to `1` .
      */
-    maxWebservers?: pulumi.Input<number>;
+    maxWebservers?: pulumi.Input<number | undefined>;
     /**
      * The maximum number of workers that you want to run in your environment. MWAA scales the number of Apache Airflow workers up to the number you specify in the `MaxWorkers` field. For example, `20` . When there are no more tasks running, and no more in the queue, MWAA disposes of the extra workers leaving the one worker that is included with your environment, or the number you specify in `MinWorkers` .
      */
-    maxWorkers?: pulumi.Input<number>;
+    maxWorkers?: pulumi.Input<number | undefined>;
     /**
      * The minimum number of web servers that you want to run in your environment. Amazon MWAA scales the number of Apache Airflow web servers up to the number you specify for `MaxWebservers` when you interact with your Apache Airflow environment using Apache Airflow REST API, or the Apache Airflow CLI. As the transaction-per-second rate, and the network load, decrease, Amazon MWAA disposes of the additional web servers, and scales down to the number set in `MinxWebserers` .
      *
      * Valid values: For environments larger than mw1.micro, accepts values from `2` to `5` . Defaults to `2` for all environment sizes except mw1.micro, which defaults to `1` .
      */
-    minWebservers?: pulumi.Input<number>;
+    minWebservers?: pulumi.Input<number | undefined>;
     /**
      * The minimum number of workers that you want to run in your environment. MWAA scales the number of Apache Airflow workers up to the number you specify in the `MaxWorkers` field. When there are no more tasks running, and no more in the queue, MWAA disposes of the extra workers leaving the worker count you specify in the `MinWorkers` field. For example, `2` .
      */
-    minWorkers?: pulumi.Input<number>;
+    minWorkers?: pulumi.Input<number | undefined>;
     /**
      * The name of your Amazon MWAA environment.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The VPC networking components used to secure and enable network traffic between the AWS resources for your environment. To learn more, see [About networking on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/networking-about.html) .
      */
-    networkConfiguration?: pulumi.Input<inputs.mwaa.EnvironmentNetworkConfigurationArgs>;
+    networkConfiguration?: pulumi.Input<inputs.mwaa.EnvironmentNetworkConfigurationArgs | undefined>;
     /**
      * The version of the plugins.zip file on your Amazon S3 bucket. To learn more, see [Installing custom plugins](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import-plugins.html) .
      */
-    pluginsS3ObjectVersion?: pulumi.Input<string>;
+    pluginsS3ObjectVersion?: pulumi.Input<string | undefined>;
     /**
      * The relative path to the `plugins.zip` file on your Amazon S3 bucket. For example, `plugins.zip` . To learn more, see [Installing custom plugins](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import-plugins.html) .
      */
-    pluginsS3Path?: pulumi.Input<string>;
+    pluginsS3Path?: pulumi.Input<string | undefined>;
     /**
      * The version of the requirements.txt file on your Amazon S3 bucket. To learn more, see [Installing Python dependencies](https://docs.aws.amazon.com/mwaa/latest/userguide/working-dags-dependencies.html) .
      */
-    requirementsS3ObjectVersion?: pulumi.Input<string>;
+    requirementsS3ObjectVersion?: pulumi.Input<string | undefined>;
     /**
      * The relative path to the `requirements.txt` file on your Amazon S3 bucket. For example, `requirements.txt` . To learn more, see [Installing Python dependencies](https://docs.aws.amazon.com/mwaa/latest/userguide/working-dags-dependencies.html) .
      */
-    requirementsS3Path?: pulumi.Input<string>;
+    requirementsS3Path?: pulumi.Input<string | undefined>;
     /**
      * The number of schedulers that you want to run in your environment. Valid values:
      *
      * - *v2* - For environments larger than mw1.micro, accepts values from 2 to 5. Defaults to 2 for all environment sizes except mw1.micro, which defaults to 1.
      * - *v1* - Accepts 1.
      */
-    schedulers?: pulumi.Input<number>;
+    schedulers?: pulumi.Input<number | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the Amazon S3 bucket where your DAG code and supporting files are stored. For example, `arn:aws:s3:::my-airflow-bucket-unique-name` . To learn more, see [Create an Amazon S3 bucket for Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-s3-bucket.html) .
      */
-    sourceBucketArn?: pulumi.Input<string>;
+    sourceBucketArn?: pulumi.Input<string | undefined>;
     /**
      * The version of the startup shell script in your Amazon S3 bucket. You must specify the [version ID](https://docs.aws.amazon.com/AmazonS3/latest/userguide/versioning-workflows.html) that Amazon S3 assigns to the file every time you update the script.
      *
@@ -388,28 +388,28 @@ export interface EnvironmentArgs {
      *
      * For more information, see [Using a startup script](https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html) .
      */
-    startupScriptS3ObjectVersion?: pulumi.Input<string>;
+    startupScriptS3ObjectVersion?: pulumi.Input<string | undefined>;
     /**
      * The relative path to the startup shell script in your Amazon S3 bucket. For example, `s3://mwaa-environment/startup.sh` .
      *
      * Amazon MWAA runs the script as your environment starts, and before running the Apache Airflow process. You can use this script to install dependencies, modify Apache Airflow configuration options, and set environment variables. For more information, see [Using a startup script](https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html) .
      */
-    startupScriptS3Path?: pulumi.Input<string>;
+    startupScriptS3Path?: pulumi.Input<string | undefined>;
     /**
      * A map of tags for the environment.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MWAA::Environment` for more information about the expected schema for this property.
      */
-    tags?: any;
+    tags?: any | undefined;
     /**
      * The Apache Airflow *Web server* access mode. To learn more, see [Apache Airflow access modes](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-networking.html) . Valid values: `PRIVATE_ONLY` or `PUBLIC_ONLY` .
      */
-    webserverAccessMode?: pulumi.Input<enums.mwaa.EnvironmentWebserverAccessMode>;
+    webserverAccessMode?: pulumi.Input<enums.mwaa.EnvironmentWebserverAccessMode | undefined>;
     /**
      * The day and time of the week to start weekly maintenance updates of your environment in the following format: `DAY:HH:MM` . For example: `TUE:03:30` . You can specify a start time in 30 minute increments only. Supported input includes the following:
      *
      * - MON|TUE|WED|THU|FRI|SAT|SUN:([01]\\d|2[0-3]):(00|30)
      */
-    weeklyMaintenanceWindowStart?: pulumi.Input<string>;
-    workerReplacementStrategy?: pulumi.Input<enums.mwaa.EnvironmentWorkerReplacementStrategy>;
+    weeklyMaintenanceWindowStart?: pulumi.Input<string | undefined>;
+    workerReplacementStrategy?: pulumi.Input<enums.mwaa.EnvironmentWorkerReplacementStrategy | undefined>;
 }

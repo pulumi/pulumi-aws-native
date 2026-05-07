@@ -136,7 +136,7 @@ export interface CertificateArgs {
     /**
      * Specifies X.509 certificate information to be included in the issued certificate. An ``APIPassthrough`` or ``APICSRPassthrough`` template variant must be selected, or else this parameter is ignored.
      */
-    apiPassthrough?: pulumi.Input<inputs.acmpca.CertificateApiPassthroughArgs>;
+    apiPassthrough?: pulumi.Input<inputs.acmpca.CertificateApiPassthroughArgs | undefined>;
     /**
      * The Amazon Resource Name (ARN) for the private CA issues the certificate.
      */
@@ -154,7 +154,7 @@ export interface CertificateArgs {
     /**
      * Specifies a custom configuration template to use when issuing a certificate. If this parameter is not provided, PCAshort defaults to the ``EndEntityCertificate/V1`` template. For more information about PCAshort templates, see [Using Templates](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html).
      */
-    templateArn?: pulumi.Input<string>;
+    templateArn?: pulumi.Input<string | undefined>;
     /**
      * The period of time during which the certificate will be valid.
      */
@@ -165,5 +165,5 @@ export interface CertificateArgs {
      *  Unlike the ``Validity`` parameter, the ``ValidityNotBefore`` parameter is optional.
      *  The ``ValidityNotBefore`` value is expressed as an explicit date and time, using the ``Validity`` type value ``ABSOLUTE``.
      */
-    validityNotBefore?: pulumi.Input<inputs.acmpca.CertificateValidityArgs>;
+    validityNotBefore?: pulumi.Input<inputs.acmpca.CertificateValidityArgs | undefined>;
 }

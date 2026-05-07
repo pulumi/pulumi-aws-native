@@ -204,7 +204,7 @@ export interface ScheduledQueryArgs {
      * - If CreateScheduledQuery is called without a `ClientToken` , the Query SDK generates a `ClientToken` on your behalf.
      * - After 8 hours, any request with the same `ClientToken` is treated as a new request.
      */
-    clientToken?: pulumi.Input<string>;
+    clientToken?: pulumi.Input<string | undefined>;
     /**
      * Configuration for error reporting. Error reports will be generated when a problem is encountered when writing the query results.
      */
@@ -214,7 +214,7 @@ export interface ScheduledQueryArgs {
      *
      * If ErrorReportConfiguration uses `SSE_KMS` as encryption type, the same KmsKeyId is used to encrypt the error report at rest.
      */
-    kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * Notification configuration for the scheduled query. A notification is sent by Timestream when a query run finishes, when the state is updated or when you delete it.
      */
@@ -236,13 +236,13 @@ export interface ScheduledQueryArgs {
     /**
      * A name for the query. Scheduled query names must be unique within each Region.
      */
-    scheduledQueryName?: pulumi.Input<string>;
+    scheduledQueryName?: pulumi.Input<string | undefined>;
     /**
      * A list of key-value pairs to label the scheduled query.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * Scheduled query target store configuration.
      */
-    targetConfiguration?: pulumi.Input<inputs.timestream.ScheduledQueryTargetConfigurationArgs>;
+    targetConfiguration?: pulumi.Input<inputs.timestream.ScheduledQueryTargetConfigurationArgs | undefined>;
 }

@@ -101,14 +101,14 @@ export class StudioComponent extends pulumi.CustomResource {
  * The set of arguments for constructing a StudioComponent resource.
  */
 export interface StudioComponentArgs {
-    configuration?: pulumi.Input<inputs.nimblestudio.StudioComponentConfigurationArgs>;
-    description?: pulumi.Input<string>;
-    ec2SecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
-    initializationScripts?: pulumi.Input<pulumi.Input<inputs.nimblestudio.StudioComponentInitializationScriptArgs>[]>;
-    name?: pulumi.Input<string>;
-    scriptParameters?: pulumi.Input<pulumi.Input<inputs.nimblestudio.StudioComponentScriptParameterKeyValueArgs>[]>;
+    configuration?: pulumi.Input<inputs.nimblestudio.StudioComponentConfigurationArgs | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    ec2SecurityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    initializationScripts?: pulumi.Input<pulumi.Input<inputs.nimblestudio.StudioComponentInitializationScriptArgs>[] | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    scriptParameters?: pulumi.Input<pulumi.Input<inputs.nimblestudio.StudioComponentScriptParameterKeyValueArgs>[] | undefined>;
     studioId: pulumi.Input<string>;
-    subtype?: pulumi.Input<string>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    subtype?: pulumi.Input<string | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     type: pulumi.Input<string>;
 }

@@ -95,7 +95,7 @@ export interface IpamPoolCidrArgs {
     /**
      * Represents a single IPv4 or IPv6 CIDR
      */
-    cidr?: pulumi.Input<string>;
+    cidr?: pulumi.Input<string | undefined>;
     /**
      * Id of the IPAM Pool.
      */
@@ -103,5 +103,5 @@ export interface IpamPoolCidrArgs {
     /**
      * The desired netmask length of the provision. If set, IPAM will choose a block of free space with this size and return the CIDR representing it.
      */
-    netmaskLength?: pulumi.Input<number>;
+    netmaskLength?: pulumi.Input<number | undefined>;
 }

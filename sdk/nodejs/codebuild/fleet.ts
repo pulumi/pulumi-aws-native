@@ -188,11 +188,11 @@ export interface FleetArgs {
     /**
      * The initial number of machines allocated to the compute ﬂeet, which deﬁnes the number of builds that can run in parallel.
      */
-    baseCapacity?: pulumi.Input<number>;
+    baseCapacity?: pulumi.Input<number | undefined>;
     /**
      * The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE` .
      */
-    computeConfiguration?: pulumi.Input<inputs.codebuild.FleetComputeConfigurationArgs>;
+    computeConfiguration?: pulumi.Input<inputs.codebuild.FleetComputeConfigurationArgs | undefined>;
     /**
      * Information about the compute resources the compute fleet uses. Available values include:
      *
@@ -224,7 +224,7 @@ export interface FleetArgs {
      *
      * For more information, see [On-demand environment types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) in the *AWS CodeBuild User Guide.*
      */
-    computeType?: pulumi.Input<enums.codebuild.FleetComputeType>;
+    computeType?: pulumi.Input<enums.codebuild.FleetComputeType | undefined>;
     /**
      * The environment type of the compute fleet.
      *
@@ -240,27 +240,27 @@ export interface FleetArgs {
      *
      * For more information, see [Build environment compute types](https://docs.aws.amazon.com//codebuild/latest/userguide/build-env-ref-compute-types.html) in the *AWS CodeBuild user guide* .
      */
-    environmentType?: pulumi.Input<enums.codebuild.FleetEnvironmentType>;
+    environmentType?: pulumi.Input<enums.codebuild.FleetEnvironmentType | undefined>;
     /**
      * Information about the proxy configurations that apply network access control to your reserved capacity instances.
      */
-    fleetProxyConfiguration?: pulumi.Input<inputs.codebuild.FleetProxyConfigurationArgs>;
+    fleetProxyConfiguration?: pulumi.Input<inputs.codebuild.FleetProxyConfigurationArgs | undefined>;
     /**
      * The service role associated with the compute fleet. For more information, see [Allow a user to add a permission policy for a fleet service role](https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html#customer-managed-policies-example-permission-policy-fleet-service-role.html) in the *AWS CodeBuild User Guide* .
      */
-    fleetServiceRole?: pulumi.Input<string>;
+    fleetServiceRole?: pulumi.Input<string | undefined>;
     /**
      * Information about the VPC configuration that AWS CodeBuild accesses.
      */
-    fleetVpcConfig?: pulumi.Input<inputs.codebuild.FleetVpcConfigArgs>;
+    fleetVpcConfig?: pulumi.Input<inputs.codebuild.FleetVpcConfigArgs | undefined>;
     /**
      * The Amazon Machine Image (AMI) of the compute fleet.
      */
-    imageId?: pulumi.Input<string>;
+    imageId?: pulumi.Input<string | undefined>;
     /**
      * The name of the compute fleet.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The compute fleet overflow behavior.
      *
@@ -269,15 +269,15 @@ export interface FleetArgs {
      *
      * > If you choose to set your overflow behavior to on-demand while creating a VPC-connected fleet, make sure that you add the required VPC permissions to your project service role. For more information, see [Example policy statement to allow CodeBuild access to AWS services required to create a VPC network interface](https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html#customer-managed-policies-example-create-vpc-network-interface) .
      */
-    overflowBehavior?: pulumi.Input<enums.codebuild.FleetOverflowBehavior>;
+    overflowBehavior?: pulumi.Input<enums.codebuild.FleetOverflowBehavior | undefined>;
     /**
      * The scaling configuration of the compute fleet.
      */
-    scalingConfiguration?: pulumi.Input<inputs.codebuild.FleetScalingConfigurationInputArgs>;
+    scalingConfiguration?: pulumi.Input<inputs.codebuild.FleetScalingConfigurationInputArgs | undefined>;
     /**
      * A list of tag key and value pairs associated with this compute fleet.
      *
      * These tags are available for use by AWS services that support AWS CodeBuild compute fleet tags.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

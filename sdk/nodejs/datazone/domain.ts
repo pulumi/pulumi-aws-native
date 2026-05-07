@@ -164,7 +164,7 @@ export interface DomainArgs {
     /**
      * The description of the Amazon DataZone domain.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The domain execution role that is created when an Amazon DataZone domain is created. The domain execution role is created in the AWS account that houses the Amazon DataZone domain.
      */
@@ -172,25 +172,25 @@ export interface DomainArgs {
     /**
      * The version of the domain.
      */
-    domainVersion?: pulumi.Input<enums.datazone.DomainVersion>;
+    domainVersion?: pulumi.Input<enums.datazone.DomainVersion | undefined>;
     /**
      * The identifier of the AWS Key Management Service (KMS) key that is used to encrypt the Amazon DataZone domain, metadata, and reporting data.
      */
-    kmsKeyIdentifier?: pulumi.Input<string>;
+    kmsKeyIdentifier?: pulumi.Input<string | undefined>;
     /**
      * The name of the Amazon DataZone domain.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The service role of the domain that is created.
      */
-    serviceRole?: pulumi.Input<string>;
+    serviceRole?: pulumi.Input<string | undefined>;
     /**
      * The single-sign on configuration of the Amazon DataZone domain.
      */
-    singleSignOn?: pulumi.Input<inputs.datazone.DomainSingleSignOnArgs>;
+    singleSignOn?: pulumi.Input<inputs.datazone.DomainSingleSignOnArgs | undefined>;
     /**
      * The tags specified for the Amazon DataZone domain.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

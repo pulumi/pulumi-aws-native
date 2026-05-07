@@ -131,7 +131,7 @@ export interface PolicyGrantArgs {
     /**
      * The details of the policy grant member.
      */
-    detail?: pulumi.Input<inputs.datazone.PolicyGrantDetail0PropertiesArgs | inputs.datazone.PolicyGrantDetail1PropertiesArgs | inputs.datazone.PolicyGrantDetail2PropertiesArgs | inputs.datazone.PolicyGrantDetail3PropertiesArgs | inputs.datazone.PolicyGrantDetail4PropertiesArgs | inputs.datazone.PolicyGrantDetail5PropertiesArgs | inputs.datazone.PolicyGrantDetail6PropertiesArgs | inputs.datazone.PolicyGrantDetail7PropertiesArgs | inputs.datazone.PolicyGrantDetail8PropertiesArgs | inputs.datazone.PolicyGrantDetail9PropertiesArgs | inputs.datazone.PolicyGrantDetail10PropertiesArgs | inputs.datazone.PolicyGrantDetail11PropertiesArgs | inputs.datazone.PolicyGrantDetail12PropertiesArgs>;
+    detail?: pulumi.Input<inputs.datazone.PolicyGrantDetail0PropertiesArgs | inputs.datazone.PolicyGrantDetail1PropertiesArgs | inputs.datazone.PolicyGrantDetail2PropertiesArgs | inputs.datazone.PolicyGrantDetail3PropertiesArgs | inputs.datazone.PolicyGrantDetail4PropertiesArgs | inputs.datazone.PolicyGrantDetail5PropertiesArgs | inputs.datazone.PolicyGrantDetail6PropertiesArgs | inputs.datazone.PolicyGrantDetail7PropertiesArgs | inputs.datazone.PolicyGrantDetail8PropertiesArgs | inputs.datazone.PolicyGrantDetail9PropertiesArgs | inputs.datazone.PolicyGrantDetail10PropertiesArgs | inputs.datazone.PolicyGrantDetail11PropertiesArgs | inputs.datazone.PolicyGrantDetail12PropertiesArgs | undefined>;
     /**
      * The ID of the domain where you want to add a policy grant.
      */
@@ -151,5 +151,5 @@ export interface PolicyGrantArgs {
     /**
      * The principal of the policy grant member.
      */
-    principal?: pulumi.Input<inputs.datazone.PolicyGrantPrincipal0PropertiesArgs | inputs.datazone.PolicyGrantPrincipal1PropertiesArgs | inputs.datazone.PolicyGrantPrincipal2PropertiesArgs | inputs.datazone.PolicyGrantPrincipal3PropertiesArgs>;
+    principal?: pulumi.Input<inputs.datazone.PolicyGrantPrincipal0PropertiesArgs | inputs.datazone.PolicyGrantPrincipal1PropertiesArgs | inputs.datazone.PolicyGrantPrincipal2PropertiesArgs | inputs.datazone.PolicyGrantPrincipal3PropertiesArgs | undefined>;
 }

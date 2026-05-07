@@ -96,9 +96,9 @@ export interface TelemetryRuleArgs {
     /**
      * The name of the telemetry rule
      */
-    ruleName?: pulumi.Input<string>;
+    ruleName?: pulumi.Input<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

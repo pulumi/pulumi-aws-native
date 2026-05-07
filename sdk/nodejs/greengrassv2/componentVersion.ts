@@ -114,13 +114,13 @@ export interface ComponentVersionArgs {
      *
      * You must specify either `InlineRecipe` or `LambdaFunction` .
      */
-    inlineRecipe?: pulumi.Input<string>;
+    inlineRecipe?: pulumi.Input<string | undefined>;
     /**
      * The parameters to create a component from a Lambda function.
      *
      * You must specify either `InlineRecipe` or `LambdaFunction` .
      */
-    lambdaFunction?: pulumi.Input<inputs.greengrassv2.ComponentVersionLambdaFunctionRecipeSourceArgs>;
+    lambdaFunction?: pulumi.Input<inputs.greengrassv2.ComponentVersionLambdaFunctionRecipeSourceArgs | undefined>;
     /**
      * Application-specific metadata to attach to the component version. You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see [Tag your AWS IoT Greengrass Version 2 resources](https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html) in the *AWS IoT Greengrass V2 Developer Guide* .
      *
@@ -131,5 +131,5 @@ export interface ComponentVersionArgs {
      * }
      * ```
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

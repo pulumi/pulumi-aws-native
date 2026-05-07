@@ -106,7 +106,7 @@ export interface ParameterGroupArgs {
     /**
      * A description of the parameter group.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the parameter group family that this parameter group is compatible with.
      */
@@ -114,15 +114,15 @@ export interface ParameterGroupArgs {
     /**
      * The name of the parameter group.
      */
-    parameterGroupName?: pulumi.Input<string>;
+    parameterGroupName?: pulumi.Input<string | undefined>;
     /**
      * An map of parameter names and values for the parameter update. You must supply at least one parameter name and value; subsequent arguments are optional.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MemoryDB::ParameterGroup` for more information about the expected schema for this property.
      */
-    parameters?: any;
+    parameters?: any | undefined;
     /**
      * An array of key-value pairs to apply to this parameter group.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

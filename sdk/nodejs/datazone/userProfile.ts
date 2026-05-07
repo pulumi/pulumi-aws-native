@@ -120,7 +120,7 @@ export interface UserProfileArgs {
     /**
      * The status of the user profile.
      */
-    status?: pulumi.Input<enums.datazone.UserProfileStatus>;
+    status?: pulumi.Input<enums.datazone.UserProfileStatus | undefined>;
     /**
      * The ID of the user.
      */
@@ -128,5 +128,5 @@ export interface UserProfileArgs {
     /**
      * The user type of the user for which the user profile is created.
      */
-    userType?: pulumi.Input<enums.datazone.UserProfileUserType>;
+    userType?: pulumi.Input<enums.datazone.UserProfileUserType | undefined>;
 }

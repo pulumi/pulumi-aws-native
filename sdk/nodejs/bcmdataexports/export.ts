@@ -84,5 +84,5 @@ export interface ExportArgs {
      * The details that are available for an export.
      */
     export: pulumi.Input<inputs.bcmdataexports.ExportArgs>;
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

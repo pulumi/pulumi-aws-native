@@ -138,7 +138,7 @@ export interface AccountArgs {
     /**
      * The friendly name of the member account.
      */
-    accountName?: pulumi.Input<string>;
+    accountName?: pulumi.Input<string | undefined>;
     /**
      * The email address of the owner to assign to the new member account.
      */
@@ -146,13 +146,13 @@ export interface AccountArgs {
     /**
      * List of parent nodes for the member account. Currently only one parent at a time is supported. Default is root.
      */
-    parentIds?: pulumi.Input<pulumi.Input<string>[]>;
+    parentIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name of an IAM role that AWS Organizations automatically preconfigures in the new member account. Default name is OrganizationAccountAccessRole if not specified.
      */
-    roleName?: pulumi.Input<string>;
+    roleName?: pulumi.Input<string | undefined>;
     /**
      * A list of tags that you want to attach to the newly created account. For each tag in the list, you must specify both a tag key and a value.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

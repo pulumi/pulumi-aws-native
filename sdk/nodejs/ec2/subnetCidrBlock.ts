@@ -107,15 +107,15 @@ export interface SubnetCidrBlockArgs {
     /**
      * The IPv6 network range for the subnet, in CIDR notation. The subnet size must use a /64 prefix length
      */
-    ipv6CidrBlock?: pulumi.Input<string>;
+    ipv6CidrBlock?: pulumi.Input<string | undefined>;
     /**
      * The ID of an IPv6 Amazon VPC IP Address Manager (IPAM) pool from which to allocate, to get the subnet's CIDR
      */
-    ipv6IpamPoolId?: pulumi.Input<string>;
+    ipv6IpamPoolId?: pulumi.Input<string | undefined>;
     /**
      * The netmask length of the IPv6 CIDR to allocate to the subnet from an IPAM pool
      */
-    ipv6NetmaskLength?: pulumi.Input<number>;
+    ipv6NetmaskLength?: pulumi.Input<number | undefined>;
     /**
      * The ID of the subnet
      */

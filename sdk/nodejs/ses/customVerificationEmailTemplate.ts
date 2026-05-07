@@ -134,7 +134,7 @@ export interface CustomVerificationEmailTemplateArgs {
     /**
      * The tags (keys and values) associated with the tenant.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The content of the custom verification email. The total size of the email must be less than 10 MB. The message body may contain HTML, with some limitations.
      */
@@ -142,7 +142,7 @@ export interface CustomVerificationEmailTemplateArgs {
     /**
      * The name of the custom verification email template.
      */
-    templateName?: pulumi.Input<string>;
+    templateName?: pulumi.Input<string | undefined>;
     /**
      * The subject line of the custom verification email.
      */

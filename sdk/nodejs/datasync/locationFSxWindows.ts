@@ -131,20 +131,20 @@ export class LocationFSxWindows extends pulumi.CustomResource {
  * The set of arguments for constructing a LocationFSxWindows resource.
  */
 export interface LocationFSxWindowsArgs {
-    cmkSecretConfig?: pulumi.Input<inputs.datasync.LocationFSxWindowsCmkSecretConfigArgs>;
-    customSecretConfig?: pulumi.Input<inputs.datasync.LocationFSxWindowsCustomSecretConfigArgs>;
+    cmkSecretConfig?: pulumi.Input<inputs.datasync.LocationFSxWindowsCmkSecretConfigArgs | undefined>;
+    customSecretConfig?: pulumi.Input<inputs.datasync.LocationFSxWindowsCustomSecretConfigArgs | undefined>;
     /**
      * The name of the Windows domain that the FSx for Windows server belongs to.
      */
-    domain?: pulumi.Input<string>;
+    domain?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) for the FSx for Windows file system.
      */
-    fsxFilesystemArn?: pulumi.Input<string>;
+    fsxFilesystemArn?: pulumi.Input<string | undefined>;
     /**
      * The password of the user who has the permissions to access files and folders in the FSx for Windows file system.
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * The ARNs of the security groups that are to use to configure the FSx for Windows file system.
      */
@@ -152,11 +152,11 @@ export interface LocationFSxWindowsArgs {
     /**
      * A subdirectory in the location's path.
      */
-    subdirectory?: pulumi.Input<string>;
+    subdirectory?: pulumi.Input<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The user who has the permissions to access files and folders in the FSx for Windows file system.
      */
