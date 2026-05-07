@@ -69,8 +69,8 @@ def get_permission(function_name: Optional[_builtins.str] = None,
 
     return AwaitableGetPermissionResult(
         id=pulumi.get(__ret__, 'id'))
-def get_permission_output(function_name: Optional[pulumi.Input[_builtins.str]] = None,
-                          id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_permission_output(function_name: pulumi.Input[Optional[_builtins.str]] = None,
+                          id: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPermissionResult]:
     """
     The ``AWS::Lambda::Permission`` resource grants an AWS service or another account permission to use a function. You can apply the policy at the function level, or specify a qualifier to restrict access to a single version or alias. If you use a qualifier, the invoker must use the full Amazon Resource Name (ARN) of that version or alias to invoke the function.

@@ -20,13 +20,13 @@ __all__ = ['ScheduledActionArgs', 'ScheduledAction']
 class ScheduledActionArgs:
     def __init__(__self__, *,
                  auto_scaling_group_name: pulumi.Input[_builtins.str],
-                 desired_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 end_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 recurrence: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_zone: Optional[pulumi.Input[_builtins.str]] = None):
+                 desired_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 end_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 recurrence: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_zone: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ScheduledAction resource.
 
@@ -69,86 +69,86 @@ class ScheduledActionArgs:
 
     @_builtins.property
     @pulumi.getter(name="desiredCapacity")
-    def desired_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def desired_capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The desired capacity is the initial capacity of the Auto Scaling group after the scheduled action runs and the capacity it attempts to maintain.
         """
         return pulumi.get(self, "desired_capacity")
 
     @desired_capacity.setter
-    def desired_capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def desired_capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "desired_capacity", value)
 
     @_builtins.property
     @pulumi.getter(name="endTime")
-    def end_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The latest scheduled start time to return. If scheduled action names are provided, this parameter is ignored.
         """
         return pulumi.get(self, "end_time")
 
     @end_time.setter
-    def end_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end_time", value)
 
     @_builtins.property
     @pulumi.getter(name="maxSize")
-    def max_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The minimum size of the Auto Scaling group.
         """
         return pulumi.get(self, "max_size")
 
     @max_size.setter
-    def max_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_size", value)
 
     @_builtins.property
     @pulumi.getter(name="minSize")
-    def min_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The minimum size of the Auto Scaling group.
         """
         return pulumi.get(self, "min_size")
 
     @min_size.setter
-    def min_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_size", value)
 
     @_builtins.property
     @pulumi.getter
-    def recurrence(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def recurrence(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The recurring schedule for the action, in Unix cron syntax format. When StartTime and EndTime are specified with Recurrence , they form the boundaries of when the recurring action starts and stops.
         """
         return pulumi.get(self, "recurrence")
 
     @recurrence.setter
-    def recurrence(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def recurrence(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "recurrence", value)
 
     @_builtins.property
     @pulumi.getter(name="startTime")
-    def start_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The earliest scheduled start time to return. If scheduled action names are provided, this parameter is ignored.
         """
         return pulumi.get(self, "start_time")
 
     @start_time.setter
-    def start_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start_time", value)
 
     @_builtins.property
     @pulumi.getter(name="timeZone")
-    def time_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def time_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The time zone for the cron expression.
         """
         return pulumi.get(self, "time_zone")
 
     @time_zone.setter
-    def time_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def time_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time_zone", value)
 
 
@@ -158,14 +158,14 @@ class ScheduledAction(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_scaling_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 desired_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 end_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 recurrence: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_zone: Optional[pulumi.Input[_builtins.str]] = None,
+                 auto_scaling_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 desired_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 end_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 recurrence: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_zone: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The AWS::AutoScaling::ScheduledAction resource specifies an Amazon EC2 Auto Scaling scheduled action so that the Auto Scaling group can change the number of instances available for your application in response to predictable load changes.
@@ -207,14 +207,14 @@ class ScheduledAction(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_scaling_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 desired_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 end_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 recurrence: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_zone: Optional[pulumi.Input[_builtins.str]] = None,
+                 auto_scaling_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 desired_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 end_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 recurrence: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_zone: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

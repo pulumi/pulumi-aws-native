@@ -78,7 +78,7 @@ def get_delegated_admin(delegated_admin_identifier: Optional[_builtins.str] = No
     return AwaitableGetDelegatedAdminResult(
         delegated_admin_identifier=pulumi.get(__ret__, 'delegated_admin_identifier'),
         status=pulumi.get(__ret__, 'status'))
-def get_delegated_admin_output(delegated_admin_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+def get_delegated_admin_output(delegated_admin_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDelegatedAdminResult]:
     """
     The ``AWS::SecurityHub::DelegatedAdmin`` resource designates the delegated ASHlong administrator account for an organization. You must enable the integration between ASH and AOlong before you can designate a delegated ASH administrator. Only the management account for an organization can designate the delegated ASH administrator account. For more information, see [Designating the delegated administrator](https://docs.aws.amazon.com/securityhub/latest/userguide/designate-orgs-admin-account.html#designate-admin-instructions) in the *User Guide*.

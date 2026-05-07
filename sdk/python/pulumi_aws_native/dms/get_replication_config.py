@@ -187,7 +187,7 @@ def get_replication_config(replication_config_arn: Optional[_builtins.str] = Non
         table_mappings=pulumi.get(__ret__, 'table_mappings'),
         tags=pulumi.get(__ret__, 'tags'),
         target_endpoint_arn=pulumi.get(__ret__, 'target_endpoint_arn'))
-def get_replication_config_output(replication_config_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_replication_config_output(replication_config_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReplicationConfigResult]:
     """
     A replication configuration that you later provide to configure and start a AWS DMS Serverless replication

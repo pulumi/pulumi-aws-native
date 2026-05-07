@@ -72,13 +72,13 @@ __all__ = [
 
 class FleetAcceleratorCapabilitiesArgsDict(TypedDict):
     selections: pulumi.Input[Sequence[pulumi.Input['FleetAcceleratorSelectionArgsDict']]]
-    count: NotRequired[pulumi.Input['FleetAcceleratorCountRangeArgsDict']]
+    count: NotRequired[pulumi.Input[Optional['FleetAcceleratorCountRangeArgs']]]
 
 @pulumi.input_type
 class FleetAcceleratorCapabilitiesArgs:
     def __init__(__self__, *,
                  selections: pulumi.Input[Sequence[pulumi.Input['FleetAcceleratorSelectionArgs']]],
-                 count: Optional[pulumi.Input['FleetAcceleratorCountRangeArgs']] = None):
+                 count: pulumi.Input[Optional['FleetAcceleratorCountRangeArgs']] = None):
         pulumi.set(__self__, "selections", selections)
         if count is not None:
             pulumi.set(__self__, "count", count)
@@ -94,23 +94,23 @@ class FleetAcceleratorCapabilitiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def count(self) -> Optional[pulumi.Input['FleetAcceleratorCountRangeArgs']]:
+    def count(self) -> pulumi.Input[Optional['FleetAcceleratorCountRangeArgs']]:
         return pulumi.get(self, "count")
 
     @count.setter
-    def count(self, value: Optional[pulumi.Input['FleetAcceleratorCountRangeArgs']]):
+    def count(self, value: pulumi.Input[Optional['FleetAcceleratorCountRangeArgs']]):
         pulumi.set(self, "count", value)
 
 
 class FleetAcceleratorCountRangeArgsDict(TypedDict):
     min: pulumi.Input[_builtins.int]
-    max: NotRequired[pulumi.Input[_builtins.int]]
+    max: NotRequired[pulumi.Input[Optional[_builtins.int]]]
 
 @pulumi.input_type
 class FleetAcceleratorCountRangeArgs:
     def __init__(__self__, *,
                  min: pulumi.Input[_builtins.int],
-                 max: Optional[pulumi.Input[_builtins.int]] = None):
+                 max: pulumi.Input[Optional[_builtins.int]] = None):
         pulumi.set(__self__, "min", min)
         if max is not None:
             pulumi.set(__self__, "max", max)
@@ -126,23 +126,23 @@ class FleetAcceleratorCountRangeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def max(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "max")
 
     @max.setter
-    def max(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max", value)
 
 
 class FleetAcceleratorSelectionArgsDict(TypedDict):
     name: pulumi.Input['FleetAcceleratorSelectionName']
-    runtime: NotRequired[pulumi.Input[_builtins.str]]
+    runtime: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class FleetAcceleratorSelectionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input['FleetAcceleratorSelectionName'],
-                 runtime: Optional[pulumi.Input[_builtins.str]] = None):
+                 runtime: pulumi.Input[Optional[_builtins.str]] = None):
         pulumi.set(__self__, "name", name)
         if runtime is not None:
             pulumi.set(__self__, "runtime", runtime)
@@ -158,23 +158,23 @@ class FleetAcceleratorSelectionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def runtime(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def runtime(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "runtime")
 
     @runtime.setter
-    def runtime(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def runtime(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "runtime", value)
 
 
 class FleetAcceleratorTotalMemoryMiBRangeArgsDict(TypedDict):
     min: pulumi.Input[_builtins.int]
-    max: NotRequired[pulumi.Input[_builtins.int]]
+    max: NotRequired[pulumi.Input[Optional[_builtins.int]]]
 
 @pulumi.input_type
 class FleetAcceleratorTotalMemoryMiBRangeArgs:
     def __init__(__self__, *,
                  min: pulumi.Input[_builtins.int],
-                 max: Optional[pulumi.Input[_builtins.int]] = None):
+                 max: pulumi.Input[Optional[_builtins.int]] = None):
         pulumi.set(__self__, "min", min)
         if max is not None:
             pulumi.set(__self__, "max", max)
@@ -190,11 +190,11 @@ class FleetAcceleratorTotalMemoryMiBRangeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def max(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "max")
 
     @max.setter
-    def max(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max", value)
 
 
@@ -207,7 +207,7 @@ class FleetAmountCapabilityArgsDict(TypedDict):
     """
     The name of the fleet capability.
     """
-    max: NotRequired[pulumi.Input[_builtins.float]]
+    max: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The maximum amount of the fleet worker capability.
     """
@@ -217,7 +217,7 @@ class FleetAmountCapabilityArgs:
     def __init__(__self__, *,
                  min: pulumi.Input[_builtins.float],
                  name: pulumi.Input[_builtins.str],
-                 max: Optional[pulumi.Input[_builtins.float]] = None):
+                 max: pulumi.Input[Optional[_builtins.float]] = None):
         """
         :param pulumi.Input[_builtins.float] min: The minimum amount of fleet worker capability.
         :param pulumi.Input[_builtins.str] name: The name of the fleet capability.
@@ -254,14 +254,14 @@ class FleetAmountCapabilityArgs:
 
     @_builtins.property
     @pulumi.getter
-    def max(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def max(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The maximum amount of the fleet worker capability.
         """
         return pulumi.get(self, "max")
 
     @max.setter
-    def max(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def max(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "max", value)
 
 
@@ -351,16 +351,16 @@ class FleetConfiguration1PropertiesArgs:
 
 
 class FleetCustomerManagedAutoScalingConfigurationArgsDict(TypedDict):
-    scale_out_workers_per_minute: NotRequired[pulumi.Input[_builtins.int]]
-    standby_worker_count: NotRequired[pulumi.Input[_builtins.int]]
-    worker_idle_duration_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    scale_out_workers_per_minute: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    standby_worker_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    worker_idle_duration_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
 
 @pulumi.input_type
 class FleetCustomerManagedAutoScalingConfigurationArgs:
     def __init__(__self__, *,
-                 scale_out_workers_per_minute: Optional[pulumi.Input[_builtins.int]] = None,
-                 standby_worker_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 worker_idle_duration_seconds: Optional[pulumi.Input[_builtins.int]] = None):
+                 scale_out_workers_per_minute: pulumi.Input[Optional[_builtins.int]] = None,
+                 standby_worker_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 worker_idle_duration_seconds: pulumi.Input[Optional[_builtins.int]] = None):
         if scale_out_workers_per_minute is not None:
             pulumi.set(__self__, "scale_out_workers_per_minute", scale_out_workers_per_minute)
         if standby_worker_count is not None:
@@ -370,47 +370,47 @@ class FleetCustomerManagedAutoScalingConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="scaleOutWorkersPerMinute")
-    def scale_out_workers_per_minute(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def scale_out_workers_per_minute(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "scale_out_workers_per_minute")
 
     @scale_out_workers_per_minute.setter
-    def scale_out_workers_per_minute(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def scale_out_workers_per_minute(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "scale_out_workers_per_minute", value)
 
     @_builtins.property
     @pulumi.getter(name="standbyWorkerCount")
-    def standby_worker_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def standby_worker_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "standby_worker_count")
 
     @standby_worker_count.setter
-    def standby_worker_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def standby_worker_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "standby_worker_count", value)
 
     @_builtins.property
     @pulumi.getter(name="workerIdleDurationSeconds")
-    def worker_idle_duration_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def worker_idle_duration_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "worker_idle_duration_seconds")
 
     @worker_idle_duration_seconds.setter
-    def worker_idle_duration_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def worker_idle_duration_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "worker_idle_duration_seconds", value)
 
 
 class FleetCustomerManagedFleetConfigurationArgsDict(TypedDict):
     mode: pulumi.Input['FleetAutoScalingMode']
     worker_capabilities: pulumi.Input['FleetCustomerManagedWorkerCapabilitiesArgsDict']
-    auto_scaling_configuration: NotRequired[pulumi.Input['FleetCustomerManagedAutoScalingConfigurationArgsDict']]
-    storage_profile_id: NotRequired[pulumi.Input[_builtins.str]]
-    tag_propagation_mode: NotRequired[pulumi.Input['FleetTagPropagationMode']]
+    auto_scaling_configuration: NotRequired[pulumi.Input[Optional['FleetCustomerManagedAutoScalingConfigurationArgs']]]
+    storage_profile_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    tag_propagation_mode: NotRequired[pulumi.Input[Optional['FleetTagPropagationMode']]]
 
 @pulumi.input_type
 class FleetCustomerManagedFleetConfigurationArgs:
     def __init__(__self__, *,
                  mode: pulumi.Input['FleetAutoScalingMode'],
                  worker_capabilities: pulumi.Input['FleetCustomerManagedWorkerCapabilitiesArgs'],
-                 auto_scaling_configuration: Optional[pulumi.Input['FleetCustomerManagedAutoScalingConfigurationArgs']] = None,
-                 storage_profile_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_propagation_mode: Optional[pulumi.Input['FleetTagPropagationMode']] = None):
+                 auto_scaling_configuration: pulumi.Input[Optional['FleetCustomerManagedAutoScalingConfigurationArgs']] = None,
+                 storage_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_propagation_mode: pulumi.Input[Optional['FleetTagPropagationMode']] = None):
         pulumi.set(__self__, "mode", mode)
         pulumi.set(__self__, "worker_capabilities", worker_capabilities)
         if auto_scaling_configuration is not None:
@@ -440,29 +440,29 @@ class FleetCustomerManagedFleetConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoScalingConfiguration")
-    def auto_scaling_configuration(self) -> Optional[pulumi.Input['FleetCustomerManagedAutoScalingConfigurationArgs']]:
+    def auto_scaling_configuration(self) -> pulumi.Input[Optional['FleetCustomerManagedAutoScalingConfigurationArgs']]:
         return pulumi.get(self, "auto_scaling_configuration")
 
     @auto_scaling_configuration.setter
-    def auto_scaling_configuration(self, value: Optional[pulumi.Input['FleetCustomerManagedAutoScalingConfigurationArgs']]):
+    def auto_scaling_configuration(self, value: pulumi.Input[Optional['FleetCustomerManagedAutoScalingConfigurationArgs']]):
         pulumi.set(self, "auto_scaling_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="storageProfileId")
-    def storage_profile_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_profile_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "storage_profile_id")
 
     @storage_profile_id.setter
-    def storage_profile_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_profile_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_profile_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tagPropagationMode")
-    def tag_propagation_mode(self) -> Optional[pulumi.Input['FleetTagPropagationMode']]:
+    def tag_propagation_mode(self) -> pulumi.Input[Optional['FleetTagPropagationMode']]:
         return pulumi.get(self, "tag_propagation_mode")
 
     @tag_propagation_mode.setter
-    def tag_propagation_mode(self, value: Optional[pulumi.Input['FleetTagPropagationMode']]):
+    def tag_propagation_mode(self, value: pulumi.Input[Optional['FleetTagPropagationMode']]):
         pulumi.set(self, "tag_propagation_mode", value)
 
 
@@ -471,11 +471,11 @@ class FleetCustomerManagedWorkerCapabilitiesArgsDict(TypedDict):
     memory_mi_b: pulumi.Input['FleetMemoryMiBRangeArgsDict']
     os_family: pulumi.Input['FleetCustomerManagedFleetOperatingSystemFamily']
     v_cpu_count: pulumi.Input['FleetVCpuCountRangeArgsDict']
-    accelerator_count: NotRequired[pulumi.Input['FleetAcceleratorCountRangeArgsDict']]
-    accelerator_total_memory_mi_b: NotRequired[pulumi.Input['FleetAcceleratorTotalMemoryMiBRangeArgsDict']]
-    accelerator_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['FleetAcceleratorType']]]]
-    custom_amounts: NotRequired[pulumi.Input[Sequence[pulumi.Input['FleetAmountCapabilityArgsDict']]]]
-    custom_attributes: NotRequired[pulumi.Input[Sequence[pulumi.Input['FleetAttributeCapabilityArgsDict']]]]
+    accelerator_count: NotRequired[pulumi.Input[Optional['FleetAcceleratorCountRangeArgs']]]
+    accelerator_total_memory_mi_b: NotRequired[pulumi.Input[Optional['FleetAcceleratorTotalMemoryMiBRangeArgs']]]
+    accelerator_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FleetAcceleratorType']]]]]
+    custom_amounts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FleetAmountCapabilityArgs']]]]]
+    custom_attributes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FleetAttributeCapabilityArgs']]]]]
 
 @pulumi.input_type
 class FleetCustomerManagedWorkerCapabilitiesArgs:
@@ -484,11 +484,11 @@ class FleetCustomerManagedWorkerCapabilitiesArgs:
                  memory_mi_b: pulumi.Input['FleetMemoryMiBRangeArgs'],
                  os_family: pulumi.Input['FleetCustomerManagedFleetOperatingSystemFamily'],
                  v_cpu_count: pulumi.Input['FleetVCpuCountRangeArgs'],
-                 accelerator_count: Optional[pulumi.Input['FleetAcceleratorCountRangeArgs']] = None,
-                 accelerator_total_memory_mi_b: Optional[pulumi.Input['FleetAcceleratorTotalMemoryMiBRangeArgs']] = None,
-                 accelerator_types: Optional[pulumi.Input[Sequence[pulumi.Input['FleetAcceleratorType']]]] = None,
-                 custom_amounts: Optional[pulumi.Input[Sequence[pulumi.Input['FleetAmountCapabilityArgs']]]] = None,
-                 custom_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['FleetAttributeCapabilityArgs']]]] = None):
+                 accelerator_count: pulumi.Input[Optional['FleetAcceleratorCountRangeArgs']] = None,
+                 accelerator_total_memory_mi_b: pulumi.Input[Optional['FleetAcceleratorTotalMemoryMiBRangeArgs']] = None,
+                 accelerator_types: pulumi.Input[Optional[Sequence[pulumi.Input['FleetAcceleratorType']]]] = None,
+                 custom_amounts: pulumi.Input[Optional[Sequence[pulumi.Input['FleetAmountCapabilityArgs']]]] = None,
+                 custom_attributes: pulumi.Input[Optional[Sequence[pulumi.Input['FleetAttributeCapabilityArgs']]]] = None):
         pulumi.set(__self__, "cpu_architecture_type", cpu_architecture_type)
         pulumi.set(__self__, "memory_mi_b", memory_mi_b)
         pulumi.set(__self__, "os_family", os_family)
@@ -542,61 +542,61 @@ class FleetCustomerManagedWorkerCapabilitiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="acceleratorCount")
-    def accelerator_count(self) -> Optional[pulumi.Input['FleetAcceleratorCountRangeArgs']]:
+    def accelerator_count(self) -> pulumi.Input[Optional['FleetAcceleratorCountRangeArgs']]:
         return pulumi.get(self, "accelerator_count")
 
     @accelerator_count.setter
-    def accelerator_count(self, value: Optional[pulumi.Input['FleetAcceleratorCountRangeArgs']]):
+    def accelerator_count(self, value: pulumi.Input[Optional['FleetAcceleratorCountRangeArgs']]):
         pulumi.set(self, "accelerator_count", value)
 
     @_builtins.property
     @pulumi.getter(name="acceleratorTotalMemoryMiB")
-    def accelerator_total_memory_mi_b(self) -> Optional[pulumi.Input['FleetAcceleratorTotalMemoryMiBRangeArgs']]:
+    def accelerator_total_memory_mi_b(self) -> pulumi.Input[Optional['FleetAcceleratorTotalMemoryMiBRangeArgs']]:
         return pulumi.get(self, "accelerator_total_memory_mi_b")
 
     @accelerator_total_memory_mi_b.setter
-    def accelerator_total_memory_mi_b(self, value: Optional[pulumi.Input['FleetAcceleratorTotalMemoryMiBRangeArgs']]):
+    def accelerator_total_memory_mi_b(self, value: pulumi.Input[Optional['FleetAcceleratorTotalMemoryMiBRangeArgs']]):
         pulumi.set(self, "accelerator_total_memory_mi_b", value)
 
     @_builtins.property
     @pulumi.getter(name="acceleratorTypes")
-    def accelerator_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FleetAcceleratorType']]]]:
+    def accelerator_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FleetAcceleratorType']]]]:
         return pulumi.get(self, "accelerator_types")
 
     @accelerator_types.setter
-    def accelerator_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FleetAcceleratorType']]]]):
+    def accelerator_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FleetAcceleratorType']]]]):
         pulumi.set(self, "accelerator_types", value)
 
     @_builtins.property
     @pulumi.getter(name="customAmounts")
-    def custom_amounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FleetAmountCapabilityArgs']]]]:
+    def custom_amounts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FleetAmountCapabilityArgs']]]]:
         return pulumi.get(self, "custom_amounts")
 
     @custom_amounts.setter
-    def custom_amounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FleetAmountCapabilityArgs']]]]):
+    def custom_amounts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FleetAmountCapabilityArgs']]]]):
         pulumi.set(self, "custom_amounts", value)
 
     @_builtins.property
     @pulumi.getter(name="customAttributes")
-    def custom_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FleetAttributeCapabilityArgs']]]]:
+    def custom_attributes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FleetAttributeCapabilityArgs']]]]:
         return pulumi.get(self, "custom_attributes")
 
     @custom_attributes.setter
-    def custom_attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FleetAttributeCapabilityArgs']]]]):
+    def custom_attributes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FleetAttributeCapabilityArgs']]]]):
         pulumi.set(self, "custom_attributes", value)
 
 
 class FleetEc2EbsVolumeArgsDict(TypedDict):
-    iops: NotRequired[pulumi.Input[_builtins.int]]
-    size_gi_b: NotRequired[pulumi.Input[_builtins.int]]
-    throughput_mi_b: NotRequired[pulumi.Input[_builtins.int]]
+    iops: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    size_gi_b: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    throughput_mi_b: NotRequired[pulumi.Input[Optional[_builtins.int]]]
 
 @pulumi.input_type
 class FleetEc2EbsVolumeArgs:
     def __init__(__self__, *,
-                 iops: Optional[pulumi.Input[_builtins.int]] = None,
-                 size_gi_b: Optional[pulumi.Input[_builtins.int]] = None,
-                 throughput_mi_b: Optional[pulumi.Input[_builtins.int]] = None):
+                 iops: pulumi.Input[Optional[_builtins.int]] = None,
+                 size_gi_b: pulumi.Input[Optional[_builtins.int]] = None,
+                 throughput_mi_b: pulumi.Input[Optional[_builtins.int]] = None):
         if iops is not None:
             pulumi.set(__self__, "iops", iops)
         if size_gi_b is not None:
@@ -606,29 +606,29 @@ class FleetEc2EbsVolumeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def iops(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def iops(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "iops")
 
     @iops.setter
-    def iops(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def iops(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "iops", value)
 
     @_builtins.property
     @pulumi.getter(name="sizeGiB")
-    def size_gi_b(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def size_gi_b(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "size_gi_b")
 
     @size_gi_b.setter
-    def size_gi_b(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def size_gi_b(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "size_gi_b", value)
 
     @_builtins.property
     @pulumi.getter(name="throughputMiB")
-    def throughput_mi_b(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def throughput_mi_b(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "throughput_mi_b")
 
     @throughput_mi_b.setter
-    def throughput_mi_b(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def throughput_mi_b(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "throughput_mi_b", value)
 
 
@@ -641,7 +641,7 @@ class FleetHostConfigurationArgsDict(TypedDict):
 
     > The script runs as an administrative user ( `sudo root` on Linux, as an Administrator on Windows).
     """
-    script_timeout_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    script_timeout_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum time that the host configuration can run. If the timeout expires, the worker enters the `NOT RESPONDING` state and shuts down. You are charged for the time that the worker is running the host configuration script.
 
@@ -654,7 +654,7 @@ class FleetHostConfigurationArgsDict(TypedDict):
 class FleetHostConfigurationArgs:
     def __init__(__self__, *,
                  script_body: pulumi.Input[_builtins.str],
-                 script_timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None):
+                 script_timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] script_body: The text of the script that runs as a worker is starting up that you can use to provide additional configuration for workers in your fleet. The script runs after a worker enters the `STARTING` state and before the worker processes tasks.
                
@@ -689,7 +689,7 @@ class FleetHostConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="scriptTimeoutSeconds")
-    def script_timeout_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def script_timeout_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum time that the host configuration can run. If the timeout expires, the worker enters the `NOT RESPONDING` state and shuts down. You are charged for the time that the worker is running the host configuration script.
 
@@ -700,19 +700,19 @@ class FleetHostConfigurationArgs:
         return pulumi.get(self, "script_timeout_seconds")
 
     @script_timeout_seconds.setter
-    def script_timeout_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def script_timeout_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "script_timeout_seconds", value)
 
 
 class FleetMemoryMiBRangeArgsDict(TypedDict):
     min: pulumi.Input[_builtins.int]
-    max: NotRequired[pulumi.Input[_builtins.int]]
+    max: NotRequired[pulumi.Input[Optional[_builtins.int]]]
 
 @pulumi.input_type
 class FleetMemoryMiBRangeArgs:
     def __init__(__self__, *,
                  min: pulumi.Input[_builtins.int],
-                 max: Optional[pulumi.Input[_builtins.int]] = None):
+                 max: pulumi.Input[Optional[_builtins.int]] = None):
         pulumi.set(__self__, "min", min)
         if max is not None:
             pulumi.set(__self__, "max", max)
@@ -728,25 +728,25 @@ class FleetMemoryMiBRangeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def max(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "max")
 
     @max.setter
-    def max(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max", value)
 
 
 class FleetServiceManagedEc2AutoScalingConfigurationArgsDict(TypedDict):
-    scale_out_workers_per_minute: NotRequired[pulumi.Input[_builtins.int]]
-    standby_worker_count: NotRequired[pulumi.Input[_builtins.int]]
-    worker_idle_duration_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    scale_out_workers_per_minute: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    standby_worker_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    worker_idle_duration_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
 
 @pulumi.input_type
 class FleetServiceManagedEc2AutoScalingConfigurationArgs:
     def __init__(__self__, *,
-                 scale_out_workers_per_minute: Optional[pulumi.Input[_builtins.int]] = None,
-                 standby_worker_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 worker_idle_duration_seconds: Optional[pulumi.Input[_builtins.int]] = None):
+                 scale_out_workers_per_minute: pulumi.Input[Optional[_builtins.int]] = None,
+                 standby_worker_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 worker_idle_duration_seconds: pulumi.Input[Optional[_builtins.int]] = None):
         if scale_out_workers_per_minute is not None:
             pulumi.set(__self__, "scale_out_workers_per_minute", scale_out_workers_per_minute)
         if standby_worker_count is not None:
@@ -756,47 +756,47 @@ class FleetServiceManagedEc2AutoScalingConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="scaleOutWorkersPerMinute")
-    def scale_out_workers_per_minute(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def scale_out_workers_per_minute(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "scale_out_workers_per_minute")
 
     @scale_out_workers_per_minute.setter
-    def scale_out_workers_per_minute(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def scale_out_workers_per_minute(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "scale_out_workers_per_minute", value)
 
     @_builtins.property
     @pulumi.getter(name="standbyWorkerCount")
-    def standby_worker_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def standby_worker_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "standby_worker_count")
 
     @standby_worker_count.setter
-    def standby_worker_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def standby_worker_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "standby_worker_count", value)
 
     @_builtins.property
     @pulumi.getter(name="workerIdleDurationSeconds")
-    def worker_idle_duration_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def worker_idle_duration_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "worker_idle_duration_seconds")
 
     @worker_idle_duration_seconds.setter
-    def worker_idle_duration_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def worker_idle_duration_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "worker_idle_duration_seconds", value)
 
 
 class FleetServiceManagedEc2FleetConfigurationArgsDict(TypedDict):
     instance_capabilities: pulumi.Input['FleetServiceManagedEc2InstanceCapabilitiesArgsDict']
     instance_market_options: pulumi.Input['FleetServiceManagedEc2InstanceMarketOptionsArgsDict']
-    auto_scaling_configuration: NotRequired[pulumi.Input['FleetServiceManagedEc2AutoScalingConfigurationArgsDict']]
-    storage_profile_id: NotRequired[pulumi.Input[_builtins.str]]
-    vpc_configuration: NotRequired[pulumi.Input['FleetVpcConfigurationArgsDict']]
+    auto_scaling_configuration: NotRequired[pulumi.Input[Optional['FleetServiceManagedEc2AutoScalingConfigurationArgs']]]
+    storage_profile_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    vpc_configuration: NotRequired[pulumi.Input[Optional['FleetVpcConfigurationArgs']]]
 
 @pulumi.input_type
 class FleetServiceManagedEc2FleetConfigurationArgs:
     def __init__(__self__, *,
                  instance_capabilities: pulumi.Input['FleetServiceManagedEc2InstanceCapabilitiesArgs'],
                  instance_market_options: pulumi.Input['FleetServiceManagedEc2InstanceMarketOptionsArgs'],
-                 auto_scaling_configuration: Optional[pulumi.Input['FleetServiceManagedEc2AutoScalingConfigurationArgs']] = None,
-                 storage_profile_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc_configuration: Optional[pulumi.Input['FleetVpcConfigurationArgs']] = None):
+                 auto_scaling_configuration: pulumi.Input[Optional['FleetServiceManagedEc2AutoScalingConfigurationArgs']] = None,
+                 storage_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_configuration: pulumi.Input[Optional['FleetVpcConfigurationArgs']] = None):
         pulumi.set(__self__, "instance_capabilities", instance_capabilities)
         pulumi.set(__self__, "instance_market_options", instance_market_options)
         if auto_scaling_configuration is not None:
@@ -826,29 +826,29 @@ class FleetServiceManagedEc2FleetConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoScalingConfiguration")
-    def auto_scaling_configuration(self) -> Optional[pulumi.Input['FleetServiceManagedEc2AutoScalingConfigurationArgs']]:
+    def auto_scaling_configuration(self) -> pulumi.Input[Optional['FleetServiceManagedEc2AutoScalingConfigurationArgs']]:
         return pulumi.get(self, "auto_scaling_configuration")
 
     @auto_scaling_configuration.setter
-    def auto_scaling_configuration(self, value: Optional[pulumi.Input['FleetServiceManagedEc2AutoScalingConfigurationArgs']]):
+    def auto_scaling_configuration(self, value: pulumi.Input[Optional['FleetServiceManagedEc2AutoScalingConfigurationArgs']]):
         pulumi.set(self, "auto_scaling_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="storageProfileId")
-    def storage_profile_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_profile_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "storage_profile_id")
 
     @storage_profile_id.setter
-    def storage_profile_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_profile_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_profile_id", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcConfiguration")
-    def vpc_configuration(self) -> Optional[pulumi.Input['FleetVpcConfigurationArgs']]:
+    def vpc_configuration(self) -> pulumi.Input[Optional['FleetVpcConfigurationArgs']]:
         return pulumi.get(self, "vpc_configuration")
 
     @vpc_configuration.setter
-    def vpc_configuration(self, value: Optional[pulumi.Input['FleetVpcConfigurationArgs']]):
+    def vpc_configuration(self, value: pulumi.Input[Optional['FleetVpcConfigurationArgs']]):
         pulumi.set(self, "vpc_configuration", value)
 
 
@@ -857,12 +857,12 @@ class FleetServiceManagedEc2InstanceCapabilitiesArgsDict(TypedDict):
     memory_mi_b: pulumi.Input['FleetMemoryMiBRangeArgsDict']
     os_family: pulumi.Input['FleetServiceManagedFleetOperatingSystemFamily']
     v_cpu_count: pulumi.Input['FleetVCpuCountRangeArgsDict']
-    accelerator_capabilities: NotRequired[pulumi.Input['FleetAcceleratorCapabilitiesArgsDict']]
-    allowed_instance_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    custom_amounts: NotRequired[pulumi.Input[Sequence[pulumi.Input['FleetAmountCapabilityArgsDict']]]]
-    custom_attributes: NotRequired[pulumi.Input[Sequence[pulumi.Input['FleetAttributeCapabilityArgsDict']]]]
-    excluded_instance_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    root_ebs_volume: NotRequired[pulumi.Input['FleetEc2EbsVolumeArgsDict']]
+    accelerator_capabilities: NotRequired[pulumi.Input[Optional['FleetAcceleratorCapabilitiesArgs']]]
+    allowed_instance_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    custom_amounts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FleetAmountCapabilityArgs']]]]]
+    custom_attributes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FleetAttributeCapabilityArgs']]]]]
+    excluded_instance_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    root_ebs_volume: NotRequired[pulumi.Input[Optional['FleetEc2EbsVolumeArgs']]]
 
 @pulumi.input_type
 class FleetServiceManagedEc2InstanceCapabilitiesArgs:
@@ -871,12 +871,12 @@ class FleetServiceManagedEc2InstanceCapabilitiesArgs:
                  memory_mi_b: pulumi.Input['FleetMemoryMiBRangeArgs'],
                  os_family: pulumi.Input['FleetServiceManagedFleetOperatingSystemFamily'],
                  v_cpu_count: pulumi.Input['FleetVCpuCountRangeArgs'],
-                 accelerator_capabilities: Optional[pulumi.Input['FleetAcceleratorCapabilitiesArgs']] = None,
-                 allowed_instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 custom_amounts: Optional[pulumi.Input[Sequence[pulumi.Input['FleetAmountCapabilityArgs']]]] = None,
-                 custom_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['FleetAttributeCapabilityArgs']]]] = None,
-                 excluded_instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 root_ebs_volume: Optional[pulumi.Input['FleetEc2EbsVolumeArgs']] = None):
+                 accelerator_capabilities: pulumi.Input[Optional['FleetAcceleratorCapabilitiesArgs']] = None,
+                 allowed_instance_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 custom_amounts: pulumi.Input[Optional[Sequence[pulumi.Input['FleetAmountCapabilityArgs']]]] = None,
+                 custom_attributes: pulumi.Input[Optional[Sequence[pulumi.Input['FleetAttributeCapabilityArgs']]]] = None,
+                 excluded_instance_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 root_ebs_volume: pulumi.Input[Optional['FleetEc2EbsVolumeArgs']] = None):
         pulumi.set(__self__, "cpu_architecture_type", cpu_architecture_type)
         pulumi.set(__self__, "memory_mi_b", memory_mi_b)
         pulumi.set(__self__, "os_family", os_family)
@@ -932,56 +932,56 @@ class FleetServiceManagedEc2InstanceCapabilitiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="acceleratorCapabilities")
-    def accelerator_capabilities(self) -> Optional[pulumi.Input['FleetAcceleratorCapabilitiesArgs']]:
+    def accelerator_capabilities(self) -> pulumi.Input[Optional['FleetAcceleratorCapabilitiesArgs']]:
         return pulumi.get(self, "accelerator_capabilities")
 
     @accelerator_capabilities.setter
-    def accelerator_capabilities(self, value: Optional[pulumi.Input['FleetAcceleratorCapabilitiesArgs']]):
+    def accelerator_capabilities(self, value: pulumi.Input[Optional['FleetAcceleratorCapabilitiesArgs']]):
         pulumi.set(self, "accelerator_capabilities", value)
 
     @_builtins.property
     @pulumi.getter(name="allowedInstanceTypes")
-    def allowed_instance_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_instance_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "allowed_instance_types")
 
     @allowed_instance_types.setter
-    def allowed_instance_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_instance_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_instance_types", value)
 
     @_builtins.property
     @pulumi.getter(name="customAmounts")
-    def custom_amounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FleetAmountCapabilityArgs']]]]:
+    def custom_amounts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FleetAmountCapabilityArgs']]]]:
         return pulumi.get(self, "custom_amounts")
 
     @custom_amounts.setter
-    def custom_amounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FleetAmountCapabilityArgs']]]]):
+    def custom_amounts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FleetAmountCapabilityArgs']]]]):
         pulumi.set(self, "custom_amounts", value)
 
     @_builtins.property
     @pulumi.getter(name="customAttributes")
-    def custom_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FleetAttributeCapabilityArgs']]]]:
+    def custom_attributes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FleetAttributeCapabilityArgs']]]]:
         return pulumi.get(self, "custom_attributes")
 
     @custom_attributes.setter
-    def custom_attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FleetAttributeCapabilityArgs']]]]):
+    def custom_attributes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FleetAttributeCapabilityArgs']]]]):
         pulumi.set(self, "custom_attributes", value)
 
     @_builtins.property
     @pulumi.getter(name="excludedInstanceTypes")
-    def excluded_instance_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def excluded_instance_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "excluded_instance_types")
 
     @excluded_instance_types.setter
-    def excluded_instance_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def excluded_instance_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "excluded_instance_types", value)
 
     @_builtins.property
     @pulumi.getter(name="rootEbsVolume")
-    def root_ebs_volume(self) -> Optional[pulumi.Input['FleetEc2EbsVolumeArgs']]:
+    def root_ebs_volume(self) -> pulumi.Input[Optional['FleetEc2EbsVolumeArgs']]:
         return pulumi.get(self, "root_ebs_volume")
 
     @root_ebs_volume.setter
-    def root_ebs_volume(self, value: Optional[pulumi.Input['FleetEc2EbsVolumeArgs']]):
+    def root_ebs_volume(self, value: pulumi.Input[Optional['FleetEc2EbsVolumeArgs']]):
         pulumi.set(self, "root_ebs_volume", value)
 
 
@@ -1006,13 +1006,13 @@ class FleetServiceManagedEc2InstanceMarketOptionsArgs:
 
 class FleetVCpuCountRangeArgsDict(TypedDict):
     min: pulumi.Input[_builtins.int]
-    max: NotRequired[pulumi.Input[_builtins.int]]
+    max: NotRequired[pulumi.Input[Optional[_builtins.int]]]
 
 @pulumi.input_type
 class FleetVCpuCountRangeArgs:
     def __init__(__self__, *,
                  min: pulumi.Input[_builtins.int],
-                 max: Optional[pulumi.Input[_builtins.int]] = None):
+                 max: pulumi.Input[Optional[_builtins.int]] = None):
         pulumi.set(__self__, "min", min)
         if max is not None:
             pulumi.set(__self__, "max", max)
@@ -1028,31 +1028,31 @@ class FleetVCpuCountRangeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def max(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "max")
 
     @max.setter
-    def max(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max", value)
 
 
 class FleetVpcConfigurationArgsDict(TypedDict):
-    resource_configuration_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    resource_configuration_arns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
 
 @pulumi.input_type
 class FleetVpcConfigurationArgs:
     def __init__(__self__, *,
-                 resource_configuration_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 resource_configuration_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         if resource_configuration_arns is not None:
             pulumi.set(__self__, "resource_configuration_arns", resource_configuration_arns)
 
     @_builtins.property
     @pulumi.getter(name="resourceConfigurationArns")
-    def resource_configuration_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def resource_configuration_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "resource_configuration_arns")
 
     @resource_configuration_arns.setter
-    def resource_configuration_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def resource_configuration_arns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "resource_configuration_arns", value)
 
 
@@ -1108,11 +1108,11 @@ class QueueJobRunAsUserArgsDict(TypedDict):
     """
     Specifies whether the job should run using the queue's system user or if the job should run using the worker agent system user.
     """
-    posix: NotRequired[pulumi.Input['QueuePosixUserArgsDict']]
+    posix: NotRequired[pulumi.Input[Optional['QueuePosixUserArgs']]]
     """
     The user and group that the jobs in the queue run as.
     """
-    windows: NotRequired[pulumi.Input['QueueWindowsUserArgsDict']]
+    windows: NotRequired[pulumi.Input[Optional['QueueWindowsUserArgs']]]
     """
     Identifies a Microsoft Windows user.
     """
@@ -1121,8 +1121,8 @@ class QueueJobRunAsUserArgsDict(TypedDict):
 class QueueJobRunAsUserArgs:
     def __init__(__self__, *,
                  run_as: pulumi.Input['QueueRunAs'],
-                 posix: Optional[pulumi.Input['QueuePosixUserArgs']] = None,
-                 windows: Optional[pulumi.Input['QueueWindowsUserArgs']] = None):
+                 posix: pulumi.Input[Optional['QueuePosixUserArgs']] = None,
+                 windows: pulumi.Input[Optional['QueueWindowsUserArgs']] = None):
         """
         :param pulumi.Input['QueueRunAs'] run_as: Specifies whether the job should run using the queue's system user or if the job should run using the worker agent system user.
         :param pulumi.Input['QueuePosixUserArgs'] posix: The user and group that the jobs in the queue run as.
@@ -1148,26 +1148,26 @@ class QueueJobRunAsUserArgs:
 
     @_builtins.property
     @pulumi.getter
-    def posix(self) -> Optional[pulumi.Input['QueuePosixUserArgs']]:
+    def posix(self) -> pulumi.Input[Optional['QueuePosixUserArgs']]:
         """
         The user and group that the jobs in the queue run as.
         """
         return pulumi.get(self, "posix")
 
     @posix.setter
-    def posix(self, value: Optional[pulumi.Input['QueuePosixUserArgs']]):
+    def posix(self, value: pulumi.Input[Optional['QueuePosixUserArgs']]):
         pulumi.set(self, "posix", value)
 
     @_builtins.property
     @pulumi.getter
-    def windows(self) -> Optional[pulumi.Input['QueueWindowsUserArgs']]:
+    def windows(self) -> pulumi.Input[Optional['QueueWindowsUserArgs']]:
         """
         Identifies a Microsoft Windows user.
         """
         return pulumi.get(self, "windows")
 
     @windows.setter
-    def windows(self, value: Optional[pulumi.Input['QueueWindowsUserArgs']]):
+    def windows(self, value: pulumi.Input[Optional['QueueWindowsUserArgs']]):
         pulumi.set(self, "windows", value)
 
 

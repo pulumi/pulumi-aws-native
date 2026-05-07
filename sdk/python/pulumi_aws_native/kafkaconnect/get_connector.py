@@ -102,7 +102,7 @@ def get_connector(connector_arn: Optional[_builtins.str] = None,
         connector_arn=pulumi.get(__ret__, 'connector_arn'),
         connector_configuration=pulumi.get(__ret__, 'connector_configuration'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_connector_output(connector_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_connector_output(connector_arn: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectorResult]:
     """
     Resource Type definition for AWS::KafkaConnect::Connector

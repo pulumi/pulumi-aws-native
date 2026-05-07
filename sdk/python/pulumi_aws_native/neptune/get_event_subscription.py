@@ -114,7 +114,7 @@ def get_event_subscription(subscription_name: Optional[_builtins.str] = None,
         source_ids=pulumi.get(__ret__, 'source_ids'),
         source_type=pulumi.get(__ret__, 'source_type'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_event_subscription_output(subscription_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_event_subscription_output(subscription_name: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEventSubscriptionResult]:
     """
     Resource Type definition for AWS::Neptune::EventSubscription

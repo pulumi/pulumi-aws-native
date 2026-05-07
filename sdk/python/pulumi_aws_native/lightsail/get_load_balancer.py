@@ -140,7 +140,7 @@ def get_load_balancer(load_balancer_name: Optional[_builtins.str] = None,
         session_stickiness_lb_cookie_duration_seconds=pulumi.get(__ret__, 'session_stickiness_lb_cookie_duration_seconds'),
         tags=pulumi.get(__ret__, 'tags'),
         tls_policy_name=pulumi.get(__ret__, 'tls_policy_name'))
-def get_load_balancer_output(load_balancer_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_load_balancer_output(load_balancer_name: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLoadBalancerResult]:
     """
     Resource Type definition for AWS::Lightsail::LoadBalancer

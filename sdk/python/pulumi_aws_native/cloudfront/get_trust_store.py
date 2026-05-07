@@ -141,7 +141,7 @@ def get_trust_store(id: Optional[_builtins.str] = None,
         number_of_ca_certificates=pulumi.get(__ret__, 'number_of_ca_certificates'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_trust_store_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_trust_store_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTrustStoreResult]:
     """
     A trust store.

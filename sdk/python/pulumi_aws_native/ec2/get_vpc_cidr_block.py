@@ -90,8 +90,8 @@ def get_vpc_cidr_block(id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         ip_source=pulumi.get(__ret__, 'ip_source'),
         ipv6_address_attribute=pulumi.get(__ret__, 'ipv6_address_attribute'))
-def get_vpc_cidr_block_output(id: Optional[pulumi.Input[_builtins.str]] = None,
-                              vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_vpc_cidr_block_output(id: pulumi.Input[Optional[_builtins.str]] = None,
+                              vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcCidrBlockResult]:
     """
     Resource Type definition for AWS::EC2::VPCCidrBlock

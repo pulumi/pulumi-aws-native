@@ -25,11 +25,11 @@ __all__ = ['TableArgs', 'Table']
 class TableArgs:
     def __init__(__self__, *,
                  database_name: pulumi.Input[_builtins.str],
-                 magnetic_store_write_properties: Optional[pulumi.Input['MagneticStoreWritePropertiesPropertiesArgs']] = None,
-                 retention_properties: Optional[pulumi.Input['RetentionPropertiesPropertiesArgs']] = None,
-                 schema: Optional[pulumi.Input['SchemaPropertiesArgs']] = None,
-                 table_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 magnetic_store_write_properties: pulumi.Input[Optional['MagneticStoreWritePropertiesPropertiesArgs']] = None,
+                 retention_properties: pulumi.Input[Optional['RetentionPropertiesPropertiesArgs']] = None,
+                 schema: pulumi.Input[Optional['SchemaPropertiesArgs']] = None,
+                 table_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Table resource.
 
@@ -66,62 +66,62 @@ class TableArgs:
 
     @_builtins.property
     @pulumi.getter(name="magneticStoreWriteProperties")
-    def magnetic_store_write_properties(self) -> Optional[pulumi.Input['MagneticStoreWritePropertiesPropertiesArgs']]:
+    def magnetic_store_write_properties(self) -> pulumi.Input[Optional['MagneticStoreWritePropertiesPropertiesArgs']]:
         """
         The properties that determine whether magnetic store writes are enabled.
         """
         return pulumi.get(self, "magnetic_store_write_properties")
 
     @magnetic_store_write_properties.setter
-    def magnetic_store_write_properties(self, value: Optional[pulumi.Input['MagneticStoreWritePropertiesPropertiesArgs']]):
+    def magnetic_store_write_properties(self, value: pulumi.Input[Optional['MagneticStoreWritePropertiesPropertiesArgs']]):
         pulumi.set(self, "magnetic_store_write_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionProperties")
-    def retention_properties(self) -> Optional[pulumi.Input['RetentionPropertiesPropertiesArgs']]:
+    def retention_properties(self) -> pulumi.Input[Optional['RetentionPropertiesPropertiesArgs']]:
         """
         The retention duration of the memory store and the magnetic store.
         """
         return pulumi.get(self, "retention_properties")
 
     @retention_properties.setter
-    def retention_properties(self, value: Optional[pulumi.Input['RetentionPropertiesPropertiesArgs']]):
+    def retention_properties(self, value: pulumi.Input[Optional['RetentionPropertiesPropertiesArgs']]):
         pulumi.set(self, "retention_properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def schema(self) -> Optional[pulumi.Input['SchemaPropertiesArgs']]:
+    def schema(self) -> pulumi.Input[Optional['SchemaPropertiesArgs']]:
         """
         A Schema specifies the expected data model of the table.
         """
         return pulumi.get(self, "schema")
 
     @schema.setter
-    def schema(self, value: Optional[pulumi.Input['SchemaPropertiesArgs']]):
+    def schema(self, value: pulumi.Input[Optional['SchemaPropertiesArgs']]):
         pulumi.set(self, "schema", value)
 
     @_builtins.property
     @pulumi.getter(name="tableName")
-    def table_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def table_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name for the table. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the table name.
         """
         return pulumi.get(self, "table_name")
 
     @table_name.setter
-    def table_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def table_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "table_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -131,12 +131,12 @@ class Table(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 magnetic_store_write_properties: Optional[pulumi.Input[Union['MagneticStoreWritePropertiesPropertiesArgs', 'MagneticStoreWritePropertiesPropertiesArgsDict']]] = None,
-                 retention_properties: Optional[pulumi.Input[Union['RetentionPropertiesPropertiesArgs', 'RetentionPropertiesPropertiesArgsDict']]] = None,
-                 schema: Optional[pulumi.Input[Union['SchemaPropertiesArgs', 'SchemaPropertiesArgsDict']]] = None,
-                 table_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 magnetic_store_write_properties: pulumi.Input[Optional[Union['MagneticStoreWritePropertiesPropertiesArgs', 'MagneticStoreWritePropertiesPropertiesArgsDict']]] = None,
+                 retention_properties: pulumi.Input[Optional[Union['RetentionPropertiesPropertiesArgs', 'RetentionPropertiesPropertiesArgsDict']]] = None,
+                 schema: pulumi.Input[Optional[Union['SchemaPropertiesArgs', 'SchemaPropertiesArgsDict']]] = None,
+                 table_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         The AWS::Timestream::Table resource creates a Timestream Table.
@@ -176,12 +176,12 @@ class Table(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 magnetic_store_write_properties: Optional[pulumi.Input[Union['MagneticStoreWritePropertiesPropertiesArgs', 'MagneticStoreWritePropertiesPropertiesArgsDict']]] = None,
-                 retention_properties: Optional[pulumi.Input[Union['RetentionPropertiesPropertiesArgs', 'RetentionPropertiesPropertiesArgsDict']]] = None,
-                 schema: Optional[pulumi.Input[Union['SchemaPropertiesArgs', 'SchemaPropertiesArgsDict']]] = None,
-                 table_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 magnetic_store_write_properties: pulumi.Input[Optional[Union['MagneticStoreWritePropertiesPropertiesArgs', 'MagneticStoreWritePropertiesPropertiesArgsDict']]] = None,
+                 retention_properties: pulumi.Input[Optional[Union['RetentionPropertiesPropertiesArgs', 'RetentionPropertiesPropertiesArgsDict']]] = None,
+                 schema: pulumi.Input[Optional[Union['SchemaPropertiesArgs', 'SchemaPropertiesArgsDict']]] = None,
+                 table_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

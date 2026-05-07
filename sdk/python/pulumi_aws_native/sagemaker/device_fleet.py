@@ -25,9 +25,9 @@ class DeviceFleetArgs:
     def __init__(__self__, *,
                  output_config: pulumi.Input['DeviceFleetEdgeOutputConfigArgs'],
                  role_arn: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 device_fleet_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 device_fleet_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DeviceFleet resource.
 
@@ -72,38 +72,38 @@ class DeviceFleetArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description for the edge device fleet
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="deviceFleetName")
-    def device_fleet_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def device_fleet_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the edge device fleet
         """
         return pulumi.get(self, "device_fleet_name")
 
     @device_fleet_name.setter
-    def device_fleet_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def device_fleet_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "device_fleet_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Associate tags with the resource
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -113,11 +113,11 @@ class DeviceFleet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 device_fleet_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 output_config: Optional[pulumi.Input[Union['DeviceFleetEdgeOutputConfigArgs', 'DeviceFleetEdgeOutputConfigArgsDict']]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 device_fleet_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 output_config: pulumi.Input[Optional[Union['DeviceFleetEdgeOutputConfigArgs', 'DeviceFleetEdgeOutputConfigArgsDict']]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::SageMaker::DeviceFleet
@@ -156,11 +156,11 @@ class DeviceFleet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 device_fleet_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 output_config: Optional[pulumi.Input[Union['DeviceFleetEdgeOutputConfigArgs', 'DeviceFleetEdgeOutputConfigArgsDict']]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 device_fleet_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 output_config: pulumi.Input[Optional[Union['DeviceFleetEdgeOutputConfigArgs', 'DeviceFleetEdgeOutputConfigArgsDict']]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

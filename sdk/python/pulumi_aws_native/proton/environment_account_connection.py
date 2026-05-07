@@ -22,13 +22,13 @@ __all__ = ['EnvironmentAccountConnectionArgs', 'EnvironmentAccountConnection']
 @pulumi.input_type
 class EnvironmentAccountConnectionArgs:
     def __init__(__self__, *,
-                 codebuild_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 component_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 management_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 codebuild_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 component_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 management_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a EnvironmentAccountConnection resource.
 
@@ -59,79 +59,79 @@ class EnvironmentAccountConnectionArgs:
 
     @_builtins.property
     @pulumi.getter(name="codebuildRoleArn")
-    def codebuild_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def codebuild_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of an IAM service role in the environment account. AWS Proton uses this role to provision infrastructure resources using CodeBuild-based provisioning in the associated environment account.
         """
         return pulumi.get(self, "codebuild_role_arn")
 
     @codebuild_role_arn.setter
-    def codebuild_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def codebuild_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "codebuild_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="componentRoleArn")
-    def component_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def component_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the IAM service role that AWS Proton uses when provisioning directly defined components in the associated environment account. It determines the scope of infrastructure that a component can provision in the account.
         """
         return pulumi.get(self, "component_role_arn")
 
     @component_role_arn.setter
-    def component_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def component_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "component_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="environmentAccountId")
-    def environment_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def environment_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The environment account that's connected to the environment account connection.
         """
         return pulumi.get(self, "environment_account_id")
 
     @environment_account_id.setter
-    def environment_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def environment_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "environment_account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="environmentName")
-    def environment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def environment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the AWS Proton environment that's created in the associated management account.
         """
         return pulumi.get(self, "environment_name")
 
     @environment_name.setter
-    def environment_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def environment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "environment_name", value)
 
     @_builtins.property
     @pulumi.getter(name="managementAccountId")
-    def management_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def management_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the management account that accepts or rejects the environment account connection. You create an manage the AWS Proton environment in this account. If the management account accepts the environment account connection, AWS Proton can use the associated IAM role to provision environment infrastructure resources in the associated environment account.
         """
         return pulumi.get(self, "management_account_id")
 
     @management_account_id.setter
-    def management_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def management_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "management_account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the IAM service role that's created in the environment account. AWS Proton uses this role to provision infrastructure resources in the associated environment account.
         """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
-    def role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         <p>An optional list of metadata items that you can associate with the Proton environment account connection. A tag is a key-value pair.</p>
                  <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
@@ -140,7 +140,7 @@ class EnvironmentAccountConnectionArgs:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -150,13 +150,13 @@ class EnvironmentAccountConnection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 codebuild_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 component_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 management_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 codebuild_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 component_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 management_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Schema describing various properties for AWS Proton Environment Account Connections resources.
@@ -199,13 +199,13 @@ class EnvironmentAccountConnection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 codebuild_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 component_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 management_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 codebuild_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 component_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 management_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

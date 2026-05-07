@@ -24,10 +24,10 @@ __all__ = ['DataAutomationLibraryArgs', 'DataAutomationLibrary']
 @pulumi.input_type
 class DataAutomationLibraryArgs:
     def __init__(__self__, *,
-                 encryption_configuration: Optional[pulumi.Input['DataAutomationLibraryEncryptionConfigurationArgs']] = None,
-                 library_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 library_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 encryption_configuration: pulumi.Input[Optional['DataAutomationLibraryEncryptionConfigurationArgs']] = None,
+                 library_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 library_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DataAutomationLibrary resource.
 
@@ -46,47 +46,47 @@ class DataAutomationLibraryArgs:
 
     @_builtins.property
     @pulumi.getter(name="encryptionConfiguration")
-    def encryption_configuration(self) -> Optional[pulumi.Input['DataAutomationLibraryEncryptionConfigurationArgs']]:
+    def encryption_configuration(self) -> pulumi.Input[Optional['DataAutomationLibraryEncryptionConfigurationArgs']]:
         return pulumi.get(self, "encryption_configuration")
 
     @encryption_configuration.setter
-    def encryption_configuration(self, value: Optional[pulumi.Input['DataAutomationLibraryEncryptionConfigurationArgs']]):
+    def encryption_configuration(self, value: pulumi.Input[Optional['DataAutomationLibraryEncryptionConfigurationArgs']]):
         pulumi.set(self, "encryption_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="libraryDescription")
-    def library_description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def library_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the DataAutomationLibrary
         """
         return pulumi.get(self, "library_description")
 
     @library_description.setter
-    def library_description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def library_description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "library_description", value)
 
     @_builtins.property
     @pulumi.getter(name="libraryName")
-    def library_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def library_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the DataAutomationLibrary
         """
         return pulumi.get(self, "library_name")
 
     @library_name.setter
-    def library_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def library_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "library_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         List of tags
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -96,10 +96,10 @@ class DataAutomationLibrary(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 encryption_configuration: Optional[pulumi.Input[Union['DataAutomationLibraryEncryptionConfigurationArgs', 'DataAutomationLibraryEncryptionConfigurationArgsDict']]] = None,
-                 library_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 library_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 encryption_configuration: pulumi.Input[Optional[Union['DataAutomationLibraryEncryptionConfigurationArgs', 'DataAutomationLibraryEncryptionConfigurationArgsDict']]] = None,
+                 library_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 library_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Bedrock::DataAutomationLibrary
@@ -136,10 +136,10 @@ class DataAutomationLibrary(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 encryption_configuration: Optional[pulumi.Input[Union['DataAutomationLibraryEncryptionConfigurationArgs', 'DataAutomationLibraryEncryptionConfigurationArgsDict']]] = None,
-                 library_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 library_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 encryption_configuration: pulumi.Input[Optional[Union['DataAutomationLibraryEncryptionConfigurationArgs', 'DataAutomationLibraryEncryptionConfigurationArgsDict']]] = None,
+                 library_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 library_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

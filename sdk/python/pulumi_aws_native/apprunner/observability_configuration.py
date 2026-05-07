@@ -24,9 +24,9 @@ __all__ = ['ObservabilityConfigurationArgs', 'ObservabilityConfiguration']
 @pulumi.input_type
 class ObservabilityConfigurationArgs:
     def __init__(__self__, *,
-                 observability_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None,
-                 trace_configuration: Optional[pulumi.Input['ObservabilityConfigurationTraceConfigurationArgs']] = None):
+                 observability_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None,
+                 trace_configuration: pulumi.Input[Optional['ObservabilityConfigurationTraceConfigurationArgs']] = None):
         """
         The set of arguments for constructing a ObservabilityConfiguration resource.
 
@@ -43,38 +43,38 @@ class ObservabilityConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="observabilityConfigurationName")
-    def observability_configuration_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def observability_configuration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A name for the observability configuration. When you use it for the first time in an AWS Region, App Runner creates revision number 1 of this name. When you use the same name in subsequent calls, App Runner creates incremental revisions of the configuration.
         """
         return pulumi.get(self, "observability_configuration_name")
 
     @observability_configuration_name.setter
-    def observability_configuration_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def observability_configuration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "observability_configuration_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
         """
         A list of metadata items that you can associate with your observability configuration resource. A tag is a key-value pair.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="traceConfiguration")
-    def trace_configuration(self) -> Optional[pulumi.Input['ObservabilityConfigurationTraceConfigurationArgs']]:
+    def trace_configuration(self) -> pulumi.Input[Optional['ObservabilityConfigurationTraceConfigurationArgs']]:
         """
         The configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing.
         """
         return pulumi.get(self, "trace_configuration")
 
     @trace_configuration.setter
-    def trace_configuration(self, value: Optional[pulumi.Input['ObservabilityConfigurationTraceConfigurationArgs']]):
+    def trace_configuration(self, value: pulumi.Input[Optional['ObservabilityConfigurationTraceConfigurationArgs']]):
         pulumi.set(self, "trace_configuration", value)
 
 
@@ -84,9 +84,9 @@ class ObservabilityConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 observability_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
-                 trace_configuration: Optional[pulumi.Input[Union['ObservabilityConfigurationTraceConfigurationArgs', 'ObservabilityConfigurationTraceConfigurationArgsDict']]] = None,
+                 observability_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 trace_configuration: pulumi.Input[Optional[Union['ObservabilityConfigurationTraceConfigurationArgs', 'ObservabilityConfigurationTraceConfigurationArgsDict']]] = None,
                  __props__=None):
         """
         The AWS::AppRunner::ObservabilityConfiguration resource  is an AWS App Runner resource type that specifies an App Runner observability configuration
@@ -123,9 +123,9 @@ class ObservabilityConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 observability_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
-                 trace_configuration: Optional[pulumi.Input[Union['ObservabilityConfigurationTraceConfigurationArgs', 'ObservabilityConfigurationTraceConfigurationArgsDict']]] = None,
+                 observability_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 trace_configuration: pulumi.Input[Optional[Union['ObservabilityConfigurationTraceConfigurationArgs', 'ObservabilityConfigurationTraceConfigurationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

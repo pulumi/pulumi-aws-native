@@ -211,7 +211,7 @@ def get_resolver(resolver_arn: Optional[_builtins.str] = None,
         response_mapping_template=pulumi.get(__ret__, 'response_mapping_template'),
         runtime=pulumi.get(__ret__, 'runtime'),
         sync_config=pulumi.get(__ret__, 'sync_config'))
-def get_resolver_output(resolver_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_resolver_output(resolver_arn: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResolverResult]:
     """
     The ``AWS::AppSync::Resolver`` resource defines the logical GraphQL resolver that you attach to fields in a schema. Request and response templates for resolvers are written in Apache Velocity Template Language (VTL) format. For more information about resolvers, see [Resolver Mapping Template Reference](https://docs.aws.amazon.com/appsync/latest/devguide/resolver-mapping-template-reference.html).

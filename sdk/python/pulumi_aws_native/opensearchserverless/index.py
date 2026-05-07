@@ -23,9 +23,9 @@ __all__ = ['IndexArgs', 'Index']
 class IndexArgs:
     def __init__(__self__, *,
                  collection_endpoint: pulumi.Input[_builtins.str],
-                 index_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 mappings: Optional[pulumi.Input['MappingsPropertiesArgs']] = None,
-                 settings: Optional[pulumi.Input['IndexSettingsArgs']] = None):
+                 index_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 mappings: pulumi.Input[Optional['MappingsPropertiesArgs']] = None,
+                 settings: pulumi.Input[Optional['IndexSettingsArgs']] = None):
         """
         The set of arguments for constructing a Index resource.
 
@@ -56,38 +56,38 @@ class IndexArgs:
 
     @_builtins.property
     @pulumi.getter(name="indexName")
-    def index_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def index_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the OpenSearch Serverless index.
         """
         return pulumi.get(self, "index_name")
 
     @index_name.setter
-    def index_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def index_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "index_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def mappings(self) -> Optional[pulumi.Input['MappingsPropertiesArgs']]:
+    def mappings(self) -> pulumi.Input[Optional['MappingsPropertiesArgs']]:
         """
         Index Mappings
         """
         return pulumi.get(self, "mappings")
 
     @mappings.setter
-    def mappings(self, value: Optional[pulumi.Input['MappingsPropertiesArgs']]):
+    def mappings(self, value: pulumi.Input[Optional['MappingsPropertiesArgs']]):
         pulumi.set(self, "mappings", value)
 
     @_builtins.property
     @pulumi.getter
-    def settings(self) -> Optional[pulumi.Input['IndexSettingsArgs']]:
+    def settings(self) -> pulumi.Input[Optional['IndexSettingsArgs']]:
         """
         Index settings
         """
         return pulumi.get(self, "settings")
 
     @settings.setter
-    def settings(self, value: Optional[pulumi.Input['IndexSettingsArgs']]):
+    def settings(self, value: pulumi.Input[Optional['IndexSettingsArgs']]):
         pulumi.set(self, "settings", value)
 
 
@@ -97,10 +97,10 @@ class Index(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 collection_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 index_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 mappings: Optional[pulumi.Input[Union['MappingsPropertiesArgs', 'MappingsPropertiesArgsDict']]] = None,
-                 settings: Optional[pulumi.Input[Union['IndexSettingsArgs', 'IndexSettingsArgsDict']]] = None,
+                 collection_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 index_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 mappings: pulumi.Input[Optional[Union['MappingsPropertiesArgs', 'MappingsPropertiesArgsDict']]] = None,
+                 settings: pulumi.Input[Optional[Union['IndexSettingsArgs', 'IndexSettingsArgsDict']]] = None,
                  __props__=None):
         """
         An OpenSearch Serverless index resource
@@ -138,10 +138,10 @@ class Index(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 collection_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 index_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 mappings: Optional[pulumi.Input[Union['MappingsPropertiesArgs', 'MappingsPropertiesArgsDict']]] = None,
-                 settings: Optional[pulumi.Input[Union['IndexSettingsArgs', 'IndexSettingsArgsDict']]] = None,
+                 collection_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 index_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 mappings: pulumi.Input[Optional[Union['MappingsPropertiesArgs', 'MappingsPropertiesArgsDict']]] = None,
+                 settings: pulumi.Input[Optional[Union['IndexSettingsArgs', 'IndexSettingsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

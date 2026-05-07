@@ -64,11 +64,11 @@ class TableBucketEncryptionConfigurationArgsDict(TypedDict):
     """
     Specifies encryption settings for the table bucket
     """
-    kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    kms_key_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ARN of the KMS key to use for encryption
     """
-    sse_algorithm: NotRequired[pulumi.Input['TableBucketEncryptionConfigurationSseAlgorithm']]
+    sse_algorithm: NotRequired[pulumi.Input[Optional['TableBucketEncryptionConfigurationSseAlgorithm']]]
     """
     Server-side encryption algorithm
     """
@@ -76,8 +76,8 @@ class TableBucketEncryptionConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class TableBucketEncryptionConfigurationArgs:
     def __init__(__self__, *,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 sse_algorithm: Optional[pulumi.Input['TableBucketEncryptionConfigurationSseAlgorithm']] = None):
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 sse_algorithm: pulumi.Input[Optional['TableBucketEncryptionConfigurationSseAlgorithm']] = None):
         """
         Specifies encryption settings for the table bucket
 
@@ -91,26 +91,26 @@ class TableBucketEncryptionConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
-    def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the KMS key to use for encryption
         """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
-    def kms_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="sseAlgorithm")
-    def sse_algorithm(self) -> Optional[pulumi.Input['TableBucketEncryptionConfigurationSseAlgorithm']]:
+    def sse_algorithm(self) -> pulumi.Input[Optional['TableBucketEncryptionConfigurationSseAlgorithm']]:
         """
         Server-side encryption algorithm
         """
         return pulumi.get(self, "sse_algorithm")
 
     @sse_algorithm.setter
-    def sse_algorithm(self, value: Optional[pulumi.Input['TableBucketEncryptionConfigurationSseAlgorithm']]):
+    def sse_algorithm(self, value: pulumi.Input[Optional['TableBucketEncryptionConfigurationSseAlgorithm']]):
         pulumi.set(self, "sse_algorithm", value)
 
 
@@ -118,7 +118,7 @@ class TableBucketMetricsConfigurationArgsDict(TypedDict):
     """
     Settings governing the Metric configuration for the table bucket.
     """
-    status: NotRequired[pulumi.Input['TableBucketMetricsConfigurationStatus']]
+    status: NotRequired[pulumi.Input[Optional['TableBucketMetricsConfigurationStatus']]]
     """
     Indicates whether Metrics are enabled.
     """
@@ -126,7 +126,7 @@ class TableBucketMetricsConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class TableBucketMetricsConfigurationArgs:
     def __init__(__self__, *,
-                 status: Optional[pulumi.Input['TableBucketMetricsConfigurationStatus']] = None):
+                 status: pulumi.Input[Optional['TableBucketMetricsConfigurationStatus']] = None):
         """
         Settings governing the Metric configuration for the table bucket.
 
@@ -137,14 +137,14 @@ class TableBucketMetricsConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input['TableBucketMetricsConfigurationStatus']]:
+    def status(self) -> pulumi.Input[Optional['TableBucketMetricsConfigurationStatus']]:
         """
         Indicates whether Metrics are enabled.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input['TableBucketMetricsConfigurationStatus']]):
+    def status(self, value: pulumi.Input[Optional['TableBucketMetricsConfigurationStatus']]):
         pulumi.set(self, "status", value)
 
 
@@ -285,7 +285,7 @@ class TableBucketStorageClassConfigurationArgsDict(TypedDict):
     """
     Specifies storage class settings for the table bucket
     """
-    storage_class: NotRequired[pulumi.Input['TableBucketStorageClassConfigurationStorageClass']]
+    storage_class: NotRequired[pulumi.Input[Optional['TableBucketStorageClassConfigurationStorageClass']]]
     """
     The storage class for the table bucket
     """
@@ -293,7 +293,7 @@ class TableBucketStorageClassConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class TableBucketStorageClassConfigurationArgs:
     def __init__(__self__, *,
-                 storage_class: Optional[pulumi.Input['TableBucketStorageClassConfigurationStorageClass']] = None):
+                 storage_class: pulumi.Input[Optional['TableBucketStorageClassConfigurationStorageClass']] = None):
         """
         Specifies storage class settings for the table bucket
 
@@ -304,14 +304,14 @@ class TableBucketStorageClassConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="storageClass")
-    def storage_class(self) -> Optional[pulumi.Input['TableBucketStorageClassConfigurationStorageClass']]:
+    def storage_class(self) -> pulumi.Input[Optional['TableBucketStorageClassConfigurationStorageClass']]:
         """
         The storage class for the table bucket
         """
         return pulumi.get(self, "storage_class")
 
     @storage_class.setter
-    def storage_class(self, value: Optional[pulumi.Input['TableBucketStorageClassConfigurationStorageClass']]):
+    def storage_class(self, value: pulumi.Input[Optional['TableBucketStorageClassConfigurationStorageClass']]):
         pulumi.set(self, "storage_class", value)
 
 
@@ -319,15 +319,15 @@ class TableBucketUnreferencedFileRemovalArgsDict(TypedDict):
     """
     Settings governing the Unreferenced File Removal maintenance action. Unreferenced file removal identifies and deletes all objects that are not referenced by any table snapshots.
     """
-    noncurrent_days: NotRequired[pulumi.Input[_builtins.int]]
+    noncurrent_days: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     S3 permanently deletes noncurrent objects after the number of days specified by the NoncurrentDays property.
     """
-    status: NotRequired[pulumi.Input['TableBucketUnreferencedFileRemovalStatus']]
+    status: NotRequired[pulumi.Input[Optional['TableBucketUnreferencedFileRemovalStatus']]]
     """
     Indicates whether the Unreferenced File Removal maintenance action is enabled.
     """
-    unreferenced_days: NotRequired[pulumi.Input[_builtins.int]]
+    unreferenced_days: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     For any object not referenced by your table and older than the UnreferencedDays property, S3 creates a delete marker and marks the object version as noncurrent.
     """
@@ -335,9 +335,9 @@ class TableBucketUnreferencedFileRemovalArgsDict(TypedDict):
 @pulumi.input_type
 class TableBucketUnreferencedFileRemovalArgs:
     def __init__(__self__, *,
-                 noncurrent_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 status: Optional[pulumi.Input['TableBucketUnreferencedFileRemovalStatus']] = None,
-                 unreferenced_days: Optional[pulumi.Input[_builtins.int]] = None):
+                 noncurrent_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 status: pulumi.Input[Optional['TableBucketUnreferencedFileRemovalStatus']] = None,
+                 unreferenced_days: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Settings governing the Unreferenced File Removal maintenance action. Unreferenced file removal identifies and deletes all objects that are not referenced by any table snapshots.
 
@@ -354,38 +354,38 @@ class TableBucketUnreferencedFileRemovalArgs:
 
     @_builtins.property
     @pulumi.getter(name="noncurrentDays")
-    def noncurrent_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def noncurrent_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         S3 permanently deletes noncurrent objects after the number of days specified by the NoncurrentDays property.
         """
         return pulumi.get(self, "noncurrent_days")
 
     @noncurrent_days.setter
-    def noncurrent_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def noncurrent_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "noncurrent_days", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input['TableBucketUnreferencedFileRemovalStatus']]:
+    def status(self) -> pulumi.Input[Optional['TableBucketUnreferencedFileRemovalStatus']]:
         """
         Indicates whether the Unreferenced File Removal maintenance action is enabled.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input['TableBucketUnreferencedFileRemovalStatus']]):
+    def status(self, value: pulumi.Input[Optional['TableBucketUnreferencedFileRemovalStatus']]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="unreferencedDays")
-    def unreferenced_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def unreferenced_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         For any object not referenced by your table and older than the UnreferencedDays property, S3 creates a delete marker and marks the object version as noncurrent.
         """
         return pulumi.get(self, "unreferenced_days")
 
     @unreferenced_days.setter
-    def unreferenced_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def unreferenced_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "unreferenced_days", value)
 
 
@@ -393,11 +393,11 @@ class TableCompactionArgsDict(TypedDict):
     """
     Settings governing the Compaction maintenance action. Contains details about the compaction settings for an Iceberg table.
     """
-    status: NotRequired[pulumi.Input['TableCompactionStatus']]
+    status: NotRequired[pulumi.Input[Optional['TableCompactionStatus']]]
     """
     Indicates whether the Compaction maintenance action is enabled.
     """
-    target_file_size_mb: NotRequired[pulumi.Input[_builtins.int]]
+    target_file_size_mb: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The target file size for the table in MB.
     """
@@ -405,8 +405,8 @@ class TableCompactionArgsDict(TypedDict):
 @pulumi.input_type
 class TableCompactionArgs:
     def __init__(__self__, *,
-                 status: Optional[pulumi.Input['TableCompactionStatus']] = None,
-                 target_file_size_mb: Optional[pulumi.Input[_builtins.int]] = None):
+                 status: pulumi.Input[Optional['TableCompactionStatus']] = None,
+                 target_file_size_mb: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Settings governing the Compaction maintenance action. Contains details about the compaction settings for an Iceberg table.
 
@@ -420,26 +420,26 @@ class TableCompactionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input['TableCompactionStatus']]:
+    def status(self) -> pulumi.Input[Optional['TableCompactionStatus']]:
         """
         Indicates whether the Compaction maintenance action is enabled.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input['TableCompactionStatus']]):
+    def status(self, value: pulumi.Input[Optional['TableCompactionStatus']]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="targetFileSizeMb")
-    def target_file_size_mb(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def target_file_size_mb(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The target file size for the table in MB.
         """
         return pulumi.get(self, "target_file_size_mb")
 
     @target_file_size_mb.setter
-    def target_file_size_mb(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def target_file_size_mb(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "target_file_size_mb", value)
 
 
@@ -447,26 +447,26 @@ class TableIcebergMetadataArgsDict(TypedDict):
     """
     Contains details about the metadata for an Iceberg table. Specify either IcebergSchema (for simple flat schemas with primitive types only) or IcebergSchemaV2 (for schemas with nested types like struct, list, map), but not both.
     """
-    iceberg_partition_spec: NotRequired[pulumi.Input['TableIcebergPartitionSpecArgsDict']]
-    iceberg_schema: NotRequired[pulumi.Input['TableIcebergSchemaArgsDict']]
+    iceberg_partition_spec: NotRequired[pulumi.Input[Optional['TableIcebergPartitionSpecArgs']]]
+    iceberg_schema: NotRequired[pulumi.Input[Optional['TableIcebergSchemaArgs']]]
     """
     Schema definition for flat tables with primitive types only. Mutually exclusive with IcebergSchemaV2.
     """
-    iceberg_schema_v2: NotRequired[pulumi.Input['TableIcebergSchemaV2ArgsDict']]
+    iceberg_schema_v2: NotRequired[pulumi.Input[Optional['TableIcebergSchemaV2Args']]]
     """
     Schema definition that supports Apache Iceberg nested types (struct, list, map) and primitive types. Mutually exclusive with IcebergSchema.
     """
-    iceberg_sort_order: NotRequired[pulumi.Input['TableIcebergSortOrderArgsDict']]
-    table_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    iceberg_sort_order: NotRequired[pulumi.Input[Optional['TableIcebergSortOrderArgs']]]
+    table_properties: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
 
 @pulumi.input_type
 class TableIcebergMetadataArgs:
     def __init__(__self__, *,
-                 iceberg_partition_spec: Optional[pulumi.Input['TableIcebergPartitionSpecArgs']] = None,
-                 iceberg_schema: Optional[pulumi.Input['TableIcebergSchemaArgs']] = None,
-                 iceberg_schema_v2: Optional[pulumi.Input['TableIcebergSchemaV2Args']] = None,
-                 iceberg_sort_order: Optional[pulumi.Input['TableIcebergSortOrderArgs']] = None,
-                 table_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 iceberg_partition_spec: pulumi.Input[Optional['TableIcebergPartitionSpecArgs']] = None,
+                 iceberg_schema: pulumi.Input[Optional['TableIcebergSchemaArgs']] = None,
+                 iceberg_schema_v2: pulumi.Input[Optional['TableIcebergSchemaV2Args']] = None,
+                 iceberg_sort_order: pulumi.Input[Optional['TableIcebergSortOrderArgs']] = None,
+                 table_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Contains details about the metadata for an Iceberg table. Specify either IcebergSchema (for simple flat schemas with primitive types only) or IcebergSchemaV2 (for schemas with nested types like struct, list, map), but not both.
 
@@ -486,53 +486,53 @@ class TableIcebergMetadataArgs:
 
     @_builtins.property
     @pulumi.getter(name="icebergPartitionSpec")
-    def iceberg_partition_spec(self) -> Optional[pulumi.Input['TableIcebergPartitionSpecArgs']]:
+    def iceberg_partition_spec(self) -> pulumi.Input[Optional['TableIcebergPartitionSpecArgs']]:
         return pulumi.get(self, "iceberg_partition_spec")
 
     @iceberg_partition_spec.setter
-    def iceberg_partition_spec(self, value: Optional[pulumi.Input['TableIcebergPartitionSpecArgs']]):
+    def iceberg_partition_spec(self, value: pulumi.Input[Optional['TableIcebergPartitionSpecArgs']]):
         pulumi.set(self, "iceberg_partition_spec", value)
 
     @_builtins.property
     @pulumi.getter(name="icebergSchema")
-    def iceberg_schema(self) -> Optional[pulumi.Input['TableIcebergSchemaArgs']]:
+    def iceberg_schema(self) -> pulumi.Input[Optional['TableIcebergSchemaArgs']]:
         """
         Schema definition for flat tables with primitive types only. Mutually exclusive with IcebergSchemaV2.
         """
         return pulumi.get(self, "iceberg_schema")
 
     @iceberg_schema.setter
-    def iceberg_schema(self, value: Optional[pulumi.Input['TableIcebergSchemaArgs']]):
+    def iceberg_schema(self, value: pulumi.Input[Optional['TableIcebergSchemaArgs']]):
         pulumi.set(self, "iceberg_schema", value)
 
     @_builtins.property
     @pulumi.getter(name="icebergSchemaV2")
-    def iceberg_schema_v2(self) -> Optional[pulumi.Input['TableIcebergSchemaV2Args']]:
+    def iceberg_schema_v2(self) -> pulumi.Input[Optional['TableIcebergSchemaV2Args']]:
         """
         Schema definition that supports Apache Iceberg nested types (struct, list, map) and primitive types. Mutually exclusive with IcebergSchema.
         """
         return pulumi.get(self, "iceberg_schema_v2")
 
     @iceberg_schema_v2.setter
-    def iceberg_schema_v2(self, value: Optional[pulumi.Input['TableIcebergSchemaV2Args']]):
+    def iceberg_schema_v2(self, value: pulumi.Input[Optional['TableIcebergSchemaV2Args']]):
         pulumi.set(self, "iceberg_schema_v2", value)
 
     @_builtins.property
     @pulumi.getter(name="icebergSortOrder")
-    def iceberg_sort_order(self) -> Optional[pulumi.Input['TableIcebergSortOrderArgs']]:
+    def iceberg_sort_order(self) -> pulumi.Input[Optional['TableIcebergSortOrderArgs']]:
         return pulumi.get(self, "iceberg_sort_order")
 
     @iceberg_sort_order.setter
-    def iceberg_sort_order(self, value: Optional[pulumi.Input['TableIcebergSortOrderArgs']]):
+    def iceberg_sort_order(self, value: pulumi.Input[Optional['TableIcebergSortOrderArgs']]):
         pulumi.set(self, "iceberg_sort_order", value)
 
     @_builtins.property
     @pulumi.getter(name="tableProperties")
-    def table_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def table_properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "table_properties")
 
     @table_properties.setter
-    def table_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def table_properties(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "table_properties", value)
 
 
@@ -552,7 +552,7 @@ class TableIcebergPartitionFieldArgsDict(TypedDict):
     """
     The partition transform function (identity, bucket[N], truncate[N], year, month, day, hour)
     """
-    field_id: NotRequired[pulumi.Input[_builtins.int]]
+    field_id: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The partition field ID (auto-assigned starting from 1000 if not specified)
     """
@@ -563,7 +563,7 @@ class TableIcebergPartitionFieldArgs:
                  name: pulumi.Input[_builtins.str],
                  source_id: pulumi.Input[_builtins.int],
                  transform: pulumi.Input[_builtins.str],
-                 field_id: Optional[pulumi.Input[_builtins.int]] = None):
+                 field_id: pulumi.Input[Optional[_builtins.int]] = None):
         """
         A partition field specification for an Iceberg table
 
@@ -616,14 +616,14 @@ class TableIcebergPartitionFieldArgs:
 
     @_builtins.property
     @pulumi.getter(name="fieldId")
-    def field_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def field_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The partition field ID (auto-assigned starting from 1000 if not specified)
         """
         return pulumi.get(self, "field_id")
 
     @field_id.setter
-    def field_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def field_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "field_id", value)
 
 
@@ -635,7 +635,7 @@ class TableIcebergPartitionSpecArgsDict(TypedDict):
     """
     List of partition fields
     """
-    spec_id: NotRequired[pulumi.Input[_builtins.int]]
+    spec_id: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The partition spec ID (defaults to 0 if not specified)
     """
@@ -644,7 +644,7 @@ class TableIcebergPartitionSpecArgsDict(TypedDict):
 class TableIcebergPartitionSpecArgs:
     def __init__(__self__, *,
                  fields: pulumi.Input[Sequence[pulumi.Input['TableIcebergPartitionFieldArgs']]],
-                 spec_id: Optional[pulumi.Input[_builtins.int]] = None):
+                 spec_id: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Partition specification for an Iceberg table
 
@@ -669,14 +669,14 @@ class TableIcebergPartitionSpecArgs:
 
     @_builtins.property
     @pulumi.getter(name="specId")
-    def spec_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def spec_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The partition spec ID (defaults to 0 if not specified)
         """
         return pulumi.get(self, "spec_id")
 
     @spec_id.setter
-    def spec_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def spec_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "spec_id", value)
 
 
@@ -692,11 +692,11 @@ class TableIcebergSchemaV2ArgsDict(TypedDict):
     """
     The type of the top-level schema, which is always 'struct'
     """
-    identifier_field_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
+    identifier_field_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]]
     """
     A list of field IDs that are used as the identifier fields for the table. Identifier fields uniquely identify a row in the table.
     """
-    schema_id: NotRequired[pulumi.Input[_builtins.int]]
+    schema_id: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     An optional unique identifier for the schema
     """
@@ -706,8 +706,8 @@ class TableIcebergSchemaV2Args:
     def __init__(__self__, *,
                  schema_v2_field_list: pulumi.Input[Sequence[pulumi.Input['TableSchemaV2FieldArgs']]],
                  schema_v2_field_type: pulumi.Input['TableIcebergSchemaV2SchemaV2FieldType'],
-                 identifier_field_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 schema_id: Optional[pulumi.Input[_builtins.int]] = None):
+                 identifier_field_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 schema_id: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Contains details about the schema version 2 (V2) for an Iceberg table that supports Apache Iceberg Nested Types (struct, list, map). Primitive types are also supported.
 
@@ -749,26 +749,26 @@ class TableIcebergSchemaV2Args:
 
     @_builtins.property
     @pulumi.getter(name="identifierFieldIds")
-    def identifier_field_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+    def identifier_field_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         """
         A list of field IDs that are used as the identifier fields for the table. Identifier fields uniquely identify a row in the table.
         """
         return pulumi.get(self, "identifier_field_ids")
 
     @identifier_field_ids.setter
-    def identifier_field_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
+    def identifier_field_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "identifier_field_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaId")
-    def schema_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def schema_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         An optional unique identifier for the schema
         """
         return pulumi.get(self, "schema_id")
 
     @schema_id.setter
-    def schema_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def schema_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "schema_id", value)
 
 
@@ -903,7 +903,7 @@ class TableIcebergSortOrderArgsDict(TypedDict):
     """
     List of sort fields
     """
-    order_id: NotRequired[pulumi.Input[_builtins.int]]
+    order_id: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The sort order ID (defaults to 1 if not specified, 0 is reserved for unsorted)
     """
@@ -912,7 +912,7 @@ class TableIcebergSortOrderArgsDict(TypedDict):
 class TableIcebergSortOrderArgs:
     def __init__(__self__, *,
                  fields: pulumi.Input[Sequence[pulumi.Input['TableIcebergSortFieldArgs']]],
-                 order_id: Optional[pulumi.Input[_builtins.int]] = None):
+                 order_id: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Sort order specification for an Iceberg table
 
@@ -937,14 +937,14 @@ class TableIcebergSortOrderArgs:
 
     @_builtins.property
     @pulumi.getter(name="orderId")
-    def order_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def order_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The sort order ID (defaults to 1 if not specified, 0 is reserved for unsorted)
         """
         return pulumi.get(self, "order_id")
 
     @order_id.setter
-    def order_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def order_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "order_id", value)
 
 
@@ -975,11 +975,11 @@ class TableSchemaFieldArgsDict(TypedDict):
     """
     The field type
     """
-    id: NotRequired[pulumi.Input[_builtins.int]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The unique identifier for the field
     """
-    required: NotRequired[pulumi.Input[_builtins.bool]]
+    required: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     A Boolean value that specifies whether values are required for each row in this field
     """
@@ -989,8 +989,8 @@ class TableSchemaFieldArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
-                 id: Optional[pulumi.Input[_builtins.int]] = None,
-                 required: Optional[pulumi.Input[_builtins.bool]] = None):
+                 id: pulumi.Input[Optional[_builtins.int]] = None,
+                 required: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Contains details about the schema for an Iceberg table
 
@@ -1032,26 +1032,26 @@ class TableSchemaFieldArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The unique identifier for the field
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def required(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def required(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A Boolean value that specifies whether values are required for each row in this field
         """
         return pulumi.get(self, "required")
 
     @required.setter
-    def required(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def required(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "required", value)
 
 
@@ -1075,7 +1075,7 @@ class TableSchemaV2FieldArgsDict(TypedDict):
     """
     The field type. For primitive types, use a string (e.g., 'int', 'string', 'long'). For nested types, use an object (e.g., {'type': 'struct', 'fields': [...]} for struct, {'type': 'list', 'element-id': N, 'element': 'type'} for list, {'type': 'map', 'key-id': N, 'key': 'type', 'value-id': N, 'value': 'type'} for map).
     """
-    doc: NotRequired[pulumi.Input[_builtins.str]]
+    doc: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Optional documentation for the field
     """
@@ -1087,7 +1087,7 @@ class TableSchemaV2FieldArgs:
                  name: pulumi.Input[_builtins.str],
                  required: pulumi.Input[_builtins.bool],
                  type: pulumi.Input[Union[_builtins.str, Any]],
-                 doc: Optional[pulumi.Input[_builtins.str]] = None):
+                 doc: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Contains details about a schema field for an Iceberg table that supports nested types (struct, list, map)
 
@@ -1154,14 +1154,14 @@ class TableSchemaV2FieldArgs:
 
     @_builtins.property
     @pulumi.getter
-    def doc(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def doc(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Optional documentation for the field
         """
         return pulumi.get(self, "doc")
 
     @doc.setter
-    def doc(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def doc(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "doc", value)
 
 
@@ -1169,15 +1169,15 @@ class TableSnapshotManagementArgsDict(TypedDict):
     """
     Contains details about the snapshot management settings for an Iceberg table. A snapshot is expired when it exceeds MinSnapshotsToKeep and MaxSnapshotAgeHours.
     """
-    max_snapshot_age_hours: NotRequired[pulumi.Input[_builtins.int]]
+    max_snapshot_age_hours: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum age of a snapshot before it can be expired.
     """
-    min_snapshots_to_keep: NotRequired[pulumi.Input[_builtins.int]]
+    min_snapshots_to_keep: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The minimum number of snapshots to keep.
     """
-    status: NotRequired[pulumi.Input['TableSnapshotManagementStatus']]
+    status: NotRequired[pulumi.Input[Optional['TableSnapshotManagementStatus']]]
     """
     Indicates whether the SnapshotManagement maintenance action is enabled.
     """
@@ -1185,9 +1185,9 @@ class TableSnapshotManagementArgsDict(TypedDict):
 @pulumi.input_type
 class TableSnapshotManagementArgs:
     def __init__(__self__, *,
-                 max_snapshot_age_hours: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_snapshots_to_keep: Optional[pulumi.Input[_builtins.int]] = None,
-                 status: Optional[pulumi.Input['TableSnapshotManagementStatus']] = None):
+                 max_snapshot_age_hours: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_snapshots_to_keep: pulumi.Input[Optional[_builtins.int]] = None,
+                 status: pulumi.Input[Optional['TableSnapshotManagementStatus']] = None):
         """
         Contains details about the snapshot management settings for an Iceberg table. A snapshot is expired when it exceeds MinSnapshotsToKeep and MaxSnapshotAgeHours.
 
@@ -1204,38 +1204,38 @@ class TableSnapshotManagementArgs:
 
     @_builtins.property
     @pulumi.getter(name="maxSnapshotAgeHours")
-    def max_snapshot_age_hours(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_snapshot_age_hours(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum age of a snapshot before it can be expired.
         """
         return pulumi.get(self, "max_snapshot_age_hours")
 
     @max_snapshot_age_hours.setter
-    def max_snapshot_age_hours(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_snapshot_age_hours(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_snapshot_age_hours", value)
 
     @_builtins.property
     @pulumi.getter(name="minSnapshotsToKeep")
-    def min_snapshots_to_keep(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_snapshots_to_keep(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The minimum number of snapshots to keep.
         """
         return pulumi.get(self, "min_snapshots_to_keep")
 
     @min_snapshots_to_keep.setter
-    def min_snapshots_to_keep(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_snapshots_to_keep(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_snapshots_to_keep", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input['TableSnapshotManagementStatus']]:
+    def status(self) -> pulumi.Input[Optional['TableSnapshotManagementStatus']]:
         """
         Indicates whether the SnapshotManagement maintenance action is enabled.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input['TableSnapshotManagementStatus']]):
+    def status(self, value: pulumi.Input[Optional['TableSnapshotManagementStatus']]):
         pulumi.set(self, "status", value)
 
 
@@ -1243,7 +1243,7 @@ class TableStorageClassConfigurationArgsDict(TypedDict):
     """
     Specifies storage class settings for the table
     """
-    storage_class: NotRequired[pulumi.Input['TableStorageClassConfigurationStorageClass']]
+    storage_class: NotRequired[pulumi.Input[Optional['TableStorageClassConfigurationStorageClass']]]
     """
     The storage class for the table
     """
@@ -1251,7 +1251,7 @@ class TableStorageClassConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class TableStorageClassConfigurationArgs:
     def __init__(__self__, *,
-                 storage_class: Optional[pulumi.Input['TableStorageClassConfigurationStorageClass']] = None):
+                 storage_class: pulumi.Input[Optional['TableStorageClassConfigurationStorageClass']] = None):
         """
         Specifies storage class settings for the table
 
@@ -1262,14 +1262,14 @@ class TableStorageClassConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="storageClass")
-    def storage_class(self) -> Optional[pulumi.Input['TableStorageClassConfigurationStorageClass']]:
+    def storage_class(self) -> pulumi.Input[Optional['TableStorageClassConfigurationStorageClass']]:
         """
         The storage class for the table
         """
         return pulumi.get(self, "storage_class")
 
     @storage_class.setter
-    def storage_class(self, value: Optional[pulumi.Input['TableStorageClassConfigurationStorageClass']]):
+    def storage_class(self, value: pulumi.Input[Optional['TableStorageClassConfigurationStorageClass']]):
         pulumi.set(self, "storage_class", value)
 
 

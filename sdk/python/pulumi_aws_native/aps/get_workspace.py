@@ -167,7 +167,7 @@ def get_workspace(arn: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         workspace_configuration=pulumi.get(__ret__, 'workspace_configuration'),
         workspace_id=pulumi.get(__ret__, 'workspace_id'))
-def get_workspace_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_workspace_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkspaceResult]:
     """
     Resource Type definition for AWS::APS::Workspace

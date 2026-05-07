@@ -155,8 +155,8 @@ def get_connection(connection_id: Optional[_builtins.str] = None,
         environment_user_role=pulumi.get(__ret__, 'environment_user_role'),
         project_id=pulumi.get(__ret__, 'project_id'),
         type=pulumi.get(__ret__, 'type'))
-def get_connection_output(connection_id: Optional[pulumi.Input[_builtins.str]] = None,
-                          domain_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_connection_output(connection_id: pulumi.Input[Optional[_builtins.str]] = None,
+                          domain_id: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectionResult]:
     """
     Connections enables users to connect their DataZone resources (domains, projects, and environments) to external resources/services (data, compute, etc)

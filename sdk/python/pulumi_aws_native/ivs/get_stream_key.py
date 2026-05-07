@@ -88,7 +88,7 @@ def get_stream_key(arn: Optional[_builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         tags=pulumi.get(__ret__, 'tags'),
         value=pulumi.get(__ret__, 'value'))
-def get_stream_key_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_stream_key_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStreamKeyResult]:
     """
     Resource Type definition for AWS::IVS::StreamKey

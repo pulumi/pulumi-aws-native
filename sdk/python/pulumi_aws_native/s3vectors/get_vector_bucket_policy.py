@@ -62,7 +62,7 @@ def get_vector_bucket_policy(vector_bucket_arn: Optional[_builtins.str] = None,
 
     return AwaitableGetVectorBucketPolicyResult(
         policy=pulumi.get(__ret__, 'policy'))
-def get_vector_bucket_policy_output(vector_bucket_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_vector_bucket_policy_output(vector_bucket_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVectorBucketPolicyResult]:
     """
     Resource Type definition for AWS::S3Vectors::VectorBucketPolicy

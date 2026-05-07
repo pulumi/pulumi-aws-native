@@ -336,7 +336,7 @@ def get_table(table_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         time_to_live_specification=pulumi.get(__ret__, 'time_to_live_specification'),
         warm_throughput=pulumi.get(__ret__, 'warm_throughput'))
-def get_table_output(table_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_table_output(table_name: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTableResult]:
     """
     The ``AWS::DynamoDB::Table`` resource creates a DDB table. For more information, see [CreateTable](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_CreateTable.html) in the *API Reference*.

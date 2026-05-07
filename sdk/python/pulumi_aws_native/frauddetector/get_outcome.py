@@ -114,7 +114,7 @@ def get_outcome(arn: Optional[_builtins.str] = None,
         description=pulumi.get(__ret__, 'description'),
         last_updated_time=pulumi.get(__ret__, 'last_updated_time'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_outcome_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_outcome_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOutcomeResult]:
     """
     An outcome for rule evaluation.

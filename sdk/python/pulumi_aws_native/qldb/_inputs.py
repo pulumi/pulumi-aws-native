@@ -20,7 +20,7 @@ __all__ = [
 ]
 
 class StreamKinesisConfigurationArgsDict(TypedDict):
-    aggregation_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    aggregation_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Enables QLDB to publish multiple data records in a single Kinesis Data Streams record, increasing the number of records sent per API call.
 
@@ -28,7 +28,7 @@ class StreamKinesisConfigurationArgsDict(TypedDict):
 
     > Record aggregation has important implications for processing records and requires de-aggregation in your stream consumer. To learn more, see [KPL Key Concepts](https://docs.aws.amazon.com/streams/latest/dev/kinesis-kpl-concepts.html) and [Consumer De-aggregation](https://docs.aws.amazon.com/streams/latest/dev/kinesis-kpl-consumer-deaggregation.html) in the *Amazon Kinesis Data Streams Developer Guide* .
     """
-    stream_arn: NotRequired[pulumi.Input[_builtins.str]]
+    stream_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon Resource Name (ARN) of the Kinesis Data Streams resource.
     """
@@ -36,8 +36,8 @@ class StreamKinesisConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class StreamKinesisConfigurationArgs:
     def __init__(__self__, *,
-                 aggregation_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 stream_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 aggregation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 stream_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.bool] aggregation_enabled: Enables QLDB to publish multiple data records in a single Kinesis Data Streams record, increasing the number of records sent per API call.
                
@@ -53,7 +53,7 @@ class StreamKinesisConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="aggregationEnabled")
-    def aggregation_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def aggregation_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables QLDB to publish multiple data records in a single Kinesis Data Streams record, increasing the number of records sent per API call.
 
@@ -64,19 +64,19 @@ class StreamKinesisConfigurationArgs:
         return pulumi.get(self, "aggregation_enabled")
 
     @aggregation_enabled.setter
-    def aggregation_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def aggregation_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "aggregation_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="streamArn")
-    def stream_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def stream_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the Kinesis Data Streams resource.
         """
         return pulumi.get(self, "stream_arn")
 
     @stream_arn.setter
-    def stream_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def stream_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "stream_arn", value)
 
 

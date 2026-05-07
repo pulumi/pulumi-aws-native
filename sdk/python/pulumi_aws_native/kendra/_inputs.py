@@ -139,7 +139,7 @@ __all__ = [
 ]
 
 class DataSourceAccessControlListConfigurationArgsDict(TypedDict):
-    key_path: NotRequired[pulumi.Input[_builtins.str]]
+    key_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Path to the AWS S3 bucket that contains the access control list files.
     """
@@ -147,7 +147,7 @@ class DataSourceAccessControlListConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class DataSourceAccessControlListConfigurationArgs:
     def __init__(__self__, *,
-                 key_path: Optional[pulumi.Input[_builtins.str]] = None):
+                 key_path: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] key_path: Path to the AWS S3 bucket that contains the access control list files.
         """
@@ -156,14 +156,14 @@ class DataSourceAccessControlListConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="keyPath")
-    def key_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Path to the AWS S3 bucket that contains the access control list files.
         """
         return pulumi.get(self, "key_path")
 
     @key_path.setter
-    def key_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_path", value)
 
 
@@ -208,11 +208,11 @@ class DataSourceColumnConfigurationArgsDict(TypedDict):
     """
     The column that provides the document's identifier.
     """
-    document_title_column_name: NotRequired[pulumi.Input[_builtins.str]]
+    document_title_column_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The column that contains the title of the document.
     """
-    field_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgsDict']]]]
+    field_mappings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]]
     """
     An array of objects that map database column names to the corresponding fields in an index. You must first create the fields in the index using the [UpdateIndex](https://docs.aws.amazon.com/kendra/latest/dg/API_UpdateIndex.html) operation.
     """
@@ -223,8 +223,8 @@ class DataSourceColumnConfigurationArgs:
                  change_detecting_columns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  document_data_column_name: pulumi.Input[_builtins.str],
                  document_id_column_name: pulumi.Input[_builtins.str],
-                 document_title_column_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]] = None):
+                 document_title_column_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 field_mappings: pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] change_detecting_columns: One to five columns that indicate when a document in the database has changed.
         :param pulumi.Input[_builtins.str] document_data_column_name: The column that contains the contents of the document.
@@ -278,47 +278,47 @@ class DataSourceColumnConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="documentTitleColumnName")
-    def document_title_column_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def document_title_column_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The column that contains the title of the document.
         """
         return pulumi.get(self, "document_title_column_name")
 
     @document_title_column_name.setter
-    def document_title_column_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def document_title_column_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "document_title_column_name", value)
 
     @_builtins.property
     @pulumi.getter(name="fieldMappings")
-    def field_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]:
+    def field_mappings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]:
         """
         An array of objects that map database column names to the corresponding fields in an index. You must first create the fields in the index using the [UpdateIndex](https://docs.aws.amazon.com/kendra/latest/dg/API_UpdateIndex.html) operation.
         """
         return pulumi.get(self, "field_mappings")
 
     @field_mappings.setter
-    def field_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]):
+    def field_mappings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]):
         pulumi.set(self, "field_mappings", value)
 
 
 class DataSourceConfigurationArgsDict(TypedDict):
-    confluence_configuration: NotRequired[pulumi.Input['DataSourceConfluenceConfigurationArgsDict']]
+    confluence_configuration: NotRequired[pulumi.Input[Optional['DataSourceConfluenceConfigurationArgs']]]
     """
     Provides the configuration information to connect to Confluence as your data source.
     """
-    database_configuration: NotRequired[pulumi.Input['DataSourceDatabaseConfigurationArgsDict']]
+    database_configuration: NotRequired[pulumi.Input[Optional['DataSourceDatabaseConfigurationArgs']]]
     """
     Provides the configuration information to connect to a database as your data source.
     """
-    google_drive_configuration: NotRequired[pulumi.Input['DataSourceGoogleDriveConfigurationArgsDict']]
+    google_drive_configuration: NotRequired[pulumi.Input[Optional['DataSourceGoogleDriveConfigurationArgs']]]
     """
     Provides the configuration information to connect to Google Drive as your data source.
     """
-    one_drive_configuration: NotRequired[pulumi.Input['DataSourceOneDriveConfigurationArgsDict']]
+    one_drive_configuration: NotRequired[pulumi.Input[Optional['DataSourceOneDriveConfigurationArgs']]]
     """
     Provides the configuration information to connect to Microsoft OneDrive as your data source.
     """
-    s3_configuration: NotRequired[pulumi.Input['DataSourceS3DataSourceConfigurationArgsDict']]
+    s3_configuration: NotRequired[pulumi.Input[Optional['DataSourceS3DataSourceConfigurationArgs']]]
     """
     Provides the configuration information to connect to an Amazon S3 bucket as your data source.
 
@@ -330,27 +330,27 @@ class DataSourceConfigurationArgsDict(TypedDict):
     > 
     > We recommended migrating your connector workflow to the upgraded version. Support for connectors configured using the older architecture is scheduled to end by June 2024.
     """
-    salesforce_configuration: NotRequired[pulumi.Input['DataSourceSalesforceConfigurationArgsDict']]
+    salesforce_configuration: NotRequired[pulumi.Input[Optional['DataSourceSalesforceConfigurationArgs']]]
     """
     Provides the configuration information to connect to Salesforce as your data source.
     """
-    service_now_configuration: NotRequired[pulumi.Input['DataSourceServiceNowConfigurationArgsDict']]
+    service_now_configuration: NotRequired[pulumi.Input[Optional['DataSourceServiceNowConfigurationArgs']]]
     """
     Provides the configuration information to connect to ServiceNow as your data source.
     """
-    share_point_configuration: NotRequired[pulumi.Input['DataSourceSharePointConfigurationArgsDict']]
+    share_point_configuration: NotRequired[pulumi.Input[Optional['DataSourceSharePointConfigurationArgs']]]
     """
     Provides the configuration information to connect to Microsoft SharePoint as your data source.
     """
-    template_configuration: NotRequired[pulumi.Input['DataSourceTemplateConfigurationArgsDict']]
+    template_configuration: NotRequired[pulumi.Input[Optional['DataSourceTemplateConfigurationArgs']]]
     """
     Provides a template for the configuration information to connect to your data source.
     """
-    web_crawler_configuration: NotRequired[pulumi.Input['DataSourceWebCrawlerConfigurationArgsDict']]
+    web_crawler_configuration: NotRequired[pulumi.Input[Optional['DataSourceWebCrawlerConfigurationArgs']]]
     """
     Provides the configuration information required for Amazon Kendra Web Crawler.
     """
-    work_docs_configuration: NotRequired[pulumi.Input['DataSourceWorkDocsConfigurationArgsDict']]
+    work_docs_configuration: NotRequired[pulumi.Input[Optional['DataSourceWorkDocsConfigurationArgs']]]
     """
     Provides the configuration information to connect to WorkDocs as your data source.
     """
@@ -358,17 +358,17 @@ class DataSourceConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class DataSourceConfigurationArgs:
     def __init__(__self__, *,
-                 confluence_configuration: Optional[pulumi.Input['DataSourceConfluenceConfigurationArgs']] = None,
-                 database_configuration: Optional[pulumi.Input['DataSourceDatabaseConfigurationArgs']] = None,
-                 google_drive_configuration: Optional[pulumi.Input['DataSourceGoogleDriveConfigurationArgs']] = None,
-                 one_drive_configuration: Optional[pulumi.Input['DataSourceOneDriveConfigurationArgs']] = None,
-                 s3_configuration: Optional[pulumi.Input['DataSourceS3DataSourceConfigurationArgs']] = None,
-                 salesforce_configuration: Optional[pulumi.Input['DataSourceSalesforceConfigurationArgs']] = None,
-                 service_now_configuration: Optional[pulumi.Input['DataSourceServiceNowConfigurationArgs']] = None,
-                 share_point_configuration: Optional[pulumi.Input['DataSourceSharePointConfigurationArgs']] = None,
-                 template_configuration: Optional[pulumi.Input['DataSourceTemplateConfigurationArgs']] = None,
-                 web_crawler_configuration: Optional[pulumi.Input['DataSourceWebCrawlerConfigurationArgs']] = None,
-                 work_docs_configuration: Optional[pulumi.Input['DataSourceWorkDocsConfigurationArgs']] = None):
+                 confluence_configuration: pulumi.Input[Optional['DataSourceConfluenceConfigurationArgs']] = None,
+                 database_configuration: pulumi.Input[Optional['DataSourceDatabaseConfigurationArgs']] = None,
+                 google_drive_configuration: pulumi.Input[Optional['DataSourceGoogleDriveConfigurationArgs']] = None,
+                 one_drive_configuration: pulumi.Input[Optional['DataSourceOneDriveConfigurationArgs']] = None,
+                 s3_configuration: pulumi.Input[Optional['DataSourceS3DataSourceConfigurationArgs']] = None,
+                 salesforce_configuration: pulumi.Input[Optional['DataSourceSalesforceConfigurationArgs']] = None,
+                 service_now_configuration: pulumi.Input[Optional['DataSourceServiceNowConfigurationArgs']] = None,
+                 share_point_configuration: pulumi.Input[Optional['DataSourceSharePointConfigurationArgs']] = None,
+                 template_configuration: pulumi.Input[Optional['DataSourceTemplateConfigurationArgs']] = None,
+                 web_crawler_configuration: pulumi.Input[Optional['DataSourceWebCrawlerConfigurationArgs']] = None,
+                 work_docs_configuration: pulumi.Input[Optional['DataSourceWorkDocsConfigurationArgs']] = None):
         """
         :param pulumi.Input['DataSourceConfluenceConfigurationArgs'] confluence_configuration: Provides the configuration information to connect to Confluence as your data source.
         :param pulumi.Input['DataSourceDatabaseConfigurationArgs'] database_configuration: Provides the configuration information to connect to a database as your data source.
@@ -415,55 +415,55 @@ class DataSourceConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="confluenceConfiguration")
-    def confluence_configuration(self) -> Optional[pulumi.Input['DataSourceConfluenceConfigurationArgs']]:
+    def confluence_configuration(self) -> pulumi.Input[Optional['DataSourceConfluenceConfigurationArgs']]:
         """
         Provides the configuration information to connect to Confluence as your data source.
         """
         return pulumi.get(self, "confluence_configuration")
 
     @confluence_configuration.setter
-    def confluence_configuration(self, value: Optional[pulumi.Input['DataSourceConfluenceConfigurationArgs']]):
+    def confluence_configuration(self, value: pulumi.Input[Optional['DataSourceConfluenceConfigurationArgs']]):
         pulumi.set(self, "confluence_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="databaseConfiguration")
-    def database_configuration(self) -> Optional[pulumi.Input['DataSourceDatabaseConfigurationArgs']]:
+    def database_configuration(self) -> pulumi.Input[Optional['DataSourceDatabaseConfigurationArgs']]:
         """
         Provides the configuration information to connect to a database as your data source.
         """
         return pulumi.get(self, "database_configuration")
 
     @database_configuration.setter
-    def database_configuration(self, value: Optional[pulumi.Input['DataSourceDatabaseConfigurationArgs']]):
+    def database_configuration(self, value: pulumi.Input[Optional['DataSourceDatabaseConfigurationArgs']]):
         pulumi.set(self, "database_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="googleDriveConfiguration")
-    def google_drive_configuration(self) -> Optional[pulumi.Input['DataSourceGoogleDriveConfigurationArgs']]:
+    def google_drive_configuration(self) -> pulumi.Input[Optional['DataSourceGoogleDriveConfigurationArgs']]:
         """
         Provides the configuration information to connect to Google Drive as your data source.
         """
         return pulumi.get(self, "google_drive_configuration")
 
     @google_drive_configuration.setter
-    def google_drive_configuration(self, value: Optional[pulumi.Input['DataSourceGoogleDriveConfigurationArgs']]):
+    def google_drive_configuration(self, value: pulumi.Input[Optional['DataSourceGoogleDriveConfigurationArgs']]):
         pulumi.set(self, "google_drive_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="oneDriveConfiguration")
-    def one_drive_configuration(self) -> Optional[pulumi.Input['DataSourceOneDriveConfigurationArgs']]:
+    def one_drive_configuration(self) -> pulumi.Input[Optional['DataSourceOneDriveConfigurationArgs']]:
         """
         Provides the configuration information to connect to Microsoft OneDrive as your data source.
         """
         return pulumi.get(self, "one_drive_configuration")
 
     @one_drive_configuration.setter
-    def one_drive_configuration(self, value: Optional[pulumi.Input['DataSourceOneDriveConfigurationArgs']]):
+    def one_drive_configuration(self, value: pulumi.Input[Optional['DataSourceOneDriveConfigurationArgs']]):
         pulumi.set(self, "one_drive_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="s3Configuration")
-    def s3_configuration(self) -> Optional[pulumi.Input['DataSourceS3DataSourceConfigurationArgs']]:
+    def s3_configuration(self) -> pulumi.Input[Optional['DataSourceS3DataSourceConfigurationArgs']]:
         """
         Provides the configuration information to connect to an Amazon S3 bucket as your data source.
 
@@ -478,90 +478,90 @@ class DataSourceConfigurationArgs:
         return pulumi.get(self, "s3_configuration")
 
     @s3_configuration.setter
-    def s3_configuration(self, value: Optional[pulumi.Input['DataSourceS3DataSourceConfigurationArgs']]):
+    def s3_configuration(self, value: pulumi.Input[Optional['DataSourceS3DataSourceConfigurationArgs']]):
         pulumi.set(self, "s3_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="salesforceConfiguration")
-    def salesforce_configuration(self) -> Optional[pulumi.Input['DataSourceSalesforceConfigurationArgs']]:
+    def salesforce_configuration(self) -> pulumi.Input[Optional['DataSourceSalesforceConfigurationArgs']]:
         """
         Provides the configuration information to connect to Salesforce as your data source.
         """
         return pulumi.get(self, "salesforce_configuration")
 
     @salesforce_configuration.setter
-    def salesforce_configuration(self, value: Optional[pulumi.Input['DataSourceSalesforceConfigurationArgs']]):
+    def salesforce_configuration(self, value: pulumi.Input[Optional['DataSourceSalesforceConfigurationArgs']]):
         pulumi.set(self, "salesforce_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceNowConfiguration")
-    def service_now_configuration(self) -> Optional[pulumi.Input['DataSourceServiceNowConfigurationArgs']]:
+    def service_now_configuration(self) -> pulumi.Input[Optional['DataSourceServiceNowConfigurationArgs']]:
         """
         Provides the configuration information to connect to ServiceNow as your data source.
         """
         return pulumi.get(self, "service_now_configuration")
 
     @service_now_configuration.setter
-    def service_now_configuration(self, value: Optional[pulumi.Input['DataSourceServiceNowConfigurationArgs']]):
+    def service_now_configuration(self, value: pulumi.Input[Optional['DataSourceServiceNowConfigurationArgs']]):
         pulumi.set(self, "service_now_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="sharePointConfiguration")
-    def share_point_configuration(self) -> Optional[pulumi.Input['DataSourceSharePointConfigurationArgs']]:
+    def share_point_configuration(self) -> pulumi.Input[Optional['DataSourceSharePointConfigurationArgs']]:
         """
         Provides the configuration information to connect to Microsoft SharePoint as your data source.
         """
         return pulumi.get(self, "share_point_configuration")
 
     @share_point_configuration.setter
-    def share_point_configuration(self, value: Optional[pulumi.Input['DataSourceSharePointConfigurationArgs']]):
+    def share_point_configuration(self, value: pulumi.Input[Optional['DataSourceSharePointConfigurationArgs']]):
         pulumi.set(self, "share_point_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="templateConfiguration")
-    def template_configuration(self) -> Optional[pulumi.Input['DataSourceTemplateConfigurationArgs']]:
+    def template_configuration(self) -> pulumi.Input[Optional['DataSourceTemplateConfigurationArgs']]:
         """
         Provides a template for the configuration information to connect to your data source.
         """
         return pulumi.get(self, "template_configuration")
 
     @template_configuration.setter
-    def template_configuration(self, value: Optional[pulumi.Input['DataSourceTemplateConfigurationArgs']]):
+    def template_configuration(self, value: pulumi.Input[Optional['DataSourceTemplateConfigurationArgs']]):
         pulumi.set(self, "template_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="webCrawlerConfiguration")
-    def web_crawler_configuration(self) -> Optional[pulumi.Input['DataSourceWebCrawlerConfigurationArgs']]:
+    def web_crawler_configuration(self) -> pulumi.Input[Optional['DataSourceWebCrawlerConfigurationArgs']]:
         """
         Provides the configuration information required for Amazon Kendra Web Crawler.
         """
         return pulumi.get(self, "web_crawler_configuration")
 
     @web_crawler_configuration.setter
-    def web_crawler_configuration(self, value: Optional[pulumi.Input['DataSourceWebCrawlerConfigurationArgs']]):
+    def web_crawler_configuration(self, value: pulumi.Input[Optional['DataSourceWebCrawlerConfigurationArgs']]):
         pulumi.set(self, "web_crawler_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="workDocsConfiguration")
-    def work_docs_configuration(self) -> Optional[pulumi.Input['DataSourceWorkDocsConfigurationArgs']]:
+    def work_docs_configuration(self) -> pulumi.Input[Optional['DataSourceWorkDocsConfigurationArgs']]:
         """
         Provides the configuration information to connect to WorkDocs as your data source.
         """
         return pulumi.get(self, "work_docs_configuration")
 
     @work_docs_configuration.setter
-    def work_docs_configuration(self, value: Optional[pulumi.Input['DataSourceWorkDocsConfigurationArgs']]):
+    def work_docs_configuration(self, value: pulumi.Input[Optional['DataSourceWorkDocsConfigurationArgs']]):
         pulumi.set(self, "work_docs_configuration", value)
 
 
 class DataSourceConfluenceAttachmentConfigurationArgsDict(TypedDict):
-    attachment_field_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataSourceConfluenceAttachmentToIndexFieldMappingArgsDict']]]]
+    attachment_field_mappings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceConfluenceAttachmentToIndexFieldMappingArgs']]]]]
     """
     Maps attributes or field names of Confluence attachments to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to Confluence fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The Confluence data source field names must exist in your Confluence custom metadata.
 
     If you specify the `AttachentFieldMappings` parameter, you must specify at least one field mapping.
     """
-    crawl_attachments: NotRequired[pulumi.Input[_builtins.bool]]
+    crawl_attachments: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     `TRUE` to index attachments of pages and blogs in Confluence.
     """
@@ -569,8 +569,8 @@ class DataSourceConfluenceAttachmentConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class DataSourceConfluenceAttachmentConfigurationArgs:
     def __init__(__self__, *,
-                 attachment_field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceConfluenceAttachmentToIndexFieldMappingArgs']]]] = None,
-                 crawl_attachments: Optional[pulumi.Input[_builtins.bool]] = None):
+                 attachment_field_mappings: pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceConfluenceAttachmentToIndexFieldMappingArgs']]]] = None,
+                 crawl_attachments: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['DataSourceConfluenceAttachmentToIndexFieldMappingArgs']]] attachment_field_mappings: Maps attributes or field names of Confluence attachments to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to Confluence fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The Confluence data source field names must exist in your Confluence custom metadata.
                
@@ -584,7 +584,7 @@ class DataSourceConfluenceAttachmentConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="attachmentFieldMappings")
-    def attachment_field_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceConfluenceAttachmentToIndexFieldMappingArgs']]]]:
+    def attachment_field_mappings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceConfluenceAttachmentToIndexFieldMappingArgs']]]]:
         """
         Maps attributes or field names of Confluence attachments to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to Confluence fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The Confluence data source field names must exist in your Confluence custom metadata.
 
@@ -593,33 +593,33 @@ class DataSourceConfluenceAttachmentConfigurationArgs:
         return pulumi.get(self, "attachment_field_mappings")
 
     @attachment_field_mappings.setter
-    def attachment_field_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceConfluenceAttachmentToIndexFieldMappingArgs']]]]):
+    def attachment_field_mappings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceConfluenceAttachmentToIndexFieldMappingArgs']]]]):
         pulumi.set(self, "attachment_field_mappings", value)
 
     @_builtins.property
     @pulumi.getter(name="crawlAttachments")
-    def crawl_attachments(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def crawl_attachments(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         `TRUE` to index attachments of pages and blogs in Confluence.
         """
         return pulumi.get(self, "crawl_attachments")
 
     @crawl_attachments.setter
-    def crawl_attachments(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def crawl_attachments(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "crawl_attachments", value)
 
 
 class DataSourceConfluenceAttachmentToIndexFieldMappingArgsDict(TypedDict):
     data_source_field_name: pulumi.Input['DataSourceConfluenceAttachmentFieldName']
     index_field_name: pulumi.Input[_builtins.str]
-    date_field_format: NotRequired[pulumi.Input[_builtins.str]]
+    date_field_format: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class DataSourceConfluenceAttachmentToIndexFieldMappingArgs:
     def __init__(__self__, *,
                  data_source_field_name: pulumi.Input['DataSourceConfluenceAttachmentFieldName'],
                  index_field_name: pulumi.Input[_builtins.str],
-                 date_field_format: Optional[pulumi.Input[_builtins.str]] = None):
+                 date_field_format: pulumi.Input[Optional[_builtins.str]] = None):
         pulumi.set(__self__, "data_source_field_name", data_source_field_name)
         pulumi.set(__self__, "index_field_name", index_field_name)
         if date_field_format is not None:
@@ -645,16 +645,16 @@ class DataSourceConfluenceAttachmentToIndexFieldMappingArgs:
 
     @_builtins.property
     @pulumi.getter(name="dateFieldFormat")
-    def date_field_format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def date_field_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "date_field_format")
 
     @date_field_format.setter
-    def date_field_format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def date_field_format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "date_field_format", value)
 
 
 class DataSourceConfluenceBlogConfigurationArgsDict(TypedDict):
-    blog_field_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataSourceConfluenceBlogToIndexFieldMappingArgsDict']]]]
+    blog_field_mappings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceConfluenceBlogToIndexFieldMappingArgs']]]]]
     """
     Maps attributes or field names of Confluence blogs to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to Confluence fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The Confluence data source field names must exist in your Confluence custom metadata.
 
@@ -664,7 +664,7 @@ class DataSourceConfluenceBlogConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class DataSourceConfluenceBlogConfigurationArgs:
     def __init__(__self__, *,
-                 blog_field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceConfluenceBlogToIndexFieldMappingArgs']]]] = None):
+                 blog_field_mappings: pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceConfluenceBlogToIndexFieldMappingArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['DataSourceConfluenceBlogToIndexFieldMappingArgs']]] blog_field_mappings: Maps attributes or field names of Confluence blogs to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to Confluence fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The Confluence data source field names must exist in your Confluence custom metadata.
                
@@ -675,7 +675,7 @@ class DataSourceConfluenceBlogConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="blogFieldMappings")
-    def blog_field_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceConfluenceBlogToIndexFieldMappingArgs']]]]:
+    def blog_field_mappings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceConfluenceBlogToIndexFieldMappingArgs']]]]:
         """
         Maps attributes or field names of Confluence blogs to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to Confluence fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The Confluence data source field names must exist in your Confluence custom metadata.
 
@@ -684,21 +684,21 @@ class DataSourceConfluenceBlogConfigurationArgs:
         return pulumi.get(self, "blog_field_mappings")
 
     @blog_field_mappings.setter
-    def blog_field_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceConfluenceBlogToIndexFieldMappingArgs']]]]):
+    def blog_field_mappings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceConfluenceBlogToIndexFieldMappingArgs']]]]):
         pulumi.set(self, "blog_field_mappings", value)
 
 
 class DataSourceConfluenceBlogToIndexFieldMappingArgsDict(TypedDict):
     data_source_field_name: pulumi.Input['DataSourceConfluenceBlogFieldName']
     index_field_name: pulumi.Input[_builtins.str]
-    date_field_format: NotRequired[pulumi.Input[_builtins.str]]
+    date_field_format: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class DataSourceConfluenceBlogToIndexFieldMappingArgs:
     def __init__(__self__, *,
                  data_source_field_name: pulumi.Input['DataSourceConfluenceBlogFieldName'],
                  index_field_name: pulumi.Input[_builtins.str],
-                 date_field_format: Optional[pulumi.Input[_builtins.str]] = None):
+                 date_field_format: pulumi.Input[Optional[_builtins.str]] = None):
         pulumi.set(__self__, "data_source_field_name", data_source_field_name)
         pulumi.set(__self__, "index_field_name", index_field_name)
         if date_field_format is not None:
@@ -724,11 +724,11 @@ class DataSourceConfluenceBlogToIndexFieldMappingArgs:
 
     @_builtins.property
     @pulumi.getter(name="dateFieldFormat")
-    def date_field_format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def date_field_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "date_field_format")
 
     @date_field_format.setter
-    def date_field_format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def date_field_format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "date_field_format", value)
 
 
@@ -747,31 +747,31 @@ class DataSourceConfluenceConfigurationArgsDict(TypedDict):
     """
     The version or the type of Confluence installation to connect to.
     """
-    attachment_configuration: NotRequired[pulumi.Input['DataSourceConfluenceAttachmentConfigurationArgsDict']]
+    attachment_configuration: NotRequired[pulumi.Input[Optional['DataSourceConfluenceAttachmentConfigurationArgs']]]
     """
     Configuration information for indexing attachments to Confluence blogs and pages.
     """
-    blog_configuration: NotRequired[pulumi.Input['DataSourceConfluenceBlogConfigurationArgsDict']]
+    blog_configuration: NotRequired[pulumi.Input[Optional['DataSourceConfluenceBlogConfigurationArgs']]]
     """
     Configuration information for indexing Confluence blogs.
     """
-    exclusion_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    exclusion_patterns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of regular expression patterns to exclude certain blog posts, pages, spaces, or attachments in your Confluence. Content that matches the patterns are excluded from the index. Content that doesn't match the patterns is included in the index. If content matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the content isn't included in the index.
     """
-    inclusion_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    inclusion_patterns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of regular expression patterns to include certain blog posts, pages, spaces, or attachments in your Confluence. Content that matches the patterns are included in the index. Content that doesn't match the patterns is excluded from the index. If content matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the content isn't included in the index.
     """
-    page_configuration: NotRequired[pulumi.Input['DataSourceConfluencePageConfigurationArgsDict']]
+    page_configuration: NotRequired[pulumi.Input[Optional['DataSourceConfluencePageConfigurationArgs']]]
     """
     Configuration information for indexing Confluence pages.
     """
-    space_configuration: NotRequired[pulumi.Input['DataSourceConfluenceSpaceConfigurationArgsDict']]
+    space_configuration: NotRequired[pulumi.Input[Optional['DataSourceConfluenceSpaceConfigurationArgs']]]
     """
     Configuration information for indexing Confluence spaces.
     """
-    vpc_configuration: NotRequired[pulumi.Input['DataSourceVpcConfigurationArgsDict']]
+    vpc_configuration: NotRequired[pulumi.Input[Optional['DataSourceVpcConfigurationArgs']]]
     """
     Configuration information for an Amazon Virtual Private Cloud to connect to your Confluence. For more information, see [Configuring a VPC](https://docs.aws.amazon.com/kendra/latest/dg/vpc-configuration.html) .
     """
@@ -782,13 +782,13 @@ class DataSourceConfluenceConfigurationArgs:
                  secret_arn: pulumi.Input[_builtins.str],
                  server_url: pulumi.Input[_builtins.str],
                  version: pulumi.Input['DataSourceConfluenceVersion'],
-                 attachment_configuration: Optional[pulumi.Input['DataSourceConfluenceAttachmentConfigurationArgs']] = None,
-                 blog_configuration: Optional[pulumi.Input['DataSourceConfluenceBlogConfigurationArgs']] = None,
-                 exclusion_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 inclusion_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 page_configuration: Optional[pulumi.Input['DataSourceConfluencePageConfigurationArgs']] = None,
-                 space_configuration: Optional[pulumi.Input['DataSourceConfluenceSpaceConfigurationArgs']] = None,
-                 vpc_configuration: Optional[pulumi.Input['DataSourceVpcConfigurationArgs']] = None):
+                 attachment_configuration: pulumi.Input[Optional['DataSourceConfluenceAttachmentConfigurationArgs']] = None,
+                 blog_configuration: pulumi.Input[Optional['DataSourceConfluenceBlogConfigurationArgs']] = None,
+                 exclusion_patterns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 inclusion_patterns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 page_configuration: pulumi.Input[Optional['DataSourceConfluencePageConfigurationArgs']] = None,
+                 space_configuration: pulumi.Input[Optional['DataSourceConfluenceSpaceConfigurationArgs']] = None,
+                 vpc_configuration: pulumi.Input[Optional['DataSourceVpcConfigurationArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] secret_arn: The Amazon Resource Name (ARN) of an AWS Secrets Manager secret that contains the user name and password required to connect to the Confluence instance. If you use Confluence Cloud, you use a generated API token as the password.
                
@@ -861,91 +861,91 @@ class DataSourceConfluenceConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="attachmentConfiguration")
-    def attachment_configuration(self) -> Optional[pulumi.Input['DataSourceConfluenceAttachmentConfigurationArgs']]:
+    def attachment_configuration(self) -> pulumi.Input[Optional['DataSourceConfluenceAttachmentConfigurationArgs']]:
         """
         Configuration information for indexing attachments to Confluence blogs and pages.
         """
         return pulumi.get(self, "attachment_configuration")
 
     @attachment_configuration.setter
-    def attachment_configuration(self, value: Optional[pulumi.Input['DataSourceConfluenceAttachmentConfigurationArgs']]):
+    def attachment_configuration(self, value: pulumi.Input[Optional['DataSourceConfluenceAttachmentConfigurationArgs']]):
         pulumi.set(self, "attachment_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="blogConfiguration")
-    def blog_configuration(self) -> Optional[pulumi.Input['DataSourceConfluenceBlogConfigurationArgs']]:
+    def blog_configuration(self) -> pulumi.Input[Optional['DataSourceConfluenceBlogConfigurationArgs']]:
         """
         Configuration information for indexing Confluence blogs.
         """
         return pulumi.get(self, "blog_configuration")
 
     @blog_configuration.setter
-    def blog_configuration(self, value: Optional[pulumi.Input['DataSourceConfluenceBlogConfigurationArgs']]):
+    def blog_configuration(self, value: pulumi.Input[Optional['DataSourceConfluenceBlogConfigurationArgs']]):
         pulumi.set(self, "blog_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="exclusionPatterns")
-    def exclusion_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def exclusion_patterns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of regular expression patterns to exclude certain blog posts, pages, spaces, or attachments in your Confluence. Content that matches the patterns are excluded from the index. Content that doesn't match the patterns is included in the index. If content matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the content isn't included in the index.
         """
         return pulumi.get(self, "exclusion_patterns")
 
     @exclusion_patterns.setter
-    def exclusion_patterns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def exclusion_patterns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "exclusion_patterns", value)
 
     @_builtins.property
     @pulumi.getter(name="inclusionPatterns")
-    def inclusion_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def inclusion_patterns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of regular expression patterns to include certain blog posts, pages, spaces, or attachments in your Confluence. Content that matches the patterns are included in the index. Content that doesn't match the patterns is excluded from the index. If content matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the content isn't included in the index.
         """
         return pulumi.get(self, "inclusion_patterns")
 
     @inclusion_patterns.setter
-    def inclusion_patterns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def inclusion_patterns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "inclusion_patterns", value)
 
     @_builtins.property
     @pulumi.getter(name="pageConfiguration")
-    def page_configuration(self) -> Optional[pulumi.Input['DataSourceConfluencePageConfigurationArgs']]:
+    def page_configuration(self) -> pulumi.Input[Optional['DataSourceConfluencePageConfigurationArgs']]:
         """
         Configuration information for indexing Confluence pages.
         """
         return pulumi.get(self, "page_configuration")
 
     @page_configuration.setter
-    def page_configuration(self, value: Optional[pulumi.Input['DataSourceConfluencePageConfigurationArgs']]):
+    def page_configuration(self, value: pulumi.Input[Optional['DataSourceConfluencePageConfigurationArgs']]):
         pulumi.set(self, "page_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="spaceConfiguration")
-    def space_configuration(self) -> Optional[pulumi.Input['DataSourceConfluenceSpaceConfigurationArgs']]:
+    def space_configuration(self) -> pulumi.Input[Optional['DataSourceConfluenceSpaceConfigurationArgs']]:
         """
         Configuration information for indexing Confluence spaces.
         """
         return pulumi.get(self, "space_configuration")
 
     @space_configuration.setter
-    def space_configuration(self, value: Optional[pulumi.Input['DataSourceConfluenceSpaceConfigurationArgs']]):
+    def space_configuration(self, value: pulumi.Input[Optional['DataSourceConfluenceSpaceConfigurationArgs']]):
         pulumi.set(self, "space_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcConfiguration")
-    def vpc_configuration(self) -> Optional[pulumi.Input['DataSourceVpcConfigurationArgs']]:
+    def vpc_configuration(self) -> pulumi.Input[Optional['DataSourceVpcConfigurationArgs']]:
         """
         Configuration information for an Amazon Virtual Private Cloud to connect to your Confluence. For more information, see [Configuring a VPC](https://docs.aws.amazon.com/kendra/latest/dg/vpc-configuration.html) .
         """
         return pulumi.get(self, "vpc_configuration")
 
     @vpc_configuration.setter
-    def vpc_configuration(self, value: Optional[pulumi.Input['DataSourceVpcConfigurationArgs']]):
+    def vpc_configuration(self, value: pulumi.Input[Optional['DataSourceVpcConfigurationArgs']]):
         pulumi.set(self, "vpc_configuration", value)
 
 
 class DataSourceConfluencePageConfigurationArgsDict(TypedDict):
-    page_field_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataSourceConfluencePageToIndexFieldMappingArgsDict']]]]
+    page_field_mappings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceConfluencePageToIndexFieldMappingArgs']]]]]
     """
     Maps attributes or field names of Confluence pages to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to Confluence fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The Confluence data source field names must exist in your Confluence custom metadata.
 
@@ -955,7 +955,7 @@ class DataSourceConfluencePageConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class DataSourceConfluencePageConfigurationArgs:
     def __init__(__self__, *,
-                 page_field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceConfluencePageToIndexFieldMappingArgs']]]] = None):
+                 page_field_mappings: pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceConfluencePageToIndexFieldMappingArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['DataSourceConfluencePageToIndexFieldMappingArgs']]] page_field_mappings: Maps attributes or field names of Confluence pages to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to Confluence fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The Confluence data source field names must exist in your Confluence custom metadata.
                
@@ -966,7 +966,7 @@ class DataSourceConfluencePageConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="pageFieldMappings")
-    def page_field_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceConfluencePageToIndexFieldMappingArgs']]]]:
+    def page_field_mappings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceConfluencePageToIndexFieldMappingArgs']]]]:
         """
         Maps attributes or field names of Confluence pages to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to Confluence fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The Confluence data source field names must exist in your Confluence custom metadata.
 
@@ -975,21 +975,21 @@ class DataSourceConfluencePageConfigurationArgs:
         return pulumi.get(self, "page_field_mappings")
 
     @page_field_mappings.setter
-    def page_field_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceConfluencePageToIndexFieldMappingArgs']]]]):
+    def page_field_mappings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceConfluencePageToIndexFieldMappingArgs']]]]):
         pulumi.set(self, "page_field_mappings", value)
 
 
 class DataSourceConfluencePageToIndexFieldMappingArgsDict(TypedDict):
     data_source_field_name: pulumi.Input['DataSourceConfluencePageFieldName']
     index_field_name: pulumi.Input[_builtins.str]
-    date_field_format: NotRequired[pulumi.Input[_builtins.str]]
+    date_field_format: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class DataSourceConfluencePageToIndexFieldMappingArgs:
     def __init__(__self__, *,
                  data_source_field_name: pulumi.Input['DataSourceConfluencePageFieldName'],
                  index_field_name: pulumi.Input[_builtins.str],
-                 date_field_format: Optional[pulumi.Input[_builtins.str]] = None):
+                 date_field_format: pulumi.Input[Optional[_builtins.str]] = None):
         pulumi.set(__self__, "data_source_field_name", data_source_field_name)
         pulumi.set(__self__, "index_field_name", index_field_name)
         if date_field_format is not None:
@@ -1015,32 +1015,32 @@ class DataSourceConfluencePageToIndexFieldMappingArgs:
 
     @_builtins.property
     @pulumi.getter(name="dateFieldFormat")
-    def date_field_format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def date_field_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "date_field_format")
 
     @date_field_format.setter
-    def date_field_format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def date_field_format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "date_field_format", value)
 
 
 class DataSourceConfluenceSpaceConfigurationArgsDict(TypedDict):
-    crawl_archived_spaces: NotRequired[pulumi.Input[_builtins.bool]]
+    crawl_archived_spaces: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     `TRUE` to index archived spaces.
     """
-    crawl_personal_spaces: NotRequired[pulumi.Input[_builtins.bool]]
+    crawl_personal_spaces: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     `TRUE` to index personal spaces. You can add restrictions to items in personal spaces. If personal spaces are indexed, queries without user context information may return restricted items from a personal space in their results. For more information, see [Filtering on user context](https://docs.aws.amazon.com/kendra/latest/dg/user-context-filter.html) .
     """
-    exclude_spaces: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    exclude_spaces: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of space keys of Confluence spaces. If you include a key, the blogs, documents, and attachments in the space are not indexed. If a space is in both the `ExcludeSpaces` and the `IncludeSpaces` list, the space is excluded.
     """
-    include_spaces: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    include_spaces: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of space keys for Confluence spaces. If you include a key, the blogs, documents, and attachments in the space are indexed. Spaces that aren't in the list aren't indexed. A space in the list must exist. Otherwise, Amazon Kendra logs an error when the data source is synchronized. If a space is in both the `IncludeSpaces` and the `ExcludeSpaces` list, the space is excluded.
     """
-    space_field_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataSourceConfluenceSpaceToIndexFieldMappingArgsDict']]]]
+    space_field_mappings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceConfluenceSpaceToIndexFieldMappingArgs']]]]]
     """
     Maps attributes or field names of Confluence spaces to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to Confluence fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The Confluence data source field names must exist in your Confluence custom metadata.
 
@@ -1050,11 +1050,11 @@ class DataSourceConfluenceSpaceConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class DataSourceConfluenceSpaceConfigurationArgs:
     def __init__(__self__, *,
-                 crawl_archived_spaces: Optional[pulumi.Input[_builtins.bool]] = None,
-                 crawl_personal_spaces: Optional[pulumi.Input[_builtins.bool]] = None,
-                 exclude_spaces: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 include_spaces: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 space_field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceConfluenceSpaceToIndexFieldMappingArgs']]]] = None):
+                 crawl_archived_spaces: pulumi.Input[Optional[_builtins.bool]] = None,
+                 crawl_personal_spaces: pulumi.Input[Optional[_builtins.bool]] = None,
+                 exclude_spaces: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 include_spaces: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 space_field_mappings: pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceConfluenceSpaceToIndexFieldMappingArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.bool] crawl_archived_spaces: `TRUE` to index archived spaces.
         :param pulumi.Input[_builtins.bool] crawl_personal_spaces: `TRUE` to index personal spaces. You can add restrictions to items in personal spaces. If personal spaces are indexed, queries without user context information may return restricted items from a personal space in their results. For more information, see [Filtering on user context](https://docs.aws.amazon.com/kendra/latest/dg/user-context-filter.html) .
@@ -1077,55 +1077,55 @@ class DataSourceConfluenceSpaceConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="crawlArchivedSpaces")
-    def crawl_archived_spaces(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def crawl_archived_spaces(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         `TRUE` to index archived spaces.
         """
         return pulumi.get(self, "crawl_archived_spaces")
 
     @crawl_archived_spaces.setter
-    def crawl_archived_spaces(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def crawl_archived_spaces(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "crawl_archived_spaces", value)
 
     @_builtins.property
     @pulumi.getter(name="crawlPersonalSpaces")
-    def crawl_personal_spaces(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def crawl_personal_spaces(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         `TRUE` to index personal spaces. You can add restrictions to items in personal spaces. If personal spaces are indexed, queries without user context information may return restricted items from a personal space in their results. For more information, see [Filtering on user context](https://docs.aws.amazon.com/kendra/latest/dg/user-context-filter.html) .
         """
         return pulumi.get(self, "crawl_personal_spaces")
 
     @crawl_personal_spaces.setter
-    def crawl_personal_spaces(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def crawl_personal_spaces(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "crawl_personal_spaces", value)
 
     @_builtins.property
     @pulumi.getter(name="excludeSpaces")
-    def exclude_spaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def exclude_spaces(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of space keys of Confluence spaces. If you include a key, the blogs, documents, and attachments in the space are not indexed. If a space is in both the `ExcludeSpaces` and the `IncludeSpaces` list, the space is excluded.
         """
         return pulumi.get(self, "exclude_spaces")
 
     @exclude_spaces.setter
-    def exclude_spaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def exclude_spaces(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "exclude_spaces", value)
 
     @_builtins.property
     @pulumi.getter(name="includeSpaces")
-    def include_spaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def include_spaces(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of space keys for Confluence spaces. If you include a key, the blogs, documents, and attachments in the space are indexed. Spaces that aren't in the list aren't indexed. A space in the list must exist. Otherwise, Amazon Kendra logs an error when the data source is synchronized. If a space is in both the `IncludeSpaces` and the `ExcludeSpaces` list, the space is excluded.
         """
         return pulumi.get(self, "include_spaces")
 
     @include_spaces.setter
-    def include_spaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def include_spaces(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "include_spaces", value)
 
     @_builtins.property
     @pulumi.getter(name="spaceFieldMappings")
-    def space_field_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceConfluenceSpaceToIndexFieldMappingArgs']]]]:
+    def space_field_mappings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceConfluenceSpaceToIndexFieldMappingArgs']]]]:
         """
         Maps attributes or field names of Confluence spaces to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to Confluence fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The Confluence data source field names must exist in your Confluence custom metadata.
 
@@ -1134,21 +1134,21 @@ class DataSourceConfluenceSpaceConfigurationArgs:
         return pulumi.get(self, "space_field_mappings")
 
     @space_field_mappings.setter
-    def space_field_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceConfluenceSpaceToIndexFieldMappingArgs']]]]):
+    def space_field_mappings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceConfluenceSpaceToIndexFieldMappingArgs']]]]):
         pulumi.set(self, "space_field_mappings", value)
 
 
 class DataSourceConfluenceSpaceToIndexFieldMappingArgsDict(TypedDict):
     data_source_field_name: pulumi.Input['DataSourceConfluenceSpaceFieldName']
     index_field_name: pulumi.Input[_builtins.str]
-    date_field_format: NotRequired[pulumi.Input[_builtins.str]]
+    date_field_format: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class DataSourceConfluenceSpaceToIndexFieldMappingArgs:
     def __init__(__self__, *,
                  data_source_field_name: pulumi.Input['DataSourceConfluenceSpaceFieldName'],
                  index_field_name: pulumi.Input[_builtins.str],
-                 date_field_format: Optional[pulumi.Input[_builtins.str]] = None):
+                 date_field_format: pulumi.Input[Optional[_builtins.str]] = None):
         pulumi.set(__self__, "data_source_field_name", data_source_field_name)
         pulumi.set(__self__, "index_field_name", index_field_name)
         if date_field_format is not None:
@@ -1174,11 +1174,11 @@ class DataSourceConfluenceSpaceToIndexFieldMappingArgs:
 
     @_builtins.property
     @pulumi.getter(name="dateFieldFormat")
-    def date_field_format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def date_field_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "date_field_format")
 
     @date_field_format.setter
-    def date_field_format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def date_field_format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "date_field_format", value)
 
 
@@ -1287,19 +1287,19 @@ class DataSourceConnectionConfigurationArgs:
 
 
 class DataSourceCustomDocumentEnrichmentConfigurationArgsDict(TypedDict):
-    inline_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataSourceInlineCustomDocumentEnrichmentConfigurationArgsDict']]]]
+    inline_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceInlineCustomDocumentEnrichmentConfigurationArgs']]]]]
     """
     Configuration information to alter document attributes or metadata fields and content when ingesting documents into Amazon Kendra.
     """
-    post_extraction_hook_configuration: NotRequired[pulumi.Input['DataSourceHookConfigurationArgsDict']]
+    post_extraction_hook_configuration: NotRequired[pulumi.Input[Optional['DataSourceHookConfigurationArgs']]]
     """
     Configuration information for invoking a Lambda function in AWS Lambda on the structured documents with their metadata and text extracted. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Advanced data manipulation](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#advanced-data-manipulation) .
     """
-    pre_extraction_hook_configuration: NotRequired[pulumi.Input['DataSourceHookConfigurationArgsDict']]
+    pre_extraction_hook_configuration: NotRequired[pulumi.Input[Optional['DataSourceHookConfigurationArgs']]]
     """
     Configuration information for invoking a Lambda function in AWS Lambda on the original or raw documents before extracting their metadata and text. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Advanced data manipulation](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#advanced-data-manipulation) .
     """
-    role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon Resource Name (ARN) of an IAM role with permission to run `PreExtractionHookConfiguration` and `PostExtractionHookConfiguration` for altering document metadata and content during the document ingestion process. For more information, see [an IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html) .
     """
@@ -1307,10 +1307,10 @@ class DataSourceCustomDocumentEnrichmentConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class DataSourceCustomDocumentEnrichmentConfigurationArgs:
     def __init__(__self__, *,
-                 inline_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceInlineCustomDocumentEnrichmentConfigurationArgs']]]] = None,
-                 post_extraction_hook_configuration: Optional[pulumi.Input['DataSourceHookConfigurationArgs']] = None,
-                 pre_extraction_hook_configuration: Optional[pulumi.Input['DataSourceHookConfigurationArgs']] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 inline_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceInlineCustomDocumentEnrichmentConfigurationArgs']]]] = None,
+                 post_extraction_hook_configuration: pulumi.Input[Optional['DataSourceHookConfigurationArgs']] = None,
+                 pre_extraction_hook_configuration: pulumi.Input[Optional['DataSourceHookConfigurationArgs']] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['DataSourceInlineCustomDocumentEnrichmentConfigurationArgs']]] inline_configurations: Configuration information to alter document attributes or metadata fields and content when ingesting documents into Amazon Kendra.
         :param pulumi.Input['DataSourceHookConfigurationArgs'] post_extraction_hook_configuration: Configuration information for invoking a Lambda function in AWS Lambda on the structured documents with their metadata and text extracted. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Advanced data manipulation](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#advanced-data-manipulation) .
@@ -1328,50 +1328,50 @@ class DataSourceCustomDocumentEnrichmentConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="inlineConfigurations")
-    def inline_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceInlineCustomDocumentEnrichmentConfigurationArgs']]]]:
+    def inline_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceInlineCustomDocumentEnrichmentConfigurationArgs']]]]:
         """
         Configuration information to alter document attributes or metadata fields and content when ingesting documents into Amazon Kendra.
         """
         return pulumi.get(self, "inline_configurations")
 
     @inline_configurations.setter
-    def inline_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceInlineCustomDocumentEnrichmentConfigurationArgs']]]]):
+    def inline_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceInlineCustomDocumentEnrichmentConfigurationArgs']]]]):
         pulumi.set(self, "inline_configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="postExtractionHookConfiguration")
-    def post_extraction_hook_configuration(self) -> Optional[pulumi.Input['DataSourceHookConfigurationArgs']]:
+    def post_extraction_hook_configuration(self) -> pulumi.Input[Optional['DataSourceHookConfigurationArgs']]:
         """
         Configuration information for invoking a Lambda function in AWS Lambda on the structured documents with their metadata and text extracted. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Advanced data manipulation](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#advanced-data-manipulation) .
         """
         return pulumi.get(self, "post_extraction_hook_configuration")
 
     @post_extraction_hook_configuration.setter
-    def post_extraction_hook_configuration(self, value: Optional[pulumi.Input['DataSourceHookConfigurationArgs']]):
+    def post_extraction_hook_configuration(self, value: pulumi.Input[Optional['DataSourceHookConfigurationArgs']]):
         pulumi.set(self, "post_extraction_hook_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="preExtractionHookConfiguration")
-    def pre_extraction_hook_configuration(self) -> Optional[pulumi.Input['DataSourceHookConfigurationArgs']]:
+    def pre_extraction_hook_configuration(self) -> pulumi.Input[Optional['DataSourceHookConfigurationArgs']]:
         """
         Configuration information for invoking a Lambda function in AWS Lambda on the original or raw documents before extracting their metadata and text. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Advanced data manipulation](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#advanced-data-manipulation) .
         """
         return pulumi.get(self, "pre_extraction_hook_configuration")
 
     @pre_extraction_hook_configuration.setter
-    def pre_extraction_hook_configuration(self, value: Optional[pulumi.Input['DataSourceHookConfigurationArgs']]):
+    def pre_extraction_hook_configuration(self, value: pulumi.Input[Optional['DataSourceHookConfigurationArgs']]):
         pulumi.set(self, "pre_extraction_hook_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of an IAM role with permission to run `PreExtractionHookConfiguration` and `PostExtractionHookConfiguration` for altering document metadata and content during the document ingestion process. For more information, see [an IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html) .
         """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
-    def role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_arn", value)
 
 
@@ -1388,15 +1388,15 @@ class DataSourceDatabaseConfigurationArgsDict(TypedDict):
     """
     The type of database engine that runs the database.
     """
-    acl_configuration: NotRequired[pulumi.Input['DataSourceAclConfigurationArgsDict']]
+    acl_configuration: NotRequired[pulumi.Input[Optional['DataSourceAclConfigurationArgs']]]
     """
     Information about the database column that provides information for user context filtering.
     """
-    sql_configuration: NotRequired[pulumi.Input['DataSourceSqlConfigurationArgsDict']]
+    sql_configuration: NotRequired[pulumi.Input[Optional['DataSourceSqlConfigurationArgs']]]
     """
     Provides information about how Amazon Kendra uses quote marks around SQL identifiers when querying a database data source.
     """
-    vpc_configuration: NotRequired[pulumi.Input['DataSourceVpcConfigurationArgsDict']]
+    vpc_configuration: NotRequired[pulumi.Input[Optional['DataSourceVpcConfigurationArgs']]]
     """
     Provides information for connecting to an Amazon VPC.
     """
@@ -1407,9 +1407,9 @@ class DataSourceDatabaseConfigurationArgs:
                  column_configuration: pulumi.Input['DataSourceColumnConfigurationArgs'],
                  connection_configuration: pulumi.Input['DataSourceConnectionConfigurationArgs'],
                  database_engine_type: pulumi.Input['DataSourceDatabaseEngineType'],
-                 acl_configuration: Optional[pulumi.Input['DataSourceAclConfigurationArgs']] = None,
-                 sql_configuration: Optional[pulumi.Input['DataSourceSqlConfigurationArgs']] = None,
-                 vpc_configuration: Optional[pulumi.Input['DataSourceVpcConfigurationArgs']] = None):
+                 acl_configuration: pulumi.Input[Optional['DataSourceAclConfigurationArgs']] = None,
+                 sql_configuration: pulumi.Input[Optional['DataSourceSqlConfigurationArgs']] = None,
+                 vpc_configuration: pulumi.Input[Optional['DataSourceVpcConfigurationArgs']] = None):
         """
         :param pulumi.Input['DataSourceColumnConfigurationArgs'] column_configuration: Information about where the index should get the document information from the database.
         :param pulumi.Input['DataSourceConnectionConfigurationArgs'] connection_configuration: Configuration information that's required to connect to a database.
@@ -1466,38 +1466,38 @@ class DataSourceDatabaseConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="aclConfiguration")
-    def acl_configuration(self) -> Optional[pulumi.Input['DataSourceAclConfigurationArgs']]:
+    def acl_configuration(self) -> pulumi.Input[Optional['DataSourceAclConfigurationArgs']]:
         """
         Information about the database column that provides information for user context filtering.
         """
         return pulumi.get(self, "acl_configuration")
 
     @acl_configuration.setter
-    def acl_configuration(self, value: Optional[pulumi.Input['DataSourceAclConfigurationArgs']]):
+    def acl_configuration(self, value: pulumi.Input[Optional['DataSourceAclConfigurationArgs']]):
         pulumi.set(self, "acl_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="sqlConfiguration")
-    def sql_configuration(self) -> Optional[pulumi.Input['DataSourceSqlConfigurationArgs']]:
+    def sql_configuration(self) -> pulumi.Input[Optional['DataSourceSqlConfigurationArgs']]:
         """
         Provides information about how Amazon Kendra uses quote marks around SQL identifiers when querying a database data source.
         """
         return pulumi.get(self, "sql_configuration")
 
     @sql_configuration.setter
-    def sql_configuration(self, value: Optional[pulumi.Input['DataSourceSqlConfigurationArgs']]):
+    def sql_configuration(self, value: pulumi.Input[Optional['DataSourceSqlConfigurationArgs']]):
         pulumi.set(self, "sql_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcConfiguration")
-    def vpc_configuration(self) -> Optional[pulumi.Input['DataSourceVpcConfigurationArgs']]:
+    def vpc_configuration(self) -> pulumi.Input[Optional['DataSourceVpcConfigurationArgs']]:
         """
         Provides information for connecting to an Amazon VPC.
         """
         return pulumi.get(self, "vpc_configuration")
 
     @vpc_configuration.setter
-    def vpc_configuration(self, value: Optional[pulumi.Input['DataSourceVpcConfigurationArgs']]):
+    def vpc_configuration(self, value: pulumi.Input[Optional['DataSourceVpcConfigurationArgs']]):
         pulumi.set(self, "vpc_configuration", value)
 
 
@@ -1516,7 +1516,7 @@ class DataSourceDocumentAttributeConditionArgsDict(TypedDict):
 
     For example, you can use 'Contains' to partially match a string.
     """
-    condition_on_value: NotRequired[pulumi.Input['DataSourceDocumentAttributeValueArgsDict']]
+    condition_on_value: NotRequired[pulumi.Input[Optional['DataSourceDocumentAttributeValueArgs']]]
     """
     The value used by the operator.
 
@@ -1528,7 +1528,7 @@ class DataSourceDocumentAttributeConditionArgs:
     def __init__(__self__, *,
                  condition_document_attribute_key: pulumi.Input[_builtins.str],
                  operator: pulumi.Input['DataSourceConditionOperator'],
-                 condition_on_value: Optional[pulumi.Input['DataSourceDocumentAttributeValueArgs']] = None):
+                 condition_on_value: pulumi.Input[Optional['DataSourceDocumentAttributeValueArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] condition_document_attribute_key: The identifier of the document attribute used for the condition.
                
@@ -1579,7 +1579,7 @@ class DataSourceDocumentAttributeConditionArgs:
 
     @_builtins.property
     @pulumi.getter(name="conditionOnValue")
-    def condition_on_value(self) -> Optional[pulumi.Input['DataSourceDocumentAttributeValueArgs']]:
+    def condition_on_value(self) -> pulumi.Input[Optional['DataSourceDocumentAttributeValueArgs']]:
         """
         The value used by the operator.
 
@@ -1588,21 +1588,21 @@ class DataSourceDocumentAttributeConditionArgs:
         return pulumi.get(self, "condition_on_value")
 
     @condition_on_value.setter
-    def condition_on_value(self, value: Optional[pulumi.Input['DataSourceDocumentAttributeValueArgs']]):
+    def condition_on_value(self, value: pulumi.Input[Optional['DataSourceDocumentAttributeValueArgs']]):
         pulumi.set(self, "condition_on_value", value)
 
 
 class DataSourceDocumentAttributeTargetArgsDict(TypedDict):
     target_document_attribute_key: pulumi.Input[_builtins.str]
-    target_document_attribute_value: NotRequired[pulumi.Input['DataSourceDocumentAttributeValueArgsDict']]
-    target_document_attribute_value_deletion: NotRequired[pulumi.Input[_builtins.bool]]
+    target_document_attribute_value: NotRequired[pulumi.Input[Optional['DataSourceDocumentAttributeValueArgs']]]
+    target_document_attribute_value_deletion: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
 
 @pulumi.input_type
 class DataSourceDocumentAttributeTargetArgs:
     def __init__(__self__, *,
                  target_document_attribute_key: pulumi.Input[_builtins.str],
-                 target_document_attribute_value: Optional[pulumi.Input['DataSourceDocumentAttributeValueArgs']] = None,
-                 target_document_attribute_value_deletion: Optional[pulumi.Input[_builtins.bool]] = None):
+                 target_document_attribute_value: pulumi.Input[Optional['DataSourceDocumentAttributeValueArgs']] = None,
+                 target_document_attribute_value_deletion: pulumi.Input[Optional[_builtins.bool]] = None):
         pulumi.set(__self__, "target_document_attribute_key", target_document_attribute_key)
         if target_document_attribute_value is not None:
             pulumi.set(__self__, "target_document_attribute_value", target_document_attribute_value)
@@ -1620,39 +1620,39 @@ class DataSourceDocumentAttributeTargetArgs:
 
     @_builtins.property
     @pulumi.getter(name="targetDocumentAttributeValue")
-    def target_document_attribute_value(self) -> Optional[pulumi.Input['DataSourceDocumentAttributeValueArgs']]:
+    def target_document_attribute_value(self) -> pulumi.Input[Optional['DataSourceDocumentAttributeValueArgs']]:
         return pulumi.get(self, "target_document_attribute_value")
 
     @target_document_attribute_value.setter
-    def target_document_attribute_value(self, value: Optional[pulumi.Input['DataSourceDocumentAttributeValueArgs']]):
+    def target_document_attribute_value(self, value: pulumi.Input[Optional['DataSourceDocumentAttributeValueArgs']]):
         pulumi.set(self, "target_document_attribute_value", value)
 
     @_builtins.property
     @pulumi.getter(name="targetDocumentAttributeValueDeletion")
-    def target_document_attribute_value_deletion(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def target_document_attribute_value_deletion(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "target_document_attribute_value_deletion")
 
     @target_document_attribute_value_deletion.setter
-    def target_document_attribute_value_deletion(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def target_document_attribute_value_deletion(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "target_document_attribute_value_deletion", value)
 
 
 class DataSourceDocumentAttributeValueArgsDict(TypedDict):
-    date_value: NotRequired[pulumi.Input[_builtins.str]]
+    date_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A date expressed as an ISO 8601 string.
 
     It is important for the time zone to be included in the ISO 8601 date-time format. For example, 2012-03-25T12:30:10+01:00 is the ISO 8601 date-time format for March 25th 2012 at 12:30PM (plus 10 seconds) in Central European Time.
     """
-    long_value: NotRequired[pulumi.Input[_builtins.int]]
+    long_value: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     A long integer value.
     """
-    string_list_value: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    string_list_value: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of strings. The default maximum length or number of strings is 10.
     """
-    string_value: NotRequired[pulumi.Input[_builtins.str]]
+    string_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string, such as "department".
     """
@@ -1660,10 +1660,10 @@ class DataSourceDocumentAttributeValueArgsDict(TypedDict):
 @pulumi.input_type
 class DataSourceDocumentAttributeValueArgs:
     def __init__(__self__, *,
-                 date_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 long_value: Optional[pulumi.Input[_builtins.int]] = None,
-                 string_list_value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 string_value: Optional[pulumi.Input[_builtins.str]] = None):
+                 date_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 long_value: pulumi.Input[Optional[_builtins.int]] = None,
+                 string_list_value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 string_value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] date_value: A date expressed as an ISO 8601 string.
                
@@ -1683,7 +1683,7 @@ class DataSourceDocumentAttributeValueArgs:
 
     @_builtins.property
     @pulumi.getter(name="dateValue")
-    def date_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def date_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A date expressed as an ISO 8601 string.
 
@@ -1692,48 +1692,48 @@ class DataSourceDocumentAttributeValueArgs:
         return pulumi.get(self, "date_value")
 
     @date_value.setter
-    def date_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def date_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "date_value", value)
 
     @_builtins.property
     @pulumi.getter(name="longValue")
-    def long_value(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def long_value(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         A long integer value.
         """
         return pulumi.get(self, "long_value")
 
     @long_value.setter
-    def long_value(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def long_value(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "long_value", value)
 
     @_builtins.property
     @pulumi.getter(name="stringListValue")
-    def string_list_value(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def string_list_value(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of strings. The default maximum length or number of strings is 10.
         """
         return pulumi.get(self, "string_list_value")
 
     @string_list_value.setter
-    def string_list_value(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def string_list_value(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "string_list_value", value)
 
     @_builtins.property
     @pulumi.getter(name="stringValue")
-    def string_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def string_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string, such as "department".
         """
         return pulumi.get(self, "string_value")
 
     @string_value.setter
-    def string_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def string_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "string_value", value)
 
 
 class DataSourceDocumentsMetadataConfigurationArgsDict(TypedDict):
-    s3_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    s3_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A prefix used to filter metadata configuration files in the AWS S3 bucket. The S3 bucket might contain multiple metadata files. Use `S3Prefix` to include only the desired metadata files.
     """
@@ -1741,7 +1741,7 @@ class DataSourceDocumentsMetadataConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class DataSourceDocumentsMetadataConfigurationArgs:
     def __init__(__self__, *,
-                 s3_prefix: Optional[pulumi.Input[_builtins.str]] = None):
+                 s3_prefix: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] s3_prefix: A prefix used to filter metadata configuration files in the AWS S3 bucket. The S3 bucket might contain multiple metadata files. Use `S3Prefix` to include only the desired metadata files.
         """
@@ -1750,14 +1750,14 @@ class DataSourceDocumentsMetadataConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="s3Prefix")
-    def s3_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def s3_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A prefix used to filter metadata configuration files in the AWS S3 bucket. The S3 bucket might contain multiple metadata files. Use `S3Prefix` to include only the desired metadata files.
         """
         return pulumi.get(self, "s3_prefix")
 
     @s3_prefix.setter
-    def s3_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def s3_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "s3_prefix", value)
 
 
@@ -1766,29 +1766,29 @@ class DataSourceGoogleDriveConfigurationArgsDict(TypedDict):
     """
     The Amazon Resource Name (ARN) of a AWS Secrets Manager secret that contains the credentials required to connect to Google Drive. For more information, see [Using a Google Workspace Drive data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-google-drive.html) .
     """
-    exclude_mime_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    exclude_mime_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of MIME types to exclude from the index. All documents matching the specified MIME type are excluded.
 
     For a list of MIME types, see [Using a Google Workspace Drive data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-google-drive.html) .
     """
-    exclude_shared_drives: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    exclude_shared_drives: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of identifiers or shared drives to exclude from the index. All files and folders stored on the shared drive are excluded.
     """
-    exclude_user_accounts: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    exclude_user_accounts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of email addresses of the users. Documents owned by these users are excluded from the index. Documents shared with excluded users are indexed unless they are excluded in another way.
     """
-    exclusion_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    exclusion_patterns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of regular expression patterns to exclude certain items in your Google Drive, including shared drives and users' My Drives. Items that match the patterns are excluded from the index. Items that don't match the patterns are included in the index. If an item matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the item isn't included in the index.
     """
-    field_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgsDict']]]]
+    field_mappings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]]
     """
     Maps Google Drive data source attributes or field names to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to Google Drive fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The Google Drive data source field names must exist in your Google Drive custom metadata.
     """
-    inclusion_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    inclusion_patterns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of regular expression patterns to include certain items in your Google Drive, including shared drives and users' My Drives. Items that match the patterns are included in the index. Items that don't match the patterns are excluded from the index. If an item matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the item isn't included in the index.
     """
@@ -1797,12 +1797,12 @@ class DataSourceGoogleDriveConfigurationArgsDict(TypedDict):
 class DataSourceGoogleDriveConfigurationArgs:
     def __init__(__self__, *,
                  secret_arn: pulumi.Input[_builtins.str],
-                 exclude_mime_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 exclude_shared_drives: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 exclude_user_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 exclusion_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]] = None,
-                 inclusion_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 exclude_mime_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 exclude_shared_drives: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 exclude_user_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 exclusion_patterns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 field_mappings: pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]] = None,
+                 inclusion_patterns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] secret_arn: The Amazon Resource Name (ARN) of a AWS Secrets Manager secret that contains the credentials required to connect to Google Drive. For more information, see [Using a Google Workspace Drive data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-google-drive.html) .
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] exclude_mime_types: A list of MIME types to exclude from the index. All documents matching the specified MIME type are excluded.
@@ -1842,7 +1842,7 @@ class DataSourceGoogleDriveConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="excludeMimeTypes")
-    def exclude_mime_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def exclude_mime_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of MIME types to exclude from the index. All documents matching the specified MIME type are excluded.
 
@@ -1851,67 +1851,67 @@ class DataSourceGoogleDriveConfigurationArgs:
         return pulumi.get(self, "exclude_mime_types")
 
     @exclude_mime_types.setter
-    def exclude_mime_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def exclude_mime_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "exclude_mime_types", value)
 
     @_builtins.property
     @pulumi.getter(name="excludeSharedDrives")
-    def exclude_shared_drives(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def exclude_shared_drives(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of identifiers or shared drives to exclude from the index. All files and folders stored on the shared drive are excluded.
         """
         return pulumi.get(self, "exclude_shared_drives")
 
     @exclude_shared_drives.setter
-    def exclude_shared_drives(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def exclude_shared_drives(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "exclude_shared_drives", value)
 
     @_builtins.property
     @pulumi.getter(name="excludeUserAccounts")
-    def exclude_user_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def exclude_user_accounts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of email addresses of the users. Documents owned by these users are excluded from the index. Documents shared with excluded users are indexed unless they are excluded in another way.
         """
         return pulumi.get(self, "exclude_user_accounts")
 
     @exclude_user_accounts.setter
-    def exclude_user_accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def exclude_user_accounts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "exclude_user_accounts", value)
 
     @_builtins.property
     @pulumi.getter(name="exclusionPatterns")
-    def exclusion_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def exclusion_patterns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of regular expression patterns to exclude certain items in your Google Drive, including shared drives and users' My Drives. Items that match the patterns are excluded from the index. Items that don't match the patterns are included in the index. If an item matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the item isn't included in the index.
         """
         return pulumi.get(self, "exclusion_patterns")
 
     @exclusion_patterns.setter
-    def exclusion_patterns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def exclusion_patterns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "exclusion_patterns", value)
 
     @_builtins.property
     @pulumi.getter(name="fieldMappings")
-    def field_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]:
+    def field_mappings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]:
         """
         Maps Google Drive data source attributes or field names to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to Google Drive fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The Google Drive data source field names must exist in your Google Drive custom metadata.
         """
         return pulumi.get(self, "field_mappings")
 
     @field_mappings.setter
-    def field_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]):
+    def field_mappings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]):
         pulumi.set(self, "field_mappings", value)
 
     @_builtins.property
     @pulumi.getter(name="inclusionPatterns")
-    def inclusion_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def inclusion_patterns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of regular expression patterns to include certain items in your Google Drive, including shared drives and users' My Drives. Items that match the patterns are included in the index. Items that don't match the patterns are excluded from the index. If an item matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the item isn't included in the index.
         """
         return pulumi.get(self, "inclusion_patterns")
 
     @inclusion_patterns.setter
-    def inclusion_patterns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def inclusion_patterns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "inclusion_patterns", value)
 
 
@@ -1924,7 +1924,7 @@ class DataSourceHookConfigurationArgsDict(TypedDict):
     """
     Stores the original, raw documents or the structured, parsed documents before and after altering them. For more information, see [Data contracts for Lambda functions](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#cde-data-contracts-lambda) .
     """
-    invocation_condition: NotRequired[pulumi.Input['DataSourceDocumentAttributeConditionArgsDict']]
+    invocation_condition: NotRequired[pulumi.Input[Optional['DataSourceDocumentAttributeConditionArgs']]]
     """
     The condition used for when a Lambda function should be invoked.
 
@@ -1936,7 +1936,7 @@ class DataSourceHookConfigurationArgs:
     def __init__(__self__, *,
                  lambda_arn: pulumi.Input[_builtins.str],
                  s3_bucket: pulumi.Input[_builtins.str],
-                 invocation_condition: Optional[pulumi.Input['DataSourceDocumentAttributeConditionArgs']] = None):
+                 invocation_condition: pulumi.Input[Optional['DataSourceDocumentAttributeConditionArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] lambda_arn: The Amazon Resource Name (ARN) of an IAM role with permission to run a Lambda function during ingestion. For more information, see [an IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html) .
         :param pulumi.Input[_builtins.str] s3_bucket: Stores the original, raw documents or the structured, parsed documents before and after altering them. For more information, see [Data contracts for Lambda functions](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#cde-data-contracts-lambda) .
@@ -1975,7 +1975,7 @@ class DataSourceHookConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="invocationCondition")
-    def invocation_condition(self) -> Optional[pulumi.Input['DataSourceDocumentAttributeConditionArgs']]:
+    def invocation_condition(self) -> pulumi.Input[Optional['DataSourceDocumentAttributeConditionArgs']]:
         """
         The condition used for when a Lambda function should be invoked.
 
@@ -1984,21 +1984,21 @@ class DataSourceHookConfigurationArgs:
         return pulumi.get(self, "invocation_condition")
 
     @invocation_condition.setter
-    def invocation_condition(self, value: Optional[pulumi.Input['DataSourceDocumentAttributeConditionArgs']]):
+    def invocation_condition(self, value: pulumi.Input[Optional['DataSourceDocumentAttributeConditionArgs']]):
         pulumi.set(self, "invocation_condition", value)
 
 
 class DataSourceInlineCustomDocumentEnrichmentConfigurationArgsDict(TypedDict):
-    condition: NotRequired[pulumi.Input['DataSourceDocumentAttributeConditionArgsDict']]
-    document_content_deletion: NotRequired[pulumi.Input[_builtins.bool]]
-    target: NotRequired[pulumi.Input['DataSourceDocumentAttributeTargetArgsDict']]
+    condition: NotRequired[pulumi.Input[Optional['DataSourceDocumentAttributeConditionArgs']]]
+    document_content_deletion: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    target: NotRequired[pulumi.Input[Optional['DataSourceDocumentAttributeTargetArgs']]]
 
 @pulumi.input_type
 class DataSourceInlineCustomDocumentEnrichmentConfigurationArgs:
     def __init__(__self__, *,
-                 condition: Optional[pulumi.Input['DataSourceDocumentAttributeConditionArgs']] = None,
-                 document_content_deletion: Optional[pulumi.Input[_builtins.bool]] = None,
-                 target: Optional[pulumi.Input['DataSourceDocumentAttributeTargetArgs']] = None):
+                 condition: pulumi.Input[Optional['DataSourceDocumentAttributeConditionArgs']] = None,
+                 document_content_deletion: pulumi.Input[Optional[_builtins.bool]] = None,
+                 target: pulumi.Input[Optional['DataSourceDocumentAttributeTargetArgs']] = None):
         if condition is not None:
             pulumi.set(__self__, "condition", condition)
         if document_content_deletion is not None:
@@ -2008,29 +2008,29 @@ class DataSourceInlineCustomDocumentEnrichmentConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def condition(self) -> Optional[pulumi.Input['DataSourceDocumentAttributeConditionArgs']]:
+    def condition(self) -> pulumi.Input[Optional['DataSourceDocumentAttributeConditionArgs']]:
         return pulumi.get(self, "condition")
 
     @condition.setter
-    def condition(self, value: Optional[pulumi.Input['DataSourceDocumentAttributeConditionArgs']]):
+    def condition(self, value: pulumi.Input[Optional['DataSourceDocumentAttributeConditionArgs']]):
         pulumi.set(self, "condition", value)
 
     @_builtins.property
     @pulumi.getter(name="documentContentDeletion")
-    def document_content_deletion(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def document_content_deletion(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "document_content_deletion")
 
     @document_content_deletion.setter
-    def document_content_deletion(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def document_content_deletion(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "document_content_deletion", value)
 
     @_builtins.property
     @pulumi.getter
-    def target(self) -> Optional[pulumi.Input['DataSourceDocumentAttributeTargetArgs']]:
+    def target(self) -> pulumi.Input[Optional['DataSourceDocumentAttributeTargetArgs']]:
         return pulumi.get(self, "target")
 
     @target.setter
-    def target(self, value: Optional[pulumi.Input['DataSourceDocumentAttributeTargetArgs']]):
+    def target(self, value: pulumi.Input[Optional['DataSourceDocumentAttributeTargetArgs']]):
         pulumi.set(self, "target", value)
 
 
@@ -2047,21 +2047,21 @@ class DataSourceOneDriveConfigurationArgsDict(TypedDict):
     """
     The Azure Active Directory domain of the organization.
     """
-    disable_local_groups: NotRequired[pulumi.Input[_builtins.bool]]
+    disable_local_groups: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     `TRUE` to disable local groups information.
     """
-    exclusion_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    exclusion_patterns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of regular expression patterns to exclude certain documents in your OneDrive. Documents that match the patterns are excluded from the index. Documents that don't match the patterns are included in the index. If a document matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the document isn't included in the index.
 
     The pattern is applied to the file name.
     """
-    field_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgsDict']]]]
+    field_mappings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]]
     """
     A list of `DataSourceToIndexFieldMapping` objects that map OneDrive data source attributes or field names to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to OneDrive fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The OneDrive data source field names must exist in your OneDrive custom metadata.
     """
-    inclusion_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    inclusion_patterns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of regular expression patterns to include certain documents in your OneDrive. Documents that match the patterns are included in the index. Documents that don't match the patterns are excluded from the index. If a document matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the document isn't included in the index.
 
@@ -2074,10 +2074,10 @@ class DataSourceOneDriveConfigurationArgs:
                  one_drive_users: pulumi.Input['DataSourceOneDriveUsersArgs'],
                  secret_arn: pulumi.Input[_builtins.str],
                  tenant_domain: pulumi.Input[_builtins.str],
-                 disable_local_groups: Optional[pulumi.Input[_builtins.bool]] = None,
-                 exclusion_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]] = None,
-                 inclusion_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 disable_local_groups: pulumi.Input[Optional[_builtins.bool]] = None,
+                 exclusion_patterns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 field_mappings: pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]] = None,
+                 inclusion_patterns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input['DataSourceOneDriveUsersArgs'] one_drive_users: A list of user accounts whose documents should be indexed.
         :param pulumi.Input[_builtins.str] secret_arn: The Amazon Resource Name (ARN) of an AWS Secrets Manager secret that contains the user name and password to connect to OneDrive. The user name should be the application ID for the OneDrive application, and the password is the application key for the OneDrive application.
@@ -2141,19 +2141,19 @@ class DataSourceOneDriveConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="disableLocalGroups")
-    def disable_local_groups(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_local_groups(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         `TRUE` to disable local groups information.
         """
         return pulumi.get(self, "disable_local_groups")
 
     @disable_local_groups.setter
-    def disable_local_groups(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_local_groups(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_local_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="exclusionPatterns")
-    def exclusion_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def exclusion_patterns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of regular expression patterns to exclude certain documents in your OneDrive. Documents that match the patterns are excluded from the index. Documents that don't match the patterns are included in the index. If a document matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the document isn't included in the index.
 
@@ -2162,24 +2162,24 @@ class DataSourceOneDriveConfigurationArgs:
         return pulumi.get(self, "exclusion_patterns")
 
     @exclusion_patterns.setter
-    def exclusion_patterns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def exclusion_patterns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "exclusion_patterns", value)
 
     @_builtins.property
     @pulumi.getter(name="fieldMappings")
-    def field_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]:
+    def field_mappings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]:
         """
         A list of `DataSourceToIndexFieldMapping` objects that map OneDrive data source attributes or field names to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to OneDrive fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The OneDrive data source field names must exist in your OneDrive custom metadata.
         """
         return pulumi.get(self, "field_mappings")
 
     @field_mappings.setter
-    def field_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]):
+    def field_mappings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]):
         pulumi.set(self, "field_mappings", value)
 
     @_builtins.property
     @pulumi.getter(name="inclusionPatterns")
-    def inclusion_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def inclusion_patterns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of regular expression patterns to include certain documents in your OneDrive. Documents that match the patterns are included in the index. Documents that don't match the patterns are excluded from the index. If a document matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the document isn't included in the index.
 
@@ -2188,16 +2188,16 @@ class DataSourceOneDriveConfigurationArgs:
         return pulumi.get(self, "inclusion_patterns")
 
     @inclusion_patterns.setter
-    def inclusion_patterns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def inclusion_patterns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "inclusion_patterns", value)
 
 
 class DataSourceOneDriveUsersArgsDict(TypedDict):
-    one_drive_user_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    one_drive_user_list: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of users whose documents should be indexed. Specify the user names in email format, for example, `username@tenantdomain` . If you need to index the documents of more than 10 users, use the `OneDriveUserS3Path` field to specify the location of a file containing a list of users.
     """
-    one_drive_user_s3_path: NotRequired[pulumi.Input['DataSourceS3PathArgsDict']]
+    one_drive_user_s3_path: NotRequired[pulumi.Input[Optional['DataSourceS3PathArgs']]]
     """
     The S3 bucket location of a file containing a list of users whose documents should be indexed.
     """
@@ -2205,8 +2205,8 @@ class DataSourceOneDriveUsersArgsDict(TypedDict):
 @pulumi.input_type
 class DataSourceOneDriveUsersArgs:
     def __init__(__self__, *,
-                 one_drive_user_list: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 one_drive_user_s3_path: Optional[pulumi.Input['DataSourceS3PathArgs']] = None):
+                 one_drive_user_list: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 one_drive_user_s3_path: pulumi.Input[Optional['DataSourceS3PathArgs']] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] one_drive_user_list: A list of users whose documents should be indexed. Specify the user names in email format, for example, `username@tenantdomain` . If you need to index the documents of more than 10 users, use the `OneDriveUserS3Path` field to specify the location of a file containing a list of users.
         :param pulumi.Input['DataSourceS3PathArgs'] one_drive_user_s3_path: The S3 bucket location of a file containing a list of users whose documents should be indexed.
@@ -2218,26 +2218,26 @@ class DataSourceOneDriveUsersArgs:
 
     @_builtins.property
     @pulumi.getter(name="oneDriveUserList")
-    def one_drive_user_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def one_drive_user_list(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of users whose documents should be indexed. Specify the user names in email format, for example, `username@tenantdomain` . If you need to index the documents of more than 10 users, use the `OneDriveUserS3Path` field to specify the location of a file containing a list of users.
         """
         return pulumi.get(self, "one_drive_user_list")
 
     @one_drive_user_list.setter
-    def one_drive_user_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def one_drive_user_list(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "one_drive_user_list", value)
 
     @_builtins.property
     @pulumi.getter(name="oneDriveUserS3Path")
-    def one_drive_user_s3_path(self) -> Optional[pulumi.Input['DataSourceS3PathArgs']]:
+    def one_drive_user_s3_path(self) -> pulumi.Input[Optional['DataSourceS3PathArgs']]:
         """
         The S3 bucket location of a file containing a list of users whose documents should be indexed.
         """
         return pulumi.get(self, "one_drive_user_s3_path")
 
     @one_drive_user_s3_path.setter
-    def one_drive_user_s3_path(self, value: Optional[pulumi.Input['DataSourceS3PathArgs']]):
+    def one_drive_user_s3_path(self, value: pulumi.Input[Optional['DataSourceS3PathArgs']]):
         pulumi.set(self, "one_drive_user_s3_path", value)
 
 
@@ -2254,7 +2254,7 @@ class DataSourceProxyConfigurationArgsDict(TypedDict):
 
     For example, the port for https://a.example.com/page1.html is 443, the standard port for HTTPS.
     """
-    credentials: NotRequired[pulumi.Input[_builtins.str]]
+    credentials: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon Resource Name (ARN) of an AWS Secrets Manager secret. You create a secret to store your credentials in [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html)
 
@@ -2266,7 +2266,7 @@ class DataSourceProxyConfigurationArgs:
     def __init__(__self__, *,
                  host: pulumi.Input[_builtins.str],
                  port: pulumi.Input[_builtins.int],
-                 credentials: Optional[pulumi.Input[_builtins.str]] = None):
+                 credentials: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] host: The name of the website host you want to connect to via a web proxy server.
                
@@ -2313,7 +2313,7 @@ class DataSourceProxyConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def credentials(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def credentials(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of an AWS Secrets Manager secret. You create a secret to store your credentials in [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html)
 
@@ -2322,7 +2322,7 @@ class DataSourceProxyConfigurationArgs:
         return pulumi.get(self, "credentials")
 
     @credentials.setter
-    def credentials(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def credentials(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "credentials", value)
 
 
@@ -2334,15 +2334,15 @@ class DataSourceS3DataSourceConfigurationArgsDict(TypedDict):
     """
     The name of the bucket that contains the documents.
     """
-    access_control_list_configuration: NotRequired[pulumi.Input['DataSourceAccessControlListConfigurationArgsDict']]
+    access_control_list_configuration: NotRequired[pulumi.Input[Optional['DataSourceAccessControlListConfigurationArgs']]]
     """
     Provides the path to the S3 bucket that contains the user context filtering files for the data source. For the format of the file, see [Access control for S3 data sources](https://docs.aws.amazon.com/kendra/latest/dg/s3-acl.html) .
     """
-    documents_metadata_configuration: NotRequired[pulumi.Input['DataSourceDocumentsMetadataConfigurationArgsDict']]
+    documents_metadata_configuration: NotRequired[pulumi.Input[Optional['DataSourceDocumentsMetadataConfigurationArgs']]]
     """
     Specifies document metadata files that contain information such as the document access control information, source URI, document author, and custom attributes. Each metadata file contains metadata about a single document.
     """
-    exclusion_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    exclusion_patterns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of glob patterns (patterns that can expand a wildcard pattern into a list of path names that match the given pattern) for certain file names and file types to exclude from your index. If a document matches both an inclusion and exclusion prefix or pattern, the exclusion prefix takes precendence and the document is not indexed. Examples of glob patterns include:
 
@@ -2357,7 +2357,7 @@ class DataSourceS3DataSourceConfigurationArgsDict(TypedDict):
 
     For more examples, see [Use of Exclude and Include Filters](https://docs.aws.amazon.com/cli/latest/reference/s3/#use-of-exclude-and-include-filters) in the AWS CLI Command Reference.
     """
-    inclusion_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    inclusion_patterns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of glob patterns (patterns that can expand a wildcard pattern into a list of path names that match the given pattern) for certain file names and file types to include in your index. If a document matches both an inclusion and exclusion prefix or pattern, the exclusion prefix takes precendence and the document is not indexed. Examples of glob patterns include:
 
@@ -2372,7 +2372,7 @@ class DataSourceS3DataSourceConfigurationArgsDict(TypedDict):
 
     For more examples, see [Use of Exclude and Include Filters](https://docs.aws.amazon.com/cli/latest/reference/s3/#use-of-exclude-and-include-filters) in the AWS CLI Command Reference.
     """
-    inclusion_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    inclusion_prefixes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of S3 prefixes for the documents that should be included in the index.
     """
@@ -2381,11 +2381,11 @@ class DataSourceS3DataSourceConfigurationArgsDict(TypedDict):
 class DataSourceS3DataSourceConfigurationArgs:
     def __init__(__self__, *,
                  bucket_name: pulumi.Input[_builtins.str],
-                 access_control_list_configuration: Optional[pulumi.Input['DataSourceAccessControlListConfigurationArgs']] = None,
-                 documents_metadata_configuration: Optional[pulumi.Input['DataSourceDocumentsMetadataConfigurationArgs']] = None,
-                 exclusion_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 inclusion_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 inclusion_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 access_control_list_configuration: pulumi.Input[Optional['DataSourceAccessControlListConfigurationArgs']] = None,
+                 documents_metadata_configuration: pulumi.Input[Optional['DataSourceDocumentsMetadataConfigurationArgs']] = None,
+                 exclusion_patterns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 inclusion_patterns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 inclusion_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         S3 data source configuration
 
@@ -2444,31 +2444,31 @@ class DataSourceS3DataSourceConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessControlListConfiguration")
-    def access_control_list_configuration(self) -> Optional[pulumi.Input['DataSourceAccessControlListConfigurationArgs']]:
+    def access_control_list_configuration(self) -> pulumi.Input[Optional['DataSourceAccessControlListConfigurationArgs']]:
         """
         Provides the path to the S3 bucket that contains the user context filtering files for the data source. For the format of the file, see [Access control for S3 data sources](https://docs.aws.amazon.com/kendra/latest/dg/s3-acl.html) .
         """
         return pulumi.get(self, "access_control_list_configuration")
 
     @access_control_list_configuration.setter
-    def access_control_list_configuration(self, value: Optional[pulumi.Input['DataSourceAccessControlListConfigurationArgs']]):
+    def access_control_list_configuration(self, value: pulumi.Input[Optional['DataSourceAccessControlListConfigurationArgs']]):
         pulumi.set(self, "access_control_list_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="documentsMetadataConfiguration")
-    def documents_metadata_configuration(self) -> Optional[pulumi.Input['DataSourceDocumentsMetadataConfigurationArgs']]:
+    def documents_metadata_configuration(self) -> pulumi.Input[Optional['DataSourceDocumentsMetadataConfigurationArgs']]:
         """
         Specifies document metadata files that contain information such as the document access control information, source URI, document author, and custom attributes. Each metadata file contains metadata about a single document.
         """
         return pulumi.get(self, "documents_metadata_configuration")
 
     @documents_metadata_configuration.setter
-    def documents_metadata_configuration(self, value: Optional[pulumi.Input['DataSourceDocumentsMetadataConfigurationArgs']]):
+    def documents_metadata_configuration(self, value: pulumi.Input[Optional['DataSourceDocumentsMetadataConfigurationArgs']]):
         pulumi.set(self, "documents_metadata_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="exclusionPatterns")
-    def exclusion_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def exclusion_patterns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of glob patterns (patterns that can expand a wildcard pattern into a list of path names that match the given pattern) for certain file names and file types to exclude from your index. If a document matches both an inclusion and exclusion prefix or pattern, the exclusion prefix takes precendence and the document is not indexed. Examples of glob patterns include:
 
@@ -2486,12 +2486,12 @@ class DataSourceS3DataSourceConfigurationArgs:
         return pulumi.get(self, "exclusion_patterns")
 
     @exclusion_patterns.setter
-    def exclusion_patterns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def exclusion_patterns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "exclusion_patterns", value)
 
     @_builtins.property
     @pulumi.getter(name="inclusionPatterns")
-    def inclusion_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def inclusion_patterns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of glob patterns (patterns that can expand a wildcard pattern into a list of path names that match the given pattern) for certain file names and file types to include in your index. If a document matches both an inclusion and exclusion prefix or pattern, the exclusion prefix takes precendence and the document is not indexed. Examples of glob patterns include:
 
@@ -2509,19 +2509,19 @@ class DataSourceS3DataSourceConfigurationArgs:
         return pulumi.get(self, "inclusion_patterns")
 
     @inclusion_patterns.setter
-    def inclusion_patterns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def inclusion_patterns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "inclusion_patterns", value)
 
     @_builtins.property
     @pulumi.getter(name="inclusionPrefixes")
-    def inclusion_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def inclusion_prefixes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of S3 prefixes for the documents that should be included in the index.
         """
         return pulumi.get(self, "inclusion_prefixes")
 
     @inclusion_prefixes.setter
-    def inclusion_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def inclusion_prefixes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "inclusion_prefixes", value)
 
 
@@ -2577,15 +2577,15 @@ class DataSourceSalesforceChatterFeedConfigurationArgsDict(TypedDict):
     """
     The name of the column in the Salesforce FeedItem table that contains the content to index. Typically this is the `Body` column.
     """
-    document_title_field_name: NotRequired[pulumi.Input[_builtins.str]]
+    document_title_field_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the column in the Salesforce FeedItem table that contains the title of the document. This is typically the `Title` column.
     """
-    field_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgsDict']]]]
+    field_mappings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]]
     """
     Maps fields from a Salesforce chatter feed into Amazon Kendra index fields.
     """
-    include_filter_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataSourceSalesforceChatterFeedIncludeFilterType']]]]
+    include_filter_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceSalesforceChatterFeedIncludeFilterType']]]]]
     """
     Filters the documents in the feed based on status of the user. When you specify `ACTIVE_USERS` only documents from users who have an active account are indexed. When you specify `STANDARD_USER` only documents for Salesforce standard users are documented. You can specify both.
     """
@@ -2594,9 +2594,9 @@ class DataSourceSalesforceChatterFeedConfigurationArgsDict(TypedDict):
 class DataSourceSalesforceChatterFeedConfigurationArgs:
     def __init__(__self__, *,
                  document_data_field_name: pulumi.Input[_builtins.str],
-                 document_title_field_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]] = None,
-                 include_filter_types: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceSalesforceChatterFeedIncludeFilterType']]]] = None):
+                 document_title_field_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 field_mappings: pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]] = None,
+                 include_filter_types: pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceSalesforceChatterFeedIncludeFilterType']]]] = None):
         """
         :param pulumi.Input[_builtins.str] document_data_field_name: The name of the column in the Salesforce FeedItem table that contains the content to index. Typically this is the `Body` column.
         :param pulumi.Input[_builtins.str] document_title_field_name: The name of the column in the Salesforce FeedItem table that contains the title of the document. This is typically the `Title` column.
@@ -2625,38 +2625,38 @@ class DataSourceSalesforceChatterFeedConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="documentTitleFieldName")
-    def document_title_field_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def document_title_field_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the column in the Salesforce FeedItem table that contains the title of the document. This is typically the `Title` column.
         """
         return pulumi.get(self, "document_title_field_name")
 
     @document_title_field_name.setter
-    def document_title_field_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def document_title_field_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "document_title_field_name", value)
 
     @_builtins.property
     @pulumi.getter(name="fieldMappings")
-    def field_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]:
+    def field_mappings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]:
         """
         Maps fields from a Salesforce chatter feed into Amazon Kendra index fields.
         """
         return pulumi.get(self, "field_mappings")
 
     @field_mappings.setter
-    def field_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]):
+    def field_mappings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]):
         pulumi.set(self, "field_mappings", value)
 
     @_builtins.property
     @pulumi.getter(name="includeFilterTypes")
-    def include_filter_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceSalesforceChatterFeedIncludeFilterType']]]]:
+    def include_filter_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceSalesforceChatterFeedIncludeFilterType']]]]:
         """
         Filters the documents in the feed based on status of the user. When you specify `ACTIVE_USERS` only documents from users who have an active account are indexed. When you specify `STANDARD_USER` only documents for Salesforce standard users are documented. You can specify both.
         """
         return pulumi.get(self, "include_filter_types")
 
     @include_filter_types.setter
-    def include_filter_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceSalesforceChatterFeedIncludeFilterType']]]]):
+    def include_filter_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceSalesforceChatterFeedIncludeFilterType']]]]):
         pulumi.set(self, "include_filter_types", value)
 
 
@@ -2676,35 +2676,35 @@ class DataSourceSalesforceConfigurationArgsDict(TypedDict):
     """
     The instance URL for the Salesforce site that you want to index.
     """
-    chatter_feed_configuration: NotRequired[pulumi.Input['DataSourceSalesforceChatterFeedConfigurationArgsDict']]
+    chatter_feed_configuration: NotRequired[pulumi.Input[Optional['DataSourceSalesforceChatterFeedConfigurationArgs']]]
     """
     Configuration information for Salesforce chatter feeds.
     """
-    crawl_attachments: NotRequired[pulumi.Input[_builtins.bool]]
+    crawl_attachments: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether Amazon Kendra should index attachments to Salesforce objects.
     """
-    exclude_attachment_file_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    exclude_attachment_file_patterns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of regular expression patterns to exclude certain documents in your Salesforce. Documents that match the patterns are excluded from the index. Documents that don't match the patterns are included in the index. If a document matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the document isn't included in the index.
 
     The pattern is applied to the name of the attached file.
     """
-    include_attachment_file_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    include_attachment_file_patterns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of regular expression patterns to include certain documents in your Salesforce. Documents that match the patterns are included in the index. Documents that don't match the patterns are excluded from the index. If a document matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the document isn't included in the index.
 
     The pattern is applied to the name of the attached file.
     """
-    knowledge_article_configuration: NotRequired[pulumi.Input['DataSourceSalesforceKnowledgeArticleConfigurationArgsDict']]
+    knowledge_article_configuration: NotRequired[pulumi.Input[Optional['DataSourceSalesforceKnowledgeArticleConfigurationArgs']]]
     """
     Configuration information for the knowledge article types that Amazon Kendra indexes. Amazon Kendra indexes standard knowledge articles and the standard fields of knowledge articles, or the custom fields of custom knowledge articles, but not both.
     """
-    standard_object_attachment_configuration: NotRequired[pulumi.Input['DataSourceSalesforceStandardObjectAttachmentConfigurationArgsDict']]
+    standard_object_attachment_configuration: NotRequired[pulumi.Input[Optional['DataSourceSalesforceStandardObjectAttachmentConfigurationArgs']]]
     """
     Configuration information for processing attachments to Salesforce standard objects.
     """
-    standard_object_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataSourceSalesforceStandardObjectConfigurationArgsDict']]]]
+    standard_object_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceSalesforceStandardObjectConfigurationArgs']]]]]
     """
     Configuration of the Salesforce standard objects that Amazon Kendra indexes.
     """
@@ -2714,13 +2714,13 @@ class DataSourceSalesforceConfigurationArgs:
     def __init__(__self__, *,
                  secret_arn: pulumi.Input[_builtins.str],
                  server_url: pulumi.Input[_builtins.str],
-                 chatter_feed_configuration: Optional[pulumi.Input['DataSourceSalesforceChatterFeedConfigurationArgs']] = None,
-                 crawl_attachments: Optional[pulumi.Input[_builtins.bool]] = None,
-                 exclude_attachment_file_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 include_attachment_file_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 knowledge_article_configuration: Optional[pulumi.Input['DataSourceSalesforceKnowledgeArticleConfigurationArgs']] = None,
-                 standard_object_attachment_configuration: Optional[pulumi.Input['DataSourceSalesforceStandardObjectAttachmentConfigurationArgs']] = None,
-                 standard_object_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceSalesforceStandardObjectConfigurationArgs']]]] = None):
+                 chatter_feed_configuration: pulumi.Input[Optional['DataSourceSalesforceChatterFeedConfigurationArgs']] = None,
+                 crawl_attachments: pulumi.Input[Optional[_builtins.bool]] = None,
+                 exclude_attachment_file_patterns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 include_attachment_file_patterns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 knowledge_article_configuration: pulumi.Input[Optional['DataSourceSalesforceKnowledgeArticleConfigurationArgs']] = None,
+                 standard_object_attachment_configuration: pulumi.Input[Optional['DataSourceSalesforceStandardObjectAttachmentConfigurationArgs']] = None,
+                 standard_object_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceSalesforceStandardObjectConfigurationArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] secret_arn: The Amazon Resource Name (ARN) of an AWS Secrets Manager secret that contains the key/value pairs required to connect to your Salesforce instance. The secret must contain a JSON structure with the following keys:
                
@@ -2793,31 +2793,31 @@ class DataSourceSalesforceConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="chatterFeedConfiguration")
-    def chatter_feed_configuration(self) -> Optional[pulumi.Input['DataSourceSalesforceChatterFeedConfigurationArgs']]:
+    def chatter_feed_configuration(self) -> pulumi.Input[Optional['DataSourceSalesforceChatterFeedConfigurationArgs']]:
         """
         Configuration information for Salesforce chatter feeds.
         """
         return pulumi.get(self, "chatter_feed_configuration")
 
     @chatter_feed_configuration.setter
-    def chatter_feed_configuration(self, value: Optional[pulumi.Input['DataSourceSalesforceChatterFeedConfigurationArgs']]):
+    def chatter_feed_configuration(self, value: pulumi.Input[Optional['DataSourceSalesforceChatterFeedConfigurationArgs']]):
         pulumi.set(self, "chatter_feed_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="crawlAttachments")
-    def crawl_attachments(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def crawl_attachments(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether Amazon Kendra should index attachments to Salesforce objects.
         """
         return pulumi.get(self, "crawl_attachments")
 
     @crawl_attachments.setter
-    def crawl_attachments(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def crawl_attachments(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "crawl_attachments", value)
 
     @_builtins.property
     @pulumi.getter(name="excludeAttachmentFilePatterns")
-    def exclude_attachment_file_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def exclude_attachment_file_patterns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of regular expression patterns to exclude certain documents in your Salesforce. Documents that match the patterns are excluded from the index. Documents that don't match the patterns are included in the index. If a document matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the document isn't included in the index.
 
@@ -2826,12 +2826,12 @@ class DataSourceSalesforceConfigurationArgs:
         return pulumi.get(self, "exclude_attachment_file_patterns")
 
     @exclude_attachment_file_patterns.setter
-    def exclude_attachment_file_patterns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def exclude_attachment_file_patterns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "exclude_attachment_file_patterns", value)
 
     @_builtins.property
     @pulumi.getter(name="includeAttachmentFilePatterns")
-    def include_attachment_file_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def include_attachment_file_patterns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of regular expression patterns to include certain documents in your Salesforce. Documents that match the patterns are included in the index. Documents that don't match the patterns are excluded from the index. If a document matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the document isn't included in the index.
 
@@ -2840,59 +2840,59 @@ class DataSourceSalesforceConfigurationArgs:
         return pulumi.get(self, "include_attachment_file_patterns")
 
     @include_attachment_file_patterns.setter
-    def include_attachment_file_patterns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def include_attachment_file_patterns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "include_attachment_file_patterns", value)
 
     @_builtins.property
     @pulumi.getter(name="knowledgeArticleConfiguration")
-    def knowledge_article_configuration(self) -> Optional[pulumi.Input['DataSourceSalesforceKnowledgeArticleConfigurationArgs']]:
+    def knowledge_article_configuration(self) -> pulumi.Input[Optional['DataSourceSalesforceKnowledgeArticleConfigurationArgs']]:
         """
         Configuration information for the knowledge article types that Amazon Kendra indexes. Amazon Kendra indexes standard knowledge articles and the standard fields of knowledge articles, or the custom fields of custom knowledge articles, but not both.
         """
         return pulumi.get(self, "knowledge_article_configuration")
 
     @knowledge_article_configuration.setter
-    def knowledge_article_configuration(self, value: Optional[pulumi.Input['DataSourceSalesforceKnowledgeArticleConfigurationArgs']]):
+    def knowledge_article_configuration(self, value: pulumi.Input[Optional['DataSourceSalesforceKnowledgeArticleConfigurationArgs']]):
         pulumi.set(self, "knowledge_article_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="standardObjectAttachmentConfiguration")
-    def standard_object_attachment_configuration(self) -> Optional[pulumi.Input['DataSourceSalesforceStandardObjectAttachmentConfigurationArgs']]:
+    def standard_object_attachment_configuration(self) -> pulumi.Input[Optional['DataSourceSalesforceStandardObjectAttachmentConfigurationArgs']]:
         """
         Configuration information for processing attachments to Salesforce standard objects.
         """
         return pulumi.get(self, "standard_object_attachment_configuration")
 
     @standard_object_attachment_configuration.setter
-    def standard_object_attachment_configuration(self, value: Optional[pulumi.Input['DataSourceSalesforceStandardObjectAttachmentConfigurationArgs']]):
+    def standard_object_attachment_configuration(self, value: pulumi.Input[Optional['DataSourceSalesforceStandardObjectAttachmentConfigurationArgs']]):
         pulumi.set(self, "standard_object_attachment_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="standardObjectConfigurations")
-    def standard_object_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceSalesforceStandardObjectConfigurationArgs']]]]:
+    def standard_object_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceSalesforceStandardObjectConfigurationArgs']]]]:
         """
         Configuration of the Salesforce standard objects that Amazon Kendra indexes.
         """
         return pulumi.get(self, "standard_object_configurations")
 
     @standard_object_configurations.setter
-    def standard_object_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceSalesforceStandardObjectConfigurationArgs']]]]):
+    def standard_object_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceSalesforceStandardObjectConfigurationArgs']]]]):
         pulumi.set(self, "standard_object_configurations", value)
 
 
 class DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArgsDict(TypedDict):
     document_data_field_name: pulumi.Input[_builtins.str]
     name: pulumi.Input[_builtins.str]
-    document_title_field_name: NotRequired[pulumi.Input[_builtins.str]]
-    field_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgsDict']]]]
+    document_title_field_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    field_mappings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]]
 
 @pulumi.input_type
 class DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArgs:
     def __init__(__self__, *,
                  document_data_field_name: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
-                 document_title_field_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]] = None):
+                 document_title_field_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 field_mappings: pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]] = None):
         pulumi.set(__self__, "document_data_field_name", document_data_field_name)
         pulumi.set(__self__, "name", name)
         if document_title_field_name is not None:
@@ -2920,20 +2920,20 @@ class DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="documentTitleFieldName")
-    def document_title_field_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def document_title_field_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "document_title_field_name")
 
     @document_title_field_name.setter
-    def document_title_field_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def document_title_field_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "document_title_field_name", value)
 
     @_builtins.property
     @pulumi.getter(name="fieldMappings")
-    def field_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]:
+    def field_mappings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]:
         return pulumi.get(self, "field_mappings")
 
     @field_mappings.setter
-    def field_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]):
+    def field_mappings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]):
         pulumi.set(self, "field_mappings", value)
 
 
@@ -2942,11 +2942,11 @@ class DataSourceSalesforceKnowledgeArticleConfigurationArgsDict(TypedDict):
     """
     Specifies the document states that should be included when Amazon Kendra indexes knowledge articles. You must specify at least one state.
     """
-    custom_knowledge_article_type_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArgsDict']]]]
+    custom_knowledge_article_type_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArgs']]]]]
     """
     Configuration information for custom Salesforce knowledge articles.
     """
-    standard_knowledge_article_type_configuration: NotRequired[pulumi.Input['DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationArgsDict']]
+    standard_knowledge_article_type_configuration: NotRequired[pulumi.Input[Optional['DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationArgs']]]
     """
     Configuration information for standard Salesforce knowledge articles.
     """
@@ -2955,8 +2955,8 @@ class DataSourceSalesforceKnowledgeArticleConfigurationArgsDict(TypedDict):
 class DataSourceSalesforceKnowledgeArticleConfigurationArgs:
     def __init__(__self__, *,
                  included_states: pulumi.Input[Sequence[pulumi.Input['DataSourceSalesforceKnowledgeArticleState']]],
-                 custom_knowledge_article_type_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArgs']]]] = None,
-                 standard_knowledge_article_type_configuration: Optional[pulumi.Input['DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationArgs']] = None):
+                 custom_knowledge_article_type_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArgs']]]] = None,
+                 standard_knowledge_article_type_configuration: pulumi.Input[Optional['DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationArgs']] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['DataSourceSalesforceKnowledgeArticleState']]] included_states: Specifies the document states that should be included when Amazon Kendra indexes knowledge articles. You must specify at least one state.
         :param pulumi.Input[Sequence[pulumi.Input['DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArgs']]] custom_knowledge_article_type_configurations: Configuration information for custom Salesforce knowledge articles.
@@ -2982,26 +2982,26 @@ class DataSourceSalesforceKnowledgeArticleConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="customKnowledgeArticleTypeConfigurations")
-    def custom_knowledge_article_type_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArgs']]]]:
+    def custom_knowledge_article_type_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArgs']]]]:
         """
         Configuration information for custom Salesforce knowledge articles.
         """
         return pulumi.get(self, "custom_knowledge_article_type_configurations")
 
     @custom_knowledge_article_type_configurations.setter
-    def custom_knowledge_article_type_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArgs']]]]):
+    def custom_knowledge_article_type_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArgs']]]]):
         pulumi.set(self, "custom_knowledge_article_type_configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="standardKnowledgeArticleTypeConfiguration")
-    def standard_knowledge_article_type_configuration(self) -> Optional[pulumi.Input['DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationArgs']]:
+    def standard_knowledge_article_type_configuration(self) -> pulumi.Input[Optional['DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationArgs']]:
         """
         Configuration information for standard Salesforce knowledge articles.
         """
         return pulumi.get(self, "standard_knowledge_article_type_configuration")
 
     @standard_knowledge_article_type_configuration.setter
-    def standard_knowledge_article_type_configuration(self, value: Optional[pulumi.Input['DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationArgs']]):
+    def standard_knowledge_article_type_configuration(self, value: pulumi.Input[Optional['DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationArgs']]):
         pulumi.set(self, "standard_knowledge_article_type_configuration", value)
 
 
@@ -3010,11 +3010,11 @@ class DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationArgsDict(Type
     """
     The name of the field that contains the document data to index.
     """
-    document_title_field_name: NotRequired[pulumi.Input[_builtins.str]]
+    document_title_field_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the field that contains the document title.
     """
-    field_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgsDict']]]]
+    field_mappings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]]
     """
     Maps attributes or field names of the knowledge article to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to Salesforce fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The Salesforce data source field names must exist in your Salesforce custom metadata.
     """
@@ -3023,8 +3023,8 @@ class DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationArgsDict(Type
 class DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationArgs:
     def __init__(__self__, *,
                  document_data_field_name: pulumi.Input[_builtins.str],
-                 document_title_field_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]] = None):
+                 document_title_field_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 field_mappings: pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] document_data_field_name: The name of the field that contains the document data to index.
         :param pulumi.Input[_builtins.str] document_title_field_name: The name of the field that contains the document title.
@@ -3050,35 +3050,35 @@ class DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="documentTitleFieldName")
-    def document_title_field_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def document_title_field_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the field that contains the document title.
         """
         return pulumi.get(self, "document_title_field_name")
 
     @document_title_field_name.setter
-    def document_title_field_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def document_title_field_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "document_title_field_name", value)
 
     @_builtins.property
     @pulumi.getter(name="fieldMappings")
-    def field_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]:
+    def field_mappings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]:
         """
         Maps attributes or field names of the knowledge article to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to Salesforce fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The Salesforce data source field names must exist in your Salesforce custom metadata.
         """
         return pulumi.get(self, "field_mappings")
 
     @field_mappings.setter
-    def field_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]):
+    def field_mappings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]):
         pulumi.set(self, "field_mappings", value)
 
 
 class DataSourceSalesforceStandardObjectAttachmentConfigurationArgsDict(TypedDict):
-    document_title_field_name: NotRequired[pulumi.Input[_builtins.str]]
+    document_title_field_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the field used for the document title.
     """
-    field_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgsDict']]]]
+    field_mappings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]]
     """
     One or more objects that map fields in attachments to Amazon Kendra index fields.
     """
@@ -3086,8 +3086,8 @@ class DataSourceSalesforceStandardObjectAttachmentConfigurationArgsDict(TypedDic
 @pulumi.input_type
 class DataSourceSalesforceStandardObjectAttachmentConfigurationArgs:
     def __init__(__self__, *,
-                 document_title_field_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]] = None):
+                 document_title_field_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 field_mappings: pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] document_title_field_name: The name of the field used for the document title.
         :param pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]] field_mappings: One or more objects that map fields in attachments to Amazon Kendra index fields.
@@ -3099,42 +3099,42 @@ class DataSourceSalesforceStandardObjectAttachmentConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="documentTitleFieldName")
-    def document_title_field_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def document_title_field_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the field used for the document title.
         """
         return pulumi.get(self, "document_title_field_name")
 
     @document_title_field_name.setter
-    def document_title_field_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def document_title_field_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "document_title_field_name", value)
 
     @_builtins.property
     @pulumi.getter(name="fieldMappings")
-    def field_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]:
+    def field_mappings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]:
         """
         One or more objects that map fields in attachments to Amazon Kendra index fields.
         """
         return pulumi.get(self, "field_mappings")
 
     @field_mappings.setter
-    def field_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]):
+    def field_mappings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]):
         pulumi.set(self, "field_mappings", value)
 
 
 class DataSourceSalesforceStandardObjectConfigurationArgsDict(TypedDict):
     document_data_field_name: pulumi.Input[_builtins.str]
     name: pulumi.Input['DataSourceSalesforceStandardObjectName']
-    document_title_field_name: NotRequired[pulumi.Input[_builtins.str]]
-    field_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgsDict']]]]
+    document_title_field_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    field_mappings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]]
 
 @pulumi.input_type
 class DataSourceSalesforceStandardObjectConfigurationArgs:
     def __init__(__self__, *,
                  document_data_field_name: pulumi.Input[_builtins.str],
                  name: pulumi.Input['DataSourceSalesforceStandardObjectName'],
-                 document_title_field_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]] = None):
+                 document_title_field_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 field_mappings: pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]] = None):
         pulumi.set(__self__, "document_data_field_name", document_data_field_name)
         pulumi.set(__self__, "name", name)
         if document_title_field_name is not None:
@@ -3162,20 +3162,20 @@ class DataSourceSalesforceStandardObjectConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="documentTitleFieldName")
-    def document_title_field_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def document_title_field_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "document_title_field_name")
 
     @document_title_field_name.setter
-    def document_title_field_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def document_title_field_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "document_title_field_name", value)
 
     @_builtins.property
     @pulumi.getter(name="fieldMappings")
-    def field_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]:
+    def field_mappings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]:
         return pulumi.get(self, "field_mappings")
 
     @field_mappings.setter
-    def field_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]):
+    def field_mappings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]):
         pulumi.set(self, "field_mappings", value)
 
 
@@ -3192,17 +3192,17 @@ class DataSourceServiceNowConfigurationArgsDict(TypedDict):
     """
     The identifier of the release that the ServiceNow host is running. If the host is not running the `LONDON` release, use `OTHERS` .
     """
-    authentication_type: NotRequired[pulumi.Input['DataSourceServiceNowAuthenticationType']]
+    authentication_type: NotRequired[pulumi.Input[Optional['DataSourceServiceNowAuthenticationType']]]
     """
     The type of authentication used to connect to the ServiceNow instance. If you choose `HTTP_BASIC` , Amazon Kendra is authenticated using the user name and password provided in the AWS Secrets Manager secret in the `SecretArn` field. If you choose `OAUTH2` , Amazon Kendra is authenticated using the credentials of client ID, client secret, user name and password.
 
     When you use `OAUTH2` authentication, you must generate a token and a client secret using the ServiceNow console. For more information, see [Using a ServiceNow data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-servicenow.html) .
     """
-    knowledge_article_configuration: NotRequired[pulumi.Input['DataSourceServiceNowKnowledgeArticleConfigurationArgsDict']]
+    knowledge_article_configuration: NotRequired[pulumi.Input[Optional['DataSourceServiceNowKnowledgeArticleConfigurationArgs']]]
     """
     Configuration information for crawling knowledge articles in the ServiceNow site.
     """
-    service_catalog_configuration: NotRequired[pulumi.Input['DataSourceServiceNowServiceCatalogConfigurationArgsDict']]
+    service_catalog_configuration: NotRequired[pulumi.Input[Optional['DataSourceServiceNowServiceCatalogConfigurationArgs']]]
     """
     Configuration information for crawling service catalogs in the ServiceNow site.
     """
@@ -3213,9 +3213,9 @@ class DataSourceServiceNowConfigurationArgs:
                  host_url: pulumi.Input[_builtins.str],
                  secret_arn: pulumi.Input[_builtins.str],
                  service_now_build_version: pulumi.Input['DataSourceServiceNowBuildVersionType'],
-                 authentication_type: Optional[pulumi.Input['DataSourceServiceNowAuthenticationType']] = None,
-                 knowledge_article_configuration: Optional[pulumi.Input['DataSourceServiceNowKnowledgeArticleConfigurationArgs']] = None,
-                 service_catalog_configuration: Optional[pulumi.Input['DataSourceServiceNowServiceCatalogConfigurationArgs']] = None):
+                 authentication_type: pulumi.Input[Optional['DataSourceServiceNowAuthenticationType']] = None,
+                 knowledge_article_configuration: pulumi.Input[Optional['DataSourceServiceNowKnowledgeArticleConfigurationArgs']] = None,
+                 service_catalog_configuration: pulumi.Input[Optional['DataSourceServiceNowServiceCatalogConfigurationArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] host_url: The ServiceNow instance that the data source connects to. The host endpoint should look like the following: *{instance}.service-now.com.*
         :param pulumi.Input[_builtins.str] secret_arn: The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the user name and password required to connect to the ServiceNow instance. You can also provide OAuth authentication credentials of user name, password, client ID, and client secret. For more information, see [Using a ServiceNow data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-servicenow.html) .
@@ -3274,7 +3274,7 @@ class DataSourceServiceNowConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="authenticationType")
-    def authentication_type(self) -> Optional[pulumi.Input['DataSourceServiceNowAuthenticationType']]:
+    def authentication_type(self) -> pulumi.Input[Optional['DataSourceServiceNowAuthenticationType']]:
         """
         The type of authentication used to connect to the ServiceNow instance. If you choose `HTTP_BASIC` , Amazon Kendra is authenticated using the user name and password provided in the AWS Secrets Manager secret in the `SecretArn` field. If you choose `OAUTH2` , Amazon Kendra is authenticated using the credentials of client ID, client secret, user name and password.
 
@@ -3283,31 +3283,31 @@ class DataSourceServiceNowConfigurationArgs:
         return pulumi.get(self, "authentication_type")
 
     @authentication_type.setter
-    def authentication_type(self, value: Optional[pulumi.Input['DataSourceServiceNowAuthenticationType']]):
+    def authentication_type(self, value: pulumi.Input[Optional['DataSourceServiceNowAuthenticationType']]):
         pulumi.set(self, "authentication_type", value)
 
     @_builtins.property
     @pulumi.getter(name="knowledgeArticleConfiguration")
-    def knowledge_article_configuration(self) -> Optional[pulumi.Input['DataSourceServiceNowKnowledgeArticleConfigurationArgs']]:
+    def knowledge_article_configuration(self) -> pulumi.Input[Optional['DataSourceServiceNowKnowledgeArticleConfigurationArgs']]:
         """
         Configuration information for crawling knowledge articles in the ServiceNow site.
         """
         return pulumi.get(self, "knowledge_article_configuration")
 
     @knowledge_article_configuration.setter
-    def knowledge_article_configuration(self, value: Optional[pulumi.Input['DataSourceServiceNowKnowledgeArticleConfigurationArgs']]):
+    def knowledge_article_configuration(self, value: pulumi.Input[Optional['DataSourceServiceNowKnowledgeArticleConfigurationArgs']]):
         pulumi.set(self, "knowledge_article_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceCatalogConfiguration")
-    def service_catalog_configuration(self) -> Optional[pulumi.Input['DataSourceServiceNowServiceCatalogConfigurationArgs']]:
+    def service_catalog_configuration(self) -> pulumi.Input[Optional['DataSourceServiceNowServiceCatalogConfigurationArgs']]:
         """
         Configuration information for crawling service catalogs in the ServiceNow site.
         """
         return pulumi.get(self, "service_catalog_configuration")
 
     @service_catalog_configuration.setter
-    def service_catalog_configuration(self, value: Optional[pulumi.Input['DataSourceServiceNowServiceCatalogConfigurationArgs']]):
+    def service_catalog_configuration(self, value: pulumi.Input[Optional['DataSourceServiceNowServiceCatalogConfigurationArgs']]):
         pulumi.set(self, "service_catalog_configuration", value)
 
 
@@ -3316,29 +3316,29 @@ class DataSourceServiceNowKnowledgeArticleConfigurationArgsDict(TypedDict):
     """
     The name of the ServiceNow field that is mapped to the index document contents field in the Amazon Kendra index.
     """
-    crawl_attachments: NotRequired[pulumi.Input[_builtins.bool]]
+    crawl_attachments: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     `TRUE` to index attachments to knowledge articles.
     """
-    document_title_field_name: NotRequired[pulumi.Input[_builtins.str]]
+    document_title_field_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the ServiceNow field that is mapped to the index document title field.
     """
-    exclude_attachment_file_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    exclude_attachment_file_patterns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of regular expression patterns applied to exclude certain knowledge article attachments. Attachments that match the patterns are excluded from the index. Items that don't match the patterns are included in the index. If an item matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the item isn't included in the index.
     """
-    field_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgsDict']]]]
+    field_mappings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]]
     """
     Maps attributes or field names of knoweldge articles to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to ServiceNow fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The ServiceNow data source field names must exist in your ServiceNow custom metadata.
     """
-    filter_query: NotRequired[pulumi.Input[_builtins.str]]
+    filter_query: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A query that selects the knowledge articles to index. The query can return articles from multiple knowledge bases, and the knowledge bases can be public or private.
 
     The query string must be one generated by the ServiceNow console. For more information, see [Specifying documents to index with a query](https://docs.aws.amazon.com/kendra/latest/dg/servicenow-query.html) .
     """
-    include_attachment_file_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    include_attachment_file_patterns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of regular expression patterns applied to include knowledge article attachments. Attachments that match the patterns are included in the index. Items that don't match the patterns are excluded from the index. If an item matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the item isn't included in the index.
     """
@@ -3347,12 +3347,12 @@ class DataSourceServiceNowKnowledgeArticleConfigurationArgsDict(TypedDict):
 class DataSourceServiceNowKnowledgeArticleConfigurationArgs:
     def __init__(__self__, *,
                  document_data_field_name: pulumi.Input[_builtins.str],
-                 crawl_attachments: Optional[pulumi.Input[_builtins.bool]] = None,
-                 document_title_field_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 exclude_attachment_file_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]] = None,
-                 filter_query: Optional[pulumi.Input[_builtins.str]] = None,
-                 include_attachment_file_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 crawl_attachments: pulumi.Input[Optional[_builtins.bool]] = None,
+                 document_title_field_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 exclude_attachment_file_patterns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 field_mappings: pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]] = None,
+                 filter_query: pulumi.Input[Optional[_builtins.str]] = None,
+                 include_attachment_file_patterns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] document_data_field_name: The name of the ServiceNow field that is mapped to the index document contents field in the Amazon Kendra index.
         :param pulumi.Input[_builtins.bool] crawl_attachments: `TRUE` to index attachments to knowledge articles.
@@ -3392,55 +3392,55 @@ class DataSourceServiceNowKnowledgeArticleConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="crawlAttachments")
-    def crawl_attachments(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def crawl_attachments(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         `TRUE` to index attachments to knowledge articles.
         """
         return pulumi.get(self, "crawl_attachments")
 
     @crawl_attachments.setter
-    def crawl_attachments(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def crawl_attachments(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "crawl_attachments", value)
 
     @_builtins.property
     @pulumi.getter(name="documentTitleFieldName")
-    def document_title_field_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def document_title_field_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the ServiceNow field that is mapped to the index document title field.
         """
         return pulumi.get(self, "document_title_field_name")
 
     @document_title_field_name.setter
-    def document_title_field_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def document_title_field_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "document_title_field_name", value)
 
     @_builtins.property
     @pulumi.getter(name="excludeAttachmentFilePatterns")
-    def exclude_attachment_file_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def exclude_attachment_file_patterns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of regular expression patterns applied to exclude certain knowledge article attachments. Attachments that match the patterns are excluded from the index. Items that don't match the patterns are included in the index. If an item matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the item isn't included in the index.
         """
         return pulumi.get(self, "exclude_attachment_file_patterns")
 
     @exclude_attachment_file_patterns.setter
-    def exclude_attachment_file_patterns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def exclude_attachment_file_patterns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "exclude_attachment_file_patterns", value)
 
     @_builtins.property
     @pulumi.getter(name="fieldMappings")
-    def field_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]:
+    def field_mappings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]:
         """
         Maps attributes or field names of knoweldge articles to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to ServiceNow fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The ServiceNow data source field names must exist in your ServiceNow custom metadata.
         """
         return pulumi.get(self, "field_mappings")
 
     @field_mappings.setter
-    def field_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]):
+    def field_mappings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]):
         pulumi.set(self, "field_mappings", value)
 
     @_builtins.property
     @pulumi.getter(name="filterQuery")
-    def filter_query(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def filter_query(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A query that selects the knowledge articles to index. The query can return articles from multiple knowledge bases, and the knowledge bases can be public or private.
 
@@ -3449,19 +3449,19 @@ class DataSourceServiceNowKnowledgeArticleConfigurationArgs:
         return pulumi.get(self, "filter_query")
 
     @filter_query.setter
-    def filter_query(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def filter_query(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "filter_query", value)
 
     @_builtins.property
     @pulumi.getter(name="includeAttachmentFilePatterns")
-    def include_attachment_file_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def include_attachment_file_patterns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of regular expression patterns applied to include knowledge article attachments. Attachments that match the patterns are included in the index. Items that don't match the patterns are excluded from the index. If an item matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the item isn't included in the index.
         """
         return pulumi.get(self, "include_attachment_file_patterns")
 
     @include_attachment_file_patterns.setter
-    def include_attachment_file_patterns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def include_attachment_file_patterns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "include_attachment_file_patterns", value)
 
 
@@ -3470,25 +3470,25 @@ class DataSourceServiceNowServiceCatalogConfigurationArgsDict(TypedDict):
     """
     The name of the ServiceNow field that is mapped to the index document contents field in the Amazon Kendra index.
     """
-    crawl_attachments: NotRequired[pulumi.Input[_builtins.bool]]
+    crawl_attachments: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     `TRUE` to index attachments to service catalog items.
     """
-    document_title_field_name: NotRequired[pulumi.Input[_builtins.str]]
+    document_title_field_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the ServiceNow field that is mapped to the index document title field.
     """
-    exclude_attachment_file_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    exclude_attachment_file_patterns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of regular expression patterns to exclude certain attachments of catalogs in your ServiceNow. Item that match the patterns are excluded from the index. Items that don't match the patterns are included in the index. If an item matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the item isn't included in the index.
 
     The regex is applied to the file name of the attachment.
     """
-    field_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgsDict']]]]
+    field_mappings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]]
     """
     Maps attributes or field names of catalogs to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to ServiceNow fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The ServiceNow data source field names must exist in your ServiceNow custom metadata.
     """
-    include_attachment_file_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    include_attachment_file_patterns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of regular expression patterns to include certain attachments of catalogs in your ServiceNow. Item that match the patterns are included in the index. Items that don't match the patterns are excluded from the index. If an item matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the item isn't included in the index.
 
@@ -3499,11 +3499,11 @@ class DataSourceServiceNowServiceCatalogConfigurationArgsDict(TypedDict):
 class DataSourceServiceNowServiceCatalogConfigurationArgs:
     def __init__(__self__, *,
                  document_data_field_name: pulumi.Input[_builtins.str],
-                 crawl_attachments: Optional[pulumi.Input[_builtins.bool]] = None,
-                 document_title_field_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 exclude_attachment_file_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]] = None,
-                 include_attachment_file_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 crawl_attachments: pulumi.Input[Optional[_builtins.bool]] = None,
+                 document_title_field_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 exclude_attachment_file_patterns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 field_mappings: pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]] = None,
+                 include_attachment_file_patterns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] document_data_field_name: The name of the ServiceNow field that is mapped to the index document contents field in the Amazon Kendra index.
         :param pulumi.Input[_builtins.bool] crawl_attachments: `TRUE` to index attachments to service catalog items.
@@ -3542,31 +3542,31 @@ class DataSourceServiceNowServiceCatalogConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="crawlAttachments")
-    def crawl_attachments(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def crawl_attachments(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         `TRUE` to index attachments to service catalog items.
         """
         return pulumi.get(self, "crawl_attachments")
 
     @crawl_attachments.setter
-    def crawl_attachments(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def crawl_attachments(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "crawl_attachments", value)
 
     @_builtins.property
     @pulumi.getter(name="documentTitleFieldName")
-    def document_title_field_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def document_title_field_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the ServiceNow field that is mapped to the index document title field.
         """
         return pulumi.get(self, "document_title_field_name")
 
     @document_title_field_name.setter
-    def document_title_field_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def document_title_field_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "document_title_field_name", value)
 
     @_builtins.property
     @pulumi.getter(name="excludeAttachmentFilePatterns")
-    def exclude_attachment_file_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def exclude_attachment_file_patterns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of regular expression patterns to exclude certain attachments of catalogs in your ServiceNow. Item that match the patterns are excluded from the index. Items that don't match the patterns are included in the index. If an item matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the item isn't included in the index.
 
@@ -3575,24 +3575,24 @@ class DataSourceServiceNowServiceCatalogConfigurationArgs:
         return pulumi.get(self, "exclude_attachment_file_patterns")
 
     @exclude_attachment_file_patterns.setter
-    def exclude_attachment_file_patterns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def exclude_attachment_file_patterns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "exclude_attachment_file_patterns", value)
 
     @_builtins.property
     @pulumi.getter(name="fieldMappings")
-    def field_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]:
+    def field_mappings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]:
         """
         Maps attributes or field names of catalogs to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to ServiceNow fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The ServiceNow data source field names must exist in your ServiceNow custom metadata.
         """
         return pulumi.get(self, "field_mappings")
 
     @field_mappings.setter
-    def field_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]):
+    def field_mappings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]):
         pulumi.set(self, "field_mappings", value)
 
     @_builtins.property
     @pulumi.getter(name="includeAttachmentFilePatterns")
-    def include_attachment_file_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def include_attachment_file_patterns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of regular expression patterns to include certain attachments of catalogs in your ServiceNow. Item that match the patterns are included in the index. Items that don't match the patterns are excluded from the index. If an item matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the item isn't included in the index.
 
@@ -3601,7 +3601,7 @@ class DataSourceServiceNowServiceCatalogConfigurationArgs:
         return pulumi.get(self, "include_attachment_file_patterns")
 
     @include_attachment_file_patterns.setter
-    def include_attachment_file_patterns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def include_attachment_file_patterns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "include_attachment_file_patterns", value)
 
 
@@ -3621,43 +3621,43 @@ class DataSourceSharePointConfigurationArgsDict(TypedDict):
     """
     The Microsoft SharePoint site URLs for the documents you want to index.
     """
-    crawl_attachments: NotRequired[pulumi.Input[_builtins.bool]]
+    crawl_attachments: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     `TRUE` to index document attachments.
     """
-    disable_local_groups: NotRequired[pulumi.Input[_builtins.bool]]
+    disable_local_groups: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     `TRUE` to disable local groups information.
     """
-    document_title_field_name: NotRequired[pulumi.Input[_builtins.str]]
+    document_title_field_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Microsoft SharePoint attribute field that contains the title of the document.
     """
-    exclusion_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    exclusion_patterns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of regular expression patterns. Documents that match the patterns are excluded from the index. Documents that don't match the patterns are included in the index. If a document matches both an exclusion pattern and an inclusion pattern, the document is not included in the index.
 
     The regex is applied to the display URL of the SharePoint document.
     """
-    field_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgsDict']]]]
+    field_mappings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]]
     """
     A list of `DataSourceToIndexFieldMapping` objects that map Microsoft SharePoint attributes or fields to Amazon Kendra index fields. You must first create the index fields using the [UpdateIndex](https://docs.aws.amazon.com/kendra/latest/dg/API_UpdateIndex.html) operation before you map SharePoint attributes. For more information, see [Mapping Data Source Fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) .
     """
-    inclusion_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    inclusion_patterns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of regular expression patterns to include certain documents in your SharePoint. Documents that match the patterns are included in the index. Documents that don't match the patterns are excluded from the index. If a document matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the document isn't included in the index.
 
     The regex applies to the display URL of the SharePoint document.
     """
-    ssl_certificate_s3_path: NotRequired[pulumi.Input['DataSourceS3PathArgsDict']]
+    ssl_certificate_s3_path: NotRequired[pulumi.Input[Optional['DataSourceS3PathArgs']]]
     """
     Information required to find a specific file in an Amazon S3 bucket.
     """
-    use_change_log: NotRequired[pulumi.Input[_builtins.bool]]
+    use_change_log: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     `TRUE` to use the SharePoint change log to determine which documents require updating in the index. Depending on the change log's size, it may take longer for Amazon Kendra to use the change log than to scan all of your documents in SharePoint.
     """
-    vpc_configuration: NotRequired[pulumi.Input['DataSourceVpcConfigurationArgsDict']]
+    vpc_configuration: NotRequired[pulumi.Input[Optional['DataSourceVpcConfigurationArgs']]]
     """
     Provides information for connecting to an Amazon VPC.
     """
@@ -3668,15 +3668,15 @@ class DataSourceSharePointConfigurationArgs:
                  secret_arn: pulumi.Input[_builtins.str],
                  share_point_version: pulumi.Input['DataSourceSharePointConfigurationSharePointVersion'],
                  urls: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 crawl_attachments: Optional[pulumi.Input[_builtins.bool]] = None,
-                 disable_local_groups: Optional[pulumi.Input[_builtins.bool]] = None,
-                 document_title_field_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 exclusion_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]] = None,
-                 inclusion_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ssl_certificate_s3_path: Optional[pulumi.Input['DataSourceS3PathArgs']] = None,
-                 use_change_log: Optional[pulumi.Input[_builtins.bool]] = None,
-                 vpc_configuration: Optional[pulumi.Input['DataSourceVpcConfigurationArgs']] = None):
+                 crawl_attachments: pulumi.Input[Optional[_builtins.bool]] = None,
+                 disable_local_groups: pulumi.Input[Optional[_builtins.bool]] = None,
+                 document_title_field_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 exclusion_patterns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 field_mappings: pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]] = None,
+                 inclusion_patterns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ssl_certificate_s3_path: pulumi.Input[Optional['DataSourceS3PathArgs']] = None,
+                 use_change_log: pulumi.Input[Optional[_builtins.bool]] = None,
+                 vpc_configuration: pulumi.Input[Optional['DataSourceVpcConfigurationArgs']] = None):
         """
         SharePoint configuration
 
@@ -3757,43 +3757,43 @@ class DataSourceSharePointConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="crawlAttachments")
-    def crawl_attachments(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def crawl_attachments(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         `TRUE` to index document attachments.
         """
         return pulumi.get(self, "crawl_attachments")
 
     @crawl_attachments.setter
-    def crawl_attachments(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def crawl_attachments(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "crawl_attachments", value)
 
     @_builtins.property
     @pulumi.getter(name="disableLocalGroups")
-    def disable_local_groups(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_local_groups(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         `TRUE` to disable local groups information.
         """
         return pulumi.get(self, "disable_local_groups")
 
     @disable_local_groups.setter
-    def disable_local_groups(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_local_groups(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_local_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="documentTitleFieldName")
-    def document_title_field_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def document_title_field_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Microsoft SharePoint attribute field that contains the title of the document.
         """
         return pulumi.get(self, "document_title_field_name")
 
     @document_title_field_name.setter
-    def document_title_field_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def document_title_field_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "document_title_field_name", value)
 
     @_builtins.property
     @pulumi.getter(name="exclusionPatterns")
-    def exclusion_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def exclusion_patterns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of regular expression patterns. Documents that match the patterns are excluded from the index. Documents that don't match the patterns are included in the index. If a document matches both an exclusion pattern and an inclusion pattern, the document is not included in the index.
 
@@ -3802,24 +3802,24 @@ class DataSourceSharePointConfigurationArgs:
         return pulumi.get(self, "exclusion_patterns")
 
     @exclusion_patterns.setter
-    def exclusion_patterns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def exclusion_patterns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "exclusion_patterns", value)
 
     @_builtins.property
     @pulumi.getter(name="fieldMappings")
-    def field_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]:
+    def field_mappings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]:
         """
         A list of `DataSourceToIndexFieldMapping` objects that map Microsoft SharePoint attributes or fields to Amazon Kendra index fields. You must first create the index fields using the [UpdateIndex](https://docs.aws.amazon.com/kendra/latest/dg/API_UpdateIndex.html) operation before you map SharePoint attributes. For more information, see [Mapping Data Source Fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) .
         """
         return pulumi.get(self, "field_mappings")
 
     @field_mappings.setter
-    def field_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]):
+    def field_mappings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]):
         pulumi.set(self, "field_mappings", value)
 
     @_builtins.property
     @pulumi.getter(name="inclusionPatterns")
-    def inclusion_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def inclusion_patterns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of regular expression patterns to include certain documents in your SharePoint. Documents that match the patterns are included in the index. Documents that don't match the patterns are excluded from the index. If a document matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the document isn't included in the index.
 
@@ -3828,48 +3828,48 @@ class DataSourceSharePointConfigurationArgs:
         return pulumi.get(self, "inclusion_patterns")
 
     @inclusion_patterns.setter
-    def inclusion_patterns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def inclusion_patterns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "inclusion_patterns", value)
 
     @_builtins.property
     @pulumi.getter(name="sslCertificateS3Path")
-    def ssl_certificate_s3_path(self) -> Optional[pulumi.Input['DataSourceS3PathArgs']]:
+    def ssl_certificate_s3_path(self) -> pulumi.Input[Optional['DataSourceS3PathArgs']]:
         """
         Information required to find a specific file in an Amazon S3 bucket.
         """
         return pulumi.get(self, "ssl_certificate_s3_path")
 
     @ssl_certificate_s3_path.setter
-    def ssl_certificate_s3_path(self, value: Optional[pulumi.Input['DataSourceS3PathArgs']]):
+    def ssl_certificate_s3_path(self, value: pulumi.Input[Optional['DataSourceS3PathArgs']]):
         pulumi.set(self, "ssl_certificate_s3_path", value)
 
     @_builtins.property
     @pulumi.getter(name="useChangeLog")
-    def use_change_log(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_change_log(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         `TRUE` to use the SharePoint change log to determine which documents require updating in the index. Depending on the change log's size, it may take longer for Amazon Kendra to use the change log than to scan all of your documents in SharePoint.
         """
         return pulumi.get(self, "use_change_log")
 
     @use_change_log.setter
-    def use_change_log(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_change_log(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_change_log", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcConfiguration")
-    def vpc_configuration(self) -> Optional[pulumi.Input['DataSourceVpcConfigurationArgs']]:
+    def vpc_configuration(self) -> pulumi.Input[Optional['DataSourceVpcConfigurationArgs']]:
         """
         Provides information for connecting to an Amazon VPC.
         """
         return pulumi.get(self, "vpc_configuration")
 
     @vpc_configuration.setter
-    def vpc_configuration(self, value: Optional[pulumi.Input['DataSourceVpcConfigurationArgs']]):
+    def vpc_configuration(self, value: pulumi.Input[Optional['DataSourceVpcConfigurationArgs']]):
         pulumi.set(self, "vpc_configuration", value)
 
 
 class DataSourceSqlConfigurationArgsDict(TypedDict):
-    query_identifiers_enclosing_option: NotRequired[pulumi.Input['DataSourceQueryIdentifiersEnclosingOption']]
+    query_identifiers_enclosing_option: NotRequired[pulumi.Input[Optional['DataSourceQueryIdentifiersEnclosingOption']]]
     """
     Determines whether Amazon Kendra encloses SQL identifiers for tables and column names in double quotes (") when making a database query. You can set the value to `DOUBLE_QUOTES` or `NONE` .
 
@@ -3883,7 +3883,7 @@ class DataSourceSqlConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class DataSourceSqlConfigurationArgs:
     def __init__(__self__, *,
-                 query_identifiers_enclosing_option: Optional[pulumi.Input['DataSourceQueryIdentifiersEnclosingOption']] = None):
+                 query_identifiers_enclosing_option: pulumi.Input[Optional['DataSourceQueryIdentifiersEnclosingOption']] = None):
         """
         :param pulumi.Input['DataSourceQueryIdentifiersEnclosingOption'] query_identifiers_enclosing_option: Determines whether Amazon Kendra encloses SQL identifiers for tables and column names in double quotes (") when making a database query. You can set the value to `DOUBLE_QUOTES` or `NONE` .
                
@@ -3898,7 +3898,7 @@ class DataSourceSqlConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="queryIdentifiersEnclosingOption")
-    def query_identifiers_enclosing_option(self) -> Optional[pulumi.Input['DataSourceQueryIdentifiersEnclosingOption']]:
+    def query_identifiers_enclosing_option(self) -> pulumi.Input[Optional['DataSourceQueryIdentifiersEnclosingOption']]:
         """
         Determines whether Amazon Kendra encloses SQL identifiers for tables and column names in double quotes (") when making a database query. You can set the value to `DOUBLE_QUOTES` or `NONE` .
 
@@ -3911,7 +3911,7 @@ class DataSourceSqlConfigurationArgs:
         return pulumi.get(self, "query_identifiers_enclosing_option")
 
     @query_identifiers_enclosing_option.setter
-    def query_identifiers_enclosing_option(self, value: Optional[pulumi.Input['DataSourceQueryIdentifiersEnclosingOption']]):
+    def query_identifiers_enclosing_option(self, value: pulumi.Input[Optional['DataSourceQueryIdentifiersEnclosingOption']]):
         pulumi.set(self, "query_identifiers_enclosing_option", value)
 
 
@@ -3952,14 +3952,14 @@ class DataSourceTemplateConfigurationArgs:
 class DataSourceToIndexFieldMappingArgsDict(TypedDict):
     data_source_field_name: pulumi.Input[_builtins.str]
     index_field_name: pulumi.Input[_builtins.str]
-    date_field_format: NotRequired[pulumi.Input[_builtins.str]]
+    date_field_format: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class DataSourceToIndexFieldMappingArgs:
     def __init__(__self__, *,
                  data_source_field_name: pulumi.Input[_builtins.str],
                  index_field_name: pulumi.Input[_builtins.str],
-                 date_field_format: Optional[pulumi.Input[_builtins.str]] = None):
+                 date_field_format: pulumi.Input[Optional[_builtins.str]] = None):
         pulumi.set(__self__, "data_source_field_name", data_source_field_name)
         pulumi.set(__self__, "index_field_name", index_field_name)
         if date_field_format is not None:
@@ -3985,11 +3985,11 @@ class DataSourceToIndexFieldMappingArgs:
 
     @_builtins.property
     @pulumi.getter(name="dateFieldFormat")
-    def date_field_format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def date_field_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "date_field_format")
 
     @date_field_format.setter
-    def date_field_format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def date_field_format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "date_field_format", value)
 
 
@@ -4041,7 +4041,7 @@ class DataSourceVpcConfigurationArgs:
 
 
 class DataSourceWebCrawlerAuthenticationConfigurationArgsDict(TypedDict):
-    basic_authentication: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataSourceWebCrawlerBasicAuthenticationArgsDict']]]]
+    basic_authentication: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceWebCrawlerBasicAuthenticationArgs']]]]]
     """
     The list of configuration information that's required to connect to and crawl a website host using basic authentication credentials.
 
@@ -4051,7 +4051,7 @@ class DataSourceWebCrawlerAuthenticationConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class DataSourceWebCrawlerAuthenticationConfigurationArgs:
     def __init__(__self__, *,
-                 basic_authentication: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceWebCrawlerBasicAuthenticationArgs']]]] = None):
+                 basic_authentication: pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceWebCrawlerBasicAuthenticationArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['DataSourceWebCrawlerBasicAuthenticationArgs']]] basic_authentication: The list of configuration information that's required to connect to and crawl a website host using basic authentication credentials.
                
@@ -4062,7 +4062,7 @@ class DataSourceWebCrawlerAuthenticationConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="basicAuthentication")
-    def basic_authentication(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceWebCrawlerBasicAuthenticationArgs']]]]:
+    def basic_authentication(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceWebCrawlerBasicAuthenticationArgs']]]]:
         """
         The list of configuration information that's required to connect to and crawl a website host using basic authentication credentials.
 
@@ -4071,7 +4071,7 @@ class DataSourceWebCrawlerAuthenticationConfigurationArgs:
         return pulumi.get(self, "basic_authentication")
 
     @basic_authentication.setter
-    def basic_authentication(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceWebCrawlerBasicAuthenticationArgs']]]]):
+    def basic_authentication(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceWebCrawlerBasicAuthenticationArgs']]]]):
         pulumi.set(self, "basic_authentication", value)
 
 
@@ -4129,7 +4129,7 @@ class DataSourceWebCrawlerConfigurationArgsDict(TypedDict):
 
     *When selecting websites to index, you must adhere to the [Amazon Acceptable Use Policy](https://docs.aws.amazon.com/aup/) and all other Amazon terms. Remember that you must only use Amazon Kendra Web Crawler to index your own webpages, or webpages that you have authorization to index.*
     """
-    authentication_configuration: NotRequired[pulumi.Input['DataSourceWebCrawlerAuthenticationConfigurationArgsDict']]
+    authentication_configuration: NotRequired[pulumi.Input[Optional['DataSourceWebCrawlerAuthenticationConfigurationArgs']]]
     """
     Configuration information required to connect to websites using authentication.
 
@@ -4137,11 +4137,11 @@ class DataSourceWebCrawlerConfigurationArgsDict(TypedDict):
 
     You must provide the website host name and port number. For example, the host name of https://a.example.com/page1.html is "a.example.com" and the port is 443, the standard port for HTTPS.
     """
-    crawl_depth: NotRequired[pulumi.Input[_builtins.int]]
+    crawl_depth: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The 'depth' or number of levels from the seed level to crawl. For example, the seed URL page is depth 1 and any hyperlinks on this page that are also crawled are depth 2.
     """
-    max_content_size_per_page_in_mega_bytes: NotRequired[pulumi.Input[_builtins.float]]
+    max_content_size_per_page_in_mega_bytes: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The maximum size (in MB) of a web page or attachment to crawl.
 
@@ -4149,7 +4149,7 @@ class DataSourceWebCrawlerConfigurationArgsDict(TypedDict):
 
     The default maximum size of a web page or attachment is set to 50 MB.
     """
-    max_links_per_page: NotRequired[pulumi.Input[_builtins.int]]
+    max_links_per_page: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum number of URLs on a web page to include when crawling a website. This number is per web page.
 
@@ -4157,7 +4157,7 @@ class DataSourceWebCrawlerConfigurationArgsDict(TypedDict):
 
     The default maximum links per page is 100.
     """
-    max_urls_per_minute_crawl_rate: NotRequired[pulumi.Input[_builtins.int]]
+    max_urls_per_minute_crawl_rate: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum number of URLs crawled per website host per minute.
 
@@ -4165,7 +4165,7 @@ class DataSourceWebCrawlerConfigurationArgsDict(TypedDict):
 
     The default maximum number of URLs crawled per website host per minute is 300.
     """
-    proxy_configuration: NotRequired[pulumi.Input['DataSourceProxyConfigurationArgsDict']]
+    proxy_configuration: NotRequired[pulumi.Input[Optional['DataSourceProxyConfigurationArgs']]]
     """
     Configuration information required to connect to your internal websites via a web proxy.
 
@@ -4173,11 +4173,11 @@ class DataSourceWebCrawlerConfigurationArgsDict(TypedDict):
 
     Web proxy credentials are optional and you can use them to connect to a web proxy server that requires basic authentication. To store web proxy credentials, you use a secret in [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html) .
     """
-    url_exclusion_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    url_exclusion_patterns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of regular expression patterns to exclude certain URLs to crawl. URLs that match the patterns are excluded from the index. URLs that don't match the patterns are included in the index. If a URL matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the URL file isn't included in the index.
     """
-    url_inclusion_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    url_inclusion_patterns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of regular expression patterns to include certain URLs to crawl. URLs that match the patterns are included in the index. URLs that don't match the patterns are excluded from the index. If a URL matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the URL file isn't included in the index.
     """
@@ -4186,14 +4186,14 @@ class DataSourceWebCrawlerConfigurationArgsDict(TypedDict):
 class DataSourceWebCrawlerConfigurationArgs:
     def __init__(__self__, *,
                  urls: pulumi.Input['DataSourceWebCrawlerUrlsArgs'],
-                 authentication_configuration: Optional[pulumi.Input['DataSourceWebCrawlerAuthenticationConfigurationArgs']] = None,
-                 crawl_depth: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_content_size_per_page_in_mega_bytes: Optional[pulumi.Input[_builtins.float]] = None,
-                 max_links_per_page: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_urls_per_minute_crawl_rate: Optional[pulumi.Input[_builtins.int]] = None,
-                 proxy_configuration: Optional[pulumi.Input['DataSourceProxyConfigurationArgs']] = None,
-                 url_exclusion_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 url_inclusion_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 authentication_configuration: pulumi.Input[Optional['DataSourceWebCrawlerAuthenticationConfigurationArgs']] = None,
+                 crawl_depth: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_content_size_per_page_in_mega_bytes: pulumi.Input[Optional[_builtins.float]] = None,
+                 max_links_per_page: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_urls_per_minute_crawl_rate: pulumi.Input[Optional[_builtins.int]] = None,
+                 proxy_configuration: pulumi.Input[Optional['DataSourceProxyConfigurationArgs']] = None,
+                 url_exclusion_patterns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 url_inclusion_patterns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input['DataSourceWebCrawlerUrlsArgs'] urls: Specifies the seed or starting point URLs of the websites or the sitemap URLs of the websites you want to crawl.
                
@@ -4269,7 +4269,7 @@ class DataSourceWebCrawlerConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="authenticationConfiguration")
-    def authentication_configuration(self) -> Optional[pulumi.Input['DataSourceWebCrawlerAuthenticationConfigurationArgs']]:
+    def authentication_configuration(self) -> pulumi.Input[Optional['DataSourceWebCrawlerAuthenticationConfigurationArgs']]:
         """
         Configuration information required to connect to websites using authentication.
 
@@ -4280,24 +4280,24 @@ class DataSourceWebCrawlerConfigurationArgs:
         return pulumi.get(self, "authentication_configuration")
 
     @authentication_configuration.setter
-    def authentication_configuration(self, value: Optional[pulumi.Input['DataSourceWebCrawlerAuthenticationConfigurationArgs']]):
+    def authentication_configuration(self, value: pulumi.Input[Optional['DataSourceWebCrawlerAuthenticationConfigurationArgs']]):
         pulumi.set(self, "authentication_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="crawlDepth")
-    def crawl_depth(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def crawl_depth(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The 'depth' or number of levels from the seed level to crawl. For example, the seed URL page is depth 1 and any hyperlinks on this page that are also crawled are depth 2.
         """
         return pulumi.get(self, "crawl_depth")
 
     @crawl_depth.setter
-    def crawl_depth(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def crawl_depth(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "crawl_depth", value)
 
     @_builtins.property
     @pulumi.getter(name="maxContentSizePerPageInMegaBytes")
-    def max_content_size_per_page_in_mega_bytes(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def max_content_size_per_page_in_mega_bytes(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The maximum size (in MB) of a web page or attachment to crawl.
 
@@ -4308,12 +4308,12 @@ class DataSourceWebCrawlerConfigurationArgs:
         return pulumi.get(self, "max_content_size_per_page_in_mega_bytes")
 
     @max_content_size_per_page_in_mega_bytes.setter
-    def max_content_size_per_page_in_mega_bytes(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def max_content_size_per_page_in_mega_bytes(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "max_content_size_per_page_in_mega_bytes", value)
 
     @_builtins.property
     @pulumi.getter(name="maxLinksPerPage")
-    def max_links_per_page(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_links_per_page(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of URLs on a web page to include when crawling a website. This number is per web page.
 
@@ -4324,12 +4324,12 @@ class DataSourceWebCrawlerConfigurationArgs:
         return pulumi.get(self, "max_links_per_page")
 
     @max_links_per_page.setter
-    def max_links_per_page(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_links_per_page(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_links_per_page", value)
 
     @_builtins.property
     @pulumi.getter(name="maxUrlsPerMinuteCrawlRate")
-    def max_urls_per_minute_crawl_rate(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_urls_per_minute_crawl_rate(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of URLs crawled per website host per minute.
 
@@ -4340,12 +4340,12 @@ class DataSourceWebCrawlerConfigurationArgs:
         return pulumi.get(self, "max_urls_per_minute_crawl_rate")
 
     @max_urls_per_minute_crawl_rate.setter
-    def max_urls_per_minute_crawl_rate(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_urls_per_minute_crawl_rate(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_urls_per_minute_crawl_rate", value)
 
     @_builtins.property
     @pulumi.getter(name="proxyConfiguration")
-    def proxy_configuration(self) -> Optional[pulumi.Input['DataSourceProxyConfigurationArgs']]:
+    def proxy_configuration(self) -> pulumi.Input[Optional['DataSourceProxyConfigurationArgs']]:
         """
         Configuration information required to connect to your internal websites via a web proxy.
 
@@ -4356,31 +4356,31 @@ class DataSourceWebCrawlerConfigurationArgs:
         return pulumi.get(self, "proxy_configuration")
 
     @proxy_configuration.setter
-    def proxy_configuration(self, value: Optional[pulumi.Input['DataSourceProxyConfigurationArgs']]):
+    def proxy_configuration(self, value: pulumi.Input[Optional['DataSourceProxyConfigurationArgs']]):
         pulumi.set(self, "proxy_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="urlExclusionPatterns")
-    def url_exclusion_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def url_exclusion_patterns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of regular expression patterns to exclude certain URLs to crawl. URLs that match the patterns are excluded from the index. URLs that don't match the patterns are included in the index. If a URL matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the URL file isn't included in the index.
         """
         return pulumi.get(self, "url_exclusion_patterns")
 
     @url_exclusion_patterns.setter
-    def url_exclusion_patterns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def url_exclusion_patterns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "url_exclusion_patterns", value)
 
     @_builtins.property
     @pulumi.getter(name="urlInclusionPatterns")
-    def url_inclusion_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def url_inclusion_patterns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of regular expression patterns to include certain URLs to crawl. URLs that match the patterns are included in the index. URLs that don't match the patterns are excluded from the index. If a URL matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the URL file isn't included in the index.
         """
         return pulumi.get(self, "url_inclusion_patterns")
 
     @url_inclusion_patterns.setter
-    def url_inclusion_patterns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def url_inclusion_patterns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "url_inclusion_patterns", value)
 
 
@@ -4391,7 +4391,7 @@ class DataSourceWebCrawlerSeedUrlConfigurationArgsDict(TypedDict):
 
     The list can include a maximum of 100 seed URLs.
     """
-    web_crawler_mode: NotRequired[pulumi.Input['DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode']]
+    web_crawler_mode: NotRequired[pulumi.Input[Optional['DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode']]]
     """
     You can choose one of the following modes:
 
@@ -4406,7 +4406,7 @@ class DataSourceWebCrawlerSeedUrlConfigurationArgsDict(TypedDict):
 class DataSourceWebCrawlerSeedUrlConfigurationArgs:
     def __init__(__self__, *,
                  seed_urls: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 web_crawler_mode: Optional[pulumi.Input['DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode']] = None):
+                 web_crawler_mode: pulumi.Input[Optional['DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode']] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] seed_urls: The list of seed or starting point URLs of the websites you want to crawl.
                
@@ -4439,7 +4439,7 @@ class DataSourceWebCrawlerSeedUrlConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="webCrawlerMode")
-    def web_crawler_mode(self) -> Optional[pulumi.Input['DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode']]:
+    def web_crawler_mode(self) -> pulumi.Input[Optional['DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode']]:
         """
         You can choose one of the following modes:
 
@@ -4452,7 +4452,7 @@ class DataSourceWebCrawlerSeedUrlConfigurationArgs:
         return pulumi.get(self, "web_crawler_mode")
 
     @web_crawler_mode.setter
-    def web_crawler_mode(self, value: Optional[pulumi.Input['DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode']]):
+    def web_crawler_mode(self, value: pulumi.Input[Optional['DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode']]):
         pulumi.set(self, "web_crawler_mode", value)
 
 
@@ -4491,7 +4491,7 @@ class DataSourceWebCrawlerSiteMapsConfigurationArgs:
 
 
 class DataSourceWebCrawlerUrlsArgsDict(TypedDict):
-    seed_url_configuration: NotRequired[pulumi.Input['DataSourceWebCrawlerSeedUrlConfigurationArgsDict']]
+    seed_url_configuration: NotRequired[pulumi.Input[Optional['DataSourceWebCrawlerSeedUrlConfigurationArgs']]]
     """
     Configuration of the seed or starting point URLs of the websites you want to crawl.
 
@@ -4499,7 +4499,7 @@ class DataSourceWebCrawlerUrlsArgsDict(TypedDict):
 
     You can list up to 100 seed URLs.
     """
-    site_maps_configuration: NotRequired[pulumi.Input['DataSourceWebCrawlerSiteMapsConfigurationArgsDict']]
+    site_maps_configuration: NotRequired[pulumi.Input[Optional['DataSourceWebCrawlerSiteMapsConfigurationArgs']]]
     """
     Configuration of the sitemap URLs of the websites you want to crawl.
 
@@ -4509,8 +4509,8 @@ class DataSourceWebCrawlerUrlsArgsDict(TypedDict):
 @pulumi.input_type
 class DataSourceWebCrawlerUrlsArgs:
     def __init__(__self__, *,
-                 seed_url_configuration: Optional[pulumi.Input['DataSourceWebCrawlerSeedUrlConfigurationArgs']] = None,
-                 site_maps_configuration: Optional[pulumi.Input['DataSourceWebCrawlerSiteMapsConfigurationArgs']] = None):
+                 seed_url_configuration: pulumi.Input[Optional['DataSourceWebCrawlerSeedUrlConfigurationArgs']] = None,
+                 site_maps_configuration: pulumi.Input[Optional['DataSourceWebCrawlerSiteMapsConfigurationArgs']] = None):
         """
         :param pulumi.Input['DataSourceWebCrawlerSeedUrlConfigurationArgs'] seed_url_configuration: Configuration of the seed or starting point URLs of the websites you want to crawl.
                
@@ -4528,7 +4528,7 @@ class DataSourceWebCrawlerUrlsArgs:
 
     @_builtins.property
     @pulumi.getter(name="seedUrlConfiguration")
-    def seed_url_configuration(self) -> Optional[pulumi.Input['DataSourceWebCrawlerSeedUrlConfigurationArgs']]:
+    def seed_url_configuration(self) -> pulumi.Input[Optional['DataSourceWebCrawlerSeedUrlConfigurationArgs']]:
         """
         Configuration of the seed or starting point URLs of the websites you want to crawl.
 
@@ -4539,12 +4539,12 @@ class DataSourceWebCrawlerUrlsArgs:
         return pulumi.get(self, "seed_url_configuration")
 
     @seed_url_configuration.setter
-    def seed_url_configuration(self, value: Optional[pulumi.Input['DataSourceWebCrawlerSeedUrlConfigurationArgs']]):
+    def seed_url_configuration(self, value: pulumi.Input[Optional['DataSourceWebCrawlerSeedUrlConfigurationArgs']]):
         pulumi.set(self, "seed_url_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="siteMapsConfiguration")
-    def site_maps_configuration(self) -> Optional[pulumi.Input['DataSourceWebCrawlerSiteMapsConfigurationArgs']]:
+    def site_maps_configuration(self) -> pulumi.Input[Optional['DataSourceWebCrawlerSiteMapsConfigurationArgs']]:
         """
         Configuration of the sitemap URLs of the websites you want to crawl.
 
@@ -4553,7 +4553,7 @@ class DataSourceWebCrawlerUrlsArgs:
         return pulumi.get(self, "site_maps_configuration")
 
     @site_maps_configuration.setter
-    def site_maps_configuration(self, value: Optional[pulumi.Input['DataSourceWebCrawlerSiteMapsConfigurationArgs']]):
+    def site_maps_configuration(self, value: pulumi.Input[Optional['DataSourceWebCrawlerSiteMapsConfigurationArgs']]):
         pulumi.set(self, "site_maps_configuration", value)
 
 
@@ -4564,25 +4564,25 @@ class DataSourceWorkDocsConfigurationArgsDict(TypedDict):
 
     You can find the organization ID in the [Directory Service](https://docs.aws.amazon.com/directoryservicev2/) by going to *Active Directory* , then *Directories* . Your WorkDocs site directory has an ID, which is the organization ID. You can also set up a new WorkDocs directory in the Directory Service console and enable a WorkDocs site for the directory in the WorkDocs console.
     """
-    crawl_comments: NotRequired[pulumi.Input[_builtins.bool]]
+    crawl_comments: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     `TRUE` to include comments on documents in your index. Including comments in your index means each comment is a document that can be searched on.
 
     The default is set to `FALSE` .
     """
-    exclusion_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    exclusion_patterns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of regular expression patterns to exclude certain files in your WorkDocs site repository. Files that match the patterns are excluded from the index. Files that don’t match the patterns are included in the index. If a file matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the file isn't included in the index.
     """
-    field_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgsDict']]]]
+    field_mappings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]]
     """
     A list of `DataSourceToIndexFieldMapping` objects that map WorkDocs data source attributes or field names to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to WorkDocs fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The WorkDocs data source field names must exist in your WorkDocs custom metadata.
     """
-    inclusion_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    inclusion_patterns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of regular expression patterns to include certain files in your WorkDocs site repository. Files that match the patterns are included in the index. Files that don't match the patterns are excluded from the index. If a file matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the file isn't included in the index.
     """
-    use_change_log: NotRequired[pulumi.Input[_builtins.bool]]
+    use_change_log: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     `TRUE` to use the WorkDocs change log to determine which documents require updating in the index. Depending on the change log's size, it may take longer for Amazon Kendra to use the change log than to scan all of your documents in WorkDocs.
     """
@@ -4591,11 +4591,11 @@ class DataSourceWorkDocsConfigurationArgsDict(TypedDict):
 class DataSourceWorkDocsConfigurationArgs:
     def __init__(__self__, *,
                  organization_id: pulumi.Input[_builtins.str],
-                 crawl_comments: Optional[pulumi.Input[_builtins.bool]] = None,
-                 exclusion_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]] = None,
-                 inclusion_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 use_change_log: Optional[pulumi.Input[_builtins.bool]] = None):
+                 crawl_comments: pulumi.Input[Optional[_builtins.bool]] = None,
+                 exclusion_patterns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 field_mappings: pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]] = None,
+                 inclusion_patterns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 use_change_log: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] organization_id: The identifier of the directory corresponding to your WorkDocs site repository.
                
@@ -4636,7 +4636,7 @@ class DataSourceWorkDocsConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="crawlComments")
-    def crawl_comments(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def crawl_comments(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         `TRUE` to include comments on documents in your index. Including comments in your index means each comment is a document that can be searched on.
 
@@ -4645,55 +4645,55 @@ class DataSourceWorkDocsConfigurationArgs:
         return pulumi.get(self, "crawl_comments")
 
     @crawl_comments.setter
-    def crawl_comments(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def crawl_comments(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "crawl_comments", value)
 
     @_builtins.property
     @pulumi.getter(name="exclusionPatterns")
-    def exclusion_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def exclusion_patterns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of regular expression patterns to exclude certain files in your WorkDocs site repository. Files that match the patterns are excluded from the index. Files that don’t match the patterns are included in the index. If a file matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the file isn't included in the index.
         """
         return pulumi.get(self, "exclusion_patterns")
 
     @exclusion_patterns.setter
-    def exclusion_patterns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def exclusion_patterns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "exclusion_patterns", value)
 
     @_builtins.property
     @pulumi.getter(name="fieldMappings")
-    def field_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]:
+    def field_mappings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]:
         """
         A list of `DataSourceToIndexFieldMapping` objects that map WorkDocs data source attributes or field names to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to WorkDocs fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The WorkDocs data source field names must exist in your WorkDocs custom metadata.
         """
         return pulumi.get(self, "field_mappings")
 
     @field_mappings.setter
-    def field_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]):
+    def field_mappings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]):
         pulumi.set(self, "field_mappings", value)
 
     @_builtins.property
     @pulumi.getter(name="inclusionPatterns")
-    def inclusion_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def inclusion_patterns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of regular expression patterns to include certain files in your WorkDocs site repository. Files that match the patterns are included in the index. Files that don't match the patterns are excluded from the index. If a file matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the file isn't included in the index.
         """
         return pulumi.get(self, "inclusion_patterns")
 
     @inclusion_patterns.setter
-    def inclusion_patterns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def inclusion_patterns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "inclusion_patterns", value)
 
     @_builtins.property
     @pulumi.getter(name="useChangeLog")
-    def use_change_log(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_change_log(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         `TRUE` to use the WorkDocs change log to determine which documents require updating in the index. Depending on the change log's size, it may take longer for Amazon Kendra to use the change log than to scan all of your documents in WorkDocs.
         """
         return pulumi.get(self, "use_change_log")
 
     @use_change_log.setter
-    def use_change_log(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_change_log(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_change_log", value)
 
 
@@ -4806,16 +4806,16 @@ class IndexCapacityUnitsConfigurationArgs:
 class IndexDocumentMetadataConfigurationArgsDict(TypedDict):
     name: pulumi.Input[_builtins.str]
     type: pulumi.Input['IndexDocumentAttributeValueType']
-    relevance: NotRequired[pulumi.Input['IndexRelevanceArgsDict']]
-    search: NotRequired[pulumi.Input['IndexSearchArgsDict']]
+    relevance: NotRequired[pulumi.Input[Optional['IndexRelevanceArgs']]]
+    search: NotRequired[pulumi.Input[Optional['IndexSearchArgs']]]
 
 @pulumi.input_type
 class IndexDocumentMetadataConfigurationArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  type: pulumi.Input['IndexDocumentAttributeValueType'],
-                 relevance: Optional[pulumi.Input['IndexRelevanceArgs']] = None,
-                 search: Optional[pulumi.Input['IndexSearchArgs']] = None):
+                 relevance: pulumi.Input[Optional['IndexRelevanceArgs']] = None,
+                 search: pulumi.Input[Optional['IndexSearchArgs']] = None):
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
         if relevance is not None:
@@ -4843,20 +4843,20 @@ class IndexDocumentMetadataConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def relevance(self) -> Optional[pulumi.Input['IndexRelevanceArgs']]:
+    def relevance(self) -> pulumi.Input[Optional['IndexRelevanceArgs']]:
         return pulumi.get(self, "relevance")
 
     @relevance.setter
-    def relevance(self, value: Optional[pulumi.Input['IndexRelevanceArgs']]):
+    def relevance(self, value: pulumi.Input[Optional['IndexRelevanceArgs']]):
         pulumi.set(self, "relevance", value)
 
     @_builtins.property
     @pulumi.getter
-    def search(self) -> Optional[pulumi.Input['IndexSearchArgs']]:
+    def search(self) -> pulumi.Input[Optional['IndexSearchArgs']]:
         return pulumi.get(self, "search")
 
     @search.setter
-    def search(self, value: Optional[pulumi.Input['IndexSearchArgs']]):
+    def search(self, value: pulumi.Input[Optional['IndexSearchArgs']]):
         pulumi.set(self, "search", value)
 
 
@@ -4893,23 +4893,23 @@ class IndexJsonTokenTypeConfigurationArgs:
 
 class IndexJwtTokenTypeConfigurationArgsDict(TypedDict):
     key_location: pulumi.Input['IndexKeyLocation']
-    claim_regex: NotRequired[pulumi.Input[_builtins.str]]
-    group_attribute_field: NotRequired[pulumi.Input[_builtins.str]]
-    issuer: NotRequired[pulumi.Input[_builtins.str]]
-    secret_manager_arn: NotRequired[pulumi.Input[_builtins.str]]
-    url: NotRequired[pulumi.Input[_builtins.str]]
-    user_name_attribute_field: NotRequired[pulumi.Input[_builtins.str]]
+    claim_regex: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    group_attribute_field: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    issuer: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    secret_manager_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    user_name_attribute_field: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class IndexJwtTokenTypeConfigurationArgs:
     def __init__(__self__, *,
                  key_location: pulumi.Input['IndexKeyLocation'],
-                 claim_regex: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_attribute_field: Optional[pulumi.Input[_builtins.str]] = None,
-                 issuer: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret_manager_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name_attribute_field: Optional[pulumi.Input[_builtins.str]] = None):
+                 claim_regex: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_attribute_field: pulumi.Input[Optional[_builtins.str]] = None,
+                 issuer: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret_manager_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name_attribute_field: pulumi.Input[Optional[_builtins.str]] = None):
         pulumi.set(__self__, "key_location", key_location)
         if claim_regex is not None:
             pulumi.set(__self__, "claim_regex", claim_regex)
@@ -4935,74 +4935,74 @@ class IndexJwtTokenTypeConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="claimRegex")
-    def claim_regex(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def claim_regex(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "claim_regex")
 
     @claim_regex.setter
-    def claim_regex(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def claim_regex(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "claim_regex", value)
 
     @_builtins.property
     @pulumi.getter(name="groupAttributeField")
-    def group_attribute_field(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def group_attribute_field(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "group_attribute_field")
 
     @group_attribute_field.setter
-    def group_attribute_field(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def group_attribute_field(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "group_attribute_field", value)
 
     @_builtins.property
     @pulumi.getter
-    def issuer(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def issuer(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "issuer")
 
     @issuer.setter
-    def issuer(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def issuer(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "issuer", value)
 
     @_builtins.property
     @pulumi.getter(name="secretManagerArn")
-    def secret_manager_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secret_manager_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "secret_manager_arn")
 
     @secret_manager_arn.setter
-    def secret_manager_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secret_manager_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secret_manager_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url", value)
 
     @_builtins.property
     @pulumi.getter(name="userNameAttributeField")
-    def user_name_attribute_field(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_name_attribute_field(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "user_name_attribute_field")
 
     @user_name_attribute_field.setter
-    def user_name_attribute_field(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_name_attribute_field(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_name_attribute_field", value)
 
 
 class IndexRelevanceArgsDict(TypedDict):
-    duration: NotRequired[pulumi.Input[_builtins.str]]
-    freshness: NotRequired[pulumi.Input[_builtins.bool]]
-    importance: NotRequired[pulumi.Input[_builtins.int]]
-    rank_order: NotRequired[pulumi.Input['IndexOrder']]
-    value_importance_items: NotRequired[pulumi.Input[Sequence[pulumi.Input['IndexValueImportanceItemArgsDict']]]]
+    duration: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    freshness: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    importance: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    rank_order: NotRequired[pulumi.Input[Optional['IndexOrder']]]
+    value_importance_items: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IndexValueImportanceItemArgs']]]]]
 
 @pulumi.input_type
 class IndexRelevanceArgs:
     def __init__(__self__, *,
-                 duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 freshness: Optional[pulumi.Input[_builtins.bool]] = None,
-                 importance: Optional[pulumi.Input[_builtins.int]] = None,
-                 rank_order: Optional[pulumi.Input['IndexOrder']] = None,
-                 value_importance_items: Optional[pulumi.Input[Sequence[pulumi.Input['IndexValueImportanceItemArgs']]]] = None):
+                 duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 freshness: pulumi.Input[Optional[_builtins.bool]] = None,
+                 importance: pulumi.Input[Optional[_builtins.int]] = None,
+                 rank_order: pulumi.Input[Optional['IndexOrder']] = None,
+                 value_importance_items: pulumi.Input[Optional[Sequence[pulumi.Input['IndexValueImportanceItemArgs']]]] = None):
         if duration is not None:
             pulumi.set(__self__, "duration", duration)
         if freshness is not None:
@@ -5016,63 +5016,63 @@ class IndexRelevanceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def duration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def duration(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "duration")
 
     @duration.setter
-    def duration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def duration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "duration", value)
 
     @_builtins.property
     @pulumi.getter
-    def freshness(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def freshness(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "freshness")
 
     @freshness.setter
-    def freshness(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def freshness(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "freshness", value)
 
     @_builtins.property
     @pulumi.getter
-    def importance(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def importance(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "importance")
 
     @importance.setter
-    def importance(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def importance(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "importance", value)
 
     @_builtins.property
     @pulumi.getter(name="rankOrder")
-    def rank_order(self) -> Optional[pulumi.Input['IndexOrder']]:
+    def rank_order(self) -> pulumi.Input[Optional['IndexOrder']]:
         return pulumi.get(self, "rank_order")
 
     @rank_order.setter
-    def rank_order(self, value: Optional[pulumi.Input['IndexOrder']]):
+    def rank_order(self, value: pulumi.Input[Optional['IndexOrder']]):
         pulumi.set(self, "rank_order", value)
 
     @_builtins.property
     @pulumi.getter(name="valueImportanceItems")
-    def value_importance_items(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IndexValueImportanceItemArgs']]]]:
+    def value_importance_items(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IndexValueImportanceItemArgs']]]]:
         return pulumi.get(self, "value_importance_items")
 
     @value_importance_items.setter
-    def value_importance_items(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IndexValueImportanceItemArgs']]]]):
+    def value_importance_items(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IndexValueImportanceItemArgs']]]]):
         pulumi.set(self, "value_importance_items", value)
 
 
 class IndexSearchArgsDict(TypedDict):
-    displayable: NotRequired[pulumi.Input[_builtins.bool]]
-    facetable: NotRequired[pulumi.Input[_builtins.bool]]
-    searchable: NotRequired[pulumi.Input[_builtins.bool]]
-    sortable: NotRequired[pulumi.Input[_builtins.bool]]
+    displayable: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    facetable: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    searchable: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    sortable: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
 
 @pulumi.input_type
 class IndexSearchArgs:
     def __init__(__self__, *,
-                 displayable: Optional[pulumi.Input[_builtins.bool]] = None,
-                 facetable: Optional[pulumi.Input[_builtins.bool]] = None,
-                 searchable: Optional[pulumi.Input[_builtins.bool]] = None,
-                 sortable: Optional[pulumi.Input[_builtins.bool]] = None):
+                 displayable: pulumi.Input[Optional[_builtins.bool]] = None,
+                 facetable: pulumi.Input[Optional[_builtins.bool]] = None,
+                 searchable: pulumi.Input[Optional[_builtins.bool]] = None,
+                 sortable: pulumi.Input[Optional[_builtins.bool]] = None):
         if displayable is not None:
             pulumi.set(__self__, "displayable", displayable)
         if facetable is not None:
@@ -5084,43 +5084,43 @@ class IndexSearchArgs:
 
     @_builtins.property
     @pulumi.getter
-    def displayable(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def displayable(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "displayable")
 
     @displayable.setter
-    def displayable(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def displayable(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "displayable", value)
 
     @_builtins.property
     @pulumi.getter
-    def facetable(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def facetable(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "facetable")
 
     @facetable.setter
-    def facetable(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def facetable(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "facetable", value)
 
     @_builtins.property
     @pulumi.getter
-    def searchable(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def searchable(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "searchable")
 
     @searchable.setter
-    def searchable(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def searchable(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "searchable", value)
 
     @_builtins.property
     @pulumi.getter
-    def sortable(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def sortable(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "sortable")
 
     @sortable.setter
-    def sortable(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def sortable(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "sortable", value)
 
 
 class IndexServerSideEncryptionConfigurationArgsDict(TypedDict):
-    kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    kms_key_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The identifier of the AWS KMS key . Amazon Kendra doesn't support asymmetric keys.
     """
@@ -5128,7 +5128,7 @@ class IndexServerSideEncryptionConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class IndexServerSideEncryptionConfigurationArgs:
     def __init__(__self__, *,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] kms_key_id: The identifier of the AWS KMS key . Amazon Kendra doesn't support asymmetric keys.
         """
@@ -5137,26 +5137,26 @@ class IndexServerSideEncryptionConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier of the AWS KMS key . Amazon Kendra doesn't support asymmetric keys.
         """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
 
 class IndexUserTokenConfigurationArgsDict(TypedDict):
-    json_token_type_configuration: NotRequired[pulumi.Input['IndexJsonTokenTypeConfigurationArgsDict']]
-    jwt_token_type_configuration: NotRequired[pulumi.Input['IndexJwtTokenTypeConfigurationArgsDict']]
+    json_token_type_configuration: NotRequired[pulumi.Input[Optional['IndexJsonTokenTypeConfigurationArgs']]]
+    jwt_token_type_configuration: NotRequired[pulumi.Input[Optional['IndexJwtTokenTypeConfigurationArgs']]]
 
 @pulumi.input_type
 class IndexUserTokenConfigurationArgs:
     def __init__(__self__, *,
-                 json_token_type_configuration: Optional[pulumi.Input['IndexJsonTokenTypeConfigurationArgs']] = None,
-                 jwt_token_type_configuration: Optional[pulumi.Input['IndexJwtTokenTypeConfigurationArgs']] = None):
+                 json_token_type_configuration: pulumi.Input[Optional['IndexJsonTokenTypeConfigurationArgs']] = None,
+                 jwt_token_type_configuration: pulumi.Input[Optional['IndexJwtTokenTypeConfigurationArgs']] = None):
         if json_token_type_configuration is not None:
             pulumi.set(__self__, "json_token_type_configuration", json_token_type_configuration)
         if jwt_token_type_configuration is not None:
@@ -5164,32 +5164,32 @@ class IndexUserTokenConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="jsonTokenTypeConfiguration")
-    def json_token_type_configuration(self) -> Optional[pulumi.Input['IndexJsonTokenTypeConfigurationArgs']]:
+    def json_token_type_configuration(self) -> pulumi.Input[Optional['IndexJsonTokenTypeConfigurationArgs']]:
         return pulumi.get(self, "json_token_type_configuration")
 
     @json_token_type_configuration.setter
-    def json_token_type_configuration(self, value: Optional[pulumi.Input['IndexJsonTokenTypeConfigurationArgs']]):
+    def json_token_type_configuration(self, value: pulumi.Input[Optional['IndexJsonTokenTypeConfigurationArgs']]):
         pulumi.set(self, "json_token_type_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="jwtTokenTypeConfiguration")
-    def jwt_token_type_configuration(self) -> Optional[pulumi.Input['IndexJwtTokenTypeConfigurationArgs']]:
+    def jwt_token_type_configuration(self) -> pulumi.Input[Optional['IndexJwtTokenTypeConfigurationArgs']]:
         return pulumi.get(self, "jwt_token_type_configuration")
 
     @jwt_token_type_configuration.setter
-    def jwt_token_type_configuration(self, value: Optional[pulumi.Input['IndexJwtTokenTypeConfigurationArgs']]):
+    def jwt_token_type_configuration(self, value: pulumi.Input[Optional['IndexJwtTokenTypeConfigurationArgs']]):
         pulumi.set(self, "jwt_token_type_configuration", value)
 
 
 class IndexValueImportanceItemArgsDict(TypedDict):
-    key: NotRequired[pulumi.Input[_builtins.str]]
-    value: NotRequired[pulumi.Input[_builtins.int]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.int]]]
 
 @pulumi.input_type
 class IndexValueImportanceItemArgs:
     def __init__(__self__, *,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.int]] = None):
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.int]] = None):
         if key is not None:
             pulumi.set(__self__, "key", key)
         if value is not None:
@@ -5197,20 +5197,20 @@ class IndexValueImportanceItemArgs:
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "value", value)
 
 

@@ -141,7 +141,7 @@ def get_cluster(cluster_name: Optional[_builtins.str] = None,
         configuration=pulumi.get(__ret__, 'configuration'),
         default_capacity_provider_strategy=pulumi.get(__ret__, 'default_capacity_provider_strategy'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_cluster_output(cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_cluster_output(cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterResult]:
     """
     The ``AWS::ECS::Cluster`` resource creates an Amazon Elastic Container Service (Amazon ECS) cluster.

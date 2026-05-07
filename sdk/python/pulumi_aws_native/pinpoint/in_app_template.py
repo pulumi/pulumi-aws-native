@@ -22,12 +22,12 @@ __all__ = ['InAppTemplateArgs', 'InAppTemplate']
 @pulumi.input_type
 class InAppTemplateArgs:
     def __init__(__self__, *,
-                 content: Optional[pulumi.Input[Sequence[pulumi.Input['InAppTemplateInAppMessageContentArgs']]]] = None,
+                 content: pulumi.Input[Optional[Sequence[pulumi.Input['InAppTemplateInAppMessageContentArgs']]]] = None,
                  custom_config: Optional[Any] = None,
-                 layout: Optional[pulumi.Input['InAppTemplateLayout']] = None,
+                 layout: pulumi.Input[Optional['InAppTemplateLayout']] = None,
                  tags: Optional[Any] = None,
-                 template_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 template_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 template_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 template_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a InAppTemplate resource.
 
@@ -66,14 +66,14 @@ class InAppTemplateArgs:
 
     @_builtins.property
     @pulumi.getter
-    def content(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InAppTemplateInAppMessageContentArgs']]]]:
+    def content(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InAppTemplateInAppMessageContentArgs']]]]:
         """
         An object that contains information about the content of an in-app message, including its title and body text, text colors, background colors, images, buttons, and behaviors.
         """
         return pulumi.get(self, "content")
 
     @content.setter
-    def content(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InAppTemplateInAppMessageContentArgs']]]]):
+    def content(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InAppTemplateInAppMessageContentArgs']]]]):
         pulumi.set(self, "content", value)
 
     @_builtins.property
@@ -92,7 +92,7 @@ class InAppTemplateArgs:
 
     @_builtins.property
     @pulumi.getter
-    def layout(self) -> Optional[pulumi.Input['InAppTemplateLayout']]:
+    def layout(self) -> pulumi.Input[Optional['InAppTemplateLayout']]:
         """
         A string that determines the appearance of the in-app message. You can specify one of the following:
 
@@ -106,7 +106,7 @@ class InAppTemplateArgs:
         return pulumi.get(self, "layout")
 
     @layout.setter
-    def layout(self, value: Optional[pulumi.Input['InAppTemplateLayout']]):
+    def layout(self, value: pulumi.Input[Optional['InAppTemplateLayout']]):
         pulumi.set(self, "layout", value)
 
     @_builtins.property
@@ -127,26 +127,26 @@ class InAppTemplateArgs:
 
     @_builtins.property
     @pulumi.getter(name="templateDescription")
-    def template_description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def template_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An optional description of the in-app template.
         """
         return pulumi.get(self, "template_description")
 
     @template_description.setter
-    def template_description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def template_description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "template_description", value)
 
     @_builtins.property
     @pulumi.getter(name="templateName")
-    def template_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def template_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the in-app message template.
         """
         return pulumi.get(self, "template_name")
 
     @template_name.setter
-    def template_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def template_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "template_name", value)
 
 
@@ -156,12 +156,12 @@ class InAppTemplate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 content: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InAppTemplateInAppMessageContentArgs', 'InAppTemplateInAppMessageContentArgsDict']]]]] = None,
+                 content: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InAppTemplateInAppMessageContentArgs', 'InAppTemplateInAppMessageContentArgsDict']]]]] = None,
                  custom_config: Optional[Any] = None,
-                 layout: Optional[pulumi.Input['InAppTemplateLayout']] = None,
+                 layout: pulumi.Input[Optional['InAppTemplateLayout']] = None,
                  tags: Optional[Any] = None,
-                 template_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 template_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 template_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 template_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Pinpoint::InAppTemplate
@@ -214,12 +214,12 @@ class InAppTemplate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 content: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InAppTemplateInAppMessageContentArgs', 'InAppTemplateInAppMessageContentArgsDict']]]]] = None,
+                 content: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InAppTemplateInAppMessageContentArgs', 'InAppTemplateInAppMessageContentArgsDict']]]]] = None,
                  custom_config: Optional[Any] = None,
-                 layout: Optional[pulumi.Input['InAppTemplateLayout']] = None,
+                 layout: pulumi.Input[Optional['InAppTemplateLayout']] = None,
                  tags: Optional[Any] = None,
-                 template_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 template_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 template_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 template_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

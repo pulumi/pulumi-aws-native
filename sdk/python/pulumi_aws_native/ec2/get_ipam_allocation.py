@@ -72,9 +72,9 @@ def get_ipam_allocation(cidr: Optional[_builtins.str] = None,
 
     return AwaitableGetIpamAllocationResult(
         ipam_pool_allocation_id=pulumi.get(__ret__, 'ipam_pool_allocation_id'))
-def get_ipam_allocation_output(cidr: Optional[pulumi.Input[_builtins.str]] = None,
-                               ipam_pool_allocation_id: Optional[pulumi.Input[_builtins.str]] = None,
-                               ipam_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_ipam_allocation_output(cidr: pulumi.Input[Optional[_builtins.str]] = None,
+                               ipam_pool_allocation_id: pulumi.Input[Optional[_builtins.str]] = None,
+                               ipam_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIpamAllocationResult]:
     """
     Resource Schema of AWS::EC2::IPAMAllocation Type

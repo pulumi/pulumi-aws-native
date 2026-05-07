@@ -22,9 +22,9 @@ __all__ = ['GraphSnapshotArgs', 'GraphSnapshot']
 @pulumi.input_type
 class GraphSnapshotArgs:
     def __init__(__self__, *,
-                 graph_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 snapshot_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 graph_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 snapshot_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a GraphSnapshot resource.
 
@@ -41,38 +41,38 @@ class GraphSnapshotArgs:
 
     @_builtins.property
     @pulumi.getter(name="graphIdentifier")
-    def graph_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def graph_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique identifier of the Neptune Analytics graph to create the snapshot from.
         """
         return pulumi.get(self, "graph_identifier")
 
     @graph_identifier.setter
-    def graph_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def graph_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "graph_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="snapshotName")
-    def snapshot_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def snapshot_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The snapshot name.
         """
         return pulumi.get(self, "snapshot_name")
 
     @snapshot_name.setter
-    def snapshot_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def snapshot_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "snapshot_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -82,9 +82,9 @@ class GraphSnapshot(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 graph_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 snapshot_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 graph_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 snapshot_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::NeptuneGraph::GraphSnapshot
@@ -121,9 +121,9 @@ class GraphSnapshot(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 graph_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 snapshot_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 graph_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 snapshot_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

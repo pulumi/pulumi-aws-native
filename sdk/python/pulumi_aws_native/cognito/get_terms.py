@@ -119,8 +119,8 @@ def get_terms(terms_id: Optional[_builtins.str] = None,
         terms_id=pulumi.get(__ret__, 'terms_id'),
         terms_name=pulumi.get(__ret__, 'terms_name'),
         terms_source=pulumi.get(__ret__, 'terms_source'))
-def get_terms_output(terms_id: Optional[pulumi.Input[_builtins.str]] = None,
-                     user_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_terms_output(terms_id: pulumi.Input[Optional[_builtins.str]] = None,
+                     user_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTermsResult]:
     """
     Resource Type definition for AWS::Cognito::Terms

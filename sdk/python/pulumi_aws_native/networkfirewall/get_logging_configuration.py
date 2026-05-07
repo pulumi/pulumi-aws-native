@@ -73,7 +73,7 @@ def get_logging_configuration(firewall_arn: Optional[_builtins.str] = None,
     return AwaitableGetLoggingConfigurationResult(
         enable_monitoring_dashboard=pulumi.get(__ret__, 'enable_monitoring_dashboard'),
         logging_configuration=pulumi.get(__ret__, 'logging_configuration'))
-def get_logging_configuration_output(firewall_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_logging_configuration_output(firewall_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLoggingConfigurationResult]:
     """
     Resource type definition for AWS::NetworkFirewall::LoggingConfiguration

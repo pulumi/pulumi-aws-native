@@ -147,7 +147,7 @@ def get_access_source(access_source_id: Optional[_builtins.str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-def get_access_source_output(access_source_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_access_source_output(access_source_id: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccessSourceResult]:
     """
     Resource schema for AWS::Route53GlobalResolver::AccessSource

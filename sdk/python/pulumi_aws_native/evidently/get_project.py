@@ -121,7 +121,7 @@ def get_project(arn: Optional[_builtins.str] = None,
         data_delivery=pulumi.get(__ret__, 'data_delivery'),
         description=pulumi.get(__ret__, 'description'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_project_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_project_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProjectResult]:
     """
     Resource Type definition for AWS::Evidently::Project

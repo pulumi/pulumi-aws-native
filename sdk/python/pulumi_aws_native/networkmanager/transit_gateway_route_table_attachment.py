@@ -25,11 +25,11 @@ class TransitGatewayRouteTableAttachmentArgs:
     def __init__(__self__, *,
                  peering_id: pulumi.Input[_builtins.str],
                  transit_gateway_route_table_arn: pulumi.Input[_builtins.str],
-                 network_function_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 proposed_network_function_group_change: Optional[pulumi.Input['TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangeArgs']] = None,
-                 proposed_segment_change: Optional[pulumi.Input['TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs']] = None,
-                 routing_policy_label: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 network_function_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 proposed_network_function_group_change: pulumi.Input[Optional['TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangeArgs']] = None,
+                 proposed_segment_change: pulumi.Input[Optional['TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs']] = None,
+                 routing_policy_label: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a TransitGatewayRouteTableAttachment resource.
 
@@ -80,62 +80,62 @@ class TransitGatewayRouteTableAttachmentArgs:
 
     @_builtins.property
     @pulumi.getter(name="networkFunctionGroupName")
-    def network_function_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_function_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the network function group attachment.
         """
         return pulumi.get(self, "network_function_group_name")
 
     @network_function_group_name.setter
-    def network_function_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_function_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_function_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="proposedNetworkFunctionGroupChange")
-    def proposed_network_function_group_change(self) -> Optional[pulumi.Input['TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangeArgs']]:
+    def proposed_network_function_group_change(self) -> pulumi.Input[Optional['TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangeArgs']]:
         """
         The attachment to move from one network function group to another.
         """
         return pulumi.get(self, "proposed_network_function_group_change")
 
     @proposed_network_function_group_change.setter
-    def proposed_network_function_group_change(self, value: Optional[pulumi.Input['TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangeArgs']]):
+    def proposed_network_function_group_change(self, value: pulumi.Input[Optional['TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangeArgs']]):
         pulumi.set(self, "proposed_network_function_group_change", value)
 
     @_builtins.property
     @pulumi.getter(name="proposedSegmentChange")
-    def proposed_segment_change(self) -> Optional[pulumi.Input['TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs']]:
+    def proposed_segment_change(self) -> pulumi.Input[Optional['TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs']]:
         """
         The attachment to move from one segment to another.
         """
         return pulumi.get(self, "proposed_segment_change")
 
     @proposed_segment_change.setter
-    def proposed_segment_change(self, value: Optional[pulumi.Input['TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs']]):
+    def proposed_segment_change(self, value: pulumi.Input[Optional['TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs']]):
         pulumi.set(self, "proposed_segment_change", value)
 
     @_builtins.property
     @pulumi.getter(name="routingPolicyLabel")
-    def routing_policy_label(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def routing_policy_label(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Routing policy label
         """
         return pulumi.get(self, "routing_policy_label")
 
     @routing_policy_label.setter
-    def routing_policy_label(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def routing_policy_label(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "routing_policy_label", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -145,13 +145,13 @@ class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 network_function_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 peering_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 proposed_network_function_group_change: Optional[pulumi.Input[Union['TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangeArgs', 'TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangeArgsDict']]] = None,
-                 proposed_segment_change: Optional[pulumi.Input[Union['TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs', 'TransitGatewayRouteTableAttachmentProposedSegmentChangeArgsDict']]] = None,
-                 routing_policy_label: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 transit_gateway_route_table_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 network_function_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 peering_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 proposed_network_function_group_change: pulumi.Input[Optional[Union['TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangeArgs', 'TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangeArgsDict']]] = None,
+                 proposed_segment_change: pulumi.Input[Optional[Union['TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs', 'TransitGatewayRouteTableAttachmentProposedSegmentChangeArgsDict']]] = None,
+                 routing_policy_label: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 transit_gateway_route_table_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         AWS::NetworkManager::TransitGatewayRouteTableAttachment Resource Type definition.
@@ -192,13 +192,13 @@ class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 network_function_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 peering_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 proposed_network_function_group_change: Optional[pulumi.Input[Union['TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangeArgs', 'TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangeArgsDict']]] = None,
-                 proposed_segment_change: Optional[pulumi.Input[Union['TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs', 'TransitGatewayRouteTableAttachmentProposedSegmentChangeArgsDict']]] = None,
-                 routing_policy_label: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 transit_gateway_route_table_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 network_function_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 peering_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 proposed_network_function_group_change: pulumi.Input[Optional[Union['TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangeArgs', 'TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangeArgsDict']]] = None,
+                 proposed_segment_change: pulumi.Input[Optional[Union['TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs', 'TransitGatewayRouteTableAttachmentProposedSegmentChangeArgsDict']]] = None,
+                 routing_policy_label: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 transit_gateway_route_table_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

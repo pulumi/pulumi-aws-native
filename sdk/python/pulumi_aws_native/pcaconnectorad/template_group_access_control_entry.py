@@ -24,8 +24,8 @@ class TemplateGroupAccessControlEntryArgs:
     def __init__(__self__, *,
                  access_rights: pulumi.Input['TemplateGroupAccessControlEntryAccessRightsArgs'],
                  group_display_name: pulumi.Input[_builtins.str],
-                 group_security_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 template_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 group_security_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 template_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a TemplateGroupAccessControlEntry resource.
 
@@ -67,26 +67,26 @@ class TemplateGroupAccessControlEntryArgs:
 
     @_builtins.property
     @pulumi.getter(name="groupSecurityIdentifier")
-    def group_security_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def group_security_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Security identifier (SID) of the group object from Active Directory. The SID starts with "S-".
         """
         return pulumi.get(self, "group_security_identifier")
 
     @group_security_identifier.setter
-    def group_security_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def group_security_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "group_security_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="templateArn")
-    def template_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def template_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) that was returned when you called [CreateTemplate](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html) .
         """
         return pulumi.get(self, "template_arn")
 
     @template_arn.setter
-    def template_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def template_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "template_arn", value)
 
 
@@ -96,10 +96,10 @@ class TemplateGroupAccessControlEntry(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_rights: Optional[pulumi.Input[Union['TemplateGroupAccessControlEntryAccessRightsArgs', 'TemplateGroupAccessControlEntryAccessRightsArgsDict']]] = None,
-                 group_display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_security_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 template_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 access_rights: pulumi.Input[Optional[Union['TemplateGroupAccessControlEntryAccessRightsArgs', 'TemplateGroupAccessControlEntryAccessRightsArgsDict']]] = None,
+                 group_display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_security_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 template_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Definition of AWS::PCAConnectorAD::TemplateGroupAccessControlEntry Resource Type
@@ -137,10 +137,10 @@ class TemplateGroupAccessControlEntry(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_rights: Optional[pulumi.Input[Union['TemplateGroupAccessControlEntryAccessRightsArgs', 'TemplateGroupAccessControlEntryAccessRightsArgsDict']]] = None,
-                 group_display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_security_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 template_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 access_rights: pulumi.Input[Optional[Union['TemplateGroupAccessControlEntryAccessRightsArgs', 'TemplateGroupAccessControlEntryAccessRightsArgsDict']]] = None,
+                 group_display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_security_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 template_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

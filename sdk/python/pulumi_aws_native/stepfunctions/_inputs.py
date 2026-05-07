@@ -43,11 +43,11 @@ class ActivityEncryptionConfigurationArgsDict(TypedDict):
     """
     Encryption option for an activity.
     """
-    kms_data_key_reuse_period_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    kms_data_key_reuse_period_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Maximum duration that Step Functions will reuse data keys. When the period expires, Step Functions will call `GenerateDataKey` . Only applies to customer managed keys.
     """
-    kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    kms_key_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     An alias, alias ARN, key ID, or key ARN of a symmetric encryption AWS  key to encrypt data. To specify a AWS  key in a different AWS account, you must use the key ARN or alias ARN.
     """
@@ -56,8 +56,8 @@ class ActivityEncryptionConfigurationArgsDict(TypedDict):
 class ActivityEncryptionConfigurationArgs:
     def __init__(__self__, *,
                  type: pulumi.Input['ActivityEncryptionConfigurationType'],
-                 kms_data_key_reuse_period_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 kms_data_key_reuse_period_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input['ActivityEncryptionConfigurationType'] type: Encryption option for an activity.
         :param pulumi.Input[_builtins.int] kms_data_key_reuse_period_seconds: Maximum duration that Step Functions will reuse data keys. When the period expires, Step Functions will call `GenerateDataKey` . Only applies to customer managed keys.
@@ -83,26 +83,26 @@ class ActivityEncryptionConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="kmsDataKeyReusePeriodSeconds")
-    def kms_data_key_reuse_period_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def kms_data_key_reuse_period_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum duration that Step Functions will reuse data keys. When the period expires, Step Functions will call `GenerateDataKey` . Only applies to customer managed keys.
         """
         return pulumi.get(self, "kms_data_key_reuse_period_seconds")
 
     @kms_data_key_reuse_period_seconds.setter
-    def kms_data_key_reuse_period_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def kms_data_key_reuse_period_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "kms_data_key_reuse_period_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An alias, alias ARN, key ID, or key ARN of a symmetric encryption AWS  key to encrypt data. To specify a AWS  key in a different AWS account, you must use the key ARN or alias ARN.
         """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
 
@@ -120,15 +120,15 @@ class StateMachineAliasDeploymentPreferenceArgsDict(TypedDict):
     """
     The type of deployment to perform.
     """
-    alarms: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    alarms: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of CloudWatch alarm names that will be monitored during the deployment. The deployment will fail and rollback if any alarms go into ALARM state.
     """
-    interval: NotRequired[pulumi.Input[_builtins.int]]
+    interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The time in minutes between each traffic shifting increment.
     """
-    percentage: NotRequired[pulumi.Input[_builtins.int]]
+    percentage: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The percentage of traffic to shift to the new version in each increment.
     """
@@ -138,9 +138,9 @@ class StateMachineAliasDeploymentPreferenceArgs:
     def __init__(__self__, *,
                  state_machine_version_arn: pulumi.Input[_builtins.str],
                  type: pulumi.Input['StateMachineAliasDeploymentPreferenceType'],
-                 alarms: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 percentage: Optional[pulumi.Input[_builtins.int]] = None):
+                 alarms: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 percentage: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The settings to enable gradual state machine deployments.
 
@@ -189,38 +189,38 @@ class StateMachineAliasDeploymentPreferenceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def alarms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def alarms(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of CloudWatch alarm names that will be monitored during the deployment. The deployment will fail and rollback if any alarms go into ALARM state.
         """
         return pulumi.get(self, "alarms")
 
     @alarms.setter
-    def alarms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def alarms(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "alarms", value)
 
     @_builtins.property
     @pulumi.getter
-    def interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The time in minutes between each traffic shifting increment.
         """
         return pulumi.get(self, "interval")
 
     @interval.setter
-    def interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "interval", value)
 
     @_builtins.property
     @pulumi.getter
-    def percentage(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def percentage(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The percentage of traffic to shift to the new version in each increment.
         """
         return pulumi.get(self, "percentage")
 
     @percentage.setter
-    def percentage(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def percentage(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "percentage", value)
 
 
@@ -272,7 +272,7 @@ class StateMachineAliasRoutingConfigurationVersionArgs:
 
 
 class StateMachineCloudWatchLogsLogGroupArgsDict(TypedDict):
-    log_group_arn: NotRequired[pulumi.Input[_builtins.str]]
+    log_group_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of the the CloudWatch log group to which you want your logs emitted to. The ARN must end with `:*`
     """
@@ -280,7 +280,7 @@ class StateMachineCloudWatchLogsLogGroupArgsDict(TypedDict):
 @pulumi.input_type
 class StateMachineCloudWatchLogsLogGroupArgs:
     def __init__(__self__, *,
-                 log_group_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 log_group_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] log_group_arn: The ARN of the the CloudWatch log group to which you want your logs emitted to. The ARN must end with `:*`
         """
@@ -289,14 +289,14 @@ class StateMachineCloudWatchLogsLogGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="logGroupArn")
-    def log_group_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_group_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the the CloudWatch log group to which you want your logs emitted to. The ARN must end with `:*`
         """
         return pulumi.get(self, "log_group_arn")
 
     @log_group_arn.setter
-    def log_group_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_group_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_group_arn", value)
 
 
@@ -314,11 +314,11 @@ class StateMachineEncryptionConfigurationArgsDict(TypedDict):
     """
     Encryption option for a state machine.
     """
-    kms_data_key_reuse_period_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    kms_data_key_reuse_period_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Maximum duration that Step Functions will reuse data keys. When the period expires, Step Functions will call `GenerateDataKey` . Only applies to customer managed keys.
     """
-    kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    kms_key_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     An alias, alias ARN, key ID, or key ARN of a symmetric encryption AWS  key to encrypt data. To specify a AWS  key in a different AWS account, you must use the key ARN or alias ARN.
     """
@@ -327,8 +327,8 @@ class StateMachineEncryptionConfigurationArgsDict(TypedDict):
 class StateMachineEncryptionConfigurationArgs:
     def __init__(__self__, *,
                  type: pulumi.Input['StateMachineEncryptionConfigurationType'],
-                 kms_data_key_reuse_period_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 kms_data_key_reuse_period_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input['StateMachineEncryptionConfigurationType'] type: Encryption option for a state machine.
         :param pulumi.Input[_builtins.int] kms_data_key_reuse_period_seconds: Maximum duration that Step Functions will reuse data keys. When the period expires, Step Functions will call `GenerateDataKey` . Only applies to customer managed keys.
@@ -354,31 +354,31 @@ class StateMachineEncryptionConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="kmsDataKeyReusePeriodSeconds")
-    def kms_data_key_reuse_period_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def kms_data_key_reuse_period_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum duration that Step Functions will reuse data keys. When the period expires, Step Functions will call `GenerateDataKey` . Only applies to customer managed keys.
         """
         return pulumi.get(self, "kms_data_key_reuse_period_seconds")
 
     @kms_data_key_reuse_period_seconds.setter
-    def kms_data_key_reuse_period_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def kms_data_key_reuse_period_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "kms_data_key_reuse_period_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An alias, alias ARN, key ID, or key ARN of a symmetric encryption AWS  key to encrypt data. To specify a AWS  key in a different AWS account, you must use the key ARN or alias ARN.
         """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
 
 class StateMachineLogDestinationArgsDict(TypedDict):
-    cloud_watch_logs_log_group: NotRequired[pulumi.Input['StateMachineCloudWatchLogsLogGroupArgsDict']]
+    cloud_watch_logs_log_group: NotRequired[pulumi.Input[Optional['StateMachineCloudWatchLogsLogGroupArgs']]]
     """
     An object describing a CloudWatch log group. For more information, see [AWS::Logs::LogGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html) in the CloudFormation User Guide.
     """
@@ -386,7 +386,7 @@ class StateMachineLogDestinationArgsDict(TypedDict):
 @pulumi.input_type
 class StateMachineLogDestinationArgs:
     def __init__(__self__, *,
-                 cloud_watch_logs_log_group: Optional[pulumi.Input['StateMachineCloudWatchLogsLogGroupArgs']] = None):
+                 cloud_watch_logs_log_group: pulumi.Input[Optional['StateMachineCloudWatchLogsLogGroupArgs']] = None):
         """
         :param pulumi.Input['StateMachineCloudWatchLogsLogGroupArgs'] cloud_watch_logs_log_group: An object describing a CloudWatch log group. For more information, see [AWS::Logs::LogGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html) in the CloudFormation User Guide.
         """
@@ -395,27 +395,27 @@ class StateMachineLogDestinationArgs:
 
     @_builtins.property
     @pulumi.getter(name="cloudWatchLogsLogGroup")
-    def cloud_watch_logs_log_group(self) -> Optional[pulumi.Input['StateMachineCloudWatchLogsLogGroupArgs']]:
+    def cloud_watch_logs_log_group(self) -> pulumi.Input[Optional['StateMachineCloudWatchLogsLogGroupArgs']]:
         """
         An object describing a CloudWatch log group. For more information, see [AWS::Logs::LogGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html) in the CloudFormation User Guide.
         """
         return pulumi.get(self, "cloud_watch_logs_log_group")
 
     @cloud_watch_logs_log_group.setter
-    def cloud_watch_logs_log_group(self, value: Optional[pulumi.Input['StateMachineCloudWatchLogsLogGroupArgs']]):
+    def cloud_watch_logs_log_group(self, value: pulumi.Input[Optional['StateMachineCloudWatchLogsLogGroupArgs']]):
         pulumi.set(self, "cloud_watch_logs_log_group", value)
 
 
 class StateMachineLoggingConfigurationArgsDict(TypedDict):
-    destinations: NotRequired[pulumi.Input[Sequence[pulumi.Input['StateMachineLogDestinationArgsDict']]]]
+    destinations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StateMachineLogDestinationArgs']]]]]
     """
     An array of objects that describes where your execution history events will be logged. Limited to size 1. Required, if your log level is not set to `OFF` .
     """
-    include_execution_data: NotRequired[pulumi.Input[_builtins.bool]]
+    include_execution_data: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Determines whether execution data is included in your log. When set to `false` , data is excluded.
     """
-    level: NotRequired[pulumi.Input['StateMachineLoggingConfigurationLevel']]
+    level: NotRequired[pulumi.Input[Optional['StateMachineLoggingConfigurationLevel']]]
     """
     Defines which category of execution history events are logged.
     """
@@ -423,9 +423,9 @@ class StateMachineLoggingConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class StateMachineLoggingConfigurationArgs:
     def __init__(__self__, *,
-                 destinations: Optional[pulumi.Input[Sequence[pulumi.Input['StateMachineLogDestinationArgs']]]] = None,
-                 include_execution_data: Optional[pulumi.Input[_builtins.bool]] = None,
-                 level: Optional[pulumi.Input['StateMachineLoggingConfigurationLevel']] = None):
+                 destinations: pulumi.Input[Optional[Sequence[pulumi.Input['StateMachineLogDestinationArgs']]]] = None,
+                 include_execution_data: pulumi.Input[Optional[_builtins.bool]] = None,
+                 level: pulumi.Input[Optional['StateMachineLoggingConfigurationLevel']] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['StateMachineLogDestinationArgs']]] destinations: An array of objects that describes where your execution history events will be logged. Limited to size 1. Required, if your log level is not set to `OFF` .
         :param pulumi.Input[_builtins.bool] include_execution_data: Determines whether execution data is included in your log. When set to `false` , data is excluded.
@@ -440,38 +440,38 @@ class StateMachineLoggingConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def destinations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StateMachineLogDestinationArgs']]]]:
+    def destinations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['StateMachineLogDestinationArgs']]]]:
         """
         An array of objects that describes where your execution history events will be logged. Limited to size 1. Required, if your log level is not set to `OFF` .
         """
         return pulumi.get(self, "destinations")
 
     @destinations.setter
-    def destinations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StateMachineLogDestinationArgs']]]]):
+    def destinations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['StateMachineLogDestinationArgs']]]]):
         pulumi.set(self, "destinations", value)
 
     @_builtins.property
     @pulumi.getter(name="includeExecutionData")
-    def include_execution_data(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_execution_data(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Determines whether execution data is included in your log. When set to `false` , data is excluded.
         """
         return pulumi.get(self, "include_execution_data")
 
     @include_execution_data.setter
-    def include_execution_data(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_execution_data(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_execution_data", value)
 
     @_builtins.property
     @pulumi.getter
-    def level(self) -> Optional[pulumi.Input['StateMachineLoggingConfigurationLevel']]:
+    def level(self) -> pulumi.Input[Optional['StateMachineLoggingConfigurationLevel']]:
         """
         Defines which category of execution history events are logged.
         """
         return pulumi.get(self, "level")
 
     @level.setter
-    def level(self, value: Optional[pulumi.Input['StateMachineLoggingConfigurationLevel']]):
+    def level(self, value: pulumi.Input[Optional['StateMachineLoggingConfigurationLevel']]):
         pulumi.set(self, "level", value)
 
 
@@ -484,7 +484,7 @@ class StateMachineS3LocationArgsDict(TypedDict):
     """
     The name of the state machine definition file (Amazon S3 object name).
     """
-    version: NotRequired[pulumi.Input[_builtins.str]]
+    version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     For versioning-enabled buckets, a specific version of the state machine definition.
     """
@@ -494,7 +494,7 @@ class StateMachineS3LocationArgs:
     def __init__(__self__, *,
                  bucket: pulumi.Input[_builtins.str],
                  key: pulumi.Input[_builtins.str],
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] bucket: The name of the S3 bucket where the state machine definition JSON or YAML file is stored.
         :param pulumi.Input[_builtins.str] key: The name of the state machine definition file (Amazon S3 object name).
@@ -531,19 +531,19 @@ class StateMachineS3LocationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         For versioning-enabled buckets, a specific version of the state machine definition.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
 class StateMachineTracingConfigurationArgsDict(TypedDict):
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     When set to `true` , X-Ray tracing is enabled.
     """
@@ -551,7 +551,7 @@ class StateMachineTracingConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class StateMachineTracingConfigurationArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.bool] enabled: When set to `true` , X-Ray tracing is enabled.
         """
@@ -560,14 +560,14 @@ class StateMachineTracingConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set to `true` , X-Ray tracing is enabled.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
 

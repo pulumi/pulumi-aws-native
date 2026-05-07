@@ -33,7 +33,7 @@ class CampaignAgentlessDialerConfigArgsDict(TypedDict):
     """
     Agentless Dialer config
     """
-    dialing_capacity: NotRequired[pulumi.Input[_builtins.float]]
+    dialing_capacity: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Allocates dialing capacity for this campaign between multiple active campaigns.
     """
@@ -41,7 +41,7 @@ class CampaignAgentlessDialerConfigArgsDict(TypedDict):
 @pulumi.input_type
 class CampaignAgentlessDialerConfigArgs:
     def __init__(__self__, *,
-                 dialing_capacity: Optional[pulumi.Input[_builtins.float]] = None):
+                 dialing_capacity: pulumi.Input[Optional[_builtins.float]] = None):
         """
         Agentless Dialer config
 
@@ -52,14 +52,14 @@ class CampaignAgentlessDialerConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="dialingCapacity")
-    def dialing_capacity(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def dialing_capacity(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Allocates dialing capacity for this campaign between multiple active campaigns.
         """
         return pulumi.get(self, "dialing_capacity")
 
     @dialing_capacity.setter
-    def dialing_capacity(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def dialing_capacity(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "dialing_capacity", value)
 
 
@@ -71,7 +71,7 @@ class CampaignAnswerMachineDetectionConfigArgsDict(TypedDict):
     """
     Flag to decided whether outbound calls should have answering machine detection enabled or not
     """
-    await_answer_machine_prompt: NotRequired[pulumi.Input[_builtins.bool]]
+    await_answer_machine_prompt: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Enables detection of prompts (e.g., beep after after a voicemail greeting)
     """
@@ -80,7 +80,7 @@ class CampaignAnswerMachineDetectionConfigArgsDict(TypedDict):
 class CampaignAnswerMachineDetectionConfigArgs:
     def __init__(__self__, *,
                  enable_answer_machine_detection: pulumi.Input[_builtins.bool],
-                 await_answer_machine_prompt: Optional[pulumi.Input[_builtins.bool]] = None):
+                 await_answer_machine_prompt: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The configuration used for answering machine detection during outbound calls
 
@@ -105,14 +105,14 @@ class CampaignAnswerMachineDetectionConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="awaitAnswerMachinePrompt")
-    def await_answer_machine_prompt(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def await_answer_machine_prompt(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables detection of prompts (e.g., beep after after a voicemail greeting)
         """
         return pulumi.get(self, "await_answer_machine_prompt")
 
     @await_answer_machine_prompt.setter
-    def await_answer_machine_prompt(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def await_answer_machine_prompt(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "await_answer_machine_prompt", value)
 
 
@@ -120,15 +120,15 @@ class CampaignDialerConfigArgsDict(TypedDict):
     """
     The possible types of dialer config parameters
     """
-    agentless_dialer_config: NotRequired[pulumi.Input['CampaignAgentlessDialerConfigArgsDict']]
+    agentless_dialer_config: NotRequired[pulumi.Input[Optional['CampaignAgentlessDialerConfigArgs']]]
     """
     The configuration of the agentless dialer.
     """
-    predictive_dialer_config: NotRequired[pulumi.Input['CampaignPredictiveDialerConfigArgsDict']]
+    predictive_dialer_config: NotRequired[pulumi.Input[Optional['CampaignPredictiveDialerConfigArgs']]]
     """
     The configuration of the predictive dialer.
     """
-    progressive_dialer_config: NotRequired[pulumi.Input['CampaignProgressiveDialerConfigArgsDict']]
+    progressive_dialer_config: NotRequired[pulumi.Input[Optional['CampaignProgressiveDialerConfigArgs']]]
     """
     The configuration of the progressive dialer.
     """
@@ -136,9 +136,9 @@ class CampaignDialerConfigArgsDict(TypedDict):
 @pulumi.input_type
 class CampaignDialerConfigArgs:
     def __init__(__self__, *,
-                 agentless_dialer_config: Optional[pulumi.Input['CampaignAgentlessDialerConfigArgs']] = None,
-                 predictive_dialer_config: Optional[pulumi.Input['CampaignPredictiveDialerConfigArgs']] = None,
-                 progressive_dialer_config: Optional[pulumi.Input['CampaignProgressiveDialerConfigArgs']] = None):
+                 agentless_dialer_config: pulumi.Input[Optional['CampaignAgentlessDialerConfigArgs']] = None,
+                 predictive_dialer_config: pulumi.Input[Optional['CampaignPredictiveDialerConfigArgs']] = None,
+                 progressive_dialer_config: pulumi.Input[Optional['CampaignProgressiveDialerConfigArgs']] = None):
         """
         The possible types of dialer config parameters
 
@@ -155,38 +155,38 @@ class CampaignDialerConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="agentlessDialerConfig")
-    def agentless_dialer_config(self) -> Optional[pulumi.Input['CampaignAgentlessDialerConfigArgs']]:
+    def agentless_dialer_config(self) -> pulumi.Input[Optional['CampaignAgentlessDialerConfigArgs']]:
         """
         The configuration of the agentless dialer.
         """
         return pulumi.get(self, "agentless_dialer_config")
 
     @agentless_dialer_config.setter
-    def agentless_dialer_config(self, value: Optional[pulumi.Input['CampaignAgentlessDialerConfigArgs']]):
+    def agentless_dialer_config(self, value: pulumi.Input[Optional['CampaignAgentlessDialerConfigArgs']]):
         pulumi.set(self, "agentless_dialer_config", value)
 
     @_builtins.property
     @pulumi.getter(name="predictiveDialerConfig")
-    def predictive_dialer_config(self) -> Optional[pulumi.Input['CampaignPredictiveDialerConfigArgs']]:
+    def predictive_dialer_config(self) -> pulumi.Input[Optional['CampaignPredictiveDialerConfigArgs']]:
         """
         The configuration of the predictive dialer.
         """
         return pulumi.get(self, "predictive_dialer_config")
 
     @predictive_dialer_config.setter
-    def predictive_dialer_config(self, value: Optional[pulumi.Input['CampaignPredictiveDialerConfigArgs']]):
+    def predictive_dialer_config(self, value: pulumi.Input[Optional['CampaignPredictiveDialerConfigArgs']]):
         pulumi.set(self, "predictive_dialer_config", value)
 
     @_builtins.property
     @pulumi.getter(name="progressiveDialerConfig")
-    def progressive_dialer_config(self) -> Optional[pulumi.Input['CampaignProgressiveDialerConfigArgs']]:
+    def progressive_dialer_config(self) -> pulumi.Input[Optional['CampaignProgressiveDialerConfigArgs']]:
         """
         The configuration of the progressive dialer.
         """
         return pulumi.get(self, "progressive_dialer_config")
 
     @progressive_dialer_config.setter
-    def progressive_dialer_config(self, value: Optional[pulumi.Input['CampaignProgressiveDialerConfigArgs']]):
+    def progressive_dialer_config(self, value: pulumi.Input[Optional['CampaignProgressiveDialerConfigArgs']]):
         pulumi.set(self, "progressive_dialer_config", value)
 
 
@@ -198,15 +198,15 @@ class CampaignOutboundCallConfigArgsDict(TypedDict):
     """
     The identifier of the contact flow for the outbound call.
     """
-    answer_machine_detection_config: NotRequired[pulumi.Input['CampaignAnswerMachineDetectionConfigArgsDict']]
+    answer_machine_detection_config: NotRequired[pulumi.Input[Optional['CampaignAnswerMachineDetectionConfigArgs']]]
     """
     Whether answering machine detection has been enabled.
     """
-    connect_queue_arn: NotRequired[pulumi.Input[_builtins.str]]
+    connect_queue_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The queue for the call. If you specify a queue, the phone displayed for caller ID is the phone number specified in the queue. If you do not specify a queue, the queue defined in the contact flow is used. If you do not specify a queue, you must specify a source phone number.
     """
-    connect_source_phone_number: NotRequired[pulumi.Input[_builtins.str]]
+    connect_source_phone_number: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The phone number associated with the Amazon Connect instance, in E.164 format. If you do not specify a source phone number, you must specify a queue.
     """
@@ -215,9 +215,9 @@ class CampaignOutboundCallConfigArgsDict(TypedDict):
 class CampaignOutboundCallConfigArgs:
     def __init__(__self__, *,
                  connect_contact_flow_arn: pulumi.Input[_builtins.str],
-                 answer_machine_detection_config: Optional[pulumi.Input['CampaignAnswerMachineDetectionConfigArgs']] = None,
-                 connect_queue_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 connect_source_phone_number: Optional[pulumi.Input[_builtins.str]] = None):
+                 answer_machine_detection_config: pulumi.Input[Optional['CampaignAnswerMachineDetectionConfigArgs']] = None,
+                 connect_queue_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 connect_source_phone_number: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The configuration used for outbound calls.
 
@@ -248,38 +248,38 @@ class CampaignOutboundCallConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="answerMachineDetectionConfig")
-    def answer_machine_detection_config(self) -> Optional[pulumi.Input['CampaignAnswerMachineDetectionConfigArgs']]:
+    def answer_machine_detection_config(self) -> pulumi.Input[Optional['CampaignAnswerMachineDetectionConfigArgs']]:
         """
         Whether answering machine detection has been enabled.
         """
         return pulumi.get(self, "answer_machine_detection_config")
 
     @answer_machine_detection_config.setter
-    def answer_machine_detection_config(self, value: Optional[pulumi.Input['CampaignAnswerMachineDetectionConfigArgs']]):
+    def answer_machine_detection_config(self, value: pulumi.Input[Optional['CampaignAnswerMachineDetectionConfigArgs']]):
         pulumi.set(self, "answer_machine_detection_config", value)
 
     @_builtins.property
     @pulumi.getter(name="connectQueueArn")
-    def connect_queue_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connect_queue_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The queue for the call. If you specify a queue, the phone displayed for caller ID is the phone number specified in the queue. If you do not specify a queue, the queue defined in the contact flow is used. If you do not specify a queue, you must specify a source phone number.
         """
         return pulumi.get(self, "connect_queue_arn")
 
     @connect_queue_arn.setter
-    def connect_queue_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connect_queue_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connect_queue_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="connectSourcePhoneNumber")
-    def connect_source_phone_number(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connect_source_phone_number(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The phone number associated with the Amazon Connect instance, in E.164 format. If you do not specify a source phone number, you must specify a queue.
         """
         return pulumi.get(self, "connect_source_phone_number")
 
     @connect_source_phone_number.setter
-    def connect_source_phone_number(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connect_source_phone_number(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connect_source_phone_number", value)
 
 
@@ -291,7 +291,7 @@ class CampaignPredictiveDialerConfigArgsDict(TypedDict):
     """
     The bandwidth allocation of a queue resource.
     """
-    dialing_capacity: NotRequired[pulumi.Input[_builtins.float]]
+    dialing_capacity: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Allocates dialing capacity for this campaign between multiple active campaigns.
     """
@@ -300,7 +300,7 @@ class CampaignPredictiveDialerConfigArgsDict(TypedDict):
 class CampaignPredictiveDialerConfigArgs:
     def __init__(__self__, *,
                  bandwidth_allocation: pulumi.Input[_builtins.float],
-                 dialing_capacity: Optional[pulumi.Input[_builtins.float]] = None):
+                 dialing_capacity: pulumi.Input[Optional[_builtins.float]] = None):
         """
         Predictive Dialer config
 
@@ -325,14 +325,14 @@ class CampaignPredictiveDialerConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="dialingCapacity")
-    def dialing_capacity(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def dialing_capacity(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Allocates dialing capacity for this campaign between multiple active campaigns.
         """
         return pulumi.get(self, "dialing_capacity")
 
     @dialing_capacity.setter
-    def dialing_capacity(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def dialing_capacity(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "dialing_capacity", value)
 
 
@@ -344,7 +344,7 @@ class CampaignProgressiveDialerConfigArgsDict(TypedDict):
     """
     The bandwidth allocation of a queue resource.
     """
-    dialing_capacity: NotRequired[pulumi.Input[_builtins.float]]
+    dialing_capacity: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Allocates dialing capacity for this campaign between multiple active campaigns.
     """
@@ -353,7 +353,7 @@ class CampaignProgressiveDialerConfigArgsDict(TypedDict):
 class CampaignProgressiveDialerConfigArgs:
     def __init__(__self__, *,
                  bandwidth_allocation: pulumi.Input[_builtins.float],
-                 dialing_capacity: Optional[pulumi.Input[_builtins.float]] = None):
+                 dialing_capacity: pulumi.Input[Optional[_builtins.float]] = None):
         """
         Progressive Dialer config
 
@@ -378,14 +378,14 @@ class CampaignProgressiveDialerConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="dialingCapacity")
-    def dialing_capacity(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def dialing_capacity(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Allocates dialing capacity for this campaign between multiple active campaigns.
         """
         return pulumi.get(self, "dialing_capacity")
 
     @dialing_capacity.setter
-    def dialing_capacity(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def dialing_capacity(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "dialing_capacity", value)
 
 

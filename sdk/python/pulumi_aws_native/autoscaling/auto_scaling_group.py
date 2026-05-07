@@ -24,41 +24,41 @@ class AutoScalingGroupArgs:
     def __init__(__self__, *,
                  max_size: pulumi.Input[_builtins.str],
                  min_size: pulumi.Input[_builtins.str],
-                 auto_scaling_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 availability_zone_distribution: Optional[pulumi.Input['AutoScalingGroupAvailabilityZoneDistributionArgs']] = None,
-                 availability_zone_impairment_policy: Optional[pulumi.Input['AutoScalingGroupAvailabilityZoneImpairmentPolicyArgs']] = None,
-                 availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 capacity_rebalance: Optional[pulumi.Input[_builtins.bool]] = None,
-                 capacity_reservation_specification: Optional[pulumi.Input['AutoScalingGroupCapacityReservationSpecificationArgs']] = None,
-                 context: Optional[pulumi.Input[_builtins.str]] = None,
-                 cooldown: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_instance_warmup: Optional[pulumi.Input[_builtins.int]] = None,
-                 deletion_protection: Optional[pulumi.Input[_builtins.str]] = None,
-                 desired_capacity: Optional[pulumi.Input[_builtins.str]] = None,
-                 desired_capacity_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 health_check_grace_period: Optional[pulumi.Input[_builtins.int]] = None,
-                 health_check_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_lifecycle_policy: Optional[pulumi.Input['AutoScalingGroupInstanceLifecyclePolicyArgs']] = None,
-                 instance_maintenance_policy: Optional[pulumi.Input['AutoScalingGroupInstanceMaintenancePolicyArgs']] = None,
-                 launch_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 launch_template: Optional[pulumi.Input['AutoScalingGroupLaunchTemplateSpecificationArgs']] = None,
-                 lifecycle_hook_specification_list: Optional[pulumi.Input[Sequence[pulumi.Input['AutoScalingGroupLifecycleHookSpecificationArgs']]]] = None,
-                 load_balancer_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 max_instance_lifetime: Optional[pulumi.Input[_builtins.int]] = None,
-                 metrics_collection: Optional[pulumi.Input[Sequence[pulumi.Input['AutoScalingGroupMetricsCollectionArgs']]]] = None,
-                 mixed_instances_policy: Optional[pulumi.Input['AutoScalingGroupMixedInstancesPolicyArgs']] = None,
-                 new_instances_protected_from_scale_in: Optional[pulumi.Input[_builtins.bool]] = None,
-                 notification_configuration: Optional[pulumi.Input['AutoScalingGroupNotificationConfigurationArgs']] = None,
-                 notification_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['AutoScalingGroupNotificationConfigurationArgs']]]] = None,
-                 placement_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_linked_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_zonal_shift_validation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['AutoScalingGroupTagPropertyArgs']]]] = None,
-                 target_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 termination_policies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 traffic_sources: Optional[pulumi.Input[Sequence[pulumi.Input['AutoScalingGroupTrafficSourceIdentifierArgs']]]] = None,
-                 vpc_zone_identifier: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 auto_scaling_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 availability_zone_distribution: pulumi.Input[Optional['AutoScalingGroupAvailabilityZoneDistributionArgs']] = None,
+                 availability_zone_impairment_policy: pulumi.Input[Optional['AutoScalingGroupAvailabilityZoneImpairmentPolicyArgs']] = None,
+                 availability_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 capacity_rebalance: pulumi.Input[Optional[_builtins.bool]] = None,
+                 capacity_reservation_specification: pulumi.Input[Optional['AutoScalingGroupCapacityReservationSpecificationArgs']] = None,
+                 context: pulumi.Input[Optional[_builtins.str]] = None,
+                 cooldown: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_instance_warmup: pulumi.Input[Optional[_builtins.int]] = None,
+                 deletion_protection: pulumi.Input[Optional[_builtins.str]] = None,
+                 desired_capacity: pulumi.Input[Optional[_builtins.str]] = None,
+                 desired_capacity_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 health_check_grace_period: pulumi.Input[Optional[_builtins.int]] = None,
+                 health_check_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_lifecycle_policy: pulumi.Input[Optional['AutoScalingGroupInstanceLifecyclePolicyArgs']] = None,
+                 instance_maintenance_policy: pulumi.Input[Optional['AutoScalingGroupInstanceMaintenancePolicyArgs']] = None,
+                 launch_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 launch_template: pulumi.Input[Optional['AutoScalingGroupLaunchTemplateSpecificationArgs']] = None,
+                 lifecycle_hook_specification_list: pulumi.Input[Optional[Sequence[pulumi.Input['AutoScalingGroupLifecycleHookSpecificationArgs']]]] = None,
+                 load_balancer_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 max_instance_lifetime: pulumi.Input[Optional[_builtins.int]] = None,
+                 metrics_collection: pulumi.Input[Optional[Sequence[pulumi.Input['AutoScalingGroupMetricsCollectionArgs']]]] = None,
+                 mixed_instances_policy: pulumi.Input[Optional['AutoScalingGroupMixedInstancesPolicyArgs']] = None,
+                 new_instances_protected_from_scale_in: pulumi.Input[Optional[_builtins.bool]] = None,
+                 notification_configuration: pulumi.Input[Optional['AutoScalingGroupNotificationConfigurationArgs']] = None,
+                 notification_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['AutoScalingGroupNotificationConfigurationArgs']]]] = None,
+                 placement_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_linked_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_zonal_shift_validation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['AutoScalingGroupTagPropertyArgs']]]] = None,
+                 target_group_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 termination_policies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 traffic_sources: pulumi.Input[Optional[Sequence[pulumi.Input['AutoScalingGroupTrafficSourceIdentifierArgs']]]] = None,
+                 vpc_zone_identifier: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AutoScalingGroup resource.
 
@@ -223,7 +223,7 @@ class AutoScalingGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoScalingGroupName")
-    def auto_scaling_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def auto_scaling_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Auto Scaling group. This name must be unique per Region per account.
          The name can contain any ASCII character 33 to 126 including most punctuation characters, digits, and upper and lowercased letters.
@@ -232,84 +232,84 @@ class AutoScalingGroupArgs:
         return pulumi.get(self, "auto_scaling_group_name")
 
     @auto_scaling_group_name.setter
-    def auto_scaling_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def auto_scaling_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "auto_scaling_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="availabilityZoneDistribution")
-    def availability_zone_distribution(self) -> Optional[pulumi.Input['AutoScalingGroupAvailabilityZoneDistributionArgs']]:
+    def availability_zone_distribution(self) -> pulumi.Input[Optional['AutoScalingGroupAvailabilityZoneDistributionArgs']]:
         """
         The EC2 instance capacity distribution across Availability Zones for the Auto Scaling group.
         """
         return pulumi.get(self, "availability_zone_distribution")
 
     @availability_zone_distribution.setter
-    def availability_zone_distribution(self, value: Optional[pulumi.Input['AutoScalingGroupAvailabilityZoneDistributionArgs']]):
+    def availability_zone_distribution(self, value: pulumi.Input[Optional['AutoScalingGroupAvailabilityZoneDistributionArgs']]):
         pulumi.set(self, "availability_zone_distribution", value)
 
     @_builtins.property
     @pulumi.getter(name="availabilityZoneImpairmentPolicy")
-    def availability_zone_impairment_policy(self) -> Optional[pulumi.Input['AutoScalingGroupAvailabilityZoneImpairmentPolicyArgs']]:
+    def availability_zone_impairment_policy(self) -> pulumi.Input[Optional['AutoScalingGroupAvailabilityZoneImpairmentPolicyArgs']]:
         """
         The Availability Zone impairment policy for the Auto Scaling group.
         """
         return pulumi.get(self, "availability_zone_impairment_policy")
 
     @availability_zone_impairment_policy.setter
-    def availability_zone_impairment_policy(self, value: Optional[pulumi.Input['AutoScalingGroupAvailabilityZoneImpairmentPolicyArgs']]):
+    def availability_zone_impairment_policy(self, value: pulumi.Input[Optional['AutoScalingGroupAvailabilityZoneImpairmentPolicyArgs']]):
         pulumi.set(self, "availability_zone_impairment_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="availabilityZones")
-    def availability_zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def availability_zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the ``VPCZoneIdentifier`` property, or for attaching a network interface when an existing network interface ID is specified in a launch template.
         """
         return pulumi.get(self, "availability_zones")
 
     @availability_zones.setter
-    def availability_zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def availability_zones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "availability_zones", value)
 
     @_builtins.property
     @pulumi.getter(name="capacityRebalance")
-    def capacity_rebalance(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def capacity_rebalance(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether Capacity Rebalancing is enabled. Otherwise, Capacity Rebalancing is disabled. When you turn on Capacity Rebalancing, Amazon EC2 Auto Scaling attempts to launch a Spot Instance whenever Amazon EC2 notifies that a Spot Instance is at an elevated risk of interruption. After launching a new instance, it then terminates an old instance. For more information, see [Use Capacity Rebalancing to handle Amazon EC2 Spot Interruptions](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-capacity-rebalancing.html) in the in the *Amazon EC2 Auto Scaling User Guide*.
         """
         return pulumi.get(self, "capacity_rebalance")
 
     @capacity_rebalance.setter
-    def capacity_rebalance(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def capacity_rebalance(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "capacity_rebalance", value)
 
     @_builtins.property
     @pulumi.getter(name="capacityReservationSpecification")
-    def capacity_reservation_specification(self) -> Optional[pulumi.Input['AutoScalingGroupCapacityReservationSpecificationArgs']]:
+    def capacity_reservation_specification(self) -> pulumi.Input[Optional['AutoScalingGroupCapacityReservationSpecificationArgs']]:
         """
         The capacity reservation specification for the Auto Scaling group.
         """
         return pulumi.get(self, "capacity_reservation_specification")
 
     @capacity_reservation_specification.setter
-    def capacity_reservation_specification(self, value: Optional[pulumi.Input['AutoScalingGroupCapacityReservationSpecificationArgs']]):
+    def capacity_reservation_specification(self, value: pulumi.Input[Optional['AutoScalingGroupCapacityReservationSpecificationArgs']]):
         pulumi.set(self, "capacity_reservation_specification", value)
 
     @_builtins.property
     @pulumi.getter
-    def context(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def context(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Reserved.
         """
         return pulumi.get(self, "context")
 
     @context.setter
-    def context(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def context(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "context", value)
 
     @_builtins.property
     @pulumi.getter
-    def cooldown(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cooldown(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         *Only needed if you use simple scaling policies.* 
          The amount of time, in seconds, between one scaling activity ending and another one starting due to simple scaling policies. For more information, see [Scaling cooldowns for Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-scaling-cooldowns.html) in the *Amazon EC2 Auto Scaling User Guide*.
@@ -318,12 +318,12 @@ class AutoScalingGroupArgs:
         return pulumi.get(self, "cooldown")
 
     @cooldown.setter
-    def cooldown(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cooldown(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cooldown", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultInstanceWarmup")
-    def default_instance_warmup(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def default_instance_warmup(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The amount of time, in seconds, until a new instance is considered to have finished initializing and resource consumption to become stable after it enters the ``InService`` state. 
          During an instance refresh, Amazon EC2 Auto Scaling waits for the warm-up period after it replaces an instance before it moves on to replacing the next instance. Amazon EC2 Auto Scaling also waits for the warm-up period before aggregating the metrics for new instances with existing instances in the Amazon CloudWatch metrics that are used for scaling, resulting in more reliable usage data. For more information, see [Set the default instance warmup for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html) in the *Amazon EC2 Auto Scaling User Guide*.
@@ -333,24 +333,24 @@ class AutoScalingGroupArgs:
         return pulumi.get(self, "default_instance_warmup")
 
     @default_instance_warmup.setter
-    def default_instance_warmup(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def default_instance_warmup(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "default_instance_warmup", value)
 
     @_builtins.property
     @pulumi.getter(name="deletionProtection")
-    def deletion_protection(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def deletion_protection(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The deletion protection setting for the Auto Scaling group.
         """
         return pulumi.get(self, "deletion_protection")
 
     @deletion_protection.setter
-    def deletion_protection(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def deletion_protection(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "deletion_protection", value)
 
     @_builtins.property
     @pulumi.getter(name="desiredCapacity")
-    def desired_capacity(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def desired_capacity(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The desired capacity is the initial capacity of the Auto Scaling group at the time of its creation and the capacity it attempts to maintain. It can scale beyond this capacity if you configure automatic scaling.
          The number must be greater than or equal to the minimum size of the group and less than or equal to the maximum size of the group. If you do not specify a desired capacity when creating the stack, the default is the minimum size of the group.
@@ -359,12 +359,12 @@ class AutoScalingGroupArgs:
         return pulumi.get(self, "desired_capacity")
 
     @desired_capacity.setter
-    def desired_capacity(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def desired_capacity(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "desired_capacity", value)
 
     @_builtins.property
     @pulumi.getter(name="desiredCapacityType")
-    def desired_capacity_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def desired_capacity_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unit of measurement for the value specified for desired capacity. Amazon EC2 Auto Scaling supports ``DesiredCapacityType`` for attribute-based instance type selection only. For more information, see [Create a mixed instances group using attribute-based instance type selection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-mixed-instances-group-attribute-based-instance-type-selection.html) in the *Amazon EC2 Auto Scaling User Guide*.
          By default, Amazon EC2 Auto Scaling specifies ``units``, which translates into number of instances.
@@ -373,12 +373,12 @@ class AutoScalingGroupArgs:
         return pulumi.get(self, "desired_capacity_type")
 
     @desired_capacity_type.setter
-    def desired_capacity_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def desired_capacity_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "desired_capacity_type", value)
 
     @_builtins.property
     @pulumi.getter(name="healthCheckGracePeriod")
-    def health_check_grace_period(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def health_check_grace_period(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2 instance that has come into service and marking it unhealthy due to a failed health check. This is useful if your instances do not immediately pass their health checks after they enter the ``InService`` state. For more information, see [Set the health check grace period for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/health-check-grace-period.html) in the *Amazon EC2 Auto Scaling User Guide*.
          Default: ``0`` seconds
@@ -386,12 +386,12 @@ class AutoScalingGroupArgs:
         return pulumi.get(self, "health_check_grace_period")
 
     @health_check_grace_period.setter
-    def health_check_grace_period(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def health_check_grace_period(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "health_check_grace_period", value)
 
     @_builtins.property
     @pulumi.getter(name="healthCheckType")
-    def health_check_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def health_check_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A comma-separated value string of one or more health check types.
          The valid values are ``EC2``, ``EBS``, ``ELB``, and ``VPC_LATTICE``. ``EC2`` is the default health check and cannot be disabled. For more information, see [Health checks for instances in an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-health-checks.html) in the *Amazon EC2 Auto Scaling User Guide*.
@@ -400,12 +400,12 @@ class AutoScalingGroupArgs:
         return pulumi.get(self, "health_check_type")
 
     @health_check_type.setter
-    def health_check_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def health_check_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "health_check_type", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceId")
-    def instance_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def instance_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the instance used to base the launch configuration on. For more information, see [Create an Auto Scaling group using an EC2 instance](https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-from-instance.html) in the *Amazon EC2 Auto Scaling User Guide*.
          If you specify ``LaunchTemplate``, ``MixedInstancesPolicy``, or ``LaunchConfigurationName``, don't specify ``InstanceId``.
@@ -413,36 +413,36 @@ class AutoScalingGroupArgs:
         return pulumi.get(self, "instance_id")
 
     @instance_id.setter
-    def instance_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def instance_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "instance_id", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceLifecyclePolicy")
-    def instance_lifecycle_policy(self) -> Optional[pulumi.Input['AutoScalingGroupInstanceLifecyclePolicyArgs']]:
+    def instance_lifecycle_policy(self) -> pulumi.Input[Optional['AutoScalingGroupInstanceLifecyclePolicyArgs']]:
         """
         The instance lifecycle policy for the Auto Scaling group.
         """
         return pulumi.get(self, "instance_lifecycle_policy")
 
     @instance_lifecycle_policy.setter
-    def instance_lifecycle_policy(self, value: Optional[pulumi.Input['AutoScalingGroupInstanceLifecyclePolicyArgs']]):
+    def instance_lifecycle_policy(self, value: pulumi.Input[Optional['AutoScalingGroupInstanceLifecyclePolicyArgs']]):
         pulumi.set(self, "instance_lifecycle_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceMaintenancePolicy")
-    def instance_maintenance_policy(self) -> Optional[pulumi.Input['AutoScalingGroupInstanceMaintenancePolicyArgs']]:
+    def instance_maintenance_policy(self) -> pulumi.Input[Optional['AutoScalingGroupInstanceMaintenancePolicyArgs']]:
         """
         An instance maintenance policy. For more information, see [Set instance maintenance policy](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-maintenance-policy.html) in the *Amazon EC2 Auto Scaling User Guide*.
         """
         return pulumi.get(self, "instance_maintenance_policy")
 
     @instance_maintenance_policy.setter
-    def instance_maintenance_policy(self, value: Optional[pulumi.Input['AutoScalingGroupInstanceMaintenancePolicyArgs']]):
+    def instance_maintenance_policy(self, value: pulumi.Input[Optional['AutoScalingGroupInstanceMaintenancePolicyArgs']]):
         pulumi.set(self, "instance_maintenance_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="launchConfigurationName")
-    def launch_configuration_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def launch_configuration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the launch configuration to use to launch instances.
          Required only if you don't specify ``LaunchTemplate``, ``MixedInstancesPolicy``, or ``InstanceId``.
@@ -450,12 +450,12 @@ class AutoScalingGroupArgs:
         return pulumi.get(self, "launch_configuration_name")
 
     @launch_configuration_name.setter
-    def launch_configuration_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def launch_configuration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "launch_configuration_name", value)
 
     @_builtins.property
     @pulumi.getter(name="launchTemplate")
-    def launch_template(self) -> Optional[pulumi.Input['AutoScalingGroupLaunchTemplateSpecificationArgs']]:
+    def launch_template(self) -> pulumi.Input[Optional['AutoScalingGroupLaunchTemplateSpecificationArgs']]:
         """
         Information used to specify the launch template and version to use to launch instances. You can alternatively associate a launch template to the Auto Scaling group by specifying a ``MixedInstancesPolicy``. For more information about creating launch templates, see [Create a launch template for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-template.html) in the *Amazon EC2 Auto Scaling User Guide*.
          If you omit this property, you must specify ``MixedInstancesPolicy``, ``LaunchConfigurationName``, or ``InstanceId``.
@@ -463,60 +463,60 @@ class AutoScalingGroupArgs:
         return pulumi.get(self, "launch_template")
 
     @launch_template.setter
-    def launch_template(self, value: Optional[pulumi.Input['AutoScalingGroupLaunchTemplateSpecificationArgs']]):
+    def launch_template(self, value: pulumi.Input[Optional['AutoScalingGroupLaunchTemplateSpecificationArgs']]):
         pulumi.set(self, "launch_template", value)
 
     @_builtins.property
     @pulumi.getter(name="lifecycleHookSpecificationList")
-    def lifecycle_hook_specification_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutoScalingGroupLifecycleHookSpecificationArgs']]]]:
+    def lifecycle_hook_specification_list(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AutoScalingGroupLifecycleHookSpecificationArgs']]]]:
         """
         One or more lifecycle hooks to add to the Auto Scaling group before instances are launched.
         """
         return pulumi.get(self, "lifecycle_hook_specification_list")
 
     @lifecycle_hook_specification_list.setter
-    def lifecycle_hook_specification_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutoScalingGroupLifecycleHookSpecificationArgs']]]]):
+    def lifecycle_hook_specification_list(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AutoScalingGroupLifecycleHookSpecificationArgs']]]]):
         pulumi.set(self, "lifecycle_hook_specification_list", value)
 
     @_builtins.property
     @pulumi.getter(name="loadBalancerNames")
-    def load_balancer_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def load_balancer_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of Classic Load Balancers associated with this Auto Scaling group. For Application Load Balancers, Network Load Balancers, and Gateway Load Balancers, specify the ``TargetGroupARNs`` property instead.
         """
         return pulumi.get(self, "load_balancer_names")
 
     @load_balancer_names.setter
-    def load_balancer_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def load_balancer_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "load_balancer_names", value)
 
     @_builtins.property
     @pulumi.getter(name="maxInstanceLifetime")
-    def max_instance_lifetime(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_instance_lifetime(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum amount of time, in seconds, that an instance can be in service. The default is null. If specified, the value must be either 0 or a number equal to or greater than 86,400 seconds (1 day). For more information, see [Replace Auto Scaling instances based on maximum instance lifetime](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-max-instance-lifetime.html) in the *Amazon EC2 Auto Scaling User Guide*.
         """
         return pulumi.get(self, "max_instance_lifetime")
 
     @max_instance_lifetime.setter
-    def max_instance_lifetime(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_instance_lifetime(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_instance_lifetime", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsCollection")
-    def metrics_collection(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutoScalingGroupMetricsCollectionArgs']]]]:
+    def metrics_collection(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AutoScalingGroupMetricsCollectionArgs']]]]:
         """
         Enables the monitoring of group metrics of an Auto Scaling group. By default, these metrics are disabled.
         """
         return pulumi.get(self, "metrics_collection")
 
     @metrics_collection.setter
-    def metrics_collection(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutoScalingGroupMetricsCollectionArgs']]]]):
+    def metrics_collection(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AutoScalingGroupMetricsCollectionArgs']]]]):
         pulumi.set(self, "metrics_collection", value)
 
     @_builtins.property
     @pulumi.getter(name="mixedInstancesPolicy")
-    def mixed_instances_policy(self) -> Optional[pulumi.Input['AutoScalingGroupMixedInstancesPolicyArgs']]:
+    def mixed_instances_policy(self) -> pulumi.Input[Optional['AutoScalingGroupMixedInstancesPolicyArgs']]:
         """
         An embedded object that specifies a mixed instances policy.
          The policy includes properties that not only define the distribution of On-Demand Instances and Spot Instances, the maximum price to pay for Spot Instances (optional), and how the Auto Scaling group allocates instance types to fulfill On-Demand and Spot capacities, but also the properties that specify the instance configuration information—the launch template and instance types. The policy can also include a weight for each instance type and different launch templates for individual instance types.
@@ -525,45 +525,45 @@ class AutoScalingGroupArgs:
         return pulumi.get(self, "mixed_instances_policy")
 
     @mixed_instances_policy.setter
-    def mixed_instances_policy(self, value: Optional[pulumi.Input['AutoScalingGroupMixedInstancesPolicyArgs']]):
+    def mixed_instances_policy(self, value: pulumi.Input[Optional['AutoScalingGroupMixedInstancesPolicyArgs']]):
         pulumi.set(self, "mixed_instances_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="newInstancesProtectedFromScaleIn")
-    def new_instances_protected_from_scale_in(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def new_instances_protected_from_scale_in(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether newly launched instances are protected from termination by Amazon EC2 Auto Scaling when scaling in. For more information about preventing instances from terminating on scale in, see [Use instance scale-in protection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html) in the *Amazon EC2 Auto Scaling User Guide*.
         """
         return pulumi.get(self, "new_instances_protected_from_scale_in")
 
     @new_instances_protected_from_scale_in.setter
-    def new_instances_protected_from_scale_in(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def new_instances_protected_from_scale_in(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "new_instances_protected_from_scale_in", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationConfiguration")
-    def notification_configuration(self) -> Optional[pulumi.Input['AutoScalingGroupNotificationConfigurationArgs']]:
+    def notification_configuration(self) -> pulumi.Input[Optional['AutoScalingGroupNotificationConfigurationArgs']]:
         return pulumi.get(self, "notification_configuration")
 
     @notification_configuration.setter
-    def notification_configuration(self, value: Optional[pulumi.Input['AutoScalingGroupNotificationConfigurationArgs']]):
+    def notification_configuration(self, value: pulumi.Input[Optional['AutoScalingGroupNotificationConfigurationArgs']]):
         pulumi.set(self, "notification_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationConfigurations")
-    def notification_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutoScalingGroupNotificationConfigurationArgs']]]]:
+    def notification_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AutoScalingGroupNotificationConfigurationArgs']]]]:
         """
         Configures an Auto Scaling group to send notifications when specified events take place.
         """
         return pulumi.get(self, "notification_configurations")
 
     @notification_configurations.setter
-    def notification_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutoScalingGroupNotificationConfigurationArgs']]]]):
+    def notification_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AutoScalingGroupNotificationConfigurationArgs']]]]):
         pulumi.set(self, "notification_configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="placementGroup")
-    def placement_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def placement_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the placement group into which to launch your instances. For more information, see [Placement groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html) in the *Amazon EC2 User Guide*.
           A *cluster* placement group is a logical grouping of instances within a single Availability Zone. You cannot specify multiple Availability Zones and a cluster placement group.
@@ -571,57 +571,57 @@ class AutoScalingGroupArgs:
         return pulumi.get(self, "placement_group")
 
     @placement_group.setter
-    def placement_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def placement_group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "placement_group", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceLinkedRoleArn")
-    def service_linked_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_linked_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group uses to call other AWS service on your behalf. By default, Amazon EC2 Auto Scaling uses a service-linked role named ``AWSServiceRoleForAutoScaling``, which it creates if it does not exist. For more information, see [Service-linked roles](https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-service-linked-role.html) in the *Amazon EC2 Auto Scaling User Guide*.
         """
         return pulumi.get(self, "service_linked_role_arn")
 
     @service_linked_role_arn.setter
-    def service_linked_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_linked_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_linked_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="skipZonalShiftValidation")
-    def skip_zonal_shift_validation(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_zonal_shift_validation(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "skip_zonal_shift_validation")
 
     @skip_zonal_shift_validation.setter
-    def skip_zonal_shift_validation(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_zonal_shift_validation(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_zonal_shift_validation", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutoScalingGroupTagPropertyArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AutoScalingGroupTagPropertyArgs']]]]:
         """
         One or more tags. You can tag your Auto Scaling group and propagate the tags to the Amazon EC2 instances it launches. Tags are not propagated to Amazon EBS volumes. To add tags to Amazon EBS volumes, specify the tags in a launch template but use caution. If the launch template specifies an instance tag with a key that is also specified for the Auto Scaling group, Amazon EC2 Auto Scaling overrides the value of that instance tag with the value specified by the Auto Scaling group. For more information, see [Tag Auto Scaling groups and instances](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-tagging.html) in the *Amazon EC2 Auto Scaling User Guide*.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutoScalingGroupTagPropertyArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AutoScalingGroupTagPropertyArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="targetGroupArns")
-    def target_group_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def target_group_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The Amazon Resource Names (ARN) of the Elastic Load Balancing target groups to associate with the Auto Scaling group. Instances are registered as targets with the target groups. The target groups receive incoming traffic and route requests to one or more registered targets. For more information, see [Use Elastic Load Balancing to distribute traffic across the instances in your Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html) in the *Amazon EC2 Auto Scaling User Guide*.
         """
         return pulumi.get(self, "target_group_arns")
 
     @target_group_arns.setter
-    def target_group_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def target_group_arns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "target_group_arns", value)
 
     @_builtins.property
     @pulumi.getter(name="terminationPolicies")
-    def termination_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def termination_policies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A policy or a list of policies that are used to select the instance to terminate. These policies are executed in the order that you list them. For more information, see [Configure termination policies for Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-termination-policies.html) in the *Amazon EC2 Auto Scaling User Guide*.
          Valid values: ``Default`` | ``AllocationStrategy`` | ``ClosestToNextInstanceHour`` | ``NewestInstance`` | ``OldestInstance`` | ``OldestLaunchConfiguration`` | ``OldestLaunchTemplate`` | ``arn:aws:lambda:region:account-id:function:my-function:my-alias``
@@ -629,24 +629,24 @@ class AutoScalingGroupArgs:
         return pulumi.get(self, "termination_policies")
 
     @termination_policies.setter
-    def termination_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def termination_policies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "termination_policies", value)
 
     @_builtins.property
     @pulumi.getter(name="trafficSources")
-    def traffic_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutoScalingGroupTrafficSourceIdentifierArgs']]]]:
+    def traffic_sources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AutoScalingGroupTrafficSourceIdentifierArgs']]]]:
         """
         The traffic sources associated with this Auto Scaling group.
         """
         return pulumi.get(self, "traffic_sources")
 
     @traffic_sources.setter
-    def traffic_sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutoScalingGroupTrafficSourceIdentifierArgs']]]]):
+    def traffic_sources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AutoScalingGroupTrafficSourceIdentifierArgs']]]]):
         pulumi.set(self, "traffic_sources", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcZoneIdentifier")
-    def vpc_zone_identifier(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def vpc_zone_identifier(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of subnet IDs for a virtual private cloud (VPC) where instances in the Auto Scaling group can be created.
          If this resource specifies public subnets and is also in a VPC that is defined in the same stack template, you must use the [DependsOn attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) to declare a dependency on the [VPC-gateway attachment](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc-gateway-attachment.html).
@@ -656,7 +656,7 @@ class AutoScalingGroupArgs:
         return pulumi.get(self, "vpc_zone_identifier")
 
     @vpc_zone_identifier.setter
-    def vpc_zone_identifier(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def vpc_zone_identifier(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "vpc_zone_identifier", value)
 
 
@@ -666,43 +666,43 @@ class AutoScalingGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_scaling_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 availability_zone_distribution: Optional[pulumi.Input[Union['AutoScalingGroupAvailabilityZoneDistributionArgs', 'AutoScalingGroupAvailabilityZoneDistributionArgsDict']]] = None,
-                 availability_zone_impairment_policy: Optional[pulumi.Input[Union['AutoScalingGroupAvailabilityZoneImpairmentPolicyArgs', 'AutoScalingGroupAvailabilityZoneImpairmentPolicyArgsDict']]] = None,
-                 availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 capacity_rebalance: Optional[pulumi.Input[_builtins.bool]] = None,
-                 capacity_reservation_specification: Optional[pulumi.Input[Union['AutoScalingGroupCapacityReservationSpecificationArgs', 'AutoScalingGroupCapacityReservationSpecificationArgsDict']]] = None,
-                 context: Optional[pulumi.Input[_builtins.str]] = None,
-                 cooldown: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_instance_warmup: Optional[pulumi.Input[_builtins.int]] = None,
-                 deletion_protection: Optional[pulumi.Input[_builtins.str]] = None,
-                 desired_capacity: Optional[pulumi.Input[_builtins.str]] = None,
-                 desired_capacity_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 health_check_grace_period: Optional[pulumi.Input[_builtins.int]] = None,
-                 health_check_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_lifecycle_policy: Optional[pulumi.Input[Union['AutoScalingGroupInstanceLifecyclePolicyArgs', 'AutoScalingGroupInstanceLifecyclePolicyArgsDict']]] = None,
-                 instance_maintenance_policy: Optional[pulumi.Input[Union['AutoScalingGroupInstanceMaintenancePolicyArgs', 'AutoScalingGroupInstanceMaintenancePolicyArgsDict']]] = None,
-                 launch_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 launch_template: Optional[pulumi.Input[Union['AutoScalingGroupLaunchTemplateSpecificationArgs', 'AutoScalingGroupLaunchTemplateSpecificationArgsDict']]] = None,
-                 lifecycle_hook_specification_list: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AutoScalingGroupLifecycleHookSpecificationArgs', 'AutoScalingGroupLifecycleHookSpecificationArgsDict']]]]] = None,
-                 load_balancer_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 max_instance_lifetime: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_size: Optional[pulumi.Input[_builtins.str]] = None,
-                 metrics_collection: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AutoScalingGroupMetricsCollectionArgs', 'AutoScalingGroupMetricsCollectionArgsDict']]]]] = None,
-                 min_size: Optional[pulumi.Input[_builtins.str]] = None,
-                 mixed_instances_policy: Optional[pulumi.Input[Union['AutoScalingGroupMixedInstancesPolicyArgs', 'AutoScalingGroupMixedInstancesPolicyArgsDict']]] = None,
-                 new_instances_protected_from_scale_in: Optional[pulumi.Input[_builtins.bool]] = None,
-                 notification_configuration: Optional[pulumi.Input[Union['AutoScalingGroupNotificationConfigurationArgs', 'AutoScalingGroupNotificationConfigurationArgsDict']]] = None,
-                 notification_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AutoScalingGroupNotificationConfigurationArgs', 'AutoScalingGroupNotificationConfigurationArgsDict']]]]] = None,
-                 placement_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_linked_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_zonal_shift_validation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AutoScalingGroupTagPropertyArgs', 'AutoScalingGroupTagPropertyArgsDict']]]]] = None,
-                 target_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 termination_policies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 traffic_sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AutoScalingGroupTrafficSourceIdentifierArgs', 'AutoScalingGroupTrafficSourceIdentifierArgsDict']]]]] = None,
-                 vpc_zone_identifier: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 auto_scaling_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 availability_zone_distribution: pulumi.Input[Optional[Union['AutoScalingGroupAvailabilityZoneDistributionArgs', 'AutoScalingGroupAvailabilityZoneDistributionArgsDict']]] = None,
+                 availability_zone_impairment_policy: pulumi.Input[Optional[Union['AutoScalingGroupAvailabilityZoneImpairmentPolicyArgs', 'AutoScalingGroupAvailabilityZoneImpairmentPolicyArgsDict']]] = None,
+                 availability_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 capacity_rebalance: pulumi.Input[Optional[_builtins.bool]] = None,
+                 capacity_reservation_specification: pulumi.Input[Optional[Union['AutoScalingGroupCapacityReservationSpecificationArgs', 'AutoScalingGroupCapacityReservationSpecificationArgsDict']]] = None,
+                 context: pulumi.Input[Optional[_builtins.str]] = None,
+                 cooldown: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_instance_warmup: pulumi.Input[Optional[_builtins.int]] = None,
+                 deletion_protection: pulumi.Input[Optional[_builtins.str]] = None,
+                 desired_capacity: pulumi.Input[Optional[_builtins.str]] = None,
+                 desired_capacity_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 health_check_grace_period: pulumi.Input[Optional[_builtins.int]] = None,
+                 health_check_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_lifecycle_policy: pulumi.Input[Optional[Union['AutoScalingGroupInstanceLifecyclePolicyArgs', 'AutoScalingGroupInstanceLifecyclePolicyArgsDict']]] = None,
+                 instance_maintenance_policy: pulumi.Input[Optional[Union['AutoScalingGroupInstanceMaintenancePolicyArgs', 'AutoScalingGroupInstanceMaintenancePolicyArgsDict']]] = None,
+                 launch_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 launch_template: pulumi.Input[Optional[Union['AutoScalingGroupLaunchTemplateSpecificationArgs', 'AutoScalingGroupLaunchTemplateSpecificationArgsDict']]] = None,
+                 lifecycle_hook_specification_list: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutoScalingGroupLifecycleHookSpecificationArgs', 'AutoScalingGroupLifecycleHookSpecificationArgsDict']]]]] = None,
+                 load_balancer_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 max_instance_lifetime: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_size: pulumi.Input[Optional[_builtins.str]] = None,
+                 metrics_collection: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutoScalingGroupMetricsCollectionArgs', 'AutoScalingGroupMetricsCollectionArgsDict']]]]] = None,
+                 min_size: pulumi.Input[Optional[_builtins.str]] = None,
+                 mixed_instances_policy: pulumi.Input[Optional[Union['AutoScalingGroupMixedInstancesPolicyArgs', 'AutoScalingGroupMixedInstancesPolicyArgsDict']]] = None,
+                 new_instances_protected_from_scale_in: pulumi.Input[Optional[_builtins.bool]] = None,
+                 notification_configuration: pulumi.Input[Optional[Union['AutoScalingGroupNotificationConfigurationArgs', 'AutoScalingGroupNotificationConfigurationArgsDict']]] = None,
+                 notification_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutoScalingGroupNotificationConfigurationArgs', 'AutoScalingGroupNotificationConfigurationArgsDict']]]]] = None,
+                 placement_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_linked_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_zonal_shift_validation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutoScalingGroupTagPropertyArgs', 'AutoScalingGroupTagPropertyArgsDict']]]]] = None,
+                 target_group_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 termination_policies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 traffic_sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutoScalingGroupTrafficSourceIdentifierArgs', 'AutoScalingGroupTrafficSourceIdentifierArgsDict']]]]] = None,
+                 vpc_zone_identifier: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         The ``AWS::AutoScaling::AutoScalingGroup`` resource defines an Amazon EC2 Auto Scaling group, which is a collection of Amazon EC2 instances that are treated as a logical grouping for the purposes of automatic scaling and management.
@@ -802,43 +802,43 @@ class AutoScalingGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_scaling_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 availability_zone_distribution: Optional[pulumi.Input[Union['AutoScalingGroupAvailabilityZoneDistributionArgs', 'AutoScalingGroupAvailabilityZoneDistributionArgsDict']]] = None,
-                 availability_zone_impairment_policy: Optional[pulumi.Input[Union['AutoScalingGroupAvailabilityZoneImpairmentPolicyArgs', 'AutoScalingGroupAvailabilityZoneImpairmentPolicyArgsDict']]] = None,
-                 availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 capacity_rebalance: Optional[pulumi.Input[_builtins.bool]] = None,
-                 capacity_reservation_specification: Optional[pulumi.Input[Union['AutoScalingGroupCapacityReservationSpecificationArgs', 'AutoScalingGroupCapacityReservationSpecificationArgsDict']]] = None,
-                 context: Optional[pulumi.Input[_builtins.str]] = None,
-                 cooldown: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_instance_warmup: Optional[pulumi.Input[_builtins.int]] = None,
-                 deletion_protection: Optional[pulumi.Input[_builtins.str]] = None,
-                 desired_capacity: Optional[pulumi.Input[_builtins.str]] = None,
-                 desired_capacity_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 health_check_grace_period: Optional[pulumi.Input[_builtins.int]] = None,
-                 health_check_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_lifecycle_policy: Optional[pulumi.Input[Union['AutoScalingGroupInstanceLifecyclePolicyArgs', 'AutoScalingGroupInstanceLifecyclePolicyArgsDict']]] = None,
-                 instance_maintenance_policy: Optional[pulumi.Input[Union['AutoScalingGroupInstanceMaintenancePolicyArgs', 'AutoScalingGroupInstanceMaintenancePolicyArgsDict']]] = None,
-                 launch_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 launch_template: Optional[pulumi.Input[Union['AutoScalingGroupLaunchTemplateSpecificationArgs', 'AutoScalingGroupLaunchTemplateSpecificationArgsDict']]] = None,
-                 lifecycle_hook_specification_list: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AutoScalingGroupLifecycleHookSpecificationArgs', 'AutoScalingGroupLifecycleHookSpecificationArgsDict']]]]] = None,
-                 load_balancer_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 max_instance_lifetime: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_size: Optional[pulumi.Input[_builtins.str]] = None,
-                 metrics_collection: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AutoScalingGroupMetricsCollectionArgs', 'AutoScalingGroupMetricsCollectionArgsDict']]]]] = None,
-                 min_size: Optional[pulumi.Input[_builtins.str]] = None,
-                 mixed_instances_policy: Optional[pulumi.Input[Union['AutoScalingGroupMixedInstancesPolicyArgs', 'AutoScalingGroupMixedInstancesPolicyArgsDict']]] = None,
-                 new_instances_protected_from_scale_in: Optional[pulumi.Input[_builtins.bool]] = None,
-                 notification_configuration: Optional[pulumi.Input[Union['AutoScalingGroupNotificationConfigurationArgs', 'AutoScalingGroupNotificationConfigurationArgsDict']]] = None,
-                 notification_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AutoScalingGroupNotificationConfigurationArgs', 'AutoScalingGroupNotificationConfigurationArgsDict']]]]] = None,
-                 placement_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_linked_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_zonal_shift_validation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AutoScalingGroupTagPropertyArgs', 'AutoScalingGroupTagPropertyArgsDict']]]]] = None,
-                 target_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 termination_policies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 traffic_sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AutoScalingGroupTrafficSourceIdentifierArgs', 'AutoScalingGroupTrafficSourceIdentifierArgsDict']]]]] = None,
-                 vpc_zone_identifier: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 auto_scaling_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 availability_zone_distribution: pulumi.Input[Optional[Union['AutoScalingGroupAvailabilityZoneDistributionArgs', 'AutoScalingGroupAvailabilityZoneDistributionArgsDict']]] = None,
+                 availability_zone_impairment_policy: pulumi.Input[Optional[Union['AutoScalingGroupAvailabilityZoneImpairmentPolicyArgs', 'AutoScalingGroupAvailabilityZoneImpairmentPolicyArgsDict']]] = None,
+                 availability_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 capacity_rebalance: pulumi.Input[Optional[_builtins.bool]] = None,
+                 capacity_reservation_specification: pulumi.Input[Optional[Union['AutoScalingGroupCapacityReservationSpecificationArgs', 'AutoScalingGroupCapacityReservationSpecificationArgsDict']]] = None,
+                 context: pulumi.Input[Optional[_builtins.str]] = None,
+                 cooldown: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_instance_warmup: pulumi.Input[Optional[_builtins.int]] = None,
+                 deletion_protection: pulumi.Input[Optional[_builtins.str]] = None,
+                 desired_capacity: pulumi.Input[Optional[_builtins.str]] = None,
+                 desired_capacity_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 health_check_grace_period: pulumi.Input[Optional[_builtins.int]] = None,
+                 health_check_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_lifecycle_policy: pulumi.Input[Optional[Union['AutoScalingGroupInstanceLifecyclePolicyArgs', 'AutoScalingGroupInstanceLifecyclePolicyArgsDict']]] = None,
+                 instance_maintenance_policy: pulumi.Input[Optional[Union['AutoScalingGroupInstanceMaintenancePolicyArgs', 'AutoScalingGroupInstanceMaintenancePolicyArgsDict']]] = None,
+                 launch_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 launch_template: pulumi.Input[Optional[Union['AutoScalingGroupLaunchTemplateSpecificationArgs', 'AutoScalingGroupLaunchTemplateSpecificationArgsDict']]] = None,
+                 lifecycle_hook_specification_list: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutoScalingGroupLifecycleHookSpecificationArgs', 'AutoScalingGroupLifecycleHookSpecificationArgsDict']]]]] = None,
+                 load_balancer_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 max_instance_lifetime: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_size: pulumi.Input[Optional[_builtins.str]] = None,
+                 metrics_collection: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutoScalingGroupMetricsCollectionArgs', 'AutoScalingGroupMetricsCollectionArgsDict']]]]] = None,
+                 min_size: pulumi.Input[Optional[_builtins.str]] = None,
+                 mixed_instances_policy: pulumi.Input[Optional[Union['AutoScalingGroupMixedInstancesPolicyArgs', 'AutoScalingGroupMixedInstancesPolicyArgsDict']]] = None,
+                 new_instances_protected_from_scale_in: pulumi.Input[Optional[_builtins.bool]] = None,
+                 notification_configuration: pulumi.Input[Optional[Union['AutoScalingGroupNotificationConfigurationArgs', 'AutoScalingGroupNotificationConfigurationArgsDict']]] = None,
+                 notification_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutoScalingGroupNotificationConfigurationArgs', 'AutoScalingGroupNotificationConfigurationArgsDict']]]]] = None,
+                 placement_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_linked_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_zonal_shift_validation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutoScalingGroupTagPropertyArgs', 'AutoScalingGroupTagPropertyArgsDict']]]]] = None,
+                 target_group_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 termination_policies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 traffic_sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutoScalingGroupTrafficSourceIdentifierArgs', 'AutoScalingGroupTrafficSourceIdentifierArgsDict']]]]] = None,
+                 vpc_zone_identifier: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

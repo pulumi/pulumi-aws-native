@@ -162,7 +162,7 @@ def get_connection(name: Optional[_builtins.str] = None,
         invocation_connectivity_parameters=pulumi.get(__ret__, 'invocation_connectivity_parameters'),
         kms_key_identifier=pulumi.get(__ret__, 'kms_key_identifier'),
         secret_arn=pulumi.get(__ret__, 'secret_arn'))
-def get_connection_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_connection_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectionResult]:
     """
     Resource Type definition for AWS::Events::Connection.

@@ -24,9 +24,9 @@ __all__ = ['TrustStoreArgs', 'TrustStore']
 @pulumi.input_type
 class TrustStoreArgs:
     def __init__(__self__, *,
-                 ca_certificates_bundle_source: Optional[pulumi.Input['TrustStoreCaCertificatesBundleSourceArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 ca_certificates_bundle_source: pulumi.Input[Optional['TrustStoreCaCertificatesBundleSourceArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a TrustStore resource.
 
@@ -43,38 +43,38 @@ class TrustStoreArgs:
 
     @_builtins.property
     @pulumi.getter(name="caCertificatesBundleSource")
-    def ca_certificates_bundle_source(self) -> Optional[pulumi.Input['TrustStoreCaCertificatesBundleSourceArgs']]:
+    def ca_certificates_bundle_source(self) -> pulumi.Input[Optional['TrustStoreCaCertificatesBundleSourceArgs']]:
         """
         A CA certificates bundle source.
         """
         return pulumi.get(self, "ca_certificates_bundle_source")
 
     @ca_certificates_bundle_source.setter
-    def ca_certificates_bundle_source(self, value: Optional[pulumi.Input['TrustStoreCaCertificatesBundleSourceArgs']]):
+    def ca_certificates_bundle_source(self, value: pulumi.Input[Optional['TrustStoreCaCertificatesBundleSourceArgs']]):
         pulumi.set(self, "ca_certificates_bundle_source", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The trust store's name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A complex type that contains zero or more ``Tag`` elements.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -84,9 +84,9 @@ class TrustStore(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 ca_certificates_bundle_source: Optional[pulumi.Input[Union['TrustStoreCaCertificatesBundleSourceArgs', 'TrustStoreCaCertificatesBundleSourceArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 ca_certificates_bundle_source: pulumi.Input[Optional[Union['TrustStoreCaCertificatesBundleSourceArgs', 'TrustStoreCaCertificatesBundleSourceArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         A trust store.
@@ -123,9 +123,9 @@ class TrustStore(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 ca_certificates_bundle_source: Optional[pulumi.Input[Union['TrustStoreCaCertificatesBundleSourceArgs', 'TrustStoreCaCertificatesBundleSourceArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 ca_certificates_bundle_source: pulumi.Input[Optional[Union['TrustStoreCaCertificatesBundleSourceArgs', 'TrustStoreCaCertificatesBundleSourceArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

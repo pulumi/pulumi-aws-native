@@ -25,16 +25,16 @@ class MethodArgs:
                  http_method: pulumi.Input[_builtins.str],
                  resource_id: pulumi.Input[_builtins.str],
                  rest_api_id: pulumi.Input[_builtins.str],
-                 api_key_required: Optional[pulumi.Input[_builtins.bool]] = None,
-                 authorization_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 authorization_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 authorizer_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 integration: Optional[pulumi.Input['MethodIntegrationArgs']] = None,
-                 method_responses: Optional[pulumi.Input[Sequence[pulumi.Input['MethodResponseArgs']]]] = None,
-                 operation_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_models: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 request_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union[_builtins.bool, _builtins.str]]]]] = None,
-                 request_validator_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 api_key_required: pulumi.Input[Optional[_builtins.bool]] = None,
+                 authorization_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 authorization_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 authorizer_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 integration: pulumi.Input[Optional['MethodIntegrationArgs']] = None,
+                 method_responses: pulumi.Input[Optional[Sequence[pulumi.Input['MethodResponseArgs']]]] = None,
+                 operation_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_models: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 request_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union[_builtins.bool, _builtins.str]]]]] = None,
+                 request_validator_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Method resource.
 
@@ -115,31 +115,31 @@ class MethodArgs:
 
     @_builtins.property
     @pulumi.getter(name="apiKeyRequired")
-    def api_key_required(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def api_key_required(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A boolean flag specifying whether a valid ApiKey is required to invoke this method.
         """
         return pulumi.get(self, "api_key_required")
 
     @api_key_required.setter
-    def api_key_required(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def api_key_required(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "api_key_required", value)
 
     @_builtins.property
     @pulumi.getter(name="authorizationScopes")
-    def authorization_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def authorization_scopes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of authorization scopes configured on the method. The scopes are used with a `COGNITO_USER_POOLS` authorizer to authorize the method invocation. The authorization works by matching the method scopes against the scopes parsed from the access token in the incoming request. The method invocation is authorized if any method scopes matches a claimed scope in the access token. Otherwise, the invocation is not authorized. When the method scope is configured, the client must provide an access token instead of an identity token for authorization purposes.
         """
         return pulumi.get(self, "authorization_scopes")
 
     @authorization_scopes.setter
-    def authorization_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def authorization_scopes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "authorization_scopes", value)
 
     @_builtins.property
     @pulumi.getter(name="authorizationType")
-    def authorization_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authorization_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The method's authorization type. This parameter is required. For valid values, see [Method](https://docs.aws.amazon.com/apigateway/latest/api/API_Method.html) in the *API Gateway API Reference*.
           If you specify the ``AuthorizerId`` property, specify ``CUSTOM`` or ``COGNITO_USER_POOLS`` for this property.
@@ -147,91 +147,91 @@ class MethodArgs:
         return pulumi.get(self, "authorization_type")
 
     @authorization_type.setter
-    def authorization_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authorization_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authorization_type", value)
 
     @_builtins.property
     @pulumi.getter(name="authorizerId")
-    def authorizer_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authorizer_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier of an authorizer to use on this method. The method's authorization type must be `CUSTOM` or `COGNITO_USER_POOLS` .
         """
         return pulumi.get(self, "authorizer_id")
 
     @authorizer_id.setter
-    def authorizer_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authorizer_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authorizer_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def integration(self) -> Optional[pulumi.Input['MethodIntegrationArgs']]:
+    def integration(self) -> pulumi.Input[Optional['MethodIntegrationArgs']]:
         """
         Represents an `HTTP` , `HTTP_PROXY` , `AWS` , `AWS_PROXY` , or Mock integration.
         """
         return pulumi.get(self, "integration")
 
     @integration.setter
-    def integration(self, value: Optional[pulumi.Input['MethodIntegrationArgs']]):
+    def integration(self, value: pulumi.Input[Optional['MethodIntegrationArgs']]):
         pulumi.set(self, "integration", value)
 
     @_builtins.property
     @pulumi.getter(name="methodResponses")
-    def method_responses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MethodResponseArgs']]]]:
+    def method_responses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MethodResponseArgs']]]]:
         """
         Gets a method response associated with a given HTTP status code.
         """
         return pulumi.get(self, "method_responses")
 
     @method_responses.setter
-    def method_responses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MethodResponseArgs']]]]):
+    def method_responses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MethodResponseArgs']]]]):
         pulumi.set(self, "method_responses", value)
 
     @_builtins.property
     @pulumi.getter(name="operationName")
-    def operation_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def operation_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A human-friendly operation identifier for the method. For example, you can assign the `operationName` of `ListPets` for the `GET /pets` method in the `PetStore` example.
         """
         return pulumi.get(self, "operation_name")
 
     @operation_name.setter
-    def operation_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def operation_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "operation_name", value)
 
     @_builtins.property
     @pulumi.getter(name="requestModels")
-    def request_models(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def request_models(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A key-value map specifying data schemas, represented by Model resources, (as the mapped value) of the request payloads of given content types (as the mapping key).
         """
         return pulumi.get(self, "request_models")
 
     @request_models.setter
-    def request_models(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def request_models(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "request_models", value)
 
     @_builtins.property
     @pulumi.getter(name="requestParameters")
-    def request_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[Union[_builtins.bool, _builtins.str]]]]]:
+    def request_parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[Union[_builtins.bool, _builtins.str]]]]]:
         """
         A key-value map defining required or optional method request parameters that can be accepted by API Gateway. A key is a method request parameter name matching the pattern of `method.request.{location}.{name}` , where `location` is `querystring` , `path` , or `header` and `name` is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required ( `true` ) or optional ( `false` ). The method request parameter names defined here are available in Integration to be mapped to integration request parameters or templates.
         """
         return pulumi.get(self, "request_parameters")
 
     @request_parameters.setter
-    def request_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union[_builtins.bool, _builtins.str]]]]]):
+    def request_parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union[_builtins.bool, _builtins.str]]]]]):
         pulumi.set(self, "request_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="requestValidatorId")
-    def request_validator_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def request_validator_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier of a RequestValidator for request validation.
         """
         return pulumi.get(self, "request_validator_id")
 
     @request_validator_id.setter
-    def request_validator_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def request_validator_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "request_validator_id", value)
 
 
@@ -241,19 +241,19 @@ class Method(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_key_required: Optional[pulumi.Input[_builtins.bool]] = None,
-                 authorization_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 authorization_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 authorizer_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 http_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 integration: Optional[pulumi.Input[Union['MethodIntegrationArgs', 'MethodIntegrationArgsDict']]] = None,
-                 method_responses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MethodResponseArgs', 'MethodResponseArgsDict']]]]] = None,
-                 operation_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_models: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 request_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union[_builtins.bool, _builtins.str]]]]] = None,
-                 request_validator_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 rest_api_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_key_required: pulumi.Input[Optional[_builtins.bool]] = None,
+                 authorization_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 authorization_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 authorizer_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 http_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 integration: pulumi.Input[Optional[Union['MethodIntegrationArgs', 'MethodIntegrationArgsDict']]] = None,
+                 method_responses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MethodResponseArgs', 'MethodResponseArgsDict']]]]] = None,
+                 operation_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_models: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 request_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union[_builtins.bool, _builtins.str]]]]] = None,
+                 request_validator_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 rest_api_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The ``AWS::ApiGateway::Method`` resource creates API Gateway methods that define the parameters and body that clients must send in their requests.
@@ -301,19 +301,19 @@ class Method(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_key_required: Optional[pulumi.Input[_builtins.bool]] = None,
-                 authorization_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 authorization_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 authorizer_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 http_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 integration: Optional[pulumi.Input[Union['MethodIntegrationArgs', 'MethodIntegrationArgsDict']]] = None,
-                 method_responses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MethodResponseArgs', 'MethodResponseArgsDict']]]]] = None,
-                 operation_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_models: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 request_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union[_builtins.bool, _builtins.str]]]]] = None,
-                 request_validator_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 rest_api_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_key_required: pulumi.Input[Optional[_builtins.bool]] = None,
+                 authorization_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 authorization_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 authorizer_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 http_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 integration: pulumi.Input[Optional[Union['MethodIntegrationArgs', 'MethodIntegrationArgsDict']]] = None,
+                 method_responses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MethodResponseArgs', 'MethodResponseArgsDict']]]]] = None,
+                 operation_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_models: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 request_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union[_builtins.bool, _builtins.str]]]]] = None,
+                 request_validator_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 rest_api_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

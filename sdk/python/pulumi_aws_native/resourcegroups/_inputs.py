@@ -29,14 +29,14 @@ __all__ = [
 ]
 
 class GroupConfigurationItemArgsDict(TypedDict):
-    parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['GroupConfigurationParameterArgsDict']]]]
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['GroupConfigurationParameterArgs']]]]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class GroupConfigurationItemArgs:
     def __init__(__self__, *,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['GroupConfigurationParameterArgs']]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input['GroupConfigurationParameterArgs']]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
         if type is not None:
@@ -44,32 +44,32 @@ class GroupConfigurationItemArgs:
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupConfigurationParameterArgs']]]]:
+    def parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['GroupConfigurationParameterArgs']]]]:
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupConfigurationParameterArgs']]]]):
+    def parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['GroupConfigurationParameterArgs']]]]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
 class GroupConfigurationParameterArgsDict(TypedDict):
-    name: NotRequired[pulumi.Input[_builtins.str]]
-    values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
 
 @pulumi.input_type
 class GroupConfigurationParameterArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         if name is not None:
             pulumi.set(__self__, "name", name)
         if values is not None:
@@ -77,35 +77,35 @@ class GroupConfigurationParameterArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "values", value)
 
 
 class GroupQueryArgsDict(TypedDict):
-    resource_type_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    resource_type_filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies limits to the types of resources that can be included in the resource group. For example, if `ResourceTypeFilters` is `["AWS::EC2::Instance", "AWS::DynamoDB::Table"]` , only EC2 instances or DynamoDB tables can be members of this resource group. The default value is `["AWS::AllSupported"]` .
     """
-    stack_identifier: NotRequired[pulumi.Input[_builtins.str]]
+    stack_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the ARN of a CloudFormation stack. All supported resources of the CloudFormation stack are members of the resource group. If you don't specify an ARN, this parameter defaults to the current stack that you are defining, which means that all the resources of the current stack are grouped.
 
     You can specify a value for `StackIdentifier` only when the `ResourceQuery.Type` property is `CLOUDFORMATION_STACK_1_0.`
     """
-    tag_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['GroupTagFilterArgsDict']]]]
+    tag_filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['GroupTagFilterArgs']]]]]
     """
     A list of key-value pair objects that limit which resources can be members of the resource group. This property is required when the `ResourceQuery.Type` property is `TAG_FILTERS_1_0` .
 
@@ -115,9 +115,9 @@ class GroupQueryArgsDict(TypedDict):
 @pulumi.input_type
 class GroupQueryArgs:
     def __init__(__self__, *,
-                 resource_type_filters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 stack_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input['GroupTagFilterArgs']]]] = None):
+                 resource_type_filters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 stack_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_filters: pulumi.Input[Optional[Sequence[pulumi.Input['GroupTagFilterArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_type_filters: Specifies limits to the types of resources that can be included in the resource group. For example, if `ResourceTypeFilters` is `["AWS::EC2::Instance", "AWS::DynamoDB::Table"]` , only EC2 instances or DynamoDB tables can be members of this resource group. The default value is `["AWS::AllSupported"]` .
         :param pulumi.Input[_builtins.str] stack_identifier: Specifies the ARN of a CloudFormation stack. All supported resources of the CloudFormation stack are members of the resource group. If you don't specify an ARN, this parameter defaults to the current stack that you are defining, which means that all the resources of the current stack are grouped.
@@ -136,19 +136,19 @@ class GroupQueryArgs:
 
     @_builtins.property
     @pulumi.getter(name="resourceTypeFilters")
-    def resource_type_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def resource_type_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies limits to the types of resources that can be included in the resource group. For example, if `ResourceTypeFilters` is `["AWS::EC2::Instance", "AWS::DynamoDB::Table"]` , only EC2 instances or DynamoDB tables can be members of this resource group. The default value is `["AWS::AllSupported"]` .
         """
         return pulumi.get(self, "resource_type_filters")
 
     @resource_type_filters.setter
-    def resource_type_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def resource_type_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "resource_type_filters", value)
 
     @_builtins.property
     @pulumi.getter(name="stackIdentifier")
-    def stack_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def stack_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ARN of a CloudFormation stack. All supported resources of the CloudFormation stack are members of the resource group. If you don't specify an ARN, this parameter defaults to the current stack that you are defining, which means that all the resources of the current stack are grouped.
 
@@ -157,12 +157,12 @@ class GroupQueryArgs:
         return pulumi.get(self, "stack_identifier")
 
     @stack_identifier.setter
-    def stack_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def stack_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "stack_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="tagFilters")
-    def tag_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupTagFilterArgs']]]]:
+    def tag_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['GroupTagFilterArgs']]]]:
         """
         A list of key-value pair objects that limit which resources can be members of the resource group. This property is required when the `ResourceQuery.Type` property is `TAG_FILTERS_1_0` .
 
@@ -171,12 +171,12 @@ class GroupQueryArgs:
         return pulumi.get(self, "tag_filters")
 
     @tag_filters.setter
-    def tag_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupTagFilterArgs']]]]):
+    def tag_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['GroupTagFilterArgs']]]]):
         pulumi.set(self, "tag_filters", value)
 
 
 class GroupResourceQueryArgsDict(TypedDict):
-    query: NotRequired[pulumi.Input['GroupQueryArgsDict']]
+    query: NotRequired[pulumi.Input[Optional['GroupQueryArgs']]]
     """
     The query that defines the membership of the group. This is a structure with properties that depend on the `Type` .
 
@@ -185,7 +185,7 @@ class GroupResourceQueryArgsDict(TypedDict):
     - When the `Type` is `TAG_FILTERS_1_0` , you must specify a `Query` structure that contains a `TagFilters` list of tags. Resources with tags that match those in the `TagFilter` list become members of the resource group.
     - When the `Type` is `CLOUDFORMATION_STACK_1_0` then this field is required only when you must specify a CloudFormation stack other than the one you are defining. To do this, the `Query` structure must contain the `StackIdentifier` property. If you don't specify either a `Query` structure or a `StackIdentifier` within that `Query` , then it defaults to the CloudFormation stack that you're currently constructing.
     """
-    type: NotRequired[pulumi.Input['GroupResourceQueryType']]
+    type: NotRequired[pulumi.Input[Optional['GroupResourceQueryType']]]
     """
     Specifies the type of resource query that determines this group's membership. There are two valid query types:
 
@@ -196,8 +196,8 @@ class GroupResourceQueryArgsDict(TypedDict):
 @pulumi.input_type
 class GroupResourceQueryArgs:
     def __init__(__self__, *,
-                 query: Optional[pulumi.Input['GroupQueryArgs']] = None,
-                 type: Optional[pulumi.Input['GroupResourceQueryType']] = None):
+                 query: pulumi.Input[Optional['GroupQueryArgs']] = None,
+                 type: pulumi.Input[Optional['GroupResourceQueryType']] = None):
         """
         :param pulumi.Input['GroupQueryArgs'] query: The query that defines the membership of the group. This is a structure with properties that depend on the `Type` .
                
@@ -217,7 +217,7 @@ class GroupResourceQueryArgs:
 
     @_builtins.property
     @pulumi.getter
-    def query(self) -> Optional[pulumi.Input['GroupQueryArgs']]:
+    def query(self) -> pulumi.Input[Optional['GroupQueryArgs']]:
         """
         The query that defines the membership of the group. This is a structure with properties that depend on the `Type` .
 
@@ -229,12 +229,12 @@ class GroupResourceQueryArgs:
         return pulumi.get(self, "query")
 
     @query.setter
-    def query(self, value: Optional[pulumi.Input['GroupQueryArgs']]):
+    def query(self, value: pulumi.Input[Optional['GroupQueryArgs']]):
         pulumi.set(self, "query", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['GroupResourceQueryType']]:
+    def type(self) -> pulumi.Input[Optional['GroupResourceQueryType']]:
         """
         Specifies the type of resource query that determines this group's membership. There are two valid query types:
 
@@ -244,18 +244,18 @@ class GroupResourceQueryArgs:
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['GroupResourceQueryType']]):
+    def type(self, value: pulumi.Input[Optional['GroupResourceQueryType']]):
         pulumi.set(self, "type", value)
 
 
 class GroupTagFilterArgsDict(TypedDict):
-    key: NotRequired[pulumi.Input[_builtins.str]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that defines a tag key. Only resources in the account that are tagged with a specified tag key are members of the tag-based resource group.
 
     This field is required when the `ResourceQuery` structure's `Type` property is `TAG_FILTERS_1_0` . You must specify at least one tag key.
     """
-    values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of tag values that can be included in the tag-based resource group. This is optional. If you don't specify a value or values for a key, then an AWS resource with any value for that key is a member.
     """
@@ -263,8 +263,8 @@ class GroupTagFilterArgsDict(TypedDict):
 @pulumi.input_type
 class GroupTagFilterArgs:
     def __init__(__self__, *,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] key: A string that defines a tag key. Only resources in the account that are tagged with a specified tag key are members of the tag-based resource group.
                
@@ -278,7 +278,7 @@ class GroupTagFilterArgs:
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that defines a tag key. Only resources in the account that are tagged with a specified tag key are members of the tag-based resource group.
 
@@ -287,19 +287,19 @@ class GroupTagFilterArgs:
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter
-    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of tag values that can be included in the tag-based resource group. This is optional. If you don't specify a value or values for a key, then an AWS resource with any value for that key is a member.
         """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "values", value)
 
 

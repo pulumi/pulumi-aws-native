@@ -25,9 +25,9 @@ class AiAgentArgs:
                  assistant_id: pulumi.Input[_builtins.str],
                  configuration: pulumi.Input[Union['AiAgentAiAgentConfiguration0PropertiesArgs', 'AiAgentAiAgentConfiguration1PropertiesArgs', 'AiAgentAiAgentConfiguration2PropertiesArgs', 'AiAgentAiAgentConfiguration3PropertiesArgs', 'AiAgentAiAgentConfiguration4PropertiesArgs', 'AiAgentAiAgentConfiguration5PropertiesArgs', 'AiAgentAiAgentConfiguration6PropertiesArgs', 'AiAgentAiAgentConfiguration7PropertiesArgs', 'AiAgentAiAgentConfiguration8PropertiesArgs']],
                  type: pulumi.Input['AiAgentAiAgentType'],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AiAgent resource.
 
@@ -86,38 +86,38 @@ class AiAgentArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the AI Agent.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the AI Agent.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The tags used to organize, track, or control access for this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -127,12 +127,12 @@ class AiAgent(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assistant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 configuration: Optional[pulumi.Input[Union[Union['AiAgentAiAgentConfiguration0PropertiesArgs', 'AiAgentAiAgentConfiguration0PropertiesArgsDict'], Union['AiAgentAiAgentConfiguration1PropertiesArgs', 'AiAgentAiAgentConfiguration1PropertiesArgsDict'], Union['AiAgentAiAgentConfiguration2PropertiesArgs', 'AiAgentAiAgentConfiguration2PropertiesArgsDict'], Union['AiAgentAiAgentConfiguration3PropertiesArgs', 'AiAgentAiAgentConfiguration3PropertiesArgsDict'], Union['AiAgentAiAgentConfiguration4PropertiesArgs', 'AiAgentAiAgentConfiguration4PropertiesArgsDict'], Union['AiAgentAiAgentConfiguration5PropertiesArgs', 'AiAgentAiAgentConfiguration5PropertiesArgsDict'], Union['AiAgentAiAgentConfiguration6PropertiesArgs', 'AiAgentAiAgentConfiguration6PropertiesArgsDict'], Union['AiAgentAiAgentConfiguration7PropertiesArgs', 'AiAgentAiAgentConfiguration7PropertiesArgsDict'], Union['AiAgentAiAgentConfiguration8PropertiesArgs', 'AiAgentAiAgentConfiguration8PropertiesArgsDict']]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 type: Optional[pulumi.Input['AiAgentAiAgentType']] = None,
+                 assistant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration: pulumi.Input[Optional[Union[Union['AiAgentAiAgentConfiguration0PropertiesArgs', 'AiAgentAiAgentConfiguration0PropertiesArgsDict'], Union['AiAgentAiAgentConfiguration1PropertiesArgs', 'AiAgentAiAgentConfiguration1PropertiesArgsDict'], Union['AiAgentAiAgentConfiguration2PropertiesArgs', 'AiAgentAiAgentConfiguration2PropertiesArgsDict'], Union['AiAgentAiAgentConfiguration3PropertiesArgs', 'AiAgentAiAgentConfiguration3PropertiesArgsDict'], Union['AiAgentAiAgentConfiguration4PropertiesArgs', 'AiAgentAiAgentConfiguration4PropertiesArgsDict'], Union['AiAgentAiAgentConfiguration5PropertiesArgs', 'AiAgentAiAgentConfiguration5PropertiesArgsDict'], Union['AiAgentAiAgentConfiguration6PropertiesArgs', 'AiAgentAiAgentConfiguration6PropertiesArgsDict'], Union['AiAgentAiAgentConfiguration7PropertiesArgs', 'AiAgentAiAgentConfiguration7PropertiesArgsDict'], Union['AiAgentAiAgentConfiguration8PropertiesArgs', 'AiAgentAiAgentConfiguration8PropertiesArgsDict']]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 type: pulumi.Input[Optional['AiAgentAiAgentType']] = None,
                  __props__=None):
         """
         Definition of AWS::Wisdom::AIAgent Resource Type
@@ -172,12 +172,12 @@ class AiAgent(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assistant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 configuration: Optional[pulumi.Input[Union[Union['AiAgentAiAgentConfiguration0PropertiesArgs', 'AiAgentAiAgentConfiguration0PropertiesArgsDict'], Union['AiAgentAiAgentConfiguration1PropertiesArgs', 'AiAgentAiAgentConfiguration1PropertiesArgsDict'], Union['AiAgentAiAgentConfiguration2PropertiesArgs', 'AiAgentAiAgentConfiguration2PropertiesArgsDict'], Union['AiAgentAiAgentConfiguration3PropertiesArgs', 'AiAgentAiAgentConfiguration3PropertiesArgsDict'], Union['AiAgentAiAgentConfiguration4PropertiesArgs', 'AiAgentAiAgentConfiguration4PropertiesArgsDict'], Union['AiAgentAiAgentConfiguration5PropertiesArgs', 'AiAgentAiAgentConfiguration5PropertiesArgsDict'], Union['AiAgentAiAgentConfiguration6PropertiesArgs', 'AiAgentAiAgentConfiguration6PropertiesArgsDict'], Union['AiAgentAiAgentConfiguration7PropertiesArgs', 'AiAgentAiAgentConfiguration7PropertiesArgsDict'], Union['AiAgentAiAgentConfiguration8PropertiesArgs', 'AiAgentAiAgentConfiguration8PropertiesArgsDict']]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 type: Optional[pulumi.Input['AiAgentAiAgentType']] = None,
+                 assistant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration: pulumi.Input[Optional[Union[Union['AiAgentAiAgentConfiguration0PropertiesArgs', 'AiAgentAiAgentConfiguration0PropertiesArgsDict'], Union['AiAgentAiAgentConfiguration1PropertiesArgs', 'AiAgentAiAgentConfiguration1PropertiesArgsDict'], Union['AiAgentAiAgentConfiguration2PropertiesArgs', 'AiAgentAiAgentConfiguration2PropertiesArgsDict'], Union['AiAgentAiAgentConfiguration3PropertiesArgs', 'AiAgentAiAgentConfiguration3PropertiesArgsDict'], Union['AiAgentAiAgentConfiguration4PropertiesArgs', 'AiAgentAiAgentConfiguration4PropertiesArgsDict'], Union['AiAgentAiAgentConfiguration5PropertiesArgs', 'AiAgentAiAgentConfiguration5PropertiesArgsDict'], Union['AiAgentAiAgentConfiguration6PropertiesArgs', 'AiAgentAiAgentConfiguration6PropertiesArgsDict'], Union['AiAgentAiAgentConfiguration7PropertiesArgs', 'AiAgentAiAgentConfiguration7PropertiesArgsDict'], Union['AiAgentAiAgentConfiguration8PropertiesArgs', 'AiAgentAiAgentConfiguration8PropertiesArgsDict']]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 type: pulumi.Input[Optional['AiAgentAiAgentType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -63,7 +63,7 @@ class ProfilingGroupChannelArgsDict(TypedDict):
     """
     The channel URI.
     """
-    channel_id: NotRequired[pulumi.Input[_builtins.str]]
+    channel_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The channel ID.
     """
@@ -72,7 +72,7 @@ class ProfilingGroupChannelArgsDict(TypedDict):
 class ProfilingGroupChannelArgs:
     def __init__(__self__, *,
                  channel_uri: pulumi.Input[_builtins.str],
-                 channel_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 channel_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Notification medium for users to get alerted for events that occur in application profile. We support SNS topic as a notification channel.
 
@@ -97,14 +97,14 @@ class ProfilingGroupChannelArgs:
 
     @_builtins.property
     @pulumi.getter(name="channelId")
-    def channel_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def channel_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The channel ID.
         """
         return pulumi.get(self, "channel_id")
 
     @channel_id.setter
-    def channel_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def channel_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "channel_id", value)
 
 

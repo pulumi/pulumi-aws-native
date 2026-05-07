@@ -129,7 +129,7 @@ def get_vpc_encryption_control(vpc_encryption_control_id: Optional[_builtins.str
         state_message=pulumi.get(__ret__, 'state_message'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_encryption_control_id=pulumi.get(__ret__, 'vpc_encryption_control_id'))
-def get_vpc_encryption_control_output(vpc_encryption_control_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_vpc_encryption_control_output(vpc_encryption_control_id: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcEncryptionControlResult]:
     """
     Resource Type definition for AWS::EC2::VPCEncryptionControl

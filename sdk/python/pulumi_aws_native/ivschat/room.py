@@ -24,12 +24,12 @@ __all__ = ['RoomArgs', 'Room']
 @pulumi.input_type
 class RoomArgs:
     def __init__(__self__, *,
-                 logging_configuration_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 maximum_message_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 maximum_message_rate_per_second: Optional[pulumi.Input[_builtins.int]] = None,
-                 message_review_handler: Optional[pulumi.Input['RoomMessageReviewHandlerArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 logging_configuration_identifiers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 maximum_message_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 maximum_message_rate_per_second: pulumi.Input[Optional[_builtins.int]] = None,
+                 message_review_handler: pulumi.Input[Optional['RoomMessageReviewHandlerArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Room resource.
 
@@ -55,74 +55,74 @@ class RoomArgs:
 
     @_builtins.property
     @pulumi.getter(name="loggingConfigurationIdentifiers")
-    def logging_configuration_identifiers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def logging_configuration_identifiers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Array of logging configuration identifiers attached to the room.
         """
         return pulumi.get(self, "logging_configuration_identifiers")
 
     @logging_configuration_identifiers.setter
-    def logging_configuration_identifiers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def logging_configuration_identifiers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "logging_configuration_identifiers", value)
 
     @_builtins.property
     @pulumi.getter(name="maximumMessageLength")
-    def maximum_message_length(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def maximum_message_length(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of characters in a single message.
         """
         return pulumi.get(self, "maximum_message_length")
 
     @maximum_message_length.setter
-    def maximum_message_length(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def maximum_message_length(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "maximum_message_length", value)
 
     @_builtins.property
     @pulumi.getter(name="maximumMessageRatePerSecond")
-    def maximum_message_rate_per_second(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def maximum_message_rate_per_second(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of messages per second that can be sent to the room.
         """
         return pulumi.get(self, "maximum_message_rate_per_second")
 
     @maximum_message_rate_per_second.setter
-    def maximum_message_rate_per_second(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def maximum_message_rate_per_second(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "maximum_message_rate_per_second", value)
 
     @_builtins.property
     @pulumi.getter(name="messageReviewHandler")
-    def message_review_handler(self) -> Optional[pulumi.Input['RoomMessageReviewHandlerArgs']]:
+    def message_review_handler(self) -> pulumi.Input[Optional['RoomMessageReviewHandlerArgs']]:
         """
         Configuration information for optional review of messages.
         """
         return pulumi.get(self, "message_review_handler")
 
     @message_review_handler.setter
-    def message_review_handler(self, value: Optional[pulumi.Input['RoomMessageReviewHandlerArgs']]):
+    def message_review_handler(self, value: pulumi.Input[Optional['RoomMessageReviewHandlerArgs']]):
         pulumi.set(self, "message_review_handler", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the room. The value does not need to be unique.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -132,12 +132,12 @@ class Room(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 logging_configuration_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 maximum_message_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 maximum_message_rate_per_second: Optional[pulumi.Input[_builtins.int]] = None,
-                 message_review_handler: Optional[pulumi.Input[Union['RoomMessageReviewHandlerArgs', 'RoomMessageReviewHandlerArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 logging_configuration_identifiers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 maximum_message_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 maximum_message_rate_per_second: pulumi.Input[Optional[_builtins.int]] = None,
+                 message_review_handler: pulumi.Input[Optional[Union['RoomMessageReviewHandlerArgs', 'RoomMessageReviewHandlerArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource type definition for AWS::IVSChat::Room.
@@ -245,12 +245,12 @@ class Room(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 logging_configuration_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 maximum_message_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 maximum_message_rate_per_second: Optional[pulumi.Input[_builtins.int]] = None,
-                 message_review_handler: Optional[pulumi.Input[Union['RoomMessageReviewHandlerArgs', 'RoomMessageReviewHandlerArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 logging_configuration_identifiers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 maximum_message_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 maximum_message_rate_per_second: pulumi.Input[Optional[_builtins.int]] = None,
+                 message_review_handler: pulumi.Input[Optional[Union['RoomMessageReviewHandlerArgs', 'RoomMessageReviewHandlerArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

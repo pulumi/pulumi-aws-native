@@ -61,7 +61,7 @@ def get_step(id: Optional[_builtins.str] = None,
 
     return AwaitableGetStepResult(
         id=pulumi.get(__ret__, 'id'))
-def get_step_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_step_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStepResult]:
     """
     Schema for AWS::EMR::Step

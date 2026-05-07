@@ -115,7 +115,7 @@ def get_notification(arn: Optional[_builtins.str] = None,
         created_at=pulumi.get(__ret__, 'created_at'),
         id=pulumi.get(__ret__, 'id'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_notification_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_notification_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNotificationResult]:
     """
     Resource Type definition for AWS::Connect::Notification

@@ -199,8 +199,8 @@ def get_data_source(data_source_id: Optional[_builtins.str] = None,
         server_side_encryption_configuration=pulumi.get(__ret__, 'server_side_encryption_configuration'),
         updated_at=pulumi.get(__ret__, 'updated_at'),
         vector_ingestion_configuration=pulumi.get(__ret__, 'vector_ingestion_configuration'))
-def get_data_source_output(data_source_id: Optional[pulumi.Input[_builtins.str]] = None,
-                           knowledge_base_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_data_source_output(data_source_id: pulumi.Input[Optional[_builtins.str]] = None,
+                           knowledge_base_id: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataSourceResult]:
     """
     Definition of AWS::Bedrock::DataSource Resource Type

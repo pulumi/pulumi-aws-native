@@ -74,7 +74,7 @@ def get_directory_registration(directory_registration_arn: Optional[_builtins.st
     return AwaitableGetDirectoryRegistrationResult(
         directory_registration_arn=pulumi.get(__ret__, 'directory_registration_arn'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_directory_registration_output(directory_registration_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_directory_registration_output(directory_registration_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDirectoryRegistrationResult]:
     """
     Definition of AWS::PCAConnectorAD::DirectoryRegistration Resource Type

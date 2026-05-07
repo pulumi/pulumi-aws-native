@@ -144,7 +144,7 @@ def get_compute_environment(compute_environment_arn: Optional[_builtins.str] = N
         service_role=pulumi.get(__ret__, 'service_role'),
         state=pulumi.get(__ret__, 'state'),
         unmanagedv_cpus=pulumi.get(__ret__, 'unmanagedv_cpus'))
-def get_compute_environment_output(compute_environment_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_compute_environment_output(compute_environment_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetComputeEnvironmentResult]:
     """
     Resource Type definition for AWS::Batch::ComputeEnvironment

@@ -55,7 +55,7 @@ def import_value(name: Optional[_builtins.str] = None,
 
     return AwaitableImportValueResult(
         value=pulumi.get(__ret__, 'value'))
-def import_value_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def import_value_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ImportValueResult]:
     """
     Use this data source to access information about an existing resource.

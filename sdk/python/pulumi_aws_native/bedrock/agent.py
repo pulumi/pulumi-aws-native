@@ -22,26 +22,26 @@ __all__ = ['AgentArgs', 'Agent']
 @pulumi.input_type
 class AgentArgs:
     def __init__(__self__, *,
-                 action_groups: Optional[pulumi.Input[Sequence[pulumi.Input['AgentActionGroupArgs']]]] = None,
-                 agent_collaboration: Optional[pulumi.Input['AgentCollaboration']] = None,
-                 agent_collaborators: Optional[pulumi.Input[Sequence[pulumi.Input['AgentCollaboratorArgs']]]] = None,
-                 agent_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 agent_resource_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_prepare: Optional[pulumi.Input[_builtins.bool]] = None,
-                 custom_orchestration: Optional[pulumi.Input['AgentCustomOrchestrationArgs']] = None,
-                 customer_encryption_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 foundation_model: Optional[pulumi.Input[_builtins.str]] = None,
-                 guardrail_configuration: Optional[pulumi.Input['AgentGuardrailConfigurationArgs']] = None,
-                 idle_session_ttl_in_seconds: Optional[pulumi.Input[_builtins.float]] = None,
-                 instruction: Optional[pulumi.Input[_builtins.str]] = None,
-                 knowledge_bases: Optional[pulumi.Input[Sequence[pulumi.Input['AgentKnowledgeBaseArgs']]]] = None,
-                 memory_configuration: Optional[pulumi.Input['AgentMemoryConfigurationArgs']] = None,
-                 orchestration_type: Optional[pulumi.Input['AgentOrchestrationType']] = None,
-                 prompt_override_configuration: Optional[pulumi.Input['AgentPromptOverrideConfigurationArgs']] = None,
-                 skip_resource_in_use_check_on_delete: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 test_alias_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 action_groups: pulumi.Input[Optional[Sequence[pulumi.Input['AgentActionGroupArgs']]]] = None,
+                 agent_collaboration: pulumi.Input[Optional['AgentCollaboration']] = None,
+                 agent_collaborators: pulumi.Input[Optional[Sequence[pulumi.Input['AgentCollaboratorArgs']]]] = None,
+                 agent_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 agent_resource_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_prepare: pulumi.Input[Optional[_builtins.bool]] = None,
+                 custom_orchestration: pulumi.Input[Optional['AgentCustomOrchestrationArgs']] = None,
+                 customer_encryption_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 foundation_model: pulumi.Input[Optional[_builtins.str]] = None,
+                 guardrail_configuration: pulumi.Input[Optional['AgentGuardrailConfigurationArgs']] = None,
+                 idle_session_ttl_in_seconds: pulumi.Input[Optional[_builtins.float]] = None,
+                 instruction: pulumi.Input[Optional[_builtins.str]] = None,
+                 knowledge_bases: pulumi.Input[Optional[Sequence[pulumi.Input['AgentKnowledgeBaseArgs']]]] = None,
+                 memory_configuration: pulumi.Input[Optional['AgentMemoryConfigurationArgs']] = None,
+                 orchestration_type: pulumi.Input[Optional['AgentOrchestrationType']] = None,
+                 prompt_override_configuration: pulumi.Input[Optional['AgentPromptOverrideConfigurationArgs']] = None,
+                 skip_resource_in_use_check_on_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 test_alias_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Agent resource.
 
@@ -115,223 +115,223 @@ class AgentArgs:
 
     @_builtins.property
     @pulumi.getter(name="actionGroups")
-    def action_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentActionGroupArgs']]]]:
+    def action_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AgentActionGroupArgs']]]]:
         """
         List of ActionGroups
         """
         return pulumi.get(self, "action_groups")
 
     @action_groups.setter
-    def action_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AgentActionGroupArgs']]]]):
+    def action_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AgentActionGroupArgs']]]]):
         pulumi.set(self, "action_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="agentCollaboration")
-    def agent_collaboration(self) -> Optional[pulumi.Input['AgentCollaboration']]:
+    def agent_collaboration(self) -> pulumi.Input[Optional['AgentCollaboration']]:
         """
         The agent's collaboration settings.
         """
         return pulumi.get(self, "agent_collaboration")
 
     @agent_collaboration.setter
-    def agent_collaboration(self, value: Optional[pulumi.Input['AgentCollaboration']]):
+    def agent_collaboration(self, value: pulumi.Input[Optional['AgentCollaboration']]):
         pulumi.set(self, "agent_collaboration", value)
 
     @_builtins.property
     @pulumi.getter(name="agentCollaborators")
-    def agent_collaborators(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentCollaboratorArgs']]]]:
+    def agent_collaborators(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AgentCollaboratorArgs']]]]:
         """
         List of Agent Collaborators
         """
         return pulumi.get(self, "agent_collaborators")
 
     @agent_collaborators.setter
-    def agent_collaborators(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AgentCollaboratorArgs']]]]):
+    def agent_collaborators(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AgentCollaboratorArgs']]]]):
         pulumi.set(self, "agent_collaborators", value)
 
     @_builtins.property
     @pulumi.getter(name="agentName")
-    def agent_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def agent_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name for a resource.
         """
         return pulumi.get(self, "agent_name")
 
     @agent_name.setter
-    def agent_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def agent_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "agent_name", value)
 
     @_builtins.property
     @pulumi.getter(name="agentResourceRoleArn")
-    def agent_resource_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def agent_resource_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of a IAM role.
         """
         return pulumi.get(self, "agent_resource_role_arn")
 
     @agent_resource_role_arn.setter
-    def agent_resource_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def agent_resource_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "agent_resource_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="autoPrepare")
-    def auto_prepare(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_prepare(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether to automatically prepare after creating or updating the agent.
         """
         return pulumi.get(self, "auto_prepare")
 
     @auto_prepare.setter
-    def auto_prepare(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_prepare(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_prepare", value)
 
     @_builtins.property
     @pulumi.getter(name="customOrchestration")
-    def custom_orchestration(self) -> Optional[pulumi.Input['AgentCustomOrchestrationArgs']]:
+    def custom_orchestration(self) -> pulumi.Input[Optional['AgentCustomOrchestrationArgs']]:
         """
         Contains custom orchestration configurations for the agent.
         """
         return pulumi.get(self, "custom_orchestration")
 
     @custom_orchestration.setter
-    def custom_orchestration(self, value: Optional[pulumi.Input['AgentCustomOrchestrationArgs']]):
+    def custom_orchestration(self, value: pulumi.Input[Optional['AgentCustomOrchestrationArgs']]):
         pulumi.set(self, "custom_orchestration", value)
 
     @_builtins.property
     @pulumi.getter(name="customerEncryptionKeyArn")
-    def customer_encryption_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def customer_encryption_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A KMS key ARN
         """
         return pulumi.get(self, "customer_encryption_key_arn")
 
     @customer_encryption_key_arn.setter
-    def customer_encryption_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def customer_encryption_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "customer_encryption_key_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the Resource.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="foundationModel")
-    def foundation_model(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def foundation_model(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The foundation model used for orchestration by the agent.
         """
         return pulumi.get(self, "foundation_model")
 
     @foundation_model.setter
-    def foundation_model(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def foundation_model(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "foundation_model", value)
 
     @_builtins.property
     @pulumi.getter(name="guardrailConfiguration")
-    def guardrail_configuration(self) -> Optional[pulumi.Input['AgentGuardrailConfigurationArgs']]:
+    def guardrail_configuration(self) -> pulumi.Input[Optional['AgentGuardrailConfigurationArgs']]:
         """
         Details about the guardrail associated with the agent.
         """
         return pulumi.get(self, "guardrail_configuration")
 
     @guardrail_configuration.setter
-    def guardrail_configuration(self, value: Optional[pulumi.Input['AgentGuardrailConfigurationArgs']]):
+    def guardrail_configuration(self, value: pulumi.Input[Optional['AgentGuardrailConfigurationArgs']]):
         pulumi.set(self, "guardrail_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="idleSessionTtlInSeconds")
-    def idle_session_ttl_in_seconds(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def idle_session_ttl_in_seconds(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Max Session Time.
         """
         return pulumi.get(self, "idle_session_ttl_in_seconds")
 
     @idle_session_ttl_in_seconds.setter
-    def idle_session_ttl_in_seconds(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def idle_session_ttl_in_seconds(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "idle_session_ttl_in_seconds", value)
 
     @_builtins.property
     @pulumi.getter
-    def instruction(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def instruction(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Instruction for the agent.
         """
         return pulumi.get(self, "instruction")
 
     @instruction.setter
-    def instruction(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def instruction(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "instruction", value)
 
     @_builtins.property
     @pulumi.getter(name="knowledgeBases")
-    def knowledge_bases(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentKnowledgeBaseArgs']]]]:
+    def knowledge_bases(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AgentKnowledgeBaseArgs']]]]:
         """
         List of Agent Knowledge Bases
         """
         return pulumi.get(self, "knowledge_bases")
 
     @knowledge_bases.setter
-    def knowledge_bases(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AgentKnowledgeBaseArgs']]]]):
+    def knowledge_bases(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AgentKnowledgeBaseArgs']]]]):
         pulumi.set(self, "knowledge_bases", value)
 
     @_builtins.property
     @pulumi.getter(name="memoryConfiguration")
-    def memory_configuration(self) -> Optional[pulumi.Input['AgentMemoryConfigurationArgs']]:
+    def memory_configuration(self) -> pulumi.Input[Optional['AgentMemoryConfigurationArgs']]:
         """
         Contains memory configuration for the agent.
         """
         return pulumi.get(self, "memory_configuration")
 
     @memory_configuration.setter
-    def memory_configuration(self, value: Optional[pulumi.Input['AgentMemoryConfigurationArgs']]):
+    def memory_configuration(self, value: pulumi.Input[Optional['AgentMemoryConfigurationArgs']]):
         pulumi.set(self, "memory_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="orchestrationType")
-    def orchestration_type(self) -> Optional[pulumi.Input['AgentOrchestrationType']]:
+    def orchestration_type(self) -> pulumi.Input[Optional['AgentOrchestrationType']]:
         """
         Specifies the orchestration strategy for the agent.
         """
         return pulumi.get(self, "orchestration_type")
 
     @orchestration_type.setter
-    def orchestration_type(self, value: Optional[pulumi.Input['AgentOrchestrationType']]):
+    def orchestration_type(self, value: pulumi.Input[Optional['AgentOrchestrationType']]):
         pulumi.set(self, "orchestration_type", value)
 
     @_builtins.property
     @pulumi.getter(name="promptOverrideConfiguration")
-    def prompt_override_configuration(self) -> Optional[pulumi.Input['AgentPromptOverrideConfigurationArgs']]:
+    def prompt_override_configuration(self) -> pulumi.Input[Optional['AgentPromptOverrideConfigurationArgs']]:
         """
         Contains configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html) .
         """
         return pulumi.get(self, "prompt_override_configuration")
 
     @prompt_override_configuration.setter
-    def prompt_override_configuration(self, value: Optional[pulumi.Input['AgentPromptOverrideConfigurationArgs']]):
+    def prompt_override_configuration(self, value: pulumi.Input[Optional['AgentPromptOverrideConfigurationArgs']]):
         pulumi.set(self, "prompt_override_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="skipResourceInUseCheckOnDelete")
-    def skip_resource_in_use_check_on_delete(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_resource_in_use_check_on_delete(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether to allow deleting agent while it is in use.
         """
         return pulumi.get(self, "skip_resource_in_use_check_on_delete")
 
     @skip_resource_in_use_check_on_delete.setter
-    def skip_resource_in_use_check_on_delete(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_resource_in_use_check_on_delete(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_resource_in_use_check_on_delete", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
 
@@ -341,12 +341,12 @@ class AgentArgs:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="testAliasTags")
-    def test_alias_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def test_alias_tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
 
@@ -356,7 +356,7 @@ class AgentArgs:
         return pulumi.get(self, "test_alias_tags")
 
     @test_alias_tags.setter
-    def test_alias_tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def test_alias_tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "test_alias_tags", value)
 
 
@@ -366,26 +366,26 @@ class Agent(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AgentActionGroupArgs', 'AgentActionGroupArgsDict']]]]] = None,
-                 agent_collaboration: Optional[pulumi.Input['AgentCollaboration']] = None,
-                 agent_collaborators: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AgentCollaboratorArgs', 'AgentCollaboratorArgsDict']]]]] = None,
-                 agent_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 agent_resource_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_prepare: Optional[pulumi.Input[_builtins.bool]] = None,
-                 custom_orchestration: Optional[pulumi.Input[Union['AgentCustomOrchestrationArgs', 'AgentCustomOrchestrationArgsDict']]] = None,
-                 customer_encryption_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 foundation_model: Optional[pulumi.Input[_builtins.str]] = None,
-                 guardrail_configuration: Optional[pulumi.Input[Union['AgentGuardrailConfigurationArgs', 'AgentGuardrailConfigurationArgsDict']]] = None,
-                 idle_session_ttl_in_seconds: Optional[pulumi.Input[_builtins.float]] = None,
-                 instruction: Optional[pulumi.Input[_builtins.str]] = None,
-                 knowledge_bases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AgentKnowledgeBaseArgs', 'AgentKnowledgeBaseArgsDict']]]]] = None,
-                 memory_configuration: Optional[pulumi.Input[Union['AgentMemoryConfigurationArgs', 'AgentMemoryConfigurationArgsDict']]] = None,
-                 orchestration_type: Optional[pulumi.Input['AgentOrchestrationType']] = None,
-                 prompt_override_configuration: Optional[pulumi.Input[Union['AgentPromptOverrideConfigurationArgs', 'AgentPromptOverrideConfigurationArgsDict']]] = None,
-                 skip_resource_in_use_check_on_delete: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 test_alias_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 action_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentActionGroupArgs', 'AgentActionGroupArgsDict']]]]] = None,
+                 agent_collaboration: pulumi.Input[Optional['AgentCollaboration']] = None,
+                 agent_collaborators: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentCollaboratorArgs', 'AgentCollaboratorArgsDict']]]]] = None,
+                 agent_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 agent_resource_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_prepare: pulumi.Input[Optional[_builtins.bool]] = None,
+                 custom_orchestration: pulumi.Input[Optional[Union['AgentCustomOrchestrationArgs', 'AgentCustomOrchestrationArgsDict']]] = None,
+                 customer_encryption_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 foundation_model: pulumi.Input[Optional[_builtins.str]] = None,
+                 guardrail_configuration: pulumi.Input[Optional[Union['AgentGuardrailConfigurationArgs', 'AgentGuardrailConfigurationArgsDict']]] = None,
+                 idle_session_ttl_in_seconds: pulumi.Input[Optional[_builtins.float]] = None,
+                 instruction: pulumi.Input[Optional[_builtins.str]] = None,
+                 knowledge_bases: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentKnowledgeBaseArgs', 'AgentKnowledgeBaseArgsDict']]]]] = None,
+                 memory_configuration: pulumi.Input[Optional[Union['AgentMemoryConfigurationArgs', 'AgentMemoryConfigurationArgsDict']]] = None,
+                 orchestration_type: pulumi.Input[Optional['AgentOrchestrationType']] = None,
+                 prompt_override_configuration: pulumi.Input[Optional[Union['AgentPromptOverrideConfigurationArgs', 'AgentPromptOverrideConfigurationArgsDict']]] = None,
+                 skip_resource_in_use_check_on_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 test_alias_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Definition of AWS::Bedrock::Agent Resource Type
@@ -445,26 +445,26 @@ class Agent(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AgentActionGroupArgs', 'AgentActionGroupArgsDict']]]]] = None,
-                 agent_collaboration: Optional[pulumi.Input['AgentCollaboration']] = None,
-                 agent_collaborators: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AgentCollaboratorArgs', 'AgentCollaboratorArgsDict']]]]] = None,
-                 agent_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 agent_resource_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_prepare: Optional[pulumi.Input[_builtins.bool]] = None,
-                 custom_orchestration: Optional[pulumi.Input[Union['AgentCustomOrchestrationArgs', 'AgentCustomOrchestrationArgsDict']]] = None,
-                 customer_encryption_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 foundation_model: Optional[pulumi.Input[_builtins.str]] = None,
-                 guardrail_configuration: Optional[pulumi.Input[Union['AgentGuardrailConfigurationArgs', 'AgentGuardrailConfigurationArgsDict']]] = None,
-                 idle_session_ttl_in_seconds: Optional[pulumi.Input[_builtins.float]] = None,
-                 instruction: Optional[pulumi.Input[_builtins.str]] = None,
-                 knowledge_bases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AgentKnowledgeBaseArgs', 'AgentKnowledgeBaseArgsDict']]]]] = None,
-                 memory_configuration: Optional[pulumi.Input[Union['AgentMemoryConfigurationArgs', 'AgentMemoryConfigurationArgsDict']]] = None,
-                 orchestration_type: Optional[pulumi.Input['AgentOrchestrationType']] = None,
-                 prompt_override_configuration: Optional[pulumi.Input[Union['AgentPromptOverrideConfigurationArgs', 'AgentPromptOverrideConfigurationArgsDict']]] = None,
-                 skip_resource_in_use_check_on_delete: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 test_alias_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 action_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentActionGroupArgs', 'AgentActionGroupArgsDict']]]]] = None,
+                 agent_collaboration: pulumi.Input[Optional['AgentCollaboration']] = None,
+                 agent_collaborators: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentCollaboratorArgs', 'AgentCollaboratorArgsDict']]]]] = None,
+                 agent_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 agent_resource_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_prepare: pulumi.Input[Optional[_builtins.bool]] = None,
+                 custom_orchestration: pulumi.Input[Optional[Union['AgentCustomOrchestrationArgs', 'AgentCustomOrchestrationArgsDict']]] = None,
+                 customer_encryption_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 foundation_model: pulumi.Input[Optional[_builtins.str]] = None,
+                 guardrail_configuration: pulumi.Input[Optional[Union['AgentGuardrailConfigurationArgs', 'AgentGuardrailConfigurationArgsDict']]] = None,
+                 idle_session_ttl_in_seconds: pulumi.Input[Optional[_builtins.float]] = None,
+                 instruction: pulumi.Input[Optional[_builtins.str]] = None,
+                 knowledge_bases: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentKnowledgeBaseArgs', 'AgentKnowledgeBaseArgsDict']]]]] = None,
+                 memory_configuration: pulumi.Input[Optional[Union['AgentMemoryConfigurationArgs', 'AgentMemoryConfigurationArgsDict']]] = None,
+                 orchestration_type: pulumi.Input[Optional['AgentOrchestrationType']] = None,
+                 prompt_override_configuration: pulumi.Input[Optional[Union['AgentPromptOverrideConfigurationArgs', 'AgentPromptOverrideConfigurationArgsDict']]] = None,
+                 skip_resource_in_use_check_on_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 test_alias_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -91,8 +91,8 @@ def get_security_group_vpc_association(group_id: Optional[_builtins.str] = None,
         state=pulumi.get(__ret__, 'state'),
         state_reason=pulumi.get(__ret__, 'state_reason'),
         vpc_owner_id=pulumi.get(__ret__, 'vpc_owner_id'))
-def get_security_group_vpc_association_output(group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                              vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_security_group_vpc_association_output(group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                              vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityGroupVpcAssociationResult]:
     """
     Resource type definition for the AWS::EC2::SecurityGroupVpcAssociation resource

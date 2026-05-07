@@ -101,7 +101,7 @@ def get_parameter_group(cache_parameter_group_name: Optional[_builtins.str] = No
         description=pulumi.get(__ret__, 'description'),
         properties=pulumi.get(__ret__, 'properties'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_parameter_group_output(cache_parameter_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_parameter_group_output(cache_parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetParameterGroupResult]:
     """
     Resource Type definition for AWS::ElastiCache::ParameterGroup

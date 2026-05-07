@@ -77,7 +77,7 @@ def get_origin_access_control(id: Optional[_builtins.str] = None,
     return AwaitableGetOriginAccessControlResult(
         id=pulumi.get(__ret__, 'id'),
         origin_access_control_config=pulumi.get(__ret__, 'origin_access_control_config'))
-def get_origin_access_control_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_origin_access_control_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOriginAccessControlResult]:
     """
     Creates a new origin access control in CloudFront. After you create an origin access control, you can add it to an origin in a CloudFront distribution so that CloudFront sends authenticated (signed) requests to the origin.

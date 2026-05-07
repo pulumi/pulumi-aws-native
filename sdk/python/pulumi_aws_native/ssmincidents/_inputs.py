@@ -83,14 +83,14 @@ class ReplicationSetReplicationRegionArgsDict(TypedDict):
     """
     The ReplicationSet regional configuration.
     """
-    region_configuration: NotRequired[pulumi.Input['ReplicationSetRegionConfigurationArgsDict']]
-    region_name: NotRequired[pulumi.Input[_builtins.str]]
+    region_configuration: NotRequired[pulumi.Input[Optional['ReplicationSetRegionConfigurationArgs']]]
+    region_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class ReplicationSetReplicationRegionArgs:
     def __init__(__self__, *,
-                 region_configuration: Optional[pulumi.Input['ReplicationSetRegionConfigurationArgs']] = None,
-                 region_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 region_configuration: pulumi.Input[Optional['ReplicationSetRegionConfigurationArgs']] = None,
+                 region_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The ReplicationSet regional configuration.
         """
@@ -101,20 +101,20 @@ class ReplicationSetReplicationRegionArgs:
 
     @_builtins.property
     @pulumi.getter(name="regionConfiguration")
-    def region_configuration(self) -> Optional[pulumi.Input['ReplicationSetRegionConfigurationArgs']]:
+    def region_configuration(self) -> pulumi.Input[Optional['ReplicationSetRegionConfigurationArgs']]:
         return pulumi.get(self, "region_configuration")
 
     @region_configuration.setter
-    def region_configuration(self, value: Optional[pulumi.Input['ReplicationSetRegionConfigurationArgs']]):
+    def region_configuration(self, value: pulumi.Input[Optional['ReplicationSetRegionConfigurationArgs']]):
         pulumi.set(self, "region_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="regionName")
-    def region_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "region_name")
 
     @region_name.setter
-    def region_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region_name", value)
 
 
@@ -122,7 +122,7 @@ class ResponsePlanActionArgsDict(TypedDict):
     """
     The automation configuration to launch.
     """
-    ssm_automation: NotRequired[pulumi.Input['ResponsePlanSsmAutomationArgsDict']]
+    ssm_automation: NotRequired[pulumi.Input[Optional['ResponsePlanSsmAutomationArgs']]]
     """
     Details about the Systems Manager automation document that will be used as a runbook during an incident.
     """
@@ -130,7 +130,7 @@ class ResponsePlanActionArgsDict(TypedDict):
 @pulumi.input_type
 class ResponsePlanActionArgs:
     def __init__(__self__, *,
-                 ssm_automation: Optional[pulumi.Input['ResponsePlanSsmAutomationArgs']] = None):
+                 ssm_automation: pulumi.Input[Optional['ResponsePlanSsmAutomationArgs']] = None):
         """
         The automation configuration to launch.
 
@@ -141,14 +141,14 @@ class ResponsePlanActionArgs:
 
     @_builtins.property
     @pulumi.getter(name="ssmAutomation")
-    def ssm_automation(self) -> Optional[pulumi.Input['ResponsePlanSsmAutomationArgs']]:
+    def ssm_automation(self) -> pulumi.Input[Optional['ResponsePlanSsmAutomationArgs']]:
         """
         Details about the Systems Manager automation document that will be used as a runbook during an incident.
         """
         return pulumi.get(self, "ssm_automation")
 
     @ssm_automation.setter
-    def ssm_automation(self, value: Optional[pulumi.Input['ResponsePlanSsmAutomationArgs']]):
+    def ssm_automation(self, value: pulumi.Input[Optional['ResponsePlanSsmAutomationArgs']]):
         pulumi.set(self, "ssm_automation", value)
 
 
@@ -156,7 +156,7 @@ class ResponsePlanChatChannelArgsDict(TypedDict):
     """
     The chat channel configuration.
     """
-    chatbot_sns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    chatbot_sns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The Amazon  targets that  uses to notify the chat channel of updates to an incident. You can also make updates to the incident through the chat channel by using the Amazon  topics
     """
@@ -164,7 +164,7 @@ class ResponsePlanChatChannelArgsDict(TypedDict):
 @pulumi.input_type
 class ResponsePlanChatChannelArgs:
     def __init__(__self__, *,
-                 chatbot_sns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 chatbot_sns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The chat channel configuration.
 
@@ -175,14 +175,14 @@ class ResponsePlanChatChannelArgs:
 
     @_builtins.property
     @pulumi.getter(name="chatbotSns")
-    def chatbot_sns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def chatbot_sns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The Amazon  targets that  uses to notify the chat channel of updates to an incident. You can also make updates to the incident through the chat channel by using the Amazon  topics
         """
         return pulumi.get(self, "chatbot_sns")
 
     @chatbot_sns.setter
-    def chatbot_sns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def chatbot_sns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "chatbot_sns", value)
 
 
@@ -190,7 +190,7 @@ class ResponsePlanDynamicSsmParameterValueArgsDict(TypedDict):
     """
     Value of the dynamic parameter to set when starting the SSM automation document.
     """
-    variable: NotRequired[pulumi.Input['ResponsePlanVariableType']]
+    variable: NotRequired[pulumi.Input[Optional['ResponsePlanVariableType']]]
     """
     Variable dynamic parameters. A parameter value is determined when an incident is created.
     """
@@ -198,7 +198,7 @@ class ResponsePlanDynamicSsmParameterValueArgsDict(TypedDict):
 @pulumi.input_type
 class ResponsePlanDynamicSsmParameterValueArgs:
     def __init__(__self__, *,
-                 variable: Optional[pulumi.Input['ResponsePlanVariableType']] = None):
+                 variable: pulumi.Input[Optional['ResponsePlanVariableType']] = None):
         """
         Value of the dynamic parameter to set when starting the SSM automation document.
 
@@ -209,14 +209,14 @@ class ResponsePlanDynamicSsmParameterValueArgs:
 
     @_builtins.property
     @pulumi.getter
-    def variable(self) -> Optional[pulumi.Input['ResponsePlanVariableType']]:
+    def variable(self) -> pulumi.Input[Optional['ResponsePlanVariableType']]:
         """
         Variable dynamic parameters. A parameter value is determined when an incident is created.
         """
         return pulumi.get(self, "variable")
 
     @variable.setter
-    def variable(self, value: Optional[pulumi.Input['ResponsePlanVariableType']]):
+    def variable(self, value: pulumi.Input[Optional['ResponsePlanVariableType']]):
         pulumi.set(self, "variable", value)
 
 
@@ -284,19 +284,19 @@ class ResponsePlanIncidentTemplateArgsDict(TypedDict):
     """
     The title string.
     """
-    dedupe_string: NotRequired[pulumi.Input[_builtins.str]]
+    dedupe_string: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The deduplication string.
     """
-    incident_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResponsePlanTagArgsDict']]]]
+    incident_tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ResponsePlanTagArgs']]]]]
     """
     Tags that get applied to incidents created by the StartIncident API action.
     """
-    notification_targets: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResponsePlanNotificationTargetItemArgsDict']]]]
+    notification_targets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ResponsePlanNotificationTargetItemArgs']]]]]
     """
     The list of notification targets.
     """
-    summary: NotRequired[pulumi.Input[_builtins.str]]
+    summary: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The summary string.
     """
@@ -306,10 +306,10 @@ class ResponsePlanIncidentTemplateArgs:
     def __init__(__self__, *,
                  impact: pulumi.Input[_builtins.int],
                  title: pulumi.Input[_builtins.str],
-                 dedupe_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 incident_tags: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanTagArgs']]]] = None,
-                 notification_targets: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanNotificationTargetItemArgs']]]] = None,
-                 summary: Optional[pulumi.Input[_builtins.str]] = None):
+                 dedupe_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 incident_tags: pulumi.Input[Optional[Sequence[pulumi.Input['ResponsePlanTagArgs']]]] = None,
+                 notification_targets: pulumi.Input[Optional[Sequence[pulumi.Input['ResponsePlanNotificationTargetItemArgs']]]] = None,
+                 summary: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The incident template configuration.
 
@@ -357,55 +357,55 @@ class ResponsePlanIncidentTemplateArgs:
 
     @_builtins.property
     @pulumi.getter(name="dedupeString")
-    def dedupe_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dedupe_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The deduplication string.
         """
         return pulumi.get(self, "dedupe_string")
 
     @dedupe_string.setter
-    def dedupe_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dedupe_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dedupe_string", value)
 
     @_builtins.property
     @pulumi.getter(name="incidentTags")
-    def incident_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanTagArgs']]]]:
+    def incident_tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ResponsePlanTagArgs']]]]:
         """
         Tags that get applied to incidents created by the StartIncident API action.
         """
         return pulumi.get(self, "incident_tags")
 
     @incident_tags.setter
-    def incident_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanTagArgs']]]]):
+    def incident_tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ResponsePlanTagArgs']]]]):
         pulumi.set(self, "incident_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationTargets")
-    def notification_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanNotificationTargetItemArgs']]]]:
+    def notification_targets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ResponsePlanNotificationTargetItemArgs']]]]:
         """
         The list of notification targets.
         """
         return pulumi.get(self, "notification_targets")
 
     @notification_targets.setter
-    def notification_targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanNotificationTargetItemArgs']]]]):
+    def notification_targets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ResponsePlanNotificationTargetItemArgs']]]]):
         pulumi.set(self, "notification_targets", value)
 
     @_builtins.property
     @pulumi.getter
-    def summary(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def summary(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The summary string.
         """
         return pulumi.get(self, "summary")
 
     @summary.setter
-    def summary(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def summary(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "summary", value)
 
 
 class ResponsePlanIntegrationArgsDict(TypedDict):
-    pager_duty_configuration: NotRequired[pulumi.Input['ResponsePlanPagerDutyConfigurationArgsDict']]
+    pager_duty_configuration: NotRequired[pulumi.Input[Optional['ResponsePlanPagerDutyConfigurationArgs']]]
     """
     Information about the PagerDuty service where the response plan creates an incident.
     """
@@ -413,7 +413,7 @@ class ResponsePlanIntegrationArgsDict(TypedDict):
 @pulumi.input_type
 class ResponsePlanIntegrationArgs:
     def __init__(__self__, *,
-                 pager_duty_configuration: Optional[pulumi.Input['ResponsePlanPagerDutyConfigurationArgs']] = None):
+                 pager_duty_configuration: pulumi.Input[Optional['ResponsePlanPagerDutyConfigurationArgs']] = None):
         """
         :param pulumi.Input['ResponsePlanPagerDutyConfigurationArgs'] pager_duty_configuration: Information about the PagerDuty service where the response plan creates an incident.
         """
@@ -422,14 +422,14 @@ class ResponsePlanIntegrationArgs:
 
     @_builtins.property
     @pulumi.getter(name="pagerDutyConfiguration")
-    def pager_duty_configuration(self) -> Optional[pulumi.Input['ResponsePlanPagerDutyConfigurationArgs']]:
+    def pager_duty_configuration(self) -> pulumi.Input[Optional['ResponsePlanPagerDutyConfigurationArgs']]:
         """
         Information about the PagerDuty service where the response plan creates an incident.
         """
         return pulumi.get(self, "pager_duty_configuration")
 
     @pager_duty_configuration.setter
-    def pager_duty_configuration(self, value: Optional[pulumi.Input['ResponsePlanPagerDutyConfigurationArgs']]):
+    def pager_duty_configuration(self, value: pulumi.Input[Optional['ResponsePlanPagerDutyConfigurationArgs']]):
         pulumi.set(self, "pager_duty_configuration", value)
 
 
@@ -437,7 +437,7 @@ class ResponsePlanNotificationTargetItemArgsDict(TypedDict):
     """
     A notification target.
     """
-    sns_topic_arn: NotRequired[pulumi.Input[_builtins.str]]
+    sns_topic_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon Resource Name (ARN) of the Amazon  topic.
     """
@@ -445,7 +445,7 @@ class ResponsePlanNotificationTargetItemArgsDict(TypedDict):
 @pulumi.input_type
 class ResponsePlanNotificationTargetItemArgs:
     def __init__(__self__, *,
-                 sns_topic_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 sns_topic_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         A notification target.
 
@@ -456,14 +456,14 @@ class ResponsePlanNotificationTargetItemArgs:
 
     @_builtins.property
     @pulumi.getter(name="snsTopicArn")
-    def sns_topic_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sns_topic_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the Amazon  topic.
         """
         return pulumi.get(self, "sns_topic_arn")
 
     @sns_topic_arn.setter
-    def sns_topic_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sns_topic_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sns_topic_arn", value)
 
 
@@ -583,19 +583,19 @@ class ResponsePlanSsmAutomationArgsDict(TypedDict):
     """
     The role ARN to use when starting the SSM automation document.
     """
-    document_version: NotRequired[pulumi.Input[_builtins.str]]
+    document_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The version of the document to use when starting the SSM automation document.
     """
-    dynamic_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResponsePlanDynamicSsmParameterArgsDict']]]]
+    dynamic_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ResponsePlanDynamicSsmParameterArgs']]]]]
     """
     The parameters with dynamic values to set when starting the SSM automation document.
     """
-    parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResponsePlanSsmParameterArgsDict']]]]
+    parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ResponsePlanSsmParameterArgs']]]]]
     """
     The parameters to set when starting the SSM automation document.
     """
-    target_account: NotRequired[pulumi.Input['ResponsePlanSsmAutomationTargetAccount']]
+    target_account: NotRequired[pulumi.Input[Optional['ResponsePlanSsmAutomationTargetAccount']]]
     """
     The account type to use when starting the SSM automation document.
     """
@@ -605,10 +605,10 @@ class ResponsePlanSsmAutomationArgs:
     def __init__(__self__, *,
                  document_name: pulumi.Input[_builtins.str],
                  role_arn: pulumi.Input[_builtins.str],
-                 document_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 dynamic_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanDynamicSsmParameterArgs']]]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanSsmParameterArgs']]]] = None,
-                 target_account: Optional[pulumi.Input['ResponsePlanSsmAutomationTargetAccount']] = None):
+                 document_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 dynamic_parameters: pulumi.Input[Optional[Sequence[pulumi.Input['ResponsePlanDynamicSsmParameterArgs']]]] = None,
+                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input['ResponsePlanSsmParameterArgs']]]] = None,
+                 target_account: pulumi.Input[Optional['ResponsePlanSsmAutomationTargetAccount']] = None):
         """
         The configuration to use when starting the SSM automation document.
 
@@ -656,50 +656,50 @@ class ResponsePlanSsmAutomationArgs:
 
     @_builtins.property
     @pulumi.getter(name="documentVersion")
-    def document_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def document_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the document to use when starting the SSM automation document.
         """
         return pulumi.get(self, "document_version")
 
     @document_version.setter
-    def document_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def document_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "document_version", value)
 
     @_builtins.property
     @pulumi.getter(name="dynamicParameters")
-    def dynamic_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanDynamicSsmParameterArgs']]]]:
+    def dynamic_parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ResponsePlanDynamicSsmParameterArgs']]]]:
         """
         The parameters with dynamic values to set when starting the SSM automation document.
         """
         return pulumi.get(self, "dynamic_parameters")
 
     @dynamic_parameters.setter
-    def dynamic_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanDynamicSsmParameterArgs']]]]):
+    def dynamic_parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ResponsePlanDynamicSsmParameterArgs']]]]):
         pulumi.set(self, "dynamic_parameters", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanSsmParameterArgs']]]]:
+    def parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ResponsePlanSsmParameterArgs']]]]:
         """
         The parameters to set when starting the SSM automation document.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanSsmParameterArgs']]]]):
+    def parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ResponsePlanSsmParameterArgs']]]]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="targetAccount")
-    def target_account(self) -> Optional[pulumi.Input['ResponsePlanSsmAutomationTargetAccount']]:
+    def target_account(self) -> pulumi.Input[Optional['ResponsePlanSsmAutomationTargetAccount']]:
         """
         The account type to use when starting the SSM automation document.
         """
         return pulumi.get(self, "target_account")
 
     @target_account.setter
-    def target_account(self, value: Optional[pulumi.Input['ResponsePlanSsmAutomationTargetAccount']]):
+    def target_account(self, value: pulumi.Input[Optional['ResponsePlanSsmAutomationTargetAccount']]):
         pulumi.set(self, "target_account", value)
 
 

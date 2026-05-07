@@ -207,7 +207,7 @@ def get_disk(disk_name: Optional[_builtins.str] = None,
         state=pulumi.get(__ret__, 'state'),
         support_code=pulumi.get(__ret__, 'support_code'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_disk_output(disk_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_disk_output(disk_name: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDiskResult]:
     """
     Resource Type definition for AWS::Lightsail::Disk

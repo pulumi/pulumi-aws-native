@@ -167,7 +167,7 @@ def get_service(service_arn: Optional[_builtins.str] = None,
         service_url=pulumi.get(__ret__, 'service_url'),
         source_configuration=pulumi.get(__ret__, 'source_configuration'),
         status=pulumi.get(__ret__, 'status'))
-def get_service_output(service_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_service_output(service_arn: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceResult]:
     """
     The AWS::AppRunner::Service resource specifies an AppRunner Service.

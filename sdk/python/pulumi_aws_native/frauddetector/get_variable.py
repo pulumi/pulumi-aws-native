@@ -167,7 +167,7 @@ def get_variable(arn: Optional[_builtins.str] = None,
         last_updated_time=pulumi.get(__ret__, 'last_updated_time'),
         tags=pulumi.get(__ret__, 'tags'),
         variable_type=pulumi.get(__ret__, 'variable_type'))
-def get_variable_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_variable_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVariableResult]:
     """
     A resource schema for a Variable in Amazon Fraud Detector.

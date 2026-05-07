@@ -151,7 +151,7 @@ def get_agent_space(agent_space_id: Optional[_builtins.str] = None,
         operator_app=pulumi.get(__ret__, 'operator_app'),
         tags=pulumi.get(__ret__, 'tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-def get_agent_space_output(agent_space_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_agent_space_output(agent_space_id: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAgentSpaceResult]:
     """
     Resource Type definition for AWS::DevOpsAgent::AgentSpace

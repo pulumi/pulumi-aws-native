@@ -222,7 +222,7 @@ def get_crawler(name: Optional[_builtins.str] = None,
         table_prefix=pulumi.get(__ret__, 'table_prefix'),
         tags=pulumi.get(__ret__, 'tags'),
         targets=pulumi.get(__ret__, 'targets'))
-def get_crawler_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_crawler_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCrawlerResult]:
     """
     Resource Type definition for AWS::Glue::Crawler

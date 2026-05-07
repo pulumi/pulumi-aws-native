@@ -75,7 +75,7 @@ def get_instance_access_control_attribute_configuration(instance_arn: Optional[_
     return AwaitableGetInstanceAccessControlAttributeConfigurationResult(
         access_control_attributes=pulumi.get(__ret__, 'access_control_attributes'),
         instance_access_control_attribute_configuration=pulumi.get(__ret__, 'instance_access_control_attribute_configuration'))
-def get_instance_access_control_attribute_configuration_output(instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_instance_access_control_attribute_configuration_output(instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstanceAccessControlAttributeConfigurationResult]:
     """
     Resource Type definition for SSO InstanceAccessControlAttributeConfiguration

@@ -61,7 +61,7 @@ def get_layer_version_permission(id: Optional[_builtins.str] = None,
 
     return AwaitableGetLayerVersionPermissionResult(
         id=pulumi.get(__ret__, 'id'))
-def get_layer_version_permission_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_layer_version_permission_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLayerVersionPermissionResult]:
     """
     Schema for Lambda LayerVersionPermission

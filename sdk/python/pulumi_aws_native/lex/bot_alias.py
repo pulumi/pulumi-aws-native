@@ -25,13 +25,13 @@ __all__ = ['BotAliasArgs', 'BotAlias']
 class BotAliasArgs:
     def __init__(__self__, *,
                  bot_id: pulumi.Input[_builtins.str],
-                 bot_alias_locale_settings: Optional[pulumi.Input[Sequence[pulumi.Input['BotAliasLocaleSettingsItemArgs']]]] = None,
-                 bot_alias_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 bot_alias_tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 bot_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 conversation_log_settings: Optional[pulumi.Input['BotAliasConversationLogSettingsArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 sentiment_analysis_settings: Optional[pulumi.Input['SentimentAnalysisSettingsPropertiesArgs']] = None):
+                 bot_alias_locale_settings: pulumi.Input[Optional[Sequence[pulumi.Input['BotAliasLocaleSettingsItemArgs']]]] = None,
+                 bot_alias_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 bot_alias_tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 bot_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 conversation_log_settings: pulumi.Input[Optional['BotAliasConversationLogSettingsArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 sentiment_analysis_settings: pulumi.Input[Optional['SentimentAnalysisSettingsPropertiesArgs']] = None):
         """
         The set of arguments for constructing a BotAlias resource.
 
@@ -74,86 +74,86 @@ class BotAliasArgs:
 
     @_builtins.property
     @pulumi.getter(name="botAliasLocaleSettings")
-    def bot_alias_locale_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BotAliasLocaleSettingsItemArgs']]]]:
+    def bot_alias_locale_settings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BotAliasLocaleSettingsItemArgs']]]]:
         """
         Specifies settings that are unique to a locale. For example, you can use different Lambda function depending on the bot's locale.
         """
         return pulumi.get(self, "bot_alias_locale_settings")
 
     @bot_alias_locale_settings.setter
-    def bot_alias_locale_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BotAliasLocaleSettingsItemArgs']]]]):
+    def bot_alias_locale_settings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BotAliasLocaleSettingsItemArgs']]]]):
         pulumi.set(self, "bot_alias_locale_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="botAliasName")
-    def bot_alias_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bot_alias_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the bot alias.
         """
         return pulumi.get(self, "bot_alias_name")
 
     @bot_alias_name.setter
-    def bot_alias_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bot_alias_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bot_alias_name", value)
 
     @_builtins.property
     @pulumi.getter(name="botAliasTags")
-    def bot_alias_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def bot_alias_tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A list of tags to add to the bot alias.
         """
         return pulumi.get(self, "bot_alias_tags")
 
     @bot_alias_tags.setter
-    def bot_alias_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def bot_alias_tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "bot_alias_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="botVersion")
-    def bot_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bot_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the bot that the bot alias references.
         """
         return pulumi.get(self, "bot_version")
 
     @bot_version.setter
-    def bot_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bot_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bot_version", value)
 
     @_builtins.property
     @pulumi.getter(name="conversationLogSettings")
-    def conversation_log_settings(self) -> Optional[pulumi.Input['BotAliasConversationLogSettingsArgs']]:
+    def conversation_log_settings(self) -> pulumi.Input[Optional['BotAliasConversationLogSettingsArgs']]:
         """
         Specifies whether Amazon Lex logs text and audio for conversations with the bot. When you enable conversation logs, text logs store text input, transcripts of audio input, and associated metadata in Amazon CloudWatch logs. Audio logs store input in Amazon S3 .
         """
         return pulumi.get(self, "conversation_log_settings")
 
     @conversation_log_settings.setter
-    def conversation_log_settings(self, value: Optional[pulumi.Input['BotAliasConversationLogSettingsArgs']]):
+    def conversation_log_settings(self, value: pulumi.Input[Optional['BotAliasConversationLogSettingsArgs']]):
         pulumi.set(self, "conversation_log_settings", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the bot alias.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="sentimentAnalysisSettings")
-    def sentiment_analysis_settings(self) -> Optional[pulumi.Input['SentimentAnalysisSettingsPropertiesArgs']]:
+    def sentiment_analysis_settings(self) -> pulumi.Input[Optional['SentimentAnalysisSettingsPropertiesArgs']]:
         """
         Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
         """
         return pulumi.get(self, "sentiment_analysis_settings")
 
     @sentiment_analysis_settings.setter
-    def sentiment_analysis_settings(self, value: Optional[pulumi.Input['SentimentAnalysisSettingsPropertiesArgs']]):
+    def sentiment_analysis_settings(self, value: pulumi.Input[Optional['SentimentAnalysisSettingsPropertiesArgs']]):
         pulumi.set(self, "sentiment_analysis_settings", value)
 
 
@@ -163,14 +163,14 @@ class BotAlias(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bot_alias_locale_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BotAliasLocaleSettingsItemArgs', 'BotAliasLocaleSettingsItemArgsDict']]]]] = None,
-                 bot_alias_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 bot_alias_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 bot_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 bot_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 conversation_log_settings: Optional[pulumi.Input[Union['BotAliasConversationLogSettingsArgs', 'BotAliasConversationLogSettingsArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 sentiment_analysis_settings: Optional[pulumi.Input[Union['SentimentAnalysisSettingsPropertiesArgs', 'SentimentAnalysisSettingsPropertiesArgsDict']]] = None,
+                 bot_alias_locale_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BotAliasLocaleSettingsItemArgs', 'BotAliasLocaleSettingsItemArgsDict']]]]] = None,
+                 bot_alias_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 bot_alias_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 bot_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 bot_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 conversation_log_settings: pulumi.Input[Optional[Union['BotAliasConversationLogSettingsArgs', 'BotAliasConversationLogSettingsArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 sentiment_analysis_settings: pulumi.Input[Optional[Union['SentimentAnalysisSettingsPropertiesArgs', 'SentimentAnalysisSettingsPropertiesArgsDict']]] = None,
                  __props__=None):
         """
         Resource Type definition for a Bot Alias, which enables you to change the version of a bot without updating applications that use the bot
@@ -212,14 +212,14 @@ class BotAlias(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bot_alias_locale_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BotAliasLocaleSettingsItemArgs', 'BotAliasLocaleSettingsItemArgsDict']]]]] = None,
-                 bot_alias_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 bot_alias_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 bot_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 bot_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 conversation_log_settings: Optional[pulumi.Input[Union['BotAliasConversationLogSettingsArgs', 'BotAliasConversationLogSettingsArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 sentiment_analysis_settings: Optional[pulumi.Input[Union['SentimentAnalysisSettingsPropertiesArgs', 'SentimentAnalysisSettingsPropertiesArgsDict']]] = None,
+                 bot_alias_locale_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BotAliasLocaleSettingsItemArgs', 'BotAliasLocaleSettingsItemArgsDict']]]]] = None,
+                 bot_alias_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 bot_alias_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 bot_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 bot_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 conversation_log_settings: pulumi.Input[Optional[Union['BotAliasConversationLogSettingsArgs', 'BotAliasConversationLogSettingsArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 sentiment_analysis_settings: pulumi.Input[Optional[Union['SentimentAnalysisSettingsPropertiesArgs', 'SentimentAnalysisSettingsPropertiesArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

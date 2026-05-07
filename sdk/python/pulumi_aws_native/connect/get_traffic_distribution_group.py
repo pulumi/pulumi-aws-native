@@ -115,7 +115,7 @@ def get_traffic_distribution_group(traffic_distribution_group_arn: Optional[_bui
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         traffic_distribution_group_arn=pulumi.get(__ret__, 'traffic_distribution_group_arn'))
-def get_traffic_distribution_group_output(traffic_distribution_group_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_traffic_distribution_group_output(traffic_distribution_group_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTrafficDistributionGroupResult]:
     """
     Resource Type definition for AWS::Connect::TrafficDistributionGroup

@@ -100,7 +100,7 @@ def get_capacity_reservation_fleet(capacity_reservation_fleet_id: Optional[_buil
         no_remove_end_date=pulumi.get(__ret__, 'no_remove_end_date'),
         remove_end_date=pulumi.get(__ret__, 'remove_end_date'),
         total_target_capacity=pulumi.get(__ret__, 'total_target_capacity'))
-def get_capacity_reservation_fleet_output(capacity_reservation_fleet_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_capacity_reservation_fleet_output(capacity_reservation_fleet_id: pulumi.Input[Optional[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCapacityReservationFleetResult]:
     """
     Resource Type definition for AWS::EC2::CapacityReservationFleet

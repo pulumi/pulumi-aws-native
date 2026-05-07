@@ -139,7 +139,7 @@ def get_target_domain(target_domain_id: Optional[_builtins.str] = None,
         verification_method=pulumi.get(__ret__, 'verification_method'),
         verification_status=pulumi.get(__ret__, 'verification_status'),
         verified_at=pulumi.get(__ret__, 'verified_at'))
-def get_target_domain_output(target_domain_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_target_domain_output(target_domain_id: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTargetDomainResult]:
     """
     Resource Type definition for AWS::SecurityAgent::TargetDomain

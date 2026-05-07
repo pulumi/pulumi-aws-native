@@ -102,7 +102,7 @@ def get_endpoint(endpoint_arn: Optional[_builtins.str] = None,
         endpoint_arn=pulumi.get(__ret__, 'endpoint_arn'),
         endpoint_config_name=pulumi.get(__ret__, 'endpoint_config_name'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_endpoint_output(endpoint_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_endpoint_output(endpoint_arn: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEndpointResult]:
     """
     Resource Type definition for AWS::SageMaker::Endpoint

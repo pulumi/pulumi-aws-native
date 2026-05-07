@@ -132,9 +132,9 @@ class ApiKeyRestrictionsArgsDict(TypedDict):
 
     For more information about ARN format, see [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) .
     """
-    allow_android_apps: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApiKeyAndroidAppArgsDict']]]]
-    allow_apple_apps: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApiKeyAppleAppArgsDict']]]]
-    allow_referers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    allow_android_apps: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiKeyAndroidAppArgs']]]]]
+    allow_apple_apps: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiKeyAppleAppArgs']]]]]
+    allow_referers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     An optional list of allowed HTTP referers for which requests must originate from. Requests using this API key from other domains will not be allowed.
 
@@ -155,9 +155,9 @@ class ApiKeyRestrictionsArgs:
     def __init__(__self__, *,
                  allow_actions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  allow_resources: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 allow_android_apps: Optional[pulumi.Input[Sequence[pulumi.Input['ApiKeyAndroidAppArgs']]]] = None,
-                 allow_apple_apps: Optional[pulumi.Input[Sequence[pulumi.Input['ApiKeyAppleAppArgs']]]] = None,
-                 allow_referers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 allow_android_apps: pulumi.Input[Optional[Sequence[pulumi.Input['ApiKeyAndroidAppArgs']]]] = None,
+                 allow_apple_apps: pulumi.Input[Optional[Sequence[pulumi.Input['ApiKeyAppleAppArgs']]]] = None,
+                 allow_referers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allow_actions: A list of allowed actions that an API key resource grants permissions to perform. You must have at least one action for each type of resource. For example, if you have a place resource, you must include at least one place action.
                
@@ -299,25 +299,25 @@ class ApiKeyRestrictionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowAndroidApps")
-    def allow_android_apps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiKeyAndroidAppArgs']]]]:
+    def allow_android_apps(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ApiKeyAndroidAppArgs']]]]:
         return pulumi.get(self, "allow_android_apps")
 
     @allow_android_apps.setter
-    def allow_android_apps(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiKeyAndroidAppArgs']]]]):
+    def allow_android_apps(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ApiKeyAndroidAppArgs']]]]):
         pulumi.set(self, "allow_android_apps", value)
 
     @_builtins.property
     @pulumi.getter(name="allowAppleApps")
-    def allow_apple_apps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiKeyAppleAppArgs']]]]:
+    def allow_apple_apps(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ApiKeyAppleAppArgs']]]]:
         return pulumi.get(self, "allow_apple_apps")
 
     @allow_apple_apps.setter
-    def allow_apple_apps(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiKeyAppleAppArgs']]]]):
+    def allow_apple_apps(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ApiKeyAppleAppArgs']]]]):
         pulumi.set(self, "allow_apple_apps", value)
 
     @_builtins.property
     @pulumi.getter(name="allowReferers")
-    def allow_referers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allow_referers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         An optional list of allowed HTTP referers for which requests must originate from. Requests using this API key from other domains will not be allowed.
 
@@ -335,7 +335,7 @@ class ApiKeyRestrictionsArgs:
         return pulumi.get(self, "allow_referers")
 
     @allow_referers.setter
-    def allow_referers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allow_referers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allow_referers", value)
 
 
@@ -379,13 +379,13 @@ class MapConfigurationArgsDict(TypedDict):
     - `VectorOpenDataVisualizationLight` – The Open Data Visualization Light map style is a light-themed style with muted colors and fewer features that aids in understanding overlaid data.
     - `VectorOpenDataVisualizationDark` – The Open Data Visualization Dark map style is a dark-themed style with muted colors and fewer features that aids in understanding overlaid data.
     """
-    custom_layers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    custom_layers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies the custom layers for the style. Leave unset to not enable any custom layer, or, for styles that support custom layers, you can enable layer(s), such as the `POI` layer for the VectorEsriNavigation style.
 
     > Currenlty only `VectorEsriNavigation` supports CustomLayers. For more information, see [Custom Layers](https://docs.aws.amazon.com//location/latest/developerguide/map-concepts.html#map-custom-layers) .
     """
-    political_view: NotRequired[pulumi.Input[_builtins.str]]
+    political_view: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the map political view selected from an available data provider.
     """
@@ -394,8 +394,8 @@ class MapConfigurationArgsDict(TypedDict):
 class MapConfigurationArgs:
     def __init__(__self__, *,
                  style: pulumi.Input[_builtins.str],
-                 custom_layers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 political_view: Optional[pulumi.Input[_builtins.str]] = None):
+                 custom_layers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 political_view: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] style: Specifies the map style selected from an available data provider.
                
@@ -493,7 +493,7 @@ class MapConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="customLayers")
-    def custom_layers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def custom_layers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the custom layers for the style. Leave unset to not enable any custom layer, or, for styles that support custom layers, you can enable layer(s), such as the `POI` layer for the VectorEsriNavigation style.
 
@@ -502,24 +502,24 @@ class MapConfigurationArgs:
         return pulumi.get(self, "custom_layers")
 
     @custom_layers.setter
-    def custom_layers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def custom_layers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "custom_layers", value)
 
     @_builtins.property
     @pulumi.getter(name="politicalView")
-    def political_view(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def political_view(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the map political view selected from an available data provider.
         """
         return pulumi.get(self, "political_view")
 
     @political_view.setter
-    def political_view(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def political_view(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "political_view", value)
 
 
 class PlaceIndexDataSourceConfigurationArgsDict(TypedDict):
-    intended_use: NotRequired[pulumi.Input['PlaceIndexIntendedUse']]
+    intended_use: NotRequired[pulumi.Input[Optional['PlaceIndexIntendedUse']]]
     """
     Specifies how the results of an operation will be stored by the caller.
 
@@ -534,7 +534,7 @@ class PlaceIndexDataSourceConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class PlaceIndexDataSourceConfigurationArgs:
     def __init__(__self__, *,
-                 intended_use: Optional[pulumi.Input['PlaceIndexIntendedUse']] = None):
+                 intended_use: pulumi.Input[Optional['PlaceIndexIntendedUse']] = None):
         """
         :param pulumi.Input['PlaceIndexIntendedUse'] intended_use: Specifies how the results of an operation will be stored by the caller.
                
@@ -550,7 +550,7 @@ class PlaceIndexDataSourceConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="intendedUse")
-    def intended_use(self) -> Optional[pulumi.Input['PlaceIndexIntendedUse']]:
+    def intended_use(self) -> pulumi.Input[Optional['PlaceIndexIntendedUse']]:
         """
         Specifies how the results of an operation will be stored by the caller.
 
@@ -564,7 +564,7 @@ class PlaceIndexDataSourceConfigurationArgs:
         return pulumi.get(self, "intended_use")
 
     @intended_use.setter
-    def intended_use(self, value: Optional[pulumi.Input['PlaceIndexIntendedUse']]):
+    def intended_use(self, value: pulumi.Input[Optional['PlaceIndexIntendedUse']]):
         pulumi.set(self, "intended_use", value)
 
 

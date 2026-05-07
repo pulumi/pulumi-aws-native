@@ -193,7 +193,7 @@ def get_account(account_id: Optional[_builtins.str] = None,
         state=pulumi.get(__ret__, 'state'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_account_output(account_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_account_output(account_id: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccountResult]:
     """
     You can use AWS::Organizations::Account to manage accounts in organization.

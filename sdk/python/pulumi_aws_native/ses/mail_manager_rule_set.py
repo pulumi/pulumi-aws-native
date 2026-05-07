@@ -25,8 +25,8 @@ __all__ = ['MailManagerRuleSetArgs', 'MailManagerRuleSet']
 class MailManagerRuleSetArgs:
     def __init__(__self__, *,
                  rules: pulumi.Input[Sequence[pulumi.Input['MailManagerRuleSetRuleArgs']]],
-                 rule_set_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 rule_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a MailManagerRuleSet resource.
 
@@ -54,26 +54,26 @@ class MailManagerRuleSetArgs:
 
     @_builtins.property
     @pulumi.getter(name="ruleSetName")
-    def rule_set_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rule_set_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A user-friendly name for the rule set.
         """
         return pulumi.get(self, "rule_set_name")
 
     @rule_set_name.setter
-    def rule_set_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rule_set_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rule_set_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags used to organize, track, or control access for the resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -83,9 +83,9 @@ class MailManagerRuleSet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 rule_set_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MailManagerRuleSetRuleArgs', 'MailManagerRuleSetRuleArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 rule_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MailManagerRuleSetRuleArgs', 'MailManagerRuleSetRuleArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::SES::MailManagerRuleSet Resource Type
@@ -122,9 +122,9 @@ class MailManagerRuleSet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 rule_set_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MailManagerRuleSetRuleArgs', 'MailManagerRuleSetRuleArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 rule_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MailManagerRuleSetRuleArgs', 'MailManagerRuleSetRuleArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

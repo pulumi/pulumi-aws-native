@@ -75,7 +75,7 @@ def get_log_delivery_configuration(id: Optional[_builtins.str] = None,
     return AwaitableGetLogDeliveryConfigurationResult(
         id=pulumi.get(__ret__, 'id'),
         log_configurations=pulumi.get(__ret__, 'log_configurations'))
-def get_log_delivery_configuration_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_log_delivery_configuration_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLogDeliveryConfigurationResult]:
     """
     Resource Type definition for AWS::Cognito::LogDeliveryConfiguration

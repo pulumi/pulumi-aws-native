@@ -194,7 +194,7 @@ def get_pool(pool_id: Optional[_builtins.str] = None,
         shared_routes_enabled=pulumi.get(__ret__, 'shared_routes_enabled'),
         tags=pulumi.get(__ret__, 'tags'),
         two_way=pulumi.get(__ret__, 'two_way'))
-def get_pool_output(pool_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_pool_output(pool_id: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPoolResult]:
     """
     Resource Type definition for AWS::SMSVOICE::Pool

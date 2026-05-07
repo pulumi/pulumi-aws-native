@@ -90,7 +90,7 @@ def get_telemetry_rule(rule_arn: Optional[_builtins.str] = None,
         rule=pulumi.get(__ret__, 'rule'),
         rule_arn=pulumi.get(__ret__, 'rule_arn'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_telemetry_rule_output(rule_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_telemetry_rule_output(rule_arn: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTelemetryRuleResult]:
     """
     The AWS::ObservabilityAdmin::TelemetryRule resource defines a CloudWatch Observability Admin Telemetry Rule.

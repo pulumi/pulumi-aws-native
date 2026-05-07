@@ -171,7 +171,7 @@ def get_key(key_identifier: Optional[_builtins.str] = None,
         key_state=pulumi.get(__ret__, 'key_state'),
         replication_status=pulumi.get(__ret__, 'replication_status'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_key_output(key_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+def get_key_output(key_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKeyResult]:
     """
     Definition of AWS::PaymentCryptography::Key Resource Type

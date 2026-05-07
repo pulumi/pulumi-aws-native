@@ -114,7 +114,7 @@ def get_domain_name(domain_name: Optional[_builtins.str] = None,
         domain_name_arn=pulumi.get(__ret__, 'domain_name_arn'),
         hosted_zone_id=pulumi.get(__ret__, 'hosted_zone_id'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_domain_name_output(domain_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_domain_name_output(domain_name: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDomainNameResult]:
     """
     Resource Type definition for AWS::AppSync::DomainName

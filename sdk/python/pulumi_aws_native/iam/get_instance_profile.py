@@ -80,7 +80,7 @@ def get_instance_profile(instance_profile_name: Optional[_builtins.str] = None,
     return AwaitableGetInstanceProfileResult(
         arn=pulumi.get(__ret__, 'arn'),
         roles=pulumi.get(__ret__, 'roles'))
-def get_instance_profile_output(instance_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_instance_profile_output(instance_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstanceProfileResult]:
     """
     Creates a new instance profile. For information about instance profiles, see [Using instance profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html).

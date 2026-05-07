@@ -118,11 +118,11 @@ class DatasetCsvOptionsArgsDict(TypedDict):
     """
     Csv options
     """
-    delimiter: NotRequired[pulumi.Input[_builtins.str]]
+    delimiter: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A single character that specifies the delimiter being used in the CSV file.
     """
-    header_row: NotRequired[pulumi.Input[_builtins.bool]]
+    header_row: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     A variable that specifies whether the first row in the file is parsed as the header. If this value is false, column names are auto-generated.
     """
@@ -130,8 +130,8 @@ class DatasetCsvOptionsArgsDict(TypedDict):
 @pulumi.input_type
 class DatasetCsvOptionsArgs:
     def __init__(__self__, *,
-                 delimiter: Optional[pulumi.Input[_builtins.str]] = None,
-                 header_row: Optional[pulumi.Input[_builtins.bool]] = None):
+                 delimiter: pulumi.Input[Optional[_builtins.str]] = None,
+                 header_row: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Csv options
 
@@ -145,43 +145,43 @@ class DatasetCsvOptionsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def delimiter(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delimiter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A single character that specifies the delimiter being used in the CSV file.
         """
         return pulumi.get(self, "delimiter")
 
     @delimiter.setter
-    def delimiter(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delimiter(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delimiter", value)
 
     @_builtins.property
     @pulumi.getter(name="headerRow")
-    def header_row(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def header_row(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A variable that specifies whether the first row in the file is parsed as the header. If this value is false, column names are auto-generated.
         """
         return pulumi.get(self, "header_row")
 
     @header_row.setter
-    def header_row(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def header_row(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "header_row", value)
 
 
 class DatasetDataCatalogInputDefinitionArgsDict(TypedDict):
-    catalog_id: NotRequired[pulumi.Input[_builtins.str]]
+    catalog_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Catalog id
     """
-    database_name: NotRequired[pulumi.Input[_builtins.str]]
+    database_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Database name
     """
-    table_name: NotRequired[pulumi.Input[_builtins.str]]
+    table_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Table name
     """
-    temp_directory: NotRequired[pulumi.Input['DatasetS3LocationArgsDict']]
+    temp_directory: NotRequired[pulumi.Input[Optional['DatasetS3LocationArgs']]]
     """
     An Amazon location that AWS Glue Data Catalog can use as a temporary directory.
     """
@@ -189,10 +189,10 @@ class DatasetDataCatalogInputDefinitionArgsDict(TypedDict):
 @pulumi.input_type
 class DatasetDataCatalogInputDefinitionArgs:
     def __init__(__self__, *,
-                 catalog_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 table_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 temp_directory: Optional[pulumi.Input['DatasetS3LocationArgs']] = None):
+                 catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 table_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 temp_directory: pulumi.Input[Optional['DatasetS3LocationArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] catalog_id: Catalog id
         :param pulumi.Input[_builtins.str] database_name: Database name
@@ -210,50 +210,50 @@ class DatasetDataCatalogInputDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter(name="catalogId")
-    def catalog_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def catalog_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Catalog id
         """
         return pulumi.get(self, "catalog_id")
 
     @catalog_id.setter
-    def catalog_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def catalog_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "catalog_id", value)
 
     @_builtins.property
     @pulumi.getter(name="databaseName")
-    def database_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Database name
         """
         return pulumi.get(self, "database_name")
 
     @database_name.setter
-    def database_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database_name", value)
 
     @_builtins.property
     @pulumi.getter(name="tableName")
-    def table_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def table_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Table name
         """
         return pulumi.get(self, "table_name")
 
     @table_name.setter
-    def table_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def table_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "table_name", value)
 
     @_builtins.property
     @pulumi.getter(name="tempDirectory")
-    def temp_directory(self) -> Optional[pulumi.Input['DatasetS3LocationArgs']]:
+    def temp_directory(self) -> pulumi.Input[Optional['DatasetS3LocationArgs']]:
         """
         An Amazon location that AWS Glue Data Catalog can use as a temporary directory.
         """
         return pulumi.get(self, "temp_directory")
 
     @temp_directory.setter
-    def temp_directory(self, value: Optional[pulumi.Input['DatasetS3LocationArgs']]):
+    def temp_directory(self, value: pulumi.Input[Optional['DatasetS3LocationArgs']]):
         pulumi.set(self, "temp_directory", value)
 
 
@@ -262,15 +262,15 @@ class DatasetDatabaseInputDefinitionArgsDict(TypedDict):
     """
     Glue connection name
     """
-    database_table_name: NotRequired[pulumi.Input[_builtins.str]]
+    database_table_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Database table name
     """
-    query_string: NotRequired[pulumi.Input[_builtins.str]]
+    query_string: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Custom SQL to run against the provided AWS Glue connection. This SQL will be used as the input for DataBrew projects and jobs.
     """
-    temp_directory: NotRequired[pulumi.Input['DatasetS3LocationArgsDict']]
+    temp_directory: NotRequired[pulumi.Input[Optional['DatasetS3LocationArgs']]]
     """
     An Amazon location that AWS Glue Data Catalog can use as a temporary directory.
     """
@@ -279,9 +279,9 @@ class DatasetDatabaseInputDefinitionArgsDict(TypedDict):
 class DatasetDatabaseInputDefinitionArgs:
     def __init__(__self__, *,
                  glue_connection_name: pulumi.Input[_builtins.str],
-                 database_table_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 temp_directory: Optional[pulumi.Input['DatasetS3LocationArgs']] = None):
+                 database_table_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 temp_directory: pulumi.Input[Optional['DatasetS3LocationArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] glue_connection_name: Glue connection name
         :param pulumi.Input[_builtins.str] database_table_name: Database table name
@@ -310,38 +310,38 @@ class DatasetDatabaseInputDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter(name="databaseTableName")
-    def database_table_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database_table_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Database table name
         """
         return pulumi.get(self, "database_table_name")
 
     @database_table_name.setter
-    def database_table_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database_table_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database_table_name", value)
 
     @_builtins.property
     @pulumi.getter(name="queryString")
-    def query_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def query_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Custom SQL to run against the provided AWS Glue connection. This SQL will be used as the input for DataBrew projects and jobs.
         """
         return pulumi.get(self, "query_string")
 
     @query_string.setter
-    def query_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def query_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "query_string", value)
 
     @_builtins.property
     @pulumi.getter(name="tempDirectory")
-    def temp_directory(self) -> Optional[pulumi.Input['DatasetS3LocationArgs']]:
+    def temp_directory(self) -> pulumi.Input[Optional['DatasetS3LocationArgs']]:
         """
         An Amazon location that AWS Glue Data Catalog can use as a temporary directory.
         """
         return pulumi.get(self, "temp_directory")
 
     @temp_directory.setter
-    def temp_directory(self, value: Optional[pulumi.Input['DatasetS3LocationArgs']]):
+    def temp_directory(self, value: pulumi.Input[Optional['DatasetS3LocationArgs']]):
         pulumi.set(self, "temp_directory", value)
 
 
@@ -350,11 +350,11 @@ class DatasetDatetimeOptionsArgsDict(TypedDict):
     """
     Date/time format of a date parameter
     """
-    locale_code: NotRequired[pulumi.Input[_builtins.str]]
+    locale_code: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Locale code for a date parameter
     """
-    timezone_offset: NotRequired[pulumi.Input[_builtins.str]]
+    timezone_offset: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Timezone offset
     """
@@ -363,8 +363,8 @@ class DatasetDatetimeOptionsArgsDict(TypedDict):
 class DatasetDatetimeOptionsArgs:
     def __init__(__self__, *,
                  format: pulumi.Input[_builtins.str],
-                 locale_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 timezone_offset: Optional[pulumi.Input[_builtins.str]] = None):
+                 locale_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 timezone_offset: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] format: Date/time format of a date parameter
         :param pulumi.Input[_builtins.str] locale_code: Locale code for a date parameter
@@ -390,39 +390,39 @@ class DatasetDatetimeOptionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="localeCode")
-    def locale_code(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def locale_code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Locale code for a date parameter
         """
         return pulumi.get(self, "locale_code")
 
     @locale_code.setter
-    def locale_code(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def locale_code(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "locale_code", value)
 
     @_builtins.property
     @pulumi.getter(name="timezoneOffset")
-    def timezone_offset(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def timezone_offset(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Timezone offset
         """
         return pulumi.get(self, "timezone_offset")
 
     @timezone_offset.setter
-    def timezone_offset(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def timezone_offset(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "timezone_offset", value)
 
 
 class DatasetExcelOptionsArgsDict(TypedDict):
-    header_row: NotRequired[pulumi.Input[_builtins.bool]]
+    header_row: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     A variable that specifies whether the first row in the file is parsed as the header. If this value is false, column names are auto-generated.
     """
-    sheet_indexes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
+    sheet_indexes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]]
     """
     One or more sheet numbers in the Excel file that will be included in the dataset.
     """
-    sheet_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    sheet_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     One or more named sheets in the Excel file that will be included in the dataset.
     """
@@ -430,9 +430,9 @@ class DatasetExcelOptionsArgsDict(TypedDict):
 @pulumi.input_type
 class DatasetExcelOptionsArgs:
     def __init__(__self__, *,
-                 header_row: Optional[pulumi.Input[_builtins.bool]] = None,
-                 sheet_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 sheet_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 header_row: pulumi.Input[Optional[_builtins.bool]] = None,
+                 sheet_indexes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 sheet_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.bool] header_row: A variable that specifies whether the first row in the file is parsed as the header. If this value is false, column names are auto-generated.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] sheet_indexes: One or more sheet numbers in the Excel file that will be included in the dataset.
@@ -447,38 +447,38 @@ class DatasetExcelOptionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="headerRow")
-    def header_row(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def header_row(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A variable that specifies whether the first row in the file is parsed as the header. If this value is false, column names are auto-generated.
         """
         return pulumi.get(self, "header_row")
 
     @header_row.setter
-    def header_row(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def header_row(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "header_row", value)
 
     @_builtins.property
     @pulumi.getter(name="sheetIndexes")
-    def sheet_indexes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+    def sheet_indexes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         """
         One or more sheet numbers in the Excel file that will be included in the dataset.
         """
         return pulumi.get(self, "sheet_indexes")
 
     @sheet_indexes.setter
-    def sheet_indexes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
+    def sheet_indexes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "sheet_indexes", value)
 
     @_builtins.property
     @pulumi.getter(name="sheetNames")
-    def sheet_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def sheet_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         One or more named sheets in the Excel file that will be included in the dataset.
         """
         return pulumi.get(self, "sheet_names")
 
     @sheet_names.setter
-    def sheet_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def sheet_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "sheet_names", value)
 
 
@@ -487,11 +487,11 @@ class DatasetFilesLimitArgsDict(TypedDict):
     """
     Maximum number of files
     """
-    order: NotRequired[pulumi.Input['DatasetFilesLimitOrder']]
+    order: NotRequired[pulumi.Input[Optional['DatasetFilesLimitOrder']]]
     """
     Order
     """
-    ordered_by: NotRequired[pulumi.Input['DatasetFilesLimitOrderedBy']]
+    ordered_by: NotRequired[pulumi.Input[Optional['DatasetFilesLimitOrderedBy']]]
     """
     Ordered by
     """
@@ -500,8 +500,8 @@ class DatasetFilesLimitArgsDict(TypedDict):
 class DatasetFilesLimitArgs:
     def __init__(__self__, *,
                  max_files: pulumi.Input[_builtins.int],
-                 order: Optional[pulumi.Input['DatasetFilesLimitOrder']] = None,
-                 ordered_by: Optional[pulumi.Input['DatasetFilesLimitOrderedBy']] = None):
+                 order: pulumi.Input[Optional['DatasetFilesLimitOrder']] = None,
+                 ordered_by: pulumi.Input[Optional['DatasetFilesLimitOrderedBy']] = None):
         """
         :param pulumi.Input[_builtins.int] max_files: Maximum number of files
         :param pulumi.Input['DatasetFilesLimitOrder'] order: Order
@@ -527,26 +527,26 @@ class DatasetFilesLimitArgs:
 
     @_builtins.property
     @pulumi.getter
-    def order(self) -> Optional[pulumi.Input['DatasetFilesLimitOrder']]:
+    def order(self) -> pulumi.Input[Optional['DatasetFilesLimitOrder']]:
         """
         Order
         """
         return pulumi.get(self, "order")
 
     @order.setter
-    def order(self, value: Optional[pulumi.Input['DatasetFilesLimitOrder']]):
+    def order(self, value: pulumi.Input[Optional['DatasetFilesLimitOrder']]):
         pulumi.set(self, "order", value)
 
     @_builtins.property
     @pulumi.getter(name="orderedBy")
-    def ordered_by(self) -> Optional[pulumi.Input['DatasetFilesLimitOrderedBy']]:
+    def ordered_by(self) -> pulumi.Input[Optional['DatasetFilesLimitOrderedBy']]:
         """
         Ordered by
         """
         return pulumi.get(self, "ordered_by")
 
     @ordered_by.setter
-    def ordered_by(self, value: Optional[pulumi.Input['DatasetFilesLimitOrderedBy']]):
+    def ordered_by(self, value: pulumi.Input[Optional['DatasetFilesLimitOrderedBy']]):
         pulumi.set(self, "ordered_by", value)
 
 
@@ -653,15 +653,15 @@ class DatasetFormatOptionsArgsDict(TypedDict):
     """
     Format options for dataset
     """
-    csv: NotRequired[pulumi.Input['DatasetCsvOptionsArgsDict']]
+    csv: NotRequired[pulumi.Input[Optional['DatasetCsvOptionsArgs']]]
     """
     Options that define how CSV input is to be interpreted by DataBrew.
     """
-    excel: NotRequired[pulumi.Input['DatasetExcelOptionsArgsDict']]
+    excel: NotRequired[pulumi.Input[Optional['DatasetExcelOptionsArgs']]]
     """
     Options that define how Excel input is to be interpreted by DataBrew.
     """
-    json: NotRequired[pulumi.Input['DatasetJsonOptionsArgsDict']]
+    json: NotRequired[pulumi.Input[Optional['DatasetJsonOptionsArgs']]]
     """
     Options that define how JSON input is to be interpreted by DataBrew.
     """
@@ -669,9 +669,9 @@ class DatasetFormatOptionsArgsDict(TypedDict):
 @pulumi.input_type
 class DatasetFormatOptionsArgs:
     def __init__(__self__, *,
-                 csv: Optional[pulumi.Input['DatasetCsvOptionsArgs']] = None,
-                 excel: Optional[pulumi.Input['DatasetExcelOptionsArgs']] = None,
-                 json: Optional[pulumi.Input['DatasetJsonOptionsArgs']] = None):
+                 csv: pulumi.Input[Optional['DatasetCsvOptionsArgs']] = None,
+                 excel: pulumi.Input[Optional['DatasetExcelOptionsArgs']] = None,
+                 json: pulumi.Input[Optional['DatasetJsonOptionsArgs']] = None):
         """
         Format options for dataset
 
@@ -688,38 +688,38 @@ class DatasetFormatOptionsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def csv(self) -> Optional[pulumi.Input['DatasetCsvOptionsArgs']]:
+    def csv(self) -> pulumi.Input[Optional['DatasetCsvOptionsArgs']]:
         """
         Options that define how CSV input is to be interpreted by DataBrew.
         """
         return pulumi.get(self, "csv")
 
     @csv.setter
-    def csv(self, value: Optional[pulumi.Input['DatasetCsvOptionsArgs']]):
+    def csv(self, value: pulumi.Input[Optional['DatasetCsvOptionsArgs']]):
         pulumi.set(self, "csv", value)
 
     @_builtins.property
     @pulumi.getter
-    def excel(self) -> Optional[pulumi.Input['DatasetExcelOptionsArgs']]:
+    def excel(self) -> pulumi.Input[Optional['DatasetExcelOptionsArgs']]:
         """
         Options that define how Excel input is to be interpreted by DataBrew.
         """
         return pulumi.get(self, "excel")
 
     @excel.setter
-    def excel(self, value: Optional[pulumi.Input['DatasetExcelOptionsArgs']]):
+    def excel(self, value: pulumi.Input[Optional['DatasetExcelOptionsArgs']]):
         pulumi.set(self, "excel", value)
 
     @_builtins.property
     @pulumi.getter
-    def json(self) -> Optional[pulumi.Input['DatasetJsonOptionsArgs']]:
+    def json(self) -> pulumi.Input[Optional['DatasetJsonOptionsArgs']]:
         """
         Options that define how JSON input is to be interpreted by DataBrew.
         """
         return pulumi.get(self, "json")
 
     @json.setter
-    def json(self, value: Optional[pulumi.Input['DatasetJsonOptionsArgs']]):
+    def json(self, value: pulumi.Input[Optional['DatasetJsonOptionsArgs']]):
         pulumi.set(self, "json", value)
 
 
@@ -727,19 +727,19 @@ class DatasetInputArgsDict(TypedDict):
     """
     Input
     """
-    data_catalog_input_definition: NotRequired[pulumi.Input['DatasetDataCatalogInputDefinitionArgsDict']]
+    data_catalog_input_definition: NotRequired[pulumi.Input[Optional['DatasetDataCatalogInputDefinitionArgs']]]
     """
     The AWS Glue Data Catalog parameters for the data.
     """
-    database_input_definition: NotRequired[pulumi.Input['DatasetDatabaseInputDefinitionArgsDict']]
+    database_input_definition: NotRequired[pulumi.Input[Optional['DatasetDatabaseInputDefinitionArgs']]]
     """
     Connection information for dataset input files stored in a database.
     """
-    metadata: NotRequired[pulumi.Input['DatasetMetadataArgsDict']]
+    metadata: NotRequired[pulumi.Input[Optional['DatasetMetadataArgs']]]
     """
     Contains additional resource information needed for specific datasets.
     """
-    s3_input_definition: NotRequired[pulumi.Input['DatasetS3LocationArgsDict']]
+    s3_input_definition: NotRequired[pulumi.Input[Optional['DatasetS3LocationArgs']]]
     """
     The Amazon S3 location where the data is stored.
     """
@@ -747,10 +747,10 @@ class DatasetInputArgsDict(TypedDict):
 @pulumi.input_type
 class DatasetInputArgs:
     def __init__(__self__, *,
-                 data_catalog_input_definition: Optional[pulumi.Input['DatasetDataCatalogInputDefinitionArgs']] = None,
-                 database_input_definition: Optional[pulumi.Input['DatasetDatabaseInputDefinitionArgs']] = None,
-                 metadata: Optional[pulumi.Input['DatasetMetadataArgs']] = None,
-                 s3_input_definition: Optional[pulumi.Input['DatasetS3LocationArgs']] = None):
+                 data_catalog_input_definition: pulumi.Input[Optional['DatasetDataCatalogInputDefinitionArgs']] = None,
+                 database_input_definition: pulumi.Input[Optional['DatasetDatabaseInputDefinitionArgs']] = None,
+                 metadata: pulumi.Input[Optional['DatasetMetadataArgs']] = None,
+                 s3_input_definition: pulumi.Input[Optional['DatasetS3LocationArgs']] = None):
         """
         Input
 
@@ -770,50 +770,50 @@ class DatasetInputArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataCatalogInputDefinition")
-    def data_catalog_input_definition(self) -> Optional[pulumi.Input['DatasetDataCatalogInputDefinitionArgs']]:
+    def data_catalog_input_definition(self) -> pulumi.Input[Optional['DatasetDataCatalogInputDefinitionArgs']]:
         """
         The AWS Glue Data Catalog parameters for the data.
         """
         return pulumi.get(self, "data_catalog_input_definition")
 
     @data_catalog_input_definition.setter
-    def data_catalog_input_definition(self, value: Optional[pulumi.Input['DatasetDataCatalogInputDefinitionArgs']]):
+    def data_catalog_input_definition(self, value: pulumi.Input[Optional['DatasetDataCatalogInputDefinitionArgs']]):
         pulumi.set(self, "data_catalog_input_definition", value)
 
     @_builtins.property
     @pulumi.getter(name="databaseInputDefinition")
-    def database_input_definition(self) -> Optional[pulumi.Input['DatasetDatabaseInputDefinitionArgs']]:
+    def database_input_definition(self) -> pulumi.Input[Optional['DatasetDatabaseInputDefinitionArgs']]:
         """
         Connection information for dataset input files stored in a database.
         """
         return pulumi.get(self, "database_input_definition")
 
     @database_input_definition.setter
-    def database_input_definition(self, value: Optional[pulumi.Input['DatasetDatabaseInputDefinitionArgs']]):
+    def database_input_definition(self, value: pulumi.Input[Optional['DatasetDatabaseInputDefinitionArgs']]):
         pulumi.set(self, "database_input_definition", value)
 
     @_builtins.property
     @pulumi.getter
-    def metadata(self) -> Optional[pulumi.Input['DatasetMetadataArgs']]:
+    def metadata(self) -> pulumi.Input[Optional['DatasetMetadataArgs']]:
         """
         Contains additional resource information needed for specific datasets.
         """
         return pulumi.get(self, "metadata")
 
     @metadata.setter
-    def metadata(self, value: Optional[pulumi.Input['DatasetMetadataArgs']]):
+    def metadata(self, value: pulumi.Input[Optional['DatasetMetadataArgs']]):
         pulumi.set(self, "metadata", value)
 
     @_builtins.property
     @pulumi.getter(name="s3InputDefinition")
-    def s3_input_definition(self) -> Optional[pulumi.Input['DatasetS3LocationArgs']]:
+    def s3_input_definition(self) -> pulumi.Input[Optional['DatasetS3LocationArgs']]:
         """
         The Amazon S3 location where the data is stored.
         """
         return pulumi.get(self, "s3_input_definition")
 
     @s3_input_definition.setter
-    def s3_input_definition(self, value: Optional[pulumi.Input['DatasetS3LocationArgs']]):
+    def s3_input_definition(self, value: pulumi.Input[Optional['DatasetS3LocationArgs']]):
         pulumi.set(self, "s3_input_definition", value)
 
 
@@ -821,7 +821,7 @@ class DatasetJsonOptionsArgsDict(TypedDict):
     """
     Json options
     """
-    multi_line: NotRequired[pulumi.Input[_builtins.bool]]
+    multi_line: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     A value that specifies whether JSON input contains embedded new line characters.
     """
@@ -829,7 +829,7 @@ class DatasetJsonOptionsArgsDict(TypedDict):
 @pulumi.input_type
 class DatasetJsonOptionsArgs:
     def __init__(__self__, *,
-                 multi_line: Optional[pulumi.Input[_builtins.bool]] = None):
+                 multi_line: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Json options
 
@@ -840,19 +840,19 @@ class DatasetJsonOptionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="multiLine")
-    def multi_line(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def multi_line(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A value that specifies whether JSON input contains embedded new line characters.
         """
         return pulumi.get(self, "multi_line")
 
     @multi_line.setter
-    def multi_line(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def multi_line(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "multi_line", value)
 
 
 class DatasetMetadataArgsDict(TypedDict):
-    source_arn: NotRequired[pulumi.Input[_builtins.str]]
+    source_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Arn of the source of the dataset. For e.g.: AppFlow Flow ARN.
     """
@@ -860,7 +860,7 @@ class DatasetMetadataArgsDict(TypedDict):
 @pulumi.input_type
 class DatasetMetadataArgs:
     def __init__(__self__, *,
-                 source_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 source_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] source_arn: Arn of the source of the dataset. For e.g.: AppFlow Flow ARN.
         """
@@ -869,14 +869,14 @@ class DatasetMetadataArgs:
 
     @_builtins.property
     @pulumi.getter(name="sourceArn")
-    def source_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Arn of the source of the dataset. For e.g.: AppFlow Flow ARN.
         """
         return pulumi.get(self, "source_arn")
 
     @source_arn.setter
-    def source_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_arn", value)
 
 
@@ -889,15 +889,15 @@ class DatasetParameterArgsDict(TypedDict):
     """
     Parameter type
     """
-    create_column: NotRequired[pulumi.Input[_builtins.bool]]
+    create_column: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Add the value of this parameter as a column in a dataset.
     """
-    datetime_options: NotRequired[pulumi.Input['DatasetDatetimeOptionsArgsDict']]
+    datetime_options: NotRequired[pulumi.Input[Optional['DatasetDatetimeOptionsArgs']]]
     """
     Additional parameter options such as a format and a timezone. Required for datetime parameters.
     """
-    filter: NotRequired[pulumi.Input['DatasetFilterExpressionArgsDict']]
+    filter: NotRequired[pulumi.Input[Optional['DatasetFilterExpressionArgs']]]
     """
     The optional filter expression structure to apply additional matching criteria to the parameter.
     """
@@ -907,9 +907,9 @@ class DatasetParameterArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  type: pulumi.Input['DatasetParameterType'],
-                 create_column: Optional[pulumi.Input[_builtins.bool]] = None,
-                 datetime_options: Optional[pulumi.Input['DatasetDatetimeOptionsArgs']] = None,
-                 filter: Optional[pulumi.Input['DatasetFilterExpressionArgs']] = None):
+                 create_column: pulumi.Input[Optional[_builtins.bool]] = None,
+                 datetime_options: pulumi.Input[Optional['DatasetDatetimeOptionsArgs']] = None,
+                 filter: pulumi.Input[Optional['DatasetFilterExpressionArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the parameter that is used in the dataset's Amazon S3 path.
         :param pulumi.Input['DatasetParameterType'] type: Parameter type
@@ -952,38 +952,38 @@ class DatasetParameterArgs:
 
     @_builtins.property
     @pulumi.getter(name="createColumn")
-    def create_column(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def create_column(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Add the value of this parameter as a column in a dataset.
         """
         return pulumi.get(self, "create_column")
 
     @create_column.setter
-    def create_column(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def create_column(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "create_column", value)
 
     @_builtins.property
     @pulumi.getter(name="datetimeOptions")
-    def datetime_options(self) -> Optional[pulumi.Input['DatasetDatetimeOptionsArgs']]:
+    def datetime_options(self) -> pulumi.Input[Optional['DatasetDatetimeOptionsArgs']]:
         """
         Additional parameter options such as a format and a timezone. Required for datetime parameters.
         """
         return pulumi.get(self, "datetime_options")
 
     @datetime_options.setter
-    def datetime_options(self, value: Optional[pulumi.Input['DatasetDatetimeOptionsArgs']]):
+    def datetime_options(self, value: pulumi.Input[Optional['DatasetDatetimeOptionsArgs']]):
         pulumi.set(self, "datetime_options", value)
 
     @_builtins.property
     @pulumi.getter
-    def filter(self) -> Optional[pulumi.Input['DatasetFilterExpressionArgs']]:
+    def filter(self) -> pulumi.Input[Optional['DatasetFilterExpressionArgs']]:
         """
         The optional filter expression structure to apply additional matching criteria to the parameter.
         """
         return pulumi.get(self, "filter")
 
     @filter.setter
-    def filter(self, value: Optional[pulumi.Input['DatasetFilterExpressionArgs']]):
+    def filter(self, value: pulumi.Input[Optional['DatasetFilterExpressionArgs']]):
         pulumi.set(self, "filter", value)
 
 
@@ -991,15 +991,15 @@ class DatasetPathOptionsArgsDict(TypedDict):
     """
     Path options for dataset
     """
-    files_limit: NotRequired[pulumi.Input['DatasetFilesLimitArgsDict']]
+    files_limit: NotRequired[pulumi.Input[Optional['DatasetFilesLimitArgs']]]
     """
     If provided, this structure imposes a limit on a number of files that should be selected.
     """
-    last_modified_date_condition: NotRequired[pulumi.Input['DatasetFilterExpressionArgsDict']]
+    last_modified_date_condition: NotRequired[pulumi.Input[Optional['DatasetFilterExpressionArgs']]]
     """
     If provided, this structure defines a date range for matching Amazon S3 objects based on their LastModifiedDate attribute in Amazon S3 .
     """
-    parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['DatasetPathParameterArgsDict']]]]
+    parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DatasetPathParameterArgs']]]]]
     """
     A structure that maps names of parameters used in the Amazon S3 path of a dataset to their definitions.
     """
@@ -1007,9 +1007,9 @@ class DatasetPathOptionsArgsDict(TypedDict):
 @pulumi.input_type
 class DatasetPathOptionsArgs:
     def __init__(__self__, *,
-                 files_limit: Optional[pulumi.Input['DatasetFilesLimitArgs']] = None,
-                 last_modified_date_condition: Optional[pulumi.Input['DatasetFilterExpressionArgs']] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetPathParameterArgs']]]] = None):
+                 files_limit: pulumi.Input[Optional['DatasetFilesLimitArgs']] = None,
+                 last_modified_date_condition: pulumi.Input[Optional['DatasetFilterExpressionArgs']] = None,
+                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input['DatasetPathParameterArgs']]]] = None):
         """
         Path options for dataset
 
@@ -1026,38 +1026,38 @@ class DatasetPathOptionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="filesLimit")
-    def files_limit(self) -> Optional[pulumi.Input['DatasetFilesLimitArgs']]:
+    def files_limit(self) -> pulumi.Input[Optional['DatasetFilesLimitArgs']]:
         """
         If provided, this structure imposes a limit on a number of files that should be selected.
         """
         return pulumi.get(self, "files_limit")
 
     @files_limit.setter
-    def files_limit(self, value: Optional[pulumi.Input['DatasetFilesLimitArgs']]):
+    def files_limit(self, value: pulumi.Input[Optional['DatasetFilesLimitArgs']]):
         pulumi.set(self, "files_limit", value)
 
     @_builtins.property
     @pulumi.getter(name="lastModifiedDateCondition")
-    def last_modified_date_condition(self) -> Optional[pulumi.Input['DatasetFilterExpressionArgs']]:
+    def last_modified_date_condition(self) -> pulumi.Input[Optional['DatasetFilterExpressionArgs']]:
         """
         If provided, this structure defines a date range for matching Amazon S3 objects based on their LastModifiedDate attribute in Amazon S3 .
         """
         return pulumi.get(self, "last_modified_date_condition")
 
     @last_modified_date_condition.setter
-    def last_modified_date_condition(self, value: Optional[pulumi.Input['DatasetFilterExpressionArgs']]):
+    def last_modified_date_condition(self, value: pulumi.Input[Optional['DatasetFilterExpressionArgs']]):
         pulumi.set(self, "last_modified_date_condition", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatasetPathParameterArgs']]]]:
+    def parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DatasetPathParameterArgs']]]]:
         """
         A structure that maps names of parameters used in the Amazon S3 path of a dataset to their definitions.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetPathParameterArgs']]]]):
+    def parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DatasetPathParameterArgs']]]]):
         pulumi.set(self, "parameters", value)
 
 
@@ -1121,11 +1121,11 @@ class DatasetS3LocationArgsDict(TypedDict):
     """
     The Amazon S3 bucket name.
     """
-    bucket_owner: NotRequired[pulumi.Input[_builtins.str]]
+    bucket_owner: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The AWS account ID of the bucket owner.
     """
-    key: NotRequired[pulumi.Input[_builtins.str]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The unique name of the object in the bucket.
     """
@@ -1134,8 +1134,8 @@ class DatasetS3LocationArgsDict(TypedDict):
 class DatasetS3LocationArgs:
     def __init__(__self__, *,
                  bucket: pulumi.Input[_builtins.str],
-                 bucket_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None):
+                 bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input location
 
@@ -1163,26 +1163,26 @@ class DatasetS3LocationArgs:
 
     @_builtins.property
     @pulumi.getter(name="bucketOwner")
-    def bucket_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bucket_owner(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS account ID of the bucket owner.
         """
         return pulumi.get(self, "bucket_owner")
 
     @bucket_owner.setter
-    def bucket_owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bucket_owner(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bucket_owner", value)
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique name of the object in the bucket.
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
 
@@ -1215,11 +1215,11 @@ class JobAllowedStatisticsArgs:
 
 
 class JobColumnSelectorArgsDict(TypedDict):
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of a column from a dataset.
     """
-    regex: NotRequired[pulumi.Input[_builtins.str]]
+    regex: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A regular expression for selecting a column from a dataset.
     """
@@ -1227,8 +1227,8 @@ class JobColumnSelectorArgsDict(TypedDict):
 @pulumi.input_type
 class JobColumnSelectorArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 regex: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 regex: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of a column from a dataset.
         :param pulumi.Input[_builtins.str] regex: A regular expression for selecting a column from a dataset.
@@ -1240,26 +1240,26 @@ class JobColumnSelectorArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of a column from a dataset.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def regex(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def regex(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A regular expression for selecting a column from a dataset.
         """
         return pulumi.get(self, "regex")
 
     @regex.setter
-    def regex(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def regex(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "regex", value)
 
 
@@ -1268,7 +1268,7 @@ class JobColumnStatisticsConfigurationArgsDict(TypedDict):
     """
     Configuration for evaluations. Statistics can be used to select evaluations and override parameters of evaluations.
     """
-    selectors: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobColumnSelectorArgsDict']]]]
+    selectors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['JobColumnSelectorArgs']]]]]
     """
     List of column selectors. Selectors can be used to select columns from the dataset. When selectors are undefined, configuration will be applied to all supported columns.
     """
@@ -1277,7 +1277,7 @@ class JobColumnStatisticsConfigurationArgsDict(TypedDict):
 class JobColumnStatisticsConfigurationArgs:
     def __init__(__self__, *,
                  statistics: pulumi.Input['JobStatisticsConfigurationArgs'],
-                 selectors: Optional[pulumi.Input[Sequence[pulumi.Input['JobColumnSelectorArgs']]]] = None):
+                 selectors: pulumi.Input[Optional[Sequence[pulumi.Input['JobColumnSelectorArgs']]]] = None):
         """
         :param pulumi.Input['JobStatisticsConfigurationArgs'] statistics: Configuration for evaluations. Statistics can be used to select evaluations and override parameters of evaluations.
         :param pulumi.Input[Sequence[pulumi.Input['JobColumnSelectorArgs']]] selectors: List of column selectors. Selectors can be used to select columns from the dataset. When selectors are undefined, configuration will be applied to all supported columns.
@@ -1300,14 +1300,14 @@ class JobColumnStatisticsConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def selectors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobColumnSelectorArgs']]]]:
+    def selectors(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['JobColumnSelectorArgs']]]]:
         """
         List of column selectors. Selectors can be used to select columns from the dataset. When selectors are undefined, configuration will be applied to all supported columns.
         """
         return pulumi.get(self, "selectors")
 
     @selectors.setter
-    def selectors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobColumnSelectorArgs']]]]):
+    def selectors(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['JobColumnSelectorArgs']]]]):
         pulumi.set(self, "selectors", value)
 
 
@@ -1315,7 +1315,7 @@ class JobCsvOutputOptionsArgsDict(TypedDict):
     """
     Output Csv options
     """
-    delimiter: NotRequired[pulumi.Input[_builtins.str]]
+    delimiter: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A single character that specifies the delimiter used to create CSV job output.
     """
@@ -1323,7 +1323,7 @@ class JobCsvOutputOptionsArgsDict(TypedDict):
 @pulumi.input_type
 class JobCsvOutputOptionsArgs:
     def __init__(__self__, *,
-                 delimiter: Optional[pulumi.Input[_builtins.str]] = None):
+                 delimiter: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Output Csv options
 
@@ -1334,14 +1334,14 @@ class JobCsvOutputOptionsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def delimiter(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delimiter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A single character that specifies the delimiter used to create CSV job output.
         """
         return pulumi.get(self, "delimiter")
 
     @delimiter.setter
-    def delimiter(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delimiter(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delimiter", value)
 
 
@@ -1354,19 +1354,19 @@ class JobDataCatalogOutputArgsDict(TypedDict):
     """
     The name of a table in the Data Catalog.
     """
-    catalog_id: NotRequired[pulumi.Input[_builtins.str]]
+    catalog_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The unique identifier of the AWS account that holds the Data Catalog that stores the data.
     """
-    database_options: NotRequired[pulumi.Input['JobDatabaseTableOutputOptionsArgsDict']]
+    database_options: NotRequired[pulumi.Input[Optional['JobDatabaseTableOutputOptionsArgs']]]
     """
     Represents options that specify how and where DataBrew writes the database output generated by recipe jobs.
     """
-    overwrite: NotRequired[pulumi.Input[_builtins.bool]]
+    overwrite: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     A value that, if true, means that any data in the location specified for output is overwritten with new output. Not supported with DatabaseOptions.
     """
-    s3_options: NotRequired[pulumi.Input['JobS3TableOutputOptionsArgsDict']]
+    s3_options: NotRequired[pulumi.Input[Optional['JobS3TableOutputOptionsArgs']]]
     """
     Represents options that specify how and where DataBrew writes the Amazon S3 output generated by recipe jobs.
     """
@@ -1376,10 +1376,10 @@ class JobDataCatalogOutputArgs:
     def __init__(__self__, *,
                  database_name: pulumi.Input[_builtins.str],
                  table_name: pulumi.Input[_builtins.str],
-                 catalog_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 database_options: Optional[pulumi.Input['JobDatabaseTableOutputOptionsArgs']] = None,
-                 overwrite: Optional[pulumi.Input[_builtins.bool]] = None,
-                 s3_options: Optional[pulumi.Input['JobS3TableOutputOptionsArgs']] = None):
+                 catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_options: pulumi.Input[Optional['JobDatabaseTableOutputOptionsArgs']] = None,
+                 overwrite: pulumi.Input[Optional[_builtins.bool]] = None,
+                 s3_options: pulumi.Input[Optional['JobS3TableOutputOptionsArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] database_name: The name of a database in the Data Catalog.
         :param pulumi.Input[_builtins.str] table_name: The name of a table in the Data Catalog.
@@ -1425,50 +1425,50 @@ class JobDataCatalogOutputArgs:
 
     @_builtins.property
     @pulumi.getter(name="catalogId")
-    def catalog_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def catalog_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique identifier of the AWS account that holds the Data Catalog that stores the data.
         """
         return pulumi.get(self, "catalog_id")
 
     @catalog_id.setter
-    def catalog_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def catalog_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "catalog_id", value)
 
     @_builtins.property
     @pulumi.getter(name="databaseOptions")
-    def database_options(self) -> Optional[pulumi.Input['JobDatabaseTableOutputOptionsArgs']]:
+    def database_options(self) -> pulumi.Input[Optional['JobDatabaseTableOutputOptionsArgs']]:
         """
         Represents options that specify how and where DataBrew writes the database output generated by recipe jobs.
         """
         return pulumi.get(self, "database_options")
 
     @database_options.setter
-    def database_options(self, value: Optional[pulumi.Input['JobDatabaseTableOutputOptionsArgs']]):
+    def database_options(self, value: pulumi.Input[Optional['JobDatabaseTableOutputOptionsArgs']]):
         pulumi.set(self, "database_options", value)
 
     @_builtins.property
     @pulumi.getter
-    def overwrite(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def overwrite(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A value that, if true, means that any data in the location specified for output is overwritten with new output. Not supported with DatabaseOptions.
         """
         return pulumi.get(self, "overwrite")
 
     @overwrite.setter
-    def overwrite(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def overwrite(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "overwrite", value)
 
     @_builtins.property
     @pulumi.getter(name="s3Options")
-    def s3_options(self) -> Optional[pulumi.Input['JobS3TableOutputOptionsArgs']]:
+    def s3_options(self) -> pulumi.Input[Optional['JobS3TableOutputOptionsArgs']]:
         """
         Represents options that specify how and where DataBrew writes the Amazon S3 output generated by recipe jobs.
         """
         return pulumi.get(self, "s3_options")
 
     @s3_options.setter
-    def s3_options(self, value: Optional[pulumi.Input['JobS3TableOutputOptionsArgs']]):
+    def s3_options(self, value: pulumi.Input[Optional['JobS3TableOutputOptionsArgs']]):
         pulumi.set(self, "s3_options", value)
 
 
@@ -1481,7 +1481,7 @@ class JobDatabaseOutputArgsDict(TypedDict):
     """
     Glue connection name
     """
-    database_output_mode: NotRequired[pulumi.Input['JobDatabaseOutputDatabaseOutputMode']]
+    database_output_mode: NotRequired[pulumi.Input[Optional['JobDatabaseOutputDatabaseOutputMode']]]
     """
     Database table name
     """
@@ -1491,7 +1491,7 @@ class JobDatabaseOutputArgs:
     def __init__(__self__, *,
                  database_options: pulumi.Input['JobDatabaseTableOutputOptionsArgs'],
                  glue_connection_name: pulumi.Input[_builtins.str],
-                 database_output_mode: Optional[pulumi.Input['JobDatabaseOutputDatabaseOutputMode']] = None):
+                 database_output_mode: pulumi.Input[Optional['JobDatabaseOutputDatabaseOutputMode']] = None):
         """
         :param pulumi.Input['JobDatabaseTableOutputOptionsArgs'] database_options: Represents options that specify how and where DataBrew writes the database output generated by recipe jobs.
         :param pulumi.Input[_builtins.str] glue_connection_name: Glue connection name
@@ -1528,14 +1528,14 @@ class JobDatabaseOutputArgs:
 
     @_builtins.property
     @pulumi.getter(name="databaseOutputMode")
-    def database_output_mode(self) -> Optional[pulumi.Input['JobDatabaseOutputDatabaseOutputMode']]:
+    def database_output_mode(self) -> pulumi.Input[Optional['JobDatabaseOutputDatabaseOutputMode']]:
         """
         Database table name
         """
         return pulumi.get(self, "database_output_mode")
 
     @database_output_mode.setter
-    def database_output_mode(self, value: Optional[pulumi.Input['JobDatabaseOutputDatabaseOutputMode']]):
+    def database_output_mode(self, value: pulumi.Input[Optional['JobDatabaseOutputDatabaseOutputMode']]):
         pulumi.set(self, "database_output_mode", value)
 
 
@@ -1544,7 +1544,7 @@ class JobDatabaseTableOutputOptionsArgsDict(TypedDict):
     """
     A prefix for the name of a table DataBrew will create in the database.
     """
-    temp_directory: NotRequired[pulumi.Input['JobS3LocationArgsDict']]
+    temp_directory: NotRequired[pulumi.Input[Optional['JobS3LocationArgs']]]
     """
     Represents an Amazon S3 location (bucket name and object key) where DataBrew can store intermediate results.
     """
@@ -1553,7 +1553,7 @@ class JobDatabaseTableOutputOptionsArgsDict(TypedDict):
 class JobDatabaseTableOutputOptionsArgs:
     def __init__(__self__, *,
                  table_name: pulumi.Input[_builtins.str],
-                 temp_directory: Optional[pulumi.Input['JobS3LocationArgs']] = None):
+                 temp_directory: pulumi.Input[Optional['JobS3LocationArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] table_name: A prefix for the name of a table DataBrew will create in the database.
         :param pulumi.Input['JobS3LocationArgs'] temp_directory: Represents an Amazon S3 location (bucket name and object key) where DataBrew can store intermediate results.
@@ -1576,14 +1576,14 @@ class JobDatabaseTableOutputOptionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="tempDirectory")
-    def temp_directory(self) -> Optional[pulumi.Input['JobS3LocationArgs']]:
+    def temp_directory(self) -> pulumi.Input[Optional['JobS3LocationArgs']]:
         """
         Represents an Amazon S3 location (bucket name and object key) where DataBrew can store intermediate results.
         """
         return pulumi.get(self, "temp_directory")
 
     @temp_directory.setter
-    def temp_directory(self, value: Optional[pulumi.Input['JobS3LocationArgs']]):
+    def temp_directory(self, value: pulumi.Input[Optional['JobS3LocationArgs']]):
         pulumi.set(self, "temp_directory", value)
 
 
@@ -1614,7 +1614,7 @@ class JobEntityDetectorConfigurationArgsDict(TypedDict):
 
     The Entity type group USA_ALL is also supported, and includes all of the above entity types except PERSON_NAME and DATE.
     """
-    allowed_statistics: NotRequired[pulumi.Input['JobAllowedStatisticsArgsDict']]
+    allowed_statistics: NotRequired[pulumi.Input[Optional['JobAllowedStatisticsArgs']]]
     """
     Configuration of statistics that are allowed to be run on columns that contain detected entities. When undefined, no statistics will be computed on columns that contain detected entities.
     """
@@ -1623,7 +1623,7 @@ class JobEntityDetectorConfigurationArgsDict(TypedDict):
 class JobEntityDetectorConfigurationArgs:
     def __init__(__self__, *,
                  entity_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 allowed_statistics: Optional[pulumi.Input['JobAllowedStatisticsArgs']] = None):
+                 allowed_statistics: pulumi.Input[Optional['JobAllowedStatisticsArgs']] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] entity_types: Entity types to detect. Can be any of the following:
                
@@ -1690,14 +1690,14 @@ class JobEntityDetectorConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowedStatistics")
-    def allowed_statistics(self) -> Optional[pulumi.Input['JobAllowedStatisticsArgs']]:
+    def allowed_statistics(self) -> pulumi.Input[Optional['JobAllowedStatisticsArgs']]:
         """
         Configuration of statistics that are allowed to be run on columns that contain detected entities. When undefined, no statistics will be computed on columns that contain detected entities.
         """
         return pulumi.get(self, "allowed_statistics")
 
     @allowed_statistics.setter
-    def allowed_statistics(self, value: Optional[pulumi.Input['JobAllowedStatisticsArgs']]):
+    def allowed_statistics(self, value: pulumi.Input[Optional['JobAllowedStatisticsArgs']]):
         pulumi.set(self, "allowed_statistics", value)
 
 
@@ -1705,7 +1705,7 @@ class JobOutputFormatOptionsArgsDict(TypedDict):
     """
     Format options for job Output
     """
-    csv: NotRequired[pulumi.Input['JobCsvOutputOptionsArgsDict']]
+    csv: NotRequired[pulumi.Input[Optional['JobCsvOutputOptionsArgs']]]
     """
     Represents a set of options that define the structure of comma-separated value (CSV) job output.
     """
@@ -1713,7 +1713,7 @@ class JobOutputFormatOptionsArgsDict(TypedDict):
 @pulumi.input_type
 class JobOutputFormatOptionsArgs:
     def __init__(__self__, *,
-                 csv: Optional[pulumi.Input['JobCsvOutputOptionsArgs']] = None):
+                 csv: pulumi.Input[Optional['JobCsvOutputOptionsArgs']] = None):
         """
         Format options for job Output
 
@@ -1724,14 +1724,14 @@ class JobOutputFormatOptionsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def csv(self) -> Optional[pulumi.Input['JobCsvOutputOptionsArgs']]:
+    def csv(self) -> pulumi.Input[Optional['JobCsvOutputOptionsArgs']]:
         """
         Represents a set of options that define the structure of comma-separated value (CSV) job output.
         """
         return pulumi.get(self, "csv")
 
     @csv.setter
-    def csv(self, value: Optional[pulumi.Input['JobCsvOutputOptionsArgs']]):
+    def csv(self, value: pulumi.Input[Optional['JobCsvOutputOptionsArgs']]):
         pulumi.set(self, "csv", value)
 
 
@@ -1743,8 +1743,8 @@ class JobOutputLocationArgsDict(TypedDict):
     """
     The Amazon S3 bucket name.
     """
-    bucket_owner: NotRequired[pulumi.Input[_builtins.str]]
-    key: NotRequired[pulumi.Input[_builtins.str]]
+    bucket_owner: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The unique name of the object in the bucket.
     """
@@ -1753,8 +1753,8 @@ class JobOutputLocationArgsDict(TypedDict):
 class JobOutputLocationArgs:
     def __init__(__self__, *,
                  bucket: pulumi.Input[_builtins.str],
-                 bucket_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None):
+                 bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Output location
 
@@ -1781,23 +1781,23 @@ class JobOutputLocationArgs:
 
     @_builtins.property
     @pulumi.getter(name="bucketOwner")
-    def bucket_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bucket_owner(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "bucket_owner")
 
     @bucket_owner.setter
-    def bucket_owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bucket_owner(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bucket_owner", value)
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique name of the object in the bucket.
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
 
@@ -1806,27 +1806,27 @@ class JobOutputArgsDict(TypedDict):
     """
     The location in Amazon S3 where the job writes its output.
     """
-    compression_format: NotRequired[pulumi.Input['JobOutputCompressionFormat']]
+    compression_format: NotRequired[pulumi.Input[Optional['JobOutputCompressionFormat']]]
     """
     The compression algorithm used to compress the output text of the job.
     """
-    format: NotRequired[pulumi.Input['JobOutputFormat']]
+    format: NotRequired[pulumi.Input[Optional['JobOutputFormat']]]
     """
     The data format of the output of the job.
     """
-    format_options: NotRequired[pulumi.Input['JobOutputFormatOptionsArgsDict']]
+    format_options: NotRequired[pulumi.Input[Optional['JobOutputFormatOptionsArgs']]]
     """
     Represents options that define how DataBrew formats job output files.
     """
-    max_output_files: NotRequired[pulumi.Input[_builtins.int]]
+    max_output_files: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum number of files to be generated by the job and written to the output folder.
     """
-    overwrite: NotRequired[pulumi.Input[_builtins.bool]]
+    overwrite: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     A value that, if true, means that any data in the location specified for output is overwritten with new output.
     """
-    partition_columns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    partition_columns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The names of one or more partition columns for the output of the job.
     """
@@ -1835,12 +1835,12 @@ class JobOutputArgsDict(TypedDict):
 class JobOutputArgs:
     def __init__(__self__, *,
                  location: pulumi.Input['JobS3LocationArgs'],
-                 compression_format: Optional[pulumi.Input['JobOutputCompressionFormat']] = None,
-                 format: Optional[pulumi.Input['JobOutputFormat']] = None,
-                 format_options: Optional[pulumi.Input['JobOutputFormatOptionsArgs']] = None,
-                 max_output_files: Optional[pulumi.Input[_builtins.int]] = None,
-                 overwrite: Optional[pulumi.Input[_builtins.bool]] = None,
-                 partition_columns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 compression_format: pulumi.Input[Optional['JobOutputCompressionFormat']] = None,
+                 format: pulumi.Input[Optional['JobOutputFormat']] = None,
+                 format_options: pulumi.Input[Optional['JobOutputFormatOptionsArgs']] = None,
+                 max_output_files: pulumi.Input[Optional[_builtins.int]] = None,
+                 overwrite: pulumi.Input[Optional[_builtins.bool]] = None,
+                 partition_columns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input['JobS3LocationArgs'] location: The location in Amazon S3 where the job writes its output.
         :param pulumi.Input['JobOutputCompressionFormat'] compression_format: The compression algorithm used to compress the output text of the job.
@@ -1878,91 +1878,91 @@ class JobOutputArgs:
 
     @_builtins.property
     @pulumi.getter(name="compressionFormat")
-    def compression_format(self) -> Optional[pulumi.Input['JobOutputCompressionFormat']]:
+    def compression_format(self) -> pulumi.Input[Optional['JobOutputCompressionFormat']]:
         """
         The compression algorithm used to compress the output text of the job.
         """
         return pulumi.get(self, "compression_format")
 
     @compression_format.setter
-    def compression_format(self, value: Optional[pulumi.Input['JobOutputCompressionFormat']]):
+    def compression_format(self, value: pulumi.Input[Optional['JobOutputCompressionFormat']]):
         pulumi.set(self, "compression_format", value)
 
     @_builtins.property
     @pulumi.getter
-    def format(self) -> Optional[pulumi.Input['JobOutputFormat']]:
+    def format(self) -> pulumi.Input[Optional['JobOutputFormat']]:
         """
         The data format of the output of the job.
         """
         return pulumi.get(self, "format")
 
     @format.setter
-    def format(self, value: Optional[pulumi.Input['JobOutputFormat']]):
+    def format(self, value: pulumi.Input[Optional['JobOutputFormat']]):
         pulumi.set(self, "format", value)
 
     @_builtins.property
     @pulumi.getter(name="formatOptions")
-    def format_options(self) -> Optional[pulumi.Input['JobOutputFormatOptionsArgs']]:
+    def format_options(self) -> pulumi.Input[Optional['JobOutputFormatOptionsArgs']]:
         """
         Represents options that define how DataBrew formats job output files.
         """
         return pulumi.get(self, "format_options")
 
     @format_options.setter
-    def format_options(self, value: Optional[pulumi.Input['JobOutputFormatOptionsArgs']]):
+    def format_options(self, value: pulumi.Input[Optional['JobOutputFormatOptionsArgs']]):
         pulumi.set(self, "format_options", value)
 
     @_builtins.property
     @pulumi.getter(name="maxOutputFiles")
-    def max_output_files(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_output_files(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of files to be generated by the job and written to the output folder.
         """
         return pulumi.get(self, "max_output_files")
 
     @max_output_files.setter
-    def max_output_files(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_output_files(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_output_files", value)
 
     @_builtins.property
     @pulumi.getter
-    def overwrite(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def overwrite(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A value that, if true, means that any data in the location specified for output is overwritten with new output.
         """
         return pulumi.get(self, "overwrite")
 
     @overwrite.setter
-    def overwrite(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def overwrite(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "overwrite", value)
 
     @_builtins.property
     @pulumi.getter(name="partitionColumns")
-    def partition_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def partition_columns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The names of one or more partition columns for the output of the job.
         """
         return pulumi.get(self, "partition_columns")
 
     @partition_columns.setter
-    def partition_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def partition_columns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "partition_columns", value)
 
 
 class JobProfileConfigurationArgsDict(TypedDict):
-    column_statistics_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobColumnStatisticsConfigurationArgsDict']]]]
+    column_statistics_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['JobColumnStatisticsConfigurationArgs']]]]]
     """
     List of configurations for column evaluations. ColumnStatisticsConfigurations are used to select evaluations and override parameters of evaluations for particular columns. When ColumnStatisticsConfigurations is undefined, the profile job will profile all supported columns and run all supported evaluations.
     """
-    dataset_statistics_configuration: NotRequired[pulumi.Input['JobStatisticsConfigurationArgsDict']]
+    dataset_statistics_configuration: NotRequired[pulumi.Input[Optional['JobStatisticsConfigurationArgs']]]
     """
     Configuration for inter-column evaluations. Configuration can be used to select evaluations and override parameters of evaluations. When configuration is undefined, the profile job will run all supported inter-column evaluations.
     """
-    entity_detector_configuration: NotRequired[pulumi.Input['JobEntityDetectorConfigurationArgsDict']]
+    entity_detector_configuration: NotRequired[pulumi.Input[Optional['JobEntityDetectorConfigurationArgs']]]
     """
     Configuration of entity detection for a profile job. When undefined, entity detection is disabled.
     """
-    profile_columns: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobColumnSelectorArgsDict']]]]
+    profile_columns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['JobColumnSelectorArgs']]]]]
     """
     List of column selectors. ProfileColumns can be used to select columns from the dataset. When ProfileColumns is undefined, the profile job will profile all supported columns.
     """
@@ -1970,10 +1970,10 @@ class JobProfileConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class JobProfileConfigurationArgs:
     def __init__(__self__, *,
-                 column_statistics_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['JobColumnStatisticsConfigurationArgs']]]] = None,
-                 dataset_statistics_configuration: Optional[pulumi.Input['JobStatisticsConfigurationArgs']] = None,
-                 entity_detector_configuration: Optional[pulumi.Input['JobEntityDetectorConfigurationArgs']] = None,
-                 profile_columns: Optional[pulumi.Input[Sequence[pulumi.Input['JobColumnSelectorArgs']]]] = None):
+                 column_statistics_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['JobColumnStatisticsConfigurationArgs']]]] = None,
+                 dataset_statistics_configuration: pulumi.Input[Optional['JobStatisticsConfigurationArgs']] = None,
+                 entity_detector_configuration: pulumi.Input[Optional['JobEntityDetectorConfigurationArgs']] = None,
+                 profile_columns: pulumi.Input[Optional[Sequence[pulumi.Input['JobColumnSelectorArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['JobColumnStatisticsConfigurationArgs']]] column_statistics_configurations: List of configurations for column evaluations. ColumnStatisticsConfigurations are used to select evaluations and override parameters of evaluations for particular columns. When ColumnStatisticsConfigurations is undefined, the profile job will profile all supported columns and run all supported evaluations.
         :param pulumi.Input['JobStatisticsConfigurationArgs'] dataset_statistics_configuration: Configuration for inter-column evaluations. Configuration can be used to select evaluations and override parameters of evaluations. When configuration is undefined, the profile job will run all supported inter-column evaluations.
@@ -1991,50 +1991,50 @@ class JobProfileConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="columnStatisticsConfigurations")
-    def column_statistics_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobColumnStatisticsConfigurationArgs']]]]:
+    def column_statistics_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['JobColumnStatisticsConfigurationArgs']]]]:
         """
         List of configurations for column evaluations. ColumnStatisticsConfigurations are used to select evaluations and override parameters of evaluations for particular columns. When ColumnStatisticsConfigurations is undefined, the profile job will profile all supported columns and run all supported evaluations.
         """
         return pulumi.get(self, "column_statistics_configurations")
 
     @column_statistics_configurations.setter
-    def column_statistics_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobColumnStatisticsConfigurationArgs']]]]):
+    def column_statistics_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['JobColumnStatisticsConfigurationArgs']]]]):
         pulumi.set(self, "column_statistics_configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="datasetStatisticsConfiguration")
-    def dataset_statistics_configuration(self) -> Optional[pulumi.Input['JobStatisticsConfigurationArgs']]:
+    def dataset_statistics_configuration(self) -> pulumi.Input[Optional['JobStatisticsConfigurationArgs']]:
         """
         Configuration for inter-column evaluations. Configuration can be used to select evaluations and override parameters of evaluations. When configuration is undefined, the profile job will run all supported inter-column evaluations.
         """
         return pulumi.get(self, "dataset_statistics_configuration")
 
     @dataset_statistics_configuration.setter
-    def dataset_statistics_configuration(self, value: Optional[pulumi.Input['JobStatisticsConfigurationArgs']]):
+    def dataset_statistics_configuration(self, value: pulumi.Input[Optional['JobStatisticsConfigurationArgs']]):
         pulumi.set(self, "dataset_statistics_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="entityDetectorConfiguration")
-    def entity_detector_configuration(self) -> Optional[pulumi.Input['JobEntityDetectorConfigurationArgs']]:
+    def entity_detector_configuration(self) -> pulumi.Input[Optional['JobEntityDetectorConfigurationArgs']]:
         """
         Configuration of entity detection for a profile job. When undefined, entity detection is disabled.
         """
         return pulumi.get(self, "entity_detector_configuration")
 
     @entity_detector_configuration.setter
-    def entity_detector_configuration(self, value: Optional[pulumi.Input['JobEntityDetectorConfigurationArgs']]):
+    def entity_detector_configuration(self, value: pulumi.Input[Optional['JobEntityDetectorConfigurationArgs']]):
         pulumi.set(self, "entity_detector_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="profileColumns")
-    def profile_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobColumnSelectorArgs']]]]:
+    def profile_columns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['JobColumnSelectorArgs']]]]:
         """
         List of column selectors. ProfileColumns can be used to select columns from the dataset. When ProfileColumns is undefined, the profile job will profile all supported columns.
         """
         return pulumi.get(self, "profile_columns")
 
     @profile_columns.setter
-    def profile_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobColumnSelectorArgs']]]]):
+    def profile_columns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['JobColumnSelectorArgs']]]]):
         pulumi.set(self, "profile_columns", value)
 
 
@@ -2043,7 +2043,7 @@ class JobRecipeArgsDict(TypedDict):
     """
     Recipe name
     """
-    version: NotRequired[pulumi.Input[_builtins.str]]
+    version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Recipe version
     """
@@ -2052,7 +2052,7 @@ class JobRecipeArgsDict(TypedDict):
 class JobRecipeArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: Recipe name
         :param pulumi.Input[_builtins.str] version: Recipe version
@@ -2075,14 +2075,14 @@ class JobRecipeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Recipe version
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
@@ -2094,11 +2094,11 @@ class JobS3LocationArgsDict(TypedDict):
     """
     The Amazon S3 bucket name.
     """
-    bucket_owner: NotRequired[pulumi.Input[_builtins.str]]
+    bucket_owner: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The AWS account ID of the bucket owner.
     """
-    key: NotRequired[pulumi.Input[_builtins.str]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The unique name of the object in the bucket.
     """
@@ -2107,8 +2107,8 @@ class JobS3LocationArgsDict(TypedDict):
 class JobS3LocationArgs:
     def __init__(__self__, *,
                  bucket: pulumi.Input[_builtins.str],
-                 bucket_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None):
+                 bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None):
         """
         S3 Output location
 
@@ -2136,26 +2136,26 @@ class JobS3LocationArgs:
 
     @_builtins.property
     @pulumi.getter(name="bucketOwner")
-    def bucket_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bucket_owner(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS account ID of the bucket owner.
         """
         return pulumi.get(self, "bucket_owner")
 
     @bucket_owner.setter
-    def bucket_owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bucket_owner(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bucket_owner", value)
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique name of the object in the bucket.
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
 
@@ -2191,14 +2191,14 @@ class JobSampleArgsDict(TypedDict):
     """
     Job Sample
     """
-    mode: NotRequired[pulumi.Input['JobSampleMode']]
+    mode: NotRequired[pulumi.Input[Optional['JobSampleMode']]]
     """
     A value that determines whether the profile job is run on the entire dataset or a specified number of rows. This value must be one of the following:
 
     - FULL_DATASET - The profile job is run on the entire dataset.
     - CUSTOM_ROWS - The profile job is run on the number of rows specified in the `Size` parameter.
     """
-    size: NotRequired[pulumi.Input[_builtins.int]]
+    size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The `Size` parameter is only required when the mode is CUSTOM_ROWS. The profile job is run on the specified number of rows. The maximum value for size is Long.MAX_VALUE.
 
@@ -2208,8 +2208,8 @@ class JobSampleArgsDict(TypedDict):
 @pulumi.input_type
 class JobSampleArgs:
     def __init__(__self__, *,
-                 mode: Optional[pulumi.Input['JobSampleMode']] = None,
-                 size: Optional[pulumi.Input[_builtins.int]] = None):
+                 mode: pulumi.Input[Optional['JobSampleMode']] = None,
+                 size: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Job Sample
 
@@ -2228,7 +2228,7 @@ class JobSampleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def mode(self) -> Optional[pulumi.Input['JobSampleMode']]:
+    def mode(self) -> pulumi.Input[Optional['JobSampleMode']]:
         """
         A value that determines whether the profile job is run on the entire dataset or a specified number of rows. This value must be one of the following:
 
@@ -2238,12 +2238,12 @@ class JobSampleArgs:
         return pulumi.get(self, "mode")
 
     @mode.setter
-    def mode(self, value: Optional[pulumi.Input['JobSampleMode']]):
+    def mode(self, value: pulumi.Input[Optional['JobSampleMode']]):
         pulumi.set(self, "mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The `Size` parameter is only required when the mode is CUSTOM_ROWS. The profile job is run on the specified number of rows. The maximum value for size is Long.MAX_VALUE.
 
@@ -2252,7 +2252,7 @@ class JobSampleArgs:
         return pulumi.get(self, "size")
 
     @size.setter
-    def size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "size", value)
 
 
@@ -2304,11 +2304,11 @@ class JobStatisticOverrideArgs:
 
 
 class JobStatisticsConfigurationArgsDict(TypedDict):
-    included_statistics: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    included_statistics: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of included evaluations. When the list is undefined, all supported evaluations will be included.
     """
-    overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobStatisticOverrideArgsDict']]]]
+    overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['JobStatisticOverrideArgs']]]]]
     """
     List of overrides for evaluations.
     """
@@ -2316,8 +2316,8 @@ class JobStatisticsConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class JobStatisticsConfigurationArgs:
     def __init__(__self__, *,
-                 included_statistics: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 overrides: Optional[pulumi.Input[Sequence[pulumi.Input['JobStatisticOverrideArgs']]]] = None):
+                 included_statistics: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 overrides: pulumi.Input[Optional[Sequence[pulumi.Input['JobStatisticOverrideArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] included_statistics: List of included evaluations. When the list is undefined, all supported evaluations will be included.
         :param pulumi.Input[Sequence[pulumi.Input['JobStatisticOverrideArgs']]] overrides: List of overrides for evaluations.
@@ -2329,26 +2329,26 @@ class JobStatisticsConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="includedStatistics")
-    def included_statistics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def included_statistics(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of included evaluations. When the list is undefined, all supported evaluations will be included.
         """
         return pulumi.get(self, "included_statistics")
 
     @included_statistics.setter
-    def included_statistics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def included_statistics(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "included_statistics", value)
 
     @_builtins.property
     @pulumi.getter
-    def overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobStatisticOverrideArgs']]]]:
+    def overrides(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['JobStatisticOverrideArgs']]]]:
         """
         List of overrides for evaluations.
         """
         return pulumi.get(self, "overrides")
 
     @overrides.setter
-    def overrides(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobStatisticOverrideArgs']]]]):
+    def overrides(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['JobStatisticOverrideArgs']]]]):
         pulumi.set(self, "overrides", value)
 
 
@@ -2360,7 +2360,7 @@ class JobValidationConfigurationArgsDict(TypedDict):
     """
     Arn of the Ruleset
     """
-    validation_mode: NotRequired[pulumi.Input['JobValidationMode']]
+    validation_mode: NotRequired[pulumi.Input[Optional['JobValidationMode']]]
     """
     Mode of data quality validation. Default mode is "CHECK_ALL" which verifies all rules defined in the selected ruleset.
     """
@@ -2369,7 +2369,7 @@ class JobValidationConfigurationArgsDict(TypedDict):
 class JobValidationConfigurationArgs:
     def __init__(__self__, *,
                  ruleset_arn: pulumi.Input[_builtins.str],
-                 validation_mode: Optional[pulumi.Input['JobValidationMode']] = None):
+                 validation_mode: pulumi.Input[Optional['JobValidationMode']] = None):
         """
         Configuration to attach Rulesets to the job
 
@@ -2394,14 +2394,14 @@ class JobValidationConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="validationMode")
-    def validation_mode(self) -> Optional[pulumi.Input['JobValidationMode']]:
+    def validation_mode(self) -> pulumi.Input[Optional['JobValidationMode']]:
         """
         Mode of data quality validation. Default mode is "CHECK_ALL" which verifies all rules defined in the selected ruleset.
         """
         return pulumi.get(self, "validation_mode")
 
     @validation_mode.setter
-    def validation_mode(self, value: Optional[pulumi.Input['JobValidationMode']]):
+    def validation_mode(self, value: pulumi.Input[Optional['JobValidationMode']]):
         pulumi.set(self, "validation_mode", value)
 
 
@@ -2410,7 +2410,7 @@ class ProjectSampleArgsDict(TypedDict):
     """
     Sample type
     """
-    size: NotRequired[pulumi.Input[_builtins.int]]
+    size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Sample size
     """
@@ -2419,7 +2419,7 @@ class ProjectSampleArgsDict(TypedDict):
 class ProjectSampleArgs:
     def __init__(__self__, *,
                  type: pulumi.Input['ProjectSampleType'],
-                 size: Optional[pulumi.Input[_builtins.int]] = None):
+                 size: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input['ProjectSampleType'] type: Sample type
         :param pulumi.Input[_builtins.int] size: Sample size
@@ -2442,14 +2442,14 @@ class ProjectSampleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Sample size
         """
         return pulumi.get(self, "size")
 
     @size.setter
-    def size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "size", value)
 
 
@@ -2458,7 +2458,7 @@ class RecipeActionArgsDict(TypedDict):
     """
     Step action operation
     """
-    parameters: NotRequired[pulumi.Input[Union['RecipeParametersArgsDict', Mapping[str, pulumi.Input[_builtins.str]]]]]
+    parameters: NotRequired[pulumi.Input[Optional[Union['RecipeParametersArgs', Mapping[str, pulumi.Input[_builtins.str]]]]]]
     """
     Contextual parameters for the transformation.
     """
@@ -2467,7 +2467,7 @@ class RecipeActionArgsDict(TypedDict):
 class RecipeActionArgs:
     def __init__(__self__, *,
                  operation: pulumi.Input[_builtins.str],
-                 parameters: Optional[pulumi.Input[Union['RecipeParametersArgs', Mapping[str, pulumi.Input[_builtins.str]]]]] = None):
+                 parameters: pulumi.Input[Optional[Union['RecipeParametersArgs', Mapping[str, pulumi.Input[_builtins.str]]]]] = None):
         """
         :param pulumi.Input[_builtins.str] operation: Step action operation
         :param pulumi.Input[Union['RecipeParametersArgs', Mapping[str, pulumi.Input[_builtins.str]]]] parameters: Contextual parameters for the transformation.
@@ -2490,14 +2490,14 @@ class RecipeActionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Union['RecipeParametersArgs', Mapping[str, pulumi.Input[_builtins.str]]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Union['RecipeParametersArgs', Mapping[str, pulumi.Input[_builtins.str]]]]]:
         """
         Contextual parameters for the transformation.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Union['RecipeParametersArgs', Mapping[str, pulumi.Input[_builtins.str]]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Union['RecipeParametersArgs', Mapping[str, pulumi.Input[_builtins.str]]]]]):
         pulumi.set(self, "parameters", value)
 
 
@@ -2513,7 +2513,7 @@ class RecipeConditionExpressionArgsDict(TypedDict):
     """
     Name of the target column
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Value of the condition
     """
@@ -2523,7 +2523,7 @@ class RecipeConditionExpressionArgs:
     def __init__(__self__, *,
                  condition: pulumi.Input[_builtins.str],
                  target_column: pulumi.Input[_builtins.str],
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Condition expressions applied to the step action
 
@@ -2562,39 +2562,39 @@ class RecipeConditionExpressionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Value of the condition
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
 class RecipeDataCatalogInputDefinitionArgsDict(TypedDict):
-    catalog_id: NotRequired[pulumi.Input[_builtins.str]]
+    catalog_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Catalog id
     """
-    database_name: NotRequired[pulumi.Input[_builtins.str]]
+    database_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Database name
     """
-    table_name: NotRequired[pulumi.Input[_builtins.str]]
+    table_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Table name
     """
-    temp_directory: NotRequired[pulumi.Input['RecipeS3LocationArgsDict']]
+    temp_directory: NotRequired[pulumi.Input[Optional['RecipeS3LocationArgs']]]
 
 @pulumi.input_type
 class RecipeDataCatalogInputDefinitionArgs:
     def __init__(__self__, *,
-                 catalog_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 table_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 temp_directory: Optional[pulumi.Input['RecipeS3LocationArgs']] = None):
+                 catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 table_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 temp_directory: pulumi.Input[Optional['RecipeS3LocationArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] catalog_id: Catalog id
         :param pulumi.Input[_builtins.str] database_name: Database name
@@ -2611,47 +2611,47 @@ class RecipeDataCatalogInputDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter(name="catalogId")
-    def catalog_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def catalog_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Catalog id
         """
         return pulumi.get(self, "catalog_id")
 
     @catalog_id.setter
-    def catalog_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def catalog_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "catalog_id", value)
 
     @_builtins.property
     @pulumi.getter(name="databaseName")
-    def database_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Database name
         """
         return pulumi.get(self, "database_name")
 
     @database_name.setter
-    def database_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database_name", value)
 
     @_builtins.property
     @pulumi.getter(name="tableName")
-    def table_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def table_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Table name
         """
         return pulumi.get(self, "table_name")
 
     @table_name.setter
-    def table_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def table_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "table_name", value)
 
     @_builtins.property
     @pulumi.getter(name="tempDirectory")
-    def temp_directory(self) -> Optional[pulumi.Input['RecipeS3LocationArgs']]:
+    def temp_directory(self) -> pulumi.Input[Optional['RecipeS3LocationArgs']]:
         return pulumi.get(self, "temp_directory")
 
     @temp_directory.setter
-    def temp_directory(self, value: Optional[pulumi.Input['RecipeS3LocationArgs']]):
+    def temp_directory(self, value: pulumi.Input[Optional['RecipeS3LocationArgs']]):
         pulumi.set(self, "temp_directory", value)
 
 
@@ -2659,14 +2659,14 @@ class RecipeParametersInputPropertiesArgsDict(TypedDict):
     """
     Input
     """
-    data_catalog_input_definition: NotRequired[pulumi.Input['RecipeDataCatalogInputDefinitionArgsDict']]
-    s3_input_definition: NotRequired[pulumi.Input['RecipeS3LocationArgsDict']]
+    data_catalog_input_definition: NotRequired[pulumi.Input[Optional['RecipeDataCatalogInputDefinitionArgs']]]
+    s3_input_definition: NotRequired[pulumi.Input[Optional['RecipeS3LocationArgs']]]
 
 @pulumi.input_type
 class RecipeParametersInputPropertiesArgs:
     def __init__(__self__, *,
-                 data_catalog_input_definition: Optional[pulumi.Input['RecipeDataCatalogInputDefinitionArgs']] = None,
-                 s3_input_definition: Optional[pulumi.Input['RecipeS3LocationArgs']] = None):
+                 data_catalog_input_definition: pulumi.Input[Optional['RecipeDataCatalogInputDefinitionArgs']] = None,
+                 s3_input_definition: pulumi.Input[Optional['RecipeS3LocationArgs']] = None):
         """
         Input
         """
@@ -2677,233 +2677,233 @@ class RecipeParametersInputPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataCatalogInputDefinition")
-    def data_catalog_input_definition(self) -> Optional[pulumi.Input['RecipeDataCatalogInputDefinitionArgs']]:
+    def data_catalog_input_definition(self) -> pulumi.Input[Optional['RecipeDataCatalogInputDefinitionArgs']]:
         return pulumi.get(self, "data_catalog_input_definition")
 
     @data_catalog_input_definition.setter
-    def data_catalog_input_definition(self, value: Optional[pulumi.Input['RecipeDataCatalogInputDefinitionArgs']]):
+    def data_catalog_input_definition(self, value: pulumi.Input[Optional['RecipeDataCatalogInputDefinitionArgs']]):
         pulumi.set(self, "data_catalog_input_definition", value)
 
     @_builtins.property
     @pulumi.getter(name="s3InputDefinition")
-    def s3_input_definition(self) -> Optional[pulumi.Input['RecipeS3LocationArgs']]:
+    def s3_input_definition(self) -> pulumi.Input[Optional['RecipeS3LocationArgs']]:
         return pulumi.get(self, "s3_input_definition")
 
     @s3_input_definition.setter
-    def s3_input_definition(self, value: Optional[pulumi.Input['RecipeS3LocationArgs']]):
+    def s3_input_definition(self, value: pulumi.Input[Optional['RecipeS3LocationArgs']]):
         pulumi.set(self, "s3_input_definition", value)
 
 
 class RecipeParametersArgsDict(TypedDict):
-    aggregate_function: NotRequired[pulumi.Input[_builtins.str]]
-    base: NotRequired[pulumi.Input[_builtins.str]]
-    case_statement: NotRequired[pulumi.Input[_builtins.str]]
-    category_map: NotRequired[pulumi.Input[_builtins.str]]
-    chars_to_remove: NotRequired[pulumi.Input[_builtins.str]]
-    collapse_consecutive_whitespace: NotRequired[pulumi.Input[_builtins.str]]
-    column_data_type: NotRequired[pulumi.Input[_builtins.str]]
-    column_range: NotRequired[pulumi.Input[_builtins.str]]
-    count: NotRequired[pulumi.Input[_builtins.str]]
-    custom_characters: NotRequired[pulumi.Input[_builtins.str]]
-    custom_stop_words: NotRequired[pulumi.Input[_builtins.str]]
-    custom_value: NotRequired[pulumi.Input[_builtins.str]]
-    datasets_columns: NotRequired[pulumi.Input[_builtins.str]]
-    date_add_value: NotRequired[pulumi.Input[_builtins.str]]
-    date_time_format: NotRequired[pulumi.Input[_builtins.str]]
-    date_time_parameters: NotRequired[pulumi.Input[_builtins.str]]
-    delete_other_rows: NotRequired[pulumi.Input[_builtins.str]]
-    delimiter: NotRequired[pulumi.Input[_builtins.str]]
-    end_pattern: NotRequired[pulumi.Input[_builtins.str]]
-    end_position: NotRequired[pulumi.Input[_builtins.str]]
-    end_value: NotRequired[pulumi.Input[_builtins.str]]
-    expand_contractions: NotRequired[pulumi.Input[_builtins.str]]
-    exponent: NotRequired[pulumi.Input[_builtins.str]]
-    false_string: NotRequired[pulumi.Input[_builtins.str]]
-    group_by_agg_function_options: NotRequired[pulumi.Input[_builtins.str]]
-    group_by_columns: NotRequired[pulumi.Input[_builtins.str]]
-    hidden_columns: NotRequired[pulumi.Input[_builtins.str]]
-    ignore_case: NotRequired[pulumi.Input[_builtins.str]]
-    include_in_split: NotRequired[pulumi.Input[_builtins.str]]
-    input: NotRequired[pulumi.Input['RecipeParametersInputPropertiesArgsDict']]
+    aggregate_function: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    base: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    case_statement: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    category_map: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    chars_to_remove: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    collapse_consecutive_whitespace: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    column_data_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    column_range: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    count: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    custom_characters: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    custom_stop_words: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    custom_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    datasets_columns: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    date_add_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    date_time_format: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    date_time_parameters: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    delete_other_rows: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    delimiter: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    end_pattern: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    end_position: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    end_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    expand_contractions: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    exponent: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    false_string: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    group_by_agg_function_options: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    group_by_columns: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    hidden_columns: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    ignore_case: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    include_in_split: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    input: NotRequired[pulumi.Input[Optional['RecipeParametersInputPropertiesArgs']]]
     """
     Input
     """
-    interval: NotRequired[pulumi.Input[_builtins.str]]
-    is_text: NotRequired[pulumi.Input[_builtins.str]]
-    join_keys: NotRequired[pulumi.Input[_builtins.str]]
-    join_type: NotRequired[pulumi.Input[_builtins.str]]
-    left_columns: NotRequired[pulumi.Input[_builtins.str]]
-    limit: NotRequired[pulumi.Input[_builtins.str]]
-    lower_bound: NotRequired[pulumi.Input[_builtins.str]]
-    map_type: NotRequired[pulumi.Input[_builtins.str]]
-    mode_type: NotRequired[pulumi.Input[_builtins.str]]
-    multi_line: NotRequired[pulumi.Input[_builtins.bool]]
-    num_rows: NotRequired[pulumi.Input[_builtins.str]]
-    num_rows_after: NotRequired[pulumi.Input[_builtins.str]]
-    num_rows_before: NotRequired[pulumi.Input[_builtins.str]]
-    order_by_column: NotRequired[pulumi.Input[_builtins.str]]
-    order_by_columns: NotRequired[pulumi.Input[_builtins.str]]
-    other: NotRequired[pulumi.Input[_builtins.str]]
-    pattern: NotRequired[pulumi.Input[_builtins.str]]
-    pattern_option1: NotRequired[pulumi.Input[_builtins.str]]
-    pattern_option2: NotRequired[pulumi.Input[_builtins.str]]
-    pattern_options: NotRequired[pulumi.Input[_builtins.str]]
-    period: NotRequired[pulumi.Input[_builtins.str]]
-    position: NotRequired[pulumi.Input[_builtins.str]]
-    remove_all_punctuation: NotRequired[pulumi.Input[_builtins.str]]
-    remove_all_quotes: NotRequired[pulumi.Input[_builtins.str]]
-    remove_all_whitespace: NotRequired[pulumi.Input[_builtins.str]]
-    remove_custom_characters: NotRequired[pulumi.Input[_builtins.str]]
-    remove_custom_value: NotRequired[pulumi.Input[_builtins.str]]
-    remove_leading_and_trailing_punctuation: NotRequired[pulumi.Input[_builtins.str]]
-    remove_leading_and_trailing_quotes: NotRequired[pulumi.Input[_builtins.str]]
-    remove_leading_and_trailing_whitespace: NotRequired[pulumi.Input[_builtins.str]]
-    remove_letters: NotRequired[pulumi.Input[_builtins.str]]
-    remove_numbers: NotRequired[pulumi.Input[_builtins.str]]
-    remove_source_column: NotRequired[pulumi.Input[_builtins.str]]
-    remove_special_characters: NotRequired[pulumi.Input[_builtins.str]]
-    right_columns: NotRequired[pulumi.Input[_builtins.str]]
-    sample_size: NotRequired[pulumi.Input[_builtins.str]]
-    sample_type: NotRequired[pulumi.Input[_builtins.str]]
-    second_input: NotRequired[pulumi.Input[_builtins.str]]
-    secondary_inputs: NotRequired[pulumi.Input[Sequence[pulumi.Input['RecipeSecondaryInputArgsDict']]]]
-    sheet_indexes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
-    sheet_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    source_column: NotRequired[pulumi.Input[_builtins.str]]
-    source_column1: NotRequired[pulumi.Input[_builtins.str]]
-    source_column2: NotRequired[pulumi.Input[_builtins.str]]
-    source_columns: NotRequired[pulumi.Input[_builtins.str]]
-    start_column_index: NotRequired[pulumi.Input[_builtins.str]]
-    start_pattern: NotRequired[pulumi.Input[_builtins.str]]
-    start_position: NotRequired[pulumi.Input[_builtins.str]]
-    start_value: NotRequired[pulumi.Input[_builtins.str]]
-    stemming_mode: NotRequired[pulumi.Input[_builtins.str]]
-    step_count: NotRequired[pulumi.Input[_builtins.str]]
-    step_index: NotRequired[pulumi.Input[_builtins.str]]
-    stop_words_mode: NotRequired[pulumi.Input[_builtins.str]]
-    strategy: NotRequired[pulumi.Input[_builtins.str]]
-    target_column: NotRequired[pulumi.Input[_builtins.str]]
-    target_column_names: NotRequired[pulumi.Input[_builtins.str]]
-    target_date_format: NotRequired[pulumi.Input[_builtins.str]]
-    target_index: NotRequired[pulumi.Input[_builtins.str]]
-    time_zone: NotRequired[pulumi.Input[_builtins.str]]
-    tokenizer_pattern: NotRequired[pulumi.Input[_builtins.str]]
-    true_string: NotRequired[pulumi.Input[_builtins.str]]
-    udf_lang: NotRequired[pulumi.Input[_builtins.str]]
-    units: NotRequired[pulumi.Input[_builtins.str]]
-    unpivot_column: NotRequired[pulumi.Input[_builtins.str]]
-    upper_bound: NotRequired[pulumi.Input[_builtins.str]]
-    use_new_data_frame: NotRequired[pulumi.Input[_builtins.str]]
-    value: NotRequired[pulumi.Input[_builtins.str]]
-    value1: NotRequired[pulumi.Input[_builtins.str]]
-    value2: NotRequired[pulumi.Input[_builtins.str]]
-    value_column: NotRequired[pulumi.Input[_builtins.str]]
-    view_frame: NotRequired[pulumi.Input[_builtins.str]]
+    interval: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    is_text: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    join_keys: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    join_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    left_columns: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    limit: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    lower_bound: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    map_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    mode_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    multi_line: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    num_rows: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    num_rows_after: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    num_rows_before: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    order_by_column: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    order_by_columns: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    other: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    pattern: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    pattern_option1: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    pattern_option2: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    pattern_options: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    period: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    position: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    remove_all_punctuation: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    remove_all_quotes: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    remove_all_whitespace: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    remove_custom_characters: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    remove_custom_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    remove_leading_and_trailing_punctuation: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    remove_leading_and_trailing_quotes: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    remove_leading_and_trailing_whitespace: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    remove_letters: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    remove_numbers: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    remove_source_column: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    remove_special_characters: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    right_columns: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    sample_size: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    sample_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    second_input: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    secondary_inputs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RecipeSecondaryInputArgs']]]]]
+    sheet_indexes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]]
+    sheet_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    source_column: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    source_column1: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    source_column2: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    source_columns: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    start_column_index: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    start_pattern: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    start_position: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    start_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    stemming_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    step_count: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    step_index: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    stop_words_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    strategy: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    target_column: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    target_column_names: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    target_date_format: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    target_index: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    time_zone: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    tokenizer_pattern: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    true_string: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    udf_lang: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    units: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    unpivot_column: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    upper_bound: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    use_new_data_frame: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    value1: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    value2: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    value_column: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    view_frame: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class RecipeParametersArgs:
     def __init__(__self__, *,
-                 aggregate_function: Optional[pulumi.Input[_builtins.str]] = None,
-                 base: Optional[pulumi.Input[_builtins.str]] = None,
-                 case_statement: Optional[pulumi.Input[_builtins.str]] = None,
-                 category_map: Optional[pulumi.Input[_builtins.str]] = None,
-                 chars_to_remove: Optional[pulumi.Input[_builtins.str]] = None,
-                 collapse_consecutive_whitespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 column_data_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 column_range: Optional[pulumi.Input[_builtins.str]] = None,
-                 count: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_characters: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_stop_words: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 datasets_columns: Optional[pulumi.Input[_builtins.str]] = None,
-                 date_add_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 date_time_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 date_time_parameters: Optional[pulumi.Input[_builtins.str]] = None,
-                 delete_other_rows: Optional[pulumi.Input[_builtins.str]] = None,
-                 delimiter: Optional[pulumi.Input[_builtins.str]] = None,
-                 end_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 end_position: Optional[pulumi.Input[_builtins.str]] = None,
-                 end_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 expand_contractions: Optional[pulumi.Input[_builtins.str]] = None,
-                 exponent: Optional[pulumi.Input[_builtins.str]] = None,
-                 false_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_by_agg_function_options: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_by_columns: Optional[pulumi.Input[_builtins.str]] = None,
-                 hidden_columns: Optional[pulumi.Input[_builtins.str]] = None,
-                 ignore_case: Optional[pulumi.Input[_builtins.str]] = None,
-                 include_in_split: Optional[pulumi.Input[_builtins.str]] = None,
-                 input: Optional[pulumi.Input['RecipeParametersInputPropertiesArgs']] = None,
-                 interval: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_text: Optional[pulumi.Input[_builtins.str]] = None,
-                 join_keys: Optional[pulumi.Input[_builtins.str]] = None,
-                 join_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 left_columns: Optional[pulumi.Input[_builtins.str]] = None,
-                 limit: Optional[pulumi.Input[_builtins.str]] = None,
-                 lower_bound: Optional[pulumi.Input[_builtins.str]] = None,
-                 map_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 mode_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 multi_line: Optional[pulumi.Input[_builtins.bool]] = None,
-                 num_rows: Optional[pulumi.Input[_builtins.str]] = None,
-                 num_rows_after: Optional[pulumi.Input[_builtins.str]] = None,
-                 num_rows_before: Optional[pulumi.Input[_builtins.str]] = None,
-                 order_by_column: Optional[pulumi.Input[_builtins.str]] = None,
-                 order_by_columns: Optional[pulumi.Input[_builtins.str]] = None,
-                 other: Optional[pulumi.Input[_builtins.str]] = None,
-                 pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 pattern_option1: Optional[pulumi.Input[_builtins.str]] = None,
-                 pattern_option2: Optional[pulumi.Input[_builtins.str]] = None,
-                 pattern_options: Optional[pulumi.Input[_builtins.str]] = None,
-                 period: Optional[pulumi.Input[_builtins.str]] = None,
-                 position: Optional[pulumi.Input[_builtins.str]] = None,
-                 remove_all_punctuation: Optional[pulumi.Input[_builtins.str]] = None,
-                 remove_all_quotes: Optional[pulumi.Input[_builtins.str]] = None,
-                 remove_all_whitespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 remove_custom_characters: Optional[pulumi.Input[_builtins.str]] = None,
-                 remove_custom_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 remove_leading_and_trailing_punctuation: Optional[pulumi.Input[_builtins.str]] = None,
-                 remove_leading_and_trailing_quotes: Optional[pulumi.Input[_builtins.str]] = None,
-                 remove_leading_and_trailing_whitespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 remove_letters: Optional[pulumi.Input[_builtins.str]] = None,
-                 remove_numbers: Optional[pulumi.Input[_builtins.str]] = None,
-                 remove_source_column: Optional[pulumi.Input[_builtins.str]] = None,
-                 remove_special_characters: Optional[pulumi.Input[_builtins.str]] = None,
-                 right_columns: Optional[pulumi.Input[_builtins.str]] = None,
-                 sample_size: Optional[pulumi.Input[_builtins.str]] = None,
-                 sample_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 second_input: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_inputs: Optional[pulumi.Input[Sequence[pulumi.Input['RecipeSecondaryInputArgs']]]] = None,
-                 sheet_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 sheet_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 source_column: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_column1: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_column2: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_columns: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_column_index: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_position: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 stemming_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 step_count: Optional[pulumi.Input[_builtins.str]] = None,
-                 step_index: Optional[pulumi.Input[_builtins.str]] = None,
-                 stop_words_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 strategy: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_column: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_column_names: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_date_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_index: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 tokenizer_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 true_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 udf_lang: Optional[pulumi.Input[_builtins.str]] = None,
-                 units: Optional[pulumi.Input[_builtins.str]] = None,
-                 unpivot_column: Optional[pulumi.Input[_builtins.str]] = None,
-                 upper_bound: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_new_data_frame: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None,
-                 value1: Optional[pulumi.Input[_builtins.str]] = None,
-                 value2: Optional[pulumi.Input[_builtins.str]] = None,
-                 value_column: Optional[pulumi.Input[_builtins.str]] = None,
-                 view_frame: Optional[pulumi.Input[_builtins.str]] = None):
+                 aggregate_function: pulumi.Input[Optional[_builtins.str]] = None,
+                 base: pulumi.Input[Optional[_builtins.str]] = None,
+                 case_statement: pulumi.Input[Optional[_builtins.str]] = None,
+                 category_map: pulumi.Input[Optional[_builtins.str]] = None,
+                 chars_to_remove: pulumi.Input[Optional[_builtins.str]] = None,
+                 collapse_consecutive_whitespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 column_data_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 column_range: pulumi.Input[Optional[_builtins.str]] = None,
+                 count: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_characters: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_stop_words: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 datasets_columns: pulumi.Input[Optional[_builtins.str]] = None,
+                 date_add_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 date_time_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 date_time_parameters: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete_other_rows: pulumi.Input[Optional[_builtins.str]] = None,
+                 delimiter: pulumi.Input[Optional[_builtins.str]] = None,
+                 end_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 end_position: pulumi.Input[Optional[_builtins.str]] = None,
+                 end_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 expand_contractions: pulumi.Input[Optional[_builtins.str]] = None,
+                 exponent: pulumi.Input[Optional[_builtins.str]] = None,
+                 false_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_by_agg_function_options: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_by_columns: pulumi.Input[Optional[_builtins.str]] = None,
+                 hidden_columns: pulumi.Input[Optional[_builtins.str]] = None,
+                 ignore_case: pulumi.Input[Optional[_builtins.str]] = None,
+                 include_in_split: pulumi.Input[Optional[_builtins.str]] = None,
+                 input: pulumi.Input[Optional['RecipeParametersInputPropertiesArgs']] = None,
+                 interval: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_text: pulumi.Input[Optional[_builtins.str]] = None,
+                 join_keys: pulumi.Input[Optional[_builtins.str]] = None,
+                 join_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 left_columns: pulumi.Input[Optional[_builtins.str]] = None,
+                 limit: pulumi.Input[Optional[_builtins.str]] = None,
+                 lower_bound: pulumi.Input[Optional[_builtins.str]] = None,
+                 map_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 mode_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 multi_line: pulumi.Input[Optional[_builtins.bool]] = None,
+                 num_rows: pulumi.Input[Optional[_builtins.str]] = None,
+                 num_rows_after: pulumi.Input[Optional[_builtins.str]] = None,
+                 num_rows_before: pulumi.Input[Optional[_builtins.str]] = None,
+                 order_by_column: pulumi.Input[Optional[_builtins.str]] = None,
+                 order_by_columns: pulumi.Input[Optional[_builtins.str]] = None,
+                 other: pulumi.Input[Optional[_builtins.str]] = None,
+                 pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 pattern_option1: pulumi.Input[Optional[_builtins.str]] = None,
+                 pattern_option2: pulumi.Input[Optional[_builtins.str]] = None,
+                 pattern_options: pulumi.Input[Optional[_builtins.str]] = None,
+                 period: pulumi.Input[Optional[_builtins.str]] = None,
+                 position: pulumi.Input[Optional[_builtins.str]] = None,
+                 remove_all_punctuation: pulumi.Input[Optional[_builtins.str]] = None,
+                 remove_all_quotes: pulumi.Input[Optional[_builtins.str]] = None,
+                 remove_all_whitespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 remove_custom_characters: pulumi.Input[Optional[_builtins.str]] = None,
+                 remove_custom_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 remove_leading_and_trailing_punctuation: pulumi.Input[Optional[_builtins.str]] = None,
+                 remove_leading_and_trailing_quotes: pulumi.Input[Optional[_builtins.str]] = None,
+                 remove_leading_and_trailing_whitespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 remove_letters: pulumi.Input[Optional[_builtins.str]] = None,
+                 remove_numbers: pulumi.Input[Optional[_builtins.str]] = None,
+                 remove_source_column: pulumi.Input[Optional[_builtins.str]] = None,
+                 remove_special_characters: pulumi.Input[Optional[_builtins.str]] = None,
+                 right_columns: pulumi.Input[Optional[_builtins.str]] = None,
+                 sample_size: pulumi.Input[Optional[_builtins.str]] = None,
+                 sample_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 second_input: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_inputs: pulumi.Input[Optional[Sequence[pulumi.Input['RecipeSecondaryInputArgs']]]] = None,
+                 sheet_indexes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 sheet_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 source_column: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_column1: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_column2: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_columns: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_column_index: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_position: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 stemming_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 step_count: pulumi.Input[Optional[_builtins.str]] = None,
+                 step_index: pulumi.Input[Optional[_builtins.str]] = None,
+                 stop_words_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 strategy: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_column: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_column_names: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_date_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_index: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 tokenizer_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 true_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 udf_lang: pulumi.Input[Optional[_builtins.str]] = None,
+                 units: pulumi.Input[Optional[_builtins.str]] = None,
+                 unpivot_column: pulumi.Input[Optional[_builtins.str]] = None,
+                 upper_bound: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_new_data_frame: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None,
+                 value1: pulumi.Input[Optional[_builtins.str]] = None,
+                 value2: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_column: pulumi.Input[Optional[_builtins.str]] = None,
+                 view_frame: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input['RecipeParametersInputPropertiesArgs'] input: Input
         """
@@ -3112,914 +3112,914 @@ class RecipeParametersArgs:
 
     @_builtins.property
     @pulumi.getter(name="aggregateFunction")
-    def aggregate_function(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aggregate_function(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "aggregate_function")
 
     @aggregate_function.setter
-    def aggregate_function(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aggregate_function(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aggregate_function", value)
 
     @_builtins.property
     @pulumi.getter
-    def base(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def base(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "base")
 
     @base.setter
-    def base(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def base(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "base", value)
 
     @_builtins.property
     @pulumi.getter(name="caseStatement")
-    def case_statement(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def case_statement(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "case_statement")
 
     @case_statement.setter
-    def case_statement(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def case_statement(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "case_statement", value)
 
     @_builtins.property
     @pulumi.getter(name="categoryMap")
-    def category_map(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def category_map(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "category_map")
 
     @category_map.setter
-    def category_map(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def category_map(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "category_map", value)
 
     @_builtins.property
     @pulumi.getter(name="charsToRemove")
-    def chars_to_remove(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def chars_to_remove(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "chars_to_remove")
 
     @chars_to_remove.setter
-    def chars_to_remove(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def chars_to_remove(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "chars_to_remove", value)
 
     @_builtins.property
     @pulumi.getter(name="collapseConsecutiveWhitespace")
-    def collapse_consecutive_whitespace(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def collapse_consecutive_whitespace(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "collapse_consecutive_whitespace")
 
     @collapse_consecutive_whitespace.setter
-    def collapse_consecutive_whitespace(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def collapse_consecutive_whitespace(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "collapse_consecutive_whitespace", value)
 
     @_builtins.property
     @pulumi.getter(name="columnDataType")
-    def column_data_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def column_data_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "column_data_type")
 
     @column_data_type.setter
-    def column_data_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def column_data_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "column_data_type", value)
 
     @_builtins.property
     @pulumi.getter(name="columnRange")
-    def column_range(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def column_range(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "column_range")
 
     @column_range.setter
-    def column_range(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def column_range(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "column_range", value)
 
     @_builtins.property
     @pulumi.getter
-    def count(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def count(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "count")
 
     @count.setter
-    def count(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def count(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "count", value)
 
     @_builtins.property
     @pulumi.getter(name="customCharacters")
-    def custom_characters(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_characters(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "custom_characters")
 
     @custom_characters.setter
-    def custom_characters(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_characters(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_characters", value)
 
     @_builtins.property
     @pulumi.getter(name="customStopWords")
-    def custom_stop_words(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_stop_words(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "custom_stop_words")
 
     @custom_stop_words.setter
-    def custom_stop_words(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_stop_words(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_stop_words", value)
 
     @_builtins.property
     @pulumi.getter(name="customValue")
-    def custom_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "custom_value")
 
     @custom_value.setter
-    def custom_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_value", value)
 
     @_builtins.property
     @pulumi.getter(name="datasetsColumns")
-    def datasets_columns(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def datasets_columns(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "datasets_columns")
 
     @datasets_columns.setter
-    def datasets_columns(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def datasets_columns(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "datasets_columns", value)
 
     @_builtins.property
     @pulumi.getter(name="dateAddValue")
-    def date_add_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def date_add_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "date_add_value")
 
     @date_add_value.setter
-    def date_add_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def date_add_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "date_add_value", value)
 
     @_builtins.property
     @pulumi.getter(name="dateTimeFormat")
-    def date_time_format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def date_time_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "date_time_format")
 
     @date_time_format.setter
-    def date_time_format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def date_time_format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "date_time_format", value)
 
     @_builtins.property
     @pulumi.getter(name="dateTimeParameters")
-    def date_time_parameters(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def date_time_parameters(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "date_time_parameters")
 
     @date_time_parameters.setter
-    def date_time_parameters(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def date_time_parameters(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "date_time_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="deleteOtherRows")
-    def delete_other_rows(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delete_other_rows(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "delete_other_rows")
 
     @delete_other_rows.setter
-    def delete_other_rows(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delete_other_rows(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delete_other_rows", value)
 
     @_builtins.property
     @pulumi.getter
-    def delimiter(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delimiter(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "delimiter")
 
     @delimiter.setter
-    def delimiter(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delimiter(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delimiter", value)
 
     @_builtins.property
     @pulumi.getter(name="endPattern")
-    def end_pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "end_pattern")
 
     @end_pattern.setter
-    def end_pattern(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end_pattern(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end_pattern", value)
 
     @_builtins.property
     @pulumi.getter(name="endPosition")
-    def end_position(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end_position(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "end_position")
 
     @end_position.setter
-    def end_position(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end_position(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end_position", value)
 
     @_builtins.property
     @pulumi.getter(name="endValue")
-    def end_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "end_value")
 
     @end_value.setter
-    def end_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end_value", value)
 
     @_builtins.property
     @pulumi.getter(name="expandContractions")
-    def expand_contractions(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expand_contractions(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "expand_contractions")
 
     @expand_contractions.setter
-    def expand_contractions(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expand_contractions(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expand_contractions", value)
 
     @_builtins.property
     @pulumi.getter
-    def exponent(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def exponent(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "exponent")
 
     @exponent.setter
-    def exponent(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def exponent(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "exponent", value)
 
     @_builtins.property
     @pulumi.getter(name="falseString")
-    def false_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def false_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "false_string")
 
     @false_string.setter
-    def false_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def false_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "false_string", value)
 
     @_builtins.property
     @pulumi.getter(name="groupByAggFunctionOptions")
-    def group_by_agg_function_options(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def group_by_agg_function_options(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "group_by_agg_function_options")
 
     @group_by_agg_function_options.setter
-    def group_by_agg_function_options(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def group_by_agg_function_options(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "group_by_agg_function_options", value)
 
     @_builtins.property
     @pulumi.getter(name="groupByColumns")
-    def group_by_columns(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def group_by_columns(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "group_by_columns")
 
     @group_by_columns.setter
-    def group_by_columns(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def group_by_columns(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "group_by_columns", value)
 
     @_builtins.property
     @pulumi.getter(name="hiddenColumns")
-    def hidden_columns(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hidden_columns(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "hidden_columns")
 
     @hidden_columns.setter
-    def hidden_columns(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hidden_columns(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hidden_columns", value)
 
     @_builtins.property
     @pulumi.getter(name="ignoreCase")
-    def ignore_case(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ignore_case(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "ignore_case")
 
     @ignore_case.setter
-    def ignore_case(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ignore_case(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ignore_case", value)
 
     @_builtins.property
     @pulumi.getter(name="includeInSplit")
-    def include_in_split(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def include_in_split(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "include_in_split")
 
     @include_in_split.setter
-    def include_in_split(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def include_in_split(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "include_in_split", value)
 
     @_builtins.property
     @pulumi.getter
-    def input(self) -> Optional[pulumi.Input['RecipeParametersInputPropertiesArgs']]:
+    def input(self) -> pulumi.Input[Optional['RecipeParametersInputPropertiesArgs']]:
         """
         Input
         """
         return pulumi.get(self, "input")
 
     @input.setter
-    def input(self, value: Optional[pulumi.Input['RecipeParametersInputPropertiesArgs']]):
+    def input(self, value: pulumi.Input[Optional['RecipeParametersInputPropertiesArgs']]):
         pulumi.set(self, "input", value)
 
     @_builtins.property
     @pulumi.getter
-    def interval(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def interval(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "interval")
 
     @interval.setter
-    def interval(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def interval(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "interval", value)
 
     @_builtins.property
     @pulumi.getter(name="isText")
-    def is_text(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def is_text(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "is_text")
 
     @is_text.setter
-    def is_text(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def is_text(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "is_text", value)
 
     @_builtins.property
     @pulumi.getter(name="joinKeys")
-    def join_keys(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def join_keys(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "join_keys")
 
     @join_keys.setter
-    def join_keys(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def join_keys(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "join_keys", value)
 
     @_builtins.property
     @pulumi.getter(name="joinType")
-    def join_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def join_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "join_type")
 
     @join_type.setter
-    def join_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def join_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "join_type", value)
 
     @_builtins.property
     @pulumi.getter(name="leftColumns")
-    def left_columns(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def left_columns(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "left_columns")
 
     @left_columns.setter
-    def left_columns(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def left_columns(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "left_columns", value)
 
     @_builtins.property
     @pulumi.getter
-    def limit(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def limit(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "limit")
 
     @limit.setter
-    def limit(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def limit(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "limit", value)
 
     @_builtins.property
     @pulumi.getter(name="lowerBound")
-    def lower_bound(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def lower_bound(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "lower_bound")
 
     @lower_bound.setter
-    def lower_bound(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def lower_bound(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "lower_bound", value)
 
     @_builtins.property
     @pulumi.getter(name="mapType")
-    def map_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def map_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "map_type")
 
     @map_type.setter
-    def map_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def map_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "map_type", value)
 
     @_builtins.property
     @pulumi.getter(name="modeType")
-    def mode_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mode_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "mode_type")
 
     @mode_type.setter
-    def mode_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mode_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mode_type", value)
 
     @_builtins.property
     @pulumi.getter(name="multiLine")
-    def multi_line(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def multi_line(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "multi_line")
 
     @multi_line.setter
-    def multi_line(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def multi_line(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "multi_line", value)
 
     @_builtins.property
     @pulumi.getter(name="numRows")
-    def num_rows(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def num_rows(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "num_rows")
 
     @num_rows.setter
-    def num_rows(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def num_rows(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "num_rows", value)
 
     @_builtins.property
     @pulumi.getter(name="numRowsAfter")
-    def num_rows_after(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def num_rows_after(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "num_rows_after")
 
     @num_rows_after.setter
-    def num_rows_after(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def num_rows_after(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "num_rows_after", value)
 
     @_builtins.property
     @pulumi.getter(name="numRowsBefore")
-    def num_rows_before(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def num_rows_before(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "num_rows_before")
 
     @num_rows_before.setter
-    def num_rows_before(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def num_rows_before(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "num_rows_before", value)
 
     @_builtins.property
     @pulumi.getter(name="orderByColumn")
-    def order_by_column(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def order_by_column(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "order_by_column")
 
     @order_by_column.setter
-    def order_by_column(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def order_by_column(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "order_by_column", value)
 
     @_builtins.property
     @pulumi.getter(name="orderByColumns")
-    def order_by_columns(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def order_by_columns(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "order_by_columns")
 
     @order_by_columns.setter
-    def order_by_columns(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def order_by_columns(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "order_by_columns", value)
 
     @_builtins.property
     @pulumi.getter
-    def other(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def other(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "other")
 
     @other.setter
-    def other(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def other(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "other", value)
 
     @_builtins.property
     @pulumi.getter
-    def pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "pattern")
 
     @pattern.setter
-    def pattern(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pattern(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pattern", value)
 
     @_builtins.property
     @pulumi.getter(name="patternOption1")
-    def pattern_option1(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pattern_option1(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "pattern_option1")
 
     @pattern_option1.setter
-    def pattern_option1(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pattern_option1(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pattern_option1", value)
 
     @_builtins.property
     @pulumi.getter(name="patternOption2")
-    def pattern_option2(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pattern_option2(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "pattern_option2")
 
     @pattern_option2.setter
-    def pattern_option2(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pattern_option2(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pattern_option2", value)
 
     @_builtins.property
     @pulumi.getter(name="patternOptions")
-    def pattern_options(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pattern_options(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "pattern_options")
 
     @pattern_options.setter
-    def pattern_options(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pattern_options(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pattern_options", value)
 
     @_builtins.property
     @pulumi.getter
-    def period(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def period(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "period")
 
     @period.setter
-    def period(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def period(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "period", value)
 
     @_builtins.property
     @pulumi.getter
-    def position(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def position(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "position")
 
     @position.setter
-    def position(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def position(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "position", value)
 
     @_builtins.property
     @pulumi.getter(name="removeAllPunctuation")
-    def remove_all_punctuation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def remove_all_punctuation(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "remove_all_punctuation")
 
     @remove_all_punctuation.setter
-    def remove_all_punctuation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def remove_all_punctuation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "remove_all_punctuation", value)
 
     @_builtins.property
     @pulumi.getter(name="removeAllQuotes")
-    def remove_all_quotes(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def remove_all_quotes(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "remove_all_quotes")
 
     @remove_all_quotes.setter
-    def remove_all_quotes(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def remove_all_quotes(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "remove_all_quotes", value)
 
     @_builtins.property
     @pulumi.getter(name="removeAllWhitespace")
-    def remove_all_whitespace(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def remove_all_whitespace(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "remove_all_whitespace")
 
     @remove_all_whitespace.setter
-    def remove_all_whitespace(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def remove_all_whitespace(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "remove_all_whitespace", value)
 
     @_builtins.property
     @pulumi.getter(name="removeCustomCharacters")
-    def remove_custom_characters(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def remove_custom_characters(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "remove_custom_characters")
 
     @remove_custom_characters.setter
-    def remove_custom_characters(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def remove_custom_characters(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "remove_custom_characters", value)
 
     @_builtins.property
     @pulumi.getter(name="removeCustomValue")
-    def remove_custom_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def remove_custom_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "remove_custom_value")
 
     @remove_custom_value.setter
-    def remove_custom_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def remove_custom_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "remove_custom_value", value)
 
     @_builtins.property
     @pulumi.getter(name="removeLeadingAndTrailingPunctuation")
-    def remove_leading_and_trailing_punctuation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def remove_leading_and_trailing_punctuation(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "remove_leading_and_trailing_punctuation")
 
     @remove_leading_and_trailing_punctuation.setter
-    def remove_leading_and_trailing_punctuation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def remove_leading_and_trailing_punctuation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "remove_leading_and_trailing_punctuation", value)
 
     @_builtins.property
     @pulumi.getter(name="removeLeadingAndTrailingQuotes")
-    def remove_leading_and_trailing_quotes(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def remove_leading_and_trailing_quotes(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "remove_leading_and_trailing_quotes")
 
     @remove_leading_and_trailing_quotes.setter
-    def remove_leading_and_trailing_quotes(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def remove_leading_and_trailing_quotes(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "remove_leading_and_trailing_quotes", value)
 
     @_builtins.property
     @pulumi.getter(name="removeLeadingAndTrailingWhitespace")
-    def remove_leading_and_trailing_whitespace(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def remove_leading_and_trailing_whitespace(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "remove_leading_and_trailing_whitespace")
 
     @remove_leading_and_trailing_whitespace.setter
-    def remove_leading_and_trailing_whitespace(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def remove_leading_and_trailing_whitespace(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "remove_leading_and_trailing_whitespace", value)
 
     @_builtins.property
     @pulumi.getter(name="removeLetters")
-    def remove_letters(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def remove_letters(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "remove_letters")
 
     @remove_letters.setter
-    def remove_letters(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def remove_letters(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "remove_letters", value)
 
     @_builtins.property
     @pulumi.getter(name="removeNumbers")
-    def remove_numbers(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def remove_numbers(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "remove_numbers")
 
     @remove_numbers.setter
-    def remove_numbers(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def remove_numbers(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "remove_numbers", value)
 
     @_builtins.property
     @pulumi.getter(name="removeSourceColumn")
-    def remove_source_column(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def remove_source_column(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "remove_source_column")
 
     @remove_source_column.setter
-    def remove_source_column(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def remove_source_column(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "remove_source_column", value)
 
     @_builtins.property
     @pulumi.getter(name="removeSpecialCharacters")
-    def remove_special_characters(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def remove_special_characters(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "remove_special_characters")
 
     @remove_special_characters.setter
-    def remove_special_characters(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def remove_special_characters(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "remove_special_characters", value)
 
     @_builtins.property
     @pulumi.getter(name="rightColumns")
-    def right_columns(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def right_columns(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "right_columns")
 
     @right_columns.setter
-    def right_columns(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def right_columns(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "right_columns", value)
 
     @_builtins.property
     @pulumi.getter(name="sampleSize")
-    def sample_size(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sample_size(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "sample_size")
 
     @sample_size.setter
-    def sample_size(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sample_size(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sample_size", value)
 
     @_builtins.property
     @pulumi.getter(name="sampleType")
-    def sample_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sample_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "sample_type")
 
     @sample_type.setter
-    def sample_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sample_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sample_type", value)
 
     @_builtins.property
     @pulumi.getter(name="secondInput")
-    def second_input(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def second_input(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "second_input")
 
     @second_input.setter
-    def second_input(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def second_input(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "second_input", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryInputs")
-    def secondary_inputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RecipeSecondaryInputArgs']]]]:
+    def secondary_inputs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RecipeSecondaryInputArgs']]]]:
         return pulumi.get(self, "secondary_inputs")
 
     @secondary_inputs.setter
-    def secondary_inputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RecipeSecondaryInputArgs']]]]):
+    def secondary_inputs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RecipeSecondaryInputArgs']]]]):
         pulumi.set(self, "secondary_inputs", value)
 
     @_builtins.property
     @pulumi.getter(name="sheetIndexes")
-    def sheet_indexes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+    def sheet_indexes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         return pulumi.get(self, "sheet_indexes")
 
     @sheet_indexes.setter
-    def sheet_indexes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
+    def sheet_indexes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "sheet_indexes", value)
 
     @_builtins.property
     @pulumi.getter(name="sheetNames")
-    def sheet_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def sheet_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "sheet_names")
 
     @sheet_names.setter
-    def sheet_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def sheet_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "sheet_names", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceColumn")
-    def source_column(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_column(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "source_column")
 
     @source_column.setter
-    def source_column(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_column(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_column", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceColumn1")
-    def source_column1(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_column1(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "source_column1")
 
     @source_column1.setter
-    def source_column1(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_column1(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_column1", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceColumn2")
-    def source_column2(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_column2(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "source_column2")
 
     @source_column2.setter
-    def source_column2(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_column2(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_column2", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceColumns")
-    def source_columns(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_columns(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "source_columns")
 
     @source_columns.setter
-    def source_columns(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_columns(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_columns", value)
 
     @_builtins.property
     @pulumi.getter(name="startColumnIndex")
-    def start_column_index(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start_column_index(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "start_column_index")
 
     @start_column_index.setter
-    def start_column_index(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start_column_index(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start_column_index", value)
 
     @_builtins.property
     @pulumi.getter(name="startPattern")
-    def start_pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "start_pattern")
 
     @start_pattern.setter
-    def start_pattern(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start_pattern(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start_pattern", value)
 
     @_builtins.property
     @pulumi.getter(name="startPosition")
-    def start_position(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start_position(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "start_position")
 
     @start_position.setter
-    def start_position(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start_position(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start_position", value)
 
     @_builtins.property
     @pulumi.getter(name="startValue")
-    def start_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "start_value")
 
     @start_value.setter
-    def start_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start_value", value)
 
     @_builtins.property
     @pulumi.getter(name="stemmingMode")
-    def stemming_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def stemming_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "stemming_mode")
 
     @stemming_mode.setter
-    def stemming_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def stemming_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "stemming_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="stepCount")
-    def step_count(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def step_count(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "step_count")
 
     @step_count.setter
-    def step_count(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def step_count(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "step_count", value)
 
     @_builtins.property
     @pulumi.getter(name="stepIndex")
-    def step_index(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def step_index(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "step_index")
 
     @step_index.setter
-    def step_index(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def step_index(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "step_index", value)
 
     @_builtins.property
     @pulumi.getter(name="stopWordsMode")
-    def stop_words_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def stop_words_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "stop_words_mode")
 
     @stop_words_mode.setter
-    def stop_words_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def stop_words_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "stop_words_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def strategy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def strategy(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "strategy")
 
     @strategy.setter
-    def strategy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def strategy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "strategy", value)
 
     @_builtins.property
     @pulumi.getter(name="targetColumn")
-    def target_column(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_column(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "target_column")
 
     @target_column.setter
-    def target_column(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_column(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_column", value)
 
     @_builtins.property
     @pulumi.getter(name="targetColumnNames")
-    def target_column_names(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_column_names(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "target_column_names")
 
     @target_column_names.setter
-    def target_column_names(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_column_names(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_column_names", value)
 
     @_builtins.property
     @pulumi.getter(name="targetDateFormat")
-    def target_date_format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_date_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "target_date_format")
 
     @target_date_format.setter
-    def target_date_format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_date_format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_date_format", value)
 
     @_builtins.property
     @pulumi.getter(name="targetIndex")
-    def target_index(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_index(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "target_index")
 
     @target_index.setter
-    def target_index(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_index(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_index", value)
 
     @_builtins.property
     @pulumi.getter(name="timeZone")
-    def time_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def time_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "time_zone")
 
     @time_zone.setter
-    def time_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def time_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time_zone", value)
 
     @_builtins.property
     @pulumi.getter(name="tokenizerPattern")
-    def tokenizer_pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tokenizer_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "tokenizer_pattern")
 
     @tokenizer_pattern.setter
-    def tokenizer_pattern(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tokenizer_pattern(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tokenizer_pattern", value)
 
     @_builtins.property
     @pulumi.getter(name="trueString")
-    def true_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def true_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "true_string")
 
     @true_string.setter
-    def true_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def true_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "true_string", value)
 
     @_builtins.property
     @pulumi.getter(name="udfLang")
-    def udf_lang(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def udf_lang(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "udf_lang")
 
     @udf_lang.setter
-    def udf_lang(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def udf_lang(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "udf_lang", value)
 
     @_builtins.property
     @pulumi.getter
-    def units(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def units(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "units")
 
     @units.setter
-    def units(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def units(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "units", value)
 
     @_builtins.property
     @pulumi.getter(name="unpivotColumn")
-    def unpivot_column(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def unpivot_column(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "unpivot_column")
 
     @unpivot_column.setter
-    def unpivot_column(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def unpivot_column(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "unpivot_column", value)
 
     @_builtins.property
     @pulumi.getter(name="upperBound")
-    def upper_bound(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def upper_bound(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "upper_bound")
 
     @upper_bound.setter
-    def upper_bound(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def upper_bound(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "upper_bound", value)
 
     @_builtins.property
     @pulumi.getter(name="useNewDataFrame")
-    def use_new_data_frame(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def use_new_data_frame(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "use_new_data_frame")
 
     @use_new_data_frame.setter
-    def use_new_data_frame(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def use_new_data_frame(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "use_new_data_frame", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
     @_builtins.property
     @pulumi.getter
-    def value1(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value1(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "value1")
 
     @value1.setter
-    def value1(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value1(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value1", value)
 
     @_builtins.property
     @pulumi.getter
-    def value2(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value2(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "value2")
 
     @value2.setter
-    def value2(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value2(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value2", value)
 
     @_builtins.property
     @pulumi.getter(name="valueColumn")
-    def value_column(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value_column(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "value_column")
 
     @value_column.setter
-    def value_column(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value_column(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value_column", value)
 
     @_builtins.property
     @pulumi.getter(name="viewFrame")
-    def view_frame(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def view_frame(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "view_frame")
 
     @view_frame.setter
-    def view_frame(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def view_frame(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "view_frame", value)
 
 
@@ -4028,13 +4028,13 @@ class RecipeS3LocationArgsDict(TypedDict):
     Input location
     """
     bucket: pulumi.Input[_builtins.str]
-    key: NotRequired[pulumi.Input[_builtins.str]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class RecipeS3LocationArgs:
     def __init__(__self__, *,
                  bucket: pulumi.Input[_builtins.str],
-                 key: Optional[pulumi.Input[_builtins.str]] = None):
+                 key: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input location
         """
@@ -4053,11 +4053,11 @@ class RecipeS3LocationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
 
@@ -4065,14 +4065,14 @@ class RecipeSecondaryInputArgsDict(TypedDict):
     """
     Secondary input
     """
-    data_catalog_input_definition: NotRequired[pulumi.Input['RecipeDataCatalogInputDefinitionArgsDict']]
-    s3_input_definition: NotRequired[pulumi.Input['RecipeS3LocationArgsDict']]
+    data_catalog_input_definition: NotRequired[pulumi.Input[Optional['RecipeDataCatalogInputDefinitionArgs']]]
+    s3_input_definition: NotRequired[pulumi.Input[Optional['RecipeS3LocationArgs']]]
 
 @pulumi.input_type
 class RecipeSecondaryInputArgs:
     def __init__(__self__, *,
-                 data_catalog_input_definition: Optional[pulumi.Input['RecipeDataCatalogInputDefinitionArgs']] = None,
-                 s3_input_definition: Optional[pulumi.Input['RecipeS3LocationArgs']] = None):
+                 data_catalog_input_definition: pulumi.Input[Optional['RecipeDataCatalogInputDefinitionArgs']] = None,
+                 s3_input_definition: pulumi.Input[Optional['RecipeS3LocationArgs']] = None):
         """
         Secondary input
         """
@@ -4083,20 +4083,20 @@ class RecipeSecondaryInputArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataCatalogInputDefinition")
-    def data_catalog_input_definition(self) -> Optional[pulumi.Input['RecipeDataCatalogInputDefinitionArgs']]:
+    def data_catalog_input_definition(self) -> pulumi.Input[Optional['RecipeDataCatalogInputDefinitionArgs']]:
         return pulumi.get(self, "data_catalog_input_definition")
 
     @data_catalog_input_definition.setter
-    def data_catalog_input_definition(self, value: Optional[pulumi.Input['RecipeDataCatalogInputDefinitionArgs']]):
+    def data_catalog_input_definition(self, value: pulumi.Input[Optional['RecipeDataCatalogInputDefinitionArgs']]):
         pulumi.set(self, "data_catalog_input_definition", value)
 
     @_builtins.property
     @pulumi.getter(name="s3InputDefinition")
-    def s3_input_definition(self) -> Optional[pulumi.Input['RecipeS3LocationArgs']]:
+    def s3_input_definition(self) -> pulumi.Input[Optional['RecipeS3LocationArgs']]:
         return pulumi.get(self, "s3_input_definition")
 
     @s3_input_definition.setter
-    def s3_input_definition(self, value: Optional[pulumi.Input['RecipeS3LocationArgs']]):
+    def s3_input_definition(self, value: pulumi.Input[Optional['RecipeS3LocationArgs']]):
         pulumi.set(self, "s3_input_definition", value)
 
 
@@ -4105,7 +4105,7 @@ class RecipeStepArgsDict(TypedDict):
     """
     The particular action to be performed in the recipe step.
     """
-    condition_expressions: NotRequired[pulumi.Input[Sequence[pulumi.Input['RecipeConditionExpressionArgsDict']]]]
+    condition_expressions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RecipeConditionExpressionArgs']]]]]
     """
     Condition expressions applied to the step action
     """
@@ -4114,7 +4114,7 @@ class RecipeStepArgsDict(TypedDict):
 class RecipeStepArgs:
     def __init__(__self__, *,
                  action: pulumi.Input['RecipeActionArgs'],
-                 condition_expressions: Optional[pulumi.Input[Sequence[pulumi.Input['RecipeConditionExpressionArgs']]]] = None):
+                 condition_expressions: pulumi.Input[Optional[Sequence[pulumi.Input['RecipeConditionExpressionArgs']]]] = None):
         """
         :param pulumi.Input['RecipeActionArgs'] action: The particular action to be performed in the recipe step.
         :param pulumi.Input[Sequence[pulumi.Input['RecipeConditionExpressionArgs']]] condition_expressions: Condition expressions applied to the step action
@@ -4137,14 +4137,14 @@ class RecipeStepArgs:
 
     @_builtins.property
     @pulumi.getter(name="conditionExpressions")
-    def condition_expressions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RecipeConditionExpressionArgs']]]]:
+    def condition_expressions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RecipeConditionExpressionArgs']]]]:
         """
         Condition expressions applied to the step action
         """
         return pulumi.get(self, "condition_expressions")
 
     @condition_expressions.setter
-    def condition_expressions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RecipeConditionExpressionArgs']]]]):
+    def condition_expressions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RecipeConditionExpressionArgs']]]]):
         pulumi.set(self, "condition_expressions", value)
 
 
@@ -4152,11 +4152,11 @@ class RulesetColumnSelectorArgsDict(TypedDict):
     """
     Selector of a column from a dataset for profile job configuration. One selector includes either a column name or a regular expression
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of a column from a dataset
     """
-    regex: NotRequired[pulumi.Input[_builtins.str]]
+    regex: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A regular expression for selecting a column from a dataset
     """
@@ -4164,8 +4164,8 @@ class RulesetColumnSelectorArgsDict(TypedDict):
 @pulumi.input_type
 class RulesetColumnSelectorArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 regex: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 regex: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Selector of a column from a dataset for profile job configuration. One selector includes either a column name or a regular expression
 
@@ -4179,26 +4179,26 @@ class RulesetColumnSelectorArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of a column from a dataset
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def regex(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def regex(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A regular expression for selecting a column from a dataset
         """
         return pulumi.get(self, "regex")
 
     @regex.setter
-    def regex(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def regex(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "regex", value)
 
 
@@ -4214,19 +4214,19 @@ class RulesetRuleArgsDict(TypedDict):
     """
     Name of the rule
     """
-    column_selectors: NotRequired[pulumi.Input[Sequence[pulumi.Input['RulesetColumnSelectorArgsDict']]]]
+    column_selectors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RulesetColumnSelectorArgs']]]]]
     """
     List of column selectors. Selectors can be used to select columns using a name or regular expression from the dataset. Rule will be applied to selected columns.
     """
-    disabled: NotRequired[pulumi.Input[_builtins.bool]]
+    disabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     A value that specifies whether the rule is disabled. Once a rule is disabled, a profile job will not validate it during a job run. Default value is false.
     """
-    substitution_map: NotRequired[pulumi.Input[Sequence[pulumi.Input['RulesetSubstitutionValueArgsDict']]]]
+    substitution_map: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RulesetSubstitutionValueArgs']]]]]
     """
     The map of substitution variable names to their values used in a check expression. Variable names should start with a ':' (colon). Variable values can either be actual values or column names. To differentiate between the two, column names should be enclosed in backticks, for example, `":col1": "`Column A`".`
     """
-    threshold: NotRequired[pulumi.Input['RulesetThresholdArgsDict']]
+    threshold: NotRequired[pulumi.Input[Optional['RulesetThresholdArgs']]]
     """
     The threshold used with a non-aggregate check expression. Non-aggregate check expressions will be applied to each row in a specific column, and the threshold will be used to determine whether the validation succeeds.
     """
@@ -4236,10 +4236,10 @@ class RulesetRuleArgs:
     def __init__(__self__, *,
                  check_expression: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
-                 column_selectors: Optional[pulumi.Input[Sequence[pulumi.Input['RulesetColumnSelectorArgs']]]] = None,
-                 disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 substitution_map: Optional[pulumi.Input[Sequence[pulumi.Input['RulesetSubstitutionValueArgs']]]] = None,
-                 threshold: Optional[pulumi.Input['RulesetThresholdArgs']] = None):
+                 column_selectors: pulumi.Input[Optional[Sequence[pulumi.Input['RulesetColumnSelectorArgs']]]] = None,
+                 disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 substitution_map: pulumi.Input[Optional[Sequence[pulumi.Input['RulesetSubstitutionValueArgs']]]] = None,
+                 threshold: pulumi.Input[Optional['RulesetThresholdArgs']] = None):
         """
         Data quality rule for a target resource (dataset)
 
@@ -4287,50 +4287,50 @@ class RulesetRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="columnSelectors")
-    def column_selectors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RulesetColumnSelectorArgs']]]]:
+    def column_selectors(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RulesetColumnSelectorArgs']]]]:
         """
         List of column selectors. Selectors can be used to select columns using a name or regular expression from the dataset. Rule will be applied to selected columns.
         """
         return pulumi.get(self, "column_selectors")
 
     @column_selectors.setter
-    def column_selectors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RulesetColumnSelectorArgs']]]]):
+    def column_selectors(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RulesetColumnSelectorArgs']]]]):
         pulumi.set(self, "column_selectors", value)
 
     @_builtins.property
     @pulumi.getter
-    def disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A value that specifies whether the rule is disabled. Once a rule is disabled, a profile job will not validate it during a job run. Default value is false.
         """
         return pulumi.get(self, "disabled")
 
     @disabled.setter
-    def disabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disabled", value)
 
     @_builtins.property
     @pulumi.getter(name="substitutionMap")
-    def substitution_map(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RulesetSubstitutionValueArgs']]]]:
+    def substitution_map(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RulesetSubstitutionValueArgs']]]]:
         """
         The map of substitution variable names to their values used in a check expression. Variable names should start with a ':' (colon). Variable values can either be actual values or column names. To differentiate between the two, column names should be enclosed in backticks, for example, `":col1": "`Column A`".`
         """
         return pulumi.get(self, "substitution_map")
 
     @substitution_map.setter
-    def substitution_map(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RulesetSubstitutionValueArgs']]]]):
+    def substitution_map(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RulesetSubstitutionValueArgs']]]]):
         pulumi.set(self, "substitution_map", value)
 
     @_builtins.property
     @pulumi.getter
-    def threshold(self) -> Optional[pulumi.Input['RulesetThresholdArgs']]:
+    def threshold(self) -> pulumi.Input[Optional['RulesetThresholdArgs']]:
         """
         The threshold used with a non-aggregate check expression. Non-aggregate check expressions will be applied to each row in a specific column, and the threshold will be used to determine whether the validation succeeds.
         """
         return pulumi.get(self, "threshold")
 
     @threshold.setter
-    def threshold(self, value: Optional[pulumi.Input['RulesetThresholdArgs']]):
+    def threshold(self, value: pulumi.Input[Optional['RulesetThresholdArgs']]):
         pulumi.set(self, "threshold", value)
 
 
@@ -4391,11 +4391,11 @@ class RulesetThresholdArgsDict(TypedDict):
     """
     The value of a threshold.
     """
-    type: NotRequired[pulumi.Input['RulesetThresholdType']]
+    type: NotRequired[pulumi.Input[Optional['RulesetThresholdType']]]
     """
     The type of a threshold. Used for comparison of an actual count of rows that satisfy the rule to the threshold value.
     """
-    unit: NotRequired[pulumi.Input['RulesetThresholdUnit']]
+    unit: NotRequired[pulumi.Input[Optional['RulesetThresholdUnit']]]
     """
     Unit of threshold value. Can be either a COUNT or PERCENTAGE of the full sample size used for validation.
     """
@@ -4404,8 +4404,8 @@ class RulesetThresholdArgsDict(TypedDict):
 class RulesetThresholdArgs:
     def __init__(__self__, *,
                  value: pulumi.Input[_builtins.float],
-                 type: Optional[pulumi.Input['RulesetThresholdType']] = None,
-                 unit: Optional[pulumi.Input['RulesetThresholdUnit']] = None):
+                 type: pulumi.Input[Optional['RulesetThresholdType']] = None,
+                 unit: pulumi.Input[Optional['RulesetThresholdUnit']] = None):
         """
         :param pulumi.Input[_builtins.float] value: The value of a threshold.
         :param pulumi.Input['RulesetThresholdType'] type: The type of a threshold. Used for comparison of an actual count of rows that satisfy the rule to the threshold value.
@@ -4431,26 +4431,26 @@ class RulesetThresholdArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['RulesetThresholdType']]:
+    def type(self) -> pulumi.Input[Optional['RulesetThresholdType']]:
         """
         The type of a threshold. Used for comparison of an actual count of rows that satisfy the rule to the threshold value.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['RulesetThresholdType']]):
+    def type(self, value: pulumi.Input[Optional['RulesetThresholdType']]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter
-    def unit(self) -> Optional[pulumi.Input['RulesetThresholdUnit']]:
+    def unit(self) -> pulumi.Input[Optional['RulesetThresholdUnit']]:
         """
         Unit of threshold value. Can be either a COUNT or PERCENTAGE of the full sample size used for validation.
         """
         return pulumi.get(self, "unit")
 
     @unit.setter
-    def unit(self, value: Optional[pulumi.Input['RulesetThresholdUnit']]):
+    def unit(self, value: pulumi.Input[Optional['RulesetThresholdUnit']]):
         pulumi.set(self, "unit", value)
 
 

@@ -43,33 +43,33 @@ __all__ = [
 ]
 
 class DetectorEntityTypeArgsDict(TypedDict):
-    arn: NotRequired[pulumi.Input[_builtins.str]]
+    arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The entity type ARN.
     """
-    created_time: NotRequired[pulumi.Input[_builtins.str]]
+    created_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The time when the entity type was created.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The description.
     """
-    inline: NotRequired[pulumi.Input[_builtins.bool]]
+    inline: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
 
     For example, when creating `AWS::FraudDetector::Detector` you must define at least two variables. You can set `Inline=true` for these Variables and CloudFormation will create/update/delete the variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your detector but not execute any changes to the variables.
     """
-    last_updated_time: NotRequired[pulumi.Input[_builtins.str]]
+    last_updated_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The time when the entity type was last updated.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The entity type name.
     """
-    tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['DetectorTagArgsDict']]]]
+    tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DetectorTagArgs']]]]]
     """
     Tags associated with this entity type.
     """
@@ -77,13 +77,13 @@ class DetectorEntityTypeArgsDict(TypedDict):
 @pulumi.input_type
 class DetectorEntityTypeArgs:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 created_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 inline: Optional[pulumi.Input[_builtins.bool]] = None,
-                 last_updated_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorTagArgs']]]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 inline: pulumi.Input[Optional[_builtins.bool]] = None,
+                 last_updated_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['DetectorTagArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] arn: The entity type ARN.
         :param pulumi.Input[_builtins.str] created_time: The time when the entity type was created.
@@ -112,43 +112,43 @@ class DetectorEntityTypeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The entity type ARN.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="createdTime")
-    def created_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The time when the entity type was created.
         """
         return pulumi.get(self, "created_time")
 
     @created_time.setter
-    def created_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_time", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def inline(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def inline(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
 
@@ -157,86 +157,86 @@ class DetectorEntityTypeArgs:
         return pulumi.get(self, "inline")
 
     @inline.setter
-    def inline(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def inline(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "inline", value)
 
     @_builtins.property
     @pulumi.getter(name="lastUpdatedTime")
-    def last_updated_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_updated_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The time when the entity type was last updated.
         """
         return pulumi.get(self, "last_updated_time")
 
     @last_updated_time.setter
-    def last_updated_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_updated_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_updated_time", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The entity type name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DetectorTagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DetectorTagArgs']]]]:
         """
         Tags associated with this entity type.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorTagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DetectorTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
 class DetectorEventTypeArgsDict(TypedDict):
-    arn: NotRequired[pulumi.Input[_builtins.str]]
+    arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of the event type.
     """
-    created_time: NotRequired[pulumi.Input[_builtins.str]]
+    created_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The time when the event type was created.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The description of the event type.
     """
-    entity_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['DetectorEntityTypeArgsDict']]]]
+    entity_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DetectorEntityTypeArgs']]]]]
     """
     The event type entity types.
     """
-    event_variables: NotRequired[pulumi.Input[Sequence[pulumi.Input['DetectorEventVariableArgsDict']]]]
+    event_variables: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DetectorEventVariableArgs']]]]]
     """
     The event type event variables.
     """
-    inline: NotRequired[pulumi.Input[_builtins.bool]]
+    inline: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
 
     For example, when creating `AWS::FraudDetector::Detector` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the Variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your detector but not execute any changes to the variables.
     """
-    labels: NotRequired[pulumi.Input[Sequence[pulumi.Input['DetectorLabelArgsDict']]]]
+    labels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DetectorLabelArgs']]]]]
     """
     The event type labels.
     """
-    last_updated_time: NotRequired[pulumi.Input[_builtins.str]]
+    last_updated_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The time when the event type was last updated.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name for the event type
     """
-    tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['DetectorTagArgsDict']]]]
+    tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DetectorTagArgs']]]]]
     """
     Tags associated with this event type.
     """
@@ -244,16 +244,16 @@ class DetectorEventTypeArgsDict(TypedDict):
 @pulumi.input_type
 class DetectorEventTypeArgs:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 created_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 entity_types: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorEntityTypeArgs']]]] = None,
-                 event_variables: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorEventVariableArgs']]]] = None,
-                 inline: Optional[pulumi.Input[_builtins.bool]] = None,
-                 labels: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorLabelArgs']]]] = None,
-                 last_updated_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorTagArgs']]]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 entity_types: pulumi.Input[Optional[Sequence[pulumi.Input['DetectorEntityTypeArgs']]]] = None,
+                 event_variables: pulumi.Input[Optional[Sequence[pulumi.Input['DetectorEventVariableArgs']]]] = None,
+                 inline: pulumi.Input[Optional[_builtins.bool]] = None,
+                 labels: pulumi.Input[Optional[Sequence[pulumi.Input['DetectorLabelArgs']]]] = None,
+                 last_updated_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['DetectorTagArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] arn: The ARN of the event type.
         :param pulumi.Input[_builtins.str] created_time: The time when the event type was created.
@@ -291,67 +291,67 @@ class DetectorEventTypeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the event type.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="createdTime")
-    def created_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The time when the event type was created.
         """
         return pulumi.get(self, "created_time")
 
     @created_time.setter
-    def created_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_time", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the event type.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="entityTypes")
-    def entity_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DetectorEntityTypeArgs']]]]:
+    def entity_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DetectorEntityTypeArgs']]]]:
         """
         The event type entity types.
         """
         return pulumi.get(self, "entity_types")
 
     @entity_types.setter
-    def entity_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorEntityTypeArgs']]]]):
+    def entity_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DetectorEntityTypeArgs']]]]):
         pulumi.set(self, "entity_types", value)
 
     @_builtins.property
     @pulumi.getter(name="eventVariables")
-    def event_variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DetectorEventVariableArgs']]]]:
+    def event_variables(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DetectorEventVariableArgs']]]]:
         """
         The event type event variables.
         """
         return pulumi.get(self, "event_variables")
 
     @event_variables.setter
-    def event_variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorEventVariableArgs']]]]):
+    def event_variables(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DetectorEventVariableArgs']]]]):
         pulumi.set(self, "event_variables", value)
 
     @_builtins.property
     @pulumi.getter
-    def inline(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def inline(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
 
@@ -360,68 +360,68 @@ class DetectorEventTypeArgs:
         return pulumi.get(self, "inline")
 
     @inline.setter
-    def inline(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def inline(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "inline", value)
 
     @_builtins.property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DetectorLabelArgs']]]]:
+    def labels(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DetectorLabelArgs']]]]:
         """
         The event type labels.
         """
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorLabelArgs']]]]):
+    def labels(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DetectorLabelArgs']]]]):
         pulumi.set(self, "labels", value)
 
     @_builtins.property
     @pulumi.getter(name="lastUpdatedTime")
-    def last_updated_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_updated_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The time when the event type was last updated.
         """
         return pulumi.get(self, "last_updated_time")
 
     @last_updated_time.setter
-    def last_updated_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_updated_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_updated_time", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name for the event type
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DetectorTagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DetectorTagArgs']]]]:
         """
         Tags associated with this event type.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorTagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DetectorTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
 class DetectorEventVariableArgsDict(TypedDict):
-    arn: NotRequired[pulumi.Input[_builtins.str]]
+    arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The event variable ARN.
     """
-    created_time: NotRequired[pulumi.Input[_builtins.str]]
+    created_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The time when the event variable was created.
     """
-    data_source: NotRequired[pulumi.Input['DetectorEventVariableDataSource']]
+    data_source: NotRequired[pulumi.Input[Optional['DetectorEventVariableDataSource']]]
     """
     The data source of the event variable.
 
@@ -429,39 +429,39 @@ class DetectorEventVariableArgsDict(TypedDict):
 
     When defining a variable within a detector, you can only use the `EVENT` value for DataSource when the *Inline* property is set to true. If the *Inline* property is set false, you can use either `EVENT` or `MODEL_SCORE` for DataSource.
     """
-    data_type: NotRequired[pulumi.Input['DetectorEventVariableDataType']]
+    data_type: NotRequired[pulumi.Input[Optional['DetectorEventVariableDataType']]]
     """
     The data type of the event variable.
 
     Valid values: `STRING | INTEGER | BOOLEAN | FLOAT`
     """
-    default_value: NotRequired[pulumi.Input[_builtins.str]]
+    default_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The default value of the event variable. This is required if you are providing the details of your variables instead of the ARN.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The description.
     """
-    inline: NotRequired[pulumi.Input[_builtins.bool]]
+    inline: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
 
     For example, when creating `AWS::FraudDetector::Detector` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your detector but not execute any changes to the variables.
     """
-    last_updated_time: NotRequired[pulumi.Input[_builtins.str]]
+    last_updated_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The time when the event variable was last updated.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the event variable.
     """
-    tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['DetectorTagArgsDict']]]]
+    tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DetectorTagArgs']]]]]
     """
     Tags associated with this event variable.
     """
-    variable_type: NotRequired[pulumi.Input['DetectorEventVariableVariableType']]
+    variable_type: NotRequired[pulumi.Input[Optional['DetectorEventVariableVariableType']]]
     """
     The type of event variable. For more information, see [Variable types](https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types) .
     """
@@ -469,17 +469,17 @@ class DetectorEventVariableArgsDict(TypedDict):
 @pulumi.input_type
 class DetectorEventVariableArgs:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 created_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_source: Optional[pulumi.Input['DetectorEventVariableDataSource']] = None,
-                 data_type: Optional[pulumi.Input['DetectorEventVariableDataType']] = None,
-                 default_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 inline: Optional[pulumi.Input[_builtins.bool]] = None,
-                 last_updated_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorTagArgs']]]] = None,
-                 variable_type: Optional[pulumi.Input['DetectorEventVariableVariableType']] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_source: pulumi.Input[Optional['DetectorEventVariableDataSource']] = None,
+                 data_type: pulumi.Input[Optional['DetectorEventVariableDataType']] = None,
+                 default_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 inline: pulumi.Input[Optional[_builtins.bool]] = None,
+                 last_updated_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['DetectorTagArgs']]]] = None,
+                 variable_type: pulumi.Input[Optional['DetectorEventVariableVariableType']] = None):
         """
         :param pulumi.Input[_builtins.str] arn: The event variable ARN.
         :param pulumi.Input[_builtins.str] created_time: The time when the event variable was created.
@@ -526,31 +526,31 @@ class DetectorEventVariableArgs:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The event variable ARN.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="createdTime")
-    def created_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The time when the event variable was created.
         """
         return pulumi.get(self, "created_time")
 
     @created_time.setter
-    def created_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_time", value)
 
     @_builtins.property
     @pulumi.getter(name="dataSource")
-    def data_source(self) -> Optional[pulumi.Input['DetectorEventVariableDataSource']]:
+    def data_source(self) -> pulumi.Input[Optional['DetectorEventVariableDataSource']]:
         """
         The data source of the event variable.
 
@@ -561,12 +561,12 @@ class DetectorEventVariableArgs:
         return pulumi.get(self, "data_source")
 
     @data_source.setter
-    def data_source(self, value: Optional[pulumi.Input['DetectorEventVariableDataSource']]):
+    def data_source(self, value: pulumi.Input[Optional['DetectorEventVariableDataSource']]):
         pulumi.set(self, "data_source", value)
 
     @_builtins.property
     @pulumi.getter(name="dataType")
-    def data_type(self) -> Optional[pulumi.Input['DetectorEventVariableDataType']]:
+    def data_type(self) -> pulumi.Input[Optional['DetectorEventVariableDataType']]:
         """
         The data type of the event variable.
 
@@ -575,36 +575,36 @@ class DetectorEventVariableArgs:
         return pulumi.get(self, "data_type")
 
     @data_type.setter
-    def data_type(self, value: Optional[pulumi.Input['DetectorEventVariableDataType']]):
+    def data_type(self, value: pulumi.Input[Optional['DetectorEventVariableDataType']]):
         pulumi.set(self, "data_type", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultValue")
-    def default_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The default value of the event variable. This is required if you are providing the details of your variables instead of the ARN.
         """
         return pulumi.get(self, "default_value")
 
     @default_value.setter
-    def default_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_value", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def inline(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def inline(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
 
@@ -613,86 +613,86 @@ class DetectorEventVariableArgs:
         return pulumi.get(self, "inline")
 
     @inline.setter
-    def inline(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def inline(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "inline", value)
 
     @_builtins.property
     @pulumi.getter(name="lastUpdatedTime")
-    def last_updated_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_updated_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The time when the event variable was last updated.
         """
         return pulumi.get(self, "last_updated_time")
 
     @last_updated_time.setter
-    def last_updated_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_updated_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_updated_time", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the event variable.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DetectorTagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DetectorTagArgs']]]]:
         """
         Tags associated with this event variable.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorTagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DetectorTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="variableType")
-    def variable_type(self) -> Optional[pulumi.Input['DetectorEventVariableVariableType']]:
+    def variable_type(self) -> pulumi.Input[Optional['DetectorEventVariableVariableType']]:
         """
         The type of event variable. For more information, see [Variable types](https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types) .
         """
         return pulumi.get(self, "variable_type")
 
     @variable_type.setter
-    def variable_type(self, value: Optional[pulumi.Input['DetectorEventVariableVariableType']]):
+    def variable_type(self, value: pulumi.Input[Optional['DetectorEventVariableVariableType']]):
         pulumi.set(self, "variable_type", value)
 
 
 class DetectorLabelArgsDict(TypedDict):
-    arn: NotRequired[pulumi.Input[_builtins.str]]
+    arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The label ARN.
     """
-    created_time: NotRequired[pulumi.Input[_builtins.str]]
+    created_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The time when the label was created.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The description.
     """
-    inline: NotRequired[pulumi.Input[_builtins.bool]]
+    inline: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
 
     For example, when creating `AWS::FraudDetector::Detector` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your detector but not execute any changes to the variables.
     """
-    last_updated_time: NotRequired[pulumi.Input[_builtins.str]]
+    last_updated_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The time when the label was last updated.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The label name.
     """
-    tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['DetectorTagArgsDict']]]]
+    tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DetectorTagArgs']]]]]
     """
     Tags associated with this label.
     """
@@ -700,13 +700,13 @@ class DetectorLabelArgsDict(TypedDict):
 @pulumi.input_type
 class DetectorLabelArgs:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 created_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 inline: Optional[pulumi.Input[_builtins.bool]] = None,
-                 last_updated_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorTagArgs']]]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 inline: pulumi.Input[Optional[_builtins.bool]] = None,
+                 last_updated_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['DetectorTagArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] arn: The label ARN.
         :param pulumi.Input[_builtins.str] created_time: The time when the label was created.
@@ -735,43 +735,43 @@ class DetectorLabelArgs:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The label ARN.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="createdTime")
-    def created_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The time when the label was created.
         """
         return pulumi.get(self, "created_time")
 
     @created_time.setter
-    def created_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_time", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def inline(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def inline(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
 
@@ -780,43 +780,43 @@ class DetectorLabelArgs:
         return pulumi.get(self, "inline")
 
     @inline.setter
-    def inline(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def inline(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "inline", value)
 
     @_builtins.property
     @pulumi.getter(name="lastUpdatedTime")
-    def last_updated_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_updated_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The time when the label was last updated.
         """
         return pulumi.get(self, "last_updated_time")
 
     @last_updated_time.setter
-    def last_updated_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_updated_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_updated_time", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The label name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DetectorTagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DetectorTagArgs']]]]:
         """
         Tags associated with this label.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorTagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DetectorTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -824,7 +824,7 @@ class DetectorModelArgsDict(TypedDict):
     """
     A model to associate with a detector.
     """
-    arn: NotRequired[pulumi.Input[_builtins.str]]
+    arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of the model.
     """
@@ -832,7 +832,7 @@ class DetectorModelArgsDict(TypedDict):
 @pulumi.input_type
 class DetectorModelArgs:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         A model to associate with a detector.
 
@@ -843,45 +843,45 @@ class DetectorModelArgs:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the model.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
 
 class DetectorOutcomeArgsDict(TypedDict):
-    arn: NotRequired[pulumi.Input[_builtins.str]]
+    arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The outcome ARN.
     """
-    created_time: NotRequired[pulumi.Input[_builtins.str]]
+    created_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The time when the outcome was created.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The description.
     """
-    inline: NotRequired[pulumi.Input[_builtins.bool]]
+    inline: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
 
     For example, when creating `AWS::FraudDetector::Detector` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your detector but not execute any changes to the variables.
     """
-    last_updated_time: NotRequired[pulumi.Input[_builtins.str]]
+    last_updated_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The time when the outcome was last updated.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The outcome name.
     """
-    tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['DetectorTagArgsDict']]]]
+    tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DetectorTagArgs']]]]]
     """
     Tags associated with this outcome.
     """
@@ -889,13 +889,13 @@ class DetectorOutcomeArgsDict(TypedDict):
 @pulumi.input_type
 class DetectorOutcomeArgs:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 created_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 inline: Optional[pulumi.Input[_builtins.bool]] = None,
-                 last_updated_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorTagArgs']]]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 inline: pulumi.Input[Optional[_builtins.bool]] = None,
+                 last_updated_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['DetectorTagArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] arn: The outcome ARN.
         :param pulumi.Input[_builtins.str] created_time: The time when the outcome was created.
@@ -924,43 +924,43 @@ class DetectorOutcomeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The outcome ARN.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="createdTime")
-    def created_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The time when the outcome was created.
         """
         return pulumi.get(self, "created_time")
 
     @created_time.setter
-    def created_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_time", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def inline(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def inline(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
 
@@ -969,90 +969,90 @@ class DetectorOutcomeArgs:
         return pulumi.get(self, "inline")
 
     @inline.setter
-    def inline(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def inline(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "inline", value)
 
     @_builtins.property
     @pulumi.getter(name="lastUpdatedTime")
-    def last_updated_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_updated_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The time when the outcome was last updated.
         """
         return pulumi.get(self, "last_updated_time")
 
     @last_updated_time.setter
-    def last_updated_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_updated_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_updated_time", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The outcome name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DetectorTagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DetectorTagArgs']]]]:
         """
         Tags associated with this outcome.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorTagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DetectorTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
 class DetectorRuleArgsDict(TypedDict):
-    arn: NotRequired[pulumi.Input[_builtins.str]]
+    arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The rule ARN.
     """
-    created_time: NotRequired[pulumi.Input[_builtins.str]]
+    created_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The time when the event type was created.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The description.
     """
-    detector_id: NotRequired[pulumi.Input[_builtins.str]]
+    detector_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The detector for which the rule is associated.
     """
-    expression: NotRequired[pulumi.Input[_builtins.str]]
+    expression: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The rule expression. A rule expression captures the business logic. For more information, see [Rule language reference](https://docs.aws.amazon.com/frauddetector/latest/ug/rule-language-reference.html) .
     """
-    language: NotRequired[pulumi.Input['DetectorRuleLanguage']]
+    language: NotRequired[pulumi.Input[Optional['DetectorRuleLanguage']]]
     """
     The rule language.
 
     Valid Value: DETECTORPL
     """
-    last_updated_time: NotRequired[pulumi.Input[_builtins.str]]
+    last_updated_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The time when the event type was last updated.
     """
-    outcomes: NotRequired[pulumi.Input[Sequence[pulumi.Input['DetectorOutcomeArgsDict']]]]
+    outcomes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DetectorOutcomeArgs']]]]]
     """
     The rule outcome.
     """
-    rule_id: NotRequired[pulumi.Input[_builtins.str]]
+    rule_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The rule ID.
     """
-    rule_version: NotRequired[pulumi.Input[_builtins.str]]
+    rule_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The rule version.
     """
-    tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['DetectorTagArgsDict']]]]
+    tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DetectorTagArgs']]]]]
     """
     Tags associated with this event type.
     """
@@ -1060,17 +1060,17 @@ class DetectorRuleArgsDict(TypedDict):
 @pulumi.input_type
 class DetectorRuleArgs:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 created_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 detector_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 language: Optional[pulumi.Input['DetectorRuleLanguage']] = None,
-                 last_updated_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 outcomes: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorOutcomeArgs']]]] = None,
-                 rule_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorTagArgs']]]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 detector_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 language: pulumi.Input[Optional['DetectorRuleLanguage']] = None,
+                 last_updated_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 outcomes: pulumi.Input[Optional[Sequence[pulumi.Input['DetectorOutcomeArgs']]]] = None,
+                 rule_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['DetectorTagArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] arn: The rule ARN.
         :param pulumi.Input[_builtins.str] created_time: The time when the event type was created.
@@ -1111,67 +1111,67 @@ class DetectorRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The rule ARN.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="createdTime")
-    def created_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The time when the event type was created.
         """
         return pulumi.get(self, "created_time")
 
     @created_time.setter
-    def created_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_time", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="detectorId")
-    def detector_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def detector_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The detector for which the rule is associated.
         """
         return pulumi.get(self, "detector_id")
 
     @detector_id.setter
-    def detector_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def detector_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "detector_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def expression(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expression(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The rule expression. A rule expression captures the business logic. For more information, see [Rule language reference](https://docs.aws.amazon.com/frauddetector/latest/ug/rule-language-reference.html) .
         """
         return pulumi.get(self, "expression")
 
     @expression.setter
-    def expression(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expression(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expression", value)
 
     @_builtins.property
     @pulumi.getter
-    def language(self) -> Optional[pulumi.Input['DetectorRuleLanguage']]:
+    def language(self) -> pulumi.Input[Optional['DetectorRuleLanguage']]:
         """
         The rule language.
 
@@ -1180,67 +1180,67 @@ class DetectorRuleArgs:
         return pulumi.get(self, "language")
 
     @language.setter
-    def language(self, value: Optional[pulumi.Input['DetectorRuleLanguage']]):
+    def language(self, value: pulumi.Input[Optional['DetectorRuleLanguage']]):
         pulumi.set(self, "language", value)
 
     @_builtins.property
     @pulumi.getter(name="lastUpdatedTime")
-    def last_updated_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_updated_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The time when the event type was last updated.
         """
         return pulumi.get(self, "last_updated_time")
 
     @last_updated_time.setter
-    def last_updated_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_updated_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_updated_time", value)
 
     @_builtins.property
     @pulumi.getter
-    def outcomes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DetectorOutcomeArgs']]]]:
+    def outcomes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DetectorOutcomeArgs']]]]:
         """
         The rule outcome.
         """
         return pulumi.get(self, "outcomes")
 
     @outcomes.setter
-    def outcomes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorOutcomeArgs']]]]):
+    def outcomes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DetectorOutcomeArgs']]]]):
         pulumi.set(self, "outcomes", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleId")
-    def rule_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rule_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The rule ID.
         """
         return pulumi.get(self, "rule_id")
 
     @rule_id.setter
-    def rule_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rule_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rule_id", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleVersion")
-    def rule_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rule_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The rule version.
         """
         return pulumi.get(self, "rule_version")
 
     @rule_version.setter
-    def rule_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rule_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rule_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DetectorTagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DetectorTagArgs']]]]:
         """
         Tags associated with this event type.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorTagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DetectorTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -1292,35 +1292,35 @@ class DetectorTagArgs:
 
 
 class EventTypeEntityTypeArgsDict(TypedDict):
-    arn: NotRequired[pulumi.Input[_builtins.str]]
+    arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The entity type ARN.
     """
-    created_time: NotRequired[pulumi.Input[_builtins.str]]
+    created_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The time when the event type was created.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The description.
     """
-    inline: NotRequired[pulumi.Input[_builtins.bool]]
+    inline: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
 
     For example, when creating `AWS::FraudDetector::EventType` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your event type but not execute any changes to the variables.
     """
-    last_updated_time: NotRequired[pulumi.Input[_builtins.str]]
+    last_updated_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The time when the event type was last updated.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The entity type name.
 
     `^[0-9a-z_-]+$`
     """
-    tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventTypeTagArgsDict']]]]
+    tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventTypeTagArgs']]]]]
     """
     Tags associated with this event type.
     """
@@ -1328,13 +1328,13 @@ class EventTypeEntityTypeArgsDict(TypedDict):
 @pulumi.input_type
 class EventTypeEntityTypeArgs:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 created_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 inline: Optional[pulumi.Input[_builtins.bool]] = None,
-                 last_updated_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['EventTypeTagArgs']]]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 inline: pulumi.Input[Optional[_builtins.bool]] = None,
+                 last_updated_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['EventTypeTagArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] arn: The entity type ARN.
         :param pulumi.Input[_builtins.str] created_time: The time when the event type was created.
@@ -1365,43 +1365,43 @@ class EventTypeEntityTypeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The entity type ARN.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="createdTime")
-    def created_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The time when the event type was created.
         """
         return pulumi.get(self, "created_time")
 
     @created_time.setter
-    def created_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_time", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def inline(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def inline(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
 
@@ -1410,24 +1410,24 @@ class EventTypeEntityTypeArgs:
         return pulumi.get(self, "inline")
 
     @inline.setter
-    def inline(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def inline(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "inline", value)
 
     @_builtins.property
     @pulumi.getter(name="lastUpdatedTime")
-    def last_updated_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_updated_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The time when the event type was last updated.
         """
         return pulumi.get(self, "last_updated_time")
 
     @last_updated_time.setter
-    def last_updated_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_updated_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_updated_time", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The entity type name.
 
@@ -1436,32 +1436,32 @@ class EventTypeEntityTypeArgs:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventTypeTagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EventTypeTagArgs']]]]:
         """
         Tags associated with this event type.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventTypeTagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EventTypeTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
 class EventTypeEventVariableArgsDict(TypedDict):
-    arn: NotRequired[pulumi.Input[_builtins.str]]
+    arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The event variable ARN.
     """
-    created_time: NotRequired[pulumi.Input[_builtins.str]]
+    created_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The time when the event type was created.
     """
-    data_source: NotRequired[pulumi.Input['EventTypeEventVariableDataSource']]
+    data_source: NotRequired[pulumi.Input[Optional['EventTypeEventVariableDataSource']]]
     """
     The source of the event variable.
 
@@ -1469,37 +1469,37 @@ class EventTypeEventVariableArgsDict(TypedDict):
 
     When defining a variable within a event type, you can only use the `EVENT` value for DataSource when the *Inline* property is set to true. If the *Inline* property is set false, you can use either `EVENT` or `MODEL_SCORE` for DataSource.
     """
-    data_type: NotRequired[pulumi.Input['EventTypeEventVariableDataType']]
+    data_type: NotRequired[pulumi.Input[Optional['EventTypeEventVariableDataType']]]
     """
     The data type of the event variable. For more information, see [Data types](https://docs.aws.amazon.com/frauddetector/latest/ug/variables.html#data-types) .
     """
-    default_value: NotRequired[pulumi.Input[_builtins.str]]
+    default_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The default value of the event variable
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The description.
     """
-    inline: NotRequired[pulumi.Input[_builtins.bool]]
+    inline: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
 
     For example, when creating `AWS::FraudDetector::EventType` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the Variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your event type but not execute any changes to the variables.
     """
-    last_updated_time: NotRequired[pulumi.Input[_builtins.str]]
+    last_updated_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The time when the event type was last updated.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the event variable.
     """
-    tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventTypeTagArgsDict']]]]
+    tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventTypeTagArgs']]]]]
     """
     Tags associated with this event type.
     """
-    variable_type: NotRequired[pulumi.Input['EventTypeEventVariableVariableType']]
+    variable_type: NotRequired[pulumi.Input[Optional['EventTypeEventVariableVariableType']]]
     """
     The type of event variable. For more information, see [Variable types](https://docs.aws.amazon.com/frauddetector/latest/ug/variables.html#variable-types) .
     """
@@ -1507,17 +1507,17 @@ class EventTypeEventVariableArgsDict(TypedDict):
 @pulumi.input_type
 class EventTypeEventVariableArgs:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 created_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_source: Optional[pulumi.Input['EventTypeEventVariableDataSource']] = None,
-                 data_type: Optional[pulumi.Input['EventTypeEventVariableDataType']] = None,
-                 default_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 inline: Optional[pulumi.Input[_builtins.bool]] = None,
-                 last_updated_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['EventTypeTagArgs']]]] = None,
-                 variable_type: Optional[pulumi.Input['EventTypeEventVariableVariableType']] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_source: pulumi.Input[Optional['EventTypeEventVariableDataSource']] = None,
+                 data_type: pulumi.Input[Optional['EventTypeEventVariableDataType']] = None,
+                 default_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 inline: pulumi.Input[Optional[_builtins.bool]] = None,
+                 last_updated_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['EventTypeTagArgs']]]] = None,
+                 variable_type: pulumi.Input[Optional['EventTypeEventVariableVariableType']] = None):
         """
         :param pulumi.Input[_builtins.str] arn: The event variable ARN.
         :param pulumi.Input[_builtins.str] created_time: The time when the event type was created.
@@ -1562,31 +1562,31 @@ class EventTypeEventVariableArgs:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The event variable ARN.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="createdTime")
-    def created_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The time when the event type was created.
         """
         return pulumi.get(self, "created_time")
 
     @created_time.setter
-    def created_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_time", value)
 
     @_builtins.property
     @pulumi.getter(name="dataSource")
-    def data_source(self) -> Optional[pulumi.Input['EventTypeEventVariableDataSource']]:
+    def data_source(self) -> pulumi.Input[Optional['EventTypeEventVariableDataSource']]:
         """
         The source of the event variable.
 
@@ -1597,48 +1597,48 @@ class EventTypeEventVariableArgs:
         return pulumi.get(self, "data_source")
 
     @data_source.setter
-    def data_source(self, value: Optional[pulumi.Input['EventTypeEventVariableDataSource']]):
+    def data_source(self, value: pulumi.Input[Optional['EventTypeEventVariableDataSource']]):
         pulumi.set(self, "data_source", value)
 
     @_builtins.property
     @pulumi.getter(name="dataType")
-    def data_type(self) -> Optional[pulumi.Input['EventTypeEventVariableDataType']]:
+    def data_type(self) -> pulumi.Input[Optional['EventTypeEventVariableDataType']]:
         """
         The data type of the event variable. For more information, see [Data types](https://docs.aws.amazon.com/frauddetector/latest/ug/variables.html#data-types) .
         """
         return pulumi.get(self, "data_type")
 
     @data_type.setter
-    def data_type(self, value: Optional[pulumi.Input['EventTypeEventVariableDataType']]):
+    def data_type(self, value: pulumi.Input[Optional['EventTypeEventVariableDataType']]):
         pulumi.set(self, "data_type", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultValue")
-    def default_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The default value of the event variable
         """
         return pulumi.get(self, "default_value")
 
     @default_value.setter
-    def default_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_value", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def inline(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def inline(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
 
@@ -1647,86 +1647,86 @@ class EventTypeEventVariableArgs:
         return pulumi.get(self, "inline")
 
     @inline.setter
-    def inline(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def inline(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "inline", value)
 
     @_builtins.property
     @pulumi.getter(name="lastUpdatedTime")
-    def last_updated_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_updated_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The time when the event type was last updated.
         """
         return pulumi.get(self, "last_updated_time")
 
     @last_updated_time.setter
-    def last_updated_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_updated_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_updated_time", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the event variable.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventTypeTagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EventTypeTagArgs']]]]:
         """
         Tags associated with this event type.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventTypeTagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EventTypeTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="variableType")
-    def variable_type(self) -> Optional[pulumi.Input['EventTypeEventVariableVariableType']]:
+    def variable_type(self) -> pulumi.Input[Optional['EventTypeEventVariableVariableType']]:
         """
         The type of event variable. For more information, see [Variable types](https://docs.aws.amazon.com/frauddetector/latest/ug/variables.html#variable-types) .
         """
         return pulumi.get(self, "variable_type")
 
     @variable_type.setter
-    def variable_type(self, value: Optional[pulumi.Input['EventTypeEventVariableVariableType']]):
+    def variable_type(self, value: pulumi.Input[Optional['EventTypeEventVariableVariableType']]):
         pulumi.set(self, "variable_type", value)
 
 
 class EventTypeLabelArgsDict(TypedDict):
-    arn: NotRequired[pulumi.Input[_builtins.str]]
+    arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The label ARN.
     """
-    created_time: NotRequired[pulumi.Input[_builtins.str]]
+    created_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The time when the event type was created.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The description.
     """
-    inline: NotRequired[pulumi.Input[_builtins.bool]]
+    inline: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
 
     For example, when creating `AWS::FraudDetector::EventType` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your EventType but not execute any changes to the variables.
     """
-    last_updated_time: NotRequired[pulumi.Input[_builtins.str]]
+    last_updated_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The time when the event type was last updated.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The label name.
     """
-    tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventTypeTagArgsDict']]]]
+    tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventTypeTagArgs']]]]]
     """
     Tags associated with this event type.
     """
@@ -1734,13 +1734,13 @@ class EventTypeLabelArgsDict(TypedDict):
 @pulumi.input_type
 class EventTypeLabelArgs:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 created_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 inline: Optional[pulumi.Input[_builtins.bool]] = None,
-                 last_updated_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['EventTypeTagArgs']]]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 inline: pulumi.Input[Optional[_builtins.bool]] = None,
+                 last_updated_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['EventTypeTagArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] arn: The label ARN.
         :param pulumi.Input[_builtins.str] created_time: The time when the event type was created.
@@ -1769,43 +1769,43 @@ class EventTypeLabelArgs:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The label ARN.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="createdTime")
-    def created_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The time when the event type was created.
         """
         return pulumi.get(self, "created_time")
 
     @created_time.setter
-    def created_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_time", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def inline(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def inline(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
 
@@ -1814,43 +1814,43 @@ class EventTypeLabelArgs:
         return pulumi.get(self, "inline")
 
     @inline.setter
-    def inline(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def inline(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "inline", value)
 
     @_builtins.property
     @pulumi.getter(name="lastUpdatedTime")
-    def last_updated_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_updated_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The time when the event type was last updated.
         """
         return pulumi.get(self, "last_updated_time")
 
     @last_updated_time.setter
-    def last_updated_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_updated_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_updated_time", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The label name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventTypeTagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EventTypeTagArgs']]]]:
         """
         Tags associated with this event type.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventTypeTagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EventTypeTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 

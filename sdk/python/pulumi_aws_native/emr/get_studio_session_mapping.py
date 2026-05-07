@@ -68,9 +68,9 @@ def get_studio_session_mapping(identity_name: Optional[_builtins.str] = None,
 
     return AwaitableGetStudioSessionMappingResult(
         session_policy_arn=pulumi.get(__ret__, 'session_policy_arn'))
-def get_studio_session_mapping_output(identity_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                      identity_type: Optional[pulumi.Input['StudioSessionMappingIdentityType']] = None,
-                                      studio_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_studio_session_mapping_output(identity_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                      identity_type: pulumi.Input[Optional['StudioSessionMappingIdentityType']] = None,
+                                      studio_id: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStudioSessionMappingResult]:
     """
     An example resource schema demonstrating some basic constructs and validation rules.

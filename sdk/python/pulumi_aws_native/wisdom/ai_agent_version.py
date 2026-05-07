@@ -21,7 +21,7 @@ class AiAgentVersionArgs:
     def __init__(__self__, *,
                  ai_agent_id: pulumi.Input[_builtins.str],
                  assistant_id: pulumi.Input[_builtins.str],
-                 modified_time_seconds: Optional[pulumi.Input[_builtins.float]] = None):
+                 modified_time_seconds: pulumi.Input[Optional[_builtins.float]] = None):
         """
         The set of arguments for constructing a AiAgentVersion resource.
 
@@ -56,14 +56,14 @@ class AiAgentVersionArgs:
 
     @_builtins.property
     @pulumi.getter(name="modifiedTimeSeconds")
-    def modified_time_seconds(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def modified_time_seconds(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The time the AI Agent version was last modified in seconds.
         """
         return pulumi.get(self, "modified_time_seconds")
 
     @modified_time_seconds.setter
-    def modified_time_seconds(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def modified_time_seconds(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "modified_time_seconds", value)
 
 
@@ -73,9 +73,9 @@ class AiAgentVersion(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 ai_agent_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 assistant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 modified_time_seconds: Optional[pulumi.Input[_builtins.float]] = None,
+                 ai_agent_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 assistant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 modified_time_seconds: pulumi.Input[Optional[_builtins.float]] = None,
                  __props__=None):
         """
         Definition of AWS::Wisdom::AIAgentVersion Resource Type
@@ -111,9 +111,9 @@ class AiAgentVersion(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 ai_agent_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 assistant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 modified_time_seconds: Optional[pulumi.Input[_builtins.float]] = None,
+                 ai_agent_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 assistant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 modified_time_seconds: pulumi.Input[Optional[_builtins.float]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

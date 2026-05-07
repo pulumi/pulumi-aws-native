@@ -144,8 +144,8 @@ def get_site(global_network_id: Optional[_builtins.str] = None,
         site_id=pulumi.get(__ret__, 'site_id'),
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_site_output(global_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-                    site_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_site_output(global_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                    site_id: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSiteResult]:
     """
     The AWS::NetworkManager::Site type describes a site.

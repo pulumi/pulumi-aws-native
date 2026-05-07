@@ -375,22 +375,22 @@ class AiAgentAnnotationArgs:
 
 
 class AiAgentAnswerRecommendationAiAgentConfigurationArgsDict(TypedDict):
-    answer_generation_ai_guardrail_id: NotRequired[pulumi.Input[_builtins.str]]
-    answer_generation_ai_prompt_id: NotRequired[pulumi.Input[_builtins.str]]
-    association_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgsDict']]]]
-    intent_labeling_generation_ai_prompt_id: NotRequired[pulumi.Input[_builtins.str]]
-    locale: NotRequired[pulumi.Input[_builtins.str]]
-    query_reformulation_ai_prompt_id: NotRequired[pulumi.Input[_builtins.str]]
+    answer_generation_ai_guardrail_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    answer_generation_ai_prompt_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    association_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgs']]]]]
+    intent_labeling_generation_ai_prompt_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    locale: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    query_reformulation_ai_prompt_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class AiAgentAnswerRecommendationAiAgentConfigurationArgs:
     def __init__(__self__, *,
-                 answer_generation_ai_guardrail_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 answer_generation_ai_prompt_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 association_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgs']]]] = None,
-                 intent_labeling_generation_ai_prompt_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 locale: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_reformulation_ai_prompt_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 answer_generation_ai_guardrail_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 answer_generation_ai_prompt_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 association_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgs']]]] = None,
+                 intent_labeling_generation_ai_prompt_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 locale: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_reformulation_ai_prompt_id: pulumi.Input[Optional[_builtins.str]] = None):
         if answer_generation_ai_guardrail_id is not None:
             pulumi.set(__self__, "answer_generation_ai_guardrail_id", answer_generation_ai_guardrail_id)
         if answer_generation_ai_prompt_id is not None:
@@ -406,56 +406,56 @@ class AiAgentAnswerRecommendationAiAgentConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="answerGenerationAiGuardrailId")
-    def answer_generation_ai_guardrail_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def answer_generation_ai_guardrail_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "answer_generation_ai_guardrail_id")
 
     @answer_generation_ai_guardrail_id.setter
-    def answer_generation_ai_guardrail_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def answer_generation_ai_guardrail_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "answer_generation_ai_guardrail_id", value)
 
     @_builtins.property
     @pulumi.getter(name="answerGenerationAiPromptId")
-    def answer_generation_ai_prompt_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def answer_generation_ai_prompt_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "answer_generation_ai_prompt_id")
 
     @answer_generation_ai_prompt_id.setter
-    def answer_generation_ai_prompt_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def answer_generation_ai_prompt_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "answer_generation_ai_prompt_id", value)
 
     @_builtins.property
     @pulumi.getter(name="associationConfigurations")
-    def association_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgs']]]]:
+    def association_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgs']]]]:
         return pulumi.get(self, "association_configurations")
 
     @association_configurations.setter
-    def association_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgs']]]]):
+    def association_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgs']]]]):
         pulumi.set(self, "association_configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="intentLabelingGenerationAiPromptId")
-    def intent_labeling_generation_ai_prompt_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def intent_labeling_generation_ai_prompt_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "intent_labeling_generation_ai_prompt_id")
 
     @intent_labeling_generation_ai_prompt_id.setter
-    def intent_labeling_generation_ai_prompt_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def intent_labeling_generation_ai_prompt_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "intent_labeling_generation_ai_prompt_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def locale(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def locale(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "locale")
 
     @locale.setter
-    def locale(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def locale(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "locale", value)
 
     @_builtins.property
     @pulumi.getter(name="queryReformulationAiPromptId")
-    def query_reformulation_ai_prompt_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def query_reformulation_ai_prompt_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "query_reformulation_ai_prompt_id")
 
     @query_reformulation_ai_prompt_id.setter
-    def query_reformulation_ai_prompt_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def query_reformulation_ai_prompt_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "query_reformulation_ai_prompt_id", value)
 
 
@@ -479,16 +479,16 @@ class AiAgentAssociationConfigurationDataPropertiesArgs:
 
 
 class AiAgentAssociationConfigurationArgsDict(TypedDict):
-    association_configuration_data: NotRequired[pulumi.Input['AiAgentAssociationConfigurationDataPropertiesArgsDict']]
-    association_id: NotRequired[pulumi.Input[_builtins.str]]
-    association_type: NotRequired[pulumi.Input['AiAgentAiAgentAssociationConfigurationType']]
+    association_configuration_data: NotRequired[pulumi.Input[Optional['AiAgentAssociationConfigurationDataPropertiesArgs']]]
+    association_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    association_type: NotRequired[pulumi.Input[Optional['AiAgentAiAgentAssociationConfigurationType']]]
 
 @pulumi.input_type
 class AiAgentAssociationConfigurationArgs:
     def __init__(__self__, *,
-                 association_configuration_data: Optional[pulumi.Input['AiAgentAssociationConfigurationDataPropertiesArgs']] = None,
-                 association_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 association_type: Optional[pulumi.Input['AiAgentAiAgentAssociationConfigurationType']] = None):
+                 association_configuration_data: pulumi.Input[Optional['AiAgentAssociationConfigurationDataPropertiesArgs']] = None,
+                 association_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 association_type: pulumi.Input[Optional['AiAgentAiAgentAssociationConfigurationType']] = None):
         if association_configuration_data is not None:
             pulumi.set(__self__, "association_configuration_data", association_configuration_data)
         if association_id is not None:
@@ -498,43 +498,43 @@ class AiAgentAssociationConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="associationConfigurationData")
-    def association_configuration_data(self) -> Optional[pulumi.Input['AiAgentAssociationConfigurationDataPropertiesArgs']]:
+    def association_configuration_data(self) -> pulumi.Input[Optional['AiAgentAssociationConfigurationDataPropertiesArgs']]:
         return pulumi.get(self, "association_configuration_data")
 
     @association_configuration_data.setter
-    def association_configuration_data(self, value: Optional[pulumi.Input['AiAgentAssociationConfigurationDataPropertiesArgs']]):
+    def association_configuration_data(self, value: pulumi.Input[Optional['AiAgentAssociationConfigurationDataPropertiesArgs']]):
         pulumi.set(self, "association_configuration_data", value)
 
     @_builtins.property
     @pulumi.getter(name="associationId")
-    def association_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def association_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "association_id")
 
     @association_id.setter
-    def association_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def association_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "association_id", value)
 
     @_builtins.property
     @pulumi.getter(name="associationType")
-    def association_type(self) -> Optional[pulumi.Input['AiAgentAiAgentAssociationConfigurationType']]:
+    def association_type(self) -> pulumi.Input[Optional['AiAgentAiAgentAssociationConfigurationType']]:
         return pulumi.get(self, "association_type")
 
     @association_type.setter
-    def association_type(self, value: Optional[pulumi.Input['AiAgentAiAgentAssociationConfigurationType']]):
+    def association_type(self, value: pulumi.Input[Optional['AiAgentAiAgentAssociationConfigurationType']]):
         pulumi.set(self, "association_type", value)
 
 
 class AiAgentCaseSummarizationAiAgentConfigurationArgsDict(TypedDict):
-    case_summarization_ai_guardrail_id: NotRequired[pulumi.Input[_builtins.str]]
-    case_summarization_ai_prompt_id: NotRequired[pulumi.Input[_builtins.str]]
-    locale: NotRequired[pulumi.Input[_builtins.str]]
+    case_summarization_ai_guardrail_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    case_summarization_ai_prompt_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    locale: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class AiAgentCaseSummarizationAiAgentConfigurationArgs:
     def __init__(__self__, *,
-                 case_summarization_ai_guardrail_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 case_summarization_ai_prompt_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 locale: Optional[pulumi.Input[_builtins.str]] = None):
+                 case_summarization_ai_guardrail_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 case_summarization_ai_prompt_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 locale: pulumi.Input[Optional[_builtins.str]] = None):
         if case_summarization_ai_guardrail_id is not None:
             pulumi.set(__self__, "case_summarization_ai_guardrail_id", case_summarization_ai_guardrail_id)
         if case_summarization_ai_prompt_id is not None:
@@ -544,45 +544,45 @@ class AiAgentCaseSummarizationAiAgentConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="caseSummarizationAiGuardrailId")
-    def case_summarization_ai_guardrail_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def case_summarization_ai_guardrail_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "case_summarization_ai_guardrail_id")
 
     @case_summarization_ai_guardrail_id.setter
-    def case_summarization_ai_guardrail_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def case_summarization_ai_guardrail_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "case_summarization_ai_guardrail_id", value)
 
     @_builtins.property
     @pulumi.getter(name="caseSummarizationAiPromptId")
-    def case_summarization_ai_prompt_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def case_summarization_ai_prompt_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "case_summarization_ai_prompt_id")
 
     @case_summarization_ai_prompt_id.setter
-    def case_summarization_ai_prompt_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def case_summarization_ai_prompt_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "case_summarization_ai_prompt_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def locale(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def locale(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "locale")
 
     @locale.setter
-    def locale(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def locale(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "locale", value)
 
 
 class AiAgentEmailGenerativeAnswerAiAgentConfigurationArgsDict(TypedDict):
-    association_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgsDict']]]]
-    email_generative_answer_ai_prompt_id: NotRequired[pulumi.Input[_builtins.str]]
-    email_query_reformulation_ai_prompt_id: NotRequired[pulumi.Input[_builtins.str]]
-    locale: NotRequired[pulumi.Input[_builtins.str]]
+    association_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgs']]]]]
+    email_generative_answer_ai_prompt_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    email_query_reformulation_ai_prompt_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    locale: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class AiAgentEmailGenerativeAnswerAiAgentConfigurationArgs:
     def __init__(__self__, *,
-                 association_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgs']]]] = None,
-                 email_generative_answer_ai_prompt_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 email_query_reformulation_ai_prompt_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 locale: Optional[pulumi.Input[_builtins.str]] = None):
+                 association_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgs']]]] = None,
+                 email_generative_answer_ai_prompt_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 email_query_reformulation_ai_prompt_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 locale: pulumi.Input[Optional[_builtins.str]] = None):
         if association_configurations is not None:
             pulumi.set(__self__, "association_configurations", association_configurations)
         if email_generative_answer_ai_prompt_id is not None:
@@ -594,50 +594,50 @@ class AiAgentEmailGenerativeAnswerAiAgentConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="associationConfigurations")
-    def association_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgs']]]]:
+    def association_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgs']]]]:
         return pulumi.get(self, "association_configurations")
 
     @association_configurations.setter
-    def association_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgs']]]]):
+    def association_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgs']]]]):
         pulumi.set(self, "association_configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="emailGenerativeAnswerAiPromptId")
-    def email_generative_answer_ai_prompt_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def email_generative_answer_ai_prompt_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "email_generative_answer_ai_prompt_id")
 
     @email_generative_answer_ai_prompt_id.setter
-    def email_generative_answer_ai_prompt_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def email_generative_answer_ai_prompt_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "email_generative_answer_ai_prompt_id", value)
 
     @_builtins.property
     @pulumi.getter(name="emailQueryReformulationAiPromptId")
-    def email_query_reformulation_ai_prompt_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def email_query_reformulation_ai_prompt_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "email_query_reformulation_ai_prompt_id")
 
     @email_query_reformulation_ai_prompt_id.setter
-    def email_query_reformulation_ai_prompt_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def email_query_reformulation_ai_prompt_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "email_query_reformulation_ai_prompt_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def locale(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def locale(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "locale")
 
     @locale.setter
-    def locale(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def locale(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "locale", value)
 
 
 class AiAgentEmailOverviewAiAgentConfigurationArgsDict(TypedDict):
-    email_overview_ai_prompt_id: NotRequired[pulumi.Input[_builtins.str]]
-    locale: NotRequired[pulumi.Input[_builtins.str]]
+    email_overview_ai_prompt_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    locale: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class AiAgentEmailOverviewAiAgentConfigurationArgs:
     def __init__(__self__, *,
-                 email_overview_ai_prompt_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 locale: Optional[pulumi.Input[_builtins.str]] = None):
+                 email_overview_ai_prompt_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 locale: pulumi.Input[Optional[_builtins.str]] = None):
         if email_overview_ai_prompt_id is not None:
             pulumi.set(__self__, "email_overview_ai_prompt_id", email_overview_ai_prompt_id)
         if locale is not None:
@@ -645,36 +645,36 @@ class AiAgentEmailOverviewAiAgentConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="emailOverviewAiPromptId")
-    def email_overview_ai_prompt_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def email_overview_ai_prompt_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "email_overview_ai_prompt_id")
 
     @email_overview_ai_prompt_id.setter
-    def email_overview_ai_prompt_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def email_overview_ai_prompt_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "email_overview_ai_prompt_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def locale(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def locale(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "locale")
 
     @locale.setter
-    def locale(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def locale(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "locale", value)
 
 
 class AiAgentEmailResponseAiAgentConfigurationArgsDict(TypedDict):
-    association_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgsDict']]]]
-    email_query_reformulation_ai_prompt_id: NotRequired[pulumi.Input[_builtins.str]]
-    email_response_ai_prompt_id: NotRequired[pulumi.Input[_builtins.str]]
-    locale: NotRequired[pulumi.Input[_builtins.str]]
+    association_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgs']]]]]
+    email_query_reformulation_ai_prompt_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    email_response_ai_prompt_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    locale: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class AiAgentEmailResponseAiAgentConfigurationArgs:
     def __init__(__self__, *,
-                 association_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgs']]]] = None,
-                 email_query_reformulation_ai_prompt_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 email_response_ai_prompt_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 locale: Optional[pulumi.Input[_builtins.str]] = None):
+                 association_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgs']]]] = None,
+                 email_query_reformulation_ai_prompt_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 email_response_ai_prompt_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 locale: pulumi.Input[Optional[_builtins.str]] = None):
         if association_configurations is not None:
             pulumi.set(__self__, "association_configurations", association_configurations)
         if email_query_reformulation_ai_prompt_id is not None:
@@ -686,52 +686,52 @@ class AiAgentEmailResponseAiAgentConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="associationConfigurations")
-    def association_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgs']]]]:
+    def association_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgs']]]]:
         return pulumi.get(self, "association_configurations")
 
     @association_configurations.setter
-    def association_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgs']]]]):
+    def association_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgs']]]]):
         pulumi.set(self, "association_configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="emailQueryReformulationAiPromptId")
-    def email_query_reformulation_ai_prompt_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def email_query_reformulation_ai_prompt_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "email_query_reformulation_ai_prompt_id")
 
     @email_query_reformulation_ai_prompt_id.setter
-    def email_query_reformulation_ai_prompt_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def email_query_reformulation_ai_prompt_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "email_query_reformulation_ai_prompt_id", value)
 
     @_builtins.property
     @pulumi.getter(name="emailResponseAiPromptId")
-    def email_response_ai_prompt_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def email_response_ai_prompt_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "email_response_ai_prompt_id")
 
     @email_response_ai_prompt_id.setter
-    def email_response_ai_prompt_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def email_response_ai_prompt_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "email_response_ai_prompt_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def locale(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def locale(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "locale")
 
     @locale.setter
-    def locale(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def locale(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "locale", value)
 
 
 class AiAgentKnowledgeBaseAssociationConfigurationDataArgsDict(TypedDict):
-    content_tag_filter: NotRequired[pulumi.Input[Union['AiAgentTagFilter0PropertiesArgsDict', 'AiAgentTagFilter1PropertiesArgsDict', 'AiAgentTagFilter2PropertiesArgsDict']]]
-    max_results: NotRequired[pulumi.Input[_builtins.float]]
-    override_knowledge_base_search_type: NotRequired[pulumi.Input['AiAgentKnowledgeBaseSearchType']]
+    content_tag_filter: NotRequired[pulumi.Input[Optional[Union['AiAgentTagFilter0PropertiesArgs', 'AiAgentTagFilter1PropertiesArgs', 'AiAgentTagFilter2PropertiesArgs']]]]
+    max_results: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    override_knowledge_base_search_type: NotRequired[pulumi.Input[Optional['AiAgentKnowledgeBaseSearchType']]]
 
 @pulumi.input_type
 class AiAgentKnowledgeBaseAssociationConfigurationDataArgs:
     def __init__(__self__, *,
-                 content_tag_filter: Optional[pulumi.Input[Union['AiAgentTagFilter0PropertiesArgs', 'AiAgentTagFilter1PropertiesArgs', 'AiAgentTagFilter2PropertiesArgs']]] = None,
-                 max_results: Optional[pulumi.Input[_builtins.float]] = None,
-                 override_knowledge_base_search_type: Optional[pulumi.Input['AiAgentKnowledgeBaseSearchType']] = None):
+                 content_tag_filter: pulumi.Input[Optional[Union['AiAgentTagFilter0PropertiesArgs', 'AiAgentTagFilter1PropertiesArgs', 'AiAgentTagFilter2PropertiesArgs']]] = None,
+                 max_results: pulumi.Input[Optional[_builtins.float]] = None,
+                 override_knowledge_base_search_type: pulumi.Input[Optional['AiAgentKnowledgeBaseSearchType']] = None):
         if content_tag_filter is not None:
             pulumi.set(__self__, "content_tag_filter", content_tag_filter)
         if max_results is not None:
@@ -741,45 +741,45 @@ class AiAgentKnowledgeBaseAssociationConfigurationDataArgs:
 
     @_builtins.property
     @pulumi.getter(name="contentTagFilter")
-    def content_tag_filter(self) -> Optional[pulumi.Input[Union['AiAgentTagFilter0PropertiesArgs', 'AiAgentTagFilter1PropertiesArgs', 'AiAgentTagFilter2PropertiesArgs']]]:
+    def content_tag_filter(self) -> pulumi.Input[Optional[Union['AiAgentTagFilter0PropertiesArgs', 'AiAgentTagFilter1PropertiesArgs', 'AiAgentTagFilter2PropertiesArgs']]]:
         return pulumi.get(self, "content_tag_filter")
 
     @content_tag_filter.setter
-    def content_tag_filter(self, value: Optional[pulumi.Input[Union['AiAgentTagFilter0PropertiesArgs', 'AiAgentTagFilter1PropertiesArgs', 'AiAgentTagFilter2PropertiesArgs']]]):
+    def content_tag_filter(self, value: pulumi.Input[Optional[Union['AiAgentTagFilter0PropertiesArgs', 'AiAgentTagFilter1PropertiesArgs', 'AiAgentTagFilter2PropertiesArgs']]]):
         pulumi.set(self, "content_tag_filter", value)
 
     @_builtins.property
     @pulumi.getter(name="maxResults")
-    def max_results(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def max_results(self) -> pulumi.Input[Optional[_builtins.float]]:
         return pulumi.get(self, "max_results")
 
     @max_results.setter
-    def max_results(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def max_results(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "max_results", value)
 
     @_builtins.property
     @pulumi.getter(name="overrideKnowledgeBaseSearchType")
-    def override_knowledge_base_search_type(self) -> Optional[pulumi.Input['AiAgentKnowledgeBaseSearchType']]:
+    def override_knowledge_base_search_type(self) -> pulumi.Input[Optional['AiAgentKnowledgeBaseSearchType']]:
         return pulumi.get(self, "override_knowledge_base_search_type")
 
     @override_knowledge_base_search_type.setter
-    def override_knowledge_base_search_type(self, value: Optional[pulumi.Input['AiAgentKnowledgeBaseSearchType']]):
+    def override_knowledge_base_search_type(self, value: pulumi.Input[Optional['AiAgentKnowledgeBaseSearchType']]):
         pulumi.set(self, "override_knowledge_base_search_type", value)
 
 
 class AiAgentManualSearchAiAgentConfigurationArgsDict(TypedDict):
-    answer_generation_ai_guardrail_id: NotRequired[pulumi.Input[_builtins.str]]
-    answer_generation_ai_prompt_id: NotRequired[pulumi.Input[_builtins.str]]
-    association_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgsDict']]]]
-    locale: NotRequired[pulumi.Input[_builtins.str]]
+    answer_generation_ai_guardrail_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    answer_generation_ai_prompt_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    association_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgs']]]]]
+    locale: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class AiAgentManualSearchAiAgentConfigurationArgs:
     def __init__(__self__, *,
-                 answer_generation_ai_guardrail_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 answer_generation_ai_prompt_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 association_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgs']]]] = None,
-                 locale: Optional[pulumi.Input[_builtins.str]] = None):
+                 answer_generation_ai_guardrail_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 answer_generation_ai_prompt_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 association_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgs']]]] = None,
+                 locale: pulumi.Input[Optional[_builtins.str]] = None):
         if answer_generation_ai_guardrail_id is not None:
             pulumi.set(__self__, "answer_generation_ai_guardrail_id", answer_generation_ai_guardrail_id)
         if answer_generation_ai_prompt_id is not None:
@@ -791,52 +791,52 @@ class AiAgentManualSearchAiAgentConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="answerGenerationAiGuardrailId")
-    def answer_generation_ai_guardrail_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def answer_generation_ai_guardrail_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "answer_generation_ai_guardrail_id")
 
     @answer_generation_ai_guardrail_id.setter
-    def answer_generation_ai_guardrail_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def answer_generation_ai_guardrail_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "answer_generation_ai_guardrail_id", value)
 
     @_builtins.property
     @pulumi.getter(name="answerGenerationAiPromptId")
-    def answer_generation_ai_prompt_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def answer_generation_ai_prompt_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "answer_generation_ai_prompt_id")
 
     @answer_generation_ai_prompt_id.setter
-    def answer_generation_ai_prompt_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def answer_generation_ai_prompt_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "answer_generation_ai_prompt_id", value)
 
     @_builtins.property
     @pulumi.getter(name="associationConfigurations")
-    def association_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgs']]]]:
+    def association_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgs']]]]:
         return pulumi.get(self, "association_configurations")
 
     @association_configurations.setter
-    def association_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgs']]]]):
+    def association_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgs']]]]):
         pulumi.set(self, "association_configurations", value)
 
     @_builtins.property
     @pulumi.getter
-    def locale(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def locale(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "locale")
 
     @locale.setter
-    def locale(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def locale(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "locale", value)
 
 
 class AiAgentNoteTakingAiAgentConfigurationArgsDict(TypedDict):
-    locale: NotRequired[pulumi.Input[_builtins.str]]
-    note_taking_ai_guardrail_id: NotRequired[pulumi.Input[_builtins.str]]
-    note_taking_ai_prompt_id: NotRequired[pulumi.Input[_builtins.str]]
+    locale: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    note_taking_ai_guardrail_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    note_taking_ai_prompt_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class AiAgentNoteTakingAiAgentConfigurationArgs:
     def __init__(__self__, *,
-                 locale: Optional[pulumi.Input[_builtins.str]] = None,
-                 note_taking_ai_guardrail_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 note_taking_ai_prompt_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 locale: pulumi.Input[Optional[_builtins.str]] = None,
+                 note_taking_ai_guardrail_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 note_taking_ai_prompt_id: pulumi.Input[Optional[_builtins.str]] = None):
         if locale is not None:
             pulumi.set(__self__, "locale", locale)
         if note_taking_ai_guardrail_id is not None:
@@ -846,29 +846,29 @@ class AiAgentNoteTakingAiAgentConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def locale(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def locale(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "locale")
 
     @locale.setter
-    def locale(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def locale(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "locale", value)
 
     @_builtins.property
     @pulumi.getter(name="noteTakingAiGuardrailId")
-    def note_taking_ai_guardrail_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def note_taking_ai_guardrail_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "note_taking_ai_guardrail_id")
 
     @note_taking_ai_guardrail_id.setter
-    def note_taking_ai_guardrail_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def note_taking_ai_guardrail_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "note_taking_ai_guardrail_id", value)
 
     @_builtins.property
     @pulumi.getter(name="noteTakingAiPromptId")
-    def note_taking_ai_prompt_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def note_taking_ai_prompt_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "note_taking_ai_prompt_id")
 
     @note_taking_ai_prompt_id.setter
-    def note_taking_ai_prompt_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def note_taking_ai_prompt_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "note_taking_ai_prompt_id", value)
 
 
@@ -912,19 +912,19 @@ class AiAgentOrCondition1PropertiesArgs:
 
 class AiAgentOrchestrationAiAgentConfigurationArgsDict(TypedDict):
     orchestration_ai_prompt_id: pulumi.Input[_builtins.str]
-    connect_instance_arn: NotRequired[pulumi.Input[_builtins.str]]
-    locale: NotRequired[pulumi.Input[_builtins.str]]
-    orchestration_ai_guardrail_id: NotRequired[pulumi.Input[_builtins.str]]
-    tool_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['AiAgentToolConfigurationArgsDict']]]]
+    connect_instance_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    locale: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    orchestration_ai_guardrail_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    tool_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AiAgentToolConfigurationArgs']]]]]
 
 @pulumi.input_type
 class AiAgentOrchestrationAiAgentConfigurationArgs:
     def __init__(__self__, *,
                  orchestration_ai_prompt_id: pulumi.Input[_builtins.str],
-                 connect_instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 locale: Optional[pulumi.Input[_builtins.str]] = None,
-                 orchestration_ai_guardrail_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tool_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['AiAgentToolConfigurationArgs']]]] = None):
+                 connect_instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 locale: pulumi.Input[Optional[_builtins.str]] = None,
+                 orchestration_ai_guardrail_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tool_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['AiAgentToolConfigurationArgs']]]] = None):
         pulumi.set(__self__, "orchestration_ai_prompt_id", orchestration_ai_prompt_id)
         if connect_instance_arn is not None:
             pulumi.set(__self__, "connect_instance_arn", connect_instance_arn)
@@ -946,54 +946,54 @@ class AiAgentOrchestrationAiAgentConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="connectInstanceArn")
-    def connect_instance_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connect_instance_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "connect_instance_arn")
 
     @connect_instance_arn.setter
-    def connect_instance_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connect_instance_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connect_instance_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def locale(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def locale(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "locale")
 
     @locale.setter
-    def locale(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def locale(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "locale", value)
 
     @_builtins.property
     @pulumi.getter(name="orchestrationAiGuardrailId")
-    def orchestration_ai_guardrail_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def orchestration_ai_guardrail_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "orchestration_ai_guardrail_id")
 
     @orchestration_ai_guardrail_id.setter
-    def orchestration_ai_guardrail_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def orchestration_ai_guardrail_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "orchestration_ai_guardrail_id", value)
 
     @_builtins.property
     @pulumi.getter(name="toolConfigurations")
-    def tool_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AiAgentToolConfigurationArgs']]]]:
+    def tool_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AiAgentToolConfigurationArgs']]]]:
         return pulumi.get(self, "tool_configurations")
 
     @tool_configurations.setter
-    def tool_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AiAgentToolConfigurationArgs']]]]):
+    def tool_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AiAgentToolConfigurationArgs']]]]):
         pulumi.set(self, "tool_configurations", value)
 
 
 class AiAgentSelfServiceAiAgentConfigurationArgsDict(TypedDict):
-    association_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgsDict']]]]
-    self_service_ai_guardrail_id: NotRequired[pulumi.Input[_builtins.str]]
-    self_service_answer_generation_ai_prompt_id: NotRequired[pulumi.Input[_builtins.str]]
-    self_service_pre_processing_ai_prompt_id: NotRequired[pulumi.Input[_builtins.str]]
+    association_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgs']]]]]
+    self_service_ai_guardrail_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    self_service_answer_generation_ai_prompt_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    self_service_pre_processing_ai_prompt_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class AiAgentSelfServiceAiAgentConfigurationArgs:
     def __init__(__self__, *,
-                 association_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgs']]]] = None,
-                 self_service_ai_guardrail_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 self_service_answer_generation_ai_prompt_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 self_service_pre_processing_ai_prompt_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 association_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgs']]]] = None,
+                 self_service_ai_guardrail_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 self_service_answer_generation_ai_prompt_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 self_service_pre_processing_ai_prompt_id: pulumi.Input[Optional[_builtins.str]] = None):
         if association_configurations is not None:
             pulumi.set(__self__, "association_configurations", association_configurations)
         if self_service_ai_guardrail_id is not None:
@@ -1005,50 +1005,50 @@ class AiAgentSelfServiceAiAgentConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="associationConfigurations")
-    def association_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgs']]]]:
+    def association_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgs']]]]:
         return pulumi.get(self, "association_configurations")
 
     @association_configurations.setter
-    def association_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgs']]]]):
+    def association_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgs']]]]):
         pulumi.set(self, "association_configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="selfServiceAiGuardrailId")
-    def self_service_ai_guardrail_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def self_service_ai_guardrail_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "self_service_ai_guardrail_id")
 
     @self_service_ai_guardrail_id.setter
-    def self_service_ai_guardrail_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def self_service_ai_guardrail_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "self_service_ai_guardrail_id", value)
 
     @_builtins.property
     @pulumi.getter(name="selfServiceAnswerGenerationAiPromptId")
-    def self_service_answer_generation_ai_prompt_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def self_service_answer_generation_ai_prompt_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "self_service_answer_generation_ai_prompt_id")
 
     @self_service_answer_generation_ai_prompt_id.setter
-    def self_service_answer_generation_ai_prompt_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def self_service_answer_generation_ai_prompt_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "self_service_answer_generation_ai_prompt_id", value)
 
     @_builtins.property
     @pulumi.getter(name="selfServicePreProcessingAiPromptId")
-    def self_service_pre_processing_ai_prompt_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def self_service_pre_processing_ai_prompt_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "self_service_pre_processing_ai_prompt_id")
 
     @self_service_pre_processing_ai_prompt_id.setter
-    def self_service_pre_processing_ai_prompt_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def self_service_pre_processing_ai_prompt_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "self_service_pre_processing_ai_prompt_id", value)
 
 
 class AiAgentTagConditionArgsDict(TypedDict):
     key: pulumi.Input[_builtins.str]
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class AiAgentTagConditionArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[_builtins.str],
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         pulumi.set(__self__, "key", key)
         if value is not None:
             pulumi.set(__self__, "value", value)
@@ -1064,11 +1064,11 @@ class AiAgentTagConditionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
@@ -1132,32 +1132,32 @@ class AiAgentTagFilter2PropertiesArgs:
 class AiAgentToolConfigurationArgsDict(TypedDict):
     tool_name: pulumi.Input[_builtins.str]
     tool_type: pulumi.Input['AiAgentToolType']
-    annotations: NotRequired[pulumi.Input['AiAgentAnnotationArgsDict']]
-    description: NotRequired[pulumi.Input[_builtins.str]]
-    input_schema: NotRequired[Any]
-    instruction: NotRequired[pulumi.Input['AiAgentToolInstructionArgsDict']]
-    output_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['AiAgentToolOutputFilterArgsDict']]]]
-    output_schema: NotRequired[Any]
-    override_input_values: NotRequired[pulumi.Input[Sequence[pulumi.Input['AiAgentToolOverrideInputValueArgsDict']]]]
-    title: NotRequired[pulumi.Input[_builtins.str]]
-    tool_id: NotRequired[pulumi.Input[_builtins.str]]
-    user_interaction_configuration: NotRequired[pulumi.Input['AiAgentUserInteractionConfigurationArgsDict']]
+    annotations: NotRequired[pulumi.Input[Optional['AiAgentAnnotationArgs']]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    input_schema: NotRequired[Optional[Any]]
+    instruction: NotRequired[pulumi.Input[Optional['AiAgentToolInstructionArgs']]]
+    output_filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AiAgentToolOutputFilterArgs']]]]]
+    output_schema: NotRequired[Optional[Any]]
+    override_input_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AiAgentToolOverrideInputValueArgs']]]]]
+    title: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    tool_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    user_interaction_configuration: NotRequired[pulumi.Input[Optional['AiAgentUserInteractionConfigurationArgs']]]
 
 @pulumi.input_type
 class AiAgentToolConfigurationArgs:
     def __init__(__self__, *,
                  tool_name: pulumi.Input[_builtins.str],
                  tool_type: pulumi.Input['AiAgentToolType'],
-                 annotations: Optional[pulumi.Input['AiAgentAnnotationArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 annotations: pulumi.Input[Optional['AiAgentAnnotationArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
                  input_schema: Optional[Any] = None,
-                 instruction: Optional[pulumi.Input['AiAgentToolInstructionArgs']] = None,
-                 output_filters: Optional[pulumi.Input[Sequence[pulumi.Input['AiAgentToolOutputFilterArgs']]]] = None,
+                 instruction: pulumi.Input[Optional['AiAgentToolInstructionArgs']] = None,
+                 output_filters: pulumi.Input[Optional[Sequence[pulumi.Input['AiAgentToolOutputFilterArgs']]]] = None,
                  output_schema: Optional[Any] = None,
-                 override_input_values: Optional[pulumi.Input[Sequence[pulumi.Input['AiAgentToolOverrideInputValueArgs']]]] = None,
-                 title: Optional[pulumi.Input[_builtins.str]] = None,
-                 tool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_interaction_configuration: Optional[pulumi.Input['AiAgentUserInteractionConfigurationArgs']] = None):
+                 override_input_values: pulumi.Input[Optional[Sequence[pulumi.Input['AiAgentToolOverrideInputValueArgs']]]] = None,
+                 title: pulumi.Input[Optional[_builtins.str]] = None,
+                 tool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_interaction_configuration: pulumi.Input[Optional['AiAgentUserInteractionConfigurationArgs']] = None):
         pulumi.set(__self__, "tool_name", tool_name)
         pulumi.set(__self__, "tool_type", tool_type)
         if annotations is not None:
@@ -1201,20 +1201,20 @@ class AiAgentToolConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input['AiAgentAnnotationArgs']]:
+    def annotations(self) -> pulumi.Input[Optional['AiAgentAnnotationArgs']]:
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input['AiAgentAnnotationArgs']]):
+    def annotations(self, value: pulumi.Input[Optional['AiAgentAnnotationArgs']]):
         pulumi.set(self, "annotations", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
@@ -1228,20 +1228,20 @@ class AiAgentToolConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def instruction(self) -> Optional[pulumi.Input['AiAgentToolInstructionArgs']]:
+    def instruction(self) -> pulumi.Input[Optional['AiAgentToolInstructionArgs']]:
         return pulumi.get(self, "instruction")
 
     @instruction.setter
-    def instruction(self, value: Optional[pulumi.Input['AiAgentToolInstructionArgs']]):
+    def instruction(self, value: pulumi.Input[Optional['AiAgentToolInstructionArgs']]):
         pulumi.set(self, "instruction", value)
 
     @_builtins.property
     @pulumi.getter(name="outputFilters")
-    def output_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AiAgentToolOutputFilterArgs']]]]:
+    def output_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AiAgentToolOutputFilterArgs']]]]:
         return pulumi.get(self, "output_filters")
 
     @output_filters.setter
-    def output_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AiAgentToolOutputFilterArgs']]]]):
+    def output_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AiAgentToolOutputFilterArgs']]]]):
         pulumi.set(self, "output_filters", value)
 
     @_builtins.property
@@ -1255,50 +1255,50 @@ class AiAgentToolConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="overrideInputValues")
-    def override_input_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AiAgentToolOverrideInputValueArgs']]]]:
+    def override_input_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AiAgentToolOverrideInputValueArgs']]]]:
         return pulumi.get(self, "override_input_values")
 
     @override_input_values.setter
-    def override_input_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AiAgentToolOverrideInputValueArgs']]]]):
+    def override_input_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AiAgentToolOverrideInputValueArgs']]]]):
         pulumi.set(self, "override_input_values", value)
 
     @_builtins.property
     @pulumi.getter
-    def title(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def title(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "title")
 
     @title.setter
-    def title(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def title(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "title", value)
 
     @_builtins.property
     @pulumi.getter(name="toolId")
-    def tool_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tool_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "tool_id")
 
     @tool_id.setter
-    def tool_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tool_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tool_id", value)
 
     @_builtins.property
     @pulumi.getter(name="userInteractionConfiguration")
-    def user_interaction_configuration(self) -> Optional[pulumi.Input['AiAgentUserInteractionConfigurationArgs']]:
+    def user_interaction_configuration(self) -> pulumi.Input[Optional['AiAgentUserInteractionConfigurationArgs']]:
         return pulumi.get(self, "user_interaction_configuration")
 
     @user_interaction_configuration.setter
-    def user_interaction_configuration(self, value: Optional[pulumi.Input['AiAgentUserInteractionConfigurationArgs']]):
+    def user_interaction_configuration(self, value: pulumi.Input[Optional['AiAgentUserInteractionConfigurationArgs']]):
         pulumi.set(self, "user_interaction_configuration", value)
 
 
 class AiAgentToolInstructionArgsDict(TypedDict):
-    examples: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    instruction: NotRequired[pulumi.Input[_builtins.str]]
+    examples: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    instruction: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class AiAgentToolInstructionArgs:
     def __init__(__self__, *,
-                 examples: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 instruction: Optional[pulumi.Input[_builtins.str]] = None):
+                 examples: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 instruction: pulumi.Input[Optional[_builtins.str]] = None):
         if examples is not None:
             pulumi.set(__self__, "examples", examples)
         if instruction is not None:
@@ -1306,32 +1306,32 @@ class AiAgentToolInstructionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def examples(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def examples(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "examples")
 
     @examples.setter
-    def examples(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def examples(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "examples", value)
 
     @_builtins.property
     @pulumi.getter
-    def instruction(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def instruction(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "instruction")
 
     @instruction.setter
-    def instruction(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def instruction(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "instruction", value)
 
 
 class AiAgentToolOutputConfigurationArgsDict(TypedDict):
-    output_variable_name_override: NotRequired[pulumi.Input[_builtins.str]]
-    session_data_namespace: NotRequired[pulumi.Input[_builtins.str]]
+    output_variable_name_override: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    session_data_namespace: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class AiAgentToolOutputConfigurationArgs:
     def __init__(__self__, *,
-                 output_variable_name_override: Optional[pulumi.Input[_builtins.str]] = None,
-                 session_data_namespace: Optional[pulumi.Input[_builtins.str]] = None):
+                 output_variable_name_override: pulumi.Input[Optional[_builtins.str]] = None,
+                 session_data_namespace: pulumi.Input[Optional[_builtins.str]] = None):
         if output_variable_name_override is not None:
             pulumi.set(__self__, "output_variable_name_override", output_variable_name_override)
         if session_data_namespace is not None:
@@ -1339,32 +1339,32 @@ class AiAgentToolOutputConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="outputVariableNameOverride")
-    def output_variable_name_override(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def output_variable_name_override(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "output_variable_name_override")
 
     @output_variable_name_override.setter
-    def output_variable_name_override(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def output_variable_name_override(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "output_variable_name_override", value)
 
     @_builtins.property
     @pulumi.getter(name="sessionDataNamespace")
-    def session_data_namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def session_data_namespace(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "session_data_namespace")
 
     @session_data_namespace.setter
-    def session_data_namespace(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def session_data_namespace(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "session_data_namespace", value)
 
 
 class AiAgentToolOutputFilterArgsDict(TypedDict):
     json_path: pulumi.Input[_builtins.str]
-    output_configuration: NotRequired[pulumi.Input['AiAgentToolOutputConfigurationArgsDict']]
+    output_configuration: NotRequired[pulumi.Input[Optional['AiAgentToolOutputConfigurationArgs']]]
 
 @pulumi.input_type
 class AiAgentToolOutputFilterArgs:
     def __init__(__self__, *,
                  json_path: pulumi.Input[_builtins.str],
-                 output_configuration: Optional[pulumi.Input['AiAgentToolOutputConfigurationArgs']] = None):
+                 output_configuration: pulumi.Input[Optional['AiAgentToolOutputConfigurationArgs']] = None):
         pulumi.set(__self__, "json_path", json_path)
         if output_configuration is not None:
             pulumi.set(__self__, "output_configuration", output_configuration)
@@ -1380,11 +1380,11 @@ class AiAgentToolOutputFilterArgs:
 
     @_builtins.property
     @pulumi.getter(name="outputConfiguration")
-    def output_configuration(self) -> Optional[pulumi.Input['AiAgentToolOutputConfigurationArgs']]:
+    def output_configuration(self) -> pulumi.Input[Optional['AiAgentToolOutputConfigurationArgs']]:
         return pulumi.get(self, "output_configuration")
 
     @output_configuration.setter
-    def output_configuration(self, value: Optional[pulumi.Input['AiAgentToolOutputConfigurationArgs']]):
+    def output_configuration(self, value: pulumi.Input[Optional['AiAgentToolOutputConfigurationArgs']]):
         pulumi.set(self, "output_configuration", value)
 
 
@@ -1470,22 +1470,22 @@ class AiAgentToolOverrideInputValueArgs:
 
 
 class AiAgentUserInteractionConfigurationArgsDict(TypedDict):
-    is_user_confirmation_required: NotRequired[pulumi.Input[_builtins.bool]]
+    is_user_confirmation_required: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
 
 @pulumi.input_type
 class AiAgentUserInteractionConfigurationArgs:
     def __init__(__self__, *,
-                 is_user_confirmation_required: Optional[pulumi.Input[_builtins.bool]] = None):
+                 is_user_confirmation_required: pulumi.Input[Optional[_builtins.bool]] = None):
         if is_user_confirmation_required is not None:
             pulumi.set(__self__, "is_user_confirmation_required", is_user_confirmation_required)
 
     @_builtins.property
     @pulumi.getter(name="isUserConfirmationRequired")
-    def is_user_confirmation_required(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_user_confirmation_required(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "is_user_confirmation_required")
 
     @is_user_confirmation_required.setter
-    def is_user_confirmation_required(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_user_confirmation_required(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_user_confirmation_required", value)
 
 
@@ -1559,11 +1559,11 @@ class AiGuardrailAiGuardrailSensitiveInformationPolicyConfigArgsDict(TypedDict):
     """
     Sensitive information policy config for a guardrail.
     """
-    pii_entities_config: NotRequired[pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailPiiEntityConfigArgsDict']]]]
+    pii_entities_config: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AiGuardrailGuardrailPiiEntityConfigArgs']]]]]
     """
     List of entities.
     """
-    regexes_config: NotRequired[pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailRegexConfigArgsDict']]]]
+    regexes_config: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AiGuardrailGuardrailRegexConfigArgs']]]]]
     """
     List of regex.
     """
@@ -1571,8 +1571,8 @@ class AiGuardrailAiGuardrailSensitiveInformationPolicyConfigArgsDict(TypedDict):
 @pulumi.input_type
 class AiGuardrailAiGuardrailSensitiveInformationPolicyConfigArgs:
     def __init__(__self__, *,
-                 pii_entities_config: Optional[pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailPiiEntityConfigArgs']]]] = None,
-                 regexes_config: Optional[pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailRegexConfigArgs']]]] = None):
+                 pii_entities_config: pulumi.Input[Optional[Sequence[pulumi.Input['AiGuardrailGuardrailPiiEntityConfigArgs']]]] = None,
+                 regexes_config: pulumi.Input[Optional[Sequence[pulumi.Input['AiGuardrailGuardrailRegexConfigArgs']]]] = None):
         """
         Sensitive information policy config for a guardrail.
 
@@ -1586,26 +1586,26 @@ class AiGuardrailAiGuardrailSensitiveInformationPolicyConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="piiEntitiesConfig")
-    def pii_entities_config(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailPiiEntityConfigArgs']]]]:
+    def pii_entities_config(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AiGuardrailGuardrailPiiEntityConfigArgs']]]]:
         """
         List of entities.
         """
         return pulumi.get(self, "pii_entities_config")
 
     @pii_entities_config.setter
-    def pii_entities_config(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailPiiEntityConfigArgs']]]]):
+    def pii_entities_config(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AiGuardrailGuardrailPiiEntityConfigArgs']]]]):
         pulumi.set(self, "pii_entities_config", value)
 
     @_builtins.property
     @pulumi.getter(name="regexesConfig")
-    def regexes_config(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailRegexConfigArgs']]]]:
+    def regexes_config(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AiGuardrailGuardrailRegexConfigArgs']]]]:
         """
         List of regex.
         """
         return pulumi.get(self, "regexes_config")
 
     @regexes_config.setter
-    def regexes_config(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailRegexConfigArgs']]]]):
+    def regexes_config(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AiGuardrailGuardrailRegexConfigArgs']]]]):
         pulumi.set(self, "regexes_config", value)
 
 
@@ -1646,11 +1646,11 @@ class AiGuardrailAiGuardrailWordPolicyConfigArgsDict(TypedDict):
     """
     Word policy config for a guardrail.
     """
-    managed_word_lists_config: NotRequired[pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailManagedWordsConfigArgsDict']]]]
+    managed_word_lists_config: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AiGuardrailGuardrailManagedWordsConfigArgs']]]]]
     """
     A config for the list of managed words.
     """
-    words_config: NotRequired[pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailWordConfigArgsDict']]]]
+    words_config: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AiGuardrailGuardrailWordConfigArgs']]]]]
     """
     List of custom word configs.
     """
@@ -1658,8 +1658,8 @@ class AiGuardrailAiGuardrailWordPolicyConfigArgsDict(TypedDict):
 @pulumi.input_type
 class AiGuardrailAiGuardrailWordPolicyConfigArgs:
     def __init__(__self__, *,
-                 managed_word_lists_config: Optional[pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailManagedWordsConfigArgs']]]] = None,
-                 words_config: Optional[pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailWordConfigArgs']]]] = None):
+                 managed_word_lists_config: pulumi.Input[Optional[Sequence[pulumi.Input['AiGuardrailGuardrailManagedWordsConfigArgs']]]] = None,
+                 words_config: pulumi.Input[Optional[Sequence[pulumi.Input['AiGuardrailGuardrailWordConfigArgs']]]] = None):
         """
         Word policy config for a guardrail.
 
@@ -1673,26 +1673,26 @@ class AiGuardrailAiGuardrailWordPolicyConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="managedWordListsConfig")
-    def managed_word_lists_config(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailManagedWordsConfigArgs']]]]:
+    def managed_word_lists_config(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AiGuardrailGuardrailManagedWordsConfigArgs']]]]:
         """
         A config for the list of managed words.
         """
         return pulumi.get(self, "managed_word_lists_config")
 
     @managed_word_lists_config.setter
-    def managed_word_lists_config(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailManagedWordsConfigArgs']]]]):
+    def managed_word_lists_config(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AiGuardrailGuardrailManagedWordsConfigArgs']]]]):
         pulumi.set(self, "managed_word_lists_config", value)
 
     @_builtins.property
     @pulumi.getter(name="wordsConfig")
-    def words_config(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailWordConfigArgs']]]]:
+    def words_config(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AiGuardrailGuardrailWordConfigArgs']]]]:
         """
         List of custom word configs.
         """
         return pulumi.get(self, "words_config")
 
     @words_config.setter
-    def words_config(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailWordConfigArgs']]]]):
+    def words_config(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AiGuardrailGuardrailWordConfigArgs']]]]):
         pulumi.set(self, "words_config", value)
 
 
@@ -2271,7 +2271,7 @@ class AiGuardrailGuardrailRegexConfigArgsDict(TypedDict):
     """
     The regex pattern.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The regex description.
     """
@@ -2282,7 +2282,7 @@ class AiGuardrailGuardrailRegexConfigArgs:
                  action: pulumi.Input['AiGuardrailGuardrailSensitiveInformationAction'],
                  name: pulumi.Input[_builtins.str],
                  pattern: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None):
         """
         A regex configuration.
 
@@ -2335,14 +2335,14 @@ class AiGuardrailGuardrailRegexConfigArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The regex description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
 
@@ -2362,7 +2362,7 @@ class AiGuardrailGuardrailTopicConfigArgsDict(TypedDict):
     """
     Type of topic in a policy.
     """
-    examples: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    examples: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of text examples
     """
@@ -2373,7 +2373,7 @@ class AiGuardrailGuardrailTopicConfigArgs:
                  definition: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
                  type: pulumi.Input['AiGuardrailGuardrailTopicType'],
-                 examples: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 examples: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Topic config in topic policy.
 
@@ -2426,14 +2426,14 @@ class AiGuardrailGuardrailTopicConfigArgs:
 
     @_builtins.property
     @pulumi.getter
-    def examples(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def examples(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of text examples
         """
         return pulumi.get(self, "examples")
 
     @examples.setter
-    def examples(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def examples(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "examples", value)
 
 
@@ -2549,7 +2549,7 @@ class AssistantAssociationExternalBedrockKnowledgeBaseConfigArgs:
 
 
 class AssistantServerSideEncryptionConfigurationArgsDict(TypedDict):
-    kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    kms_key_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The customer managed key used for encryption. The customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. To use Wisdom with chat, the key policy must also allow `kms:Decrypt` , `kms:GenerateDataKey*` , and `kms:DescribeKey` permissions to the `connect.amazonaws.com` service principal. For more information about setting up a customer managed key for Wisdom, see [Enable Amazon Connect Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) . For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) in the *AWS Key Management Service Developer Guide* .
     """
@@ -2557,7 +2557,7 @@ class AssistantServerSideEncryptionConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class AssistantServerSideEncryptionConfigurationArgs:
     def __init__(__self__, *,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] kms_key_id: The customer managed key used for encryption. The customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. To use Wisdom with chat, the key policy must also allow `kms:Decrypt` , `kms:GenerateDataKey*` , and `kms:DescribeKey` permissions to the `connect.amazonaws.com` service principal. For more information about setting up a customer managed key for Wisdom, see [Enable Amazon Connect Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) . For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) in the *AWS Key Management Service Developer Guide* .
         """
@@ -2566,26 +2566,26 @@ class AssistantServerSideEncryptionConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The customer managed key used for encryption. The customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. To use Wisdom with chat, the key policy must also allow `kms:Decrypt` , `kms:GenerateDataKey*` , and `kms:DescribeKey` permissions to the `connect.amazonaws.com` service principal. For more information about setting up a customer managed key for Wisdom, see [Enable Amazon Connect Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) . For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) in the *AWS Key Management Service Developer Guide* .
         """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
 
 class KnowledgeBaseAppIntegrationsConfigurationArgsDict(TypedDict):
     app_integration_arn: pulumi.Input[_builtins.str]
-    object_fields: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    object_fields: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
 
 @pulumi.input_type
 class KnowledgeBaseAppIntegrationsConfigurationArgs:
     def __init__(__self__, *,
                  app_integration_arn: pulumi.Input[_builtins.str],
-                 object_fields: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 object_fields: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         pulumi.set(__self__, "app_integration_arn", app_integration_arn)
         if object_fields is not None:
             pulumi.set(__self__, "object_fields", object_fields)
@@ -2601,11 +2601,11 @@ class KnowledgeBaseAppIntegrationsConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="objectFields")
-    def object_fields(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def object_fields(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "object_fields")
 
     @object_fields.setter
-    def object_fields(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def object_fields(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "object_fields", value)
 
 
@@ -2639,7 +2639,7 @@ class KnowledgeBaseBedrockFoundationModelConfigurationArgsDict(TypedDict):
     """
     The model ARN of the Bedrock foundation model.
     """
-    parsing_prompt: NotRequired[pulumi.Input['KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesArgsDict']]
+    parsing_prompt: NotRequired[pulumi.Input[Optional['KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesArgs']]]
     """
     The parsing prompt of the Bedrock foundation model configuration.
     """
@@ -2648,7 +2648,7 @@ class KnowledgeBaseBedrockFoundationModelConfigurationArgsDict(TypedDict):
 class KnowledgeBaseBedrockFoundationModelConfigurationArgs:
     def __init__(__self__, *,
                  model_arn: pulumi.Input[_builtins.str],
-                 parsing_prompt: Optional[pulumi.Input['KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesArgs']] = None):
+                 parsing_prompt: pulumi.Input[Optional['KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] model_arn: The model ARN of the Bedrock foundation model.
         :param pulumi.Input['KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesArgs'] parsing_prompt: The parsing prompt of the Bedrock foundation model configuration.
@@ -2671,14 +2671,14 @@ class KnowledgeBaseBedrockFoundationModelConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="parsingPrompt")
-    def parsing_prompt(self) -> Optional[pulumi.Input['KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesArgs']]:
+    def parsing_prompt(self) -> pulumi.Input[Optional['KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesArgs']]:
         """
         The parsing prompt of the Bedrock foundation model configuration.
         """
         return pulumi.get(self, "parsing_prompt")
 
     @parsing_prompt.setter
-    def parsing_prompt(self, value: Optional[pulumi.Input['KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesArgs']]):
+    def parsing_prompt(self, value: pulumi.Input[Optional['KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesArgs']]):
         pulumi.set(self, "parsing_prompt", value)
 
 
@@ -2824,7 +2824,7 @@ class KnowledgeBaseManagedSourceConfigurationPropertiesArgs:
 
 
 class KnowledgeBaseRenderingConfigurationArgsDict(TypedDict):
-    template_uri: NotRequired[pulumi.Input[_builtins.str]]
+    template_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A URI template containing exactly one variable in `${variableName}` format. This can only be set for `EXTERNAL` knowledge bases. For Salesforce, ServiceNow, and Zendesk, the variable must be one of the following:
 
@@ -2838,7 +2838,7 @@ class KnowledgeBaseRenderingConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class KnowledgeBaseRenderingConfigurationArgs:
     def __init__(__self__, *,
-                 template_uri: Optional[pulumi.Input[_builtins.str]] = None):
+                 template_uri: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] template_uri: A URI template containing exactly one variable in `${variableName}` format. This can only be set for `EXTERNAL` knowledge bases. For Salesforce, ServiceNow, and Zendesk, the variable must be one of the following:
                
@@ -2853,7 +2853,7 @@ class KnowledgeBaseRenderingConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="templateUri")
-    def template_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def template_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A URI template containing exactly one variable in `${variableName}` format. This can only be set for `EXTERNAL` knowledge bases. For Salesforce, ServiceNow, and Zendesk, the variable must be one of the following:
 
@@ -2866,27 +2866,27 @@ class KnowledgeBaseRenderingConfigurationArgs:
         return pulumi.get(self, "template_uri")
 
     @template_uri.setter
-    def template_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def template_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "template_uri", value)
 
 
 class KnowledgeBaseSeedUrlArgsDict(TypedDict):
-    url: NotRequired[pulumi.Input[_builtins.str]]
+    url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class KnowledgeBaseSeedUrlArgs:
     def __init__(__self__, *,
-                 url: Optional[pulumi.Input[_builtins.str]] = None):
+                 url: pulumi.Input[Optional[_builtins.str]] = None):
         if url is not None:
             pulumi.set(__self__, "url", url)
 
     @_builtins.property
     @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url", value)
 
 
@@ -2957,7 +2957,7 @@ class KnowledgeBaseSemanticChunkingConfigurationArgs:
 
 
 class KnowledgeBaseServerSideEncryptionConfigurationArgsDict(TypedDict):
-    kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    kms_key_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The customer managed key used for encryption.
 
@@ -2969,7 +2969,7 @@ class KnowledgeBaseServerSideEncryptionConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class KnowledgeBaseServerSideEncryptionConfigurationArgs:
     def __init__(__self__, *,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] kms_key_id: The customer managed key used for encryption.
                
@@ -2982,7 +2982,7 @@ class KnowledgeBaseServerSideEncryptionConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The customer managed key used for encryption.
 
@@ -2993,7 +2993,7 @@ class KnowledgeBaseServerSideEncryptionConfigurationArgs:
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
 
@@ -3040,17 +3040,17 @@ class KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesAr
     Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
     """
     chunking_strategy: pulumi.Input['KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesChunkingStrategy']
-    fixed_size_chunking_configuration: NotRequired[pulumi.Input['KnowledgeBaseFixedSizeChunkingConfigurationArgsDict']]
-    hierarchical_chunking_configuration: NotRequired[pulumi.Input['KnowledgeBaseHierarchicalChunkingConfigurationArgsDict']]
-    semantic_chunking_configuration: NotRequired[pulumi.Input['KnowledgeBaseSemanticChunkingConfigurationArgsDict']]
+    fixed_size_chunking_configuration: NotRequired[pulumi.Input[Optional['KnowledgeBaseFixedSizeChunkingConfigurationArgs']]]
+    hierarchical_chunking_configuration: NotRequired[pulumi.Input[Optional['KnowledgeBaseHierarchicalChunkingConfigurationArgs']]]
+    semantic_chunking_configuration: NotRequired[pulumi.Input[Optional['KnowledgeBaseSemanticChunkingConfigurationArgs']]]
 
 @pulumi.input_type
 class KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesArgs:
     def __init__(__self__, *,
                  chunking_strategy: pulumi.Input['KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesChunkingStrategy'],
-                 fixed_size_chunking_configuration: Optional[pulumi.Input['KnowledgeBaseFixedSizeChunkingConfigurationArgs']] = None,
-                 hierarchical_chunking_configuration: Optional[pulumi.Input['KnowledgeBaseHierarchicalChunkingConfigurationArgs']] = None,
-                 semantic_chunking_configuration: Optional[pulumi.Input['KnowledgeBaseSemanticChunkingConfigurationArgs']] = None):
+                 fixed_size_chunking_configuration: pulumi.Input[Optional['KnowledgeBaseFixedSizeChunkingConfigurationArgs']] = None,
+                 hierarchical_chunking_configuration: pulumi.Input[Optional['KnowledgeBaseHierarchicalChunkingConfigurationArgs']] = None,
+                 semantic_chunking_configuration: pulumi.Input[Optional['KnowledgeBaseSemanticChunkingConfigurationArgs']] = None):
         """
         Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
         """
@@ -3073,29 +3073,29 @@ class KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesAr
 
     @_builtins.property
     @pulumi.getter(name="fixedSizeChunkingConfiguration")
-    def fixed_size_chunking_configuration(self) -> Optional[pulumi.Input['KnowledgeBaseFixedSizeChunkingConfigurationArgs']]:
+    def fixed_size_chunking_configuration(self) -> pulumi.Input[Optional['KnowledgeBaseFixedSizeChunkingConfigurationArgs']]:
         return pulumi.get(self, "fixed_size_chunking_configuration")
 
     @fixed_size_chunking_configuration.setter
-    def fixed_size_chunking_configuration(self, value: Optional[pulumi.Input['KnowledgeBaseFixedSizeChunkingConfigurationArgs']]):
+    def fixed_size_chunking_configuration(self, value: pulumi.Input[Optional['KnowledgeBaseFixedSizeChunkingConfigurationArgs']]):
         pulumi.set(self, "fixed_size_chunking_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="hierarchicalChunkingConfiguration")
-    def hierarchical_chunking_configuration(self) -> Optional[pulumi.Input['KnowledgeBaseHierarchicalChunkingConfigurationArgs']]:
+    def hierarchical_chunking_configuration(self) -> pulumi.Input[Optional['KnowledgeBaseHierarchicalChunkingConfigurationArgs']]:
         return pulumi.get(self, "hierarchical_chunking_configuration")
 
     @hierarchical_chunking_configuration.setter
-    def hierarchical_chunking_configuration(self, value: Optional[pulumi.Input['KnowledgeBaseHierarchicalChunkingConfigurationArgs']]):
+    def hierarchical_chunking_configuration(self, value: pulumi.Input[Optional['KnowledgeBaseHierarchicalChunkingConfigurationArgs']]):
         pulumi.set(self, "hierarchical_chunking_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="semanticChunkingConfiguration")
-    def semantic_chunking_configuration(self) -> Optional[pulumi.Input['KnowledgeBaseSemanticChunkingConfigurationArgs']]:
+    def semantic_chunking_configuration(self) -> pulumi.Input[Optional['KnowledgeBaseSemanticChunkingConfigurationArgs']]:
         return pulumi.get(self, "semantic_chunking_configuration")
 
     @semantic_chunking_configuration.setter
-    def semantic_chunking_configuration(self, value: Optional[pulumi.Input['KnowledgeBaseSemanticChunkingConfigurationArgs']]):
+    def semantic_chunking_configuration(self, value: pulumi.Input[Optional['KnowledgeBaseSemanticChunkingConfigurationArgs']]):
         pulumi.set(self, "semantic_chunking_configuration", value)
 
 
@@ -3104,13 +3104,13 @@ class KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesArg
     A custom parser for data source documents.
     """
     parsing_strategy: pulumi.Input['KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesParsingStrategy']
-    bedrock_foundation_model_configuration: NotRequired[pulumi.Input['KnowledgeBaseBedrockFoundationModelConfigurationArgsDict']]
+    bedrock_foundation_model_configuration: NotRequired[pulumi.Input[Optional['KnowledgeBaseBedrockFoundationModelConfigurationArgs']]]
 
 @pulumi.input_type
 class KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesArgs:
     def __init__(__self__, *,
                  parsing_strategy: pulumi.Input['KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesParsingStrategy'],
-                 bedrock_foundation_model_configuration: Optional[pulumi.Input['KnowledgeBaseBedrockFoundationModelConfigurationArgs']] = None):
+                 bedrock_foundation_model_configuration: pulumi.Input[Optional['KnowledgeBaseBedrockFoundationModelConfigurationArgs']] = None):
         """
         A custom parser for data source documents.
         """
@@ -3129,20 +3129,20 @@ class KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesArg
 
     @_builtins.property
     @pulumi.getter(name="bedrockFoundationModelConfiguration")
-    def bedrock_foundation_model_configuration(self) -> Optional[pulumi.Input['KnowledgeBaseBedrockFoundationModelConfigurationArgs']]:
+    def bedrock_foundation_model_configuration(self) -> pulumi.Input[Optional['KnowledgeBaseBedrockFoundationModelConfigurationArgs']]:
         return pulumi.get(self, "bedrock_foundation_model_configuration")
 
     @bedrock_foundation_model_configuration.setter
-    def bedrock_foundation_model_configuration(self, value: Optional[pulumi.Input['KnowledgeBaseBedrockFoundationModelConfigurationArgs']]):
+    def bedrock_foundation_model_configuration(self, value: pulumi.Input[Optional['KnowledgeBaseBedrockFoundationModelConfigurationArgs']]):
         pulumi.set(self, "bedrock_foundation_model_configuration", value)
 
 
 class KnowledgeBaseVectorIngestionConfigurationArgsDict(TypedDict):
-    chunking_configuration: NotRequired[pulumi.Input['KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesArgsDict']]
+    chunking_configuration: NotRequired[pulumi.Input[Optional['KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesArgs']]]
     """
     Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
     """
-    parsing_configuration: NotRequired[pulumi.Input['KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesArgsDict']]
+    parsing_configuration: NotRequired[pulumi.Input[Optional['KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesArgs']]]
     """
     A custom parser for data source documents.
     """
@@ -3150,8 +3150,8 @@ class KnowledgeBaseVectorIngestionConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class KnowledgeBaseVectorIngestionConfigurationArgs:
     def __init__(__self__, *,
-                 chunking_configuration: Optional[pulumi.Input['KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesArgs']] = None,
-                 parsing_configuration: Optional[pulumi.Input['KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesArgs']] = None):
+                 chunking_configuration: pulumi.Input[Optional['KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesArgs']] = None,
+                 parsing_configuration: pulumi.Input[Optional['KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesArgs']] = None):
         """
         :param pulumi.Input['KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesArgs'] chunking_configuration: Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
         :param pulumi.Input['KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesArgs'] parsing_configuration: A custom parser for data source documents.
@@ -3163,84 +3163,84 @@ class KnowledgeBaseVectorIngestionConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="chunkingConfiguration")
-    def chunking_configuration(self) -> Optional[pulumi.Input['KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesArgs']]:
+    def chunking_configuration(self) -> pulumi.Input[Optional['KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesArgs']]:
         """
         Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
         """
         return pulumi.get(self, "chunking_configuration")
 
     @chunking_configuration.setter
-    def chunking_configuration(self, value: Optional[pulumi.Input['KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesArgs']]):
+    def chunking_configuration(self, value: pulumi.Input[Optional['KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesArgs']]):
         pulumi.set(self, "chunking_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="parsingConfiguration")
-    def parsing_configuration(self) -> Optional[pulumi.Input['KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesArgs']]:
+    def parsing_configuration(self) -> pulumi.Input[Optional['KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesArgs']]:
         """
         A custom parser for data source documents.
         """
         return pulumi.get(self, "parsing_configuration")
 
     @parsing_configuration.setter
-    def parsing_configuration(self, value: Optional[pulumi.Input['KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesArgs']]):
+    def parsing_configuration(self, value: pulumi.Input[Optional['KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesArgs']]):
         pulumi.set(self, "parsing_configuration", value)
 
 
 class KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesArgsDict(TypedDict):
-    rate_limit: NotRequired[pulumi.Input[_builtins.float]]
+    rate_limit: NotRequired[pulumi.Input[Optional[_builtins.float]]]
 
 @pulumi.input_type
 class KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesArgs:
     def __init__(__self__, *,
-                 rate_limit: Optional[pulumi.Input[_builtins.float]] = None):
+                 rate_limit: pulumi.Input[Optional[_builtins.float]] = None):
         if rate_limit is not None:
             pulumi.set(__self__, "rate_limit", rate_limit)
 
     @_builtins.property
     @pulumi.getter(name="rateLimit")
-    def rate_limit(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def rate_limit(self) -> pulumi.Input[Optional[_builtins.float]]:
         return pulumi.get(self, "rate_limit")
 
     @rate_limit.setter
-    def rate_limit(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def rate_limit(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "rate_limit", value)
 
 
 class KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesArgsDict(TypedDict):
-    seed_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseSeedUrlArgsDict']]]]
+    seed_urls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['KnowledgeBaseSeedUrlArgs']]]]]
 
 @pulumi.input_type
 class KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesArgs:
     def __init__(__self__, *,
-                 seed_urls: Optional[pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseSeedUrlArgs']]]] = None):
+                 seed_urls: pulumi.Input[Optional[Sequence[pulumi.Input['KnowledgeBaseSeedUrlArgs']]]] = None):
         if seed_urls is not None:
             pulumi.set(__self__, "seed_urls", seed_urls)
 
     @_builtins.property
     @pulumi.getter(name="seedUrls")
-    def seed_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseSeedUrlArgs']]]]:
+    def seed_urls(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['KnowledgeBaseSeedUrlArgs']]]]:
         return pulumi.get(self, "seed_urls")
 
     @seed_urls.setter
-    def seed_urls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseSeedUrlArgs']]]]):
+    def seed_urls(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['KnowledgeBaseSeedUrlArgs']]]]):
         pulumi.set(self, "seed_urls", value)
 
 
 class KnowledgeBaseWebCrawlerConfigurationArgsDict(TypedDict):
     url_configuration: pulumi.Input['KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesArgsDict']
-    crawler_limits: NotRequired[pulumi.Input['KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesArgsDict']]
-    exclusion_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    inclusion_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    scope: NotRequired[pulumi.Input['KnowledgeBaseWebCrawlerConfigurationScope']]
+    crawler_limits: NotRequired[pulumi.Input[Optional['KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesArgs']]]
+    exclusion_filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    inclusion_filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    scope: NotRequired[pulumi.Input[Optional['KnowledgeBaseWebCrawlerConfigurationScope']]]
 
 @pulumi.input_type
 class KnowledgeBaseWebCrawlerConfigurationArgs:
     def __init__(__self__, *,
                  url_configuration: pulumi.Input['KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesArgs'],
-                 crawler_limits: Optional[pulumi.Input['KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesArgs']] = None,
-                 exclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 inclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 scope: Optional[pulumi.Input['KnowledgeBaseWebCrawlerConfigurationScope']] = None):
+                 crawler_limits: pulumi.Input[Optional['KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesArgs']] = None,
+                 exclusion_filters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 inclusion_filters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 scope: pulumi.Input[Optional['KnowledgeBaseWebCrawlerConfigurationScope']] = None):
         pulumi.set(__self__, "url_configuration", url_configuration)
         if crawler_limits is not None:
             pulumi.set(__self__, "crawler_limits", crawler_limits)
@@ -3262,38 +3262,38 @@ class KnowledgeBaseWebCrawlerConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="crawlerLimits")
-    def crawler_limits(self) -> Optional[pulumi.Input['KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesArgs']]:
+    def crawler_limits(self) -> pulumi.Input[Optional['KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesArgs']]:
         return pulumi.get(self, "crawler_limits")
 
     @crawler_limits.setter
-    def crawler_limits(self, value: Optional[pulumi.Input['KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesArgs']]):
+    def crawler_limits(self, value: pulumi.Input[Optional['KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesArgs']]):
         pulumi.set(self, "crawler_limits", value)
 
     @_builtins.property
     @pulumi.getter(name="exclusionFilters")
-    def exclusion_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def exclusion_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "exclusion_filters")
 
     @exclusion_filters.setter
-    def exclusion_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def exclusion_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "exclusion_filters", value)
 
     @_builtins.property
     @pulumi.getter(name="inclusionFilters")
-    def inclusion_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def inclusion_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "inclusion_filters")
 
     @inclusion_filters.setter
-    def inclusion_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def inclusion_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "inclusion_filters", value)
 
     @_builtins.property
     @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input['KnowledgeBaseWebCrawlerConfigurationScope']]:
+    def scope(self) -> pulumi.Input[Optional['KnowledgeBaseWebCrawlerConfigurationScope']]:
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: Optional[pulumi.Input['KnowledgeBaseWebCrawlerConfigurationScope']]):
+    def scope(self, value: pulumi.Input[Optional['KnowledgeBaseWebCrawlerConfigurationScope']]):
         pulumi.set(self, "scope", value)
 
 
@@ -3301,11 +3301,11 @@ class MessageTemplateAgentAttributesArgsDict(TypedDict):
     """
     The agent attributes that are used with the message template.
     """
-    first_name: NotRequired[pulumi.Input[_builtins.str]]
+    first_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The agent’s first name as entered in their Amazon Connect user account.
     """
-    last_name: NotRequired[pulumi.Input[_builtins.str]]
+    last_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The agent’s last name as entered in their Amazon Connect user account.
     """
@@ -3313,8 +3313,8 @@ class MessageTemplateAgentAttributesArgsDict(TypedDict):
 @pulumi.input_type
 class MessageTemplateAgentAttributesArgs:
     def __init__(__self__, *,
-                 first_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 first_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The agent attributes that are used with the message template.
 
@@ -3328,26 +3328,26 @@ class MessageTemplateAgentAttributesArgs:
 
     @_builtins.property
     @pulumi.getter(name="firstName")
-    def first_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def first_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The agent’s first name as entered in their Amazon Connect user account.
         """
         return pulumi.get(self, "first_name")
 
     @first_name.setter
-    def first_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def first_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "first_name", value)
 
     @_builtins.property
     @pulumi.getter(name="lastName")
-    def last_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The agent’s last name as entered in their Amazon Connect user account.
         """
         return pulumi.get(self, "last_name")
 
     @last_name.setter
-    def last_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_name", value)
 
 
@@ -3360,7 +3360,7 @@ class MessageTemplateAttachmentArgsDict(TypedDict):
     """
     The S3 Presigned URL for the attachment file. When generating the PreSignedUrl, please ensure that the expires-in time is set to 30 minutes. The URL can be generated through the AWS Console or through the AWS CLI. For more information, see [Sharing objects with presigned URLs](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ShareObjectPreSignedURL.html) .
     """
-    attachment_id: NotRequired[pulumi.Input[_builtins.str]]
+    attachment_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The identifier of the attachment file.
     """
@@ -3370,7 +3370,7 @@ class MessageTemplateAttachmentArgs:
     def __init__(__self__, *,
                  attachment_name: pulumi.Input[_builtins.str],
                  s3_presigned_url: pulumi.Input[_builtins.str],
-                 attachment_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 attachment_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] attachment_name: The name of the attachment file being uploaded. The name should include the file extension.
         :param pulumi.Input[_builtins.str] s3_presigned_url: The S3 Presigned URL for the attachment file. When generating the PreSignedUrl, please ensure that the expires-in time is set to 30 minutes. The URL can be generated through the AWS Console or through the AWS CLI. For more information, see [Sharing objects with presigned URLs](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ShareObjectPreSignedURL.html) .
@@ -3407,14 +3407,14 @@ class MessageTemplateAttachmentArgs:
 
     @_builtins.property
     @pulumi.getter(name="attachmentId")
-    def attachment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def attachment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier of the attachment file.
         """
         return pulumi.get(self, "attachment_id")
 
     @attachment_id.setter
-    def attachment_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def attachment_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "attachment_id", value)
 
 
@@ -3422,19 +3422,19 @@ class MessageTemplateAttributesArgsDict(TypedDict):
     """
     An object that specifies the default values to use for variables in the message template. This object contains different categories of key-value pairs. Each key defines a variable or placeholder in the message template. The corresponding value defines the default value for that variable.
     """
-    agent_attributes: NotRequired[pulumi.Input['MessageTemplateAgentAttributesArgsDict']]
+    agent_attributes: NotRequired[pulumi.Input[Optional['MessageTemplateAgentAttributesArgs']]]
     """
     The agent attributes that are used with the message template.
     """
-    custom_attributes: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    custom_attributes: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     The custom attributes that are used with the message template.
     """
-    customer_profile_attributes: NotRequired[pulumi.Input['MessageTemplateCustomerProfileAttributesArgsDict']]
+    customer_profile_attributes: NotRequired[pulumi.Input[Optional['MessageTemplateCustomerProfileAttributesArgs']]]
     """
     The customer profile attributes that are used with the message template.
     """
-    system_attributes: NotRequired[pulumi.Input['MessageTemplateSystemAttributesArgsDict']]
+    system_attributes: NotRequired[pulumi.Input[Optional['MessageTemplateSystemAttributesArgs']]]
     """
     The system attributes that are used with the message template.
     """
@@ -3442,10 +3442,10 @@ class MessageTemplateAttributesArgsDict(TypedDict):
 @pulumi.input_type
 class MessageTemplateAttributesArgs:
     def __init__(__self__, *,
-                 agent_attributes: Optional[pulumi.Input['MessageTemplateAgentAttributesArgs']] = None,
-                 custom_attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 customer_profile_attributes: Optional[pulumi.Input['MessageTemplateCustomerProfileAttributesArgs']] = None,
-                 system_attributes: Optional[pulumi.Input['MessageTemplateSystemAttributesArgs']] = None):
+                 agent_attributes: pulumi.Input[Optional['MessageTemplateAgentAttributesArgs']] = None,
+                 custom_attributes: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 customer_profile_attributes: pulumi.Input[Optional['MessageTemplateCustomerProfileAttributesArgs']] = None,
+                 system_attributes: pulumi.Input[Optional['MessageTemplateSystemAttributesArgs']] = None):
         """
         An object that specifies the default values to use for variables in the message template. This object contains different categories of key-value pairs. Each key defines a variable or placeholder in the message template. The corresponding value defines the default value for that variable.
 
@@ -3465,50 +3465,50 @@ class MessageTemplateAttributesArgs:
 
     @_builtins.property
     @pulumi.getter(name="agentAttributes")
-    def agent_attributes(self) -> Optional[pulumi.Input['MessageTemplateAgentAttributesArgs']]:
+    def agent_attributes(self) -> pulumi.Input[Optional['MessageTemplateAgentAttributesArgs']]:
         """
         The agent attributes that are used with the message template.
         """
         return pulumi.get(self, "agent_attributes")
 
     @agent_attributes.setter
-    def agent_attributes(self, value: Optional[pulumi.Input['MessageTemplateAgentAttributesArgs']]):
+    def agent_attributes(self, value: pulumi.Input[Optional['MessageTemplateAgentAttributesArgs']]):
         pulumi.set(self, "agent_attributes", value)
 
     @_builtins.property
     @pulumi.getter(name="customAttributes")
-    def custom_attributes(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def custom_attributes(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The custom attributes that are used with the message template.
         """
         return pulumi.get(self, "custom_attributes")
 
     @custom_attributes.setter
-    def custom_attributes(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def custom_attributes(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "custom_attributes", value)
 
     @_builtins.property
     @pulumi.getter(name="customerProfileAttributes")
-    def customer_profile_attributes(self) -> Optional[pulumi.Input['MessageTemplateCustomerProfileAttributesArgs']]:
+    def customer_profile_attributes(self) -> pulumi.Input[Optional['MessageTemplateCustomerProfileAttributesArgs']]:
         """
         The customer profile attributes that are used with the message template.
         """
         return pulumi.get(self, "customer_profile_attributes")
 
     @customer_profile_attributes.setter
-    def customer_profile_attributes(self, value: Optional[pulumi.Input['MessageTemplateCustomerProfileAttributesArgs']]):
+    def customer_profile_attributes(self, value: pulumi.Input[Optional['MessageTemplateCustomerProfileAttributesArgs']]):
         pulumi.set(self, "customer_profile_attributes", value)
 
     @_builtins.property
     @pulumi.getter(name="systemAttributes")
-    def system_attributes(self) -> Optional[pulumi.Input['MessageTemplateSystemAttributesArgs']]:
+    def system_attributes(self) -> pulumi.Input[Optional['MessageTemplateSystemAttributesArgs']]:
         """
         The system attributes that are used with the message template.
         """
         return pulumi.get(self, "system_attributes")
 
     @system_attributes.setter
-    def system_attributes(self, value: Optional[pulumi.Input['MessageTemplateSystemAttributesArgs']]):
+    def system_attributes(self, value: pulumi.Input[Optional['MessageTemplateSystemAttributesArgs']]):
         pulumi.set(self, "system_attributes", value)
 
 
@@ -3516,7 +3516,7 @@ class MessageTemplateBodyContentProviderArgsDict(TypedDict):
     """
     The container of message template body.
     """
-    content: NotRequired[pulumi.Input[_builtins.str]]
+    content: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The content of the message template.
     """
@@ -3524,7 +3524,7 @@ class MessageTemplateBodyContentProviderArgsDict(TypedDict):
 @pulumi.input_type
 class MessageTemplateBodyContentProviderArgs:
     def __init__(__self__, *,
-                 content: Optional[pulumi.Input[_builtins.str]] = None):
+                 content: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The container of message template body.
 
@@ -3535,14 +3535,14 @@ class MessageTemplateBodyContentProviderArgs:
 
     @_builtins.property
     @pulumi.getter
-    def content(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The content of the message template.
         """
         return pulumi.get(self, "content")
 
     @content.setter
-    def content(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content", value)
 
 
@@ -3550,11 +3550,11 @@ class MessageTemplateContentArgsDict(TypedDict):
     """
     The content of the message template.
     """
-    email_message_template_content: NotRequired[pulumi.Input['MessageTemplateEmailMessageTemplateContentArgsDict']]
+    email_message_template_content: NotRequired[pulumi.Input[Optional['MessageTemplateEmailMessageTemplateContentArgs']]]
     """
     The content of the message template that applies to the email channel subtype.
     """
-    sms_message_template_content: NotRequired[pulumi.Input['MessageTemplateSmsMessageTemplateContentArgsDict']]
+    sms_message_template_content: NotRequired[pulumi.Input[Optional['MessageTemplateSmsMessageTemplateContentArgs']]]
     """
     The content of message template that applies to SMS channel subtype.
     """
@@ -3562,8 +3562,8 @@ class MessageTemplateContentArgsDict(TypedDict):
 @pulumi.input_type
 class MessageTemplateContentArgs:
     def __init__(__self__, *,
-                 email_message_template_content: Optional[pulumi.Input['MessageTemplateEmailMessageTemplateContentArgs']] = None,
-                 sms_message_template_content: Optional[pulumi.Input['MessageTemplateSmsMessageTemplateContentArgs']] = None):
+                 email_message_template_content: pulumi.Input[Optional['MessageTemplateEmailMessageTemplateContentArgs']] = None,
+                 sms_message_template_content: pulumi.Input[Optional['MessageTemplateSmsMessageTemplateContentArgs']] = None):
         """
         The content of the message template.
 
@@ -3577,26 +3577,26 @@ class MessageTemplateContentArgs:
 
     @_builtins.property
     @pulumi.getter(name="emailMessageTemplateContent")
-    def email_message_template_content(self) -> Optional[pulumi.Input['MessageTemplateEmailMessageTemplateContentArgs']]:
+    def email_message_template_content(self) -> pulumi.Input[Optional['MessageTemplateEmailMessageTemplateContentArgs']]:
         """
         The content of the message template that applies to the email channel subtype.
         """
         return pulumi.get(self, "email_message_template_content")
 
     @email_message_template_content.setter
-    def email_message_template_content(self, value: Optional[pulumi.Input['MessageTemplateEmailMessageTemplateContentArgs']]):
+    def email_message_template_content(self, value: pulumi.Input[Optional['MessageTemplateEmailMessageTemplateContentArgs']]):
         pulumi.set(self, "email_message_template_content", value)
 
     @_builtins.property
     @pulumi.getter(name="smsMessageTemplateContent")
-    def sms_message_template_content(self) -> Optional[pulumi.Input['MessageTemplateSmsMessageTemplateContentArgs']]:
+    def sms_message_template_content(self) -> pulumi.Input[Optional['MessageTemplateSmsMessageTemplateContentArgs']]:
         """
         The content of message template that applies to SMS channel subtype.
         """
         return pulumi.get(self, "sms_message_template_content")
 
     @sms_message_template_content.setter
-    def sms_message_template_content(self, value: Optional[pulumi.Input['MessageTemplateSmsMessageTemplateContentArgs']]):
+    def sms_message_template_content(self, value: pulumi.Input[Optional['MessageTemplateSmsMessageTemplateContentArgs']]):
         pulumi.set(self, "sms_message_template_content", value)
 
 
@@ -3604,235 +3604,235 @@ class MessageTemplateCustomerProfileAttributesArgsDict(TypedDict):
     """
     The customer profile attributes that are used with the message template.
     """
-    account_number: NotRequired[pulumi.Input[_builtins.str]]
+    account_number: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A unique account number that you have given to the customer.
     """
-    additional_information: NotRequired[pulumi.Input[_builtins.str]]
+    additional_information: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Any additional information relevant to the customer's profile.
     """
-    address1: NotRequired[pulumi.Input[_builtins.str]]
+    address1: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The first line of a customer address.
     """
-    address2: NotRequired[pulumi.Input[_builtins.str]]
+    address2: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The second line of a customer address.
     """
-    address3: NotRequired[pulumi.Input[_builtins.str]]
+    address3: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The third line of a customer address.
     """
-    address4: NotRequired[pulumi.Input[_builtins.str]]
+    address4: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The fourth line of a customer address.
     """
-    billing_address1: NotRequired[pulumi.Input[_builtins.str]]
+    billing_address1: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The first line of a customer’s billing address.
     """
-    billing_address2: NotRequired[pulumi.Input[_builtins.str]]
+    billing_address2: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The second line of a customer’s billing address.
     """
-    billing_address3: NotRequired[pulumi.Input[_builtins.str]]
+    billing_address3: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The third line of a customer’s billing address.
     """
-    billing_address4: NotRequired[pulumi.Input[_builtins.str]]
+    billing_address4: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The fourth line of a customer’s billing address.
     """
-    billing_city: NotRequired[pulumi.Input[_builtins.str]]
+    billing_city: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The city of a customer’s billing address.
     """
-    billing_country: NotRequired[pulumi.Input[_builtins.str]]
+    billing_country: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The country of a customer’s billing address.
     """
-    billing_county: NotRequired[pulumi.Input[_builtins.str]]
+    billing_county: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The county of a customer’s billing address.
     """
-    billing_postal_code: NotRequired[pulumi.Input[_builtins.str]]
+    billing_postal_code: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The postal code of a customer’s billing address.
     """
-    billing_province: NotRequired[pulumi.Input[_builtins.str]]
+    billing_province: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The province of a customer’s billing address.
     """
-    billing_state: NotRequired[pulumi.Input[_builtins.str]]
+    billing_state: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The state of a customer’s billing address.
     """
-    birth_date: NotRequired[pulumi.Input[_builtins.str]]
+    birth_date: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The customer's birth date.
     """
-    business_email_address: NotRequired[pulumi.Input[_builtins.str]]
+    business_email_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The customer's business email address.
     """
-    business_name: NotRequired[pulumi.Input[_builtins.str]]
+    business_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the customer's business.
     """
-    business_phone_number: NotRequired[pulumi.Input[_builtins.str]]
+    business_phone_number: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The customer's business phone number.
     """
-    city: NotRequired[pulumi.Input[_builtins.str]]
+    city: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The city in which a customer lives.
     """
-    country: NotRequired[pulumi.Input[_builtins.str]]
+    country: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The country in which a customer lives.
     """
-    county: NotRequired[pulumi.Input[_builtins.str]]
+    county: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The county in which a customer lives.
     """
-    custom: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    custom: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     The custom attributes in customer profile attributes.
     """
-    email_address: NotRequired[pulumi.Input[_builtins.str]]
+    email_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The customer's email address, which has not been specified as a personal or business address.
     """
-    first_name: NotRequired[pulumi.Input[_builtins.str]]
+    first_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The customer's first name.
     """
-    gender: NotRequired[pulumi.Input[_builtins.str]]
+    gender: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The customer's gender.
     """
-    home_phone_number: NotRequired[pulumi.Input[_builtins.str]]
+    home_phone_number: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The customer's home phone number.
     """
-    last_name: NotRequired[pulumi.Input[_builtins.str]]
+    last_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The customer's last name.
     """
-    mailing_address1: NotRequired[pulumi.Input[_builtins.str]]
+    mailing_address1: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The first line of a customer’s mailing address.
     """
-    mailing_address2: NotRequired[pulumi.Input[_builtins.str]]
+    mailing_address2: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The second line of a customer’s mailing address.
     """
-    mailing_address3: NotRequired[pulumi.Input[_builtins.str]]
+    mailing_address3: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The third line of a customer’s mailing address.
     """
-    mailing_address4: NotRequired[pulumi.Input[_builtins.str]]
+    mailing_address4: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The fourth line of a customer’s mailing address.
     """
-    mailing_city: NotRequired[pulumi.Input[_builtins.str]]
+    mailing_city: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The city of a customer’s mailing address.
     """
-    mailing_country: NotRequired[pulumi.Input[_builtins.str]]
+    mailing_country: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The country of a customer’s mailing address.
     """
-    mailing_county: NotRequired[pulumi.Input[_builtins.str]]
+    mailing_county: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The county of a customer’s mailing address.
     """
-    mailing_postal_code: NotRequired[pulumi.Input[_builtins.str]]
+    mailing_postal_code: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The postal code of a customer’s mailing address
     """
-    mailing_province: NotRequired[pulumi.Input[_builtins.str]]
+    mailing_province: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The province of a customer’s mailing address.
     """
-    mailing_state: NotRequired[pulumi.Input[_builtins.str]]
+    mailing_state: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The state of a customer’s mailing address.
     """
-    middle_name: NotRequired[pulumi.Input[_builtins.str]]
+    middle_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The customer's middle name.
     """
-    mobile_phone_number: NotRequired[pulumi.Input[_builtins.str]]
+    mobile_phone_number: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The customer's mobile phone number.
     """
-    party_type: NotRequired[pulumi.Input[_builtins.str]]
+    party_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The customer's party type.
     """
-    phone_number: NotRequired[pulumi.Input[_builtins.str]]
+    phone_number: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The customer's phone number, which has not been specified as a mobile, home, or business number.
     """
-    postal_code: NotRequired[pulumi.Input[_builtins.str]]
+    postal_code: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The postal code of a customer address.
     """
-    profile_arn: NotRequired[pulumi.Input[_builtins.str]]
+    profile_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of a customer profile.
     """
-    profile_id: NotRequired[pulumi.Input[_builtins.str]]
+    profile_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The unique identifier of a customer profile.
     """
-    province: NotRequired[pulumi.Input[_builtins.str]]
+    province: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The province in which a customer lives.
     """
-    shipping_address1: NotRequired[pulumi.Input[_builtins.str]]
+    shipping_address1: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The first line of a customer’s shipping address.
     """
-    shipping_address2: NotRequired[pulumi.Input[_builtins.str]]
+    shipping_address2: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The second line of a customer’s shipping address.
     """
-    shipping_address3: NotRequired[pulumi.Input[_builtins.str]]
+    shipping_address3: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The third line of a customer’s shipping address.
     """
-    shipping_address4: NotRequired[pulumi.Input[_builtins.str]]
+    shipping_address4: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The fourth line of a customer’s shipping address
     """
-    shipping_city: NotRequired[pulumi.Input[_builtins.str]]
+    shipping_city: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The city of a customer’s shipping address.
     """
-    shipping_country: NotRequired[pulumi.Input[_builtins.str]]
+    shipping_country: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The country of a customer’s shipping address.
     """
-    shipping_county: NotRequired[pulumi.Input[_builtins.str]]
+    shipping_county: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The county of a customer’s shipping address.
     """
-    shipping_postal_code: NotRequired[pulumi.Input[_builtins.str]]
+    shipping_postal_code: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The postal code of a customer’s shipping address.
     """
-    shipping_province: NotRequired[pulumi.Input[_builtins.str]]
+    shipping_province: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The province of a customer’s shipping address.
     """
-    shipping_state: NotRequired[pulumi.Input[_builtins.str]]
+    shipping_state: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The state of a customer’s shipping address.
     """
-    state: NotRequired[pulumi.Input[_builtins.str]]
+    state: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The state in which a customer lives.
     """
@@ -3840,64 +3840,64 @@ class MessageTemplateCustomerProfileAttributesArgsDict(TypedDict):
 @pulumi.input_type
 class MessageTemplateCustomerProfileAttributesArgs:
     def __init__(__self__, *,
-                 account_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 additional_information: Optional[pulumi.Input[_builtins.str]] = None,
-                 address1: Optional[pulumi.Input[_builtins.str]] = None,
-                 address2: Optional[pulumi.Input[_builtins.str]] = None,
-                 address3: Optional[pulumi.Input[_builtins.str]] = None,
-                 address4: Optional[pulumi.Input[_builtins.str]] = None,
-                 billing_address1: Optional[pulumi.Input[_builtins.str]] = None,
-                 billing_address2: Optional[pulumi.Input[_builtins.str]] = None,
-                 billing_address3: Optional[pulumi.Input[_builtins.str]] = None,
-                 billing_address4: Optional[pulumi.Input[_builtins.str]] = None,
-                 billing_city: Optional[pulumi.Input[_builtins.str]] = None,
-                 billing_country: Optional[pulumi.Input[_builtins.str]] = None,
-                 billing_county: Optional[pulumi.Input[_builtins.str]] = None,
-                 billing_postal_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 billing_province: Optional[pulumi.Input[_builtins.str]] = None,
-                 billing_state: Optional[pulumi.Input[_builtins.str]] = None,
-                 birth_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 business_email_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 business_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 business_phone_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 city: Optional[pulumi.Input[_builtins.str]] = None,
-                 country: Optional[pulumi.Input[_builtins.str]] = None,
-                 county: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 email_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 first_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 gender: Optional[pulumi.Input[_builtins.str]] = None,
-                 home_phone_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 mailing_address1: Optional[pulumi.Input[_builtins.str]] = None,
-                 mailing_address2: Optional[pulumi.Input[_builtins.str]] = None,
-                 mailing_address3: Optional[pulumi.Input[_builtins.str]] = None,
-                 mailing_address4: Optional[pulumi.Input[_builtins.str]] = None,
-                 mailing_city: Optional[pulumi.Input[_builtins.str]] = None,
-                 mailing_country: Optional[pulumi.Input[_builtins.str]] = None,
-                 mailing_county: Optional[pulumi.Input[_builtins.str]] = None,
-                 mailing_postal_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 mailing_province: Optional[pulumi.Input[_builtins.str]] = None,
-                 mailing_state: Optional[pulumi.Input[_builtins.str]] = None,
-                 middle_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 mobile_phone_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 party_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 phone_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 postal_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 profile_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 profile_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 province: Optional[pulumi.Input[_builtins.str]] = None,
-                 shipping_address1: Optional[pulumi.Input[_builtins.str]] = None,
-                 shipping_address2: Optional[pulumi.Input[_builtins.str]] = None,
-                 shipping_address3: Optional[pulumi.Input[_builtins.str]] = None,
-                 shipping_address4: Optional[pulumi.Input[_builtins.str]] = None,
-                 shipping_city: Optional[pulumi.Input[_builtins.str]] = None,
-                 shipping_country: Optional[pulumi.Input[_builtins.str]] = None,
-                 shipping_county: Optional[pulumi.Input[_builtins.str]] = None,
-                 shipping_postal_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 shipping_province: Optional[pulumi.Input[_builtins.str]] = None,
-                 shipping_state: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[_builtins.str]] = None):
+                 account_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 additional_information: pulumi.Input[Optional[_builtins.str]] = None,
+                 address1: pulumi.Input[Optional[_builtins.str]] = None,
+                 address2: pulumi.Input[Optional[_builtins.str]] = None,
+                 address3: pulumi.Input[Optional[_builtins.str]] = None,
+                 address4: pulumi.Input[Optional[_builtins.str]] = None,
+                 billing_address1: pulumi.Input[Optional[_builtins.str]] = None,
+                 billing_address2: pulumi.Input[Optional[_builtins.str]] = None,
+                 billing_address3: pulumi.Input[Optional[_builtins.str]] = None,
+                 billing_address4: pulumi.Input[Optional[_builtins.str]] = None,
+                 billing_city: pulumi.Input[Optional[_builtins.str]] = None,
+                 billing_country: pulumi.Input[Optional[_builtins.str]] = None,
+                 billing_county: pulumi.Input[Optional[_builtins.str]] = None,
+                 billing_postal_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 billing_province: pulumi.Input[Optional[_builtins.str]] = None,
+                 billing_state: pulumi.Input[Optional[_builtins.str]] = None,
+                 birth_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 business_email_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 business_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 business_phone_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 city: pulumi.Input[Optional[_builtins.str]] = None,
+                 country: pulumi.Input[Optional[_builtins.str]] = None,
+                 county: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 email_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 first_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 gender: pulumi.Input[Optional[_builtins.str]] = None,
+                 home_phone_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 mailing_address1: pulumi.Input[Optional[_builtins.str]] = None,
+                 mailing_address2: pulumi.Input[Optional[_builtins.str]] = None,
+                 mailing_address3: pulumi.Input[Optional[_builtins.str]] = None,
+                 mailing_address4: pulumi.Input[Optional[_builtins.str]] = None,
+                 mailing_city: pulumi.Input[Optional[_builtins.str]] = None,
+                 mailing_country: pulumi.Input[Optional[_builtins.str]] = None,
+                 mailing_county: pulumi.Input[Optional[_builtins.str]] = None,
+                 mailing_postal_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 mailing_province: pulumi.Input[Optional[_builtins.str]] = None,
+                 mailing_state: pulumi.Input[Optional[_builtins.str]] = None,
+                 middle_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 mobile_phone_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 party_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 phone_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 postal_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 province: pulumi.Input[Optional[_builtins.str]] = None,
+                 shipping_address1: pulumi.Input[Optional[_builtins.str]] = None,
+                 shipping_address2: pulumi.Input[Optional[_builtins.str]] = None,
+                 shipping_address3: pulumi.Input[Optional[_builtins.str]] = None,
+                 shipping_address4: pulumi.Input[Optional[_builtins.str]] = None,
+                 shipping_city: pulumi.Input[Optional[_builtins.str]] = None,
+                 shipping_country: pulumi.Input[Optional[_builtins.str]] = None,
+                 shipping_county: pulumi.Input[Optional[_builtins.str]] = None,
+                 shipping_postal_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 shipping_province: pulumi.Input[Optional[_builtins.str]] = None,
+                 shipping_state: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The customer profile attributes that are used with the message template.
 
@@ -4079,698 +4079,698 @@ class MessageTemplateCustomerProfileAttributesArgs:
 
     @_builtins.property
     @pulumi.getter(name="accountNumber")
-    def account_number(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_number(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A unique account number that you have given to the customer.
         """
         return pulumi.get(self, "account_number")
 
     @account_number.setter
-    def account_number(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_number(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_number", value)
 
     @_builtins.property
     @pulumi.getter(name="additionalInformation")
-    def additional_information(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def additional_information(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Any additional information relevant to the customer's profile.
         """
         return pulumi.get(self, "additional_information")
 
     @additional_information.setter
-    def additional_information(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def additional_information(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "additional_information", value)
 
     @_builtins.property
     @pulumi.getter
-    def address1(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def address1(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The first line of a customer address.
         """
         return pulumi.get(self, "address1")
 
     @address1.setter
-    def address1(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def address1(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "address1", value)
 
     @_builtins.property
     @pulumi.getter
-    def address2(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def address2(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The second line of a customer address.
         """
         return pulumi.get(self, "address2")
 
     @address2.setter
-    def address2(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def address2(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "address2", value)
 
     @_builtins.property
     @pulumi.getter
-    def address3(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def address3(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The third line of a customer address.
         """
         return pulumi.get(self, "address3")
 
     @address3.setter
-    def address3(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def address3(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "address3", value)
 
     @_builtins.property
     @pulumi.getter
-    def address4(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def address4(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fourth line of a customer address.
         """
         return pulumi.get(self, "address4")
 
     @address4.setter
-    def address4(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def address4(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "address4", value)
 
     @_builtins.property
     @pulumi.getter(name="billingAddress1")
-    def billing_address1(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def billing_address1(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The first line of a customer’s billing address.
         """
         return pulumi.get(self, "billing_address1")
 
     @billing_address1.setter
-    def billing_address1(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def billing_address1(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "billing_address1", value)
 
     @_builtins.property
     @pulumi.getter(name="billingAddress2")
-    def billing_address2(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def billing_address2(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The second line of a customer’s billing address.
         """
         return pulumi.get(self, "billing_address2")
 
     @billing_address2.setter
-    def billing_address2(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def billing_address2(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "billing_address2", value)
 
     @_builtins.property
     @pulumi.getter(name="billingAddress3")
-    def billing_address3(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def billing_address3(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The third line of a customer’s billing address.
         """
         return pulumi.get(self, "billing_address3")
 
     @billing_address3.setter
-    def billing_address3(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def billing_address3(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "billing_address3", value)
 
     @_builtins.property
     @pulumi.getter(name="billingAddress4")
-    def billing_address4(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def billing_address4(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fourth line of a customer’s billing address.
         """
         return pulumi.get(self, "billing_address4")
 
     @billing_address4.setter
-    def billing_address4(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def billing_address4(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "billing_address4", value)
 
     @_builtins.property
     @pulumi.getter(name="billingCity")
-    def billing_city(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def billing_city(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The city of a customer’s billing address.
         """
         return pulumi.get(self, "billing_city")
 
     @billing_city.setter
-    def billing_city(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def billing_city(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "billing_city", value)
 
     @_builtins.property
     @pulumi.getter(name="billingCountry")
-    def billing_country(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def billing_country(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The country of a customer’s billing address.
         """
         return pulumi.get(self, "billing_country")
 
     @billing_country.setter
-    def billing_country(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def billing_country(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "billing_country", value)
 
     @_builtins.property
     @pulumi.getter(name="billingCounty")
-    def billing_county(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def billing_county(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The county of a customer’s billing address.
         """
         return pulumi.get(self, "billing_county")
 
     @billing_county.setter
-    def billing_county(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def billing_county(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "billing_county", value)
 
     @_builtins.property
     @pulumi.getter(name="billingPostalCode")
-    def billing_postal_code(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def billing_postal_code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The postal code of a customer’s billing address.
         """
         return pulumi.get(self, "billing_postal_code")
 
     @billing_postal_code.setter
-    def billing_postal_code(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def billing_postal_code(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "billing_postal_code", value)
 
     @_builtins.property
     @pulumi.getter(name="billingProvince")
-    def billing_province(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def billing_province(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The province of a customer’s billing address.
         """
         return pulumi.get(self, "billing_province")
 
     @billing_province.setter
-    def billing_province(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def billing_province(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "billing_province", value)
 
     @_builtins.property
     @pulumi.getter(name="billingState")
-    def billing_state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def billing_state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The state of a customer’s billing address.
         """
         return pulumi.get(self, "billing_state")
 
     @billing_state.setter
-    def billing_state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def billing_state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "billing_state", value)
 
     @_builtins.property
     @pulumi.getter(name="birthDate")
-    def birth_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def birth_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The customer's birth date.
         """
         return pulumi.get(self, "birth_date")
 
     @birth_date.setter
-    def birth_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def birth_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "birth_date", value)
 
     @_builtins.property
     @pulumi.getter(name="businessEmailAddress")
-    def business_email_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def business_email_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The customer's business email address.
         """
         return pulumi.get(self, "business_email_address")
 
     @business_email_address.setter
-    def business_email_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def business_email_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "business_email_address", value)
 
     @_builtins.property
     @pulumi.getter(name="businessName")
-    def business_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def business_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the customer's business.
         """
         return pulumi.get(self, "business_name")
 
     @business_name.setter
-    def business_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def business_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "business_name", value)
 
     @_builtins.property
     @pulumi.getter(name="businessPhoneNumber")
-    def business_phone_number(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def business_phone_number(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The customer's business phone number.
         """
         return pulumi.get(self, "business_phone_number")
 
     @business_phone_number.setter
-    def business_phone_number(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def business_phone_number(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "business_phone_number", value)
 
     @_builtins.property
     @pulumi.getter
-    def city(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def city(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The city in which a customer lives.
         """
         return pulumi.get(self, "city")
 
     @city.setter
-    def city(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def city(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "city", value)
 
     @_builtins.property
     @pulumi.getter
-    def country(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def country(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The country in which a customer lives.
         """
         return pulumi.get(self, "country")
 
     @country.setter
-    def country(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def country(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "country", value)
 
     @_builtins.property
     @pulumi.getter
-    def county(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def county(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The county in which a customer lives.
         """
         return pulumi.get(self, "county")
 
     @county.setter
-    def county(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def county(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "county", value)
 
     @_builtins.property
     @pulumi.getter
-    def custom(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def custom(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The custom attributes in customer profile attributes.
         """
         return pulumi.get(self, "custom")
 
     @custom.setter
-    def custom(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def custom(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "custom", value)
 
     @_builtins.property
     @pulumi.getter(name="emailAddress")
-    def email_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def email_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The customer's email address, which has not been specified as a personal or business address.
         """
         return pulumi.get(self, "email_address")
 
     @email_address.setter
-    def email_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def email_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "email_address", value)
 
     @_builtins.property
     @pulumi.getter(name="firstName")
-    def first_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def first_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The customer's first name.
         """
         return pulumi.get(self, "first_name")
 
     @first_name.setter
-    def first_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def first_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "first_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def gender(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gender(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The customer's gender.
         """
         return pulumi.get(self, "gender")
 
     @gender.setter
-    def gender(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gender(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gender", value)
 
     @_builtins.property
     @pulumi.getter(name="homePhoneNumber")
-    def home_phone_number(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def home_phone_number(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The customer's home phone number.
         """
         return pulumi.get(self, "home_phone_number")
 
     @home_phone_number.setter
-    def home_phone_number(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def home_phone_number(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "home_phone_number", value)
 
     @_builtins.property
     @pulumi.getter(name="lastName")
-    def last_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The customer's last name.
         """
         return pulumi.get(self, "last_name")
 
     @last_name.setter
-    def last_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_name", value)
 
     @_builtins.property
     @pulumi.getter(name="mailingAddress1")
-    def mailing_address1(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mailing_address1(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The first line of a customer’s mailing address.
         """
         return pulumi.get(self, "mailing_address1")
 
     @mailing_address1.setter
-    def mailing_address1(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mailing_address1(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mailing_address1", value)
 
     @_builtins.property
     @pulumi.getter(name="mailingAddress2")
-    def mailing_address2(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mailing_address2(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The second line of a customer’s mailing address.
         """
         return pulumi.get(self, "mailing_address2")
 
     @mailing_address2.setter
-    def mailing_address2(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mailing_address2(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mailing_address2", value)
 
     @_builtins.property
     @pulumi.getter(name="mailingAddress3")
-    def mailing_address3(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mailing_address3(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The third line of a customer’s mailing address.
         """
         return pulumi.get(self, "mailing_address3")
 
     @mailing_address3.setter
-    def mailing_address3(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mailing_address3(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mailing_address3", value)
 
     @_builtins.property
     @pulumi.getter(name="mailingAddress4")
-    def mailing_address4(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mailing_address4(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fourth line of a customer’s mailing address.
         """
         return pulumi.get(self, "mailing_address4")
 
     @mailing_address4.setter
-    def mailing_address4(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mailing_address4(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mailing_address4", value)
 
     @_builtins.property
     @pulumi.getter(name="mailingCity")
-    def mailing_city(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mailing_city(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The city of a customer’s mailing address.
         """
         return pulumi.get(self, "mailing_city")
 
     @mailing_city.setter
-    def mailing_city(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mailing_city(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mailing_city", value)
 
     @_builtins.property
     @pulumi.getter(name="mailingCountry")
-    def mailing_country(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mailing_country(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The country of a customer’s mailing address.
         """
         return pulumi.get(self, "mailing_country")
 
     @mailing_country.setter
-    def mailing_country(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mailing_country(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mailing_country", value)
 
     @_builtins.property
     @pulumi.getter(name="mailingCounty")
-    def mailing_county(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mailing_county(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The county of a customer’s mailing address.
         """
         return pulumi.get(self, "mailing_county")
 
     @mailing_county.setter
-    def mailing_county(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mailing_county(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mailing_county", value)
 
     @_builtins.property
     @pulumi.getter(name="mailingPostalCode")
-    def mailing_postal_code(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mailing_postal_code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The postal code of a customer’s mailing address
         """
         return pulumi.get(self, "mailing_postal_code")
 
     @mailing_postal_code.setter
-    def mailing_postal_code(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mailing_postal_code(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mailing_postal_code", value)
 
     @_builtins.property
     @pulumi.getter(name="mailingProvince")
-    def mailing_province(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mailing_province(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The province of a customer’s mailing address.
         """
         return pulumi.get(self, "mailing_province")
 
     @mailing_province.setter
-    def mailing_province(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mailing_province(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mailing_province", value)
 
     @_builtins.property
     @pulumi.getter(name="mailingState")
-    def mailing_state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mailing_state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The state of a customer’s mailing address.
         """
         return pulumi.get(self, "mailing_state")
 
     @mailing_state.setter
-    def mailing_state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mailing_state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mailing_state", value)
 
     @_builtins.property
     @pulumi.getter(name="middleName")
-    def middle_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def middle_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The customer's middle name.
         """
         return pulumi.get(self, "middle_name")
 
     @middle_name.setter
-    def middle_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def middle_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "middle_name", value)
 
     @_builtins.property
     @pulumi.getter(name="mobilePhoneNumber")
-    def mobile_phone_number(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mobile_phone_number(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The customer's mobile phone number.
         """
         return pulumi.get(self, "mobile_phone_number")
 
     @mobile_phone_number.setter
-    def mobile_phone_number(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mobile_phone_number(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mobile_phone_number", value)
 
     @_builtins.property
     @pulumi.getter(name="partyType")
-    def party_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def party_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The customer's party type.
         """
         return pulumi.get(self, "party_type")
 
     @party_type.setter
-    def party_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def party_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "party_type", value)
 
     @_builtins.property
     @pulumi.getter(name="phoneNumber")
-    def phone_number(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def phone_number(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The customer's phone number, which has not been specified as a mobile, home, or business number.
         """
         return pulumi.get(self, "phone_number")
 
     @phone_number.setter
-    def phone_number(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def phone_number(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "phone_number", value)
 
     @_builtins.property
     @pulumi.getter(name="postalCode")
-    def postal_code(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def postal_code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The postal code of a customer address.
         """
         return pulumi.get(self, "postal_code")
 
     @postal_code.setter
-    def postal_code(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def postal_code(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "postal_code", value)
 
     @_builtins.property
     @pulumi.getter(name="profileArn")
-    def profile_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def profile_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of a customer profile.
         """
         return pulumi.get(self, "profile_arn")
 
     @profile_arn.setter
-    def profile_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def profile_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "profile_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="profileId")
-    def profile_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def profile_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique identifier of a customer profile.
         """
         return pulumi.get(self, "profile_id")
 
     @profile_id.setter
-    def profile_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def profile_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "profile_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def province(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def province(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The province in which a customer lives.
         """
         return pulumi.get(self, "province")
 
     @province.setter
-    def province(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def province(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "province", value)
 
     @_builtins.property
     @pulumi.getter(name="shippingAddress1")
-    def shipping_address1(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def shipping_address1(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The first line of a customer’s shipping address.
         """
         return pulumi.get(self, "shipping_address1")
 
     @shipping_address1.setter
-    def shipping_address1(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def shipping_address1(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "shipping_address1", value)
 
     @_builtins.property
     @pulumi.getter(name="shippingAddress2")
-    def shipping_address2(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def shipping_address2(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The second line of a customer’s shipping address.
         """
         return pulumi.get(self, "shipping_address2")
 
     @shipping_address2.setter
-    def shipping_address2(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def shipping_address2(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "shipping_address2", value)
 
     @_builtins.property
     @pulumi.getter(name="shippingAddress3")
-    def shipping_address3(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def shipping_address3(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The third line of a customer’s shipping address.
         """
         return pulumi.get(self, "shipping_address3")
 
     @shipping_address3.setter
-    def shipping_address3(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def shipping_address3(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "shipping_address3", value)
 
     @_builtins.property
     @pulumi.getter(name="shippingAddress4")
-    def shipping_address4(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def shipping_address4(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fourth line of a customer’s shipping address
         """
         return pulumi.get(self, "shipping_address4")
 
     @shipping_address4.setter
-    def shipping_address4(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def shipping_address4(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "shipping_address4", value)
 
     @_builtins.property
     @pulumi.getter(name="shippingCity")
-    def shipping_city(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def shipping_city(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The city of a customer’s shipping address.
         """
         return pulumi.get(self, "shipping_city")
 
     @shipping_city.setter
-    def shipping_city(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def shipping_city(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "shipping_city", value)
 
     @_builtins.property
     @pulumi.getter(name="shippingCountry")
-    def shipping_country(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def shipping_country(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The country of a customer’s shipping address.
         """
         return pulumi.get(self, "shipping_country")
 
     @shipping_country.setter
-    def shipping_country(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def shipping_country(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "shipping_country", value)
 
     @_builtins.property
     @pulumi.getter(name="shippingCounty")
-    def shipping_county(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def shipping_county(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The county of a customer’s shipping address.
         """
         return pulumi.get(self, "shipping_county")
 
     @shipping_county.setter
-    def shipping_county(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def shipping_county(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "shipping_county", value)
 
     @_builtins.property
     @pulumi.getter(name="shippingPostalCode")
-    def shipping_postal_code(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def shipping_postal_code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The postal code of a customer’s shipping address.
         """
         return pulumi.get(self, "shipping_postal_code")
 
     @shipping_postal_code.setter
-    def shipping_postal_code(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def shipping_postal_code(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "shipping_postal_code", value)
 
     @_builtins.property
     @pulumi.getter(name="shippingProvince")
-    def shipping_province(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def shipping_province(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The province of a customer’s shipping address.
         """
         return pulumi.get(self, "shipping_province")
 
     @shipping_province.setter
-    def shipping_province(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def shipping_province(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "shipping_province", value)
 
     @_builtins.property
     @pulumi.getter(name="shippingState")
-    def shipping_state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def shipping_state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The state of a customer’s shipping address.
         """
         return pulumi.get(self, "shipping_state")
 
     @shipping_state.setter
-    def shipping_state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def shipping_state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "shipping_state", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The state in which a customer lives.
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "state", value)
 
 
@@ -4778,11 +4778,11 @@ class MessageTemplateEmailMessageTemplateContentBodyArgsDict(TypedDict):
     """
     The body to use in email messages.
     """
-    html: NotRequired[pulumi.Input['MessageTemplateBodyContentProviderArgsDict']]
+    html: NotRequired[pulumi.Input[Optional['MessageTemplateBodyContentProviderArgs']]]
     """
     The message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
     """
-    plain_text: NotRequired[pulumi.Input['MessageTemplateBodyContentProviderArgsDict']]
+    plain_text: NotRequired[pulumi.Input[Optional['MessageTemplateBodyContentProviderArgs']]]
     """
     The message body, in plain text format, to use in email messages that are based on the message template. We recommend using plain text format for email clients that don't render HTML content and clients that are connected to high-latency networks, such as mobile devices.
     """
@@ -4790,8 +4790,8 @@ class MessageTemplateEmailMessageTemplateContentBodyArgsDict(TypedDict):
 @pulumi.input_type
 class MessageTemplateEmailMessageTemplateContentBodyArgs:
     def __init__(__self__, *,
-                 html: Optional[pulumi.Input['MessageTemplateBodyContentProviderArgs']] = None,
-                 plain_text: Optional[pulumi.Input['MessageTemplateBodyContentProviderArgs']] = None):
+                 html: pulumi.Input[Optional['MessageTemplateBodyContentProviderArgs']] = None,
+                 plain_text: pulumi.Input[Optional['MessageTemplateBodyContentProviderArgs']] = None):
         """
         The body to use in email messages.
 
@@ -4805,26 +4805,26 @@ class MessageTemplateEmailMessageTemplateContentBodyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def html(self) -> Optional[pulumi.Input['MessageTemplateBodyContentProviderArgs']]:
+    def html(self) -> pulumi.Input[Optional['MessageTemplateBodyContentProviderArgs']]:
         """
         The message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
         """
         return pulumi.get(self, "html")
 
     @html.setter
-    def html(self, value: Optional[pulumi.Input['MessageTemplateBodyContentProviderArgs']]):
+    def html(self, value: pulumi.Input[Optional['MessageTemplateBodyContentProviderArgs']]):
         pulumi.set(self, "html", value)
 
     @_builtins.property
     @pulumi.getter(name="plainText")
-    def plain_text(self) -> Optional[pulumi.Input['MessageTemplateBodyContentProviderArgs']]:
+    def plain_text(self) -> pulumi.Input[Optional['MessageTemplateBodyContentProviderArgs']]:
         """
         The message body, in plain text format, to use in email messages that are based on the message template. We recommend using plain text format for email clients that don't render HTML content and clients that are connected to high-latency networks, such as mobile devices.
         """
         return pulumi.get(self, "plain_text")
 
     @plain_text.setter
-    def plain_text(self, value: Optional[pulumi.Input['MessageTemplateBodyContentProviderArgs']]):
+    def plain_text(self, value: pulumi.Input[Optional['MessageTemplateBodyContentProviderArgs']]):
         pulumi.set(self, "plain_text", value)
 
 
@@ -4903,11 +4903,11 @@ class MessageTemplateEmailMessageTemplateHeaderArgsDict(TypedDict):
     """
     The email header to include in email messages.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the email header.
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The value of the email header.
     """
@@ -4915,8 +4915,8 @@ class MessageTemplateEmailMessageTemplateHeaderArgsDict(TypedDict):
 @pulumi.input_type
 class MessageTemplateEmailMessageTemplateHeaderArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The email header to include in email messages.
 
@@ -4930,26 +4930,26 @@ class MessageTemplateEmailMessageTemplateHeaderArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the email header.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value of the email header.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
@@ -5009,7 +5009,7 @@ class MessageTemplateSmsMessageTemplateContentBodyArgsDict(TypedDict):
     """
     The body to use in SMS messages.
     """
-    plain_text: NotRequired[pulumi.Input['MessageTemplateBodyContentProviderArgsDict']]
+    plain_text: NotRequired[pulumi.Input[Optional['MessageTemplateBodyContentProviderArgs']]]
     """
     The message body to use in SMS messages.
     """
@@ -5017,7 +5017,7 @@ class MessageTemplateSmsMessageTemplateContentBodyArgsDict(TypedDict):
 @pulumi.input_type
 class MessageTemplateSmsMessageTemplateContentBodyArgs:
     def __init__(__self__, *,
-                 plain_text: Optional[pulumi.Input['MessageTemplateBodyContentProviderArgs']] = None):
+                 plain_text: pulumi.Input[Optional['MessageTemplateBodyContentProviderArgs']] = None):
         """
         The body to use in SMS messages.
 
@@ -5028,14 +5028,14 @@ class MessageTemplateSmsMessageTemplateContentBodyArgs:
 
     @_builtins.property
     @pulumi.getter(name="plainText")
-    def plain_text(self) -> Optional[pulumi.Input['MessageTemplateBodyContentProviderArgs']]:
+    def plain_text(self) -> pulumi.Input[Optional['MessageTemplateBodyContentProviderArgs']]:
         """
         The message body to use in SMS messages.
         """
         return pulumi.get(self, "plain_text")
 
     @plain_text.setter
-    def plain_text(self, value: Optional[pulumi.Input['MessageTemplateBodyContentProviderArgs']]):
+    def plain_text(self, value: pulumi.Input[Optional['MessageTemplateBodyContentProviderArgs']]):
         pulumi.set(self, "plain_text", value)
 
 
@@ -5076,15 +5076,15 @@ class MessageTemplateSystemAttributesArgsDict(TypedDict):
     """
     The system attributes that are used with the message template.
     """
-    customer_endpoint: NotRequired[pulumi.Input['MessageTemplateSystemEndpointAttributesArgsDict']]
+    customer_endpoint: NotRequired[pulumi.Input[Optional['MessageTemplateSystemEndpointAttributesArgs']]]
     """
     The CustomerEndpoint attribute.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the task.
     """
-    system_endpoint: NotRequired[pulumi.Input['MessageTemplateSystemEndpointAttributesArgsDict']]
+    system_endpoint: NotRequired[pulumi.Input[Optional['MessageTemplateSystemEndpointAttributesArgs']]]
     """
     The SystemEndpoint attribute.
     """
@@ -5092,9 +5092,9 @@ class MessageTemplateSystemAttributesArgsDict(TypedDict):
 @pulumi.input_type
 class MessageTemplateSystemAttributesArgs:
     def __init__(__self__, *,
-                 customer_endpoint: Optional[pulumi.Input['MessageTemplateSystemEndpointAttributesArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 system_endpoint: Optional[pulumi.Input['MessageTemplateSystemEndpointAttributesArgs']] = None):
+                 customer_endpoint: pulumi.Input[Optional['MessageTemplateSystemEndpointAttributesArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 system_endpoint: pulumi.Input[Optional['MessageTemplateSystemEndpointAttributesArgs']] = None):
         """
         The system attributes that are used with the message template.
 
@@ -5111,38 +5111,38 @@ class MessageTemplateSystemAttributesArgs:
 
     @_builtins.property
     @pulumi.getter(name="customerEndpoint")
-    def customer_endpoint(self) -> Optional[pulumi.Input['MessageTemplateSystemEndpointAttributesArgs']]:
+    def customer_endpoint(self) -> pulumi.Input[Optional['MessageTemplateSystemEndpointAttributesArgs']]:
         """
         The CustomerEndpoint attribute.
         """
         return pulumi.get(self, "customer_endpoint")
 
     @customer_endpoint.setter
-    def customer_endpoint(self, value: Optional[pulumi.Input['MessageTemplateSystemEndpointAttributesArgs']]):
+    def customer_endpoint(self, value: pulumi.Input[Optional['MessageTemplateSystemEndpointAttributesArgs']]):
         pulumi.set(self, "customer_endpoint", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the task.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="systemEndpoint")
-    def system_endpoint(self) -> Optional[pulumi.Input['MessageTemplateSystemEndpointAttributesArgs']]:
+    def system_endpoint(self) -> pulumi.Input[Optional['MessageTemplateSystemEndpointAttributesArgs']]:
         """
         The SystemEndpoint attribute.
         """
         return pulumi.get(self, "system_endpoint")
 
     @system_endpoint.setter
-    def system_endpoint(self, value: Optional[pulumi.Input['MessageTemplateSystemEndpointAttributesArgs']]):
+    def system_endpoint(self, value: pulumi.Input[Optional['MessageTemplateSystemEndpointAttributesArgs']]):
         pulumi.set(self, "system_endpoint", value)
 
 
@@ -5150,7 +5150,7 @@ class MessageTemplateSystemEndpointAttributesArgsDict(TypedDict):
     """
     The system endpoint attributes that are used with the message template.
     """
-    address: NotRequired[pulumi.Input[_builtins.str]]
+    address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The customer's phone number if used with customerEndpoint, or the number the customer dialed to call your contact center if used with systemEndpoint.
     """
@@ -5158,7 +5158,7 @@ class MessageTemplateSystemEndpointAttributesArgsDict(TypedDict):
 @pulumi.input_type
 class MessageTemplateSystemEndpointAttributesArgs:
     def __init__(__self__, *,
-                 address: Optional[pulumi.Input[_builtins.str]] = None):
+                 address: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The system endpoint attributes that are used with the message template.
 
@@ -5169,14 +5169,14 @@ class MessageTemplateSystemEndpointAttributesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The customer's phone number if used with customerEndpoint, or the number the customer dialed to call your contact center if used with systemEndpoint.
         """
         return pulumi.get(self, "address")
 
     @address.setter
-    def address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "address", value)
 
 
@@ -5184,7 +5184,7 @@ class QuickResponseContentProviderArgsDict(TypedDict):
     """
     The container of quick response content.
     """
-    content: NotRequired[pulumi.Input[_builtins.str]]
+    content: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The content of the quick response.
     """
@@ -5192,7 +5192,7 @@ class QuickResponseContentProviderArgsDict(TypedDict):
 @pulumi.input_type
 class QuickResponseContentProviderArgs:
     def __init__(__self__, *,
-                 content: Optional[pulumi.Input[_builtins.str]] = None):
+                 content: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The container of quick response content.
 
@@ -5203,14 +5203,14 @@ class QuickResponseContentProviderArgs:
 
     @_builtins.property
     @pulumi.getter
-    def content(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The content of the quick response.
         """
         return pulumi.get(self, "content")
 
     @content.setter
-    def content(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content", value)
 
 

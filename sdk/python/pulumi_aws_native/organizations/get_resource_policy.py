@@ -103,7 +103,7 @@ def get_resource_policy(id: Optional[_builtins.str] = None,
         content=pulumi.get(__ret__, 'content'),
         id=pulumi.get(__ret__, 'id'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_resource_policy_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_resource_policy_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourcePolicyResult]:
     """
     You can use AWS::Organizations::ResourcePolicy to delegate policy management for AWS Organizations to specified member accounts to perform policy actions that are by default available only to the management account.

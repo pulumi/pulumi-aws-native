@@ -20,7 +20,7 @@ __all__ = ['OrganizationArgs', 'Organization']
 @pulumi.input_type
 class OrganizationArgs:
     def __init__(__self__, *,
-                 feature_set: Optional[pulumi.Input['OrganizationFeatureSet']] = None):
+                 feature_set: pulumi.Input[Optional['OrganizationFeatureSet']] = None):
         """
         The set of arguments for constructing a Organization resource.
 
@@ -31,14 +31,14 @@ class OrganizationArgs:
 
     @_builtins.property
     @pulumi.getter(name="featureSet")
-    def feature_set(self) -> Optional[pulumi.Input['OrganizationFeatureSet']]:
+    def feature_set(self) -> pulumi.Input[Optional['OrganizationFeatureSet']]:
         """
         Specifies the feature set supported by the new organization. Each feature set supports different levels of functionality.
         """
         return pulumi.get(self, "feature_set")
 
     @feature_set.setter
-    def feature_set(self, value: Optional[pulumi.Input['OrganizationFeatureSet']]):
+    def feature_set(self, value: pulumi.Input[Optional['OrganizationFeatureSet']]):
         pulumi.set(self, "feature_set", value)
 
 
@@ -48,7 +48,7 @@ class Organization(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 feature_set: Optional[pulumi.Input['OrganizationFeatureSet']] = None,
+                 feature_set: pulumi.Input[Optional['OrganizationFeatureSet']] = None,
                  __props__=None):
         """
         Resource schema for AWS::Organizations::Organization
@@ -83,7 +83,7 @@ class Organization(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 feature_set: Optional[pulumi.Input['OrganizationFeatureSet']] = None,
+                 feature_set: pulumi.Input[Optional['OrganizationFeatureSet']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

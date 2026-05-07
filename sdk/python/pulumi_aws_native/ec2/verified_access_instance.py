@@ -23,13 +23,13 @@ __all__ = ['VerifiedAccessInstanceArgs', 'VerifiedAccessInstance']
 @pulumi.input_type
 class VerifiedAccessInstanceArgs:
     def __init__(__self__, *,
-                 cidr_endpoints_custom_sub_domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 fips_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 logging_configurations: Optional[pulumi.Input['VerifiedAccessInstanceVerifiedAccessLogsArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 verified_access_trust_provider_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 verified_access_trust_providers: Optional[pulumi.Input[Sequence[pulumi.Input['VerifiedAccessInstanceVerifiedAccessTrustProviderArgs']]]] = None):
+                 cidr_endpoints_custom_sub_domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 fips_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 logging_configurations: pulumi.Input[Optional['VerifiedAccessInstanceVerifiedAccessLogsArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 verified_access_trust_provider_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 verified_access_trust_providers: pulumi.Input[Optional[Sequence[pulumi.Input['VerifiedAccessInstanceVerifiedAccessTrustProviderArgs']]]] = None):
         """
         The set of arguments for constructing a VerifiedAccessInstance resource.
 
@@ -58,86 +58,86 @@ class VerifiedAccessInstanceArgs:
 
     @_builtins.property
     @pulumi.getter(name="cidrEndpointsCustomSubDomain")
-    def cidr_endpoints_custom_sub_domain(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cidr_endpoints_custom_sub_domain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Introduce CidrEndpointsCustomSubDomain property to represent the domain (say, ava.my-company.com)
         """
         return pulumi.get(self, "cidr_endpoints_custom_sub_domain")
 
     @cidr_endpoints_custom_sub_domain.setter
-    def cidr_endpoints_custom_sub_domain(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cidr_endpoints_custom_sub_domain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cidr_endpoints_custom_sub_domain", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description for the AWS Verified Access instance.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="fipsEnabled")
-    def fips_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fips_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether FIPS is enabled
         """
         return pulumi.get(self, "fips_enabled")
 
     @fips_enabled.setter
-    def fips_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fips_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fips_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="loggingConfigurations")
-    def logging_configurations(self) -> Optional[pulumi.Input['VerifiedAccessInstanceVerifiedAccessLogsArgs']]:
+    def logging_configurations(self) -> pulumi.Input[Optional['VerifiedAccessInstanceVerifiedAccessLogsArgs']]:
         """
         The configuration options for AWS Verified Access instances.
         """
         return pulumi.get(self, "logging_configurations")
 
     @logging_configurations.setter
-    def logging_configurations(self, value: Optional[pulumi.Input['VerifiedAccessInstanceVerifiedAccessLogsArgs']]):
+    def logging_configurations(self, value: pulumi.Input[Optional['VerifiedAccessInstanceVerifiedAccessLogsArgs']]):
         pulumi.set(self, "logging_configurations", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="verifiedAccessTrustProviderIds")
-    def verified_access_trust_provider_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def verified_access_trust_provider_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The IDs of the AWS Verified Access trust providers.
         """
         return pulumi.get(self, "verified_access_trust_provider_ids")
 
     @verified_access_trust_provider_ids.setter
-    def verified_access_trust_provider_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def verified_access_trust_provider_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "verified_access_trust_provider_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="verifiedAccessTrustProviders")
-    def verified_access_trust_providers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VerifiedAccessInstanceVerifiedAccessTrustProviderArgs']]]]:
+    def verified_access_trust_providers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VerifiedAccessInstanceVerifiedAccessTrustProviderArgs']]]]:
         """
         AWS Verified Access trust providers.
         """
         return pulumi.get(self, "verified_access_trust_providers")
 
     @verified_access_trust_providers.setter
-    def verified_access_trust_providers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VerifiedAccessInstanceVerifiedAccessTrustProviderArgs']]]]):
+    def verified_access_trust_providers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VerifiedAccessInstanceVerifiedAccessTrustProviderArgs']]]]):
         pulumi.set(self, "verified_access_trust_providers", value)
 
 
@@ -147,13 +147,13 @@ class VerifiedAccessInstance(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cidr_endpoints_custom_sub_domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 fips_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 logging_configurations: Optional[pulumi.Input[Union['VerifiedAccessInstanceVerifiedAccessLogsArgs', 'VerifiedAccessInstanceVerifiedAccessLogsArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 verified_access_trust_provider_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 verified_access_trust_providers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VerifiedAccessInstanceVerifiedAccessTrustProviderArgs', 'VerifiedAccessInstanceVerifiedAccessTrustProviderArgsDict']]]]] = None,
+                 cidr_endpoints_custom_sub_domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 fips_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 logging_configurations: pulumi.Input[Optional[Union['VerifiedAccessInstanceVerifiedAccessLogsArgs', 'VerifiedAccessInstanceVerifiedAccessLogsArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 verified_access_trust_provider_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 verified_access_trust_providers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VerifiedAccessInstanceVerifiedAccessTrustProviderArgs', 'VerifiedAccessInstanceVerifiedAccessTrustProviderArgsDict']]]]] = None,
                  __props__=None):
         """
         The AWS::EC2::VerifiedAccessInstance resource creates an AWS EC2 Verified Access Instance.
@@ -194,13 +194,13 @@ class VerifiedAccessInstance(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cidr_endpoints_custom_sub_domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 fips_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 logging_configurations: Optional[pulumi.Input[Union['VerifiedAccessInstanceVerifiedAccessLogsArgs', 'VerifiedAccessInstanceVerifiedAccessLogsArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 verified_access_trust_provider_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 verified_access_trust_providers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VerifiedAccessInstanceVerifiedAccessTrustProviderArgs', 'VerifiedAccessInstanceVerifiedAccessTrustProviderArgsDict']]]]] = None,
+                 cidr_endpoints_custom_sub_domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 fips_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 logging_configurations: pulumi.Input[Optional[Union['VerifiedAccessInstanceVerifiedAccessLogsArgs', 'VerifiedAccessInstanceVerifiedAccessLogsArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 verified_access_trust_provider_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 verified_access_trust_providers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VerifiedAccessInstanceVerifiedAccessTrustProviderArgs', 'VerifiedAccessInstanceVerifiedAccessTrustProviderArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

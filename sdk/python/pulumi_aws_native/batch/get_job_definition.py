@@ -238,7 +238,7 @@ def get_job_definition(job_definition_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         timeout=pulumi.get(__ret__, 'timeout'),
         type=pulumi.get(__ret__, 'type'))
-def get_job_definition_output(job_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_job_definition_output(job_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetJobDefinitionResult]:
     """
     Resource Type definition for AWS::Batch::JobDefinition

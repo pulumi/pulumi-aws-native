@@ -144,7 +144,7 @@ def get_instance_profile(arn: Optional[_builtins.str] = None,
         package_cleanup=pulumi.get(__ret__, 'package_cleanup'),
         reboot_after_use=pulumi.get(__ret__, 'reboot_after_use'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_instance_profile_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_instance_profile_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstanceProfileResult]:
     """
     Resource Type definition for a Device Farm Instance Profile

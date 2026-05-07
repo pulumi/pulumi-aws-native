@@ -122,9 +122,9 @@ def get_route_response(api_id: Optional[_builtins.str] = None,
         response_parameters=pulumi.get(__ret__, 'response_parameters'),
         route_response_id=pulumi.get(__ret__, 'route_response_id'),
         route_response_key=pulumi.get(__ret__, 'route_response_key'))
-def get_route_response_output(api_id: Optional[pulumi.Input[_builtins.str]] = None,
-                              route_id: Optional[pulumi.Input[_builtins.str]] = None,
-                              route_response_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_route_response_output(api_id: pulumi.Input[Optional[_builtins.str]] = None,
+                              route_id: pulumi.Input[Optional[_builtins.str]] = None,
+                              route_response_id: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRouteResponseResult]:
     """
     The ``AWS::ApiGatewayV2::RouteResponse`` resource creates a route response for a WebSocket API. For more information, see [Set up Route Responses for a WebSocket API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-route-response.html) in the *API Gateway Developer Guide*.

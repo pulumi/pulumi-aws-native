@@ -74,13 +74,13 @@ class ZonalAutoshiftConfigurationPracticeRunConfigurationArgsDict(TypedDict):
     """
     The alarm that you specify to monitor the health of your application during practice runs. When the outcome alarm goes into an `ALARM` state, the practice run is ended and the outcome is set to `FAILED` .
     """
-    blocked_dates: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    blocked_dates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     An array of one or more dates that you can specify when AWS does not start practice runs for a resource. Dates are in UTC.
 
     Specify blocked dates in the format `YYYY-MM-DD` , separated by spaces.
     """
-    blocked_windows: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    blocked_windows: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     An array of one or more days and times that you can specify when ARC does not start practice runs for a resource. Days and times are in UTC.
 
@@ -88,7 +88,7 @@ class ZonalAutoshiftConfigurationPracticeRunConfigurationArgsDict(TypedDict):
 
     > Blocked windows have to start and end on the same day. Windows that span multiple days aren't supported.
     """
-    blocking_alarms: NotRequired[pulumi.Input[Sequence[pulumi.Input['ZonalAutoshiftConfigurationControlConditionArgsDict']]]]
+    blocking_alarms: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ZonalAutoshiftConfigurationControlConditionArgs']]]]]
     """
     An optional alarm that you can specify that blocks practice runs when the alarm is in an `ALARM` state. When a blocking alarm goes into an `ALARM` state, it prevents practice runs from being started, and ends practice runs that are in progress.
     """
@@ -97,9 +97,9 @@ class ZonalAutoshiftConfigurationPracticeRunConfigurationArgsDict(TypedDict):
 class ZonalAutoshiftConfigurationPracticeRunConfigurationArgs:
     def __init__(__self__, *,
                  outcome_alarms: pulumi.Input[Sequence[pulumi.Input['ZonalAutoshiftConfigurationControlConditionArgs']]],
-                 blocked_dates: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 blocked_windows: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 blocking_alarms: Optional[pulumi.Input[Sequence[pulumi.Input['ZonalAutoshiftConfigurationControlConditionArgs']]]] = None):
+                 blocked_dates: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 blocked_windows: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 blocking_alarms: pulumi.Input[Optional[Sequence[pulumi.Input['ZonalAutoshiftConfigurationControlConditionArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['ZonalAutoshiftConfigurationControlConditionArgs']]] outcome_alarms: The alarm that you specify to monitor the health of your application during practice runs. When the outcome alarm goes into an `ALARM` state, the practice run is ended and the outcome is set to `FAILED` .
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] blocked_dates: An array of one or more dates that you can specify when AWS does not start practice runs for a resource. Dates are in UTC.
@@ -134,7 +134,7 @@ class ZonalAutoshiftConfigurationPracticeRunConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="blockedDates")
-    def blocked_dates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def blocked_dates(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         An array of one or more dates that you can specify when AWS does not start practice runs for a resource. Dates are in UTC.
 
@@ -143,12 +143,12 @@ class ZonalAutoshiftConfigurationPracticeRunConfigurationArgs:
         return pulumi.get(self, "blocked_dates")
 
     @blocked_dates.setter
-    def blocked_dates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def blocked_dates(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "blocked_dates", value)
 
     @_builtins.property
     @pulumi.getter(name="blockedWindows")
-    def blocked_windows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def blocked_windows(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         An array of one or more days and times that you can specify when ARC does not start practice runs for a resource. Days and times are in UTC.
 
@@ -159,19 +159,19 @@ class ZonalAutoshiftConfigurationPracticeRunConfigurationArgs:
         return pulumi.get(self, "blocked_windows")
 
     @blocked_windows.setter
-    def blocked_windows(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def blocked_windows(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "blocked_windows", value)
 
     @_builtins.property
     @pulumi.getter(name="blockingAlarms")
-    def blocking_alarms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ZonalAutoshiftConfigurationControlConditionArgs']]]]:
+    def blocking_alarms(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ZonalAutoshiftConfigurationControlConditionArgs']]]]:
         """
         An optional alarm that you can specify that blocks practice runs when the alarm is in an `ALARM` state. When a blocking alarm goes into an `ALARM` state, it prevents practice runs from being started, and ends practice runs that are in progress.
         """
         return pulumi.get(self, "blocking_alarms")
 
     @blocking_alarms.setter
-    def blocking_alarms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ZonalAutoshiftConfigurationControlConditionArgs']]]]):
+    def blocking_alarms(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ZonalAutoshiftConfigurationControlConditionArgs']]]]):
         pulumi.set(self, "blocking_alarms", value)
 
 

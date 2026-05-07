@@ -178,7 +178,7 @@ def get_inference_experiment(name: Optional[_builtins.str] = None,
         shadow_mode_config=pulumi.get(__ret__, 'shadow_mode_config'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_inference_experiment_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_inference_experiment_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInferenceExperimentResult]:
     """
     Resource Type definition for AWS::SageMaker::InferenceExperiment

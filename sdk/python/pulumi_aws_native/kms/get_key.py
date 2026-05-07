@@ -285,7 +285,7 @@ def get_key(key_id: Optional[_builtins.str] = None,
         multi_region=pulumi.get(__ret__, 'multi_region'),
         origin=pulumi.get(__ret__, 'origin'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_key_output(key_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_key_output(key_id: pulumi.Input[Optional[_builtins.str]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKeyResult]:
     """
     The ``AWS::KMS::Key`` resource specifies an [KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#kms_keys) in KMSlong. You can use this resource to create symmetric encryption KMS keys, asymmetric KMS keys for encryption or signing, and symmetric HMAC KMS keys. You can use ``AWS::KMS::Key`` to create [multi-Region primary keys](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html#mrk-primary-key) of all supported types. To replicate a multi-Region key, use the ``AWS::KMS::ReplicaKey`` resource.

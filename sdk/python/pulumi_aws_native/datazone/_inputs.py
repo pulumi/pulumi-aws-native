@@ -254,22 +254,22 @@ class ConnectionAmazonQPropertiesInputArgsDict(TypedDict):
     """
     Amazon Q properties of the connection.
     """
-    auth_mode: NotRequired[pulumi.Input[_builtins.str]]
+    auth_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The authentication mode of the connection's AmazonQ properties
     """
-    is_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    is_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether Amazon Q is enabled for the connection
     """
-    profile_arn: NotRequired[pulumi.Input[_builtins.str]]
+    profile_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class ConnectionAmazonQPropertiesInputArgs:
     def __init__(__self__, *,
-                 auth_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 profile_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 auth_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 profile_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Amazon Q properties of the connection.
 
@@ -285,35 +285,35 @@ class ConnectionAmazonQPropertiesInputArgs:
 
     @_builtins.property
     @pulumi.getter(name="authMode")
-    def auth_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def auth_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The authentication mode of the connection's AmazonQ properties
         """
         return pulumi.get(self, "auth_mode")
 
     @auth_mode.setter
-    def auth_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def auth_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "auth_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="isEnabled")
-    def is_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether Amazon Q is enabled for the connection
         """
         return pulumi.get(self, "is_enabled")
 
     @is_enabled.setter
-    def is_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="profileArn")
-    def profile_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def profile_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "profile_arn")
 
     @profile_arn.setter
-    def profile_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def profile_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "profile_arn", value)
 
 
@@ -346,22 +346,22 @@ class ConnectionAuthenticationConfigurationInputArgsDict(TypedDict):
     """
     Authentication Configuration Input
     """
-    authentication_type: NotRequired[pulumi.Input['ConnectionAuthenticationType']]
-    basic_authentication_credentials: NotRequired[pulumi.Input['ConnectionBasicAuthenticationCredentialsArgsDict']]
-    custom_authentication_credentials: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-    kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
-    o_auth2_properties: NotRequired[pulumi.Input['ConnectionOAuth2PropertiesArgsDict']]
-    secret_arn: NotRequired[pulumi.Input[_builtins.str]]
+    authentication_type: NotRequired[pulumi.Input[Optional['ConnectionAuthenticationType']]]
+    basic_authentication_credentials: NotRequired[pulumi.Input[Optional['ConnectionBasicAuthenticationCredentialsArgs']]]
+    custom_authentication_credentials: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
+    kms_key_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    o_auth2_properties: NotRequired[pulumi.Input[Optional['ConnectionOAuth2PropertiesArgs']]]
+    secret_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class ConnectionAuthenticationConfigurationInputArgs:
     def __init__(__self__, *,
-                 authentication_type: Optional[pulumi.Input['ConnectionAuthenticationType']] = None,
-                 basic_authentication_credentials: Optional[pulumi.Input['ConnectionBasicAuthenticationCredentialsArgs']] = None,
-                 custom_authentication_credentials: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 o_auth2_properties: Optional[pulumi.Input['ConnectionOAuth2PropertiesArgs']] = None,
-                 secret_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 authentication_type: pulumi.Input[Optional['ConnectionAuthenticationType']] = None,
+                 basic_authentication_credentials: pulumi.Input[Optional['ConnectionBasicAuthenticationCredentialsArgs']] = None,
+                 custom_authentication_credentials: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 o_auth2_properties: pulumi.Input[Optional['ConnectionOAuth2PropertiesArgs']] = None,
+                 secret_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Authentication Configuration Input
         """
@@ -380,56 +380,56 @@ class ConnectionAuthenticationConfigurationInputArgs:
 
     @_builtins.property
     @pulumi.getter(name="authenticationType")
-    def authentication_type(self) -> Optional[pulumi.Input['ConnectionAuthenticationType']]:
+    def authentication_type(self) -> pulumi.Input[Optional['ConnectionAuthenticationType']]:
         return pulumi.get(self, "authentication_type")
 
     @authentication_type.setter
-    def authentication_type(self, value: Optional[pulumi.Input['ConnectionAuthenticationType']]):
+    def authentication_type(self, value: pulumi.Input[Optional['ConnectionAuthenticationType']]):
         pulumi.set(self, "authentication_type", value)
 
     @_builtins.property
     @pulumi.getter(name="basicAuthenticationCredentials")
-    def basic_authentication_credentials(self) -> Optional[pulumi.Input['ConnectionBasicAuthenticationCredentialsArgs']]:
+    def basic_authentication_credentials(self) -> pulumi.Input[Optional['ConnectionBasicAuthenticationCredentialsArgs']]:
         return pulumi.get(self, "basic_authentication_credentials")
 
     @basic_authentication_credentials.setter
-    def basic_authentication_credentials(self, value: Optional[pulumi.Input['ConnectionBasicAuthenticationCredentialsArgs']]):
+    def basic_authentication_credentials(self, value: pulumi.Input[Optional['ConnectionBasicAuthenticationCredentialsArgs']]):
         pulumi.set(self, "basic_authentication_credentials", value)
 
     @_builtins.property
     @pulumi.getter(name="customAuthenticationCredentials")
-    def custom_authentication_credentials(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def custom_authentication_credentials(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "custom_authentication_credentials")
 
     @custom_authentication_credentials.setter
-    def custom_authentication_credentials(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def custom_authentication_credentials(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "custom_authentication_credentials", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
-    def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
-    def kms_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="oAuth2Properties")
-    def o_auth2_properties(self) -> Optional[pulumi.Input['ConnectionOAuth2PropertiesArgs']]:
+    def o_auth2_properties(self) -> pulumi.Input[Optional['ConnectionOAuth2PropertiesArgs']]:
         return pulumi.get(self, "o_auth2_properties")
 
     @o_auth2_properties.setter
-    def o_auth2_properties(self, value: Optional[pulumi.Input['ConnectionOAuth2PropertiesArgs']]):
+    def o_auth2_properties(self, value: pulumi.Input[Optional['ConnectionOAuth2PropertiesArgs']]):
         pulumi.set(self, "o_auth2_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="secretArn")
-    def secret_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secret_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "secret_arn")
 
     @secret_arn.setter
-    def secret_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secret_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secret_arn", value)
 
 
@@ -437,14 +437,14 @@ class ConnectionAuthorizationCodePropertiesArgsDict(TypedDict):
     """
     Authorization Code Properties
     """
-    authorization_code: NotRequired[pulumi.Input[_builtins.str]]
-    redirect_uri: NotRequired[pulumi.Input[_builtins.str]]
+    authorization_code: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    redirect_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class ConnectionAuthorizationCodePropertiesArgs:
     def __init__(__self__, *,
-                 authorization_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 redirect_uri: Optional[pulumi.Input[_builtins.str]] = None):
+                 authorization_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 redirect_uri: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Authorization Code Properties
         """
@@ -455,20 +455,20 @@ class ConnectionAuthorizationCodePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="authorizationCode")
-    def authorization_code(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authorization_code(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "authorization_code")
 
     @authorization_code.setter
-    def authorization_code(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authorization_code(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authorization_code", value)
 
     @_builtins.property
     @pulumi.getter(name="redirectUri")
-    def redirect_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def redirect_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "redirect_uri")
 
     @redirect_uri.setter
-    def redirect_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def redirect_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "redirect_uri", value)
 
 
@@ -476,19 +476,19 @@ class ConnectionAwsLocationArgsDict(TypedDict):
     """
     AWS Location of project
     """
-    access_role: NotRequired[pulumi.Input[_builtins.str]]
+    access_role: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The access role of a connection.
     """
-    aws_account_id: NotRequired[pulumi.Input[_builtins.str]]
+    aws_account_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The account ID of a connection.
     """
-    aws_region: NotRequired[pulumi.Input[_builtins.str]]
+    aws_region: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Region of a connection.
     """
-    iam_connection_id: NotRequired[pulumi.Input[_builtins.str]]
+    iam_connection_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The IAM connection ID of a connection.
     """
@@ -496,10 +496,10 @@ class ConnectionAwsLocationArgsDict(TypedDict):
 @pulumi.input_type
 class ConnectionAwsLocationArgs:
     def __init__(__self__, *,
-                 access_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 aws_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 iam_connection_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 access_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 aws_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 iam_connection_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         AWS Location of project
 
@@ -519,50 +519,50 @@ class ConnectionAwsLocationArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessRole")
-    def access_role(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def access_role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The access role of a connection.
         """
         return pulumi.get(self, "access_role")
 
     @access_role.setter
-    def access_role(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def access_role(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "access_role", value)
 
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
-    def aws_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aws_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The account ID of a connection.
         """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
-    def aws_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aws_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aws_account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="awsRegion")
-    def aws_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aws_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Region of a connection.
         """
         return pulumi.get(self, "aws_region")
 
     @aws_region.setter
-    def aws_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aws_region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aws_region", value)
 
     @_builtins.property
     @pulumi.getter(name="iamConnectionId")
-    def iam_connection_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def iam_connection_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IAM connection ID of a connection.
         """
         return pulumi.get(self, "iam_connection_id")
 
     @iam_connection_id.setter
-    def iam_connection_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def iam_connection_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "iam_connection_id", value)
 
 
@@ -570,14 +570,14 @@ class ConnectionBasicAuthenticationCredentialsArgsDict(TypedDict):
     """
     Basic Authentication Credentials
     """
-    password: NotRequired[pulumi.Input[_builtins.str]]
-    user_name: NotRequired[pulumi.Input[_builtins.str]]
+    password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    user_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class ConnectionBasicAuthenticationCredentialsArgs:
     def __init__(__self__, *,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Basic Authentication Credentials
         """
@@ -588,20 +588,20 @@ class ConnectionBasicAuthenticationCredentialsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter(name="userName")
-    def user_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "user_name")
 
     @user_name.setter
-    def user_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_name", value)
 
 
@@ -609,34 +609,34 @@ class ConnectionGlueConnectionInputArgsDict(TypedDict):
     """
     Glue Connection Input
     """
-    athena_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-    authentication_configuration: NotRequired[pulumi.Input['ConnectionAuthenticationConfigurationInputArgsDict']]
-    connection_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-    connection_type: NotRequired[pulumi.Input[_builtins.str]]
-    description: NotRequired[pulumi.Input[_builtins.str]]
-    match_criteria: NotRequired[pulumi.Input[_builtins.str]]
-    name: NotRequired[pulumi.Input[_builtins.str]]
-    physical_connection_requirements: NotRequired[pulumi.Input['ConnectionPhysicalConnectionRequirementsArgsDict']]
-    python_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-    spark_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-    validate_credentials: NotRequired[pulumi.Input[_builtins.bool]]
-    validate_for_compute_environments: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    athena_properties: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
+    authentication_configuration: NotRequired[pulumi.Input[Optional['ConnectionAuthenticationConfigurationInputArgs']]]
+    connection_properties: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
+    connection_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    match_criteria: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    physical_connection_requirements: NotRequired[pulumi.Input[Optional['ConnectionPhysicalConnectionRequirementsArgs']]]
+    python_properties: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
+    spark_properties: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
+    validate_credentials: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    validate_for_compute_environments: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
 
 @pulumi.input_type
 class ConnectionGlueConnectionInputArgs:
     def __init__(__self__, *,
-                 athena_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 authentication_configuration: Optional[pulumi.Input['ConnectionAuthenticationConfigurationInputArgs']] = None,
-                 connection_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 connection_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 match_criteria: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 physical_connection_requirements: Optional[pulumi.Input['ConnectionPhysicalConnectionRequirementsArgs']] = None,
-                 python_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 spark_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 validate_credentials: Optional[pulumi.Input[_builtins.bool]] = None,
-                 validate_for_compute_environments: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 athena_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 authentication_configuration: pulumi.Input[Optional['ConnectionAuthenticationConfigurationInputArgs']] = None,
+                 connection_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 connection_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 match_criteria: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 physical_connection_requirements: pulumi.Input[Optional['ConnectionPhysicalConnectionRequirementsArgs']] = None,
+                 python_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 spark_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 validate_credentials: pulumi.Input[Optional[_builtins.bool]] = None,
+                 validate_for_compute_environments: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Glue Connection Input
         """
@@ -667,110 +667,110 @@ class ConnectionGlueConnectionInputArgs:
 
     @_builtins.property
     @pulumi.getter(name="athenaProperties")
-    def athena_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def athena_properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "athena_properties")
 
     @athena_properties.setter
-    def athena_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def athena_properties(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "athena_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="authenticationConfiguration")
-    def authentication_configuration(self) -> Optional[pulumi.Input['ConnectionAuthenticationConfigurationInputArgs']]:
+    def authentication_configuration(self) -> pulumi.Input[Optional['ConnectionAuthenticationConfigurationInputArgs']]:
         return pulumi.get(self, "authentication_configuration")
 
     @authentication_configuration.setter
-    def authentication_configuration(self, value: Optional[pulumi.Input['ConnectionAuthenticationConfigurationInputArgs']]):
+    def authentication_configuration(self, value: pulumi.Input[Optional['ConnectionAuthenticationConfigurationInputArgs']]):
         pulumi.set(self, "authentication_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionProperties")
-    def connection_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def connection_properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "connection_properties")
 
     @connection_properties.setter
-    def connection_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def connection_properties(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "connection_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionType")
-    def connection_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connection_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "connection_type")
 
     @connection_type.setter
-    def connection_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connection_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connection_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="matchCriteria")
-    def match_criteria(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def match_criteria(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "match_criteria")
 
     @match_criteria.setter
-    def match_criteria(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def match_criteria(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "match_criteria", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="physicalConnectionRequirements")
-    def physical_connection_requirements(self) -> Optional[pulumi.Input['ConnectionPhysicalConnectionRequirementsArgs']]:
+    def physical_connection_requirements(self) -> pulumi.Input[Optional['ConnectionPhysicalConnectionRequirementsArgs']]:
         return pulumi.get(self, "physical_connection_requirements")
 
     @physical_connection_requirements.setter
-    def physical_connection_requirements(self, value: Optional[pulumi.Input['ConnectionPhysicalConnectionRequirementsArgs']]):
+    def physical_connection_requirements(self, value: pulumi.Input[Optional['ConnectionPhysicalConnectionRequirementsArgs']]):
         pulumi.set(self, "physical_connection_requirements", value)
 
     @_builtins.property
     @pulumi.getter(name="pythonProperties")
-    def python_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def python_properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "python_properties")
 
     @python_properties.setter
-    def python_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def python_properties(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "python_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="sparkProperties")
-    def spark_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def spark_properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "spark_properties")
 
     @spark_properties.setter
-    def spark_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def spark_properties(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "spark_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="validateCredentials")
-    def validate_credentials(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def validate_credentials(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "validate_credentials")
 
     @validate_credentials.setter
-    def validate_credentials(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def validate_credentials(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "validate_credentials", value)
 
     @_builtins.property
     @pulumi.getter(name="validateForComputeEnvironments")
-    def validate_for_compute_environments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def validate_for_compute_environments(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "validate_for_compute_environments")
 
     @validate_for_compute_environments.setter
-    def validate_for_compute_environments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def validate_for_compute_environments(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "validate_for_compute_environments", value)
 
 
@@ -778,18 +778,18 @@ class ConnectionGlueOAuth2CredentialsArgsDict(TypedDict):
     """
     Glue OAuth2 Credentials
     """
-    access_token: NotRequired[pulumi.Input[_builtins.str]]
-    jwt_token: NotRequired[pulumi.Input[_builtins.str]]
-    refresh_token: NotRequired[pulumi.Input[_builtins.str]]
-    user_managed_client_application_client_secret: NotRequired[pulumi.Input[_builtins.str]]
+    access_token: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    jwt_token: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    refresh_token: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    user_managed_client_application_client_secret: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class ConnectionGlueOAuth2CredentialsArgs:
     def __init__(__self__, *,
-                 access_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 jwt_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 refresh_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_managed_client_application_client_secret: Optional[pulumi.Input[_builtins.str]] = None):
+                 access_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 jwt_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 refresh_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_managed_client_application_client_secret: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Glue OAuth2 Credentials
         """
@@ -804,38 +804,38 @@ class ConnectionGlueOAuth2CredentialsArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessToken")
-    def access_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def access_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "access_token")
 
     @access_token.setter
-    def access_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def access_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "access_token", value)
 
     @_builtins.property
     @pulumi.getter(name="jwtToken")
-    def jwt_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def jwt_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "jwt_token")
 
     @jwt_token.setter
-    def jwt_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def jwt_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "jwt_token", value)
 
     @_builtins.property
     @pulumi.getter(name="refreshToken")
-    def refresh_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def refresh_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "refresh_token")
 
     @refresh_token.setter
-    def refresh_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def refresh_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "refresh_token", value)
 
     @_builtins.property
     @pulumi.getter(name="userManagedClientApplicationClientSecret")
-    def user_managed_client_application_client_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_managed_client_application_client_secret(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "user_managed_client_application_client_secret")
 
     @user_managed_client_application_client_secret.setter
-    def user_managed_client_application_client_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_managed_client_application_client_secret(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_managed_client_application_client_secret", value)
 
 
@@ -843,12 +843,12 @@ class ConnectionGluePropertiesInputArgsDict(TypedDict):
     """
     Glue Properties Input
     """
-    glue_connection_input: NotRequired[pulumi.Input['ConnectionGlueConnectionInputArgsDict']]
+    glue_connection_input: NotRequired[pulumi.Input[Optional['ConnectionGlueConnectionInputArgs']]]
 
 @pulumi.input_type
 class ConnectionGluePropertiesInputArgs:
     def __init__(__self__, *,
-                 glue_connection_input: Optional[pulumi.Input['ConnectionGlueConnectionInputArgs']] = None):
+                 glue_connection_input: pulumi.Input[Optional['ConnectionGlueConnectionInputArgs']] = None):
         """
         Glue Properties Input
         """
@@ -857,11 +857,11 @@ class ConnectionGluePropertiesInputArgs:
 
     @_builtins.property
     @pulumi.getter(name="glueConnectionInput")
-    def glue_connection_input(self) -> Optional[pulumi.Input['ConnectionGlueConnectionInputArgs']]:
+    def glue_connection_input(self) -> pulumi.Input[Optional['ConnectionGlueConnectionInputArgs']]:
         return pulumi.get(self, "glue_connection_input")
 
     @glue_connection_input.setter
-    def glue_connection_input(self, value: Optional[pulumi.Input['ConnectionGlueConnectionInputArgs']]):
+    def glue_connection_input(self, value: pulumi.Input[Optional['ConnectionGlueConnectionInputArgs']]):
         pulumi.set(self, "glue_connection_input", value)
 
 
@@ -894,12 +894,12 @@ class ConnectionIamPropertiesInputArgsDict(TypedDict):
     """
     IAM Properties Input
     """
-    glue_lineage_sync_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    glue_lineage_sync_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
 
 @pulumi.input_type
 class ConnectionIamPropertiesInputArgs:
     def __init__(__self__, *,
-                 glue_lineage_sync_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 glue_lineage_sync_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         IAM Properties Input
         """
@@ -908,11 +908,11 @@ class ConnectionIamPropertiesInputArgs:
 
     @_builtins.property
     @pulumi.getter(name="glueLineageSyncEnabled")
-    def glue_lineage_sync_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def glue_lineage_sync_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "glue_lineage_sync_enabled")
 
     @glue_lineage_sync_enabled.setter
-    def glue_lineage_sync_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def glue_lineage_sync_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "glue_lineage_sync_enabled", value)
 
 
@@ -920,12 +920,12 @@ class ConnectionLineageSyncScheduleArgsDict(TypedDict):
     """
     Lineage Sync Schedule
     """
-    schedule: NotRequired[pulumi.Input[_builtins.str]]
+    schedule: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class ConnectionLineageSyncScheduleArgs:
     def __init__(__self__, *,
-                 schedule: Optional[pulumi.Input[_builtins.str]] = None):
+                 schedule: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Lineage Sync Schedule
         """
@@ -934,11 +934,11 @@ class ConnectionLineageSyncScheduleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def schedule(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def schedule(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "schedule")
 
     @schedule.setter
-    def schedule(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def schedule(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schedule", value)
 
 
@@ -946,7 +946,7 @@ class ConnectionMlflowPropertiesInputArgsDict(TypedDict):
     """
     MLflow Properties Input
     """
-    tracking_server_arn: NotRequired[pulumi.Input[_builtins.str]]
+    tracking_server_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of the MLflow tracking server
     """
@@ -954,7 +954,7 @@ class ConnectionMlflowPropertiesInputArgsDict(TypedDict):
 @pulumi.input_type
 class ConnectionMlflowPropertiesInputArgs:
     def __init__(__self__, *,
-                 tracking_server_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 tracking_server_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         MLflow Properties Input
 
@@ -965,14 +965,14 @@ class ConnectionMlflowPropertiesInputArgs:
 
     @_builtins.property
     @pulumi.getter(name="trackingServerArn")
-    def tracking_server_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tracking_server_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the MLflow tracking server
         """
         return pulumi.get(self, "tracking_server_arn")
 
     @tracking_server_arn.setter
-    def tracking_server_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tracking_server_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tracking_server_arn", value)
 
 
@@ -980,14 +980,14 @@ class ConnectionOAuth2ClientApplicationArgsDict(TypedDict):
     """
     OAuth2 Client Application
     """
-    aws_managed_client_application_reference: NotRequired[pulumi.Input[_builtins.str]]
-    user_managed_client_application_client_id: NotRequired[pulumi.Input[_builtins.str]]
+    aws_managed_client_application_reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    user_managed_client_application_client_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class ConnectionOAuth2ClientApplicationArgs:
     def __init__(__self__, *,
-                 aws_managed_client_application_reference: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_managed_client_application_client_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 aws_managed_client_application_reference: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_managed_client_application_client_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         OAuth2 Client Application
         """
@@ -998,20 +998,20 @@ class ConnectionOAuth2ClientApplicationArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsManagedClientApplicationReference")
-    def aws_managed_client_application_reference(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aws_managed_client_application_reference(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "aws_managed_client_application_reference")
 
     @aws_managed_client_application_reference.setter
-    def aws_managed_client_application_reference(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aws_managed_client_application_reference(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aws_managed_client_application_reference", value)
 
     @_builtins.property
     @pulumi.getter(name="userManagedClientApplicationClientId")
-    def user_managed_client_application_client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_managed_client_application_client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "user_managed_client_application_client_id")
 
     @user_managed_client_application_client_id.setter
-    def user_managed_client_application_client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_managed_client_application_client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_managed_client_application_client_id", value)
 
 
@@ -1019,22 +1019,22 @@ class ConnectionOAuth2PropertiesArgsDict(TypedDict):
     """
     OAuth2 Properties
     """
-    authorization_code_properties: NotRequired[pulumi.Input['ConnectionAuthorizationCodePropertiesArgsDict']]
-    o_auth2_client_application: NotRequired[pulumi.Input['ConnectionOAuth2ClientApplicationArgsDict']]
-    o_auth2_credentials: NotRequired[pulumi.Input['ConnectionGlueOAuth2CredentialsArgsDict']]
-    o_auth2_grant_type: NotRequired[pulumi.Input['ConnectionOAuth2GrantType']]
-    token_url: NotRequired[pulumi.Input[_builtins.str]]
-    token_url_parameters_map: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    authorization_code_properties: NotRequired[pulumi.Input[Optional['ConnectionAuthorizationCodePropertiesArgs']]]
+    o_auth2_client_application: NotRequired[pulumi.Input[Optional['ConnectionOAuth2ClientApplicationArgs']]]
+    o_auth2_credentials: NotRequired[pulumi.Input[Optional['ConnectionGlueOAuth2CredentialsArgs']]]
+    o_auth2_grant_type: NotRequired[pulumi.Input[Optional['ConnectionOAuth2GrantType']]]
+    token_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    token_url_parameters_map: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
 
 @pulumi.input_type
 class ConnectionOAuth2PropertiesArgs:
     def __init__(__self__, *,
-                 authorization_code_properties: Optional[pulumi.Input['ConnectionAuthorizationCodePropertiesArgs']] = None,
-                 o_auth2_client_application: Optional[pulumi.Input['ConnectionOAuth2ClientApplicationArgs']] = None,
-                 o_auth2_credentials: Optional[pulumi.Input['ConnectionGlueOAuth2CredentialsArgs']] = None,
-                 o_auth2_grant_type: Optional[pulumi.Input['ConnectionOAuth2GrantType']] = None,
-                 token_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 token_url_parameters_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 authorization_code_properties: pulumi.Input[Optional['ConnectionAuthorizationCodePropertiesArgs']] = None,
+                 o_auth2_client_application: pulumi.Input[Optional['ConnectionOAuth2ClientApplicationArgs']] = None,
+                 o_auth2_credentials: pulumi.Input[Optional['ConnectionGlueOAuth2CredentialsArgs']] = None,
+                 o_auth2_grant_type: pulumi.Input[Optional['ConnectionOAuth2GrantType']] = None,
+                 token_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 token_url_parameters_map: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         OAuth2 Properties
         """
@@ -1053,56 +1053,56 @@ class ConnectionOAuth2PropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="authorizationCodeProperties")
-    def authorization_code_properties(self) -> Optional[pulumi.Input['ConnectionAuthorizationCodePropertiesArgs']]:
+    def authorization_code_properties(self) -> pulumi.Input[Optional['ConnectionAuthorizationCodePropertiesArgs']]:
         return pulumi.get(self, "authorization_code_properties")
 
     @authorization_code_properties.setter
-    def authorization_code_properties(self, value: Optional[pulumi.Input['ConnectionAuthorizationCodePropertiesArgs']]):
+    def authorization_code_properties(self, value: pulumi.Input[Optional['ConnectionAuthorizationCodePropertiesArgs']]):
         pulumi.set(self, "authorization_code_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="oAuth2ClientApplication")
-    def o_auth2_client_application(self) -> Optional[pulumi.Input['ConnectionOAuth2ClientApplicationArgs']]:
+    def o_auth2_client_application(self) -> pulumi.Input[Optional['ConnectionOAuth2ClientApplicationArgs']]:
         return pulumi.get(self, "o_auth2_client_application")
 
     @o_auth2_client_application.setter
-    def o_auth2_client_application(self, value: Optional[pulumi.Input['ConnectionOAuth2ClientApplicationArgs']]):
+    def o_auth2_client_application(self, value: pulumi.Input[Optional['ConnectionOAuth2ClientApplicationArgs']]):
         pulumi.set(self, "o_auth2_client_application", value)
 
     @_builtins.property
     @pulumi.getter(name="oAuth2Credentials")
-    def o_auth2_credentials(self) -> Optional[pulumi.Input['ConnectionGlueOAuth2CredentialsArgs']]:
+    def o_auth2_credentials(self) -> pulumi.Input[Optional['ConnectionGlueOAuth2CredentialsArgs']]:
         return pulumi.get(self, "o_auth2_credentials")
 
     @o_auth2_credentials.setter
-    def o_auth2_credentials(self, value: Optional[pulumi.Input['ConnectionGlueOAuth2CredentialsArgs']]):
+    def o_auth2_credentials(self, value: pulumi.Input[Optional['ConnectionGlueOAuth2CredentialsArgs']]):
         pulumi.set(self, "o_auth2_credentials", value)
 
     @_builtins.property
     @pulumi.getter(name="oAuth2GrantType")
-    def o_auth2_grant_type(self) -> Optional[pulumi.Input['ConnectionOAuth2GrantType']]:
+    def o_auth2_grant_type(self) -> pulumi.Input[Optional['ConnectionOAuth2GrantType']]:
         return pulumi.get(self, "o_auth2_grant_type")
 
     @o_auth2_grant_type.setter
-    def o_auth2_grant_type(self, value: Optional[pulumi.Input['ConnectionOAuth2GrantType']]):
+    def o_auth2_grant_type(self, value: pulumi.Input[Optional['ConnectionOAuth2GrantType']]):
         pulumi.set(self, "o_auth2_grant_type", value)
 
     @_builtins.property
     @pulumi.getter(name="tokenUrl")
-    def token_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def token_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "token_url")
 
     @token_url.setter
-    def token_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def token_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "token_url", value)
 
     @_builtins.property
     @pulumi.getter(name="tokenUrlParametersMap")
-    def token_url_parameters_map(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def token_url_parameters_map(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "token_url_parameters_map")
 
     @token_url_parameters_map.setter
-    def token_url_parameters_map(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def token_url_parameters_map(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "token_url_parameters_map", value)
 
 
@@ -1110,18 +1110,18 @@ class ConnectionPhysicalConnectionRequirementsArgsDict(TypedDict):
     """
     Physical Connection Requirements
     """
-    availability_zone: NotRequired[pulumi.Input[_builtins.str]]
-    security_group_id_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    subnet_id: NotRequired[pulumi.Input[_builtins.str]]
-    subnet_id_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    availability_zone: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    security_group_id_list: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    subnet_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    subnet_id_list: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
 
 @pulumi.input_type
 class ConnectionPhysicalConnectionRequirementsArgs:
     def __init__(__self__, *,
-                 availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_group_id_list: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_id_list: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_group_id_list: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_id_list: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Physical Connection Requirements
         """
@@ -1136,38 +1136,38 @@ class ConnectionPhysicalConnectionRequirementsArgs:
 
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def availability_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
-    def availability_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def availability_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "availability_zone", value)
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIdList")
-    def security_group_id_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def security_group_id_list(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "security_group_id_list")
 
     @security_group_id_list.setter
-    def security_group_id_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def security_group_id_list(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "security_group_id_list", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_id", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetIdList")
-    def subnet_id_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def subnet_id_list(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "subnet_id_list")
 
     @subnet_id_list.setter
-    def subnet_id_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def subnet_id_list(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "subnet_id_list", value)
 
 
@@ -1441,14 +1441,14 @@ class ConnectionRedshiftLineageSyncConfigurationInputArgsDict(TypedDict):
     """
     Redshift Lineage Sync Configuration Input
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
-    schedule: NotRequired[pulumi.Input['ConnectionLineageSyncScheduleArgsDict']]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    schedule: NotRequired[pulumi.Input[Optional['ConnectionLineageSyncScheduleArgs']]]
 
 @pulumi.input_type
 class ConnectionRedshiftLineageSyncConfigurationInputArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 schedule: Optional[pulumi.Input['ConnectionLineageSyncScheduleArgs']] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 schedule: pulumi.Input[Optional['ConnectionLineageSyncScheduleArgs']] = None):
         """
         Redshift Lineage Sync Configuration Input
         """
@@ -1459,20 +1459,20 @@ class ConnectionRedshiftLineageSyncConfigurationInputArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def schedule(self) -> Optional[pulumi.Input['ConnectionLineageSyncScheduleArgs']]:
+    def schedule(self) -> pulumi.Input[Optional['ConnectionLineageSyncScheduleArgs']]:
         return pulumi.get(self, "schedule")
 
     @schedule.setter
-    def schedule(self, value: Optional[pulumi.Input['ConnectionLineageSyncScheduleArgs']]):
+    def schedule(self, value: pulumi.Input[Optional['ConnectionLineageSyncScheduleArgs']]):
         pulumi.set(self, "schedule", value)
 
 
@@ -1480,22 +1480,22 @@ class ConnectionRedshiftPropertiesInputArgsDict(TypedDict):
     """
     Redshift Properties Input
     """
-    credentials: NotRequired[pulumi.Input[Union['ConnectionRedshiftCredentials0PropertiesArgsDict', 'ConnectionRedshiftCredentials1PropertiesArgsDict']]]
-    database_name: NotRequired[pulumi.Input[_builtins.str]]
-    host: NotRequired[pulumi.Input[_builtins.str]]
-    lineage_sync: NotRequired[pulumi.Input['ConnectionRedshiftLineageSyncConfigurationInputArgsDict']]
-    port: NotRequired[pulumi.Input[_builtins.float]]
-    storage: NotRequired[pulumi.Input[Union['ConnectionRedshiftStorageProperties0PropertiesArgsDict', 'ConnectionRedshiftStorageProperties1PropertiesArgsDict']]]
+    credentials: NotRequired[pulumi.Input[Optional[Union['ConnectionRedshiftCredentials0PropertiesArgs', 'ConnectionRedshiftCredentials1PropertiesArgs']]]]
+    database_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    host: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    lineage_sync: NotRequired[pulumi.Input[Optional['ConnectionRedshiftLineageSyncConfigurationInputArgs']]]
+    port: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    storage: NotRequired[pulumi.Input[Optional[Union['ConnectionRedshiftStorageProperties0PropertiesArgs', 'ConnectionRedshiftStorageProperties1PropertiesArgs']]]]
 
 @pulumi.input_type
 class ConnectionRedshiftPropertiesInputArgs:
     def __init__(__self__, *,
-                 credentials: Optional[pulumi.Input[Union['ConnectionRedshiftCredentials0PropertiesArgs', 'ConnectionRedshiftCredentials1PropertiesArgs']]] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 host: Optional[pulumi.Input[_builtins.str]] = None,
-                 lineage_sync: Optional[pulumi.Input['ConnectionRedshiftLineageSyncConfigurationInputArgs']] = None,
-                 port: Optional[pulumi.Input[_builtins.float]] = None,
-                 storage: Optional[pulumi.Input[Union['ConnectionRedshiftStorageProperties0PropertiesArgs', 'ConnectionRedshiftStorageProperties1PropertiesArgs']]] = None):
+                 credentials: pulumi.Input[Optional[Union['ConnectionRedshiftCredentials0PropertiesArgs', 'ConnectionRedshiftCredentials1PropertiesArgs']]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 host: pulumi.Input[Optional[_builtins.str]] = None,
+                 lineage_sync: pulumi.Input[Optional['ConnectionRedshiftLineageSyncConfigurationInputArgs']] = None,
+                 port: pulumi.Input[Optional[_builtins.float]] = None,
+                 storage: pulumi.Input[Optional[Union['ConnectionRedshiftStorageProperties0PropertiesArgs', 'ConnectionRedshiftStorageProperties1PropertiesArgs']]] = None):
         """
         Redshift Properties Input
         """
@@ -1514,56 +1514,56 @@ class ConnectionRedshiftPropertiesInputArgs:
 
     @_builtins.property
     @pulumi.getter
-    def credentials(self) -> Optional[pulumi.Input[Union['ConnectionRedshiftCredentials0PropertiesArgs', 'ConnectionRedshiftCredentials1PropertiesArgs']]]:
+    def credentials(self) -> pulumi.Input[Optional[Union['ConnectionRedshiftCredentials0PropertiesArgs', 'ConnectionRedshiftCredentials1PropertiesArgs']]]:
         return pulumi.get(self, "credentials")
 
     @credentials.setter
-    def credentials(self, value: Optional[pulumi.Input[Union['ConnectionRedshiftCredentials0PropertiesArgs', 'ConnectionRedshiftCredentials1PropertiesArgs']]]):
+    def credentials(self, value: pulumi.Input[Optional[Union['ConnectionRedshiftCredentials0PropertiesArgs', 'ConnectionRedshiftCredentials1PropertiesArgs']]]):
         pulumi.set(self, "credentials", value)
 
     @_builtins.property
     @pulumi.getter(name="databaseName")
-    def database_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "database_name")
 
     @database_name.setter
-    def database_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def host(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "host")
 
     @host.setter
-    def host(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host", value)
 
     @_builtins.property
     @pulumi.getter(name="lineageSync")
-    def lineage_sync(self) -> Optional[pulumi.Input['ConnectionRedshiftLineageSyncConfigurationInputArgs']]:
+    def lineage_sync(self) -> pulumi.Input[Optional['ConnectionRedshiftLineageSyncConfigurationInputArgs']]:
         return pulumi.get(self, "lineage_sync")
 
     @lineage_sync.setter
-    def lineage_sync(self, value: Optional[pulumi.Input['ConnectionRedshiftLineageSyncConfigurationInputArgs']]):
+    def lineage_sync(self, value: pulumi.Input[Optional['ConnectionRedshiftLineageSyncConfigurationInputArgs']]):
         pulumi.set(self, "lineage_sync", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.float]]:
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "port", value)
 
     @_builtins.property
     @pulumi.getter
-    def storage(self) -> Optional[pulumi.Input[Union['ConnectionRedshiftStorageProperties0PropertiesArgs', 'ConnectionRedshiftStorageProperties1PropertiesArgs']]]:
+    def storage(self) -> pulumi.Input[Optional[Union['ConnectionRedshiftStorageProperties0PropertiesArgs', 'ConnectionRedshiftStorageProperties1PropertiesArgs']]]:
         return pulumi.get(self, "storage")
 
     @storage.setter
-    def storage(self, value: Optional[pulumi.Input[Union['ConnectionRedshiftStorageProperties0PropertiesArgs', 'ConnectionRedshiftStorageProperties1PropertiesArgs']]]):
+    def storage(self, value: pulumi.Input[Optional[Union['ConnectionRedshiftStorageProperties0PropertiesArgs', 'ConnectionRedshiftStorageProperties1PropertiesArgs']]]):
         pulumi.set(self, "storage", value)
 
 
@@ -1613,7 +1613,7 @@ class ConnectionS3PropertiesInputArgsDict(TypedDict):
     """
     The Amazon S3 URI that's part of the Amazon S3 properties of a connection.
     """
-    s3_access_grant_location_id: NotRequired[pulumi.Input[_builtins.str]]
+    s3_access_grant_location_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon S3 Access Grant location ID that's part of the Amazon S3 properties of a connection.
     """
@@ -1622,7 +1622,7 @@ class ConnectionS3PropertiesInputArgsDict(TypedDict):
 class ConnectionS3PropertiesInputArgs:
     def __init__(__self__, *,
                  s3_uri: pulumi.Input[_builtins.str],
-                 s3_access_grant_location_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 s3_access_grant_location_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         S3 Properties Input
 
@@ -1647,14 +1647,14 @@ class ConnectionS3PropertiesInputArgs:
 
     @_builtins.property
     @pulumi.getter(name="s3AccessGrantLocationId")
-    def s3_access_grant_location_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def s3_access_grant_location_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon S3 Access Grant location ID that's part of the Amazon S3 properties of a connection.
         """
         return pulumi.get(self, "s3_access_grant_location_id")
 
     @s3_access_grant_location_id.setter
-    def s3_access_grant_location_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def s3_access_grant_location_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "s3_access_grant_location_id", value)
 
 
@@ -1662,26 +1662,26 @@ class ConnectionSparkEmrPropertiesInputArgsDict(TypedDict):
     """
     Spark EMR Properties Input.
     """
-    compute_arn: NotRequired[pulumi.Input[_builtins.str]]
-    instance_profile_arn: NotRequired[pulumi.Input[_builtins.str]]
-    java_virtual_env: NotRequired[pulumi.Input[_builtins.str]]
-    log_uri: NotRequired[pulumi.Input[_builtins.str]]
-    managed_endpoint_arn: NotRequired[pulumi.Input[_builtins.str]]
-    python_virtual_env: NotRequired[pulumi.Input[_builtins.str]]
-    runtime_role: NotRequired[pulumi.Input[_builtins.str]]
-    trusted_certificates_s3_uri: NotRequired[pulumi.Input[_builtins.str]]
+    compute_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    instance_profile_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    java_virtual_env: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    log_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    managed_endpoint_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    python_virtual_env: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    runtime_role: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    trusted_certificates_s3_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class ConnectionSparkEmrPropertiesInputArgs:
     def __init__(__self__, *,
-                 compute_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_profile_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 java_virtual_env: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_endpoint_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 python_virtual_env: Optional[pulumi.Input[_builtins.str]] = None,
-                 runtime_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 trusted_certificates_s3_uri: Optional[pulumi.Input[_builtins.str]] = None):
+                 compute_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_profile_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 java_virtual_env: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_endpoint_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 python_virtual_env: pulumi.Input[Optional[_builtins.str]] = None,
+                 runtime_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 trusted_certificates_s3_uri: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Spark EMR Properties Input.
         """
@@ -1704,74 +1704,74 @@ class ConnectionSparkEmrPropertiesInputArgs:
 
     @_builtins.property
     @pulumi.getter(name="computeArn")
-    def compute_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def compute_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "compute_arn")
 
     @compute_arn.setter
-    def compute_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def compute_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "compute_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceProfileArn")
-    def instance_profile_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def instance_profile_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "instance_profile_arn")
 
     @instance_profile_arn.setter
-    def instance_profile_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def instance_profile_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "instance_profile_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="javaVirtualEnv")
-    def java_virtual_env(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def java_virtual_env(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "java_virtual_env")
 
     @java_virtual_env.setter
-    def java_virtual_env(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def java_virtual_env(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "java_virtual_env", value)
 
     @_builtins.property
     @pulumi.getter(name="logUri")
-    def log_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "log_uri")
 
     @log_uri.setter
-    def log_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="managedEndpointArn")
-    def managed_endpoint_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_endpoint_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "managed_endpoint_arn")
 
     @managed_endpoint_arn.setter
-    def managed_endpoint_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_endpoint_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_endpoint_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="pythonVirtualEnv")
-    def python_virtual_env(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def python_virtual_env(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "python_virtual_env")
 
     @python_virtual_env.setter
-    def python_virtual_env(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def python_virtual_env(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "python_virtual_env", value)
 
     @_builtins.property
     @pulumi.getter(name="runtimeRole")
-    def runtime_role(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def runtime_role(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "runtime_role")
 
     @runtime_role.setter
-    def runtime_role(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def runtime_role(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "runtime_role", value)
 
     @_builtins.property
     @pulumi.getter(name="trustedCertificatesS3Uri")
-    def trusted_certificates_s3_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def trusted_certificates_s3_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "trusted_certificates_s3_uri")
 
     @trusted_certificates_s3_uri.setter
-    def trusted_certificates_s3_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def trusted_certificates_s3_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "trusted_certificates_s3_uri", value)
 
 
@@ -1779,12 +1779,12 @@ class ConnectionSparkGlueArgsArgsDict(TypedDict):
     """
     Spark Glue Args.
     """
-    connection: NotRequired[pulumi.Input[_builtins.str]]
+    connection: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class ConnectionSparkGlueArgsArgs:
     def __init__(__self__, *,
-                 connection: Optional[pulumi.Input[_builtins.str]] = None):
+                 connection: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Spark Glue Args.
         """
@@ -1793,11 +1793,11 @@ class ConnectionSparkGlueArgsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def connection(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connection(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "connection")
 
     @connection.setter
-    def connection(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connection(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connection", value)
 
 
@@ -1805,26 +1805,26 @@ class ConnectionSparkGluePropertiesInputArgsDict(TypedDict):
     """
     Spark Glue Properties Input.
     """
-    additional_args: NotRequired[pulumi.Input['ConnectionSparkGlueArgsArgsDict']]
-    glue_connection_name: NotRequired[pulumi.Input[_builtins.str]]
-    glue_version: NotRequired[pulumi.Input[_builtins.str]]
-    idle_timeout: NotRequired[pulumi.Input[_builtins.float]]
-    java_virtual_env: NotRequired[pulumi.Input[_builtins.str]]
-    number_of_workers: NotRequired[pulumi.Input[_builtins.float]]
-    python_virtual_env: NotRequired[pulumi.Input[_builtins.str]]
-    worker_type: NotRequired[pulumi.Input[_builtins.str]]
+    additional_args: NotRequired[pulumi.Input[Optional['ConnectionSparkGlueArgsArgs']]]
+    glue_connection_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    glue_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    idle_timeout: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    java_virtual_env: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    number_of_workers: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    python_virtual_env: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    worker_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class ConnectionSparkGluePropertiesInputArgs:
     def __init__(__self__, *,
-                 additional_args: Optional[pulumi.Input['ConnectionSparkGlueArgsArgs']] = None,
-                 glue_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 glue_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 idle_timeout: Optional[pulumi.Input[_builtins.float]] = None,
-                 java_virtual_env: Optional[pulumi.Input[_builtins.str]] = None,
-                 number_of_workers: Optional[pulumi.Input[_builtins.float]] = None,
-                 python_virtual_env: Optional[pulumi.Input[_builtins.str]] = None,
-                 worker_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 additional_args: pulumi.Input[Optional['ConnectionSparkGlueArgsArgs']] = None,
+                 glue_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 glue_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 idle_timeout: pulumi.Input[Optional[_builtins.float]] = None,
+                 java_virtual_env: pulumi.Input[Optional[_builtins.str]] = None,
+                 number_of_workers: pulumi.Input[Optional[_builtins.float]] = None,
+                 python_virtual_env: pulumi.Input[Optional[_builtins.str]] = None,
+                 worker_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Spark Glue Properties Input.
         """
@@ -1847,74 +1847,74 @@ class ConnectionSparkGluePropertiesInputArgs:
 
     @_builtins.property
     @pulumi.getter(name="additionalArgs")
-    def additional_args(self) -> Optional[pulumi.Input['ConnectionSparkGlueArgsArgs']]:
+    def additional_args(self) -> pulumi.Input[Optional['ConnectionSparkGlueArgsArgs']]:
         return pulumi.get(self, "additional_args")
 
     @additional_args.setter
-    def additional_args(self, value: Optional[pulumi.Input['ConnectionSparkGlueArgsArgs']]):
+    def additional_args(self, value: pulumi.Input[Optional['ConnectionSparkGlueArgsArgs']]):
         pulumi.set(self, "additional_args", value)
 
     @_builtins.property
     @pulumi.getter(name="glueConnectionName")
-    def glue_connection_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def glue_connection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "glue_connection_name")
 
     @glue_connection_name.setter
-    def glue_connection_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def glue_connection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "glue_connection_name", value)
 
     @_builtins.property
     @pulumi.getter(name="glueVersion")
-    def glue_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def glue_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "glue_version")
 
     @glue_version.setter
-    def glue_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def glue_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "glue_version", value)
 
     @_builtins.property
     @pulumi.getter(name="idleTimeout")
-    def idle_timeout(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def idle_timeout(self) -> pulumi.Input[Optional[_builtins.float]]:
         return pulumi.get(self, "idle_timeout")
 
     @idle_timeout.setter
-    def idle_timeout(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def idle_timeout(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "idle_timeout", value)
 
     @_builtins.property
     @pulumi.getter(name="javaVirtualEnv")
-    def java_virtual_env(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def java_virtual_env(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "java_virtual_env")
 
     @java_virtual_env.setter
-    def java_virtual_env(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def java_virtual_env(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "java_virtual_env", value)
 
     @_builtins.property
     @pulumi.getter(name="numberOfWorkers")
-    def number_of_workers(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def number_of_workers(self) -> pulumi.Input[Optional[_builtins.float]]:
         return pulumi.get(self, "number_of_workers")
 
     @number_of_workers.setter
-    def number_of_workers(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def number_of_workers(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "number_of_workers", value)
 
     @_builtins.property
     @pulumi.getter(name="pythonVirtualEnv")
-    def python_virtual_env(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def python_virtual_env(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "python_virtual_env")
 
     @python_virtual_env.setter
-    def python_virtual_env(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def python_virtual_env(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "python_virtual_env", value)
 
     @_builtins.property
     @pulumi.getter(name="workerType")
-    def worker_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def worker_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "worker_type")
 
     @worker_type.setter
-    def worker_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def worker_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "worker_type", value)
 
 
@@ -1959,7 +1959,7 @@ class ConnectionWorkflowsMwaaPropertiesInputArgsDict(TypedDict):
     """
     Workflows MWAA Properties Input
     """
-    mwaa_environment_name: NotRequired[pulumi.Input[_builtins.str]]
+    mwaa_environment_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the MWAA environment.
     """
@@ -1967,7 +1967,7 @@ class ConnectionWorkflowsMwaaPropertiesInputArgsDict(TypedDict):
 @pulumi.input_type
 class ConnectionWorkflowsMwaaPropertiesInputArgs:
     def __init__(__self__, *,
-                 mwaa_environment_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 mwaa_environment_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Workflows MWAA Properties Input
 
@@ -1978,14 +1978,14 @@ class ConnectionWorkflowsMwaaPropertiesInputArgs:
 
     @_builtins.property
     @pulumi.getter(name="mwaaEnvironmentName")
-    def mwaa_environment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mwaa_environment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the MWAA environment.
         """
         return pulumi.get(self, "mwaa_environment_name")
 
     @mwaa_environment_name.setter
-    def mwaa_environment_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mwaa_environment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mwaa_environment_name", value)
 
 
@@ -2008,12 +2008,12 @@ class DataSourceConfigurationInput0PropertiesArgsDict(TypedDict):
     """
     Specifies the configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration or sageMakerRunConfiguration.
     """
-    glue_run_configuration: NotRequired[pulumi.Input['DataSourceGlueRunConfigurationInputArgsDict']]
+    glue_run_configuration: NotRequired[pulumi.Input[Optional['DataSourceGlueRunConfigurationInputArgs']]]
 
 @pulumi.input_type
 class DataSourceConfigurationInput0PropertiesArgs:
     def __init__(__self__, *,
-                 glue_run_configuration: Optional[pulumi.Input['DataSourceGlueRunConfigurationInputArgs']] = None):
+                 glue_run_configuration: pulumi.Input[Optional['DataSourceGlueRunConfigurationInputArgs']] = None):
         """
         Specifies the configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration or sageMakerRunConfiguration.
         """
@@ -2022,11 +2022,11 @@ class DataSourceConfigurationInput0PropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="glueRunConfiguration")
-    def glue_run_configuration(self) -> Optional[pulumi.Input['DataSourceGlueRunConfigurationInputArgs']]:
+    def glue_run_configuration(self) -> pulumi.Input[Optional['DataSourceGlueRunConfigurationInputArgs']]:
         return pulumi.get(self, "glue_run_configuration")
 
     @glue_run_configuration.setter
-    def glue_run_configuration(self, value: Optional[pulumi.Input['DataSourceGlueRunConfigurationInputArgs']]):
+    def glue_run_configuration(self, value: pulumi.Input[Optional['DataSourceGlueRunConfigurationInputArgs']]):
         pulumi.set(self, "glue_run_configuration", value)
 
 
@@ -2034,12 +2034,12 @@ class DataSourceConfigurationInput1PropertiesArgsDict(TypedDict):
     """
     Specifies the configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration or sageMakerRunConfiguration.
     """
-    redshift_run_configuration: NotRequired[pulumi.Input['DataSourceRedshiftRunConfigurationInputArgsDict']]
+    redshift_run_configuration: NotRequired[pulumi.Input[Optional['DataSourceRedshiftRunConfigurationInputArgs']]]
 
 @pulumi.input_type
 class DataSourceConfigurationInput1PropertiesArgs:
     def __init__(__self__, *,
-                 redshift_run_configuration: Optional[pulumi.Input['DataSourceRedshiftRunConfigurationInputArgs']] = None):
+                 redshift_run_configuration: pulumi.Input[Optional['DataSourceRedshiftRunConfigurationInputArgs']] = None):
         """
         Specifies the configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration or sageMakerRunConfiguration.
         """
@@ -2048,11 +2048,11 @@ class DataSourceConfigurationInput1PropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="redshiftRunConfiguration")
-    def redshift_run_configuration(self) -> Optional[pulumi.Input['DataSourceRedshiftRunConfigurationInputArgs']]:
+    def redshift_run_configuration(self) -> pulumi.Input[Optional['DataSourceRedshiftRunConfigurationInputArgs']]:
         return pulumi.get(self, "redshift_run_configuration")
 
     @redshift_run_configuration.setter
-    def redshift_run_configuration(self, value: Optional[pulumi.Input['DataSourceRedshiftRunConfigurationInputArgs']]):
+    def redshift_run_configuration(self, value: pulumi.Input[Optional['DataSourceRedshiftRunConfigurationInputArgs']]):
         pulumi.set(self, "redshift_run_configuration", value)
 
 
@@ -2060,12 +2060,12 @@ class DataSourceConfigurationInput2PropertiesArgsDict(TypedDict):
     """
     Specifies the configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration or sageMakerRunConfiguration.
     """
-    sage_maker_run_configuration: NotRequired[pulumi.Input['DataSourceSageMakerRunConfigurationInputArgsDict']]
+    sage_maker_run_configuration: NotRequired[pulumi.Input[Optional['DataSourceSageMakerRunConfigurationInputArgs']]]
 
 @pulumi.input_type
 class DataSourceConfigurationInput2PropertiesArgs:
     def __init__(__self__, *,
-                 sage_maker_run_configuration: Optional[pulumi.Input['DataSourceSageMakerRunConfigurationInputArgs']] = None):
+                 sage_maker_run_configuration: pulumi.Input[Optional['DataSourceSageMakerRunConfigurationInputArgs']] = None):
         """
         Specifies the configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration or sageMakerRunConfiguration.
         """
@@ -2074,11 +2074,11 @@ class DataSourceConfigurationInput2PropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="sageMakerRunConfiguration")
-    def sage_maker_run_configuration(self) -> Optional[pulumi.Input['DataSourceSageMakerRunConfigurationInputArgs']]:
+    def sage_maker_run_configuration(self) -> pulumi.Input[Optional['DataSourceSageMakerRunConfigurationInputArgs']]:
         return pulumi.get(self, "sage_maker_run_configuration")
 
     @sage_maker_run_configuration.setter
-    def sage_maker_run_configuration(self, value: Optional[pulumi.Input['DataSourceSageMakerRunConfigurationInputArgs']]):
+    def sage_maker_run_configuration(self, value: pulumi.Input[Optional['DataSourceSageMakerRunConfigurationInputArgs']]):
         pulumi.set(self, "sage_maker_run_configuration", value)
 
 
@@ -2127,15 +2127,15 @@ class DataSourceFormInputArgsDict(TypedDict):
     """
     The name of the metadata form.
     """
-    content: NotRequired[pulumi.Input[_builtins.str]]
+    content: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The content of the metadata form.
     """
-    type_identifier: NotRequired[pulumi.Input[_builtins.str]]
+    type_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the metadata form type.
     """
-    type_revision: NotRequired[pulumi.Input[_builtins.str]]
+    type_revision: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The revision of the metadata form type.
     """
@@ -2144,9 +2144,9 @@ class DataSourceFormInputArgsDict(TypedDict):
 class DataSourceFormInputArgs:
     def __init__(__self__, *,
                  form_name: pulumi.Input[_builtins.str],
-                 content: Optional[pulumi.Input[_builtins.str]] = None,
-                 type_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 type_revision: Optional[pulumi.Input[_builtins.str]] = None):
+                 content: pulumi.Input[Optional[_builtins.str]] = None,
+                 type_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 type_revision: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The details of a metadata form.
 
@@ -2177,38 +2177,38 @@ class DataSourceFormInputArgs:
 
     @_builtins.property
     @pulumi.getter
-    def content(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The content of the metadata form.
         """
         return pulumi.get(self, "content")
 
     @content.setter
-    def content(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content", value)
 
     @_builtins.property
     @pulumi.getter(name="typeIdentifier")
-    def type_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the metadata form type.
         """
         return pulumi.get(self, "type_identifier")
 
     @type_identifier.setter
-    def type_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="typeRevision")
-    def type_revision(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type_revision(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The revision of the metadata form type.
         """
         return pulumi.get(self, "type_revision")
 
     @type_revision.setter
-    def type_revision(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type_revision(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type_revision", value)
 
 
@@ -2217,15 +2217,15 @@ class DataSourceGlueRunConfigurationInputArgsDict(TypedDict):
     """
     The relational filter configurations included in the configuration details of the AWS Glue data source.
     """
-    auto_import_data_quality_result: NotRequired[pulumi.Input[_builtins.bool]]
+    auto_import_data_quality_result: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether to automatically import data quality metrics as part of the data source run.
     """
-    catalog_name: NotRequired[pulumi.Input[_builtins.str]]
+    catalog_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The catalog name in the AWS Glue run configuration.
     """
-    data_access_role: NotRequired[pulumi.Input[_builtins.str]]
+    data_access_role: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The data access role included in the configuration details of the AWS Glue data source.
     """
@@ -2234,9 +2234,9 @@ class DataSourceGlueRunConfigurationInputArgsDict(TypedDict):
 class DataSourceGlueRunConfigurationInputArgs:
     def __init__(__self__, *,
                  relational_filter_configurations: pulumi.Input[Sequence[pulumi.Input['DataSourceRelationalFilterConfigurationArgs']]],
-                 auto_import_data_quality_result: Optional[pulumi.Input[_builtins.bool]] = None,
-                 catalog_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_access_role: Optional[pulumi.Input[_builtins.str]] = None):
+                 auto_import_data_quality_result: pulumi.Input[Optional[_builtins.bool]] = None,
+                 catalog_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_access_role: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['DataSourceRelationalFilterConfigurationArgs']]] relational_filter_configurations: The relational filter configurations included in the configuration details of the AWS Glue data source.
         :param pulumi.Input[_builtins.bool] auto_import_data_quality_result: Specifies whether to automatically import data quality metrics as part of the data source run.
@@ -2265,38 +2265,38 @@ class DataSourceGlueRunConfigurationInputArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoImportDataQualityResult")
-    def auto_import_data_quality_result(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_import_data_quality_result(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether to automatically import data quality metrics as part of the data source run.
         """
         return pulumi.get(self, "auto_import_data_quality_result")
 
     @auto_import_data_quality_result.setter
-    def auto_import_data_quality_result(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_import_data_quality_result(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_import_data_quality_result", value)
 
     @_builtins.property
     @pulumi.getter(name="catalogName")
-    def catalog_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def catalog_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The catalog name in the AWS Glue run configuration.
         """
         return pulumi.get(self, "catalog_name")
 
     @catalog_name.setter
-    def catalog_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def catalog_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "catalog_name", value)
 
     @_builtins.property
     @pulumi.getter(name="dataAccessRole")
-    def data_access_role(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_access_role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The data access role included in the configuration details of the AWS Glue data source.
         """
         return pulumi.get(self, "data_access_role")
 
     @data_access_role.setter
-    def data_access_role(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_access_role(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_access_role", value)
 
 
@@ -2304,7 +2304,7 @@ class DataSourceRecommendationConfigurationArgsDict(TypedDict):
     """
     The recommendation to be updated as part of the UpdateDataSource action.
     """
-    enable_business_name_generation: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_business_name_generation: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether automatic business name generation is to be enabled or not as part of the recommendation configuration.
     """
@@ -2312,7 +2312,7 @@ class DataSourceRecommendationConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class DataSourceRecommendationConfigurationArgs:
     def __init__(__self__, *,
-                 enable_business_name_generation: Optional[pulumi.Input[_builtins.bool]] = None):
+                 enable_business_name_generation: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The recommendation to be updated as part of the UpdateDataSource action.
 
@@ -2323,14 +2323,14 @@ class DataSourceRecommendationConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="enableBusinessNameGeneration")
-    def enable_business_name_generation(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_business_name_generation(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether automatic business name generation is to be enabled or not as part of the recommendation configuration.
         """
         return pulumi.get(self, "enable_business_name_generation")
 
     @enable_business_name_generation.setter
-    def enable_business_name_generation(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_business_name_generation(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_business_name_generation", value)
 
 
@@ -2405,15 +2405,15 @@ class DataSourceRedshiftRunConfigurationInputArgsDict(TypedDict):
     The configuration details of the Amazon Redshift data source.
     """
     relational_filter_configurations: pulumi.Input[Sequence[pulumi.Input['DataSourceRelationalFilterConfigurationArgsDict']]]
-    data_access_role: NotRequired[pulumi.Input[_builtins.str]]
+    data_access_role: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The data access role included in the configuration details of the Amazon Redshift data source.
     """
-    redshift_credential_configuration: NotRequired[pulumi.Input['DataSourceRedshiftCredentialConfigurationArgsDict']]
+    redshift_credential_configuration: NotRequired[pulumi.Input[Optional['DataSourceRedshiftCredentialConfigurationArgs']]]
     """
     The details of the credentials required to access an Amazon Redshift cluster.
     """
-    redshift_storage: NotRequired[pulumi.Input[Union['DataSourceRedshiftStorage0PropertiesArgsDict', 'DataSourceRedshiftStorage1PropertiesArgsDict']]]
+    redshift_storage: NotRequired[pulumi.Input[Optional[Union['DataSourceRedshiftStorage0PropertiesArgs', 'DataSourceRedshiftStorage1PropertiesArgs']]]]
     """
     The details of the Amazon Redshift storage as part of the configuration of an Amazon Redshift data source run.
     """
@@ -2422,9 +2422,9 @@ class DataSourceRedshiftRunConfigurationInputArgsDict(TypedDict):
 class DataSourceRedshiftRunConfigurationInputArgs:
     def __init__(__self__, *,
                  relational_filter_configurations: pulumi.Input[Sequence[pulumi.Input['DataSourceRelationalFilterConfigurationArgs']]],
-                 data_access_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 redshift_credential_configuration: Optional[pulumi.Input['DataSourceRedshiftCredentialConfigurationArgs']] = None,
-                 redshift_storage: Optional[pulumi.Input[Union['DataSourceRedshiftStorage0PropertiesArgs', 'DataSourceRedshiftStorage1PropertiesArgs']]] = None):
+                 data_access_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 redshift_credential_configuration: pulumi.Input[Optional['DataSourceRedshiftCredentialConfigurationArgs']] = None,
+                 redshift_storage: pulumi.Input[Optional[Union['DataSourceRedshiftStorage0PropertiesArgs', 'DataSourceRedshiftStorage1PropertiesArgs']]] = None):
         """
         The configuration details of the Amazon Redshift data source.
 
@@ -2451,38 +2451,38 @@ class DataSourceRedshiftRunConfigurationInputArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataAccessRole")
-    def data_access_role(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_access_role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The data access role included in the configuration details of the Amazon Redshift data source.
         """
         return pulumi.get(self, "data_access_role")
 
     @data_access_role.setter
-    def data_access_role(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_access_role(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_access_role", value)
 
     @_builtins.property
     @pulumi.getter(name="redshiftCredentialConfiguration")
-    def redshift_credential_configuration(self) -> Optional[pulumi.Input['DataSourceRedshiftCredentialConfigurationArgs']]:
+    def redshift_credential_configuration(self) -> pulumi.Input[Optional['DataSourceRedshiftCredentialConfigurationArgs']]:
         """
         The details of the credentials required to access an Amazon Redshift cluster.
         """
         return pulumi.get(self, "redshift_credential_configuration")
 
     @redshift_credential_configuration.setter
-    def redshift_credential_configuration(self, value: Optional[pulumi.Input['DataSourceRedshiftCredentialConfigurationArgs']]):
+    def redshift_credential_configuration(self, value: pulumi.Input[Optional['DataSourceRedshiftCredentialConfigurationArgs']]):
         pulumi.set(self, "redshift_credential_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="redshiftStorage")
-    def redshift_storage(self) -> Optional[pulumi.Input[Union['DataSourceRedshiftStorage0PropertiesArgs', 'DataSourceRedshiftStorage1PropertiesArgs']]]:
+    def redshift_storage(self) -> pulumi.Input[Optional[Union['DataSourceRedshiftStorage0PropertiesArgs', 'DataSourceRedshiftStorage1PropertiesArgs']]]:
         """
         The details of the Amazon Redshift storage as part of the configuration of an Amazon Redshift data source run.
         """
         return pulumi.get(self, "redshift_storage")
 
     @redshift_storage.setter
-    def redshift_storage(self, value: Optional[pulumi.Input[Union['DataSourceRedshiftStorage0PropertiesArgs', 'DataSourceRedshiftStorage1PropertiesArgs']]]):
+    def redshift_storage(self, value: pulumi.Input[Optional[Union['DataSourceRedshiftStorage0PropertiesArgs', 'DataSourceRedshiftStorage1PropertiesArgs']]]):
         pulumi.set(self, "redshift_storage", value)
 
 
@@ -2577,11 +2577,11 @@ class DataSourceRelationalFilterConfigurationArgsDict(TypedDict):
     """
     The database name specified in the relational filter configuration for the data source.
     """
-    filter_expressions: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataSourceFilterExpressionArgsDict']]]]
+    filter_expressions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceFilterExpressionArgs']]]]]
     """
     The filter expressions specified in the relational filter configuration for the data source.
     """
-    schema_name: NotRequired[pulumi.Input[_builtins.str]]
+    schema_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The schema name specified in the relational filter configuration for the data source.
     """
@@ -2590,8 +2590,8 @@ class DataSourceRelationalFilterConfigurationArgsDict(TypedDict):
 class DataSourceRelationalFilterConfigurationArgs:
     def __init__(__self__, *,
                  database_name: pulumi.Input[_builtins.str],
-                 filter_expressions: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceFilterExpressionArgs']]]] = None,
-                 schema_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 filter_expressions: pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceFilterExpressionArgs']]]] = None,
+                 schema_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The relational filter configuration for the data source.
 
@@ -2619,26 +2619,26 @@ class DataSourceRelationalFilterConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="filterExpressions")
-    def filter_expressions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceFilterExpressionArgs']]]]:
+    def filter_expressions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceFilterExpressionArgs']]]]:
         """
         The filter expressions specified in the relational filter configuration for the data source.
         """
         return pulumi.get(self, "filter_expressions")
 
     @filter_expressions.setter
-    def filter_expressions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceFilterExpressionArgs']]]]):
+    def filter_expressions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceFilterExpressionArgs']]]]):
         pulumi.set(self, "filter_expressions", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaName")
-    def schema_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def schema_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The schema name specified in the relational filter configuration for the data source.
         """
         return pulumi.get(self, "schema_name")
 
     @schema_name.setter
-    def schema_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def schema_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schema_name", value)
 
 
@@ -2679,11 +2679,11 @@ class DataSourceScheduleConfigurationArgsDict(TypedDict):
     """
     The schedule of the data source runs.
     """
-    schedule: NotRequired[pulumi.Input[_builtins.str]]
+    schedule: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The schedule of the data source runs.
     """
-    timezone: NotRequired[pulumi.Input[_builtins.str]]
+    timezone: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The timezone of the data source run.
     """
@@ -2691,8 +2691,8 @@ class DataSourceScheduleConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class DataSourceScheduleConfigurationArgs:
     def __init__(__self__, *,
-                 schedule: Optional[pulumi.Input[_builtins.str]] = None,
-                 timezone: Optional[pulumi.Input[_builtins.str]] = None):
+                 schedule: pulumi.Input[Optional[_builtins.str]] = None,
+                 timezone: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The schedule of the data source runs.
 
@@ -2706,26 +2706,26 @@ class DataSourceScheduleConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def schedule(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def schedule(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The schedule of the data source runs.
         """
         return pulumi.get(self, "schedule")
 
     @schedule.setter
-    def schedule(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def schedule(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schedule", value)
 
     @_builtins.property
     @pulumi.getter
-    def timezone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def timezone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The timezone of the data source run.
         """
         return pulumi.get(self, "timezone")
 
     @timezone.setter
-    def timezone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def timezone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "timezone", value)
 
 
@@ -2733,15 +2733,15 @@ class DomainSingleSignOnArgsDict(TypedDict):
     """
     The single-sign on configuration of the Amazon DataZone domain.
     """
-    idc_instance_arn: NotRequired[pulumi.Input[_builtins.str]]
+    idc_instance_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of the IDC instance.
     """
-    type: NotRequired[pulumi.Input['DomainAuthType']]
+    type: NotRequired[pulumi.Input[Optional['DomainAuthType']]]
     """
     The type of single sign-on in Amazon DataZone.
     """
-    user_assignment: NotRequired[pulumi.Input['DomainUserAssignment']]
+    user_assignment: NotRequired[pulumi.Input[Optional['DomainUserAssignment']]]
     """
     The single sign-on user assignment in Amazon DataZone.
     """
@@ -2749,9 +2749,9 @@ class DomainSingleSignOnArgsDict(TypedDict):
 @pulumi.input_type
 class DomainSingleSignOnArgs:
     def __init__(__self__, *,
-                 idc_instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input['DomainAuthType']] = None,
-                 user_assignment: Optional[pulumi.Input['DomainUserAssignment']] = None):
+                 idc_instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional['DomainAuthType']] = None,
+                 user_assignment: pulumi.Input[Optional['DomainUserAssignment']] = None):
         """
         The single-sign on configuration of the Amazon DataZone domain.
 
@@ -2768,38 +2768,38 @@ class DomainSingleSignOnArgs:
 
     @_builtins.property
     @pulumi.getter(name="idcInstanceArn")
-    def idc_instance_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def idc_instance_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the IDC instance.
         """
         return pulumi.get(self, "idc_instance_arn")
 
     @idc_instance_arn.setter
-    def idc_instance_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def idc_instance_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "idc_instance_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['DomainAuthType']]:
+    def type(self) -> pulumi.Input[Optional['DomainAuthType']]:
         """
         The type of single sign-on in Amazon DataZone.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['DomainAuthType']]):
+    def type(self, value: pulumi.Input[Optional['DomainAuthType']]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter(name="userAssignment")
-    def user_assignment(self) -> Optional[pulumi.Input['DomainUserAssignment']]:
+    def user_assignment(self) -> pulumi.Input[Optional['DomainUserAssignment']]:
         """
         The single sign-on user assignment in Amazon DataZone.
         """
         return pulumi.get(self, "user_assignment")
 
     @user_assignment.setter
-    def user_assignment(self, value: Optional[pulumi.Input['DomainUserAssignment']]):
+    def user_assignment(self, value: pulumi.Input[Optional['DomainUserAssignment']]):
         pulumi.set(self, "user_assignment", value)
 
 
@@ -2807,7 +2807,7 @@ class EnvironmentActionsAwsConsoleLinkParametersArgsDict(TypedDict):
     """
     The parameters of the console link specified as part of the environment action
     """
-    uri: NotRequired[pulumi.Input[_builtins.str]]
+    uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The URI of the console link specified as part of the environment action.
     """
@@ -2815,7 +2815,7 @@ class EnvironmentActionsAwsConsoleLinkParametersArgsDict(TypedDict):
 @pulumi.input_type
 class EnvironmentActionsAwsConsoleLinkParametersArgs:
     def __init__(__self__, *,
-                 uri: Optional[pulumi.Input[_builtins.str]] = None):
+                 uri: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The parameters of the console link specified as part of the environment action
 
@@ -2826,26 +2826,26 @@ class EnvironmentActionsAwsConsoleLinkParametersArgs:
 
     @_builtins.property
     @pulumi.getter
-    def uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URI of the console link specified as part of the environment action.
         """
         return pulumi.get(self, "uri")
 
     @uri.setter
-    def uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "uri", value)
 
 
 class EnvironmentBlueprintConfigurationLakeFormationConfigurationArgsDict(TypedDict):
-    location_registration_exclude_s3_locations: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    location_registration_role: NotRequired[pulumi.Input[_builtins.str]]
+    location_registration_exclude_s3_locations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    location_registration_role: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class EnvironmentBlueprintConfigurationLakeFormationConfigurationArgs:
     def __init__(__self__, *,
-                 location_registration_exclude_s3_locations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 location_registration_role: Optional[pulumi.Input[_builtins.str]] = None):
+                 location_registration_exclude_s3_locations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 location_registration_role: pulumi.Input[Optional[_builtins.str]] = None):
         if location_registration_exclude_s3_locations is not None:
             pulumi.set(__self__, "location_registration_exclude_s3_locations", location_registration_exclude_s3_locations)
         if location_registration_role is not None:
@@ -2853,20 +2853,20 @@ class EnvironmentBlueprintConfigurationLakeFormationConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="locationRegistrationExcludeS3Locations")
-    def location_registration_exclude_s3_locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def location_registration_exclude_s3_locations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "location_registration_exclude_s3_locations")
 
     @location_registration_exclude_s3_locations.setter
-    def location_registration_exclude_s3_locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def location_registration_exclude_s3_locations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "location_registration_exclude_s3_locations", value)
 
     @_builtins.property
     @pulumi.getter(name="locationRegistrationRole")
-    def location_registration_role(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location_registration_role(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "location_registration_role")
 
     @location_registration_role.setter
-    def location_registration_role(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location_registration_role(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location_registration_role", value)
 
 
@@ -2890,11 +2890,11 @@ class EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArgs:
 
 
 class EnvironmentBlueprintConfigurationRegionalParameterArgsDict(TypedDict):
-    parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    parameters: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     A string to string map containing parameters for the region.
     """
-    region: NotRequired[pulumi.Input[_builtins.str]]
+    region: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The region specified in the environment parameter.
     """
@@ -2902,8 +2902,8 @@ class EnvironmentBlueprintConfigurationRegionalParameterArgsDict(TypedDict):
 @pulumi.input_type
 class EnvironmentBlueprintConfigurationRegionalParameterArgs:
     def __init__(__self__, *,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: A string to string map containing parameters for the region.
         :param pulumi.Input[_builtins.str] region: The region specified in the environment parameter.
@@ -2915,26 +2915,26 @@ class EnvironmentBlueprintConfigurationRegionalParameterArgs:
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A string to string map containing parameters for the region.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The region specified in the environment parameter.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
@@ -2942,11 +2942,11 @@ class EnvironmentParameterArgsDict(TypedDict):
     """
     The parameter details of an environment.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of an environment parameter.
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The value of an environment parameter.
     """
@@ -2954,8 +2954,8 @@ class EnvironmentParameterArgsDict(TypedDict):
 @pulumi.input_type
 class EnvironmentParameterArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The parameter details of an environment.
 
@@ -2969,26 +2969,26 @@ class EnvironmentParameterArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of an environment parameter.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value of an environment parameter.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
@@ -2996,11 +2996,11 @@ class EnvironmentProfileEnvironmentParameterArgsDict(TypedDict):
     """
     The parameter details of an environment profile.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of an environment profile parameter.
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The value of an environment profile parameter.
     """
@@ -3008,8 +3008,8 @@ class EnvironmentProfileEnvironmentParameterArgsDict(TypedDict):
 @pulumi.input_type
 class EnvironmentProfileEnvironmentParameterArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The parameter details of an environment profile.
 
@@ -3023,26 +3023,26 @@ class EnvironmentProfileEnvironmentParameterArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of an environment profile parameter.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value of an environment profile parameter.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
@@ -3050,12 +3050,12 @@ class FormTypeModelArgsDict(TypedDict):
     """
     Indicates the smithy model of the API.
     """
-    smithy: NotRequired[pulumi.Input[_builtins.str]]
+    smithy: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class FormTypeModelArgs:
     def __init__(__self__, *,
-                 smithy: Optional[pulumi.Input[_builtins.str]] = None):
+                 smithy: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Indicates the smithy model of the API.
         """
@@ -3064,11 +3064,11 @@ class FormTypeModelArgs:
 
     @_builtins.property
     @pulumi.getter
-    def smithy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def smithy(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "smithy")
 
     @smithy.setter
-    def smithy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def smithy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "smithy", value)
 
 
@@ -3088,22 +3088,22 @@ class OwnerPropertiesArgs:
 
 
 class PolicyGrantAddToProjectMemberPoolPolicyGrantDetailArgsDict(TypedDict):
-    include_child_domain_units: NotRequired[pulumi.Input[_builtins.bool]]
+    include_child_domain_units: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
 
 @pulumi.input_type
 class PolicyGrantAddToProjectMemberPoolPolicyGrantDetailArgs:
     def __init__(__self__, *,
-                 include_child_domain_units: Optional[pulumi.Input[_builtins.bool]] = None):
+                 include_child_domain_units: pulumi.Input[Optional[_builtins.bool]] = None):
         if include_child_domain_units is not None:
             pulumi.set(__self__, "include_child_domain_units", include_child_domain_units)
 
     @_builtins.property
     @pulumi.getter(name="includeChildDomainUnits")
-    def include_child_domain_units(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_child_domain_units(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "include_child_domain_units")
 
     @include_child_domain_units.setter
-    def include_child_domain_units(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_child_domain_units(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_child_domain_units", value)
 
 
@@ -3126,114 +3126,114 @@ class PolicyGrantAllUsersGrantFilterArgs:
 
 
 class PolicyGrantCreateAssetTypePolicyGrantDetailArgsDict(TypedDict):
-    include_child_domain_units: NotRequired[pulumi.Input[_builtins.bool]]
+    include_child_domain_units: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
 
 @pulumi.input_type
 class PolicyGrantCreateAssetTypePolicyGrantDetailArgs:
     def __init__(__self__, *,
-                 include_child_domain_units: Optional[pulumi.Input[_builtins.bool]] = None):
+                 include_child_domain_units: pulumi.Input[Optional[_builtins.bool]] = None):
         if include_child_domain_units is not None:
             pulumi.set(__self__, "include_child_domain_units", include_child_domain_units)
 
     @_builtins.property
     @pulumi.getter(name="includeChildDomainUnits")
-    def include_child_domain_units(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_child_domain_units(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "include_child_domain_units")
 
     @include_child_domain_units.setter
-    def include_child_domain_units(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_child_domain_units(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_child_domain_units", value)
 
 
 class PolicyGrantCreateDomainUnitPolicyGrantDetailArgsDict(TypedDict):
-    include_child_domain_units: NotRequired[pulumi.Input[_builtins.bool]]
+    include_child_domain_units: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
 
 @pulumi.input_type
 class PolicyGrantCreateDomainUnitPolicyGrantDetailArgs:
     def __init__(__self__, *,
-                 include_child_domain_units: Optional[pulumi.Input[_builtins.bool]] = None):
+                 include_child_domain_units: pulumi.Input[Optional[_builtins.bool]] = None):
         if include_child_domain_units is not None:
             pulumi.set(__self__, "include_child_domain_units", include_child_domain_units)
 
     @_builtins.property
     @pulumi.getter(name="includeChildDomainUnits")
-    def include_child_domain_units(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_child_domain_units(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "include_child_domain_units")
 
     @include_child_domain_units.setter
-    def include_child_domain_units(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_child_domain_units(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_child_domain_units", value)
 
 
 class PolicyGrantCreateEnvironmentProfilePolicyGrantDetailArgsDict(TypedDict):
-    domain_unit_id: NotRequired[pulumi.Input[_builtins.str]]
+    domain_unit_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class PolicyGrantCreateEnvironmentProfilePolicyGrantDetailArgs:
     def __init__(__self__, *,
-                 domain_unit_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 domain_unit_id: pulumi.Input[Optional[_builtins.str]] = None):
         if domain_unit_id is not None:
             pulumi.set(__self__, "domain_unit_id", domain_unit_id)
 
     @_builtins.property
     @pulumi.getter(name="domainUnitId")
-    def domain_unit_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain_unit_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "domain_unit_id")
 
     @domain_unit_id.setter
-    def domain_unit_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain_unit_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain_unit_id", value)
 
 
 class PolicyGrantCreateFormTypePolicyGrantDetailArgsDict(TypedDict):
-    include_child_domain_units: NotRequired[pulumi.Input[_builtins.bool]]
+    include_child_domain_units: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
 
 @pulumi.input_type
 class PolicyGrantCreateFormTypePolicyGrantDetailArgs:
     def __init__(__self__, *,
-                 include_child_domain_units: Optional[pulumi.Input[_builtins.bool]] = None):
+                 include_child_domain_units: pulumi.Input[Optional[_builtins.bool]] = None):
         if include_child_domain_units is not None:
             pulumi.set(__self__, "include_child_domain_units", include_child_domain_units)
 
     @_builtins.property
     @pulumi.getter(name="includeChildDomainUnits")
-    def include_child_domain_units(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_child_domain_units(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "include_child_domain_units")
 
     @include_child_domain_units.setter
-    def include_child_domain_units(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_child_domain_units(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_child_domain_units", value)
 
 
 class PolicyGrantCreateGlossaryPolicyGrantDetailArgsDict(TypedDict):
-    include_child_domain_units: NotRequired[pulumi.Input[_builtins.bool]]
+    include_child_domain_units: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
 
 @pulumi.input_type
 class PolicyGrantCreateGlossaryPolicyGrantDetailArgs:
     def __init__(__self__, *,
-                 include_child_domain_units: Optional[pulumi.Input[_builtins.bool]] = None):
+                 include_child_domain_units: pulumi.Input[Optional[_builtins.bool]] = None):
         if include_child_domain_units is not None:
             pulumi.set(__self__, "include_child_domain_units", include_child_domain_units)
 
     @_builtins.property
     @pulumi.getter(name="includeChildDomainUnits")
-    def include_child_domain_units(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_child_domain_units(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "include_child_domain_units")
 
     @include_child_domain_units.setter
-    def include_child_domain_units(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_child_domain_units(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_child_domain_units", value)
 
 
 class PolicyGrantCreateProjectFromProjectProfilePolicyGrantDetailArgsDict(TypedDict):
-    include_child_domain_units: NotRequired[pulumi.Input[_builtins.bool]]
-    project_profiles: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    include_child_domain_units: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    project_profiles: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
 
 @pulumi.input_type
 class PolicyGrantCreateProjectFromProjectProfilePolicyGrantDetailArgs:
     def __init__(__self__, *,
-                 include_child_domain_units: Optional[pulumi.Input[_builtins.bool]] = None,
-                 project_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 include_child_domain_units: pulumi.Input[Optional[_builtins.bool]] = None,
+                 project_profiles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         if include_child_domain_units is not None:
             pulumi.set(__self__, "include_child_domain_units", include_child_domain_units)
         if project_profiles is not None:
@@ -3241,40 +3241,40 @@ class PolicyGrantCreateProjectFromProjectProfilePolicyGrantDetailArgs:
 
     @_builtins.property
     @pulumi.getter(name="includeChildDomainUnits")
-    def include_child_domain_units(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_child_domain_units(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "include_child_domain_units")
 
     @include_child_domain_units.setter
-    def include_child_domain_units(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_child_domain_units(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_child_domain_units", value)
 
     @_builtins.property
     @pulumi.getter(name="projectProfiles")
-    def project_profiles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def project_profiles(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "project_profiles")
 
     @project_profiles.setter
-    def project_profiles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def project_profiles(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "project_profiles", value)
 
 
 class PolicyGrantCreateProjectPolicyGrantDetailArgsDict(TypedDict):
-    include_child_domain_units: NotRequired[pulumi.Input[_builtins.bool]]
+    include_child_domain_units: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
 
 @pulumi.input_type
 class PolicyGrantCreateProjectPolicyGrantDetailArgs:
     def __init__(__self__, *,
-                 include_child_domain_units: Optional[pulumi.Input[_builtins.bool]] = None):
+                 include_child_domain_units: pulumi.Input[Optional[_builtins.bool]] = None):
         if include_child_domain_units is not None:
             pulumi.set(__self__, "include_child_domain_units", include_child_domain_units)
 
     @_builtins.property
     @pulumi.getter(name="includeChildDomainUnits")
-    def include_child_domain_units(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_child_domain_units(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "include_child_domain_units")
 
     @include_child_domain_units.setter
-    def include_child_domain_units(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_child_domain_units(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_child_domain_units", value)
 
 
@@ -3527,13 +3527,13 @@ class PolicyGrantDetail9PropertiesArgs:
 
 class PolicyGrantDomainUnitFilterForProjectArgsDict(TypedDict):
     domain_unit: pulumi.Input[_builtins.str]
-    include_child_domain_units: NotRequired[pulumi.Input[_builtins.bool]]
+    include_child_domain_units: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
 
 @pulumi.input_type
 class PolicyGrantDomainUnitFilterForProjectArgs:
     def __init__(__self__, *,
                  domain_unit: pulumi.Input[_builtins.str],
-                 include_child_domain_units: Optional[pulumi.Input[_builtins.bool]] = None):
+                 include_child_domain_units: pulumi.Input[Optional[_builtins.bool]] = None):
         pulumi.set(__self__, "domain_unit", domain_unit)
         if include_child_domain_units is not None:
             pulumi.set(__self__, "include_child_domain_units", include_child_domain_units)
@@ -3549,11 +3549,11 @@ class PolicyGrantDomainUnitFilterForProjectArgs:
 
     @_builtins.property
     @pulumi.getter(name="includeChildDomainUnits")
-    def include_child_domain_units(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_child_domain_units(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "include_child_domain_units")
 
     @include_child_domain_units.setter
-    def include_child_domain_units(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_child_domain_units(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_child_domain_units", value)
 
 
@@ -3577,16 +3577,16 @@ class PolicyGrantDomainUnitGrantFilterPropertiesArgs:
 
 
 class PolicyGrantDomainUnitPolicyGrantPrincipalArgsDict(TypedDict):
-    domain_unit_designation: NotRequired[pulumi.Input['PolicyGrantDomainUnitDesignation']]
-    domain_unit_grant_filter: NotRequired[pulumi.Input['PolicyGrantDomainUnitGrantFilterPropertiesArgsDict']]
-    domain_unit_identifier: NotRequired[pulumi.Input[_builtins.str]]
+    domain_unit_designation: NotRequired[pulumi.Input[Optional['PolicyGrantDomainUnitDesignation']]]
+    domain_unit_grant_filter: NotRequired[pulumi.Input[Optional['PolicyGrantDomainUnitGrantFilterPropertiesArgs']]]
+    domain_unit_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class PolicyGrantDomainUnitPolicyGrantPrincipalArgs:
     def __init__(__self__, *,
-                 domain_unit_designation: Optional[pulumi.Input['PolicyGrantDomainUnitDesignation']] = None,
-                 domain_unit_grant_filter: Optional[pulumi.Input['PolicyGrantDomainUnitGrantFilterPropertiesArgs']] = None,
-                 domain_unit_identifier: Optional[pulumi.Input[_builtins.str]] = None):
+                 domain_unit_designation: pulumi.Input[Optional['PolicyGrantDomainUnitDesignation']] = None,
+                 domain_unit_grant_filter: pulumi.Input[Optional['PolicyGrantDomainUnitGrantFilterPropertiesArgs']] = None,
+                 domain_unit_identifier: pulumi.Input[Optional[_builtins.str]] = None):
         if domain_unit_designation is not None:
             pulumi.set(__self__, "domain_unit_designation", domain_unit_designation)
         if domain_unit_grant_filter is not None:
@@ -3596,29 +3596,29 @@ class PolicyGrantDomainUnitPolicyGrantPrincipalArgs:
 
     @_builtins.property
     @pulumi.getter(name="domainUnitDesignation")
-    def domain_unit_designation(self) -> Optional[pulumi.Input['PolicyGrantDomainUnitDesignation']]:
+    def domain_unit_designation(self) -> pulumi.Input[Optional['PolicyGrantDomainUnitDesignation']]:
         return pulumi.get(self, "domain_unit_designation")
 
     @domain_unit_designation.setter
-    def domain_unit_designation(self, value: Optional[pulumi.Input['PolicyGrantDomainUnitDesignation']]):
+    def domain_unit_designation(self, value: pulumi.Input[Optional['PolicyGrantDomainUnitDesignation']]):
         pulumi.set(self, "domain_unit_designation", value)
 
     @_builtins.property
     @pulumi.getter(name="domainUnitGrantFilter")
-    def domain_unit_grant_filter(self) -> Optional[pulumi.Input['PolicyGrantDomainUnitGrantFilterPropertiesArgs']]:
+    def domain_unit_grant_filter(self) -> pulumi.Input[Optional['PolicyGrantDomainUnitGrantFilterPropertiesArgs']]:
         return pulumi.get(self, "domain_unit_grant_filter")
 
     @domain_unit_grant_filter.setter
-    def domain_unit_grant_filter(self, value: Optional[pulumi.Input['PolicyGrantDomainUnitGrantFilterPropertiesArgs']]):
+    def domain_unit_grant_filter(self, value: pulumi.Input[Optional['PolicyGrantDomainUnitGrantFilterPropertiesArgs']]):
         pulumi.set(self, "domain_unit_grant_filter", value)
 
     @_builtins.property
     @pulumi.getter(name="domainUnitIdentifier")
-    def domain_unit_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain_unit_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "domain_unit_identifier")
 
     @domain_unit_identifier.setter
-    def domain_unit_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain_unit_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain_unit_identifier", value)
 
 
@@ -3642,42 +3642,42 @@ class PolicyGrantGroupPolicyGrantPrincipalPropertiesArgs:
 
 
 class PolicyGrantOverrideDomainUnitOwnersPolicyGrantDetailArgsDict(TypedDict):
-    include_child_domain_units: NotRequired[pulumi.Input[_builtins.bool]]
+    include_child_domain_units: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
 
 @pulumi.input_type
 class PolicyGrantOverrideDomainUnitOwnersPolicyGrantDetailArgs:
     def __init__(__self__, *,
-                 include_child_domain_units: Optional[pulumi.Input[_builtins.bool]] = None):
+                 include_child_domain_units: pulumi.Input[Optional[_builtins.bool]] = None):
         if include_child_domain_units is not None:
             pulumi.set(__self__, "include_child_domain_units", include_child_domain_units)
 
     @_builtins.property
     @pulumi.getter(name="includeChildDomainUnits")
-    def include_child_domain_units(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_child_domain_units(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "include_child_domain_units")
 
     @include_child_domain_units.setter
-    def include_child_domain_units(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_child_domain_units(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_child_domain_units", value)
 
 
 class PolicyGrantOverrideProjectOwnersPolicyGrantDetailArgsDict(TypedDict):
-    include_child_domain_units: NotRequired[pulumi.Input[_builtins.bool]]
+    include_child_domain_units: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
 
 @pulumi.input_type
 class PolicyGrantOverrideProjectOwnersPolicyGrantDetailArgs:
     def __init__(__self__, *,
-                 include_child_domain_units: Optional[pulumi.Input[_builtins.bool]] = None):
+                 include_child_domain_units: pulumi.Input[Optional[_builtins.bool]] = None):
         if include_child_domain_units is not None:
             pulumi.set(__self__, "include_child_domain_units", include_child_domain_units)
 
     @_builtins.property
     @pulumi.getter(name="includeChildDomainUnits")
-    def include_child_domain_units(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_child_domain_units(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "include_child_domain_units")
 
     @include_child_domain_units.setter
-    def include_child_domain_units(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_child_domain_units(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_child_domain_units", value)
 
 
@@ -3777,16 +3777,16 @@ class PolicyGrantProjectGrantFilterPropertiesArgs:
 
 
 class PolicyGrantProjectPolicyGrantPrincipalArgsDict(TypedDict):
-    project_designation: NotRequired[pulumi.Input['PolicyGrantProjectDesignation']]
-    project_grant_filter: NotRequired[pulumi.Input['PolicyGrantProjectGrantFilterPropertiesArgsDict']]
-    project_identifier: NotRequired[pulumi.Input[_builtins.str]]
+    project_designation: NotRequired[pulumi.Input[Optional['PolicyGrantProjectDesignation']]]
+    project_grant_filter: NotRequired[pulumi.Input[Optional['PolicyGrantProjectGrantFilterPropertiesArgs']]]
+    project_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class PolicyGrantProjectPolicyGrantPrincipalArgs:
     def __init__(__self__, *,
-                 project_designation: Optional[pulumi.Input['PolicyGrantProjectDesignation']] = None,
-                 project_grant_filter: Optional[pulumi.Input['PolicyGrantProjectGrantFilterPropertiesArgs']] = None,
-                 project_identifier: Optional[pulumi.Input[_builtins.str]] = None):
+                 project_designation: pulumi.Input[Optional['PolicyGrantProjectDesignation']] = None,
+                 project_grant_filter: pulumi.Input[Optional['PolicyGrantProjectGrantFilterPropertiesArgs']] = None,
+                 project_identifier: pulumi.Input[Optional[_builtins.str]] = None):
         if project_designation is not None:
             pulumi.set(__self__, "project_designation", project_designation)
         if project_grant_filter is not None:
@@ -3796,29 +3796,29 @@ class PolicyGrantProjectPolicyGrantPrincipalArgs:
 
     @_builtins.property
     @pulumi.getter(name="projectDesignation")
-    def project_designation(self) -> Optional[pulumi.Input['PolicyGrantProjectDesignation']]:
+    def project_designation(self) -> pulumi.Input[Optional['PolicyGrantProjectDesignation']]:
         return pulumi.get(self, "project_designation")
 
     @project_designation.setter
-    def project_designation(self, value: Optional[pulumi.Input['PolicyGrantProjectDesignation']]):
+    def project_designation(self, value: pulumi.Input[Optional['PolicyGrantProjectDesignation']]):
         pulumi.set(self, "project_designation", value)
 
     @_builtins.property
     @pulumi.getter(name="projectGrantFilter")
-    def project_grant_filter(self) -> Optional[pulumi.Input['PolicyGrantProjectGrantFilterPropertiesArgs']]:
+    def project_grant_filter(self) -> pulumi.Input[Optional['PolicyGrantProjectGrantFilterPropertiesArgs']]:
         return pulumi.get(self, "project_grant_filter")
 
     @project_grant_filter.setter
-    def project_grant_filter(self, value: Optional[pulumi.Input['PolicyGrantProjectGrantFilterPropertiesArgs']]):
+    def project_grant_filter(self, value: pulumi.Input[Optional['PolicyGrantProjectGrantFilterPropertiesArgs']]):
         pulumi.set(self, "project_grant_filter", value)
 
     @_builtins.property
     @pulumi.getter(name="projectIdentifier")
-    def project_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "project_identifier")
 
     @project_identifier.setter
-    def project_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_identifier", value)
 
 
@@ -3870,15 +3870,15 @@ class PolicyGrantUserPolicyGrantPrincipal1PropertiesArgs:
 
 
 class ProjectEnvironmentConfigurationUserParameterArgsDict(TypedDict):
-    environment_configuration_name: NotRequired[pulumi.Input[_builtins.str]]
+    environment_configuration_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The environment configuration name.
     """
-    environment_id: NotRequired[pulumi.Input[_builtins.str]]
+    environment_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the environment.
     """
-    environment_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ProjectEnvironmentParameterArgsDict']]]]
+    environment_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ProjectEnvironmentParameterArgs']]]]]
     """
     The environment parameters.
     """
@@ -3886,9 +3886,9 @@ class ProjectEnvironmentConfigurationUserParameterArgsDict(TypedDict):
 @pulumi.input_type
 class ProjectEnvironmentConfigurationUserParameterArgs:
     def __init__(__self__, *,
-                 environment_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectEnvironmentParameterArgs']]]] = None):
+                 environment_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_parameters: pulumi.Input[Optional[Sequence[pulumi.Input['ProjectEnvironmentParameterArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] environment_configuration_name: The environment configuration name.
         :param pulumi.Input[_builtins.str] environment_id: The ID of the environment.
@@ -3903,47 +3903,47 @@ class ProjectEnvironmentConfigurationUserParameterArgs:
 
     @_builtins.property
     @pulumi.getter(name="environmentConfigurationName")
-    def environment_configuration_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def environment_configuration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The environment configuration name.
         """
         return pulumi.get(self, "environment_configuration_name")
 
     @environment_configuration_name.setter
-    def environment_configuration_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def environment_configuration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "environment_configuration_name", value)
 
     @_builtins.property
     @pulumi.getter(name="environmentId")
-    def environment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def environment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the environment.
         """
         return pulumi.get(self, "environment_id")
 
     @environment_id.setter
-    def environment_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def environment_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "environment_id", value)
 
     @_builtins.property
     @pulumi.getter(name="environmentParameters")
-    def environment_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectEnvironmentParameterArgs']]]]:
+    def environment_parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ProjectEnvironmentParameterArgs']]]]:
         """
         The environment parameters.
         """
         return pulumi.get(self, "environment_parameters")
 
     @environment_parameters.setter
-    def environment_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectEnvironmentParameterArgs']]]]):
+    def environment_parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ProjectEnvironmentParameterArgs']]]]):
         pulumi.set(self, "environment_parameters", value)
 
 
 class ProjectEnvironmentParameterArgsDict(TypedDict):
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of an environment profile parameter.
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The value of an environment profile parameter.
     """
@@ -3951,8 +3951,8 @@ class ProjectEnvironmentParameterArgsDict(TypedDict):
 @pulumi.input_type
 class ProjectEnvironmentParameterArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of an environment profile parameter.
         :param pulumi.Input[_builtins.str] value: The value of an environment profile parameter.
@@ -3964,26 +3964,26 @@ class ProjectEnvironmentParameterArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of an environment profile parameter.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value of an environment profile parameter.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
@@ -4054,15 +4054,15 @@ class ProjectProfileAwsAccountArgs:
 
 
 class ProjectProfileEnvironmentConfigurationParametersDetailsArgsDict(TypedDict):
-    parameter_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['ProjectProfileEnvironmentConfigurationParameterArgsDict']]]]
+    parameter_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ProjectProfileEnvironmentConfigurationParameterArgs']]]]]
     """
     The parameter overrides.
     """
-    resolved_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ProjectProfileEnvironmentConfigurationParameterArgsDict']]]]
+    resolved_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ProjectProfileEnvironmentConfigurationParameterArgs']]]]]
     """
     The resolved environment configuration parameters.
     """
-    ssm_path: NotRequired[pulumi.Input[_builtins.str]]
+    ssm_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Ssm path environment configuration parameters.
     """
@@ -4070,9 +4070,9 @@ class ProjectProfileEnvironmentConfigurationParametersDetailsArgsDict(TypedDict)
 @pulumi.input_type
 class ProjectProfileEnvironmentConfigurationParametersDetailsArgs:
     def __init__(__self__, *,
-                 parameter_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectProfileEnvironmentConfigurationParameterArgs']]]] = None,
-                 resolved_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectProfileEnvironmentConfigurationParameterArgs']]]] = None,
-                 ssm_path: Optional[pulumi.Input[_builtins.str]] = None):
+                 parameter_overrides: pulumi.Input[Optional[Sequence[pulumi.Input['ProjectProfileEnvironmentConfigurationParameterArgs']]]] = None,
+                 resolved_parameters: pulumi.Input[Optional[Sequence[pulumi.Input['ProjectProfileEnvironmentConfigurationParameterArgs']]]] = None,
+                 ssm_path: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['ProjectProfileEnvironmentConfigurationParameterArgs']]] parameter_overrides: The parameter overrides.
         :param pulumi.Input[Sequence[pulumi.Input['ProjectProfileEnvironmentConfigurationParameterArgs']]] resolved_parameters: The resolved environment configuration parameters.
@@ -4087,51 +4087,51 @@ class ProjectProfileEnvironmentConfigurationParametersDetailsArgs:
 
     @_builtins.property
     @pulumi.getter(name="parameterOverrides")
-    def parameter_overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectProfileEnvironmentConfigurationParameterArgs']]]]:
+    def parameter_overrides(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ProjectProfileEnvironmentConfigurationParameterArgs']]]]:
         """
         The parameter overrides.
         """
         return pulumi.get(self, "parameter_overrides")
 
     @parameter_overrides.setter
-    def parameter_overrides(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectProfileEnvironmentConfigurationParameterArgs']]]]):
+    def parameter_overrides(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ProjectProfileEnvironmentConfigurationParameterArgs']]]]):
         pulumi.set(self, "parameter_overrides", value)
 
     @_builtins.property
     @pulumi.getter(name="resolvedParameters")
-    def resolved_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectProfileEnvironmentConfigurationParameterArgs']]]]:
+    def resolved_parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ProjectProfileEnvironmentConfigurationParameterArgs']]]]:
         """
         The resolved environment configuration parameters.
         """
         return pulumi.get(self, "resolved_parameters")
 
     @resolved_parameters.setter
-    def resolved_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectProfileEnvironmentConfigurationParameterArgs']]]]):
+    def resolved_parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ProjectProfileEnvironmentConfigurationParameterArgs']]]]):
         pulumi.set(self, "resolved_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="ssmPath")
-    def ssm_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ssm_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Ssm path environment configuration parameters.
         """
         return pulumi.get(self, "ssm_path")
 
     @ssm_path.setter
-    def ssm_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ssm_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ssm_path", value)
 
 
 class ProjectProfileEnvironmentConfigurationParameterArgsDict(TypedDict):
-    is_editable: NotRequired[pulumi.Input[_builtins.bool]]
+    is_editable: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether the environment parameter is editable.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the environment configuration parameter.
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The value of the environment configuration parameter.
     """
@@ -4139,9 +4139,9 @@ class ProjectProfileEnvironmentConfigurationParameterArgsDict(TypedDict):
 @pulumi.input_type
 class ProjectProfileEnvironmentConfigurationParameterArgs:
     def __init__(__self__, *,
-                 is_editable: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 is_editable: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.bool] is_editable: Specifies whether the environment parameter is editable.
         :param pulumi.Input[_builtins.str] name: The name of the environment configuration parameter.
@@ -4156,38 +4156,38 @@ class ProjectProfileEnvironmentConfigurationParameterArgs:
 
     @_builtins.property
     @pulumi.getter(name="isEditable")
-    def is_editable(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_editable(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the environment parameter is editable.
         """
         return pulumi.get(self, "is_editable")
 
     @is_editable.setter
-    def is_editable(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_editable(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_editable", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the environment configuration parameter.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value of the environment configuration parameter.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
@@ -4204,27 +4204,27 @@ class ProjectProfileEnvironmentConfigurationArgsDict(TypedDict):
     """
     The environment name.
     """
-    aws_account: NotRequired[pulumi.Input['ProjectProfileAwsAccountArgsDict']]
+    aws_account: NotRequired[pulumi.Input[Optional['ProjectProfileAwsAccountArgs']]]
     """
     The AWS account of the environment.
     """
-    configuration_parameters: NotRequired[pulumi.Input['ProjectProfileEnvironmentConfigurationParametersDetailsArgsDict']]
+    configuration_parameters: NotRequired[pulumi.Input[Optional['ProjectProfileEnvironmentConfigurationParametersDetailsArgs']]]
     """
     The configuration parameters of the environment.
     """
-    deployment_mode: NotRequired[pulumi.Input['ProjectProfileDeploymentMode']]
+    deployment_mode: NotRequired[pulumi.Input[Optional['ProjectProfileDeploymentMode']]]
     """
     The deployment mode of the environment.
     """
-    deployment_order: NotRequired[pulumi.Input[_builtins.float]]
+    deployment_order: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The deployment order of the environment.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The environment description.
     """
-    environment_configuration_id: NotRequired[pulumi.Input[_builtins.str]]
+    environment_configuration_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class ProjectProfileEnvironmentConfigurationArgs:
@@ -4232,12 +4232,12 @@ class ProjectProfileEnvironmentConfigurationArgs:
                  aws_region: pulumi.Input['ProjectProfileRegionArgs'],
                  environment_blueprint_id: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
-                 aws_account: Optional[pulumi.Input['ProjectProfileAwsAccountArgs']] = None,
-                 configuration_parameters: Optional[pulumi.Input['ProjectProfileEnvironmentConfigurationParametersDetailsArgs']] = None,
-                 deployment_mode: Optional[pulumi.Input['ProjectProfileDeploymentMode']] = None,
-                 deployment_order: Optional[pulumi.Input[_builtins.float]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_configuration_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 aws_account: pulumi.Input[Optional['ProjectProfileAwsAccountArgs']] = None,
+                 configuration_parameters: pulumi.Input[Optional['ProjectProfileEnvironmentConfigurationParametersDetailsArgs']] = None,
+                 deployment_mode: pulumi.Input[Optional['ProjectProfileDeploymentMode']] = None,
+                 deployment_order: pulumi.Input[Optional[_builtins.float]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_configuration_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input['ProjectProfileRegionArgs'] aws_region: The AWS Region of the environment.
         :param pulumi.Input[_builtins.str] environment_blueprint_id: The environment blueprint ID.
@@ -4302,71 +4302,71 @@ class ProjectProfileEnvironmentConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsAccount")
-    def aws_account(self) -> Optional[pulumi.Input['ProjectProfileAwsAccountArgs']]:
+    def aws_account(self) -> pulumi.Input[Optional['ProjectProfileAwsAccountArgs']]:
         """
         The AWS account of the environment.
         """
         return pulumi.get(self, "aws_account")
 
     @aws_account.setter
-    def aws_account(self, value: Optional[pulumi.Input['ProjectProfileAwsAccountArgs']]):
+    def aws_account(self, value: pulumi.Input[Optional['ProjectProfileAwsAccountArgs']]):
         pulumi.set(self, "aws_account", value)
 
     @_builtins.property
     @pulumi.getter(name="configurationParameters")
-    def configuration_parameters(self) -> Optional[pulumi.Input['ProjectProfileEnvironmentConfigurationParametersDetailsArgs']]:
+    def configuration_parameters(self) -> pulumi.Input[Optional['ProjectProfileEnvironmentConfigurationParametersDetailsArgs']]:
         """
         The configuration parameters of the environment.
         """
         return pulumi.get(self, "configuration_parameters")
 
     @configuration_parameters.setter
-    def configuration_parameters(self, value: Optional[pulumi.Input['ProjectProfileEnvironmentConfigurationParametersDetailsArgs']]):
+    def configuration_parameters(self, value: pulumi.Input[Optional['ProjectProfileEnvironmentConfigurationParametersDetailsArgs']]):
         pulumi.set(self, "configuration_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="deploymentMode")
-    def deployment_mode(self) -> Optional[pulumi.Input['ProjectProfileDeploymentMode']]:
+    def deployment_mode(self) -> pulumi.Input[Optional['ProjectProfileDeploymentMode']]:
         """
         The deployment mode of the environment.
         """
         return pulumi.get(self, "deployment_mode")
 
     @deployment_mode.setter
-    def deployment_mode(self, value: Optional[pulumi.Input['ProjectProfileDeploymentMode']]):
+    def deployment_mode(self, value: pulumi.Input[Optional['ProjectProfileDeploymentMode']]):
         pulumi.set(self, "deployment_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="deploymentOrder")
-    def deployment_order(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def deployment_order(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The deployment order of the environment.
         """
         return pulumi.get(self, "deployment_order")
 
     @deployment_order.setter
-    def deployment_order(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def deployment_order(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "deployment_order", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The environment description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="environmentConfigurationId")
-    def environment_configuration_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def environment_configuration_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "environment_configuration_id")
 
     @environment_configuration_id.setter
-    def environment_configuration_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def environment_configuration_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "environment_configuration_id", value)
 
 

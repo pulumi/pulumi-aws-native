@@ -154,7 +154,7 @@ def get_verified_access_trust_provider(verified_access_trust_provider_id: Option
         sse_specification=pulumi.get(__ret__, 'sse_specification'),
         tags=pulumi.get(__ret__, 'tags'),
         verified_access_trust_provider_id=pulumi.get(__ret__, 'verified_access_trust_provider_id'))
-def get_verified_access_trust_provider_output(verified_access_trust_provider_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_verified_access_trust_provider_output(verified_access_trust_provider_id: pulumi.Input[Optional[_builtins.str]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVerifiedAccessTrustProviderResult]:
     """
     The AWS::EC2::VerifiedAccessTrustProvider type describes a verified access trust provider

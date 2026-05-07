@@ -22,16 +22,16 @@ __all__ = ['CompositeAlarmArgs', 'CompositeAlarm']
 class CompositeAlarmArgs:
     def __init__(__self__, *,
                  alarm_rule: pulumi.Input[_builtins.str],
-                 actions_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 actions_suppressor: Optional[pulumi.Input[_builtins.str]] = None,
-                 actions_suppressor_extension_period: Optional[pulumi.Input[_builtins.int]] = None,
-                 actions_suppressor_wait_period: Optional[pulumi.Input[_builtins.int]] = None,
-                 alarm_actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 alarm_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 alarm_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 insufficient_data_actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ok_actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 actions_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 actions_suppressor: pulumi.Input[Optional[_builtins.str]] = None,
+                 actions_suppressor_extension_period: pulumi.Input[Optional[_builtins.int]] = None,
+                 actions_suppressor_wait_period: pulumi.Input[Optional[_builtins.int]] = None,
+                 alarm_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 alarm_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 alarm_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 insufficient_data_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ok_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a CompositeAlarm resource.
 
@@ -83,122 +83,122 @@ class CompositeAlarmArgs:
 
     @_builtins.property
     @pulumi.getter(name="actionsEnabled")
-    def actions_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def actions_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.
         """
         return pulumi.get(self, "actions_enabled")
 
     @actions_enabled.setter
-    def actions_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def actions_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "actions_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="actionsSuppressor")
-    def actions_suppressor(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def actions_suppressor(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Actions will be suppressed if the suppressor alarm is in the ALARM state. ActionsSuppressor can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm. 
         """
         return pulumi.get(self, "actions_suppressor")
 
     @actions_suppressor.setter
-    def actions_suppressor(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def actions_suppressor(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "actions_suppressor", value)
 
     @_builtins.property
     @pulumi.getter(name="actionsSuppressorExtensionPeriod")
-    def actions_suppressor_extension_period(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def actions_suppressor_extension_period(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Actions will be suppressed if WaitPeriod is active. The length of time that actions are suppressed is in seconds.
         """
         return pulumi.get(self, "actions_suppressor_extension_period")
 
     @actions_suppressor_extension_period.setter
-    def actions_suppressor_extension_period(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def actions_suppressor_extension_period(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "actions_suppressor_extension_period", value)
 
     @_builtins.property
     @pulumi.getter(name="actionsSuppressorWaitPeriod")
-    def actions_suppressor_wait_period(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def actions_suppressor_wait_period(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Actions will be suppressed if ExtensionPeriod is active. The length of time that actions are suppressed is in seconds.
         """
         return pulumi.get(self, "actions_suppressor_wait_period")
 
     @actions_suppressor_wait_period.setter
-    def actions_suppressor_wait_period(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def actions_suppressor_wait_period(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "actions_suppressor_wait_period", value)
 
     @_builtins.property
     @pulumi.getter(name="alarmActions")
-    def alarm_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def alarm_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of actions to execute when this alarm transitions into an ALARM state from any other state. Specify each action as an Amazon Resource Name (ARN).
         """
         return pulumi.get(self, "alarm_actions")
 
     @alarm_actions.setter
-    def alarm_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def alarm_actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "alarm_actions", value)
 
     @_builtins.property
     @pulumi.getter(name="alarmDescription")
-    def alarm_description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def alarm_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the alarm
         """
         return pulumi.get(self, "alarm_description")
 
     @alarm_description.setter
-    def alarm_description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def alarm_description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "alarm_description", value)
 
     @_builtins.property
     @pulumi.getter(name="alarmName")
-    def alarm_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def alarm_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Composite Alarm
         """
         return pulumi.get(self, "alarm_name")
 
     @alarm_name.setter
-    def alarm_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def alarm_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "alarm_name", value)
 
     @_builtins.property
     @pulumi.getter(name="insufficientDataActions")
-    def insufficient_data_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def insufficient_data_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The actions to execute when this alarm transitions to the INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
         """
         return pulumi.get(self, "insufficient_data_actions")
 
     @insufficient_data_actions.setter
-    def insufficient_data_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def insufficient_data_actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "insufficient_data_actions", value)
 
     @_builtins.property
     @pulumi.getter(name="okActions")
-    def ok_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ok_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The actions to execute when this alarm transitions to the OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
         """
         return pulumi.get(self, "ok_actions")
 
     @ok_actions.setter
-    def ok_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ok_actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ok_actions", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A list of key-value pairs to associate with the composite alarm. You can associate as many as 50 tags with an alarm.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -208,17 +208,17 @@ class CompositeAlarm(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 actions_suppressor: Optional[pulumi.Input[_builtins.str]] = None,
-                 actions_suppressor_extension_period: Optional[pulumi.Input[_builtins.int]] = None,
-                 actions_suppressor_wait_period: Optional[pulumi.Input[_builtins.int]] = None,
-                 alarm_actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 alarm_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 alarm_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 alarm_rule: Optional[pulumi.Input[_builtins.str]] = None,
-                 insufficient_data_actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ok_actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 actions_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 actions_suppressor: pulumi.Input[Optional[_builtins.str]] = None,
+                 actions_suppressor_extension_period: pulumi.Input[Optional[_builtins.int]] = None,
+                 actions_suppressor_wait_period: pulumi.Input[Optional[_builtins.int]] = None,
+                 alarm_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 alarm_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 alarm_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 alarm_rule: pulumi.Input[Optional[_builtins.str]] = None,
+                 insufficient_data_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ok_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         The AWS::CloudWatch::CompositeAlarm type specifies an alarm which aggregates the states of other Alarms (Metric or Composite Alarms) as defined by the AlarmRule expression
@@ -263,17 +263,17 @@ class CompositeAlarm(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 actions_suppressor: Optional[pulumi.Input[_builtins.str]] = None,
-                 actions_suppressor_extension_period: Optional[pulumi.Input[_builtins.int]] = None,
-                 actions_suppressor_wait_period: Optional[pulumi.Input[_builtins.int]] = None,
-                 alarm_actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 alarm_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 alarm_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 alarm_rule: Optional[pulumi.Input[_builtins.str]] = None,
-                 insufficient_data_actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ok_actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 actions_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 actions_suppressor: pulumi.Input[Optional[_builtins.str]] = None,
+                 actions_suppressor_extension_period: pulumi.Input[Optional[_builtins.int]] = None,
+                 actions_suppressor_wait_period: pulumi.Input[Optional[_builtins.int]] = None,
+                 alarm_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 alarm_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 alarm_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 alarm_rule: pulumi.Input[Optional[_builtins.str]] = None,
+                 insufficient_data_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ok_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

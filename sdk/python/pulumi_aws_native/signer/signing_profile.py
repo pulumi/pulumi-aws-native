@@ -25,9 +25,9 @@ __all__ = ['SigningProfileArgs', 'SigningProfile']
 class SigningProfileArgs:
     def __init__(__self__, *,
                  platform_id: pulumi.Input['SigningProfilePlatformId'],
-                 profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 signature_validity_period: Optional[pulumi.Input['SigningProfileSignatureValidityPeriodArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 signature_validity_period: pulumi.Input[Optional['SigningProfileSignatureValidityPeriodArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a SigningProfile resource.
 
@@ -58,38 +58,38 @@ class SigningProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="profileName")
-    def profile_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def profile_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A name for the signing profile. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the signing profile name. 
         """
         return pulumi.get(self, "profile_name")
 
     @profile_name.setter
-    def profile_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def profile_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "profile_name", value)
 
     @_builtins.property
     @pulumi.getter(name="signatureValidityPeriod")
-    def signature_validity_period(self) -> Optional[pulumi.Input['SigningProfileSignatureValidityPeriodArgs']]:
+    def signature_validity_period(self) -> pulumi.Input[Optional['SigningProfileSignatureValidityPeriodArgs']]:
         """
         Signature validity period of the profile.
         """
         return pulumi.get(self, "signature_validity_period")
 
     @signature_validity_period.setter
-    def signature_validity_period(self, value: Optional[pulumi.Input['SigningProfileSignatureValidityPeriodArgs']]):
+    def signature_validity_period(self, value: pulumi.Input[Optional['SigningProfileSignatureValidityPeriodArgs']]):
         pulumi.set(self, "signature_validity_period", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A list of tags associated with the signing profile.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -99,10 +99,10 @@ class SigningProfile(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 platform_id: Optional[pulumi.Input['SigningProfilePlatformId']] = None,
-                 profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 signature_validity_period: Optional[pulumi.Input[Union['SigningProfileSignatureValidityPeriodArgs', 'SigningProfileSignatureValidityPeriodArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 platform_id: pulumi.Input[Optional['SigningProfilePlatformId']] = None,
+                 profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 signature_validity_period: pulumi.Input[Optional[Union['SigningProfileSignatureValidityPeriodArgs', 'SigningProfileSignatureValidityPeriodArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         A signing profile is a signing template that can be used to carry out a pre-defined signing job.
@@ -140,10 +140,10 @@ class SigningProfile(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 platform_id: Optional[pulumi.Input['SigningProfilePlatformId']] = None,
-                 profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 signature_validity_period: Optional[pulumi.Input[Union['SigningProfileSignatureValidityPeriodArgs', 'SigningProfileSignatureValidityPeriodArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 platform_id: pulumi.Input[Optional['SigningProfilePlatformId']] = None,
+                 profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 signature_validity_period: pulumi.Input[Optional[Union['SigningProfileSignatureValidityPeriodArgs', 'SigningProfileSignatureValidityPeriodArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

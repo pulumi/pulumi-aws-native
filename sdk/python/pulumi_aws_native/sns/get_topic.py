@@ -229,7 +229,7 @@ def get_topic(topic_arn: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         topic_arn=pulumi.get(__ret__, 'topic_arn'),
         tracing_config=pulumi.get(__ret__, 'tracing_config'))
-def get_topic_output(topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_topic_output(topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTopicResult]:
     """
     The ``AWS::SNS::Topic`` resource creates a topic to which notifications can be published.

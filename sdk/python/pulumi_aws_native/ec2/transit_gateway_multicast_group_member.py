@@ -76,9 +76,9 @@ class TransitGatewayMulticastGroupMember(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 group_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_interface_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 transit_gateway_multicast_domain_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 group_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interface_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 transit_gateway_multicast_domain_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The AWS::EC2::TransitGatewayMulticastGroupMember registers and deregisters members and sources (network interfaces) with the transit gateway multicast group
@@ -115,9 +115,9 @@ class TransitGatewayMulticastGroupMember(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 group_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_interface_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 transit_gateway_multicast_domain_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 group_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interface_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 transit_gateway_multicast_domain_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

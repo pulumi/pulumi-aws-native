@@ -145,8 +145,8 @@ def get_privacy_budget_template(membership_identifier: Optional[_builtins.str] =
         parameters=pulumi.get(__ret__, 'parameters'),
         privacy_budget_template_identifier=pulumi.get(__ret__, 'privacy_budget_template_identifier'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_privacy_budget_template_output(membership_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                                       privacy_budget_template_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+def get_privacy_budget_template_output(membership_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                                       privacy_budget_template_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivacyBudgetTemplateResult]:
     """
     Represents a privacy budget within a collaboration

@@ -23,10 +23,10 @@ __all__ = ['AnomalyMonitorArgs', 'AnomalyMonitor']
 class AnomalyMonitorArgs:
     def __init__(__self__, *,
                  monitor_type: pulumi.Input['AnomalyMonitorMonitorType'],
-                 monitor_dimension: Optional[pulumi.Input['AnomalyMonitorMonitorDimension']] = None,
-                 monitor_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitor_specification: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
+                 monitor_dimension: pulumi.Input[Optional['AnomalyMonitorMonitorDimension']] = None,
+                 monitor_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitor_specification: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a AnomalyMonitor resource.
 
@@ -72,50 +72,50 @@ class AnomalyMonitorArgs:
 
     @_builtins.property
     @pulumi.getter(name="monitorDimension")
-    def monitor_dimension(self) -> Optional[pulumi.Input['AnomalyMonitorMonitorDimension']]:
+    def monitor_dimension(self) -> pulumi.Input[Optional['AnomalyMonitorMonitorDimension']]:
         """
         The dimensions to evaluate
         """
         return pulumi.get(self, "monitor_dimension")
 
     @monitor_dimension.setter
-    def monitor_dimension(self, value: Optional[pulumi.Input['AnomalyMonitorMonitorDimension']]):
+    def monitor_dimension(self, value: pulumi.Input[Optional['AnomalyMonitorMonitorDimension']]):
         pulumi.set(self, "monitor_dimension", value)
 
     @_builtins.property
     @pulumi.getter(name="monitorName")
-    def monitor_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def monitor_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the monitor.
         """
         return pulumi.get(self, "monitor_name")
 
     @monitor_name.setter
-    def monitor_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def monitor_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "monitor_name", value)
 
     @_builtins.property
     @pulumi.getter(name="monitorSpecification")
-    def monitor_specification(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def monitor_specification(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The array of `MonitorSpecification` in JSON array format. For instance, you can use `MonitorSpecification` to specify a tag, Cost Category, or linked account for your custom anomaly monitor. For further information, see the [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalymonitor.html#aws-resource-ce-anomalymonitor--examples) section of this page.
         """
         return pulumi.get(self, "monitor_specification")
 
     @monitor_specification.setter
-    def monitor_specification(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def monitor_specification(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "monitor_specification", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceTags")
-    def resource_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
+    def resource_tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
         """
         Tags to assign to monitor.
         """
         return pulumi.get(self, "resource_tags")
 
     @resource_tags.setter
-    def resource_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]):
+    def resource_tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]):
         pulumi.set(self, "resource_tags", value)
 
 
@@ -125,11 +125,11 @@ class AnomalyMonitor(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 monitor_dimension: Optional[pulumi.Input['AnomalyMonitorMonitorDimension']] = None,
-                 monitor_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitor_specification: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitor_type: Optional[pulumi.Input['AnomalyMonitorMonitorType']] = None,
-                 resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 monitor_dimension: pulumi.Input[Optional['AnomalyMonitorMonitorDimension']] = None,
+                 monitor_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitor_specification: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitor_type: pulumi.Input[Optional['AnomalyMonitorMonitorType']] = None,
+                 resource_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  __props__=None):
         """
         AWS Cost Anomaly Detection leverages advanced Machine Learning technologies to identify anomalous spend and root causes, so you can quickly take action. You can use Cost Anomaly Detection by creating monitor.
@@ -594,11 +594,11 @@ class AnomalyMonitor(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 monitor_dimension: Optional[pulumi.Input['AnomalyMonitorMonitorDimension']] = None,
-                 monitor_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitor_specification: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitor_type: Optional[pulumi.Input['AnomalyMonitorMonitorType']] = None,
-                 resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 monitor_dimension: pulumi.Input[Optional['AnomalyMonitorMonitorDimension']] = None,
+                 monitor_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitor_specification: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitor_type: pulumi.Input[Optional['AnomalyMonitorMonitorType']] = None,
+                 resource_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

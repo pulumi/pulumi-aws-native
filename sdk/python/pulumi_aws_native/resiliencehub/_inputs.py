@@ -42,7 +42,7 @@ class AppEventSubscriptionArgsDict(TypedDict):
     """
     Unique name to identify an event subscription.
     """
-    sns_topic_arn: NotRequired[pulumi.Input[_builtins.str]]
+    sns_topic_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Amazon Resource Name (ARN) of the Amazon Simple Notification Service topic.
     """
@@ -52,7 +52,7 @@ class AppEventSubscriptionArgs:
     def __init__(__self__, *,
                  event_type: pulumi.Input['AppEventSubscriptionEventType'],
                  name: pulumi.Input[_builtins.str],
-                 sns_topic_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 sns_topic_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Indicates an event you would like to subscribe and get notification for.
 
@@ -91,14 +91,14 @@ class AppEventSubscriptionArgs:
 
     @_builtins.property
     @pulumi.getter(name="snsTopicArn")
-    def sns_topic_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sns_topic_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Resource Name (ARN) of the Amazon Simple Notification Service topic.
         """
         return pulumi.get(self, "sns_topic_arn")
 
     @sns_topic_arn.setter
-    def sns_topic_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sns_topic_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sns_topic_arn", value)
 
 
@@ -110,11 +110,11 @@ class AppPermissionModelArgsDict(TypedDict):
     """
     Defines how AWS Resilience Hub scans your resources. It can scan for the resources by using a pre-existing role in your AWS account, or by using the credentials of the current IAM user.
     """
-    cross_account_role_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    cross_account_role_arns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Defines a list of role Amazon Resource Names (ARNs) to be used in other accounts. These ARNs are used for querying purposes while importing resources and assessing your application.
     """
-    invoker_role_name: NotRequired[pulumi.Input[_builtins.str]]
+    invoker_role_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Existing AWS IAM role name in the primary AWS account that will be assumed by AWS Resilience Hub Service Principle to obtain a read-only access to your application resources while running an assessment.
     """
@@ -123,8 +123,8 @@ class AppPermissionModelArgsDict(TypedDict):
 class AppPermissionModelArgs:
     def __init__(__self__, *,
                  type: pulumi.Input['AppPermissionModelType'],
-                 cross_account_role_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 invoker_role_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 cross_account_role_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 invoker_role_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Defines the roles and credentials that AWS Resilience Hub would use while creating the application, importing its resources, and running an assessment.
 
@@ -152,26 +152,26 @@ class AppPermissionModelArgs:
 
     @_builtins.property
     @pulumi.getter(name="crossAccountRoleArns")
-    def cross_account_role_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def cross_account_role_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Defines a list of role Amazon Resource Names (ARNs) to be used in other accounts. These ARNs are used for querying purposes while importing resources and assessing your application.
         """
         return pulumi.get(self, "cross_account_role_arns")
 
     @cross_account_role_arns.setter
-    def cross_account_role_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def cross_account_role_arns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "cross_account_role_arns", value)
 
     @_builtins.property
     @pulumi.getter(name="invokerRoleName")
-    def invoker_role_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def invoker_role_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Existing AWS IAM role name in the primary AWS account that will be assumed by AWS Resilience Hub Service Principle to obtain a read-only access to your application resources while running an assessment.
         """
         return pulumi.get(self, "invoker_role_name")
 
     @invoker_role_name.setter
-    def invoker_role_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def invoker_role_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "invoker_role_name", value)
 
 
@@ -213,11 +213,11 @@ class AppPhysicalResourceIdArgsDict(TypedDict):
     - `AWS::S3::Bucket`
     - `AWS::SQS::Queue`
     """
-    aws_account_id: NotRequired[pulumi.Input[_builtins.str]]
+    aws_account_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The AWS account that owns the physical resource.
     """
-    aws_region: NotRequired[pulumi.Input[_builtins.str]]
+    aws_region: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The AWS Region that the physical resource is located in.
     """
@@ -227,8 +227,8 @@ class AppPhysicalResourceIdArgs:
     def __init__(__self__, *,
                  identifier: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
-                 aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 aws_region: Optional[pulumi.Input[_builtins.str]] = None):
+                 aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 aws_region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] identifier: Identifier of the physical resource.
         :param pulumi.Input[_builtins.str] type: Specifies the type of physical resource identifier.
@@ -326,26 +326,26 @@ class AppPhysicalResourceIdArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
-    def aws_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aws_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS account that owns the physical resource.
         """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
-    def aws_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aws_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aws_account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="awsRegion")
-    def aws_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aws_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS Region that the physical resource is located in.
         """
         return pulumi.get(self, "aws_region")
 
     @aws_region.setter
-    def aws_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aws_region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aws_region", value)
 
 
@@ -361,21 +361,21 @@ class AppResourceMappingArgsDict(TypedDict):
     """
     Identifier of the physical resource.
     """
-    eks_source_name: NotRequired[pulumi.Input[_builtins.str]]
+    eks_source_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the Amazon Elastic Kubernetes Service cluster and namespace that this resource is mapped to when the `mappingType` is `EKS` .
 
     > This parameter accepts values in "eks-cluster/namespace" format.
     """
-    logical_stack_name: NotRequired[pulumi.Input[_builtins.str]]
+    logical_stack_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the CloudFormation stack this resource is mapped to when the `mappingType` is `CfnStack` .
     """
-    resource_name: NotRequired[pulumi.Input[_builtins.str]]
+    resource_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the resource that this resource is mapped to when the `mappingType` is `Resource` .
     """
-    terraform_source_name: NotRequired[pulumi.Input[_builtins.str]]
+    terraform_source_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the Terraform source that this resource is mapped to when the `mappingType` is `Terraform` .
     """
@@ -385,10 +385,10 @@ class AppResourceMappingArgs:
     def __init__(__self__, *,
                  mapping_type: pulumi.Input[_builtins.str],
                  physical_resource_id: pulumi.Input['AppPhysicalResourceIdArgs'],
-                 eks_source_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 logical_stack_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 terraform_source_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 eks_source_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 logical_stack_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 terraform_source_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Resource mapping is used to map logical resources from template to physical resource
 
@@ -438,7 +438,7 @@ class AppResourceMappingArgs:
 
     @_builtins.property
     @pulumi.getter(name="eksSourceName")
-    def eks_source_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def eks_source_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Amazon Elastic Kubernetes Service cluster and namespace that this resource is mapped to when the `mappingType` is `EKS` .
 
@@ -447,43 +447,43 @@ class AppResourceMappingArgs:
         return pulumi.get(self, "eks_source_name")
 
     @eks_source_name.setter
-    def eks_source_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def eks_source_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "eks_source_name", value)
 
     @_builtins.property
     @pulumi.getter(name="logicalStackName")
-    def logical_stack_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def logical_stack_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the CloudFormation stack this resource is mapped to when the `mappingType` is `CfnStack` .
         """
         return pulumi.get(self, "logical_stack_name")
 
     @logical_stack_name.setter
-    def logical_stack_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def logical_stack_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "logical_stack_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceName")
-    def resource_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the resource that this resource is mapped to when the `mappingType` is `Resource` .
         """
         return pulumi.get(self, "resource_name")
 
     @resource_name.setter
-    def resource_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_name", value)
 
     @_builtins.property
     @pulumi.getter(name="terraformSourceName")
-    def terraform_source_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def terraform_source_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Terraform source that this resource is mapped to when the `mappingType` is `Terraform` .
         """
         return pulumi.get(self, "terraform_source_name")
 
     @terraform_source_name.setter
-    def terraform_source_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def terraform_source_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "terraform_source_name", value)
 
 
@@ -552,7 +552,7 @@ class ResiliencyPolicyPolicyMapArgsDict(TypedDict):
     """
     Defines the RTO and RPO targets for software disruption.
     """
-    region: NotRequired[pulumi.Input['ResiliencyPolicyFailurePolicyArgsDict']]
+    region: NotRequired[pulumi.Input[Optional['ResiliencyPolicyFailurePolicyArgs']]]
     """
     Defines the RTO and RPO targets for Regional disruption.
     """
@@ -563,7 +563,7 @@ class ResiliencyPolicyPolicyMapArgs:
                  az: pulumi.Input['ResiliencyPolicyFailurePolicyArgs'],
                  hardware: pulumi.Input['ResiliencyPolicyFailurePolicyArgs'],
                  software: pulumi.Input['ResiliencyPolicyFailurePolicyArgs'],
-                 region: Optional[pulumi.Input['ResiliencyPolicyFailurePolicyArgs']] = None):
+                 region: pulumi.Input[Optional['ResiliencyPolicyFailurePolicyArgs']] = None):
         """
         :param pulumi.Input['ResiliencyPolicyFailurePolicyArgs'] az: Defines the RTO and RPO targets for Availability Zone disruption.
         :param pulumi.Input['ResiliencyPolicyFailurePolicyArgs'] hardware: Defines the RTO and RPO targets for hardware disruption.
@@ -614,14 +614,14 @@ class ResiliencyPolicyPolicyMapArgs:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input['ResiliencyPolicyFailurePolicyArgs']]:
+    def region(self) -> pulumi.Input[Optional['ResiliencyPolicyFailurePolicyArgs']]:
         """
         Defines the RTO and RPO targets for Regional disruption.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input['ResiliencyPolicyFailurePolicyArgs']]):
+    def region(self, value: pulumi.Input[Optional['ResiliencyPolicyFailurePolicyArgs']]):
         pulumi.set(self, "region", value)
 
 

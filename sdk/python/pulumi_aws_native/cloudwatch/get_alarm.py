@@ -372,7 +372,7 @@ def get_alarm(alarm_name: Optional[_builtins.str] = None,
         threshold_metric_id=pulumi.get(__ret__, 'threshold_metric_id'),
         treat_missing_data=pulumi.get(__ret__, 'treat_missing_data'),
         unit=pulumi.get(__ret__, 'unit'))
-def get_alarm_output(alarm_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_alarm_output(alarm_name: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAlarmResult]:
     """
     The ``AWS::CloudWatch::Alarm`` type specifies an alarm and associates it with the specified metric or metric math expression.

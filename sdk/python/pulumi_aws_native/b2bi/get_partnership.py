@@ -168,7 +168,7 @@ def get_partnership(partnership_id: Optional[_builtins.str] = None,
         partnership_id=pulumi.get(__ret__, 'partnership_id'),
         tags=pulumi.get(__ret__, 'tags'),
         trading_partner_id=pulumi.get(__ret__, 'trading_partner_id'))
-def get_partnership_output(partnership_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_partnership_output(partnership_id: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPartnershipResult]:
     """
     Definition of AWS::B2BI::Partnership Resource Type

@@ -34,15 +34,15 @@ class FhirDatastoreIdentityProviderConfigurationArgsDict(TypedDict):
     """
     Type of Authorization Strategy. The two types of supported Authorization strategies are SMART_ON_FHIR_V1 and AWS_AUTH.
     """
-    fine_grained_authorization_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    fine_grained_authorization_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Flag to indicate if fine-grained authorization will be enabled for the datastore
     """
-    idp_lambda_arn: NotRequired[pulumi.Input[_builtins.str]]
+    idp_lambda_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon Resource Name (ARN) of the Lambda function that will be used to decode the access token created by the authorization server.
     """
-    metadata: NotRequired[pulumi.Input[_builtins.str]]
+    metadata: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The JSON metadata elements for identity provider configuration.
     """
@@ -51,9 +51,9 @@ class FhirDatastoreIdentityProviderConfigurationArgsDict(TypedDict):
 class FhirDatastoreIdentityProviderConfigurationArgs:
     def __init__(__self__, *,
                  authorization_strategy: pulumi.Input['FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy'],
-                 fine_grained_authorization_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 idp_lambda_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata: Optional[pulumi.Input[_builtins.str]] = None):
+                 fine_grained_authorization_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 idp_lambda_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The identity provider configuration for the datastore
 
@@ -84,38 +84,38 @@ class FhirDatastoreIdentityProviderConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="fineGrainedAuthorizationEnabled")
-    def fine_grained_authorization_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fine_grained_authorization_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Flag to indicate if fine-grained authorization will be enabled for the datastore
         """
         return pulumi.get(self, "fine_grained_authorization_enabled")
 
     @fine_grained_authorization_enabled.setter
-    def fine_grained_authorization_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fine_grained_authorization_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fine_grained_authorization_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="idpLambdaArn")
-    def idp_lambda_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def idp_lambda_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the Lambda function that will be used to decode the access token created by the authorization server.
         """
         return pulumi.get(self, "idp_lambda_arn")
 
     @idp_lambda_arn.setter
-    def idp_lambda_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def idp_lambda_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "idp_lambda_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def metadata(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metadata(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The JSON metadata elements for identity provider configuration.
         """
         return pulumi.get(self, "metadata")
 
     @metadata.setter
-    def metadata(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metadata(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "metadata", value)
 
 
@@ -127,7 +127,7 @@ class FhirDatastoreKmsEncryptionConfigArgsDict(TypedDict):
     """
     The type of customer-managed-key (CMK) used for encryption. The two types of supported CMKs are customer owned CMKs and AWS owned CMKs.
     """
-    kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    kms_key_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The KMS encryption key id/alias used to encrypt the Data Store contents at rest.
     """
@@ -136,7 +136,7 @@ class FhirDatastoreKmsEncryptionConfigArgsDict(TypedDict):
 class FhirDatastoreKmsEncryptionConfigArgs:
     def __init__(__self__, *,
                  cmk_type: pulumi.Input['FhirDatastoreKmsEncryptionConfigCmkType'],
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The customer-managed-key (CMK) used when creating a Data Store. If a customer owned key is not specified, an AWS owned key will be used for encryption.
 
@@ -161,14 +161,14 @@ class FhirDatastoreKmsEncryptionConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The KMS encryption key id/alias used to encrypt the Data Store contents at rest.
         """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
 

@@ -66,8 +66,8 @@ def get_event_bus_policy(event_bus_name: Optional[_builtins.str] = None,
 
     return AwaitableGetEventBusPolicyResult(
         statement=pulumi.get(__ret__, 'statement'))
-def get_event_bus_policy_output(event_bus_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                statement_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_event_bus_policy_output(event_bus_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                statement_id: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEventBusPolicyResult]:
     """
     Resource Type definition for AWS::Events::EventBusPolicy

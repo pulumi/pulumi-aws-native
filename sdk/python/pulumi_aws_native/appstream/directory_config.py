@@ -24,7 +24,7 @@ class DirectoryConfigArgs:
                  directory_name: pulumi.Input[_builtins.str],
                  organizational_unit_distinguished_names: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  service_account_credentials: pulumi.Input['DirectoryConfigServiceAccountCredentialsArgs'],
-                 certificate_based_auth_properties: Optional[pulumi.Input['DirectoryConfigCertificateBasedAuthPropertiesArgs']] = None):
+                 certificate_based_auth_properties: pulumi.Input[Optional['DirectoryConfigCertificateBasedAuthPropertiesArgs']] = None):
         """
         The set of arguments for constructing a DirectoryConfig resource.
 
@@ -77,14 +77,14 @@ class DirectoryConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="certificateBasedAuthProperties")
-    def certificate_based_auth_properties(self) -> Optional[pulumi.Input['DirectoryConfigCertificateBasedAuthPropertiesArgs']]:
+    def certificate_based_auth_properties(self) -> pulumi.Input[Optional['DirectoryConfigCertificateBasedAuthPropertiesArgs']]:
         """
         The certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances.
         """
         return pulumi.get(self, "certificate_based_auth_properties")
 
     @certificate_based_auth_properties.setter
-    def certificate_based_auth_properties(self, value: Optional[pulumi.Input['DirectoryConfigCertificateBasedAuthPropertiesArgs']]):
+    def certificate_based_auth_properties(self, value: pulumi.Input[Optional['DirectoryConfigCertificateBasedAuthPropertiesArgs']]):
         pulumi.set(self, "certificate_based_auth_properties", value)
 
 
@@ -94,10 +94,10 @@ class DirectoryConfig(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 certificate_based_auth_properties: Optional[pulumi.Input[Union['DirectoryConfigCertificateBasedAuthPropertiesArgs', 'DirectoryConfigCertificateBasedAuthPropertiesArgsDict']]] = None,
-                 directory_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 organizational_unit_distinguished_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 service_account_credentials: Optional[pulumi.Input[Union['DirectoryConfigServiceAccountCredentialsArgs', 'DirectoryConfigServiceAccountCredentialsArgsDict']]] = None,
+                 certificate_based_auth_properties: pulumi.Input[Optional[Union['DirectoryConfigCertificateBasedAuthPropertiesArgs', 'DirectoryConfigCertificateBasedAuthPropertiesArgsDict']]] = None,
+                 directory_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 organizational_unit_distinguished_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 service_account_credentials: pulumi.Input[Optional[Union['DirectoryConfigServiceAccountCredentialsArgs', 'DirectoryConfigServiceAccountCredentialsArgsDict']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::AppStream::DirectoryConfig
@@ -135,10 +135,10 @@ class DirectoryConfig(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 certificate_based_auth_properties: Optional[pulumi.Input[Union['DirectoryConfigCertificateBasedAuthPropertiesArgs', 'DirectoryConfigCertificateBasedAuthPropertiesArgsDict']]] = None,
-                 directory_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 organizational_unit_distinguished_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 service_account_credentials: Optional[pulumi.Input[Union['DirectoryConfigServiceAccountCredentialsArgs', 'DirectoryConfigServiceAccountCredentialsArgsDict']]] = None,
+                 certificate_based_auth_properties: pulumi.Input[Optional[Union['DirectoryConfigCertificateBasedAuthPropertiesArgs', 'DirectoryConfigCertificateBasedAuthPropertiesArgsDict']]] = None,
+                 directory_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 organizational_unit_distinguished_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 service_account_credentials: pulumi.Input[Optional[Union['DirectoryConfigServiceAccountCredentialsArgs', 'DirectoryConfigServiceAccountCredentialsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

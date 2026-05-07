@@ -194,7 +194,7 @@ def get_user(arn: Optional[_builtins.str] = None,
         role=pulumi.get(__ret__, 'role'),
         ssh_public_keys=pulumi.get(__ret__, 'ssh_public_keys'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_user_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_user_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserResult]:
     """
     Definition of AWS::Transfer::User Resource Type

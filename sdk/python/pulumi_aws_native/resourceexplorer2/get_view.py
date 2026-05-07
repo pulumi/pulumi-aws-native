@@ -109,7 +109,7 @@ def get_view(view_arn: Optional[_builtins.str] = None,
         included_properties=pulumi.get(__ret__, 'included_properties'),
         tags=pulumi.get(__ret__, 'tags'),
         view_arn=pulumi.get(__ret__, 'view_arn'))
-def get_view_output(view_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_view_output(view_arn: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetViewResult]:
     """
     Definition of AWS::ResourceExplorer2::View Resource Type

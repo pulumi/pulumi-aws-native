@@ -219,7 +219,7 @@ def get_investigation_group(arn: Optional[_builtins.str] = None,
         role_arn=pulumi.get(__ret__, 'role_arn'),
         tag_key_boundaries=pulumi.get(__ret__, 'tag_key_boundaries'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_investigation_group_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_investigation_group_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInvestigationGroupResult]:
     """
     Definition of AWS::AIOps::InvestigationGroup Resource Type

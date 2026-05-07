@@ -109,7 +109,7 @@ class CampaignAnswerMachineDetectionConfigArgsDict(TypedDict):
     """
     Flag to decided whether outbound calls should have answering machine detection enabled or not
     """
-    await_answer_machine_prompt: NotRequired[pulumi.Input[_builtins.bool]]
+    await_answer_machine_prompt: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Enables detection of prompts (e.g., beep after after a voicemail greeting)
     """
@@ -118,7 +118,7 @@ class CampaignAnswerMachineDetectionConfigArgsDict(TypedDict):
 class CampaignAnswerMachineDetectionConfigArgs:
     def __init__(__self__, *,
                  enable_answer_machine_detection: pulumi.Input[_builtins.bool],
-                 await_answer_machine_prompt: Optional[pulumi.Input[_builtins.bool]] = None):
+                 await_answer_machine_prompt: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The configuration used for answering machine detection during outbound calls
 
@@ -143,14 +143,14 @@ class CampaignAnswerMachineDetectionConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="awaitAnswerMachinePrompt")
-    def await_answer_machine_prompt(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def await_answer_machine_prompt(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables detection of prompts (e.g., beep after after a voicemail greeting)
         """
         return pulumi.get(self, "await_answer_machine_prompt")
 
     @await_answer_machine_prompt.setter
-    def await_answer_machine_prompt(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def await_answer_machine_prompt(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "await_answer_machine_prompt", value)
 
 
@@ -158,19 +158,19 @@ class CampaignChannelSubtypeConfigArgsDict(TypedDict):
     """
     The possible types of channel subtype config parameters
     """
-    email: NotRequired[pulumi.Input['CampaignEmailChannelSubtypeConfigArgsDict']]
+    email: NotRequired[pulumi.Input[Optional['CampaignEmailChannelSubtypeConfigArgs']]]
     """
     The configuration of the email channel subtype.
     """
-    sms: NotRequired[pulumi.Input['CampaignSmsChannelSubtypeConfigArgsDict']]
+    sms: NotRequired[pulumi.Input[Optional['CampaignSmsChannelSubtypeConfigArgs']]]
     """
     The configuration of the SMS channel subtype.
     """
-    telephony: NotRequired[pulumi.Input['CampaignTelephonyChannelSubtypeConfigArgsDict']]
+    telephony: NotRequired[pulumi.Input[Optional['CampaignTelephonyChannelSubtypeConfigArgs']]]
     """
     The configuration of the telephony channel subtype.
     """
-    whats_app: NotRequired[pulumi.Input['CampaignWhatsAppChannelSubtypeConfigArgsDict']]
+    whats_app: NotRequired[pulumi.Input[Optional['CampaignWhatsAppChannelSubtypeConfigArgs']]]
     """
     The configuration of the WhatsApp channel subtype.
     """
@@ -178,10 +178,10 @@ class CampaignChannelSubtypeConfigArgsDict(TypedDict):
 @pulumi.input_type
 class CampaignChannelSubtypeConfigArgs:
     def __init__(__self__, *,
-                 email: Optional[pulumi.Input['CampaignEmailChannelSubtypeConfigArgs']] = None,
-                 sms: Optional[pulumi.Input['CampaignSmsChannelSubtypeConfigArgs']] = None,
-                 telephony: Optional[pulumi.Input['CampaignTelephonyChannelSubtypeConfigArgs']] = None,
-                 whats_app: Optional[pulumi.Input['CampaignWhatsAppChannelSubtypeConfigArgs']] = None):
+                 email: pulumi.Input[Optional['CampaignEmailChannelSubtypeConfigArgs']] = None,
+                 sms: pulumi.Input[Optional['CampaignSmsChannelSubtypeConfigArgs']] = None,
+                 telephony: pulumi.Input[Optional['CampaignTelephonyChannelSubtypeConfigArgs']] = None,
+                 whats_app: pulumi.Input[Optional['CampaignWhatsAppChannelSubtypeConfigArgs']] = None):
         """
         The possible types of channel subtype config parameters
 
@@ -201,50 +201,50 @@ class CampaignChannelSubtypeConfigArgs:
 
     @_builtins.property
     @pulumi.getter
-    def email(self) -> Optional[pulumi.Input['CampaignEmailChannelSubtypeConfigArgs']]:
+    def email(self) -> pulumi.Input[Optional['CampaignEmailChannelSubtypeConfigArgs']]:
         """
         The configuration of the email channel subtype.
         """
         return pulumi.get(self, "email")
 
     @email.setter
-    def email(self, value: Optional[pulumi.Input['CampaignEmailChannelSubtypeConfigArgs']]):
+    def email(self, value: pulumi.Input[Optional['CampaignEmailChannelSubtypeConfigArgs']]):
         pulumi.set(self, "email", value)
 
     @_builtins.property
     @pulumi.getter
-    def sms(self) -> Optional[pulumi.Input['CampaignSmsChannelSubtypeConfigArgs']]:
+    def sms(self) -> pulumi.Input[Optional['CampaignSmsChannelSubtypeConfigArgs']]:
         """
         The configuration of the SMS channel subtype.
         """
         return pulumi.get(self, "sms")
 
     @sms.setter
-    def sms(self, value: Optional[pulumi.Input['CampaignSmsChannelSubtypeConfigArgs']]):
+    def sms(self, value: pulumi.Input[Optional['CampaignSmsChannelSubtypeConfigArgs']]):
         pulumi.set(self, "sms", value)
 
     @_builtins.property
     @pulumi.getter
-    def telephony(self) -> Optional[pulumi.Input['CampaignTelephonyChannelSubtypeConfigArgs']]:
+    def telephony(self) -> pulumi.Input[Optional['CampaignTelephonyChannelSubtypeConfigArgs']]:
         """
         The configuration of the telephony channel subtype.
         """
         return pulumi.get(self, "telephony")
 
     @telephony.setter
-    def telephony(self, value: Optional[pulumi.Input['CampaignTelephonyChannelSubtypeConfigArgs']]):
+    def telephony(self, value: pulumi.Input[Optional['CampaignTelephonyChannelSubtypeConfigArgs']]):
         pulumi.set(self, "telephony", value)
 
     @_builtins.property
     @pulumi.getter(name="whatsApp")
-    def whats_app(self) -> Optional[pulumi.Input['CampaignWhatsAppChannelSubtypeConfigArgs']]:
+    def whats_app(self) -> pulumi.Input[Optional['CampaignWhatsAppChannelSubtypeConfigArgs']]:
         """
         The configuration of the WhatsApp channel subtype.
         """
         return pulumi.get(self, "whats_app")
 
     @whats_app.setter
-    def whats_app(self, value: Optional[pulumi.Input['CampaignWhatsAppChannelSubtypeConfigArgs']]):
+    def whats_app(self, value: pulumi.Input[Optional['CampaignWhatsAppChannelSubtypeConfigArgs']]):
         pulumi.set(self, "whats_app", value)
 
 
@@ -252,11 +252,11 @@ class CampaignCommunicationLimitsConfigArgsDict(TypedDict):
     """
     Communication limits config
     """
-    all_channels_subtypes: NotRequired[pulumi.Input['CampaignCommunicationLimitsArgsDict']]
+    all_channels_subtypes: NotRequired[pulumi.Input[Optional['CampaignCommunicationLimitsArgs']]]
     """
     The CommunicationLimits that apply to all channel subtypes defined in an outbound campaign.
     """
-    instance_limits_handling: NotRequired[pulumi.Input['CampaignInstanceLimitsHandling']]
+    instance_limits_handling: NotRequired[pulumi.Input[Optional['CampaignInstanceLimitsHandling']]]
     """
     Opt-in or Opt-out from instance-level limits.
     """
@@ -264,8 +264,8 @@ class CampaignCommunicationLimitsConfigArgsDict(TypedDict):
 @pulumi.input_type
 class CampaignCommunicationLimitsConfigArgs:
     def __init__(__self__, *,
-                 all_channels_subtypes: Optional[pulumi.Input['CampaignCommunicationLimitsArgs']] = None,
-                 instance_limits_handling: Optional[pulumi.Input['CampaignInstanceLimitsHandling']] = None):
+                 all_channels_subtypes: pulumi.Input[Optional['CampaignCommunicationLimitsArgs']] = None,
+                 instance_limits_handling: pulumi.Input[Optional['CampaignInstanceLimitsHandling']] = None):
         """
         Communication limits config
 
@@ -279,26 +279,26 @@ class CampaignCommunicationLimitsConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="allChannelsSubtypes")
-    def all_channels_subtypes(self) -> Optional[pulumi.Input['CampaignCommunicationLimitsArgs']]:
+    def all_channels_subtypes(self) -> pulumi.Input[Optional['CampaignCommunicationLimitsArgs']]:
         """
         The CommunicationLimits that apply to all channel subtypes defined in an outbound campaign.
         """
         return pulumi.get(self, "all_channels_subtypes")
 
     @all_channels_subtypes.setter
-    def all_channels_subtypes(self, value: Optional[pulumi.Input['CampaignCommunicationLimitsArgs']]):
+    def all_channels_subtypes(self, value: pulumi.Input[Optional['CampaignCommunicationLimitsArgs']]):
         pulumi.set(self, "all_channels_subtypes", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceLimitsHandling")
-    def instance_limits_handling(self) -> Optional[pulumi.Input['CampaignInstanceLimitsHandling']]:
+    def instance_limits_handling(self) -> pulumi.Input[Optional['CampaignInstanceLimitsHandling']]:
         """
         Opt-in or Opt-out from instance-level limits.
         """
         return pulumi.get(self, "instance_limits_handling")
 
     @instance_limits_handling.setter
-    def instance_limits_handling(self, value: Optional[pulumi.Input['CampaignInstanceLimitsHandling']]):
+    def instance_limits_handling(self, value: pulumi.Input[Optional['CampaignInstanceLimitsHandling']]):
         pulumi.set(self, "instance_limits_handling", value)
 
 
@@ -306,7 +306,7 @@ class CampaignCommunicationLimitsArgsDict(TypedDict):
     """
     Communication limits
     """
-    communication_limit_list: NotRequired[pulumi.Input[Sequence[pulumi.Input['CampaignCommunicationLimitArgsDict']]]]
+    communication_limit_list: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CampaignCommunicationLimitArgs']]]]]
     """
     The list of CommunicationLimits.
     """
@@ -314,7 +314,7 @@ class CampaignCommunicationLimitsArgsDict(TypedDict):
 @pulumi.input_type
 class CampaignCommunicationLimitsArgs:
     def __init__(__self__, *,
-                 communication_limit_list: Optional[pulumi.Input[Sequence[pulumi.Input['CampaignCommunicationLimitArgs']]]] = None):
+                 communication_limit_list: pulumi.Input[Optional[Sequence[pulumi.Input['CampaignCommunicationLimitArgs']]]] = None):
         """
         Communication limits
 
@@ -325,14 +325,14 @@ class CampaignCommunicationLimitsArgs:
 
     @_builtins.property
     @pulumi.getter(name="communicationLimitList")
-    def communication_limit_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CampaignCommunicationLimitArgs']]]]:
+    def communication_limit_list(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CampaignCommunicationLimitArgs']]]]:
         """
         The list of CommunicationLimits.
         """
         return pulumi.get(self, "communication_limit_list")
 
     @communication_limit_list.setter
-    def communication_limit_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CampaignCommunicationLimitArgs']]]]):
+    def communication_limit_list(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CampaignCommunicationLimitArgs']]]]):
         pulumi.set(self, "communication_limit_list", value)
 
 
@@ -393,19 +393,19 @@ class CampaignCommunicationTimeConfigArgsDict(TypedDict):
     """
     The local timezone configuration.
     """
-    email: NotRequired[pulumi.Input['CampaignTimeWindowArgsDict']]
+    email: NotRequired[pulumi.Input[Optional['CampaignTimeWindowArgs']]]
     """
     The communication time configuration for the email channel subtype.
     """
-    sms: NotRequired[pulumi.Input['CampaignTimeWindowArgsDict']]
+    sms: NotRequired[pulumi.Input[Optional['CampaignTimeWindowArgs']]]
     """
     The communication time configuration for the SMS channel subtype.
     """
-    telephony: NotRequired[pulumi.Input['CampaignTimeWindowArgsDict']]
+    telephony: NotRequired[pulumi.Input[Optional['CampaignTimeWindowArgs']]]
     """
     The communication time configuration for the telephony channel subtype.
     """
-    whats_app: NotRequired[pulumi.Input['CampaignTimeWindowArgsDict']]
+    whats_app: NotRequired[pulumi.Input[Optional['CampaignTimeWindowArgs']]]
     """
     The communication time configuration for the WhatsApp channel subtype.
     """
@@ -414,10 +414,10 @@ class CampaignCommunicationTimeConfigArgsDict(TypedDict):
 class CampaignCommunicationTimeConfigArgs:
     def __init__(__self__, *,
                  local_time_zone_config: pulumi.Input['CampaignLocalTimeZoneConfigArgs'],
-                 email: Optional[pulumi.Input['CampaignTimeWindowArgs']] = None,
-                 sms: Optional[pulumi.Input['CampaignTimeWindowArgs']] = None,
-                 telephony: Optional[pulumi.Input['CampaignTimeWindowArgs']] = None,
-                 whats_app: Optional[pulumi.Input['CampaignTimeWindowArgs']] = None):
+                 email: pulumi.Input[Optional['CampaignTimeWindowArgs']] = None,
+                 sms: pulumi.Input[Optional['CampaignTimeWindowArgs']] = None,
+                 telephony: pulumi.Input[Optional['CampaignTimeWindowArgs']] = None,
+                 whats_app: pulumi.Input[Optional['CampaignTimeWindowArgs']] = None):
         """
         Campaign communication time config
 
@@ -451,50 +451,50 @@ class CampaignCommunicationTimeConfigArgs:
 
     @_builtins.property
     @pulumi.getter
-    def email(self) -> Optional[pulumi.Input['CampaignTimeWindowArgs']]:
+    def email(self) -> pulumi.Input[Optional['CampaignTimeWindowArgs']]:
         """
         The communication time configuration for the email channel subtype.
         """
         return pulumi.get(self, "email")
 
     @email.setter
-    def email(self, value: Optional[pulumi.Input['CampaignTimeWindowArgs']]):
+    def email(self, value: pulumi.Input[Optional['CampaignTimeWindowArgs']]):
         pulumi.set(self, "email", value)
 
     @_builtins.property
     @pulumi.getter
-    def sms(self) -> Optional[pulumi.Input['CampaignTimeWindowArgs']]:
+    def sms(self) -> pulumi.Input[Optional['CampaignTimeWindowArgs']]:
         """
         The communication time configuration for the SMS channel subtype.
         """
         return pulumi.get(self, "sms")
 
     @sms.setter
-    def sms(self, value: Optional[pulumi.Input['CampaignTimeWindowArgs']]):
+    def sms(self, value: pulumi.Input[Optional['CampaignTimeWindowArgs']]):
         pulumi.set(self, "sms", value)
 
     @_builtins.property
     @pulumi.getter
-    def telephony(self) -> Optional[pulumi.Input['CampaignTimeWindowArgs']]:
+    def telephony(self) -> pulumi.Input[Optional['CampaignTimeWindowArgs']]:
         """
         The communication time configuration for the telephony channel subtype.
         """
         return pulumi.get(self, "telephony")
 
     @telephony.setter
-    def telephony(self, value: Optional[pulumi.Input['CampaignTimeWindowArgs']]):
+    def telephony(self, value: pulumi.Input[Optional['CampaignTimeWindowArgs']]):
         pulumi.set(self, "telephony", value)
 
     @_builtins.property
     @pulumi.getter(name="whatsApp")
-    def whats_app(self) -> Optional[pulumi.Input['CampaignTimeWindowArgs']]:
+    def whats_app(self) -> pulumi.Input[Optional['CampaignTimeWindowArgs']]:
         """
         The communication time configuration for the WhatsApp channel subtype.
         """
         return pulumi.get(self, "whats_app")
 
     @whats_app.setter
-    def whats_app(self, value: Optional[pulumi.Input['CampaignTimeWindowArgs']]):
+    def whats_app(self, value: pulumi.Input[Optional['CampaignTimeWindowArgs']]):
         pulumi.set(self, "whats_app", value)
 
 
@@ -502,14 +502,14 @@ class CampaignDailyHourArgsDict(TypedDict):
     """
     Daily Hour
     """
-    key: NotRequired[pulumi.Input['CampaignDayOfWeek']]
-    value: NotRequired[pulumi.Input[Sequence[pulumi.Input['CampaignTimeRangeArgsDict']]]]
+    key: NotRequired[pulumi.Input[Optional['CampaignDayOfWeek']]]
+    value: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CampaignTimeRangeArgs']]]]]
 
 @pulumi.input_type
 class CampaignDailyHourArgs:
     def __init__(__self__, *,
-                 key: Optional[pulumi.Input['CampaignDayOfWeek']] = None,
-                 value: Optional[pulumi.Input[Sequence[pulumi.Input['CampaignTimeRangeArgs']]]] = None):
+                 key: pulumi.Input[Optional['CampaignDayOfWeek']] = None,
+                 value: pulumi.Input[Optional[Sequence[pulumi.Input['CampaignTimeRangeArgs']]]] = None):
         """
         Daily Hour
         """
@@ -520,20 +520,20 @@ class CampaignDailyHourArgs:
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input['CampaignDayOfWeek']]:
+    def key(self) -> pulumi.Input[Optional['CampaignDayOfWeek']]:
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input['CampaignDayOfWeek']]):
+    def key(self, value: pulumi.Input[Optional['CampaignDayOfWeek']]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CampaignTimeRangeArgs']]]]:
+    def value(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CampaignTimeRangeArgs']]]]:
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CampaignTimeRangeArgs']]]]):
+    def value(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CampaignTimeRangeArgs']]]]):
         pulumi.set(self, "value", value)
 
 
@@ -549,7 +549,7 @@ class CampaignEmailChannelSubtypeConfigArgsDict(TypedDict):
     """
     The outbound mode for email of an outbound campaign.
     """
-    capacity: NotRequired[pulumi.Input[_builtins.float]]
+    capacity: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The allocation of email capacity between multiple running outbound campaigns.
     """
@@ -559,7 +559,7 @@ class CampaignEmailChannelSubtypeConfigArgs:
     def __init__(__self__, *,
                  default_outbound_config: pulumi.Input['CampaignEmailOutboundConfigArgs'],
                  outbound_mode: pulumi.Input['CampaignEmailOutboundModeArgs'],
-                 capacity: Optional[pulumi.Input[_builtins.float]] = None):
+                 capacity: pulumi.Input[Optional[_builtins.float]] = None):
         """
         Email Channel Subtype config
 
@@ -598,14 +598,14 @@ class CampaignEmailChannelSubtypeConfigArgs:
 
     @_builtins.property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def capacity(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The allocation of email capacity between multiple running outbound campaigns.
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def capacity(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "capacity", value)
 
 
@@ -621,7 +621,7 @@ class CampaignEmailOutboundConfigArgsDict(TypedDict):
     """
     The Amazon Resource Name (ARN) of the Amazon Q in Connect template.
     """
-    source_email_address_display_name: NotRequired[pulumi.Input[_builtins.str]]
+    source_email_address_display_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The display name for the Amazon Connect source email address.
     """
@@ -631,7 +631,7 @@ class CampaignEmailOutboundConfigArgs:
     def __init__(__self__, *,
                  connect_source_email_address: pulumi.Input[_builtins.str],
                  wisdom_template_arn: pulumi.Input[_builtins.str],
-                 source_email_address_display_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 source_email_address_display_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Default Email outbound config
 
@@ -670,14 +670,14 @@ class CampaignEmailOutboundConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="sourceEmailAddressDisplayName")
-    def source_email_address_display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_email_address_display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The display name for the Amazon Connect source email address.
         """
         return pulumi.get(self, "source_email_address_display_name")
 
     @source_email_address_display_name.setter
-    def source_email_address_display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_email_address_display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_email_address_display_name", value)
 
 
@@ -685,7 +685,7 @@ class CampaignEmailOutboundModeArgsDict(TypedDict):
     """
     Email Outbound Mode
     """
-    agentless_config: NotRequired[pulumi.Input['CampaignAgentlessConfigArgsDict']]
+    agentless_config: NotRequired[pulumi.Input[Optional['CampaignAgentlessConfigArgs']]]
     """
     The agentless outbound mode configuration for email.
     """
@@ -693,7 +693,7 @@ class CampaignEmailOutboundModeArgsDict(TypedDict):
 @pulumi.input_type
 class CampaignEmailOutboundModeArgs:
     def __init__(__self__, *,
-                 agentless_config: Optional[pulumi.Input['CampaignAgentlessConfigArgs']] = None):
+                 agentless_config: pulumi.Input[Optional['CampaignAgentlessConfigArgs']] = None):
         """
         Email Outbound Mode
 
@@ -704,14 +704,14 @@ class CampaignEmailOutboundModeArgs:
 
     @_builtins.property
     @pulumi.getter(name="agentlessConfig")
-    def agentless_config(self) -> Optional[pulumi.Input['CampaignAgentlessConfigArgs']]:
+    def agentless_config(self) -> pulumi.Input[Optional['CampaignAgentlessConfigArgs']]:
         """
         The agentless outbound mode configuration for email.
         """
         return pulumi.get(self, "agentless_config")
 
     @agentless_config.setter
-    def agentless_config(self, value: Optional[pulumi.Input['CampaignAgentlessConfigArgs']]):
+    def agentless_config(self, value: pulumi.Input[Optional['CampaignAgentlessConfigArgs']]):
         pulumi.set(self, "agentless_config", value)
 
 
@@ -771,7 +771,7 @@ class CampaignEventTriggerArgsDict(TypedDict):
     """
     The event trigger of the campaign
     """
-    customer_profiles_domain_arn: NotRequired[pulumi.Input[_builtins.str]]
+    customer_profiles_domain_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon Resource Name (ARN) of the Customer Profiles domain.
     """
@@ -779,7 +779,7 @@ class CampaignEventTriggerArgsDict(TypedDict):
 @pulumi.input_type
 class CampaignEventTriggerArgs:
     def __init__(__self__, *,
-                 customer_profiles_domain_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 customer_profiles_domain_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The event trigger of the campaign
 
@@ -790,14 +790,14 @@ class CampaignEventTriggerArgs:
 
     @_builtins.property
     @pulumi.getter(name="customerProfilesDomainArn")
-    def customer_profiles_domain_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def customer_profiles_domain_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the Customer Profiles domain.
         """
         return pulumi.get(self, "customer_profiles_domain_arn")
 
     @customer_profiles_domain_arn.setter
-    def customer_profiles_domain_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def customer_profiles_domain_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "customer_profiles_domain_arn", value)
 
 
@@ -805,11 +805,11 @@ class CampaignLocalTimeZoneConfigArgsDict(TypedDict):
     """
     Local time zone config
     """
-    default_time_zone: NotRequired[pulumi.Input[_builtins.str]]
+    default_time_zone: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The timezone to use for all recipients.
     """
-    local_time_zone_detection: NotRequired[pulumi.Input[Sequence[pulumi.Input['CampaignLocalTimeZoneDetectionType']]]]
+    local_time_zone_detection: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CampaignLocalTimeZoneDetectionType']]]]]
     """
     Detects methods for the recipient's timezone.
     """
@@ -817,8 +817,8 @@ class CampaignLocalTimeZoneConfigArgsDict(TypedDict):
 @pulumi.input_type
 class CampaignLocalTimeZoneConfigArgs:
     def __init__(__self__, *,
-                 default_time_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 local_time_zone_detection: Optional[pulumi.Input[Sequence[pulumi.Input['CampaignLocalTimeZoneDetectionType']]]] = None):
+                 default_time_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 local_time_zone_detection: pulumi.Input[Optional[Sequence[pulumi.Input['CampaignLocalTimeZoneDetectionType']]]] = None):
         """
         Local time zone config
 
@@ -832,26 +832,26 @@ class CampaignLocalTimeZoneConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="defaultTimeZone")
-    def default_time_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_time_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The timezone to use for all recipients.
         """
         return pulumi.get(self, "default_time_zone")
 
     @default_time_zone.setter
-    def default_time_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_time_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_time_zone", value)
 
     @_builtins.property
     @pulumi.getter(name="localTimeZoneDetection")
-    def local_time_zone_detection(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CampaignLocalTimeZoneDetectionType']]]]:
+    def local_time_zone_detection(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CampaignLocalTimeZoneDetectionType']]]]:
         """
         Detects methods for the recipient's timezone.
         """
         return pulumi.get(self, "local_time_zone_detection")
 
     @local_time_zone_detection.setter
-    def local_time_zone_detection(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CampaignLocalTimeZoneDetectionType']]]]):
+    def local_time_zone_detection(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CampaignLocalTimeZoneDetectionType']]]]):
         pulumi.set(self, "local_time_zone_detection", value)
 
 
@@ -933,7 +933,7 @@ class CampaignPreviewConfigArgsDict(TypedDict):
     """
     Countdown timer configuration for preview outbound mode.
     """
-    agent_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['CampaignAgentAction']]]]
+    agent_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CampaignAgentAction']]]]]
     """
     Agent actions for the preview outbound mode.
     """
@@ -943,7 +943,7 @@ class CampaignPreviewConfigArgs:
     def __init__(__self__, *,
                  bandwidth_allocation: pulumi.Input[_builtins.float],
                  timeout_config: pulumi.Input['CampaignTimeoutConfigArgs'],
-                 agent_actions: Optional[pulumi.Input[Sequence[pulumi.Input['CampaignAgentAction']]]] = None):
+                 agent_actions: pulumi.Input[Optional[Sequence[pulumi.Input['CampaignAgentAction']]]] = None):
         """
         Preview config
 
@@ -982,14 +982,14 @@ class CampaignPreviewConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="agentActions")
-    def agent_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CampaignAgentAction']]]]:
+    def agent_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CampaignAgentAction']]]]:
         """
         Agent actions for the preview outbound mode.
         """
         return pulumi.get(self, "agent_actions")
 
     @agent_actions.setter
-    def agent_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CampaignAgentAction']]]]):
+    def agent_actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CampaignAgentAction']]]]):
         pulumi.set(self, "agent_actions", value)
 
 
@@ -1030,7 +1030,7 @@ class CampaignRestrictedPeriodsArgsDict(TypedDict):
     """
     Restricted period config
     """
-    restricted_period_list: NotRequired[pulumi.Input[Sequence[pulumi.Input['CampaignRestrictedPeriodArgsDict']]]]
+    restricted_period_list: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CampaignRestrictedPeriodArgs']]]]]
     """
     The restricted period list.
     """
@@ -1038,7 +1038,7 @@ class CampaignRestrictedPeriodsArgsDict(TypedDict):
 @pulumi.input_type
 class CampaignRestrictedPeriodsArgs:
     def __init__(__self__, *,
-                 restricted_period_list: Optional[pulumi.Input[Sequence[pulumi.Input['CampaignRestrictedPeriodArgs']]]] = None):
+                 restricted_period_list: pulumi.Input[Optional[Sequence[pulumi.Input['CampaignRestrictedPeriodArgs']]]] = None):
         """
         Restricted period config
 
@@ -1049,14 +1049,14 @@ class CampaignRestrictedPeriodsArgs:
 
     @_builtins.property
     @pulumi.getter(name="restrictedPeriodList")
-    def restricted_period_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CampaignRestrictedPeriodArgs']]]]:
+    def restricted_period_list(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CampaignRestrictedPeriodArgs']]]]:
         """
         The restricted period list.
         """
         return pulumi.get(self, "restricted_period_list")
 
     @restricted_period_list.setter
-    def restricted_period_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CampaignRestrictedPeriodArgs']]]]):
+    def restricted_period_list(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CampaignRestrictedPeriodArgs']]]]):
         pulumi.set(self, "restricted_period_list", value)
 
 
@@ -1066,7 +1066,7 @@ class CampaignRestrictedPeriodArgsDict(TypedDict):
     """
     end_date: pulumi.Input[_builtins.str]
     start_date: pulumi.Input[_builtins.str]
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of a restricted period
     """
@@ -1076,7 +1076,7 @@ class CampaignRestrictedPeriodArgs:
     def __init__(__self__, *,
                  end_date: pulumi.Input[_builtins.str],
                  start_date: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Restricted period
 
@@ -1107,14 +1107,14 @@ class CampaignRestrictedPeriodArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of a restricted period
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -1130,7 +1130,7 @@ class CampaignScheduleArgsDict(TypedDict):
     """
     The start time of the schedule in UTC.
     """
-    refresh_frequency: NotRequired[pulumi.Input[_builtins.str]]
+    refresh_frequency: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The refresh frequency of the campaign.
     """
@@ -1140,7 +1140,7 @@ class CampaignScheduleArgs:
     def __init__(__self__, *,
                  end_time: pulumi.Input[_builtins.str],
                  start_time: pulumi.Input[_builtins.str],
-                 refresh_frequency: Optional[pulumi.Input[_builtins.str]] = None):
+                 refresh_frequency: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Campaign schedule
 
@@ -1179,14 +1179,14 @@ class CampaignScheduleArgs:
 
     @_builtins.property
     @pulumi.getter(name="refreshFrequency")
-    def refresh_frequency(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def refresh_frequency(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The refresh frequency of the campaign.
         """
         return pulumi.get(self, "refresh_frequency")
 
     @refresh_frequency.setter
-    def refresh_frequency(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def refresh_frequency(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "refresh_frequency", value)
 
 
@@ -1202,7 +1202,7 @@ class CampaignSmsChannelSubtypeConfigArgsDict(TypedDict):
     """
     The outbound mode of SMS for an outbound campaign.
     """
-    capacity: NotRequired[pulumi.Input[_builtins.float]]
+    capacity: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The allocation of SMS capacity between multiple running outbound campaigns.
     """
@@ -1212,7 +1212,7 @@ class CampaignSmsChannelSubtypeConfigArgs:
     def __init__(__self__, *,
                  default_outbound_config: pulumi.Input['CampaignSmsOutboundConfigArgs'],
                  outbound_mode: pulumi.Input['CampaignSmsOutboundModeArgs'],
-                 capacity: Optional[pulumi.Input[_builtins.float]] = None):
+                 capacity: pulumi.Input[Optional[_builtins.float]] = None):
         """
         SMS Channel Subtype config
 
@@ -1251,14 +1251,14 @@ class CampaignSmsChannelSubtypeConfigArgs:
 
     @_builtins.property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def capacity(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The allocation of SMS capacity between multiple running outbound campaigns.
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def capacity(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "capacity", value)
 
 
@@ -1318,7 +1318,7 @@ class CampaignSmsOutboundModeArgsDict(TypedDict):
     """
     SMS Outbound Mode
     """
-    agentless_config: NotRequired[pulumi.Input['CampaignAgentlessConfigArgsDict']]
+    agentless_config: NotRequired[pulumi.Input[Optional['CampaignAgentlessConfigArgs']]]
     """
     Contains agentless outbound mode configuration.
     """
@@ -1326,7 +1326,7 @@ class CampaignSmsOutboundModeArgsDict(TypedDict):
 @pulumi.input_type
 class CampaignSmsOutboundModeArgs:
     def __init__(__self__, *,
-                 agentless_config: Optional[pulumi.Input['CampaignAgentlessConfigArgs']] = None):
+                 agentless_config: pulumi.Input[Optional['CampaignAgentlessConfigArgs']] = None):
         """
         SMS Outbound Mode
 
@@ -1337,14 +1337,14 @@ class CampaignSmsOutboundModeArgs:
 
     @_builtins.property
     @pulumi.getter(name="agentlessConfig")
-    def agentless_config(self) -> Optional[pulumi.Input['CampaignAgentlessConfigArgs']]:
+    def agentless_config(self) -> pulumi.Input[Optional['CampaignAgentlessConfigArgs']]:
         """
         Contains agentless outbound mode configuration.
         """
         return pulumi.get(self, "agentless_config")
 
     @agentless_config.setter
-    def agentless_config(self, value: Optional[pulumi.Input['CampaignAgentlessConfigArgs']]):
+    def agentless_config(self, value: pulumi.Input[Optional['CampaignAgentlessConfigArgs']]):
         pulumi.set(self, "agentless_config", value)
 
 
@@ -1352,11 +1352,11 @@ class CampaignSourceArgsDict(TypedDict):
     """
     The possible source of the campaign
     """
-    customer_profiles_segment_arn: NotRequired[pulumi.Input[_builtins.str]]
+    customer_profiles_segment_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon Resource Name (ARN) of the Customer Profiles segment.
     """
-    event_trigger: NotRequired[pulumi.Input['CampaignEventTriggerArgsDict']]
+    event_trigger: NotRequired[pulumi.Input[Optional['CampaignEventTriggerArgs']]]
     """
     The event trigger of the campaign.
     """
@@ -1364,8 +1364,8 @@ class CampaignSourceArgsDict(TypedDict):
 @pulumi.input_type
 class CampaignSourceArgs:
     def __init__(__self__, *,
-                 customer_profiles_segment_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_trigger: Optional[pulumi.Input['CampaignEventTriggerArgs']] = None):
+                 customer_profiles_segment_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_trigger: pulumi.Input[Optional['CampaignEventTriggerArgs']] = None):
         """
         The possible source of the campaign
 
@@ -1379,26 +1379,26 @@ class CampaignSourceArgs:
 
     @_builtins.property
     @pulumi.getter(name="customerProfilesSegmentArn")
-    def customer_profiles_segment_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def customer_profiles_segment_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the Customer Profiles segment.
         """
         return pulumi.get(self, "customer_profiles_segment_arn")
 
     @customer_profiles_segment_arn.setter
-    def customer_profiles_segment_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def customer_profiles_segment_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "customer_profiles_segment_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="eventTrigger")
-    def event_trigger(self) -> Optional[pulumi.Input['CampaignEventTriggerArgs']]:
+    def event_trigger(self) -> pulumi.Input[Optional['CampaignEventTriggerArgs']]:
         """
         The event trigger of the campaign.
         """
         return pulumi.get(self, "event_trigger")
 
     @event_trigger.setter
-    def event_trigger(self, value: Optional[pulumi.Input['CampaignEventTriggerArgs']]):
+    def event_trigger(self, value: pulumi.Input[Optional['CampaignEventTriggerArgs']]):
         pulumi.set(self, "event_trigger", value)
 
 
@@ -1414,11 +1414,11 @@ class CampaignTelephonyChannelSubtypeConfigArgsDict(TypedDict):
     """
     The outbound mode of telephony for an outbound campaign.
     """
-    capacity: NotRequired[pulumi.Input[_builtins.float]]
+    capacity: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The allocation of telephony capacity between multiple running outbound campaigns.
     """
-    connect_queue_id: NotRequired[pulumi.Input[_builtins.str]]
+    connect_queue_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The identifier of the Amazon Connect queue associated with telephony outbound requests of an outbound campaign.
     """
@@ -1428,8 +1428,8 @@ class CampaignTelephonyChannelSubtypeConfigArgs:
     def __init__(__self__, *,
                  default_outbound_config: pulumi.Input['CampaignTelephonyOutboundConfigArgs'],
                  outbound_mode: pulumi.Input['CampaignTelephonyOutboundModeArgs'],
-                 capacity: Optional[pulumi.Input[_builtins.float]] = None,
-                 connect_queue_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 capacity: pulumi.Input[Optional[_builtins.float]] = None,
+                 connect_queue_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Telephony Channel Subtype config
 
@@ -1471,26 +1471,26 @@ class CampaignTelephonyChannelSubtypeConfigArgs:
 
     @_builtins.property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def capacity(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The allocation of telephony capacity between multiple running outbound campaigns.
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def capacity(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "capacity", value)
 
     @_builtins.property
     @pulumi.getter(name="connectQueueId")
-    def connect_queue_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connect_queue_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier of the Amazon Connect queue associated with telephony outbound requests of an outbound campaign.
         """
         return pulumi.get(self, "connect_queue_id")
 
     @connect_queue_id.setter
-    def connect_queue_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connect_queue_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connect_queue_id", value)
 
 
@@ -1502,15 +1502,15 @@ class CampaignTelephonyOutboundConfigArgsDict(TypedDict):
     """
     The identifier of the published Amazon Connect contact flow.
     """
-    answer_machine_detection_config: NotRequired[pulumi.Input['CampaignAnswerMachineDetectionConfigArgsDict']]
+    answer_machine_detection_config: NotRequired[pulumi.Input[Optional['CampaignAnswerMachineDetectionConfigArgs']]]
     """
     The answering machine detection configuration.
     """
-    connect_source_phone_number: NotRequired[pulumi.Input[_builtins.str]]
+    connect_source_phone_number: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon Connect source phone number.
     """
-    ring_timeout: NotRequired[pulumi.Input[_builtins.int]]
+    ring_timeout: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The ring timeout configuration for outbound calls. Specifies how long to wait for the call to be answered before timing out.
     """
@@ -1519,9 +1519,9 @@ class CampaignTelephonyOutboundConfigArgsDict(TypedDict):
 class CampaignTelephonyOutboundConfigArgs:
     def __init__(__self__, *,
                  connect_contact_flow_id: pulumi.Input[_builtins.str],
-                 answer_machine_detection_config: Optional[pulumi.Input['CampaignAnswerMachineDetectionConfigArgs']] = None,
-                 connect_source_phone_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 ring_timeout: Optional[pulumi.Input[_builtins.int]] = None):
+                 answer_machine_detection_config: pulumi.Input[Optional['CampaignAnswerMachineDetectionConfigArgs']] = None,
+                 connect_source_phone_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 ring_timeout: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Default Telephone Outbound config
 
@@ -1552,38 +1552,38 @@ class CampaignTelephonyOutboundConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="answerMachineDetectionConfig")
-    def answer_machine_detection_config(self) -> Optional[pulumi.Input['CampaignAnswerMachineDetectionConfigArgs']]:
+    def answer_machine_detection_config(self) -> pulumi.Input[Optional['CampaignAnswerMachineDetectionConfigArgs']]:
         """
         The answering machine detection configuration.
         """
         return pulumi.get(self, "answer_machine_detection_config")
 
     @answer_machine_detection_config.setter
-    def answer_machine_detection_config(self, value: Optional[pulumi.Input['CampaignAnswerMachineDetectionConfigArgs']]):
+    def answer_machine_detection_config(self, value: pulumi.Input[Optional['CampaignAnswerMachineDetectionConfigArgs']]):
         pulumi.set(self, "answer_machine_detection_config", value)
 
     @_builtins.property
     @pulumi.getter(name="connectSourcePhoneNumber")
-    def connect_source_phone_number(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connect_source_phone_number(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Connect source phone number.
         """
         return pulumi.get(self, "connect_source_phone_number")
 
     @connect_source_phone_number.setter
-    def connect_source_phone_number(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connect_source_phone_number(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connect_source_phone_number", value)
 
     @_builtins.property
     @pulumi.getter(name="ringTimeout")
-    def ring_timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ring_timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The ring timeout configuration for outbound calls. Specifies how long to wait for the call to be answered before timing out.
         """
         return pulumi.get(self, "ring_timeout")
 
     @ring_timeout.setter
-    def ring_timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ring_timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ring_timeout", value)
 
 
@@ -1591,19 +1591,19 @@ class CampaignTelephonyOutboundModeArgsDict(TypedDict):
     """
     Telephony Outbound Mode
     """
-    agentless_config: NotRequired[pulumi.Input['CampaignAgentlessConfigArgsDict']]
+    agentless_config: NotRequired[pulumi.Input[Optional['CampaignAgentlessConfigArgs']]]
     """
     The agentless outbound mode configuration for telephony.
     """
-    predictive_config: NotRequired[pulumi.Input['CampaignPredictiveConfigArgsDict']]
+    predictive_config: NotRequired[pulumi.Input[Optional['CampaignPredictiveConfigArgs']]]
     """
     Contains predictive outbound mode configuration.
     """
-    preview_config: NotRequired[pulumi.Input['CampaignPreviewConfigArgsDict']]
+    preview_config: NotRequired[pulumi.Input[Optional['CampaignPreviewConfigArgs']]]
     """
     Contains preview outbound mode configuration.
     """
-    progressive_config: NotRequired[pulumi.Input['CampaignProgressiveConfigArgsDict']]
+    progressive_config: NotRequired[pulumi.Input[Optional['CampaignProgressiveConfigArgs']]]
     """
     Contains progressive telephony outbound mode configuration.
     """
@@ -1611,10 +1611,10 @@ class CampaignTelephonyOutboundModeArgsDict(TypedDict):
 @pulumi.input_type
 class CampaignTelephonyOutboundModeArgs:
     def __init__(__self__, *,
-                 agentless_config: Optional[pulumi.Input['CampaignAgentlessConfigArgs']] = None,
-                 predictive_config: Optional[pulumi.Input['CampaignPredictiveConfigArgs']] = None,
-                 preview_config: Optional[pulumi.Input['CampaignPreviewConfigArgs']] = None,
-                 progressive_config: Optional[pulumi.Input['CampaignProgressiveConfigArgs']] = None):
+                 agentless_config: pulumi.Input[Optional['CampaignAgentlessConfigArgs']] = None,
+                 predictive_config: pulumi.Input[Optional['CampaignPredictiveConfigArgs']] = None,
+                 preview_config: pulumi.Input[Optional['CampaignPreviewConfigArgs']] = None,
+                 progressive_config: pulumi.Input[Optional['CampaignProgressiveConfigArgs']] = None):
         """
         Telephony Outbound Mode
 
@@ -1634,50 +1634,50 @@ class CampaignTelephonyOutboundModeArgs:
 
     @_builtins.property
     @pulumi.getter(name="agentlessConfig")
-    def agentless_config(self) -> Optional[pulumi.Input['CampaignAgentlessConfigArgs']]:
+    def agentless_config(self) -> pulumi.Input[Optional['CampaignAgentlessConfigArgs']]:
         """
         The agentless outbound mode configuration for telephony.
         """
         return pulumi.get(self, "agentless_config")
 
     @agentless_config.setter
-    def agentless_config(self, value: Optional[pulumi.Input['CampaignAgentlessConfigArgs']]):
+    def agentless_config(self, value: pulumi.Input[Optional['CampaignAgentlessConfigArgs']]):
         pulumi.set(self, "agentless_config", value)
 
     @_builtins.property
     @pulumi.getter(name="predictiveConfig")
-    def predictive_config(self) -> Optional[pulumi.Input['CampaignPredictiveConfigArgs']]:
+    def predictive_config(self) -> pulumi.Input[Optional['CampaignPredictiveConfigArgs']]:
         """
         Contains predictive outbound mode configuration.
         """
         return pulumi.get(self, "predictive_config")
 
     @predictive_config.setter
-    def predictive_config(self, value: Optional[pulumi.Input['CampaignPredictiveConfigArgs']]):
+    def predictive_config(self, value: pulumi.Input[Optional['CampaignPredictiveConfigArgs']]):
         pulumi.set(self, "predictive_config", value)
 
     @_builtins.property
     @pulumi.getter(name="previewConfig")
-    def preview_config(self) -> Optional[pulumi.Input['CampaignPreviewConfigArgs']]:
+    def preview_config(self) -> pulumi.Input[Optional['CampaignPreviewConfigArgs']]:
         """
         Contains preview outbound mode configuration.
         """
         return pulumi.get(self, "preview_config")
 
     @preview_config.setter
-    def preview_config(self, value: Optional[pulumi.Input['CampaignPreviewConfigArgs']]):
+    def preview_config(self, value: pulumi.Input[Optional['CampaignPreviewConfigArgs']]):
         pulumi.set(self, "preview_config", value)
 
     @_builtins.property
     @pulumi.getter(name="progressiveConfig")
-    def progressive_config(self) -> Optional[pulumi.Input['CampaignProgressiveConfigArgs']]:
+    def progressive_config(self) -> pulumi.Input[Optional['CampaignProgressiveConfigArgs']]:
         """
         Contains progressive telephony outbound mode configuration.
         """
         return pulumi.get(self, "progressive_config")
 
     @progressive_config.setter
-    def progressive_config(self, value: Optional[pulumi.Input['CampaignProgressiveConfigArgs']]):
+    def progressive_config(self, value: pulumi.Input[Optional['CampaignProgressiveConfigArgs']]):
         pulumi.set(self, "progressive_config", value)
 
 
@@ -1726,7 +1726,7 @@ class CampaignTimeWindowArgsDict(TypedDict):
     """
     The open hours configuration.
     """
-    restricted_periods: NotRequired[pulumi.Input['CampaignRestrictedPeriodsArgsDict']]
+    restricted_periods: NotRequired[pulumi.Input[Optional['CampaignRestrictedPeriodsArgs']]]
     """
     The restricted periods configuration.
     """
@@ -1735,7 +1735,7 @@ class CampaignTimeWindowArgsDict(TypedDict):
 class CampaignTimeWindowArgs:
     def __init__(__self__, *,
                  open_hours: pulumi.Input['CampaignOpenHoursArgs'],
-                 restricted_periods: Optional[pulumi.Input['CampaignRestrictedPeriodsArgs']] = None):
+                 restricted_periods: pulumi.Input[Optional['CampaignRestrictedPeriodsArgs']] = None):
         """
         Time window config
 
@@ -1760,14 +1760,14 @@ class CampaignTimeWindowArgs:
 
     @_builtins.property
     @pulumi.getter(name="restrictedPeriods")
-    def restricted_periods(self) -> Optional[pulumi.Input['CampaignRestrictedPeriodsArgs']]:
+    def restricted_periods(self) -> pulumi.Input[Optional['CampaignRestrictedPeriodsArgs']]:
         """
         The restricted periods configuration.
         """
         return pulumi.get(self, "restricted_periods")
 
     @restricted_periods.setter
-    def restricted_periods(self, value: Optional[pulumi.Input['CampaignRestrictedPeriodsArgs']]):
+    def restricted_periods(self, value: pulumi.Input[Optional['CampaignRestrictedPeriodsArgs']]):
         pulumi.set(self, "restricted_periods", value)
 
 
@@ -1775,7 +1775,7 @@ class CampaignTimeoutConfigArgsDict(TypedDict):
     """
     Timeout Config for preview contacts
     """
-    duration_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    duration_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Duration in seconds for the countdown timer.
     """
@@ -1783,7 +1783,7 @@ class CampaignTimeoutConfigArgsDict(TypedDict):
 @pulumi.input_type
 class CampaignTimeoutConfigArgs:
     def __init__(__self__, *,
-                 duration_in_seconds: Optional[pulumi.Input[_builtins.int]] = None):
+                 duration_in_seconds: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Timeout Config for preview contacts
 
@@ -1794,14 +1794,14 @@ class CampaignTimeoutConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="durationInSeconds")
-    def duration_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def duration_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Duration in seconds for the countdown timer.
         """
         return pulumi.get(self, "duration_in_seconds")
 
     @duration_in_seconds.setter
-    def duration_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def duration_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "duration_in_seconds", value)
 
 
@@ -1817,7 +1817,7 @@ class CampaignWhatsAppChannelSubtypeConfigArgsDict(TypedDict):
     """
     The outbound mode for WhatsApp of an outbound campaign.
     """
-    capacity: NotRequired[pulumi.Input[_builtins.float]]
+    capacity: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The allocation of WhatsApp capacity between multiple running outbound campaigns.
     """
@@ -1827,7 +1827,7 @@ class CampaignWhatsAppChannelSubtypeConfigArgs:
     def __init__(__self__, *,
                  default_outbound_config: pulumi.Input['CampaignWhatsAppOutboundConfigArgs'],
                  outbound_mode: pulumi.Input['CampaignWhatsAppOutboundModeArgs'],
-                 capacity: Optional[pulumi.Input[_builtins.float]] = None):
+                 capacity: pulumi.Input[Optional[_builtins.float]] = None):
         """
         WhatsApp Channel Subtype config
 
@@ -1866,14 +1866,14 @@ class CampaignWhatsAppChannelSubtypeConfigArgs:
 
     @_builtins.property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def capacity(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The allocation of WhatsApp capacity between multiple running outbound campaigns.
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def capacity(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "capacity", value)
 
 
@@ -1933,12 +1933,12 @@ class CampaignWhatsAppOutboundModeArgsDict(TypedDict):
     """
     WhatsApp Outbound Mode
     """
-    agentless_config: NotRequired[pulumi.Input['CampaignAgentlessConfigArgsDict']]
+    agentless_config: NotRequired[pulumi.Input[Optional['CampaignAgentlessConfigArgs']]]
 
 @pulumi.input_type
 class CampaignWhatsAppOutboundModeArgs:
     def __init__(__self__, *,
-                 agentless_config: Optional[pulumi.Input['CampaignAgentlessConfigArgs']] = None):
+                 agentless_config: pulumi.Input[Optional['CampaignAgentlessConfigArgs']] = None):
         """
         WhatsApp Outbound Mode
         """
@@ -1947,11 +1947,11 @@ class CampaignWhatsAppOutboundModeArgs:
 
     @_builtins.property
     @pulumi.getter(name="agentlessConfig")
-    def agentless_config(self) -> Optional[pulumi.Input['CampaignAgentlessConfigArgs']]:
+    def agentless_config(self) -> pulumi.Input[Optional['CampaignAgentlessConfigArgs']]:
         return pulumi.get(self, "agentless_config")
 
     @agentless_config.setter
-    def agentless_config(self, value: Optional[pulumi.Input['CampaignAgentlessConfigArgs']]):
+    def agentless_config(self, value: pulumi.Input[Optional['CampaignAgentlessConfigArgs']]):
         pulumi.set(self, "agentless_config", value)
 
 

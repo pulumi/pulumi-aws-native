@@ -27,16 +27,16 @@ class BotArgs:
                  data_privacy: pulumi.Input['DataPrivacyPropertiesArgs'],
                  idle_session_ttl_in_seconds: pulumi.Input[_builtins.int],
                  role_arn: pulumi.Input[_builtins.str],
-                 auto_build_bot_locales: Optional[pulumi.Input[_builtins.bool]] = None,
-                 bot_file_s3_location: Optional[pulumi.Input['BotS3LocationArgs']] = None,
-                 bot_locales: Optional[pulumi.Input[Sequence[pulumi.Input['BotLocaleArgs']]]] = None,
-                 bot_tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 error_log_settings: Optional[pulumi.Input['ErrorLogSettingsPropertiesArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 replication: Optional[pulumi.Input['BotReplicationArgs']] = None,
-                 test_bot_alias_settings: Optional[pulumi.Input['BotTestBotAliasSettingsArgs']] = None,
-                 test_bot_alias_tags: Optional[pulumi.Input[Sequence[pulumi.Input['BotTagArgs']]]] = None):
+                 auto_build_bot_locales: pulumi.Input[Optional[_builtins.bool]] = None,
+                 bot_file_s3_location: pulumi.Input[Optional['BotS3LocationArgs']] = None,
+                 bot_locales: pulumi.Input[Optional[Sequence[pulumi.Input['BotLocaleArgs']]]] = None,
+                 bot_tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 error_log_settings: pulumi.Input[Optional['ErrorLogSettingsPropertiesArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 replication: pulumi.Input[Optional['BotReplicationArgs']] = None,
+                 test_bot_alias_settings: pulumi.Input[Optional['BotTestBotAliasSettingsArgs']] = None,
+                 test_bot_alias_tags: pulumi.Input[Optional[Sequence[pulumi.Input['BotTagArgs']]]] = None):
         """
         The set of arguments for constructing a Bot resource.
 
@@ -122,116 +122,116 @@ class BotArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoBuildBotLocales")
-    def auto_build_bot_locales(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_build_bot_locales(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether Amazon Lex V2 should automatically build the locales for the bot after a change.
         """
         return pulumi.get(self, "auto_build_bot_locales")
 
     @auto_build_bot_locales.setter
-    def auto_build_bot_locales(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_build_bot_locales(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_build_bot_locales", value)
 
     @_builtins.property
     @pulumi.getter(name="botFileS3Location")
-    def bot_file_s3_location(self) -> Optional[pulumi.Input['BotS3LocationArgs']]:
+    def bot_file_s3_location(self) -> pulumi.Input[Optional['BotS3LocationArgs']]:
         """
         The Amazon S3 location of files used to import a bot. The files must be in the import format specified in [JSON format for importing and exporting](https://docs.aws.amazon.com/lexv2/latest/dg/import-export-format.html) in the *Amazon Lex developer guide.*
         """
         return pulumi.get(self, "bot_file_s3_location")
 
     @bot_file_s3_location.setter
-    def bot_file_s3_location(self, value: Optional[pulumi.Input['BotS3LocationArgs']]):
+    def bot_file_s3_location(self, value: pulumi.Input[Optional['BotS3LocationArgs']]):
         pulumi.set(self, "bot_file_s3_location", value)
 
     @_builtins.property
     @pulumi.getter(name="botLocales")
-    def bot_locales(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BotLocaleArgs']]]]:
+    def bot_locales(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BotLocaleArgs']]]]:
         """
         A list of locales for the bot.
         """
         return pulumi.get(self, "bot_locales")
 
     @bot_locales.setter
-    def bot_locales(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BotLocaleArgs']]]]):
+    def bot_locales(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BotLocaleArgs']]]]):
         pulumi.set(self, "bot_locales", value)
 
     @_builtins.property
     @pulumi.getter(name="botTags")
-    def bot_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def bot_tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A list of tags to add to the bot. You can only add tags when you import a bot. You can't use the `UpdateBot` operation to update tags. To update tags, use the `TagResource` operation.
         """
         return pulumi.get(self, "bot_tags")
 
     @bot_tags.setter
-    def bot_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def bot_tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "bot_tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the version.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="errorLogSettings")
-    def error_log_settings(self) -> Optional[pulumi.Input['ErrorLogSettingsPropertiesArgs']]:
+    def error_log_settings(self) -> pulumi.Input[Optional['ErrorLogSettingsPropertiesArgs']]:
         return pulumi.get(self, "error_log_settings")
 
     @error_log_settings.setter
-    def error_log_settings(self, value: Optional[pulumi.Input['ErrorLogSettingsPropertiesArgs']]):
+    def error_log_settings(self, value: pulumi.Input[Optional['ErrorLogSettingsPropertiesArgs']]):
         pulumi.set(self, "error_log_settings", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the bot locale.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def replication(self) -> Optional[pulumi.Input['BotReplicationArgs']]:
+    def replication(self) -> pulumi.Input[Optional['BotReplicationArgs']]:
         return pulumi.get(self, "replication")
 
     @replication.setter
-    def replication(self, value: Optional[pulumi.Input['BotReplicationArgs']]):
+    def replication(self, value: pulumi.Input[Optional['BotReplicationArgs']]):
         pulumi.set(self, "replication", value)
 
     @_builtins.property
     @pulumi.getter(name="testBotAliasSettings")
-    def test_bot_alias_settings(self) -> Optional[pulumi.Input['BotTestBotAliasSettingsArgs']]:
+    def test_bot_alias_settings(self) -> pulumi.Input[Optional['BotTestBotAliasSettingsArgs']]:
         """
         Specifies configuration settings for the alias used to test the bot. If the `TestBotAliasSettings` property is not specified, the settings are configured with default values.
         """
         return pulumi.get(self, "test_bot_alias_settings")
 
     @test_bot_alias_settings.setter
-    def test_bot_alias_settings(self, value: Optional[pulumi.Input['BotTestBotAliasSettingsArgs']]):
+    def test_bot_alias_settings(self, value: pulumi.Input[Optional['BotTestBotAliasSettingsArgs']]):
         pulumi.set(self, "test_bot_alias_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="testBotAliasTags")
-    def test_bot_alias_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BotTagArgs']]]]:
+    def test_bot_alias_tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BotTagArgs']]]]:
         """
         A list of tags to add to the test alias for a bot. You can only add tags when you import a bot. You can't use the `UpdateAlias` operation to update tags. To update tags on the test alias, use the `TagResource` operation.
         """
         return pulumi.get(self, "test_bot_alias_tags")
 
     @test_bot_alias_tags.setter
-    def test_bot_alias_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BotTagArgs']]]]):
+    def test_bot_alias_tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BotTagArgs']]]]):
         pulumi.set(self, "test_bot_alias_tags", value)
 
 
@@ -241,19 +241,19 @@ class Bot(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_build_bot_locales: Optional[pulumi.Input[_builtins.bool]] = None,
-                 bot_file_s3_location: Optional[pulumi.Input[Union['BotS3LocationArgs', 'BotS3LocationArgsDict']]] = None,
-                 bot_locales: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BotLocaleArgs', 'BotLocaleArgsDict']]]]] = None,
-                 bot_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 data_privacy: Optional[pulumi.Input[Union['DataPrivacyPropertiesArgs', 'DataPrivacyPropertiesArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 error_log_settings: Optional[pulumi.Input[Union['ErrorLogSettingsPropertiesArgs', 'ErrorLogSettingsPropertiesArgsDict']]] = None,
-                 idle_session_ttl_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 replication: Optional[pulumi.Input[Union['BotReplicationArgs', 'BotReplicationArgsDict']]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 test_bot_alias_settings: Optional[pulumi.Input[Union['BotTestBotAliasSettingsArgs', 'BotTestBotAliasSettingsArgsDict']]] = None,
-                 test_bot_alias_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BotTagArgs', 'BotTagArgsDict']]]]] = None,
+                 auto_build_bot_locales: pulumi.Input[Optional[_builtins.bool]] = None,
+                 bot_file_s3_location: pulumi.Input[Optional[Union['BotS3LocationArgs', 'BotS3LocationArgsDict']]] = None,
+                 bot_locales: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BotLocaleArgs', 'BotLocaleArgsDict']]]]] = None,
+                 bot_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 data_privacy: pulumi.Input[Optional[Union['DataPrivacyPropertiesArgs', 'DataPrivacyPropertiesArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 error_log_settings: pulumi.Input[Optional[Union['ErrorLogSettingsPropertiesArgs', 'ErrorLogSettingsPropertiesArgsDict']]] = None,
+                 idle_session_ttl_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 replication: pulumi.Input[Optional[Union['BotReplicationArgs', 'BotReplicationArgsDict']]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 test_bot_alias_settings: pulumi.Input[Optional[Union['BotTestBotAliasSettingsArgs', 'BotTestBotAliasSettingsArgsDict']]] = None,
+                 test_bot_alias_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BotTagArgs', 'BotTagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for an Amazon Lex conversational bot performing automated tasks such as ordering a pizza, booking a hotel, and so on.
@@ -302,19 +302,19 @@ class Bot(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_build_bot_locales: Optional[pulumi.Input[_builtins.bool]] = None,
-                 bot_file_s3_location: Optional[pulumi.Input[Union['BotS3LocationArgs', 'BotS3LocationArgsDict']]] = None,
-                 bot_locales: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BotLocaleArgs', 'BotLocaleArgsDict']]]]] = None,
-                 bot_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 data_privacy: Optional[pulumi.Input[Union['DataPrivacyPropertiesArgs', 'DataPrivacyPropertiesArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 error_log_settings: Optional[pulumi.Input[Union['ErrorLogSettingsPropertiesArgs', 'ErrorLogSettingsPropertiesArgsDict']]] = None,
-                 idle_session_ttl_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 replication: Optional[pulumi.Input[Union['BotReplicationArgs', 'BotReplicationArgsDict']]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 test_bot_alias_settings: Optional[pulumi.Input[Union['BotTestBotAliasSettingsArgs', 'BotTestBotAliasSettingsArgsDict']]] = None,
-                 test_bot_alias_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BotTagArgs', 'BotTagArgsDict']]]]] = None,
+                 auto_build_bot_locales: pulumi.Input[Optional[_builtins.bool]] = None,
+                 bot_file_s3_location: pulumi.Input[Optional[Union['BotS3LocationArgs', 'BotS3LocationArgsDict']]] = None,
+                 bot_locales: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BotLocaleArgs', 'BotLocaleArgsDict']]]]] = None,
+                 bot_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 data_privacy: pulumi.Input[Optional[Union['DataPrivacyPropertiesArgs', 'DataPrivacyPropertiesArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 error_log_settings: pulumi.Input[Optional[Union['ErrorLogSettingsPropertiesArgs', 'ErrorLogSettingsPropertiesArgsDict']]] = None,
+                 idle_session_ttl_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 replication: pulumi.Input[Optional[Union['BotReplicationArgs', 'BotReplicationArgsDict']]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 test_bot_alias_settings: pulumi.Input[Optional[Union['BotTestBotAliasSettingsArgs', 'BotTestBotAliasSettingsArgsDict']]] = None,
+                 test_bot_alias_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BotTagArgs', 'BotTagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

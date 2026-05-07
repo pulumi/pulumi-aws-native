@@ -24,15 +24,15 @@ __all__ = ['RuleArgs', 'Rule']
 @pulumi.input_type
 class RuleArgs:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_bus_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_bus_name: pulumi.Input[Optional[_builtins.str]] = None,
                  event_pattern: Optional[Any] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule_expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input['RuleState']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 targets: Optional[pulumi.Input[Sequence[pulumi.Input['RuleTargetArgs']]]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional['RuleState']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 targets: pulumi.Input[Optional[Sequence[pulumi.Input['RuleTargetArgs']]]] = None):
         """
         The set of arguments for constructing a Rule resource.
 
@@ -70,26 +70,26 @@ class RuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the rule.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="eventBusName")
-    def event_bus_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def event_bus_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.
         """
         return pulumi.get(self, "event_bus_name")
 
     @event_bus_name.setter
-    def event_bus_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def event_bus_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "event_bus_name", value)
 
     @_builtins.property
@@ -108,67 +108,67 @@ class RuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the rule.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the role that is used for target invocation.
         """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
-    def role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="scheduleExpression")
-    def schedule_expression(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def schedule_expression(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The scheduling expression. For example, "cron(0 20 * * ? *)", "rate(5 minutes)". For more information, see Creating an Amazon EventBridge rule that runs on a schedule.
         """
         return pulumi.get(self, "schedule_expression")
 
     @schedule_expression.setter
-    def schedule_expression(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def schedule_expression(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schedule_expression", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input['RuleState']]:
+    def state(self) -> pulumi.Input[Optional['RuleState']]:
         """
         The state of the rule.
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input['RuleState']]):
+    def state(self, value: pulumi.Input[Optional['RuleState']]):
         pulumi.set(self, "state", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Any tags assigned to the event rule.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleTargetArgs']]]]:
+    def targets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RuleTargetArgs']]]]:
         """
         Adds the specified targets to the specified rule, or updates the targets if they are already associated with the rule.
         Targets are the resources that are invoked when a rule is triggered.
@@ -176,7 +176,7 @@ class RuleArgs:
         return pulumi.get(self, "targets")
 
     @targets.setter
-    def targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleTargetArgs']]]]):
+    def targets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RuleTargetArgs']]]]):
         pulumi.set(self, "targets", value)
 
 
@@ -186,15 +186,15 @@ class Rule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_bus_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_bus_name: pulumi.Input[Optional[_builtins.str]] = None,
                  event_pattern: Optional[Any] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule_expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input['RuleState']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 targets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleTargetArgs', 'RuleTargetArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional['RuleState']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleTargetArgs', 'RuleTargetArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Events::Rule
@@ -332,15 +332,15 @@ class Rule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_bus_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_bus_name: pulumi.Input[Optional[_builtins.str]] = None,
                  event_pattern: Optional[Any] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule_expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input['RuleState']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 targets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleTargetArgs', 'RuleTargetArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional['RuleState']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleTargetArgs', 'RuleTargetArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

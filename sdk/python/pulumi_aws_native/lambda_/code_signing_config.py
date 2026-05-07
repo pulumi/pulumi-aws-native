@@ -25,9 +25,9 @@ __all__ = ['CodeSigningConfigArgs', 'CodeSigningConfig']
 class CodeSigningConfigArgs:
     def __init__(__self__, *,
                  allowed_publishers: pulumi.Input['CodeSigningConfigAllowedPublishersArgs'],
-                 code_signing_policies: Optional[pulumi.Input['CodeSigningConfigCodeSigningPoliciesArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 code_signing_policies: pulumi.Input[Optional['CodeSigningConfigCodeSigningPoliciesArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a CodeSigningConfig resource.
 
@@ -58,38 +58,38 @@ class CodeSigningConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="codeSigningPolicies")
-    def code_signing_policies(self) -> Optional[pulumi.Input['CodeSigningConfigCodeSigningPoliciesArgs']]:
+    def code_signing_policies(self) -> pulumi.Input[Optional['CodeSigningConfigCodeSigningPoliciesArgs']]:
         """
         Policies to control how to act if a signature is invalid
         """
         return pulumi.get(self, "code_signing_policies")
 
     @code_signing_policies.setter
-    def code_signing_policies(self, value: Optional[pulumi.Input['CodeSigningConfigCodeSigningPoliciesArgs']]):
+    def code_signing_policies(self, value: pulumi.Input[Optional['CodeSigningConfigCodeSigningPoliciesArgs']]):
         pulumi.set(self, "code_signing_policies", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the CodeSigningConfig
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A list of tags to apply to CodeSigningConfig resource
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -99,10 +99,10 @@ class CodeSigningConfig(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allowed_publishers: Optional[pulumi.Input[Union['CodeSigningConfigAllowedPublishersArgs', 'CodeSigningConfigAllowedPublishersArgsDict']]] = None,
-                 code_signing_policies: Optional[pulumi.Input[Union['CodeSigningConfigCodeSigningPoliciesArgs', 'CodeSigningConfigCodeSigningPoliciesArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 allowed_publishers: pulumi.Input[Optional[Union['CodeSigningConfigAllowedPublishersArgs', 'CodeSigningConfigAllowedPublishersArgsDict']]] = None,
+                 code_signing_policies: pulumi.Input[Optional[Union['CodeSigningConfigCodeSigningPoliciesArgs', 'CodeSigningConfigCodeSigningPoliciesArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Lambda::CodeSigningConfig.
@@ -140,10 +140,10 @@ class CodeSigningConfig(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allowed_publishers: Optional[pulumi.Input[Union['CodeSigningConfigAllowedPublishersArgs', 'CodeSigningConfigAllowedPublishersArgsDict']]] = None,
-                 code_signing_policies: Optional[pulumi.Input[Union['CodeSigningConfigCodeSigningPoliciesArgs', 'CodeSigningConfigCodeSigningPoliciesArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 allowed_publishers: pulumi.Input[Optional[Union['CodeSigningConfigAllowedPublishersArgs', 'CodeSigningConfigAllowedPublishersArgsDict']]] = None,
+                 code_signing_policies: pulumi.Input[Optional[Union['CodeSigningConfigCodeSigningPoliciesArgs', 'CodeSigningConfigCodeSigningPoliciesArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

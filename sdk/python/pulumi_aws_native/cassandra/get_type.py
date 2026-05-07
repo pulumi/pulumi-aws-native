@@ -116,8 +116,8 @@ def get_type(keyspace_name: Optional[_builtins.str] = None,
         keyspace_arn=pulumi.get(__ret__, 'keyspace_arn'),
         last_modified_timestamp=pulumi.get(__ret__, 'last_modified_timestamp'),
         max_nesting_depth=pulumi.get(__ret__, 'max_nesting_depth'))
-def get_type_output(keyspace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                    type_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_type_output(keyspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                    type_name: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTypeResult]:
     """
     Resource schema for AWS::Cassandra::Type

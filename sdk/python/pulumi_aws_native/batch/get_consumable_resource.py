@@ -113,7 +113,7 @@ def get_consumable_resource(consumable_resource_arn: Optional[_builtins.str] = N
         created_at=pulumi.get(__ret__, 'created_at'),
         in_use_quantity=pulumi.get(__ret__, 'in_use_quantity'),
         total_quantity=pulumi.get(__ret__, 'total_quantity'))
-def get_consumable_resource_output(consumable_resource_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_consumable_resource_output(consumable_resource_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConsumableResourceResult]:
     """
     Resource Type definition for AWS::Batch::ConsumableResource

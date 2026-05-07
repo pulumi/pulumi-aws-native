@@ -220,7 +220,7 @@ def get_resolver_endpoint(resolver_endpoint_id: Optional[_builtins.str] = None,
         rni_enhanced_metrics_enabled=pulumi.get(__ret__, 'rni_enhanced_metrics_enabled'),
         tags=pulumi.get(__ret__, 'tags'),
         target_name_server_metrics_enabled=pulumi.get(__ret__, 'target_name_server_metrics_enabled'))
-def get_resolver_endpoint_output(resolver_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_resolver_endpoint_output(resolver_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResolverEndpointResult]:
     """
     Resource type definition for AWS::Route53Resolver::ResolverEndpoint

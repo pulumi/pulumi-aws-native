@@ -32,11 +32,11 @@ class ConfigurationProfileValidatorsArgsDict(TypedDict):
     """
     A list of methods for validating the configuration.
     """
-    content: NotRequired[pulumi.Input[_builtins.str]]
+    content: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Either the JSON Schema content or the Amazon Resource Name (ARN) of an Lambda function.
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     AWS AppConfig supports validators of type JSON_SCHEMA and LAMBDA.
     """
@@ -44,8 +44,8 @@ class ConfigurationProfileValidatorsArgsDict(TypedDict):
 @pulumi.input_type
 class ConfigurationProfileValidatorsArgs:
     def __init__(__self__, *,
-                 content: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 content: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         A list of methods for validating the configuration.
 
@@ -59,39 +59,39 @@ class ConfigurationProfileValidatorsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def content(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Either the JSON Schema content or the Amazon Resource Name (ARN) of an Lambda function.
         """
         return pulumi.get(self, "content")
 
     @content.setter
-    def content(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS AppConfig supports validators of type JSON_SCHEMA and LAMBDA.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
 class DeploymentDynamicExtensionParametersArgsDict(TypedDict):
-    extension_reference: NotRequired[pulumi.Input[_builtins.str]]
+    extension_reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN or ID of the extension for which you are inserting a dynamic parameter.
     """
-    parameter_name: NotRequired[pulumi.Input[_builtins.str]]
+    parameter_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The parameter name.
     """
-    parameter_value: NotRequired[pulumi.Input[_builtins.str]]
+    parameter_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The parameter value.
     """
@@ -99,9 +99,9 @@ class DeploymentDynamicExtensionParametersArgsDict(TypedDict):
 @pulumi.input_type
 class DeploymentDynamicExtensionParametersArgs:
     def __init__(__self__, *,
-                 extension_reference: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameter_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameter_value: Optional[pulumi.Input[_builtins.str]] = None):
+                 extension_reference: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameter_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameter_value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] extension_reference: The ARN or ID of the extension for which you are inserting a dynamic parameter.
         :param pulumi.Input[_builtins.str] parameter_name: The parameter name.
@@ -116,38 +116,38 @@ class DeploymentDynamicExtensionParametersArgs:
 
     @_builtins.property
     @pulumi.getter(name="extensionReference")
-    def extension_reference(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def extension_reference(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN or ID of the extension for which you are inserting a dynamic parameter.
         """
         return pulumi.get(self, "extension_reference")
 
     @extension_reference.setter
-    def extension_reference(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def extension_reference(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "extension_reference", value)
 
     @_builtins.property
     @pulumi.getter(name="parameterName")
-    def parameter_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parameter_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The parameter name.
         """
         return pulumi.get(self, "parameter_name")
 
     @parameter_name.setter
-    def parameter_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parameter_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parameter_name", value)
 
     @_builtins.property
     @pulumi.getter(name="parameterValue")
-    def parameter_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parameter_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The parameter value.
         """
         return pulumi.get(self, "parameter_value")
 
     @parameter_value.setter
-    def parameter_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parameter_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parameter_value", value)
 
 
@@ -159,7 +159,7 @@ class EnvironmentMonitorArgsDict(TypedDict):
     """
     Amazon Resource Name (ARN) of the Amazon CloudWatch alarm.
     """
-    alarm_role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    alarm_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ARN of an AWS Identity and Access Management (IAM) role for AWS AppConfig to monitor AlarmArn.
     """
@@ -168,7 +168,7 @@ class EnvironmentMonitorArgsDict(TypedDict):
 class EnvironmentMonitorArgs:
     def __init__(__self__, *,
                  alarm_arn: pulumi.Input[_builtins.str],
-                 alarm_role_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 alarm_role_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Amazon CloudWatch alarm to monitor during the deployment process.
 
@@ -193,14 +193,14 @@ class EnvironmentMonitorArgs:
 
     @_builtins.property
     @pulumi.getter(name="alarmRoleArn")
-    def alarm_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def alarm_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of an AWS Identity and Access Management (IAM) role for AWS AppConfig to monitor AlarmArn.
         """
         return pulumi.get(self, "alarm_role_arn")
 
     @alarm_role_arn.setter
-    def alarm_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def alarm_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "alarm_role_arn", value)
 
 
@@ -216,11 +216,11 @@ class ExtensionActionArgsDict(TypedDict):
     """
     The URI of the extension action.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The description of the extension Action.
     """
-    role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of the role for invoking the extension action.
     """
@@ -230,8 +230,8 @@ class ExtensionActionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  uri: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         An action for an extension to take at a specific action point.
 
@@ -273,26 +273,26 @@ class ExtensionActionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the extension Action.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the role for invoking the extension action.
         """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
-    def role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_arn", value)
 
 
@@ -301,18 +301,18 @@ class ExtensionParameterArgsDict(TypedDict):
     A parameter for the extension to send to a specific action.
     """
     required: pulumi.Input[_builtins.bool]
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The description of the extension Parameter.
     """
-    dynamic: NotRequired[pulumi.Input[_builtins.bool]]
+    dynamic: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
 
 @pulumi.input_type
 class ExtensionParameterArgs:
     def __init__(__self__, *,
                  required: pulumi.Input[_builtins.bool],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 dynamic: Optional[pulumi.Input[_builtins.bool]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 dynamic: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         A parameter for the extension to send to a specific action.
 
@@ -335,23 +335,23 @@ class ExtensionParameterArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the extension Parameter.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def dynamic(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def dynamic(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "dynamic")
 
     @dynamic.setter
-    def dynamic(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def dynamic(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "dynamic", value)
 
 

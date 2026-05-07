@@ -23,8 +23,8 @@ class UserPoolDomainArgs:
     def __init__(__self__, *,
                  domain: pulumi.Input[_builtins.str],
                  user_pool_id: pulumi.Input[_builtins.str],
-                 custom_domain_config: Optional[pulumi.Input['UserPoolDomainCustomDomainConfigTypeArgs']] = None,
-                 managed_login_version: Optional[pulumi.Input[_builtins.int]] = None):
+                 custom_domain_config: pulumi.Input[Optional['UserPoolDomainCustomDomainConfigTypeArgs']] = None,
+                 managed_login_version: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a UserPoolDomain resource.
 
@@ -68,7 +68,7 @@ class UserPoolDomainArgs:
 
     @_builtins.property
     @pulumi.getter(name="customDomainConfig")
-    def custom_domain_config(self) -> Optional[pulumi.Input['UserPoolDomainCustomDomainConfigTypeArgs']]:
+    def custom_domain_config(self) -> pulumi.Input[Optional['UserPoolDomainCustomDomainConfigTypeArgs']]:
         """
         The configuration for a custom domain that hosts the sign-up and sign-in pages for your application. Use this object to specify an SSL certificate that is managed by ACM.
 
@@ -77,19 +77,19 @@ class UserPoolDomainArgs:
         return pulumi.get(self, "custom_domain_config")
 
     @custom_domain_config.setter
-    def custom_domain_config(self, value: Optional[pulumi.Input['UserPoolDomainCustomDomainConfigTypeArgs']]):
+    def custom_domain_config(self, value: pulumi.Input[Optional['UserPoolDomainCustomDomainConfigTypeArgs']]):
         pulumi.set(self, "custom_domain_config", value)
 
     @_builtins.property
     @pulumi.getter(name="managedLoginVersion")
-    def managed_login_version(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def managed_login_version(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         A version number that indicates the state of managed login for your domain. Version `1` is hosted UI (classic). Version `2` is the newer managed login with the branding editor. For more information, see [Managed login](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html) .
         """
         return pulumi.get(self, "managed_login_version")
 
     @managed_login_version.setter
-    def managed_login_version(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def managed_login_version(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "managed_login_version", value)
 
 
@@ -99,10 +99,10 @@ class UserPoolDomain(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_domain_config: Optional[pulumi.Input[Union['UserPoolDomainCustomDomainConfigTypeArgs', 'UserPoolDomainCustomDomainConfigTypeArgsDict']]] = None,
-                 domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_login_version: Optional[pulumi.Input[_builtins.int]] = None,
-                 user_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 custom_domain_config: pulumi.Input[Optional[Union['UserPoolDomainCustomDomainConfigTypeArgs', 'UserPoolDomainCustomDomainConfigTypeArgsDict']]] = None,
+                 domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_login_version: pulumi.Input[Optional[_builtins.int]] = None,
+                 user_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Cognito::UserPoolDomain
@@ -142,10 +142,10 @@ class UserPoolDomain(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_domain_config: Optional[pulumi.Input[Union['UserPoolDomainCustomDomainConfigTypeArgs', 'UserPoolDomainCustomDomainConfigTypeArgsDict']]] = None,
-                 domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_login_version: Optional[pulumi.Input[_builtins.int]] = None,
-                 user_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 custom_domain_config: pulumi.Input[Optional[Union['UserPoolDomainCustomDomainConfigTypeArgs', 'UserPoolDomainCustomDomainConfigTypeArgsDict']]] = None,
+                 domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_login_version: pulumi.Input[Optional[_builtins.int]] = None,
+                 user_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

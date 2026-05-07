@@ -25,9 +25,9 @@ __all__ = ['DatasetArgs', 'Dataset']
 class DatasetArgs:
     def __init__(__self__, *,
                  dataset_source: pulumi.Input['DatasetSourceArgs'],
-                 dataset_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 dataset_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 dataset_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 dataset_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Dataset resource.
 
@@ -58,38 +58,38 @@ class DatasetArgs:
 
     @_builtins.property
     @pulumi.getter(name="datasetDescription")
-    def dataset_description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dataset_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description about the dataset, and its functionality.
         """
         return pulumi.get(self, "dataset_description")
 
     @dataset_description.setter
-    def dataset_description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dataset_description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dataset_description", value)
 
     @_builtins.property
     @pulumi.getter(name="datasetName")
-    def dataset_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dataset_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the dataset.
         """
         return pulumi.get(self, "dataset_name")
 
     @dataset_name.setter
-    def dataset_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dataset_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dataset_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -99,10 +99,10 @@ class Dataset(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dataset_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 dataset_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 dataset_source: Optional[pulumi.Input[Union['DatasetSourceArgs', 'DatasetSourceArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 dataset_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 dataset_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 dataset_source: pulumi.Input[Optional[Union['DatasetSourceArgs', 'DatasetSourceArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::IoTSiteWise::Dataset.
@@ -140,10 +140,10 @@ class Dataset(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dataset_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 dataset_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 dataset_source: Optional[pulumi.Input[Union['DatasetSourceArgs', 'DatasetSourceArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 dataset_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 dataset_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 dataset_source: pulumi.Input[Optional[Union['DatasetSourceArgs', 'DatasetSourceArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

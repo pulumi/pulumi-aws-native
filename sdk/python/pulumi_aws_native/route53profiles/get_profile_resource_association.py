@@ -87,7 +87,7 @@ def get_profile_resource_association(id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         resource_properties=pulumi.get(__ret__, 'resource_properties'),
         resource_type=pulumi.get(__ret__, 'resource_type'))
-def get_profile_resource_association_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_profile_resource_association_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProfileResourceAssociationResult]:
     """
     Resource Type definition for AWS::Route53Profiles::ProfileResourceAssociation

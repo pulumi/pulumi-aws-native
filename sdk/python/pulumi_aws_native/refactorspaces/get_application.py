@@ -169,8 +169,8 @@ def get_application(application_identifier: Optional[_builtins.str] = None,
         stage_name=pulumi.get(__ret__, 'stage_name'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_link_id=pulumi.get(__ret__, 'vpc_link_id'))
-def get_application_output(application_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                           environment_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+def get_application_output(application_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                           environment_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationResult]:
     """
     Definition of AWS::RefactorSpaces::Application Resource Type

@@ -79,8 +79,8 @@ def get_enabled_control(control_identifier: Optional[_builtins.str] = None,
     return AwaitableGetEnabledControlResult(
         parameters=pulumi.get(__ret__, 'parameters'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_enabled_control_output(control_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                               target_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+def get_enabled_control_output(control_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                               target_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnabledControlResult]:
     """
     Enables a control on a specified target.

@@ -57,79 +57,79 @@ __all__ = [
 ]
 
 class DeviceProfileLoRaWanDeviceProfileArgsDict(TypedDict):
-    class_b_timeout: NotRequired[pulumi.Input[_builtins.int]]
+    class_b_timeout: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The ClassBTimeout value.
     """
-    class_c_timeout: NotRequired[pulumi.Input[_builtins.int]]
+    class_c_timeout: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The ClassCTimeout value.
     """
-    factory_preset_freqs_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
+    factory_preset_freqs_list: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]]
     """
     The list of values that make up the FactoryPresetFreqs value. Valid range of values include a minimum value of 1000000 and a maximum value of 16700000.
     """
-    mac_version: NotRequired[pulumi.Input[_builtins.str]]
+    mac_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The MAC version (such as OTAA 1.1 or OTAA 1.0.3) to use with this device profile.
     """
-    max_duty_cycle: NotRequired[pulumi.Input[_builtins.int]]
+    max_duty_cycle: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The MaxDutyCycle value.
     """
-    max_eirp: NotRequired[pulumi.Input[_builtins.int]]
+    max_eirp: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The MaxEIRP value.
     """
-    ping_slot_dr: NotRequired[pulumi.Input[_builtins.int]]
+    ping_slot_dr: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The PingSlotDR value.
     """
-    ping_slot_freq: NotRequired[pulumi.Input[_builtins.int]]
+    ping_slot_freq: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The PingSlotFreq value.
     """
-    ping_slot_period: NotRequired[pulumi.Input[_builtins.int]]
+    ping_slot_period: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The PingSlotPeriod value.
     """
-    reg_params_revision: NotRequired[pulumi.Input[_builtins.str]]
+    reg_params_revision: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The version of regional parameters.
     """
-    rf_region: NotRequired[pulumi.Input[_builtins.str]]
+    rf_region: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The frequency band (RFRegion) value.
     """
-    rx_data_rate2: NotRequired[pulumi.Input[_builtins.int]]
+    rx_data_rate2: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The RXDataRate2 value.
     """
-    rx_delay1: NotRequired[pulumi.Input[_builtins.int]]
+    rx_delay1: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The RXDelay1 value.
     """
-    rx_dr_offset1: NotRequired[pulumi.Input[_builtins.int]]
+    rx_dr_offset1: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The RXDROffset1 value.
     """
-    rx_freq2: NotRequired[pulumi.Input[_builtins.int]]
+    rx_freq2: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The RXFreq2 value.
     """
-    supports32_bit_f_cnt: NotRequired[pulumi.Input[_builtins.bool]]
+    supports32_bit_f_cnt: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     The Supports32BitFCnt value.
     """
-    supports_class_b: NotRequired[pulumi.Input[_builtins.bool]]
+    supports_class_b: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     The SupportsClassB value.
     """
-    supports_class_c: NotRequired[pulumi.Input[_builtins.bool]]
+    supports_class_c: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     The SupportsClassC value.
     """
-    supports_join: NotRequired[pulumi.Input[_builtins.bool]]
+    supports_join: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     The SupportsJoin value.
     """
@@ -137,25 +137,25 @@ class DeviceProfileLoRaWanDeviceProfileArgsDict(TypedDict):
 @pulumi.input_type
 class DeviceProfileLoRaWanDeviceProfileArgs:
     def __init__(__self__, *,
-                 class_b_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 class_c_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 factory_preset_freqs_list: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 mac_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_duty_cycle: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_eirp: Optional[pulumi.Input[_builtins.int]] = None,
-                 ping_slot_dr: Optional[pulumi.Input[_builtins.int]] = None,
-                 ping_slot_freq: Optional[pulumi.Input[_builtins.int]] = None,
-                 ping_slot_period: Optional[pulumi.Input[_builtins.int]] = None,
-                 reg_params_revision: Optional[pulumi.Input[_builtins.str]] = None,
-                 rf_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 rx_data_rate2: Optional[pulumi.Input[_builtins.int]] = None,
-                 rx_delay1: Optional[pulumi.Input[_builtins.int]] = None,
-                 rx_dr_offset1: Optional[pulumi.Input[_builtins.int]] = None,
-                 rx_freq2: Optional[pulumi.Input[_builtins.int]] = None,
-                 supports32_bit_f_cnt: Optional[pulumi.Input[_builtins.bool]] = None,
-                 supports_class_b: Optional[pulumi.Input[_builtins.bool]] = None,
-                 supports_class_c: Optional[pulumi.Input[_builtins.bool]] = None,
-                 supports_join: Optional[pulumi.Input[_builtins.bool]] = None):
+                 class_b_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 class_c_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 factory_preset_freqs_list: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 mac_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_duty_cycle: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_eirp: pulumi.Input[Optional[_builtins.int]] = None,
+                 ping_slot_dr: pulumi.Input[Optional[_builtins.int]] = None,
+                 ping_slot_freq: pulumi.Input[Optional[_builtins.int]] = None,
+                 ping_slot_period: pulumi.Input[Optional[_builtins.int]] = None,
+                 reg_params_revision: pulumi.Input[Optional[_builtins.str]] = None,
+                 rf_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 rx_data_rate2: pulumi.Input[Optional[_builtins.int]] = None,
+                 rx_delay1: pulumi.Input[Optional[_builtins.int]] = None,
+                 rx_dr_offset1: pulumi.Input[Optional[_builtins.int]] = None,
+                 rx_freq2: pulumi.Input[Optional[_builtins.int]] = None,
+                 supports32_bit_f_cnt: pulumi.Input[Optional[_builtins.bool]] = None,
+                 supports_class_b: pulumi.Input[Optional[_builtins.bool]] = None,
+                 supports_class_c: pulumi.Input[Optional[_builtins.bool]] = None,
+                 supports_join: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.int] class_b_timeout: The ClassBTimeout value.
         :param pulumi.Input[_builtins.int] class_c_timeout: The ClassCTimeout value.
@@ -218,230 +218,230 @@ class DeviceProfileLoRaWanDeviceProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="classBTimeout")
-    def class_b_timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def class_b_timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The ClassBTimeout value.
         """
         return pulumi.get(self, "class_b_timeout")
 
     @class_b_timeout.setter
-    def class_b_timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def class_b_timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "class_b_timeout", value)
 
     @_builtins.property
     @pulumi.getter(name="classCTimeout")
-    def class_c_timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def class_c_timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The ClassCTimeout value.
         """
         return pulumi.get(self, "class_c_timeout")
 
     @class_c_timeout.setter
-    def class_c_timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def class_c_timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "class_c_timeout", value)
 
     @_builtins.property
     @pulumi.getter(name="factoryPresetFreqsList")
-    def factory_preset_freqs_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+    def factory_preset_freqs_list(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         """
         The list of values that make up the FactoryPresetFreqs value. Valid range of values include a minimum value of 1000000 and a maximum value of 16700000.
         """
         return pulumi.get(self, "factory_preset_freqs_list")
 
     @factory_preset_freqs_list.setter
-    def factory_preset_freqs_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
+    def factory_preset_freqs_list(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "factory_preset_freqs_list", value)
 
     @_builtins.property
     @pulumi.getter(name="macVersion")
-    def mac_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mac_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The MAC version (such as OTAA 1.1 or OTAA 1.0.3) to use with this device profile.
         """
         return pulumi.get(self, "mac_version")
 
     @mac_version.setter
-    def mac_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mac_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mac_version", value)
 
     @_builtins.property
     @pulumi.getter(name="maxDutyCycle")
-    def max_duty_cycle(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_duty_cycle(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The MaxDutyCycle value.
         """
         return pulumi.get(self, "max_duty_cycle")
 
     @max_duty_cycle.setter
-    def max_duty_cycle(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_duty_cycle(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_duty_cycle", value)
 
     @_builtins.property
     @pulumi.getter(name="maxEirp")
-    def max_eirp(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_eirp(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The MaxEIRP value.
         """
         return pulumi.get(self, "max_eirp")
 
     @max_eirp.setter
-    def max_eirp(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_eirp(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_eirp", value)
 
     @_builtins.property
     @pulumi.getter(name="pingSlotDr")
-    def ping_slot_dr(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ping_slot_dr(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The PingSlotDR value.
         """
         return pulumi.get(self, "ping_slot_dr")
 
     @ping_slot_dr.setter
-    def ping_slot_dr(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ping_slot_dr(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ping_slot_dr", value)
 
     @_builtins.property
     @pulumi.getter(name="pingSlotFreq")
-    def ping_slot_freq(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ping_slot_freq(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The PingSlotFreq value.
         """
         return pulumi.get(self, "ping_slot_freq")
 
     @ping_slot_freq.setter
-    def ping_slot_freq(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ping_slot_freq(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ping_slot_freq", value)
 
     @_builtins.property
     @pulumi.getter(name="pingSlotPeriod")
-    def ping_slot_period(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ping_slot_period(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The PingSlotPeriod value.
         """
         return pulumi.get(self, "ping_slot_period")
 
     @ping_slot_period.setter
-    def ping_slot_period(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ping_slot_period(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ping_slot_period", value)
 
     @_builtins.property
     @pulumi.getter(name="regParamsRevision")
-    def reg_params_revision(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def reg_params_revision(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of regional parameters.
         """
         return pulumi.get(self, "reg_params_revision")
 
     @reg_params_revision.setter
-    def reg_params_revision(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def reg_params_revision(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "reg_params_revision", value)
 
     @_builtins.property
     @pulumi.getter(name="rfRegion")
-    def rf_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rf_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The frequency band (RFRegion) value.
         """
         return pulumi.get(self, "rf_region")
 
     @rf_region.setter
-    def rf_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rf_region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rf_region", value)
 
     @_builtins.property
     @pulumi.getter(name="rxDataRate2")
-    def rx_data_rate2(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def rx_data_rate2(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The RXDataRate2 value.
         """
         return pulumi.get(self, "rx_data_rate2")
 
     @rx_data_rate2.setter
-    def rx_data_rate2(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def rx_data_rate2(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "rx_data_rate2", value)
 
     @_builtins.property
     @pulumi.getter(name="rxDelay1")
-    def rx_delay1(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def rx_delay1(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The RXDelay1 value.
         """
         return pulumi.get(self, "rx_delay1")
 
     @rx_delay1.setter
-    def rx_delay1(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def rx_delay1(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "rx_delay1", value)
 
     @_builtins.property
     @pulumi.getter(name="rxDrOffset1")
-    def rx_dr_offset1(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def rx_dr_offset1(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The RXDROffset1 value.
         """
         return pulumi.get(self, "rx_dr_offset1")
 
     @rx_dr_offset1.setter
-    def rx_dr_offset1(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def rx_dr_offset1(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "rx_dr_offset1", value)
 
     @_builtins.property
     @pulumi.getter(name="rxFreq2")
-    def rx_freq2(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def rx_freq2(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The RXFreq2 value.
         """
         return pulumi.get(self, "rx_freq2")
 
     @rx_freq2.setter
-    def rx_freq2(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def rx_freq2(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "rx_freq2", value)
 
     @_builtins.property
     @pulumi.getter(name="supports32BitFCnt")
-    def supports32_bit_f_cnt(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def supports32_bit_f_cnt(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The Supports32BitFCnt value.
         """
         return pulumi.get(self, "supports32_bit_f_cnt")
 
     @supports32_bit_f_cnt.setter
-    def supports32_bit_f_cnt(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def supports32_bit_f_cnt(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "supports32_bit_f_cnt", value)
 
     @_builtins.property
     @pulumi.getter(name="supportsClassB")
-    def supports_class_b(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def supports_class_b(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The SupportsClassB value.
         """
         return pulumi.get(self, "supports_class_b")
 
     @supports_class_b.setter
-    def supports_class_b(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def supports_class_b(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "supports_class_b", value)
 
     @_builtins.property
     @pulumi.getter(name="supportsClassC")
-    def supports_class_c(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def supports_class_c(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The SupportsClassC value.
         """
         return pulumi.get(self, "supports_class_c")
 
     @supports_class_c.setter
-    def supports_class_c(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def supports_class_c(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "supports_class_c", value)
 
     @_builtins.property
     @pulumi.getter(name="supportsJoin")
-    def supports_join(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def supports_join(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The SupportsJoin value.
         """
         return pulumi.get(self, "supports_join")
 
     @supports_join.setter
-    def supports_join(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def supports_join(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "supports_join", value)
 
 
@@ -450,7 +450,7 @@ class FuotaTaskLoRaWanArgsDict(TypedDict):
     """
     FUOTA task LoRaWAN RF region
     """
-    start_time: NotRequired[pulumi.Input[_builtins.str]]
+    start_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     FUOTA task LoRaWAN start time
     """
@@ -459,7 +459,7 @@ class FuotaTaskLoRaWanArgsDict(TypedDict):
 class FuotaTaskLoRaWanArgs:
     def __init__(__self__, *,
                  rf_region: pulumi.Input[_builtins.str],
-                 start_time: Optional[pulumi.Input[_builtins.str]] = None):
+                 start_time: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] rf_region: FUOTA task LoRaWAN RF region
         :param pulumi.Input[_builtins.str] start_time: FUOTA task LoRaWAN start time
@@ -482,14 +482,14 @@ class FuotaTaskLoRaWanArgs:
 
     @_builtins.property
     @pulumi.getter(name="startTime")
-    def start_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         FUOTA task LoRaWAN start time
         """
         return pulumi.get(self, "start_time")
 
     @start_time.setter
-    def start_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start_time", value)
 
 
@@ -502,11 +502,11 @@ class MulticastGroupLoRaWanArgsDict(TypedDict):
     """
     Multicast group LoRaWAN RF region
     """
-    number_of_devices_in_group: NotRequired[pulumi.Input[_builtins.int]]
+    number_of_devices_in_group: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Multicast group number of devices in group. Returned after successful read.
     """
-    number_of_devices_requested: NotRequired[pulumi.Input[_builtins.int]]
+    number_of_devices_requested: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Multicast group number of devices requested. Returned after successful read.
     """
@@ -516,8 +516,8 @@ class MulticastGroupLoRaWanArgs:
     def __init__(__self__, *,
                  dl_class: pulumi.Input[_builtins.str],
                  rf_region: pulumi.Input[_builtins.str],
-                 number_of_devices_in_group: Optional[pulumi.Input[_builtins.int]] = None,
-                 number_of_devices_requested: Optional[pulumi.Input[_builtins.int]] = None):
+                 number_of_devices_in_group: pulumi.Input[Optional[_builtins.int]] = None,
+                 number_of_devices_requested: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] dl_class: Multicast group LoRaWAN DL Class
         :param pulumi.Input[_builtins.str] rf_region: Multicast group LoRaWAN RF region
@@ -557,135 +557,135 @@ class MulticastGroupLoRaWanArgs:
 
     @_builtins.property
     @pulumi.getter(name="numberOfDevicesInGroup")
-    def number_of_devices_in_group(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def number_of_devices_in_group(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Multicast group number of devices in group. Returned after successful read.
         """
         return pulumi.get(self, "number_of_devices_in_group")
 
     @number_of_devices_in_group.setter
-    def number_of_devices_in_group(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def number_of_devices_in_group(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "number_of_devices_in_group", value)
 
     @_builtins.property
     @pulumi.getter(name="numberOfDevicesRequested")
-    def number_of_devices_requested(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def number_of_devices_requested(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Multicast group number of devices requested. Returned after successful read.
         """
         return pulumi.get(self, "number_of_devices_requested")
 
     @number_of_devices_requested.setter
-    def number_of_devices_requested(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def number_of_devices_requested(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "number_of_devices_requested", value)
 
 
 class ServiceProfileLoRaWanServiceProfileArgsDict(TypedDict):
-    add_gw_metadata: NotRequired[pulumi.Input[_builtins.bool]]
+    add_gw_metadata: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     The AddGWMetaData value.
     """
-    channel_mask: NotRequired[pulumi.Input[_builtins.str]]
+    channel_mask: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ChannelMask value.
 
     This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
     """
-    dev_status_req_freq: NotRequired[pulumi.Input[_builtins.int]]
+    dev_status_req_freq: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The DevStatusReqFreq value.
 
     This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
     """
-    dl_bucket_size: NotRequired[pulumi.Input[_builtins.int]]
+    dl_bucket_size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The DLBucketSize value.
 
     This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
     """
-    dl_rate: NotRequired[pulumi.Input[_builtins.int]]
+    dl_rate: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The DLRate value.
 
     This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
     """
-    dl_rate_policy: NotRequired[pulumi.Input[_builtins.str]]
+    dl_rate_policy: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The DLRatePolicy value.
 
     This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
     """
-    dr_max: NotRequired[pulumi.Input[_builtins.int]]
+    dr_max: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The DRMax value.
 
     This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
     """
-    dr_min: NotRequired[pulumi.Input[_builtins.int]]
+    dr_min: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The DRMin value.
 
     This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
     """
-    hr_allowed: NotRequired[pulumi.Input[_builtins.bool]]
+    hr_allowed: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     The HRAllowed value that describes whether handover roaming is allowed.
 
     This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
     """
-    min_gw_diversity: NotRequired[pulumi.Input[_builtins.int]]
+    min_gw_diversity: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The MinGwDiversity value.
 
     This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
     """
-    nwk_geo_loc: NotRequired[pulumi.Input[_builtins.bool]]
+    nwk_geo_loc: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     The NwkGeoLoc value.
 
     This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
     """
-    pr_allowed: NotRequired[pulumi.Input[_builtins.bool]]
+    pr_allowed: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     The PRAllowed value that describes whether passive roaming is allowed.
 
     This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
     """
-    ra_allowed: NotRequired[pulumi.Input[_builtins.bool]]
+    ra_allowed: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     The RAAllowed value that describes whether roaming activation is allowed.
     """
-    report_dev_status_battery: NotRequired[pulumi.Input[_builtins.bool]]
+    report_dev_status_battery: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     The ReportDevStatusBattery value.
 
     This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
     """
-    report_dev_status_margin: NotRequired[pulumi.Input[_builtins.bool]]
+    report_dev_status_margin: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     The ReportDevStatusMargin value.
 
     This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
     """
-    target_per: NotRequired[pulumi.Input[_builtins.int]]
+    target_per: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The TargetPer value.
 
     This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
     """
-    ul_bucket_size: NotRequired[pulumi.Input[_builtins.int]]
+    ul_bucket_size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The UlBucketSize value.
 
     This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
     """
-    ul_rate: NotRequired[pulumi.Input[_builtins.int]]
+    ul_rate: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The ULRate value.
 
     This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
     """
-    ul_rate_policy: NotRequired[pulumi.Input[_builtins.str]]
+    ul_rate_policy: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ULRatePolicy value.
 
@@ -695,25 +695,25 @@ class ServiceProfileLoRaWanServiceProfileArgsDict(TypedDict):
 @pulumi.input_type
 class ServiceProfileLoRaWanServiceProfileArgs:
     def __init__(__self__, *,
-                 add_gw_metadata: Optional[pulumi.Input[_builtins.bool]] = None,
-                 channel_mask: Optional[pulumi.Input[_builtins.str]] = None,
-                 dev_status_req_freq: Optional[pulumi.Input[_builtins.int]] = None,
-                 dl_bucket_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 dl_rate: Optional[pulumi.Input[_builtins.int]] = None,
-                 dl_rate_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 dr_max: Optional[pulumi.Input[_builtins.int]] = None,
-                 dr_min: Optional[pulumi.Input[_builtins.int]] = None,
-                 hr_allowed: Optional[pulumi.Input[_builtins.bool]] = None,
-                 min_gw_diversity: Optional[pulumi.Input[_builtins.int]] = None,
-                 nwk_geo_loc: Optional[pulumi.Input[_builtins.bool]] = None,
-                 pr_allowed: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ra_allowed: Optional[pulumi.Input[_builtins.bool]] = None,
-                 report_dev_status_battery: Optional[pulumi.Input[_builtins.bool]] = None,
-                 report_dev_status_margin: Optional[pulumi.Input[_builtins.bool]] = None,
-                 target_per: Optional[pulumi.Input[_builtins.int]] = None,
-                 ul_bucket_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 ul_rate: Optional[pulumi.Input[_builtins.int]] = None,
-                 ul_rate_policy: Optional[pulumi.Input[_builtins.str]] = None):
+                 add_gw_metadata: pulumi.Input[Optional[_builtins.bool]] = None,
+                 channel_mask: pulumi.Input[Optional[_builtins.str]] = None,
+                 dev_status_req_freq: pulumi.Input[Optional[_builtins.int]] = None,
+                 dl_bucket_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 dl_rate: pulumi.Input[Optional[_builtins.int]] = None,
+                 dl_rate_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 dr_max: pulumi.Input[Optional[_builtins.int]] = None,
+                 dr_min: pulumi.Input[Optional[_builtins.int]] = None,
+                 hr_allowed: pulumi.Input[Optional[_builtins.bool]] = None,
+                 min_gw_diversity: pulumi.Input[Optional[_builtins.int]] = None,
+                 nwk_geo_loc: pulumi.Input[Optional[_builtins.bool]] = None,
+                 pr_allowed: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ra_allowed: pulumi.Input[Optional[_builtins.bool]] = None,
+                 report_dev_status_battery: pulumi.Input[Optional[_builtins.bool]] = None,
+                 report_dev_status_margin: pulumi.Input[Optional[_builtins.bool]] = None,
+                 target_per: pulumi.Input[Optional[_builtins.int]] = None,
+                 ul_bucket_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 ul_rate: pulumi.Input[Optional[_builtins.int]] = None,
+                 ul_rate_policy: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.bool] add_gw_metadata: The AddGWMetaData value.
         :param pulumi.Input[_builtins.str] channel_mask: The ChannelMask value.
@@ -810,19 +810,19 @@ class ServiceProfileLoRaWanServiceProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="addGwMetadata")
-    def add_gw_metadata(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def add_gw_metadata(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The AddGWMetaData value.
         """
         return pulumi.get(self, "add_gw_metadata")
 
     @add_gw_metadata.setter
-    def add_gw_metadata(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def add_gw_metadata(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "add_gw_metadata", value)
 
     @_builtins.property
     @pulumi.getter(name="channelMask")
-    def channel_mask(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def channel_mask(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ChannelMask value.
 
@@ -831,12 +831,12 @@ class ServiceProfileLoRaWanServiceProfileArgs:
         return pulumi.get(self, "channel_mask")
 
     @channel_mask.setter
-    def channel_mask(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def channel_mask(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "channel_mask", value)
 
     @_builtins.property
     @pulumi.getter(name="devStatusReqFreq")
-    def dev_status_req_freq(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def dev_status_req_freq(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The DevStatusReqFreq value.
 
@@ -845,12 +845,12 @@ class ServiceProfileLoRaWanServiceProfileArgs:
         return pulumi.get(self, "dev_status_req_freq")
 
     @dev_status_req_freq.setter
-    def dev_status_req_freq(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def dev_status_req_freq(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "dev_status_req_freq", value)
 
     @_builtins.property
     @pulumi.getter(name="dlBucketSize")
-    def dl_bucket_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def dl_bucket_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The DLBucketSize value.
 
@@ -859,12 +859,12 @@ class ServiceProfileLoRaWanServiceProfileArgs:
         return pulumi.get(self, "dl_bucket_size")
 
     @dl_bucket_size.setter
-    def dl_bucket_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def dl_bucket_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "dl_bucket_size", value)
 
     @_builtins.property
     @pulumi.getter(name="dlRate")
-    def dl_rate(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def dl_rate(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The DLRate value.
 
@@ -873,12 +873,12 @@ class ServiceProfileLoRaWanServiceProfileArgs:
         return pulumi.get(self, "dl_rate")
 
     @dl_rate.setter
-    def dl_rate(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def dl_rate(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "dl_rate", value)
 
     @_builtins.property
     @pulumi.getter(name="dlRatePolicy")
-    def dl_rate_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dl_rate_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The DLRatePolicy value.
 
@@ -887,12 +887,12 @@ class ServiceProfileLoRaWanServiceProfileArgs:
         return pulumi.get(self, "dl_rate_policy")
 
     @dl_rate_policy.setter
-    def dl_rate_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dl_rate_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dl_rate_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="drMax")
-    def dr_max(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def dr_max(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The DRMax value.
 
@@ -901,12 +901,12 @@ class ServiceProfileLoRaWanServiceProfileArgs:
         return pulumi.get(self, "dr_max")
 
     @dr_max.setter
-    def dr_max(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def dr_max(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "dr_max", value)
 
     @_builtins.property
     @pulumi.getter(name="drMin")
-    def dr_min(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def dr_min(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The DRMin value.
 
@@ -915,12 +915,12 @@ class ServiceProfileLoRaWanServiceProfileArgs:
         return pulumi.get(self, "dr_min")
 
     @dr_min.setter
-    def dr_min(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def dr_min(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "dr_min", value)
 
     @_builtins.property
     @pulumi.getter(name="hrAllowed")
-    def hr_allowed(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def hr_allowed(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The HRAllowed value that describes whether handover roaming is allowed.
 
@@ -929,12 +929,12 @@ class ServiceProfileLoRaWanServiceProfileArgs:
         return pulumi.get(self, "hr_allowed")
 
     @hr_allowed.setter
-    def hr_allowed(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def hr_allowed(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "hr_allowed", value)
 
     @_builtins.property
     @pulumi.getter(name="minGwDiversity")
-    def min_gw_diversity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_gw_diversity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The MinGwDiversity value.
 
@@ -943,12 +943,12 @@ class ServiceProfileLoRaWanServiceProfileArgs:
         return pulumi.get(self, "min_gw_diversity")
 
     @min_gw_diversity.setter
-    def min_gw_diversity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_gw_diversity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_gw_diversity", value)
 
     @_builtins.property
     @pulumi.getter(name="nwkGeoLoc")
-    def nwk_geo_loc(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def nwk_geo_loc(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The NwkGeoLoc value.
 
@@ -957,12 +957,12 @@ class ServiceProfileLoRaWanServiceProfileArgs:
         return pulumi.get(self, "nwk_geo_loc")
 
     @nwk_geo_loc.setter
-    def nwk_geo_loc(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def nwk_geo_loc(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "nwk_geo_loc", value)
 
     @_builtins.property
     @pulumi.getter(name="prAllowed")
-    def pr_allowed(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def pr_allowed(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The PRAllowed value that describes whether passive roaming is allowed.
 
@@ -971,24 +971,24 @@ class ServiceProfileLoRaWanServiceProfileArgs:
         return pulumi.get(self, "pr_allowed")
 
     @pr_allowed.setter
-    def pr_allowed(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def pr_allowed(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "pr_allowed", value)
 
     @_builtins.property
     @pulumi.getter(name="raAllowed")
-    def ra_allowed(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ra_allowed(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The RAAllowed value that describes whether roaming activation is allowed.
         """
         return pulumi.get(self, "ra_allowed")
 
     @ra_allowed.setter
-    def ra_allowed(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ra_allowed(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ra_allowed", value)
 
     @_builtins.property
     @pulumi.getter(name="reportDevStatusBattery")
-    def report_dev_status_battery(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def report_dev_status_battery(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The ReportDevStatusBattery value.
 
@@ -997,12 +997,12 @@ class ServiceProfileLoRaWanServiceProfileArgs:
         return pulumi.get(self, "report_dev_status_battery")
 
     @report_dev_status_battery.setter
-    def report_dev_status_battery(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def report_dev_status_battery(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "report_dev_status_battery", value)
 
     @_builtins.property
     @pulumi.getter(name="reportDevStatusMargin")
-    def report_dev_status_margin(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def report_dev_status_margin(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The ReportDevStatusMargin value.
 
@@ -1011,12 +1011,12 @@ class ServiceProfileLoRaWanServiceProfileArgs:
         return pulumi.get(self, "report_dev_status_margin")
 
     @report_dev_status_margin.setter
-    def report_dev_status_margin(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def report_dev_status_margin(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "report_dev_status_margin", value)
 
     @_builtins.property
     @pulumi.getter(name="targetPer")
-    def target_per(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def target_per(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The TargetPer value.
 
@@ -1025,12 +1025,12 @@ class ServiceProfileLoRaWanServiceProfileArgs:
         return pulumi.get(self, "target_per")
 
     @target_per.setter
-    def target_per(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def target_per(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "target_per", value)
 
     @_builtins.property
     @pulumi.getter(name="ulBucketSize")
-    def ul_bucket_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ul_bucket_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The UlBucketSize value.
 
@@ -1039,12 +1039,12 @@ class ServiceProfileLoRaWanServiceProfileArgs:
         return pulumi.get(self, "ul_bucket_size")
 
     @ul_bucket_size.setter
-    def ul_bucket_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ul_bucket_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ul_bucket_size", value)
 
     @_builtins.property
     @pulumi.getter(name="ulRate")
-    def ul_rate(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ul_rate(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The ULRate value.
 
@@ -1053,12 +1053,12 @@ class ServiceProfileLoRaWanServiceProfileArgs:
         return pulumi.get(self, "ul_rate")
 
     @ul_rate.setter
-    def ul_rate(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ul_rate(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ul_rate", value)
 
     @_builtins.property
     @pulumi.getter(name="ulRatePolicy")
-    def ul_rate_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ul_rate_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ULRatePolicy value.
 
@@ -1067,20 +1067,20 @@ class ServiceProfileLoRaWanServiceProfileArgs:
         return pulumi.get(self, "ul_rate_policy")
 
     @ul_rate_policy.setter
-    def ul_rate_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ul_rate_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ul_rate_policy", value)
 
 
 class TaskDefinitionLoRaWanGatewayVersionArgsDict(TypedDict):
-    model: NotRequired[pulumi.Input[_builtins.str]]
+    model: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The model number of the wireless gateway.
     """
-    package_version: NotRequired[pulumi.Input[_builtins.str]]
+    package_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The version of the wireless gateway firmware.
     """
-    station: NotRequired[pulumi.Input[_builtins.str]]
+    station: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The basic station version of the wireless gateway.
     """
@@ -1088,9 +1088,9 @@ class TaskDefinitionLoRaWanGatewayVersionArgsDict(TypedDict):
 @pulumi.input_type
 class TaskDefinitionLoRaWanGatewayVersionArgs:
     def __init__(__self__, *,
-                 model: Optional[pulumi.Input[_builtins.str]] = None,
-                 package_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 station: Optional[pulumi.Input[_builtins.str]] = None):
+                 model: pulumi.Input[Optional[_builtins.str]] = None,
+                 package_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 station: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] model: The model number of the wireless gateway.
         :param pulumi.Input[_builtins.str] package_version: The version of the wireless gateway firmware.
@@ -1105,55 +1105,55 @@ class TaskDefinitionLoRaWanGatewayVersionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def model(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def model(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The model number of the wireless gateway.
         """
         return pulumi.get(self, "model")
 
     @model.setter
-    def model(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def model(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "model", value)
 
     @_builtins.property
     @pulumi.getter(name="packageVersion")
-    def package_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def package_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the wireless gateway firmware.
         """
         return pulumi.get(self, "package_version")
 
     @package_version.setter
-    def package_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def package_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "package_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def station(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def station(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The basic station version of the wireless gateway.
         """
         return pulumi.get(self, "station")
 
     @station.setter
-    def station(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def station(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "station", value)
 
 
 class TaskDefinitionLoRaWanUpdateGatewayTaskCreateArgsDict(TypedDict):
-    current_version: NotRequired[pulumi.Input['TaskDefinitionLoRaWanGatewayVersionArgsDict']]
+    current_version: NotRequired[pulumi.Input[Optional['TaskDefinitionLoRaWanGatewayVersionArgs']]]
     """
     The version of the gateways that should receive the update.
     """
-    sig_key_crc: NotRequired[pulumi.Input[_builtins.int]]
+    sig_key_crc: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The CRC of the signature private key to check.
     """
-    update_signature: NotRequired[pulumi.Input[_builtins.str]]
+    update_signature: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The signature used to verify the update firmware.
     """
-    update_version: NotRequired[pulumi.Input['TaskDefinitionLoRaWanGatewayVersionArgsDict']]
+    update_version: NotRequired[pulumi.Input[Optional['TaskDefinitionLoRaWanGatewayVersionArgs']]]
     """
     The firmware version to update the gateway to.
     """
@@ -1161,10 +1161,10 @@ class TaskDefinitionLoRaWanUpdateGatewayTaskCreateArgsDict(TypedDict):
 @pulumi.input_type
 class TaskDefinitionLoRaWanUpdateGatewayTaskCreateArgs:
     def __init__(__self__, *,
-                 current_version: Optional[pulumi.Input['TaskDefinitionLoRaWanGatewayVersionArgs']] = None,
-                 sig_key_crc: Optional[pulumi.Input[_builtins.int]] = None,
-                 update_signature: Optional[pulumi.Input[_builtins.str]] = None,
-                 update_version: Optional[pulumi.Input['TaskDefinitionLoRaWanGatewayVersionArgs']] = None):
+                 current_version: pulumi.Input[Optional['TaskDefinitionLoRaWanGatewayVersionArgs']] = None,
+                 sig_key_crc: pulumi.Input[Optional[_builtins.int]] = None,
+                 update_signature: pulumi.Input[Optional[_builtins.str]] = None,
+                 update_version: pulumi.Input[Optional['TaskDefinitionLoRaWanGatewayVersionArgs']] = None):
         """
         :param pulumi.Input['TaskDefinitionLoRaWanGatewayVersionArgs'] current_version: The version of the gateways that should receive the update.
         :param pulumi.Input[_builtins.int] sig_key_crc: The CRC of the signature private key to check.
@@ -1182,59 +1182,59 @@ class TaskDefinitionLoRaWanUpdateGatewayTaskCreateArgs:
 
     @_builtins.property
     @pulumi.getter(name="currentVersion")
-    def current_version(self) -> Optional[pulumi.Input['TaskDefinitionLoRaWanGatewayVersionArgs']]:
+    def current_version(self) -> pulumi.Input[Optional['TaskDefinitionLoRaWanGatewayVersionArgs']]:
         """
         The version of the gateways that should receive the update.
         """
         return pulumi.get(self, "current_version")
 
     @current_version.setter
-    def current_version(self, value: Optional[pulumi.Input['TaskDefinitionLoRaWanGatewayVersionArgs']]):
+    def current_version(self, value: pulumi.Input[Optional['TaskDefinitionLoRaWanGatewayVersionArgs']]):
         pulumi.set(self, "current_version", value)
 
     @_builtins.property
     @pulumi.getter(name="sigKeyCrc")
-    def sig_key_crc(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def sig_key_crc(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The CRC of the signature private key to check.
         """
         return pulumi.get(self, "sig_key_crc")
 
     @sig_key_crc.setter
-    def sig_key_crc(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def sig_key_crc(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "sig_key_crc", value)
 
     @_builtins.property
     @pulumi.getter(name="updateSignature")
-    def update_signature(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def update_signature(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The signature used to verify the update firmware.
         """
         return pulumi.get(self, "update_signature")
 
     @update_signature.setter
-    def update_signature(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def update_signature(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "update_signature", value)
 
     @_builtins.property
     @pulumi.getter(name="updateVersion")
-    def update_version(self) -> Optional[pulumi.Input['TaskDefinitionLoRaWanGatewayVersionArgs']]:
+    def update_version(self) -> pulumi.Input[Optional['TaskDefinitionLoRaWanGatewayVersionArgs']]:
         """
         The firmware version to update the gateway to.
         """
         return pulumi.get(self, "update_version")
 
     @update_version.setter
-    def update_version(self, value: Optional[pulumi.Input['TaskDefinitionLoRaWanGatewayVersionArgs']]):
+    def update_version(self, value: pulumi.Input[Optional['TaskDefinitionLoRaWanGatewayVersionArgs']]):
         pulumi.set(self, "update_version", value)
 
 
 class TaskDefinitionLoRaWanUpdateGatewayTaskEntryArgsDict(TypedDict):
-    current_version: NotRequired[pulumi.Input['TaskDefinitionLoRaWanGatewayVersionArgsDict']]
+    current_version: NotRequired[pulumi.Input[Optional['TaskDefinitionLoRaWanGatewayVersionArgs']]]
     """
     The version of the gateways that should receive the update.
     """
-    update_version: NotRequired[pulumi.Input['TaskDefinitionLoRaWanGatewayVersionArgsDict']]
+    update_version: NotRequired[pulumi.Input[Optional['TaskDefinitionLoRaWanGatewayVersionArgs']]]
     """
     The firmware version to update the gateway to.
     """
@@ -1242,8 +1242,8 @@ class TaskDefinitionLoRaWanUpdateGatewayTaskEntryArgsDict(TypedDict):
 @pulumi.input_type
 class TaskDefinitionLoRaWanUpdateGatewayTaskEntryArgs:
     def __init__(__self__, *,
-                 current_version: Optional[pulumi.Input['TaskDefinitionLoRaWanGatewayVersionArgs']] = None,
-                 update_version: Optional[pulumi.Input['TaskDefinitionLoRaWanGatewayVersionArgs']] = None):
+                 current_version: pulumi.Input[Optional['TaskDefinitionLoRaWanGatewayVersionArgs']] = None,
+                 update_version: pulumi.Input[Optional['TaskDefinitionLoRaWanGatewayVersionArgs']] = None):
         """
         :param pulumi.Input['TaskDefinitionLoRaWanGatewayVersionArgs'] current_version: The version of the gateways that should receive the update.
         :param pulumi.Input['TaskDefinitionLoRaWanGatewayVersionArgs'] update_version: The firmware version to update the gateway to.
@@ -1255,39 +1255,39 @@ class TaskDefinitionLoRaWanUpdateGatewayTaskEntryArgs:
 
     @_builtins.property
     @pulumi.getter(name="currentVersion")
-    def current_version(self) -> Optional[pulumi.Input['TaskDefinitionLoRaWanGatewayVersionArgs']]:
+    def current_version(self) -> pulumi.Input[Optional['TaskDefinitionLoRaWanGatewayVersionArgs']]:
         """
         The version of the gateways that should receive the update.
         """
         return pulumi.get(self, "current_version")
 
     @current_version.setter
-    def current_version(self, value: Optional[pulumi.Input['TaskDefinitionLoRaWanGatewayVersionArgs']]):
+    def current_version(self, value: pulumi.Input[Optional['TaskDefinitionLoRaWanGatewayVersionArgs']]):
         pulumi.set(self, "current_version", value)
 
     @_builtins.property
     @pulumi.getter(name="updateVersion")
-    def update_version(self) -> Optional[pulumi.Input['TaskDefinitionLoRaWanGatewayVersionArgs']]:
+    def update_version(self) -> pulumi.Input[Optional['TaskDefinitionLoRaWanGatewayVersionArgs']]:
         """
         The firmware version to update the gateway to.
         """
         return pulumi.get(self, "update_version")
 
     @update_version.setter
-    def update_version(self, value: Optional[pulumi.Input['TaskDefinitionLoRaWanGatewayVersionArgs']]):
+    def update_version(self, value: pulumi.Input[Optional['TaskDefinitionLoRaWanGatewayVersionArgs']]):
         pulumi.set(self, "update_version", value)
 
 
 class TaskDefinitionUpdateWirelessGatewayTaskCreateArgsDict(TypedDict):
-    lo_ra_wan: NotRequired[pulumi.Input['TaskDefinitionLoRaWanUpdateGatewayTaskCreateArgsDict']]
+    lo_ra_wan: NotRequired[pulumi.Input[Optional['TaskDefinitionLoRaWanUpdateGatewayTaskCreateArgs']]]
     """
     The properties that relate to the LoRaWAN wireless gateway.
     """
-    update_data_role: NotRequired[pulumi.Input[_builtins.str]]
+    update_data_role: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The IAM role used to read data from the S3 bucket.
     """
-    update_data_source: NotRequired[pulumi.Input[_builtins.str]]
+    update_data_source: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The link to the S3 bucket.
     """
@@ -1295,9 +1295,9 @@ class TaskDefinitionUpdateWirelessGatewayTaskCreateArgsDict(TypedDict):
 @pulumi.input_type
 class TaskDefinitionUpdateWirelessGatewayTaskCreateArgs:
     def __init__(__self__, *,
-                 lo_ra_wan: Optional[pulumi.Input['TaskDefinitionLoRaWanUpdateGatewayTaskCreateArgs']] = None,
-                 update_data_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 update_data_source: Optional[pulumi.Input[_builtins.str]] = None):
+                 lo_ra_wan: pulumi.Input[Optional['TaskDefinitionLoRaWanUpdateGatewayTaskCreateArgs']] = None,
+                 update_data_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 update_data_source: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input['TaskDefinitionLoRaWanUpdateGatewayTaskCreateArgs'] lo_ra_wan: The properties that relate to the LoRaWAN wireless gateway.
         :param pulumi.Input[_builtins.str] update_data_role: The IAM role used to read data from the S3 bucket.
@@ -1312,38 +1312,38 @@ class TaskDefinitionUpdateWirelessGatewayTaskCreateArgs:
 
     @_builtins.property
     @pulumi.getter(name="loRaWan")
-    def lo_ra_wan(self) -> Optional[pulumi.Input['TaskDefinitionLoRaWanUpdateGatewayTaskCreateArgs']]:
+    def lo_ra_wan(self) -> pulumi.Input[Optional['TaskDefinitionLoRaWanUpdateGatewayTaskCreateArgs']]:
         """
         The properties that relate to the LoRaWAN wireless gateway.
         """
         return pulumi.get(self, "lo_ra_wan")
 
     @lo_ra_wan.setter
-    def lo_ra_wan(self, value: Optional[pulumi.Input['TaskDefinitionLoRaWanUpdateGatewayTaskCreateArgs']]):
+    def lo_ra_wan(self, value: pulumi.Input[Optional['TaskDefinitionLoRaWanUpdateGatewayTaskCreateArgs']]):
         pulumi.set(self, "lo_ra_wan", value)
 
     @_builtins.property
     @pulumi.getter(name="updateDataRole")
-    def update_data_role(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def update_data_role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IAM role used to read data from the S3 bucket.
         """
         return pulumi.get(self, "update_data_role")
 
     @update_data_role.setter
-    def update_data_role(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def update_data_role(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "update_data_role", value)
 
     @_builtins.property
     @pulumi.getter(name="updateDataSource")
-    def update_data_source(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def update_data_source(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The link to the S3 bucket.
         """
         return pulumi.get(self, "update_data_source")
 
     @update_data_source.setter
-    def update_data_source(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def update_data_source(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "update_data_source", value)
 
 
@@ -1351,11 +1351,11 @@ class TraceContentPropertiesArgsDict(TypedDict):
     """
     Trace content for your wireless gateway and wireless device resources
     """
-    log_level: NotRequired[pulumi.Input['NetworkAnalyzerConfigurationLogLevel']]
+    log_level: NotRequired[pulumi.Input[Optional['NetworkAnalyzerConfigurationLogLevel']]]
     """
     The log level for a log message. The log levels can be disabled, or set to `ERROR` to display less verbose logs containing only error information, or to `INFO` for more detailed logs
     """
-    wireless_device_frame_info: NotRequired[pulumi.Input['NetworkAnalyzerConfigurationWirelessDeviceFrameInfo']]
+    wireless_device_frame_info: NotRequired[pulumi.Input[Optional['NetworkAnalyzerConfigurationWirelessDeviceFrameInfo']]]
     """
     `FrameInfo` of your wireless device resources for the trace content. Use FrameInfo to debug the communication between your LoRaWAN end devices and the network server.
     """
@@ -1363,8 +1363,8 @@ class TraceContentPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class TraceContentPropertiesArgs:
     def __init__(__self__, *,
-                 log_level: Optional[pulumi.Input['NetworkAnalyzerConfigurationLogLevel']] = None,
-                 wireless_device_frame_info: Optional[pulumi.Input['NetworkAnalyzerConfigurationWirelessDeviceFrameInfo']] = None):
+                 log_level: pulumi.Input[Optional['NetworkAnalyzerConfigurationLogLevel']] = None,
+                 wireless_device_frame_info: pulumi.Input[Optional['NetworkAnalyzerConfigurationWirelessDeviceFrameInfo']] = None):
         """
         Trace content for your wireless gateway and wireless device resources
 
@@ -1378,26 +1378,26 @@ class TraceContentPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="logLevel")
-    def log_level(self) -> Optional[pulumi.Input['NetworkAnalyzerConfigurationLogLevel']]:
+    def log_level(self) -> pulumi.Input[Optional['NetworkAnalyzerConfigurationLogLevel']]:
         """
         The log level for a log message. The log levels can be disabled, or set to `ERROR` to display less verbose logs containing only error information, or to `INFO` for more detailed logs
         """
         return pulumi.get(self, "log_level")
 
     @log_level.setter
-    def log_level(self, value: Optional[pulumi.Input['NetworkAnalyzerConfigurationLogLevel']]):
+    def log_level(self, value: pulumi.Input[Optional['NetworkAnalyzerConfigurationLogLevel']]):
         pulumi.set(self, "log_level", value)
 
     @_builtins.property
     @pulumi.getter(name="wirelessDeviceFrameInfo")
-    def wireless_device_frame_info(self) -> Optional[pulumi.Input['NetworkAnalyzerConfigurationWirelessDeviceFrameInfo']]:
+    def wireless_device_frame_info(self) -> pulumi.Input[Optional['NetworkAnalyzerConfigurationWirelessDeviceFrameInfo']]:
         """
         `FrameInfo` of your wireless device resources for the trace content. Use FrameInfo to debug the communication between your LoRaWAN end devices and the network server.
         """
         return pulumi.get(self, "wireless_device_frame_info")
 
     @wireless_device_frame_info.setter
-    def wireless_device_frame_info(self, value: Optional[pulumi.Input['NetworkAnalyzerConfigurationWirelessDeviceFrameInfo']]):
+    def wireless_device_frame_info(self, value: pulumi.Input[Optional['NetworkAnalyzerConfigurationWirelessDeviceFrameInfo']]):
         pulumi.set(self, "wireless_device_frame_info", value)
 
 
@@ -1499,15 +1499,15 @@ class WirelessDeviceApplicationArgsDict(TypedDict):
     """
     LoRaWAN application configuration, which can be used to perform geolocation.
     """
-    destination_name: NotRequired[pulumi.Input[_builtins.str]]
+    destination_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the position data destination that describes the AWS IoT rule that processes the device's position data for use by AWS IoT Core for LoRaWAN.
     """
-    f_port: NotRequired[pulumi.Input[_builtins.int]]
+    f_port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The Fport value.
     """
-    type: NotRequired[pulumi.Input['WirelessDeviceApplicationType']]
+    type: NotRequired[pulumi.Input[Optional['WirelessDeviceApplicationType']]]
     """
     Application type, which can be specified to obtain real-time position information of your LoRaWAN device.
     """
@@ -1515,9 +1515,9 @@ class WirelessDeviceApplicationArgsDict(TypedDict):
 @pulumi.input_type
 class WirelessDeviceApplicationArgs:
     def __init__(__self__, *,
-                 destination_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 f_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 type: Optional[pulumi.Input['WirelessDeviceApplicationType']] = None):
+                 destination_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 f_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 type: pulumi.Input[Optional['WirelessDeviceApplicationType']] = None):
         """
         LoRaWAN application configuration, which can be used to perform geolocation.
 
@@ -1534,43 +1534,43 @@ class WirelessDeviceApplicationArgs:
 
     @_builtins.property
     @pulumi.getter(name="destinationName")
-    def destination_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the position data destination that describes the AWS IoT rule that processes the device's position data for use by AWS IoT Core for LoRaWAN.
         """
         return pulumi.get(self, "destination_name")
 
     @destination_name.setter
-    def destination_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination_name", value)
 
     @_builtins.property
     @pulumi.getter(name="fPort")
-    def f_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def f_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The Fport value.
         """
         return pulumi.get(self, "f_port")
 
     @f_port.setter
-    def f_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def f_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "f_port", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['WirelessDeviceApplicationType']]:
+    def type(self) -> pulumi.Input[Optional['WirelessDeviceApplicationType']]:
         """
         Application type, which can be specified to obtain real-time position information of your LoRaWAN device.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['WirelessDeviceApplicationType']]):
+    def type(self, value: pulumi.Input[Optional['WirelessDeviceApplicationType']]):
         pulumi.set(self, "type", value)
 
 
 class WirelessDeviceFPortsArgsDict(TypedDict):
-    applications: NotRequired[pulumi.Input[Sequence[pulumi.Input['WirelessDeviceApplicationArgsDict']]]]
+    applications: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WirelessDeviceApplicationArgs']]]]]
     """
     A list of optional LoRaWAN application information, which can be used for geolocation.
     """
@@ -1578,7 +1578,7 @@ class WirelessDeviceFPortsArgsDict(TypedDict):
 @pulumi.input_type
 class WirelessDeviceFPortsArgs:
     def __init__(__self__, *,
-                 applications: Optional[pulumi.Input[Sequence[pulumi.Input['WirelessDeviceApplicationArgs']]]] = None):
+                 applications: pulumi.Input[Optional[Sequence[pulumi.Input['WirelessDeviceApplicationArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['WirelessDeviceApplicationArgs']]] applications: A list of optional LoRaWAN application information, which can be used for geolocation.
         """
@@ -1587,47 +1587,47 @@ class WirelessDeviceFPortsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WirelessDeviceApplicationArgs']]]]:
+    def applications(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WirelessDeviceApplicationArgs']]]]:
         """
         A list of optional LoRaWAN application information, which can be used for geolocation.
         """
         return pulumi.get(self, "applications")
 
     @applications.setter
-    def applications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WirelessDeviceApplicationArgs']]]]):
+    def applications(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WirelessDeviceApplicationArgs']]]]):
         pulumi.set(self, "applications", value)
 
 
 class WirelessDeviceLoRaWanDeviceArgsDict(TypedDict):
-    abp_v10x: NotRequired[pulumi.Input['WirelessDeviceAbpV10xArgsDict']]
+    abp_v10x: NotRequired[pulumi.Input[Optional['WirelessDeviceAbpV10xArgs']]]
     """
     ABP device object for LoRaWAN specification v1.0.x.
     """
-    abp_v11: NotRequired[pulumi.Input['WirelessDeviceAbpV11ArgsDict']]
+    abp_v11: NotRequired[pulumi.Input[Optional['WirelessDeviceAbpV11Args']]]
     """
     ABP device object for create APIs for v1.1.
     """
-    dev_eui: NotRequired[pulumi.Input[_builtins.str]]
+    dev_eui: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The DevEUI value.
     """
-    device_profile_id: NotRequired[pulumi.Input[_builtins.str]]
+    device_profile_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the device profile for the new wireless device.
     """
-    f_ports: NotRequired[pulumi.Input['WirelessDeviceFPortsArgsDict']]
+    f_ports: NotRequired[pulumi.Input[Optional['WirelessDeviceFPortsArgs']]]
     """
     List of FPort assigned for different LoRaWAN application packages to use.
     """
-    otaa_v10x: NotRequired[pulumi.Input['WirelessDeviceOtaaV10xArgsDict']]
+    otaa_v10x: NotRequired[pulumi.Input[Optional['WirelessDeviceOtaaV10xArgs']]]
     """
     OTAA device object for create APIs for v1.0.x
     """
-    otaa_v11: NotRequired[pulumi.Input['WirelessDeviceOtaaV11ArgsDict']]
+    otaa_v11: NotRequired[pulumi.Input[Optional['WirelessDeviceOtaaV11Args']]]
     """
     OTAA device object for v1.1 for create APIs.
     """
-    service_profile_id: NotRequired[pulumi.Input[_builtins.str]]
+    service_profile_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the service profile.
     """
@@ -1635,14 +1635,14 @@ class WirelessDeviceLoRaWanDeviceArgsDict(TypedDict):
 @pulumi.input_type
 class WirelessDeviceLoRaWanDeviceArgs:
     def __init__(__self__, *,
-                 abp_v10x: Optional[pulumi.Input['WirelessDeviceAbpV10xArgs']] = None,
-                 abp_v11: Optional[pulumi.Input['WirelessDeviceAbpV11Args']] = None,
-                 dev_eui: Optional[pulumi.Input[_builtins.str]] = None,
-                 device_profile_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 f_ports: Optional[pulumi.Input['WirelessDeviceFPortsArgs']] = None,
-                 otaa_v10x: Optional[pulumi.Input['WirelessDeviceOtaaV10xArgs']] = None,
-                 otaa_v11: Optional[pulumi.Input['WirelessDeviceOtaaV11Args']] = None,
-                 service_profile_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 abp_v10x: pulumi.Input[Optional['WirelessDeviceAbpV10xArgs']] = None,
+                 abp_v11: pulumi.Input[Optional['WirelessDeviceAbpV11Args']] = None,
+                 dev_eui: pulumi.Input[Optional[_builtins.str]] = None,
+                 device_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 f_ports: pulumi.Input[Optional['WirelessDeviceFPortsArgs']] = None,
+                 otaa_v10x: pulumi.Input[Optional['WirelessDeviceOtaaV10xArgs']] = None,
+                 otaa_v11: pulumi.Input[Optional['WirelessDeviceOtaaV11Args']] = None,
+                 service_profile_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input['WirelessDeviceAbpV10xArgs'] abp_v10x: ABP device object for LoRaWAN specification v1.0.x.
         :param pulumi.Input['WirelessDeviceAbpV11Args'] abp_v11: ABP device object for create APIs for v1.1.
@@ -1672,98 +1672,98 @@ class WirelessDeviceLoRaWanDeviceArgs:
 
     @_builtins.property
     @pulumi.getter(name="abpV10x")
-    def abp_v10x(self) -> Optional[pulumi.Input['WirelessDeviceAbpV10xArgs']]:
+    def abp_v10x(self) -> pulumi.Input[Optional['WirelessDeviceAbpV10xArgs']]:
         """
         ABP device object for LoRaWAN specification v1.0.x.
         """
         return pulumi.get(self, "abp_v10x")
 
     @abp_v10x.setter
-    def abp_v10x(self, value: Optional[pulumi.Input['WirelessDeviceAbpV10xArgs']]):
+    def abp_v10x(self, value: pulumi.Input[Optional['WirelessDeviceAbpV10xArgs']]):
         pulumi.set(self, "abp_v10x", value)
 
     @_builtins.property
     @pulumi.getter(name="abpV11")
-    def abp_v11(self) -> Optional[pulumi.Input['WirelessDeviceAbpV11Args']]:
+    def abp_v11(self) -> pulumi.Input[Optional['WirelessDeviceAbpV11Args']]:
         """
         ABP device object for create APIs for v1.1.
         """
         return pulumi.get(self, "abp_v11")
 
     @abp_v11.setter
-    def abp_v11(self, value: Optional[pulumi.Input['WirelessDeviceAbpV11Args']]):
+    def abp_v11(self, value: pulumi.Input[Optional['WirelessDeviceAbpV11Args']]):
         pulumi.set(self, "abp_v11", value)
 
     @_builtins.property
     @pulumi.getter(name="devEui")
-    def dev_eui(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dev_eui(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The DevEUI value.
         """
         return pulumi.get(self, "dev_eui")
 
     @dev_eui.setter
-    def dev_eui(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dev_eui(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dev_eui", value)
 
     @_builtins.property
     @pulumi.getter(name="deviceProfileId")
-    def device_profile_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def device_profile_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the device profile for the new wireless device.
         """
         return pulumi.get(self, "device_profile_id")
 
     @device_profile_id.setter
-    def device_profile_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def device_profile_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "device_profile_id", value)
 
     @_builtins.property
     @pulumi.getter(name="fPorts")
-    def f_ports(self) -> Optional[pulumi.Input['WirelessDeviceFPortsArgs']]:
+    def f_ports(self) -> pulumi.Input[Optional['WirelessDeviceFPortsArgs']]:
         """
         List of FPort assigned for different LoRaWAN application packages to use.
         """
         return pulumi.get(self, "f_ports")
 
     @f_ports.setter
-    def f_ports(self, value: Optional[pulumi.Input['WirelessDeviceFPortsArgs']]):
+    def f_ports(self, value: pulumi.Input[Optional['WirelessDeviceFPortsArgs']]):
         pulumi.set(self, "f_ports", value)
 
     @_builtins.property
     @pulumi.getter(name="otaaV10x")
-    def otaa_v10x(self) -> Optional[pulumi.Input['WirelessDeviceOtaaV10xArgs']]:
+    def otaa_v10x(self) -> pulumi.Input[Optional['WirelessDeviceOtaaV10xArgs']]:
         """
         OTAA device object for create APIs for v1.0.x
         """
         return pulumi.get(self, "otaa_v10x")
 
     @otaa_v10x.setter
-    def otaa_v10x(self, value: Optional[pulumi.Input['WirelessDeviceOtaaV10xArgs']]):
+    def otaa_v10x(self, value: pulumi.Input[Optional['WirelessDeviceOtaaV10xArgs']]):
         pulumi.set(self, "otaa_v10x", value)
 
     @_builtins.property
     @pulumi.getter(name="otaaV11")
-    def otaa_v11(self) -> Optional[pulumi.Input['WirelessDeviceOtaaV11Args']]:
+    def otaa_v11(self) -> pulumi.Input[Optional['WirelessDeviceOtaaV11Args']]:
         """
         OTAA device object for v1.1 for create APIs.
         """
         return pulumi.get(self, "otaa_v11")
 
     @otaa_v11.setter
-    def otaa_v11(self, value: Optional[pulumi.Input['WirelessDeviceOtaaV11Args']]):
+    def otaa_v11(self, value: pulumi.Input[Optional['WirelessDeviceOtaaV11Args']]):
         pulumi.set(self, "otaa_v11", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceProfileId")
-    def service_profile_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_profile_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the service profile.
         """
         return pulumi.get(self, "service_profile_id")
 
     @service_profile_id.setter
-    def service_profile_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_profile_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_profile_id", value)
 
 

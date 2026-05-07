@@ -246,7 +246,7 @@ def get_sequence_store(sequence_store_id: Optional[_builtins.str] = None,
         status_message=pulumi.get(__ret__, 'status_message'),
         tags=pulumi.get(__ret__, 'tags'),
         update_time=pulumi.get(__ret__, 'update_time'))
-def get_sequence_store_output(sequence_store_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_sequence_store_output(sequence_store_id: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSequenceStoreResult]:
     """
     Resource Type definition for AWS::Omics::SequenceStore

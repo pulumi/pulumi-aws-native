@@ -22,15 +22,15 @@ __all__ = ['SequenceStoreArgs', 'SequenceStore']
 @pulumi.input_type
 class SequenceStoreArgs:
     def __init__(__self__, *,
-                 access_log_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 e_tag_algorithm_family: Optional[pulumi.Input['SequenceStoreETagAlgorithmFamily']] = None,
-                 fallback_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 propagated_set_level_tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 access_log_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 e_tag_algorithm_family: pulumi.Input[Optional['SequenceStoreETagAlgorithmFamily']] = None,
+                 fallback_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 propagated_set_level_tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  s3_access_policy: Optional[Any] = None,
-                 sse_config: Optional[pulumi.Input['SequenceStoreSseConfigArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 sse_config: pulumi.Input[Optional['SequenceStoreSseConfigArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SequenceStore resource.
 
@@ -67,74 +67,74 @@ class SequenceStoreArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessLogLocation")
-    def access_log_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def access_log_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Location of the access logs.
         """
         return pulumi.get(self, "access_log_location")
 
     @access_log_location.setter
-    def access_log_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def access_log_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "access_log_location", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description for the store.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="eTagAlgorithmFamily")
-    def e_tag_algorithm_family(self) -> Optional[pulumi.Input['SequenceStoreETagAlgorithmFamily']]:
+    def e_tag_algorithm_family(self) -> pulumi.Input[Optional['SequenceStoreETagAlgorithmFamily']]:
         """
         The algorithm family of the ETag.
         """
         return pulumi.get(self, "e_tag_algorithm_family")
 
     @e_tag_algorithm_family.setter
-    def e_tag_algorithm_family(self, value: Optional[pulumi.Input['SequenceStoreETagAlgorithmFamily']]):
+    def e_tag_algorithm_family(self, value: pulumi.Input[Optional['SequenceStoreETagAlgorithmFamily']]):
         pulumi.set(self, "e_tag_algorithm_family", value)
 
     @_builtins.property
     @pulumi.getter(name="fallbackLocation")
-    def fallback_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fallback_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An S3 location that is used to store files that have failed a direct upload.
         """
         return pulumi.get(self, "fallback_location")
 
     @fallback_location.setter
-    def fallback_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fallback_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fallback_location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A name for the store.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="propagatedSetLevelTags")
-    def propagated_set_level_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def propagated_set_level_tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The tags keys to propagate to the S3 objects associated with read sets in the sequence store.
         """
         return pulumi.get(self, "propagated_set_level_tags")
 
     @propagated_set_level_tags.setter
-    def propagated_set_level_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def propagated_set_level_tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "propagated_set_level_tags", value)
 
     @_builtins.property
@@ -153,26 +153,26 @@ class SequenceStoreArgs:
 
     @_builtins.property
     @pulumi.getter(name="sseConfig")
-    def sse_config(self) -> Optional[pulumi.Input['SequenceStoreSseConfigArgs']]:
+    def sse_config(self) -> pulumi.Input[Optional['SequenceStoreSseConfigArgs']]:
         """
         Server-side encryption (SSE) settings for the store.
         """
         return pulumi.get(self, "sse_config")
 
     @sse_config.setter
-    def sse_config(self, value: Optional[pulumi.Input['SequenceStoreSseConfigArgs']]):
+    def sse_config(self, value: pulumi.Input[Optional['SequenceStoreSseConfigArgs']]):
         pulumi.set(self, "sse_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Tags for the store.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -182,15 +182,15 @@ class SequenceStore(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_log_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 e_tag_algorithm_family: Optional[pulumi.Input['SequenceStoreETagAlgorithmFamily']] = None,
-                 fallback_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 propagated_set_level_tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 access_log_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 e_tag_algorithm_family: pulumi.Input[Optional['SequenceStoreETagAlgorithmFamily']] = None,
+                 fallback_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 propagated_set_level_tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  s3_access_policy: Optional[Any] = None,
-                 sse_config: Optional[pulumi.Input[Union['SequenceStoreSseConfigArgs', 'SequenceStoreSseConfigArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 sse_config: pulumi.Input[Optional[Union['SequenceStoreSseConfigArgs', 'SequenceStoreSseConfigArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Omics::SequenceStore
@@ -235,15 +235,15 @@ class SequenceStore(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_log_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 e_tag_algorithm_family: Optional[pulumi.Input['SequenceStoreETagAlgorithmFamily']] = None,
-                 fallback_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 propagated_set_level_tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 access_log_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 e_tag_algorithm_family: pulumi.Input[Optional['SequenceStoreETagAlgorithmFamily']] = None,
+                 fallback_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 propagated_set_level_tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  s3_access_policy: Optional[Any] = None,
-                 sse_config: Optional[pulumi.Input[Union['SequenceStoreSseConfigArgs', 'SequenceStoreSseConfigArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 sse_config: pulumi.Input[Optional[Union['SequenceStoreSseConfigArgs', 'SequenceStoreSseConfigArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

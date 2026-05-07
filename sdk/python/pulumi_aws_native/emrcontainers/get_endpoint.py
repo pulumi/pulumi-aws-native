@@ -180,7 +180,7 @@ def get_endpoint(arn: Optional[_builtins.str] = None,
         state=pulumi.get(__ret__, 'state'),
         state_details=pulumi.get(__ret__, 'state_details'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_endpoint_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_endpoint_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEndpointResult]:
     """
     Resource Schema of AWS::EMRContainers::Endpoint Type

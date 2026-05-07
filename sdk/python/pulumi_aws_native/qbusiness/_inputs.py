@@ -159,7 +159,7 @@ class ApplicationAutoSubscriptionConfigurationArgsDict(TypedDict):
     """
     Describes whether automatic subscriptions are enabled for an Amazon Q Business application using IAM identity federation for user management.
     """
-    default_subscription_type: NotRequired[pulumi.Input['ApplicationSubscriptionType']]
+    default_subscription_type: NotRequired[pulumi.Input[Optional['ApplicationSubscriptionType']]]
     """
     Describes the default subscription type assigned to an Amazon Q Business application using IAM identity federation for user management. If the value for `autoSubscribe` is set to `ENABLED` you must select a value for this field.
     """
@@ -168,7 +168,7 @@ class ApplicationAutoSubscriptionConfigurationArgsDict(TypedDict):
 class ApplicationAutoSubscriptionConfigurationArgs:
     def __init__(__self__, *,
                  auto_subscribe: pulumi.Input['ApplicationAutoSubscriptionStatus'],
-                 default_subscription_type: Optional[pulumi.Input['ApplicationSubscriptionType']] = None):
+                 default_subscription_type: pulumi.Input[Optional['ApplicationSubscriptionType']] = None):
         """
         :param pulumi.Input['ApplicationAutoSubscriptionStatus'] auto_subscribe: Describes whether automatic subscriptions are enabled for an Amazon Q Business application using IAM identity federation for user management.
         :param pulumi.Input['ApplicationSubscriptionType'] default_subscription_type: Describes the default subscription type assigned to an Amazon Q Business application using IAM identity federation for user management. If the value for `autoSubscribe` is set to `ENABLED` you must select a value for this field.
@@ -191,19 +191,19 @@ class ApplicationAutoSubscriptionConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="defaultSubscriptionType")
-    def default_subscription_type(self) -> Optional[pulumi.Input['ApplicationSubscriptionType']]:
+    def default_subscription_type(self) -> pulumi.Input[Optional['ApplicationSubscriptionType']]:
         """
         Describes the default subscription type assigned to an Amazon Q Business application using IAM identity federation for user management. If the value for `autoSubscribe` is set to `ENABLED` you must select a value for this field.
         """
         return pulumi.get(self, "default_subscription_type")
 
     @default_subscription_type.setter
-    def default_subscription_type(self, value: Optional[pulumi.Input['ApplicationSubscriptionType']]):
+    def default_subscription_type(self, value: pulumi.Input[Optional['ApplicationSubscriptionType']]):
         pulumi.set(self, "default_subscription_type", value)
 
 
 class ApplicationEncryptionConfigurationArgsDict(TypedDict):
-    kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    kms_key_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The identifier of the AWS  key. Amazon Q Business doesn't support asymmetric keys.
     """
@@ -211,7 +211,7 @@ class ApplicationEncryptionConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class ApplicationEncryptionConfigurationArgs:
     def __init__(__self__, *,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] kms_key_id: The identifier of the AWS  key. Amazon Q Business doesn't support asymmetric keys.
         """
@@ -220,14 +220,14 @@ class ApplicationEncryptionConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier of the AWS  key. Amazon Q Business doesn't support asymmetric keys.
         """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
 
@@ -320,7 +320,7 @@ class DataAccessorActionConfigurationArgsDict(TypedDict):
     """
     The Amazon Q Business action that is allowed.
     """
-    filter_configuration: NotRequired[pulumi.Input['DataAccessorActionFilterConfigurationArgsDict']]
+    filter_configuration: NotRequired[pulumi.Input[Optional['DataAccessorActionFilterConfigurationArgs']]]
     """
     The filter configuration for the action, if any.
     """
@@ -329,7 +329,7 @@ class DataAccessorActionConfigurationArgsDict(TypedDict):
 class DataAccessorActionConfigurationArgs:
     def __init__(__self__, *,
                  action: pulumi.Input[_builtins.str],
-                 filter_configuration: Optional[pulumi.Input['DataAccessorActionFilterConfigurationArgs']] = None):
+                 filter_configuration: pulumi.Input[Optional['DataAccessorActionFilterConfigurationArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] action: The Amazon Q Business action that is allowed.
         :param pulumi.Input['DataAccessorActionFilterConfigurationArgs'] filter_configuration: The filter configuration for the action, if any.
@@ -352,14 +352,14 @@ class DataAccessorActionConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="filterConfiguration")
-    def filter_configuration(self) -> Optional[pulumi.Input['DataAccessorActionFilterConfigurationArgs']]:
+    def filter_configuration(self) -> pulumi.Input[Optional['DataAccessorActionFilterConfigurationArgs']]:
         """
         The filter configuration for the action, if any.
         """
         return pulumi.get(self, "filter_configuration")
 
     @filter_configuration.setter
-    def filter_configuration(self, value: Optional[pulumi.Input['DataAccessorActionFilterConfigurationArgs']]):
+    def filter_configuration(self, value: pulumi.Input[Optional['DataAccessorActionFilterConfigurationArgs']]):
         pulumi.set(self, "filter_configuration", value)
 
 
@@ -392,43 +392,43 @@ class DataAccessorActionFilterConfigurationArgs:
 
 
 class DataAccessorAttributeFilterArgsDict(TypedDict):
-    and_all_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataAccessorAttributeFilterArgsDict']]]]
+    and_all_filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataAccessorAttributeFilterArgs']]]]]
     """
     Performs a logical `AND` operation on all supplied filters.
     """
-    contains_all: NotRequired[pulumi.Input['DataAccessorDocumentAttributeArgsDict']]
+    contains_all: NotRequired[pulumi.Input[Optional['DataAccessorDocumentAttributeArgs']]]
     """
     Returns `true` when a document contains all the specified document attributes or metadata fields. Supported for the following [document attribute value types](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `stringListValue` .
     """
-    contains_any: NotRequired[pulumi.Input['DataAccessorDocumentAttributeArgsDict']]
+    contains_any: NotRequired[pulumi.Input[Optional['DataAccessorDocumentAttributeArgs']]]
     """
     Returns `true` when a document contains any of the specified document attributes or metadata fields. Supported for the following [document attribute value types](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `stringListValue` .
     """
-    equals_to: NotRequired[pulumi.Input['DataAccessorDocumentAttributeArgsDict']]
+    equals_to: NotRequired[pulumi.Input[Optional['DataAccessorDocumentAttributeArgs']]]
     """
     Performs an equals operation on two document attributes or metadata fields. Supported for the following [document attribute value types](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `dateValue` , `longValue` , `stringListValue` and `stringValue` .
     """
-    greater_than: NotRequired[pulumi.Input['DataAccessorDocumentAttributeArgsDict']]
+    greater_than: NotRequired[pulumi.Input[Optional['DataAccessorDocumentAttributeArgs']]]
     """
     Performs a greater than operation on two document attributes or metadata fields. Supported for the following [document attribute value types](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `dateValue` and `longValue` .
     """
-    greater_than_or_equals: NotRequired[pulumi.Input['DataAccessorDocumentAttributeArgsDict']]
+    greater_than_or_equals: NotRequired[pulumi.Input[Optional['DataAccessorDocumentAttributeArgs']]]
     """
     Performs a greater or equals than operation on two document attributes or metadata fields. Supported for the following [document attribute value types](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `dateValue` and `longValue` .
     """
-    less_than: NotRequired[pulumi.Input['DataAccessorDocumentAttributeArgsDict']]
+    less_than: NotRequired[pulumi.Input[Optional['DataAccessorDocumentAttributeArgs']]]
     """
     Performs a less than operation on two document attributes or metadata fields. Supported for the following [document attribute value types](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `dateValue` and `longValue` .
     """
-    less_than_or_equals: NotRequired[pulumi.Input['DataAccessorDocumentAttributeArgsDict']]
+    less_than_or_equals: NotRequired[pulumi.Input[Optional['DataAccessorDocumentAttributeArgs']]]
     """
     Performs a less than or equals operation on two document attributes or metadata fields.Supported for the following [document attribute value type](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `dateValue` and `longValue` .
     """
-    not_filter: NotRequired[pulumi.Input['DataAccessorAttributeFilterArgsDict']]
+    not_filter: NotRequired[pulumi.Input[Optional['DataAccessorAttributeFilterArgs']]]
     """
     Performs a logical `NOT` operation on all supplied filters.
     """
-    or_all_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataAccessorAttributeFilterArgsDict']]]]
+    or_all_filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataAccessorAttributeFilterArgs']]]]]
     """
     Performs a logical `OR` operation on all supplied filters.
     """
@@ -436,16 +436,16 @@ class DataAccessorAttributeFilterArgsDict(TypedDict):
 @pulumi.input_type
 class DataAccessorAttributeFilterArgs:
     def __init__(__self__, *,
-                 and_all_filters: Optional[pulumi.Input[Sequence[pulumi.Input['DataAccessorAttributeFilterArgs']]]] = None,
-                 contains_all: Optional[pulumi.Input['DataAccessorDocumentAttributeArgs']] = None,
-                 contains_any: Optional[pulumi.Input['DataAccessorDocumentAttributeArgs']] = None,
-                 equals_to: Optional[pulumi.Input['DataAccessorDocumentAttributeArgs']] = None,
-                 greater_than: Optional[pulumi.Input['DataAccessorDocumentAttributeArgs']] = None,
-                 greater_than_or_equals: Optional[pulumi.Input['DataAccessorDocumentAttributeArgs']] = None,
-                 less_than: Optional[pulumi.Input['DataAccessorDocumentAttributeArgs']] = None,
-                 less_than_or_equals: Optional[pulumi.Input['DataAccessorDocumentAttributeArgs']] = None,
-                 not_filter: Optional[pulumi.Input['DataAccessorAttributeFilterArgs']] = None,
-                 or_all_filters: Optional[pulumi.Input[Sequence[pulumi.Input['DataAccessorAttributeFilterArgs']]]] = None):
+                 and_all_filters: pulumi.Input[Optional[Sequence[pulumi.Input['DataAccessorAttributeFilterArgs']]]] = None,
+                 contains_all: pulumi.Input[Optional['DataAccessorDocumentAttributeArgs']] = None,
+                 contains_any: pulumi.Input[Optional['DataAccessorDocumentAttributeArgs']] = None,
+                 equals_to: pulumi.Input[Optional['DataAccessorDocumentAttributeArgs']] = None,
+                 greater_than: pulumi.Input[Optional['DataAccessorDocumentAttributeArgs']] = None,
+                 greater_than_or_equals: pulumi.Input[Optional['DataAccessorDocumentAttributeArgs']] = None,
+                 less_than: pulumi.Input[Optional['DataAccessorDocumentAttributeArgs']] = None,
+                 less_than_or_equals: pulumi.Input[Optional['DataAccessorDocumentAttributeArgs']] = None,
+                 not_filter: pulumi.Input[Optional['DataAccessorAttributeFilterArgs']] = None,
+                 or_all_filters: pulumi.Input[Optional[Sequence[pulumi.Input['DataAccessorAttributeFilterArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['DataAccessorAttributeFilterArgs']]] and_all_filters: Performs a logical `AND` operation on all supplied filters.
         :param pulumi.Input['DataAccessorDocumentAttributeArgs'] contains_all: Returns `true` when a document contains all the specified document attributes or metadata fields. Supported for the following [document attribute value types](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `stringListValue` .
@@ -481,122 +481,122 @@ class DataAccessorAttributeFilterArgs:
 
     @_builtins.property
     @pulumi.getter(name="andAllFilters")
-    def and_all_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataAccessorAttributeFilterArgs']]]]:
+    def and_all_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataAccessorAttributeFilterArgs']]]]:
         """
         Performs a logical `AND` operation on all supplied filters.
         """
         return pulumi.get(self, "and_all_filters")
 
     @and_all_filters.setter
-    def and_all_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataAccessorAttributeFilterArgs']]]]):
+    def and_all_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DataAccessorAttributeFilterArgs']]]]):
         pulumi.set(self, "and_all_filters", value)
 
     @_builtins.property
     @pulumi.getter(name="containsAll")
-    def contains_all(self) -> Optional[pulumi.Input['DataAccessorDocumentAttributeArgs']]:
+    def contains_all(self) -> pulumi.Input[Optional['DataAccessorDocumentAttributeArgs']]:
         """
         Returns `true` when a document contains all the specified document attributes or metadata fields. Supported for the following [document attribute value types](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `stringListValue` .
         """
         return pulumi.get(self, "contains_all")
 
     @contains_all.setter
-    def contains_all(self, value: Optional[pulumi.Input['DataAccessorDocumentAttributeArgs']]):
+    def contains_all(self, value: pulumi.Input[Optional['DataAccessorDocumentAttributeArgs']]):
         pulumi.set(self, "contains_all", value)
 
     @_builtins.property
     @pulumi.getter(name="containsAny")
-    def contains_any(self) -> Optional[pulumi.Input['DataAccessorDocumentAttributeArgs']]:
+    def contains_any(self) -> pulumi.Input[Optional['DataAccessorDocumentAttributeArgs']]:
         """
         Returns `true` when a document contains any of the specified document attributes or metadata fields. Supported for the following [document attribute value types](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `stringListValue` .
         """
         return pulumi.get(self, "contains_any")
 
     @contains_any.setter
-    def contains_any(self, value: Optional[pulumi.Input['DataAccessorDocumentAttributeArgs']]):
+    def contains_any(self, value: pulumi.Input[Optional['DataAccessorDocumentAttributeArgs']]):
         pulumi.set(self, "contains_any", value)
 
     @_builtins.property
     @pulumi.getter(name="equalsTo")
-    def equals_to(self) -> Optional[pulumi.Input['DataAccessorDocumentAttributeArgs']]:
+    def equals_to(self) -> pulumi.Input[Optional['DataAccessorDocumentAttributeArgs']]:
         """
         Performs an equals operation on two document attributes or metadata fields. Supported for the following [document attribute value types](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `dateValue` , `longValue` , `stringListValue` and `stringValue` .
         """
         return pulumi.get(self, "equals_to")
 
     @equals_to.setter
-    def equals_to(self, value: Optional[pulumi.Input['DataAccessorDocumentAttributeArgs']]):
+    def equals_to(self, value: pulumi.Input[Optional['DataAccessorDocumentAttributeArgs']]):
         pulumi.set(self, "equals_to", value)
 
     @_builtins.property
     @pulumi.getter(name="greaterThan")
-    def greater_than(self) -> Optional[pulumi.Input['DataAccessorDocumentAttributeArgs']]:
+    def greater_than(self) -> pulumi.Input[Optional['DataAccessorDocumentAttributeArgs']]:
         """
         Performs a greater than operation on two document attributes or metadata fields. Supported for the following [document attribute value types](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `dateValue` and `longValue` .
         """
         return pulumi.get(self, "greater_than")
 
     @greater_than.setter
-    def greater_than(self, value: Optional[pulumi.Input['DataAccessorDocumentAttributeArgs']]):
+    def greater_than(self, value: pulumi.Input[Optional['DataAccessorDocumentAttributeArgs']]):
         pulumi.set(self, "greater_than", value)
 
     @_builtins.property
     @pulumi.getter(name="greaterThanOrEquals")
-    def greater_than_or_equals(self) -> Optional[pulumi.Input['DataAccessorDocumentAttributeArgs']]:
+    def greater_than_or_equals(self) -> pulumi.Input[Optional['DataAccessorDocumentAttributeArgs']]:
         """
         Performs a greater or equals than operation on two document attributes or metadata fields. Supported for the following [document attribute value types](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `dateValue` and `longValue` .
         """
         return pulumi.get(self, "greater_than_or_equals")
 
     @greater_than_or_equals.setter
-    def greater_than_or_equals(self, value: Optional[pulumi.Input['DataAccessorDocumentAttributeArgs']]):
+    def greater_than_or_equals(self, value: pulumi.Input[Optional['DataAccessorDocumentAttributeArgs']]):
         pulumi.set(self, "greater_than_or_equals", value)
 
     @_builtins.property
     @pulumi.getter(name="lessThan")
-    def less_than(self) -> Optional[pulumi.Input['DataAccessorDocumentAttributeArgs']]:
+    def less_than(self) -> pulumi.Input[Optional['DataAccessorDocumentAttributeArgs']]:
         """
         Performs a less than operation on two document attributes or metadata fields. Supported for the following [document attribute value types](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `dateValue` and `longValue` .
         """
         return pulumi.get(self, "less_than")
 
     @less_than.setter
-    def less_than(self, value: Optional[pulumi.Input['DataAccessorDocumentAttributeArgs']]):
+    def less_than(self, value: pulumi.Input[Optional['DataAccessorDocumentAttributeArgs']]):
         pulumi.set(self, "less_than", value)
 
     @_builtins.property
     @pulumi.getter(name="lessThanOrEquals")
-    def less_than_or_equals(self) -> Optional[pulumi.Input['DataAccessorDocumentAttributeArgs']]:
+    def less_than_or_equals(self) -> pulumi.Input[Optional['DataAccessorDocumentAttributeArgs']]:
         """
         Performs a less than or equals operation on two document attributes or metadata fields.Supported for the following [document attribute value type](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `dateValue` and `longValue` .
         """
         return pulumi.get(self, "less_than_or_equals")
 
     @less_than_or_equals.setter
-    def less_than_or_equals(self, value: Optional[pulumi.Input['DataAccessorDocumentAttributeArgs']]):
+    def less_than_or_equals(self, value: pulumi.Input[Optional['DataAccessorDocumentAttributeArgs']]):
         pulumi.set(self, "less_than_or_equals", value)
 
     @_builtins.property
     @pulumi.getter(name="notFilter")
-    def not_filter(self) -> Optional[pulumi.Input['DataAccessorAttributeFilterArgs']]:
+    def not_filter(self) -> pulumi.Input[Optional['DataAccessorAttributeFilterArgs']]:
         """
         Performs a logical `NOT` operation on all supplied filters.
         """
         return pulumi.get(self, "not_filter")
 
     @not_filter.setter
-    def not_filter(self, value: Optional[pulumi.Input['DataAccessorAttributeFilterArgs']]):
+    def not_filter(self, value: pulumi.Input[Optional['DataAccessorAttributeFilterArgs']]):
         pulumi.set(self, "not_filter", value)
 
     @_builtins.property
     @pulumi.getter(name="orAllFilters")
-    def or_all_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataAccessorAttributeFilterArgs']]]]:
+    def or_all_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataAccessorAttributeFilterArgs']]]]:
         """
         Performs a logical `OR` operation on all supplied filters.
         """
         return pulumi.get(self, "or_all_filters")
 
     @or_all_filters.setter
-    def or_all_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataAccessorAttributeFilterArgs']]]]):
+    def or_all_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DataAccessorAttributeFilterArgs']]]]):
         pulumi.set(self, "or_all_filters", value)
 
 
@@ -627,11 +627,11 @@ class DataAccessorAuthenticationDetailArgsDict(TypedDict):
     - `AWS_IAM_IDC_TTI` - Authentication using IAM Identity Center Trusted Token Issuer (TTI). This authentication type allows the ISV to use a trusted token issuer to generate tokens for accessing the data.
     - `AWS_IAM_IDC_AUTH_CODE` - Authentication using IAM Identity Center authorization code flow. This authentication type uses the standard OAuth 2.0 authorization code flow for authentication.
     """
-    authentication_configuration: NotRequired[pulumi.Input['DataAccessorAuthenticationConfigurationPropertiesArgsDict']]
+    authentication_configuration: NotRequired[pulumi.Input[Optional['DataAccessorAuthenticationConfigurationPropertiesArgs']]]
     """
     The specific authentication configuration based on the authentication type.
     """
-    external_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    external_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of external identifiers associated with this authentication configuration. These are used to correlate the data accessor with external systems.
     """
@@ -640,8 +640,8 @@ class DataAccessorAuthenticationDetailArgsDict(TypedDict):
 class DataAccessorAuthenticationDetailArgs:
     def __init__(__self__, *,
                  authentication_type: pulumi.Input['DataAccessorAuthenticationType'],
-                 authentication_configuration: Optional[pulumi.Input['DataAccessorAuthenticationConfigurationPropertiesArgs']] = None,
-                 external_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 authentication_configuration: pulumi.Input[Optional['DataAccessorAuthenticationConfigurationPropertiesArgs']] = None,
+                 external_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input['DataAccessorAuthenticationType'] authentication_type: The type of authentication to use for the data accessor. This determines how the ISV authenticates when accessing data. You can use one of two authentication types:
                
@@ -673,26 +673,26 @@ class DataAccessorAuthenticationDetailArgs:
 
     @_builtins.property
     @pulumi.getter(name="authenticationConfiguration")
-    def authentication_configuration(self) -> Optional[pulumi.Input['DataAccessorAuthenticationConfigurationPropertiesArgs']]:
+    def authentication_configuration(self) -> pulumi.Input[Optional['DataAccessorAuthenticationConfigurationPropertiesArgs']]:
         """
         The specific authentication configuration based on the authentication type.
         """
         return pulumi.get(self, "authentication_configuration")
 
     @authentication_configuration.setter
-    def authentication_configuration(self, value: Optional[pulumi.Input['DataAccessorAuthenticationConfigurationPropertiesArgs']]):
+    def authentication_configuration(self, value: pulumi.Input[Optional['DataAccessorAuthenticationConfigurationPropertiesArgs']]):
         pulumi.set(self, "authentication_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="externalIds")
-    def external_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def external_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of external identifiers associated with this authentication configuration. These are used to correlate the data accessor with external systems.
         """
         return pulumi.get(self, "external_ids")
 
     @external_ids.setter
-    def external_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def external_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "external_ids", value)
 
 
@@ -883,7 +883,7 @@ class DataSourceDocumentAttributeConditionArgsDict(TypedDict):
 
     Amazon Q Business currently does not support `_document_body` as an attribute key used for the condition.
     """
-    value: NotRequired[pulumi.Input[Union['DataSourceDocumentAttributeValue0PropertiesArgsDict', 'DataSourceDocumentAttributeValue1PropertiesArgsDict', 'DataSourceDocumentAttributeValue2PropertiesArgsDict', 'DataSourceDocumentAttributeValue3PropertiesArgsDict']]]
+    value: NotRequired[pulumi.Input[Optional[Union['DataSourceDocumentAttributeValue0PropertiesArgs', 'DataSourceDocumentAttributeValue1PropertiesArgs', 'DataSourceDocumentAttributeValue2PropertiesArgs', 'DataSourceDocumentAttributeValue3PropertiesArgs']]]]
     """
     The value of a document attribute. You can only provide one value for a document attribute.
     """
@@ -893,7 +893,7 @@ class DataSourceDocumentAttributeConditionArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[_builtins.str],
                  operator: pulumi.Input['DataSourceDocumentEnrichmentConditionOperator'],
-                 value: Optional[pulumi.Input[Union['DataSourceDocumentAttributeValue0PropertiesArgs', 'DataSourceDocumentAttributeValue1PropertiesArgs', 'DataSourceDocumentAttributeValue2PropertiesArgs', 'DataSourceDocumentAttributeValue3PropertiesArgs']]] = None):
+                 value: pulumi.Input[Optional[Union['DataSourceDocumentAttributeValue0PropertiesArgs', 'DataSourceDocumentAttributeValue1PropertiesArgs', 'DataSourceDocumentAttributeValue2PropertiesArgs', 'DataSourceDocumentAttributeValue3PropertiesArgs']]] = None):
         """
         :param pulumi.Input[_builtins.str] key: The identifier of the document attribute used for the condition.
                
@@ -946,14 +946,14 @@ class DataSourceDocumentAttributeConditionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[Union['DataSourceDocumentAttributeValue0PropertiesArgs', 'DataSourceDocumentAttributeValue1PropertiesArgs', 'DataSourceDocumentAttributeValue2PropertiesArgs', 'DataSourceDocumentAttributeValue3PropertiesArgs']]]:
+    def value(self) -> pulumi.Input[Optional[Union['DataSourceDocumentAttributeValue0PropertiesArgs', 'DataSourceDocumentAttributeValue1PropertiesArgs', 'DataSourceDocumentAttributeValue2PropertiesArgs', 'DataSourceDocumentAttributeValue3PropertiesArgs']]]:
         """
         The value of a document attribute. You can only provide one value for a document attribute.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[Union['DataSourceDocumentAttributeValue0PropertiesArgs', 'DataSourceDocumentAttributeValue1PropertiesArgs', 'DataSourceDocumentAttributeValue2PropertiesArgs', 'DataSourceDocumentAttributeValue3PropertiesArgs']]]):
+    def value(self, value: pulumi.Input[Optional[Union['DataSourceDocumentAttributeValue0PropertiesArgs', 'DataSourceDocumentAttributeValue1PropertiesArgs', 'DataSourceDocumentAttributeValue2PropertiesArgs', 'DataSourceDocumentAttributeValue3PropertiesArgs']]]):
         pulumi.set(self, "value", value)
 
 
@@ -962,11 +962,11 @@ class DataSourceDocumentAttributeTargetArgsDict(TypedDict):
     """
     The identifier of the target document attribute or metadata field. For example, 'Department' could be an identifier for the target attribute or metadata field that includes the department names associated with the documents.
     """
-    attribute_value_operator: NotRequired[pulumi.Input['DataSourceAttributeValueOperator']]
+    attribute_value_operator: NotRequired[pulumi.Input[Optional['DataSourceAttributeValueOperator']]]
     """
     `TRUE` to delete the existing target value for your specified target attribute key. You cannot create a target value and set this to `TRUE` .
     """
-    value: NotRequired[pulumi.Input[Union['DataSourceDocumentAttributeValue0PropertiesArgsDict', 'DataSourceDocumentAttributeValue1PropertiesArgsDict', 'DataSourceDocumentAttributeValue2PropertiesArgsDict', 'DataSourceDocumentAttributeValue3PropertiesArgsDict']]]
+    value: NotRequired[pulumi.Input[Optional[Union['DataSourceDocumentAttributeValue0PropertiesArgs', 'DataSourceDocumentAttributeValue1PropertiesArgs', 'DataSourceDocumentAttributeValue2PropertiesArgs', 'DataSourceDocumentAttributeValue3PropertiesArgs']]]]
     """
     The value of a document attribute. You can only provide one value for a document attribute.
     """
@@ -975,8 +975,8 @@ class DataSourceDocumentAttributeTargetArgsDict(TypedDict):
 class DataSourceDocumentAttributeTargetArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[_builtins.str],
-                 attribute_value_operator: Optional[pulumi.Input['DataSourceAttributeValueOperator']] = None,
-                 value: Optional[pulumi.Input[Union['DataSourceDocumentAttributeValue0PropertiesArgs', 'DataSourceDocumentAttributeValue1PropertiesArgs', 'DataSourceDocumentAttributeValue2PropertiesArgs', 'DataSourceDocumentAttributeValue3PropertiesArgs']]] = None):
+                 attribute_value_operator: pulumi.Input[Optional['DataSourceAttributeValueOperator']] = None,
+                 value: pulumi.Input[Optional[Union['DataSourceDocumentAttributeValue0PropertiesArgs', 'DataSourceDocumentAttributeValue1PropertiesArgs', 'DataSourceDocumentAttributeValue2PropertiesArgs', 'DataSourceDocumentAttributeValue3PropertiesArgs']]] = None):
         """
         :param pulumi.Input[_builtins.str] key: The identifier of the target document attribute or metadata field. For example, 'Department' could be an identifier for the target attribute or metadata field that includes the department names associated with the documents.
         :param pulumi.Input['DataSourceAttributeValueOperator'] attribute_value_operator: `TRUE` to delete the existing target value for your specified target attribute key. You cannot create a target value and set this to `TRUE` .
@@ -1002,26 +1002,26 @@ class DataSourceDocumentAttributeTargetArgs:
 
     @_builtins.property
     @pulumi.getter(name="attributeValueOperator")
-    def attribute_value_operator(self) -> Optional[pulumi.Input['DataSourceAttributeValueOperator']]:
+    def attribute_value_operator(self) -> pulumi.Input[Optional['DataSourceAttributeValueOperator']]:
         """
         `TRUE` to delete the existing target value for your specified target attribute key. You cannot create a target value and set this to `TRUE` .
         """
         return pulumi.get(self, "attribute_value_operator")
 
     @attribute_value_operator.setter
-    def attribute_value_operator(self, value: Optional[pulumi.Input['DataSourceAttributeValueOperator']]):
+    def attribute_value_operator(self, value: pulumi.Input[Optional['DataSourceAttributeValueOperator']]):
         pulumi.set(self, "attribute_value_operator", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[Union['DataSourceDocumentAttributeValue0PropertiesArgs', 'DataSourceDocumentAttributeValue1PropertiesArgs', 'DataSourceDocumentAttributeValue2PropertiesArgs', 'DataSourceDocumentAttributeValue3PropertiesArgs']]]:
+    def value(self) -> pulumi.Input[Optional[Union['DataSourceDocumentAttributeValue0PropertiesArgs', 'DataSourceDocumentAttributeValue1PropertiesArgs', 'DataSourceDocumentAttributeValue2PropertiesArgs', 'DataSourceDocumentAttributeValue3PropertiesArgs']]]:
         """
         The value of a document attribute. You can only provide one value for a document attribute.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[Union['DataSourceDocumentAttributeValue0PropertiesArgs', 'DataSourceDocumentAttributeValue1PropertiesArgs', 'DataSourceDocumentAttributeValue2PropertiesArgs', 'DataSourceDocumentAttributeValue3PropertiesArgs']]]):
+    def value(self, value: pulumi.Input[Optional[Union['DataSourceDocumentAttributeValue0PropertiesArgs', 'DataSourceDocumentAttributeValue1PropertiesArgs', 'DataSourceDocumentAttributeValue2PropertiesArgs', 'DataSourceDocumentAttributeValue3PropertiesArgs']]]):
         pulumi.set(self, "value", value)
 
 
@@ -1102,15 +1102,15 @@ class DataSourceDocumentAttributeValue3PropertiesArgs:
 
 
 class DataSourceDocumentEnrichmentConfigurationArgsDict(TypedDict):
-    inline_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataSourceInlineDocumentEnrichmentConfigurationArgsDict']]]]
+    inline_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceInlineDocumentEnrichmentConfigurationArgs']]]]]
     """
     Configuration information to alter document attributes or metadata fields and content when ingesting documents into Amazon Q Business.
     """
-    post_extraction_hook_configuration: NotRequired[pulumi.Input['DataSourceHookConfigurationArgsDict']]
+    post_extraction_hook_configuration: NotRequired[pulumi.Input[Optional['DataSourceHookConfigurationArgs']]]
     """
     Configuration information for invoking a Lambda function in AWS Lambda on the structured documents with their metadata and text extracted. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Using Lambda functions](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/cde-lambda-operations.html) .
     """
-    pre_extraction_hook_configuration: NotRequired[pulumi.Input['DataSourceHookConfigurationArgsDict']]
+    pre_extraction_hook_configuration: NotRequired[pulumi.Input[Optional['DataSourceHookConfigurationArgs']]]
     """
     Configuration information for invoking a Lambda function in AWS Lambda on the original or raw documents before extracting their metadata and text. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Using Lambda functions](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/cde-lambda-operations.html) .
     """
@@ -1118,9 +1118,9 @@ class DataSourceDocumentEnrichmentConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class DataSourceDocumentEnrichmentConfigurationArgs:
     def __init__(__self__, *,
-                 inline_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceInlineDocumentEnrichmentConfigurationArgs']]]] = None,
-                 post_extraction_hook_configuration: Optional[pulumi.Input['DataSourceHookConfigurationArgs']] = None,
-                 pre_extraction_hook_configuration: Optional[pulumi.Input['DataSourceHookConfigurationArgs']] = None):
+                 inline_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceInlineDocumentEnrichmentConfigurationArgs']]]] = None,
+                 post_extraction_hook_configuration: pulumi.Input[Optional['DataSourceHookConfigurationArgs']] = None,
+                 pre_extraction_hook_configuration: pulumi.Input[Optional['DataSourceHookConfigurationArgs']] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['DataSourceInlineDocumentEnrichmentConfigurationArgs']]] inline_configurations: Configuration information to alter document attributes or metadata fields and content when ingesting documents into Amazon Q Business.
         :param pulumi.Input['DataSourceHookConfigurationArgs'] post_extraction_hook_configuration: Configuration information for invoking a Lambda function in AWS Lambda on the structured documents with their metadata and text extracted. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Using Lambda functions](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/cde-lambda-operations.html) .
@@ -1135,57 +1135,57 @@ class DataSourceDocumentEnrichmentConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="inlineConfigurations")
-    def inline_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceInlineDocumentEnrichmentConfigurationArgs']]]]:
+    def inline_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceInlineDocumentEnrichmentConfigurationArgs']]]]:
         """
         Configuration information to alter document attributes or metadata fields and content when ingesting documents into Amazon Q Business.
         """
         return pulumi.get(self, "inline_configurations")
 
     @inline_configurations.setter
-    def inline_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceInlineDocumentEnrichmentConfigurationArgs']]]]):
+    def inline_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceInlineDocumentEnrichmentConfigurationArgs']]]]):
         pulumi.set(self, "inline_configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="postExtractionHookConfiguration")
-    def post_extraction_hook_configuration(self) -> Optional[pulumi.Input['DataSourceHookConfigurationArgs']]:
+    def post_extraction_hook_configuration(self) -> pulumi.Input[Optional['DataSourceHookConfigurationArgs']]:
         """
         Configuration information for invoking a Lambda function in AWS Lambda on the structured documents with their metadata and text extracted. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Using Lambda functions](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/cde-lambda-operations.html) .
         """
         return pulumi.get(self, "post_extraction_hook_configuration")
 
     @post_extraction_hook_configuration.setter
-    def post_extraction_hook_configuration(self, value: Optional[pulumi.Input['DataSourceHookConfigurationArgs']]):
+    def post_extraction_hook_configuration(self, value: pulumi.Input[Optional['DataSourceHookConfigurationArgs']]):
         pulumi.set(self, "post_extraction_hook_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="preExtractionHookConfiguration")
-    def pre_extraction_hook_configuration(self) -> Optional[pulumi.Input['DataSourceHookConfigurationArgs']]:
+    def pre_extraction_hook_configuration(self) -> pulumi.Input[Optional['DataSourceHookConfigurationArgs']]:
         """
         Configuration information for invoking a Lambda function in AWS Lambda on the original or raw documents before extracting their metadata and text. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Using Lambda functions](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/cde-lambda-operations.html) .
         """
         return pulumi.get(self, "pre_extraction_hook_configuration")
 
     @pre_extraction_hook_configuration.setter
-    def pre_extraction_hook_configuration(self, value: Optional[pulumi.Input['DataSourceHookConfigurationArgs']]):
+    def pre_extraction_hook_configuration(self, value: pulumi.Input[Optional['DataSourceHookConfigurationArgs']]):
         pulumi.set(self, "pre_extraction_hook_configuration", value)
 
 
 class DataSourceHookConfigurationArgsDict(TypedDict):
-    invocation_condition: NotRequired[pulumi.Input['DataSourceDocumentAttributeConditionArgsDict']]
+    invocation_condition: NotRequired[pulumi.Input[Optional['DataSourceDocumentAttributeConditionArgs']]]
     """
     The condition used for when a Lambda function should be invoked.
 
     For example, you can specify a condition that if there are empty date-time values, then Amazon Q Business should invoke a function that inserts the current date-time.
     """
-    lambda_arn: NotRequired[pulumi.Input[_builtins.str]]
+    lambda_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon Resource Name (ARN) of the Lambda function during ingestion. For more information, see [Using Lambda functions for Amazon Q Business document enrichment](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/cde-lambda-operations.html) .
     """
-    role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon Resource Name (ARN) of a role with permission to run `PreExtractionHookConfiguration` and `PostExtractionHookConfiguration` for altering document metadata and content during the document ingestion process.
     """
-    s3_bucket_name: NotRequired[pulumi.Input[_builtins.str]]
+    s3_bucket_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Stores the original, raw documents or the structured, parsed documents before and after altering them. For more information, see [Data contracts for Lambda functions](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/cde-lambda-operations.html#cde-lambda-operations-data-contracts) .
     """
@@ -1193,10 +1193,10 @@ class DataSourceHookConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class DataSourceHookConfigurationArgs:
     def __init__(__self__, *,
-                 invocation_condition: Optional[pulumi.Input['DataSourceDocumentAttributeConditionArgs']] = None,
-                 lambda_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_bucket_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 invocation_condition: pulumi.Input[Optional['DataSourceDocumentAttributeConditionArgs']] = None,
+                 lambda_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_bucket_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input['DataSourceDocumentAttributeConditionArgs'] invocation_condition: The condition used for when a Lambda function should be invoked.
                
@@ -1216,7 +1216,7 @@ class DataSourceHookConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="invocationCondition")
-    def invocation_condition(self) -> Optional[pulumi.Input['DataSourceDocumentAttributeConditionArgs']]:
+    def invocation_condition(self) -> pulumi.Input[Optional['DataSourceDocumentAttributeConditionArgs']]:
         """
         The condition used for when a Lambda function should be invoked.
 
@@ -1225,43 +1225,43 @@ class DataSourceHookConfigurationArgs:
         return pulumi.get(self, "invocation_condition")
 
     @invocation_condition.setter
-    def invocation_condition(self, value: Optional[pulumi.Input['DataSourceDocumentAttributeConditionArgs']]):
+    def invocation_condition(self, value: pulumi.Input[Optional['DataSourceDocumentAttributeConditionArgs']]):
         pulumi.set(self, "invocation_condition", value)
 
     @_builtins.property
     @pulumi.getter(name="lambdaArn")
-    def lambda_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def lambda_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the Lambda function during ingestion. For more information, see [Using Lambda functions for Amazon Q Business document enrichment](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/cde-lambda-operations.html) .
         """
         return pulumi.get(self, "lambda_arn")
 
     @lambda_arn.setter
-    def lambda_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def lambda_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "lambda_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of a role with permission to run `PreExtractionHookConfiguration` and `PostExtractionHookConfiguration` for altering document metadata and content during the document ingestion process.
         """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
-    def role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="s3BucketName")
-    def s3_bucket_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def s3_bucket_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Stores the original, raw documents or the structured, parsed documents before and after altering them. For more information, see [Data contracts for Lambda functions](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/cde-lambda-operations.html#cde-lambda-operations-data-contracts) .
         """
         return pulumi.get(self, "s3_bucket_name")
 
     @s3_bucket_name.setter
-    def s3_bucket_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def s3_bucket_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "s3_bucket_name", value)
 
 
@@ -1294,15 +1294,15 @@ class DataSourceImageExtractionConfigurationArgs:
 
 
 class DataSourceInlineDocumentEnrichmentConfigurationArgsDict(TypedDict):
-    condition: NotRequired[pulumi.Input['DataSourceDocumentAttributeConditionArgsDict']]
+    condition: NotRequired[pulumi.Input[Optional['DataSourceDocumentAttributeConditionArgs']]]
     """
     Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Q Business .
     """
-    document_content_operator: NotRequired[pulumi.Input['DataSourceDocumentContentOperator']]
+    document_content_operator: NotRequired[pulumi.Input[Optional['DataSourceDocumentContentOperator']]]
     """
     `TRUE` to delete content if the condition used for the target attribute is met.
     """
-    target: NotRequired[pulumi.Input['DataSourceDocumentAttributeTargetArgsDict']]
+    target: NotRequired[pulumi.Input[Optional['DataSourceDocumentAttributeTargetArgs']]]
     """
     Configuration of the target document attribute or metadata field when ingesting documents into Amazon Q Business . You can also include a value.
     """
@@ -1310,9 +1310,9 @@ class DataSourceInlineDocumentEnrichmentConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class DataSourceInlineDocumentEnrichmentConfigurationArgs:
     def __init__(__self__, *,
-                 condition: Optional[pulumi.Input['DataSourceDocumentAttributeConditionArgs']] = None,
-                 document_content_operator: Optional[pulumi.Input['DataSourceDocumentContentOperator']] = None,
-                 target: Optional[pulumi.Input['DataSourceDocumentAttributeTargetArgs']] = None):
+                 condition: pulumi.Input[Optional['DataSourceDocumentAttributeConditionArgs']] = None,
+                 document_content_operator: pulumi.Input[Optional['DataSourceDocumentContentOperator']] = None,
+                 target: pulumi.Input[Optional['DataSourceDocumentAttributeTargetArgs']] = None):
         """
         :param pulumi.Input['DataSourceDocumentAttributeConditionArgs'] condition: Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Q Business .
         :param pulumi.Input['DataSourceDocumentContentOperator'] document_content_operator: `TRUE` to delete content if the condition used for the target attribute is met.
@@ -1327,51 +1327,51 @@ class DataSourceInlineDocumentEnrichmentConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def condition(self) -> Optional[pulumi.Input['DataSourceDocumentAttributeConditionArgs']]:
+    def condition(self) -> pulumi.Input[Optional['DataSourceDocumentAttributeConditionArgs']]:
         """
         Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Q Business .
         """
         return pulumi.get(self, "condition")
 
     @condition.setter
-    def condition(self, value: Optional[pulumi.Input['DataSourceDocumentAttributeConditionArgs']]):
+    def condition(self, value: pulumi.Input[Optional['DataSourceDocumentAttributeConditionArgs']]):
         pulumi.set(self, "condition", value)
 
     @_builtins.property
     @pulumi.getter(name="documentContentOperator")
-    def document_content_operator(self) -> Optional[pulumi.Input['DataSourceDocumentContentOperator']]:
+    def document_content_operator(self) -> pulumi.Input[Optional['DataSourceDocumentContentOperator']]:
         """
         `TRUE` to delete content if the condition used for the target attribute is met.
         """
         return pulumi.get(self, "document_content_operator")
 
     @document_content_operator.setter
-    def document_content_operator(self, value: Optional[pulumi.Input['DataSourceDocumentContentOperator']]):
+    def document_content_operator(self, value: pulumi.Input[Optional['DataSourceDocumentContentOperator']]):
         pulumi.set(self, "document_content_operator", value)
 
     @_builtins.property
     @pulumi.getter
-    def target(self) -> Optional[pulumi.Input['DataSourceDocumentAttributeTargetArgs']]:
+    def target(self) -> pulumi.Input[Optional['DataSourceDocumentAttributeTargetArgs']]:
         """
         Configuration of the target document attribute or metadata field when ingesting documents into Amazon Q Business . You can also include a value.
         """
         return pulumi.get(self, "target")
 
     @target.setter
-    def target(self, value: Optional[pulumi.Input['DataSourceDocumentAttributeTargetArgs']]):
+    def target(self, value: pulumi.Input[Optional['DataSourceDocumentAttributeTargetArgs']]):
         pulumi.set(self, "target", value)
 
 
 class DataSourceMediaExtractionConfigurationArgsDict(TypedDict):
-    audio_extraction_configuration: NotRequired[pulumi.Input['DataSourceAudioExtractionConfigurationArgsDict']]
+    audio_extraction_configuration: NotRequired[pulumi.Input[Optional['DataSourceAudioExtractionConfigurationArgs']]]
     """
     Configuration settings for extracting and processing audio content from media files.
     """
-    image_extraction_configuration: NotRequired[pulumi.Input['DataSourceImageExtractionConfigurationArgsDict']]
+    image_extraction_configuration: NotRequired[pulumi.Input[Optional['DataSourceImageExtractionConfigurationArgs']]]
     """
     The configuration for extracting semantic meaning from images in documents. For more information, see [Extracting semantic meaning from images and visuals](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/extracting-meaning-from-images.html) .
     """
-    video_extraction_configuration: NotRequired[pulumi.Input['DataSourceVideoExtractionConfigurationArgsDict']]
+    video_extraction_configuration: NotRequired[pulumi.Input[Optional['DataSourceVideoExtractionConfigurationArgs']]]
     """
     Configuration settings for extracting and processing video content from media files.
     """
@@ -1379,9 +1379,9 @@ class DataSourceMediaExtractionConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class DataSourceMediaExtractionConfigurationArgs:
     def __init__(__self__, *,
-                 audio_extraction_configuration: Optional[pulumi.Input['DataSourceAudioExtractionConfigurationArgs']] = None,
-                 image_extraction_configuration: Optional[pulumi.Input['DataSourceImageExtractionConfigurationArgs']] = None,
-                 video_extraction_configuration: Optional[pulumi.Input['DataSourceVideoExtractionConfigurationArgs']] = None):
+                 audio_extraction_configuration: pulumi.Input[Optional['DataSourceAudioExtractionConfigurationArgs']] = None,
+                 image_extraction_configuration: pulumi.Input[Optional['DataSourceImageExtractionConfigurationArgs']] = None,
+                 video_extraction_configuration: pulumi.Input[Optional['DataSourceVideoExtractionConfigurationArgs']] = None):
         """
         :param pulumi.Input['DataSourceAudioExtractionConfigurationArgs'] audio_extraction_configuration: Configuration settings for extracting and processing audio content from media files.
         :param pulumi.Input['DataSourceImageExtractionConfigurationArgs'] image_extraction_configuration: The configuration for extracting semantic meaning from images in documents. For more information, see [Extracting semantic meaning from images and visuals](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/extracting-meaning-from-images.html) .
@@ -1396,38 +1396,38 @@ class DataSourceMediaExtractionConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="audioExtractionConfiguration")
-    def audio_extraction_configuration(self) -> Optional[pulumi.Input['DataSourceAudioExtractionConfigurationArgs']]:
+    def audio_extraction_configuration(self) -> pulumi.Input[Optional['DataSourceAudioExtractionConfigurationArgs']]:
         """
         Configuration settings for extracting and processing audio content from media files.
         """
         return pulumi.get(self, "audio_extraction_configuration")
 
     @audio_extraction_configuration.setter
-    def audio_extraction_configuration(self, value: Optional[pulumi.Input['DataSourceAudioExtractionConfigurationArgs']]):
+    def audio_extraction_configuration(self, value: pulumi.Input[Optional['DataSourceAudioExtractionConfigurationArgs']]):
         pulumi.set(self, "audio_extraction_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="imageExtractionConfiguration")
-    def image_extraction_configuration(self) -> Optional[pulumi.Input['DataSourceImageExtractionConfigurationArgs']]:
+    def image_extraction_configuration(self) -> pulumi.Input[Optional['DataSourceImageExtractionConfigurationArgs']]:
         """
         The configuration for extracting semantic meaning from images in documents. For more information, see [Extracting semantic meaning from images and visuals](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/extracting-meaning-from-images.html) .
         """
         return pulumi.get(self, "image_extraction_configuration")
 
     @image_extraction_configuration.setter
-    def image_extraction_configuration(self, value: Optional[pulumi.Input['DataSourceImageExtractionConfigurationArgs']]):
+    def image_extraction_configuration(self, value: pulumi.Input[Optional['DataSourceImageExtractionConfigurationArgs']]):
         pulumi.set(self, "image_extraction_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="videoExtractionConfiguration")
-    def video_extraction_configuration(self) -> Optional[pulumi.Input['DataSourceVideoExtractionConfigurationArgs']]:
+    def video_extraction_configuration(self) -> pulumi.Input[Optional['DataSourceVideoExtractionConfigurationArgs']]:
         """
         Configuration settings for extracting and processing video content from media files.
         """
         return pulumi.get(self, "video_extraction_configuration")
 
     @video_extraction_configuration.setter
-    def video_extraction_configuration(self, value: Optional[pulumi.Input['DataSourceVideoExtractionConfigurationArgs']]):
+    def video_extraction_configuration(self, value: pulumi.Input[Optional['DataSourceVideoExtractionConfigurationArgs']]):
         pulumi.set(self, "video_extraction_configuration", value)
 
 
@@ -1507,7 +1507,7 @@ class DataSourceVpcConfigurationArgs:
 
 
 class IndexCapacityConfigurationArgsDict(TypedDict):
-    units: NotRequired[pulumi.Input[_builtins.float]]
+    units: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The number of storage units configured for an Amazon Q Business index.
     """
@@ -1515,7 +1515,7 @@ class IndexCapacityConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class IndexCapacityConfigurationArgs:
     def __init__(__self__, *,
-                 units: Optional[pulumi.Input[_builtins.float]] = None):
+                 units: pulumi.Input[Optional[_builtins.float]] = None):
         """
         :param pulumi.Input[_builtins.float] units: The number of storage units configured for an Amazon Q Business index.
         """
@@ -1524,27 +1524,27 @@ class IndexCapacityConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def units(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def units(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The number of storage units configured for an Amazon Q Business index.
         """
         return pulumi.get(self, "units")
 
     @units.setter
-    def units(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def units(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "units", value)
 
 
 class IndexDocumentAttributeConfigurationArgsDict(TypedDict):
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the document attribute.
     """
-    search: NotRequired[pulumi.Input['QBusinessIndexStatus']]
+    search: NotRequired[pulumi.Input[Optional['QBusinessIndexStatus']]]
     """
     Information about whether the document attribute can be used by an end user to search for information on their web experience.
     """
-    type: NotRequired[pulumi.Input['IndexAttributeType']]
+    type: NotRequired[pulumi.Input[Optional['IndexAttributeType']]]
     """
     The type of document attribute.
     """
@@ -1552,9 +1552,9 @@ class IndexDocumentAttributeConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class IndexDocumentAttributeConfigurationArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 search: Optional[pulumi.Input['QBusinessIndexStatus']] = None,
-                 type: Optional[pulumi.Input['IndexAttributeType']] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 search: pulumi.Input[Optional['QBusinessIndexStatus']] = None,
+                 type: pulumi.Input[Optional['IndexAttributeType']] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the document attribute.
         :param pulumi.Input['QBusinessIndexStatus'] search: Information about whether the document attribute can be used by an end user to search for information on their web experience.
@@ -1569,38 +1569,38 @@ class IndexDocumentAttributeConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the document attribute.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def search(self) -> Optional[pulumi.Input['QBusinessIndexStatus']]:
+    def search(self) -> pulumi.Input[Optional['QBusinessIndexStatus']]:
         """
         Information about whether the document attribute can be used by an end user to search for information on their web experience.
         """
         return pulumi.get(self, "search")
 
     @search.setter
-    def search(self, value: Optional[pulumi.Input['QBusinessIndexStatus']]):
+    def search(self, value: pulumi.Input[Optional['QBusinessIndexStatus']]):
         pulumi.set(self, "search", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['IndexAttributeType']]:
+    def type(self) -> pulumi.Input[Optional['IndexAttributeType']]:
         """
         The type of document attribute.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['IndexAttributeType']]):
+    def type(self, value: pulumi.Input[Optional['IndexAttributeType']]):
         pulumi.set(self, "type", value)
 
 
@@ -1851,16 +1851,16 @@ class PluginNoAuthConfigurationArgs:
 class PluginOAuth2ClientCredentialConfigurationArgsDict(TypedDict):
     role_arn: pulumi.Input[_builtins.str]
     secret_arn: pulumi.Input[_builtins.str]
-    authorization_url: NotRequired[pulumi.Input[_builtins.str]]
-    token_url: NotRequired[pulumi.Input[_builtins.str]]
+    authorization_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    token_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class PluginOAuth2ClientCredentialConfigurationArgs:
     def __init__(__self__, *,
                  role_arn: pulumi.Input[_builtins.str],
                  secret_arn: pulumi.Input[_builtins.str],
-                 authorization_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 token_url: Optional[pulumi.Input[_builtins.str]] = None):
+                 authorization_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 token_url: pulumi.Input[Optional[_builtins.str]] = None):
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "secret_arn", secret_arn)
         if authorization_url is not None:
@@ -1888,20 +1888,20 @@ class PluginOAuth2ClientCredentialConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="authorizationUrl")
-    def authorization_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authorization_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "authorization_url")
 
     @authorization_url.setter
-    def authorization_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authorization_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authorization_url", value)
 
     @_builtins.property
     @pulumi.getter(name="tokenUrl")
-    def token_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def token_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "token_url")
 
     @token_url.setter
-    def token_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def token_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "token_url", value)
 
 
@@ -2053,19 +2053,19 @@ class WebExperienceBrowserExtensionConfigurationArgs:
 
 
 class WebExperienceCustomizationConfigurationArgsDict(TypedDict):
-    custom_css_url: NotRequired[pulumi.Input[_builtins.str]]
+    custom_css_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Provides the URL where the custom CSS file is hosted for an Amazon Q web experience.
     """
-    favicon_url: NotRequired[pulumi.Input[_builtins.str]]
+    favicon_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Provides the URL where the custom favicon file is hosted for an Amazon Q web experience.
     """
-    font_url: NotRequired[pulumi.Input[_builtins.str]]
+    font_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Provides the URL where the custom font file is hosted for an Amazon Q web experience.
     """
-    logo_url: NotRequired[pulumi.Input[_builtins.str]]
+    logo_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Provides the URL where the custom logo file is hosted for an Amazon Q web experience.
     """
@@ -2073,10 +2073,10 @@ class WebExperienceCustomizationConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class WebExperienceCustomizationConfigurationArgs:
     def __init__(__self__, *,
-                 custom_css_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 favicon_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 font_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 logo_url: Optional[pulumi.Input[_builtins.str]] = None):
+                 custom_css_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 favicon_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 font_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 logo_url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] custom_css_url: Provides the URL where the custom CSS file is hosted for an Amazon Q web experience.
         :param pulumi.Input[_builtins.str] favicon_url: Provides the URL where the custom favicon file is hosted for an Amazon Q web experience.
@@ -2094,50 +2094,50 @@ class WebExperienceCustomizationConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="customCssUrl")
-    def custom_css_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_css_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Provides the URL where the custom CSS file is hosted for an Amazon Q web experience.
         """
         return pulumi.get(self, "custom_css_url")
 
     @custom_css_url.setter
-    def custom_css_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_css_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_css_url", value)
 
     @_builtins.property
     @pulumi.getter(name="faviconUrl")
-    def favicon_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def favicon_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Provides the URL where the custom favicon file is hosted for an Amazon Q web experience.
         """
         return pulumi.get(self, "favicon_url")
 
     @favicon_url.setter
-    def favicon_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def favicon_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "favicon_url", value)
 
     @_builtins.property
     @pulumi.getter(name="fontUrl")
-    def font_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def font_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Provides the URL where the custom font file is hosted for an Amazon Q web experience.
         """
         return pulumi.get(self, "font_url")
 
     @font_url.setter
-    def font_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def font_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "font_url", value)
 
     @_builtins.property
     @pulumi.getter(name="logoUrl")
-    def logo_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def logo_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Provides the URL where the custom logo file is hosted for an Amazon Q web experience.
         """
         return pulumi.get(self, "logo_url")
 
     @logo_url.setter
-    def logo_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def logo_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "logo_url", value)
 
 

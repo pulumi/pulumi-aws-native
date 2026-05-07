@@ -133,7 +133,7 @@ def get_saml_provider(arn: Optional[_builtins.str] = None,
         saml_metadata_document=pulumi.get(__ret__, 'saml_metadata_document'),
         saml_provider_uuid=pulumi.get(__ret__, 'saml_provider_uuid'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_saml_provider_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_saml_provider_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSamlProviderResult]:
     """
     Resource Type definition for AWS::IAM::SAMLProvider

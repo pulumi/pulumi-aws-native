@@ -20,9 +20,9 @@ __all__ = ['PortfolioPrincipalAssociationArgs', 'PortfolioPrincipalAssociation']
 class PortfolioPrincipalAssociationArgs:
     def __init__(__self__, *,
                  principal_type: pulumi.Input[_builtins.str],
-                 accept_language: Optional[pulumi.Input[_builtins.str]] = None,
-                 portfolio_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 accept_language: pulumi.Input[Optional[_builtins.str]] = None,
+                 portfolio_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a PortfolioPrincipalAssociation resource.
 
@@ -53,38 +53,38 @@ class PortfolioPrincipalAssociationArgs:
 
     @_builtins.property
     @pulumi.getter(name="acceptLanguage")
-    def accept_language(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def accept_language(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The language code.
         """
         return pulumi.get(self, "accept_language")
 
     @accept_language.setter
-    def accept_language(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def accept_language(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "accept_language", value)
 
     @_builtins.property
     @pulumi.getter(name="portfolioId")
-    def portfolio_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def portfolio_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The portfolio identifier.
         """
         return pulumi.get(self, "portfolio_id")
 
     @portfolio_id.setter
-    def portfolio_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def portfolio_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "portfolio_id", value)
 
     @_builtins.property
     @pulumi.getter(name="principalArn")
-    def principal_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the principal (user, role, or group).
         """
         return pulumi.get(self, "principal_arn")
 
     @principal_arn.setter
-    def principal_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_arn", value)
 
 
@@ -94,10 +94,10 @@ class PortfolioPrincipalAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 accept_language: Optional[pulumi.Input[_builtins.str]] = None,
-                 portfolio_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 accept_language: pulumi.Input[Optional[_builtins.str]] = None,
+                 portfolio_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::ServiceCatalog::PortfolioPrincipalAssociation
@@ -135,10 +135,10 @@ class PortfolioPrincipalAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 accept_language: Optional[pulumi.Input[_builtins.str]] = None,
-                 portfolio_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 accept_language: pulumi.Input[Optional[_builtins.str]] = None,
+                 portfolio_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

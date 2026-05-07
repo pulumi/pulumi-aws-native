@@ -107,7 +107,7 @@ def get_feed(id: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         outputs=pulumi.get(__ret__, 'outputs'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_feed_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_feed_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFeedResult]:
     """
     Represents a feed that receives media for inference processing

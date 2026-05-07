@@ -55,7 +55,7 @@ class DocumentClassifierAugmentedManifestsListItemArgsDict(TypedDict):
     """
     The Amazon S3 location of the augmented manifest file.
     """
-    split: NotRequired[pulumi.Input['DocumentClassifierAugmentedManifestsListItemSplit']]
+    split: NotRequired[pulumi.Input[Optional['DocumentClassifierAugmentedManifestsListItemSplit']]]
     """
     The purpose of the data you've provided in the augmented manifest. You can either train or test this data. If you don't specify, the default is train.
 
@@ -69,7 +69,7 @@ class DocumentClassifierAugmentedManifestsListItemArgs:
     def __init__(__self__, *,
                  attribute_names: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  s3_uri: pulumi.Input[_builtins.str],
-                 split: Optional[pulumi.Input['DocumentClassifierAugmentedManifestsListItemSplit']] = None):
+                 split: pulumi.Input[Optional['DocumentClassifierAugmentedManifestsListItemSplit']] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] attribute_names: The JSON attribute that contains the annotations for your training documents. The number of attribute names that you specify depends on whether your augmented manifest file is the output of a single labeling job or a chained labeling job.
                
@@ -118,7 +118,7 @@ class DocumentClassifierAugmentedManifestsListItemArgs:
 
     @_builtins.property
     @pulumi.getter
-    def split(self) -> Optional[pulumi.Input['DocumentClassifierAugmentedManifestsListItemSplit']]:
+    def split(self) -> pulumi.Input[Optional['DocumentClassifierAugmentedManifestsListItemSplit']]:
         """
         The purpose of the data you've provided in the augmented manifest. You can either train or test this data. If you don't specify, the default is train.
 
@@ -129,7 +129,7 @@ class DocumentClassifierAugmentedManifestsListItemArgs:
         return pulumi.get(self, "split")
 
     @split.setter
-    def split(self, value: Optional[pulumi.Input['DocumentClassifierAugmentedManifestsListItemSplit']]):
+    def split(self, value: pulumi.Input[Optional['DocumentClassifierAugmentedManifestsListItemSplit']]):
         pulumi.set(self, "split", value)
 
 
@@ -141,14 +141,14 @@ class DocumentClassifierDocumentReaderConfigArgsDict(TypedDict):
     - `TEXTRACT_DETECT_DOCUMENT_TEXT` - The Amazon Comprehend service uses the `DetectDocumentText` API operation.
     - `TEXTRACT_ANALYZE_DOCUMENT` - The Amazon Comprehend service uses the `AnalyzeDocument` API operation.
     """
-    document_read_mode: NotRequired[pulumi.Input['DocumentClassifierDocumentReaderConfigDocumentReadMode']]
+    document_read_mode: NotRequired[pulumi.Input[Optional['DocumentClassifierDocumentReaderConfigDocumentReadMode']]]
     """
     Determines the text extraction actions for PDF files. Enter one of the following values:
 
     - `SERVICE_DEFAULT` - use the Amazon Comprehend service defaults for PDF files.
     - `FORCE_DOCUMENT_READ_ACTION` - Amazon Comprehend uses the Textract API specified by DocumentReadAction for all PDF files, including digital PDF files.
     """
-    feature_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['DocumentClassifierDocumentReaderConfigFeatureTypesItem']]]]
+    feature_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DocumentClassifierDocumentReaderConfigFeatureTypesItem']]]]]
     """
     Specifies the type of Amazon Textract features to apply. If you chose `TEXTRACT_ANALYZE_DOCUMENT` as the read action, you must specify one or both of the following values:
 
@@ -160,8 +160,8 @@ class DocumentClassifierDocumentReaderConfigArgsDict(TypedDict):
 class DocumentClassifierDocumentReaderConfigArgs:
     def __init__(__self__, *,
                  document_read_action: pulumi.Input['DocumentClassifierDocumentReaderConfigDocumentReadAction'],
-                 document_read_mode: Optional[pulumi.Input['DocumentClassifierDocumentReaderConfigDocumentReadMode']] = None,
-                 feature_types: Optional[pulumi.Input[Sequence[pulumi.Input['DocumentClassifierDocumentReaderConfigFeatureTypesItem']]]] = None):
+                 document_read_mode: pulumi.Input[Optional['DocumentClassifierDocumentReaderConfigDocumentReadMode']] = None,
+                 feature_types: pulumi.Input[Optional[Sequence[pulumi.Input['DocumentClassifierDocumentReaderConfigFeatureTypesItem']]]] = None):
         """
         :param pulumi.Input['DocumentClassifierDocumentReaderConfigDocumentReadAction'] document_read_action: This field defines the Amazon Textract API operation that Amazon Comprehend uses to extract text from PDF files and image files. Enter one of the following values:
                
@@ -199,7 +199,7 @@ class DocumentClassifierDocumentReaderConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="documentReadMode")
-    def document_read_mode(self) -> Optional[pulumi.Input['DocumentClassifierDocumentReaderConfigDocumentReadMode']]:
+    def document_read_mode(self) -> pulumi.Input[Optional['DocumentClassifierDocumentReaderConfigDocumentReadMode']]:
         """
         Determines the text extraction actions for PDF files. Enter one of the following values:
 
@@ -209,12 +209,12 @@ class DocumentClassifierDocumentReaderConfigArgs:
         return pulumi.get(self, "document_read_mode")
 
     @document_read_mode.setter
-    def document_read_mode(self, value: Optional[pulumi.Input['DocumentClassifierDocumentReaderConfigDocumentReadMode']]):
+    def document_read_mode(self, value: pulumi.Input[Optional['DocumentClassifierDocumentReaderConfigDocumentReadMode']]):
         pulumi.set(self, "document_read_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="featureTypes")
-    def feature_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DocumentClassifierDocumentReaderConfigFeatureTypesItem']]]]:
+    def feature_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DocumentClassifierDocumentReaderConfigFeatureTypesItem']]]]:
         """
         Specifies the type of Amazon Textract features to apply. If you chose `TEXTRACT_ANALYZE_DOCUMENT` as the read action, you must specify one or both of the following values:
 
@@ -224,7 +224,7 @@ class DocumentClassifierDocumentReaderConfigArgs:
         return pulumi.get(self, "feature_types")
 
     @feature_types.setter
-    def feature_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DocumentClassifierDocumentReaderConfigFeatureTypesItem']]]]):
+    def feature_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DocumentClassifierDocumentReaderConfigFeatureTypesItem']]]]):
         pulumi.set(self, "feature_types", value)
 
 
@@ -233,7 +233,7 @@ class DocumentClassifierDocumentsArgsDict(TypedDict):
     """
     The S3 URI location of the training documents specified in the S3Uri CSV file.
     """
-    test_s3_uri: NotRequired[pulumi.Input[_builtins.str]]
+    test_s3_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The S3 URI location of the test documents included in the TestS3Uri CSV file. This field is not required if you do not specify a test CSV file.
     """
@@ -242,7 +242,7 @@ class DocumentClassifierDocumentsArgsDict(TypedDict):
 class DocumentClassifierDocumentsArgs:
     def __init__(__self__, *,
                  s3_uri: pulumi.Input[_builtins.str],
-                 test_s3_uri: Optional[pulumi.Input[_builtins.str]] = None):
+                 test_s3_uri: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] s3_uri: The S3 URI location of the training documents specified in the S3Uri CSV file.
         :param pulumi.Input[_builtins.str] test_s3_uri: The S3 URI location of the test documents included in the TestS3Uri CSV file. This field is not required if you do not specify a test CSV file.
@@ -265,25 +265,25 @@ class DocumentClassifierDocumentsArgs:
 
     @_builtins.property
     @pulumi.getter(name="testS3Uri")
-    def test_s3_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def test_s3_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The S3 URI location of the test documents included in the TestS3Uri CSV file. This field is not required if you do not specify a test CSV file.
         """
         return pulumi.get(self, "test_s3_uri")
 
     @test_s3_uri.setter
-    def test_s3_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def test_s3_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "test_s3_uri", value)
 
 
 class DocumentClassifierInputDataConfigArgsDict(TypedDict):
-    augmented_manifests: NotRequired[pulumi.Input[Sequence[pulumi.Input['DocumentClassifierAugmentedManifestsListItemArgsDict']]]]
+    augmented_manifests: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DocumentClassifierAugmentedManifestsListItemArgs']]]]]
     """
     A list of augmented manifest files that provide training data for your custom model. An augmented manifest file is a labeled dataset that is produced by Amazon SageMaker Ground Truth.
 
     This parameter is required if you set `DataFormat` to `AUGMENTED_MANIFEST` .
     """
-    data_format: NotRequired[pulumi.Input['DocumentClassifierInputDataConfigDataFormat']]
+    data_format: NotRequired[pulumi.Input[Optional['DocumentClassifierInputDataConfigDataFormat']]]
     """
     The format of your training data:
 
@@ -294,20 +294,20 @@ class DocumentClassifierInputDataConfigArgsDict(TypedDict):
 
     If you don't specify a value, Amazon Comprehend uses `COMPREHEND_CSV` as the default.
     """
-    document_reader_config: NotRequired[pulumi.Input['DocumentClassifierDocumentReaderConfigArgsDict']]
-    document_type: NotRequired[pulumi.Input['DocumentClassifierInputDataConfigDocumentType']]
+    document_reader_config: NotRequired[pulumi.Input[Optional['DocumentClassifierDocumentReaderConfigArgs']]]
+    document_type: NotRequired[pulumi.Input[Optional['DocumentClassifierInputDataConfigDocumentType']]]
     """
     The type of input documents for training the model. Provide plain-text documents to create a plain-text model, and provide semi-structured documents to create a native document model.
     """
-    documents: NotRequired[pulumi.Input['DocumentClassifierDocumentsArgsDict']]
+    documents: NotRequired[pulumi.Input[Optional['DocumentClassifierDocumentsArgs']]]
     """
     The S3 location of the training documents. This parameter is required in a request to create a native document model.
     """
-    label_delimiter: NotRequired[pulumi.Input[_builtins.str]]
+    label_delimiter: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Indicates the delimiter used to separate each label for training a multi-label classifier. The default delimiter between labels is a pipe (|). You can use a different character as a delimiter (if it's an allowed character) by specifying it under Delimiter for labels. If the training documents use a delimiter other than the default or the delimiter you specify, the labels on that line will be combined to make a single unique label, such as LABELLABELLABEL.
     """
-    s3_uri: NotRequired[pulumi.Input[_builtins.str]]
+    s3_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon S3 URI for the input data. The S3 bucket must be in the same Region as the API endpoint that you are calling. The URI can point to a single input file or it can provide the prefix for a collection of input files.
 
@@ -315,7 +315,7 @@ class DocumentClassifierInputDataConfigArgsDict(TypedDict):
 
     This parameter is required if you set `DataFormat` to `COMPREHEND_CSV` .
     """
-    test_s3_uri: NotRequired[pulumi.Input[_builtins.str]]
+    test_s3_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     This specifies the Amazon S3 location that contains the test annotations for the document classifier. The URI must be in the same AWS Region as the API endpoint that you are calling.
     """
@@ -323,14 +323,14 @@ class DocumentClassifierInputDataConfigArgsDict(TypedDict):
 @pulumi.input_type
 class DocumentClassifierInputDataConfigArgs:
     def __init__(__self__, *,
-                 augmented_manifests: Optional[pulumi.Input[Sequence[pulumi.Input['DocumentClassifierAugmentedManifestsListItemArgs']]]] = None,
-                 data_format: Optional[pulumi.Input['DocumentClassifierInputDataConfigDataFormat']] = None,
-                 document_reader_config: Optional[pulumi.Input['DocumentClassifierDocumentReaderConfigArgs']] = None,
-                 document_type: Optional[pulumi.Input['DocumentClassifierInputDataConfigDocumentType']] = None,
-                 documents: Optional[pulumi.Input['DocumentClassifierDocumentsArgs']] = None,
-                 label_delimiter: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 test_s3_uri: Optional[pulumi.Input[_builtins.str]] = None):
+                 augmented_manifests: pulumi.Input[Optional[Sequence[pulumi.Input['DocumentClassifierAugmentedManifestsListItemArgs']]]] = None,
+                 data_format: pulumi.Input[Optional['DocumentClassifierInputDataConfigDataFormat']] = None,
+                 document_reader_config: pulumi.Input[Optional['DocumentClassifierDocumentReaderConfigArgs']] = None,
+                 document_type: pulumi.Input[Optional['DocumentClassifierInputDataConfigDocumentType']] = None,
+                 documents: pulumi.Input[Optional['DocumentClassifierDocumentsArgs']] = None,
+                 label_delimiter: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 test_s3_uri: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['DocumentClassifierAugmentedManifestsListItemArgs']]] augmented_manifests: A list of augmented manifest files that provide training data for your custom model. An augmented manifest file is a labeled dataset that is produced by Amazon SageMaker Ground Truth.
                
@@ -372,7 +372,7 @@ class DocumentClassifierInputDataConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="augmentedManifests")
-    def augmented_manifests(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DocumentClassifierAugmentedManifestsListItemArgs']]]]:
+    def augmented_manifests(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DocumentClassifierAugmentedManifestsListItemArgs']]]]:
         """
         A list of augmented manifest files that provide training data for your custom model. An augmented manifest file is a labeled dataset that is produced by Amazon SageMaker Ground Truth.
 
@@ -381,12 +381,12 @@ class DocumentClassifierInputDataConfigArgs:
         return pulumi.get(self, "augmented_manifests")
 
     @augmented_manifests.setter
-    def augmented_manifests(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DocumentClassifierAugmentedManifestsListItemArgs']]]]):
+    def augmented_manifests(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DocumentClassifierAugmentedManifestsListItemArgs']]]]):
         pulumi.set(self, "augmented_manifests", value)
 
     @_builtins.property
     @pulumi.getter(name="dataFormat")
-    def data_format(self) -> Optional[pulumi.Input['DocumentClassifierInputDataConfigDataFormat']]:
+    def data_format(self) -> pulumi.Input[Optional['DocumentClassifierInputDataConfigDataFormat']]:
         """
         The format of your training data:
 
@@ -400,57 +400,57 @@ class DocumentClassifierInputDataConfigArgs:
         return pulumi.get(self, "data_format")
 
     @data_format.setter
-    def data_format(self, value: Optional[pulumi.Input['DocumentClassifierInputDataConfigDataFormat']]):
+    def data_format(self, value: pulumi.Input[Optional['DocumentClassifierInputDataConfigDataFormat']]):
         pulumi.set(self, "data_format", value)
 
     @_builtins.property
     @pulumi.getter(name="documentReaderConfig")
-    def document_reader_config(self) -> Optional[pulumi.Input['DocumentClassifierDocumentReaderConfigArgs']]:
+    def document_reader_config(self) -> pulumi.Input[Optional['DocumentClassifierDocumentReaderConfigArgs']]:
         return pulumi.get(self, "document_reader_config")
 
     @document_reader_config.setter
-    def document_reader_config(self, value: Optional[pulumi.Input['DocumentClassifierDocumentReaderConfigArgs']]):
+    def document_reader_config(self, value: pulumi.Input[Optional['DocumentClassifierDocumentReaderConfigArgs']]):
         pulumi.set(self, "document_reader_config", value)
 
     @_builtins.property
     @pulumi.getter(name="documentType")
-    def document_type(self) -> Optional[pulumi.Input['DocumentClassifierInputDataConfigDocumentType']]:
+    def document_type(self) -> pulumi.Input[Optional['DocumentClassifierInputDataConfigDocumentType']]:
         """
         The type of input documents for training the model. Provide plain-text documents to create a plain-text model, and provide semi-structured documents to create a native document model.
         """
         return pulumi.get(self, "document_type")
 
     @document_type.setter
-    def document_type(self, value: Optional[pulumi.Input['DocumentClassifierInputDataConfigDocumentType']]):
+    def document_type(self, value: pulumi.Input[Optional['DocumentClassifierInputDataConfigDocumentType']]):
         pulumi.set(self, "document_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def documents(self) -> Optional[pulumi.Input['DocumentClassifierDocumentsArgs']]:
+    def documents(self) -> pulumi.Input[Optional['DocumentClassifierDocumentsArgs']]:
         """
         The S3 location of the training documents. This parameter is required in a request to create a native document model.
         """
         return pulumi.get(self, "documents")
 
     @documents.setter
-    def documents(self, value: Optional[pulumi.Input['DocumentClassifierDocumentsArgs']]):
+    def documents(self, value: pulumi.Input[Optional['DocumentClassifierDocumentsArgs']]):
         pulumi.set(self, "documents", value)
 
     @_builtins.property
     @pulumi.getter(name="labelDelimiter")
-    def label_delimiter(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def label_delimiter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates the delimiter used to separate each label for training a multi-label classifier. The default delimiter between labels is a pipe (|). You can use a different character as a delimiter (if it's an allowed character) by specifying it under Delimiter for labels. If the training documents use a delimiter other than the default or the delimiter you specify, the labels on that line will be combined to make a single unique label, such as LABELLABELLABEL.
         """
         return pulumi.get(self, "label_delimiter")
 
     @label_delimiter.setter
-    def label_delimiter(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def label_delimiter(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "label_delimiter", value)
 
     @_builtins.property
     @pulumi.getter(name="s3Uri")
-    def s3_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def s3_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon S3 URI for the input data. The S3 bucket must be in the same Region as the API endpoint that you are calling. The URI can point to a single input file or it can provide the prefix for a collection of input files.
 
@@ -461,24 +461,24 @@ class DocumentClassifierInputDataConfigArgs:
         return pulumi.get(self, "s3_uri")
 
     @s3_uri.setter
-    def s3_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def s3_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "s3_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="testS3Uri")
-    def test_s3_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def test_s3_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This specifies the Amazon S3 location that contains the test annotations for the document classifier. The URI must be in the same AWS Region as the API endpoint that you are calling.
         """
         return pulumi.get(self, "test_s3_uri")
 
     @test_s3_uri.setter
-    def test_s3_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def test_s3_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "test_s3_uri", value)
 
 
 class DocumentClassifierOutputDataConfigArgsDict(TypedDict):
-    kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    kms_key_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt the output results from an analysis job. The KmsKeyId can be one of the following formats:
 
@@ -487,7 +487,7 @@ class DocumentClassifierOutputDataConfigArgsDict(TypedDict):
     - KMS Key Alias: `"alias/ExampleAlias"`
     - ARN of a KMS Key Alias: `"arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias"`
     """
-    s3_uri: NotRequired[pulumi.Input[_builtins.str]]
+    s3_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     When you use the `OutputDataConfig` object while creating a custom classifier, you specify the Amazon S3 location where you want to write the confusion matrix and other output files. The URI must be in the same Region as the API endpoint that you are calling. The location is used as the prefix for the actual location of this output file.
 
@@ -497,8 +497,8 @@ class DocumentClassifierOutputDataConfigArgsDict(TypedDict):
 @pulumi.input_type
 class DocumentClassifierOutputDataConfigArgs:
     def __init__(__self__, *,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_uri: Optional[pulumi.Input[_builtins.str]] = None):
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_uri: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] kms_key_id: ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt the output results from an analysis job. The KmsKeyId can be one of the following formats:
                
@@ -517,7 +517,7 @@ class DocumentClassifierOutputDataConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt the output results from an analysis job. The KmsKeyId can be one of the following formats:
 
@@ -529,12 +529,12 @@ class DocumentClassifierOutputDataConfigArgs:
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="s3Uri")
-    def s3_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def s3_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         When you use the `OutputDataConfig` object while creating a custom classifier, you specify the Amazon S3 location where you want to write the confusion matrix and other output files. The URI must be in the same Region as the API endpoint that you are calling. The location is used as the prefix for the actual location of this output file.
 
@@ -543,7 +543,7 @@ class DocumentClassifierOutputDataConfigArgs:
         return pulumi.get(self, "s3_uri")
 
     @s3_uri.setter
-    def s3_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def s3_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "s3_uri", value)
 
 
@@ -595,22 +595,22 @@ class DocumentClassifierVpcConfigArgs:
 
 
 class FlywheelDataSecurityConfigArgsDict(TypedDict):
-    data_lake_kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    data_lake_kms_key_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ID for the AWS  key that Amazon Comprehend uses to encrypt the data in the data lake.
     """
-    model_kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    model_kms_key_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ID for the AWS  key that Amazon Comprehend uses to encrypt trained custom models. The ModelKmsKeyId can be either of the following formats:
 
     - KMS Key ID: `"1234abcd-12ab-34cd-56ef-1234567890ab"`
     - Amazon Resource Name (ARN) of a KMS Key: `"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"`
     """
-    volume_kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    volume_kms_key_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ID for the AWS  key that Amazon Comprehend uses to encrypt the volume.
     """
-    vpc_config: NotRequired[pulumi.Input['FlywheelVpcConfigArgsDict']]
+    vpc_config: NotRequired[pulumi.Input[Optional['FlywheelVpcConfigArgs']]]
     """
     Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for the job. For more information, see [Amazon VPC](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) .
     """
@@ -618,10 +618,10 @@ class FlywheelDataSecurityConfigArgsDict(TypedDict):
 @pulumi.input_type
 class FlywheelDataSecurityConfigArgs:
     def __init__(__self__, *,
-                 data_lake_kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 model_kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 volume_kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc_config: Optional[pulumi.Input['FlywheelVpcConfigArgs']] = None):
+                 data_lake_kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 model_kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 volume_kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_config: pulumi.Input[Optional['FlywheelVpcConfigArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] data_lake_kms_key_id: ID for the AWS  key that Amazon Comprehend uses to encrypt the data in the data lake.
         :param pulumi.Input[_builtins.str] model_kms_key_id: ID for the AWS  key that Amazon Comprehend uses to encrypt trained custom models. The ModelKmsKeyId can be either of the following formats:
@@ -642,19 +642,19 @@ class FlywheelDataSecurityConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataLakeKmsKeyId")
-    def data_lake_kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_lake_kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID for the AWS  key that Amazon Comprehend uses to encrypt the data in the data lake.
         """
         return pulumi.get(self, "data_lake_kms_key_id")
 
     @data_lake_kms_key_id.setter
-    def data_lake_kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_lake_kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_lake_kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="modelKmsKeyId")
-    def model_kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def model_kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID for the AWS  key that Amazon Comprehend uses to encrypt trained custom models. The ModelKmsKeyId can be either of the following formats:
 
@@ -664,31 +664,31 @@ class FlywheelDataSecurityConfigArgs:
         return pulumi.get(self, "model_kms_key_id")
 
     @model_kms_key_id.setter
-    def model_kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def model_kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "model_kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="volumeKmsKeyId")
-    def volume_kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def volume_kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID for the AWS  key that Amazon Comprehend uses to encrypt the volume.
         """
         return pulumi.get(self, "volume_kms_key_id")
 
     @volume_kms_key_id.setter
-    def volume_kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def volume_kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "volume_kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcConfig")
-    def vpc_config(self) -> Optional[pulumi.Input['FlywheelVpcConfigArgs']]:
+    def vpc_config(self) -> pulumi.Input[Optional['FlywheelVpcConfigArgs']]:
         """
         Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for the job. For more information, see [Amazon VPC](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) .
         """
         return pulumi.get(self, "vpc_config")
 
     @vpc_config.setter
-    def vpc_config(self, value: Optional[pulumi.Input['FlywheelVpcConfigArgs']]):
+    def vpc_config(self, value: pulumi.Input[Optional['FlywheelVpcConfigArgs']]):
         pulumi.set(self, "vpc_config", value)
 
 
@@ -697,7 +697,7 @@ class FlywheelDocumentClassificationConfigArgsDict(TypedDict):
     """
     Classification mode indicates whether the documents are `MULTI_CLASS` or `MULTI_LABEL` .
     """
-    labels: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    labels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     One or more labels to associate with the custom classifier.
     """
@@ -706,7 +706,7 @@ class FlywheelDocumentClassificationConfigArgsDict(TypedDict):
 class FlywheelDocumentClassificationConfigArgs:
     def __init__(__self__, *,
                  mode: pulumi.Input['FlywheelDocumentClassificationConfigMode'],
-                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 labels: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input['FlywheelDocumentClassificationConfigMode'] mode: Classification mode indicates whether the documents are `MULTI_CLASS` or `MULTI_LABEL` .
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] labels: One or more labels to associate with the custom classifier.
@@ -729,19 +729,19 @@ class FlywheelDocumentClassificationConfigArgs:
 
     @_builtins.property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def labels(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         One or more labels to associate with the custom classifier.
         """
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def labels(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "labels", value)
 
 
 class FlywheelEntityRecognitionConfigArgsDict(TypedDict):
-    entity_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['FlywheelEntityTypesListItemArgsDict']]]]
+    entity_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FlywheelEntityTypesListItemArgs']]]]]
     """
     Up to 25 entity types that the model is trained to recognize.
     """
@@ -749,7 +749,7 @@ class FlywheelEntityRecognitionConfigArgsDict(TypedDict):
 @pulumi.input_type
 class FlywheelEntityRecognitionConfigArgs:
     def __init__(__self__, *,
-                 entity_types: Optional[pulumi.Input[Sequence[pulumi.Input['FlywheelEntityTypesListItemArgs']]]] = None):
+                 entity_types: pulumi.Input[Optional[Sequence[pulumi.Input['FlywheelEntityTypesListItemArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['FlywheelEntityTypesListItemArgs']]] entity_types: Up to 25 entity types that the model is trained to recognize.
         """
@@ -758,14 +758,14 @@ class FlywheelEntityRecognitionConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="entityTypes")
-    def entity_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FlywheelEntityTypesListItemArgs']]]]:
+    def entity_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FlywheelEntityTypesListItemArgs']]]]:
         """
         Up to 25 entity types that the model is trained to recognize.
         """
         return pulumi.get(self, "entity_types")
 
     @entity_types.setter
-    def entity_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FlywheelEntityTypesListItemArgs']]]]):
+    def entity_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FlywheelEntityTypesListItemArgs']]]]):
         pulumi.set(self, "entity_types", value)
 
 
@@ -808,11 +808,11 @@ class FlywheelTaskConfigArgsDict(TypedDict):
     """
     Language code for the language that the model supports.
     """
-    document_classification_config: NotRequired[pulumi.Input['FlywheelDocumentClassificationConfigArgsDict']]
+    document_classification_config: NotRequired[pulumi.Input[Optional['FlywheelDocumentClassificationConfigArgs']]]
     """
     Configuration required for a document classification model.
     """
-    entity_recognition_config: NotRequired[pulumi.Input['FlywheelEntityRecognitionConfigArgsDict']]
+    entity_recognition_config: NotRequired[pulumi.Input[Optional['FlywheelEntityRecognitionConfigArgs']]]
     """
     Configuration required for an entity recognition model.
     """
@@ -821,8 +821,8 @@ class FlywheelTaskConfigArgsDict(TypedDict):
 class FlywheelTaskConfigArgs:
     def __init__(__self__, *,
                  language_code: pulumi.Input['FlywheelTaskConfigLanguageCode'],
-                 document_classification_config: Optional[pulumi.Input['FlywheelDocumentClassificationConfigArgs']] = None,
-                 entity_recognition_config: Optional[pulumi.Input['FlywheelEntityRecognitionConfigArgs']] = None):
+                 document_classification_config: pulumi.Input[Optional['FlywheelDocumentClassificationConfigArgs']] = None,
+                 entity_recognition_config: pulumi.Input[Optional['FlywheelEntityRecognitionConfigArgs']] = None):
         """
         :param pulumi.Input['FlywheelTaskConfigLanguageCode'] language_code: Language code for the language that the model supports.
         :param pulumi.Input['FlywheelDocumentClassificationConfigArgs'] document_classification_config: Configuration required for a document classification model.
@@ -848,26 +848,26 @@ class FlywheelTaskConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="documentClassificationConfig")
-    def document_classification_config(self) -> Optional[pulumi.Input['FlywheelDocumentClassificationConfigArgs']]:
+    def document_classification_config(self) -> pulumi.Input[Optional['FlywheelDocumentClassificationConfigArgs']]:
         """
         Configuration required for a document classification model.
         """
         return pulumi.get(self, "document_classification_config")
 
     @document_classification_config.setter
-    def document_classification_config(self, value: Optional[pulumi.Input['FlywheelDocumentClassificationConfigArgs']]):
+    def document_classification_config(self, value: pulumi.Input[Optional['FlywheelDocumentClassificationConfigArgs']]):
         pulumi.set(self, "document_classification_config", value)
 
     @_builtins.property
     @pulumi.getter(name="entityRecognitionConfig")
-    def entity_recognition_config(self) -> Optional[pulumi.Input['FlywheelEntityRecognitionConfigArgs']]:
+    def entity_recognition_config(self) -> pulumi.Input[Optional['FlywheelEntityRecognitionConfigArgs']]:
         """
         Configuration required for an entity recognition model.
         """
         return pulumi.get(self, "entity_recognition_config")
 
     @entity_recognition_config.setter
-    def entity_recognition_config(self, value: Optional[pulumi.Input['FlywheelEntityRecognitionConfigArgs']]):
+    def entity_recognition_config(self, value: pulumi.Input[Optional['FlywheelEntityRecognitionConfigArgs']]):
         pulumi.set(self, "entity_recognition_config", value)
 
 

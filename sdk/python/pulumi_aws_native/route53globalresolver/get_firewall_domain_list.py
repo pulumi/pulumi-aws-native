@@ -127,7 +127,7 @@ def get_firewall_domain_list(firewall_domain_list_id: Optional[_builtins.str] = 
         status_message=pulumi.get(__ret__, 'status_message'),
         tags=pulumi.get(__ret__, 'tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-def get_firewall_domain_list_output(firewall_domain_list_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_firewall_domain_list_output(firewall_domain_list_id: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFirewallDomainListResult]:
     """
     Resource schema for AWS::Route53GlobalResolver::FirewallDomainList

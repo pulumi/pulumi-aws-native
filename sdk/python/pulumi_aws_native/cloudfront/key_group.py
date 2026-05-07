@@ -48,7 +48,7 @@ class KeyGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 key_group_config: Optional[pulumi.Input[Union['KeyGroupConfigArgs', 'KeyGroupConfigArgsDict']]] = None,
+                 key_group_config: pulumi.Input[Optional[Union['KeyGroupConfigArgs', 'KeyGroupConfigArgsDict']]] = None,
                  __props__=None):
         """
         A key group.
@@ -85,7 +85,7 @@ class KeyGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 key_group_config: Optional[pulumi.Input[Union['KeyGroupConfigArgs', 'KeyGroupConfigArgsDict']]] = None,
+                 key_group_config: pulumi.Input[Optional[Union['KeyGroupConfigArgs', 'KeyGroupConfigArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

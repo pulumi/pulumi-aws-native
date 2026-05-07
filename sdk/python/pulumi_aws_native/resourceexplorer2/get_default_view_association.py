@@ -74,7 +74,7 @@ def get_default_view_association(associated_aws_principal: Optional[_builtins.st
     return AwaitableGetDefaultViewAssociationResult(
         associated_aws_principal=pulumi.get(__ret__, 'associated_aws_principal'),
         view_arn=pulumi.get(__ret__, 'view_arn'))
-def get_default_view_association_output(associated_aws_principal: Optional[pulumi.Input[_builtins.str]] = None,
+def get_default_view_association_output(associated_aws_principal: pulumi.Input[Optional[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDefaultViewAssociationResult]:
     """
     Definition of AWS::ResourceExplorer2::DefaultViewAssociation Resource Type

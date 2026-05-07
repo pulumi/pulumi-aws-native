@@ -24,9 +24,9 @@ __all__ = ['InputArgs', 'Input']
 class InputArgs:
     def __init__(__self__, *,
                  input_definition: pulumi.Input['InputDefinitionArgs'],
-                 input_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 input_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 input_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 input_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Input resource.
 
@@ -58,31 +58,31 @@ class InputArgs:
 
     @_builtins.property
     @pulumi.getter(name="inputDescription")
-    def input_description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def input_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A brief description of the input.
         """
         return pulumi.get(self, "input_description")
 
     @input_description.setter
-    def input_description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def input_description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "input_description", value)
 
     @_builtins.property
     @pulumi.getter(name="inputName")
-    def input_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def input_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the input.
         """
         return pulumi.get(self, "input_name")
 
     @input_name.setter
-    def input_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def input_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "input_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
          For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
@@ -90,7 +90,7 @@ class InputArgs:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -100,10 +100,10 @@ class Input(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 input_definition: Optional[pulumi.Input[Union['InputDefinitionArgs', 'InputDefinitionArgsDict']]] = None,
-                 input_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 input_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 input_definition: pulumi.Input[Optional[Union['InputDefinitionArgs', 'InputDefinitionArgsDict']]] = None,
+                 input_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 input_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         The AWS::IoTEvents::Input resource creates an input. To monitor your devices and processes, they must have a way to get telemetry data into ITE. This is done by sending messages as *inputs* to ITE. For more information, see [How to Use](https://docs.aws.amazon.com/iotevents/latest/developerguide/how-to-use-iotevents.html) in the *Developer Guide*.
@@ -230,10 +230,10 @@ class Input(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 input_definition: Optional[pulumi.Input[Union['InputDefinitionArgs', 'InputDefinitionArgsDict']]] = None,
-                 input_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 input_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 input_definition: pulumi.Input[Optional[Union['InputDefinitionArgs', 'InputDefinitionArgsDict']]] = None,
+                 input_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 input_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

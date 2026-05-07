@@ -169,7 +169,7 @@ def get_id_mapping_workflow(workflow_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'),
         workflow_arn=pulumi.get(__ret__, 'workflow_arn'))
-def get_id_mapping_workflow_output(workflow_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_id_mapping_workflow_output(workflow_name: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIdMappingWorkflowResult]:
     """
     IdMappingWorkflow defined in AWS Entity Resolution service

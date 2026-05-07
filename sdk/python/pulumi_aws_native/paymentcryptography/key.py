@@ -26,11 +26,11 @@ class KeyArgs:
     def __init__(__self__, *,
                  exportable: pulumi.Input[_builtins.bool],
                  key_attributes: pulumi.Input['KeyAttributesArgs'],
-                 derive_key_usage: Optional[pulumi.Input['KeyDeriveKeyUsage']] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key_check_value_algorithm: Optional[pulumi.Input['KeyCheckValueAlgorithm']] = None,
-                 replication_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 derive_key_usage: pulumi.Input[Optional['KeyDeriveKeyUsage']] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key_check_value_algorithm: pulumi.Input[Optional['KeyCheckValueAlgorithm']] = None,
+                 replication_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Key resource.
 
@@ -84,31 +84,31 @@ class KeyArgs:
 
     @_builtins.property
     @pulumi.getter(name="deriveKeyUsage")
-    def derive_key_usage(self) -> Optional[pulumi.Input['KeyDeriveKeyUsage']]:
+    def derive_key_usage(self) -> pulumi.Input[Optional['KeyDeriveKeyUsage']]:
         """
         The cryptographic usage of an ECDH derived key as deﬁned in section A.5.2 of the TR-31 spec.
         """
         return pulumi.get(self, "derive_key_usage")
 
     @derive_key_usage.setter
-    def derive_key_usage(self, value: Optional[pulumi.Input['KeyDeriveKeyUsage']]):
+    def derive_key_usage(self, value: pulumi.Input[Optional['KeyDeriveKeyUsage']]):
         pulumi.set(self, "derive_key_usage", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the key is enabled.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="keyCheckValueAlgorithm")
-    def key_check_value_algorithm(self) -> Optional[pulumi.Input['KeyCheckValueAlgorithm']]:
+    def key_check_value_algorithm(self) -> pulumi.Input[Optional['KeyCheckValueAlgorithm']]:
         """
         The algorithm that AWS Payment Cryptography uses to calculate the key check value (KCV). It is used to validate the key integrity.
 
@@ -117,12 +117,12 @@ class KeyArgs:
         return pulumi.get(self, "key_check_value_algorithm")
 
     @key_check_value_algorithm.setter
-    def key_check_value_algorithm(self, value: Optional[pulumi.Input['KeyCheckValueAlgorithm']]):
+    def key_check_value_algorithm(self, value: pulumi.Input[Optional['KeyCheckValueAlgorithm']]):
         pulumi.set(self, "key_check_value_algorithm", value)
 
     @_builtins.property
     @pulumi.getter(name="replicationRegions")
-    def replication_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def replication_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of AWS Regions to remove from the key's replication configuration.
 
@@ -131,16 +131,16 @@ class KeyArgs:
         return pulumi.get(self, "replication_regions")
 
     @replication_regions.setter
-    def replication_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def replication_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "replication_regions", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -150,13 +150,13 @@ class Key(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 derive_key_usage: Optional[pulumi.Input['KeyDeriveKeyUsage']] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 exportable: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key_attributes: Optional[pulumi.Input[Union['KeyAttributesArgs', 'KeyAttributesArgsDict']]] = None,
-                 key_check_value_algorithm: Optional[pulumi.Input['KeyCheckValueAlgorithm']] = None,
-                 replication_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 derive_key_usage: pulumi.Input[Optional['KeyDeriveKeyUsage']] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 exportable: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key_attributes: pulumi.Input[Optional[Union['KeyAttributesArgs', 'KeyAttributesArgsDict']]] = None,
+                 key_check_value_algorithm: pulumi.Input[Optional['KeyCheckValueAlgorithm']] = None,
+                 replication_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::PaymentCryptography::Key Resource Type
@@ -200,13 +200,13 @@ class Key(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 derive_key_usage: Optional[pulumi.Input['KeyDeriveKeyUsage']] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 exportable: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key_attributes: Optional[pulumi.Input[Union['KeyAttributesArgs', 'KeyAttributesArgsDict']]] = None,
-                 key_check_value_algorithm: Optional[pulumi.Input['KeyCheckValueAlgorithm']] = None,
-                 replication_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 derive_key_usage: pulumi.Input[Optional['KeyDeriveKeyUsage']] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 exportable: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key_attributes: pulumi.Input[Optional[Union['KeyAttributesArgs', 'KeyAttributesArgsDict']]] = None,
+                 key_check_value_algorithm: pulumi.Input[Optional['KeyCheckValueAlgorithm']] = None,
+                 replication_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

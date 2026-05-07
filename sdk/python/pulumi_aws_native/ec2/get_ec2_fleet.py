@@ -104,7 +104,7 @@ def get_ec2_fleet(fleet_id: Optional[_builtins.str] = None,
         excess_capacity_termination_policy=pulumi.get(__ret__, 'excess_capacity_termination_policy'),
         fleet_id=pulumi.get(__ret__, 'fleet_id'),
         target_capacity_specification=pulumi.get(__ret__, 'target_capacity_specification'))
-def get_ec2_fleet_output(fleet_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_ec2_fleet_output(fleet_id: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEc2FleetResult]:
     """
     Resource Type definition for AWS::EC2::EC2Fleet

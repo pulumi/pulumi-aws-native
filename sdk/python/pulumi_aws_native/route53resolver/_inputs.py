@@ -36,43 +36,43 @@ class FirewallRuleGroupFirewallRuleArgsDict(TypedDict):
     """
     Rule Priority
     """
-    block_override_dns_type: NotRequired[pulumi.Input['FirewallRuleGroupFirewallRuleBlockOverrideDnsType']]
+    block_override_dns_type: NotRequired[pulumi.Input[Optional['FirewallRuleGroupFirewallRuleBlockOverrideDnsType']]]
     """
     BlockOverrideDnsType
     """
-    block_override_domain: NotRequired[pulumi.Input[_builtins.str]]
+    block_override_domain: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     BlockOverrideDomain
     """
-    block_override_ttl: NotRequired[pulumi.Input[_builtins.int]]
+    block_override_ttl: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     BlockOverrideTtl
     """
-    block_response: NotRequired[pulumi.Input['FirewallRuleGroupFirewallRuleBlockResponse']]
+    block_response: NotRequired[pulumi.Input[Optional['FirewallRuleGroupFirewallRuleBlockResponse']]]
     """
     BlockResponse
     """
-    confidence_threshold: NotRequired[pulumi.Input['FirewallRuleGroupFirewallRuleConfidenceThreshold']]
+    confidence_threshold: NotRequired[pulumi.Input[Optional['FirewallRuleGroupFirewallRuleConfidenceThreshold']]]
     """
     FirewallDomainRedirectionAction
     """
-    dns_threat_protection: NotRequired[pulumi.Input['FirewallRuleGroupFirewallRuleDnsThreatProtection']]
+    dns_threat_protection: NotRequired[pulumi.Input[Optional['FirewallRuleGroupFirewallRuleDnsThreatProtection']]]
     """
     FirewallDomainRedirectionAction
     """
-    firewall_domain_list_id: NotRequired[pulumi.Input[_builtins.str]]
+    firewall_domain_list_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ResourceId
     """
-    firewall_domain_redirection_action: NotRequired[pulumi.Input['FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction']]
+    firewall_domain_redirection_action: NotRequired[pulumi.Input[Optional['FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction']]]
     """
     FirewallDomainRedirectionAction
     """
-    firewall_threat_protection_id: NotRequired[pulumi.Input[_builtins.str]]
+    firewall_threat_protection_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ResourceId
     """
-    qtype: NotRequired[pulumi.Input[_builtins.str]]
+    qtype: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Qtype
     """
@@ -82,16 +82,16 @@ class FirewallRuleGroupFirewallRuleArgs:
     def __init__(__self__, *,
                  action: pulumi.Input['FirewallRuleGroupFirewallRuleAction'],
                  priority: pulumi.Input[_builtins.int],
-                 block_override_dns_type: Optional[pulumi.Input['FirewallRuleGroupFirewallRuleBlockOverrideDnsType']] = None,
-                 block_override_domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 block_override_ttl: Optional[pulumi.Input[_builtins.int]] = None,
-                 block_response: Optional[pulumi.Input['FirewallRuleGroupFirewallRuleBlockResponse']] = None,
-                 confidence_threshold: Optional[pulumi.Input['FirewallRuleGroupFirewallRuleConfidenceThreshold']] = None,
-                 dns_threat_protection: Optional[pulumi.Input['FirewallRuleGroupFirewallRuleDnsThreatProtection']] = None,
-                 firewall_domain_list_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 firewall_domain_redirection_action: Optional[pulumi.Input['FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction']] = None,
-                 firewall_threat_protection_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 qtype: Optional[pulumi.Input[_builtins.str]] = None):
+                 block_override_dns_type: pulumi.Input[Optional['FirewallRuleGroupFirewallRuleBlockOverrideDnsType']] = None,
+                 block_override_domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 block_override_ttl: pulumi.Input[Optional[_builtins.int]] = None,
+                 block_response: pulumi.Input[Optional['FirewallRuleGroupFirewallRuleBlockResponse']] = None,
+                 confidence_threshold: pulumi.Input[Optional['FirewallRuleGroupFirewallRuleConfidenceThreshold']] = None,
+                 dns_threat_protection: pulumi.Input[Optional['FirewallRuleGroupFirewallRuleDnsThreatProtection']] = None,
+                 firewall_domain_list_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 firewall_domain_redirection_action: pulumi.Input[Optional['FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction']] = None,
+                 firewall_threat_protection_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 qtype: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Firewall Rule associating the Rule Group to a Domain List
 
@@ -157,122 +157,122 @@ class FirewallRuleGroupFirewallRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="blockOverrideDnsType")
-    def block_override_dns_type(self) -> Optional[pulumi.Input['FirewallRuleGroupFirewallRuleBlockOverrideDnsType']]:
+    def block_override_dns_type(self) -> pulumi.Input[Optional['FirewallRuleGroupFirewallRuleBlockOverrideDnsType']]:
         """
         BlockOverrideDnsType
         """
         return pulumi.get(self, "block_override_dns_type")
 
     @block_override_dns_type.setter
-    def block_override_dns_type(self, value: Optional[pulumi.Input['FirewallRuleGroupFirewallRuleBlockOverrideDnsType']]):
+    def block_override_dns_type(self, value: pulumi.Input[Optional['FirewallRuleGroupFirewallRuleBlockOverrideDnsType']]):
         pulumi.set(self, "block_override_dns_type", value)
 
     @_builtins.property
     @pulumi.getter(name="blockOverrideDomain")
-    def block_override_domain(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def block_override_domain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         BlockOverrideDomain
         """
         return pulumi.get(self, "block_override_domain")
 
     @block_override_domain.setter
-    def block_override_domain(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def block_override_domain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "block_override_domain", value)
 
     @_builtins.property
     @pulumi.getter(name="blockOverrideTtl")
-    def block_override_ttl(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def block_override_ttl(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         BlockOverrideTtl
         """
         return pulumi.get(self, "block_override_ttl")
 
     @block_override_ttl.setter
-    def block_override_ttl(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def block_override_ttl(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "block_override_ttl", value)
 
     @_builtins.property
     @pulumi.getter(name="blockResponse")
-    def block_response(self) -> Optional[pulumi.Input['FirewallRuleGroupFirewallRuleBlockResponse']]:
+    def block_response(self) -> pulumi.Input[Optional['FirewallRuleGroupFirewallRuleBlockResponse']]:
         """
         BlockResponse
         """
         return pulumi.get(self, "block_response")
 
     @block_response.setter
-    def block_response(self, value: Optional[pulumi.Input['FirewallRuleGroupFirewallRuleBlockResponse']]):
+    def block_response(self, value: pulumi.Input[Optional['FirewallRuleGroupFirewallRuleBlockResponse']]):
         pulumi.set(self, "block_response", value)
 
     @_builtins.property
     @pulumi.getter(name="confidenceThreshold")
-    def confidence_threshold(self) -> Optional[pulumi.Input['FirewallRuleGroupFirewallRuleConfidenceThreshold']]:
+    def confidence_threshold(self) -> pulumi.Input[Optional['FirewallRuleGroupFirewallRuleConfidenceThreshold']]:
         """
         FirewallDomainRedirectionAction
         """
         return pulumi.get(self, "confidence_threshold")
 
     @confidence_threshold.setter
-    def confidence_threshold(self, value: Optional[pulumi.Input['FirewallRuleGroupFirewallRuleConfidenceThreshold']]):
+    def confidence_threshold(self, value: pulumi.Input[Optional['FirewallRuleGroupFirewallRuleConfidenceThreshold']]):
         pulumi.set(self, "confidence_threshold", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsThreatProtection")
-    def dns_threat_protection(self) -> Optional[pulumi.Input['FirewallRuleGroupFirewallRuleDnsThreatProtection']]:
+    def dns_threat_protection(self) -> pulumi.Input[Optional['FirewallRuleGroupFirewallRuleDnsThreatProtection']]:
         """
         FirewallDomainRedirectionAction
         """
         return pulumi.get(self, "dns_threat_protection")
 
     @dns_threat_protection.setter
-    def dns_threat_protection(self, value: Optional[pulumi.Input['FirewallRuleGroupFirewallRuleDnsThreatProtection']]):
+    def dns_threat_protection(self, value: pulumi.Input[Optional['FirewallRuleGroupFirewallRuleDnsThreatProtection']]):
         pulumi.set(self, "dns_threat_protection", value)
 
     @_builtins.property
     @pulumi.getter(name="firewallDomainListId")
-    def firewall_domain_list_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def firewall_domain_list_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ResourceId
         """
         return pulumi.get(self, "firewall_domain_list_id")
 
     @firewall_domain_list_id.setter
-    def firewall_domain_list_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def firewall_domain_list_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "firewall_domain_list_id", value)
 
     @_builtins.property
     @pulumi.getter(name="firewallDomainRedirectionAction")
-    def firewall_domain_redirection_action(self) -> Optional[pulumi.Input['FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction']]:
+    def firewall_domain_redirection_action(self) -> pulumi.Input[Optional['FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction']]:
         """
         FirewallDomainRedirectionAction
         """
         return pulumi.get(self, "firewall_domain_redirection_action")
 
     @firewall_domain_redirection_action.setter
-    def firewall_domain_redirection_action(self, value: Optional[pulumi.Input['FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction']]):
+    def firewall_domain_redirection_action(self, value: pulumi.Input[Optional['FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction']]):
         pulumi.set(self, "firewall_domain_redirection_action", value)
 
     @_builtins.property
     @pulumi.getter(name="firewallThreatProtectionId")
-    def firewall_threat_protection_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def firewall_threat_protection_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ResourceId
         """
         return pulumi.get(self, "firewall_threat_protection_id")
 
     @firewall_threat_protection_id.setter
-    def firewall_threat_protection_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def firewall_threat_protection_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "firewall_threat_protection_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def qtype(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def qtype(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Qtype
         """
         return pulumi.get(self, "qtype")
 
     @qtype.setter
-    def qtype(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def qtype(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "qtype", value)
 
 
@@ -281,11 +281,11 @@ class ResolverEndpointIpAddressRequestArgsDict(TypedDict):
     """
     The ID of the subnet that contains the IP address.
     """
-    ip: NotRequired[pulumi.Input[_builtins.str]]
+    ip: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The IPv4 address that you want to use for DNS queries.
     """
-    ipv6: NotRequired[pulumi.Input[_builtins.str]]
+    ipv6: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The IPv6 address that you want to use for DNS queries.
     """
@@ -294,8 +294,8 @@ class ResolverEndpointIpAddressRequestArgsDict(TypedDict):
 class ResolverEndpointIpAddressRequestArgs:
     def __init__(__self__, *,
                  subnet_id: pulumi.Input[_builtins.str],
-                 ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipv6: Optional[pulumi.Input[_builtins.str]] = None):
+                 ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv6: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] subnet_id: The ID of the subnet that contains the IP address.
         :param pulumi.Input[_builtins.str] ip: The IPv4 address that you want to use for DNS queries.
@@ -321,47 +321,47 @@ class ResolverEndpointIpAddressRequestArgs:
 
     @_builtins.property
     @pulumi.getter
-    def ip(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IPv4 address that you want to use for DNS queries.
         """
         return pulumi.get(self, "ip")
 
     @ip.setter
-    def ip(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip", value)
 
     @_builtins.property
     @pulumi.getter
-    def ipv6(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ipv6(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IPv6 address that you want to use for DNS queries.
         """
         return pulumi.get(self, "ipv6")
 
     @ipv6.setter
-    def ipv6(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ipv6(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ipv6", value)
 
 
 class ResolverRuleTargetAddressArgsDict(TypedDict):
-    ip: NotRequired[pulumi.Input[_builtins.str]]
+    ip: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses. 
     """
-    ipv6: NotRequired[pulumi.Input[_builtins.str]]
+    ipv6: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     One IPv6 address that you want to forward DNS queries to. You can specify only IPv6 addresses. 
     """
-    port: NotRequired[pulumi.Input[_builtins.str]]
+    port: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The port at Ip that you want to forward DNS queries to. 
     """
-    protocol: NotRequired[pulumi.Input['ResolverRuleTargetAddressProtocol']]
+    protocol: NotRequired[pulumi.Input[Optional['ResolverRuleTargetAddressProtocol']]]
     """
     The protocol that you want to use to forward DNS queries. 
     """
-    server_name_indication: NotRequired[pulumi.Input[_builtins.str]]
+    server_name_indication: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The SNI of the target name servers for DoH/DoH-FIPS outbound endpoints
     """
@@ -369,11 +369,11 @@ class ResolverRuleTargetAddressArgsDict(TypedDict):
 @pulumi.input_type
 class ResolverRuleTargetAddressArgs:
     def __init__(__self__, *,
-                 ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipv6: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.str]] = None,
-                 protocol: Optional[pulumi.Input['ResolverRuleTargetAddressProtocol']] = None,
-                 server_name_indication: Optional[pulumi.Input[_builtins.str]] = None):
+                 ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv6: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.str]] = None,
+                 protocol: pulumi.Input[Optional['ResolverRuleTargetAddressProtocol']] = None,
+                 server_name_indication: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] ip: One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses. 
         :param pulumi.Input[_builtins.str] ipv6: One IPv6 address that you want to forward DNS queries to. You can specify only IPv6 addresses. 
@@ -394,62 +394,62 @@ class ResolverRuleTargetAddressArgs:
 
     @_builtins.property
     @pulumi.getter
-    def ip(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses. 
         """
         return pulumi.get(self, "ip")
 
     @ip.setter
-    def ip(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip", value)
 
     @_builtins.property
     @pulumi.getter
-    def ipv6(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ipv6(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         One IPv6 address that you want to forward DNS queries to. You can specify only IPv6 addresses. 
         """
         return pulumi.get(self, "ipv6")
 
     @ipv6.setter
-    def ipv6(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ipv6(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ipv6", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The port at Ip that you want to forward DNS queries to. 
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "port", value)
 
     @_builtins.property
     @pulumi.getter
-    def protocol(self) -> Optional[pulumi.Input['ResolverRuleTargetAddressProtocol']]:
+    def protocol(self) -> pulumi.Input[Optional['ResolverRuleTargetAddressProtocol']]:
         """
         The protocol that you want to use to forward DNS queries. 
         """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
-    def protocol(self, value: Optional[pulumi.Input['ResolverRuleTargetAddressProtocol']]):
+    def protocol(self, value: pulumi.Input[Optional['ResolverRuleTargetAddressProtocol']]):
         pulumi.set(self, "protocol", value)
 
     @_builtins.property
     @pulumi.getter(name="serverNameIndication")
-    def server_name_indication(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def server_name_indication(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SNI of the target name servers for DoH/DoH-FIPS outbound endpoints
         """
         return pulumi.get(self, "server_name_indication")
 
     @server_name_indication.setter
-    def server_name_indication(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def server_name_indication(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "server_name_indication", value)
 
 

@@ -119,8 +119,8 @@ def get_access_entry(cluster_name: Optional[_builtins.str] = None,
         kubernetes_groups=pulumi.get(__ret__, 'kubernetes_groups'),
         tags=pulumi.get(__ret__, 'tags'),
         username=pulumi.get(__ret__, 'username'))
-def get_access_entry_output(cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                            principal_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_access_entry_output(cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                            principal_arn: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccessEntryResult]:
     """
     An object representing an Amazon EKS AccessEntry.

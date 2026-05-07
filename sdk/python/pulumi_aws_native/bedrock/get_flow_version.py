@@ -154,8 +154,8 @@ def get_flow_version(flow_arn: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         status=pulumi.get(__ret__, 'status'),
         version=pulumi.get(__ret__, 'version'))
-def get_flow_version_output(flow_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                            version: Optional[pulumi.Input[_builtins.str]] = None,
+def get_flow_version_output(flow_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                            version: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFlowVersionResult]:
     """
     Definition of AWS::Bedrock::FlowVersion Resource Type

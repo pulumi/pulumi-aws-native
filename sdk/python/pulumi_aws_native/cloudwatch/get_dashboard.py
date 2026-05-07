@@ -61,7 +61,7 @@ def get_dashboard(dashboard_name: Optional[_builtins.str] = None,
 
     return AwaitableGetDashboardResult(
         dashboard_body=pulumi.get(__ret__, 'dashboard_body'))
-def get_dashboard_output(dashboard_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_dashboard_output(dashboard_name: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDashboardResult]:
     """
     Resource Type definition for AWS::CloudWatch::Dashboard

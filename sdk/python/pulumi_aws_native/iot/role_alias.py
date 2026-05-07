@@ -22,9 +22,9 @@ __all__ = ['RoleAliasArgs', 'RoleAlias']
 class RoleAliasArgs:
     def __init__(__self__, *,
                  role_arn: pulumi.Input[_builtins.str],
-                 credential_duration_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 role_alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 credential_duration_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 role_alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a RoleAlias resource.
 
@@ -57,31 +57,31 @@ class RoleAliasArgs:
 
     @_builtins.property
     @pulumi.getter(name="credentialDurationSeconds")
-    def credential_duration_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def credential_duration_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of seconds for which the credential is valid.
         """
         return pulumi.get(self, "credential_duration_seconds")
 
     @credential_duration_seconds.setter
-    def credential_duration_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def credential_duration_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "credential_duration_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="roleAlias")
-    def role_alias(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_alias(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The role alias.
         """
         return pulumi.get(self, "role_alias")
 
     @role_alias.setter
-    def role_alias(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_alias(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_alias", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
 
@@ -90,7 +90,7 @@ class RoleAliasArgs:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -100,10 +100,10 @@ class RoleAlias(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 credential_duration_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 role_alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 credential_duration_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 role_alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Use the AWS::IoT::RoleAlias resource to declare an AWS IoT RoleAlias.
@@ -143,10 +143,10 @@ class RoleAlias(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 credential_duration_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 role_alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 credential_duration_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 role_alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -284,7 +284,7 @@ def get_vpc_attachment(attachment_id: Optional[_builtins.str] = None,
         subnet_arns=pulumi.get(__ret__, 'subnet_arns'),
         tags=pulumi.get(__ret__, 'tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-def get_vpc_attachment_output(attachment_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_vpc_attachment_output(attachment_id: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcAttachmentResult]:
     """
     AWS::NetworkManager::VpcAttachment Resoruce Type

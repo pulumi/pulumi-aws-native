@@ -118,7 +118,7 @@ def get_location_s3(location_arn: Optional[_builtins.str] = None,
         s3_config=pulumi.get(__ret__, 's3_config'),
         s3_storage_class=pulumi.get(__ret__, 's3_storage_class'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_location_s3_output(location_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_location_s3_output(location_arn: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocationS3Result]:
     """
     Resource schema for AWS::DataSync::LocationS3

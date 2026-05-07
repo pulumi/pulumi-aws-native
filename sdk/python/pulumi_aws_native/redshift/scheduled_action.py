@@ -22,14 +22,14 @@ __all__ = ['ScheduledActionArgs', 'ScheduledAction']
 @pulumi.input_type
 class ScheduledActionArgs:
     def __init__(__self__, *,
-                 enable: Optional[pulumi.Input[_builtins.bool]] = None,
-                 end_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 iam_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule: Optional[pulumi.Input[_builtins.str]] = None,
-                 scheduled_action_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 scheduled_action_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_action: Optional[pulumi.Input['ScheduledActionTypeArgs']] = None):
+                 enable: pulumi.Input[Optional[_builtins.bool]] = None,
+                 end_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 iam_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule: pulumi.Input[Optional[_builtins.str]] = None,
+                 scheduled_action_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 scheduled_action_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_action: pulumi.Input[Optional['ScheduledActionTypeArgs']] = None):
         """
         The set of arguments for constructing a ScheduledAction resource.
 
@@ -61,98 +61,98 @@ class ScheduledActionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enable(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, the schedule is enabled. If false, the scheduled action does not trigger.
         """
         return pulumi.get(self, "enable")
 
     @enable.setter
-    def enable(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable", value)
 
     @_builtins.property
     @pulumi.getter(name="endTime")
-    def end_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The end time in UTC of the scheduled action. After this time, the scheduled action does not trigger.
         """
         return pulumi.get(self, "end_time")
 
     @end_time.setter
-    def end_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end_time", value)
 
     @_builtins.property
     @pulumi.getter(name="iamRole")
-    def iam_role(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def iam_role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IAM role to assume to run the target action.
         """
         return pulumi.get(self, "iam_role")
 
     @iam_role.setter
-    def iam_role(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def iam_role(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "iam_role", value)
 
     @_builtins.property
     @pulumi.getter
-    def schedule(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def schedule(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The schedule in `at( )` or `cron( )` format.
         """
         return pulumi.get(self, "schedule")
 
     @schedule.setter
-    def schedule(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def schedule(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schedule", value)
 
     @_builtins.property
     @pulumi.getter(name="scheduledActionDescription")
-    def scheduled_action_description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scheduled_action_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the scheduled action.
         """
         return pulumi.get(self, "scheduled_action_description")
 
     @scheduled_action_description.setter
-    def scheduled_action_description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scheduled_action_description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scheduled_action_description", value)
 
     @_builtins.property
     @pulumi.getter(name="scheduledActionName")
-    def scheduled_action_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scheduled_action_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the scheduled action. The name must be unique within an account.
         """
         return pulumi.get(self, "scheduled_action_name")
 
     @scheduled_action_name.setter
-    def scheduled_action_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scheduled_action_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scheduled_action_name", value)
 
     @_builtins.property
     @pulumi.getter(name="startTime")
-    def start_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The start time in UTC of the scheduled action. Before this time, the scheduled action does not trigger.
         """
         return pulumi.get(self, "start_time")
 
     @start_time.setter
-    def start_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start_time", value)
 
     @_builtins.property
     @pulumi.getter(name="targetAction")
-    def target_action(self) -> Optional[pulumi.Input['ScheduledActionTypeArgs']]:
+    def target_action(self) -> pulumi.Input[Optional['ScheduledActionTypeArgs']]:
         """
         A JSON format string of the Amazon Redshift API operation with input parameters.
         """
         return pulumi.get(self, "target_action")
 
     @target_action.setter
-    def target_action(self, value: Optional[pulumi.Input['ScheduledActionTypeArgs']]):
+    def target_action(self, value: pulumi.Input[Optional['ScheduledActionTypeArgs']]):
         pulumi.set(self, "target_action", value)
 
 
@@ -162,14 +162,14 @@ class ScheduledAction(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 enable: Optional[pulumi.Input[_builtins.bool]] = None,
-                 end_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 iam_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule: Optional[pulumi.Input[_builtins.str]] = None,
-                 scheduled_action_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 scheduled_action_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_action: Optional[pulumi.Input[Union['ScheduledActionTypeArgs', 'ScheduledActionTypeArgsDict']]] = None,
+                 enable: pulumi.Input[Optional[_builtins.bool]] = None,
+                 end_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 iam_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule: pulumi.Input[Optional[_builtins.str]] = None,
+                 scheduled_action_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 scheduled_action_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_action: pulumi.Input[Optional[Union['ScheduledActionTypeArgs', 'ScheduledActionTypeArgsDict']]] = None,
                  __props__=None):
         """
         The `AWS::Redshift::ScheduledAction` resource creates an Amazon Redshift Scheduled Action.
@@ -211,14 +211,14 @@ class ScheduledAction(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 enable: Optional[pulumi.Input[_builtins.bool]] = None,
-                 end_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 iam_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule: Optional[pulumi.Input[_builtins.str]] = None,
-                 scheduled_action_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 scheduled_action_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_action: Optional[pulumi.Input[Union['ScheduledActionTypeArgs', 'ScheduledActionTypeArgsDict']]] = None,
+                 enable: pulumi.Input[Optional[_builtins.bool]] = None,
+                 end_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 iam_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule: pulumi.Input[Optional[_builtins.str]] = None,
+                 scheduled_action_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 scheduled_action_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_action: pulumi.Input[Optional[Union['ScheduledActionTypeArgs', 'ScheduledActionTypeArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

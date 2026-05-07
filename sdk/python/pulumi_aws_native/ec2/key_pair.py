@@ -23,10 +23,10 @@ __all__ = ['KeyPairArgs', 'KeyPair']
 class KeyPairArgs:
     def __init__(__self__, *,
                  key_name: pulumi.Input[_builtins.str],
-                 key_format: Optional[pulumi.Input['KeyPairKeyFormat']] = None,
-                 key_type: Optional[pulumi.Input['KeyPairKeyType']] = None,
-                 public_key_material: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
+                 key_format: pulumi.Input[Optional['KeyPairKeyFormat']] = None,
+                 key_type: pulumi.Input[Optional['KeyPairKeyType']] = None,
+                 public_key_material: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a KeyPair resource.
 
@@ -65,7 +65,7 @@ class KeyPairArgs:
 
     @_builtins.property
     @pulumi.getter(name="keyFormat")
-    def key_format(self) -> Optional[pulumi.Input['KeyPairKeyFormat']]:
+    def key_format(self) -> pulumi.Input[Optional['KeyPairKeyFormat']]:
         """
         The format of the key pair.
          Default: ``pem``
@@ -73,12 +73,12 @@ class KeyPairArgs:
         return pulumi.get(self, "key_format")
 
     @key_format.setter
-    def key_format(self, value: Optional[pulumi.Input['KeyPairKeyFormat']]):
+    def key_format(self, value: pulumi.Input[Optional['KeyPairKeyFormat']]):
         pulumi.set(self, "key_format", value)
 
     @_builtins.property
     @pulumi.getter(name="keyType")
-    def key_type(self) -> Optional[pulumi.Input['KeyPairKeyType']]:
+    def key_type(self) -> pulumi.Input[Optional['KeyPairKeyType']]:
         """
         The type of key pair. Note that ED25519 keys are not supported for Windows instances.
          If the ``PublicKeyMaterial`` property is specified, the ``KeyType`` property is ignored, and the key type is inferred from the ``PublicKeyMaterial`` value.
@@ -87,31 +87,31 @@ class KeyPairArgs:
         return pulumi.get(self, "key_type")
 
     @key_type.setter
-    def key_type(self, value: Optional[pulumi.Input['KeyPairKeyType']]):
+    def key_type(self, value: pulumi.Input[Optional['KeyPairKeyType']]):
         pulumi.set(self, "key_type", value)
 
     @_builtins.property
     @pulumi.getter(name="publicKeyMaterial")
-    def public_key_material(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_key_material(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The public key material. The ``PublicKeyMaterial`` property is used to import a key pair. If this property is not specified, then a new key pair will be created.
         """
         return pulumi.get(self, "public_key_material")
 
     @public_key_material.setter
-    def public_key_material(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_key_material(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_key_material", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
         """
         The tags to apply to the key pair.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -121,11 +121,11 @@ class KeyPair(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 key_format: Optional[pulumi.Input['KeyPairKeyFormat']] = None,
-                 key_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_type: Optional[pulumi.Input['KeyPairKeyType']] = None,
-                 public_key_material: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 key_format: pulumi.Input[Optional['KeyPairKeyFormat']] = None,
+                 key_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_type: pulumi.Input[Optional['KeyPairKeyType']] = None,
+                 public_key_material: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  __props__=None):
         """
         Specifies a key pair for use with an EC2long instance as follows:
@@ -288,11 +288,11 @@ class KeyPair(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 key_format: Optional[pulumi.Input['KeyPairKeyFormat']] = None,
-                 key_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_type: Optional[pulumi.Input['KeyPairKeyType']] = None,
-                 public_key_material: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 key_format: pulumi.Input[Optional['KeyPairKeyFormat']] = None,
+                 key_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_type: pulumi.Input[Optional['KeyPairKeyType']] = None,
+                 public_key_material: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

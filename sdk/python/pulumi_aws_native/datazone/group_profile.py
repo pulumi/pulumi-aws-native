@@ -22,7 +22,7 @@ class GroupProfileArgs:
     def __init__(__self__, *,
                  domain_identifier: pulumi.Input[_builtins.str],
                  group_identifier: pulumi.Input[_builtins.str],
-                 status: Optional[pulumi.Input['GroupProfileStatus']] = None):
+                 status: pulumi.Input[Optional['GroupProfileStatus']] = None):
         """
         The set of arguments for constructing a GroupProfile resource.
 
@@ -61,14 +61,14 @@ class GroupProfileArgs:
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input['GroupProfileStatus']]:
+    def status(self) -> pulumi.Input[Optional['GroupProfileStatus']]:
         """
         The status of a group profile.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input['GroupProfileStatus']]):
+    def status(self, value: pulumi.Input[Optional['GroupProfileStatus']]):
         pulumi.set(self, "status", value)
 
 
@@ -78,9 +78,9 @@ class GroupProfile(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 domain_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input['GroupProfileStatus']] = None,
+                 domain_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional['GroupProfileStatus']] = None,
                  __props__=None):
         """
         Group profiles represent groups of Amazon DataZone users. Groups can be manually created, or mapped to Active Directory groups of enterprise customers. In Amazon DataZone, groups serve two purposes. First, a group can map to a team of users in the organizational chart, and thus reduce the administrative work of a Amazon DataZone project owner when there are new employees joining or leaving a team. Second, corporate administrators use Active Directory groups to manage and update user statuses and so Amazon DataZone domain administrators can use these group memberships to implement Amazon DataZone domain policies.
@@ -117,9 +117,9 @@ class GroupProfile(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 domain_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input['GroupProfileStatus']] = None,
+                 domain_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional['GroupProfileStatus']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -77,8 +77,8 @@ def get_member(detector_id: Optional[_builtins.str] = None,
     return AwaitableGetMemberResult(
         email=pulumi.get(__ret__, 'email'),
         status=pulumi.get(__ret__, 'status'))
-def get_member_output(detector_id: Optional[pulumi.Input[_builtins.str]] = None,
-                      member_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_member_output(detector_id: pulumi.Input[Optional[_builtins.str]] = None,
+                      member_id: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMemberResult]:
     """
     Resource Type definition for AWS::GuardDuty::Member

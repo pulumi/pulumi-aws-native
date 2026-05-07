@@ -29,11 +29,11 @@ class TrafficMirrorFilterRuleArgs:
                  source_cidr_block: pulumi.Input[_builtins.str],
                  traffic_direction: pulumi.Input[_builtins.str],
                  traffic_mirror_filter_id: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_port_range: Optional[pulumi.Input['TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs']] = None,
-                 protocol: Optional[pulumi.Input[_builtins.int]] = None,
-                 source_port_range: Optional[pulumi.Input['TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_port_range: pulumi.Input[Optional['TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs']] = None,
+                 protocol: pulumi.Input[Optional[_builtins.int]] = None,
+                 source_port_range: pulumi.Input[Optional['TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a TrafficMirrorFilterRule resource.
 
@@ -140,62 +140,62 @@ class TrafficMirrorFilterRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the Traffic Mirror Filter rule.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationPortRange")
-    def destination_port_range(self) -> Optional[pulumi.Input['TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs']]:
+    def destination_port_range(self) -> pulumi.Input[Optional['TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs']]:
         """
         The destination port range.
         """
         return pulumi.get(self, "destination_port_range")
 
     @destination_port_range.setter
-    def destination_port_range(self, value: Optional[pulumi.Input['TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs']]):
+    def destination_port_range(self, value: pulumi.Input[Optional['TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs']]):
         pulumi.set(self, "destination_port_range", value)
 
     @_builtins.property
     @pulumi.getter
-    def protocol(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def protocol(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of protocol, for example 17 (UDP), to assign to the Traffic Mirror rule.
         """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
-    def protocol(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def protocol(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "protocol", value)
 
     @_builtins.property
     @pulumi.getter(name="sourcePortRange")
-    def source_port_range(self) -> Optional[pulumi.Input['TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs']]:
+    def source_port_range(self) -> pulumi.Input[Optional['TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs']]:
         """
         The source port range.
         """
         return pulumi.get(self, "source_port_range")
 
     @source_port_range.setter
-    def source_port_range(self, value: Optional[pulumi.Input['TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs']]):
+    def source_port_range(self, value: pulumi.Input[Optional['TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs']]):
         pulumi.set(self, "source_port_range", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Any tags assigned to the Traffic Mirror Filter rule.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -205,17 +205,17 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_port_range: Optional[pulumi.Input[Union['TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs', 'TrafficMirrorFilterRuleTrafficMirrorPortRangeArgsDict']]] = None,
-                 protocol: Optional[pulumi.Input[_builtins.int]] = None,
-                 rule_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_number: Optional[pulumi.Input[_builtins.int]] = None,
-                 source_cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_port_range: Optional[pulumi.Input[Union['TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs', 'TrafficMirrorFilterRuleTrafficMirrorPortRangeArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 traffic_direction: Optional[pulumi.Input[_builtins.str]] = None,
-                 traffic_mirror_filter_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_port_range: pulumi.Input[Optional[Union['TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs', 'TrafficMirrorFilterRuleTrafficMirrorPortRangeArgsDict']]] = None,
+                 protocol: pulumi.Input[Optional[_builtins.int]] = None,
+                 rule_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_number: pulumi.Input[Optional[_builtins.int]] = None,
+                 source_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_port_range: pulumi.Input[Optional[Union['TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs', 'TrafficMirrorFilterRuleTrafficMirrorPortRangeArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 traffic_direction: pulumi.Input[Optional[_builtins.str]] = None,
+                 traffic_mirror_filter_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for for AWS::EC2::TrafficMirrorFilterRule
@@ -260,17 +260,17 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_port_range: Optional[pulumi.Input[Union['TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs', 'TrafficMirrorFilterRuleTrafficMirrorPortRangeArgsDict']]] = None,
-                 protocol: Optional[pulumi.Input[_builtins.int]] = None,
-                 rule_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_number: Optional[pulumi.Input[_builtins.int]] = None,
-                 source_cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_port_range: Optional[pulumi.Input[Union['TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs', 'TrafficMirrorFilterRuleTrafficMirrorPortRangeArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 traffic_direction: Optional[pulumi.Input[_builtins.str]] = None,
-                 traffic_mirror_filter_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_port_range: pulumi.Input[Optional[Union['TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs', 'TrafficMirrorFilterRuleTrafficMirrorPortRangeArgsDict']]] = None,
+                 protocol: pulumi.Input[Optional[_builtins.int]] = None,
+                 rule_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_number: pulumi.Input[Optional[_builtins.int]] = None,
+                 source_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_port_range: pulumi.Input[Optional[Union['TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs', 'TrafficMirrorFilterRuleTrafficMirrorPortRangeArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 traffic_direction: pulumi.Input[Optional[_builtins.str]] = None,
+                 traffic_mirror_filter_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

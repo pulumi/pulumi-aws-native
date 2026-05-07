@@ -23,9 +23,9 @@ __all__ = ['AccessLogSubscriptionArgs', 'AccessLogSubscription']
 class AccessLogSubscriptionArgs:
     def __init__(__self__, *,
                  destination_arn: pulumi.Input[_builtins.str],
-                 resource_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_network_log_type: Optional[pulumi.Input['AccessLogSubscriptionServiceNetworkLogType']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 resource_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_network_log_type: pulumi.Input[Optional['AccessLogSubscriptionServiceNetworkLogType']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a AccessLogSubscription resource.
 
@@ -56,38 +56,38 @@ class AccessLogSubscriptionArgs:
 
     @_builtins.property
     @pulumi.getter(name="resourceIdentifier")
-    def resource_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID or ARN of the service network or service.
         """
         return pulumi.get(self, "resource_identifier")
 
     @resource_identifier.setter
-    def resource_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceNetworkLogType")
-    def service_network_log_type(self) -> Optional[pulumi.Input['AccessLogSubscriptionServiceNetworkLogType']]:
+    def service_network_log_type(self) -> pulumi.Input[Optional['AccessLogSubscriptionServiceNetworkLogType']]:
         """
         Log type of the service network.
         """
         return pulumi.get(self, "service_network_log_type")
 
     @service_network_log_type.setter
-    def service_network_log_type(self, value: Optional[pulumi.Input['AccessLogSubscriptionServiceNetworkLogType']]):
+    def service_network_log_type(self, value: pulumi.Input[Optional['AccessLogSubscriptionServiceNetworkLogType']]):
         pulumi.set(self, "service_network_log_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags for the access log subscription.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -97,10 +97,10 @@ class AccessLogSubscription(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destination_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_network_log_type: Optional[pulumi.Input['AccessLogSubscriptionServiceNetworkLogType']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 destination_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_network_log_type: pulumi.Input[Optional['AccessLogSubscriptionServiceNetworkLogType']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Enables access logs to be sent to Amazon CloudWatch, Amazon S3, and Amazon Kinesis Data Firehose. The service network owner can use the access logs to audit the services in the network. The service network owner will only see access logs from clients and services that are associated with their service network. Access log entries represent traffic originated from VPCs associated with that network.
@@ -138,10 +138,10 @@ class AccessLogSubscription(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destination_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_network_log_type: Optional[pulumi.Input['AccessLogSubscriptionServiceNetworkLogType']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 destination_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_network_log_type: pulumi.Input[Optional['AccessLogSubscriptionServiceNetworkLogType']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

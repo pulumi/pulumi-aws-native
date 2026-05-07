@@ -209,7 +209,7 @@ def get_data_source(data_source_arn: Optional[_builtins.str] = None,
         relational_database_config=pulumi.get(__ret__, 'relational_database_config'),
         service_role_arn=pulumi.get(__ret__, 'service_role_arn'),
         type=pulumi.get(__ret__, 'type'))
-def get_data_source_output(data_source_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_data_source_output(data_source_arn: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataSourceResult]:
     """
     Resource Type definition for AWS::AppSync::DataSource

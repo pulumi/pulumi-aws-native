@@ -138,7 +138,7 @@ def get_function(function_arn: Optional[_builtins.str] = None,
         function_metadata=pulumi.get(__ret__, 'function_metadata'),
         stage=pulumi.get(__ret__, 'stage'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_function_output(function_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_function_output(function_arn: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFunctionResult]:
     """
     Creates a CF function.

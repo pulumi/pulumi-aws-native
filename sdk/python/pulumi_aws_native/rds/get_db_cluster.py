@@ -823,7 +823,7 @@ def get_db_cluster(db_cluster_identifier: Optional[_builtins.str] = None,
         storage_type=pulumi.get(__ret__, 'storage_type'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_security_group_ids=pulumi.get(__ret__, 'vpc_security_group_ids'))
-def get_db_cluster_output(db_cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+def get_db_cluster_output(db_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDbClusterResult]:
     """
     The ``AWS::RDS::DBCluster`` resource creates an Amazon Aurora DB cluster or Multi-AZ DB cluster.

@@ -114,7 +114,7 @@ def get_ipam_prefix_list_resolver_target(ipam_prefix_list_resolver_target_id: Op
         ipam_prefix_list_resolver_target_id=pulumi.get(__ret__, 'ipam_prefix_list_resolver_target_id'),
         tags=pulumi.get(__ret__, 'tags'),
         track_latest_version=pulumi.get(__ret__, 'track_latest_version'))
-def get_ipam_prefix_list_resolver_target_output(ipam_prefix_list_resolver_target_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_ipam_prefix_list_resolver_target_output(ipam_prefix_list_resolver_target_id: pulumi.Input[Optional[_builtins.str]] = None,
                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIpamPrefixListResolverTargetResult]:
     """
     Resource Type definition for AWS::EC2::IPAMPrefixListResolverTarget

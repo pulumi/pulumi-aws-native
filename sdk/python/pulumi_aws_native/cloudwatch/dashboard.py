@@ -20,7 +20,7 @@ __all__ = ['DashboardArgs', 'Dashboard']
 class DashboardArgs:
     def __init__(__self__, *,
                  dashboard_body: pulumi.Input[_builtins.str],
-                 dashboard_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 dashboard_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Dashboard resource.
 
@@ -45,14 +45,14 @@ class DashboardArgs:
 
     @_builtins.property
     @pulumi.getter(name="dashboardName")
-    def dashboard_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dashboard_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the dashboard. The name must be between 1 and 255 characters. If you do not specify a name, one will be generated automatically.
         """
         return pulumi.get(self, "dashboard_name")
 
     @dashboard_name.setter
-    def dashboard_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dashboard_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dashboard_name", value)
 
 
@@ -62,8 +62,8 @@ class Dashboard(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dashboard_body: Optional[pulumi.Input[_builtins.str]] = None,
-                 dashboard_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 dashboard_body: pulumi.Input[Optional[_builtins.str]] = None,
+                 dashboard_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::CloudWatch::Dashboard
@@ -99,8 +99,8 @@ class Dashboard(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dashboard_body: Optional[pulumi.Input[_builtins.str]] = None,
-                 dashboard_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 dashboard_body: pulumi.Input[Optional[_builtins.str]] = None,
+                 dashboard_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

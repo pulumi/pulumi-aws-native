@@ -78,15 +78,15 @@ class BudgetsActionActionThresholdArgs:
 
 
 class BudgetsActionDefinitionArgsDict(TypedDict):
-    iam_action_definition: NotRequired[pulumi.Input['BudgetsActionIamActionDefinitionArgsDict']]
+    iam_action_definition: NotRequired[pulumi.Input[Optional['BudgetsActionIamActionDefinitionArgs']]]
     """
     The AWS Identity and Access Management ( IAM ) action definition details.
     """
-    scp_action_definition: NotRequired[pulumi.Input['BudgetsActionScpActionDefinitionArgsDict']]
+    scp_action_definition: NotRequired[pulumi.Input[Optional['BudgetsActionScpActionDefinitionArgs']]]
     """
     The service control policies (SCP) action definition details.
     """
-    ssm_action_definition: NotRequired[pulumi.Input['BudgetsActionSsmActionDefinitionArgsDict']]
+    ssm_action_definition: NotRequired[pulumi.Input[Optional['BudgetsActionSsmActionDefinitionArgs']]]
     """
     The Amazon EC2 Systems Manager ( SSM ) action definition details.
     """
@@ -94,9 +94,9 @@ class BudgetsActionDefinitionArgsDict(TypedDict):
 @pulumi.input_type
 class BudgetsActionDefinitionArgs:
     def __init__(__self__, *,
-                 iam_action_definition: Optional[pulumi.Input['BudgetsActionIamActionDefinitionArgs']] = None,
-                 scp_action_definition: Optional[pulumi.Input['BudgetsActionScpActionDefinitionArgs']] = None,
-                 ssm_action_definition: Optional[pulumi.Input['BudgetsActionSsmActionDefinitionArgs']] = None):
+                 iam_action_definition: pulumi.Input[Optional['BudgetsActionIamActionDefinitionArgs']] = None,
+                 scp_action_definition: pulumi.Input[Optional['BudgetsActionScpActionDefinitionArgs']] = None,
+                 ssm_action_definition: pulumi.Input[Optional['BudgetsActionSsmActionDefinitionArgs']] = None):
         """
         :param pulumi.Input['BudgetsActionIamActionDefinitionArgs'] iam_action_definition: The AWS Identity and Access Management ( IAM ) action definition details.
         :param pulumi.Input['BudgetsActionScpActionDefinitionArgs'] scp_action_definition: The service control policies (SCP) action definition details.
@@ -111,38 +111,38 @@ class BudgetsActionDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter(name="iamActionDefinition")
-    def iam_action_definition(self) -> Optional[pulumi.Input['BudgetsActionIamActionDefinitionArgs']]:
+    def iam_action_definition(self) -> pulumi.Input[Optional['BudgetsActionIamActionDefinitionArgs']]:
         """
         The AWS Identity and Access Management ( IAM ) action definition details.
         """
         return pulumi.get(self, "iam_action_definition")
 
     @iam_action_definition.setter
-    def iam_action_definition(self, value: Optional[pulumi.Input['BudgetsActionIamActionDefinitionArgs']]):
+    def iam_action_definition(self, value: pulumi.Input[Optional['BudgetsActionIamActionDefinitionArgs']]):
         pulumi.set(self, "iam_action_definition", value)
 
     @_builtins.property
     @pulumi.getter(name="scpActionDefinition")
-    def scp_action_definition(self) -> Optional[pulumi.Input['BudgetsActionScpActionDefinitionArgs']]:
+    def scp_action_definition(self) -> pulumi.Input[Optional['BudgetsActionScpActionDefinitionArgs']]:
         """
         The service control policies (SCP) action definition details.
         """
         return pulumi.get(self, "scp_action_definition")
 
     @scp_action_definition.setter
-    def scp_action_definition(self, value: Optional[pulumi.Input['BudgetsActionScpActionDefinitionArgs']]):
+    def scp_action_definition(self, value: pulumi.Input[Optional['BudgetsActionScpActionDefinitionArgs']]):
         pulumi.set(self, "scp_action_definition", value)
 
     @_builtins.property
     @pulumi.getter(name="ssmActionDefinition")
-    def ssm_action_definition(self) -> Optional[pulumi.Input['BudgetsActionSsmActionDefinitionArgs']]:
+    def ssm_action_definition(self) -> pulumi.Input[Optional['BudgetsActionSsmActionDefinitionArgs']]:
         """
         The Amazon EC2 Systems Manager ( SSM ) action definition details.
         """
         return pulumi.get(self, "ssm_action_definition")
 
     @ssm_action_definition.setter
-    def ssm_action_definition(self, value: Optional[pulumi.Input['BudgetsActionSsmActionDefinitionArgs']]):
+    def ssm_action_definition(self, value: pulumi.Input[Optional['BudgetsActionSsmActionDefinitionArgs']]):
         pulumi.set(self, "ssm_action_definition", value)
 
 
@@ -151,15 +151,15 @@ class BudgetsActionIamActionDefinitionArgsDict(TypedDict):
     """
     The Amazon Resource Name (ARN) of the policy to be attached.
     """
-    groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of groups to be attached. There must be at least one group.
     """
-    roles: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    roles: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of roles to be attached. There must be at least one role.
     """
-    users: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    users: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of users to be attached. There must be at least one user.
     """
@@ -168,9 +168,9 @@ class BudgetsActionIamActionDefinitionArgsDict(TypedDict):
 class BudgetsActionIamActionDefinitionArgs:
     def __init__(__self__, *,
                  policy_arn: pulumi.Input[_builtins.str],
-                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 roles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 users: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 roles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 users: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] policy_arn: The Amazon Resource Name (ARN) of the policy to be attached.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups: A list of groups to be attached. There must be at least one group.
@@ -199,38 +199,38 @@ class BudgetsActionIamActionDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of groups to be attached. There must be at least one group.
         """
         return pulumi.get(self, "groups")
 
     @groups.setter
-    def groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "groups", value)
 
     @_builtins.property
     @pulumi.getter
-    def roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def roles(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of roles to be attached. There must be at least one role.
         """
         return pulumi.get(self, "roles")
 
     @roles.setter
-    def roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def roles(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "roles", value)
 
     @_builtins.property
     @pulumi.getter
-    def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def users(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of users to be attached. There must be at least one user.
         """
         return pulumi.get(self, "users")
 
     @users.setter
-    def users(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def users(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "users", value)
 
 

@@ -25,11 +25,11 @@ __all__ = ['FindingsFilterArgs', 'FindingsFilter']
 class FindingsFilterArgs:
     def __init__(__self__, *,
                  finding_criteria: pulumi.Input['FindingsFilterFindingCriteriaArgs'],
-                 action: Optional[pulumi.Input['FindingsFilterFindingFilterAction']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 position: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 action: pulumi.Input[Optional['FindingsFilterFindingFilterAction']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 position: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a FindingsFilter resource.
 
@@ -66,62 +66,62 @@ class FindingsFilterArgs:
 
     @_builtins.property
     @pulumi.getter
-    def action(self) -> Optional[pulumi.Input['FindingsFilterFindingFilterAction']]:
+    def action(self) -> pulumi.Input[Optional['FindingsFilterFindingFilterAction']]:
         """
         Findings filter action.
         """
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: Optional[pulumi.Input['FindingsFilterFindingFilterAction']]):
+    def action(self, value: pulumi.Input[Optional['FindingsFilterFindingFilterAction']]):
         pulumi.set(self, "action", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Findings filter description
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Findings filter name
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def position(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def position(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Findings filter position.
         """
         return pulumi.get(self, "position")
 
     @position.setter
-    def position(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def position(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "position", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A collection of tags associated with a resource
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -131,12 +131,12 @@ class FindingsFilter(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: Optional[pulumi.Input['FindingsFilterFindingFilterAction']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 finding_criteria: Optional[pulumi.Input[Union['FindingsFilterFindingCriteriaArgs', 'FindingsFilterFindingCriteriaArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 position: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 action: pulumi.Input[Optional['FindingsFilterFindingFilterAction']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 finding_criteria: pulumi.Input[Optional[Union['FindingsFilterFindingCriteriaArgs', 'FindingsFilterFindingCriteriaArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 position: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Macie FindingsFilter resource schema.
@@ -176,12 +176,12 @@ class FindingsFilter(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: Optional[pulumi.Input['FindingsFilterFindingFilterAction']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 finding_criteria: Optional[pulumi.Input[Union['FindingsFilterFindingCriteriaArgs', 'FindingsFilterFindingCriteriaArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 position: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 action: pulumi.Input[Optional['FindingsFilterFindingFilterAction']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 finding_criteria: pulumi.Input[Optional[Union['FindingsFilterFindingCriteriaArgs', 'FindingsFilterFindingCriteriaArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 position: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

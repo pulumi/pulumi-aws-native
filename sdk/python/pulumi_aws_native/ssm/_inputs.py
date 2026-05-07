@@ -65,7 +65,7 @@ __all__ = [
 ]
 
 class AssociationInstanceAssociationOutputLocationArgsDict(TypedDict):
-    s3_location: NotRequired[pulumi.Input['AssociationS3OutputLocationArgsDict']]
+    s3_location: NotRequired[pulumi.Input[Optional['AssociationS3OutputLocationArgs']]]
     """
     `S3OutputLocation` is a property of the [InstanceAssociationOutputLocation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-instanceassociationoutputlocation.html) property that specifies an Amazon S3 bucket where you want to store the results of this request.
     """
@@ -73,7 +73,7 @@ class AssociationInstanceAssociationOutputLocationArgsDict(TypedDict):
 @pulumi.input_type
 class AssociationInstanceAssociationOutputLocationArgs:
     def __init__(__self__, *,
-                 s3_location: Optional[pulumi.Input['AssociationS3OutputLocationArgs']] = None):
+                 s3_location: pulumi.Input[Optional['AssociationS3OutputLocationArgs']] = None):
         """
         :param pulumi.Input['AssociationS3OutputLocationArgs'] s3_location: `S3OutputLocation` is a property of the [InstanceAssociationOutputLocation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-instanceassociationoutputlocation.html) property that specifies an Amazon S3 bucket where you want to store the results of this request.
         """
@@ -82,27 +82,27 @@ class AssociationInstanceAssociationOutputLocationArgs:
 
     @_builtins.property
     @pulumi.getter(name="s3Location")
-    def s3_location(self) -> Optional[pulumi.Input['AssociationS3OutputLocationArgs']]:
+    def s3_location(self) -> pulumi.Input[Optional['AssociationS3OutputLocationArgs']]:
         """
         `S3OutputLocation` is a property of the [InstanceAssociationOutputLocation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-instanceassociationoutputlocation.html) property that specifies an Amazon S3 bucket where you want to store the results of this request.
         """
         return pulumi.get(self, "s3_location")
 
     @s3_location.setter
-    def s3_location(self, value: Optional[pulumi.Input['AssociationS3OutputLocationArgs']]):
+    def s3_location(self, value: pulumi.Input[Optional['AssociationS3OutputLocationArgs']]):
         pulumi.set(self, "s3_location", value)
 
 
 class AssociationS3OutputLocationArgsDict(TypedDict):
-    output_s3_bucket_name: NotRequired[pulumi.Input[_builtins.str]]
+    output_s3_bucket_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the S3 bucket.
     """
-    output_s3_key_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    output_s3_key_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The S3 bucket subfolder.
     """
-    output_s3_region: NotRequired[pulumi.Input[_builtins.str]]
+    output_s3_region: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The AWS Region of the S3 bucket.
     """
@@ -110,9 +110,9 @@ class AssociationS3OutputLocationArgsDict(TypedDict):
 @pulumi.input_type
 class AssociationS3OutputLocationArgs:
     def __init__(__self__, *,
-                 output_s3_bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 output_s3_key_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 output_s3_region: Optional[pulumi.Input[_builtins.str]] = None):
+                 output_s3_bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 output_s3_key_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 output_s3_region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] output_s3_bucket_name: The name of the S3 bucket.
         :param pulumi.Input[_builtins.str] output_s3_key_prefix: The S3 bucket subfolder.
@@ -127,38 +127,38 @@ class AssociationS3OutputLocationArgs:
 
     @_builtins.property
     @pulumi.getter(name="outputS3BucketName")
-    def output_s3_bucket_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def output_s3_bucket_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the S3 bucket.
         """
         return pulumi.get(self, "output_s3_bucket_name")
 
     @output_s3_bucket_name.setter
-    def output_s3_bucket_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def output_s3_bucket_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "output_s3_bucket_name", value)
 
     @_builtins.property
     @pulumi.getter(name="outputS3KeyPrefix")
-    def output_s3_key_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def output_s3_key_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The S3 bucket subfolder.
         """
         return pulumi.get(self, "output_s3_key_prefix")
 
     @output_s3_key_prefix.setter
-    def output_s3_key_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def output_s3_key_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "output_s3_key_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="outputS3Region")
-    def output_s3_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def output_s3_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS Region of the S3 bucket.
         """
         return pulumi.get(self, "output_s3_region")
 
     @output_s3_region.setter
-    def output_s3_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def output_s3_region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "output_s3_region", value)
 
 
@@ -216,15 +216,15 @@ class AssociationTargetArgs:
 
 
 class DocumentAttachmentsSourceArgsDict(TypedDict):
-    key: NotRequired[pulumi.Input['DocumentAttachmentsSourceKey']]
+    key: NotRequired[pulumi.Input[Optional['DocumentAttachmentsSourceKey']]]
     """
     The key of a key-value pair that identifies the location of an attachment to a document.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the document attachment file.
     """
-    values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The value of a key-value pair that identifies the location of an attachment to a document. The format for Value depends on the type of key you specify.
     """
@@ -232,9 +232,9 @@ class DocumentAttachmentsSourceArgsDict(TypedDict):
 @pulumi.input_type
 class DocumentAttachmentsSourceArgs:
     def __init__(__self__, *,
-                 key: Optional[pulumi.Input['DocumentAttachmentsSourceKey']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 key: pulumi.Input[Optional['DocumentAttachmentsSourceKey']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input['DocumentAttachmentsSourceKey'] key: The key of a key-value pair that identifies the location of an attachment to a document.
         :param pulumi.Input[_builtins.str] name: The name of the document attachment file.
@@ -249,47 +249,47 @@ class DocumentAttachmentsSourceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input['DocumentAttachmentsSourceKey']]:
+    def key(self) -> pulumi.Input[Optional['DocumentAttachmentsSourceKey']]:
         """
         The key of a key-value pair that identifies the location of an attachment to a document.
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input['DocumentAttachmentsSourceKey']]):
+    def key(self, value: pulumi.Input[Optional['DocumentAttachmentsSourceKey']]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the document attachment file.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The value of a key-value pair that identifies the location of an attachment to a document. The format for Value depends on the type of key you specify.
         """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "values", value)
 
 
 class DocumentRequiresArgsDict(TypedDict):
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the required SSM document. The name can be an Amazon Resource Name (ARN).
     """
-    version: NotRequired[pulumi.Input[_builtins.str]]
+    version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The document version required by the current document.
     """
@@ -297,8 +297,8 @@ class DocumentRequiresArgsDict(TypedDict):
 @pulumi.input_type
 class DocumentRequiresArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the required SSM document. The name can be an Amazon Resource Name (ARN).
         :param pulumi.Input[_builtins.str] version: The document version required by the current document.
@@ -310,26 +310,26 @@ class DocumentRequiresArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the required SSM document. The name can be an Amazon Resource Name (ARN).
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The document version required by the current document.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
@@ -381,11 +381,11 @@ class MaintenanceWindowTargetTargetsArgs:
 
 
 class MaintenanceWindowTaskCloudWatchOutputConfigArgsDict(TypedDict):
-    cloud_watch_log_group_name: NotRequired[pulumi.Input[_builtins.str]]
+    cloud_watch_log_group_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the CloudWatch log group where you want to send command output.
     """
-    cloud_watch_output_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    cloud_watch_output_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Enables Systems Manager to send command output to CloudWatch Logs.
     """
@@ -393,8 +393,8 @@ class MaintenanceWindowTaskCloudWatchOutputConfigArgsDict(TypedDict):
 @pulumi.input_type
 class MaintenanceWindowTaskCloudWatchOutputConfigArgs:
     def __init__(__self__, *,
-                 cloud_watch_log_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cloud_watch_output_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 cloud_watch_log_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cloud_watch_output_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] cloud_watch_log_group_name: The name of the CloudWatch log group where you want to send command output.
         :param pulumi.Input[_builtins.bool] cloud_watch_output_enabled: Enables Systems Manager to send command output to CloudWatch Logs.
@@ -406,26 +406,26 @@ class MaintenanceWindowTaskCloudWatchOutputConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="cloudWatchLogGroupName")
-    def cloud_watch_log_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cloud_watch_log_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the CloudWatch log group where you want to send command output.
         """
         return pulumi.get(self, "cloud_watch_log_group_name")
 
     @cloud_watch_log_group_name.setter
-    def cloud_watch_log_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cloud_watch_log_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cloud_watch_log_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="cloudWatchOutputEnabled")
-    def cloud_watch_output_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def cloud_watch_output_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables Systems Manager to send command output to CloudWatch Logs.
         """
         return pulumi.get(self, "cloud_watch_output_enabled")
 
     @cloud_watch_output_enabled.setter
-    def cloud_watch_output_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def cloud_watch_output_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "cloud_watch_output_enabled", value)
 
 
@@ -438,7 +438,7 @@ class MaintenanceWindowTaskLoggingInfoArgsDict(TypedDict):
     """
     The name of an S3 bucket where execution logs are stored.
     """
-    s3_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    s3_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon S3 bucket subfolder.
     """
@@ -448,7 +448,7 @@ class MaintenanceWindowTaskLoggingInfoArgs:
     def __init__(__self__, *,
                  region: pulumi.Input[_builtins.str],
                  s3_bucket: pulumi.Input[_builtins.str],
-                 s3_prefix: Optional[pulumi.Input[_builtins.str]] = None):
+                 s3_prefix: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] region: The AWS Region where the S3 bucket is located.
         :param pulumi.Input[_builtins.str] s3_bucket: The name of an S3 bucket where execution logs are stored.
@@ -485,23 +485,23 @@ class MaintenanceWindowTaskLoggingInfoArgs:
 
     @_builtins.property
     @pulumi.getter(name="s3Prefix")
-    def s3_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def s3_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon S3 bucket subfolder.
         """
         return pulumi.get(self, "s3_prefix")
 
     @s3_prefix.setter
-    def s3_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def s3_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "s3_prefix", value)
 
 
 class MaintenanceWindowTaskMaintenanceWindowAutomationParametersArgsDict(TypedDict):
-    document_version: NotRequired[pulumi.Input[_builtins.str]]
+    document_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The version of an Automation runbook to use during task execution.
     """
-    parameters: NotRequired[Any]
+    parameters: NotRequired[Optional[Any]]
     """
     The parameters for the `AUTOMATION` type task.
     """
@@ -509,7 +509,7 @@ class MaintenanceWindowTaskMaintenanceWindowAutomationParametersArgsDict(TypedDi
 @pulumi.input_type
 class MaintenanceWindowTaskMaintenanceWindowAutomationParametersArgs:
     def __init__(__self__, *,
-                 document_version: Optional[pulumi.Input[_builtins.str]] = None,
+                 document_version: pulumi.Input[Optional[_builtins.str]] = None,
                  parameters: Optional[Any] = None):
         """
         :param pulumi.Input[_builtins.str] document_version: The version of an Automation runbook to use during task execution.
@@ -522,14 +522,14 @@ class MaintenanceWindowTaskMaintenanceWindowAutomationParametersArgs:
 
     @_builtins.property
     @pulumi.getter(name="documentVersion")
-    def document_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def document_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of an Automation runbook to use during task execution.
         """
         return pulumi.get(self, "document_version")
 
     @document_version.setter
-    def document_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def document_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "document_version", value)
 
     @_builtins.property
@@ -546,11 +546,11 @@ class MaintenanceWindowTaskMaintenanceWindowAutomationParametersArgs:
 
 
 class MaintenanceWindowTaskMaintenanceWindowLambdaParametersArgsDict(TypedDict):
-    client_context: NotRequired[pulumi.Input[_builtins.str]]
+    client_context: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Client-specific information to pass to the AWS Lambda function that you're invoking. You can then use the `context` variable to process the client information in your AWS Lambda function.
     """
-    payload: NotRequired[pulumi.Input[_builtins.str]]
+    payload: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     JSON to provide to your AWS Lambda function as input.
 
@@ -558,7 +558,7 @@ class MaintenanceWindowTaskMaintenanceWindowLambdaParametersArgsDict(TypedDict):
 
     *Length Constraint:* 4096
     """
-    qualifier: NotRequired[pulumi.Input[_builtins.str]]
+    qualifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     An AWS Lambda function version or alias name. If you specify a function version, the action uses the qualified function Amazon Resource Name (ARN) to invoke a specific Lambda function. If you specify an alias name, the action uses the alias ARN to invoke the Lambda function version that the alias points to.
     """
@@ -566,9 +566,9 @@ class MaintenanceWindowTaskMaintenanceWindowLambdaParametersArgsDict(TypedDict):
 @pulumi.input_type
 class MaintenanceWindowTaskMaintenanceWindowLambdaParametersArgs:
     def __init__(__self__, *,
-                 client_context: Optional[pulumi.Input[_builtins.str]] = None,
-                 payload: Optional[pulumi.Input[_builtins.str]] = None,
-                 qualifier: Optional[pulumi.Input[_builtins.str]] = None):
+                 client_context: pulumi.Input[Optional[_builtins.str]] = None,
+                 payload: pulumi.Input[Optional[_builtins.str]] = None,
+                 qualifier: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] client_context: Client-specific information to pass to the AWS Lambda function that you're invoking. You can then use the `context` variable to process the client information in your AWS Lambda function.
         :param pulumi.Input[_builtins.str] payload: JSON to provide to your AWS Lambda function as input.
@@ -587,19 +587,19 @@ class MaintenanceWindowTaskMaintenanceWindowLambdaParametersArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientContext")
-    def client_context(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_context(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Client-specific information to pass to the AWS Lambda function that you're invoking. You can then use the `context` variable to process the client information in your AWS Lambda function.
         """
         return pulumi.get(self, "client_context")
 
     @client_context.setter
-    def client_context(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_context(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_context", value)
 
     @_builtins.property
     @pulumi.getter
-    def payload(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def payload(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         JSON to provide to your AWS Lambda function as input.
 
@@ -610,40 +610,40 @@ class MaintenanceWindowTaskMaintenanceWindowLambdaParametersArgs:
         return pulumi.get(self, "payload")
 
     @payload.setter
-    def payload(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def payload(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "payload", value)
 
     @_builtins.property
     @pulumi.getter
-    def qualifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def qualifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An AWS Lambda function version or alias name. If you specify a function version, the action uses the qualified function Amazon Resource Name (ARN) to invoke a specific Lambda function. If you specify an alias name, the action uses the alias ARN to invoke the Lambda function version that the alias points to.
         """
         return pulumi.get(self, "qualifier")
 
     @qualifier.setter
-    def qualifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def qualifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "qualifier", value)
 
 
 class MaintenanceWindowTaskMaintenanceWindowRunCommandParametersArgsDict(TypedDict):
-    cloud_watch_output_config: NotRequired[pulumi.Input['MaintenanceWindowTaskCloudWatchOutputConfigArgsDict']]
+    cloud_watch_output_config: NotRequired[pulumi.Input[Optional['MaintenanceWindowTaskCloudWatchOutputConfigArgs']]]
     """
     Configuration options for sending command output to Amazon CloudWatch Logs.
     """
-    comment: NotRequired[pulumi.Input[_builtins.str]]
+    comment: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Information about the command or commands to run.
     """
-    document_hash: NotRequired[pulumi.Input[_builtins.str]]
+    document_hash: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The SHA-256 or SHA-1 hash created by the system when the document was created. SHA-1 hashes have been deprecated.
     """
-    document_hash_type: NotRequired[pulumi.Input[_builtins.str]]
+    document_hash_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The SHA-256 or SHA-1 hash type. SHA-1 hashes are deprecated.
     """
-    document_version: NotRequired[pulumi.Input[_builtins.str]]
+    document_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The AWS Systems Manager document (SSM document) version to use in the request. You can specify `$DEFAULT` , `$LATEST` , or a specific version number. If you run commands by using the AWS CLI, then you must escape the first two options by using a backslash. If you specify a version number, then you don't need to use the backslash. For example:
 
@@ -653,31 +653,31 @@ class MaintenanceWindowTaskMaintenanceWindowRunCommandParametersArgsDict(TypedDi
 
     `--document-version "3"`
     """
-    notification_config: NotRequired[pulumi.Input['MaintenanceWindowTaskNotificationConfigArgsDict']]
+    notification_config: NotRequired[pulumi.Input[Optional['MaintenanceWindowTaskNotificationConfigArgs']]]
     """
     Configurations for sending notifications about command status changes on a per-managed node basis.
     """
-    output_s3_bucket_name: NotRequired[pulumi.Input[_builtins.str]]
+    output_s3_bucket_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the Amazon Simple Storage Service (Amazon S3) bucket.
     """
-    output_s3_key_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    output_s3_key_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The S3 bucket subfolder.
     """
-    parameters: NotRequired[Any]
+    parameters: NotRequired[Optional[Any]]
     """
     The parameters for the `RUN_COMMAND` task execution.
 
     The supported parameters are the same as those for the `SendCommand` API call. For more information, see [SendCommand](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_SendCommand.html) in the *AWS Systems Manager API Reference* .
     """
-    service_role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    service_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon Resource Name (ARN) of the IAM service role for AWS Systems Manager to assume when running a maintenance window task. If you do not specify a service role ARN, Systems Manager uses a service-linked role in your account. If no appropriate service-linked role for Systems Manager exists in your account, it is created when you run `RegisterTaskWithMaintenanceWindow` .
 
     However, for an improved security posture, we strongly recommend creating a custom policy and custom service role for running your maintenance window tasks. The policy can be crafted to provide only the permissions needed for your particular maintenance window tasks. For more information, see [Setting up Maintenance Windows](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-permissions.html) in the in the *AWS Systems Manager User Guide* .
     """
-    timeout_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    timeout_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     If this time is reached and the command hasn't already started running, it doesn't run.
     """
@@ -685,17 +685,17 @@ class MaintenanceWindowTaskMaintenanceWindowRunCommandParametersArgsDict(TypedDi
 @pulumi.input_type
 class MaintenanceWindowTaskMaintenanceWindowRunCommandParametersArgs:
     def __init__(__self__, *,
-                 cloud_watch_output_config: Optional[pulumi.Input['MaintenanceWindowTaskCloudWatchOutputConfigArgs']] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 document_hash: Optional[pulumi.Input[_builtins.str]] = None,
-                 document_hash_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 document_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_config: Optional[pulumi.Input['MaintenanceWindowTaskNotificationConfigArgs']] = None,
-                 output_s3_bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 output_s3_key_prefix: Optional[pulumi.Input[_builtins.str]] = None,
+                 cloud_watch_output_config: pulumi.Input[Optional['MaintenanceWindowTaskCloudWatchOutputConfigArgs']] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 document_hash: pulumi.Input[Optional[_builtins.str]] = None,
+                 document_hash_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 document_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_config: pulumi.Input[Optional['MaintenanceWindowTaskNotificationConfigArgs']] = None,
+                 output_s3_bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 output_s3_key_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  parameters: Optional[Any] = None,
-                 service_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None):
+                 service_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input['MaintenanceWindowTaskCloudWatchOutputConfigArgs'] cloud_watch_output_config: Configuration options for sending command output to Amazon CloudWatch Logs.
         :param pulumi.Input[_builtins.str] comment: Information about the command or commands to run.
@@ -744,55 +744,55 @@ class MaintenanceWindowTaskMaintenanceWindowRunCommandParametersArgs:
 
     @_builtins.property
     @pulumi.getter(name="cloudWatchOutputConfig")
-    def cloud_watch_output_config(self) -> Optional[pulumi.Input['MaintenanceWindowTaskCloudWatchOutputConfigArgs']]:
+    def cloud_watch_output_config(self) -> pulumi.Input[Optional['MaintenanceWindowTaskCloudWatchOutputConfigArgs']]:
         """
         Configuration options for sending command output to Amazon CloudWatch Logs.
         """
         return pulumi.get(self, "cloud_watch_output_config")
 
     @cloud_watch_output_config.setter
-    def cloud_watch_output_config(self, value: Optional[pulumi.Input['MaintenanceWindowTaskCloudWatchOutputConfigArgs']]):
+    def cloud_watch_output_config(self, value: pulumi.Input[Optional['MaintenanceWindowTaskCloudWatchOutputConfigArgs']]):
         pulumi.set(self, "cloud_watch_output_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Information about the command or commands to run.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter(name="documentHash")
-    def document_hash(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def document_hash(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SHA-256 or SHA-1 hash created by the system when the document was created. SHA-1 hashes have been deprecated.
         """
         return pulumi.get(self, "document_hash")
 
     @document_hash.setter
-    def document_hash(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def document_hash(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "document_hash", value)
 
     @_builtins.property
     @pulumi.getter(name="documentHashType")
-    def document_hash_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def document_hash_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SHA-256 or SHA-1 hash type. SHA-1 hashes are deprecated.
         """
         return pulumi.get(self, "document_hash_type")
 
     @document_hash_type.setter
-    def document_hash_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def document_hash_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "document_hash_type", value)
 
     @_builtins.property
     @pulumi.getter(name="documentVersion")
-    def document_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def document_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS Systems Manager document (SSM document) version to use in the request. You can specify `$DEFAULT` , `$LATEST` , or a specific version number. If you run commands by using the AWS CLI, then you must escape the first two options by using a backslash. If you specify a version number, then you don't need to use the backslash. For example:
 
@@ -805,43 +805,43 @@ class MaintenanceWindowTaskMaintenanceWindowRunCommandParametersArgs:
         return pulumi.get(self, "document_version")
 
     @document_version.setter
-    def document_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def document_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "document_version", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationConfig")
-    def notification_config(self) -> Optional[pulumi.Input['MaintenanceWindowTaskNotificationConfigArgs']]:
+    def notification_config(self) -> pulumi.Input[Optional['MaintenanceWindowTaskNotificationConfigArgs']]:
         """
         Configurations for sending notifications about command status changes on a per-managed node basis.
         """
         return pulumi.get(self, "notification_config")
 
     @notification_config.setter
-    def notification_config(self, value: Optional[pulumi.Input['MaintenanceWindowTaskNotificationConfigArgs']]):
+    def notification_config(self, value: pulumi.Input[Optional['MaintenanceWindowTaskNotificationConfigArgs']]):
         pulumi.set(self, "notification_config", value)
 
     @_builtins.property
     @pulumi.getter(name="outputS3BucketName")
-    def output_s3_bucket_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def output_s3_bucket_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Amazon Simple Storage Service (Amazon S3) bucket.
         """
         return pulumi.get(self, "output_s3_bucket_name")
 
     @output_s3_bucket_name.setter
-    def output_s3_bucket_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def output_s3_bucket_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "output_s3_bucket_name", value)
 
     @_builtins.property
     @pulumi.getter(name="outputS3KeyPrefix")
-    def output_s3_key_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def output_s3_key_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The S3 bucket subfolder.
         """
         return pulumi.get(self, "output_s3_key_prefix")
 
     @output_s3_key_prefix.setter
-    def output_s3_key_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def output_s3_key_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "output_s3_key_prefix", value)
 
     @_builtins.property
@@ -860,7 +860,7 @@ class MaintenanceWindowTaskMaintenanceWindowRunCommandParametersArgs:
 
     @_builtins.property
     @pulumi.getter(name="serviceRoleArn")
-    def service_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the IAM service role for AWS Systems Manager to assume when running a maintenance window task. If you do not specify a service role ARN, Systems Manager uses a service-linked role in your account. If no appropriate service-linked role for Systems Manager exists in your account, it is created when you run `RegisterTaskWithMaintenanceWindow` .
 
@@ -869,28 +869,28 @@ class MaintenanceWindowTaskMaintenanceWindowRunCommandParametersArgs:
         return pulumi.get(self, "service_role_arn")
 
     @service_role_arn.setter
-    def service_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="timeoutSeconds")
-    def timeout_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def timeout_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         If this time is reached and the command hasn't already started running, it doesn't run.
         """
         return pulumi.get(self, "timeout_seconds")
 
     @timeout_seconds.setter
-    def timeout_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def timeout_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "timeout_seconds", value)
 
 
 class MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersArgsDict(TypedDict):
-    input: NotRequired[pulumi.Input[_builtins.str]]
+    input: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The inputs for the `STEP_FUNCTIONS` task.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the `STEP_FUNCTIONS` task.
     """
@@ -898,8 +898,8 @@ class MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersArgsDict(Type
 @pulumi.input_type
 class MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersArgs:
     def __init__(__self__, *,
-                 input: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 input: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] input: The inputs for the `STEP_FUNCTIONS` task.
         :param pulumi.Input[_builtins.str] name: The name of the `STEP_FUNCTIONS` task.
@@ -911,26 +911,26 @@ class MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersArgs:
 
     @_builtins.property
     @pulumi.getter
-    def input(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def input(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The inputs for the `STEP_FUNCTIONS` task.
         """
         return pulumi.get(self, "input")
 
     @input.setter
-    def input(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def input(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "input", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the `STEP_FUNCTIONS` task.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -939,11 +939,11 @@ class MaintenanceWindowTaskNotificationConfigArgsDict(TypedDict):
     """
     An Amazon Resource Name (ARN) for an Amazon Simple Notification Service (Amazon SNS) topic. Run Command pushes notifications about command status changes to this topic.
     """
-    notification_events: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    notification_events: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The different events that you can receive notifications for. These events include the following: `All` (events), `InProgress` , `Success` , `TimedOut` , `Cancelled` , `Failed` . To learn more about these events, see [Configuring Amazon SNS Notifications for AWS Systems Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/monitoring-sns-notifications.html) in the *AWS Systems Manager User Guide* .
     """
-    notification_type: NotRequired[pulumi.Input[_builtins.str]]
+    notification_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The notification type.
 
@@ -955,8 +955,8 @@ class MaintenanceWindowTaskNotificationConfigArgsDict(TypedDict):
 class MaintenanceWindowTaskNotificationConfigArgs:
     def __init__(__self__, *,
                  notification_arn: pulumi.Input[_builtins.str],
-                 notification_events: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 notification_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 notification_events: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 notification_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] notification_arn: An Amazon Resource Name (ARN) for an Amazon Simple Notification Service (Amazon SNS) topic. Run Command pushes notifications about command status changes to this topic.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] notification_events: The different events that you can receive notifications for. These events include the following: `All` (events), `InProgress` , `Success` , `TimedOut` , `Cancelled` , `Failed` . To learn more about these events, see [Configuring Amazon SNS Notifications for AWS Systems Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/monitoring-sns-notifications.html) in the *AWS Systems Manager User Guide* .
@@ -985,19 +985,19 @@ class MaintenanceWindowTaskNotificationConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="notificationEvents")
-    def notification_events(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def notification_events(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The different events that you can receive notifications for. These events include the following: `All` (events), `InProgress` , `Success` , `TimedOut` , `Cancelled` , `Failed` . To learn more about these events, see [Configuring Amazon SNS Notifications for AWS Systems Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/monitoring-sns-notifications.html) in the *AWS Systems Manager User Guide* .
         """
         return pulumi.get(self, "notification_events")
 
     @notification_events.setter
-    def notification_events(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def notification_events(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "notification_events", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationType")
-    def notification_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def notification_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The notification type.
 
@@ -1007,7 +1007,7 @@ class MaintenanceWindowTaskNotificationConfigArgs:
         return pulumi.get(self, "notification_type")
 
     @notification_type.setter
-    def notification_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def notification_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "notification_type", value)
 
 
@@ -1059,19 +1059,19 @@ class MaintenanceWindowTaskTargetArgs:
 
 
 class MaintenanceWindowTaskTaskInvocationParametersArgsDict(TypedDict):
-    maintenance_window_automation_parameters: NotRequired[pulumi.Input['MaintenanceWindowTaskMaintenanceWindowAutomationParametersArgsDict']]
+    maintenance_window_automation_parameters: NotRequired[pulumi.Input[Optional['MaintenanceWindowTaskMaintenanceWindowAutomationParametersArgs']]]
     """
     The parameters for an `AUTOMATION` task type.
     """
-    maintenance_window_lambda_parameters: NotRequired[pulumi.Input['MaintenanceWindowTaskMaintenanceWindowLambdaParametersArgsDict']]
+    maintenance_window_lambda_parameters: NotRequired[pulumi.Input[Optional['MaintenanceWindowTaskMaintenanceWindowLambdaParametersArgs']]]
     """
     The parameters for a `LAMBDA` task type.
     """
-    maintenance_window_run_command_parameters: NotRequired[pulumi.Input['MaintenanceWindowTaskMaintenanceWindowRunCommandParametersArgsDict']]
+    maintenance_window_run_command_parameters: NotRequired[pulumi.Input[Optional['MaintenanceWindowTaskMaintenanceWindowRunCommandParametersArgs']]]
     """
     The parameters for a `RUN_COMMAND` task type.
     """
-    maintenance_window_step_functions_parameters: NotRequired[pulumi.Input['MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersArgsDict']]
+    maintenance_window_step_functions_parameters: NotRequired[pulumi.Input[Optional['MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersArgs']]]
     """
     The parameters for a `STEP_FUNCTIONS` task type.
     """
@@ -1079,10 +1079,10 @@ class MaintenanceWindowTaskTaskInvocationParametersArgsDict(TypedDict):
 @pulumi.input_type
 class MaintenanceWindowTaskTaskInvocationParametersArgs:
     def __init__(__self__, *,
-                 maintenance_window_automation_parameters: Optional[pulumi.Input['MaintenanceWindowTaskMaintenanceWindowAutomationParametersArgs']] = None,
-                 maintenance_window_lambda_parameters: Optional[pulumi.Input['MaintenanceWindowTaskMaintenanceWindowLambdaParametersArgs']] = None,
-                 maintenance_window_run_command_parameters: Optional[pulumi.Input['MaintenanceWindowTaskMaintenanceWindowRunCommandParametersArgs']] = None,
-                 maintenance_window_step_functions_parameters: Optional[pulumi.Input['MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersArgs']] = None):
+                 maintenance_window_automation_parameters: pulumi.Input[Optional['MaintenanceWindowTaskMaintenanceWindowAutomationParametersArgs']] = None,
+                 maintenance_window_lambda_parameters: pulumi.Input[Optional['MaintenanceWindowTaskMaintenanceWindowLambdaParametersArgs']] = None,
+                 maintenance_window_run_command_parameters: pulumi.Input[Optional['MaintenanceWindowTaskMaintenanceWindowRunCommandParametersArgs']] = None,
+                 maintenance_window_step_functions_parameters: pulumi.Input[Optional['MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersArgs']] = None):
         """
         :param pulumi.Input['MaintenanceWindowTaskMaintenanceWindowAutomationParametersArgs'] maintenance_window_automation_parameters: The parameters for an `AUTOMATION` task type.
         :param pulumi.Input['MaintenanceWindowTaskMaintenanceWindowLambdaParametersArgs'] maintenance_window_lambda_parameters: The parameters for a `LAMBDA` task type.
@@ -1100,50 +1100,50 @@ class MaintenanceWindowTaskTaskInvocationParametersArgs:
 
     @_builtins.property
     @pulumi.getter(name="maintenanceWindowAutomationParameters")
-    def maintenance_window_automation_parameters(self) -> Optional[pulumi.Input['MaintenanceWindowTaskMaintenanceWindowAutomationParametersArgs']]:
+    def maintenance_window_automation_parameters(self) -> pulumi.Input[Optional['MaintenanceWindowTaskMaintenanceWindowAutomationParametersArgs']]:
         """
         The parameters for an `AUTOMATION` task type.
         """
         return pulumi.get(self, "maintenance_window_automation_parameters")
 
     @maintenance_window_automation_parameters.setter
-    def maintenance_window_automation_parameters(self, value: Optional[pulumi.Input['MaintenanceWindowTaskMaintenanceWindowAutomationParametersArgs']]):
+    def maintenance_window_automation_parameters(self, value: pulumi.Input[Optional['MaintenanceWindowTaskMaintenanceWindowAutomationParametersArgs']]):
         pulumi.set(self, "maintenance_window_automation_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="maintenanceWindowLambdaParameters")
-    def maintenance_window_lambda_parameters(self) -> Optional[pulumi.Input['MaintenanceWindowTaskMaintenanceWindowLambdaParametersArgs']]:
+    def maintenance_window_lambda_parameters(self) -> pulumi.Input[Optional['MaintenanceWindowTaskMaintenanceWindowLambdaParametersArgs']]:
         """
         The parameters for a `LAMBDA` task type.
         """
         return pulumi.get(self, "maintenance_window_lambda_parameters")
 
     @maintenance_window_lambda_parameters.setter
-    def maintenance_window_lambda_parameters(self, value: Optional[pulumi.Input['MaintenanceWindowTaskMaintenanceWindowLambdaParametersArgs']]):
+    def maintenance_window_lambda_parameters(self, value: pulumi.Input[Optional['MaintenanceWindowTaskMaintenanceWindowLambdaParametersArgs']]):
         pulumi.set(self, "maintenance_window_lambda_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="maintenanceWindowRunCommandParameters")
-    def maintenance_window_run_command_parameters(self) -> Optional[pulumi.Input['MaintenanceWindowTaskMaintenanceWindowRunCommandParametersArgs']]:
+    def maintenance_window_run_command_parameters(self) -> pulumi.Input[Optional['MaintenanceWindowTaskMaintenanceWindowRunCommandParametersArgs']]:
         """
         The parameters for a `RUN_COMMAND` task type.
         """
         return pulumi.get(self, "maintenance_window_run_command_parameters")
 
     @maintenance_window_run_command_parameters.setter
-    def maintenance_window_run_command_parameters(self, value: Optional[pulumi.Input['MaintenanceWindowTaskMaintenanceWindowRunCommandParametersArgs']]):
+    def maintenance_window_run_command_parameters(self, value: pulumi.Input[Optional['MaintenanceWindowTaskMaintenanceWindowRunCommandParametersArgs']]):
         pulumi.set(self, "maintenance_window_run_command_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="maintenanceWindowStepFunctionsParameters")
-    def maintenance_window_step_functions_parameters(self) -> Optional[pulumi.Input['MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersArgs']]:
+    def maintenance_window_step_functions_parameters(self) -> pulumi.Input[Optional['MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersArgs']]:
         """
         The parameters for a `STEP_FUNCTIONS` task type.
         """
         return pulumi.get(self, "maintenance_window_step_functions_parameters")
 
     @maintenance_window_step_functions_parameters.setter
-    def maintenance_window_step_functions_parameters(self, value: Optional[pulumi.Input['MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersArgs']]):
+    def maintenance_window_step_functions_parameters(self, value: pulumi.Input[Optional['MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersArgs']]):
         pulumi.set(self, "maintenance_window_step_functions_parameters", value)
 
 
@@ -1151,7 +1151,7 @@ class PatchBaselinePatchFilterGroupArgsDict(TypedDict):
     """
     The patch filter group that defines the criteria for the rule.
     """
-    patch_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['PatchBaselinePatchFilterArgsDict']]]]
+    patch_filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PatchBaselinePatchFilterArgs']]]]]
     """
     The set of patch filters that make up the group.
     """
@@ -1159,7 +1159,7 @@ class PatchBaselinePatchFilterGroupArgsDict(TypedDict):
 @pulumi.input_type
 class PatchBaselinePatchFilterGroupArgs:
     def __init__(__self__, *,
-                 patch_filters: Optional[pulumi.Input[Sequence[pulumi.Input['PatchBaselinePatchFilterArgs']]]] = None):
+                 patch_filters: pulumi.Input[Optional[Sequence[pulumi.Input['PatchBaselinePatchFilterArgs']]]] = None):
         """
         The patch filter group that defines the criteria for the rule.
 
@@ -1170,14 +1170,14 @@ class PatchBaselinePatchFilterGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="patchFilters")
-    def patch_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PatchBaselinePatchFilterArgs']]]]:
+    def patch_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PatchBaselinePatchFilterArgs']]]]:
         """
         The set of patch filters that make up the group.
         """
         return pulumi.get(self, "patch_filters")
 
     @patch_filters.setter
-    def patch_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PatchBaselinePatchFilterArgs']]]]):
+    def patch_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PatchBaselinePatchFilterArgs']]]]):
         pulumi.set(self, "patch_filters", value)
 
 
@@ -1185,13 +1185,13 @@ class PatchBaselinePatchFilterArgsDict(TypedDict):
     """
     Defines which patches should be included in a patch baseline.
     """
-    key: NotRequired[pulumi.Input['PatchBaselinePatchFilterKey']]
+    key: NotRequired[pulumi.Input[Optional['PatchBaselinePatchFilterKey']]]
     """
     The key for the filter.
 
     For information about valid keys, see [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html) in the *AWS Systems Manager API Reference* .
     """
-    values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The value for the filter key.
 
@@ -1201,8 +1201,8 @@ class PatchBaselinePatchFilterArgsDict(TypedDict):
 @pulumi.input_type
 class PatchBaselinePatchFilterArgs:
     def __init__(__self__, *,
-                 key: Optional[pulumi.Input['PatchBaselinePatchFilterKey']] = None,
-                 values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 key: pulumi.Input[Optional['PatchBaselinePatchFilterKey']] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Defines which patches should be included in a patch baseline.
 
@@ -1220,7 +1220,7 @@ class PatchBaselinePatchFilterArgs:
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input['PatchBaselinePatchFilterKey']]:
+    def key(self) -> pulumi.Input[Optional['PatchBaselinePatchFilterKey']]:
         """
         The key for the filter.
 
@@ -1229,12 +1229,12 @@ class PatchBaselinePatchFilterArgs:
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input['PatchBaselinePatchFilterKey']]):
+    def key(self, value: pulumi.Input[Optional['PatchBaselinePatchFilterKey']]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter
-    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The value for the filter key.
 
@@ -1243,7 +1243,7 @@ class PatchBaselinePatchFilterArgs:
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "values", value)
 
 
@@ -1251,7 +1251,7 @@ class PatchBaselinePatchSourceArgsDict(TypedDict):
     """
     Information about the patches to use to update the instances, including target operating systems and source repository. Applies to Linux instances only.
     """
-    configuration: NotRequired[pulumi.Input[_builtins.str]]
+    configuration: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The value of the repo configuration.
 
@@ -1275,11 +1275,11 @@ class PatchBaselinePatchSourceArgsDict(TypedDict):
 
     Repo information for Ubuntu Server repositories must be specifed in a single line. For more examples and information, see [jammy (5) sources.list.5.gz](https://docs.aws.amazon.com/https://manpages.ubuntu.com/manpages/jammy/man5/sources.list.5.html) on the *Ubuntu Server Manuals* website and [sources.list format](https://docs.aws.amazon.com/https://wiki.debian.org/SourcesList#sources.list_format) on the *Debian Wiki* .
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name specified to identify the patch source.
     """
-    products: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    products: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The specific operating system versions a patch repository applies to, such as "Ubuntu16.04", "RedhatEnterpriseLinux7.2" or "Suse12.7". For lists of supported product values, see [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html) in the *AWS Systems Manager API Reference* .
     """
@@ -1287,9 +1287,9 @@ class PatchBaselinePatchSourceArgsDict(TypedDict):
 @pulumi.input_type
 class PatchBaselinePatchSourceArgs:
     def __init__(__self__, *,
-                 configuration: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 products: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 configuration: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 products: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Information about the patches to use to update the instances, including target operating systems and source repository. Applies to Linux instances only.
 
@@ -1326,7 +1326,7 @@ class PatchBaselinePatchSourceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def configuration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def configuration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value of the repo configuration.
 
@@ -1353,31 +1353,31 @@ class PatchBaselinePatchSourceArgs:
         return pulumi.get(self, "configuration")
 
     @configuration.setter
-    def configuration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def configuration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name specified to identify the patch source.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def products(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def products(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The specific operating system versions a patch repository applies to, such as "Ubuntu16.04", "RedhatEnterpriseLinux7.2" or "Suse12.7". For lists of supported product values, see [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html) in the *AWS Systems Manager API Reference* .
         """
         return pulumi.get(self, "products")
 
     @products.setter
-    def products(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def products(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "products", value)
 
 
@@ -1385,7 +1385,7 @@ class PatchBaselineRuleGroupArgsDict(TypedDict):
     """
     A set of rules defining the approval rules for a patch baseline.
     """
-    patch_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['PatchBaselineRuleArgsDict']]]]
+    patch_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PatchBaselineRuleArgs']]]]]
     """
     The rules that make up the rule group.
     """
@@ -1393,7 +1393,7 @@ class PatchBaselineRuleGroupArgsDict(TypedDict):
 @pulumi.input_type
 class PatchBaselineRuleGroupArgs:
     def __init__(__self__, *,
-                 patch_rules: Optional[pulumi.Input[Sequence[pulumi.Input['PatchBaselineRuleArgs']]]] = None):
+                 patch_rules: pulumi.Input[Optional[Sequence[pulumi.Input['PatchBaselineRuleArgs']]]] = None):
         """
         A set of rules defining the approval rules for a patch baseline.
 
@@ -1404,14 +1404,14 @@ class PatchBaselineRuleGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="patchRules")
-    def patch_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PatchBaselineRuleArgs']]]]:
+    def patch_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PatchBaselineRuleArgs']]]]:
         """
         The rules that make up the rule group.
         """
         return pulumi.get(self, "patch_rules")
 
     @patch_rules.setter
-    def patch_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PatchBaselineRuleArgs']]]]):
+    def patch_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PatchBaselineRuleArgs']]]]):
         pulumi.set(self, "patch_rules", value)
 
 
@@ -1419,7 +1419,7 @@ class PatchBaselineRuleArgsDict(TypedDict):
     """
     Defines an approval rule for a patch baseline.
     """
-    approve_after_days: NotRequired[pulumi.Input[_builtins.int]]
+    approve_after_days: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The number of days after the release date of each patch matched by the rule that the patch is marked as approved in the patch baseline. For example, a value of `7` means that patches are approved seven days after they are released.
 
@@ -1431,7 +1431,7 @@ class PatchBaselineRuleArgsDict(TypedDict):
 
     > Use caution when setting this value for Windows Server patch baselines. Because patch updates that are replaced by later updates are removed, setting too broad a value for this parameter can result in crucial patches not being installed. For more information, see the *Windows Server* tab in the topic [How security patches are selected](https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-selecting-patches.html) in the *AWS Systems Manager User Guide* .
     """
-    approve_until_date: NotRequired[pulumi.Input[_builtins.str]]
+    approve_until_date: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically.
 
@@ -1445,15 +1445,15 @@ class PatchBaselineRuleArgsDict(TypedDict):
 
     > Use caution when setting this value for Windows Server patch baselines. Because patch updates that are replaced by later updates are removed, setting too broad a value for this parameter can result in crucial patches not being installed. For more information, see the *Windows Server* tab in the topic [How security patches are selected](https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-selecting-patches.html) in the *AWS Systems Manager User Guide* .
     """
-    compliance_level: NotRequired[pulumi.Input['PatchBaselineRuleComplianceLevel']]
+    compliance_level: NotRequired[pulumi.Input[Optional['PatchBaselineRuleComplianceLevel']]]
     """
     A compliance severity level for all approved patches in a patch baseline. Valid compliance severity levels include the following: `UNSPECIFIED` , `CRITICAL` , `HIGH` , `MEDIUM` , `LOW` , and `INFORMATIONAL` .
     """
-    enable_non_security: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_non_security: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     For managed nodes identified by the approval rule filters, enables a patch baseline to apply non-security updates available in the specified repository. The default value is `false` . Applies to Linux managed nodes only.
     """
-    patch_filter_group: NotRequired[pulumi.Input['PatchBaselinePatchFilterGroupArgsDict']]
+    patch_filter_group: NotRequired[pulumi.Input[Optional['PatchBaselinePatchFilterGroupArgs']]]
     """
     The patch filter group that defines the criteria for the rule.
     """
@@ -1461,11 +1461,11 @@ class PatchBaselineRuleArgsDict(TypedDict):
 @pulumi.input_type
 class PatchBaselineRuleArgs:
     def __init__(__self__, *,
-                 approve_after_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 approve_until_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 compliance_level: Optional[pulumi.Input['PatchBaselineRuleComplianceLevel']] = None,
-                 enable_non_security: Optional[pulumi.Input[_builtins.bool]] = None,
-                 patch_filter_group: Optional[pulumi.Input['PatchBaselinePatchFilterGroupArgs']] = None):
+                 approve_after_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 approve_until_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 compliance_level: pulumi.Input[Optional['PatchBaselineRuleComplianceLevel']] = None,
+                 enable_non_security: pulumi.Input[Optional[_builtins.bool]] = None,
+                 patch_filter_group: pulumi.Input[Optional['PatchBaselinePatchFilterGroupArgs']] = None):
         """
         Defines an approval rule for a patch baseline.
 
@@ -1506,7 +1506,7 @@ class PatchBaselineRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="approveAfterDays")
-    def approve_after_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def approve_after_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of days after the release date of each patch matched by the rule that the patch is marked as approved in the patch baseline. For example, a value of `7` means that patches are approved seven days after they are released.
 
@@ -1521,12 +1521,12 @@ class PatchBaselineRuleArgs:
         return pulumi.get(self, "approve_after_days")
 
     @approve_after_days.setter
-    def approve_after_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def approve_after_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "approve_after_days", value)
 
     @_builtins.property
     @pulumi.getter(name="approveUntilDate")
-    def approve_until_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def approve_until_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically.
 
@@ -1543,43 +1543,43 @@ class PatchBaselineRuleArgs:
         return pulumi.get(self, "approve_until_date")
 
     @approve_until_date.setter
-    def approve_until_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def approve_until_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "approve_until_date", value)
 
     @_builtins.property
     @pulumi.getter(name="complianceLevel")
-    def compliance_level(self) -> Optional[pulumi.Input['PatchBaselineRuleComplianceLevel']]:
+    def compliance_level(self) -> pulumi.Input[Optional['PatchBaselineRuleComplianceLevel']]:
         """
         A compliance severity level for all approved patches in a patch baseline. Valid compliance severity levels include the following: `UNSPECIFIED` , `CRITICAL` , `HIGH` , `MEDIUM` , `LOW` , and `INFORMATIONAL` .
         """
         return pulumi.get(self, "compliance_level")
 
     @compliance_level.setter
-    def compliance_level(self, value: Optional[pulumi.Input['PatchBaselineRuleComplianceLevel']]):
+    def compliance_level(self, value: pulumi.Input[Optional['PatchBaselineRuleComplianceLevel']]):
         pulumi.set(self, "compliance_level", value)
 
     @_builtins.property
     @pulumi.getter(name="enableNonSecurity")
-    def enable_non_security(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_non_security(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         For managed nodes identified by the approval rule filters, enables a patch baseline to apply non-security updates available in the specified repository. The default value is `false` . Applies to Linux managed nodes only.
         """
         return pulumi.get(self, "enable_non_security")
 
     @enable_non_security.setter
-    def enable_non_security(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_non_security(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_non_security", value)
 
     @_builtins.property
     @pulumi.getter(name="patchFilterGroup")
-    def patch_filter_group(self) -> Optional[pulumi.Input['PatchBaselinePatchFilterGroupArgs']]:
+    def patch_filter_group(self) -> pulumi.Input[Optional['PatchBaselinePatchFilterGroupArgs']]:
         """
         The patch filter group that defines the criteria for the rule.
         """
         return pulumi.get(self, "patch_filter_group")
 
     @patch_filter_group.setter
-    def patch_filter_group(self, value: Optional[pulumi.Input['PatchBaselinePatchFilterGroupArgs']]):
+    def patch_filter_group(self, value: pulumi.Input[Optional['PatchBaselinePatchFilterGroupArgs']]):
         pulumi.set(self, "patch_filter_group", value)
 
 
@@ -1588,7 +1588,7 @@ class ResourceDataSyncAwsOrganizationsSourceArgsDict(TypedDict):
     """
     If an AWS organization is present, this is either `OrganizationalUnits` or `EntireOrganization` . For `OrganizationalUnits` , the data is aggregated from a set of organization units. For `EntireOrganization` , the data is aggregated from the entire AWS organization.
     """
-    organizational_units: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    organizational_units: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The AWS Organizations organization units included in the sync.
     """
@@ -1597,7 +1597,7 @@ class ResourceDataSyncAwsOrganizationsSourceArgsDict(TypedDict):
 class ResourceDataSyncAwsOrganizationsSourceArgs:
     def __init__(__self__, *,
                  organization_source_type: pulumi.Input[_builtins.str],
-                 organizational_units: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 organizational_units: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] organization_source_type: If an AWS organization is present, this is either `OrganizationalUnits` or `EntireOrganization` . For `OrganizationalUnits` , the data is aggregated from a set of organization units. For `EntireOrganization` , the data is aggregated from the entire AWS organization.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] organizational_units: The AWS Organizations organization units included in the sync.
@@ -1620,14 +1620,14 @@ class ResourceDataSyncAwsOrganizationsSourceArgs:
 
     @_builtins.property
     @pulumi.getter(name="organizationalUnits")
-    def organizational_units(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def organizational_units(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The AWS Organizations organization units included in the sync.
         """
         return pulumi.get(self, "organizational_units")
 
     @organizational_units.setter
-    def organizational_units(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def organizational_units(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "organizational_units", value)
 
 
@@ -1644,11 +1644,11 @@ class ResourceDataSyncS3DestinationArgsDict(TypedDict):
     """
     A supported sync format. The following format is currently supported: JsonSerDe
     """
-    bucket_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    bucket_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     An Amazon S3 prefix for the bucket.
     """
-    kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    kms_key_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of an encryption key for a destination in Amazon S3. Must belong to the same Region as the destination S3 bucket.
     """
@@ -1659,8 +1659,8 @@ class ResourceDataSyncS3DestinationArgs:
                  bucket_name: pulumi.Input[_builtins.str],
                  bucket_region: pulumi.Input[_builtins.str],
                  sync_format: pulumi.Input[_builtins.str],
-                 bucket_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 bucket_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] bucket_name: The name of the S3 bucket where the aggregated data is stored.
         :param pulumi.Input[_builtins.str] bucket_region: The AWS Region with the S3 bucket targeted by the resource data sync.
@@ -1714,26 +1714,26 @@ class ResourceDataSyncS3DestinationArgs:
 
     @_builtins.property
     @pulumi.getter(name="bucketPrefix")
-    def bucket_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bucket_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An Amazon S3 prefix for the bucket.
         """
         return pulumi.get(self, "bucket_prefix")
 
     @bucket_prefix.setter
-    def bucket_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bucket_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bucket_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
-    def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of an encryption key for a destination in Amazon S3. Must belong to the same Region as the destination S3 bucket.
         """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
-    def kms_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_arn", value)
 
 
@@ -1746,11 +1746,11 @@ class ResourceDataSyncSyncSourceArgsDict(TypedDict):
     """
     The type of data source for the resource data sync. `SourceType` is either `AwsOrganizations` (if an organization is present in AWS Organizations ) or `SingleAccountMultiRegions` .
     """
-    aws_organizations_source: NotRequired[pulumi.Input['ResourceDataSyncAwsOrganizationsSourceArgsDict']]
+    aws_organizations_source: NotRequired[pulumi.Input[Optional['ResourceDataSyncAwsOrganizationsSourceArgs']]]
     """
     Information about the AwsOrganizationsSource resource data sync source. A sync source of this type can synchronize data from AWS Organizations .
     """
-    include_future_regions: NotRequired[pulumi.Input[_builtins.bool]]
+    include_future_regions: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to automatically synchronize and aggregate data from new AWS Regions when those Regions come online.
     """
@@ -1760,8 +1760,8 @@ class ResourceDataSyncSyncSourceArgs:
     def __init__(__self__, *,
                  source_regions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  source_type: pulumi.Input[_builtins.str],
-                 aws_organizations_source: Optional[pulumi.Input['ResourceDataSyncAwsOrganizationsSourceArgs']] = None,
-                 include_future_regions: Optional[pulumi.Input[_builtins.bool]] = None):
+                 aws_organizations_source: pulumi.Input[Optional['ResourceDataSyncAwsOrganizationsSourceArgs']] = None,
+                 include_future_regions: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] source_regions: The `SyncSource` AWS Regions included in the resource data sync.
         :param pulumi.Input[_builtins.str] source_type: The type of data source for the resource data sync. `SourceType` is either `AwsOrganizations` (if an organization is present in AWS Organizations ) or `SingleAccountMultiRegions` .
@@ -1801,26 +1801,26 @@ class ResourceDataSyncSyncSourceArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsOrganizationsSource")
-    def aws_organizations_source(self) -> Optional[pulumi.Input['ResourceDataSyncAwsOrganizationsSourceArgs']]:
+    def aws_organizations_source(self) -> pulumi.Input[Optional['ResourceDataSyncAwsOrganizationsSourceArgs']]:
         """
         Information about the AwsOrganizationsSource resource data sync source. A sync source of this type can synchronize data from AWS Organizations .
         """
         return pulumi.get(self, "aws_organizations_source")
 
     @aws_organizations_source.setter
-    def aws_organizations_source(self, value: Optional[pulumi.Input['ResourceDataSyncAwsOrganizationsSourceArgs']]):
+    def aws_organizations_source(self, value: pulumi.Input[Optional['ResourceDataSyncAwsOrganizationsSourceArgs']]):
         pulumi.set(self, "aws_organizations_source", value)
 
     @_builtins.property
     @pulumi.getter(name="includeFutureRegions")
-    def include_future_regions(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_future_regions(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to automatically synchronize and aggregate data from new AWS Regions when those Regions come online.
         """
         return pulumi.get(self, "include_future_regions")
 
     @include_future_regions.setter
-    def include_future_regions(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_future_regions(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_future_regions", value)
 
 

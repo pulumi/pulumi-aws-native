@@ -529,7 +529,7 @@ def get_auto_scaling_group(auto_scaling_group_name: Optional[_builtins.str] = No
         termination_policies=pulumi.get(__ret__, 'termination_policies'),
         traffic_sources=pulumi.get(__ret__, 'traffic_sources'),
         vpc_zone_identifier=pulumi.get(__ret__, 'vpc_zone_identifier'))
-def get_auto_scaling_group_output(auto_scaling_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_auto_scaling_group_output(auto_scaling_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAutoScalingGroupResult]:
     """
     The ``AWS::AutoScaling::AutoScalingGroup`` resource defines an Amazon EC2 Auto Scaling group, which is a collection of Amazon EC2 instances that are treated as a logical grouping for the purposes of automatic scaling and management.

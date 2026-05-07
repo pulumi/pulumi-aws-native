@@ -141,7 +141,7 @@ def get_contact_flow(contact_flow_arn: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_contact_flow_output(contact_flow_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_contact_flow_output(contact_flow_arn: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetContactFlowResult]:
     """
     Resource Type definition for AWS::Connect::ContactFlow

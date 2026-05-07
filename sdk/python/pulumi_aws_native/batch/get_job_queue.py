@@ -143,7 +143,7 @@ def get_job_queue(job_queue_arn: Optional[_builtins.str] = None,
         scheduling_policy_arn=pulumi.get(__ret__, 'scheduling_policy_arn'),
         service_environment_order=pulumi.get(__ret__, 'service_environment_order'),
         state=pulumi.get(__ret__, 'state'))
-def get_job_queue_output(job_queue_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_job_queue_output(job_queue_arn: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetJobQueueResult]:
     """
     Resource Type definition for AWS::Batch::JobQueue

@@ -23,15 +23,15 @@ __all__ = ['MultiRegionClusterArgs', 'MultiRegionCluster']
 class MultiRegionClusterArgs:
     def __init__(__self__, *,
                  node_type: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 multi_region_cluster_name_suffix: Optional[pulumi.Input[_builtins.str]] = None,
-                 multi_region_parameter_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 num_shards: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 tls_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 update_strategy: Optional[pulumi.Input['MultiRegionClusterUpdateStrategy']] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 multi_region_cluster_name_suffix: pulumi.Input[Optional[_builtins.str]] = None,
+                 multi_region_parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 num_shards: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 tls_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 update_strategy: pulumi.Input[Optional['MultiRegionClusterUpdateStrategy']] = None):
         """
         The set of arguments for constructing a MultiRegionCluster resource.
 
@@ -82,91 +82,91 @@ class MultiRegionClusterArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the multi region cluster.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def engine(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def engine(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The engine type used by the multi region cluster.
         """
         return pulumi.get(self, "engine")
 
     @engine.setter
-    def engine(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def engine(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "engine", value)
 
     @_builtins.property
     @pulumi.getter(name="engineVersion")
-    def engine_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def engine_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Redis engine version used by the multi region cluster.
         """
         return pulumi.get(self, "engine_version")
 
     @engine_version.setter
-    def engine_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def engine_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "engine_version", value)
 
     @_builtins.property
     @pulumi.getter(name="multiRegionClusterNameSuffix")
-    def multi_region_cluster_name_suffix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def multi_region_cluster_name_suffix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Multi Region cluster. This value must be unique as it also serves as the multi region cluster identifier.
         """
         return pulumi.get(self, "multi_region_cluster_name_suffix")
 
     @multi_region_cluster_name_suffix.setter
-    def multi_region_cluster_name_suffix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def multi_region_cluster_name_suffix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "multi_region_cluster_name_suffix", value)
 
     @_builtins.property
     @pulumi.getter(name="multiRegionParameterGroupName")
-    def multi_region_parameter_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def multi_region_parameter_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the parameter group associated with the multi region cluster.
         """
         return pulumi.get(self, "multi_region_parameter_group_name")
 
     @multi_region_parameter_group_name.setter
-    def multi_region_parameter_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def multi_region_parameter_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "multi_region_parameter_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="numShards")
-    def num_shards(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def num_shards(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of shards the multi region cluster will contain.
         """
         return pulumi.get(self, "num_shards")
 
     @num_shards.setter
-    def num_shards(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def num_shards(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "num_shards", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this multi region cluster.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tlsEnabled")
-    def tls_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def tls_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A flag that enables in-transit encryption when set to true.
 
@@ -175,19 +175,19 @@ class MultiRegionClusterArgs:
         return pulumi.get(self, "tls_enabled")
 
     @tls_enabled.setter
-    def tls_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def tls_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "tls_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="updateStrategy")
-    def update_strategy(self) -> Optional[pulumi.Input['MultiRegionClusterUpdateStrategy']]:
+    def update_strategy(self) -> pulumi.Input[Optional['MultiRegionClusterUpdateStrategy']]:
         """
         An enum string value that determines the update strategy for scaling. Possible values are 'COORDINATED' and 'UNCOORDINATED'. Default is 'COORDINATED'.
         """
         return pulumi.get(self, "update_strategy")
 
     @update_strategy.setter
-    def update_strategy(self, value: Optional[pulumi.Input['MultiRegionClusterUpdateStrategy']]):
+    def update_strategy(self, value: pulumi.Input[Optional['MultiRegionClusterUpdateStrategy']]):
         pulumi.set(self, "update_strategy", value)
 
 
@@ -197,16 +197,16 @@ class MultiRegionCluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 multi_region_cluster_name_suffix: Optional[pulumi.Input[_builtins.str]] = None,
-                 multi_region_parameter_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 num_shards: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 tls_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 update_strategy: Optional[pulumi.Input['MultiRegionClusterUpdateStrategy']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 multi_region_cluster_name_suffix: pulumi.Input[Optional[_builtins.str]] = None,
+                 multi_region_parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 num_shards: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tls_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 update_strategy: pulumi.Input[Optional['MultiRegionClusterUpdateStrategy']] = None,
                  __props__=None):
         """
         The AWS::MemoryDB::Multi Region Cluster resource creates an Amazon MemoryDB Multi Region Cluster.
@@ -252,16 +252,16 @@ class MultiRegionCluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 multi_region_cluster_name_suffix: Optional[pulumi.Input[_builtins.str]] = None,
-                 multi_region_parameter_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 num_shards: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 tls_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 update_strategy: Optional[pulumi.Input['MultiRegionClusterUpdateStrategy']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 multi_region_cluster_name_suffix: pulumi.Input[Optional[_builtins.str]] = None,
+                 multi_region_parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 num_shards: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tls_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 update_strategy: pulumi.Input[Optional['MultiRegionClusterUpdateStrategy']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

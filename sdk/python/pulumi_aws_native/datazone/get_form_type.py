@@ -183,8 +183,8 @@ def get_form_type(domain_identifier: Optional[_builtins.str] = None,
         owning_project_identifier=pulumi.get(__ret__, 'owning_project_identifier'),
         revision=pulumi.get(__ret__, 'revision'),
         status=pulumi.get(__ret__, 'status'))
-def get_form_type_output(domain_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                         form_type_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+def get_form_type_output(domain_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                         form_type_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFormTypeResult]:
     """
     Create and manage form types in Amazon Datazone

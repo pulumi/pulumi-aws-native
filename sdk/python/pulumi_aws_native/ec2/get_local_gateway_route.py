@@ -103,8 +103,8 @@ def get_local_gateway_route(destination_cidr_block: Optional[_builtins.str] = No
         network_interface_id=pulumi.get(__ret__, 'network_interface_id'),
         state=pulumi.get(__ret__, 'state'),
         type=pulumi.get(__ret__, 'type'))
-def get_local_gateway_route_output(destination_cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
-                                   local_gateway_route_table_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_local_gateway_route_output(destination_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+                                   local_gateway_route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocalGatewayRouteResult]:
     """
     Resource Type definition for Local Gateway Route which describes a route for a local gateway route table.

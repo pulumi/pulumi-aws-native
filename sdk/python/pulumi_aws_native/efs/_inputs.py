@@ -121,7 +121,7 @@ class AccessPointPosixUserArgsDict(TypedDict):
     """
     The POSIX user ID used for all file system operations using this access point.
     """
-    secondary_gids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    secondary_gids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Secondary POSIX group IDs used for all file system operations using this access point.
     """
@@ -131,7 +131,7 @@ class AccessPointPosixUserArgs:
     def __init__(__self__, *,
                  gid: pulumi.Input[_builtins.str],
                  uid: pulumi.Input[_builtins.str],
-                 secondary_gids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 secondary_gids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The full POSIX identity, including the user ID, group ID, and any secondary group IDs, on the access point that is used for all file system operations performed by NFS clients using the access point.
 
@@ -170,14 +170,14 @@ class AccessPointPosixUserArgs:
 
     @_builtins.property
     @pulumi.getter(name="secondaryGids")
-    def secondary_gids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def secondary_gids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Secondary POSIX group IDs used for all file system operations using this access point.
         """
         return pulumi.get(self, "secondary_gids")
 
     @secondary_gids.setter
-    def secondary_gids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def secondary_gids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "secondary_gids", value)
 
 
@@ -185,12 +185,12 @@ class AccessPointRootDirectoryArgsDict(TypedDict):
     """
     Specifies the directory on the Amazon EFS file system that the access point provides access to. The access point exposes the specified file system path as the root directory of your file system to applications using the access point. NFS clients using the access point can only access data in the access point's ``RootDirectory`` and its subdirectories.
     """
-    creation_info: NotRequired[pulumi.Input['AccessPointCreationInfoArgsDict']]
+    creation_info: NotRequired[pulumi.Input[Optional['AccessPointCreationInfoArgs']]]
     """
     (Optional) Specifies the POSIX IDs and permissions to apply to the access point's ``RootDirectory``. If the ``RootDirectory`` > ``Path`` specified does not exist, EFS creates the root directory using the ``CreationInfo`` settings when a client connects to an access point. When specifying the ``CreationInfo``, you must provide values for all properties. 
       If you do not provide ``CreationInfo`` and the specified ``RootDirectory`` > ``Path`` does not exist, attempts to mount the file system using the access point will fail.
     """
-    path: NotRequired[pulumi.Input[_builtins.str]]
+    path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide the ``CreationInfo``.
     """
@@ -198,8 +198,8 @@ class AccessPointRootDirectoryArgsDict(TypedDict):
 @pulumi.input_type
 class AccessPointRootDirectoryArgs:
     def __init__(__self__, *,
-                 creation_info: Optional[pulumi.Input['AccessPointCreationInfoArgs']] = None,
-                 path: Optional[pulumi.Input[_builtins.str]] = None):
+                 creation_info: pulumi.Input[Optional['AccessPointCreationInfoArgs']] = None,
+                 path: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Specifies the directory on the Amazon EFS file system that the access point provides access to. The access point exposes the specified file system path as the root directory of your file system to applications using the access point. NFS clients using the access point can only access data in the access point's ``RootDirectory`` and its subdirectories.
 
@@ -214,7 +214,7 @@ class AccessPointRootDirectoryArgs:
 
     @_builtins.property
     @pulumi.getter(name="creationInfo")
-    def creation_info(self) -> Optional[pulumi.Input['AccessPointCreationInfoArgs']]:
+    def creation_info(self) -> pulumi.Input[Optional['AccessPointCreationInfoArgs']]:
         """
         (Optional) Specifies the POSIX IDs and permissions to apply to the access point's ``RootDirectory``. If the ``RootDirectory`` > ``Path`` specified does not exist, EFS creates the root directory using the ``CreationInfo`` settings when a client connects to an access point. When specifying the ``CreationInfo``, you must provide values for all properties. 
           If you do not provide ``CreationInfo`` and the specified ``RootDirectory`` > ``Path`` does not exist, attempts to mount the file system using the access point will fail.
@@ -222,19 +222,19 @@ class AccessPointRootDirectoryArgs:
         return pulumi.get(self, "creation_info")
 
     @creation_info.setter
-    def creation_info(self, value: Optional[pulumi.Input['AccessPointCreationInfoArgs']]):
+    def creation_info(self, value: pulumi.Input[Optional['AccessPointCreationInfoArgs']]):
         pulumi.set(self, "creation_info", value)
 
     @_builtins.property
     @pulumi.getter
-    def path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide the ``CreationInfo``.
         """
         return pulumi.get(self, "path")
 
     @path.setter
-    def path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "path", value)
 
 
@@ -283,15 +283,15 @@ class FileSystemLifecyclePolicyArgsDict(TypedDict):
        +  Each ``LifecyclePolicy`` object can have only a single transition. This means that in a request body, ``LifecyclePolicies`` must be structured as an array of ``LifecyclePolicy`` objects, one object for each transition, ``TransitionToIA``, ``TransitionToArchive``, ``TransitionToPrimaryStorageClass``.
       +  See the AWS::EFS::FileSystem examples for the correct ``LifecyclePolicy`` structure. Do not use the syntax shown on this page.
     """
-    transition_to_archive: NotRequired[pulumi.Input[_builtins.str]]
+    transition_to_archive: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The number of days after files were last accessed in primary storage (the Standard storage class) at which to move them to Archive storage. Metadata operations such as listing the contents of a directory don't count as file access events.
     """
-    transition_to_ia: NotRequired[pulumi.Input[_builtins.str]]
+    transition_to_ia: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The number of days after files were last accessed in primary storage (the Standard storage class) at which to move them to Infrequent Access (IA) storage. Metadata operations such as listing the contents of a directory don't count as file access events.
     """
-    transition_to_primary_storage_class: NotRequired[pulumi.Input[_builtins.str]]
+    transition_to_primary_storage_class: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Whether to move files back to primary (Standard) storage after they are accessed in IA or Archive storage. Metadata operations such as listing the contents of a directory don't count as file access events.
     """
@@ -299,9 +299,9 @@ class FileSystemLifecyclePolicyArgsDict(TypedDict):
 @pulumi.input_type
 class FileSystemLifecyclePolicyArgs:
     def __init__(__self__, *,
-                 transition_to_archive: Optional[pulumi.Input[_builtins.str]] = None,
-                 transition_to_ia: Optional[pulumi.Input[_builtins.str]] = None,
-                 transition_to_primary_storage_class: Optional[pulumi.Input[_builtins.str]] = None):
+                 transition_to_archive: pulumi.Input[Optional[_builtins.str]] = None,
+                 transition_to_ia: pulumi.Input[Optional[_builtins.str]] = None,
+                 transition_to_primary_storage_class: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Describes a policy used by Lifecycle management that specifies when to transition files into and out of the EFS storage classes. For more information, see [Managing file system storage](https://docs.aws.amazon.com/efs/latest/ug/lifecycle-management-efs.html).
            +  Each ``LifecyclePolicy`` object can have only a single transition. This means that in a request body, ``LifecyclePolicies`` must be structured as an array of ``LifecyclePolicy`` objects, one object for each transition, ``TransitionToIA``, ``TransitionToArchive``, ``TransitionToPrimaryStorageClass``.
@@ -320,38 +320,38 @@ class FileSystemLifecyclePolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="transitionToArchive")
-    def transition_to_archive(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def transition_to_archive(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The number of days after files were last accessed in primary storage (the Standard storage class) at which to move them to Archive storage. Metadata operations such as listing the contents of a directory don't count as file access events.
         """
         return pulumi.get(self, "transition_to_archive")
 
     @transition_to_archive.setter
-    def transition_to_archive(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def transition_to_archive(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "transition_to_archive", value)
 
     @_builtins.property
     @pulumi.getter(name="transitionToIa")
-    def transition_to_ia(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def transition_to_ia(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The number of days after files were last accessed in primary storage (the Standard storage class) at which to move them to Infrequent Access (IA) storage. Metadata operations such as listing the contents of a directory don't count as file access events.
         """
         return pulumi.get(self, "transition_to_ia")
 
     @transition_to_ia.setter
-    def transition_to_ia(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def transition_to_ia(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "transition_to_ia", value)
 
     @_builtins.property
     @pulumi.getter(name="transitionToPrimaryStorageClass")
-    def transition_to_primary_storage_class(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def transition_to_primary_storage_class(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether to move files back to primary (Standard) storage after they are accessed in IA or Archive storage. Metadata operations such as listing the contents of a directory don't count as file access events.
         """
         return pulumi.get(self, "transition_to_primary_storage_class")
 
     @transition_to_primary_storage_class.setter
-    def transition_to_primary_storage_class(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def transition_to_primary_storage_class(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "transition_to_primary_storage_class", value)
 
 
@@ -359,7 +359,7 @@ class FileSystemProtectionArgsDict(TypedDict):
     """
     Describes the protection on the file system.
     """
-    replication_overwrite_protection: NotRequired[pulumi.Input['FileSystemProtectionReplicationOverwriteProtection']]
+    replication_overwrite_protection: NotRequired[pulumi.Input[Optional['FileSystemProtectionReplicationOverwriteProtection']]]
     """
     The status of the file system's replication overwrite protection.
       +  ``ENABLED`` – The file system cannot be used as the destination file system in a replication configuration. The file system is writeable. Replication overwrite protection is ``ENABLED`` by default. 
@@ -372,7 +372,7 @@ class FileSystemProtectionArgsDict(TypedDict):
 @pulumi.input_type
 class FileSystemProtectionArgs:
     def __init__(__self__, *,
-                 replication_overwrite_protection: Optional[pulumi.Input['FileSystemProtectionReplicationOverwriteProtection']] = None):
+                 replication_overwrite_protection: pulumi.Input[Optional['FileSystemProtectionReplicationOverwriteProtection']] = None):
         """
         Describes the protection on the file system.
 
@@ -388,7 +388,7 @@ class FileSystemProtectionArgs:
 
     @_builtins.property
     @pulumi.getter(name="replicationOverwriteProtection")
-    def replication_overwrite_protection(self) -> Optional[pulumi.Input['FileSystemProtectionReplicationOverwriteProtection']]:
+    def replication_overwrite_protection(self) -> pulumi.Input[Optional['FileSystemProtectionReplicationOverwriteProtection']]:
         """
         The status of the file system's replication overwrite protection.
           +  ``ENABLED`` – The file system cannot be used as the destination file system in a replication configuration. The file system is writeable. Replication overwrite protection is ``ENABLED`` by default. 
@@ -400,7 +400,7 @@ class FileSystemProtectionArgs:
         return pulumi.get(self, "replication_overwrite_protection")
 
     @replication_overwrite_protection.setter
-    def replication_overwrite_protection(self, value: Optional[pulumi.Input['FileSystemProtectionReplicationOverwriteProtection']]):
+    def replication_overwrite_protection(self, value: pulumi.Input[Optional['FileSystemProtectionReplicationOverwriteProtection']]):
         pulumi.set(self, "replication_overwrite_protection", value)
 
 
@@ -408,7 +408,7 @@ class FileSystemReplicationConfigurationArgsDict(TypedDict):
     """
     Describes the replication configuration for a specific file system.
     """
-    destinations: NotRequired[pulumi.Input[Sequence[pulumi.Input['FileSystemReplicationDestinationArgsDict']]]]
+    destinations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FileSystemReplicationDestinationArgs']]]]]
     """
     An array of destination objects. Only one destination object is supported.
     """
@@ -416,7 +416,7 @@ class FileSystemReplicationConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class FileSystemReplicationConfigurationArgs:
     def __init__(__self__, *,
-                 destinations: Optional[pulumi.Input[Sequence[pulumi.Input['FileSystemReplicationDestinationArgs']]]] = None):
+                 destinations: pulumi.Input[Optional[Sequence[pulumi.Input['FileSystemReplicationDestinationArgs']]]] = None):
         """
         Describes the replication configuration for a specific file system.
 
@@ -427,14 +427,14 @@ class FileSystemReplicationConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def destinations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FileSystemReplicationDestinationArgs']]]]:
+    def destinations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FileSystemReplicationDestinationArgs']]]]:
         """
         An array of destination objects. Only one destination object is supported.
         """
         return pulumi.get(self, "destinations")
 
     @destinations.setter
-    def destinations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FileSystemReplicationDestinationArgs']]]]):
+    def destinations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FileSystemReplicationDestinationArgs']]]]):
         pulumi.set(self, "destinations", value)
 
 
@@ -442,34 +442,34 @@ class FileSystemReplicationDestinationArgsDict(TypedDict):
     """
     Describes the destination file system in the replication configuration.
     """
-    availability_zone_name: NotRequired[pulumi.Input[_builtins.str]]
+    availability_zone_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     For One Zone file systems, the replication configuration must specify the Availability Zone in which the destination file system is located. 
      Use the format ``us-east-1a`` to specify the Availability Zone. For more information about One Zone file systems, see [EFS file system types](https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html) in the *Amazon EFS User Guide*.
       One Zone file system type is not available in all Availability Zones in AWS-Regions where Amazon EFS is available.
     """
-    file_system_id: NotRequired[pulumi.Input[_builtins.str]]
+    file_system_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the destination Amazon EFS file system.
     """
-    kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    kms_key_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of an kms-key-long used to protect the encrypted file system.
     """
-    region: NotRequired[pulumi.Input[_builtins.str]]
+    region: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The AWS-Region in which the destination file system is located.
       For One Zone file systems, the replication configuration must specify the AWS-Region in which the destination file system is located.
     """
-    role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon Resource Name (ARN) of the current source file system in the replication configuration.
     """
-    status: NotRequired[pulumi.Input[_builtins.str]]
+    status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Describes the status of the replication configuration. For more information about replication status, see [Viewing replication details](https://docs.aws.amazon.com//efs/latest/ug/awsbackup.html#restoring-backup-efsmonitoring-replication-status.html) in the *Amazon EFS User Guide*.
     """
-    status_message: NotRequired[pulumi.Input[_builtins.str]]
+    status_message: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Message that provides details about the ``PAUSED`` or ``ERRROR`` state of the replication destination configuration. For more information about replication status messages, see [Viewing replication details](https://docs.aws.amazon.com//efs/latest/ug/awsbackup.html#restoring-backup-efsmonitoring-replication-status.html) in the *Amazon EFS User Guide*.
     """
@@ -477,13 +477,13 @@ class FileSystemReplicationDestinationArgsDict(TypedDict):
 @pulumi.input_type
 class FileSystemReplicationDestinationArgs:
     def __init__(__self__, *,
-                 availability_zone_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_system_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 status_message: Optional[pulumi.Input[_builtins.str]] = None):
+                 availability_zone_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_system_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 status_message: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Describes the destination file system in the replication configuration.
 
@@ -515,7 +515,7 @@ class FileSystemReplicationDestinationArgs:
 
     @_builtins.property
     @pulumi.getter(name="availabilityZoneName")
-    def availability_zone_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def availability_zone_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         For One Zone file systems, the replication configuration must specify the Availability Zone in which the destination file system is located. 
          Use the format ``us-east-1a`` to specify the Availability Zone. For more information about One Zone file systems, see [EFS file system types](https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html) in the *Amazon EFS User Guide*.
@@ -524,36 +524,36 @@ class FileSystemReplicationDestinationArgs:
         return pulumi.get(self, "availability_zone_name")
 
     @availability_zone_name.setter
-    def availability_zone_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def availability_zone_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "availability_zone_name", value)
 
     @_builtins.property
     @pulumi.getter(name="fileSystemId")
-    def file_system_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def file_system_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the destination Amazon EFS file system.
         """
         return pulumi.get(self, "file_system_id")
 
     @file_system_id.setter
-    def file_system_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def file_system_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "file_system_id", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of an kms-key-long used to protect the encrypted file system.
         """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS-Region in which the destination file system is located.
           For One Zone file systems, the replication configuration must specify the AWS-Region in which the destination file system is located.
@@ -561,43 +561,43 @@ class FileSystemReplicationDestinationArgs:
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the current source file system in the replication configuration.
         """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
-    def role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Describes the status of the replication configuration. For more information about replication status, see [Viewing replication details](https://docs.aws.amazon.com//efs/latest/ug/awsbackup.html#restoring-backup-efsmonitoring-replication-status.html) in the *Amazon EFS User Guide*.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="statusMessage")
-    def status_message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status_message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Message that provides details about the ``PAUSED`` or ``ERRROR`` state of the replication destination configuration. For more information about replication status messages, see [Viewing replication details](https://docs.aws.amazon.com//efs/latest/ug/awsbackup.html#restoring-backup-efsmonitoring-replication-status.html) in the *Amazon EFS User Guide*.
         """
         return pulumi.get(self, "status_message")
 
     @status_message.setter
-    def status_message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status_message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status_message", value)
 
 

@@ -89,7 +89,7 @@ def get_key_pair(key_name: Optional[_builtins.str] = None,
     return AwaitableGetKeyPairResult(
         key_fingerprint=pulumi.get(__ret__, 'key_fingerprint'),
         key_pair_id=pulumi.get(__ret__, 'key_pair_id'))
-def get_key_pair_output(key_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_key_pair_output(key_name: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKeyPairResult]:
     """
     Specifies a key pair for use with an EC2long instance as follows:

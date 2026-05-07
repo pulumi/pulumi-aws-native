@@ -20,7 +20,7 @@ __all__ = ['RobotApplicationVersionArgs', 'RobotApplicationVersion']
 class RobotApplicationVersionArgs:
     def __init__(__self__, *,
                  application: pulumi.Input[_builtins.str],
-                 current_revision_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 current_revision_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a RobotApplicationVersion resource.
 
@@ -45,14 +45,14 @@ class RobotApplicationVersionArgs:
 
     @_builtins.property
     @pulumi.getter(name="currentRevisionId")
-    def current_revision_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def current_revision_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The revision ID of robot application.
         """
         return pulumi.get(self, "current_revision_id")
 
     @current_revision_id.setter
-    def current_revision_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def current_revision_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "current_revision_id", value)
 
 
@@ -62,8 +62,8 @@ class RobotApplicationVersion(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application: Optional[pulumi.Input[_builtins.str]] = None,
-                 current_revision_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 application: pulumi.Input[Optional[_builtins.str]] = None,
+                 current_revision_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         AWS::RoboMaker::RobotApplicationVersion resource creates an AWS RoboMaker RobotApplicationVersion. This helps you control which code your robot uses.
@@ -99,8 +99,8 @@ class RobotApplicationVersion(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application: Optional[pulumi.Input[_builtins.str]] = None,
-                 current_revision_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 application: pulumi.Input[Optional[_builtins.str]] = None,
+                 current_revision_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

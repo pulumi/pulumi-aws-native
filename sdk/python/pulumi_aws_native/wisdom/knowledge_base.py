@@ -25,13 +25,13 @@ __all__ = ['KnowledgeBaseArgs', 'KnowledgeBase']
 class KnowledgeBaseArgs:
     def __init__(__self__, *,
                  knowledge_base_type: pulumi.Input['KnowledgeBaseType'],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rendering_configuration: Optional[pulumi.Input['KnowledgeBaseRenderingConfigurationArgs']] = None,
-                 server_side_encryption_configuration: Optional[pulumi.Input['KnowledgeBaseServerSideEncryptionConfigurationArgs']] = None,
-                 source_configuration: Optional[pulumi.Input[Union['KnowledgeBaseSourceConfiguration0PropertiesArgs', 'KnowledgeBaseSourceConfiguration1PropertiesArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None,
-                 vector_ingestion_configuration: Optional[pulumi.Input['KnowledgeBaseVectorIngestionConfigurationArgs']] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rendering_configuration: pulumi.Input[Optional['KnowledgeBaseRenderingConfigurationArgs']] = None,
+                 server_side_encryption_configuration: pulumi.Input[Optional['KnowledgeBaseServerSideEncryptionConfigurationArgs']] = None,
+                 source_configuration: pulumi.Input[Optional[Union['KnowledgeBaseSourceConfiguration0PropertiesArgs', 'KnowledgeBaseSourceConfiguration1PropertiesArgs']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None,
+                 vector_ingestion_configuration: pulumi.Input[Optional['KnowledgeBaseVectorIngestionConfigurationArgs']] = None):
         """
         The set of arguments for constructing a KnowledgeBase resource.
 
@@ -74,86 +74,86 @@ class KnowledgeBaseArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the knowledge base.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="renderingConfiguration")
-    def rendering_configuration(self) -> Optional[pulumi.Input['KnowledgeBaseRenderingConfigurationArgs']]:
+    def rendering_configuration(self) -> pulumi.Input[Optional['KnowledgeBaseRenderingConfigurationArgs']]:
         """
         Information about how to render the content.
         """
         return pulumi.get(self, "rendering_configuration")
 
     @rendering_configuration.setter
-    def rendering_configuration(self, value: Optional[pulumi.Input['KnowledgeBaseRenderingConfigurationArgs']]):
+    def rendering_configuration(self, value: pulumi.Input[Optional['KnowledgeBaseRenderingConfigurationArgs']]):
         pulumi.set(self, "rendering_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="serverSideEncryptionConfiguration")
-    def server_side_encryption_configuration(self) -> Optional[pulumi.Input['KnowledgeBaseServerSideEncryptionConfigurationArgs']]:
+    def server_side_encryption_configuration(self) -> pulumi.Input[Optional['KnowledgeBaseServerSideEncryptionConfigurationArgs']]:
         """
         This customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. For more information about setting up a customer managed key for Wisdom, see [Enable Amazon Connect Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) . For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) in the *AWS Key Management Service Developer Guide* .
         """
         return pulumi.get(self, "server_side_encryption_configuration")
 
     @server_side_encryption_configuration.setter
-    def server_side_encryption_configuration(self, value: Optional[pulumi.Input['KnowledgeBaseServerSideEncryptionConfigurationArgs']]):
+    def server_side_encryption_configuration(self, value: pulumi.Input[Optional['KnowledgeBaseServerSideEncryptionConfigurationArgs']]):
         pulumi.set(self, "server_side_encryption_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceConfiguration")
-    def source_configuration(self) -> Optional[pulumi.Input[Union['KnowledgeBaseSourceConfiguration0PropertiesArgs', 'KnowledgeBaseSourceConfiguration1PropertiesArgs']]]:
+    def source_configuration(self) -> pulumi.Input[Optional[Union['KnowledgeBaseSourceConfiguration0PropertiesArgs', 'KnowledgeBaseSourceConfiguration1PropertiesArgs']]]:
         """
         The source of the knowledge base content. Only set this argument for EXTERNAL or Managed knowledge bases.
         """
         return pulumi.get(self, "source_configuration")
 
     @source_configuration.setter
-    def source_configuration(self, value: Optional[pulumi.Input[Union['KnowledgeBaseSourceConfiguration0PropertiesArgs', 'KnowledgeBaseSourceConfiguration1PropertiesArgs']]]):
+    def source_configuration(self, value: pulumi.Input[Optional[Union['KnowledgeBaseSourceConfiguration0PropertiesArgs', 'KnowledgeBaseSourceConfiguration1PropertiesArgs']]]):
         pulumi.set(self, "source_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
         """
         The tags used to organize, track, or control access for this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="vectorIngestionConfiguration")
-    def vector_ingestion_configuration(self) -> Optional[pulumi.Input['KnowledgeBaseVectorIngestionConfigurationArgs']]:
+    def vector_ingestion_configuration(self) -> pulumi.Input[Optional['KnowledgeBaseVectorIngestionConfigurationArgs']]:
         """
         Contains details about how to ingest the documents in a data source.
         """
         return pulumi.get(self, "vector_ingestion_configuration")
 
     @vector_ingestion_configuration.setter
-    def vector_ingestion_configuration(self, value: Optional[pulumi.Input['KnowledgeBaseVectorIngestionConfigurationArgs']]):
+    def vector_ingestion_configuration(self, value: pulumi.Input[Optional['KnowledgeBaseVectorIngestionConfigurationArgs']]):
         pulumi.set(self, "vector_ingestion_configuration", value)
 
 
@@ -163,14 +163,14 @@ class KnowledgeBase(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 knowledge_base_type: Optional[pulumi.Input['KnowledgeBaseType']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rendering_configuration: Optional[pulumi.Input[Union['KnowledgeBaseRenderingConfigurationArgs', 'KnowledgeBaseRenderingConfigurationArgsDict']]] = None,
-                 server_side_encryption_configuration: Optional[pulumi.Input[Union['KnowledgeBaseServerSideEncryptionConfigurationArgs', 'KnowledgeBaseServerSideEncryptionConfigurationArgsDict']]] = None,
-                 source_configuration: Optional[pulumi.Input[Union[Union['KnowledgeBaseSourceConfiguration0PropertiesArgs', 'KnowledgeBaseSourceConfiguration0PropertiesArgsDict'], Union['KnowledgeBaseSourceConfiguration1PropertiesArgs', 'KnowledgeBaseSourceConfiguration1PropertiesArgsDict']]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
-                 vector_ingestion_configuration: Optional[pulumi.Input[Union['KnowledgeBaseVectorIngestionConfigurationArgs', 'KnowledgeBaseVectorIngestionConfigurationArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 knowledge_base_type: pulumi.Input[Optional['KnowledgeBaseType']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rendering_configuration: pulumi.Input[Optional[Union['KnowledgeBaseRenderingConfigurationArgs', 'KnowledgeBaseRenderingConfigurationArgsDict']]] = None,
+                 server_side_encryption_configuration: pulumi.Input[Optional[Union['KnowledgeBaseServerSideEncryptionConfigurationArgs', 'KnowledgeBaseServerSideEncryptionConfigurationArgsDict']]] = None,
+                 source_configuration: pulumi.Input[Optional[Union[Union['KnowledgeBaseSourceConfiguration0PropertiesArgs', 'KnowledgeBaseSourceConfiguration0PropertiesArgsDict'], Union['KnowledgeBaseSourceConfiguration1PropertiesArgs', 'KnowledgeBaseSourceConfiguration1PropertiesArgsDict']]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 vector_ingestion_configuration: pulumi.Input[Optional[Union['KnowledgeBaseVectorIngestionConfigurationArgs', 'KnowledgeBaseVectorIngestionConfigurationArgsDict']]] = None,
                  __props__=None):
         """
         Definition of AWS::Wisdom::KnowledgeBase Resource Type
@@ -212,14 +212,14 @@ class KnowledgeBase(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 knowledge_base_type: Optional[pulumi.Input['KnowledgeBaseType']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rendering_configuration: Optional[pulumi.Input[Union['KnowledgeBaseRenderingConfigurationArgs', 'KnowledgeBaseRenderingConfigurationArgsDict']]] = None,
-                 server_side_encryption_configuration: Optional[pulumi.Input[Union['KnowledgeBaseServerSideEncryptionConfigurationArgs', 'KnowledgeBaseServerSideEncryptionConfigurationArgsDict']]] = None,
-                 source_configuration: Optional[pulumi.Input[Union[Union['KnowledgeBaseSourceConfiguration0PropertiesArgs', 'KnowledgeBaseSourceConfiguration0PropertiesArgsDict'], Union['KnowledgeBaseSourceConfiguration1PropertiesArgs', 'KnowledgeBaseSourceConfiguration1PropertiesArgsDict']]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
-                 vector_ingestion_configuration: Optional[pulumi.Input[Union['KnowledgeBaseVectorIngestionConfigurationArgs', 'KnowledgeBaseVectorIngestionConfigurationArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 knowledge_base_type: pulumi.Input[Optional['KnowledgeBaseType']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rendering_configuration: pulumi.Input[Optional[Union['KnowledgeBaseRenderingConfigurationArgs', 'KnowledgeBaseRenderingConfigurationArgsDict']]] = None,
+                 server_side_encryption_configuration: pulumi.Input[Optional[Union['KnowledgeBaseServerSideEncryptionConfigurationArgs', 'KnowledgeBaseServerSideEncryptionConfigurationArgsDict']]] = None,
+                 source_configuration: pulumi.Input[Optional[Union[Union['KnowledgeBaseSourceConfiguration0PropertiesArgs', 'KnowledgeBaseSourceConfiguration0PropertiesArgsDict'], Union['KnowledgeBaseSourceConfiguration1PropertiesArgs', 'KnowledgeBaseSourceConfiguration1PropertiesArgsDict']]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 vector_ingestion_configuration: pulumi.Input[Optional[Union['KnowledgeBaseVectorIngestionConfigurationArgs', 'KnowledgeBaseVectorIngestionConfigurationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

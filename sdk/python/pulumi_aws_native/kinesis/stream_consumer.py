@@ -22,8 +22,8 @@ __all__ = ['StreamConsumerArgs', 'StreamConsumer']
 class StreamConsumerArgs:
     def __init__(__self__, *,
                  stream_arn: pulumi.Input[_builtins.str],
-                 consumer_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
+                 consumer_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a StreamConsumer resource.
 
@@ -51,26 +51,26 @@ class StreamConsumerArgs:
 
     @_builtins.property
     @pulumi.getter(name="consumerName")
-    def consumer_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def consumer_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Kinesis Stream Consumer. For a given Kinesis data stream, each consumer must have a unique name. However, consumer names don't have to be unique across data streams.
         """
         return pulumi.get(self, "consumer_name")
 
     @consumer_name.setter
-    def consumer_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def consumer_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "consumer_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
         """
         An arbitrary set of tags (key–value pairs) to associate with the Kinesis consumer.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -80,9 +80,9 @@ class StreamConsumer(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 consumer_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 stream_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 consumer_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 stream_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Kinesis::StreamConsumer
@@ -119,9 +119,9 @@ class StreamConsumer(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 consumer_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 stream_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 consumer_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 stream_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

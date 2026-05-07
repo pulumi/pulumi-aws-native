@@ -75,7 +75,7 @@ def get_dataset(dataset_arn: Optional[_builtins.str] = None,
     return AwaitableGetDatasetResult(
         dataset_arn=pulumi.get(__ret__, 'dataset_arn'),
         dataset_import_job=pulumi.get(__ret__, 'dataset_import_job'))
-def get_dataset_output(dataset_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_dataset_output(dataset_arn: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatasetResult]:
     """
     Resource schema for AWS::Personalize::Dataset.

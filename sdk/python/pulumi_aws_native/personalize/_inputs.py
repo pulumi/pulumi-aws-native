@@ -44,7 +44,7 @@ class DatasetImportJobDataSourcePropertiesArgsDict(TypedDict):
     """
     The Amazon S3 bucket that contains the training data to import.
     """
-    data_location: NotRequired[pulumi.Input[_builtins.str]]
+    data_location: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The path to the Amazon S3 bucket where the data that you want to upload to your dataset is stored.
     """
@@ -52,7 +52,7 @@ class DatasetImportJobDataSourcePropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class DatasetImportJobDataSourcePropertiesArgs:
     def __init__(__self__, *,
-                 data_location: Optional[pulumi.Input[_builtins.str]] = None):
+                 data_location: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The Amazon S3 bucket that contains the training data to import.
 
@@ -63,14 +63,14 @@ class DatasetImportJobDataSourcePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataLocation")
-    def data_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The path to the Amazon S3 bucket where the data that you want to upload to your dataset is stored.
         """
         return pulumi.get(self, "data_location")
 
     @data_location.setter
-    def data_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_location", value)
 
 
@@ -78,23 +78,23 @@ class DatasetImportJobArgsDict(TypedDict):
     """
     Initial DatasetImportJob for the created dataset
     """
-    data_source: NotRequired[pulumi.Input['DatasetImportJobDataSourcePropertiesArgsDict']]
+    data_source: NotRequired[pulumi.Input[Optional['DatasetImportJobDataSourcePropertiesArgs']]]
     """
     The Amazon S3 bucket that contains the training data to import.
     """
-    dataset_arn: NotRequired[pulumi.Input[_builtins.str]]
+    dataset_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of the dataset that receives the imported data
     """
-    dataset_import_job_arn: NotRequired[pulumi.Input[_builtins.str]]
+    dataset_import_job_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of the dataset import job
     """
-    job_name: NotRequired[pulumi.Input[_builtins.str]]
+    job_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name for the dataset import job.
     """
-    role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of the IAM role that has permissions to read from the Amazon S3 data source.
     """
@@ -102,11 +102,11 @@ class DatasetImportJobArgsDict(TypedDict):
 @pulumi.input_type
 class DatasetImportJobArgs:
     def __init__(__self__, *,
-                 data_source: Optional[pulumi.Input['DatasetImportJobDataSourcePropertiesArgs']] = None,
-                 dataset_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 dataset_import_job_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 job_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 data_source: pulumi.Input[Optional['DatasetImportJobDataSourcePropertiesArgs']] = None,
+                 dataset_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 dataset_import_job_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 job_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Initial DatasetImportJob for the created dataset
 
@@ -129,62 +129,62 @@ class DatasetImportJobArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataSource")
-    def data_source(self) -> Optional[pulumi.Input['DatasetImportJobDataSourcePropertiesArgs']]:
+    def data_source(self) -> pulumi.Input[Optional['DatasetImportJobDataSourcePropertiesArgs']]:
         """
         The Amazon S3 bucket that contains the training data to import.
         """
         return pulumi.get(self, "data_source")
 
     @data_source.setter
-    def data_source(self, value: Optional[pulumi.Input['DatasetImportJobDataSourcePropertiesArgs']]):
+    def data_source(self, value: pulumi.Input[Optional['DatasetImportJobDataSourcePropertiesArgs']]):
         pulumi.set(self, "data_source", value)
 
     @_builtins.property
     @pulumi.getter(name="datasetArn")
-    def dataset_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dataset_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the dataset that receives the imported data
         """
         return pulumi.get(self, "dataset_arn")
 
     @dataset_arn.setter
-    def dataset_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dataset_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dataset_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="datasetImportJobArn")
-    def dataset_import_job_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dataset_import_job_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the dataset import job
         """
         return pulumi.get(self, "dataset_import_job_arn")
 
     @dataset_import_job_arn.setter
-    def dataset_import_job_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dataset_import_job_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dataset_import_job_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="jobName")
-    def job_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def job_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name for the dataset import job.
         """
         return pulumi.get(self, "job_name")
 
     @job_name.setter
-    def job_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def job_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "job_name", value)
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the IAM role that has permissions to read from the Amazon S3 data source.
         """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
-    def role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_arn", value)
 
 
@@ -192,11 +192,11 @@ class SolutionCategoricalHyperParameterRangeArgsDict(TypedDict):
     """
     Provides the name and values of a Categorical hyperparameter.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the hyperparameter.
     """
-    values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of the categories for the hyperparameter.
     """
@@ -204,8 +204,8 @@ class SolutionCategoricalHyperParameterRangeArgsDict(TypedDict):
 @pulumi.input_type
 class SolutionCategoricalHyperParameterRangeArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Provides the name and values of a Categorical hyperparameter.
 
@@ -219,26 +219,26 @@ class SolutionCategoricalHyperParameterRangeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the hyperparameter.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of the categories for the hyperparameter.
         """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "values", value)
 
 
@@ -246,11 +246,11 @@ class SolutionConfigAutoMlConfigPropertiesArgsDict(TypedDict):
     """
     The AutoMLConfig object containing a list of recipes to search when AutoML is performed.
     """
-    metric_name: NotRequired[pulumi.Input[_builtins.str]]
+    metric_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The metric to optimize.
     """
-    recipe_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    recipe_list: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of candidate recipes.
     """
@@ -258,8 +258,8 @@ class SolutionConfigAutoMlConfigPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class SolutionConfigAutoMlConfigPropertiesArgs:
     def __init__(__self__, *,
-                 metric_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 recipe_list: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 metric_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 recipe_list: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The AutoMLConfig object containing a list of recipes to search when AutoML is performed.
 
@@ -273,26 +273,26 @@ class SolutionConfigAutoMlConfigPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="metricName")
-    def metric_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metric_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The metric to optimize.
         """
         return pulumi.get(self, "metric_name")
 
     @metric_name.setter
-    def metric_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metric_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "metric_name", value)
 
     @_builtins.property
     @pulumi.getter(name="recipeList")
-    def recipe_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def recipe_list(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of candidate recipes.
         """
         return pulumi.get(self, "recipe_list")
 
     @recipe_list.setter
-    def recipe_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def recipe_list(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "recipe_list", value)
 
 
@@ -300,15 +300,15 @@ class SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesPropertiesAr
     """
     The hyperparameters and their allowable ranges
     """
-    categorical_hyper_parameter_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input['SolutionCategoricalHyperParameterRangeArgsDict']]]]
+    categorical_hyper_parameter_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SolutionCategoricalHyperParameterRangeArgs']]]]]
     """
     The categorical hyperparameters and their ranges.
     """
-    continuous_hyper_parameter_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input['SolutionContinuousHyperParameterRangeArgsDict']]]]
+    continuous_hyper_parameter_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SolutionContinuousHyperParameterRangeArgs']]]]]
     """
     The continuous hyperparameters and their ranges.
     """
-    integer_hyper_parameter_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input['SolutionIntegerHyperParameterRangeArgsDict']]]]
+    integer_hyper_parameter_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SolutionIntegerHyperParameterRangeArgs']]]]]
     """
     The integer hyperparameters and their ranges.
     """
@@ -316,9 +316,9 @@ class SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesPropertiesAr
 @pulumi.input_type
 class SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesPropertiesArgs:
     def __init__(__self__, *,
-                 categorical_hyper_parameter_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['SolutionCategoricalHyperParameterRangeArgs']]]] = None,
-                 continuous_hyper_parameter_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['SolutionContinuousHyperParameterRangeArgs']]]] = None,
-                 integer_hyper_parameter_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['SolutionIntegerHyperParameterRangeArgs']]]] = None):
+                 categorical_hyper_parameter_ranges: pulumi.Input[Optional[Sequence[pulumi.Input['SolutionCategoricalHyperParameterRangeArgs']]]] = None,
+                 continuous_hyper_parameter_ranges: pulumi.Input[Optional[Sequence[pulumi.Input['SolutionContinuousHyperParameterRangeArgs']]]] = None,
+                 integer_hyper_parameter_ranges: pulumi.Input[Optional[Sequence[pulumi.Input['SolutionIntegerHyperParameterRangeArgs']]]] = None):
         """
         The hyperparameters and their allowable ranges
 
@@ -335,38 +335,38 @@ class SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesPropertiesAr
 
     @_builtins.property
     @pulumi.getter(name="categoricalHyperParameterRanges")
-    def categorical_hyper_parameter_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SolutionCategoricalHyperParameterRangeArgs']]]]:
+    def categorical_hyper_parameter_ranges(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SolutionCategoricalHyperParameterRangeArgs']]]]:
         """
         The categorical hyperparameters and their ranges.
         """
         return pulumi.get(self, "categorical_hyper_parameter_ranges")
 
     @categorical_hyper_parameter_ranges.setter
-    def categorical_hyper_parameter_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SolutionCategoricalHyperParameterRangeArgs']]]]):
+    def categorical_hyper_parameter_ranges(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SolutionCategoricalHyperParameterRangeArgs']]]]):
         pulumi.set(self, "categorical_hyper_parameter_ranges", value)
 
     @_builtins.property
     @pulumi.getter(name="continuousHyperParameterRanges")
-    def continuous_hyper_parameter_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SolutionContinuousHyperParameterRangeArgs']]]]:
+    def continuous_hyper_parameter_ranges(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SolutionContinuousHyperParameterRangeArgs']]]]:
         """
         The continuous hyperparameters and their ranges.
         """
         return pulumi.get(self, "continuous_hyper_parameter_ranges")
 
     @continuous_hyper_parameter_ranges.setter
-    def continuous_hyper_parameter_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SolutionContinuousHyperParameterRangeArgs']]]]):
+    def continuous_hyper_parameter_ranges(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SolutionContinuousHyperParameterRangeArgs']]]]):
         pulumi.set(self, "continuous_hyper_parameter_ranges", value)
 
     @_builtins.property
     @pulumi.getter(name="integerHyperParameterRanges")
-    def integer_hyper_parameter_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SolutionIntegerHyperParameterRangeArgs']]]]:
+    def integer_hyper_parameter_ranges(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SolutionIntegerHyperParameterRangeArgs']]]]:
         """
         The integer hyperparameters and their ranges.
         """
         return pulumi.get(self, "integer_hyper_parameter_ranges")
 
     @integer_hyper_parameter_ranges.setter
-    def integer_hyper_parameter_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SolutionIntegerHyperParameterRangeArgs']]]]):
+    def integer_hyper_parameter_ranges(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SolutionIntegerHyperParameterRangeArgs']]]]):
         pulumi.set(self, "integer_hyper_parameter_ranges", value)
 
 
@@ -374,15 +374,15 @@ class SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesArgsDict(TypedDict)
     """
     The metric to optimize during HPO.
     """
-    metric_name: NotRequired[pulumi.Input[_builtins.str]]
+    metric_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the metric
     """
-    metric_regex: NotRequired[pulumi.Input[_builtins.str]]
+    metric_regex: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A regular expression for finding the metric in the training job logs.
     """
-    type: NotRequired[pulumi.Input['SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesType']]
+    type: NotRequired[pulumi.Input[Optional['SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesType']]]
     """
     The type of the metric. Valid values are Maximize and Minimize.
     """
@@ -390,9 +390,9 @@ class SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesArgsDict(TypedDict)
 @pulumi.input_type
 class SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesArgs:
     def __init__(__self__, *,
-                 metric_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 metric_regex: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input['SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesType']] = None):
+                 metric_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 metric_regex: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional['SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesType']] = None):
         """
         The metric to optimize during HPO.
 
@@ -409,38 +409,38 @@ class SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="metricName")
-    def metric_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metric_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the metric
         """
         return pulumi.get(self, "metric_name")
 
     @metric_name.setter
-    def metric_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metric_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "metric_name", value)
 
     @_builtins.property
     @pulumi.getter(name="metricRegex")
-    def metric_regex(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metric_regex(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A regular expression for finding the metric in the training job logs.
         """
         return pulumi.get(self, "metric_regex")
 
     @metric_regex.setter
-    def metric_regex(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metric_regex(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "metric_regex", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesType']]:
+    def type(self) -> pulumi.Input[Optional['SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesType']]:
         """
         The type of the metric. Valid values are Maximize and Minimize.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesType']]):
+    def type(self, value: pulumi.Input[Optional['SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesType']]):
         pulumi.set(self, "type", value)
 
 
@@ -448,11 +448,11 @@ class SolutionConfigHpoConfigPropertiesHpoResourceConfigPropertiesArgsDict(Typed
     """
     Describes the resource configuration for hyperparameter optimization (HPO).
     """
-    max_number_of_training_jobs: NotRequired[pulumi.Input[_builtins.str]]
+    max_number_of_training_jobs: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The maximum number of training jobs when you create a solution version. The maximum value for maxNumberOfTrainingJobs is 40.
     """
-    max_parallel_training_jobs: NotRequired[pulumi.Input[_builtins.str]]
+    max_parallel_training_jobs: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The maximum number of parallel training jobs when you create a solution version. The maximum value for maxParallelTrainingJobs is 10.
     """
@@ -460,8 +460,8 @@ class SolutionConfigHpoConfigPropertiesHpoResourceConfigPropertiesArgsDict(Typed
 @pulumi.input_type
 class SolutionConfigHpoConfigPropertiesHpoResourceConfigPropertiesArgs:
     def __init__(__self__, *,
-                 max_number_of_training_jobs: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_parallel_training_jobs: Optional[pulumi.Input[_builtins.str]] = None):
+                 max_number_of_training_jobs: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_parallel_training_jobs: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Describes the resource configuration for hyperparameter optimization (HPO).
 
@@ -475,26 +475,26 @@ class SolutionConfigHpoConfigPropertiesHpoResourceConfigPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="maxNumberOfTrainingJobs")
-    def max_number_of_training_jobs(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def max_number_of_training_jobs(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The maximum number of training jobs when you create a solution version. The maximum value for maxNumberOfTrainingJobs is 40.
         """
         return pulumi.get(self, "max_number_of_training_jobs")
 
     @max_number_of_training_jobs.setter
-    def max_number_of_training_jobs(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def max_number_of_training_jobs(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "max_number_of_training_jobs", value)
 
     @_builtins.property
     @pulumi.getter(name="maxParallelTrainingJobs")
-    def max_parallel_training_jobs(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def max_parallel_training_jobs(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The maximum number of parallel training jobs when you create a solution version. The maximum value for maxParallelTrainingJobs is 10.
         """
         return pulumi.get(self, "max_parallel_training_jobs")
 
     @max_parallel_training_jobs.setter
-    def max_parallel_training_jobs(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def max_parallel_training_jobs(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "max_parallel_training_jobs", value)
 
 
@@ -502,15 +502,15 @@ class SolutionConfigHpoConfigPropertiesArgsDict(TypedDict):
     """
     Describes the properties for hyperparameter optimization (HPO)
     """
-    algorithm_hyper_parameter_ranges: NotRequired[pulumi.Input['SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesPropertiesArgsDict']]
+    algorithm_hyper_parameter_ranges: NotRequired[pulumi.Input[Optional['SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesPropertiesArgs']]]
     """
     The hyperparameters and their allowable ranges
     """
-    hpo_objective: NotRequired[pulumi.Input['SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesArgsDict']]
+    hpo_objective: NotRequired[pulumi.Input[Optional['SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesArgs']]]
     """
     The metric to optimize during HPO.
     """
-    hpo_resource_config: NotRequired[pulumi.Input['SolutionConfigHpoConfigPropertiesHpoResourceConfigPropertiesArgsDict']]
+    hpo_resource_config: NotRequired[pulumi.Input[Optional['SolutionConfigHpoConfigPropertiesHpoResourceConfigPropertiesArgs']]]
     """
     Describes the resource configuration for hyperparameter optimization (HPO).
     """
@@ -518,9 +518,9 @@ class SolutionConfigHpoConfigPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class SolutionConfigHpoConfigPropertiesArgs:
     def __init__(__self__, *,
-                 algorithm_hyper_parameter_ranges: Optional[pulumi.Input['SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesPropertiesArgs']] = None,
-                 hpo_objective: Optional[pulumi.Input['SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesArgs']] = None,
-                 hpo_resource_config: Optional[pulumi.Input['SolutionConfigHpoConfigPropertiesHpoResourceConfigPropertiesArgs']] = None):
+                 algorithm_hyper_parameter_ranges: pulumi.Input[Optional['SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesPropertiesArgs']] = None,
+                 hpo_objective: pulumi.Input[Optional['SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesArgs']] = None,
+                 hpo_resource_config: pulumi.Input[Optional['SolutionConfigHpoConfigPropertiesHpoResourceConfigPropertiesArgs']] = None):
         """
         Describes the properties for hyperparameter optimization (HPO)
 
@@ -537,38 +537,38 @@ class SolutionConfigHpoConfigPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="algorithmHyperParameterRanges")
-    def algorithm_hyper_parameter_ranges(self) -> Optional[pulumi.Input['SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesPropertiesArgs']]:
+    def algorithm_hyper_parameter_ranges(self) -> pulumi.Input[Optional['SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesPropertiesArgs']]:
         """
         The hyperparameters and their allowable ranges
         """
         return pulumi.get(self, "algorithm_hyper_parameter_ranges")
 
     @algorithm_hyper_parameter_ranges.setter
-    def algorithm_hyper_parameter_ranges(self, value: Optional[pulumi.Input['SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesPropertiesArgs']]):
+    def algorithm_hyper_parameter_ranges(self, value: pulumi.Input[Optional['SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesPropertiesArgs']]):
         pulumi.set(self, "algorithm_hyper_parameter_ranges", value)
 
     @_builtins.property
     @pulumi.getter(name="hpoObjective")
-    def hpo_objective(self) -> Optional[pulumi.Input['SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesArgs']]:
+    def hpo_objective(self) -> pulumi.Input[Optional['SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesArgs']]:
         """
         The metric to optimize during HPO.
         """
         return pulumi.get(self, "hpo_objective")
 
     @hpo_objective.setter
-    def hpo_objective(self, value: Optional[pulumi.Input['SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesArgs']]):
+    def hpo_objective(self, value: pulumi.Input[Optional['SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesArgs']]):
         pulumi.set(self, "hpo_objective", value)
 
     @_builtins.property
     @pulumi.getter(name="hpoResourceConfig")
-    def hpo_resource_config(self) -> Optional[pulumi.Input['SolutionConfigHpoConfigPropertiesHpoResourceConfigPropertiesArgs']]:
+    def hpo_resource_config(self) -> pulumi.Input[Optional['SolutionConfigHpoConfigPropertiesHpoResourceConfigPropertiesArgs']]:
         """
         Describes the resource configuration for hyperparameter optimization (HPO).
         """
         return pulumi.get(self, "hpo_resource_config")
 
     @hpo_resource_config.setter
-    def hpo_resource_config(self, value: Optional[pulumi.Input['SolutionConfigHpoConfigPropertiesHpoResourceConfigPropertiesArgs']]):
+    def hpo_resource_config(self, value: pulumi.Input[Optional['SolutionConfigHpoConfigPropertiesHpoResourceConfigPropertiesArgs']]):
         pulumi.set(self, "hpo_resource_config", value)
 
 
@@ -576,23 +576,23 @@ class SolutionConfigArgsDict(TypedDict):
     """
     The configuration to use with the solution. When performAutoML is set to true, Amazon Personalize only evaluates the autoMLConfig section of the solution configuration.
     """
-    algorithm_hyper_parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    algorithm_hyper_parameters: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Lists the hyperparameter names and ranges.
     """
-    auto_ml_config: NotRequired[pulumi.Input['SolutionConfigAutoMlConfigPropertiesArgsDict']]
+    auto_ml_config: NotRequired[pulumi.Input[Optional['SolutionConfigAutoMlConfigPropertiesArgs']]]
     """
     The AutoMLConfig object containing a list of recipes to search when AutoML is performed.
     """
-    event_value_threshold: NotRequired[pulumi.Input[_builtins.str]]
+    event_value_threshold: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Only events with a value greater than or equal to this threshold are used for training a model.
     """
-    feature_transformation_parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    feature_transformation_parameters: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Lists the feature transformation parameters.
     """
-    hpo_config: NotRequired[pulumi.Input['SolutionConfigHpoConfigPropertiesArgsDict']]
+    hpo_config: NotRequired[pulumi.Input[Optional['SolutionConfigHpoConfigPropertiesArgs']]]
     """
     Describes the properties for hyperparameter optimization (HPO)
     """
@@ -600,11 +600,11 @@ class SolutionConfigArgsDict(TypedDict):
 @pulumi.input_type
 class SolutionConfigArgs:
     def __init__(__self__, *,
-                 algorithm_hyper_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 auto_ml_config: Optional[pulumi.Input['SolutionConfigAutoMlConfigPropertiesArgs']] = None,
-                 event_value_threshold: Optional[pulumi.Input[_builtins.str]] = None,
-                 feature_transformation_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 hpo_config: Optional[pulumi.Input['SolutionConfigHpoConfigPropertiesArgs']] = None):
+                 algorithm_hyper_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 auto_ml_config: pulumi.Input[Optional['SolutionConfigAutoMlConfigPropertiesArgs']] = None,
+                 event_value_threshold: pulumi.Input[Optional[_builtins.str]] = None,
+                 feature_transformation_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 hpo_config: pulumi.Input[Optional['SolutionConfigHpoConfigPropertiesArgs']] = None):
         """
         The configuration to use with the solution. When performAutoML is set to true, Amazon Personalize only evaluates the autoMLConfig section of the solution configuration.
 
@@ -627,62 +627,62 @@ class SolutionConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="algorithmHyperParameters")
-    def algorithm_hyper_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def algorithm_hyper_parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Lists the hyperparameter names and ranges.
         """
         return pulumi.get(self, "algorithm_hyper_parameters")
 
     @algorithm_hyper_parameters.setter
-    def algorithm_hyper_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def algorithm_hyper_parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "algorithm_hyper_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="autoMlConfig")
-    def auto_ml_config(self) -> Optional[pulumi.Input['SolutionConfigAutoMlConfigPropertiesArgs']]:
+    def auto_ml_config(self) -> pulumi.Input[Optional['SolutionConfigAutoMlConfigPropertiesArgs']]:
         """
         The AutoMLConfig object containing a list of recipes to search when AutoML is performed.
         """
         return pulumi.get(self, "auto_ml_config")
 
     @auto_ml_config.setter
-    def auto_ml_config(self, value: Optional[pulumi.Input['SolutionConfigAutoMlConfigPropertiesArgs']]):
+    def auto_ml_config(self, value: pulumi.Input[Optional['SolutionConfigAutoMlConfigPropertiesArgs']]):
         pulumi.set(self, "auto_ml_config", value)
 
     @_builtins.property
     @pulumi.getter(name="eventValueThreshold")
-    def event_value_threshold(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def event_value_threshold(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Only events with a value greater than or equal to this threshold are used for training a model.
         """
         return pulumi.get(self, "event_value_threshold")
 
     @event_value_threshold.setter
-    def event_value_threshold(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def event_value_threshold(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "event_value_threshold", value)
 
     @_builtins.property
     @pulumi.getter(name="featureTransformationParameters")
-    def feature_transformation_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def feature_transformation_parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Lists the feature transformation parameters.
         """
         return pulumi.get(self, "feature_transformation_parameters")
 
     @feature_transformation_parameters.setter
-    def feature_transformation_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def feature_transformation_parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "feature_transformation_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="hpoConfig")
-    def hpo_config(self) -> Optional[pulumi.Input['SolutionConfigHpoConfigPropertiesArgs']]:
+    def hpo_config(self) -> pulumi.Input[Optional['SolutionConfigHpoConfigPropertiesArgs']]:
         """
         Describes the properties for hyperparameter optimization (HPO)
         """
         return pulumi.get(self, "hpo_config")
 
     @hpo_config.setter
-    def hpo_config(self, value: Optional[pulumi.Input['SolutionConfigHpoConfigPropertiesArgs']]):
+    def hpo_config(self, value: pulumi.Input[Optional['SolutionConfigHpoConfigPropertiesArgs']]):
         pulumi.set(self, "hpo_config", value)
 
 
@@ -690,15 +690,15 @@ class SolutionContinuousHyperParameterRangeArgsDict(TypedDict):
     """
     Provides the name and range of a continuous hyperparameter.
     """
-    max_value: NotRequired[pulumi.Input[_builtins.float]]
+    max_value: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The maximum allowable value for the hyperparameter.
     """
-    min_value: NotRequired[pulumi.Input[_builtins.float]]
+    min_value: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The minimum allowable value for the hyperparameter.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the hyperparameter.
     """
@@ -706,9 +706,9 @@ class SolutionContinuousHyperParameterRangeArgsDict(TypedDict):
 @pulumi.input_type
 class SolutionContinuousHyperParameterRangeArgs:
     def __init__(__self__, *,
-                 max_value: Optional[pulumi.Input[_builtins.float]] = None,
-                 min_value: Optional[pulumi.Input[_builtins.float]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 max_value: pulumi.Input[Optional[_builtins.float]] = None,
+                 min_value: pulumi.Input[Optional[_builtins.float]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Provides the name and range of a continuous hyperparameter.
 
@@ -725,38 +725,38 @@ class SolutionContinuousHyperParameterRangeArgs:
 
     @_builtins.property
     @pulumi.getter(name="maxValue")
-    def max_value(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def max_value(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The maximum allowable value for the hyperparameter.
         """
         return pulumi.get(self, "max_value")
 
     @max_value.setter
-    def max_value(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def max_value(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "max_value", value)
 
     @_builtins.property
     @pulumi.getter(name="minValue")
-    def min_value(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def min_value(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The minimum allowable value for the hyperparameter.
         """
         return pulumi.get(self, "min_value")
 
     @min_value.setter
-    def min_value(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def min_value(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "min_value", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the hyperparameter.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -764,15 +764,15 @@ class SolutionIntegerHyperParameterRangeArgsDict(TypedDict):
     """
     Provides the name and range of an integer-valued hyperparameter.
     """
-    max_value: NotRequired[pulumi.Input[_builtins.int]]
+    max_value: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum allowable value for the hyperparameter.
     """
-    min_value: NotRequired[pulumi.Input[_builtins.int]]
+    min_value: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The minimum allowable value for the hyperparameter.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the hyperparameter.
     """
@@ -780,9 +780,9 @@ class SolutionIntegerHyperParameterRangeArgsDict(TypedDict):
 @pulumi.input_type
 class SolutionIntegerHyperParameterRangeArgs:
     def __init__(__self__, *,
-                 max_value: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_value: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 max_value: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_value: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Provides the name and range of an integer-valued hyperparameter.
 
@@ -799,38 +799,38 @@ class SolutionIntegerHyperParameterRangeArgs:
 
     @_builtins.property
     @pulumi.getter(name="maxValue")
-    def max_value(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_value(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum allowable value for the hyperparameter.
         """
         return pulumi.get(self, "max_value")
 
     @max_value.setter
-    def max_value(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_value(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_value", value)
 
     @_builtins.property
     @pulumi.getter(name="minValue")
-    def min_value(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_value(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The minimum allowable value for the hyperparameter.
         """
         return pulumi.get(self, "min_value")
 
     @min_value.setter
-    def min_value(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_value(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_value", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the hyperparameter.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 

@@ -65,15 +65,15 @@ class LoggingConfigurationDestinationConfigurationArgsDict(TypedDict):
     """
     Destination configuration for IVS Chat logging.
     """
-    cloud_watch_logs: NotRequired[pulumi.Input['LoggingConfigurationCloudWatchLogsDestinationConfigurationArgsDict']]
+    cloud_watch_logs: NotRequired[pulumi.Input[Optional['LoggingConfigurationCloudWatchLogsDestinationConfigurationArgs']]]
     """
     An Amazon CloudWatch Logs destination configuration where chat activity will be logged.
     """
-    firehose: NotRequired[pulumi.Input['LoggingConfigurationFirehoseDestinationConfigurationArgsDict']]
+    firehose: NotRequired[pulumi.Input[Optional['LoggingConfigurationFirehoseDestinationConfigurationArgs']]]
     """
     An Amazon Kinesis Data Firehose destination configuration where chat activity will be logged.
     """
-    s3: NotRequired[pulumi.Input['LoggingConfigurationS3DestinationConfigurationArgsDict']]
+    s3: NotRequired[pulumi.Input[Optional['LoggingConfigurationS3DestinationConfigurationArgs']]]
     """
     An Amazon S3 destination configuration where chat activity will be logged.
     """
@@ -81,9 +81,9 @@ class LoggingConfigurationDestinationConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class LoggingConfigurationDestinationConfigurationArgs:
     def __init__(__self__, *,
-                 cloud_watch_logs: Optional[pulumi.Input['LoggingConfigurationCloudWatchLogsDestinationConfigurationArgs']] = None,
-                 firehose: Optional[pulumi.Input['LoggingConfigurationFirehoseDestinationConfigurationArgs']] = None,
-                 s3: Optional[pulumi.Input['LoggingConfigurationS3DestinationConfigurationArgs']] = None):
+                 cloud_watch_logs: pulumi.Input[Optional['LoggingConfigurationCloudWatchLogsDestinationConfigurationArgs']] = None,
+                 firehose: pulumi.Input[Optional['LoggingConfigurationFirehoseDestinationConfigurationArgs']] = None,
+                 s3: pulumi.Input[Optional['LoggingConfigurationS3DestinationConfigurationArgs']] = None):
         """
         Destination configuration for IVS Chat logging.
 
@@ -100,38 +100,38 @@ class LoggingConfigurationDestinationConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="cloudWatchLogs")
-    def cloud_watch_logs(self) -> Optional[pulumi.Input['LoggingConfigurationCloudWatchLogsDestinationConfigurationArgs']]:
+    def cloud_watch_logs(self) -> pulumi.Input[Optional['LoggingConfigurationCloudWatchLogsDestinationConfigurationArgs']]:
         """
         An Amazon CloudWatch Logs destination configuration where chat activity will be logged.
         """
         return pulumi.get(self, "cloud_watch_logs")
 
     @cloud_watch_logs.setter
-    def cloud_watch_logs(self, value: Optional[pulumi.Input['LoggingConfigurationCloudWatchLogsDestinationConfigurationArgs']]):
+    def cloud_watch_logs(self, value: pulumi.Input[Optional['LoggingConfigurationCloudWatchLogsDestinationConfigurationArgs']]):
         pulumi.set(self, "cloud_watch_logs", value)
 
     @_builtins.property
     @pulumi.getter
-    def firehose(self) -> Optional[pulumi.Input['LoggingConfigurationFirehoseDestinationConfigurationArgs']]:
+    def firehose(self) -> pulumi.Input[Optional['LoggingConfigurationFirehoseDestinationConfigurationArgs']]:
         """
         An Amazon Kinesis Data Firehose destination configuration where chat activity will be logged.
         """
         return pulumi.get(self, "firehose")
 
     @firehose.setter
-    def firehose(self, value: Optional[pulumi.Input['LoggingConfigurationFirehoseDestinationConfigurationArgs']]):
+    def firehose(self, value: pulumi.Input[Optional['LoggingConfigurationFirehoseDestinationConfigurationArgs']]):
         pulumi.set(self, "firehose", value)
 
     @_builtins.property
     @pulumi.getter
-    def s3(self) -> Optional[pulumi.Input['LoggingConfigurationS3DestinationConfigurationArgs']]:
+    def s3(self) -> pulumi.Input[Optional['LoggingConfigurationS3DestinationConfigurationArgs']]:
         """
         An Amazon S3 destination configuration where chat activity will be logged.
         """
         return pulumi.get(self, "s3")
 
     @s3.setter
-    def s3(self, value: Optional[pulumi.Input['LoggingConfigurationS3DestinationConfigurationArgs']]):
+    def s3(self, value: pulumi.Input[Optional['LoggingConfigurationS3DestinationConfigurationArgs']]):
         pulumi.set(self, "s3", value)
 
 
@@ -205,11 +205,11 @@ class RoomMessageReviewHandlerArgsDict(TypedDict):
     """
     Configuration information for optional review of messages.
     """
-    fallback_result: NotRequired[pulumi.Input['RoomMessageReviewHandlerFallbackResult']]
+    fallback_result: NotRequired[pulumi.Input[Optional['RoomMessageReviewHandlerFallbackResult']]]
     """
     Specifies the fallback behavior if the handler does not return a valid response, encounters an error, or times out.
     """
-    uri: NotRequired[pulumi.Input[_builtins.str]]
+    uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Identifier of the message review handler.
     """
@@ -217,8 +217,8 @@ class RoomMessageReviewHandlerArgsDict(TypedDict):
 @pulumi.input_type
 class RoomMessageReviewHandlerArgs:
     def __init__(__self__, *,
-                 fallback_result: Optional[pulumi.Input['RoomMessageReviewHandlerFallbackResult']] = None,
-                 uri: Optional[pulumi.Input[_builtins.str]] = None):
+                 fallback_result: pulumi.Input[Optional['RoomMessageReviewHandlerFallbackResult']] = None,
+                 uri: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Configuration information for optional review of messages.
 
@@ -232,26 +232,26 @@ class RoomMessageReviewHandlerArgs:
 
     @_builtins.property
     @pulumi.getter(name="fallbackResult")
-    def fallback_result(self) -> Optional[pulumi.Input['RoomMessageReviewHandlerFallbackResult']]:
+    def fallback_result(self) -> pulumi.Input[Optional['RoomMessageReviewHandlerFallbackResult']]:
         """
         Specifies the fallback behavior if the handler does not return a valid response, encounters an error, or times out.
         """
         return pulumi.get(self, "fallback_result")
 
     @fallback_result.setter
-    def fallback_result(self, value: Optional[pulumi.Input['RoomMessageReviewHandlerFallbackResult']]):
+    def fallback_result(self, value: pulumi.Input[Optional['RoomMessageReviewHandlerFallbackResult']]):
         pulumi.set(self, "fallback_result", value)
 
     @_builtins.property
     @pulumi.getter
-    def uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of the message review handler.
         """
         return pulumi.get(self, "uri")
 
     @uri.setter
-    def uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "uri", value)
 
 

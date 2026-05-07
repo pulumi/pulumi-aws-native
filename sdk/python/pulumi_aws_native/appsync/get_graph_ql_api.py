@@ -375,7 +375,7 @@ def get_graph_ql_api(api_id: Optional[_builtins.str] = None,
         user_pool_config=pulumi.get(__ret__, 'user_pool_config'),
         visibility=pulumi.get(__ret__, 'visibility'),
         xray_enabled=pulumi.get(__ret__, 'xray_enabled'))
-def get_graph_ql_api_output(api_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_graph_ql_api_output(api_id: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGraphQlApiResult]:
     """
     Resource Type definition for AWS::AppSync::GraphQLApi
