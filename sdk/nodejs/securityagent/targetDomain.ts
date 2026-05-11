@@ -63,6 +63,10 @@ export class TargetDomain extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly verificationStatus: pulumi.Output<enums.securityagent.TargetDomainVerificationStatus>;
     /**
+     * Reason for the current target domain verification status
+     */
+    declare public /*out*/ readonly verificationStatusReason: pulumi.Output<string>;
+    /**
      * Timestamp when the target domain was last successfully verified
      */
     declare public /*out*/ readonly verifiedAt: pulumi.Output<string>;
@@ -88,6 +92,7 @@ export class TargetDomain extends pulumi.CustomResource {
             resourceInputs["targetDomainId"] = undefined /*out*/;
             resourceInputs["verificationDetails"] = undefined /*out*/;
             resourceInputs["verificationStatus"] = undefined /*out*/;
+            resourceInputs["verificationStatusReason"] = undefined /*out*/;
             resourceInputs["verifiedAt"] = undefined /*out*/;
         } else {
             resourceInputs["createdAt"] = undefined /*out*/;
@@ -97,6 +102,7 @@ export class TargetDomain extends pulumi.CustomResource {
             resourceInputs["verificationDetails"] = undefined /*out*/;
             resourceInputs["verificationMethod"] = undefined /*out*/;
             resourceInputs["verificationStatus"] = undefined /*out*/;
+            resourceInputs["verificationStatusReason"] = undefined /*out*/;
             resourceInputs["verifiedAt"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

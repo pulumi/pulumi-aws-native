@@ -88,6 +88,10 @@ namespace Pulumi.AwsNative.DataZone
         /// </summary>
         public readonly string? Id;
         /// <summary>
+        /// The ID of the role principal for the group profile.
+        /// </summary>
+        public readonly string? RolePrincipalId;
+        /// <summary>
         /// The status of a group profile.
         /// </summary>
         public readonly Pulumi.AwsNative.DataZone.GroupProfileStatus? Status;
@@ -100,11 +104,14 @@ namespace Pulumi.AwsNative.DataZone
 
             string? id,
 
+            string? rolePrincipalId,
+
             Pulumi.AwsNative.DataZone.GroupProfileStatus? status)
         {
             DomainId = domainId;
             GroupName = groupName;
             Id = id;
+            RolePrincipalId = rolePrincipalId;
             Status = status;
         }
     }

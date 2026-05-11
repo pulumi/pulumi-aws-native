@@ -358,6 +358,9 @@
         },
         "MaxBatchSizeBytes" : {
           "type" : "integer"
+        },
+        "BatchAcrossTopics" : {
+          "type" : "boolean"
         }
       }
     },

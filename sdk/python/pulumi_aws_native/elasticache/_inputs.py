@@ -18,6 +18,14 @@ from ._enums import *
 __all__ = [
     'AuthenticationModePropertiesArgs',
     'AuthenticationModePropertiesArgsDict',
+    'CacheClusterCloudWatchLogsDestinationDetailsArgs',
+    'CacheClusterCloudWatchLogsDestinationDetailsArgsDict',
+    'CacheClusterDestinationDetailsArgs',
+    'CacheClusterDestinationDetailsArgsDict',
+    'CacheClusterKinesisFirehoseDestinationDetailsArgs',
+    'CacheClusterKinesisFirehoseDestinationDetailsArgsDict',
+    'CacheClusterLogDeliveryConfigurationRequestArgs',
+    'CacheClusterLogDeliveryConfigurationRequestArgsDict',
     'GlobalReplicationGroupMemberArgs',
     'GlobalReplicationGroupMemberArgsDict',
     'GlobalReplicationGroupRegionalConfigurationArgs',
@@ -105,6 +113,196 @@ class AuthenticationModePropertiesArgs:
     @passwords.setter
     def passwords(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "passwords", value)
+
+
+class CacheClusterCloudWatchLogsDestinationDetailsArgsDict(TypedDict):
+    log_group: pulumi.Input[_builtins.str]
+    """
+    The name of the CloudWatch Logs log group.
+    """
+
+@pulumi.input_type
+class CacheClusterCloudWatchLogsDestinationDetailsArgs:
+    def __init__(__self__, *,
+                 log_group: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] log_group: The name of the CloudWatch Logs log group.
+        """
+        pulumi.set(__self__, "log_group", log_group)
+
+    @_builtins.property
+    @pulumi.getter(name="logGroup")
+    def log_group(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the CloudWatch Logs log group.
+        """
+        return pulumi.get(self, "log_group")
+
+    @log_group.setter
+    def log_group(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "log_group", value)
+
+
+class CacheClusterDestinationDetailsArgsDict(TypedDict):
+    cloud_watch_logs_details: NotRequired[pulumi.Input['CacheClusterCloudWatchLogsDestinationDetailsArgsDict']]
+    """
+    The configuration details of the CloudWatch Logs destination
+    """
+    kinesis_firehose_details: NotRequired[pulumi.Input['CacheClusterKinesisFirehoseDestinationDetailsArgsDict']]
+    """
+    The configuration details of the Kinesis Data Firehose destination.
+    """
+
+@pulumi.input_type
+class CacheClusterDestinationDetailsArgs:
+    def __init__(__self__, *,
+                 cloud_watch_logs_details: Optional[pulumi.Input['CacheClusterCloudWatchLogsDestinationDetailsArgs']] = None,
+                 kinesis_firehose_details: Optional[pulumi.Input['CacheClusterKinesisFirehoseDestinationDetailsArgs']] = None):
+        """
+        :param pulumi.Input['CacheClusterCloudWatchLogsDestinationDetailsArgs'] cloud_watch_logs_details: The configuration details of the CloudWatch Logs destination
+        :param pulumi.Input['CacheClusterKinesisFirehoseDestinationDetailsArgs'] kinesis_firehose_details: The configuration details of the Kinesis Data Firehose destination.
+        """
+        if cloud_watch_logs_details is not None:
+            pulumi.set(__self__, "cloud_watch_logs_details", cloud_watch_logs_details)
+        if kinesis_firehose_details is not None:
+            pulumi.set(__self__, "kinesis_firehose_details", kinesis_firehose_details)
+
+    @_builtins.property
+    @pulumi.getter(name="cloudWatchLogsDetails")
+    def cloud_watch_logs_details(self) -> Optional[pulumi.Input['CacheClusterCloudWatchLogsDestinationDetailsArgs']]:
+        """
+        The configuration details of the CloudWatch Logs destination
+        """
+        return pulumi.get(self, "cloud_watch_logs_details")
+
+    @cloud_watch_logs_details.setter
+    def cloud_watch_logs_details(self, value: Optional[pulumi.Input['CacheClusterCloudWatchLogsDestinationDetailsArgs']]):
+        pulumi.set(self, "cloud_watch_logs_details", value)
+
+    @_builtins.property
+    @pulumi.getter(name="kinesisFirehoseDetails")
+    def kinesis_firehose_details(self) -> Optional[pulumi.Input['CacheClusterKinesisFirehoseDestinationDetailsArgs']]:
+        """
+        The configuration details of the Kinesis Data Firehose destination.
+        """
+        return pulumi.get(self, "kinesis_firehose_details")
+
+    @kinesis_firehose_details.setter
+    def kinesis_firehose_details(self, value: Optional[pulumi.Input['CacheClusterKinesisFirehoseDestinationDetailsArgs']]):
+        pulumi.set(self, "kinesis_firehose_details", value)
+
+
+class CacheClusterKinesisFirehoseDestinationDetailsArgsDict(TypedDict):
+    delivery_stream: pulumi.Input[_builtins.str]
+    """
+    The name of the Kinesis Data Firehose delivery stream
+    """
+
+@pulumi.input_type
+class CacheClusterKinesisFirehoseDestinationDetailsArgs:
+    def __init__(__self__, *,
+                 delivery_stream: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] delivery_stream: The name of the Kinesis Data Firehose delivery stream
+        """
+        pulumi.set(__self__, "delivery_stream", delivery_stream)
+
+    @_builtins.property
+    @pulumi.getter(name="deliveryStream")
+    def delivery_stream(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the Kinesis Data Firehose delivery stream
+        """
+        return pulumi.get(self, "delivery_stream")
+
+    @delivery_stream.setter
+    def delivery_stream(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "delivery_stream", value)
+
+
+class CacheClusterLogDeliveryConfigurationRequestArgsDict(TypedDict):
+    destination_details: pulumi.Input['CacheClusterDestinationDetailsArgsDict']
+    """
+    Configuration details of either a CloudWatch Logs destination or Kinesis Data Firehose destination.
+    """
+    destination_type: pulumi.Input[_builtins.str]
+    """
+    Specify either CloudWatch Logs or Kinesis Data Firehose as the destination type. 
+    """
+    log_format: pulumi.Input[_builtins.str]
+    """
+    Valid values are either json or text
+    """
+    log_type: pulumi.Input[_builtins.str]
+    """
+    Valid value is either slow-log, which refers to slow-log or engine-log
+    """
+
+@pulumi.input_type
+class CacheClusterLogDeliveryConfigurationRequestArgs:
+    def __init__(__self__, *,
+                 destination_details: pulumi.Input['CacheClusterDestinationDetailsArgs'],
+                 destination_type: pulumi.Input[_builtins.str],
+                 log_format: pulumi.Input[_builtins.str],
+                 log_type: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input['CacheClusterDestinationDetailsArgs'] destination_details: Configuration details of either a CloudWatch Logs destination or Kinesis Data Firehose destination.
+        :param pulumi.Input[_builtins.str] destination_type: Specify either CloudWatch Logs or Kinesis Data Firehose as the destination type. 
+        :param pulumi.Input[_builtins.str] log_format: Valid values are either json or text
+        :param pulumi.Input[_builtins.str] log_type: Valid value is either slow-log, which refers to slow-log or engine-log
+        """
+        pulumi.set(__self__, "destination_details", destination_details)
+        pulumi.set(__self__, "destination_type", destination_type)
+        pulumi.set(__self__, "log_format", log_format)
+        pulumi.set(__self__, "log_type", log_type)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationDetails")
+    def destination_details(self) -> pulumi.Input['CacheClusterDestinationDetailsArgs']:
+        """
+        Configuration details of either a CloudWatch Logs destination or Kinesis Data Firehose destination.
+        """
+        return pulumi.get(self, "destination_details")
+
+    @destination_details.setter
+    def destination_details(self, value: pulumi.Input['CacheClusterDestinationDetailsArgs']):
+        pulumi.set(self, "destination_details", value)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationType")
+    def destination_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Specify either CloudWatch Logs or Kinesis Data Firehose as the destination type. 
+        """
+        return pulumi.get(self, "destination_type")
+
+    @destination_type.setter
+    def destination_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "destination_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="logFormat")
+    def log_format(self) -> pulumi.Input[_builtins.str]:
+        """
+        Valid values are either json or text
+        """
+        return pulumi.get(self, "log_format")
+
+    @log_format.setter
+    def log_format(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "log_format", value)
+
+    @_builtins.property
+    @pulumi.getter(name="logType")
+    def log_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Valid value is either slow-log, which refers to slow-log or engine-log
+        """
+        return pulumi.get(self, "log_type")
+
+    @log_type.setter
+    def log_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "log_type", value)
 
 
 class GlobalReplicationGroupMemberArgsDict(TypedDict):

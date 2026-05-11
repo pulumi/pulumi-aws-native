@@ -2553,6 +2553,66 @@ func (o OrganizationTelemetryRuleLoggingFilterPtrOutput) Filters() OrganizationT
 	}).(OrganizationTelemetryRuleFilterArrayOutput)
 }
 
+// Status of a telemetry rule in a specific region
+type OrganizationTelemetryRuleRegionStatus struct {
+	// The AWS region code
+	Region *string `pulumi:"region"`
+	// The ARN of the rule in this region
+	RuleArn *string `pulumi:"ruleArn"`
+	// The replication status of the rule in this region
+	Status *string `pulumi:"status"`
+}
+
+// Status of a telemetry rule in a specific region
+type OrganizationTelemetryRuleRegionStatusOutput struct{ *pulumi.OutputState }
+
+func (OrganizationTelemetryRuleRegionStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationTelemetryRuleRegionStatus)(nil)).Elem()
+}
+
+func (o OrganizationTelemetryRuleRegionStatusOutput) ToOrganizationTelemetryRuleRegionStatusOutput() OrganizationTelemetryRuleRegionStatusOutput {
+	return o
+}
+
+func (o OrganizationTelemetryRuleRegionStatusOutput) ToOrganizationTelemetryRuleRegionStatusOutputWithContext(ctx context.Context) OrganizationTelemetryRuleRegionStatusOutput {
+	return o
+}
+
+// The AWS region code
+func (o OrganizationTelemetryRuleRegionStatusOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrganizationTelemetryRuleRegionStatus) *string { return v.Region }).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the rule in this region
+func (o OrganizationTelemetryRuleRegionStatusOutput) RuleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrganizationTelemetryRuleRegionStatus) *string { return v.RuleArn }).(pulumi.StringPtrOutput)
+}
+
+// The replication status of the rule in this region
+func (o OrganizationTelemetryRuleRegionStatusOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrganizationTelemetryRuleRegionStatus) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type OrganizationTelemetryRuleRegionStatusArrayOutput struct{ *pulumi.OutputState }
+
+func (OrganizationTelemetryRuleRegionStatusArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OrganizationTelemetryRuleRegionStatus)(nil)).Elem()
+}
+
+func (o OrganizationTelemetryRuleRegionStatusArrayOutput) ToOrganizationTelemetryRuleRegionStatusArrayOutput() OrganizationTelemetryRuleRegionStatusArrayOutput {
+	return o
+}
+
+func (o OrganizationTelemetryRuleRegionStatusArrayOutput) ToOrganizationTelemetryRuleRegionStatusArrayOutputWithContext(ctx context.Context) OrganizationTelemetryRuleRegionStatusArrayOutput {
+	return o
+}
+
+func (o OrganizationTelemetryRuleRegionStatusArrayOutput) Index(i pulumi.IntInput) OrganizationTelemetryRuleRegionStatusOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OrganizationTelemetryRuleRegionStatus {
+		return vs[0].([]OrganizationTelemetryRuleRegionStatus)[vs[1].(int)]
+	}).(OrganizationTelemetryRuleRegionStatusOutput)
+}
+
 // Header for the field to match.
 type OrganizationTelemetryRuleSingleHeader struct {
 	// The name of the header
@@ -2969,8 +3029,13 @@ func (o OrganizationTelemetryRuleTelemetryDestinationConfigurationPtrOutput) Waf
 
 // The telemetry rule
 type OrganizationTelemetryRuleTelemetryRule struct {
+	// When true, the rule is replicated to all supported regions
+	AllRegions        *bool `pulumi:"allRegions"`
+	AllowFieldUpdates *bool `pulumi:"allowFieldUpdates"`
 	// Configuration specifying where and how the telemetry data should be delivered.
 	DestinationConfiguration *OrganizationTelemetryRuleTelemetryDestinationConfiguration `pulumi:"destinationConfiguration"`
+	// List of AWS region codes where the rule should be replicated
+	Regions []string `pulumi:"regions"`
 	// The type of AWS resource to configure telemetry for (e.g., "AWS::EC2::VPC", "AWS::EKS::Cluster", "AWS::WAFv2::WebACL").
 	ResourceType OrganizationTelemetryRuleResourceType `pulumi:"resourceType"`
 	// The organizational scope to which the rule applies, specified using accounts or organizational units.
@@ -2996,8 +3061,13 @@ type OrganizationTelemetryRuleTelemetryRuleInput interface {
 
 // The telemetry rule
 type OrganizationTelemetryRuleTelemetryRuleArgs struct {
+	// When true, the rule is replicated to all supported regions
+	AllRegions        pulumi.BoolPtrInput `pulumi:"allRegions"`
+	AllowFieldUpdates pulumi.BoolPtrInput `pulumi:"allowFieldUpdates"`
 	// Configuration specifying where and how the telemetry data should be delivered.
 	DestinationConfiguration OrganizationTelemetryRuleTelemetryDestinationConfigurationPtrInput `pulumi:"destinationConfiguration"`
+	// List of AWS region codes where the rule should be replicated
+	Regions pulumi.StringArrayInput `pulumi:"regions"`
 	// The type of AWS resource to configure telemetry for (e.g., "AWS::EC2::VPC", "AWS::EKS::Cluster", "AWS::WAFv2::WebACL").
 	ResourceType OrganizationTelemetryRuleResourceTypeInput `pulumi:"resourceType"`
 	// The organizational scope to which the rule applies, specified using accounts or organizational units.
@@ -3037,11 +3107,25 @@ func (o OrganizationTelemetryRuleTelemetryRuleOutput) ToOrganizationTelemetryRul
 	return o
 }
 
+// When true, the rule is replicated to all supported regions
+func (o OrganizationTelemetryRuleTelemetryRuleOutput) AllRegions() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OrganizationTelemetryRuleTelemetryRule) *bool { return v.AllRegions }).(pulumi.BoolPtrOutput)
+}
+
+func (o OrganizationTelemetryRuleTelemetryRuleOutput) AllowFieldUpdates() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OrganizationTelemetryRuleTelemetryRule) *bool { return v.AllowFieldUpdates }).(pulumi.BoolPtrOutput)
+}
+
 // Configuration specifying where and how the telemetry data should be delivered.
 func (o OrganizationTelemetryRuleTelemetryRuleOutput) DestinationConfiguration() OrganizationTelemetryRuleTelemetryDestinationConfigurationPtrOutput {
 	return o.ApplyT(func(v OrganizationTelemetryRuleTelemetryRule) *OrganizationTelemetryRuleTelemetryDestinationConfiguration {
 		return v.DestinationConfiguration
 	}).(OrganizationTelemetryRuleTelemetryDestinationConfigurationPtrOutput)
+}
+
+// List of AWS region codes where the rule should be replicated
+func (o OrganizationTelemetryRuleTelemetryRuleOutput) Regions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OrganizationTelemetryRuleTelemetryRule) []string { return v.Regions }).(pulumi.StringArrayOutput)
 }
 
 // The type of AWS resource to configure telemetry for (e.g., "AWS::EC2::VPC", "AWS::EKS::Cluster", "AWS::WAFv2::WebACL").
@@ -3099,6 +3183,25 @@ func (o OrganizationTelemetryRuleTelemetryRulePtrOutput) Elem() OrganizationTele
 	}).(OrganizationTelemetryRuleTelemetryRuleOutput)
 }
 
+// When true, the rule is replicated to all supported regions
+func (o OrganizationTelemetryRuleTelemetryRulePtrOutput) AllRegions() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OrganizationTelemetryRuleTelemetryRule) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllRegions
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o OrganizationTelemetryRuleTelemetryRulePtrOutput) AllowFieldUpdates() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OrganizationTelemetryRuleTelemetryRule) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowFieldUpdates
+	}).(pulumi.BoolPtrOutput)
+}
+
 // Configuration specifying where and how the telemetry data should be delivered.
 func (o OrganizationTelemetryRuleTelemetryRulePtrOutput) DestinationConfiguration() OrganizationTelemetryRuleTelemetryDestinationConfigurationPtrOutput {
 	return o.ApplyT(func(v *OrganizationTelemetryRuleTelemetryRule) *OrganizationTelemetryRuleTelemetryDestinationConfiguration {
@@ -3107,6 +3210,16 @@ func (o OrganizationTelemetryRuleTelemetryRulePtrOutput) DestinationConfiguratio
 		}
 		return v.DestinationConfiguration
 	}).(OrganizationTelemetryRuleTelemetryDestinationConfigurationPtrOutput)
+}
+
+// List of AWS region codes where the rule should be replicated
+func (o OrganizationTelemetryRuleTelemetryRulePtrOutput) Regions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OrganizationTelemetryRuleTelemetryRule) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Regions
+	}).(pulumi.StringArrayOutput)
 }
 
 // The type of AWS resource to configure telemetry for (e.g., "AWS::EC2::VPC", "AWS::EKS::Cluster", "AWS::WAFv2::WebACL").
@@ -4095,8 +4208,13 @@ func (o TelemetryPipelinesTelemetryPipelineStatusReasonPtrOutput) Description() 
 
 // The telemetry rule
 type TelemetryRuleType struct {
+	// When true, the rule is replicated to all supported regions
+	AllRegions        *bool `pulumi:"allRegions"`
+	AllowFieldUpdates *bool `pulumi:"allowFieldUpdates"`
 	// Configuration specifying where and how the telemetry data should be delivered.
 	DestinationConfiguration *TelemetryRuleTelemetryDestinationConfiguration `pulumi:"destinationConfiguration"`
+	// List of AWS region codes where the rule should be replicated
+	Regions []string `pulumi:"regions"`
 	// The type of AWS resource to configure telemetry for (e.g., "AWS::EC2::VPC", "AWS::EKS::Cluster", "AWS::WAFv2::WebACL").
 	ResourceType TelemetryRuleResourceType `pulumi:"resourceType"`
 	// Criteria for selecting which resources the rule applies to, such as resource tags.
@@ -4120,8 +4238,13 @@ type TelemetryRuleTypeInput interface {
 
 // The telemetry rule
 type TelemetryRuleTypeArgs struct {
+	// When true, the rule is replicated to all supported regions
+	AllRegions        pulumi.BoolPtrInput `pulumi:"allRegions"`
+	AllowFieldUpdates pulumi.BoolPtrInput `pulumi:"allowFieldUpdates"`
 	// Configuration specifying where and how the telemetry data should be delivered.
 	DestinationConfiguration TelemetryRuleTelemetryDestinationConfigurationPtrInput `pulumi:"destinationConfiguration"`
+	// List of AWS region codes where the rule should be replicated
+	Regions pulumi.StringArrayInput `pulumi:"regions"`
 	// The type of AWS resource to configure telemetry for (e.g., "AWS::EC2::VPC", "AWS::EKS::Cluster", "AWS::WAFv2::WebACL").
 	ResourceType TelemetryRuleResourceTypeInput `pulumi:"resourceType"`
 	// Criteria for selecting which resources the rule applies to, such as resource tags.
@@ -4159,11 +4282,25 @@ func (o TelemetryRuleTypeOutput) ToTelemetryRuleTypeOutputWithContext(ctx contex
 	return o
 }
 
+// When true, the rule is replicated to all supported regions
+func (o TelemetryRuleTypeOutput) AllRegions() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleType) *bool { return v.AllRegions }).(pulumi.BoolPtrOutput)
+}
+
+func (o TelemetryRuleTypeOutput) AllowFieldUpdates() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleType) *bool { return v.AllowFieldUpdates }).(pulumi.BoolPtrOutput)
+}
+
 // Configuration specifying where and how the telemetry data should be delivered.
 func (o TelemetryRuleTypeOutput) DestinationConfiguration() TelemetryRuleTelemetryDestinationConfigurationPtrOutput {
 	return o.ApplyT(func(v TelemetryRuleType) *TelemetryRuleTelemetryDestinationConfiguration {
 		return v.DestinationConfiguration
 	}).(TelemetryRuleTelemetryDestinationConfigurationPtrOutput)
+}
+
+// List of AWS region codes where the rule should be replicated
+func (o TelemetryRuleTypeOutput) Regions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TelemetryRuleType) []string { return v.Regions }).(pulumi.StringArrayOutput)
 }
 
 // The type of AWS resource to configure telemetry for (e.g., "AWS::EC2::VPC", "AWS::EKS::Cluster", "AWS::WAFv2::WebACL").
@@ -4210,6 +4347,25 @@ func (o TelemetryRuleTypePtrOutput) Elem() TelemetryRuleTypeOutput {
 	}).(TelemetryRuleTypeOutput)
 }
 
+// When true, the rule is replicated to all supported regions
+func (o TelemetryRuleTypePtrOutput) AllRegions() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TelemetryRuleType) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllRegions
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o TelemetryRuleTypePtrOutput) AllowFieldUpdates() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TelemetryRuleType) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowFieldUpdates
+	}).(pulumi.BoolPtrOutput)
+}
+
 // Configuration specifying where and how the telemetry data should be delivered.
 func (o TelemetryRuleTypePtrOutput) DestinationConfiguration() TelemetryRuleTelemetryDestinationConfigurationPtrOutput {
 	return o.ApplyT(func(v *TelemetryRuleType) *TelemetryRuleTelemetryDestinationConfiguration {
@@ -4218,6 +4374,16 @@ func (o TelemetryRuleTypePtrOutput) DestinationConfiguration() TelemetryRuleTele
 		}
 		return v.DestinationConfiguration
 	}).(TelemetryRuleTelemetryDestinationConfigurationPtrOutput)
+}
+
+// List of AWS region codes where the rule should be replicated
+func (o TelemetryRuleTypePtrOutput) Regions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TelemetryRuleType) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Regions
+	}).(pulumi.StringArrayOutput)
 }
 
 // The type of AWS resource to configure telemetry for (e.g., "AWS::EC2::VPC", "AWS::EKS::Cluster", "AWS::WAFv2::WebACL").
@@ -5599,6 +5765,66 @@ func (o TelemetryRuleLoggingFilterPtrOutput) Filters() TelemetryRuleFilterArrayO
 	}).(TelemetryRuleFilterArrayOutput)
 }
 
+// Status of a telemetry rule in a specific region
+type TelemetryRuleRegionStatus struct {
+	// The AWS region code
+	Region *string `pulumi:"region"`
+	// The ARN of the rule in this region
+	RuleArn *string `pulumi:"ruleArn"`
+	// The replication status of the rule in this region
+	Status *string `pulumi:"status"`
+}
+
+// Status of a telemetry rule in a specific region
+type TelemetryRuleRegionStatusOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleRegionStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryRuleRegionStatus)(nil)).Elem()
+}
+
+func (o TelemetryRuleRegionStatusOutput) ToTelemetryRuleRegionStatusOutput() TelemetryRuleRegionStatusOutput {
+	return o
+}
+
+func (o TelemetryRuleRegionStatusOutput) ToTelemetryRuleRegionStatusOutputWithContext(ctx context.Context) TelemetryRuleRegionStatusOutput {
+	return o
+}
+
+// The AWS region code
+func (o TelemetryRuleRegionStatusOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleRegionStatus) *string { return v.Region }).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the rule in this region
+func (o TelemetryRuleRegionStatusOutput) RuleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleRegionStatus) *string { return v.RuleArn }).(pulumi.StringPtrOutput)
+}
+
+// The replication status of the rule in this region
+func (o TelemetryRuleRegionStatusOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleRegionStatus) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type TelemetryRuleRegionStatusArrayOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleRegionStatusArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TelemetryRuleRegionStatus)(nil)).Elem()
+}
+
+func (o TelemetryRuleRegionStatusArrayOutput) ToTelemetryRuleRegionStatusArrayOutput() TelemetryRuleRegionStatusArrayOutput {
+	return o
+}
+
+func (o TelemetryRuleRegionStatusArrayOutput) ToTelemetryRuleRegionStatusArrayOutputWithContext(ctx context.Context) TelemetryRuleRegionStatusArrayOutput {
+	return o
+}
+
+func (o TelemetryRuleRegionStatusArrayOutput) Index(i pulumi.IntInput) TelemetryRuleRegionStatusOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TelemetryRuleRegionStatus {
+		return vs[0].([]TelemetryRuleRegionStatus)[vs[1].(int)]
+	}).(TelemetryRuleRegionStatusOutput)
+}
+
 // Header for the field to match.
 type TelemetryRuleSingleHeader struct {
 	// The name of the header
@@ -6644,6 +6870,8 @@ func init() {
 	pulumi.RegisterOutputType(OrganizationTelemetryRuleLabelNameConditionPtrOutput{})
 	pulumi.RegisterOutputType(OrganizationTelemetryRuleLoggingFilterOutput{})
 	pulumi.RegisterOutputType(OrganizationTelemetryRuleLoggingFilterPtrOutput{})
+	pulumi.RegisterOutputType(OrganizationTelemetryRuleRegionStatusOutput{})
+	pulumi.RegisterOutputType(OrganizationTelemetryRuleRegionStatusArrayOutput{})
 	pulumi.RegisterOutputType(OrganizationTelemetryRuleSingleHeaderOutput{})
 	pulumi.RegisterOutputType(OrganizationTelemetryRuleSingleHeaderPtrOutput{})
 	pulumi.RegisterOutputType(OrganizationTelemetryRuleTelemetryDestinationConfigurationOutput{})
@@ -6687,6 +6915,8 @@ func init() {
 	pulumi.RegisterOutputType(TelemetryRuleLabelNameConditionPtrOutput{})
 	pulumi.RegisterOutputType(TelemetryRuleLoggingFilterOutput{})
 	pulumi.RegisterOutputType(TelemetryRuleLoggingFilterPtrOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleRegionStatusOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleRegionStatusArrayOutput{})
 	pulumi.RegisterOutputType(TelemetryRuleSingleHeaderOutput{})
 	pulumi.RegisterOutputType(TelemetryRuleSingleHeaderPtrOutput{})
 	pulumi.RegisterOutputType(TelemetryRuleTelemetryDestinationConfigurationOutput{})

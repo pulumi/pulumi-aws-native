@@ -3922,7 +3922,9 @@ class TopicRuleBatchConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "maxBatchOpenMs":
+        if key == "batchAcrossTopics":
+            suggest = "batch_across_topics"
+        elif key == "maxBatchOpenMs":
             suggest = "max_batch_open_ms"
         elif key == "maxBatchSize":
             suggest = "max_batch_size"
@@ -3941,15 +3943,23 @@ class TopicRuleBatchConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 batch_across_topics: Optional[_builtins.bool] = None,
                  max_batch_open_ms: Optional[_builtins.int] = None,
                  max_batch_size: Optional[_builtins.int] = None,
                  max_batch_size_bytes: Optional[_builtins.int] = None):
+        if batch_across_topics is not None:
+            pulumi.set(__self__, "batch_across_topics", batch_across_topics)
         if max_batch_open_ms is not None:
             pulumi.set(__self__, "max_batch_open_ms", max_batch_open_ms)
         if max_batch_size is not None:
             pulumi.set(__self__, "max_batch_size", max_batch_size)
         if max_batch_size_bytes is not None:
             pulumi.set(__self__, "max_batch_size_bytes", max_batch_size_bytes)
+
+    @_builtins.property
+    @pulumi.getter(name="batchAcrossTopics")
+    def batch_across_topics(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "batch_across_topics")
 
     @_builtins.property
     @pulumi.getter(name="maxBatchOpenMs")

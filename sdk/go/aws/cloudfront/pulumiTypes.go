@@ -2764,7 +2764,9 @@ func (o DistributionCacheBehaviorArrayOutput) Index(i pulumi.IntInput) Distribut
 	}).(DistributionCacheBehaviorOutput)
 }
 
+// A complex type that specifies the HTTP header name from which CloudFront extracts cache tags from origin responses. When you add “CacheTagConfig“ to a distribution, CloudFront reads the specified header from origin responses, parses the comma-separated tag values, and stores them with the cached object. You can then invalidate cached objects by tag using the “CreateInvalidation“ API.
 type DistributionCacheTagConfig struct {
+	// The name of the HTTP header that your origin includes in responses. CloudFront uses this header to extract cache tags. The header value must contain comma-separated tag values (for example, ``product:electronics, category:tv, brand:example``).
 	HeaderName string `pulumi:"headerName"`
 }
 
@@ -2779,7 +2781,9 @@ type DistributionCacheTagConfigInput interface {
 	ToDistributionCacheTagConfigOutputWithContext(context.Context) DistributionCacheTagConfigOutput
 }
 
+// A complex type that specifies the HTTP header name from which CloudFront extracts cache tags from origin responses. When you add “CacheTagConfig“ to a distribution, CloudFront reads the specified header from origin responses, parses the comma-separated tag values, and stores them with the cached object. You can then invalidate cached objects by tag using the “CreateInvalidation“ API.
 type DistributionCacheTagConfigArgs struct {
+	// The name of the HTTP header that your origin includes in responses. CloudFront uses this header to extract cache tags. The header value must contain comma-separated tag values (for example, ``product:electronics, category:tv, brand:example``).
 	HeaderName pulumi.StringInput `pulumi:"headerName"`
 }
 
@@ -2836,6 +2840,7 @@ func (i *distributionCacheTagConfigPtrType) ToDistributionCacheTagConfigPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionCacheTagConfigPtrOutput)
 }
 
+// A complex type that specifies the HTTP header name from which CloudFront extracts cache tags from origin responses. When you add “CacheTagConfig“ to a distribution, CloudFront reads the specified header from origin responses, parses the comma-separated tag values, and stores them with the cached object. You can then invalidate cached objects by tag using the “CreateInvalidation“ API.
 type DistributionCacheTagConfigOutput struct{ *pulumi.OutputState }
 
 func (DistributionCacheTagConfigOutput) ElementType() reflect.Type {
@@ -2860,6 +2865,7 @@ func (o DistributionCacheTagConfigOutput) ToDistributionCacheTagConfigPtrOutputW
 	}).(DistributionCacheTagConfigPtrOutput)
 }
 
+// The name of the HTTP header that your origin includes in responses. CloudFront uses this header to extract cache tags. The header value must contain comma-separated tag values (for example, “product:electronics, category:tv, brand:example“).
 func (o DistributionCacheTagConfigOutput) HeaderName() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionCacheTagConfig) string { return v.HeaderName }).(pulumi.StringOutput)
 }
@@ -2888,6 +2894,7 @@ func (o DistributionCacheTagConfigPtrOutput) Elem() DistributionCacheTagConfigOu
 	}).(DistributionCacheTagConfigOutput)
 }
 
+// The name of the HTTP header that your origin includes in responses. CloudFront uses this header to extract cache tags. The header value must contain comma-separated tag values (for example, “product:electronics, category:tv, brand:example“).
 func (o DistributionCacheTagConfigPtrOutput) HeaderName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionCacheTagConfig) *string {
 		if v == nil {
@@ -2907,6 +2914,9 @@ type DistributionConfig struct {
 	AnycastIpListId *string `pulumi:"anycastIpListId"`
 	// A complex type that contains zero or more ``CacheBehavior`` elements.
 	CacheBehaviors []DistributionCacheBehavior `pulumi:"cacheBehaviors"`
+	// Configuration for cache tag extraction from origin responses. When specified, CloudFront reads the header named in ``HeaderName`` from origin responses and stores the comma-separated values as cache tags on the object.
+	//  Distributions without ``CacheTagConfig`` do not extract tags. When ``CacheTagConfig`` is removed from a distribution via ``UpdateDistribution``, CloudFront stops extracting tags from origin responses.
+	//   Changing the ``HeaderName`` on an existing distribution does not retroactively affect previously cached objects. Tag-based invalidations will not apply to objects already cached using a previous header. To ensure tag invalidations function after updating the header name, use path-based invalidations to recache all objects that use cache tags.
 	CacheTagConfig *DistributionCacheTagConfig `pulumi:"cacheTagConfig"`
 	// An alias for the CF distribution's domain name.
 	//   This property is legacy. We recommend that you use [Aliases](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-aliases) instead.
@@ -3010,7 +3020,10 @@ type DistributionConfigArgs struct {
 	AnycastIpListId pulumi.StringPtrInput `pulumi:"anycastIpListId"`
 	// A complex type that contains zero or more ``CacheBehavior`` elements.
 	CacheBehaviors DistributionCacheBehaviorArrayInput `pulumi:"cacheBehaviors"`
-	CacheTagConfig DistributionCacheTagConfigPtrInput  `pulumi:"cacheTagConfig"`
+	// Configuration for cache tag extraction from origin responses. When specified, CloudFront reads the header named in ``HeaderName`` from origin responses and stores the comma-separated values as cache tags on the object.
+	//  Distributions without ``CacheTagConfig`` do not extract tags. When ``CacheTagConfig`` is removed from a distribution via ``UpdateDistribution``, CloudFront stops extracting tags from origin responses.
+	//   Changing the ``HeaderName`` on an existing distribution does not retroactively affect previously cached objects. Tag-based invalidations will not apply to objects already cached using a previous header. To ensure tag invalidations function after updating the header name, use path-based invalidations to recache all objects that use cache tags.
+	CacheTagConfig DistributionCacheTagConfigPtrInput `pulumi:"cacheTagConfig"`
 	// An alias for the CF distribution's domain name.
 	//   This property is legacy. We recommend that you use [Aliases](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-aliases) instead.
 	Cnames pulumi.StringArrayInput `pulumi:"cnames"`
@@ -3138,6 +3151,10 @@ func (o DistributionConfigOutput) CacheBehaviors() DistributionCacheBehaviorArra
 	return o.ApplyT(func(v DistributionConfig) []DistributionCacheBehavior { return v.CacheBehaviors }).(DistributionCacheBehaviorArrayOutput)
 }
 
+// Configuration for cache tag extraction from origin responses. When specified, CloudFront reads the header named in “HeaderName“ from origin responses and stores the comma-separated values as cache tags on the object.
+//
+//	Distributions without ``CacheTagConfig`` do not extract tags. When ``CacheTagConfig`` is removed from a distribution via ``UpdateDistribution``, CloudFront stops extracting tags from origin responses.
+//	 Changing the ``HeaderName`` on an existing distribution does not retroactively affect previously cached objects. Tag-based invalidations will not apply to objects already cached using a previous header. To ensure tag invalidations function after updating the header name, use path-based invalidations to recache all objects that use cache tags.
 func (o DistributionConfigOutput) CacheTagConfig() DistributionCacheTagConfigPtrOutput {
 	return o.ApplyT(func(v DistributionConfig) *DistributionCacheTagConfig { return v.CacheTagConfig }).(DistributionCacheTagConfigPtrOutput)
 }
@@ -3366,6 +3383,10 @@ func (o DistributionConfigPtrOutput) CacheBehaviors() DistributionCacheBehaviorA
 	}).(DistributionCacheBehaviorArrayOutput)
 }
 
+// Configuration for cache tag extraction from origin responses. When specified, CloudFront reads the header named in “HeaderName“ from origin responses and stores the comma-separated values as cache tags on the object.
+//
+//	Distributions without ``CacheTagConfig`` do not extract tags. When ``CacheTagConfig`` is removed from a distribution via ``UpdateDistribution``, CloudFront stops extracting tags from origin responses.
+//	 Changing the ``HeaderName`` on an existing distribution does not retroactively affect previously cached objects. Tag-based invalidations will not apply to objects already cached using a previous header. To ensure tag invalidations function after updating the header name, use path-based invalidations to recache all objects that use cache tags.
 func (o DistributionConfigPtrOutput) CacheTagConfig() DistributionCacheTagConfigPtrOutput {
 	return o.ApplyT(func(v *DistributionConfig) *DistributionCacheTagConfig {
 		if v == nil {
@@ -10949,8 +10970,13 @@ func (o FunctionMetadataPtrOutput) FunctionArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// A complex type that contains “Tag“ key and “Tag“ value.
 type FunctionTag struct {
-	Key   string `pulumi:"key"`
+	// A string that contains ``Tag`` key.
+	//  The string length should be between 1 and 128 characters. Valid characters include ``a-z``, ``A-Z``, ``0-9``, space, and the special characters ``_ - . : / = + @``.
+	Key string `pulumi:"key"`
+	// A string that contains an optional ``Tag`` value.
+	//  The string length should be between 0 and 256 characters. Valid characters include ``a-z``, ``A-Z``, ``0-9``, space, and the special characters ``_ - . : / = + @``.
 	Value string `pulumi:"value"`
 }
 

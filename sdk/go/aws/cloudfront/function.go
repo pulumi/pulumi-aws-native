@@ -41,7 +41,8 @@ type Function struct {
 	// A name to identify the function.
 	Name  pulumi.StringOutput `pulumi:"name"`
 	Stage pulumi.StringOutput `pulumi:"stage"`
-	Tags  aws.TagArrayOutput  `pulumi:"tags"`
+	// A complex type that contains zero or more ``Tag`` elements.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewFunction registers a new resource with the given unique name, arguments, and options.
@@ -103,7 +104,8 @@ type functionArgs struct {
 	// Contains metadata about a CloudFront function.
 	FunctionMetadata *FunctionMetadata `pulumi:"functionMetadata"`
 	// A name to identify the function.
-	Name *string   `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// A complex type that contains zero or more ``Tag`` elements.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -119,6 +121,7 @@ type FunctionArgs struct {
 	FunctionMetadata FunctionMetadataPtrInput
 	// A name to identify the function.
 	Name pulumi.StringPtrInput
+	// A complex type that contains zero or more ``Tag`` elements.
 	Tags aws.TagArrayInput
 }
 
@@ -199,6 +202,7 @@ func (o FunctionOutput) Stage() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.Stage }).(pulumi.StringOutput)
 }
 
+// A complex type that contains zero or more “Tag“ elements.
 func (o FunctionOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Function) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

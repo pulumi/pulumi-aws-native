@@ -49,13 +49,10 @@
       "type" : "object",
       "description" : "Sets the environment variables in the Docker container",
       "patternProperties" : {
-        "[a-zA-Z_][a-zA-Z0-9_]*" : {
+        "^[a-zA-Z_][a-zA-Z0-9_]{0,255}$" : {
           "type" : "string",
-          "maxLength" : 256
-        },
-        "[\\S\\s]*" : {
-          "type" : "string",
-          "maxLength" : 256
+          "maxLength" : 256,
+          "pattern" : "[\\S\\s]*"
         }
       },
       "additionalProperties" : false

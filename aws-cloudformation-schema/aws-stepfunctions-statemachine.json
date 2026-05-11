@@ -207,7 +207,7 @@
   "additionalIdentifiers" : [ [ "/properties/StateMachineName" ] ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "states:CreateStateMachine", "states:DescribeStateMachine", "states:TagResource", "iam:PassRole", "s3:GetObject", "kms:DescribeKey", "kms:GenerateDataKey" ]
+      "permissions" : [ "states:CreateStateMachine", "states:DescribeStateMachine", "states:TagResource", "iam:PassRole", "s3:GetObject", "s3:GetObjectVersion", "kms:DescribeKey", "kms:GenerateDataKey" ]
     },
     "read" : {
       "permissions" : [ "states:DescribeStateMachine", "states:ListTagsForResource", "kms:Decrypt" ]

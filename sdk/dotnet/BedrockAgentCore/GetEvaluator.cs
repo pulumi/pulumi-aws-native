@@ -84,6 +84,10 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         /// </summary>
         public readonly string? EvaluatorId;
         /// <summary>
+        /// The ARN of the KMS key used to encrypt evaluator data.
+        /// </summary>
+        public readonly string? KmsKeyArn;
+        /// <summary>
         /// The evaluation level that determines the scope of evaluation.
         /// </summary>
         public readonly Pulumi.AwsNative.BedrockAgentCore.EvaluatorLevel? Level;
@@ -112,6 +116,8 @@ namespace Pulumi.AwsNative.BedrockAgentCore
 
             string? evaluatorId,
 
+            string? kmsKeyArn,
+
             Pulumi.AwsNative.BedrockAgentCore.EvaluatorLevel? level,
 
             Pulumi.AwsNative.BedrockAgentCore.EvaluatorStatus? status,
@@ -125,6 +131,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
             EvaluatorArn = evaluatorArn;
             EvaluatorConfig = evaluatorConfig;
             EvaluatorId = evaluatorId;
+            KmsKeyArn = kmsKeyArn;
             Level = level;
             Status = status;
             Tags = tags;

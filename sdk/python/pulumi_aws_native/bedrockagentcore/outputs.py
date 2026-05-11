@@ -60,7 +60,9 @@ __all__ = [
     'GatewayTargetApiSchemaConfiguration1Properties',
     'GatewayTargetCredentialProvider0Properties',
     'GatewayTargetCredentialProvider1Properties',
+    'GatewayTargetCredentialProvider2Properties',
     'GatewayTargetCredentialProviderConfiguration',
+    'GatewayTargetIamCredentialProvider',
     'GatewayTargetMcpLambdaTargetConfiguration',
     'GatewayTargetMcpServerTargetConfiguration',
     'GatewayTargetMcpTargetConfiguration0Properties',
@@ -129,8 +131,10 @@ __all__ = [
     'OAuth2CredentialProviderOauth2Discovery',
     'OAuth2CredentialProviderOauth2ProviderConfigInput',
     'OAuth2CredentialProviderOauth2ProviderConfigOutput',
+    'OAuth2CredentialProviderOnBehalfOfTokenExchangeConfig',
     'OAuth2CredentialProviderSalesforceOauth2ProviderConfigInput',
     'OAuth2CredentialProviderSlackOauth2ProviderConfigInput',
+    'OAuth2CredentialProviderTokenExchangeGrantTypeConfig',
     'OnlineEvaluationConfigCloudWatchLogsInputConfig',
     'OnlineEvaluationConfigCloudWatchOutputConfig',
     'OnlineEvaluationConfigDataSourceConfig',
@@ -1871,6 +1875,35 @@ class GatewayTargetCredentialProvider1Properties(dict):
 
 
 @pulumi.output_type
+class GatewayTargetCredentialProvider2Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "iamCredentialProvider":
+            suggest = "iam_credential_provider"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayTargetCredentialProvider2Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayTargetCredentialProvider2Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayTargetCredentialProvider2Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 iam_credential_provider: 'outputs.GatewayTargetIamCredentialProvider'):
+        pulumi.set(__self__, "iam_credential_provider", iam_credential_provider)
+
+    @_builtins.property
+    @pulumi.getter(name="iamCredentialProvider")
+    def iam_credential_provider(self) -> 'outputs.GatewayTargetIamCredentialProvider':
+        return pulumi.get(self, "iam_credential_provider")
+
+
+@pulumi.output_type
 class GatewayTargetCredentialProviderConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1896,7 +1929,7 @@ class GatewayTargetCredentialProviderConfiguration(dict):
                  credential_provider: Optional[Any] = None):
         """
         :param 'GatewayTargetCredentialProviderType' credential_provider_type: The credential provider type for the gateway target.
-        :param Union['GatewayTargetCredentialProvider0Properties', 'GatewayTargetCredentialProvider1Properties'] credential_provider: The credential provider for the gateway target.
+        :param Union['GatewayTargetCredentialProvider0Properties', 'GatewayTargetCredentialProvider1Properties', 'GatewayTargetCredentialProvider2Properties'] credential_provider: The credential provider for the gateway target.
         """
         pulumi.set(__self__, "credential_provider_type", credential_provider_type)
         if credential_provider is not None:
@@ -1917,6 +1950,26 @@ class GatewayTargetCredentialProviderConfiguration(dict):
         The credential provider for the gateway target.
         """
         return pulumi.get(self, "credential_provider")
+
+
+@pulumi.output_type
+class GatewayTargetIamCredentialProvider(dict):
+    def __init__(__self__, *,
+                 service: _builtins.str,
+                 region: Optional[_builtins.str] = None):
+        pulumi.set(__self__, "service", service)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+
+    @_builtins.property
+    @pulumi.getter
+    def service(self) -> _builtins.str:
+        return pulumi.get(self, "service")
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "region")
 
 
 @pulumi.output_type
@@ -1959,14 +2012,39 @@ class GatewayTargetMcpLambdaTargetConfiguration(dict):
 
 @pulumi.output_type
 class GatewayTargetMcpServerTargetConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "listingMode":
+            suggest = "listing_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayTargetMcpServerTargetConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayTargetMcpServerTargetConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayTargetMcpServerTargetConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 endpoint: _builtins.str):
+                 endpoint: _builtins.str,
+                 listing_mode: Optional['GatewayTargetMcpServerListingMode'] = None):
         pulumi.set(__self__, "endpoint", endpoint)
+        if listing_mode is not None:
+            pulumi.set(__self__, "listing_mode", listing_mode)
 
     @_builtins.property
     @pulumi.getter
     def endpoint(self) -> _builtins.str:
         return pulumi.get(self, "endpoint")
+
+    @_builtins.property
+    @pulumi.getter(name="listingMode")
+    def listing_mode(self) -> Optional['GatewayTargetMcpServerListingMode']:
+        return pulumi.get(self, "listing_mode")
 
 
 @pulumi.output_type
@@ -4502,12 +4580,14 @@ class OAuth2CredentialProviderCustomOauth2ProviderConfigInput(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "clientId":
+        if key == "oauthDiscovery":
+            suggest = "oauth_discovery"
+        elif key == "clientId":
             suggest = "client_id"
         elif key == "clientSecret":
             suggest = "client_secret"
-        elif key == "oauthDiscovery":
-            suggest = "oauth_discovery"
+        elif key == "onBehalfOfTokenExchangeConfig":
+            suggest = "on_behalf_of_token_exchange_config"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in OAuth2CredentialProviderCustomOauth2ProviderConfigInput. Access the value via the '{suggest}' property getter instead.")
@@ -4521,22 +4601,32 @@ class OAuth2CredentialProviderCustomOauth2ProviderConfigInput(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 client_id: _builtins.str,
-                 client_secret: _builtins.str,
-                 oauth_discovery: 'outputs.OAuth2CredentialProviderOauth2Discovery'):
+                 oauth_discovery: 'outputs.OAuth2CredentialProviderOauth2Discovery',
+                 client_id: Optional[_builtins.str] = None,
+                 client_secret: Optional[_builtins.str] = None,
+                 on_behalf_of_token_exchange_config: Optional['outputs.OAuth2CredentialProviderOnBehalfOfTokenExchangeConfig'] = None):
         """
         Input configuration for a custom OAuth2 provider
 
         :param _builtins.str client_id: The client ID for the custom OAuth2 provider
         :param _builtins.str client_secret: The client secret for the custom OAuth2 provider
         """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "client_secret", client_secret)
         pulumi.set(__self__, "oauth_discovery", oauth_discovery)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if on_behalf_of_token_exchange_config is not None:
+            pulumi.set(__self__, "on_behalf_of_token_exchange_config", on_behalf_of_token_exchange_config)
+
+    @_builtins.property
+    @pulumi.getter(name="oauthDiscovery")
+    def oauth_discovery(self) -> 'outputs.OAuth2CredentialProviderOauth2Discovery':
+        return pulumi.get(self, "oauth_discovery")
 
     @_builtins.property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> _builtins.str:
+    def client_id(self) -> Optional[_builtins.str]:
         """
         The client ID for the custom OAuth2 provider
         """
@@ -4544,16 +4634,16 @@ class OAuth2CredentialProviderCustomOauth2ProviderConfigInput(dict):
 
     @_builtins.property
     @pulumi.getter(name="clientSecret")
-    def client_secret(self) -> _builtins.str:
+    def client_secret(self) -> Optional[_builtins.str]:
         """
         The client secret for the custom OAuth2 provider
         """
         return pulumi.get(self, "client_secret")
 
     @_builtins.property
-    @pulumi.getter(name="oauthDiscovery")
-    def oauth_discovery(self) -> 'outputs.OAuth2CredentialProviderOauth2Discovery':
-        return pulumi.get(self, "oauth_discovery")
+    @pulumi.getter(name="onBehalfOfTokenExchangeConfig")
+    def on_behalf_of_token_exchange_config(self) -> Optional['outputs.OAuth2CredentialProviderOnBehalfOfTokenExchangeConfig']:
+        return pulumi.get(self, "on_behalf_of_token_exchange_config")
 
 
 @pulumi.output_type
@@ -5089,6 +5179,8 @@ class OAuth2CredentialProviderOauth2ProviderConfigOutput(dict):
             suggest = "client_id"
         elif key == "oauthDiscovery":
             suggest = "oauth_discovery"
+        elif key == "onBehalfOfTokenExchangeConfig":
+            suggest = "on_behalf_of_token_exchange_config"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in OAuth2CredentialProviderOauth2ProviderConfigOutput. Access the value via the '{suggest}' property getter instead.")
@@ -5103,7 +5195,8 @@ class OAuth2CredentialProviderOauth2ProviderConfigOutput(dict):
 
     def __init__(__self__, *,
                  client_id: Optional[_builtins.str] = None,
-                 oauth_discovery: Optional['outputs.OAuth2CredentialProviderOauth2Discovery'] = None):
+                 oauth_discovery: Optional['outputs.OAuth2CredentialProviderOauth2Discovery'] = None,
+                 on_behalf_of_token_exchange_config: Optional['outputs.OAuth2CredentialProviderOnBehalfOfTokenExchangeConfig'] = None):
         """
         Output configuration for an OAuth2 provider
         """
@@ -5111,6 +5204,8 @@ class OAuth2CredentialProviderOauth2ProviderConfigOutput(dict):
             pulumi.set(__self__, "client_id", client_id)
         if oauth_discovery is not None:
             pulumi.set(__self__, "oauth_discovery", oauth_discovery)
+        if on_behalf_of_token_exchange_config is not None:
+            pulumi.set(__self__, "on_behalf_of_token_exchange_config", on_behalf_of_token_exchange_config)
 
     @_builtins.property
     @pulumi.getter(name="clientId")
@@ -5121,6 +5216,61 @@ class OAuth2CredentialProviderOauth2ProviderConfigOutput(dict):
     @pulumi.getter(name="oauthDiscovery")
     def oauth_discovery(self) -> Optional['outputs.OAuth2CredentialProviderOauth2Discovery']:
         return pulumi.get(self, "oauth_discovery")
+
+    @_builtins.property
+    @pulumi.getter(name="onBehalfOfTokenExchangeConfig")
+    def on_behalf_of_token_exchange_config(self) -> Optional['outputs.OAuth2CredentialProviderOnBehalfOfTokenExchangeConfig']:
+        return pulumi.get(self, "on_behalf_of_token_exchange_config")
+
+
+@pulumi.output_type
+class OAuth2CredentialProviderOnBehalfOfTokenExchangeConfig(dict):
+    """
+    Configuration for on-behalf-of token exchange
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "grantType":
+            suggest = "grant_type"
+        elif key == "tokenExchangeGrantTypeConfig":
+            suggest = "token_exchange_grant_type_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OAuth2CredentialProviderOnBehalfOfTokenExchangeConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OAuth2CredentialProviderOnBehalfOfTokenExchangeConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OAuth2CredentialProviderOnBehalfOfTokenExchangeConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 grant_type: 'OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantType',
+                 token_exchange_grant_type_config: Optional['outputs.OAuth2CredentialProviderTokenExchangeGrantTypeConfig'] = None):
+        """
+        Configuration for on-behalf-of token exchange
+
+        :param 'OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantType' grant_type: The grant type for on-behalf-of token exchange
+        """
+        pulumi.set(__self__, "grant_type", grant_type)
+        if token_exchange_grant_type_config is not None:
+            pulumi.set(__self__, "token_exchange_grant_type_config", token_exchange_grant_type_config)
+
+    @_builtins.property
+    @pulumi.getter(name="grantType")
+    def grant_type(self) -> 'OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantType':
+        """
+        The grant type for on-behalf-of token exchange
+        """
+        return pulumi.get(self, "grant_type")
+
+    @_builtins.property
+    @pulumi.getter(name="tokenExchangeGrantTypeConfig")
+    def token_exchange_grant_type_config(self) -> Optional['outputs.OAuth2CredentialProviderTokenExchangeGrantTypeConfig']:
+        return pulumi.get(self, "token_exchange_grant_type_config")
 
 
 @pulumi.output_type
@@ -5209,6 +5359,60 @@ class OAuth2CredentialProviderSlackOauth2ProviderConfigInput(dict):
     @pulumi.getter(name="clientSecret")
     def client_secret(self) -> _builtins.str:
         return pulumi.get(self, "client_secret")
+
+
+@pulumi.output_type
+class OAuth2CredentialProviderTokenExchangeGrantTypeConfig(dict):
+    """
+    Configuration for RFC 8693 Token Exchange
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actorTokenContent":
+            suggest = "actor_token_content"
+        elif key == "actorTokenScopes":
+            suggest = "actor_token_scopes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OAuth2CredentialProviderTokenExchangeGrantTypeConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OAuth2CredentialProviderTokenExchangeGrantTypeConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OAuth2CredentialProviderTokenExchangeGrantTypeConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 actor_token_content: 'OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContent',
+                 actor_token_scopes: Optional[Sequence[_builtins.str]] = None):
+        """
+        Configuration for RFC 8693 Token Exchange
+
+        :param 'OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContent' actor_token_content: The actor token content type
+        :param Sequence[_builtins.str] actor_token_scopes: The actor token scopes. Only valid when ActorTokenContent is M2M.
+        """
+        pulumi.set(__self__, "actor_token_content", actor_token_content)
+        if actor_token_scopes is not None:
+            pulumi.set(__self__, "actor_token_scopes", actor_token_scopes)
+
+    @_builtins.property
+    @pulumi.getter(name="actorTokenContent")
+    def actor_token_content(self) -> 'OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContent':
+        """
+        The actor token content type
+        """
+        return pulumi.get(self, "actor_token_content")
+
+    @_builtins.property
+    @pulumi.getter(name="actorTokenScopes")
+    def actor_token_scopes(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The actor token scopes. Only valid when ActorTokenContent is M2M.
+        """
+        return pulumi.get(self, "actor_token_scopes")
 
 
 @pulumi.output_type

@@ -17,9 +17,18 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Outputs
     public sealed class OrganizationTelemetryRuleTelemetryRule
     {
         /// <summary>
+        /// When true, the rule is replicated to all supported regions
+        /// </summary>
+        public readonly bool? AllRegions;
+        public readonly bool? AllowFieldUpdates;
+        /// <summary>
         /// Configuration specifying where and how the telemetry data should be delivered.
         /// </summary>
         public readonly Outputs.OrganizationTelemetryRuleTelemetryDestinationConfiguration? DestinationConfiguration;
+        /// <summary>
+        /// List of AWS region codes where the rule should be replicated
+        /// </summary>
+        public readonly ImmutableArray<string> Regions;
         /// <summary>
         /// The type of AWS resource to configure telemetry for (e.g., "AWS::EC2::VPC", "AWS::EKS::Cluster", "AWS::WAFv2::WebACL").
         /// </summary>
@@ -43,7 +52,13 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Outputs
 
         [OutputConstructor]
         private OrganizationTelemetryRuleTelemetryRule(
+            bool? allRegions,
+
+            bool? allowFieldUpdates,
+
             Outputs.OrganizationTelemetryRuleTelemetryDestinationConfiguration? destinationConfiguration,
+
+            ImmutableArray<string> regions,
 
             Pulumi.AwsNative.ObservabilityAdmin.OrganizationTelemetryRuleResourceType resourceType,
 
@@ -55,7 +70,10 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Outputs
 
             Pulumi.AwsNative.ObservabilityAdmin.OrganizationTelemetryRuleTelemetryType telemetryType)
         {
+            AllRegions = allRegions;
+            AllowFieldUpdates = allowFieldUpdates;
             DestinationConfiguration = destinationConfiguration;
+            Regions = regions;
             ResourceType = resourceType;
             Scope = scope;
             SelectionCriteria = selectionCriteria;

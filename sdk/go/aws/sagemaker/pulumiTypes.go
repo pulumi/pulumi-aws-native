@@ -41085,127 +41085,6 @@ func (o ProcessingJobDatasetDefinitionPtrOutput) RedshiftDatasetDefinition() Pro
 	}).(ProcessingJobRedshiftDatasetDefinitionPtrOutput)
 }
 
-// Sets the environment variables in the Docker container
-type ProcessingJobEnvironment struct {
-}
-
-// ProcessingJobEnvironmentInput is an input type that accepts ProcessingJobEnvironmentArgs and ProcessingJobEnvironmentOutput values.
-// You can construct a concrete instance of `ProcessingJobEnvironmentInput` via:
-//
-//	ProcessingJobEnvironmentArgs{...}
-type ProcessingJobEnvironmentInput interface {
-	pulumi.Input
-
-	ToProcessingJobEnvironmentOutput() ProcessingJobEnvironmentOutput
-	ToProcessingJobEnvironmentOutputWithContext(context.Context) ProcessingJobEnvironmentOutput
-}
-
-// Sets the environment variables in the Docker container
-type ProcessingJobEnvironmentArgs struct {
-}
-
-func (ProcessingJobEnvironmentArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcessingJobEnvironment)(nil)).Elem()
-}
-
-func (i ProcessingJobEnvironmentArgs) ToProcessingJobEnvironmentOutput() ProcessingJobEnvironmentOutput {
-	return i.ToProcessingJobEnvironmentOutputWithContext(context.Background())
-}
-
-func (i ProcessingJobEnvironmentArgs) ToProcessingJobEnvironmentOutputWithContext(ctx context.Context) ProcessingJobEnvironmentOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcessingJobEnvironmentOutput)
-}
-
-func (i ProcessingJobEnvironmentArgs) ToProcessingJobEnvironmentPtrOutput() ProcessingJobEnvironmentPtrOutput {
-	return i.ToProcessingJobEnvironmentPtrOutputWithContext(context.Background())
-}
-
-func (i ProcessingJobEnvironmentArgs) ToProcessingJobEnvironmentPtrOutputWithContext(ctx context.Context) ProcessingJobEnvironmentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcessingJobEnvironmentOutput).ToProcessingJobEnvironmentPtrOutputWithContext(ctx)
-}
-
-// ProcessingJobEnvironmentPtrInput is an input type that accepts ProcessingJobEnvironmentArgs, ProcessingJobEnvironmentPtr and ProcessingJobEnvironmentPtrOutput values.
-// You can construct a concrete instance of `ProcessingJobEnvironmentPtrInput` via:
-//
-//	        ProcessingJobEnvironmentArgs{...}
-//
-//	or:
-//
-//	        nil
-type ProcessingJobEnvironmentPtrInput interface {
-	pulumi.Input
-
-	ToProcessingJobEnvironmentPtrOutput() ProcessingJobEnvironmentPtrOutput
-	ToProcessingJobEnvironmentPtrOutputWithContext(context.Context) ProcessingJobEnvironmentPtrOutput
-}
-
-type processingJobEnvironmentPtrType ProcessingJobEnvironmentArgs
-
-func ProcessingJobEnvironmentPtr(v *ProcessingJobEnvironmentArgs) ProcessingJobEnvironmentPtrInput {
-	return (*processingJobEnvironmentPtrType)(v)
-}
-
-func (*processingJobEnvironmentPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProcessingJobEnvironment)(nil)).Elem()
-}
-
-func (i *processingJobEnvironmentPtrType) ToProcessingJobEnvironmentPtrOutput() ProcessingJobEnvironmentPtrOutput {
-	return i.ToProcessingJobEnvironmentPtrOutputWithContext(context.Background())
-}
-
-func (i *processingJobEnvironmentPtrType) ToProcessingJobEnvironmentPtrOutputWithContext(ctx context.Context) ProcessingJobEnvironmentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcessingJobEnvironmentPtrOutput)
-}
-
-// Sets the environment variables in the Docker container
-type ProcessingJobEnvironmentOutput struct{ *pulumi.OutputState }
-
-func (ProcessingJobEnvironmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcessingJobEnvironment)(nil)).Elem()
-}
-
-func (o ProcessingJobEnvironmentOutput) ToProcessingJobEnvironmentOutput() ProcessingJobEnvironmentOutput {
-	return o
-}
-
-func (o ProcessingJobEnvironmentOutput) ToProcessingJobEnvironmentOutputWithContext(ctx context.Context) ProcessingJobEnvironmentOutput {
-	return o
-}
-
-func (o ProcessingJobEnvironmentOutput) ToProcessingJobEnvironmentPtrOutput() ProcessingJobEnvironmentPtrOutput {
-	return o.ToProcessingJobEnvironmentPtrOutputWithContext(context.Background())
-}
-
-func (o ProcessingJobEnvironmentOutput) ToProcessingJobEnvironmentPtrOutputWithContext(ctx context.Context) ProcessingJobEnvironmentPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProcessingJobEnvironment) *ProcessingJobEnvironment {
-		return &v
-	}).(ProcessingJobEnvironmentPtrOutput)
-}
-
-type ProcessingJobEnvironmentPtrOutput struct{ *pulumi.OutputState }
-
-func (ProcessingJobEnvironmentPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProcessingJobEnvironment)(nil)).Elem()
-}
-
-func (o ProcessingJobEnvironmentPtrOutput) ToProcessingJobEnvironmentPtrOutput() ProcessingJobEnvironmentPtrOutput {
-	return o
-}
-
-func (o ProcessingJobEnvironmentPtrOutput) ToProcessingJobEnvironmentPtrOutputWithContext(ctx context.Context) ProcessingJobEnvironmentPtrOutput {
-	return o
-}
-
-func (o ProcessingJobEnvironmentPtrOutput) Elem() ProcessingJobEnvironmentOutput {
-	return o.ApplyT(func(v *ProcessingJobEnvironment) ProcessingJobEnvironment {
-		if v != nil {
-			return *v
-		}
-		var ret ProcessingJobEnvironment
-		return ret
-	}).(ProcessingJobEnvironmentOutput)
-}
-
 // Associates a SageMaker job as a trial component with an experiment and trial.
 type ProcessingJobExperimentConfig struct {
 	// The name of an existing experiment to associate with the trial component.
@@ -51035,8 +50914,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProcessingJobClusterConfigInput)(nil)).Elem(), ProcessingJobClusterConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProcessingJobDatasetDefinitionInput)(nil)).Elem(), ProcessingJobDatasetDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProcessingJobDatasetDefinitionPtrInput)(nil)).Elem(), ProcessingJobDatasetDefinitionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProcessingJobEnvironmentInput)(nil)).Elem(), ProcessingJobEnvironmentArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProcessingJobEnvironmentPtrInput)(nil)).Elem(), ProcessingJobEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProcessingJobExperimentConfigInput)(nil)).Elem(), ProcessingJobExperimentConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProcessingJobExperimentConfigPtrInput)(nil)).Elem(), ProcessingJobExperimentConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProcessingJobFeatureStoreOutputInput)(nil)).Elem(), ProcessingJobFeatureStoreOutputArgs{})
@@ -51647,8 +51524,6 @@ func init() {
 	pulumi.RegisterOutputType(ProcessingJobClusterConfigOutput{})
 	pulumi.RegisterOutputType(ProcessingJobDatasetDefinitionOutput{})
 	pulumi.RegisterOutputType(ProcessingJobDatasetDefinitionPtrOutput{})
-	pulumi.RegisterOutputType(ProcessingJobEnvironmentOutput{})
-	pulumi.RegisterOutputType(ProcessingJobEnvironmentPtrOutput{})
 	pulumi.RegisterOutputType(ProcessingJobExperimentConfigOutput{})
 	pulumi.RegisterOutputType(ProcessingJobExperimentConfigPtrOutput{})
 	pulumi.RegisterOutputType(ProcessingJobFeatureStoreOutputOutput{})

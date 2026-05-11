@@ -13990,7 +13990,7 @@ type ServiceDeploymentLifecycleHook struct {
 	HookDetails interface{} `pulumi:"hookDetails"`
 	// The Amazon Resource Name (ARN) of the hook target. Currently, only Lambda function ARNs are supported.
 	//  You must provide this parameter when configuring a deployment lifecycle hook.
-	HookTargetArn string `pulumi:"hookTargetArn"`
+	HookTargetArn *string `pulumi:"hookTargetArn"`
 	// The lifecycle stages at which to run the hook. Choose from these valid values:
 	//   +  RECONCILE_SERVICE
 	//       The reconciliation stage that only happens when you start a new service deployment with more than 1 service revision in an ACTIVE state.
@@ -14018,7 +14018,8 @@ type ServiceDeploymentLifecycleHook struct {
 	LifecycleStages []ServiceDeploymentLifecycleHookLifecycleStagesItem `pulumi:"lifecycleStages"`
 	// The Amazon Resource Name (ARN) of the IAM role that grants Amazon ECS permission to call Lambda functions on your behalf.
 	//  For more information, see [Permissions required for Lambda functions in Amazon ECS blue/green deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/blue-green-permissions.html) in the *Amazon Elastic Container Service Developer Guide*.
-	RoleArn string `pulumi:"roleArn"`
+	RoleArn              *string     `pulumi:"roleArn"`
+	TimeoutConfiguration interface{} `pulumi:"timeoutConfiguration"`
 }
 
 // ServiceDeploymentLifecycleHookInput is an input type that accepts ServiceDeploymentLifecycleHookArgs and ServiceDeploymentLifecycleHookOutput values.
@@ -14041,7 +14042,7 @@ type ServiceDeploymentLifecycleHookArgs struct {
 	HookDetails pulumi.Input `pulumi:"hookDetails"`
 	// The Amazon Resource Name (ARN) of the hook target. Currently, only Lambda function ARNs are supported.
 	//  You must provide this parameter when configuring a deployment lifecycle hook.
-	HookTargetArn pulumi.StringInput `pulumi:"hookTargetArn"`
+	HookTargetArn pulumi.StringPtrInput `pulumi:"hookTargetArn"`
 	// The lifecycle stages at which to run the hook. Choose from these valid values:
 	//   +  RECONCILE_SERVICE
 	//       The reconciliation stage that only happens when you start a new service deployment with more than 1 service revision in an ACTIVE state.
@@ -14069,7 +14070,8 @@ type ServiceDeploymentLifecycleHookArgs struct {
 	LifecycleStages ServiceDeploymentLifecycleHookLifecycleStagesItemArrayInput `pulumi:"lifecycleStages"`
 	// The Amazon Resource Name (ARN) of the IAM role that grants Amazon ECS permission to call Lambda functions on your behalf.
 	//  For more information, see [Permissions required for Lambda functions in Amazon ECS blue/green deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/blue-green-permissions.html) in the *Amazon Elastic Container Service Developer Guide*.
-	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	RoleArn              pulumi.StringPtrInput `pulumi:"roleArn"`
+	TimeoutConfiguration pulumi.Input          `pulumi:"timeoutConfiguration"`
 }
 
 func (ServiceDeploymentLifecycleHookArgs) ElementType() reflect.Type {
@@ -14136,8 +14138,8 @@ func (o ServiceDeploymentLifecycleHookOutput) HookDetails() pulumi.AnyOutput {
 // The Amazon Resource Name (ARN) of the hook target. Currently, only Lambda function ARNs are supported.
 //
 //	You must provide this parameter when configuring a deployment lifecycle hook.
-func (o ServiceDeploymentLifecycleHookOutput) HookTargetArn() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceDeploymentLifecycleHook) string { return v.HookTargetArn }).(pulumi.StringOutput)
+func (o ServiceDeploymentLifecycleHookOutput) HookTargetArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceDeploymentLifecycleHook) *string { return v.HookTargetArn }).(pulumi.StringPtrOutput)
 }
 
 // The lifecycle stages at which to run the hook. Choose from these valid values:
@@ -14180,8 +14182,12 @@ func (o ServiceDeploymentLifecycleHookOutput) LifecycleStages() ServiceDeploymen
 // The Amazon Resource Name (ARN) of the IAM role that grants Amazon ECS permission to call Lambda functions on your behalf.
 //
 //	For more information, see [Permissions required for Lambda functions in Amazon ECS blue/green deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/blue-green-permissions.html) in the *Amazon Elastic Container Service Developer Guide*.
-func (o ServiceDeploymentLifecycleHookOutput) RoleArn() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceDeploymentLifecycleHook) string { return v.RoleArn }).(pulumi.StringOutput)
+func (o ServiceDeploymentLifecycleHookOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceDeploymentLifecycleHook) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceDeploymentLifecycleHookOutput) TimeoutConfiguration() pulumi.AnyOutput {
+	return o.ApplyT(func(v ServiceDeploymentLifecycleHook) interface{} { return v.TimeoutConfiguration }).(pulumi.AnyOutput)
 }
 
 type ServiceDeploymentLifecycleHookArrayOutput struct{ *pulumi.OutputState }

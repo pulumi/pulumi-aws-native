@@ -46,6 +46,10 @@ export interface GetEvaluatorResult {
      */
     readonly evaluatorId?: string;
     /**
+     * The ARN of the KMS key used to encrypt evaluator data.
+     */
+    readonly kmsKeyArn?: string;
+    /**
      * The evaluation level that determines the scope of evaluation.
      */
     readonly level?: enums.bedrockagentcore.EvaluatorLevel;

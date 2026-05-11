@@ -587,6 +587,34 @@ namespace Pulumi.AwsNative.BedrockAgentCore
     }
 
     [EnumType]
+    public readonly struct GatewayTargetMcpServerListingMode : IEquatable<GatewayTargetMcpServerListingMode>
+    {
+        private readonly string _value;
+
+        private GatewayTargetMcpServerListingMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GatewayTargetMcpServerListingMode Default { get; } = new GatewayTargetMcpServerListingMode("DEFAULT");
+        public static GatewayTargetMcpServerListingMode Dynamic { get; } = new GatewayTargetMcpServerListingMode("DYNAMIC");
+
+        public static bool operator ==(GatewayTargetMcpServerListingMode left, GatewayTargetMcpServerListingMode right) => left.Equals(right);
+        public static bool operator !=(GatewayTargetMcpServerListingMode left, GatewayTargetMcpServerListingMode right) => !left.Equals(right);
+
+        public static explicit operator string(GatewayTargetMcpServerListingMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GatewayTargetMcpServerListingMode other && Equals(other);
+        public bool Equals(GatewayTargetMcpServerListingMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct GatewayTargetOAuthGrantType : IEquatable<GatewayTargetOAuthGrantType>
     {
         private readonly string _value;
@@ -1221,6 +1249,69 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is OAuth2CredentialProviderCredentialProviderVendor other && Equals(other);
         public bool Equals(OAuth2CredentialProviderCredentialProviderVendor other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The grant type for on-behalf-of token exchange
+    /// </summary>
+    [EnumType]
+    public readonly struct OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantType : IEquatable<OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantType>
+    {
+        private readonly string _value;
+
+        private OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantType TokenExchange { get; } = new OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantType("TOKEN_EXCHANGE");
+        public static OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantType JwtAuthorizationGrant { get; } = new OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantType("JWT_AUTHORIZATION_GRANT");
+
+        public static bool operator ==(OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantType left, OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantType right) => left.Equals(right);
+        public static bool operator !=(OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantType left, OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantType right) => !left.Equals(right);
+
+        public static explicit operator string(OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantType other && Equals(other);
+        public bool Equals(OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The actor token content type
+    /// </summary>
+    [EnumType]
+    public readonly struct OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContent : IEquatable<OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContent>
+    {
+        private readonly string _value;
+
+        private OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContent(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContent None { get; } = new OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContent("NONE");
+        public static OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContent M2m { get; } = new OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContent("M2M");
+        public static OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContent AwsIamIdTokenJwt { get; } = new OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContent("AWS_IAM_ID_TOKEN_JWT");
+
+        public static bool operator ==(OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContent left, OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContent right) => left.Equals(right);
+        public static bool operator !=(OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContent left, OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContent right) => !left.Equals(right);
+
+        public static explicit operator string(OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContent value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContent other && Equals(other);
+        public bool Equals(OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContent other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

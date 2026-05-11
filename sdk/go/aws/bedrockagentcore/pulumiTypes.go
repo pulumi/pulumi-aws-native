@@ -5162,6 +5162,141 @@ func (o GatewayTargetCredentialProvider1PropertiesPtrOutput) ApiKeyCredentialPro
 	}).(GatewayTargetApiKeyCredentialProviderPtrOutput)
 }
 
+type GatewayTargetCredentialProvider2Properties struct {
+	IamCredentialProvider GatewayTargetIamCredentialProvider `pulumi:"iamCredentialProvider"`
+}
+
+// GatewayTargetCredentialProvider2PropertiesInput is an input type that accepts GatewayTargetCredentialProvider2PropertiesArgs and GatewayTargetCredentialProvider2PropertiesOutput values.
+// You can construct a concrete instance of `GatewayTargetCredentialProvider2PropertiesInput` via:
+//
+//	GatewayTargetCredentialProvider2PropertiesArgs{...}
+type GatewayTargetCredentialProvider2PropertiesInput interface {
+	pulumi.Input
+
+	ToGatewayTargetCredentialProvider2PropertiesOutput() GatewayTargetCredentialProvider2PropertiesOutput
+	ToGatewayTargetCredentialProvider2PropertiesOutputWithContext(context.Context) GatewayTargetCredentialProvider2PropertiesOutput
+}
+
+type GatewayTargetCredentialProvider2PropertiesArgs struct {
+	IamCredentialProvider GatewayTargetIamCredentialProviderInput `pulumi:"iamCredentialProvider"`
+}
+
+func (GatewayTargetCredentialProvider2PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetCredentialProvider2Properties)(nil)).Elem()
+}
+
+func (i GatewayTargetCredentialProvider2PropertiesArgs) ToGatewayTargetCredentialProvider2PropertiesOutput() GatewayTargetCredentialProvider2PropertiesOutput {
+	return i.ToGatewayTargetCredentialProvider2PropertiesOutputWithContext(context.Background())
+}
+
+func (i GatewayTargetCredentialProvider2PropertiesArgs) ToGatewayTargetCredentialProvider2PropertiesOutputWithContext(ctx context.Context) GatewayTargetCredentialProvider2PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetCredentialProvider2PropertiesOutput)
+}
+
+func (i GatewayTargetCredentialProvider2PropertiesArgs) ToGatewayTargetCredentialProvider2PropertiesPtrOutput() GatewayTargetCredentialProvider2PropertiesPtrOutput {
+	return i.ToGatewayTargetCredentialProvider2PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i GatewayTargetCredentialProvider2PropertiesArgs) ToGatewayTargetCredentialProvider2PropertiesPtrOutputWithContext(ctx context.Context) GatewayTargetCredentialProvider2PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetCredentialProvider2PropertiesOutput).ToGatewayTargetCredentialProvider2PropertiesPtrOutputWithContext(ctx)
+}
+
+// GatewayTargetCredentialProvider2PropertiesPtrInput is an input type that accepts GatewayTargetCredentialProvider2PropertiesArgs, GatewayTargetCredentialProvider2PropertiesPtr and GatewayTargetCredentialProvider2PropertiesPtrOutput values.
+// You can construct a concrete instance of `GatewayTargetCredentialProvider2PropertiesPtrInput` via:
+//
+//	        GatewayTargetCredentialProvider2PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type GatewayTargetCredentialProvider2PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToGatewayTargetCredentialProvider2PropertiesPtrOutput() GatewayTargetCredentialProvider2PropertiesPtrOutput
+	ToGatewayTargetCredentialProvider2PropertiesPtrOutputWithContext(context.Context) GatewayTargetCredentialProvider2PropertiesPtrOutput
+}
+
+type gatewayTargetCredentialProvider2PropertiesPtrType GatewayTargetCredentialProvider2PropertiesArgs
+
+func GatewayTargetCredentialProvider2PropertiesPtr(v *GatewayTargetCredentialProvider2PropertiesArgs) GatewayTargetCredentialProvider2PropertiesPtrInput {
+	return (*gatewayTargetCredentialProvider2PropertiesPtrType)(v)
+}
+
+func (*gatewayTargetCredentialProvider2PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayTargetCredentialProvider2Properties)(nil)).Elem()
+}
+
+func (i *gatewayTargetCredentialProvider2PropertiesPtrType) ToGatewayTargetCredentialProvider2PropertiesPtrOutput() GatewayTargetCredentialProvider2PropertiesPtrOutput {
+	return i.ToGatewayTargetCredentialProvider2PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *gatewayTargetCredentialProvider2PropertiesPtrType) ToGatewayTargetCredentialProvider2PropertiesPtrOutputWithContext(ctx context.Context) GatewayTargetCredentialProvider2PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetCredentialProvider2PropertiesPtrOutput)
+}
+
+type GatewayTargetCredentialProvider2PropertiesOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetCredentialProvider2PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetCredentialProvider2Properties)(nil)).Elem()
+}
+
+func (o GatewayTargetCredentialProvider2PropertiesOutput) ToGatewayTargetCredentialProvider2PropertiesOutput() GatewayTargetCredentialProvider2PropertiesOutput {
+	return o
+}
+
+func (o GatewayTargetCredentialProvider2PropertiesOutput) ToGatewayTargetCredentialProvider2PropertiesOutputWithContext(ctx context.Context) GatewayTargetCredentialProvider2PropertiesOutput {
+	return o
+}
+
+func (o GatewayTargetCredentialProvider2PropertiesOutput) ToGatewayTargetCredentialProvider2PropertiesPtrOutput() GatewayTargetCredentialProvider2PropertiesPtrOutput {
+	return o.ToGatewayTargetCredentialProvider2PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayTargetCredentialProvider2PropertiesOutput) ToGatewayTargetCredentialProvider2PropertiesPtrOutputWithContext(ctx context.Context) GatewayTargetCredentialProvider2PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayTargetCredentialProvider2Properties) *GatewayTargetCredentialProvider2Properties {
+		return &v
+	}).(GatewayTargetCredentialProvider2PropertiesPtrOutput)
+}
+
+func (o GatewayTargetCredentialProvider2PropertiesOutput) IamCredentialProvider() GatewayTargetIamCredentialProviderOutput {
+	return o.ApplyT(func(v GatewayTargetCredentialProvider2Properties) GatewayTargetIamCredentialProvider {
+		return v.IamCredentialProvider
+	}).(GatewayTargetIamCredentialProviderOutput)
+}
+
+type GatewayTargetCredentialProvider2PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetCredentialProvider2PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayTargetCredentialProvider2Properties)(nil)).Elem()
+}
+
+func (o GatewayTargetCredentialProvider2PropertiesPtrOutput) ToGatewayTargetCredentialProvider2PropertiesPtrOutput() GatewayTargetCredentialProvider2PropertiesPtrOutput {
+	return o
+}
+
+func (o GatewayTargetCredentialProvider2PropertiesPtrOutput) ToGatewayTargetCredentialProvider2PropertiesPtrOutputWithContext(ctx context.Context) GatewayTargetCredentialProvider2PropertiesPtrOutput {
+	return o
+}
+
+func (o GatewayTargetCredentialProvider2PropertiesPtrOutput) Elem() GatewayTargetCredentialProvider2PropertiesOutput {
+	return o.ApplyT(func(v *GatewayTargetCredentialProvider2Properties) GatewayTargetCredentialProvider2Properties {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayTargetCredentialProvider2Properties
+		return ret
+	}).(GatewayTargetCredentialProvider2PropertiesOutput)
+}
+
+func (o GatewayTargetCredentialProvider2PropertiesPtrOutput) IamCredentialProvider() GatewayTargetIamCredentialProviderPtrOutput {
+	return o.ApplyT(func(v *GatewayTargetCredentialProvider2Properties) *GatewayTargetIamCredentialProvider {
+		if v == nil {
+			return nil
+		}
+		return &v.IamCredentialProvider
+	}).(GatewayTargetIamCredentialProviderPtrOutput)
+}
+
 type GatewayTargetCredentialProviderConfiguration struct {
 	// The credential provider for the gateway target.
 	CredentialProvider interface{} `pulumi:"credentialProvider"`
@@ -5270,6 +5405,154 @@ func (o GatewayTargetCredentialProviderConfigurationArrayOutput) Index(i pulumi.
 	}).(GatewayTargetCredentialProviderConfigurationOutput)
 }
 
+type GatewayTargetIamCredentialProvider struct {
+	Region  *string `pulumi:"region"`
+	Service string  `pulumi:"service"`
+}
+
+// GatewayTargetIamCredentialProviderInput is an input type that accepts GatewayTargetIamCredentialProviderArgs and GatewayTargetIamCredentialProviderOutput values.
+// You can construct a concrete instance of `GatewayTargetIamCredentialProviderInput` via:
+//
+//	GatewayTargetIamCredentialProviderArgs{...}
+type GatewayTargetIamCredentialProviderInput interface {
+	pulumi.Input
+
+	ToGatewayTargetIamCredentialProviderOutput() GatewayTargetIamCredentialProviderOutput
+	ToGatewayTargetIamCredentialProviderOutputWithContext(context.Context) GatewayTargetIamCredentialProviderOutput
+}
+
+type GatewayTargetIamCredentialProviderArgs struct {
+	Region  pulumi.StringPtrInput `pulumi:"region"`
+	Service pulumi.StringInput    `pulumi:"service"`
+}
+
+func (GatewayTargetIamCredentialProviderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetIamCredentialProvider)(nil)).Elem()
+}
+
+func (i GatewayTargetIamCredentialProviderArgs) ToGatewayTargetIamCredentialProviderOutput() GatewayTargetIamCredentialProviderOutput {
+	return i.ToGatewayTargetIamCredentialProviderOutputWithContext(context.Background())
+}
+
+func (i GatewayTargetIamCredentialProviderArgs) ToGatewayTargetIamCredentialProviderOutputWithContext(ctx context.Context) GatewayTargetIamCredentialProviderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetIamCredentialProviderOutput)
+}
+
+func (i GatewayTargetIamCredentialProviderArgs) ToGatewayTargetIamCredentialProviderPtrOutput() GatewayTargetIamCredentialProviderPtrOutput {
+	return i.ToGatewayTargetIamCredentialProviderPtrOutputWithContext(context.Background())
+}
+
+func (i GatewayTargetIamCredentialProviderArgs) ToGatewayTargetIamCredentialProviderPtrOutputWithContext(ctx context.Context) GatewayTargetIamCredentialProviderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetIamCredentialProviderOutput).ToGatewayTargetIamCredentialProviderPtrOutputWithContext(ctx)
+}
+
+// GatewayTargetIamCredentialProviderPtrInput is an input type that accepts GatewayTargetIamCredentialProviderArgs, GatewayTargetIamCredentialProviderPtr and GatewayTargetIamCredentialProviderPtrOutput values.
+// You can construct a concrete instance of `GatewayTargetIamCredentialProviderPtrInput` via:
+//
+//	        GatewayTargetIamCredentialProviderArgs{...}
+//
+//	or:
+//
+//	        nil
+type GatewayTargetIamCredentialProviderPtrInput interface {
+	pulumi.Input
+
+	ToGatewayTargetIamCredentialProviderPtrOutput() GatewayTargetIamCredentialProviderPtrOutput
+	ToGatewayTargetIamCredentialProviderPtrOutputWithContext(context.Context) GatewayTargetIamCredentialProviderPtrOutput
+}
+
+type gatewayTargetIamCredentialProviderPtrType GatewayTargetIamCredentialProviderArgs
+
+func GatewayTargetIamCredentialProviderPtr(v *GatewayTargetIamCredentialProviderArgs) GatewayTargetIamCredentialProviderPtrInput {
+	return (*gatewayTargetIamCredentialProviderPtrType)(v)
+}
+
+func (*gatewayTargetIamCredentialProviderPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayTargetIamCredentialProvider)(nil)).Elem()
+}
+
+func (i *gatewayTargetIamCredentialProviderPtrType) ToGatewayTargetIamCredentialProviderPtrOutput() GatewayTargetIamCredentialProviderPtrOutput {
+	return i.ToGatewayTargetIamCredentialProviderPtrOutputWithContext(context.Background())
+}
+
+func (i *gatewayTargetIamCredentialProviderPtrType) ToGatewayTargetIamCredentialProviderPtrOutputWithContext(ctx context.Context) GatewayTargetIamCredentialProviderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetIamCredentialProviderPtrOutput)
+}
+
+type GatewayTargetIamCredentialProviderOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetIamCredentialProviderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetIamCredentialProvider)(nil)).Elem()
+}
+
+func (o GatewayTargetIamCredentialProviderOutput) ToGatewayTargetIamCredentialProviderOutput() GatewayTargetIamCredentialProviderOutput {
+	return o
+}
+
+func (o GatewayTargetIamCredentialProviderOutput) ToGatewayTargetIamCredentialProviderOutputWithContext(ctx context.Context) GatewayTargetIamCredentialProviderOutput {
+	return o
+}
+
+func (o GatewayTargetIamCredentialProviderOutput) ToGatewayTargetIamCredentialProviderPtrOutput() GatewayTargetIamCredentialProviderPtrOutput {
+	return o.ToGatewayTargetIamCredentialProviderPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayTargetIamCredentialProviderOutput) ToGatewayTargetIamCredentialProviderPtrOutputWithContext(ctx context.Context) GatewayTargetIamCredentialProviderPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayTargetIamCredentialProvider) *GatewayTargetIamCredentialProvider {
+		return &v
+	}).(GatewayTargetIamCredentialProviderPtrOutput)
+}
+
+func (o GatewayTargetIamCredentialProviderOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GatewayTargetIamCredentialProvider) *string { return v.Region }).(pulumi.StringPtrOutput)
+}
+
+func (o GatewayTargetIamCredentialProviderOutput) Service() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayTargetIamCredentialProvider) string { return v.Service }).(pulumi.StringOutput)
+}
+
+type GatewayTargetIamCredentialProviderPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetIamCredentialProviderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayTargetIamCredentialProvider)(nil)).Elem()
+}
+
+func (o GatewayTargetIamCredentialProviderPtrOutput) ToGatewayTargetIamCredentialProviderPtrOutput() GatewayTargetIamCredentialProviderPtrOutput {
+	return o
+}
+
+func (o GatewayTargetIamCredentialProviderPtrOutput) ToGatewayTargetIamCredentialProviderPtrOutputWithContext(ctx context.Context) GatewayTargetIamCredentialProviderPtrOutput {
+	return o
+}
+
+func (o GatewayTargetIamCredentialProviderPtrOutput) Elem() GatewayTargetIamCredentialProviderOutput {
+	return o.ApplyT(func(v *GatewayTargetIamCredentialProvider) GatewayTargetIamCredentialProvider {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayTargetIamCredentialProvider
+		return ret
+	}).(GatewayTargetIamCredentialProviderOutput)
+}
+
+func (o GatewayTargetIamCredentialProviderPtrOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayTargetIamCredentialProvider) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Region
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GatewayTargetIamCredentialProviderPtrOutput) Service() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayTargetIamCredentialProvider) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Service
+	}).(pulumi.StringPtrOutput)
+}
+
 type GatewayTargetMcpLambdaTargetConfiguration struct {
 	LambdaArn  string      `pulumi:"lambdaArn"`
 	ToolSchema interface{} `pulumi:"toolSchema"`
@@ -5368,7 +5651,8 @@ func (o GatewayTargetMcpLambdaTargetConfigurationPtrOutput) ToolSchema() pulumi.
 }
 
 type GatewayTargetMcpServerTargetConfiguration struct {
-	Endpoint string `pulumi:"endpoint"`
+	Endpoint    string                             `pulumi:"endpoint"`
+	ListingMode *GatewayTargetMcpServerListingMode `pulumi:"listingMode"`
 }
 
 // GatewayTargetMcpServerTargetConfigurationInput is an input type that accepts GatewayTargetMcpServerTargetConfigurationArgs and GatewayTargetMcpServerTargetConfigurationOutput values.
@@ -5383,7 +5667,8 @@ type GatewayTargetMcpServerTargetConfigurationInput interface {
 }
 
 type GatewayTargetMcpServerTargetConfigurationArgs struct {
-	Endpoint pulumi.StringInput `pulumi:"endpoint"`
+	Endpoint    pulumi.StringInput                        `pulumi:"endpoint"`
+	ListingMode GatewayTargetMcpServerListingModePtrInput `pulumi:"listingMode"`
 }
 
 func (GatewayTargetMcpServerTargetConfigurationArgs) ElementType() reflect.Type {
@@ -5414,6 +5699,12 @@ func (o GatewayTargetMcpServerTargetConfigurationOutput) ToGatewayTargetMcpServe
 
 func (o GatewayTargetMcpServerTargetConfigurationOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v GatewayTargetMcpServerTargetConfiguration) string { return v.Endpoint }).(pulumi.StringOutput)
+}
+
+func (o GatewayTargetMcpServerTargetConfigurationOutput) ListingMode() GatewayTargetMcpServerListingModePtrOutput {
+	return o.ApplyT(func(v GatewayTargetMcpServerTargetConfiguration) *GatewayTargetMcpServerListingMode {
+		return v.ListingMode
+	}).(GatewayTargetMcpServerListingModePtrOutput)
 }
 
 type GatewayTargetMcpServerTargetConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -5447,6 +5738,15 @@ func (o GatewayTargetMcpServerTargetConfigurationPtrOutput) Endpoint() pulumi.St
 		}
 		return &v.Endpoint
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o GatewayTargetMcpServerTargetConfigurationPtrOutput) ListingMode() GatewayTargetMcpServerListingModePtrOutput {
+	return o.ApplyT(func(v *GatewayTargetMcpServerTargetConfiguration) *GatewayTargetMcpServerListingMode {
+		if v == nil {
+			return nil
+		}
+		return v.ListingMode
+	}).(GatewayTargetMcpServerListingModePtrOutput)
 }
 
 type GatewayTargetMcpTargetConfiguration0Properties struct {
@@ -13557,10 +13857,11 @@ func (o OAuth2CredentialProviderClientSecretArnPtrOutput) SecretArn() pulumi.Str
 // Input configuration for a custom OAuth2 provider
 type OAuth2CredentialProviderCustomOauth2ProviderConfigInput struct {
 	// The client ID for the custom OAuth2 provider
-	ClientId string `pulumi:"clientId"`
+	ClientId *string `pulumi:"clientId"`
 	// The client secret for the custom OAuth2 provider
-	ClientSecret   string                                  `pulumi:"clientSecret"`
-	OauthDiscovery OAuth2CredentialProviderOauth2Discovery `pulumi:"oauthDiscovery"`
+	ClientSecret                  *string                                                `pulumi:"clientSecret"`
+	OauthDiscovery                OAuth2CredentialProviderOauth2Discovery                `pulumi:"oauthDiscovery"`
+	OnBehalfOfTokenExchangeConfig *OAuth2CredentialProviderOnBehalfOfTokenExchangeConfig `pulumi:"onBehalfOfTokenExchangeConfig"`
 }
 
 // OAuth2CredentialProviderCustomOauth2ProviderConfigInputInput is an input type that accepts OAuth2CredentialProviderCustomOauth2ProviderConfigInputArgs and OAuth2CredentialProviderCustomOauth2ProviderConfigInputOutput values.
@@ -13577,10 +13878,11 @@ type OAuth2CredentialProviderCustomOauth2ProviderConfigInputInput interface {
 // Input configuration for a custom OAuth2 provider
 type OAuth2CredentialProviderCustomOauth2ProviderConfigInputArgs struct {
 	// The client ID for the custom OAuth2 provider
-	ClientId pulumi.StringInput `pulumi:"clientId"`
+	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
 	// The client secret for the custom OAuth2 provider
-	ClientSecret   pulumi.StringInput                           `pulumi:"clientSecret"`
-	OauthDiscovery OAuth2CredentialProviderOauth2DiscoveryInput `pulumi:"oauthDiscovery"`
+	ClientSecret                  pulumi.StringPtrInput                                         `pulumi:"clientSecret"`
+	OauthDiscovery                OAuth2CredentialProviderOauth2DiscoveryInput                  `pulumi:"oauthDiscovery"`
+	OnBehalfOfTokenExchangeConfig OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigPtrInput `pulumi:"onBehalfOfTokenExchangeConfig"`
 }
 
 func (OAuth2CredentialProviderCustomOauth2ProviderConfigInputArgs) ElementType() reflect.Type {
@@ -13662,19 +13964,25 @@ func (o OAuth2CredentialProviderCustomOauth2ProviderConfigInputOutput) ToOAuth2C
 }
 
 // The client ID for the custom OAuth2 provider
-func (o OAuth2CredentialProviderCustomOauth2ProviderConfigInputOutput) ClientId() pulumi.StringOutput {
-	return o.ApplyT(func(v OAuth2CredentialProviderCustomOauth2ProviderConfigInput) string { return v.ClientId }).(pulumi.StringOutput)
+func (o OAuth2CredentialProviderCustomOauth2ProviderConfigInputOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderCustomOauth2ProviderConfigInput) *string { return v.ClientId }).(pulumi.StringPtrOutput)
 }
 
 // The client secret for the custom OAuth2 provider
-func (o OAuth2CredentialProviderCustomOauth2ProviderConfigInputOutput) ClientSecret() pulumi.StringOutput {
-	return o.ApplyT(func(v OAuth2CredentialProviderCustomOauth2ProviderConfigInput) string { return v.ClientSecret }).(pulumi.StringOutput)
+func (o OAuth2CredentialProviderCustomOauth2ProviderConfigInputOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderCustomOauth2ProviderConfigInput) *string { return v.ClientSecret }).(pulumi.StringPtrOutput)
 }
 
 func (o OAuth2CredentialProviderCustomOauth2ProviderConfigInputOutput) OauthDiscovery() OAuth2CredentialProviderOauth2DiscoveryOutput {
 	return o.ApplyT(func(v OAuth2CredentialProviderCustomOauth2ProviderConfigInput) OAuth2CredentialProviderOauth2Discovery {
 		return v.OauthDiscovery
 	}).(OAuth2CredentialProviderOauth2DiscoveryOutput)
+}
+
+func (o OAuth2CredentialProviderCustomOauth2ProviderConfigInputOutput) OnBehalfOfTokenExchangeConfig() OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigPtrOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderCustomOauth2ProviderConfigInput) *OAuth2CredentialProviderOnBehalfOfTokenExchangeConfig {
+		return v.OnBehalfOfTokenExchangeConfig
+	}).(OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigPtrOutput)
 }
 
 type OAuth2CredentialProviderCustomOauth2ProviderConfigInputPtrOutput struct{ *pulumi.OutputState }
@@ -13707,7 +14015,7 @@ func (o OAuth2CredentialProviderCustomOauth2ProviderConfigInputPtrOutput) Client
 		if v == nil {
 			return nil
 		}
-		return &v.ClientId
+		return v.ClientId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -13717,7 +14025,7 @@ func (o OAuth2CredentialProviderCustomOauth2ProviderConfigInputPtrOutput) Client
 		if v == nil {
 			return nil
 		}
-		return &v.ClientSecret
+		return v.ClientSecret
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -13728,6 +14036,15 @@ func (o OAuth2CredentialProviderCustomOauth2ProviderConfigInputPtrOutput) OauthD
 		}
 		return &v.OauthDiscovery
 	}).(OAuth2CredentialProviderOauth2DiscoveryPtrOutput)
+}
+
+func (o OAuth2CredentialProviderCustomOauth2ProviderConfigInputPtrOutput) OnBehalfOfTokenExchangeConfig() OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigPtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderCustomOauth2ProviderConfigInput) *OAuth2CredentialProviderOnBehalfOfTokenExchangeConfig {
+		if v == nil {
+			return nil
+		}
+		return v.OnBehalfOfTokenExchangeConfig
+	}).(OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigPtrOutput)
 }
 
 // Input configuration for a GitHub OAuth2 provider
@@ -15195,8 +15512,9 @@ func (o OAuth2CredentialProviderOauth2ProviderConfigInputPtrOutput) SlackOauth2P
 
 // Output configuration for an OAuth2 provider
 type OAuth2CredentialProviderOauth2ProviderConfigOutput struct {
-	ClientId       *string                                  `pulumi:"clientId"`
-	OauthDiscovery *OAuth2CredentialProviderOauth2Discovery `pulumi:"oauthDiscovery"`
+	ClientId                      *string                                                `pulumi:"clientId"`
+	OauthDiscovery                *OAuth2CredentialProviderOauth2Discovery               `pulumi:"oauthDiscovery"`
+	OnBehalfOfTokenExchangeConfig *OAuth2CredentialProviderOnBehalfOfTokenExchangeConfig `pulumi:"onBehalfOfTokenExchangeConfig"`
 }
 
 // Output configuration for an OAuth2 provider
@@ -15222,6 +15540,12 @@ func (o OAuth2CredentialProviderOauth2ProviderConfigOutputOutput) OauthDiscovery
 	return o.ApplyT(func(v OAuth2CredentialProviderOauth2ProviderConfigOutput) *OAuth2CredentialProviderOauth2Discovery {
 		return v.OauthDiscovery
 	}).(OAuth2CredentialProviderOauth2DiscoveryPtrOutput)
+}
+
+func (o OAuth2CredentialProviderOauth2ProviderConfigOutputOutput) OnBehalfOfTokenExchangeConfig() OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigPtrOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderOauth2ProviderConfigOutput) *OAuth2CredentialProviderOnBehalfOfTokenExchangeConfig {
+		return v.OnBehalfOfTokenExchangeConfig
+	}).(OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigPtrOutput)
 }
 
 type OAuth2CredentialProviderOauth2ProviderConfigOutputPtrOutput struct{ *pulumi.OutputState }
@@ -15264,6 +15588,174 @@ func (o OAuth2CredentialProviderOauth2ProviderConfigOutputPtrOutput) OauthDiscov
 		}
 		return v.OauthDiscovery
 	}).(OAuth2CredentialProviderOauth2DiscoveryPtrOutput)
+}
+
+func (o OAuth2CredentialProviderOauth2ProviderConfigOutputPtrOutput) OnBehalfOfTokenExchangeConfig() OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigPtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderOauth2ProviderConfigOutput) *OAuth2CredentialProviderOnBehalfOfTokenExchangeConfig {
+		if v == nil {
+			return nil
+		}
+		return v.OnBehalfOfTokenExchangeConfig
+	}).(OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigPtrOutput)
+}
+
+// Configuration for on-behalf-of token exchange
+type OAuth2CredentialProviderOnBehalfOfTokenExchangeConfig struct {
+	// The grant type for on-behalf-of token exchange
+	GrantType                    OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantType `pulumi:"grantType"`
+	TokenExchangeGrantTypeConfig *OAuth2CredentialProviderTokenExchangeGrantTypeConfig          `pulumi:"tokenExchangeGrantTypeConfig"`
+}
+
+// OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigInput is an input type that accepts OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigArgs and OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigOutput values.
+// You can construct a concrete instance of `OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigInput` via:
+//
+//	OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigArgs{...}
+type OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigInput interface {
+	pulumi.Input
+
+	ToOAuth2CredentialProviderOnBehalfOfTokenExchangeConfigOutput() OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigOutput
+	ToOAuth2CredentialProviderOnBehalfOfTokenExchangeConfigOutputWithContext(context.Context) OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigOutput
+}
+
+// Configuration for on-behalf-of token exchange
+type OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigArgs struct {
+	// The grant type for on-behalf-of token exchange
+	GrantType                    OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantTypeInput `pulumi:"grantType"`
+	TokenExchangeGrantTypeConfig OAuth2CredentialProviderTokenExchangeGrantTypeConfigPtrInput        `pulumi:"tokenExchangeGrantTypeConfig"`
+}
+
+func (OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OAuth2CredentialProviderOnBehalfOfTokenExchangeConfig)(nil)).Elem()
+}
+
+func (i OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigArgs) ToOAuth2CredentialProviderOnBehalfOfTokenExchangeConfigOutput() OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigOutput {
+	return i.ToOAuth2CredentialProviderOnBehalfOfTokenExchangeConfigOutputWithContext(context.Background())
+}
+
+func (i OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigArgs) ToOAuth2CredentialProviderOnBehalfOfTokenExchangeConfigOutputWithContext(ctx context.Context) OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigOutput)
+}
+
+func (i OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigArgs) ToOAuth2CredentialProviderOnBehalfOfTokenExchangeConfigPtrOutput() OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigPtrOutput {
+	return i.ToOAuth2CredentialProviderOnBehalfOfTokenExchangeConfigPtrOutputWithContext(context.Background())
+}
+
+func (i OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigArgs) ToOAuth2CredentialProviderOnBehalfOfTokenExchangeConfigPtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigOutput).ToOAuth2CredentialProviderOnBehalfOfTokenExchangeConfigPtrOutputWithContext(ctx)
+}
+
+// OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigPtrInput is an input type that accepts OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigArgs, OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigPtr and OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigPtrOutput values.
+// You can construct a concrete instance of `OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigPtrInput` via:
+//
+//	        OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigPtrInput interface {
+	pulumi.Input
+
+	ToOAuth2CredentialProviderOnBehalfOfTokenExchangeConfigPtrOutput() OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigPtrOutput
+	ToOAuth2CredentialProviderOnBehalfOfTokenExchangeConfigPtrOutputWithContext(context.Context) OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigPtrOutput
+}
+
+type oauth2CredentialProviderOnBehalfOfTokenExchangeConfigPtrType OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigArgs
+
+func OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigPtr(v *OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigArgs) OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigPtrInput {
+	return (*oauth2CredentialProviderOnBehalfOfTokenExchangeConfigPtrType)(v)
+}
+
+func (*oauth2CredentialProviderOnBehalfOfTokenExchangeConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OAuth2CredentialProviderOnBehalfOfTokenExchangeConfig)(nil)).Elem()
+}
+
+func (i *oauth2CredentialProviderOnBehalfOfTokenExchangeConfigPtrType) ToOAuth2CredentialProviderOnBehalfOfTokenExchangeConfigPtrOutput() OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigPtrOutput {
+	return i.ToOAuth2CredentialProviderOnBehalfOfTokenExchangeConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *oauth2CredentialProviderOnBehalfOfTokenExchangeConfigPtrType) ToOAuth2CredentialProviderOnBehalfOfTokenExchangeConfigPtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigPtrOutput)
+}
+
+// Configuration for on-behalf-of token exchange
+type OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigOutput struct{ *pulumi.OutputState }
+
+func (OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OAuth2CredentialProviderOnBehalfOfTokenExchangeConfig)(nil)).Elem()
+}
+
+func (o OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigOutput) ToOAuth2CredentialProviderOnBehalfOfTokenExchangeConfigOutput() OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigOutput) ToOAuth2CredentialProviderOnBehalfOfTokenExchangeConfigOutputWithContext(ctx context.Context) OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigOutput) ToOAuth2CredentialProviderOnBehalfOfTokenExchangeConfigPtrOutput() OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigPtrOutput {
+	return o.ToOAuth2CredentialProviderOnBehalfOfTokenExchangeConfigPtrOutputWithContext(context.Background())
+}
+
+func (o OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigOutput) ToOAuth2CredentialProviderOnBehalfOfTokenExchangeConfigPtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OAuth2CredentialProviderOnBehalfOfTokenExchangeConfig) *OAuth2CredentialProviderOnBehalfOfTokenExchangeConfig {
+		return &v
+	}).(OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigPtrOutput)
+}
+
+// The grant type for on-behalf-of token exchange
+func (o OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigOutput) GrantType() OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantTypeOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderOnBehalfOfTokenExchangeConfig) OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantType {
+		return v.GrantType
+	}).(OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantTypeOutput)
+}
+
+func (o OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigOutput) TokenExchangeGrantTypeConfig() OAuth2CredentialProviderTokenExchangeGrantTypeConfigPtrOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderOnBehalfOfTokenExchangeConfig) *OAuth2CredentialProviderTokenExchangeGrantTypeConfig {
+		return v.TokenExchangeGrantTypeConfig
+	}).(OAuth2CredentialProviderTokenExchangeGrantTypeConfigPtrOutput)
+}
+
+type OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OAuth2CredentialProviderOnBehalfOfTokenExchangeConfig)(nil)).Elem()
+}
+
+func (o OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigPtrOutput) ToOAuth2CredentialProviderOnBehalfOfTokenExchangeConfigPtrOutput() OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigPtrOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigPtrOutput) ToOAuth2CredentialProviderOnBehalfOfTokenExchangeConfigPtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigPtrOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigPtrOutput) Elem() OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderOnBehalfOfTokenExchangeConfig) OAuth2CredentialProviderOnBehalfOfTokenExchangeConfig {
+		if v != nil {
+			return *v
+		}
+		var ret OAuth2CredentialProviderOnBehalfOfTokenExchangeConfig
+		return ret
+	}).(OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigOutput)
+}
+
+// The grant type for on-behalf-of token exchange
+func (o OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigPtrOutput) GrantType() OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantTypePtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderOnBehalfOfTokenExchangeConfig) *OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantType {
+		if v == nil {
+			return nil
+		}
+		return &v.GrantType
+	}).(OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantTypePtrOutput)
+}
+
+func (o OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigPtrOutput) TokenExchangeGrantTypeConfig() OAuth2CredentialProviderTokenExchangeGrantTypeConfigPtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderOnBehalfOfTokenExchangeConfig) *OAuth2CredentialProviderTokenExchangeGrantTypeConfig {
+		if v == nil {
+			return nil
+		}
+		return v.TokenExchangeGrantTypeConfig
+	}).(OAuth2CredentialProviderTokenExchangeGrantTypeConfigPtrOutput)
 }
 
 // Input configuration for a Salesforce OAuth2 provider
@@ -15571,6 +16063,167 @@ func (o OAuth2CredentialProviderSlackOauth2ProviderConfigInputPtrOutput) ClientS
 type OAuth2CredentialProviderTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
+}
+
+// Configuration for RFC 8693 Token Exchange
+type OAuth2CredentialProviderTokenExchangeGrantTypeConfig struct {
+	// The actor token content type
+	ActorTokenContent OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContent `pulumi:"actorTokenContent"`
+	// The actor token scopes. Only valid when ActorTokenContent is M2M.
+	ActorTokenScopes []string `pulumi:"actorTokenScopes"`
+}
+
+// OAuth2CredentialProviderTokenExchangeGrantTypeConfigInput is an input type that accepts OAuth2CredentialProviderTokenExchangeGrantTypeConfigArgs and OAuth2CredentialProviderTokenExchangeGrantTypeConfigOutput values.
+// You can construct a concrete instance of `OAuth2CredentialProviderTokenExchangeGrantTypeConfigInput` via:
+//
+//	OAuth2CredentialProviderTokenExchangeGrantTypeConfigArgs{...}
+type OAuth2CredentialProviderTokenExchangeGrantTypeConfigInput interface {
+	pulumi.Input
+
+	ToOAuth2CredentialProviderTokenExchangeGrantTypeConfigOutput() OAuth2CredentialProviderTokenExchangeGrantTypeConfigOutput
+	ToOAuth2CredentialProviderTokenExchangeGrantTypeConfigOutputWithContext(context.Context) OAuth2CredentialProviderTokenExchangeGrantTypeConfigOutput
+}
+
+// Configuration for RFC 8693 Token Exchange
+type OAuth2CredentialProviderTokenExchangeGrantTypeConfigArgs struct {
+	// The actor token content type
+	ActorTokenContent OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContentInput `pulumi:"actorTokenContent"`
+	// The actor token scopes. Only valid when ActorTokenContent is M2M.
+	ActorTokenScopes pulumi.StringArrayInput `pulumi:"actorTokenScopes"`
+}
+
+func (OAuth2CredentialProviderTokenExchangeGrantTypeConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OAuth2CredentialProviderTokenExchangeGrantTypeConfig)(nil)).Elem()
+}
+
+func (i OAuth2CredentialProviderTokenExchangeGrantTypeConfigArgs) ToOAuth2CredentialProviderTokenExchangeGrantTypeConfigOutput() OAuth2CredentialProviderTokenExchangeGrantTypeConfigOutput {
+	return i.ToOAuth2CredentialProviderTokenExchangeGrantTypeConfigOutputWithContext(context.Background())
+}
+
+func (i OAuth2CredentialProviderTokenExchangeGrantTypeConfigArgs) ToOAuth2CredentialProviderTokenExchangeGrantTypeConfigOutputWithContext(ctx context.Context) OAuth2CredentialProviderTokenExchangeGrantTypeConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuth2CredentialProviderTokenExchangeGrantTypeConfigOutput)
+}
+
+func (i OAuth2CredentialProviderTokenExchangeGrantTypeConfigArgs) ToOAuth2CredentialProviderTokenExchangeGrantTypeConfigPtrOutput() OAuth2CredentialProviderTokenExchangeGrantTypeConfigPtrOutput {
+	return i.ToOAuth2CredentialProviderTokenExchangeGrantTypeConfigPtrOutputWithContext(context.Background())
+}
+
+func (i OAuth2CredentialProviderTokenExchangeGrantTypeConfigArgs) ToOAuth2CredentialProviderTokenExchangeGrantTypeConfigPtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderTokenExchangeGrantTypeConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuth2CredentialProviderTokenExchangeGrantTypeConfigOutput).ToOAuth2CredentialProviderTokenExchangeGrantTypeConfigPtrOutputWithContext(ctx)
+}
+
+// OAuth2CredentialProviderTokenExchangeGrantTypeConfigPtrInput is an input type that accepts OAuth2CredentialProviderTokenExchangeGrantTypeConfigArgs, OAuth2CredentialProviderTokenExchangeGrantTypeConfigPtr and OAuth2CredentialProviderTokenExchangeGrantTypeConfigPtrOutput values.
+// You can construct a concrete instance of `OAuth2CredentialProviderTokenExchangeGrantTypeConfigPtrInput` via:
+//
+//	        OAuth2CredentialProviderTokenExchangeGrantTypeConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type OAuth2CredentialProviderTokenExchangeGrantTypeConfigPtrInput interface {
+	pulumi.Input
+
+	ToOAuth2CredentialProviderTokenExchangeGrantTypeConfigPtrOutput() OAuth2CredentialProviderTokenExchangeGrantTypeConfigPtrOutput
+	ToOAuth2CredentialProviderTokenExchangeGrantTypeConfigPtrOutputWithContext(context.Context) OAuth2CredentialProviderTokenExchangeGrantTypeConfigPtrOutput
+}
+
+type oauth2CredentialProviderTokenExchangeGrantTypeConfigPtrType OAuth2CredentialProviderTokenExchangeGrantTypeConfigArgs
+
+func OAuth2CredentialProviderTokenExchangeGrantTypeConfigPtr(v *OAuth2CredentialProviderTokenExchangeGrantTypeConfigArgs) OAuth2CredentialProviderTokenExchangeGrantTypeConfigPtrInput {
+	return (*oauth2CredentialProviderTokenExchangeGrantTypeConfigPtrType)(v)
+}
+
+func (*oauth2CredentialProviderTokenExchangeGrantTypeConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OAuth2CredentialProviderTokenExchangeGrantTypeConfig)(nil)).Elem()
+}
+
+func (i *oauth2CredentialProviderTokenExchangeGrantTypeConfigPtrType) ToOAuth2CredentialProviderTokenExchangeGrantTypeConfigPtrOutput() OAuth2CredentialProviderTokenExchangeGrantTypeConfigPtrOutput {
+	return i.ToOAuth2CredentialProviderTokenExchangeGrantTypeConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *oauth2CredentialProviderTokenExchangeGrantTypeConfigPtrType) ToOAuth2CredentialProviderTokenExchangeGrantTypeConfigPtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderTokenExchangeGrantTypeConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuth2CredentialProviderTokenExchangeGrantTypeConfigPtrOutput)
+}
+
+// Configuration for RFC 8693 Token Exchange
+type OAuth2CredentialProviderTokenExchangeGrantTypeConfigOutput struct{ *pulumi.OutputState }
+
+func (OAuth2CredentialProviderTokenExchangeGrantTypeConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OAuth2CredentialProviderTokenExchangeGrantTypeConfig)(nil)).Elem()
+}
+
+func (o OAuth2CredentialProviderTokenExchangeGrantTypeConfigOutput) ToOAuth2CredentialProviderTokenExchangeGrantTypeConfigOutput() OAuth2CredentialProviderTokenExchangeGrantTypeConfigOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderTokenExchangeGrantTypeConfigOutput) ToOAuth2CredentialProviderTokenExchangeGrantTypeConfigOutputWithContext(ctx context.Context) OAuth2CredentialProviderTokenExchangeGrantTypeConfigOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderTokenExchangeGrantTypeConfigOutput) ToOAuth2CredentialProviderTokenExchangeGrantTypeConfigPtrOutput() OAuth2CredentialProviderTokenExchangeGrantTypeConfigPtrOutput {
+	return o.ToOAuth2CredentialProviderTokenExchangeGrantTypeConfigPtrOutputWithContext(context.Background())
+}
+
+func (o OAuth2CredentialProviderTokenExchangeGrantTypeConfigOutput) ToOAuth2CredentialProviderTokenExchangeGrantTypeConfigPtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderTokenExchangeGrantTypeConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OAuth2CredentialProviderTokenExchangeGrantTypeConfig) *OAuth2CredentialProviderTokenExchangeGrantTypeConfig {
+		return &v
+	}).(OAuth2CredentialProviderTokenExchangeGrantTypeConfigPtrOutput)
+}
+
+// The actor token content type
+func (o OAuth2CredentialProviderTokenExchangeGrantTypeConfigOutput) ActorTokenContent() OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContentOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderTokenExchangeGrantTypeConfig) OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContent {
+		return v.ActorTokenContent
+	}).(OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContentOutput)
+}
+
+// The actor token scopes. Only valid when ActorTokenContent is M2M.
+func (o OAuth2CredentialProviderTokenExchangeGrantTypeConfigOutput) ActorTokenScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderTokenExchangeGrantTypeConfig) []string { return v.ActorTokenScopes }).(pulumi.StringArrayOutput)
+}
+
+type OAuth2CredentialProviderTokenExchangeGrantTypeConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (OAuth2CredentialProviderTokenExchangeGrantTypeConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OAuth2CredentialProviderTokenExchangeGrantTypeConfig)(nil)).Elem()
+}
+
+func (o OAuth2CredentialProviderTokenExchangeGrantTypeConfigPtrOutput) ToOAuth2CredentialProviderTokenExchangeGrantTypeConfigPtrOutput() OAuth2CredentialProviderTokenExchangeGrantTypeConfigPtrOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderTokenExchangeGrantTypeConfigPtrOutput) ToOAuth2CredentialProviderTokenExchangeGrantTypeConfigPtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderTokenExchangeGrantTypeConfigPtrOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderTokenExchangeGrantTypeConfigPtrOutput) Elem() OAuth2CredentialProviderTokenExchangeGrantTypeConfigOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderTokenExchangeGrantTypeConfig) OAuth2CredentialProviderTokenExchangeGrantTypeConfig {
+		if v != nil {
+			return *v
+		}
+		var ret OAuth2CredentialProviderTokenExchangeGrantTypeConfig
+		return ret
+	}).(OAuth2CredentialProviderTokenExchangeGrantTypeConfigOutput)
+}
+
+// The actor token content type
+func (o OAuth2CredentialProviderTokenExchangeGrantTypeConfigPtrOutput) ActorTokenContent() OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContentPtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderTokenExchangeGrantTypeConfig) *OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContent {
+		if v == nil {
+			return nil
+		}
+		return &v.ActorTokenContent
+	}).(OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContentPtrOutput)
+}
+
+// The actor token scopes. Only valid when ActorTokenContent is M2M.
+func (o OAuth2CredentialProviderTokenExchangeGrantTypeConfigPtrOutput) ActorTokenScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderTokenExchangeGrantTypeConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ActorTokenScopes
+	}).(pulumi.StringArrayOutput)
 }
 
 // The configuration for reading agent traces from CloudWatch logs.
@@ -18926,8 +19579,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetCredentialProvider0PropertiesPtrInput)(nil)).Elem(), GatewayTargetCredentialProvider0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetCredentialProvider1PropertiesInput)(nil)).Elem(), GatewayTargetCredentialProvider1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetCredentialProvider1PropertiesPtrInput)(nil)).Elem(), GatewayTargetCredentialProvider1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetCredentialProvider2PropertiesInput)(nil)).Elem(), GatewayTargetCredentialProvider2PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetCredentialProvider2PropertiesPtrInput)(nil)).Elem(), GatewayTargetCredentialProvider2PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetCredentialProviderConfigurationInput)(nil)).Elem(), GatewayTargetCredentialProviderConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetCredentialProviderConfigurationArrayInput)(nil)).Elem(), GatewayTargetCredentialProviderConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetIamCredentialProviderInput)(nil)).Elem(), GatewayTargetIamCredentialProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetIamCredentialProviderPtrInput)(nil)).Elem(), GatewayTargetIamCredentialProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetMcpLambdaTargetConfigurationInput)(nil)).Elem(), GatewayTargetMcpLambdaTargetConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetMcpServerTargetConfigurationInput)(nil)).Elem(), GatewayTargetMcpServerTargetConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetMcpTargetConfiguration0PropertiesInput)(nil)).Elem(), GatewayTargetMcpTargetConfiguration0PropertiesArgs{})
@@ -19047,10 +19704,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderOauth2DiscoveryPtrInput)(nil)).Elem(), OAuth2CredentialProviderOauth2DiscoveryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderOauth2ProviderConfigInputInput)(nil)).Elem(), OAuth2CredentialProviderOauth2ProviderConfigInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderOauth2ProviderConfigInputPtrInput)(nil)).Elem(), OAuth2CredentialProviderOauth2ProviderConfigInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigInput)(nil)).Elem(), OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigPtrInput)(nil)).Elem(), OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputInput)(nil)).Elem(), OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputPtrInput)(nil)).Elem(), OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderSlackOauth2ProviderConfigInputInput)(nil)).Elem(), OAuth2CredentialProviderSlackOauth2ProviderConfigInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderSlackOauth2ProviderConfigInputPtrInput)(nil)).Elem(), OAuth2CredentialProviderSlackOauth2ProviderConfigInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderTokenExchangeGrantTypeConfigInput)(nil)).Elem(), OAuth2CredentialProviderTokenExchangeGrantTypeConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderTokenExchangeGrantTypeConfigPtrInput)(nil)).Elem(), OAuth2CredentialProviderTokenExchangeGrantTypeConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigCloudWatchLogsInputConfigInput)(nil)).Elem(), OnlineEvaluationConfigCloudWatchLogsInputConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigDataSourceConfigInput)(nil)).Elem(), OnlineEvaluationConfigDataSourceConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigEvaluatorReferenceInput)(nil)).Elem(), OnlineEvaluationConfigEvaluatorReferenceArgs{})
@@ -19171,8 +19832,12 @@ func init() {
 	pulumi.RegisterOutputType(GatewayTargetCredentialProvider0PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetCredentialProvider1PropertiesOutput{})
 	pulumi.RegisterOutputType(GatewayTargetCredentialProvider1PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(GatewayTargetCredentialProvider2PropertiesOutput{})
+	pulumi.RegisterOutputType(GatewayTargetCredentialProvider2PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetCredentialProviderConfigurationOutput{})
 	pulumi.RegisterOutputType(GatewayTargetCredentialProviderConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GatewayTargetIamCredentialProviderOutput{})
+	pulumi.RegisterOutputType(GatewayTargetIamCredentialProviderPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetMcpLambdaTargetConfigurationOutput{})
 	pulumi.RegisterOutputType(GatewayTargetMcpLambdaTargetConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetMcpServerTargetConfigurationOutput{})
@@ -19309,10 +19974,14 @@ func init() {
 	pulumi.RegisterOutputType(OAuth2CredentialProviderOauth2ProviderConfigInputPtrOutput{})
 	pulumi.RegisterOutputType(OAuth2CredentialProviderOauth2ProviderConfigOutputOutput{})
 	pulumi.RegisterOutputType(OAuth2CredentialProviderOauth2ProviderConfigOutputPtrOutput{})
+	pulumi.RegisterOutputType(OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigOutput{})
+	pulumi.RegisterOutputType(OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigPtrOutput{})
 	pulumi.RegisterOutputType(OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputOutput{})
 	pulumi.RegisterOutputType(OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputPtrOutput{})
 	pulumi.RegisterOutputType(OAuth2CredentialProviderSlackOauth2ProviderConfigInputOutput{})
 	pulumi.RegisterOutputType(OAuth2CredentialProviderSlackOauth2ProviderConfigInputPtrOutput{})
+	pulumi.RegisterOutputType(OAuth2CredentialProviderTokenExchangeGrantTypeConfigOutput{})
+	pulumi.RegisterOutputType(OAuth2CredentialProviderTokenExchangeGrantTypeConfigPtrOutput{})
 	pulumi.RegisterOutputType(OnlineEvaluationConfigCloudWatchLogsInputConfigOutput{})
 	pulumi.RegisterOutputType(OnlineEvaluationConfigCloudWatchLogsInputConfigPtrOutput{})
 	pulumi.RegisterOutputType(OnlineEvaluationConfigCloudWatchOutputConfigOutput{})

@@ -37,6 +37,8 @@ type LookupAgentSpaceResult struct {
 	CreatedAt *string `pulumi:"createdAt"`
 	// The description of the AgentSpace.
 	Description *string `pulumi:"description"`
+	// The locale for the AgentSpace, which determines the language used in agent responses.
+	Locale *string `pulumi:"locale"`
 	// The name of the AgentSpace.
 	Name        *string                `pulumi:"name"`
 	OperatorApp *AgentSpaceOperatorApp `pulumi:"operatorApp"`
@@ -96,6 +98,11 @@ func (o LookupAgentSpaceResultOutput) CreatedAt() pulumi.StringPtrOutput {
 // The description of the AgentSpace.
 func (o LookupAgentSpaceResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAgentSpaceResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The locale for the AgentSpace, which determines the language used in agent responses.
+func (o LookupAgentSpaceResultOutput) Locale() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAgentSpaceResult) *string { return v.Locale }).(pulumi.StringPtrOutput)
 }
 
 // The name of the AgentSpace.

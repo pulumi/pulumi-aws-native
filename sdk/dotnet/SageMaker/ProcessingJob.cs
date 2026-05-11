@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.SageMaker
         /// Sets the environment variables in the Docker container.
         /// </summary>
         [Output("environment")]
-        public Output<Outputs.ProcessingJobEnvironment?> Environment { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Environment { get; private set; } = null!;
 
         /// <summary>
         /// An optional string, up to one KB in size, that contains metadata from the processing container when the processing job exits.
@@ -173,7 +173,7 @@ namespace Pulumi.AwsNative.SageMaker
                 ReplaceOnChanges =
                 {
                     "appSpecification",
-                    "environment",
+                    "environment.*",
                     "experimentConfig",
                     "networkConfig",
                     "processingInputs[*]",
@@ -212,11 +212,17 @@ namespace Pulumi.AwsNative.SageMaker
         [Input("appSpecification", required: true)]
         public Input<Inputs.ProcessingJobAppSpecificationArgs> AppSpecification { get; set; } = null!;
 
+        [Input("environment")]
+        private InputMap<string>? _environment;
+
         /// <summary>
         /// Sets the environment variables in the Docker container.
         /// </summary>
-        [Input("environment")]
-        public Input<Inputs.ProcessingJobEnvironmentArgs>? Environment { get; set; }
+        public InputMap<string> Environment
+        {
+            get => _environment ?? (_environment = new InputMap<string>());
+            set => _environment = value;
+        }
 
         /// <summary>
         /// Associates a SageMaker job as a trial component with an experiment and trial. Specified when you call the [CreateProcessingJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateProcessingJob.html) API.

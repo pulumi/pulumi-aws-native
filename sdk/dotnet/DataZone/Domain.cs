@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.DataZone
         /// The domain execution role that is created when an Amazon DataZone domain is created. The domain execution role is created in the AWS account that houses the Amazon DataZone domain.
         /// </summary>
         [Output("domainExecutionRole")]
-        public Output<string> DomainExecutionRole { get; private set; } = null!;
+        public Output<string?> DomainExecutionRole { get; private set; } = null!;
 
         /// <summary>
         /// The version of the domain.
@@ -119,7 +119,7 @@ namespace Pulumi.AwsNative.DataZone
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Domain(string name, DomainArgs args, CustomResourceOptions? options = null)
+        public Domain(string name, DomainArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:datazone:Domain", name, args ?? new DomainArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -170,8 +170,8 @@ namespace Pulumi.AwsNative.DataZone
         /// <summary>
         /// The domain execution role that is created when an Amazon DataZone domain is created. The domain execution role is created in the AWS account that houses the Amazon DataZone domain.
         /// </summary>
-        [Input("domainExecutionRole", required: true)]
-        public Input<string> DomainExecutionRole { get; set; } = null!;
+        [Input("domainExecutionRole")]
+        public Input<string>? DomainExecutionRole { get; set; }
 
         /// <summary>
         /// The version of the domain.

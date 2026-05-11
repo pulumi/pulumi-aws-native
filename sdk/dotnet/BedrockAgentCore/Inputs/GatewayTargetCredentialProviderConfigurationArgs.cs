@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
         /// The credential provider for the gateway target.
         /// </summary>
         [Input("credentialProvider")]
-        public InputUnion<Inputs.GatewayTargetCredentialProvider0PropertiesArgs, Inputs.GatewayTargetCredentialProvider1PropertiesArgs>? CredentialProvider { get; set; }
+        public object? CredentialProvider { get; set; }
 
         /// <summary>
         /// The credential provider type for the gateway target.

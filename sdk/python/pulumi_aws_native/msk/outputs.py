@@ -49,6 +49,7 @@ __all__ = [
     'ClusterVpcConnectivitySasl',
     'ClusterVpcConnectivityScram',
     'ClusterVpcConnectivityTls',
+    'ClusterZookeeperAccess',
     'ConfigurationLatestRevision',
     'LogDelivery',
     'ReplicatorAmazonMskCluster',
@@ -1308,6 +1309,19 @@ class ClusterVpcConnectivityTls(dict):
         """
         TLS authentication is enabled or not.
         """
+        return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class ClusterZookeeperAccess(dict):
+    def __init__(__self__, *,
+                 enabled: Optional[_builtins.bool] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[_builtins.bool]:
         return pulumi.get(self, "enabled")
 
 

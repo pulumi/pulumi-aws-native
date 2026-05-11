@@ -20,11 +20,26 @@ namespace Pulumi.AwsNative.DataZone.Outputs
         /// The ARN of the IAM User Profile.
         /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The group profile ID of the IAM User Profile.
+        /// </summary>
+        public readonly string? GroupProfileId;
+        /// <summary>
+        /// The session name of the IAM User Profile.
+        /// </summary>
+        public readonly string? SessionName;
 
         [OutputConstructor]
-        private UserProfileIamUserProfileDetails(string? arn)
+        private UserProfileIamUserProfileDetails(
+            string? arn,
+
+            string? groupProfileId,
+
+            string? sessionName)
         {
             Arn = arn;
+            GroupProfileId = groupProfileId;
+            SessionName = sessionName;
         }
     }
 }

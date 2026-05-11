@@ -72,6 +72,9 @@ export class Function extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     declare public /*out*/ readonly stage: pulumi.Output<string>;
+    /**
+     * A complex type that contains zero or more ``Tag`` elements.
+     */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -140,5 +143,8 @@ export interface FunctionArgs {
      * A name to identify the function.
      */
     name?: pulumi.Input<string>;
+    /**
+     * A complex type that contains zero or more ``Tag`` elements.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

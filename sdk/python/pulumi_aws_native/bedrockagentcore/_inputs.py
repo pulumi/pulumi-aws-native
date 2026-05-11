@@ -100,8 +100,12 @@ __all__ = [
     'GatewayTargetCredentialProvider0PropertiesArgsDict',
     'GatewayTargetCredentialProvider1PropertiesArgs',
     'GatewayTargetCredentialProvider1PropertiesArgsDict',
+    'GatewayTargetCredentialProvider2PropertiesArgs',
+    'GatewayTargetCredentialProvider2PropertiesArgsDict',
     'GatewayTargetCredentialProviderConfigurationArgs',
     'GatewayTargetCredentialProviderConfigurationArgsDict',
+    'GatewayTargetIamCredentialProviderArgs',
+    'GatewayTargetIamCredentialProviderArgsDict',
     'GatewayTargetMcpLambdaTargetConfigurationArgs',
     'GatewayTargetMcpLambdaTargetConfigurationArgsDict',
     'GatewayTargetMcpServerTargetConfigurationArgs',
@@ -232,10 +236,14 @@ __all__ = [
     'OAuth2CredentialProviderOauth2DiscoveryArgsDict',
     'OAuth2CredentialProviderOauth2ProviderConfigInputArgs',
     'OAuth2CredentialProviderOauth2ProviderConfigInputArgsDict',
+    'OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigArgs',
+    'OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigArgsDict',
     'OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputArgs',
     'OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputArgsDict',
     'OAuth2CredentialProviderSlackOauth2ProviderConfigInputArgs',
     'OAuth2CredentialProviderSlackOauth2ProviderConfigInputArgsDict',
+    'OAuth2CredentialProviderTokenExchangeGrantTypeConfigArgs',
+    'OAuth2CredentialProviderTokenExchangeGrantTypeConfigArgsDict',
     'OnlineEvaluationConfigCloudWatchLogsInputConfigArgs',
     'OnlineEvaluationConfigCloudWatchLogsInputConfigArgsDict',
     'OnlineEvaluationConfigDataSourceConfigArgs',
@@ -1961,12 +1969,31 @@ class GatewayTargetCredentialProvider1PropertiesArgs:
         pulumi.set(self, "api_key_credential_provider", value)
 
 
+class GatewayTargetCredentialProvider2PropertiesArgsDict(TypedDict):
+    iam_credential_provider: pulumi.Input['GatewayTargetIamCredentialProviderArgsDict']
+
+@pulumi.input_type
+class GatewayTargetCredentialProvider2PropertiesArgs:
+    def __init__(__self__, *,
+                 iam_credential_provider: pulumi.Input['GatewayTargetIamCredentialProviderArgs']):
+        pulumi.set(__self__, "iam_credential_provider", iam_credential_provider)
+
+    @_builtins.property
+    @pulumi.getter(name="iamCredentialProvider")
+    def iam_credential_provider(self) -> pulumi.Input['GatewayTargetIamCredentialProviderArgs']:
+        return pulumi.get(self, "iam_credential_provider")
+
+    @iam_credential_provider.setter
+    def iam_credential_provider(self, value: pulumi.Input['GatewayTargetIamCredentialProviderArgs']):
+        pulumi.set(self, "iam_credential_provider", value)
+
+
 class GatewayTargetCredentialProviderConfigurationArgsDict(TypedDict):
     credential_provider_type: pulumi.Input['GatewayTargetCredentialProviderType']
     """
     The credential provider type for the gateway target.
     """
-    credential_provider: NotRequired[pulumi.Input[Union['GatewayTargetCredentialProvider0PropertiesArgsDict', 'GatewayTargetCredentialProvider1PropertiesArgsDict']]]
+    credential_provider: NotRequired[pulumi.Input[Union['GatewayTargetCredentialProvider0PropertiesArgsDict', 'GatewayTargetCredentialProvider1PropertiesArgsDict', 'GatewayTargetCredentialProvider2PropertiesArgsDict']]]
     """
     The credential provider for the gateway target.
     """
@@ -1975,10 +2002,10 @@ class GatewayTargetCredentialProviderConfigurationArgsDict(TypedDict):
 class GatewayTargetCredentialProviderConfigurationArgs:
     def __init__(__self__, *,
                  credential_provider_type: pulumi.Input['GatewayTargetCredentialProviderType'],
-                 credential_provider: Optional[pulumi.Input[Union['GatewayTargetCredentialProvider0PropertiesArgs', 'GatewayTargetCredentialProvider1PropertiesArgs']]] = None):
+                 credential_provider: Optional[pulumi.Input[Union['GatewayTargetCredentialProvider0PropertiesArgs', 'GatewayTargetCredentialProvider1PropertiesArgs', 'GatewayTargetCredentialProvider2PropertiesArgs']]] = None):
         """
         :param pulumi.Input['GatewayTargetCredentialProviderType'] credential_provider_type: The credential provider type for the gateway target.
-        :param pulumi.Input[Union['GatewayTargetCredentialProvider0PropertiesArgs', 'GatewayTargetCredentialProvider1PropertiesArgs']] credential_provider: The credential provider for the gateway target.
+        :param pulumi.Input[Union['GatewayTargetCredentialProvider0PropertiesArgs', 'GatewayTargetCredentialProvider1PropertiesArgs', 'GatewayTargetCredentialProvider2PropertiesArgs']] credential_provider: The credential provider for the gateway target.
         """
         pulumi.set(__self__, "credential_provider_type", credential_provider_type)
         if credential_provider is not None:
@@ -1998,15 +2025,47 @@ class GatewayTargetCredentialProviderConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="credentialProvider")
-    def credential_provider(self) -> Optional[pulumi.Input[Union['GatewayTargetCredentialProvider0PropertiesArgs', 'GatewayTargetCredentialProvider1PropertiesArgs']]]:
+    def credential_provider(self) -> Optional[pulumi.Input[Union['GatewayTargetCredentialProvider0PropertiesArgs', 'GatewayTargetCredentialProvider1PropertiesArgs', 'GatewayTargetCredentialProvider2PropertiesArgs']]]:
         """
         The credential provider for the gateway target.
         """
         return pulumi.get(self, "credential_provider")
 
     @credential_provider.setter
-    def credential_provider(self, value: Optional[pulumi.Input[Union['GatewayTargetCredentialProvider0PropertiesArgs', 'GatewayTargetCredentialProvider1PropertiesArgs']]]):
+    def credential_provider(self, value: Optional[pulumi.Input[Union['GatewayTargetCredentialProvider0PropertiesArgs', 'GatewayTargetCredentialProvider1PropertiesArgs', 'GatewayTargetCredentialProvider2PropertiesArgs']]]):
         pulumi.set(self, "credential_provider", value)
+
+
+class GatewayTargetIamCredentialProviderArgsDict(TypedDict):
+    service: pulumi.Input[_builtins.str]
+    region: NotRequired[pulumi.Input[_builtins.str]]
+
+@pulumi.input_type
+class GatewayTargetIamCredentialProviderArgs:
+    def __init__(__self__, *,
+                 service: pulumi.Input[_builtins.str],
+                 region: Optional[pulumi.Input[_builtins.str]] = None):
+        pulumi.set(__self__, "service", service)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+
+    @_builtins.property
+    @pulumi.getter
+    def service(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "service")
+
+    @service.setter
+    def service(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "service", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "region", value)
 
 
 class GatewayTargetMcpLambdaTargetConfigurationArgsDict(TypedDict):
@@ -2042,12 +2101,16 @@ class GatewayTargetMcpLambdaTargetConfigurationArgs:
 
 class GatewayTargetMcpServerTargetConfigurationArgsDict(TypedDict):
     endpoint: pulumi.Input[_builtins.str]
+    listing_mode: NotRequired[pulumi.Input['GatewayTargetMcpServerListingMode']]
 
 @pulumi.input_type
 class GatewayTargetMcpServerTargetConfigurationArgs:
     def __init__(__self__, *,
-                 endpoint: pulumi.Input[_builtins.str]):
+                 endpoint: pulumi.Input[_builtins.str],
+                 listing_mode: Optional[pulumi.Input['GatewayTargetMcpServerListingMode']] = None):
         pulumi.set(__self__, "endpoint", endpoint)
+        if listing_mode is not None:
+            pulumi.set(__self__, "listing_mode", listing_mode)
 
     @_builtins.property
     @pulumi.getter
@@ -2057,6 +2120,15 @@ class GatewayTargetMcpServerTargetConfigurationArgs:
     @endpoint.setter
     def endpoint(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "endpoint", value)
+
+    @_builtins.property
+    @pulumi.getter(name="listingMode")
+    def listing_mode(self) -> Optional[pulumi.Input['GatewayTargetMcpServerListingMode']]:
+        return pulumi.get(self, "listing_mode")
+
+    @listing_mode.setter
+    def listing_mode(self, value: Optional[pulumi.Input['GatewayTargetMcpServerListingMode']]):
+        pulumi.set(self, "listing_mode", value)
 
 
 class GatewayTargetMcpTargetConfiguration0PropertiesArgsDict(TypedDict):
@@ -4651,55 +4723,37 @@ class OAuth2CredentialProviderCustomOauth2ProviderConfigInputArgsDict(TypedDict)
     """
     Input configuration for a custom OAuth2 provider
     """
-    client_id: pulumi.Input[_builtins.str]
+    oauth_discovery: pulumi.Input['OAuth2CredentialProviderOauth2DiscoveryArgsDict']
+    client_id: NotRequired[pulumi.Input[_builtins.str]]
     """
     The client ID for the custom OAuth2 provider
     """
-    client_secret: pulumi.Input[_builtins.str]
+    client_secret: NotRequired[pulumi.Input[_builtins.str]]
     """
     The client secret for the custom OAuth2 provider
     """
-    oauth_discovery: pulumi.Input['OAuth2CredentialProviderOauth2DiscoveryArgsDict']
+    on_behalf_of_token_exchange_config: NotRequired[pulumi.Input['OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigArgsDict']]
 
 @pulumi.input_type
 class OAuth2CredentialProviderCustomOauth2ProviderConfigInputArgs:
     def __init__(__self__, *,
-                 client_id: pulumi.Input[_builtins.str],
-                 client_secret: pulumi.Input[_builtins.str],
-                 oauth_discovery: pulumi.Input['OAuth2CredentialProviderOauth2DiscoveryArgs']):
+                 oauth_discovery: pulumi.Input['OAuth2CredentialProviderOauth2DiscoveryArgs'],
+                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 client_secret: Optional[pulumi.Input[_builtins.str]] = None,
+                 on_behalf_of_token_exchange_config: Optional[pulumi.Input['OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigArgs']] = None):
         """
         Input configuration for a custom OAuth2 provider
 
         :param pulumi.Input[_builtins.str] client_id: The client ID for the custom OAuth2 provider
         :param pulumi.Input[_builtins.str] client_secret: The client secret for the custom OAuth2 provider
         """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "client_secret", client_secret)
         pulumi.set(__self__, "oauth_discovery", oauth_discovery)
-
-    @_builtins.property
-    @pulumi.getter(name="clientId")
-    def client_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The client ID for the custom OAuth2 provider
-        """
-        return pulumi.get(self, "client_id")
-
-    @client_id.setter
-    def client_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "client_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="clientSecret")
-    def client_secret(self) -> pulumi.Input[_builtins.str]:
-        """
-        The client secret for the custom OAuth2 provider
-        """
-        return pulumi.get(self, "client_secret")
-
-    @client_secret.setter
-    def client_secret(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "client_secret", value)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if on_behalf_of_token_exchange_config is not None:
+            pulumi.set(__self__, "on_behalf_of_token_exchange_config", on_behalf_of_token_exchange_config)
 
     @_builtins.property
     @pulumi.getter(name="oauthDiscovery")
@@ -4709,6 +4763,39 @@ class OAuth2CredentialProviderCustomOauth2ProviderConfigInputArgs:
     @oauth_discovery.setter
     def oauth_discovery(self, value: pulumi.Input['OAuth2CredentialProviderOauth2DiscoveryArgs']):
         pulumi.set(self, "oauth_discovery", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The client ID for the custom OAuth2 provider
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "client_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The client secret for the custom OAuth2 provider
+        """
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "client_secret", value)
+
+    @_builtins.property
+    @pulumi.getter(name="onBehalfOfTokenExchangeConfig")
+    def on_behalf_of_token_exchange_config(self) -> Optional[pulumi.Input['OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigArgs']]:
+        return pulumi.get(self, "on_behalf_of_token_exchange_config")
+
+    @on_behalf_of_token_exchange_config.setter
+    def on_behalf_of_token_exchange_config(self, value: Optional[pulumi.Input['OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigArgs']]):
+        pulumi.set(self, "on_behalf_of_token_exchange_config", value)
 
 
 class OAuth2CredentialProviderGithubOauth2ProviderConfigInputArgsDict(TypedDict):
@@ -5246,6 +5333,52 @@ class OAuth2CredentialProviderOauth2ProviderConfigInputArgs:
         pulumi.set(self, "slack_oauth2_provider_config", value)
 
 
+class OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigArgsDict(TypedDict):
+    """
+    Configuration for on-behalf-of token exchange
+    """
+    grant_type: pulumi.Input['OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantType']
+    """
+    The grant type for on-behalf-of token exchange
+    """
+    token_exchange_grant_type_config: NotRequired[pulumi.Input['OAuth2CredentialProviderTokenExchangeGrantTypeConfigArgsDict']]
+
+@pulumi.input_type
+class OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigArgs:
+    def __init__(__self__, *,
+                 grant_type: pulumi.Input['OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantType'],
+                 token_exchange_grant_type_config: Optional[pulumi.Input['OAuth2CredentialProviderTokenExchangeGrantTypeConfigArgs']] = None):
+        """
+        Configuration for on-behalf-of token exchange
+
+        :param pulumi.Input['OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantType'] grant_type: The grant type for on-behalf-of token exchange
+        """
+        pulumi.set(__self__, "grant_type", grant_type)
+        if token_exchange_grant_type_config is not None:
+            pulumi.set(__self__, "token_exchange_grant_type_config", token_exchange_grant_type_config)
+
+    @_builtins.property
+    @pulumi.getter(name="grantType")
+    def grant_type(self) -> pulumi.Input['OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantType']:
+        """
+        The grant type for on-behalf-of token exchange
+        """
+        return pulumi.get(self, "grant_type")
+
+    @grant_type.setter
+    def grant_type(self, value: pulumi.Input['OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantType']):
+        pulumi.set(self, "grant_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tokenExchangeGrantTypeConfig")
+    def token_exchange_grant_type_config(self) -> Optional[pulumi.Input['OAuth2CredentialProviderTokenExchangeGrantTypeConfigArgs']]:
+        return pulumi.get(self, "token_exchange_grant_type_config")
+
+    @token_exchange_grant_type_config.setter
+    def token_exchange_grant_type_config(self, value: Optional[pulumi.Input['OAuth2CredentialProviderTokenExchangeGrantTypeConfigArgs']]):
+        pulumi.set(self, "token_exchange_grant_type_config", value)
+
+
 class OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputArgsDict(TypedDict):
     """
     Input configuration for a Salesforce OAuth2 provider
@@ -5318,6 +5451,59 @@ class OAuth2CredentialProviderSlackOauth2ProviderConfigInputArgs:
     @client_secret.setter
     def client_secret(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "client_secret", value)
+
+
+class OAuth2CredentialProviderTokenExchangeGrantTypeConfigArgsDict(TypedDict):
+    """
+    Configuration for RFC 8693 Token Exchange
+    """
+    actor_token_content: pulumi.Input['OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContent']
+    """
+    The actor token content type
+    """
+    actor_token_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The actor token scopes. Only valid when ActorTokenContent is M2M.
+    """
+
+@pulumi.input_type
+class OAuth2CredentialProviderTokenExchangeGrantTypeConfigArgs:
+    def __init__(__self__, *,
+                 actor_token_content: pulumi.Input['OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContent'],
+                 actor_token_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        Configuration for RFC 8693 Token Exchange
+
+        :param pulumi.Input['OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContent'] actor_token_content: The actor token content type
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] actor_token_scopes: The actor token scopes. Only valid when ActorTokenContent is M2M.
+        """
+        pulumi.set(__self__, "actor_token_content", actor_token_content)
+        if actor_token_scopes is not None:
+            pulumi.set(__self__, "actor_token_scopes", actor_token_scopes)
+
+    @_builtins.property
+    @pulumi.getter(name="actorTokenContent")
+    def actor_token_content(self) -> pulumi.Input['OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContent']:
+        """
+        The actor token content type
+        """
+        return pulumi.get(self, "actor_token_content")
+
+    @actor_token_content.setter
+    def actor_token_content(self, value: pulumi.Input['OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContent']):
+        pulumi.set(self, "actor_token_content", value)
+
+    @_builtins.property
+    @pulumi.getter(name="actorTokenScopes")
+    def actor_token_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The actor token scopes. Only valid when ActorTokenContent is M2M.
+        """
+        return pulumi.get(self, "actor_token_scopes")
+
+    @actor_token_scopes.setter
+    def actor_token_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "actor_token_scopes", value)
 
 
 class OnlineEvaluationConfigCloudWatchLogsInputConfigArgsDict(TypedDict):

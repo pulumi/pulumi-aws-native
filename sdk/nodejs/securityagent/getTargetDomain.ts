@@ -47,6 +47,10 @@ export interface GetTargetDomainResult {
      */
     readonly verificationStatus?: enums.securityagent.TargetDomainVerificationStatus;
     /**
+     * Reason for the current target domain verification status
+     */
+    readonly verificationStatusReason?: string;
+    /**
      * Timestamp when the target domain was last successfully verified
      */
     readonly verifiedAt?: string;

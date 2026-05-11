@@ -23,11 +23,13 @@ __all__ = [
     'ConnectionAuthorizationCodeProperties',
     'ConnectionAwsLocation',
     'ConnectionBasicAuthenticationCredentials',
+    'ConnectionConfiguration',
     'ConnectionGlueConnectionInput',
     'ConnectionGlueOAuth2Credentials',
     'ConnectionGluePropertiesInput',
     'ConnectionHyperPodPropertiesInput',
     'ConnectionIamPropertiesInput',
+    'ConnectionLakehousePropertiesInput',
     'ConnectionLineageSyncSchedule',
     'ConnectionMlflowPropertiesInput',
     'ConnectionOAuth2ClientApplication',
@@ -36,6 +38,7 @@ __all__ = [
     'ConnectionPropertiesInput0Properties',
     'ConnectionPropertiesInput10Properties',
     'ConnectionPropertiesInput11Properties',
+    'ConnectionPropertiesInput12Properties',
     'ConnectionPropertiesInput1Properties',
     'ConnectionPropertiesInput2Properties',
     'ConnectionPropertiesInput3Properties',
@@ -123,6 +126,8 @@ __all__ = [
     'PolicyGrantUserPolicyGrantPrincipal1Properties',
     'ProjectEnvironmentConfigurationUserParameter',
     'ProjectEnvironmentParameter',
+    'ProjectMember',
+    'ProjectMembershipAssignment',
     'ProjectMembershipMember0Properties',
     'ProjectMembershipMember1Properties',
     'ProjectProfileAwsAccount',
@@ -499,6 +504,38 @@ class ConnectionBasicAuthenticationCredentials(dict):
 
 
 @pulumi.output_type
+class ConnectionConfiguration(dict):
+    """
+    A configuration of the connection.
+    """
+    def __init__(__self__, *,
+                 classification: Optional[_builtins.str] = None,
+                 properties: Optional[Mapping[str, _builtins.str]] = None):
+        """
+        A configuration of the connection.
+
+        :param _builtins.str classification: The classification of the connection configuration.
+        """
+        if classification is not None:
+            pulumi.set(__self__, "classification", classification)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @_builtins.property
+    @pulumi.getter
+    def classification(self) -> Optional[_builtins.str]:
+        """
+        The classification of the connection configuration.
+        """
+        return pulumi.get(self, "classification")
+
+    @_builtins.property
+    @pulumi.getter
+    def properties(self) -> Optional[Mapping[str, _builtins.str]]:
+        return pulumi.get(self, "properties")
+
+
+@pulumi.output_type
 class ConnectionGlueConnectionInput(dict):
     """
     Glue Connection Input
@@ -810,6 +847,47 @@ class ConnectionIamPropertiesInput(dict):
     @_builtins.property
     @pulumi.getter(name="glueLineageSyncEnabled")
     def glue_lineage_sync_enabled(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "glue_lineage_sync_enabled")
+
+
+@pulumi.output_type
+class ConnectionLakehousePropertiesInput(dict):
+    """
+    Lakehouse Properties Input
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "glueLineageSyncEnabled":
+            suggest = "glue_lineage_sync_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionLakehousePropertiesInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionLakehousePropertiesInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionLakehousePropertiesInput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 glue_lineage_sync_enabled: Optional[_builtins.bool] = None):
+        """
+        Lakehouse Properties Input
+
+        :param _builtins.bool glue_lineage_sync_enabled: Specifies whether Glue lineage sync is enabled for the lakehouse connection.
+        """
+        if glue_lineage_sync_enabled is not None:
+            pulumi.set(__self__, "glue_lineage_sync_enabled", glue_lineage_sync_enabled)
+
+    @_builtins.property
+    @pulumi.getter(name="glueLineageSyncEnabled")
+    def glue_lineage_sync_enabled(self) -> Optional[_builtins.bool]:
+        """
+        Specifies whether Glue lineage sync is enabled for the lakehouse connection.
+        """
         return pulumi.get(self, "glue_lineage_sync_enabled")
 
 
@@ -1156,6 +1234,35 @@ class ConnectionPropertiesInput11Properties(dict):
     @pulumi.getter(name="workflowsServerlessProperties")
     def workflows_serverless_properties(self) -> 'outputs.ConnectionWorkflowsServerlessPropertiesInput':
         return pulumi.get(self, "workflows_serverless_properties")
+
+
+@pulumi.output_type
+class ConnectionPropertiesInput12Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lakehouseProperties":
+            suggest = "lakehouse_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionPropertiesInput12Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionPropertiesInput12Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionPropertiesInput12Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 lakehouse_properties: 'outputs.ConnectionLakehousePropertiesInput'):
+        pulumi.set(__self__, "lakehouse_properties", lakehouse_properties)
+
+    @_builtins.property
+    @pulumi.getter(name="lakehouseProperties")
+    def lakehouse_properties(self) -> 'outputs.ConnectionLakehousePropertiesInput':
+        return pulumi.get(self, "lakehouse_properties")
 
 
 @pulumi.output_type
@@ -1650,6 +1757,8 @@ class ConnectionS3PropertiesInput(dict):
         suggest = None
         if key == "s3Uri":
             suggest = "s3_uri"
+        elif key == "registerS3AccessGrantLocation":
+            suggest = "register_s3_access_grant_location"
         elif key == "s3AccessGrantLocationId":
             suggest = "s3_access_grant_location_id"
 
@@ -1666,14 +1775,18 @@ class ConnectionS3PropertiesInput(dict):
 
     def __init__(__self__, *,
                  s3_uri: _builtins.str,
+                 register_s3_access_grant_location: Optional[_builtins.bool] = None,
                  s3_access_grant_location_id: Optional[_builtins.str] = None):
         """
         S3 Properties Input
 
         :param _builtins.str s3_uri: The Amazon S3 URI that's part of the Amazon S3 properties of a connection.
+        :param _builtins.bool register_s3_access_grant_location: Specifies whether to register the S3 Access Grant location.
         :param _builtins.str s3_access_grant_location_id: The Amazon S3 Access Grant location ID that's part of the Amazon S3 properties of a connection.
         """
         pulumi.set(__self__, "s3_uri", s3_uri)
+        if register_s3_access_grant_location is not None:
+            pulumi.set(__self__, "register_s3_access_grant_location", register_s3_access_grant_location)
         if s3_access_grant_location_id is not None:
             pulumi.set(__self__, "s3_access_grant_location_id", s3_access_grant_location_id)
 
@@ -1684,6 +1797,14 @@ class ConnectionS3PropertiesInput(dict):
         The Amazon S3 URI that's part of the Amazon S3 properties of a connection.
         """
         return pulumi.get(self, "s3_uri")
+
+    @_builtins.property
+    @pulumi.getter(name="registerS3AccessGrantLocation")
+    def register_s3_access_grant_location(self) -> Optional[_builtins.bool]:
+        """
+        Specifies whether to register the S3 Access Grant location.
+        """
+        return pulumi.get(self, "register_s3_access_grant_location")
 
     @_builtins.property
     @pulumi.getter(name="s3AccessGrantLocationId")
@@ -4190,6 +4311,77 @@ class ProjectEnvironmentParameter(dict):
 
 
 @pulumi.output_type
+class ProjectMember(dict):
+    """
+    The member of the project.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupIdentifier":
+            suggest = "group_identifier"
+        elif key == "userIdentifier":
+            suggest = "user_identifier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProjectMember. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProjectMember.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProjectMember.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 group_identifier: Optional[_builtins.str] = None,
+                 user_identifier: Optional[_builtins.str] = None):
+        """
+        The member of the project.
+        """
+        if group_identifier is not None:
+            pulumi.set(__self__, "group_identifier", group_identifier)
+        if user_identifier is not None:
+            pulumi.set(__self__, "user_identifier", user_identifier)
+
+    @_builtins.property
+    @pulumi.getter(name="groupIdentifier")
+    def group_identifier(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "group_identifier")
+
+    @_builtins.property
+    @pulumi.getter(name="userIdentifier")
+    def user_identifier(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "user_identifier")
+
+
+@pulumi.output_type
+class ProjectMembershipAssignment(dict):
+    """
+    The project membership assignment.
+    """
+    def __init__(__self__, *,
+                 designation: 'ProjectUserDesignation',
+                 member: 'outputs.ProjectMember'):
+        """
+        The project membership assignment.
+        """
+        pulumi.set(__self__, "designation", designation)
+        pulumi.set(__self__, "member", member)
+
+    @_builtins.property
+    @pulumi.getter
+    def designation(self) -> 'ProjectUserDesignation':
+        return pulumi.get(self, "designation")
+
+    @_builtins.property
+    @pulumi.getter
+    def member(self) -> 'outputs.ProjectMember':
+        return pulumi.get(self, "member")
+
+
+@pulumi.output_type
 class ProjectMembershipMember0Properties(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -4720,15 +4912,42 @@ class UserProfileIamUserProfileDetails(dict):
     """
     The details of the IAM User Profile.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupProfileId":
+            suggest = "group_profile_id"
+        elif key == "sessionName":
+            suggest = "session_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserProfileIamUserProfileDetails. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserProfileIamUserProfileDetails.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserProfileIamUserProfileDetails.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 arn: Optional[_builtins.str] = None):
+                 arn: Optional[_builtins.str] = None,
+                 group_profile_id: Optional[_builtins.str] = None,
+                 session_name: Optional[_builtins.str] = None):
         """
         The details of the IAM User Profile.
 
         :param _builtins.str arn: The ARN of the IAM User Profile.
+        :param _builtins.str group_profile_id: The group profile ID of the IAM User Profile.
+        :param _builtins.str session_name: The session name of the IAM User Profile.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
+        if group_profile_id is not None:
+            pulumi.set(__self__, "group_profile_id", group_profile_id)
+        if session_name is not None:
+            pulumi.set(__self__, "session_name", session_name)
 
     @_builtins.property
     @pulumi.getter
@@ -4737,6 +4956,22 @@ class UserProfileIamUserProfileDetails(dict):
         The ARN of the IAM User Profile.
         """
         return pulumi.get(self, "arn")
+
+    @_builtins.property
+    @pulumi.getter(name="groupProfileId")
+    def group_profile_id(self) -> Optional[_builtins.str]:
+        """
+        The group profile ID of the IAM User Profile.
+        """
+        return pulumi.get(self, "group_profile_id")
+
+    @_builtins.property
+    @pulumi.getter(name="sessionName")
+    def session_name(self) -> Optional[_builtins.str]:
+        """
+        The session name of the IAM User Profile.
+        """
+        return pulumi.get(self, "session_name")
 
 
 @pulumi.output_type

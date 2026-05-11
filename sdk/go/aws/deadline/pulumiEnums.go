@@ -13,10 +13,11 @@ import (
 type FleetAcceleratorSelectionName string
 
 const (
-	FleetAcceleratorSelectionNameT4   = FleetAcceleratorSelectionName("t4")
-	FleetAcceleratorSelectionNameA10g = FleetAcceleratorSelectionName("a10g")
-	FleetAcceleratorSelectionNameL4   = FleetAcceleratorSelectionName("l4")
-	FleetAcceleratorSelectionNameL40s = FleetAcceleratorSelectionName("l40s")
+	FleetAcceleratorSelectionNameT4               = FleetAcceleratorSelectionName("t4")
+	FleetAcceleratorSelectionNameA10g             = FleetAcceleratorSelectionName("a10g")
+	FleetAcceleratorSelectionNameL4               = FleetAcceleratorSelectionName("l4")
+	FleetAcceleratorSelectionNameL40s             = FleetAcceleratorSelectionName("l40s")
+	FleetAcceleratorSelectionNameRtxProServer6000 = FleetAcceleratorSelectionName("rtx-pro-server-6000")
 )
 
 func (FleetAcceleratorSelectionName) ElementType() reflect.Type {
@@ -145,6 +146,7 @@ func (o FleetAcceleratorSelectionNamePtrOutput) ToStringPtrOutputWithContext(ctx
 //	FleetAcceleratorSelectionNameA10g
 //	FleetAcceleratorSelectionNameL4
 //	FleetAcceleratorSelectionNameL40s
+//	FleetAcceleratorSelectionNameRtxProServer6000
 type FleetAcceleratorSelectionNameInput interface {
 	pulumi.Input
 

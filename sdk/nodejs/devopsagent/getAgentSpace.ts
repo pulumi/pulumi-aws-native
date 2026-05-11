@@ -42,6 +42,10 @@ export interface GetAgentSpaceResult {
      */
     readonly description?: string;
     /**
+     * The locale for the AgentSpace, which determines the language used in agent responses.
+     */
+    readonly locale?: string;
+    /**
      * The name of the AgentSpace.
      */
     readonly name?: string;

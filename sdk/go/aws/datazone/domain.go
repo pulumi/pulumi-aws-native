@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -26,7 +25,7 @@ type Domain struct {
 	// The description of the Amazon DataZone domain.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The domain execution role that is created when an Amazon DataZone domain is created. The domain execution role is created in the AWS account that houses the Amazon DataZone domain.
-	DomainExecutionRole pulumi.StringOutput `pulumi:"domainExecutionRole"`
+	DomainExecutionRole pulumi.StringPtrOutput `pulumi:"domainExecutionRole"`
 	// The version of the domain.
 	DomainVersion DomainVersionPtrOutput `pulumi:"domainVersion"`
 	// The identifier of the AWS Key Management Service (KMS) key that is used to encrypt the Amazon DataZone domain, metadata, and reporting data.
@@ -55,12 +54,9 @@ type Domain struct {
 func NewDomain(ctx *pulumi.Context,
 	name string, args *DomainArgs, opts ...pulumi.ResourceOption) (*Domain, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &DomainArgs{}
 	}
 
-	if args.DomainExecutionRole == nil {
-		return nil, errors.New("invalid value for required argument 'DomainExecutionRole'")
-	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"domainVersion",
 		"kmsKeyIdentifier",
@@ -102,7 +98,7 @@ type domainArgs struct {
 	// The description of the Amazon DataZone domain.
 	Description *string `pulumi:"description"`
 	// The domain execution role that is created when an Amazon DataZone domain is created. The domain execution role is created in the AWS account that houses the Amazon DataZone domain.
-	DomainExecutionRole string `pulumi:"domainExecutionRole"`
+	DomainExecutionRole *string `pulumi:"domainExecutionRole"`
 	// The version of the domain.
 	DomainVersion *DomainVersion `pulumi:"domainVersion"`
 	// The identifier of the AWS Key Management Service (KMS) key that is used to encrypt the Amazon DataZone domain, metadata, and reporting data.
@@ -122,7 +118,7 @@ type DomainArgs struct {
 	// The description of the Amazon DataZone domain.
 	Description pulumi.StringPtrInput
 	// The domain execution role that is created when an Amazon DataZone domain is created. The domain execution role is created in the AWS account that houses the Amazon DataZone domain.
-	DomainExecutionRole pulumi.StringInput
+	DomainExecutionRole pulumi.StringPtrInput
 	// The version of the domain.
 	DomainVersion DomainVersionPtrInput
 	// The identifier of the AWS Key Management Service (KMS) key that is used to encrypt the Amazon DataZone domain, metadata, and reporting data.
@@ -195,8 +191,8 @@ func (o DomainOutput) Description() pulumi.StringPtrOutput {
 }
 
 // The domain execution role that is created when an Amazon DataZone domain is created. The domain execution role is created in the AWS account that houses the Amazon DataZone domain.
-func (o DomainOutput) DomainExecutionRole() pulumi.StringOutput {
-	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.DomainExecutionRole }).(pulumi.StringOutput)
+func (o DomainOutput) DomainExecutionRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringPtrOutput { return v.DomainExecutionRole }).(pulumi.StringPtrOutput)
 }
 
 // The version of the domain.

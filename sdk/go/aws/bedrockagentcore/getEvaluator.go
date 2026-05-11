@@ -39,6 +39,8 @@ type LookupEvaluatorResult struct {
 	EvaluatorConfig *EvaluatorConfig `pulumi:"evaluatorConfig"`
 	// The unique identifier of the evaluator.
 	EvaluatorId *string `pulumi:"evaluatorId"`
+	// The ARN of the KMS key used to encrypt evaluator data.
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// The evaluation level that determines the scope of evaluation.
 	Level *EvaluatorLevel `pulumi:"level"`
 	// The current status of the evaluator.
@@ -104,6 +106,11 @@ func (o LookupEvaluatorResultOutput) EvaluatorConfig() EvaluatorConfigPtrOutput 
 // The unique identifier of the evaluator.
 func (o LookupEvaluatorResultOutput) EvaluatorId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEvaluatorResult) *string { return v.EvaluatorId }).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the KMS key used to encrypt evaluator data.
+func (o LookupEvaluatorResultOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupEvaluatorResult) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
 // The evaluation level that determines the scope of evaluation.

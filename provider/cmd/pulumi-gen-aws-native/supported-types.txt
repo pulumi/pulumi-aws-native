@@ -560,6 +560,7 @@ AWS::EMRContainers::SecurityConfiguration
 AWS::EMRContainers::VirtualCluster
 AWS::EMRServerless::Application
 AWS::EVS::Environment
+AWS::ElastiCache::CacheCluster
 AWS::ElastiCache::GlobalReplicationGroup
 AWS::ElastiCache::ParameterGroup
 AWS::ElastiCache::ReplicationGroup

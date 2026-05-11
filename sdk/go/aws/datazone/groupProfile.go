@@ -23,9 +23,14 @@ type GroupProfile struct {
 	// The identifier of the Amazon DataZone domain in which the group profile would be created.
 	DomainIdentifier pulumi.StringOutput `pulumi:"domainIdentifier"`
 	// The ID of the group.
-	GroupIdentifier pulumi.StringOutput `pulumi:"groupIdentifier"`
+	GroupIdentifier pulumi.StringPtrOutput `pulumi:"groupIdentifier"`
 	// The group-name of the Group Profile.
-	GroupName pulumi.StringOutput `pulumi:"groupName"`
+	GroupName pulumi.StringOutput            `pulumi:"groupName"`
+	GroupType GroupProfileGroupTypePtrOutput `pulumi:"groupType"`
+	// The ARN of the role principal for the group profile.
+	RolePrincipalArn pulumi.StringPtrOutput `pulumi:"rolePrincipalArn"`
+	// The ID of the role principal for the group profile.
+	RolePrincipalId pulumi.StringOutput `pulumi:"rolePrincipalId"`
 	// The status of a group profile.
 	Status GroupProfileStatusPtrOutput `pulumi:"status"`
 }
@@ -40,12 +45,10 @@ func NewGroupProfile(ctx *pulumi.Context,
 	if args.DomainIdentifier == nil {
 		return nil, errors.New("invalid value for required argument 'DomainIdentifier'")
 	}
-	if args.GroupIdentifier == nil {
-		return nil, errors.New("invalid value for required argument 'GroupIdentifier'")
-	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"domainIdentifier",
 		"groupIdentifier",
+		"rolePrincipalArn",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -84,7 +87,10 @@ type groupProfileArgs struct {
 	// The identifier of the Amazon DataZone domain in which the group profile would be created.
 	DomainIdentifier string `pulumi:"domainIdentifier"`
 	// The ID of the group.
-	GroupIdentifier string `pulumi:"groupIdentifier"`
+	GroupIdentifier *string                `pulumi:"groupIdentifier"`
+	GroupType       *GroupProfileGroupType `pulumi:"groupType"`
+	// The ARN of the role principal for the group profile.
+	RolePrincipalArn *string `pulumi:"rolePrincipalArn"`
 	// The status of a group profile.
 	Status *GroupProfileStatus `pulumi:"status"`
 }
@@ -94,7 +100,10 @@ type GroupProfileArgs struct {
 	// The identifier of the Amazon DataZone domain in which the group profile would be created.
 	DomainIdentifier pulumi.StringInput
 	// The ID of the group.
-	GroupIdentifier pulumi.StringInput
+	GroupIdentifier pulumi.StringPtrInput
+	GroupType       GroupProfileGroupTypePtrInput
+	// The ARN of the role principal for the group profile.
+	RolePrincipalArn pulumi.StringPtrInput
 	// The status of a group profile.
 	Status GroupProfileStatusPtrInput
 }
@@ -152,13 +161,27 @@ func (o GroupProfileOutput) DomainIdentifier() pulumi.StringOutput {
 }
 
 // The ID of the group.
-func (o GroupProfileOutput) GroupIdentifier() pulumi.StringOutput {
-	return o.ApplyT(func(v *GroupProfile) pulumi.StringOutput { return v.GroupIdentifier }).(pulumi.StringOutput)
+func (o GroupProfileOutput) GroupIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GroupProfile) pulumi.StringPtrOutput { return v.GroupIdentifier }).(pulumi.StringPtrOutput)
 }
 
 // The group-name of the Group Profile.
 func (o GroupProfileOutput) GroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *GroupProfile) pulumi.StringOutput { return v.GroupName }).(pulumi.StringOutput)
+}
+
+func (o GroupProfileOutput) GroupType() GroupProfileGroupTypePtrOutput {
+	return o.ApplyT(func(v *GroupProfile) GroupProfileGroupTypePtrOutput { return v.GroupType }).(GroupProfileGroupTypePtrOutput)
+}
+
+// The ARN of the role principal for the group profile.
+func (o GroupProfileOutput) RolePrincipalArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GroupProfile) pulumi.StringPtrOutput { return v.RolePrincipalArn }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the role principal for the group profile.
+func (o GroupProfileOutput) RolePrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v *GroupProfile) pulumi.StringOutput { return v.RolePrincipalId }).(pulumi.StringOutput)
 }
 
 // The status of a group profile.

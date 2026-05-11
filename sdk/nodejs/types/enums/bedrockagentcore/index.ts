@@ -182,6 +182,13 @@ export const GatewayTargetCredentialProviderType = {
 
 export type GatewayTargetCredentialProviderType = (typeof GatewayTargetCredentialProviderType)[keyof typeof GatewayTargetCredentialProviderType];
 
+export const GatewayTargetMcpServerListingMode = {
+    Default: "DEFAULT",
+    Dynamic: "DYNAMIC",
+} as const;
+
+export type GatewayTargetMcpServerListingMode = (typeof GatewayTargetMcpServerListingMode)[keyof typeof GatewayTargetMcpServerListingMode];
+
 export const GatewayTargetOAuthGrantType = {
     AuthorizationCode: "AUTHORIZATION_CODE",
     ClientCredentials: "CLIENT_CREDENTIALS",
@@ -424,6 +431,27 @@ export const OAuth2CredentialProviderCredentialProviderVendor = {
  * The vendor of the OAuth2 credential provider
  */
 export type OAuth2CredentialProviderCredentialProviderVendor = (typeof OAuth2CredentialProviderCredentialProviderVendor)[keyof typeof OAuth2CredentialProviderCredentialProviderVendor];
+
+export const OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantType = {
+    TokenExchange: "TOKEN_EXCHANGE",
+    JwtAuthorizationGrant: "JWT_AUTHORIZATION_GRANT",
+} as const;
+
+/**
+ * The grant type for on-behalf-of token exchange
+ */
+export type OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantType = (typeof OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantType)[keyof typeof OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantType];
+
+export const OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContent = {
+    None: "NONE",
+    M2m: "M2M",
+    AwsIamIdTokenJwt: "AWS_IAM_ID_TOKEN_JWT",
+} as const;
+
+/**
+ * The actor token content type
+ */
+export type OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContent = (typeof OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContent)[keyof typeof OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContent];
 
 export const OnlineEvaluationConfigExecutionStatus = {
     Enabled: "ENABLED",

@@ -3,6 +3,37 @@
   "description" : "Amazon DataZone projects are business use case–based groupings of people, assets (data), and tools used to simplify access to the AWS analytics.",
   "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-datazone",
   "definitions" : {
+    "Member" : {
+      "type" : "object",
+      "description" : "The member of the project.",
+      "properties" : {
+        "UserIdentifier" : {
+          "type" : "string"
+        },
+        "GroupIdentifier" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "UserDesignation" : {
+      "type" : "string",
+      "enum" : [ "PROJECT_OWNER", "PROJECT_CONTRIBUTOR" ]
+    },
+    "ProjectMembershipAssignment" : {
+      "type" : "object",
+      "description" : "The project membership assignment.",
+      "properties" : {
+        "Member" : {
+          "$ref" : "#/definitions/Member"
+        },
+        "Designation" : {
+          "$ref" : "#/definitions/UserDesignation"
+        }
+      },
+      "required" : [ "Member", "Designation" ],
+      "additionalProperties" : false
+    },
     "EnvironmentConfigurationUserParameter" : {
       "type" : "object",
       "properties" : {
@@ -186,7 +217,7 @@
         "pattern" : "^[a-zA-Z0-9_-]{1,36}$"
       },
       "maxItems" : 20,
-      "minItems" : 1
+      "minItems" : 0
     },
     "Id" : {
       "description" : "The ID of the Amazon DataZone project.",
@@ -231,13 +262,29 @@
       "items" : {
         "$ref" : "#/definitions/ResourceTag"
       }
+    },
+    "MembershipAssignments" : {
+      "description" : "The project membership assignments.",
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/ProjectMembershipAssignment"
+      }
+    },
+    "ProjectCategory" : {
+      "description" : "The project category.",
+      "type" : "string"
+    },
+    "ProjectExecutionRole" : {
+      "description" : "The project execution role ARN.",
+      "type" : "string",
+      "pattern" : "^arn:aws[^:]*:iam::\\d{12}:role/[\\w+=,.@/-]+$"
     }
   },
   "required" : [ "DomainIdentifier", "Name" ],
   "readOnlyProperties" : [ "/properties/Id", "/properties/CreatedAt", "/properties/CreatedBy", "/properties/DomainId", "/properties/LastUpdatedAt", "/properties/ProjectStatus" ],
-  "writeOnlyProperties" : [ "/properties/DomainIdentifier", "/properties/ProjectProfileVersion", "/properties/ProjectProfileId", "/properties/UserParameters" ],
+  "writeOnlyProperties" : [ "/properties/DomainIdentifier", "/properties/ProjectProfileVersion", "/properties/ProjectProfileId", "/properties/UserParameters", "/properties/MembershipAssignments", "/properties/ProjectExecutionRole" ],
   "primaryIdentifier" : [ "/properties/DomainId", "/properties/Id" ],
-  "createOnlyProperties" : [ "/properties/ProjectProfileId", "/properties/DomainIdentifier" ],
+  "createOnlyProperties" : [ "/properties/ProjectProfileId", "/properties/DomainIdentifier", "/properties/MembershipAssignments", "/properties/ProjectCategory", "/properties/ProjectExecutionRole" ],
   "additionalIdentifiers" : [ [ "/properties/DomainIdentifier" ] ],
   "tagging" : {
     "taggable" : false,
@@ -247,7 +294,7 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "datazone:CreateProject", "datazone:GetProject" ]
+      "permissions" : [ "datazone:CreateProject", "datazone:GetProject", "iam:PassRole" ]
     },
     "read" : {
       "permissions" : [ "datazone:GetProject" ]

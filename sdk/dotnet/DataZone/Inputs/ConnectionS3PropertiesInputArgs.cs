@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.DataZone.Inputs
     public sealed class ConnectionS3PropertiesInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Specifies whether to register the S3 Access Grant location.
+        /// </summary>
+        [Input("registerS3AccessGrantLocation")]
+        public Input<bool>? RegisterS3AccessGrantLocation { get; set; }
+
+        /// <summary>
         /// The Amazon S3 Access Grant location ID that's part of the Amazon S3 properties of a connection.
         /// </summary>
         [Input("s3AccessGrantLocationId")]

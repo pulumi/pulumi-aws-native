@@ -99,6 +99,10 @@
       "$ref" : "#/definitions/CaCertificatesBundleSource",
       "description" : "A CA certificates bundle source."
     },
+    "UseClientCertificateOCSPEndpoint" : {
+      "type" : "boolean",
+      "description" : ""
+    },
     "Status" : {
       "type" : "string",
       "enum" : [ "PENDING", "ACTIVE", "FAILED" ],

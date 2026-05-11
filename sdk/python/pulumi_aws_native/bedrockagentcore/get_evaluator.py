@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetEvaluatorResult:
-    def __init__(__self__, created_at=None, description=None, evaluator_arn=None, evaluator_config=None, evaluator_id=None, level=None, status=None, tags=None, updated_at=None):
+    def __init__(__self__, created_at=None, description=None, evaluator_arn=None, evaluator_config=None, evaluator_id=None, kms_key_arn=None, level=None, status=None, tags=None, updated_at=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -42,6 +42,9 @@ class GetEvaluatorResult:
         if evaluator_id and not isinstance(evaluator_id, str):
             raise TypeError("Expected argument 'evaluator_id' to be a str")
         pulumi.set(__self__, "evaluator_id", evaluator_id)
+        if kms_key_arn and not isinstance(kms_key_arn, str):
+            raise TypeError("Expected argument 'kms_key_arn' to be a str")
+        pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if level and not isinstance(level, str):
             raise TypeError("Expected argument 'level' to be a str")
         pulumi.set(__self__, "level", level)
@@ -96,6 +99,14 @@ class GetEvaluatorResult:
         return pulumi.get(self, "evaluator_id")
 
     @_builtins.property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[_builtins.str]:
+        """
+        The ARN of the KMS key used to encrypt evaluator data.
+        """
+        return pulumi.get(self, "kms_key_arn")
+
+    @_builtins.property
     @pulumi.getter
     def level(self) -> Optional['EvaluatorLevel']:
         """
@@ -139,6 +150,7 @@ class AwaitableGetEvaluatorResult(GetEvaluatorResult):
             evaluator_arn=self.evaluator_arn,
             evaluator_config=self.evaluator_config,
             evaluator_id=self.evaluator_id,
+            kms_key_arn=self.kms_key_arn,
             level=self.level,
             status=self.status,
             tags=self.tags,
@@ -164,6 +176,7 @@ def get_evaluator(evaluator_arn: Optional[_builtins.str] = None,
         evaluator_arn=pulumi.get(__ret__, 'evaluator_arn'),
         evaluator_config=pulumi.get(__ret__, 'evaluator_config'),
         evaluator_id=pulumi.get(__ret__, 'evaluator_id'),
+        kms_key_arn=pulumi.get(__ret__, 'kms_key_arn'),
         level=pulumi.get(__ret__, 'level'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -186,6 +199,7 @@ def get_evaluator_output(evaluator_arn: Optional[pulumi.Input[_builtins.str]] = 
         evaluator_arn=pulumi.get(__response__, 'evaluator_arn'),
         evaluator_config=pulumi.get(__response__, 'evaluator_config'),
         evaluator_id=pulumi.get(__response__, 'evaluator_id'),
+        kms_key_arn=pulumi.get(__response__, 'kms_key_arn'),
         level=pulumi.get(__response__, 'level'),
         status=pulumi.get(__response__, 'status'),
         tags=pulumi.get(__response__, 'tags'),

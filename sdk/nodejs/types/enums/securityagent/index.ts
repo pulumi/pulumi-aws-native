@@ -91,6 +91,7 @@ export type TargetDomainDnsVerificationDnsRecordType = (typeof TargetDomainDnsVe
 export const TargetDomainVerificationDetailsMethod = {
     DnsTxt: "DNS_TXT",
     HttpRoute: "HTTP_ROUTE",
+    PrivateVpc: "PRIVATE_VPC",
 } as const;
 
 /**
@@ -101,6 +102,7 @@ export type TargetDomainVerificationDetailsMethod = (typeof TargetDomainVerifica
 export const TargetDomainVerificationMethod = {
     DnsTxt: "DNS_TXT",
     HttpRoute: "HTTP_ROUTE",
+    PrivateVpc: "PRIVATE_VPC",
 } as const;
 
 /**

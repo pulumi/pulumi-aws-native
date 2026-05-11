@@ -30,6 +30,11 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
         /// A complex type that contains zero or more ``CacheBehavior`` elements.
         /// </summary>
         public readonly ImmutableArray<Outputs.DistributionCacheBehavior> CacheBehaviors;
+        /// <summary>
+        /// Configuration for cache tag extraction from origin responses. When specified, CloudFront reads the header named in ``HeaderName`` from origin responses and stores the comma-separated values as cache tags on the object.
+        ///  Distributions without ``CacheTagConfig`` do not extract tags. When ``CacheTagConfig`` is removed from a distribution via ``UpdateDistribution``, CloudFront stops extracting tags from origin responses.
+        ///   Changing the ``HeaderName`` on an existing distribution does not retroactively affect previously cached objects. Tag-based invalidations will not apply to objects already cached using a previous header. To ensure tag invalidations function after updating the header name, use path-based invalidations to recache all objects that use cache tags.
+        /// </summary>
         public readonly Outputs.DistributionCacheTagConfig? CacheTagConfig;
         /// <summary>
         /// An alias for the CF distribution's domain name.

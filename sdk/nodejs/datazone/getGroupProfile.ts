@@ -43,6 +43,10 @@ export interface GetGroupProfileResult {
      */
     readonly id?: string;
     /**
+     * The ID of the role principal for the group profile.
+     */
+    readonly rolePrincipalId?: string;
+    /**
      * The status of a group profile.
      */
     readonly status?: enums.datazone.GroupProfileStatus;

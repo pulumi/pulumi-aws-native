@@ -37,13 +37,28 @@ namespace Pulumi.AwsNative.DataZone
         /// The ID of the group.
         /// </summary>
         [Output("groupIdentifier")]
-        public Output<string> GroupIdentifier { get; private set; } = null!;
+        public Output<string?> GroupIdentifier { get; private set; } = null!;
 
         /// <summary>
         /// The group-name of the Group Profile.
         /// </summary>
         [Output("groupName")]
         public Output<string> GroupName { get; private set; } = null!;
+
+        [Output("groupType")]
+        public Output<Pulumi.AwsNative.DataZone.GroupProfileGroupType?> GroupType { get; private set; } = null!;
+
+        /// <summary>
+        /// The ARN of the role principal for the group profile.
+        /// </summary>
+        [Output("rolePrincipalArn")]
+        public Output<string?> RolePrincipalArn { get; private set; } = null!;
+
+        /// <summary>
+        /// The ID of the role principal for the group profile.
+        /// </summary>
+        [Output("rolePrincipalId")]
+        public Output<string> RolePrincipalId { get; private set; } = null!;
 
         /// <summary>
         /// The status of a group profile.
@@ -78,6 +93,7 @@ namespace Pulumi.AwsNative.DataZone
                 {
                     "domainIdentifier",
                     "groupIdentifier",
+                    "rolePrincipalArn",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -110,8 +126,17 @@ namespace Pulumi.AwsNative.DataZone
         /// <summary>
         /// The ID of the group.
         /// </summary>
-        [Input("groupIdentifier", required: true)]
-        public Input<string> GroupIdentifier { get; set; } = null!;
+        [Input("groupIdentifier")]
+        public Input<string>? GroupIdentifier { get; set; }
+
+        [Input("groupType")]
+        public Input<Pulumi.AwsNative.DataZone.GroupProfileGroupType>? GroupType { get; set; }
+
+        /// <summary>
+        /// The ARN of the role principal for the group profile.
+        /// </summary>
+        [Input("rolePrincipalArn")]
+        public Input<string>? RolePrincipalArn { get; set; }
 
         /// <summary>
         /// The status of a group profile.

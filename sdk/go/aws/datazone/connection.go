@@ -18,6 +18,8 @@ type Connection struct {
 
 	// The location where the connection is created.
 	AwsLocation ConnectionAwsLocationPtrOutput `pulumi:"awsLocation"`
+	// The configurations of the connection.
+	Configurations ConnectionConfigurationArrayOutput `pulumi:"configurations"`
 	// The ID of the connection.
 	ConnectionId pulumi.StringOutput `pulumi:"connectionId"`
 	// The description of the connection.
@@ -104,6 +106,8 @@ func (ConnectionState) ElementType() reflect.Type {
 type connectionArgs struct {
 	// The location where the connection is created.
 	AwsLocation *ConnectionAwsLocation `pulumi:"awsLocation"`
+	// The configurations of the connection.
+	Configurations []ConnectionConfiguration `pulumi:"configurations"`
 	// The description of the connection.
 	Description *string `pulumi:"description"`
 	// The identifier of the domain in which the connection is created.
@@ -126,6 +130,8 @@ type connectionArgs struct {
 type ConnectionArgs struct {
 	// The location where the connection is created.
 	AwsLocation ConnectionAwsLocationPtrInput
+	// The configurations of the connection.
+	Configurations ConnectionConfigurationArrayInput
 	// The description of the connection.
 	Description pulumi.StringPtrInput
 	// The identifier of the domain in which the connection is created.
@@ -184,6 +190,11 @@ func (o ConnectionOutput) ToConnectionOutputWithContext(ctx context.Context) Con
 // The location where the connection is created.
 func (o ConnectionOutput) AwsLocation() ConnectionAwsLocationPtrOutput {
 	return o.ApplyT(func(v *Connection) ConnectionAwsLocationPtrOutput { return v.AwsLocation }).(ConnectionAwsLocationPtrOutput)
+}
+
+// The configurations of the connection.
+func (o ConnectionOutput) Configurations() ConnectionConfigurationArrayOutput {
+	return o.ApplyT(func(v *Connection) ConnectionConfigurationArrayOutput { return v.Configurations }).(ConnectionConfigurationArrayOutput)
 }
 
 // The ID of the connection.

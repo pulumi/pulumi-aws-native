@@ -142,6 +142,7 @@ class TargetDomain(pulumi.CustomResource):
             __props__.__dict__["target_domain_id"] = None
             __props__.__dict__["verification_details"] = None
             __props__.__dict__["verification_status"] = None
+            __props__.__dict__["verification_status_reason"] = None
             __props__.__dict__["verified_at"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["targetDomainName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -174,6 +175,7 @@ class TargetDomain(pulumi.CustomResource):
         __props__.__dict__["verification_details"] = None
         __props__.__dict__["verification_method"] = None
         __props__.__dict__["verification_status"] = None
+        __props__.__dict__["verification_status_reason"] = None
         __props__.__dict__["verified_at"] = None
         return TargetDomain(resource_name, opts=opts, __props__=__props__)
 
@@ -229,6 +231,14 @@ class TargetDomain(pulumi.CustomResource):
         Current verification status of the registered target domain
         """
         return pulumi.get(self, "verification_status")
+
+    @_builtins.property
+    @pulumi.getter(name="verificationStatusReason")
+    def verification_status_reason(self) -> pulumi.Output[_builtins.str]:
+        """
+        Reason for the current target domain verification status
+        """
+        return pulumi.get(self, "verification_status_reason")
 
     @_builtins.property
     @pulumi.getter(name="verifiedAt")

@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetTargetDomainResult:
-    def __init__(__self__, created_at=None, tags=None, target_domain_id=None, verification_details=None, verification_method=None, verification_status=None, verified_at=None):
+    def __init__(__self__, created_at=None, tags=None, target_domain_id=None, verification_details=None, verification_method=None, verification_status=None, verification_status_reason=None, verified_at=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -45,6 +45,9 @@ class GetTargetDomainResult:
         if verification_status and not isinstance(verification_status, str):
             raise TypeError("Expected argument 'verification_status' to be a str")
         pulumi.set(__self__, "verification_status", verification_status)
+        if verification_status_reason and not isinstance(verification_status_reason, str):
+            raise TypeError("Expected argument 'verification_status_reason' to be a str")
+        pulumi.set(__self__, "verification_status_reason", verification_status_reason)
         if verified_at and not isinstance(verified_at, str):
             raise TypeError("Expected argument 'verified_at' to be a str")
         pulumi.set(__self__, "verified_at", verified_at)
@@ -95,6 +98,14 @@ class GetTargetDomainResult:
         return pulumi.get(self, "verification_status")
 
     @_builtins.property
+    @pulumi.getter(name="verificationStatusReason")
+    def verification_status_reason(self) -> Optional[_builtins.str]:
+        """
+        Reason for the current target domain verification status
+        """
+        return pulumi.get(self, "verification_status_reason")
+
+    @_builtins.property
     @pulumi.getter(name="verifiedAt")
     def verified_at(self) -> Optional[_builtins.str]:
         """
@@ -115,6 +126,7 @@ class AwaitableGetTargetDomainResult(GetTargetDomainResult):
             verification_details=self.verification_details,
             verification_method=self.verification_method,
             verification_status=self.verification_status,
+            verification_status_reason=self.verification_status_reason,
             verified_at=self.verified_at)
 
 
@@ -138,6 +150,7 @@ def get_target_domain(target_domain_id: Optional[_builtins.str] = None,
         verification_details=pulumi.get(__ret__, 'verification_details'),
         verification_method=pulumi.get(__ret__, 'verification_method'),
         verification_status=pulumi.get(__ret__, 'verification_status'),
+        verification_status_reason=pulumi.get(__ret__, 'verification_status_reason'),
         verified_at=pulumi.get(__ret__, 'verified_at'))
 def get_target_domain_output(target_domain_id: Optional[pulumi.Input[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTargetDomainResult]:
@@ -158,4 +171,5 @@ def get_target_domain_output(target_domain_id: Optional[pulumi.Input[_builtins.s
         verification_details=pulumi.get(__response__, 'verification_details'),
         verification_method=pulumi.get(__response__, 'verification_method'),
         verification_status=pulumi.get(__response__, 'verification_status'),
+        verification_status_reason=pulumi.get(__response__, 'verification_status_reason'),
         verified_at=pulumi.get(__response__, 'verified_at')))

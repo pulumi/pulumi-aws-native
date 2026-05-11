@@ -107,7 +107,7 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "lambda:PublishVersion", "lambda:GetFunctionConfiguration", "lambda:PutProvisionedConcurrencyConfig", "lambda:GetProvisionedConcurrencyConfig", "lambda:PutRuntimeManagementConfig", "lambda:GetRuntimeManagementConfig", "lambda:PutFunctionScalingConfig" ],
+      "permissions" : [ "lambda:PublishVersion", "lambda:GetFunctionConfiguration", "lambda:PutProvisionedConcurrencyConfig", "lambda:GetProvisionedConcurrencyConfig", "lambda:PutRuntimeManagementConfig", "lambda:GetRuntimeManagementConfig", "lambda:PutFunctionScalingConfig", "lambda:ListVersionsByFunction" ],
       "timeoutInMinutes" : 180
     },
     "read" : {

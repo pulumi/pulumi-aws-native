@@ -94,6 +94,7 @@ export class Cluster extends pulumi.CustomResource {
      * A key-value pair to associate with a resource.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly zookeeperAccess: pulumi.Output<outputs.msk.ClusterZookeeperAccess | undefined>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.
@@ -128,6 +129,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["rebalancing"] = args?.rebalancing;
             resourceInputs["storageMode"] = args?.storageMode;
             resourceInputs["tags"] = args?.tags;
+            resourceInputs["zookeeperAccess"] = args?.zookeeperAccess;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["currentVersion"] = undefined /*out*/;
         } else {
@@ -146,6 +148,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["rebalancing"] = undefined /*out*/;
             resourceInputs["storageMode"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["zookeeperAccess"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const replaceOnChanges = { replaceOnChanges: ["brokerNodeGroupInfo.brokerAzDistribution", "brokerNodeGroupInfo.clientSubnets[*]", "brokerNodeGroupInfo.securityGroups[*]", "clusterName", "encryptionInfo.encryptionAtRest", "encryptionInfo.encryptionInTransit.inCluster"] };
@@ -207,4 +210,5 @@ export interface ClusterArgs {
      * A key-value pair to associate with a resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    zookeeperAccess?: pulumi.Input<inputs.msk.ClusterZookeeperAccessArgs>;
 }

@@ -25,6 +25,7 @@ class AgentSpaceArgs:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 locale: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  operator_app: Optional[pulumi.Input['AgentSpaceOperatorAppArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
@@ -33,6 +34,7 @@ class AgentSpaceArgs:
 
         :param pulumi.Input[_builtins.str] description: The description of the AgentSpace.
         :param pulumi.Input[_builtins.str] kms_key_arn: The ARN of the KMS key to use for encryption.
+        :param pulumi.Input[_builtins.str] locale: The locale for the AgentSpace, which determines the language used in agent responses.
         :param pulumi.Input[_builtins.str] name: The name of the AgentSpace.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
@@ -40,6 +42,8 @@ class AgentSpaceArgs:
             pulumi.set(__self__, "description", description)
         if kms_key_arn is not None:
             pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+        if locale is not None:
+            pulumi.set(__self__, "locale", locale)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if operator_app is not None:
@@ -70,6 +74,18 @@ class AgentSpaceArgs:
     @kms_key_arn.setter
     def kms_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "kms_key_arn", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def locale(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The locale for the AgentSpace, which determines the language used in agent responses.
+        """
+        return pulumi.get(self, "locale")
+
+    @locale.setter
+    def locale(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "locale", value)
 
     @_builtins.property
     @pulumi.getter
@@ -113,6 +129,7 @@ class AgentSpace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 locale: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  operator_app: Optional[pulumi.Input[Union['AgentSpaceOperatorAppArgs', 'AgentSpaceOperatorAppArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
@@ -125,6 +142,7 @@ class AgentSpace(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the AgentSpace.
         :param pulumi.Input[_builtins.str] kms_key_arn: The ARN of the KMS key to use for encryption.
+        :param pulumi.Input[_builtins.str] locale: The locale for the AgentSpace, which determines the language used in agent responses.
         :param pulumi.Input[_builtins.str] name: The name of the AgentSpace.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         """
@@ -155,6 +173,7 @@ class AgentSpace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 locale: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  operator_app: Optional[pulumi.Input[Union['AgentSpaceOperatorAppArgs', 'AgentSpaceOperatorAppArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
@@ -169,6 +188,7 @@ class AgentSpace(pulumi.CustomResource):
 
             __props__.__dict__["description"] = description
             __props__.__dict__["kms_key_arn"] = kms_key_arn
+            __props__.__dict__["locale"] = locale
             __props__.__dict__["name"] = name
             __props__.__dict__["operator_app"] = operator_app
             __props__.__dict__["tags"] = tags
@@ -205,6 +225,7 @@ class AgentSpace(pulumi.CustomResource):
         __props__.__dict__["created_at"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["kms_key_arn"] = None
+        __props__.__dict__["locale"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["operator_app"] = None
         __props__.__dict__["tags"] = None
@@ -250,6 +271,14 @@ class AgentSpace(pulumi.CustomResource):
         The ARN of the KMS key to use for encryption.
         """
         return pulumi.get(self, "kms_key_arn")
+
+    @_builtins.property
+    @pulumi.getter
+    def locale(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The locale for the AgentSpace, which determines the language used in agent responses.
+        """
+        return pulumi.get(self, "locale")
 
     @_builtins.property
     @pulumi.getter

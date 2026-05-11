@@ -172,6 +172,547 @@ func (o AuthenticationModePropertiesPtrOutput) Type() UserAuthenticationModeProp
 	}).(UserAuthenticationModePropertiesTypePtrOutput)
 }
 
+type CacheClusterCloudWatchLogsDestinationDetails struct {
+	// The name of the CloudWatch Logs log group.
+	LogGroup string `pulumi:"logGroup"`
+}
+
+// CacheClusterCloudWatchLogsDestinationDetailsInput is an input type that accepts CacheClusterCloudWatchLogsDestinationDetailsArgs and CacheClusterCloudWatchLogsDestinationDetailsOutput values.
+// You can construct a concrete instance of `CacheClusterCloudWatchLogsDestinationDetailsInput` via:
+//
+//	CacheClusterCloudWatchLogsDestinationDetailsArgs{...}
+type CacheClusterCloudWatchLogsDestinationDetailsInput interface {
+	pulumi.Input
+
+	ToCacheClusterCloudWatchLogsDestinationDetailsOutput() CacheClusterCloudWatchLogsDestinationDetailsOutput
+	ToCacheClusterCloudWatchLogsDestinationDetailsOutputWithContext(context.Context) CacheClusterCloudWatchLogsDestinationDetailsOutput
+}
+
+type CacheClusterCloudWatchLogsDestinationDetailsArgs struct {
+	// The name of the CloudWatch Logs log group.
+	LogGroup pulumi.StringInput `pulumi:"logGroup"`
+}
+
+func (CacheClusterCloudWatchLogsDestinationDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheClusterCloudWatchLogsDestinationDetails)(nil)).Elem()
+}
+
+func (i CacheClusterCloudWatchLogsDestinationDetailsArgs) ToCacheClusterCloudWatchLogsDestinationDetailsOutput() CacheClusterCloudWatchLogsDestinationDetailsOutput {
+	return i.ToCacheClusterCloudWatchLogsDestinationDetailsOutputWithContext(context.Background())
+}
+
+func (i CacheClusterCloudWatchLogsDestinationDetailsArgs) ToCacheClusterCloudWatchLogsDestinationDetailsOutputWithContext(ctx context.Context) CacheClusterCloudWatchLogsDestinationDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheClusterCloudWatchLogsDestinationDetailsOutput)
+}
+
+func (i CacheClusterCloudWatchLogsDestinationDetailsArgs) ToCacheClusterCloudWatchLogsDestinationDetailsPtrOutput() CacheClusterCloudWatchLogsDestinationDetailsPtrOutput {
+	return i.ToCacheClusterCloudWatchLogsDestinationDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i CacheClusterCloudWatchLogsDestinationDetailsArgs) ToCacheClusterCloudWatchLogsDestinationDetailsPtrOutputWithContext(ctx context.Context) CacheClusterCloudWatchLogsDestinationDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheClusterCloudWatchLogsDestinationDetailsOutput).ToCacheClusterCloudWatchLogsDestinationDetailsPtrOutputWithContext(ctx)
+}
+
+// CacheClusterCloudWatchLogsDestinationDetailsPtrInput is an input type that accepts CacheClusterCloudWatchLogsDestinationDetailsArgs, CacheClusterCloudWatchLogsDestinationDetailsPtr and CacheClusterCloudWatchLogsDestinationDetailsPtrOutput values.
+// You can construct a concrete instance of `CacheClusterCloudWatchLogsDestinationDetailsPtrInput` via:
+//
+//	        CacheClusterCloudWatchLogsDestinationDetailsArgs{...}
+//
+//	or:
+//
+//	        nil
+type CacheClusterCloudWatchLogsDestinationDetailsPtrInput interface {
+	pulumi.Input
+
+	ToCacheClusterCloudWatchLogsDestinationDetailsPtrOutput() CacheClusterCloudWatchLogsDestinationDetailsPtrOutput
+	ToCacheClusterCloudWatchLogsDestinationDetailsPtrOutputWithContext(context.Context) CacheClusterCloudWatchLogsDestinationDetailsPtrOutput
+}
+
+type cacheClusterCloudWatchLogsDestinationDetailsPtrType CacheClusterCloudWatchLogsDestinationDetailsArgs
+
+func CacheClusterCloudWatchLogsDestinationDetailsPtr(v *CacheClusterCloudWatchLogsDestinationDetailsArgs) CacheClusterCloudWatchLogsDestinationDetailsPtrInput {
+	return (*cacheClusterCloudWatchLogsDestinationDetailsPtrType)(v)
+}
+
+func (*cacheClusterCloudWatchLogsDestinationDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheClusterCloudWatchLogsDestinationDetails)(nil)).Elem()
+}
+
+func (i *cacheClusterCloudWatchLogsDestinationDetailsPtrType) ToCacheClusterCloudWatchLogsDestinationDetailsPtrOutput() CacheClusterCloudWatchLogsDestinationDetailsPtrOutput {
+	return i.ToCacheClusterCloudWatchLogsDestinationDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *cacheClusterCloudWatchLogsDestinationDetailsPtrType) ToCacheClusterCloudWatchLogsDestinationDetailsPtrOutputWithContext(ctx context.Context) CacheClusterCloudWatchLogsDestinationDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheClusterCloudWatchLogsDestinationDetailsPtrOutput)
+}
+
+type CacheClusterCloudWatchLogsDestinationDetailsOutput struct{ *pulumi.OutputState }
+
+func (CacheClusterCloudWatchLogsDestinationDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheClusterCloudWatchLogsDestinationDetails)(nil)).Elem()
+}
+
+func (o CacheClusterCloudWatchLogsDestinationDetailsOutput) ToCacheClusterCloudWatchLogsDestinationDetailsOutput() CacheClusterCloudWatchLogsDestinationDetailsOutput {
+	return o
+}
+
+func (o CacheClusterCloudWatchLogsDestinationDetailsOutput) ToCacheClusterCloudWatchLogsDestinationDetailsOutputWithContext(ctx context.Context) CacheClusterCloudWatchLogsDestinationDetailsOutput {
+	return o
+}
+
+func (o CacheClusterCloudWatchLogsDestinationDetailsOutput) ToCacheClusterCloudWatchLogsDestinationDetailsPtrOutput() CacheClusterCloudWatchLogsDestinationDetailsPtrOutput {
+	return o.ToCacheClusterCloudWatchLogsDestinationDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o CacheClusterCloudWatchLogsDestinationDetailsOutput) ToCacheClusterCloudWatchLogsDestinationDetailsPtrOutputWithContext(ctx context.Context) CacheClusterCloudWatchLogsDestinationDetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheClusterCloudWatchLogsDestinationDetails) *CacheClusterCloudWatchLogsDestinationDetails {
+		return &v
+	}).(CacheClusterCloudWatchLogsDestinationDetailsPtrOutput)
+}
+
+// The name of the CloudWatch Logs log group.
+func (o CacheClusterCloudWatchLogsDestinationDetailsOutput) LogGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheClusterCloudWatchLogsDestinationDetails) string { return v.LogGroup }).(pulumi.StringOutput)
+}
+
+type CacheClusterCloudWatchLogsDestinationDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (CacheClusterCloudWatchLogsDestinationDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheClusterCloudWatchLogsDestinationDetails)(nil)).Elem()
+}
+
+func (o CacheClusterCloudWatchLogsDestinationDetailsPtrOutput) ToCacheClusterCloudWatchLogsDestinationDetailsPtrOutput() CacheClusterCloudWatchLogsDestinationDetailsPtrOutput {
+	return o
+}
+
+func (o CacheClusterCloudWatchLogsDestinationDetailsPtrOutput) ToCacheClusterCloudWatchLogsDestinationDetailsPtrOutputWithContext(ctx context.Context) CacheClusterCloudWatchLogsDestinationDetailsPtrOutput {
+	return o
+}
+
+func (o CacheClusterCloudWatchLogsDestinationDetailsPtrOutput) Elem() CacheClusterCloudWatchLogsDestinationDetailsOutput {
+	return o.ApplyT(func(v *CacheClusterCloudWatchLogsDestinationDetails) CacheClusterCloudWatchLogsDestinationDetails {
+		if v != nil {
+			return *v
+		}
+		var ret CacheClusterCloudWatchLogsDestinationDetails
+		return ret
+	}).(CacheClusterCloudWatchLogsDestinationDetailsOutput)
+}
+
+// The name of the CloudWatch Logs log group.
+func (o CacheClusterCloudWatchLogsDestinationDetailsPtrOutput) LogGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheClusterCloudWatchLogsDestinationDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LogGroup
+	}).(pulumi.StringPtrOutput)
+}
+
+type CacheClusterDestinationDetails struct {
+	// The configuration details of the CloudWatch Logs destination
+	CloudWatchLogsDetails *CacheClusterCloudWatchLogsDestinationDetails `pulumi:"cloudWatchLogsDetails"`
+	// The configuration details of the Kinesis Data Firehose destination.
+	KinesisFirehoseDetails *CacheClusterKinesisFirehoseDestinationDetails `pulumi:"kinesisFirehoseDetails"`
+}
+
+// CacheClusterDestinationDetailsInput is an input type that accepts CacheClusterDestinationDetailsArgs and CacheClusterDestinationDetailsOutput values.
+// You can construct a concrete instance of `CacheClusterDestinationDetailsInput` via:
+//
+//	CacheClusterDestinationDetailsArgs{...}
+type CacheClusterDestinationDetailsInput interface {
+	pulumi.Input
+
+	ToCacheClusterDestinationDetailsOutput() CacheClusterDestinationDetailsOutput
+	ToCacheClusterDestinationDetailsOutputWithContext(context.Context) CacheClusterDestinationDetailsOutput
+}
+
+type CacheClusterDestinationDetailsArgs struct {
+	// The configuration details of the CloudWatch Logs destination
+	CloudWatchLogsDetails CacheClusterCloudWatchLogsDestinationDetailsPtrInput `pulumi:"cloudWatchLogsDetails"`
+	// The configuration details of the Kinesis Data Firehose destination.
+	KinesisFirehoseDetails CacheClusterKinesisFirehoseDestinationDetailsPtrInput `pulumi:"kinesisFirehoseDetails"`
+}
+
+func (CacheClusterDestinationDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheClusterDestinationDetails)(nil)).Elem()
+}
+
+func (i CacheClusterDestinationDetailsArgs) ToCacheClusterDestinationDetailsOutput() CacheClusterDestinationDetailsOutput {
+	return i.ToCacheClusterDestinationDetailsOutputWithContext(context.Background())
+}
+
+func (i CacheClusterDestinationDetailsArgs) ToCacheClusterDestinationDetailsOutputWithContext(ctx context.Context) CacheClusterDestinationDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheClusterDestinationDetailsOutput)
+}
+
+type CacheClusterDestinationDetailsOutput struct{ *pulumi.OutputState }
+
+func (CacheClusterDestinationDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheClusterDestinationDetails)(nil)).Elem()
+}
+
+func (o CacheClusterDestinationDetailsOutput) ToCacheClusterDestinationDetailsOutput() CacheClusterDestinationDetailsOutput {
+	return o
+}
+
+func (o CacheClusterDestinationDetailsOutput) ToCacheClusterDestinationDetailsOutputWithContext(ctx context.Context) CacheClusterDestinationDetailsOutput {
+	return o
+}
+
+// The configuration details of the CloudWatch Logs destination
+func (o CacheClusterDestinationDetailsOutput) CloudWatchLogsDetails() CacheClusterCloudWatchLogsDestinationDetailsPtrOutput {
+	return o.ApplyT(func(v CacheClusterDestinationDetails) *CacheClusterCloudWatchLogsDestinationDetails {
+		return v.CloudWatchLogsDetails
+	}).(CacheClusterCloudWatchLogsDestinationDetailsPtrOutput)
+}
+
+// The configuration details of the Kinesis Data Firehose destination.
+func (o CacheClusterDestinationDetailsOutput) KinesisFirehoseDetails() CacheClusterKinesisFirehoseDestinationDetailsPtrOutput {
+	return o.ApplyT(func(v CacheClusterDestinationDetails) *CacheClusterKinesisFirehoseDestinationDetails {
+		return v.KinesisFirehoseDetails
+	}).(CacheClusterKinesisFirehoseDestinationDetailsPtrOutput)
+}
+
+type CacheClusterEndpoint struct {
+	Address *string `pulumi:"address"`
+	Port    *string `pulumi:"port"`
+}
+
+type CacheClusterEndpointOutput struct{ *pulumi.OutputState }
+
+func (CacheClusterEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheClusterEndpoint)(nil)).Elem()
+}
+
+func (o CacheClusterEndpointOutput) ToCacheClusterEndpointOutput() CacheClusterEndpointOutput {
+	return o
+}
+
+func (o CacheClusterEndpointOutput) ToCacheClusterEndpointOutputWithContext(ctx context.Context) CacheClusterEndpointOutput {
+	return o
+}
+
+func (o CacheClusterEndpointOutput) Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheClusterEndpoint) *string { return v.Address }).(pulumi.StringPtrOutput)
+}
+
+func (o CacheClusterEndpointOutput) Port() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheClusterEndpoint) *string { return v.Port }).(pulumi.StringPtrOutput)
+}
+
+type CacheClusterEndpointPtrOutput struct{ *pulumi.OutputState }
+
+func (CacheClusterEndpointPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheClusterEndpoint)(nil)).Elem()
+}
+
+func (o CacheClusterEndpointPtrOutput) ToCacheClusterEndpointPtrOutput() CacheClusterEndpointPtrOutput {
+	return o
+}
+
+func (o CacheClusterEndpointPtrOutput) ToCacheClusterEndpointPtrOutputWithContext(ctx context.Context) CacheClusterEndpointPtrOutput {
+	return o
+}
+
+func (o CacheClusterEndpointPtrOutput) Elem() CacheClusterEndpointOutput {
+	return o.ApplyT(func(v *CacheClusterEndpoint) CacheClusterEndpoint {
+		if v != nil {
+			return *v
+		}
+		var ret CacheClusterEndpoint
+		return ret
+	}).(CacheClusterEndpointOutput)
+}
+
+func (o CacheClusterEndpointPtrOutput) Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheClusterEndpoint) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Address
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CacheClusterEndpointPtrOutput) Port() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheClusterEndpoint) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.StringPtrOutput)
+}
+
+type CacheClusterKinesisFirehoseDestinationDetails struct {
+	// The name of the Kinesis Data Firehose delivery stream
+	DeliveryStream string `pulumi:"deliveryStream"`
+}
+
+// CacheClusterKinesisFirehoseDestinationDetailsInput is an input type that accepts CacheClusterKinesisFirehoseDestinationDetailsArgs and CacheClusterKinesisFirehoseDestinationDetailsOutput values.
+// You can construct a concrete instance of `CacheClusterKinesisFirehoseDestinationDetailsInput` via:
+//
+//	CacheClusterKinesisFirehoseDestinationDetailsArgs{...}
+type CacheClusterKinesisFirehoseDestinationDetailsInput interface {
+	pulumi.Input
+
+	ToCacheClusterKinesisFirehoseDestinationDetailsOutput() CacheClusterKinesisFirehoseDestinationDetailsOutput
+	ToCacheClusterKinesisFirehoseDestinationDetailsOutputWithContext(context.Context) CacheClusterKinesisFirehoseDestinationDetailsOutput
+}
+
+type CacheClusterKinesisFirehoseDestinationDetailsArgs struct {
+	// The name of the Kinesis Data Firehose delivery stream
+	DeliveryStream pulumi.StringInput `pulumi:"deliveryStream"`
+}
+
+func (CacheClusterKinesisFirehoseDestinationDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheClusterKinesisFirehoseDestinationDetails)(nil)).Elem()
+}
+
+func (i CacheClusterKinesisFirehoseDestinationDetailsArgs) ToCacheClusterKinesisFirehoseDestinationDetailsOutput() CacheClusterKinesisFirehoseDestinationDetailsOutput {
+	return i.ToCacheClusterKinesisFirehoseDestinationDetailsOutputWithContext(context.Background())
+}
+
+func (i CacheClusterKinesisFirehoseDestinationDetailsArgs) ToCacheClusterKinesisFirehoseDestinationDetailsOutputWithContext(ctx context.Context) CacheClusterKinesisFirehoseDestinationDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheClusterKinesisFirehoseDestinationDetailsOutput)
+}
+
+func (i CacheClusterKinesisFirehoseDestinationDetailsArgs) ToCacheClusterKinesisFirehoseDestinationDetailsPtrOutput() CacheClusterKinesisFirehoseDestinationDetailsPtrOutput {
+	return i.ToCacheClusterKinesisFirehoseDestinationDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i CacheClusterKinesisFirehoseDestinationDetailsArgs) ToCacheClusterKinesisFirehoseDestinationDetailsPtrOutputWithContext(ctx context.Context) CacheClusterKinesisFirehoseDestinationDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheClusterKinesisFirehoseDestinationDetailsOutput).ToCacheClusterKinesisFirehoseDestinationDetailsPtrOutputWithContext(ctx)
+}
+
+// CacheClusterKinesisFirehoseDestinationDetailsPtrInput is an input type that accepts CacheClusterKinesisFirehoseDestinationDetailsArgs, CacheClusterKinesisFirehoseDestinationDetailsPtr and CacheClusterKinesisFirehoseDestinationDetailsPtrOutput values.
+// You can construct a concrete instance of `CacheClusterKinesisFirehoseDestinationDetailsPtrInput` via:
+//
+//	        CacheClusterKinesisFirehoseDestinationDetailsArgs{...}
+//
+//	or:
+//
+//	        nil
+type CacheClusterKinesisFirehoseDestinationDetailsPtrInput interface {
+	pulumi.Input
+
+	ToCacheClusterKinesisFirehoseDestinationDetailsPtrOutput() CacheClusterKinesisFirehoseDestinationDetailsPtrOutput
+	ToCacheClusterKinesisFirehoseDestinationDetailsPtrOutputWithContext(context.Context) CacheClusterKinesisFirehoseDestinationDetailsPtrOutput
+}
+
+type cacheClusterKinesisFirehoseDestinationDetailsPtrType CacheClusterKinesisFirehoseDestinationDetailsArgs
+
+func CacheClusterKinesisFirehoseDestinationDetailsPtr(v *CacheClusterKinesisFirehoseDestinationDetailsArgs) CacheClusterKinesisFirehoseDestinationDetailsPtrInput {
+	return (*cacheClusterKinesisFirehoseDestinationDetailsPtrType)(v)
+}
+
+func (*cacheClusterKinesisFirehoseDestinationDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheClusterKinesisFirehoseDestinationDetails)(nil)).Elem()
+}
+
+func (i *cacheClusterKinesisFirehoseDestinationDetailsPtrType) ToCacheClusterKinesisFirehoseDestinationDetailsPtrOutput() CacheClusterKinesisFirehoseDestinationDetailsPtrOutput {
+	return i.ToCacheClusterKinesisFirehoseDestinationDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *cacheClusterKinesisFirehoseDestinationDetailsPtrType) ToCacheClusterKinesisFirehoseDestinationDetailsPtrOutputWithContext(ctx context.Context) CacheClusterKinesisFirehoseDestinationDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheClusterKinesisFirehoseDestinationDetailsPtrOutput)
+}
+
+type CacheClusterKinesisFirehoseDestinationDetailsOutput struct{ *pulumi.OutputState }
+
+func (CacheClusterKinesisFirehoseDestinationDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheClusterKinesisFirehoseDestinationDetails)(nil)).Elem()
+}
+
+func (o CacheClusterKinesisFirehoseDestinationDetailsOutput) ToCacheClusterKinesisFirehoseDestinationDetailsOutput() CacheClusterKinesisFirehoseDestinationDetailsOutput {
+	return o
+}
+
+func (o CacheClusterKinesisFirehoseDestinationDetailsOutput) ToCacheClusterKinesisFirehoseDestinationDetailsOutputWithContext(ctx context.Context) CacheClusterKinesisFirehoseDestinationDetailsOutput {
+	return o
+}
+
+func (o CacheClusterKinesisFirehoseDestinationDetailsOutput) ToCacheClusterKinesisFirehoseDestinationDetailsPtrOutput() CacheClusterKinesisFirehoseDestinationDetailsPtrOutput {
+	return o.ToCacheClusterKinesisFirehoseDestinationDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o CacheClusterKinesisFirehoseDestinationDetailsOutput) ToCacheClusterKinesisFirehoseDestinationDetailsPtrOutputWithContext(ctx context.Context) CacheClusterKinesisFirehoseDestinationDetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheClusterKinesisFirehoseDestinationDetails) *CacheClusterKinesisFirehoseDestinationDetails {
+		return &v
+	}).(CacheClusterKinesisFirehoseDestinationDetailsPtrOutput)
+}
+
+// The name of the Kinesis Data Firehose delivery stream
+func (o CacheClusterKinesisFirehoseDestinationDetailsOutput) DeliveryStream() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheClusterKinesisFirehoseDestinationDetails) string { return v.DeliveryStream }).(pulumi.StringOutput)
+}
+
+type CacheClusterKinesisFirehoseDestinationDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (CacheClusterKinesisFirehoseDestinationDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheClusterKinesisFirehoseDestinationDetails)(nil)).Elem()
+}
+
+func (o CacheClusterKinesisFirehoseDestinationDetailsPtrOutput) ToCacheClusterKinesisFirehoseDestinationDetailsPtrOutput() CacheClusterKinesisFirehoseDestinationDetailsPtrOutput {
+	return o
+}
+
+func (o CacheClusterKinesisFirehoseDestinationDetailsPtrOutput) ToCacheClusterKinesisFirehoseDestinationDetailsPtrOutputWithContext(ctx context.Context) CacheClusterKinesisFirehoseDestinationDetailsPtrOutput {
+	return o
+}
+
+func (o CacheClusterKinesisFirehoseDestinationDetailsPtrOutput) Elem() CacheClusterKinesisFirehoseDestinationDetailsOutput {
+	return o.ApplyT(func(v *CacheClusterKinesisFirehoseDestinationDetails) CacheClusterKinesisFirehoseDestinationDetails {
+		if v != nil {
+			return *v
+		}
+		var ret CacheClusterKinesisFirehoseDestinationDetails
+		return ret
+	}).(CacheClusterKinesisFirehoseDestinationDetailsOutput)
+}
+
+// The name of the Kinesis Data Firehose delivery stream
+func (o CacheClusterKinesisFirehoseDestinationDetailsPtrOutput) DeliveryStream() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheClusterKinesisFirehoseDestinationDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DeliveryStream
+	}).(pulumi.StringPtrOutput)
+}
+
+type CacheClusterLogDeliveryConfigurationRequest struct {
+	// Configuration details of either a CloudWatch Logs destination or Kinesis Data Firehose destination.
+	DestinationDetails CacheClusterDestinationDetails `pulumi:"destinationDetails"`
+	// Specify either CloudWatch Logs or Kinesis Data Firehose as the destination type.
+	DestinationType string `pulumi:"destinationType"`
+	// Valid values are either json or text
+	LogFormat string `pulumi:"logFormat"`
+	// Valid value is either slow-log, which refers to slow-log or engine-log
+	LogType string `pulumi:"logType"`
+}
+
+// CacheClusterLogDeliveryConfigurationRequestInput is an input type that accepts CacheClusterLogDeliveryConfigurationRequestArgs and CacheClusterLogDeliveryConfigurationRequestOutput values.
+// You can construct a concrete instance of `CacheClusterLogDeliveryConfigurationRequestInput` via:
+//
+//	CacheClusterLogDeliveryConfigurationRequestArgs{...}
+type CacheClusterLogDeliveryConfigurationRequestInput interface {
+	pulumi.Input
+
+	ToCacheClusterLogDeliveryConfigurationRequestOutput() CacheClusterLogDeliveryConfigurationRequestOutput
+	ToCacheClusterLogDeliveryConfigurationRequestOutputWithContext(context.Context) CacheClusterLogDeliveryConfigurationRequestOutput
+}
+
+type CacheClusterLogDeliveryConfigurationRequestArgs struct {
+	// Configuration details of either a CloudWatch Logs destination or Kinesis Data Firehose destination.
+	DestinationDetails CacheClusterDestinationDetailsInput `pulumi:"destinationDetails"`
+	// Specify either CloudWatch Logs or Kinesis Data Firehose as the destination type.
+	DestinationType pulumi.StringInput `pulumi:"destinationType"`
+	// Valid values are either json or text
+	LogFormat pulumi.StringInput `pulumi:"logFormat"`
+	// Valid value is either slow-log, which refers to slow-log or engine-log
+	LogType pulumi.StringInput `pulumi:"logType"`
+}
+
+func (CacheClusterLogDeliveryConfigurationRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheClusterLogDeliveryConfigurationRequest)(nil)).Elem()
+}
+
+func (i CacheClusterLogDeliveryConfigurationRequestArgs) ToCacheClusterLogDeliveryConfigurationRequestOutput() CacheClusterLogDeliveryConfigurationRequestOutput {
+	return i.ToCacheClusterLogDeliveryConfigurationRequestOutputWithContext(context.Background())
+}
+
+func (i CacheClusterLogDeliveryConfigurationRequestArgs) ToCacheClusterLogDeliveryConfigurationRequestOutputWithContext(ctx context.Context) CacheClusterLogDeliveryConfigurationRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheClusterLogDeliveryConfigurationRequestOutput)
+}
+
+// CacheClusterLogDeliveryConfigurationRequestArrayInput is an input type that accepts CacheClusterLogDeliveryConfigurationRequestArray and CacheClusterLogDeliveryConfigurationRequestArrayOutput values.
+// You can construct a concrete instance of `CacheClusterLogDeliveryConfigurationRequestArrayInput` via:
+//
+//	CacheClusterLogDeliveryConfigurationRequestArray{ CacheClusterLogDeliveryConfigurationRequestArgs{...} }
+type CacheClusterLogDeliveryConfigurationRequestArrayInput interface {
+	pulumi.Input
+
+	ToCacheClusterLogDeliveryConfigurationRequestArrayOutput() CacheClusterLogDeliveryConfigurationRequestArrayOutput
+	ToCacheClusterLogDeliveryConfigurationRequestArrayOutputWithContext(context.Context) CacheClusterLogDeliveryConfigurationRequestArrayOutput
+}
+
+type CacheClusterLogDeliveryConfigurationRequestArray []CacheClusterLogDeliveryConfigurationRequestInput
+
+func (CacheClusterLogDeliveryConfigurationRequestArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CacheClusterLogDeliveryConfigurationRequest)(nil)).Elem()
+}
+
+func (i CacheClusterLogDeliveryConfigurationRequestArray) ToCacheClusterLogDeliveryConfigurationRequestArrayOutput() CacheClusterLogDeliveryConfigurationRequestArrayOutput {
+	return i.ToCacheClusterLogDeliveryConfigurationRequestArrayOutputWithContext(context.Background())
+}
+
+func (i CacheClusterLogDeliveryConfigurationRequestArray) ToCacheClusterLogDeliveryConfigurationRequestArrayOutputWithContext(ctx context.Context) CacheClusterLogDeliveryConfigurationRequestArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheClusterLogDeliveryConfigurationRequestArrayOutput)
+}
+
+type CacheClusterLogDeliveryConfigurationRequestOutput struct{ *pulumi.OutputState }
+
+func (CacheClusterLogDeliveryConfigurationRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheClusterLogDeliveryConfigurationRequest)(nil)).Elem()
+}
+
+func (o CacheClusterLogDeliveryConfigurationRequestOutput) ToCacheClusterLogDeliveryConfigurationRequestOutput() CacheClusterLogDeliveryConfigurationRequestOutput {
+	return o
+}
+
+func (o CacheClusterLogDeliveryConfigurationRequestOutput) ToCacheClusterLogDeliveryConfigurationRequestOutputWithContext(ctx context.Context) CacheClusterLogDeliveryConfigurationRequestOutput {
+	return o
+}
+
+// Configuration details of either a CloudWatch Logs destination or Kinesis Data Firehose destination.
+func (o CacheClusterLogDeliveryConfigurationRequestOutput) DestinationDetails() CacheClusterDestinationDetailsOutput {
+	return o.ApplyT(func(v CacheClusterLogDeliveryConfigurationRequest) CacheClusterDestinationDetails {
+		return v.DestinationDetails
+	}).(CacheClusterDestinationDetailsOutput)
+}
+
+// Specify either CloudWatch Logs or Kinesis Data Firehose as the destination type.
+func (o CacheClusterLogDeliveryConfigurationRequestOutput) DestinationType() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheClusterLogDeliveryConfigurationRequest) string { return v.DestinationType }).(pulumi.StringOutput)
+}
+
+// Valid values are either json or text
+func (o CacheClusterLogDeliveryConfigurationRequestOutput) LogFormat() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheClusterLogDeliveryConfigurationRequest) string { return v.LogFormat }).(pulumi.StringOutput)
+}
+
+// Valid value is either slow-log, which refers to slow-log or engine-log
+func (o CacheClusterLogDeliveryConfigurationRequestOutput) LogType() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheClusterLogDeliveryConfigurationRequest) string { return v.LogType }).(pulumi.StringOutput)
+}
+
+type CacheClusterLogDeliveryConfigurationRequestArrayOutput struct{ *pulumi.OutputState }
+
+func (CacheClusterLogDeliveryConfigurationRequestArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CacheClusterLogDeliveryConfigurationRequest)(nil)).Elem()
+}
+
+func (o CacheClusterLogDeliveryConfigurationRequestArrayOutput) ToCacheClusterLogDeliveryConfigurationRequestArrayOutput() CacheClusterLogDeliveryConfigurationRequestArrayOutput {
+	return o
+}
+
+func (o CacheClusterLogDeliveryConfigurationRequestArrayOutput) ToCacheClusterLogDeliveryConfigurationRequestArrayOutputWithContext(ctx context.Context) CacheClusterLogDeliveryConfigurationRequestArrayOutput {
+	return o
+}
+
+func (o CacheClusterLogDeliveryConfigurationRequestArrayOutput) Index(i pulumi.IntInput) CacheClusterLogDeliveryConfigurationRequestOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CacheClusterLogDeliveryConfigurationRequest {
+		return vs[0].([]CacheClusterLogDeliveryConfigurationRequest)[vs[1].(int)]
+	}).(CacheClusterLogDeliveryConfigurationRequestOutput)
+}
+
+type CacheClusterTag struct {
+	// The key for the tag. May not be null.
+	Key string `pulumi:"key"`
+	// The tag's value. May be null.
+	Value string `pulumi:"value"`
+}
+
 type GlobalReplicationGroupMember struct {
 	// Regionally unique identifier for the member i.e. ReplicationGroupId.
 	ReplicationGroupId *string `pulumi:"replicationGroupId"`
@@ -2005,6 +2546,13 @@ type UserTag struct {
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AuthenticationModePropertiesInput)(nil)).Elem(), AuthenticationModePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AuthenticationModePropertiesPtrInput)(nil)).Elem(), AuthenticationModePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CacheClusterCloudWatchLogsDestinationDetailsInput)(nil)).Elem(), CacheClusterCloudWatchLogsDestinationDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CacheClusterCloudWatchLogsDestinationDetailsPtrInput)(nil)).Elem(), CacheClusterCloudWatchLogsDestinationDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CacheClusterDestinationDetailsInput)(nil)).Elem(), CacheClusterDestinationDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CacheClusterKinesisFirehoseDestinationDetailsInput)(nil)).Elem(), CacheClusterKinesisFirehoseDestinationDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CacheClusterKinesisFirehoseDestinationDetailsPtrInput)(nil)).Elem(), CacheClusterKinesisFirehoseDestinationDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CacheClusterLogDeliveryConfigurationRequestInput)(nil)).Elem(), CacheClusterLogDeliveryConfigurationRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CacheClusterLogDeliveryConfigurationRequestArrayInput)(nil)).Elem(), CacheClusterLogDeliveryConfigurationRequestArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalReplicationGroupMemberInput)(nil)).Elem(), GlobalReplicationGroupMemberArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalReplicationGroupMemberArrayInput)(nil)).Elem(), GlobalReplicationGroupMemberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalReplicationGroupRegionalConfigurationInput)(nil)).Elem(), GlobalReplicationGroupRegionalConfigurationArgs{})
@@ -2030,6 +2578,15 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCacheEndpointPtrInput)(nil)).Elem(), ServerlessCacheEndpointArgs{})
 	pulumi.RegisterOutputType(AuthenticationModePropertiesOutput{})
 	pulumi.RegisterOutputType(AuthenticationModePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(CacheClusterCloudWatchLogsDestinationDetailsOutput{})
+	pulumi.RegisterOutputType(CacheClusterCloudWatchLogsDestinationDetailsPtrOutput{})
+	pulumi.RegisterOutputType(CacheClusterDestinationDetailsOutput{})
+	pulumi.RegisterOutputType(CacheClusterEndpointOutput{})
+	pulumi.RegisterOutputType(CacheClusterEndpointPtrOutput{})
+	pulumi.RegisterOutputType(CacheClusterKinesisFirehoseDestinationDetailsOutput{})
+	pulumi.RegisterOutputType(CacheClusterKinesisFirehoseDestinationDetailsPtrOutput{})
+	pulumi.RegisterOutputType(CacheClusterLogDeliveryConfigurationRequestOutput{})
+	pulumi.RegisterOutputType(CacheClusterLogDeliveryConfigurationRequestArrayOutput{})
 	pulumi.RegisterOutputType(GlobalReplicationGroupMemberOutput{})
 	pulumi.RegisterOutputType(GlobalReplicationGroupMemberArrayOutput{})
 	pulumi.RegisterOutputType(GlobalReplicationGroupRegionalConfigurationOutput{})

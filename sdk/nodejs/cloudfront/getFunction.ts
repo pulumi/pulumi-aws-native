@@ -58,6 +58,9 @@ export interface GetFunctionResult {
      */
     readonly functionMetadata?: outputs.cloudfront.FunctionMetadata;
     readonly stage?: string;
+    /**
+     * A complex type that contains zero or more ``Tag`` elements.
+     */
     readonly tags?: outputs.Tag[];
 }
 /**

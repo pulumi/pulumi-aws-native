@@ -1033,8 +1033,9 @@ func (o TargetDomainDnsVerificationDnsRecordTypePtrOutput) ToStringPtrOutputWith
 type TargetDomainVerificationDetailsMethod string
 
 const (
-	TargetDomainVerificationDetailsMethodDnsTxt    = TargetDomainVerificationDetailsMethod("DNS_TXT")
-	TargetDomainVerificationDetailsMethodHttpRoute = TargetDomainVerificationDetailsMethod("HTTP_ROUTE")
+	TargetDomainVerificationDetailsMethodDnsTxt     = TargetDomainVerificationDetailsMethod("DNS_TXT")
+	TargetDomainVerificationDetailsMethodHttpRoute  = TargetDomainVerificationDetailsMethod("HTTP_ROUTE")
+	TargetDomainVerificationDetailsMethodPrivateVpc = TargetDomainVerificationDetailsMethod("PRIVATE_VPC")
 )
 
 type TargetDomainVerificationDetailsMethodOutput struct{ *pulumi.OutputState }
@@ -1124,8 +1125,9 @@ func (o TargetDomainVerificationDetailsMethodPtrOutput) ToStringPtrOutputWithCon
 type TargetDomainVerificationMethod string
 
 const (
-	TargetDomainVerificationMethodDnsTxt    = TargetDomainVerificationMethod("DNS_TXT")
-	TargetDomainVerificationMethodHttpRoute = TargetDomainVerificationMethod("HTTP_ROUTE")
+	TargetDomainVerificationMethodDnsTxt     = TargetDomainVerificationMethod("DNS_TXT")
+	TargetDomainVerificationMethodHttpRoute  = TargetDomainVerificationMethod("HTTP_ROUTE")
+	TargetDomainVerificationMethodPrivateVpc = TargetDomainVerificationMethod("PRIVATE_VPC")
 )
 
 func (TargetDomainVerificationMethod) ElementType() reflect.Type {
@@ -1252,6 +1254,7 @@ func (o TargetDomainVerificationMethodPtrOutput) ToStringPtrOutputWithContext(ct
 //
 //	TargetDomainVerificationMethodDnsTxt
 //	TargetDomainVerificationMethodHttpRoute
+//	TargetDomainVerificationMethodPrivateVpc
 type TargetDomainVerificationMethodInput interface {
 	pulumi.Input
 

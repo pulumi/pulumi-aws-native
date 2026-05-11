@@ -52,11 +52,20 @@ export class GroupProfile extends pulumi.CustomResource {
     /**
      * The ID of the group.
      */
-    declare public readonly groupIdentifier: pulumi.Output<string>;
+    declare public readonly groupIdentifier: pulumi.Output<string | undefined>;
     /**
      * The group-name of the Group Profile.
      */
     declare public /*out*/ readonly groupName: pulumi.Output<string>;
+    declare public readonly groupType: pulumi.Output<enums.datazone.GroupProfileGroupType | undefined>;
+    /**
+     * The ARN of the role principal for the group profile.
+     */
+    declare public readonly rolePrincipalArn: pulumi.Output<string | undefined>;
+    /**
+     * The ID of the role principal for the group profile.
+     */
+    declare public /*out*/ readonly rolePrincipalId: pulumi.Output<string>;
     /**
      * The status of a group profile.
      */
@@ -76,25 +85,28 @@ export class GroupProfile extends pulumi.CustomResource {
             if (args?.domainIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainIdentifier'");
             }
-            if (args?.groupIdentifier === undefined && !opts.urn) {
-                throw new Error("Missing required property 'groupIdentifier'");
-            }
             resourceInputs["domainIdentifier"] = args?.domainIdentifier;
             resourceInputs["groupIdentifier"] = args?.groupIdentifier;
+            resourceInputs["groupType"] = args?.groupType;
+            resourceInputs["rolePrincipalArn"] = args?.rolePrincipalArn;
             resourceInputs["status"] = args?.status;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["domainId"] = undefined /*out*/;
             resourceInputs["groupName"] = undefined /*out*/;
+            resourceInputs["rolePrincipalId"] = undefined /*out*/;
         } else {
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["domainId"] = undefined /*out*/;
             resourceInputs["domainIdentifier"] = undefined /*out*/;
             resourceInputs["groupIdentifier"] = undefined /*out*/;
             resourceInputs["groupName"] = undefined /*out*/;
+            resourceInputs["groupType"] = undefined /*out*/;
+            resourceInputs["rolePrincipalArn"] = undefined /*out*/;
+            resourceInputs["rolePrincipalId"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["domainIdentifier", "groupIdentifier"] };
+        const replaceOnChanges = { replaceOnChanges: ["domainIdentifier", "groupIdentifier", "rolePrincipalArn"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(GroupProfile.__pulumiType, name, resourceInputs, opts);
     }
@@ -111,7 +123,12 @@ export interface GroupProfileArgs {
     /**
      * The ID of the group.
      */
-    groupIdentifier: pulumi.Input<string>;
+    groupIdentifier?: pulumi.Input<string>;
+    groupType?: pulumi.Input<enums.datazone.GroupProfileGroupType>;
+    /**
+     * The ARN of the role principal for the group profile.
+     */
+    rolePrincipalArn?: pulumi.Input<string>;
     /**
      * The status of a group profile.
      */

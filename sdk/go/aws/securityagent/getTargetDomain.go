@@ -40,6 +40,8 @@ type LookupTargetDomainResult struct {
 	VerificationMethod *TargetDomainVerificationMethod `pulumi:"verificationMethod"`
 	// Current verification status of the registered target domain
 	VerificationStatus *TargetDomainVerificationStatus `pulumi:"verificationStatus"`
+	// Reason for the current target domain verification status
+	VerificationStatusReason *string `pulumi:"verificationStatusReason"`
 	// Timestamp when the target domain was last successfully verified
 	VerifiedAt *string `pulumi:"verifiedAt"`
 }
@@ -103,6 +105,11 @@ func (o LookupTargetDomainResultOutput) VerificationMethod() TargetDomainVerific
 // Current verification status of the registered target domain
 func (o LookupTargetDomainResultOutput) VerificationStatus() TargetDomainVerificationStatusPtrOutput {
 	return o.ApplyT(func(v LookupTargetDomainResult) *TargetDomainVerificationStatus { return v.VerificationStatus }).(TargetDomainVerificationStatusPtrOutput)
+}
+
+// Reason for the current target domain verification status
+func (o LookupTargetDomainResultOutput) VerificationStatusReason() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupTargetDomainResult) *string { return v.VerificationStatusReason }).(pulumi.StringPtrOutput)
 }
 
 // Timestamp when the target domain was last successfully verified

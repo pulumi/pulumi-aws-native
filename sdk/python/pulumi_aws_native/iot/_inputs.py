@@ -4428,6 +4428,7 @@ class TopicRuleAssetPropertyVariantArgs:
 
 
 class TopicRuleBatchConfigArgsDict(TypedDict):
+    batch_across_topics: NotRequired[pulumi.Input[_builtins.bool]]
     max_batch_open_ms: NotRequired[pulumi.Input[_builtins.int]]
     max_batch_size: NotRequired[pulumi.Input[_builtins.int]]
     max_batch_size_bytes: NotRequired[pulumi.Input[_builtins.int]]
@@ -4435,15 +4436,27 @@ class TopicRuleBatchConfigArgsDict(TypedDict):
 @pulumi.input_type
 class TopicRuleBatchConfigArgs:
     def __init__(__self__, *,
+                 batch_across_topics: Optional[pulumi.Input[_builtins.bool]] = None,
                  max_batch_open_ms: Optional[pulumi.Input[_builtins.int]] = None,
                  max_batch_size: Optional[pulumi.Input[_builtins.int]] = None,
                  max_batch_size_bytes: Optional[pulumi.Input[_builtins.int]] = None):
+        if batch_across_topics is not None:
+            pulumi.set(__self__, "batch_across_topics", batch_across_topics)
         if max_batch_open_ms is not None:
             pulumi.set(__self__, "max_batch_open_ms", max_batch_open_ms)
         if max_batch_size is not None:
             pulumi.set(__self__, "max_batch_size", max_batch_size)
         if max_batch_size_bytes is not None:
             pulumi.set(__self__, "max_batch_size_bytes", max_batch_size_bytes)
+
+    @_builtins.property
+    @pulumi.getter(name="batchAcrossTopics")
+    def batch_across_topics(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "batch_across_topics")
+
+    @batch_across_topics.setter
+    def batch_across_topics(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "batch_across_topics", value)
 
     @_builtins.property
     @pulumi.getter(name="maxBatchOpenMs")

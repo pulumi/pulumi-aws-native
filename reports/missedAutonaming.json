@@ -3761,6 +3761,13 @@
         "type": "string",
         "description": "The ID of the group."
       },
+      "groupType": {
+        "$ref": "#/types/aws-native:datazone:GroupProfileGroupType"
+      },
+      "rolePrincipalArn": {
+        "type": "string",
+        "description": "The ARN of the role principal for the group profile."
+      },
       "status": {
         "$ref": "#/types/aws-native:datazone:GroupProfileStatus",
         "description": "The status of a group profile."
@@ -3909,6 +3916,10 @@
       "domainIdentifier": {
         "type": "string",
         "description": "The identifier of the Amazon DataZone domain in which the user profile would be created."
+      },
+      "sessionName": {
+        "type": "string",
+        "description": "The session name of the user profile."
       },
       "status": {
         "$ref": "#/types/aws-native:datazone:UserProfileStatus",
