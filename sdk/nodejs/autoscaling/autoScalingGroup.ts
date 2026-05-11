@@ -55,6 +55,10 @@ export class AutoScalingGroup extends pulumi.CustomResource {
      */
     declare public readonly availabilityZoneDistribution: pulumi.Output<outputs.autoscaling.AutoScalingGroupAvailabilityZoneDistribution | undefined>;
     /**
+     * The Availability Zone IDs where the Auto Scaling group can launch instances.
+     */
+    declare public readonly availabilityZoneIds: pulumi.Output<string[] | undefined>;
+    /**
      * The Availability Zone impairment policy for the Auto Scaling group.
      */
     declare public readonly availabilityZoneImpairmentPolicy: pulumi.Output<outputs.autoscaling.AutoScalingGroupAvailabilityZoneImpairmentPolicy | undefined>;
@@ -231,6 +235,7 @@ export class AutoScalingGroup extends pulumi.CustomResource {
             }
             resourceInputs["autoScalingGroupName"] = args?.autoScalingGroupName;
             resourceInputs["availabilityZoneDistribution"] = args?.availabilityZoneDistribution;
+            resourceInputs["availabilityZoneIds"] = args?.availabilityZoneIds;
             resourceInputs["availabilityZoneImpairmentPolicy"] = args?.availabilityZoneImpairmentPolicy;
             resourceInputs["availabilityZones"] = args?.availabilityZones;
             resourceInputs["capacityRebalance"] = args?.capacityRebalance;
@@ -271,6 +276,7 @@ export class AutoScalingGroup extends pulumi.CustomResource {
             resourceInputs["autoScalingGroupArn"] = undefined /*out*/;
             resourceInputs["autoScalingGroupName"] = undefined /*out*/;
             resourceInputs["availabilityZoneDistribution"] = undefined /*out*/;
+            resourceInputs["availabilityZoneIds"] = undefined /*out*/;
             resourceInputs["availabilityZoneImpairmentPolicy"] = undefined /*out*/;
             resourceInputs["availabilityZones"] = undefined /*out*/;
             resourceInputs["capacityRebalance"] = undefined /*out*/;
@@ -328,6 +334,10 @@ export interface AutoScalingGroupArgs {
      * The EC2 instance capacity distribution across Availability Zones for the Auto Scaling group.
      */
     availabilityZoneDistribution?: pulumi.Input<inputs.autoscaling.AutoScalingGroupAvailabilityZoneDistributionArgs>;
+    /**
+     * The Availability Zone IDs where the Auto Scaling group can launch instances.
+     */
+    availabilityZoneIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The Availability Zone impairment policy for the Auto Scaling group.
      */

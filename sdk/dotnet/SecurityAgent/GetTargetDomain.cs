@@ -85,6 +85,10 @@ namespace Pulumi.AwsNative.SecurityAgent
         /// </summary>
         public readonly Pulumi.AwsNative.SecurityAgent.TargetDomainVerificationStatus? VerificationStatus;
         /// <summary>
+        /// Reason for the current target domain verification status
+        /// </summary>
+        public readonly string? VerificationStatusReason;
+        /// <summary>
         /// Timestamp when the target domain was last successfully verified
         /// </summary>
         public readonly string? VerifiedAt;
@@ -103,6 +107,8 @@ namespace Pulumi.AwsNative.SecurityAgent
 
             Pulumi.AwsNative.SecurityAgent.TargetDomainVerificationStatus? verificationStatus,
 
+            string? verificationStatusReason,
+
             string? verifiedAt)
         {
             CreatedAt = createdAt;
@@ -111,6 +117,7 @@ namespace Pulumi.AwsNative.SecurityAgent
             VerificationDetails = verificationDetails;
             VerificationMethod = verificationMethod;
             VerificationStatus = verificationStatus;
+            VerificationStatusReason = verificationStatusReason;
             VerifiedAt = verifiedAt;
         }
     }

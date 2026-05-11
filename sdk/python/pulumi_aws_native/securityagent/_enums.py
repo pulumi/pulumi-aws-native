@@ -106,6 +106,7 @@ class TargetDomainVerificationDetailsMethod(_builtins.str, Enum):
     """
     DNS_TXT = "DNS_TXT"
     HTTP_ROUTE = "HTTP_ROUTE"
+    PRIVATE_VPC = "PRIVATE_VPC"
 
 
 @pulumi.type_token("aws-native:securityagent:TargetDomainVerificationMethod")
@@ -115,6 +116,7 @@ class TargetDomainVerificationMethod(_builtins.str, Enum):
     """
     DNS_TXT = "DNS_TXT"
     HTTP_ROUTE = "HTTP_ROUTE"
+    PRIVATE_VPC = "PRIVATE_VPC"
 
 
 @pulumi.type_token("aws-native:securityagent:TargetDomainVerificationStatus")

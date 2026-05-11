@@ -110,6 +110,9 @@ namespace Pulumi.AwsNative.CloudFront
         /// </summary>
         public readonly Outputs.FunctionMetadata? FunctionMetadata;
         public readonly string? Stage;
+        /// <summary>
+        /// A complex type that contains zero or more ``Tag`` elements.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

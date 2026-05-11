@@ -1041,6 +1041,112 @@ func (o ConnectionBasicAuthenticationCredentialsPtrOutput) UserName() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
+// A configuration of the connection.
+type ConnectionConfiguration struct {
+	// The classification of the connection configuration.
+	Classification *string           `pulumi:"classification"`
+	Properties     map[string]string `pulumi:"properties"`
+}
+
+// ConnectionConfigurationInput is an input type that accepts ConnectionConfigurationArgs and ConnectionConfigurationOutput values.
+// You can construct a concrete instance of `ConnectionConfigurationInput` via:
+//
+//	ConnectionConfigurationArgs{...}
+type ConnectionConfigurationInput interface {
+	pulumi.Input
+
+	ToConnectionConfigurationOutput() ConnectionConfigurationOutput
+	ToConnectionConfigurationOutputWithContext(context.Context) ConnectionConfigurationOutput
+}
+
+// A configuration of the connection.
+type ConnectionConfigurationArgs struct {
+	// The classification of the connection configuration.
+	Classification pulumi.StringPtrInput `pulumi:"classification"`
+	Properties     pulumi.StringMapInput `pulumi:"properties"`
+}
+
+func (ConnectionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionConfiguration)(nil)).Elem()
+}
+
+func (i ConnectionConfigurationArgs) ToConnectionConfigurationOutput() ConnectionConfigurationOutput {
+	return i.ToConnectionConfigurationOutputWithContext(context.Background())
+}
+
+func (i ConnectionConfigurationArgs) ToConnectionConfigurationOutputWithContext(ctx context.Context) ConnectionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionConfigurationOutput)
+}
+
+// ConnectionConfigurationArrayInput is an input type that accepts ConnectionConfigurationArray and ConnectionConfigurationArrayOutput values.
+// You can construct a concrete instance of `ConnectionConfigurationArrayInput` via:
+//
+//	ConnectionConfigurationArray{ ConnectionConfigurationArgs{...} }
+type ConnectionConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToConnectionConfigurationArrayOutput() ConnectionConfigurationArrayOutput
+	ToConnectionConfigurationArrayOutputWithContext(context.Context) ConnectionConfigurationArrayOutput
+}
+
+type ConnectionConfigurationArray []ConnectionConfigurationInput
+
+func (ConnectionConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConnectionConfiguration)(nil)).Elem()
+}
+
+func (i ConnectionConfigurationArray) ToConnectionConfigurationArrayOutput() ConnectionConfigurationArrayOutput {
+	return i.ToConnectionConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i ConnectionConfigurationArray) ToConnectionConfigurationArrayOutputWithContext(ctx context.Context) ConnectionConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionConfigurationArrayOutput)
+}
+
+// A configuration of the connection.
+type ConnectionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ConnectionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionConfiguration)(nil)).Elem()
+}
+
+func (o ConnectionConfigurationOutput) ToConnectionConfigurationOutput() ConnectionConfigurationOutput {
+	return o
+}
+
+func (o ConnectionConfigurationOutput) ToConnectionConfigurationOutputWithContext(ctx context.Context) ConnectionConfigurationOutput {
+	return o
+}
+
+// The classification of the connection configuration.
+func (o ConnectionConfigurationOutput) Classification() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionConfiguration) *string { return v.Classification }).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionConfigurationOutput) Properties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ConnectionConfiguration) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
+}
+
+type ConnectionConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (ConnectionConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConnectionConfiguration)(nil)).Elem()
+}
+
+func (o ConnectionConfigurationArrayOutput) ToConnectionConfigurationArrayOutput() ConnectionConfigurationArrayOutput {
+	return o
+}
+
+func (o ConnectionConfigurationArrayOutput) ToConnectionConfigurationArrayOutputWithContext(ctx context.Context) ConnectionConfigurationArrayOutput {
+	return o
+}
+
+func (o ConnectionConfigurationArrayOutput) Index(i pulumi.IntInput) ConnectionConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConnectionConfiguration {
+		return vs[0].([]ConnectionConfiguration)[vs[1].(int)]
+	}).(ConnectionConfigurationOutput)
+}
+
 // Glue Connection Input
 type ConnectionGlueConnectionInput struct {
 	AthenaProperties               map[string]string                           `pulumi:"athenaProperties"`
@@ -1928,6 +2034,146 @@ func (o ConnectionIamPropertiesInputPtrOutput) Elem() ConnectionIamPropertiesInp
 
 func (o ConnectionIamPropertiesInputPtrOutput) GlueLineageSyncEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ConnectionIamPropertiesInput) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.GlueLineageSyncEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Lakehouse Properties Input
+type ConnectionLakehousePropertiesInput struct {
+	// Specifies whether Glue lineage sync is enabled for the lakehouse connection.
+	GlueLineageSyncEnabled *bool `pulumi:"glueLineageSyncEnabled"`
+}
+
+// ConnectionLakehousePropertiesInputInput is an input type that accepts ConnectionLakehousePropertiesInputArgs and ConnectionLakehousePropertiesInputOutput values.
+// You can construct a concrete instance of `ConnectionLakehousePropertiesInputInput` via:
+//
+//	ConnectionLakehousePropertiesInputArgs{...}
+type ConnectionLakehousePropertiesInputInput interface {
+	pulumi.Input
+
+	ToConnectionLakehousePropertiesInputOutput() ConnectionLakehousePropertiesInputOutput
+	ToConnectionLakehousePropertiesInputOutputWithContext(context.Context) ConnectionLakehousePropertiesInputOutput
+}
+
+// Lakehouse Properties Input
+type ConnectionLakehousePropertiesInputArgs struct {
+	// Specifies whether Glue lineage sync is enabled for the lakehouse connection.
+	GlueLineageSyncEnabled pulumi.BoolPtrInput `pulumi:"glueLineageSyncEnabled"`
+}
+
+func (ConnectionLakehousePropertiesInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionLakehousePropertiesInput)(nil)).Elem()
+}
+
+func (i ConnectionLakehousePropertiesInputArgs) ToConnectionLakehousePropertiesInputOutput() ConnectionLakehousePropertiesInputOutput {
+	return i.ToConnectionLakehousePropertiesInputOutputWithContext(context.Background())
+}
+
+func (i ConnectionLakehousePropertiesInputArgs) ToConnectionLakehousePropertiesInputOutputWithContext(ctx context.Context) ConnectionLakehousePropertiesInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionLakehousePropertiesInputOutput)
+}
+
+func (i ConnectionLakehousePropertiesInputArgs) ToConnectionLakehousePropertiesInputPtrOutput() ConnectionLakehousePropertiesInputPtrOutput {
+	return i.ToConnectionLakehousePropertiesInputPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionLakehousePropertiesInputArgs) ToConnectionLakehousePropertiesInputPtrOutputWithContext(ctx context.Context) ConnectionLakehousePropertiesInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionLakehousePropertiesInputOutput).ToConnectionLakehousePropertiesInputPtrOutputWithContext(ctx)
+}
+
+// ConnectionLakehousePropertiesInputPtrInput is an input type that accepts ConnectionLakehousePropertiesInputArgs, ConnectionLakehousePropertiesInputPtr and ConnectionLakehousePropertiesInputPtrOutput values.
+// You can construct a concrete instance of `ConnectionLakehousePropertiesInputPtrInput` via:
+//
+//	        ConnectionLakehousePropertiesInputArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectionLakehousePropertiesInputPtrInput interface {
+	pulumi.Input
+
+	ToConnectionLakehousePropertiesInputPtrOutput() ConnectionLakehousePropertiesInputPtrOutput
+	ToConnectionLakehousePropertiesInputPtrOutputWithContext(context.Context) ConnectionLakehousePropertiesInputPtrOutput
+}
+
+type connectionLakehousePropertiesInputPtrType ConnectionLakehousePropertiesInputArgs
+
+func ConnectionLakehousePropertiesInputPtr(v *ConnectionLakehousePropertiesInputArgs) ConnectionLakehousePropertiesInputPtrInput {
+	return (*connectionLakehousePropertiesInputPtrType)(v)
+}
+
+func (*connectionLakehousePropertiesInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionLakehousePropertiesInput)(nil)).Elem()
+}
+
+func (i *connectionLakehousePropertiesInputPtrType) ToConnectionLakehousePropertiesInputPtrOutput() ConnectionLakehousePropertiesInputPtrOutput {
+	return i.ToConnectionLakehousePropertiesInputPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionLakehousePropertiesInputPtrType) ToConnectionLakehousePropertiesInputPtrOutputWithContext(ctx context.Context) ConnectionLakehousePropertiesInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionLakehousePropertiesInputPtrOutput)
+}
+
+// Lakehouse Properties Input
+type ConnectionLakehousePropertiesInputOutput struct{ *pulumi.OutputState }
+
+func (ConnectionLakehousePropertiesInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionLakehousePropertiesInput)(nil)).Elem()
+}
+
+func (o ConnectionLakehousePropertiesInputOutput) ToConnectionLakehousePropertiesInputOutput() ConnectionLakehousePropertiesInputOutput {
+	return o
+}
+
+func (o ConnectionLakehousePropertiesInputOutput) ToConnectionLakehousePropertiesInputOutputWithContext(ctx context.Context) ConnectionLakehousePropertiesInputOutput {
+	return o
+}
+
+func (o ConnectionLakehousePropertiesInputOutput) ToConnectionLakehousePropertiesInputPtrOutput() ConnectionLakehousePropertiesInputPtrOutput {
+	return o.ToConnectionLakehousePropertiesInputPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionLakehousePropertiesInputOutput) ToConnectionLakehousePropertiesInputPtrOutputWithContext(ctx context.Context) ConnectionLakehousePropertiesInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionLakehousePropertiesInput) *ConnectionLakehousePropertiesInput {
+		return &v
+	}).(ConnectionLakehousePropertiesInputPtrOutput)
+}
+
+// Specifies whether Glue lineage sync is enabled for the lakehouse connection.
+func (o ConnectionLakehousePropertiesInputOutput) GlueLineageSyncEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ConnectionLakehousePropertiesInput) *bool { return v.GlueLineageSyncEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type ConnectionLakehousePropertiesInputPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionLakehousePropertiesInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionLakehousePropertiesInput)(nil)).Elem()
+}
+
+func (o ConnectionLakehousePropertiesInputPtrOutput) ToConnectionLakehousePropertiesInputPtrOutput() ConnectionLakehousePropertiesInputPtrOutput {
+	return o
+}
+
+func (o ConnectionLakehousePropertiesInputPtrOutput) ToConnectionLakehousePropertiesInputPtrOutputWithContext(ctx context.Context) ConnectionLakehousePropertiesInputPtrOutput {
+	return o
+}
+
+func (o ConnectionLakehousePropertiesInputPtrOutput) Elem() ConnectionLakehousePropertiesInputOutput {
+	return o.ApplyT(func(v *ConnectionLakehousePropertiesInput) ConnectionLakehousePropertiesInput {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionLakehousePropertiesInput
+		return ret
+	}).(ConnectionLakehousePropertiesInputOutput)
+}
+
+// Specifies whether Glue lineage sync is enabled for the lakehouse connection.
+func (o ConnectionLakehousePropertiesInputPtrOutput) GlueLineageSyncEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ConnectionLakehousePropertiesInput) *bool {
 		if v == nil {
 			return nil
 		}
@@ -3161,6 +3407,141 @@ func (o ConnectionPropertiesInput11PropertiesPtrOutput) WorkflowsServerlessPrope
 		}
 		return &v.WorkflowsServerlessProperties
 	}).(ConnectionWorkflowsServerlessPropertiesInputPtrOutput)
+}
+
+type ConnectionPropertiesInput12Properties struct {
+	LakehouseProperties ConnectionLakehousePropertiesInput `pulumi:"lakehouseProperties"`
+}
+
+// ConnectionPropertiesInput12PropertiesInput is an input type that accepts ConnectionPropertiesInput12PropertiesArgs and ConnectionPropertiesInput12PropertiesOutput values.
+// You can construct a concrete instance of `ConnectionPropertiesInput12PropertiesInput` via:
+//
+//	ConnectionPropertiesInput12PropertiesArgs{...}
+type ConnectionPropertiesInput12PropertiesInput interface {
+	pulumi.Input
+
+	ToConnectionPropertiesInput12PropertiesOutput() ConnectionPropertiesInput12PropertiesOutput
+	ToConnectionPropertiesInput12PropertiesOutputWithContext(context.Context) ConnectionPropertiesInput12PropertiesOutput
+}
+
+type ConnectionPropertiesInput12PropertiesArgs struct {
+	LakehouseProperties ConnectionLakehousePropertiesInputInput `pulumi:"lakehouseProperties"`
+}
+
+func (ConnectionPropertiesInput12PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionPropertiesInput12Properties)(nil)).Elem()
+}
+
+func (i ConnectionPropertiesInput12PropertiesArgs) ToConnectionPropertiesInput12PropertiesOutput() ConnectionPropertiesInput12PropertiesOutput {
+	return i.ToConnectionPropertiesInput12PropertiesOutputWithContext(context.Background())
+}
+
+func (i ConnectionPropertiesInput12PropertiesArgs) ToConnectionPropertiesInput12PropertiesOutputWithContext(ctx context.Context) ConnectionPropertiesInput12PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionPropertiesInput12PropertiesOutput)
+}
+
+func (i ConnectionPropertiesInput12PropertiesArgs) ToConnectionPropertiesInput12PropertiesPtrOutput() ConnectionPropertiesInput12PropertiesPtrOutput {
+	return i.ToConnectionPropertiesInput12PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionPropertiesInput12PropertiesArgs) ToConnectionPropertiesInput12PropertiesPtrOutputWithContext(ctx context.Context) ConnectionPropertiesInput12PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionPropertiesInput12PropertiesOutput).ToConnectionPropertiesInput12PropertiesPtrOutputWithContext(ctx)
+}
+
+// ConnectionPropertiesInput12PropertiesPtrInput is an input type that accepts ConnectionPropertiesInput12PropertiesArgs, ConnectionPropertiesInput12PropertiesPtr and ConnectionPropertiesInput12PropertiesPtrOutput values.
+// You can construct a concrete instance of `ConnectionPropertiesInput12PropertiesPtrInput` via:
+//
+//	        ConnectionPropertiesInput12PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectionPropertiesInput12PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToConnectionPropertiesInput12PropertiesPtrOutput() ConnectionPropertiesInput12PropertiesPtrOutput
+	ToConnectionPropertiesInput12PropertiesPtrOutputWithContext(context.Context) ConnectionPropertiesInput12PropertiesPtrOutput
+}
+
+type connectionPropertiesInput12PropertiesPtrType ConnectionPropertiesInput12PropertiesArgs
+
+func ConnectionPropertiesInput12PropertiesPtr(v *ConnectionPropertiesInput12PropertiesArgs) ConnectionPropertiesInput12PropertiesPtrInput {
+	return (*connectionPropertiesInput12PropertiesPtrType)(v)
+}
+
+func (*connectionPropertiesInput12PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionPropertiesInput12Properties)(nil)).Elem()
+}
+
+func (i *connectionPropertiesInput12PropertiesPtrType) ToConnectionPropertiesInput12PropertiesPtrOutput() ConnectionPropertiesInput12PropertiesPtrOutput {
+	return i.ToConnectionPropertiesInput12PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionPropertiesInput12PropertiesPtrType) ToConnectionPropertiesInput12PropertiesPtrOutputWithContext(ctx context.Context) ConnectionPropertiesInput12PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionPropertiesInput12PropertiesPtrOutput)
+}
+
+type ConnectionPropertiesInput12PropertiesOutput struct{ *pulumi.OutputState }
+
+func (ConnectionPropertiesInput12PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionPropertiesInput12Properties)(nil)).Elem()
+}
+
+func (o ConnectionPropertiesInput12PropertiesOutput) ToConnectionPropertiesInput12PropertiesOutput() ConnectionPropertiesInput12PropertiesOutput {
+	return o
+}
+
+func (o ConnectionPropertiesInput12PropertiesOutput) ToConnectionPropertiesInput12PropertiesOutputWithContext(ctx context.Context) ConnectionPropertiesInput12PropertiesOutput {
+	return o
+}
+
+func (o ConnectionPropertiesInput12PropertiesOutput) ToConnectionPropertiesInput12PropertiesPtrOutput() ConnectionPropertiesInput12PropertiesPtrOutput {
+	return o.ToConnectionPropertiesInput12PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionPropertiesInput12PropertiesOutput) ToConnectionPropertiesInput12PropertiesPtrOutputWithContext(ctx context.Context) ConnectionPropertiesInput12PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionPropertiesInput12Properties) *ConnectionPropertiesInput12Properties {
+		return &v
+	}).(ConnectionPropertiesInput12PropertiesPtrOutput)
+}
+
+func (o ConnectionPropertiesInput12PropertiesOutput) LakehouseProperties() ConnectionLakehousePropertiesInputOutput {
+	return o.ApplyT(func(v ConnectionPropertiesInput12Properties) ConnectionLakehousePropertiesInput {
+		return v.LakehouseProperties
+	}).(ConnectionLakehousePropertiesInputOutput)
+}
+
+type ConnectionPropertiesInput12PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionPropertiesInput12PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionPropertiesInput12Properties)(nil)).Elem()
+}
+
+func (o ConnectionPropertiesInput12PropertiesPtrOutput) ToConnectionPropertiesInput12PropertiesPtrOutput() ConnectionPropertiesInput12PropertiesPtrOutput {
+	return o
+}
+
+func (o ConnectionPropertiesInput12PropertiesPtrOutput) ToConnectionPropertiesInput12PropertiesPtrOutputWithContext(ctx context.Context) ConnectionPropertiesInput12PropertiesPtrOutput {
+	return o
+}
+
+func (o ConnectionPropertiesInput12PropertiesPtrOutput) Elem() ConnectionPropertiesInput12PropertiesOutput {
+	return o.ApplyT(func(v *ConnectionPropertiesInput12Properties) ConnectionPropertiesInput12Properties {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionPropertiesInput12Properties
+		return ret
+	}).(ConnectionPropertiesInput12PropertiesOutput)
+}
+
+func (o ConnectionPropertiesInput12PropertiesPtrOutput) LakehouseProperties() ConnectionLakehousePropertiesInputPtrOutput {
+	return o.ApplyT(func(v *ConnectionPropertiesInput12Properties) *ConnectionLakehousePropertiesInput {
+		if v == nil {
+			return nil
+		}
+		return &v.LakehouseProperties
+	}).(ConnectionLakehousePropertiesInputPtrOutput)
 }
 
 type ConnectionPropertiesInput1Properties struct {
@@ -5272,6 +5653,8 @@ func (o ConnectionRedshiftStorageProperties1PropertiesPtrOutput) WorkgroupName()
 
 // S3 Properties Input
 type ConnectionS3PropertiesInput struct {
+	// Specifies whether to register the S3 Access Grant location.
+	RegisterS3AccessGrantLocation *bool `pulumi:"registerS3AccessGrantLocation"`
 	// The Amazon S3 Access Grant location ID that's part of the Amazon S3 properties of a connection.
 	S3AccessGrantLocationId *string `pulumi:"s3AccessGrantLocationId"`
 	// The Amazon S3 URI that's part of the Amazon S3 properties of a connection.
@@ -5291,6 +5674,8 @@ type ConnectionS3PropertiesInputInput interface {
 
 // S3 Properties Input
 type ConnectionS3PropertiesInputArgs struct {
+	// Specifies whether to register the S3 Access Grant location.
+	RegisterS3AccessGrantLocation pulumi.BoolPtrInput `pulumi:"registerS3AccessGrantLocation"`
 	// The Amazon S3 Access Grant location ID that's part of the Amazon S3 properties of a connection.
 	S3AccessGrantLocationId pulumi.StringPtrInput `pulumi:"s3AccessGrantLocationId"`
 	// The Amazon S3 URI that's part of the Amazon S3 properties of a connection.
@@ -5375,6 +5760,11 @@ func (o ConnectionS3PropertiesInputOutput) ToConnectionS3PropertiesInputPtrOutpu
 	}).(ConnectionS3PropertiesInputPtrOutput)
 }
 
+// Specifies whether to register the S3 Access Grant location.
+func (o ConnectionS3PropertiesInputOutput) RegisterS3AccessGrantLocation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ConnectionS3PropertiesInput) *bool { return v.RegisterS3AccessGrantLocation }).(pulumi.BoolPtrOutput)
+}
+
 // The Amazon S3 Access Grant location ID that's part of the Amazon S3 properties of a connection.
 func (o ConnectionS3PropertiesInputOutput) S3AccessGrantLocationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionS3PropertiesInput) *string { return v.S3AccessGrantLocationId }).(pulumi.StringPtrOutput)
@@ -5407,6 +5797,16 @@ func (o ConnectionS3PropertiesInputPtrOutput) Elem() ConnectionS3PropertiesInput
 		var ret ConnectionS3PropertiesInput
 		return ret
 	}).(ConnectionS3PropertiesInputOutput)
+}
+
+// Specifies whether to register the S3 Access Grant location.
+func (o ConnectionS3PropertiesInputPtrOutput) RegisterS3AccessGrantLocation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ConnectionS3PropertiesInput) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RegisterS3AccessGrantLocation
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The Amazon S3 Access Grant location ID that's part of the Amazon S3 properties of a connection.
@@ -15059,6 +15459,167 @@ func (o ProjectEnvironmentParameterArrayOutput) Index(i pulumi.IntInput) Project
 	}).(ProjectEnvironmentParameterOutput)
 }
 
+// The member of the project.
+type ProjectMember struct {
+	GroupIdentifier *string `pulumi:"groupIdentifier"`
+	UserIdentifier  *string `pulumi:"userIdentifier"`
+}
+
+// ProjectMemberInput is an input type that accepts ProjectMemberArgs and ProjectMemberOutput values.
+// You can construct a concrete instance of `ProjectMemberInput` via:
+//
+//	ProjectMemberArgs{...}
+type ProjectMemberInput interface {
+	pulumi.Input
+
+	ToProjectMemberOutput() ProjectMemberOutput
+	ToProjectMemberOutputWithContext(context.Context) ProjectMemberOutput
+}
+
+// The member of the project.
+type ProjectMemberArgs struct {
+	GroupIdentifier pulumi.StringPtrInput `pulumi:"groupIdentifier"`
+	UserIdentifier  pulumi.StringPtrInput `pulumi:"userIdentifier"`
+}
+
+func (ProjectMemberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectMember)(nil)).Elem()
+}
+
+func (i ProjectMemberArgs) ToProjectMemberOutput() ProjectMemberOutput {
+	return i.ToProjectMemberOutputWithContext(context.Background())
+}
+
+func (i ProjectMemberArgs) ToProjectMemberOutputWithContext(ctx context.Context) ProjectMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectMemberOutput)
+}
+
+// The member of the project.
+type ProjectMemberOutput struct{ *pulumi.OutputState }
+
+func (ProjectMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectMember)(nil)).Elem()
+}
+
+func (o ProjectMemberOutput) ToProjectMemberOutput() ProjectMemberOutput {
+	return o
+}
+
+func (o ProjectMemberOutput) ToProjectMemberOutputWithContext(ctx context.Context) ProjectMemberOutput {
+	return o
+}
+
+func (o ProjectMemberOutput) GroupIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectMember) *string { return v.GroupIdentifier }).(pulumi.StringPtrOutput)
+}
+
+func (o ProjectMemberOutput) UserIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectMember) *string { return v.UserIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// The project membership assignment.
+type ProjectMembershipAssignment struct {
+	Designation ProjectUserDesignation `pulumi:"designation"`
+	Member      ProjectMember          `pulumi:"member"`
+}
+
+// ProjectMembershipAssignmentInput is an input type that accepts ProjectMembershipAssignmentArgs and ProjectMembershipAssignmentOutput values.
+// You can construct a concrete instance of `ProjectMembershipAssignmentInput` via:
+//
+//	ProjectMembershipAssignmentArgs{...}
+type ProjectMembershipAssignmentInput interface {
+	pulumi.Input
+
+	ToProjectMembershipAssignmentOutput() ProjectMembershipAssignmentOutput
+	ToProjectMembershipAssignmentOutputWithContext(context.Context) ProjectMembershipAssignmentOutput
+}
+
+// The project membership assignment.
+type ProjectMembershipAssignmentArgs struct {
+	Designation ProjectUserDesignationInput `pulumi:"designation"`
+	Member      ProjectMemberInput          `pulumi:"member"`
+}
+
+func (ProjectMembershipAssignmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectMembershipAssignment)(nil)).Elem()
+}
+
+func (i ProjectMembershipAssignmentArgs) ToProjectMembershipAssignmentOutput() ProjectMembershipAssignmentOutput {
+	return i.ToProjectMembershipAssignmentOutputWithContext(context.Background())
+}
+
+func (i ProjectMembershipAssignmentArgs) ToProjectMembershipAssignmentOutputWithContext(ctx context.Context) ProjectMembershipAssignmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectMembershipAssignmentOutput)
+}
+
+// ProjectMembershipAssignmentArrayInput is an input type that accepts ProjectMembershipAssignmentArray and ProjectMembershipAssignmentArrayOutput values.
+// You can construct a concrete instance of `ProjectMembershipAssignmentArrayInput` via:
+//
+//	ProjectMembershipAssignmentArray{ ProjectMembershipAssignmentArgs{...} }
+type ProjectMembershipAssignmentArrayInput interface {
+	pulumi.Input
+
+	ToProjectMembershipAssignmentArrayOutput() ProjectMembershipAssignmentArrayOutput
+	ToProjectMembershipAssignmentArrayOutputWithContext(context.Context) ProjectMembershipAssignmentArrayOutput
+}
+
+type ProjectMembershipAssignmentArray []ProjectMembershipAssignmentInput
+
+func (ProjectMembershipAssignmentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectMembershipAssignment)(nil)).Elem()
+}
+
+func (i ProjectMembershipAssignmentArray) ToProjectMembershipAssignmentArrayOutput() ProjectMembershipAssignmentArrayOutput {
+	return i.ToProjectMembershipAssignmentArrayOutputWithContext(context.Background())
+}
+
+func (i ProjectMembershipAssignmentArray) ToProjectMembershipAssignmentArrayOutputWithContext(ctx context.Context) ProjectMembershipAssignmentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectMembershipAssignmentArrayOutput)
+}
+
+// The project membership assignment.
+type ProjectMembershipAssignmentOutput struct{ *pulumi.OutputState }
+
+func (ProjectMembershipAssignmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectMembershipAssignment)(nil)).Elem()
+}
+
+func (o ProjectMembershipAssignmentOutput) ToProjectMembershipAssignmentOutput() ProjectMembershipAssignmentOutput {
+	return o
+}
+
+func (o ProjectMembershipAssignmentOutput) ToProjectMembershipAssignmentOutputWithContext(ctx context.Context) ProjectMembershipAssignmentOutput {
+	return o
+}
+
+func (o ProjectMembershipAssignmentOutput) Designation() ProjectUserDesignationOutput {
+	return o.ApplyT(func(v ProjectMembershipAssignment) ProjectUserDesignation { return v.Designation }).(ProjectUserDesignationOutput)
+}
+
+func (o ProjectMembershipAssignmentOutput) Member() ProjectMemberOutput {
+	return o.ApplyT(func(v ProjectMembershipAssignment) ProjectMember { return v.Member }).(ProjectMemberOutput)
+}
+
+type ProjectMembershipAssignmentArrayOutput struct{ *pulumi.OutputState }
+
+func (ProjectMembershipAssignmentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectMembershipAssignment)(nil)).Elem()
+}
+
+func (o ProjectMembershipAssignmentArrayOutput) ToProjectMembershipAssignmentArrayOutput() ProjectMembershipAssignmentArrayOutput {
+	return o
+}
+
+func (o ProjectMembershipAssignmentArrayOutput) ToProjectMembershipAssignmentArrayOutputWithContext(ctx context.Context) ProjectMembershipAssignmentArrayOutput {
+	return o
+}
+
+func (o ProjectMembershipAssignmentArrayOutput) Index(i pulumi.IntInput) ProjectMembershipAssignmentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProjectMembershipAssignment {
+		return vs[0].([]ProjectMembershipAssignment)[vs[1].(int)]
+	}).(ProjectMembershipAssignmentOutput)
+}
+
 type ProjectMembershipMember0Properties struct {
 	UserIdentifier string `pulumi:"userIdentifier"`
 }
@@ -16237,6 +16798,10 @@ func (o UserProfileDetails1PropertiesPtrOutput) Sso() UserProfileSsoUserProfileD
 type UserProfileIamUserProfileDetails struct {
 	// The ARN of the IAM User Profile.
 	Arn *string `pulumi:"arn"`
+	// The group profile ID of the IAM User Profile.
+	GroupProfileId *string `pulumi:"groupProfileId"`
+	// The session name of the IAM User Profile.
+	SessionName *string `pulumi:"sessionName"`
 }
 
 // The details of the IAM User Profile.
@@ -16257,6 +16822,16 @@ func (o UserProfileIamUserProfileDetailsOutput) ToUserProfileIamUserProfileDetai
 // The ARN of the IAM User Profile.
 func (o UserProfileIamUserProfileDetailsOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserProfileIamUserProfileDetails) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+// The group profile ID of the IAM User Profile.
+func (o UserProfileIamUserProfileDetailsOutput) GroupProfileId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProfileIamUserProfileDetails) *string { return v.GroupProfileId }).(pulumi.StringPtrOutput)
+}
+
+// The session name of the IAM User Profile.
+func (o UserProfileIamUserProfileDetailsOutput) SessionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProfileIamUserProfileDetails) *string { return v.SessionName }).(pulumi.StringPtrOutput)
 }
 
 type UserProfileIamUserProfileDetailsPtrOutput struct{ *pulumi.OutputState }
@@ -16290,6 +16865,26 @@ func (o UserProfileIamUserProfileDetailsPtrOutput) Arn() pulumi.StringPtrOutput 
 			return nil
 		}
 		return v.Arn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The group profile ID of the IAM User Profile.
+func (o UserProfileIamUserProfileDetailsPtrOutput) GroupProfileId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfileIamUserProfileDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupProfileId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The session name of the IAM User Profile.
+func (o UserProfileIamUserProfileDetailsPtrOutput) SessionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfileIamUserProfileDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SessionName
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -16400,6 +16995,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionAwsLocationPtrInput)(nil)).Elem(), ConnectionAwsLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionBasicAuthenticationCredentialsInput)(nil)).Elem(), ConnectionBasicAuthenticationCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionBasicAuthenticationCredentialsPtrInput)(nil)).Elem(), ConnectionBasicAuthenticationCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionConfigurationInput)(nil)).Elem(), ConnectionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionConfigurationArrayInput)(nil)).Elem(), ConnectionConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionGlueConnectionInputInput)(nil)).Elem(), ConnectionGlueConnectionInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionGlueConnectionInputPtrInput)(nil)).Elem(), ConnectionGlueConnectionInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionGlueOAuth2CredentialsInput)(nil)).Elem(), ConnectionGlueOAuth2CredentialsArgs{})
@@ -16410,6 +17007,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionHyperPodPropertiesInputPtrInput)(nil)).Elem(), ConnectionHyperPodPropertiesInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionIamPropertiesInputInput)(nil)).Elem(), ConnectionIamPropertiesInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionIamPropertiesInputPtrInput)(nil)).Elem(), ConnectionIamPropertiesInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionLakehousePropertiesInputInput)(nil)).Elem(), ConnectionLakehousePropertiesInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionLakehousePropertiesInputPtrInput)(nil)).Elem(), ConnectionLakehousePropertiesInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionLineageSyncScheduleInput)(nil)).Elem(), ConnectionLineageSyncScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionLineageSyncSchedulePtrInput)(nil)).Elem(), ConnectionLineageSyncScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionMlflowPropertiesInputInput)(nil)).Elem(), ConnectionMlflowPropertiesInputArgs{})
@@ -16426,6 +17025,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionPropertiesInput10PropertiesPtrInput)(nil)).Elem(), ConnectionPropertiesInput10PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionPropertiesInput11PropertiesInput)(nil)).Elem(), ConnectionPropertiesInput11PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionPropertiesInput11PropertiesPtrInput)(nil)).Elem(), ConnectionPropertiesInput11PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionPropertiesInput12PropertiesInput)(nil)).Elem(), ConnectionPropertiesInput12PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionPropertiesInput12PropertiesPtrInput)(nil)).Elem(), ConnectionPropertiesInput12PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionPropertiesInput1PropertiesInput)(nil)).Elem(), ConnectionPropertiesInput1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionPropertiesInput1PropertiesPtrInput)(nil)).Elem(), ConnectionPropertiesInput1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionPropertiesInput2PropertiesInput)(nil)).Elem(), ConnectionPropertiesInput2PropertiesArgs{})
@@ -16597,6 +17198,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectEnvironmentConfigurationUserParameterArrayInput)(nil)).Elem(), ProjectEnvironmentConfigurationUserParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectEnvironmentParameterInput)(nil)).Elem(), ProjectEnvironmentParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectEnvironmentParameterArrayInput)(nil)).Elem(), ProjectEnvironmentParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectMemberInput)(nil)).Elem(), ProjectMemberArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectMembershipAssignmentInput)(nil)).Elem(), ProjectMembershipAssignmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectMembershipAssignmentArrayInput)(nil)).Elem(), ProjectMembershipAssignmentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectMembershipMember0PropertiesInput)(nil)).Elem(), ProjectMembershipMember0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectMembershipMember1PropertiesInput)(nil)).Elem(), ProjectMembershipMember1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectProfileAwsAccountInput)(nil)).Elem(), ProjectProfileAwsAccountArgs{})
@@ -16626,6 +17230,8 @@ func init() {
 	pulumi.RegisterOutputType(ConnectionAwsLocationPtrOutput{})
 	pulumi.RegisterOutputType(ConnectionBasicAuthenticationCredentialsOutput{})
 	pulumi.RegisterOutputType(ConnectionBasicAuthenticationCredentialsPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionConfigurationOutput{})
+	pulumi.RegisterOutputType(ConnectionConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(ConnectionGlueConnectionInputOutput{})
 	pulumi.RegisterOutputType(ConnectionGlueConnectionInputPtrOutput{})
 	pulumi.RegisterOutputType(ConnectionGlueOAuth2CredentialsOutput{})
@@ -16636,6 +17242,8 @@ func init() {
 	pulumi.RegisterOutputType(ConnectionHyperPodPropertiesInputPtrOutput{})
 	pulumi.RegisterOutputType(ConnectionIamPropertiesInputOutput{})
 	pulumi.RegisterOutputType(ConnectionIamPropertiesInputPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionLakehousePropertiesInputOutput{})
+	pulumi.RegisterOutputType(ConnectionLakehousePropertiesInputPtrOutput{})
 	pulumi.RegisterOutputType(ConnectionLineageSyncScheduleOutput{})
 	pulumi.RegisterOutputType(ConnectionLineageSyncSchedulePtrOutput{})
 	pulumi.RegisterOutputType(ConnectionMlflowPropertiesInputOutput{})
@@ -16652,6 +17260,8 @@ func init() {
 	pulumi.RegisterOutputType(ConnectionPropertiesInput10PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ConnectionPropertiesInput11PropertiesOutput{})
 	pulumi.RegisterOutputType(ConnectionPropertiesInput11PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionPropertiesInput12PropertiesOutput{})
+	pulumi.RegisterOutputType(ConnectionPropertiesInput12PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ConnectionPropertiesInput1PropertiesOutput{})
 	pulumi.RegisterOutputType(ConnectionPropertiesInput1PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ConnectionPropertiesInput2PropertiesOutput{})
@@ -16824,6 +17434,9 @@ func init() {
 	pulumi.RegisterOutputType(ProjectEnvironmentConfigurationUserParameterArrayOutput{})
 	pulumi.RegisterOutputType(ProjectEnvironmentParameterOutput{})
 	pulumi.RegisterOutputType(ProjectEnvironmentParameterArrayOutput{})
+	pulumi.RegisterOutputType(ProjectMemberOutput{})
+	pulumi.RegisterOutputType(ProjectMembershipAssignmentOutput{})
+	pulumi.RegisterOutputType(ProjectMembershipAssignmentArrayOutput{})
 	pulumi.RegisterOutputType(ProjectMembershipMember0PropertiesOutput{})
 	pulumi.RegisterOutputType(ProjectMembershipMember1PropertiesOutput{})
 	pulumi.RegisterOutputType(ProjectProfileAwsAccountOutput{})

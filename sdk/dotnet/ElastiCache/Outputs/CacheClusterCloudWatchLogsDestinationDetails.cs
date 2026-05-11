@@ -7,18 +7,21 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.SageMaker.Outputs
+namespace Pulumi.AwsNative.ElastiCache.Outputs
 {
 
-    /// <summary>
-    /// Sets the environment variables in the Docker container
-    /// </summary>
     [OutputType]
-    public sealed class ProcessingJobEnvironment
+    public sealed class CacheClusterCloudWatchLogsDestinationDetails
     {
+        /// <summary>
+        /// The name of the CloudWatch Logs log group.
+        /// </summary>
+        public readonly string LogGroup;
+
         [OutputConstructor]
-        private ProcessingJobEnvironment()
+        private CacheClusterCloudWatchLogsDestinationDetails(string logGroup)
         {
+            LogGroup = logGroup;
         }
     }
 }

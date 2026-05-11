@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.DataZone.Outputs
     public sealed class ConnectionS3PropertiesInput
     {
         /// <summary>
+        /// Specifies whether to register the S3 Access Grant location.
+        /// </summary>
+        public readonly bool? RegisterS3AccessGrantLocation;
+        /// <summary>
         /// The Amazon S3 Access Grant location ID that's part of the Amazon S3 properties of a connection.
         /// </summary>
         public readonly string? S3AccessGrantLocationId;
@@ -27,10 +31,13 @@ namespace Pulumi.AwsNative.DataZone.Outputs
 
         [OutputConstructor]
         private ConnectionS3PropertiesInput(
+            bool? registerS3AccessGrantLocation,
+
             string? s3AccessGrantLocationId,
 
             string s3Uri)
         {
+            RegisterS3AccessGrantLocation = registerS3AccessGrantLocation;
             S3AccessGrantLocationId = s3AccessGrantLocationId;
             S3Uri = s3Uri;
         }

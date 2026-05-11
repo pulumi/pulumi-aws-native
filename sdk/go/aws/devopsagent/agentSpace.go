@@ -26,6 +26,8 @@ type AgentSpace struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The ARN of the KMS key to use for encryption.
 	KmsKeyArn pulumi.StringPtrOutput `pulumi:"kmsKeyArn"`
+	// The locale for the AgentSpace, which determines the language used in agent responses.
+	Locale pulumi.StringPtrOutput `pulumi:"locale"`
 	// The name of the AgentSpace.
 	Name        pulumi.StringOutput            `pulumi:"name"`
 	OperatorApp AgentSpaceOperatorAppPtrOutput `pulumi:"operatorApp"`
@@ -83,6 +85,8 @@ type agentSpaceArgs struct {
 	Description *string `pulumi:"description"`
 	// The ARN of the KMS key to use for encryption.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
+	// The locale for the AgentSpace, which determines the language used in agent responses.
+	Locale *string `pulumi:"locale"`
 	// The name of the AgentSpace.
 	Name        *string                `pulumi:"name"`
 	OperatorApp *AgentSpaceOperatorApp `pulumi:"operatorApp"`
@@ -96,6 +100,8 @@ type AgentSpaceArgs struct {
 	Description pulumi.StringPtrInput
 	// The ARN of the KMS key to use for encryption.
 	KmsKeyArn pulumi.StringPtrInput
+	// The locale for the AgentSpace, which determines the language used in agent responses.
+	Locale pulumi.StringPtrInput
 	// The name of the AgentSpace.
 	Name        pulumi.StringPtrInput
 	OperatorApp AgentSpaceOperatorAppPtrInput
@@ -163,6 +169,11 @@ func (o AgentSpaceOutput) Description() pulumi.StringPtrOutput {
 // The ARN of the KMS key to use for encryption.
 func (o AgentSpaceOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentSpace) pulumi.StringPtrOutput { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
+}
+
+// The locale for the AgentSpace, which determines the language used in agent responses.
+func (o AgentSpaceOutput) Locale() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentSpace) pulumi.StringPtrOutput { return v.Locale }).(pulumi.StringPtrOutput)
 }
 
 // The name of the AgentSpace.

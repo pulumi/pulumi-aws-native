@@ -495,6 +495,8 @@ export const DomainAppInstanceType = {
     MlR6id16xlarge: "ml.r6id.16xlarge",
     MlR6id24xlarge: "ml.r6id.24xlarge",
     MlR6id32xlarge: "ml.r6id.32xlarge",
+    MlP54xlarge: "ml.p5.4xlarge",
+    MlP6b20048xlarge: "ml.p6-b200.48xlarge",
 } as const;
 
 /**
@@ -1902,6 +1904,8 @@ export const SpaceResourceSpecInstanceType = {
     MlR6id16xlarge: "ml.r6id.16xlarge",
     MlR6id24xlarge: "ml.r6id.24xlarge",
     MlR6id32xlarge: "ml.r6id.32xlarge",
+    MlP54xlarge: "ml.p5.4xlarge",
+    MlP6b20048xlarge: "ml.p6-b200.48xlarge",
 } as const;
 
 /**

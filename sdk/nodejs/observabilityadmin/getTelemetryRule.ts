@@ -26,6 +26,10 @@ export interface GetTelemetryRuleArgs {
 
 export interface GetTelemetryRuleResult {
     /**
+     * Per-region replication status of the rule
+     */
+    readonly regionStatuses?: outputs.observabilityadmin.TelemetryRuleRegionStatus[];
+    /**
      * Retrieves the details of a specific telemetry rule in your account.
      */
     readonly rule?: outputs.observabilityadmin.TelemetryRule;

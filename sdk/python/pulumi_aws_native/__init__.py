@@ -1947,6 +1947,7 @@ _utilities.register(
   "mod": "elasticache",
   "fqn": "pulumi_aws_native.elasticache",
   "classes": {
+   "aws-native:elasticache:CacheCluster": "CacheCluster",
    "aws-native:elasticache:GlobalReplicationGroup": "GlobalReplicationGroup",
    "aws-native:elasticache:ParameterGroup": "ParameterGroup",
    "aws-native:elasticache:ReplicationGroup": "ReplicationGroup",

@@ -10,6 +10,14 @@
         "Arn" : {
           "type" : "string",
           "description" : "The ARN of the IAM User Profile."
+        },
+        "SessionName" : {
+          "type" : "string",
+          "description" : "The session name of the IAM User Profile."
+        },
+        "GroupProfileId" : {
+          "type" : "string",
+          "description" : "The group profile ID of the IAM User Profile."
         }
       },
       "additionalProperties" : false
@@ -72,7 +80,7 @@
     "UserType" : {
       "type" : "string",
       "description" : "The type of the user.",
-      "enum" : [ "IAM_USER", "IAM_ROLE", "SSO_USER" ]
+      "enum" : [ "IAM_USER", "IAM_ROLE", "SSO_USER", "IAM_ROLE_SESSION" ]
     }
   },
   "properties" : {
@@ -106,11 +114,17 @@
     },
     "UserType" : {
       "$ref" : "#/definitions/UserType"
+    },
+    "SessionName" : {
+      "type" : "string",
+      "description" : "The session name of the user profile.",
+      "minLength" : 2,
+      "maxLength" : 64
     }
   },
   "required" : [ "DomainIdentifier", "UserIdentifier" ],
   "readOnlyProperties" : [ "/properties/DomainId", "/properties/Type", "/properties/Id", "/properties/Details" ],
-  "writeOnlyProperties" : [ "/properties/DomainIdentifier", "/properties/UserIdentifier", "/properties/UserType" ],
+  "writeOnlyProperties" : [ "/properties/DomainIdentifier", "/properties/UserIdentifier", "/properties/UserType", "/properties/SessionName" ],
   "createOnlyProperties" : [ "/properties/DomainIdentifier", "/properties/UserIdentifier", "/properties/UserType" ],
   "primaryIdentifier" : [ "/properties/DomainId", "/properties/Id" ],
   "tagging" : {

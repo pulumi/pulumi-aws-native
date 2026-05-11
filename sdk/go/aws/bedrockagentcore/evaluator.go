@@ -29,6 +29,8 @@ type Evaluator struct {
 	EvaluatorId pulumi.StringOutput `pulumi:"evaluatorId"`
 	// The name of the evaluator. Must be unique within your account.
 	EvaluatorName pulumi.StringOutput `pulumi:"evaluatorName"`
+	// The ARN of the KMS key used to encrypt evaluator data.
+	KmsKeyArn pulumi.StringPtrOutput `pulumi:"kmsKeyArn"`
 	// The evaluation level that determines the scope of evaluation.
 	Level EvaluatorLevelOutput `pulumi:"level"`
 	// The current status of the evaluator.
@@ -95,6 +97,8 @@ type evaluatorArgs struct {
 	EvaluatorConfig EvaluatorConfig `pulumi:"evaluatorConfig"`
 	// The name of the evaluator. Must be unique within your account.
 	EvaluatorName *string `pulumi:"evaluatorName"`
+	// The ARN of the KMS key used to encrypt evaluator data.
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// The evaluation level that determines the scope of evaluation.
 	Level EvaluatorLevel `pulumi:"level"`
 	// A list of tags to assign to the evaluator.
@@ -109,6 +113,8 @@ type EvaluatorArgs struct {
 	EvaluatorConfig EvaluatorConfigInput
 	// The name of the evaluator. Must be unique within your account.
 	EvaluatorName pulumi.StringPtrInput
+	// The ARN of the KMS key used to encrypt evaluator data.
+	KmsKeyArn pulumi.StringPtrInput
 	// The evaluation level that determines the scope of evaluation.
 	Level EvaluatorLevelInput
 	// A list of tags to assign to the evaluator.
@@ -180,6 +186,11 @@ func (o EvaluatorOutput) EvaluatorId() pulumi.StringOutput {
 // The name of the evaluator. Must be unique within your account.
 func (o EvaluatorOutput) EvaluatorName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Evaluator) pulumi.StringOutput { return v.EvaluatorName }).(pulumi.StringOutput)
+}
+
+// The ARN of the KMS key used to encrypt evaluator data.
+func (o EvaluatorOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Evaluator) pulumi.StringPtrOutput { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
 // The evaluation level that determines the scope of evaluation.

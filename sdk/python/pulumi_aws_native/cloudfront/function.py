@@ -37,6 +37,7 @@ class FunctionArgs:
         :param pulumi.Input[_builtins.bool] auto_publish: A flag that determines whether to automatically publish the function to the ``LIVE`` stage when it’s created. To automatically publish to the ``LIVE`` stage, set this property to ``true``.
         :param pulumi.Input['FunctionMetadataArgs'] function_metadata: Contains metadata about a CloudFront function.
         :param pulumi.Input[_builtins.str] name: A name to identify the function.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A complex type that contains zero or more ``Tag`` elements.
         """
         pulumi.set(__self__, "function_code", function_code)
         pulumi.set(__self__, "function_config", function_config)
@@ -112,6 +113,9 @@ class FunctionArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        A complex type that contains zero or more ``Tag`` elements.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -147,6 +151,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[Union['FunctionConfigArgs', 'FunctionConfigArgsDict']] function_config: Contains configuration information about a CloudFront function.
         :param pulumi.Input[Union['FunctionMetadataArgs', 'FunctionMetadataArgsDict']] function_metadata: Contains metadata about a CloudFront function.
         :param pulumi.Input[_builtins.str] name: A name to identify the function.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A complex type that contains zero or more ``Tag`` elements.
         """
         ...
     @overload
@@ -300,5 +305,8 @@ class Function(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        A complex type that contains zero or more ``Tag`` elements.
+        """
         return pulumi.get(self, "tags")
 

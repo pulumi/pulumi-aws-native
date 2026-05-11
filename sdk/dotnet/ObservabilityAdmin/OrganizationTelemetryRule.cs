@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.ObservabilityAdmin
     public partial class OrganizationTelemetryRule : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Per-region replication status of the rule
+        /// </summary>
+        [Output("regionStatuses")]
+        public Output<ImmutableArray<Outputs.OrganizationTelemetryRuleRegionStatus>> RegionStatuses { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the organization telemetry rule.
         /// </summary>
         [Output("rule")]
@@ -64,6 +70,7 @@ namespace Pulumi.AwsNative.ObservabilityAdmin
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
+                    "rule.allRegions",
                     "ruleName",
                 },
             };

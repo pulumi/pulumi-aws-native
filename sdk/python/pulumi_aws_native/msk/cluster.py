@@ -34,7 +34,8 @@ class ClusterArgs:
                  open_monitoring: Optional[pulumi.Input['ClusterOpenMonitoringArgs']] = None,
                  rebalancing: Optional[pulumi.Input['ClusterRebalancingArgs']] = None,
                  storage_mode: Optional[pulumi.Input['ClusterStorageMode']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zookeeper_access: Optional[pulumi.Input['ClusterZookeeperAccessArgs']] = None):
         """
         The set of arguments for constructing a Cluster resource.
 
@@ -74,6 +75,8 @@ class ClusterArgs:
             pulumi.set(__self__, "storage_mode", storage_mode)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if zookeeper_access is not None:
+            pulumi.set(__self__, "zookeeper_access", zookeeper_access)
 
     @_builtins.property
     @pulumi.getter(name="brokerNodeGroupInfo")
@@ -228,6 +231,15 @@ class ClusterArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
+    @_builtins.property
+    @pulumi.getter(name="zookeeperAccess")
+    def zookeeper_access(self) -> Optional[pulumi.Input['ClusterZookeeperAccessArgs']]:
+        return pulumi.get(self, "zookeeper_access")
+
+    @zookeeper_access.setter
+    def zookeeper_access(self, value: Optional[pulumi.Input['ClusterZookeeperAccessArgs']]):
+        pulumi.set(self, "zookeeper_access", value)
+
 
 @pulumi.type_token("aws-native:msk:Cluster")
 class Cluster(pulumi.CustomResource):
@@ -248,6 +260,7 @@ class Cluster(pulumi.CustomResource):
                  rebalancing: Optional[pulumi.Input[Union['ClusterRebalancingArgs', 'ClusterRebalancingArgsDict']]] = None,
                  storage_mode: Optional[pulumi.Input['ClusterStorageMode']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zookeeper_access: Optional[pulumi.Input[Union['ClusterZookeeperAccessArgs', 'ClusterZookeeperAccessArgsDict']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::MSK::Cluster
@@ -306,6 +319,7 @@ class Cluster(pulumi.CustomResource):
                  rebalancing: Optional[pulumi.Input[Union['ClusterRebalancingArgs', 'ClusterRebalancingArgsDict']]] = None,
                  storage_mode: Optional[pulumi.Input['ClusterStorageMode']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zookeeper_access: Optional[pulumi.Input[Union['ClusterZookeeperAccessArgs', 'ClusterZookeeperAccessArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -334,6 +348,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["rebalancing"] = rebalancing
             __props__.__dict__["storage_mode"] = storage_mode
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["zookeeper_access"] = zookeeper_access
             __props__.__dict__["arn"] = None
             __props__.__dict__["current_version"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["brokerNodeGroupInfo.brokerAzDistribution", "brokerNodeGroupInfo.clientSubnets[*]", "brokerNodeGroupInfo.securityGroups[*]", "clusterName", "encryptionInfo.encryptionAtRest", "encryptionInfo.encryptionInTransit.inCluster"])
@@ -375,6 +390,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["rebalancing"] = None
         __props__.__dict__["storage_mode"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["zookeeper_access"] = None
         return Cluster(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -493,4 +509,9 @@ class Cluster(pulumi.CustomResource):
         A key-value pair to associate with a resource.
         """
         return pulumi.get(self, "tags")
+
+    @_builtins.property
+    @pulumi.getter(name="zookeeperAccess")
+    def zookeeper_access(self) -> pulumi.Output[Optional['outputs.ClusterZookeeperAccess']]:
+        return pulumi.get(self, "zookeeper_access")
 

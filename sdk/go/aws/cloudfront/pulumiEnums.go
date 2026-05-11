@@ -1954,8 +1954,9 @@ func (in *distributionTenantWebAclCustomizationActionPtr) ToDistributionTenantWe
 type DistributionViewerMtlsMode string
 
 const (
-	DistributionViewerMtlsModeRequired = DistributionViewerMtlsMode("required")
-	DistributionViewerMtlsModeOptional = DistributionViewerMtlsMode("optional")
+	DistributionViewerMtlsModeRequired    = DistributionViewerMtlsMode("required")
+	DistributionViewerMtlsModeOptional    = DistributionViewerMtlsMode("optional")
+	DistributionViewerMtlsModePassthrough = DistributionViewerMtlsMode("passthrough")
 )
 
 func (DistributionViewerMtlsMode) ElementType() reflect.Type {
@@ -2082,6 +2083,7 @@ func (o DistributionViewerMtlsModePtrOutput) ToStringPtrOutputWithContext(ctx co
 //
 //	DistributionViewerMtlsModeRequired
 //	DistributionViewerMtlsModeOptional
+//	DistributionViewerMtlsModePassthrough
 type DistributionViewerMtlsModeInput interface {
 	pulumi.Input
 

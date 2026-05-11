@@ -24,7 +24,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetGroupProfileResult:
-    def __init__(__self__, domain_id=None, group_name=None, id=None, status=None):
+    def __init__(__self__, domain_id=None, group_name=None, id=None, role_principal_id=None, status=None):
         if domain_id and not isinstance(domain_id, str):
             raise TypeError("Expected argument 'domain_id' to be a str")
         pulumi.set(__self__, "domain_id", domain_id)
@@ -34,6 +34,9 @@ class GetGroupProfileResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if role_principal_id and not isinstance(role_principal_id, str):
+            raise TypeError("Expected argument 'role_principal_id' to be a str")
+        pulumi.set(__self__, "role_principal_id", role_principal_id)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
@@ -63,6 +66,14 @@ class GetGroupProfileResult:
         return pulumi.get(self, "id")
 
     @_builtins.property
+    @pulumi.getter(name="rolePrincipalId")
+    def role_principal_id(self) -> Optional[_builtins.str]:
+        """
+        The ID of the role principal for the group profile.
+        """
+        return pulumi.get(self, "role_principal_id")
+
+    @_builtins.property
     @pulumi.getter
     def status(self) -> Optional['GroupProfileStatus']:
         """
@@ -80,6 +91,7 @@ class AwaitableGetGroupProfileResult(GetGroupProfileResult):
             domain_id=self.domain_id,
             group_name=self.group_name,
             id=self.id,
+            role_principal_id=self.role_principal_id,
             status=self.status)
 
 
@@ -103,6 +115,7 @@ def get_group_profile(domain_id: Optional[_builtins.str] = None,
         domain_id=pulumi.get(__ret__, 'domain_id'),
         group_name=pulumi.get(__ret__, 'group_name'),
         id=pulumi.get(__ret__, 'id'),
+        role_principal_id=pulumi.get(__ret__, 'role_principal_id'),
         status=pulumi.get(__ret__, 'status'))
 def get_group_profile_output(domain_id: Optional[pulumi.Input[_builtins.str]] = None,
                              id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -123,4 +136,5 @@ def get_group_profile_output(domain_id: Optional[pulumi.Input[_builtins.str]] = 
         domain_id=pulumi.get(__response__, 'domain_id'),
         group_name=pulumi.get(__response__, 'group_name'),
         id=pulumi.get(__response__, 'id'),
+        role_principal_id=pulumi.get(__response__, 'role_principal_id'),
         status=pulumi.get(__response__, 'status')))

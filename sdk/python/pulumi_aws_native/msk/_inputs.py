@@ -80,6 +80,8 @@ __all__ = [
     'ClusterVpcConnectivityTlsArgsDict',
     'ClusterVpcConnectivityArgs',
     'ClusterVpcConnectivityArgsDict',
+    'ClusterZookeeperAccessArgs',
+    'ClusterZookeeperAccessArgsDict',
     'ConfigurationLatestRevisionArgs',
     'ConfigurationLatestRevisionArgsDict',
     'LogDeliveryArgs',
@@ -1588,6 +1590,26 @@ class ClusterVpcConnectivityArgs:
     @client_authentication.setter
     def client_authentication(self, value: Optional[pulumi.Input['ClusterVpcConnectivityClientAuthenticationArgs']]):
         pulumi.set(self, "client_authentication", value)
+
+
+class ClusterZookeeperAccessArgsDict(TypedDict):
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+
+@pulumi.input_type
+class ClusterZookeeperAccessArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "enabled", value)
 
 
 class ConfigurationLatestRevisionArgsDict(TypedDict):

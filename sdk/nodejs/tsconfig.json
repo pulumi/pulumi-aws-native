@@ -1185,6 +1185,8 @@
         "eks/index.ts",
         "eks/nodegroup.ts",
         "eks/podIdentityAssociation.ts",
+        "elasticache/cacheCluster.ts",
+        "elasticache/getCacheCluster.ts",
         "elasticache/getGlobalReplicationGroup.ts",
         "elasticache/getParameterGroup.ts",
         "elasticache/getReplicationGroup.ts",

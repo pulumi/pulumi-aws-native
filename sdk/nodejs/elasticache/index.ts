@@ -5,6 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { CacheClusterArgs } from "./cacheCluster";
+export type CacheCluster = import("./cacheCluster").CacheCluster;
+export const CacheCluster: typeof import("./cacheCluster").CacheCluster = null as any;
+utilities.lazyLoad(exports, ["CacheCluster"], () => require("./cacheCluster"));
+
+export { GetCacheClusterArgs, GetCacheClusterResult, GetCacheClusterOutputArgs } from "./getCacheCluster";
+export const getCacheCluster: typeof import("./getCacheCluster").getCacheCluster = null as any;
+export const getCacheClusterOutput: typeof import("./getCacheCluster").getCacheClusterOutput = null as any;
+utilities.lazyLoad(exports, ["getCacheCluster","getCacheClusterOutput"], () => require("./getCacheCluster"));
+
 export { GetGlobalReplicationGroupArgs, GetGlobalReplicationGroupResult, GetGlobalReplicationGroupOutputArgs } from "./getGlobalReplicationGroup";
 export const getGlobalReplicationGroup: typeof import("./getGlobalReplicationGroup").getGlobalReplicationGroup = null as any;
 export const getGlobalReplicationGroupOutput: typeof import("./getGlobalReplicationGroup").getGlobalReplicationGroupOutput = null as any;
@@ -83,6 +93,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:elasticache:CacheCluster":
+                return new CacheCluster(name, <any>undefined, { urn })
             case "aws-native:elasticache:GlobalReplicationGroup":
                 return new GlobalReplicationGroup(name, <any>undefined, { urn })
             case "aws-native:elasticache:ParameterGroup":

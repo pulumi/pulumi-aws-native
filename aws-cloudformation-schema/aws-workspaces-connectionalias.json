@@ -98,6 +98,9 @@
     },
     "delete" : {
       "permissions" : [ "workspaces:DeleteConnectionAlias", "workspaces:DeleteTags", "workspaces:DescribeTags", "workspaces:DescribeConnectionAliases" ]
+    },
+    "list" : {
+      "permissions" : [ "workspaces:DescribeConnectionAliases" ]
     }
   }
 }

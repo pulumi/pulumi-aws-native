@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.IoT.Inputs
 
     public sealed class TopicRuleBatchConfigArgs : global::Pulumi.ResourceArgs
     {
+        [Input("batchAcrossTopics")]
+        public Input<bool>? BatchAcrossTopics { get; set; }
+
         [Input("maxBatchOpenMs")]
         public Input<int>? MaxBatchOpenMs { get; set; }
 

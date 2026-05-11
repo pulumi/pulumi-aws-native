@@ -52,7 +52,7 @@ export class ProcessingJob extends pulumi.CustomResource {
     /**
      * Sets the environment variables in the Docker container.
      */
-    declare public readonly environment: pulumi.Output<outputs.sagemaker.ProcessingJobEnvironment | undefined>;
+    declare public readonly environment: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * An optional string, up to one KB in size, that contains metadata from the processing container when the processing job exits.
      */
@@ -193,7 +193,7 @@ export class ProcessingJob extends pulumi.CustomResource {
             resourceInputs["trainingJobArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["appSpecification", "environment", "experimentConfig", "networkConfig", "processingInputs[*]", "processingJobName", "processingOutputConfig", "processingResources", "roleArn", "stoppingCondition", "tags[*]"] };
+        const replaceOnChanges = { replaceOnChanges: ["appSpecification", "environment.*", "experimentConfig", "networkConfig", "processingInputs[*]", "processingJobName", "processingOutputConfig", "processingResources", "roleArn", "stoppingCondition", "tags[*]"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ProcessingJob.__pulumiType, name, resourceInputs, opts);
     }
@@ -210,7 +210,7 @@ export interface ProcessingJobArgs {
     /**
      * Sets the environment variables in the Docker container.
      */
-    environment?: pulumi.Input<inputs.sagemaker.ProcessingJobEnvironmentArgs>;
+    environment?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Associates a SageMaker job as a trial component with an experiment and trial. Specified when you call the [CreateProcessingJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateProcessingJob.html) API.
      */

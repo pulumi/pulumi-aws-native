@@ -25,13 +25,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetAutoScalingGroupResult:
-    def __init__(__self__, auto_scaling_group_arn=None, availability_zone_distribution=None, availability_zone_impairment_policy=None, availability_zones=None, capacity_rebalance=None, capacity_reservation_specification=None, context=None, cooldown=None, default_instance_warmup=None, deletion_protection=None, desired_capacity=None, desired_capacity_type=None, health_check_grace_period=None, health_check_type=None, instance_lifecycle_policy=None, instance_maintenance_policy=None, launch_configuration_name=None, launch_template=None, lifecycle_hook_specification_list=None, load_balancer_names=None, max_instance_lifetime=None, max_size=None, metrics_collection=None, min_size=None, mixed_instances_policy=None, new_instances_protected_from_scale_in=None, notification_configuration=None, notification_configurations=None, placement_group=None, service_linked_role_arn=None, tags=None, target_group_arns=None, termination_policies=None, traffic_sources=None, vpc_zone_identifier=None):
+    def __init__(__self__, auto_scaling_group_arn=None, availability_zone_distribution=None, availability_zone_ids=None, availability_zone_impairment_policy=None, availability_zones=None, capacity_rebalance=None, capacity_reservation_specification=None, context=None, cooldown=None, default_instance_warmup=None, deletion_protection=None, desired_capacity=None, desired_capacity_type=None, health_check_grace_period=None, health_check_type=None, instance_lifecycle_policy=None, instance_maintenance_policy=None, launch_configuration_name=None, launch_template=None, lifecycle_hook_specification_list=None, load_balancer_names=None, max_instance_lifetime=None, max_size=None, metrics_collection=None, min_size=None, mixed_instances_policy=None, new_instances_protected_from_scale_in=None, notification_configuration=None, notification_configurations=None, placement_group=None, service_linked_role_arn=None, tags=None, target_group_arns=None, termination_policies=None, traffic_sources=None, vpc_zone_identifier=None):
         if auto_scaling_group_arn and not isinstance(auto_scaling_group_arn, str):
             raise TypeError("Expected argument 'auto_scaling_group_arn' to be a str")
         pulumi.set(__self__, "auto_scaling_group_arn", auto_scaling_group_arn)
         if availability_zone_distribution and not isinstance(availability_zone_distribution, dict):
             raise TypeError("Expected argument 'availability_zone_distribution' to be a dict")
         pulumi.set(__self__, "availability_zone_distribution", availability_zone_distribution)
+        if availability_zone_ids and not isinstance(availability_zone_ids, list):
+            raise TypeError("Expected argument 'availability_zone_ids' to be a list")
+        pulumi.set(__self__, "availability_zone_ids", availability_zone_ids)
         if availability_zone_impairment_policy and not isinstance(availability_zone_impairment_policy, dict):
             raise TypeError("Expected argument 'availability_zone_impairment_policy' to be a dict")
         pulumi.set(__self__, "availability_zone_impairment_policy", availability_zone_impairment_policy)
@@ -147,6 +150,14 @@ class GetAutoScalingGroupResult:
         The EC2 instance capacity distribution across Availability Zones for the Auto Scaling group.
         """
         return pulumi.get(self, "availability_zone_distribution")
+
+    @_builtins.property
+    @pulumi.getter(name="availabilityZoneIds")
+    def availability_zone_ids(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The Availability Zone IDs where the Auto Scaling group can launch instances.
+        """
+        return pulumi.get(self, "availability_zone_ids")
 
     @_builtins.property
     @pulumi.getter(name="availabilityZoneImpairmentPolicy")
@@ -440,6 +451,7 @@ class AwaitableGetAutoScalingGroupResult(GetAutoScalingGroupResult):
         return GetAutoScalingGroupResult(
             auto_scaling_group_arn=self.auto_scaling_group_arn,
             availability_zone_distribution=self.availability_zone_distribution,
+            availability_zone_ids=self.availability_zone_ids,
             availability_zone_impairment_policy=self.availability_zone_impairment_policy,
             availability_zones=self.availability_zones,
             capacity_rebalance=self.capacity_rebalance,
@@ -496,6 +508,7 @@ def get_auto_scaling_group(auto_scaling_group_name: Optional[_builtins.str] = No
     return AwaitableGetAutoScalingGroupResult(
         auto_scaling_group_arn=pulumi.get(__ret__, 'auto_scaling_group_arn'),
         availability_zone_distribution=pulumi.get(__ret__, 'availability_zone_distribution'),
+        availability_zone_ids=pulumi.get(__ret__, 'availability_zone_ids'),
         availability_zone_impairment_policy=pulumi.get(__ret__, 'availability_zone_impairment_policy'),
         availability_zones=pulumi.get(__ret__, 'availability_zones'),
         capacity_rebalance=pulumi.get(__ret__, 'capacity_rebalance'),
@@ -549,6 +562,7 @@ def get_auto_scaling_group_output(auto_scaling_group_name: Optional[pulumi.Input
     return __ret__.apply(lambda __response__: GetAutoScalingGroupResult(
         auto_scaling_group_arn=pulumi.get(__response__, 'auto_scaling_group_arn'),
         availability_zone_distribution=pulumi.get(__response__, 'availability_zone_distribution'),
+        availability_zone_ids=pulumi.get(__response__, 'availability_zone_ids'),
         availability_zone_impairment_policy=pulumi.get(__response__, 'availability_zone_impairment_policy'),
         availability_zones=pulumi.get(__response__, 'availability_zones'),
         capacity_rebalance=pulumi.get(__response__, 'capacity_rebalance'),

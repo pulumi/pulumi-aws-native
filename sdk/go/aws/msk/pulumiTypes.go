@@ -4915,6 +4915,139 @@ func (o ClusterVpcConnectivityTlsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+type ClusterZookeeperAccess struct {
+	Enabled *bool `pulumi:"enabled"`
+}
+
+// ClusterZookeeperAccessInput is an input type that accepts ClusterZookeeperAccessArgs and ClusterZookeeperAccessOutput values.
+// You can construct a concrete instance of `ClusterZookeeperAccessInput` via:
+//
+//	ClusterZookeeperAccessArgs{...}
+type ClusterZookeeperAccessInput interface {
+	pulumi.Input
+
+	ToClusterZookeeperAccessOutput() ClusterZookeeperAccessOutput
+	ToClusterZookeeperAccessOutputWithContext(context.Context) ClusterZookeeperAccessOutput
+}
+
+type ClusterZookeeperAccessArgs struct {
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+}
+
+func (ClusterZookeeperAccessArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterZookeeperAccess)(nil)).Elem()
+}
+
+func (i ClusterZookeeperAccessArgs) ToClusterZookeeperAccessOutput() ClusterZookeeperAccessOutput {
+	return i.ToClusterZookeeperAccessOutputWithContext(context.Background())
+}
+
+func (i ClusterZookeeperAccessArgs) ToClusterZookeeperAccessOutputWithContext(ctx context.Context) ClusterZookeeperAccessOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterZookeeperAccessOutput)
+}
+
+func (i ClusterZookeeperAccessArgs) ToClusterZookeeperAccessPtrOutput() ClusterZookeeperAccessPtrOutput {
+	return i.ToClusterZookeeperAccessPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterZookeeperAccessArgs) ToClusterZookeeperAccessPtrOutputWithContext(ctx context.Context) ClusterZookeeperAccessPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterZookeeperAccessOutput).ToClusterZookeeperAccessPtrOutputWithContext(ctx)
+}
+
+// ClusterZookeeperAccessPtrInput is an input type that accepts ClusterZookeeperAccessArgs, ClusterZookeeperAccessPtr and ClusterZookeeperAccessPtrOutput values.
+// You can construct a concrete instance of `ClusterZookeeperAccessPtrInput` via:
+//
+//	        ClusterZookeeperAccessArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterZookeeperAccessPtrInput interface {
+	pulumi.Input
+
+	ToClusterZookeeperAccessPtrOutput() ClusterZookeeperAccessPtrOutput
+	ToClusterZookeeperAccessPtrOutputWithContext(context.Context) ClusterZookeeperAccessPtrOutput
+}
+
+type clusterZookeeperAccessPtrType ClusterZookeeperAccessArgs
+
+func ClusterZookeeperAccessPtr(v *ClusterZookeeperAccessArgs) ClusterZookeeperAccessPtrInput {
+	return (*clusterZookeeperAccessPtrType)(v)
+}
+
+func (*clusterZookeeperAccessPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterZookeeperAccess)(nil)).Elem()
+}
+
+func (i *clusterZookeeperAccessPtrType) ToClusterZookeeperAccessPtrOutput() ClusterZookeeperAccessPtrOutput {
+	return i.ToClusterZookeeperAccessPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterZookeeperAccessPtrType) ToClusterZookeeperAccessPtrOutputWithContext(ctx context.Context) ClusterZookeeperAccessPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterZookeeperAccessPtrOutput)
+}
+
+type ClusterZookeeperAccessOutput struct{ *pulumi.OutputState }
+
+func (ClusterZookeeperAccessOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterZookeeperAccess)(nil)).Elem()
+}
+
+func (o ClusterZookeeperAccessOutput) ToClusterZookeeperAccessOutput() ClusterZookeeperAccessOutput {
+	return o
+}
+
+func (o ClusterZookeeperAccessOutput) ToClusterZookeeperAccessOutputWithContext(ctx context.Context) ClusterZookeeperAccessOutput {
+	return o
+}
+
+func (o ClusterZookeeperAccessOutput) ToClusterZookeeperAccessPtrOutput() ClusterZookeeperAccessPtrOutput {
+	return o.ToClusterZookeeperAccessPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterZookeeperAccessOutput) ToClusterZookeeperAccessPtrOutputWithContext(ctx context.Context) ClusterZookeeperAccessPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterZookeeperAccess) *ClusterZookeeperAccess {
+		return &v
+	}).(ClusterZookeeperAccessPtrOutput)
+}
+
+func (o ClusterZookeeperAccessOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ClusterZookeeperAccess) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type ClusterZookeeperAccessPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterZookeeperAccessPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterZookeeperAccess)(nil)).Elem()
+}
+
+func (o ClusterZookeeperAccessPtrOutput) ToClusterZookeeperAccessPtrOutput() ClusterZookeeperAccessPtrOutput {
+	return o
+}
+
+func (o ClusterZookeeperAccessPtrOutput) ToClusterZookeeperAccessPtrOutputWithContext(ctx context.Context) ClusterZookeeperAccessPtrOutput {
+	return o
+}
+
+func (o ClusterZookeeperAccessPtrOutput) Elem() ClusterZookeeperAccessOutput {
+	return o.ApplyT(func(v *ClusterZookeeperAccess) ClusterZookeeperAccess {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterZookeeperAccess
+		return ret
+	}).(ClusterZookeeperAccessOutput)
+}
+
+func (o ClusterZookeeperAccessPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClusterZookeeperAccess) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 type ConfigurationLatestRevision struct {
 	// The time when the configuration revision was created.
 	CreationTime *string `pulumi:"creationTime"`
@@ -7934,6 +8067,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterVpcConnectivityScramPtrInput)(nil)).Elem(), ClusterVpcConnectivityScramArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterVpcConnectivityTlsInput)(nil)).Elem(), ClusterVpcConnectivityTlsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterVpcConnectivityTlsPtrInput)(nil)).Elem(), ClusterVpcConnectivityTlsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterZookeeperAccessInput)(nil)).Elem(), ClusterZookeeperAccessArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterZookeeperAccessPtrInput)(nil)).Elem(), ClusterZookeeperAccessArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationLatestRevisionInput)(nil)).Elem(), ConfigurationLatestRevisionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationLatestRevisionPtrInput)(nil)).Elem(), ConfigurationLatestRevisionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogDeliveryInput)(nil)).Elem(), LogDeliveryArgs{})
@@ -8037,6 +8172,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterVpcConnectivityScramPtrOutput{})
 	pulumi.RegisterOutputType(ClusterVpcConnectivityTlsOutput{})
 	pulumi.RegisterOutputType(ClusterVpcConnectivityTlsPtrOutput{})
+	pulumi.RegisterOutputType(ClusterZookeeperAccessOutput{})
+	pulumi.RegisterOutputType(ClusterZookeeperAccessPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationLatestRevisionOutput{})
 	pulumi.RegisterOutputType(ConfigurationLatestRevisionPtrOutput{})
 	pulumi.RegisterOutputType(LogDeliveryOutput{})

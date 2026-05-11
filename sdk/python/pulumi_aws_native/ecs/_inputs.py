@@ -6780,11 +6780,6 @@ class ServiceDeploymentLifecycleHookArgsDict(TypedDict):
     A deployment lifecycle hook runs custom logic at specific stages of the deployment process. Currently, you can use Lambda functions as hook targets.
      For more information, see [Lifecycle hooks for Amazon ECS service deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-lifecycle-hooks.html) in the *Amazon Elastic Container Service Developer Guide*.
     """
-    hook_target_arn: pulumi.Input[_builtins.str]
-    """
-    The Amazon Resource Name (ARN) of the hook target. Currently, only Lambda function ARNs are supported.
-     You must provide this parameter when configuring a deployment lifecycle hook.
-    """
     lifecycle_stages: pulumi.Input[Sequence[pulumi.Input['ServiceDeploymentLifecycleHookLifecycleStagesItem']]]
     """
     The lifecycle stages at which to run the hook. Choose from these valid values:
@@ -6812,30 +6807,35 @@ class ServiceDeploymentLifecycleHookArgsDict(TypedDict):
       
      You must provide this parameter when configuring a deployment lifecycle hook.
     """
-    role_arn: pulumi.Input[_builtins.str]
-    """
-    The Amazon Resource Name (ARN) of the IAM role that grants Amazon ECS permission to call Lambda functions on your behalf.
-     For more information, see [Permissions required for Lambda functions in Amazon ECS blue/green deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/blue-green-permissions.html) in the *Amazon Elastic Container Service Developer Guide*.
-    """
     hook_details: NotRequired[Any]
     """
     Use this field to specify custom parameters that ECS passes to your hook target invocations (such as a Lambda function).
      This field must be a JSON object as a string.
     """
+    hook_target_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon Resource Name (ARN) of the hook target. Currently, only Lambda function ARNs are supported.
+     You must provide this parameter when configuring a deployment lifecycle hook.
+    """
+    role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon Resource Name (ARN) of the IAM role that grants Amazon ECS permission to call Lambda functions on your behalf.
+     For more information, see [Permissions required for Lambda functions in Amazon ECS blue/green deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/blue-green-permissions.html) in the *Amazon Elastic Container Service Developer Guide*.
+    """
+    timeout_configuration: NotRequired[Any]
 
 @pulumi.input_type
 class ServiceDeploymentLifecycleHookArgs:
     def __init__(__self__, *,
-                 hook_target_arn: pulumi.Input[_builtins.str],
                  lifecycle_stages: pulumi.Input[Sequence[pulumi.Input['ServiceDeploymentLifecycleHookLifecycleStagesItem']]],
-                 role_arn: pulumi.Input[_builtins.str],
-                 hook_details: Optional[Any] = None):
+                 hook_details: Optional[Any] = None,
+                 hook_target_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 timeout_configuration: Optional[Any] = None):
         """
         A deployment lifecycle hook runs custom logic at specific stages of the deployment process. Currently, you can use Lambda functions as hook targets.
          For more information, see [Lifecycle hooks for Amazon ECS service deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-lifecycle-hooks.html) in the *Amazon Elastic Container Service Developer Guide*.
 
-        :param pulumi.Input[_builtins.str] hook_target_arn: The Amazon Resource Name (ARN) of the hook target. Currently, only Lambda function ARNs are supported.
-                You must provide this parameter when configuring a deployment lifecycle hook.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceDeploymentLifecycleHookLifecycleStagesItem']]] lifecycle_stages: The lifecycle stages at which to run the hook. Choose from these valid values:
                  +  RECONCILE_SERVICE
                 The reconciliation stage that only happens when you start a new service deployment with more than 1 service revision in an ACTIVE state.
@@ -6860,29 +6860,22 @@ class ServiceDeploymentLifecycleHookArgs:
                 You can use a lifecycle hook for this stage.
                  
                 You must provide this parameter when configuring a deployment lifecycle hook.
-        :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of the IAM role that grants Amazon ECS permission to call Lambda functions on your behalf.
-                For more information, see [Permissions required for Lambda functions in Amazon ECS blue/green deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/blue-green-permissions.html) in the *Amazon Elastic Container Service Developer Guide*.
         :param Any hook_details: Use this field to specify custom parameters that ECS passes to your hook target invocations (such as a Lambda function).
                 This field must be a JSON object as a string.
+        :param pulumi.Input[_builtins.str] hook_target_arn: The Amazon Resource Name (ARN) of the hook target. Currently, only Lambda function ARNs are supported.
+                You must provide this parameter when configuring a deployment lifecycle hook.
+        :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of the IAM role that grants Amazon ECS permission to call Lambda functions on your behalf.
+                For more information, see [Permissions required for Lambda functions in Amazon ECS blue/green deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/blue-green-permissions.html) in the *Amazon Elastic Container Service Developer Guide*.
         """
-        pulumi.set(__self__, "hook_target_arn", hook_target_arn)
         pulumi.set(__self__, "lifecycle_stages", lifecycle_stages)
-        pulumi.set(__self__, "role_arn", role_arn)
         if hook_details is not None:
             pulumi.set(__self__, "hook_details", hook_details)
-
-    @_builtins.property
-    @pulumi.getter(name="hookTargetArn")
-    def hook_target_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the hook target. Currently, only Lambda function ARNs are supported.
-         You must provide this parameter when configuring a deployment lifecycle hook.
-        """
-        return pulumi.get(self, "hook_target_arn")
-
-    @hook_target_arn.setter
-    def hook_target_arn(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "hook_target_arn", value)
+        if hook_target_arn is not None:
+            pulumi.set(__self__, "hook_target_arn", hook_target_arn)
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
+        if timeout_configuration is not None:
+            pulumi.set(__self__, "timeout_configuration", timeout_configuration)
 
     @_builtins.property
     @pulumi.getter(name="lifecycleStages")
@@ -6920,19 +6913,6 @@ class ServiceDeploymentLifecycleHookArgs:
         pulumi.set(self, "lifecycle_stages", value)
 
     @_builtins.property
-    @pulumi.getter(name="roleArn")
-    def role_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the IAM role that grants Amazon ECS permission to call Lambda functions on your behalf.
-         For more information, see [Permissions required for Lambda functions in Amazon ECS blue/green deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/blue-green-permissions.html) in the *Amazon Elastic Container Service Developer Guide*.
-        """
-        return pulumi.get(self, "role_arn")
-
-    @role_arn.setter
-    def role_arn(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "role_arn", value)
-
-    @_builtins.property
     @pulumi.getter(name="hookDetails")
     def hook_details(self) -> Optional[Any]:
         """
@@ -6944,6 +6924,41 @@ class ServiceDeploymentLifecycleHookArgs:
     @hook_details.setter
     def hook_details(self, value: Optional[Any]):
         pulumi.set(self, "hook_details", value)
+
+    @_builtins.property
+    @pulumi.getter(name="hookTargetArn")
+    def hook_target_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Amazon Resource Name (ARN) of the hook target. Currently, only Lambda function ARNs are supported.
+         You must provide this parameter when configuring a deployment lifecycle hook.
+        """
+        return pulumi.get(self, "hook_target_arn")
+
+    @hook_target_arn.setter
+    def hook_target_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "hook_target_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Amazon Resource Name (ARN) of the IAM role that grants Amazon ECS permission to call Lambda functions on your behalf.
+         For more information, see [Permissions required for Lambda functions in Amazon ECS blue/green deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/blue-green-permissions.html) in the *Amazon Elastic Container Service Developer Guide*.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "role_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="timeoutConfiguration")
+    def timeout_configuration(self) -> Optional[Any]:
+        return pulumi.get(self, "timeout_configuration")
+
+    @timeout_configuration.setter
+    def timeout_configuration(self, value: Optional[Any]):
+        pulumi.set(self, "timeout_configuration", value)
 
 
 class ServiceEbsTagSpecificationArgsDict(TypedDict):

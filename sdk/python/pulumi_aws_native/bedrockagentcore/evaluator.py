@@ -28,6 +28,7 @@ class EvaluatorArgs:
                  level: pulumi.Input['EvaluatorLevel'],
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  evaluator_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Evaluator resource.
@@ -36,6 +37,7 @@ class EvaluatorArgs:
         :param pulumi.Input['EvaluatorLevel'] level: The evaluation level that determines the scope of evaluation.
         :param pulumi.Input[_builtins.str] description: The description of the evaluator.
         :param pulumi.Input[_builtins.str] evaluator_name: The name of the evaluator. Must be unique within your account.
+        :param pulumi.Input[_builtins.str] kms_key_arn: The ARN of the KMS key used to encrypt evaluator data.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of tags to assign to the evaluator.
         """
         pulumi.set(__self__, "evaluator_config", evaluator_config)
@@ -44,6 +46,8 @@ class EvaluatorArgs:
             pulumi.set(__self__, "description", description)
         if evaluator_name is not None:
             pulumi.set(__self__, "evaluator_name", evaluator_name)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -96,6 +100,18 @@ class EvaluatorArgs:
         pulumi.set(self, "evaluator_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ARN of the KMS key used to encrypt evaluator data.
+        """
+        return pulumi.get(self, "kms_key_arn")
+
+    @kms_key_arn.setter
+    def kms_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "kms_key_arn", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
@@ -117,6 +133,7 @@ class Evaluator(pulumi.CustomResource):
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  evaluator_config: Optional[pulumi.Input[Union['EvaluatorConfigArgs', 'EvaluatorConfigArgsDict']]] = None,
                  evaluator_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  level: Optional[pulumi.Input['EvaluatorLevel']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
@@ -129,6 +146,7 @@ class Evaluator(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: The description of the evaluator.
         :param pulumi.Input[Union['EvaluatorConfigArgs', 'EvaluatorConfigArgsDict']] evaluator_config: The configuration for the evaluator.
         :param pulumi.Input[_builtins.str] evaluator_name: The name of the evaluator. Must be unique within your account.
+        :param pulumi.Input[_builtins.str] kms_key_arn: The ARN of the KMS key used to encrypt evaluator data.
         :param pulumi.Input['EvaluatorLevel'] level: The evaluation level that determines the scope of evaluation.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of tags to assign to the evaluator.
         """
@@ -160,6 +178,7 @@ class Evaluator(pulumi.CustomResource):
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  evaluator_config: Optional[pulumi.Input[Union['EvaluatorConfigArgs', 'EvaluatorConfigArgsDict']]] = None,
                  evaluator_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  level: Optional[pulumi.Input['EvaluatorLevel']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
@@ -176,6 +195,7 @@ class Evaluator(pulumi.CustomResource):
                 raise TypeError("Missing required property 'evaluator_config'")
             __props__.__dict__["evaluator_config"] = evaluator_config
             __props__.__dict__["evaluator_name"] = evaluator_name
+            __props__.__dict__["kms_key_arn"] = kms_key_arn
             if level is None and not opts.urn:
                 raise TypeError("Missing required property 'level'")
             __props__.__dict__["level"] = level
@@ -215,6 +235,7 @@ class Evaluator(pulumi.CustomResource):
         __props__.__dict__["evaluator_config"] = None
         __props__.__dict__["evaluator_id"] = None
         __props__.__dict__["evaluator_name"] = None
+        __props__.__dict__["kms_key_arn"] = None
         __props__.__dict__["level"] = None
         __props__.__dict__["status"] = None
         __props__.__dict__["tags"] = None
@@ -268,6 +289,14 @@ class Evaluator(pulumi.CustomResource):
         The name of the evaluator. Must be unique within your account.
         """
         return pulumi.get(self, "evaluator_name")
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The ARN of the KMS key used to encrypt evaluator data.
+        """
+        return pulumi.get(self, "kms_key_arn")
 
     @_builtins.property
     @pulumi.getter

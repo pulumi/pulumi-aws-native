@@ -1328,9 +1328,18 @@ class OrganizationTelemetryRuleTelemetryRuleArgsDict(TypedDict):
     """
     The type of telemetry to collect (Logs, Metrics, or Traces).
     """
+    all_regions: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    When true, the rule is replicated to all supported regions
+    """
+    allow_field_updates: NotRequired[pulumi.Input[_builtins.bool]]
     destination_configuration: NotRequired[pulumi.Input['OrganizationTelemetryRuleTelemetryDestinationConfigurationArgsDict']]
     """
     Configuration specifying where and how the telemetry data should be delivered.
+    """
+    regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of AWS region codes where the rule should be replicated
     """
     scope: NotRequired[pulumi.Input[_builtins.str]]
     """
@@ -1350,7 +1359,10 @@ class OrganizationTelemetryRuleTelemetryRuleArgs:
     def __init__(__self__, *,
                  resource_type: pulumi.Input['OrganizationTelemetryRuleResourceType'],
                  telemetry_type: pulumi.Input['OrganizationTelemetryRuleTelemetryType'],
+                 all_regions: Optional[pulumi.Input[_builtins.bool]] = None,
+                 allow_field_updates: Optional[pulumi.Input[_builtins.bool]] = None,
                  destination_configuration: Optional[pulumi.Input['OrganizationTelemetryRuleTelemetryDestinationConfigurationArgs']] = None,
+                 regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  scope: Optional[pulumi.Input[_builtins.str]] = None,
                  selection_criteria: Optional[pulumi.Input[_builtins.str]] = None,
                  telemetry_source_types: Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationTelemetryRuleTelemetrySourceType']]]] = None):
@@ -1359,15 +1371,23 @@ class OrganizationTelemetryRuleTelemetryRuleArgs:
 
         :param pulumi.Input['OrganizationTelemetryRuleResourceType'] resource_type: The type of AWS resource to configure telemetry for (e.g., "AWS::EC2::VPC", "AWS::EKS::Cluster", "AWS::WAFv2::WebACL").
         :param pulumi.Input['OrganizationTelemetryRuleTelemetryType'] telemetry_type: The type of telemetry to collect (Logs, Metrics, or Traces).
+        :param pulumi.Input[_builtins.bool] all_regions: When true, the rule is replicated to all supported regions
         :param pulumi.Input['OrganizationTelemetryRuleTelemetryDestinationConfigurationArgs'] destination_configuration: Configuration specifying where and how the telemetry data should be delivered.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: List of AWS region codes where the rule should be replicated
         :param pulumi.Input[_builtins.str] scope: The organizational scope to which the rule applies, specified using accounts or organizational units.
         :param pulumi.Input[_builtins.str] selection_criteria: Criteria for selecting which resources the rule applies to, such as resource tags.
         :param pulumi.Input[Sequence[pulumi.Input['OrganizationTelemetryRuleTelemetrySourceType']]] telemetry_source_types: The specific telemetry source types to configure for the resource, such as VPC_FLOW_LOGS or EKS_AUDIT_LOGS. TelemetrySourceTypes must be correlated with the specific resource type.
         """
         pulumi.set(__self__, "resource_type", resource_type)
         pulumi.set(__self__, "telemetry_type", telemetry_type)
+        if all_regions is not None:
+            pulumi.set(__self__, "all_regions", all_regions)
+        if allow_field_updates is not None:
+            pulumi.set(__self__, "allow_field_updates", allow_field_updates)
         if destination_configuration is not None:
             pulumi.set(__self__, "destination_configuration", destination_configuration)
+        if regions is not None:
+            pulumi.set(__self__, "regions", regions)
         if scope is not None:
             pulumi.set(__self__, "scope", scope)
         if selection_criteria is not None:
@@ -1400,6 +1420,27 @@ class OrganizationTelemetryRuleTelemetryRuleArgs:
         pulumi.set(self, "telemetry_type", value)
 
     @_builtins.property
+    @pulumi.getter(name="allRegions")
+    def all_regions(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        When true, the rule is replicated to all supported regions
+        """
+        return pulumi.get(self, "all_regions")
+
+    @all_regions.setter
+    def all_regions(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "all_regions", value)
+
+    @_builtins.property
+    @pulumi.getter(name="allowFieldUpdates")
+    def allow_field_updates(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "allow_field_updates")
+
+    @allow_field_updates.setter
+    def allow_field_updates(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "allow_field_updates", value)
+
+    @_builtins.property
     @pulumi.getter(name="destinationConfiguration")
     def destination_configuration(self) -> Optional[pulumi.Input['OrganizationTelemetryRuleTelemetryDestinationConfigurationArgs']]:
         """
@@ -1410,6 +1451,18 @@ class OrganizationTelemetryRuleTelemetryRuleArgs:
     @destination_configuration.setter
     def destination_configuration(self, value: Optional[pulumi.Input['OrganizationTelemetryRuleTelemetryDestinationConfigurationArgs']]):
         pulumi.set(self, "destination_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of AWS region codes where the rule should be replicated
+        """
+        return pulumi.get(self, "regions")
+
+    @regions.setter
+    def regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "regions", value)
 
     @_builtins.property
     @pulumi.getter
@@ -2736,9 +2789,18 @@ class TelemetryRuleArgsDict(TypedDict):
     """
     The type of telemetry to collect (Logs, Metrics, or Traces).
     """
+    all_regions: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    When true, the rule is replicated to all supported regions
+    """
+    allow_field_updates: NotRequired[pulumi.Input[_builtins.bool]]
     destination_configuration: NotRequired[pulumi.Input['TelemetryRuleTelemetryDestinationConfigurationArgsDict']]
     """
     Configuration specifying where and how the telemetry data should be delivered.
+    """
+    regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of AWS region codes where the rule should be replicated
     """
     selection_criteria: NotRequired[pulumi.Input[_builtins.str]]
     """
@@ -2754,7 +2816,10 @@ class TelemetryRuleArgs:
     def __init__(__self__, *,
                  resource_type: pulumi.Input['TelemetryRuleResourceType'],
                  telemetry_type: pulumi.Input['TelemetryRuleTelemetryType'],
+                 all_regions: Optional[pulumi.Input[_builtins.bool]] = None,
+                 allow_field_updates: Optional[pulumi.Input[_builtins.bool]] = None,
                  destination_configuration: Optional[pulumi.Input['TelemetryRuleTelemetryDestinationConfigurationArgs']] = None,
+                 regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  selection_criteria: Optional[pulumi.Input[_builtins.str]] = None,
                  telemetry_source_types: Optional[pulumi.Input[Sequence[pulumi.Input['TelemetryRuleTelemetrySourceType']]]] = None):
         """
@@ -2762,14 +2827,22 @@ class TelemetryRuleArgs:
 
         :param pulumi.Input['TelemetryRuleResourceType'] resource_type: The type of AWS resource to configure telemetry for (e.g., "AWS::EC2::VPC", "AWS::EKS::Cluster", "AWS::WAFv2::WebACL").
         :param pulumi.Input['TelemetryRuleTelemetryType'] telemetry_type: The type of telemetry to collect (Logs, Metrics, or Traces).
+        :param pulumi.Input[_builtins.bool] all_regions: When true, the rule is replicated to all supported regions
         :param pulumi.Input['TelemetryRuleTelemetryDestinationConfigurationArgs'] destination_configuration: Configuration specifying where and how the telemetry data should be delivered.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: List of AWS region codes where the rule should be replicated
         :param pulumi.Input[_builtins.str] selection_criteria: Criteria for selecting which resources the rule applies to, such as resource tags.
         :param pulumi.Input[Sequence[pulumi.Input['TelemetryRuleTelemetrySourceType']]] telemetry_source_types: The specific telemetry source types to configure for the resource, such as VPC_FLOW_LOGS or EKS_AUDIT_LOGS. TelemetrySourceTypes must be correlated with the specific resource type.
         """
         pulumi.set(__self__, "resource_type", resource_type)
         pulumi.set(__self__, "telemetry_type", telemetry_type)
+        if all_regions is not None:
+            pulumi.set(__self__, "all_regions", all_regions)
+        if allow_field_updates is not None:
+            pulumi.set(__self__, "allow_field_updates", allow_field_updates)
         if destination_configuration is not None:
             pulumi.set(__self__, "destination_configuration", destination_configuration)
+        if regions is not None:
+            pulumi.set(__self__, "regions", regions)
         if selection_criteria is not None:
             pulumi.set(__self__, "selection_criteria", selection_criteria)
         if telemetry_source_types is not None:
@@ -2800,6 +2873,27 @@ class TelemetryRuleArgs:
         pulumi.set(self, "telemetry_type", value)
 
     @_builtins.property
+    @pulumi.getter(name="allRegions")
+    def all_regions(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        When true, the rule is replicated to all supported regions
+        """
+        return pulumi.get(self, "all_regions")
+
+    @all_regions.setter
+    def all_regions(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "all_regions", value)
+
+    @_builtins.property
+    @pulumi.getter(name="allowFieldUpdates")
+    def allow_field_updates(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "allow_field_updates")
+
+    @allow_field_updates.setter
+    def allow_field_updates(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "allow_field_updates", value)
+
+    @_builtins.property
     @pulumi.getter(name="destinationConfiguration")
     def destination_configuration(self) -> Optional[pulumi.Input['TelemetryRuleTelemetryDestinationConfigurationArgs']]:
         """
@@ -2810,6 +2904,18 @@ class TelemetryRuleArgs:
     @destination_configuration.setter
     def destination_configuration(self, value: Optional[pulumi.Input['TelemetryRuleTelemetryDestinationConfigurationArgs']]):
         pulumi.set(self, "destination_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of AWS region codes where the rule should be replicated
+        """
+        return pulumi.get(self, "regions")
+
+    @regions.setter
+    def regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "regions", value)
 
     @_builtins.property
     @pulumi.getter(name="selectionCriteria")

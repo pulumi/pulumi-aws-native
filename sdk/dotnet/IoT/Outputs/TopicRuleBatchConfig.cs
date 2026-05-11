@@ -13,18 +13,22 @@ namespace Pulumi.AwsNative.IoT.Outputs
     [OutputType]
     public sealed class TopicRuleBatchConfig
     {
+        public readonly bool? BatchAcrossTopics;
         public readonly int? MaxBatchOpenMs;
         public readonly int? MaxBatchSize;
         public readonly int? MaxBatchSizeBytes;
 
         [OutputConstructor]
         private TopicRuleBatchConfig(
+            bool? batchAcrossTopics,
+
             int? maxBatchOpenMs,
 
             int? maxBatchSize,
 
             int? maxBatchSizeBytes)
         {
+            BatchAcrossTopics = batchAcrossTopics;
             MaxBatchOpenMs = maxBatchOpenMs;
             MaxBatchSize = maxBatchSize;
             MaxBatchSizeBytes = maxBatchSizeBytes;

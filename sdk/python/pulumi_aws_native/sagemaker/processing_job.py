@@ -27,7 +27,7 @@ class ProcessingJobArgs:
                  app_specification: pulumi.Input['ProcessingJobAppSpecificationArgs'],
                  processing_resources: pulumi.Input['ProcessingJobProcessingResourcesArgs'],
                  role_arn: pulumi.Input[_builtins.str],
-                 environment: Optional[pulumi.Input['ProcessingJobEnvironmentArgs']] = None,
+                 environment: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  experiment_config: Optional[pulumi.Input['ProcessingJobExperimentConfigArgs']] = None,
                  network_config: Optional[pulumi.Input['ProcessingJobNetworkConfigArgs']] = None,
                  processing_inputs: Optional[pulumi.Input[Sequence[pulumi.Input['ProcessingJobProcessingInputsObjectArgs']]]] = None,
@@ -41,7 +41,7 @@ class ProcessingJobArgs:
         :param pulumi.Input['ProcessingJobAppSpecificationArgs'] app_specification: Configuration to run a processing job in a specified container image.
         :param pulumi.Input['ProcessingJobProcessingResourcesArgs'] processing_resources: Identifies the resources, ML compute instances, and ML storage volumes to deploy for a processing job. In distributed training, you specify more than one instance.
         :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
-        :param pulumi.Input['ProcessingJobEnvironmentArgs'] environment: Sets the environment variables in the Docker container.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] environment: Sets the environment variables in the Docker container.
         :param pulumi.Input['ProcessingJobExperimentConfigArgs'] experiment_config: Associates a SageMaker job as a trial component with an experiment and trial. Specified when you call the [CreateProcessingJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateProcessingJob.html) API.
         :param pulumi.Input['ProcessingJobNetworkConfigArgs'] network_config: Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
         :param pulumi.Input[Sequence[pulumi.Input['ProcessingJobProcessingInputsObjectArgs']]] processing_inputs: An array of inputs configuring the data to download into the processing container.
@@ -108,14 +108,14 @@ class ProcessingJobArgs:
 
     @_builtins.property
     @pulumi.getter
-    def environment(self) -> Optional[pulumi.Input['ProcessingJobEnvironmentArgs']]:
+    def environment(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Sets the environment variables in the Docker container.
         """
         return pulumi.get(self, "environment")
 
     @environment.setter
-    def environment(self, value: Optional[pulumi.Input['ProcessingJobEnvironmentArgs']]):
+    def environment(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "environment", value)
 
     @_builtins.property
@@ -210,7 +210,7 @@ class ProcessingJob(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_specification: Optional[pulumi.Input[Union['ProcessingJobAppSpecificationArgs', 'ProcessingJobAppSpecificationArgsDict']]] = None,
-                 environment: Optional[pulumi.Input[Union['ProcessingJobEnvironmentArgs', 'ProcessingJobEnvironmentArgsDict']]] = None,
+                 environment: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  experiment_config: Optional[pulumi.Input[Union['ProcessingJobExperimentConfigArgs', 'ProcessingJobExperimentConfigArgsDict']]] = None,
                  network_config: Optional[pulumi.Input[Union['ProcessingJobNetworkConfigArgs', 'ProcessingJobNetworkConfigArgsDict']]] = None,
                  processing_inputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProcessingJobProcessingInputsObjectArgs', 'ProcessingJobProcessingInputsObjectArgsDict']]]]] = None,
@@ -228,7 +228,7 @@ class ProcessingJob(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ProcessingJobAppSpecificationArgs', 'ProcessingJobAppSpecificationArgsDict']] app_specification: Configuration to run a processing job in a specified container image.
-        :param pulumi.Input[Union['ProcessingJobEnvironmentArgs', 'ProcessingJobEnvironmentArgsDict']] environment: Sets the environment variables in the Docker container.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] environment: Sets the environment variables in the Docker container.
         :param pulumi.Input[Union['ProcessingJobExperimentConfigArgs', 'ProcessingJobExperimentConfigArgsDict']] experiment_config: Associates a SageMaker job as a trial component with an experiment and trial. Specified when you call the [CreateProcessingJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateProcessingJob.html) API.
         :param pulumi.Input[Union['ProcessingJobNetworkConfigArgs', 'ProcessingJobNetworkConfigArgsDict']] network_config: Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ProcessingJobProcessingInputsObjectArgs', 'ProcessingJobProcessingInputsObjectArgsDict']]]] processing_inputs: An array of inputs configuring the data to download into the processing container.
@@ -265,7 +265,7 @@ class ProcessingJob(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_specification: Optional[pulumi.Input[Union['ProcessingJobAppSpecificationArgs', 'ProcessingJobAppSpecificationArgsDict']]] = None,
-                 environment: Optional[pulumi.Input[Union['ProcessingJobEnvironmentArgs', 'ProcessingJobEnvironmentArgsDict']]] = None,
+                 environment: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  experiment_config: Optional[pulumi.Input[Union['ProcessingJobExperimentConfigArgs', 'ProcessingJobExperimentConfigArgsDict']]] = None,
                  network_config: Optional[pulumi.Input[Union['ProcessingJobNetworkConfigArgs', 'ProcessingJobNetworkConfigArgsDict']]] = None,
                  processing_inputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProcessingJobProcessingInputsObjectArgs', 'ProcessingJobProcessingInputsObjectArgsDict']]]]] = None,
@@ -312,7 +312,7 @@ class ProcessingJob(pulumi.CustomResource):
             __props__.__dict__["processing_job_status"] = None
             __props__.__dict__["processing_start_time"] = None
             __props__.__dict__["training_job_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["appSpecification", "environment", "experimentConfig", "networkConfig", "processingInputs[*]", "processingJobName", "processingOutputConfig", "processingResources", "roleArn", "stoppingCondition", "tags[*]"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["appSpecification", "environment.*", "experimentConfig", "networkConfig", "processingInputs[*]", "processingJobName", "processingOutputConfig", "processingResources", "roleArn", "stoppingCondition", "tags[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ProcessingJob, __self__).__init__(
             'aws-native:sagemaker:ProcessingJob',
@@ -386,7 +386,7 @@ class ProcessingJob(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def environment(self) -> pulumi.Output[Optional['outputs.ProcessingJobEnvironment']]:
+    def environment(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
         Sets the environment variables in the Docker container.
         """

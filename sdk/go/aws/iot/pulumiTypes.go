@@ -10419,9 +10419,10 @@ func (o TopicRuleAssetPropertyVariantOutput) StringValue() pulumi.StringPtrOutpu
 }
 
 type TopicRuleBatchConfig struct {
-	MaxBatchOpenMs    *int `pulumi:"maxBatchOpenMs"`
-	MaxBatchSize      *int `pulumi:"maxBatchSize"`
-	MaxBatchSizeBytes *int `pulumi:"maxBatchSizeBytes"`
+	BatchAcrossTopics *bool `pulumi:"batchAcrossTopics"`
+	MaxBatchOpenMs    *int  `pulumi:"maxBatchOpenMs"`
+	MaxBatchSize      *int  `pulumi:"maxBatchSize"`
+	MaxBatchSizeBytes *int  `pulumi:"maxBatchSizeBytes"`
 }
 
 // TopicRuleBatchConfigInput is an input type that accepts TopicRuleBatchConfigArgs and TopicRuleBatchConfigOutput values.
@@ -10436,9 +10437,10 @@ type TopicRuleBatchConfigInput interface {
 }
 
 type TopicRuleBatchConfigArgs struct {
-	MaxBatchOpenMs    pulumi.IntPtrInput `pulumi:"maxBatchOpenMs"`
-	MaxBatchSize      pulumi.IntPtrInput `pulumi:"maxBatchSize"`
-	MaxBatchSizeBytes pulumi.IntPtrInput `pulumi:"maxBatchSizeBytes"`
+	BatchAcrossTopics pulumi.BoolPtrInput `pulumi:"batchAcrossTopics"`
+	MaxBatchOpenMs    pulumi.IntPtrInput  `pulumi:"maxBatchOpenMs"`
+	MaxBatchSize      pulumi.IntPtrInput  `pulumi:"maxBatchSize"`
+	MaxBatchSizeBytes pulumi.IntPtrInput  `pulumi:"maxBatchSizeBytes"`
 }
 
 func (TopicRuleBatchConfigArgs) ElementType() reflect.Type {
@@ -10518,6 +10520,10 @@ func (o TopicRuleBatchConfigOutput) ToTopicRuleBatchConfigPtrOutputWithContext(c
 	}).(TopicRuleBatchConfigPtrOutput)
 }
 
+func (o TopicRuleBatchConfigOutput) BatchAcrossTopics() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TopicRuleBatchConfig) *bool { return v.BatchAcrossTopics }).(pulumi.BoolPtrOutput)
+}
+
 func (o TopicRuleBatchConfigOutput) MaxBatchOpenMs() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TopicRuleBatchConfig) *int { return v.MaxBatchOpenMs }).(pulumi.IntPtrOutput)
 }
@@ -10552,6 +10558,15 @@ func (o TopicRuleBatchConfigPtrOutput) Elem() TopicRuleBatchConfigOutput {
 		var ret TopicRuleBatchConfig
 		return ret
 	}).(TopicRuleBatchConfigOutput)
+}
+
+func (o TopicRuleBatchConfigPtrOutput) BatchAcrossTopics() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TopicRuleBatchConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.BatchAcrossTopics
+	}).(pulumi.BoolPtrOutput)
 }
 
 func (o TopicRuleBatchConfigPtrOutput) MaxBatchOpenMs() pulumi.IntPtrOutput {

@@ -552,8 +552,6 @@ __all__ = [
     'ProcessingJobClusterConfigArgsDict',
     'ProcessingJobDatasetDefinitionArgs',
     'ProcessingJobDatasetDefinitionArgsDict',
-    'ProcessingJobEnvironmentArgs',
-    'ProcessingJobEnvironmentArgsDict',
     'ProcessingJobExperimentConfigArgs',
     'ProcessingJobExperimentConfigArgsDict',
     'ProcessingJobFeatureStoreOutputArgs',
@@ -19415,21 +19413,6 @@ class ProcessingJobDatasetDefinitionArgs:
     @redshift_dataset_definition.setter
     def redshift_dataset_definition(self, value: Optional[pulumi.Input['ProcessingJobRedshiftDatasetDefinitionArgs']]):
         pulumi.set(self, "redshift_dataset_definition", value)
-
-
-class ProcessingJobEnvironmentArgsDict(TypedDict):
-    """
-    Sets the environment variables in the Docker container
-    """
-    pass
-
-@pulumi.input_type
-class ProcessingJobEnvironmentArgs:
-    def __init__(__self__):
-        """
-        Sets the environment variables in the Docker container
-        """
-        pass
 
 
 class ProcessingJobExperimentConfigArgsDict(TypedDict):

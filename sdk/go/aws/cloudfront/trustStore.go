@@ -33,7 +33,8 @@ type TrustStore struct {
 	// The trust store's status.
 	Status TrustStoreStatusOutput `pulumi:"status"`
 	// A complex type that contains zero or more ``Tag`` elements.
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	Tags                             aws.TagArrayOutput   `pulumi:"tags"`
+	UseClientCertificateOcspEndpoint pulumi.BoolPtrOutput `pulumi:"useClientCertificateOcspEndpoint"`
 }
 
 // NewTrustStore registers a new resource with the given unique name, arguments, and options.
@@ -85,7 +86,8 @@ type trustStoreArgs struct {
 	// The trust store's name.
 	Name *string `pulumi:"name"`
 	// A complex type that contains zero or more ``Tag`` elements.
-	Tags []aws.Tag `pulumi:"tags"`
+	Tags                             []aws.Tag `pulumi:"tags"`
+	UseClientCertificateOcspEndpoint *bool     `pulumi:"useClientCertificateOcspEndpoint"`
 }
 
 // The set of arguments for constructing a TrustStore resource.
@@ -95,7 +97,8 @@ type TrustStoreArgs struct {
 	// The trust store's name.
 	Name pulumi.StringPtrInput
 	// A complex type that contains zero or more ``Tag`` elements.
-	Tags aws.TagArrayInput
+	Tags                             aws.TagArrayInput
+	UseClientCertificateOcspEndpoint pulumi.BoolPtrInput
 }
 
 func (TrustStoreArgs) ElementType() reflect.Type {
@@ -178,6 +181,10 @@ func (o TrustStoreOutput) Status() TrustStoreStatusOutput {
 // A complex type that contains zero or more “Tag“ elements.
 func (o TrustStoreOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *TrustStore) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
+}
+
+func (o TrustStoreOutput) UseClientCertificateOcspEndpoint() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TrustStore) pulumi.BoolPtrOutput { return v.UseClientCertificateOcspEndpoint }).(pulumi.BoolPtrOutput)
 }
 
 func init() {

@@ -234,6 +234,7 @@ namespace Pulumi.AwsNative.SecurityAgent
 
         public static TargetDomainVerificationDetailsMethod DnsTxt { get; } = new TargetDomainVerificationDetailsMethod("DNS_TXT");
         public static TargetDomainVerificationDetailsMethod HttpRoute { get; } = new TargetDomainVerificationDetailsMethod("HTTP_ROUTE");
+        public static TargetDomainVerificationDetailsMethod PrivateVpc { get; } = new TargetDomainVerificationDetailsMethod("PRIVATE_VPC");
 
         public static bool operator ==(TargetDomainVerificationDetailsMethod left, TargetDomainVerificationDetailsMethod right) => left.Equals(right);
         public static bool operator !=(TargetDomainVerificationDetailsMethod left, TargetDomainVerificationDetailsMethod right) => !left.Equals(right);
@@ -265,6 +266,7 @@ namespace Pulumi.AwsNative.SecurityAgent
 
         public static TargetDomainVerificationMethod DnsTxt { get; } = new TargetDomainVerificationMethod("DNS_TXT");
         public static TargetDomainVerificationMethod HttpRoute { get; } = new TargetDomainVerificationMethod("HTTP_ROUTE");
+        public static TargetDomainVerificationMethod PrivateVpc { get; } = new TargetDomainVerificationMethod("PRIVATE_VPC");
 
         public static bool operator ==(TargetDomainVerificationMethod left, TargetDomainVerificationMethod right) => left.Equals(right);
         public static bool operator !=(TargetDomainVerificationMethod left, TargetDomainVerificationMethod right) => !left.Equals(right);

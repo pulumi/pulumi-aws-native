@@ -425,6 +425,7 @@ namespace Pulumi.AwsNative.CloudFront
 
         public static DistributionViewerMtlsMode Required { get; } = new DistributionViewerMtlsMode("required");
         public static DistributionViewerMtlsMode Optional { get; } = new DistributionViewerMtlsMode("optional");
+        public static DistributionViewerMtlsMode Passthrough { get; } = new DistributionViewerMtlsMode("passthrough");
 
         public static bool operator ==(DistributionViewerMtlsMode left, DistributionViewerMtlsMode right) => left.Equals(right);
         public static bool operator !=(DistributionViewerMtlsMode left, DistributionViewerMtlsMode right) => !left.Equals(right);

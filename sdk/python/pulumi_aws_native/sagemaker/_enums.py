@@ -626,6 +626,8 @@ class DomainAppInstanceType(_builtins.str, Enum):
     ML_R6ID16XLARGE = "ml.r6id.16xlarge"
     ML_R6ID24XLARGE = "ml.r6id.24xlarge"
     ML_R6ID32XLARGE = "ml.r6id.32xlarge"
+    ML_P54XLARGE = "ml.p5.4xlarge"
+    ML_P6B20048XLARGE = "ml.p6-b200.48xlarge"
 
 
 @pulumi.type_token("aws-native:sagemaker:DomainAppNetworkAccessType")
@@ -1927,6 +1929,8 @@ class SpaceResourceSpecInstanceType(_builtins.str, Enum):
     ML_R6ID16XLARGE = "ml.r6id.16xlarge"
     ML_R6ID24XLARGE = "ml.r6id.24xlarge"
     ML_R6ID32XLARGE = "ml.r6id.32xlarge"
+    ML_P54XLARGE = "ml.p5.4xlarge"
+    ML_P6B20048XLARGE = "ml.p6-b200.48xlarge"
 
 
 @pulumi.type_token("aws-native:sagemaker:SpaceSharingSettingsSharingType")

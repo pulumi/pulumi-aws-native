@@ -24,7 +24,7 @@ type ProcessingJob struct {
 	// The time at which the processing job was created.
 	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
 	// Sets the environment variables in the Docker container.
-	Environment ProcessingJobEnvironmentPtrOutput `pulumi:"environment"`
+	Environment pulumi.StringMapOutput `pulumi:"environment"`
 	// An optional string, up to one KB in size, that contains metadata from the processing container when the processing job exits.
 	ExitMessage pulumi.StringOutput `pulumi:"exitMessage"`
 	// Associates a SageMaker job as a trial component with an experiment and trial. Specified when you call the [CreateProcessingJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateProcessingJob.html) API.
@@ -81,7 +81,7 @@ func NewProcessingJob(ctx *pulumi.Context,
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"appSpecification",
-		"environment",
+		"environment.*",
 		"experimentConfig",
 		"networkConfig",
 		"processingInputs[*]",
@@ -129,7 +129,7 @@ type processingJobArgs struct {
 	// Configuration to run a processing job in a specified container image.
 	AppSpecification ProcessingJobAppSpecification `pulumi:"appSpecification"`
 	// Sets the environment variables in the Docker container.
-	Environment *ProcessingJobEnvironment `pulumi:"environment"`
+	Environment map[string]string `pulumi:"environment"`
 	// Associates a SageMaker job as a trial component with an experiment and trial. Specified when you call the [CreateProcessingJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateProcessingJob.html) API.
 	ExperimentConfig *ProcessingJobExperimentConfig `pulumi:"experimentConfig"`
 	// Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
@@ -155,7 +155,7 @@ type ProcessingJobArgs struct {
 	// Configuration to run a processing job in a specified container image.
 	AppSpecification ProcessingJobAppSpecificationInput
 	// Sets the environment variables in the Docker container.
-	Environment ProcessingJobEnvironmentPtrInput
+	Environment pulumi.StringMapInput
 	// Associates a SageMaker job as a trial component with an experiment and trial. Specified when you call the [CreateProcessingJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateProcessingJob.html) API.
 	ExperimentConfig ProcessingJobExperimentConfigPtrInput
 	// Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
@@ -229,8 +229,8 @@ func (o ProcessingJobOutput) CreationTime() pulumi.StringOutput {
 }
 
 // Sets the environment variables in the Docker container.
-func (o ProcessingJobOutput) Environment() ProcessingJobEnvironmentPtrOutput {
-	return o.ApplyT(func(v *ProcessingJob) ProcessingJobEnvironmentPtrOutput { return v.Environment }).(ProcessingJobEnvironmentPtrOutput)
+func (o ProcessingJobOutput) Environment() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ProcessingJob) pulumi.StringMapOutput { return v.Environment }).(pulumi.StringMapOutput)
 }
 
 // An optional string, up to one KB in size, that contains metadata from the processing container when the processing job exits.

@@ -26,6 +26,10 @@ export interface GetOrganizationTelemetryRuleArgs {
 
 export interface GetOrganizationTelemetryRuleResult {
     /**
+     * Per-region replication status of the rule
+     */
+    readonly regionStatuses?: outputs.observabilityadmin.OrganizationTelemetryRuleRegionStatus[];
+    /**
      * The name of the organization telemetry rule.
      */
     readonly rule?: outputs.observabilityadmin.OrganizationTelemetryRuleTelemetryRule;

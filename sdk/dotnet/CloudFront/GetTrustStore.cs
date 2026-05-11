@@ -91,6 +91,7 @@ namespace Pulumi.AwsNative.CloudFront
         /// A complex type that contains zero or more ``Tag`` elements.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        public readonly bool? UseClientCertificateOcspEndpoint;
 
         [OutputConstructor]
         private GetTrustStoreResult(
@@ -106,7 +107,9 @@ namespace Pulumi.AwsNative.CloudFront
 
             Pulumi.AwsNative.CloudFront.TrustStoreStatus? status,
 
-            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
+
+            bool? useClientCertificateOcspEndpoint)
         {
             Arn = arn;
             ETag = eTag;
@@ -115,6 +118,7 @@ namespace Pulumi.AwsNative.CloudFront
             NumberOfCaCertificates = numberOfCaCertificates;
             Status = status;
             Tags = tags;
+            UseClientCertificateOcspEndpoint = useClientCertificateOcspEndpoint;
         }
     }
 }

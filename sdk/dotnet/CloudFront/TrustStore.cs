@@ -69,6 +69,9 @@ namespace Pulumi.AwsNative.CloudFront
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        [Output("useClientCertificateOcspEndpoint")]
+        public Output<bool?> UseClientCertificateOcspEndpoint { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a TrustStore resource with the given unique name, arguments, and options.
@@ -141,6 +144,9 @@ namespace Pulumi.AwsNative.CloudFront
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
+
+        [Input("useClientCertificateOcspEndpoint")]
+        public Input<bool>? UseClientCertificateOcspEndpoint { get; set; }
 
         public TrustStoreArgs()
         {

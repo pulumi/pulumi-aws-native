@@ -91,6 +91,9 @@ class GetFunctionResult:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        A complex type that contains zero or more ``Tag`` elements.
+        """
         return pulumi.get(self, "tags")
 
 

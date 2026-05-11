@@ -7,6 +7,8 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .cache_cluster import *
+from .get_cache_cluster import *
 from .get_global_replication_group import *
 from .get_parameter_group import *
 from .get_replication_group import *

@@ -46,6 +46,12 @@ namespace Pulumi.AwsNative.DevOpsAgent
         public Output<string?> KmsKeyArn { get; private set; } = null!;
 
         /// <summary>
+        /// The locale for the AgentSpace, which determines the language used in agent responses.
+        /// </summary>
+        [Output("locale")]
+        public Output<string?> Locale { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the AgentSpace.
         /// </summary>
         [Output("name")]
@@ -126,6 +132,12 @@ namespace Pulumi.AwsNative.DevOpsAgent
         /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
+
+        /// <summary>
+        /// The locale for the AgentSpace, which determines the language used in agent responses.
+        /// </summary>
+        [Input("locale")]
+        public Input<string>? Locale { get; set; }
 
         /// <summary>
         /// The name of the AgentSpace.

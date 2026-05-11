@@ -28,6 +28,8 @@ __all__ = [
     'ConnectionAwsLocationArgsDict',
     'ConnectionBasicAuthenticationCredentialsArgs',
     'ConnectionBasicAuthenticationCredentialsArgsDict',
+    'ConnectionConfigurationArgs',
+    'ConnectionConfigurationArgsDict',
     'ConnectionGlueConnectionInputArgs',
     'ConnectionGlueConnectionInputArgsDict',
     'ConnectionGlueOAuth2CredentialsArgs',
@@ -38,6 +40,8 @@ __all__ = [
     'ConnectionHyperPodPropertiesInputArgsDict',
     'ConnectionIamPropertiesInputArgs',
     'ConnectionIamPropertiesInputArgsDict',
+    'ConnectionLakehousePropertiesInputArgs',
+    'ConnectionLakehousePropertiesInputArgsDict',
     'ConnectionLineageSyncScheduleArgs',
     'ConnectionLineageSyncScheduleArgsDict',
     'ConnectionMlflowPropertiesInputArgs',
@@ -54,6 +58,8 @@ __all__ = [
     'ConnectionPropertiesInput10PropertiesArgsDict',
     'ConnectionPropertiesInput11PropertiesArgs',
     'ConnectionPropertiesInput11PropertiesArgsDict',
+    'ConnectionPropertiesInput12PropertiesArgs',
+    'ConnectionPropertiesInput12PropertiesArgsDict',
     'ConnectionPropertiesInput1PropertiesArgs',
     'ConnectionPropertiesInput1PropertiesArgsDict',
     'ConnectionPropertiesInput2PropertiesArgs',
@@ -228,10 +234,14 @@ __all__ = [
     'ProjectEnvironmentConfigurationUserParameterArgsDict',
     'ProjectEnvironmentParameterArgs',
     'ProjectEnvironmentParameterArgsDict',
+    'ProjectMembershipAssignmentArgs',
+    'ProjectMembershipAssignmentArgsDict',
     'ProjectMembershipMember0PropertiesArgs',
     'ProjectMembershipMember0PropertiesArgsDict',
     'ProjectMembershipMember1PropertiesArgs',
     'ProjectMembershipMember1PropertiesArgsDict',
+    'ProjectMemberArgs',
+    'ProjectMemberArgsDict',
     'ProjectProfileAwsAccountArgs',
     'ProjectProfileAwsAccountArgsDict',
     'ProjectProfileEnvironmentConfigurationParametersDetailsArgs',
@@ -605,6 +615,53 @@ class ConnectionBasicAuthenticationCredentialsArgs:
         pulumi.set(self, "user_name", value)
 
 
+class ConnectionConfigurationArgsDict(TypedDict):
+    """
+    A configuration of the connection.
+    """
+    classification: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The classification of the connection configuration.
+    """
+    properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+
+@pulumi.input_type
+class ConnectionConfigurationArgs:
+    def __init__(__self__, *,
+                 classification: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+        """
+        A configuration of the connection.
+
+        :param pulumi.Input[_builtins.str] classification: The classification of the connection configuration.
+        """
+        if classification is not None:
+            pulumi.set(__self__, "classification", classification)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @_builtins.property
+    @pulumi.getter
+    def classification(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The classification of the connection configuration.
+        """
+        return pulumi.get(self, "classification")
+
+    @classification.setter
+    def classification(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "classification", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "properties", value)
+
+
 class ConnectionGlueConnectionInputArgsDict(TypedDict):
     """
     Glue Connection Input
@@ -909,6 +966,40 @@ class ConnectionIamPropertiesInputArgs:
     @_builtins.property
     @pulumi.getter(name="glueLineageSyncEnabled")
     def glue_lineage_sync_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "glue_lineage_sync_enabled")
+
+    @glue_lineage_sync_enabled.setter
+    def glue_lineage_sync_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "glue_lineage_sync_enabled", value)
+
+
+class ConnectionLakehousePropertiesInputArgsDict(TypedDict):
+    """
+    Lakehouse Properties Input
+    """
+    glue_lineage_sync_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether Glue lineage sync is enabled for the lakehouse connection.
+    """
+
+@pulumi.input_type
+class ConnectionLakehousePropertiesInputArgs:
+    def __init__(__self__, *,
+                 glue_lineage_sync_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+        """
+        Lakehouse Properties Input
+
+        :param pulumi.Input[_builtins.bool] glue_lineage_sync_enabled: Specifies whether Glue lineage sync is enabled for the lakehouse connection.
+        """
+        if glue_lineage_sync_enabled is not None:
+            pulumi.set(__self__, "glue_lineage_sync_enabled", glue_lineage_sync_enabled)
+
+    @_builtins.property
+    @pulumi.getter(name="glueLineageSyncEnabled")
+    def glue_lineage_sync_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Specifies whether Glue lineage sync is enabled for the lakehouse connection.
+        """
         return pulumi.get(self, "glue_lineage_sync_enabled")
 
     @glue_lineage_sync_enabled.setter
@@ -1226,6 +1317,25 @@ class ConnectionPropertiesInput11PropertiesArgs:
     @workflows_serverless_properties.setter
     def workflows_serverless_properties(self, value: pulumi.Input['ConnectionWorkflowsServerlessPropertiesInputArgs']):
         pulumi.set(self, "workflows_serverless_properties", value)
+
+
+class ConnectionPropertiesInput12PropertiesArgsDict(TypedDict):
+    lakehouse_properties: pulumi.Input['ConnectionLakehousePropertiesInputArgsDict']
+
+@pulumi.input_type
+class ConnectionPropertiesInput12PropertiesArgs:
+    def __init__(__self__, *,
+                 lakehouse_properties: pulumi.Input['ConnectionLakehousePropertiesInputArgs']):
+        pulumi.set(__self__, "lakehouse_properties", lakehouse_properties)
+
+    @_builtins.property
+    @pulumi.getter(name="lakehouseProperties")
+    def lakehouse_properties(self) -> pulumi.Input['ConnectionLakehousePropertiesInputArgs']:
+        return pulumi.get(self, "lakehouse_properties")
+
+    @lakehouse_properties.setter
+    def lakehouse_properties(self, value: pulumi.Input['ConnectionLakehousePropertiesInputArgs']):
+        pulumi.set(self, "lakehouse_properties", value)
 
 
 class ConnectionPropertiesInput1PropertiesArgsDict(TypedDict):
@@ -1613,6 +1723,10 @@ class ConnectionS3PropertiesInputArgsDict(TypedDict):
     """
     The Amazon S3 URI that's part of the Amazon S3 properties of a connection.
     """
+    register_s3_access_grant_location: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether to register the S3 Access Grant location.
+    """
     s3_access_grant_location_id: NotRequired[pulumi.Input[_builtins.str]]
     """
     The Amazon S3 Access Grant location ID that's part of the Amazon S3 properties of a connection.
@@ -1622,14 +1736,18 @@ class ConnectionS3PropertiesInputArgsDict(TypedDict):
 class ConnectionS3PropertiesInputArgs:
     def __init__(__self__, *,
                  s3_uri: pulumi.Input[_builtins.str],
+                 register_s3_access_grant_location: Optional[pulumi.Input[_builtins.bool]] = None,
                  s3_access_grant_location_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         S3 Properties Input
 
         :param pulumi.Input[_builtins.str] s3_uri: The Amazon S3 URI that's part of the Amazon S3 properties of a connection.
+        :param pulumi.Input[_builtins.bool] register_s3_access_grant_location: Specifies whether to register the S3 Access Grant location.
         :param pulumi.Input[_builtins.str] s3_access_grant_location_id: The Amazon S3 Access Grant location ID that's part of the Amazon S3 properties of a connection.
         """
         pulumi.set(__self__, "s3_uri", s3_uri)
+        if register_s3_access_grant_location is not None:
+            pulumi.set(__self__, "register_s3_access_grant_location", register_s3_access_grant_location)
         if s3_access_grant_location_id is not None:
             pulumi.set(__self__, "s3_access_grant_location_id", s3_access_grant_location_id)
 
@@ -1644,6 +1762,18 @@ class ConnectionS3PropertiesInputArgs:
     @s3_uri.setter
     def s3_uri(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "s3_uri", value)
+
+    @_builtins.property
+    @pulumi.getter(name="registerS3AccessGrantLocation")
+    def register_s3_access_grant_location(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Specifies whether to register the S3 Access Grant location.
+        """
+        return pulumi.get(self, "register_s3_access_grant_location")
+
+    @register_s3_access_grant_location.setter
+    def register_s3_access_grant_location(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "register_s3_access_grant_location", value)
 
     @_builtins.property
     @pulumi.getter(name="s3AccessGrantLocationId")
@@ -3987,6 +4117,43 @@ class ProjectEnvironmentParameterArgs:
         pulumi.set(self, "value", value)
 
 
+class ProjectMembershipAssignmentArgsDict(TypedDict):
+    """
+    The project membership assignment.
+    """
+    designation: pulumi.Input['ProjectUserDesignation']
+    member: pulumi.Input['ProjectMemberArgsDict']
+
+@pulumi.input_type
+class ProjectMembershipAssignmentArgs:
+    def __init__(__self__, *,
+                 designation: pulumi.Input['ProjectUserDesignation'],
+                 member: pulumi.Input['ProjectMemberArgs']):
+        """
+        The project membership assignment.
+        """
+        pulumi.set(__self__, "designation", designation)
+        pulumi.set(__self__, "member", member)
+
+    @_builtins.property
+    @pulumi.getter
+    def designation(self) -> pulumi.Input['ProjectUserDesignation']:
+        return pulumi.get(self, "designation")
+
+    @designation.setter
+    def designation(self, value: pulumi.Input['ProjectUserDesignation']):
+        pulumi.set(self, "designation", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def member(self) -> pulumi.Input['ProjectMemberArgs']:
+        return pulumi.get(self, "member")
+
+    @member.setter
+    def member(self, value: pulumi.Input['ProjectMemberArgs']):
+        pulumi.set(self, "member", value)
+
+
 class ProjectMembershipMember0PropertiesArgsDict(TypedDict):
     user_identifier: pulumi.Input[_builtins.str]
 
@@ -4023,6 +4190,45 @@ class ProjectMembershipMember1PropertiesArgs:
     @group_identifier.setter
     def group_identifier(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "group_identifier", value)
+
+
+class ProjectMemberArgsDict(TypedDict):
+    """
+    The member of the project.
+    """
+    group_identifier: NotRequired[pulumi.Input[_builtins.str]]
+    user_identifier: NotRequired[pulumi.Input[_builtins.str]]
+
+@pulumi.input_type
+class ProjectMemberArgs:
+    def __init__(__self__, *,
+                 group_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+                 user_identifier: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        The member of the project.
+        """
+        if group_identifier is not None:
+            pulumi.set(__self__, "group_identifier", group_identifier)
+        if user_identifier is not None:
+            pulumi.set(__self__, "user_identifier", user_identifier)
+
+    @_builtins.property
+    @pulumi.getter(name="groupIdentifier")
+    def group_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "group_identifier")
+
+    @group_identifier.setter
+    def group_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "group_identifier", value)
+
+    @_builtins.property
+    @pulumi.getter(name="userIdentifier")
+    def user_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "user_identifier")
+
+    @user_identifier.setter
+    def user_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "user_identifier", value)
 
 
 class ProjectProfileAwsAccountArgsDict(TypedDict):

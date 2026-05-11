@@ -21,17 +21,25 @@ __all__ = ['GroupProfileArgs', 'GroupProfile']
 class GroupProfileArgs:
     def __init__(__self__, *,
                  domain_identifier: pulumi.Input[_builtins.str],
-                 group_identifier: pulumi.Input[_builtins.str],
+                 group_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+                 group_type: Optional[pulumi.Input['GroupProfileGroupType']] = None,
+                 role_principal_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  status: Optional[pulumi.Input['GroupProfileStatus']] = None):
         """
         The set of arguments for constructing a GroupProfile resource.
 
         :param pulumi.Input[_builtins.str] domain_identifier: The identifier of the Amazon DataZone domain in which the group profile would be created.
         :param pulumi.Input[_builtins.str] group_identifier: The ID of the group.
+        :param pulumi.Input[_builtins.str] role_principal_arn: The ARN of the role principal for the group profile.
         :param pulumi.Input['GroupProfileStatus'] status: The status of a group profile.
         """
         pulumi.set(__self__, "domain_identifier", domain_identifier)
-        pulumi.set(__self__, "group_identifier", group_identifier)
+        if group_identifier is not None:
+            pulumi.set(__self__, "group_identifier", group_identifier)
+        if group_type is not None:
+            pulumi.set(__self__, "group_type", group_type)
+        if role_principal_arn is not None:
+            pulumi.set(__self__, "role_principal_arn", role_principal_arn)
         if status is not None:
             pulumi.set(__self__, "status", status)
 
@@ -49,15 +57,36 @@ class GroupProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="groupIdentifier")
-    def group_identifier(self) -> pulumi.Input[_builtins.str]:
+    def group_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The ID of the group.
         """
         return pulumi.get(self, "group_identifier")
 
     @group_identifier.setter
-    def group_identifier(self, value: pulumi.Input[_builtins.str]):
+    def group_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "group_identifier", value)
+
+    @_builtins.property
+    @pulumi.getter(name="groupType")
+    def group_type(self) -> Optional[pulumi.Input['GroupProfileGroupType']]:
+        return pulumi.get(self, "group_type")
+
+    @group_type.setter
+    def group_type(self, value: Optional[pulumi.Input['GroupProfileGroupType']]):
+        pulumi.set(self, "group_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="rolePrincipalArn")
+    def role_principal_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ARN of the role principal for the group profile.
+        """
+        return pulumi.get(self, "role_principal_arn")
+
+    @role_principal_arn.setter
+    def role_principal_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "role_principal_arn", value)
 
     @_builtins.property
     @pulumi.getter
@@ -80,6 +109,8 @@ class GroupProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain_identifier: Optional[pulumi.Input[_builtins.str]] = None,
                  group_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+                 group_type: Optional[pulumi.Input['GroupProfileGroupType']] = None,
+                 role_principal_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  status: Optional[pulumi.Input['GroupProfileStatus']] = None,
                  __props__=None):
         """
@@ -90,6 +121,7 @@ class GroupProfile(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] domain_identifier: The identifier of the Amazon DataZone domain in which the group profile would be created.
         :param pulumi.Input[_builtins.str] group_identifier: The ID of the group.
+        :param pulumi.Input[_builtins.str] role_principal_arn: The ARN of the role principal for the group profile.
         :param pulumi.Input['GroupProfileStatus'] status: The status of a group profile.
         """
         ...
@@ -119,6 +151,8 @@ class GroupProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain_identifier: Optional[pulumi.Input[_builtins.str]] = None,
                  group_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+                 group_type: Optional[pulumi.Input['GroupProfileGroupType']] = None,
+                 role_principal_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  status: Optional[pulumi.Input['GroupProfileStatus']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -132,14 +166,15 @@ class GroupProfile(pulumi.CustomResource):
             if domain_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_identifier'")
             __props__.__dict__["domain_identifier"] = domain_identifier
-            if group_identifier is None and not opts.urn:
-                raise TypeError("Missing required property 'group_identifier'")
             __props__.__dict__["group_identifier"] = group_identifier
+            __props__.__dict__["group_type"] = group_type
+            __props__.__dict__["role_principal_arn"] = role_principal_arn
             __props__.__dict__["status"] = status
             __props__.__dict__["aws_id"] = None
             __props__.__dict__["domain_id"] = None
             __props__.__dict__["group_name"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domainIdentifier", "groupIdentifier"])
+            __props__.__dict__["role_principal_id"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domainIdentifier", "groupIdentifier", "rolePrincipalArn"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(GroupProfile, __self__).__init__(
             'aws-native:datazone:GroupProfile',
@@ -168,6 +203,9 @@ class GroupProfile(pulumi.CustomResource):
         __props__.__dict__["domain_identifier"] = None
         __props__.__dict__["group_identifier"] = None
         __props__.__dict__["group_name"] = None
+        __props__.__dict__["group_type"] = None
+        __props__.__dict__["role_principal_arn"] = None
+        __props__.__dict__["role_principal_id"] = None
         __props__.__dict__["status"] = None
         return GroupProfile(resource_name, opts=opts, __props__=__props__)
 
@@ -197,7 +235,7 @@ class GroupProfile(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="groupIdentifier")
-    def group_identifier(self) -> pulumi.Output[_builtins.str]:
+    def group_identifier(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         The ID of the group.
         """
@@ -210,6 +248,27 @@ class GroupProfile(pulumi.CustomResource):
         The group-name of the Group Profile.
         """
         return pulumi.get(self, "group_name")
+
+    @_builtins.property
+    @pulumi.getter(name="groupType")
+    def group_type(self) -> pulumi.Output[Optional['GroupProfileGroupType']]:
+        return pulumi.get(self, "group_type")
+
+    @_builtins.property
+    @pulumi.getter(name="rolePrincipalArn")
+    def role_principal_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The ARN of the role principal for the group profile.
+        """
+        return pulumi.get(self, "role_principal_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="rolePrincipalId")
+    def role_principal_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        The ID of the role principal for the group profile.
+        """
+        return pulumi.get(self, "role_principal_id")
 
     @_builtins.property
     @pulumi.getter

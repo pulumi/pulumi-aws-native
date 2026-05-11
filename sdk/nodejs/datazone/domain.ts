@@ -56,7 +56,7 @@ export class Domain extends pulumi.CustomResource {
     /**
      * The domain execution role that is created when an Amazon DataZone domain is created. The domain execution role is created in the AWS account that houses the Amazon DataZone domain.
      */
-    declare public readonly domainExecutionRole: pulumi.Output<string>;
+    declare public readonly domainExecutionRole: pulumi.Output<string | undefined>;
     /**
      * The version of the domain.
      */
@@ -109,13 +109,10 @@ export class Domain extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DomainArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: DomainArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.domainExecutionRole === undefined && !opts.urn) {
-                throw new Error("Missing required property 'domainExecutionRole'");
-            }
             resourceInputs["description"] = args?.description;
             resourceInputs["domainExecutionRole"] = args?.domainExecutionRole;
             resourceInputs["domainVersion"] = args?.domainVersion;
@@ -168,7 +165,7 @@ export interface DomainArgs {
     /**
      * The domain execution role that is created when an Amazon DataZone domain is created. The domain execution role is created in the AWS account that houses the Amazon DataZone domain.
      */
-    domainExecutionRole: pulumi.Input<string>;
+    domainExecutionRole?: pulumi.Input<string>;
     /**
      * The version of the domain.
      */

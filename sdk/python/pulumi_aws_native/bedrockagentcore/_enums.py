@@ -26,6 +26,7 @@ __all__ = [
     'GatewayStatus',
     'GatewayTargetApiKeyCredentialLocation',
     'GatewayTargetCredentialProviderType',
+    'GatewayTargetMcpServerListingMode',
     'GatewayTargetOAuthGrantType',
     'GatewayTargetRestApiMethod',
     'GatewayTargetSchemaType',
@@ -45,6 +46,8 @@ __all__ = [
     'MemoryUserPreferenceMemoryStrategyStatus',
     'MemoryUserPreferenceMemoryStrategyType',
     'OAuth2CredentialProviderCredentialProviderVendor',
+    'OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantType',
+    'OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContent',
     'OnlineEvaluationConfigExecutionStatus',
     'OnlineEvaluationConfigFilterOperator',
     'OnlineEvaluationConfigStatus',
@@ -220,6 +223,12 @@ class GatewayTargetCredentialProviderType(_builtins.str, Enum):
     GATEWAY_IAM_ROLE = "GATEWAY_IAM_ROLE"
     OAUTH = "OAUTH"
     API_KEY = "API_KEY"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:GatewayTargetMcpServerListingMode")
+class GatewayTargetMcpServerListingMode(_builtins.str, Enum):
+    DEFAULT = "DEFAULT"
+    DYNAMIC = "DYNAMIC"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:GatewayTargetOAuthGrantType")
@@ -444,6 +453,25 @@ class OAuth2CredentialProviderCredentialProviderVendor(_builtins.str, Enum):
     FUSION_AUTH_OAUTH2 = "FusionAuthOauth2"
     AUTH0_OAUTH2 = "Auth0Oauth2"
     COGNITO_OAUTH2 = "CognitoOauth2"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantType")
+class OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantType(_builtins.str, Enum):
+    """
+    The grant type for on-behalf-of token exchange
+    """
+    TOKEN_EXCHANGE = "TOKEN_EXCHANGE"
+    JWT_AUTHORIZATION_GRANT = "JWT_AUTHORIZATION_GRANT"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContent")
+class OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContent(_builtins.str, Enum):
+    """
+    The actor token content type
+    """
+    NONE = "NONE"
+    M2M = "M2M"
+    AWS_IAM_ID_TOKEN_JWT = "AWS_IAM_ID_TOKEN_JWT"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:OnlineEvaluationConfigExecutionStatus")

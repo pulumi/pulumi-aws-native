@@ -17,6 +17,8 @@ import (
 type TelemetryRule struct {
 	pulumi.CustomResourceState
 
+	// Per-region replication status of the rule
+	RegionStatuses TelemetryRuleRegionStatusArrayOutput `pulumi:"regionStatuses"`
 	// Retrieves the details of a specific telemetry rule in your account.
 	Rule TelemetryRuleTypeOutput `pulumi:"rule"`
 	// The arn of the telemetry rule
@@ -38,6 +40,7 @@ func NewTelemetryRule(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Rule'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"rule.allRegions",
 		"ruleName",
 	})
 	opts = append(opts, replaceOnChanges)
@@ -127,6 +130,11 @@ func (o TelemetryRuleOutput) ToTelemetryRuleOutput() TelemetryRuleOutput {
 
 func (o TelemetryRuleOutput) ToTelemetryRuleOutputWithContext(ctx context.Context) TelemetryRuleOutput {
 	return o
+}
+
+// Per-region replication status of the rule
+func (o TelemetryRuleOutput) RegionStatuses() TelemetryRuleRegionStatusArrayOutput {
+	return o.ApplyT(func(v *TelemetryRule) TelemetryRuleRegionStatusArrayOutput { return v.RegionStatuses }).(TelemetryRuleRegionStatusArrayOutput)
 }
 
 // Retrieves the details of a specific telemetry rule in your account.

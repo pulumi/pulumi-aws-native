@@ -44,7 +44,8 @@ type Cluster struct {
 	// This controls storage mode for supported storage tiers.
 	StorageMode ClusterStorageModePtrOutput `pulumi:"storageMode"`
 	// A key-value pair to associate with a resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	Tags            pulumi.StringMapOutput          `pulumi:"tags"`
+	ZookeeperAccess ClusterZookeeperAccessPtrOutput `pulumi:"zookeeperAccess"`
 }
 
 // NewCluster registers a new resource with the given unique name, arguments, and options.
@@ -129,7 +130,8 @@ type clusterArgs struct {
 	// This controls storage mode for supported storage tiers.
 	StorageMode *ClusterStorageMode `pulumi:"storageMode"`
 	// A key-value pair to associate with a resource.
-	Tags map[string]string `pulumi:"tags"`
+	Tags            map[string]string       `pulumi:"tags"`
+	ZookeeperAccess *ClusterZookeeperAccess `pulumi:"zookeeperAccess"`
 }
 
 // The set of arguments for constructing a Cluster resource.
@@ -158,7 +160,8 @@ type ClusterArgs struct {
 	// This controls storage mode for supported storage tiers.
 	StorageMode ClusterStorageModePtrInput
 	// A key-value pair to associate with a resource.
-	Tags pulumi.StringMapInput
+	Tags            pulumi.StringMapInput
+	ZookeeperAccess ClusterZookeeperAccessPtrInput
 }
 
 func (ClusterArgs) ElementType() reflect.Type {
@@ -270,6 +273,10 @@ func (o ClusterOutput) StorageMode() ClusterStorageModePtrOutput {
 // A key-value pair to associate with a resource.
 func (o ClusterOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func (o ClusterOutput) ZookeeperAccess() ClusterZookeeperAccessPtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterZookeeperAccessPtrOutput { return v.ZookeeperAccess }).(ClusterZookeeperAccessPtrOutput)
 }
 
 func init() {

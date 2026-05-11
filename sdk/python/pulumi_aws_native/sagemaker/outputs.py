@@ -286,7 +286,6 @@ __all__ = [
     'ProcessingJobAthenaDatasetDefinition',
     'ProcessingJobClusterConfig',
     'ProcessingJobDatasetDefinition',
-    'ProcessingJobEnvironment',
     'ProcessingJobExperimentConfig',
     'ProcessingJobFeatureStoreOutput',
     'ProcessingJobNetworkConfig',
@@ -17166,18 +17165,6 @@ class ProcessingJobDatasetDefinition(dict):
         Configuration for Redshift Dataset Definition input.
         """
         return pulumi.get(self, "redshift_dataset_definition")
-
-
-@pulumi.output_type
-class ProcessingJobEnvironment(dict):
-    """
-    Sets the environment variables in the Docker container
-    """
-    def __init__(__self__):
-        """
-        Sets the environment variables in the Docker container
-        """
-        pass
 
 
 @pulumi.output_type

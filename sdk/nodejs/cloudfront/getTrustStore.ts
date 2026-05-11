@@ -53,6 +53,7 @@ export interface GetTrustStoreResult {
      * A complex type that contains zero or more ``Tag`` elements.
      */
     readonly tags?: outputs.Tag[];
+    readonly useClientCertificateOcspEndpoint?: boolean;
 }
 /**
  * A trust store.

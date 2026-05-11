@@ -16,10 +16,31 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Inputs
     public sealed class OrganizationTelemetryRuleTelemetryRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// When true, the rule is replicated to all supported regions
+        /// </summary>
+        [Input("allRegions")]
+        public Input<bool>? AllRegions { get; set; }
+
+        [Input("allowFieldUpdates")]
+        public Input<bool>? AllowFieldUpdates { get; set; }
+
+        /// <summary>
         /// Configuration specifying where and how the telemetry data should be delivered.
         /// </summary>
         [Input("destinationConfiguration")]
         public Input<Inputs.OrganizationTelemetryRuleTelemetryDestinationConfigurationArgs>? DestinationConfiguration { get; set; }
+
+        [Input("regions")]
+        private InputList<string>? _regions;
+
+        /// <summary>
+        /// List of AWS region codes where the rule should be replicated
+        /// </summary>
+        public InputList<string> Regions
+        {
+            get => _regions ?? (_regions = new InputList<string>());
+            set => _regions = value;
+        }
 
         /// <summary>
         /// The type of AWS resource to configure telemetry for (e.g., "AWS::EC2::VPC", "AWS::EKS::Cluster", "AWS::WAFv2::WebACL").

@@ -26,7 +26,7 @@ namespace Pulumi.AwsNative.Ecs.Outputs
         /// The Amazon Resource Name (ARN) of the hook target. Currently, only Lambda function ARNs are supported.
         ///  You must provide this parameter when configuring a deployment lifecycle hook.
         /// </summary>
-        public readonly string HookTargetArn;
+        public readonly string? HookTargetArn;
         /// <summary>
         /// The lifecycle stages at which to run the hook. Choose from these valid values:
         ///   +  RECONCILE_SERVICE
@@ -58,22 +58,26 @@ namespace Pulumi.AwsNative.Ecs.Outputs
         /// The Amazon Resource Name (ARN) of the IAM role that grants Amazon ECS permission to call Lambda functions on your behalf.
         ///  For more information, see [Permissions required for Lambda functions in Amazon ECS blue/green deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/blue-green-permissions.html) in the *Amazon Elastic Container Service Developer Guide*.
         /// </summary>
-        public readonly string RoleArn;
+        public readonly string? RoleArn;
+        public readonly object? TimeoutConfiguration;
 
         [OutputConstructor]
         private ServiceDeploymentLifecycleHook(
             object? hookDetails,
 
-            string hookTargetArn,
+            string? hookTargetArn,
 
             ImmutableArray<Pulumi.AwsNative.Ecs.ServiceDeploymentLifecycleHookLifecycleStagesItem> lifecycleStages,
 
-            string roleArn)
+            string? roleArn,
+
+            object? timeoutConfiguration)
         {
             HookDetails = hookDetails;
             HookTargetArn = hookTargetArn;
             LifecycleStages = lifecycleStages;
             RoleArn = roleArn;
+            TimeoutConfiguration = timeoutConfiguration;
         }
     }
 }

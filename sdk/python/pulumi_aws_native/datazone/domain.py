@@ -24,8 +24,8 @@ __all__ = ['DomainArgs', 'Domain']
 @pulumi.input_type
 class DomainArgs:
     def __init__(__self__, *,
-                 domain_execution_role: pulumi.Input[_builtins.str],
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 domain_execution_role: Optional[pulumi.Input[_builtins.str]] = None,
                  domain_version: Optional[pulumi.Input['DomainVersion']] = None,
                  kms_key_identifier: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -35,8 +35,8 @@ class DomainArgs:
         """
         The set of arguments for constructing a Domain resource.
 
-        :param pulumi.Input[_builtins.str] domain_execution_role: The domain execution role that is created when an Amazon DataZone domain is created. The domain execution role is created in the AWS account that houses the Amazon DataZone domain.
         :param pulumi.Input[_builtins.str] description: The description of the Amazon DataZone domain.
+        :param pulumi.Input[_builtins.str] domain_execution_role: The domain execution role that is created when an Amazon DataZone domain is created. The domain execution role is created in the AWS account that houses the Amazon DataZone domain.
         :param pulumi.Input['DomainVersion'] domain_version: The version of the domain.
         :param pulumi.Input[_builtins.str] kms_key_identifier: The identifier of the AWS Key Management Service (KMS) key that is used to encrypt the Amazon DataZone domain, metadata, and reporting data.
         :param pulumi.Input[_builtins.str] name: The name of the Amazon DataZone domain.
@@ -44,9 +44,10 @@ class DomainArgs:
         :param pulumi.Input['DomainSingleSignOnArgs'] single_sign_on: The single-sign on configuration of the Amazon DataZone domain.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags specified for the Amazon DataZone domain.
         """
-        pulumi.set(__self__, "domain_execution_role", domain_execution_role)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if domain_execution_role is not None:
+            pulumi.set(__self__, "domain_execution_role", domain_execution_role)
         if domain_version is not None:
             pulumi.set(__self__, "domain_version", domain_version)
         if kms_key_identifier is not None:
@@ -61,18 +62,6 @@ class DomainArgs:
             pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
-    @pulumi.getter(name="domainExecutionRole")
-    def domain_execution_role(self) -> pulumi.Input[_builtins.str]:
-        """
-        The domain execution role that is created when an Amazon DataZone domain is created. The domain execution role is created in the AWS account that houses the Amazon DataZone domain.
-        """
-        return pulumi.get(self, "domain_execution_role")
-
-    @domain_execution_role.setter
-    def domain_execution_role(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "domain_execution_role", value)
-
-    @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -83,6 +72,18 @@ class DomainArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="domainExecutionRole")
+    def domain_execution_role(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The domain execution role that is created when an Amazon DataZone domain is created. The domain execution role is created in the AWS account that houses the Amazon DataZone domain.
+        """
+        return pulumi.get(self, "domain_execution_role")
+
+    @domain_execution_role.setter
+    def domain_execution_role(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "domain_execution_role", value)
 
     @_builtins.property
     @pulumi.getter(name="domainVersion")
@@ -191,7 +192,7 @@ class Domain(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DomainArgs,
+                 args: Optional[DomainArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A domain is an organizing entity for connecting together assets, users, and their projects
@@ -230,8 +231,6 @@ class Domain(pulumi.CustomResource):
             __props__ = DomainArgs.__new__(DomainArgs)
 
             __props__.__dict__["description"] = description
-            if domain_execution_role is None and not opts.urn:
-                raise TypeError("Missing required property 'domain_execution_role'")
             __props__.__dict__["domain_execution_role"] = domain_execution_role
             __props__.__dict__["domain_version"] = domain_version
             __props__.__dict__["kms_key_identifier"] = kms_key_identifier
@@ -323,7 +322,7 @@ class Domain(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="domainExecutionRole")
-    def domain_execution_role(self) -> pulumi.Output[_builtins.str]:
+    def domain_execution_role(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         The domain execution role that is created when an Amazon DataZone domain is created. The domain execution role is created in the AWS account that houses the Amazon DataZone domain.
         """

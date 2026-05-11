@@ -18,17 +18,20 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
         /// <summary>
         /// The client ID for the custom OAuth2 provider
         /// </summary>
-        [Input("clientId", required: true)]
-        public Input<string> ClientId { get; set; } = null!;
+        [Input("clientId")]
+        public Input<string>? ClientId { get; set; }
 
         /// <summary>
         /// The client secret for the custom OAuth2 provider
         /// </summary>
-        [Input("clientSecret", required: true)]
-        public Input<string> ClientSecret { get; set; } = null!;
+        [Input("clientSecret")]
+        public Input<string>? ClientSecret { get; set; }
 
         [Input("oauthDiscovery", required: true)]
         public Input<Inputs.OAuth2CredentialProviderOauth2DiscoveryArgs> OauthDiscovery { get; set; } = null!;
+
+        [Input("onBehalfOfTokenExchangeConfig")]
+        public Input<Inputs.OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigArgs>? OnBehalfOfTokenExchangeConfig { get; set; }
 
         public OAuth2CredentialProviderCustomOauth2ProviderConfigInputArgs()
         {
