@@ -3,7 +3,7 @@ module github.com/pulumi/pulumi-aws-native/examples/write-only-go
 go 1.25.6
 
 require (
-	github.com/pulumi/pulumi-aws-native/sdk v1.61.0
+	github.com/pulumi/pulumi-aws-native/sdk v1.64.0
 	github.com/pulumi/pulumi/sdk/v3 v3.225.0
 )
 

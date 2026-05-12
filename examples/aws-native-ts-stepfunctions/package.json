@@ -4,10 +4,10 @@
     "@types/node": "^8.0.0"
   },
   "dependencies": {
-    "@pulumi/aws": "7.25.0",
-    "@pulumi/pulumi": "3.231.0"
+    "@pulumi/aws": "7.29.0",
+    "@pulumi/pulumi": "3.237.0"
   },
   "peerDependencies": {
-    "@pulumi/aws-native": "1.61.0"
+    "@pulumi/aws-native": "1.64.0"
   }
 }
