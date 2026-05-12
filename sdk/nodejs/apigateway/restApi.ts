@@ -171,8 +171,8 @@ import * as utilities from "../utilities";
  * const requestValidator = new aws_native.apigateway.RequestValidator("requestValidator", {
  *     name: validatorName,
  *     restApiId: restApi.id,
- *     validateRequestBody: validateRequestBody,
- *     validateRequestParameters: validateRequestParameters,
+ *     validateRequestBody: validateRequestBody === "true",
+ *     validateRequestParameters: validateRequestParameters === "true",
  * });
  * const method = new aws_native.apigateway.Method("method", {
  *     httpMethod: "POST",
@@ -210,8 +210,8 @@ import * as utilities from "../utilities";
  * const requestValidator = new aws_native.apigateway.RequestValidator("requestValidator", {
  *     name: validatorName,
  *     restApiId: restApi.id,
- *     validateRequestBody: validateRequestBody,
- *     validateRequestParameters: validateRequestParameters,
+ *     validateRequestBody: validateRequestBody === "true",
+ *     validateRequestParameters: validateRequestParameters === "true",
  * });
  * const method = new aws_native.apigateway.Method("method", {
  *     httpMethod: "POST",
@@ -247,8 +247,8 @@ import * as utilities from "../utilities";
  * const requestValidator = new aws_native.apigateway.RequestValidator("requestValidator", {
  *     name: validatorName,
  *     restApiId: restApi.id,
- *     validateRequestBody: validateRequestBody,
- *     validateRequestParameters: validateRequestParameters,
+ *     validateRequestBody: validateRequestBody === "true",
+ *     validateRequestParameters: validateRequestParameters === "true",
  * });
  *
  * ```
@@ -267,8 +267,8 @@ import * as utilities from "../utilities";
  * const requestValidator = new aws_native.apigateway.RequestValidator("requestValidator", {
  *     name: validatorName,
  *     restApiId: restApi.id,
- *     validateRequestBody: validateRequestBody,
- *     validateRequestParameters: validateRequestParameters,
+ *     validateRequestBody: validateRequestBody === "true",
+ *     validateRequestParameters: validateRequestParameters === "true",
  * });
  *
  * ```
@@ -380,7 +380,7 @@ import * as utilities from "../utilities";
  *         binaryMediaType1,
  *         binaryMediaType2,
  *     ],
- *     minimumCompressionSize: minimumCompressionSize,
+ *     minimumCompressionSize: Number(minimumCompressionSize),
  *     name: apiName,
  * });
  *
@@ -403,7 +403,7 @@ import * as utilities from "../utilities";
  *         binaryMediaType1,
  *         binaryMediaType2,
  *     ],
- *     minimumCompressionSize: minimumCompressionSize,
+ *     minimumCompressionSize: Number(minimumCompressionSize),
  *     name: apiName,
  * });
  *

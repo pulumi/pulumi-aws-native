@@ -507,8 +507,8 @@ class RestApi(pulumi.CustomResource):
         request_validator = aws_native.apigateway.RequestValidator("requestValidator",
             name=validator_name,
             rest_api_id=rest_api.id,
-            validate_request_body=validate_request_body,
-            validate_request_parameters=validate_request_parameters)
+            validate_request_body=validate_request_body == "true",
+            validate_request_parameters=validate_request_parameters == "true")
         method = aws_native.apigateway.Method("method",
             http_method="POST",
             resource_id=rest_api.root_resource_id,
@@ -554,8 +554,8 @@ class RestApi(pulumi.CustomResource):
         request_validator = aws_native.apigateway.RequestValidator("requestValidator",
             name=validator_name,
             rest_api_id=rest_api.id,
-            validate_request_body=validate_request_body,
-            validate_request_parameters=validate_request_parameters)
+            validate_request_body=validate_request_body == "true",
+            validate_request_parameters=validate_request_parameters == "true")
         method = aws_native.apigateway.Method("method",
             http_method="POST",
             resource_id=rest_api.root_resource_id,
@@ -589,8 +589,8 @@ class RestApi(pulumi.CustomResource):
         request_validator = aws_native.apigateway.RequestValidator("requestValidator",
             name=validator_name,
             rest_api_id=rest_api.id,
-            validate_request_body=validate_request_body,
-            validate_request_parameters=validate_request_parameters)
+            validate_request_body=validate_request_body == "true",
+            validate_request_parameters=validate_request_parameters == "true")
 
         ```
         ### Example
@@ -608,8 +608,8 @@ class RestApi(pulumi.CustomResource):
         request_validator = aws_native.apigateway.RequestValidator("requestValidator",
             name=validator_name,
             rest_api_id=rest_api.id,
-            validate_request_body=validate_request_body,
-            validate_request_parameters=validate_request_parameters)
+            validate_request_body=validate_request_body == "true",
+            validate_request_parameters=validate_request_parameters == "true")
 
         ```
         ### Example
@@ -716,7 +716,7 @@ class RestApi(pulumi.CustomResource):
                 binary_media_type1,
                 binary_media_type2,
             ],
-            minimum_compression_size=minimum_compression_size,
+            minimum_compression_size=int(minimum_compression_size),
             name=api_name)
 
         ```
@@ -738,7 +738,7 @@ class RestApi(pulumi.CustomResource):
                 binary_media_type1,
                 binary_media_type2,
             ],
-            minimum_compression_size=minimum_compression_size,
+            minimum_compression_size=int(minimum_compression_size),
             name=api_name)
 
         ```
@@ -943,8 +943,8 @@ class RestApi(pulumi.CustomResource):
         request_validator = aws_native.apigateway.RequestValidator("requestValidator",
             name=validator_name,
             rest_api_id=rest_api.id,
-            validate_request_body=validate_request_body,
-            validate_request_parameters=validate_request_parameters)
+            validate_request_body=validate_request_body == "true",
+            validate_request_parameters=validate_request_parameters == "true")
         method = aws_native.apigateway.Method("method",
             http_method="POST",
             resource_id=rest_api.root_resource_id,
@@ -990,8 +990,8 @@ class RestApi(pulumi.CustomResource):
         request_validator = aws_native.apigateway.RequestValidator("requestValidator",
             name=validator_name,
             rest_api_id=rest_api.id,
-            validate_request_body=validate_request_body,
-            validate_request_parameters=validate_request_parameters)
+            validate_request_body=validate_request_body == "true",
+            validate_request_parameters=validate_request_parameters == "true")
         method = aws_native.apigateway.Method("method",
             http_method="POST",
             resource_id=rest_api.root_resource_id,
@@ -1025,8 +1025,8 @@ class RestApi(pulumi.CustomResource):
         request_validator = aws_native.apigateway.RequestValidator("requestValidator",
             name=validator_name,
             rest_api_id=rest_api.id,
-            validate_request_body=validate_request_body,
-            validate_request_parameters=validate_request_parameters)
+            validate_request_body=validate_request_body == "true",
+            validate_request_parameters=validate_request_parameters == "true")
 
         ```
         ### Example
@@ -1044,8 +1044,8 @@ class RestApi(pulumi.CustomResource):
         request_validator = aws_native.apigateway.RequestValidator("requestValidator",
             name=validator_name,
             rest_api_id=rest_api.id,
-            validate_request_body=validate_request_body,
-            validate_request_parameters=validate_request_parameters)
+            validate_request_body=validate_request_body == "true",
+            validate_request_parameters=validate_request_parameters == "true")
 
         ```
         ### Example
@@ -1152,7 +1152,7 @@ class RestApi(pulumi.CustomResource):
                 binary_media_type1,
                 binary_media_type2,
             ],
-            minimum_compression_size=minimum_compression_size,
+            minimum_compression_size=int(minimum_compression_size),
             name=api_name)
 
         ```
@@ -1174,7 +1174,7 @@ class RestApi(pulumi.CustomResource):
                 binary_media_type1,
                 binary_media_type2,
             ],
-            minimum_compression_size=minimum_compression_size,
+            minimum_compression_size=int(minimum_compression_size),
             name=api_name)
 
         ```
