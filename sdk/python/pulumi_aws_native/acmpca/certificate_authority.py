@@ -227,7 +227,7 @@ class CertificateAuthority(pulumi.CustomResource):
             template_arn="arn:aws:acm-pca:::template/RootCACertificate/V1",
             validity={
                 "type": "DAYS",
-                "value": 100,
+                "value": float(100),
             })
         root_ca_activation = aws_native.acmpca.CertificateAuthorityActivation("rootCAActivation",
             certificate_authority_arn=root_ca.id,
@@ -270,7 +270,7 @@ class CertificateAuthority(pulumi.CustomResource):
             template_arn="arn:aws:acm-pca:::template/SubordinateCACertificate_PathLen3/V1",
             validity={
                 "type": "DAYS",
-                "value": 90,
+                "value": float(90),
             },
             opts = pulumi.ResourceOptions(depends_on=[root_ca_activation]))
         subordinate_ca_one_activation = aws_native.acmpca.CertificateAuthorityActivation("subordinateCAOneActivation",
@@ -322,7 +322,7 @@ class CertificateAuthority(pulumi.CustomResource):
             template_arn="arn:aws:acm-pca:::template/SubordinateCACertificate_PathLen2/V1",
             validity={
                 "type": "DAYS",
-                "value": 80,
+                "value": float(80),
             },
             opts = pulumi.ResourceOptions(depends_on=[subordinate_ca_one_activation]))
         subordinate_ca_two_activation = aws_native.acmpca.CertificateAuthorityActivation("subordinateCATwoActivation",
@@ -359,7 +359,7 @@ class CertificateAuthority(pulumi.CustomResource):
             signing_algorithm="SHA256WITHRSA",
             validity={
                 "type": "DAYS",
-                "value": 70,
+                "value": float(70),
             },
             opts = pulumi.ResourceOptions(depends_on=[subordinate_ca_two_activation]))
         pulumi.export("completeCertificateChain", subordinate_ca_two_activation.complete_certificate_chain)
@@ -428,7 +428,7 @@ class CertificateAuthority(pulumi.CustomResource):
             template_arn="arn:aws:acm-pca:::template/RootCACertificate/V1",
             validity={
                 "type": "DAYS",
-                "value": 100,
+                "value": float(100),
             })
         root_ca_activation = aws_native.acmpca.CertificateAuthorityActivation("rootCAActivation",
             certificate_authority_arn=root_ca.id,
@@ -471,7 +471,7 @@ class CertificateAuthority(pulumi.CustomResource):
             template_arn="arn:aws:acm-pca:::template/SubordinateCACertificate_PathLen3/V1",
             validity={
                 "type": "DAYS",
-                "value": 90,
+                "value": float(90),
             },
             opts = pulumi.ResourceOptions(depends_on=[root_ca_activation]))
         subordinate_ca_one_activation = aws_native.acmpca.CertificateAuthorityActivation("subordinateCAOneActivation",
@@ -523,7 +523,7 @@ class CertificateAuthority(pulumi.CustomResource):
             template_arn="arn:aws:acm-pca:::template/SubordinateCACertificate_PathLen2/V1",
             validity={
                 "type": "DAYS",
-                "value": 80,
+                "value": float(80),
             },
             opts = pulumi.ResourceOptions(depends_on=[subordinate_ca_one_activation]))
         subordinate_ca_two_activation = aws_native.acmpca.CertificateAuthorityActivation("subordinateCATwoActivation",
@@ -560,7 +560,7 @@ class CertificateAuthority(pulumi.CustomResource):
             signing_algorithm="SHA256WITHRSA",
             validity={
                 "type": "DAYS",
-                "value": 70,
+                "value": float(70),
             },
             opts = pulumi.ResourceOptions(depends_on=[subordinate_ca_two_activation]))
         pulumi.export("completeCertificateChain", subordinate_ca_two_activation.complete_certificate_chain)
