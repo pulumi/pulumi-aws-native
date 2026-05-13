@@ -1328,26 +1328,28 @@ func (p *cfnProvider) List(req *pulumirpc.ListRequest, stream pulumirpc.Resource
 	}
 
 	maxResults := effectiveCloudControlListMaxResults(req.GetPageSize(), remainingLimitValue(remainingLimit))
-	listCtx, cancel := p.listContext(stream.Context())
-	defer cancel()
-	glog.V(9).Infof("%s.ListResources %q token %q resourceModel %t nextToken %t maxResults %s", p.name,
-		spec.CfType, token, resourceModel != nil, session.cloudControlNextToken != "", listMaxResultsForLog(maxResults))
-	identifiers, continuation, err := p.ccc.List(listCtx, spec.CfType, client.ListRequest{
-		ResourceModel: resourceModel,
-		NextToken:     session.nextTokenPtr(),
-		MaxResults:    maxResults,
-	})
-	if err != nil {
-		return fmt.Errorf("listing %s (%s): %w", token, spec.CfType, err)
+	identifiers := session.bufferedIDs
+	continuation := session.nextTokenPtr()
+	if len(identifiers) == 0 {
+		listCtx, cancel := p.listContext(stream.Context())
+		defer cancel()
+		glog.V(9).Infof("%s.ListResources %q token %q resourceModel %t nextToken %t maxResults %s", p.name,
+			spec.CfType, token, resourceModel != nil, session.cloudControlNextToken != "", listMaxResultsForLog(maxResults))
+		identifiers, continuation, err = p.ccc.List(listCtx, spec.CfType, client.ListRequest{
+			ResourceModel: resourceModel,
+			NextToken:     session.nextTokenPtr(),
+			MaxResults:    maxResults,
+		})
+		if err != nil {
+			return fmt.Errorf("listing %s (%s): %w", token, spec.CfType, err)
+		}
+		glog.V(9).Infof("%s.ListResources %q token %q returned %d resources continuation %t",
+			p.name, spec.CfType, token, len(identifiers), continuation != nil && *continuation != "")
 	}
-	if maxResults != nil && len(identifiers) > int(*maxResults) {
-		return status.Errorf(codes.Internal, "CloudControl returned %d resources, more than requested maximum %d",
-			len(identifiers), *maxResults)
-	}
-	glog.V(9).Infof("%s.ListResources %q token %q returned %d resources continuation %t",
-		p.name, spec.CfType, token, len(identifiers), continuation != nil && *continuation != "")
 
-	for _, identifier := range identifiers {
+	idsToStream, bufferedIDs := chunkListIdentifiers(identifiers, maxResults)
+
+	for _, identifier := range idsToStream {
 		if err := stream.Send(&pulumirpc.ListResponse{
 			Response: &pulumirpc.ListResponse_Result_{
 				Result: &pulumirpc.ListResponse_Result{Id: identifier},
@@ -1357,8 +1359,13 @@ func (p *cfnProvider) List(req *pulumirpc.ListRequest, stream pulumirpc.Resource
 		}
 	}
 
-	nextReturned := session.returned + int64(len(identifiers))
-	if continuation == nil || *continuation == "" || (session.limit > 0 && nextReturned >= session.limit) {
+	nextReturned := session.returned + int64(len(idsToStream))
+	nextCloudControlToken := ""
+	if continuation != nil {
+		nextCloudControlToken = *continuation
+	}
+	hasContinuation := len(bufferedIDs) > 0 || nextCloudControlToken != ""
+	if !hasContinuation || (session.limit > 0 && nextReturned >= session.limit) {
 		if providerContinuationToken != "" {
 			p.ensureListSessions().remove(providerContinuationToken)
 		}
@@ -1366,6 +1373,9 @@ func (p *cfnProvider) List(req *pulumirpc.ListRequest, stream pulumirpc.Resource
 	}
 
 	if providerContinuationToken == "" {
+		session.bufferedIDs = bufferedIDs
+		session.returned = nextReturned
+		session.cloudControlNextToken = nextCloudControlToken
 		providerContinuationToken, err = p.ensureListSessions().put(session)
 		if err != nil {
 			return err
@@ -1381,8 +1391,9 @@ func (p *cfnProvider) List(req *pulumirpc.ListRequest, stream pulumirpc.Resource
 		}
 		return err
 	}
+	session.bufferedIDs = bufferedIDs
 	session.returned = nextReturned
-	session.cloudControlNextToken = *continuation
+	session.cloudControlNextToken = nextCloudControlToken
 	return nil
 }
 
@@ -1402,6 +1413,14 @@ func listMaxResultsForLog(maxResults *int32) string {
 		return "unset"
 	}
 	return fmt.Sprintf("%d", *maxResults)
+}
+
+// chunkListIdentifiers applies the provider RPC chunk size after CloudControl returns.
+func chunkListIdentifiers(identifiers []string, maxResults *int32) ([]string, []string) {
+	if maxResults == nil || len(identifiers) <= int(*maxResults) {
+		return identifiers, nil
+	}
+	return identifiers[:*maxResults], identifiers[*maxResults:]
 }
 
 // listContext links List calls to the provider cancellation context when one exists.

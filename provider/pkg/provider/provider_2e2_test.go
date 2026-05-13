@@ -3,6 +3,7 @@
 package provider_test
 
 import (
+	"context"
 	"fmt"
 	"math/rand"
 	"os"
@@ -17,8 +18,14 @@ import (
 	"github.com/pulumi/providertest/pulumitest/assertpreview"
 	"github.com/pulumi/providertest/pulumitest/opttest"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/provider"
+	"github.com/pulumi/pulumi/sdk/v3/go/auto"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/resource/plugin"
 	pulumirpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
 	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
+	grpcmetadata "google.golang.org/grpc/metadata"
+	"google.golang.org/protobuf/types/known/structpb"
 )
 
 func TestE2eSnapshots(t *testing.T) {
@@ -63,6 +70,42 @@ func TestThrottling(t *testing.T) {
 	_ = test.Up(t)
 	_ = test.Destroy(t)
 	_ = test.Up(t)
+}
+
+func TestListLogStreamsLive(t *testing.T) {
+	if os.Getenv("PULUMI_AWS_NATIVE_RUN_LIST_LIVE_TEST") == "" {
+		t.Skip("set PULUMI_AWS_NATIVE_RUN_LIST_LIVE_TEST=1 to run this live List RPC test")
+	}
+	skipIfShort(t)
+
+	baseName := fmt.Sprintf("list-rpc-%d", time.Now().UnixNano())
+	test := newAwsTest(t, filepath.Join("testdata", "list-log-streams"))
+	test.SetConfig(t, "baseName", baseName)
+	defer test.Destroy(t)
+
+	up := test.Up(t)
+	logGroupName := requireStringOutput(t, up.Outputs, "logGroupName")
+	streamAName := requireStringOutput(t, up.Outputs, "streamAName")
+	streamBName := requireStringOutput(t, up.Outputs, "streamBName")
+
+	server, err := testProviderServer()
+	require.NoError(t, err)
+	_, err = server.Configure(context.Background(), &pulumirpc.ConfigureRequest{
+		Variables: map[string]string{"aws-native:config:region": "us-west-2"},
+	})
+	require.NoError(t, err)
+
+	listedIDs, err := listAllForTest(t, server, &pulumirpc.ListRequest{
+		Token:    "aws-native:logs:LogStream",
+		Query:    listQueryForTest(t, resource.PropertyMap{"logGroupName": resource.NewStringProperty(logGroupName)}),
+		PageSize: 1,
+		Limit:    2,
+	})
+	require.NoError(t, err)
+
+	require.Len(t, listedIDs, 2)
+	assert.Contains(t, listedIDs, fmt.Sprintf("%s|%s", logGroupName, streamAName))
+	assert.Contains(t, listedIDs, fmt.Sprintf("%s|%s", logGroupName, streamBName))
 }
 
 // EFS replication refresh retry constants.
@@ -302,6 +345,95 @@ func testProviderServer() (pulumirpc.ResourceProviderServer, error) {
 		return nil, err
 	}
 	return provider.NewAwsNativeProvider(nil, "aws-native", "0.1.0", schemaBytes, metadataBytes)
+}
+
+type listLiveTestStream struct {
+	responses []*pulumirpc.ListResponse
+}
+
+func (s *listLiveTestStream) Send(response *pulumirpc.ListResponse) error {
+	s.responses = append(s.responses, response)
+	return nil
+}
+
+func (s *listLiveTestStream) SetHeader(grpcmetadata.MD) error {
+	return nil
+}
+
+func (s *listLiveTestStream) SendHeader(grpcmetadata.MD) error {
+	return nil
+}
+
+func (s *listLiveTestStream) SetTrailer(grpcmetadata.MD) {
+}
+
+func (s *listLiveTestStream) Context() context.Context {
+	return context.Background()
+}
+
+func (s *listLiveTestStream) SendMsg(any) error {
+	return nil
+}
+
+func (s *listLiveTestStream) RecvMsg(any) error {
+	return nil
+}
+
+func listQueryForTest(t *testing.T, props resource.PropertyMap) *structpb.Struct {
+	t.Helper()
+	query, err := plugin.MarshalProperties(props, plugin.MarshalOptions{
+		Label:        "list.query",
+		KeepUnknowns: true,
+		KeepSecrets:  true,
+	})
+	require.NoError(t, err)
+	return query
+}
+
+func listAllForTest(
+	t *testing.T,
+	server pulumirpc.ResourceProviderServer,
+	req *pulumirpc.ListRequest,
+) ([]string, error) {
+	t.Helper()
+
+	var ids []string
+	continuation := ""
+	for {
+		pageReq := *req
+		pageReq.ContinuationToken = continuation
+		stream := &listLiveTestStream{}
+		if err := server.List(&pageReq, stream); err != nil {
+			return nil, err
+		}
+
+		continuation = ""
+		for _, response := range stream.responses {
+			switch {
+			case response.GetResult() != nil:
+				ids = append(ids, response.GetResult().GetId())
+			case response.GetContinuation() != nil:
+				continuation = response.GetContinuation().GetContinuationToken()
+			case response.GetComputed() != nil:
+				return nil, fmt.Errorf("List returned computed")
+			}
+		}
+		if continuation == "" {
+			return ids, nil
+		}
+	}
+}
+
+func requireStringOutput(
+	t *testing.T,
+	outputs auto.OutputMap,
+	name string,
+) string {
+	t.Helper()
+	value, ok := outputs[name].Value.(string)
+	require.True(t, ok, "expected output %q to be a string", name)
+	require.NotEmpty(t, value, "expected output %q to be non-empty", name)
+	return value
 }
 
 func skipIfShort(t *testing.T) {

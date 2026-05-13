@@ -33,6 +33,7 @@ type listTestStream struct {
 	ctx          context.Context
 	sendErr      error
 	sendErrAfter int
+	afterSend    func(*pulumirpc.ListResponse)
 	responses    []*pulumirpc.ListResponse
 }
 
@@ -43,6 +44,9 @@ func (s *listTestStream) Send(response *pulumirpc.ListResponse) error {
 		return s.sendErr
 	}
 	s.responses = append(s.responses, response)
+	if s.afterSend != nil {
+		s.afterSend(response)
+	}
 	return nil
 }
 
@@ -372,6 +376,50 @@ func TestListEmptyQueryAndContinuationUsesProviderToken(t *testing.T) {
 	require.NoError(t, err)
 	require.Len(t, continuationStream.responses, 1)
 	assert.Equal(t, id3, continuationStream.responses[0].GetResult().GetId())
+}
+
+func TestListStoresInitializedSessionBeforeSendingContinuation(t *testing.T) {
+	ctrl := gomock.NewController(t)
+	defer ctrl.Finish()
+
+	mockCCC := client.NewMockCloudControlClient(ctrl)
+	provider := &cfnProvider{
+		resourceMap: &metadata.CloudAPIMetadata{Resources: map[string]metadata.CloudAPIResource{
+			"aws:s3/bucket:Bucket": {
+				CfType:         "AWS::S3::Bucket",
+				HasListHandler: true,
+			},
+		}},
+		customResources: map[string]resources.CustomResource{},
+		ccc:             mockCCC,
+	}
+
+	continuation := "next-page"
+	mockCCC.EXPECT().
+		List(gomock.Any(), "AWS::S3::Bucket", client.ListRequest{}).
+		Return([]string{"bucket-1"}, &continuation, nil)
+
+	stream := &listTestStream{
+		afterSend: func(response *pulumirpc.ListResponse) {
+			providerToken := response.GetContinuation().GetContinuationToken()
+			if providerToken == "" {
+				return
+			}
+
+			store := provider.ensureListSessions()
+			store.mu.Lock()
+			defer store.mu.Unlock()
+			session := store.sessions[providerToken]
+			require.NotNil(t, session)
+			assert.Equal(t, int64(1), session.returned)
+			assert.Equal(t, continuation, session.cloudControlNextToken)
+		},
+	}
+
+	err := provider.List(&pulumirpc.ListRequest{Token: "aws:s3/bucket:Bucket"}, stream)
+
+	require.NoError(t, err)
+	require.Len(t, stream.responses, 2)
 }
 
 func TestListMaxResults(t *testing.T) {
@@ -708,7 +756,7 @@ func TestListRejectsContinuationRequestChanges(t *testing.T) {
 	}
 }
 
-func TestListErrorsWhenCloudControlReturnsMoreThanRequested(t *testing.T) {
+func TestListBuffersWhenCloudControlReturnsMoreThanRequested(t *testing.T) {
 	ctrl := gomock.NewController(t)
 	defer ctrl.Finish()
 
@@ -730,13 +778,28 @@ func TestListErrorsWhenCloudControlReturnsMoreThanRequested(t *testing.T) {
 		List(gomock.Any(), "AWS::S3::Bucket", client.ListRequest{MaxResults: &expectedMaxResults}).
 		Return([]string{id1, id2}, nil, nil)
 
+	stream := &listTestStream{}
 	err := provider.List(&pulumirpc.ListRequest{
-		Token: "aws:s3/bucket:Bucket",
-		Limit: 1,
-	}, &listTestStream{})
+		Token:    "aws:s3/bucket:Bucket",
+		PageSize: 1,
+	}, stream)
 
-	require.Error(t, err)
-	assert.Contains(t, err.Error(), "more than requested maximum")
+	require.NoError(t, err)
+	require.Len(t, stream.responses, 2)
+	assert.Equal(t, id1, stream.responses[0].GetResult().GetId())
+	providerContinuation := stream.responses[1].GetContinuation().GetContinuationToken()
+	require.NotEmpty(t, providerContinuation)
+
+	continuationStream := &listTestStream{}
+	err = provider.List(&pulumirpc.ListRequest{
+		Token:             "aws:s3/bucket:Bucket",
+		PageSize:          1,
+		ContinuationToken: providerContinuation,
+	}, continuationStream)
+
+	require.NoError(t, err)
+	require.Len(t, continuationStream.responses, 1)
+	assert.Equal(t, id2, continuationStream.responses[0].GetResult().GetId())
 }
 
 func TestListWrapsCloudControlErrorsWithTokenContext(t *testing.T) {

@@ -47,8 +47,8 @@ Current Pulumi engine support should be treated as protocol and schema plumbing,
 6. `listInputs.required` mirrors `handlerSchema.required`, after converting property names to Pulumi SDK casing.
 7. `ListRequest.Query` is converted from Pulumi SDK casing to CloudFormation casing and serialized as CloudControl `ListResourcesInput.ResourceModel`.
 8. If the converted query is empty, `ResourceModel` is omitted.
-9. `ListRequest.ContinuationToken` is a provider-owned opaque token for an in-memory list session. The session stores the CloudControl `NextToken`, the original logical request identity, and the number of results already returned.
-10. `ListRequest.PageSize`, when non-zero and within CloudControl limits, is the requested provider RPC chunk size and maps to CloudControl `MaxResults` for the current streaming response.
+9. `ListRequest.ContinuationToken` is a provider-owned opaque token for an in-memory list session. The session stores the CloudControl `NextToken`, any buffered CloudControl results that were not streamed yet, the original logical request identity, and the number of results already returned.
+10. `ListRequest.PageSize`, when non-zero and within CloudControl limits, is the requested provider RPC chunk size. It maps to CloudControl `MaxResults` when making a CloudControl request, but the provider still enforces the RPC chunk size after CloudControl returns because CloudControl currently treats `MaxResults` as a reserved/best-effort field.
 11. `ListRequest.Limit`, when non-zero, is the total result cap across the logical list operation, including continuation requests.
 12. Each CloudControl `ResourceDescription.Identifier` is streamed as `ListResponse.Result.Id`.
 13. `ListResponse.Result.Id` must be importable through the existing provider `Read` path.
@@ -177,10 +177,12 @@ The method should:
 7. Serialize the converted query to JSON as `ResourceModel` only when non-empty.
 8. Resolve or create the provider-owned continuation session, including the stored CloudControl `NextToken` for continuation requests.
 9. Compute the remaining logical result budget from `Limit` and the session's returned count.
-10. Call CloudControl `ListResources` with `TypeName`, `ResourceModel`, the session's CloudControl `NextToken`, effective `MaxResults`, and configured `RoleArn`.
-11. Stream one `ListResponse.Result` per returned `ResourceDescription` with `Id` set to `Identifier`.
-12. Update the session's returned count and stored CloudControl `NextToken`.
-13. Send a provider-owned `ListResponse.Continuation` only if CloudControl returned `NextToken` and the logical `Limit` has not been reached.
+10. If the session has buffered identifiers from a previous CloudControl response, consume those first without calling CloudControl.
+11. Otherwise call CloudControl `ListResources` with `TypeName`, `ResourceModel`, the session's CloudControl `NextToken`, effective `MaxResults`, and configured `RoleArn`.
+12. Stream one `ListResponse.Result` per returned `ResourceDescription`, up to the current provider RPC chunk size, with `Id` set to `Identifier`.
+13. Buffer any extra identifiers returned by CloudControl beyond the provider RPC chunk size.
+14. Update the session's returned count, buffered identifiers, and stored CloudControl `NextToken`.
+15. Send a provider-owned `ListResponse.Continuation` if either buffered identifiers or a CloudControl `NextToken` remain and the logical `Limit` has not been reached.
 
 The first implementation should not call `GetResource` for every listed item. That would turn list into list-plus-read and make broad enumeration unexpectedly expensive.
 
@@ -193,6 +195,7 @@ One AWS Native provider `List` call should correspond to one bounded CloudContro
 The list session only needs to store logical paging state:
 
 - current CloudControl `NextToken`;
+- buffered identifiers returned by CloudControl but not yet streamed to the Pulumi caller;
 - number of results returned so far;
 - original `Limit`;
 - original resource token;
@@ -205,11 +208,11 @@ For each CloudControl call, the effective CloudControl `MaxResults` should be:
 - otherwise `Limit`, if `Limit` is positive;
 - otherwise omitted, so CloudControl can choose its default page size.
 
-The effective value is capped at the CloudControl `MaxResults` limit of 100. If `Limit` is positive, also cap the current call by `Limit - returnedSoFar`. If the remaining budget is zero, delete the session and return no continuation without calling CloudControl.
+The effective value is capped at the CloudControl `MaxResults` limit of 100. If `Limit` is positive, also cap the current provider response by `Limit - returnedSoFar`. If the remaining budget is zero, delete the session and return no continuation without calling CloudControl.
 
 Continuation requests should normally use the same `Token`, `Query`, and `Limit` as the initial request because the continuation token belongs to that logical query. The provider should reject a continuation request if the token is unknown or expired, if `Token` or `Limit` changed, or if the query does not match the original query.
 
-The provider should not implement partial-page buffering in v1. It should request at most the number of results it is prepared to stream. If CloudControl returns more descriptions than the effective requested maximum, the provider should return an error rather than stream extra items, silently drop items, or invent item-offset state inside an already-fetched CloudControl page.
+CloudControl `MaxResults` should be treated as best-effort. The provider must be prepared for CloudControl to return more descriptions than requested, especially for resource types where the API marks `MaxResults` as reserved. In that case, the provider should stream only the current RPC chunk and store the remaining identifiers in the provider-owned continuation session.
 
 ### Limit And Page Size Semantics
 
@@ -226,11 +229,11 @@ the result should contain up to 50 resources. The CLI or other caller asks the p
 AWS Native should use a small in-memory continuation session:
 
 - The first provider RPC calls CloudControl `ListResources` with `MaxResults=10`.
-- If CloudControl returns a `NextToken`, the provider stores it in a list session together with `returnedSoFar=10` and returns a provider-owned opaque continuation token.
-- The second provider RPC looks up the session, computes `remaining=40`, calls CloudControl with the stored `NextToken` and `MaxResults=10`, updates `returnedSoFar=20`, and returns the same or a replacement provider token if CloudControl has more results.
+- If CloudControl returns more than 10 identifiers, the provider streams 10 and buffers the rest in the list session. If CloudControl returns a `NextToken`, the provider stores it in the same session.
+- The second provider RPC looks up the session, computes `remaining=40`, streams buffered identifiers first if present, or calls CloudControl with the stored `NextToken` and `MaxResults=10` if the buffer is empty. It then updates `returnedSoFar=20` and returns the same or a replacement provider token if buffered identifiers or a CloudControl token remain.
 - The fifth provider RPC reaches `returnedSoFar=50`; the provider deletes the session and returns no continuation even if CloudControl returned another `NextToken`.
 
-This matches the bridge implementation's user-facing contract without adopting the bridge's full buffering design. The bridge needs a background producer and buffered pages because Terraform Plugin Framework `ListResource` is a stream. AWS Native already has CloudControl page tokens, so it only needs provider-owned session state for the current CloudControl token and logical result count.
+This matches the bridge implementation's user-facing contract without adopting the bridge's background producer design. AWS Native still needs a small provider-owned buffer because CloudControl can return more identifiers than the requested provider RPC chunk.
 
 ## Edge Cases
 
@@ -308,6 +311,7 @@ Add provider RPC tests covering:
 - combined `PageSize` and `Limit` use the smaller value for `MaxResults`.
 - `limit=50` and `pageSize=10` uses `MaxResults=10` for the current provider RPC.
 - `limit=50`, `pageSize=20`, and 40 prior returned results uses `MaxResults=10` for the continuation RPC.
+- CloudControl responses larger than the effective provider RPC chunk are buffered and returned through provider continuation tokens.
 - continuation session is deleted and no continuation is returned when `Limit` is reached.
 - effective `MaxResults` is capped at the CloudControl limit of 100.
 - nil or empty identifier is treated as an error.

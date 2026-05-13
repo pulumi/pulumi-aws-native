@@ -16,6 +16,7 @@ const defaultListSessionTTL = 5 * time.Minute
 // listSession stores provider-owned state for one List continuation token.
 type listSession struct {
 	cloudControlNextToken string
+	bufferedIDs           []string
 	returned              int64
 	limit                 int64
 	resourceToken         string
