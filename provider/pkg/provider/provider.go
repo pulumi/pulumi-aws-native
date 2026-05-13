@@ -21,6 +21,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"math"
 	"os"
 	"os/user"
 	"path/filepath"
@@ -1236,6 +1237,267 @@ func (p *cfnProvider) Delete(ctx context.Context, req *pulumirpc.DeleteRequest) 
 	}
 
 	return &pbempty.Empty{}, nil
+}
+
+const cloudControlListMaxResultsLimit int32 = 100
+
+func (p *cfnProvider) List(req *pulumirpc.ListRequest, stream pulumirpc.ResourceProvider_ListServer) error {
+	token := req.GetToken()
+	spec, ok := p.resourceMap.Resources[token]
+	if !ok {
+		if _, isCustom := p.customResources[token]; isCustom {
+			return status.Errorf(codes.Unimplemented, "resource type %s does not support List", token)
+		}
+		return status.Errorf(codes.InvalidArgument, "resource type %s not found", token)
+	}
+	if !spec.HasListHandler {
+		return status.Errorf(codes.Unimplemented, "resource type %s does not support List", token)
+	}
+
+	query, err := unmarshalListQuery(req.GetQuery(), token)
+	if err != nil {
+		return err
+	}
+	if query.ContainsUnknowns() {
+		return stream.Send(&pulumirpc.ListResponse{
+			Response: &pulumirpc.ListResponse_Computed_{
+				Computed: &pulumirpc.ListResponse_Computed{},
+			},
+		})
+	}
+
+	cfnQuery, err := convertListQueryToCfn(&spec, query)
+	if err != nil {
+		return err
+	}
+
+	var resourceModel *string
+	if len(cfnQuery) > 0 {
+		payload, err := json.Marshal(cfnQuery)
+		if err != nil {
+			return status.Errorf(codes.InvalidArgument, "failed to serialize List query: %v", err)
+		}
+		s := string(payload)
+		resourceModel = &s
+	}
+
+	var nextToken *string
+	if req.GetContinuationToken() != "" {
+		s := req.GetContinuationToken()
+		nextToken = &s
+	}
+
+	maxResults := effectiveCloudControlListMaxResults(req.GetPageSize(), req.GetLimit())
+	descriptions, continuation, err := p.ccc.List(stream.Context(), spec.CfType, resourceModel, nextToken, maxResults)
+	if err != nil {
+		return err
+	}
+	if maxResults != nil && len(descriptions) > int(*maxResults) {
+		return status.Errorf(codes.Internal, "CloudControl returned %d resources, more than requested maximum %d",
+			len(descriptions), *maxResults)
+	}
+
+	for _, description := range descriptions {
+		if description.Identifier == nil || *description.Identifier == "" {
+			return status.Errorf(codes.Internal, "CloudControl returned a resource with an empty identifier for %s", token)
+		}
+		if err := stream.Send(&pulumirpc.ListResponse{
+			Response: &pulumirpc.ListResponse_Result_{
+				Result: &pulumirpc.ListResponse_Result{Id: *description.Identifier},
+			},
+		}); err != nil {
+			return err
+		}
+	}
+
+	if continuation != nil && *continuation != "" {
+		return stream.Send(&pulumirpc.ListResponse{
+			Response: &pulumirpc.ListResponse_Continuation_{
+				Continuation: &pulumirpc.ListResponse_Continuation{ContinuationToken: *continuation},
+			},
+		})
+	}
+	return nil
+}
+
+func unmarshalListQuery(query *structpb.Struct, token string) (resource.PropertyMap, error) {
+	if query == nil {
+		return resource.PropertyMap{}, nil
+	}
+	props, err := plugin.UnmarshalProperties(query, plugin.MarshalOptions{
+		Label:        fmt.Sprintf("List(%s).query", token),
+		KeepUnknowns: true,
+		RejectAssets: true,
+		KeepSecrets:  true,
+	})
+	if err != nil {
+		return nil, status.Errorf(codes.InvalidArgument, "failed to parse List query: %v", err)
+	}
+	return props, nil
+}
+
+func convertListQueryToCfn(spec *metadata.CloudAPIResource, query resource.PropertyMap) (map[string]interface{}, error) {
+	if spec.ListHandlerSchema == nil || len(spec.ListHandlerSchema.Properties) == 0 {
+		if len(query) == 0 {
+			return nil, nil
+		}
+		return nil, status.Error(codes.InvalidArgument, "List query is not supported for this resource type")
+	}
+
+	cfnNamesBySdkName := map[string]string{}
+	propsBySdkName := map[string]metadata.ListHandlerProperty{}
+	for cfnName, prop := range spec.ListHandlerSchema.Properties {
+		sdkName := naming.ToSdkName(cfnName)
+		cfnNamesBySdkName[sdkName] = cfnName
+		propsBySdkName[sdkName] = prop
+	}
+	for _, cfnName := range spec.ListHandlerSchema.Required {
+		sdkName := naming.ToSdkName(cfnName)
+		if _, ok := cfnNamesBySdkName[sdkName]; !ok {
+			cfnNamesBySdkName[sdkName] = cfnName
+			propsBySdkName[sdkName] = metadata.ListHandlerProperty{}
+		}
+	}
+
+	for _, cfnName := range spec.ListHandlerSchema.Required {
+		sdkName := naming.ToSdkName(cfnName)
+		value, ok := query[resource.PropertyKey(sdkName)]
+		if !ok || value.IsNull() {
+			return nil, status.Errorf(codes.InvalidArgument, "missing required List query property %q", sdkName)
+		}
+	}
+	if len(query) == 0 {
+		return nil, nil
+	}
+
+	result := map[string]interface{}{}
+	for key, value := range query {
+		sdkName := string(key)
+		cfnName, ok := cfnNamesBySdkName[sdkName]
+		if !ok {
+			return nil, status.Errorf(codes.InvalidArgument, "unknown List query property %q", sdkName)
+		}
+		if value.IsNull() {
+			continue
+		}
+		converted, err := listQueryValueToInterface(sdkName, propsBySdkName[sdkName].Type, value)
+		if err != nil {
+			return nil, err
+		}
+		result[cfnName] = converted
+	}
+	return result, nil
+}
+
+func listQueryValueToInterface(sdkName string, typ string, value resource.PropertyValue) (interface{}, error) {
+	if value.IsSecret() {
+		value = value.SecretValue().Element
+	}
+	if value.IsOutput() {
+		value = value.OutputValue().Element
+	}
+
+	if typ == "" {
+		switch {
+		case value.IsNull():
+			return nil, nil
+		case value.IsString():
+			return value.StringValue(), nil
+		case value.IsBool():
+			return value.BoolValue(), nil
+		case value.IsNumber():
+			return value.NumberValue(), nil
+		case value.IsArray():
+			values := make([]interface{}, 0, len(value.ArrayValue()))
+			for _, element := range value.ArrayValue() {
+				converted, err := listQueryValueToInterface(sdkName, "", element)
+				if err != nil {
+					return nil, err
+				}
+				values = append(values, converted)
+			}
+			return values, nil
+		case value.IsObject():
+			return listQueryObjectToInterface(value.ObjectValue())
+		}
+	}
+
+	switch typ {
+	case "object":
+		if value.IsObject() {
+			return listQueryObjectToInterface(value.ObjectValue())
+		}
+	case "string":
+		if value.IsString() {
+			return value.StringValue(), nil
+		}
+	case "boolean":
+		if value.IsBool() {
+			return value.BoolValue(), nil
+		}
+	case "number":
+		if value.IsNumber() {
+			return value.NumberValue(), nil
+		}
+	case "integer":
+		if value.IsNumber() && math.Trunc(value.NumberValue()) == value.NumberValue() {
+			return value.NumberValue(), nil
+		}
+	case "array":
+		if value.IsArray() {
+			values := make([]interface{}, 0, len(value.ArrayValue()))
+			for _, element := range value.ArrayValue() {
+				converted, err := listQueryValueToInterface(sdkName, "", element)
+				if err != nil {
+					return nil, err
+				}
+				values = append(values, converted)
+			}
+			return values, nil
+		}
+	}
+
+	return nil, status.Errorf(codes.InvalidArgument, "List query property %q expected %s, got %s",
+		sdkName, listHandlerTypeName(typ), value.TypeString())
+}
+
+func listQueryObjectToInterface(value resource.PropertyMap) (map[string]interface{}, error) {
+	result := map[string]interface{}{}
+	for key, element := range value {
+		converted, err := listQueryValueToInterface(string(key), "", element)
+		if err != nil {
+			return nil, err
+		}
+		result[string(key)] = converted
+	}
+	return result, nil
+}
+
+func listHandlerTypeName(typ string) string {
+	if typ == "" {
+		return "a supported JSON value"
+	}
+	return typ
+}
+
+func effectiveCloudControlListMaxResults(pageSize, limit int64) *int32 {
+	var effective int64
+	for _, value := range []int64{pageSize, limit} {
+		if value <= 0 {
+			continue
+		}
+		if effective == 0 || value < effective {
+			effective = value
+		}
+	}
+	if effective == 0 {
+		return nil
+	}
+	if effective > int64(cloudControlListMaxResultsLimit) {
+		effective = int64(cloudControlListMaxResultsLimit)
+	}
+	maxResults := int32(effective)
+	return &maxResults
 }
 
 // Construct creates a new component resource.

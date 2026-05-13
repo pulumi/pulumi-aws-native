@@ -3,6 +3,7 @@ package schema
 import (
 	"testing"
 
+	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
@@ -133,4 +134,104 @@ func TestGatherListHandlerSchemaMissing(t *testing.T) {
 	}
 
 	assert.Nil(t, ctx.gatherListHandlerSchema())
+}
+
+func TestGatherListInputsEmptyWhenNoHandlerSchema(t *testing.T) {
+	ctx := cfSchemaContext{
+		resourceSpec: &jsschema.Schema{
+			Extras: map[string]interface{}{
+				"handlers": map[string]interface{}{
+					"list": map[string]interface{}{},
+				},
+			},
+		},
+	}
+
+	listInputs, err := ctx.gatherListInputs()
+	require.NoError(t, err)
+	require.NotNil(t, listInputs)
+	assert.Equal(t, &pschema.ObjectTypeSpec{
+		Type:       "object",
+		Properties: map[string]pschema.PropertySpec{},
+	}, listInputs)
+}
+
+func TestGatherListInputsFromHandlerSchema(t *testing.T) {
+	ctx := cfSchemaContext{
+		cfTypeName: "AWS::ApiGateway::Stage",
+		resourceSpec: &jsschema.Schema{
+			Extras: map[string]interface{}{
+				"handlers": map[string]interface{}{
+					"list": map[string]interface{}{
+						"handlerSchema": map[string]interface{}{
+							"properties": map[string]interface{}{
+								"RestApiId": map[string]interface{}{
+									"description": "The REST API ID.",
+									"type":        "string",
+								},
+								"IncludeValues": map[string]interface{}{
+									"type": "boolean",
+								},
+							},
+							"required": []interface{}{"RestApiId"},
+						},
+					},
+				},
+			},
+		},
+	}
+
+	listInputs, err := ctx.gatherListInputs()
+	require.NoError(t, err)
+	require.NotNil(t, listInputs)
+	assert.Equal(t, "object", listInputs.Type)
+	assert.Equal(t, []string{"restApiId"}, listInputs.Required)
+	assert.Equal(t, map[string]pschema.PropertySpec{
+		"includeValues": {
+			TypeSpec: pschema.TypeSpec{Type: "boolean"},
+		},
+		"restApiId": {
+			Description: "The REST API ID.",
+			TypeSpec:    pschema.TypeSpec{Type: "string"},
+		},
+	}, listInputs.Properties)
+}
+
+func TestGatherListInputsMissingWhenNoListHandler(t *testing.T) {
+	ctx := cfSchemaContext{
+		resourceSpec: &jsschema.Schema{
+			Extras: map[string]interface{}{},
+		},
+	}
+
+	listInputs, err := ctx.gatherListInputs()
+	require.NoError(t, err)
+	assert.Nil(t, listInputs)
+}
+
+func TestGatherListInputsFailsOnSdkNameCollision(t *testing.T) {
+	ctx := cfSchemaContext{
+		cfTypeName: "AWS::Test::Resource",
+		resourceSpec: &jsschema.Schema{
+			Extras: map[string]interface{}{
+				"handlers": map[string]interface{}{
+					"list": map[string]interface{}{
+						"handlerSchema": map[string]interface{}{
+							"properties": map[string]interface{}{
+								"URL": map[string]interface{}{
+									"type": "string",
+								},
+								"Url": map[string]interface{}{
+									"type": "string",
+								},
+							},
+						},
+					},
+				},
+			},
+		},
+	}
+
+	_, err := ctx.gatherListInputs()
+	require.ErrorContains(t, err, "both map to SDK name")
 }

@@ -28,7 +28,6 @@ AWS Native already carries enough generated metadata to describe resource inputs
 
 The missing pieces are:
 
-- Pulumi module versions with provider protocol `List` and schema `ResourceSpec.ListInputs`.
 - A preserved metadata flag for `handlers.list` independent of `handlerSchema`.
 - Generated Pulumi `listInputs` for listable resources.
 - CloudControl `ListResources` wrappers.
@@ -77,7 +76,7 @@ Keep `ListHandlerSchema` for the query input shape. It should remain nil when th
 
 ### Pulumi Schema
 
-After the Pulumi dependency bump exposes `pschema.ResourceSpec.ListInputs`, populate it for every generated resource with `HasListHandler`.
+Populate `pschema.ResourceSpec.ListInputs` for every generated resource with `HasListHandler`.
 
 When `ListHandlerSchema` is present:
 
@@ -86,7 +85,10 @@ When `ListHandlerSchema` is present:
 - Include required and optional properties.
 - Set `ListInputs.Required` from handler schema `Required`, converted to SDK casing.
 
-`ListHandlerSchema` should remain stored in CloudFormation casing as the source of truth. Runtime should build a per-resource `sdkName -> cfnName` map from `ListHandlerSchema.Properties`, validate incoming `ListRequest.Query` keys against the SDK names, and serialize accepted values under the mapped CloudFormation names.
+Some CloudFormation schemas declare required list handler fields that are absent from `handlerSchema.properties`.
+For these, emit the required SDK-cased list input with an `Any` type and keep the CloudFormation required field name as the runtime serialization key.
+
+`ListHandlerSchema` should remain stored in CloudFormation casing as the source of truth. Runtime should build a per-resource `sdkName -> cfnName` map from `ListHandlerSchema.Properties` plus any required fields absent from `properties`, validate incoming `ListRequest.Query` keys against the SDK names, and serialize accepted values under the mapped CloudFormation names.
 
 If two CloudFormation list handler fields collapse to the same SDK name, the generator should fail. The runtime should not guess which CloudFormation field a colliding SDK name means.
 

@@ -105,6 +105,38 @@ func TestClientRead(t *testing.T) {
 	})
 }
 
+func TestClientList(t *testing.T) {
+	ctx := context.TODO()
+	typeName := "exampleType"
+	resourceModel := `{"Scope":"parent"}`
+	nextToken := "next"
+	maxResults := int32(25)
+	continuation := "more"
+	descriptions := []types.ResourceDescription{{Identifier: aws.String("id-1")}}
+
+	mockAPI := &mockAPI{}
+	client := &clientImpl{api: mockAPI}
+	mockAPI.ListResourcesFunc = func(
+		ctx context.Context,
+		actualTypeName string,
+		actualResourceModel *string,
+		actualNextToken *string,
+		actualMaxResults *int32,
+	) ([]types.ResourceDescription, *string, error) {
+		assert.Equal(t, typeName, actualTypeName)
+		assert.Equal(t, &resourceModel, actualResourceModel)
+		assert.Equal(t, &nextToken, actualNextToken)
+		assert.Equal(t, &maxResults, actualMaxResults)
+		return descriptions, &continuation, nil
+	}
+
+	actualDescriptions, actualContinuation, err := client.List(ctx, typeName, &resourceModel, &nextToken, &maxResults)
+
+	require.NoError(t, err)
+	assert.Equal(t, descriptions, actualDescriptions)
+	assert.Equal(t, &continuation, actualContinuation)
+}
+
 func TestClientCreate(t *testing.T) {
 	ctx := context.TODO()
 	typeName := "exampleType"
@@ -336,9 +368,18 @@ func TestClientCreate(t *testing.T) {
 // Mock API implementation
 type mockAPI struct {
 	GetResourceFunc                 func(ctx context.Context, typeName, identifier string) (map[string]interface{}, error)
+	ListResourcesFunc               listResourcesFunc
 	CreateResourceFunc              func(ctx context.Context, cfType, desiredState string) (*types.ProgressEvent, error)
 	WaitForResourceOpCompletionFunc func(ctx context.Context, pi *types.ProgressEvent) (*types.ProgressEvent, error)
 }
+
+type listResourcesFunc func(
+	ctx context.Context,
+	typeName string,
+	resourceModel *string,
+	nextToken *string,
+	maxResults *int32,
+) ([]types.ResourceDescription, *string, error)
 
 func (m *mockAPI) GetResource(ctx context.Context, typeName, identifier string) (map[string]interface{}, error) {
 	return m.GetResourceFunc(ctx, typeName, identifier)
@@ -346,6 +387,16 @@ func (m *mockAPI) GetResource(ctx context.Context, typeName, identifier string) 
 
 func (m *mockAPI) CreateResource(ctx context.Context, cfType, desiredState string) (*types.ProgressEvent, error) {
 	return m.CreateResourceFunc(ctx, cfType, desiredState)
+}
+
+func (m *mockAPI) ListResources(
+	ctx context.Context,
+	typeName string,
+	resourceModel *string,
+	nextToken *string,
+	maxResults *int32,
+) ([]types.ResourceDescription, *string, error) {
+	return m.ListResourcesFunc(ctx, typeName, resourceModel, nextToken, maxResults)
 }
 
 // UpdateResource updates a resource of the specified type with the specified changeset.

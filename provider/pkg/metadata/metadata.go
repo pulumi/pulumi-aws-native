@@ -56,6 +56,9 @@ type CloudAPIResource struct {
 	// ListHandlerSchema contains a minimal subset of the CloudFormation list handler schema for a resource.
 	ListHandlerSchema *ListHandlerSchema `json:"listHandlerSchema,omitempty"`
 
+	// HasListHandler indicates whether the source CloudFormation schema declares a list handler.
+	HasListHandler bool `json:"hasListHandler,omitempty"`
+
 	// PropertyTransforms maps SDK property paths to JSONata expressions for drift detection.
 	// CloudFormation schemas include these transforms to define how property values should be
 	// normalized during comparison (e.g., case normalization, numeric to string mappings).

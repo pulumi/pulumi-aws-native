@@ -42,6 +42,10 @@ type CloudControlClient interface {
 	// If the resource does not exist, no error is returned but the flag exists is set to false.
 	Read(ctx context.Context, typeName, identifier string) (resourceState map[string]interface{}, exists bool, err error)
 
+	// List returns one CloudControl page of resource descriptions for a type.
+	List(ctx context.Context, typeName string, resourceModel *string, nextToken *string, maxResults *int32) (
+		[]types.ResourceDescription, *string, error)
+
 	// Update updates a resource of the specified type with the specified changeset.
 	// It awaits the operation until completion and returns a map of output property values.
 	Update(ctx context.Context, urn resource.URN, typeName, identifier string, patches []jsonpatch.JsonPatchOperation) (map[string]interface{}, error)
@@ -140,6 +144,20 @@ func (c *clientImpl) Read(ctx context.Context, typeName, identifier string) (res
 	}
 
 	return resourceState, true, nil
+}
+
+func (c *clientImpl) List(
+	ctx context.Context,
+	typeName string,
+	resourceModel *string,
+	nextToken *string,
+	maxResults *int32,
+) ([]types.ResourceDescription, *string, error) {
+	descriptions, continuation, err := c.api.ListResources(ctx, typeName, resourceModel, nextToken, maxResults)
+	if err != nil {
+		return nil, nil, fmt.Errorf("listing resources: %w", err)
+	}
+	return descriptions, continuation, nil
 }
 
 func (c *clientImpl) Update(ctx context.Context, urn resource.URN, typeName, identifier string, patches []jsonpatch.JsonPatchOperation) (map[string]interface{}, error) {

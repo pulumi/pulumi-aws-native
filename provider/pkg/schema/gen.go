@@ -993,7 +993,13 @@ func (ctx *cfSchemaContext) gatherResourceType() error {
 		DeprecationMessage: deprecationMessage,
 	}
 
-	err := ctx.markCreateOnlyProperties(createOnlyProperties, &resourceSpec)
+	listInputs, err := ctx.gatherListInputs()
+	if err != nil {
+		return err
+	}
+	resourceSpec.ListInputs = listInputs
+
+	err = ctx.markCreateOnlyProperties(createOnlyProperties, &resourceSpec)
 	if err != nil {
 		fmt.Printf("%v\n", err)
 	}
@@ -1014,6 +1020,7 @@ func (ctx *cfSchemaContext) gatherResourceType() error {
 		TagsStyle:          tagsStyle,
 		PrimaryIdentifier:  ctx.gatherResourcePrimaryIdentifier(),
 		ListHandlerSchema:  ctx.gatherListHandlerSchema(),
+		HasListHandler:     ctx.hasListHandler(),
 		PropertyTransforms: readPropertyTransforms(ctx.resourceSpec),
 	}
 	return nil
@@ -1026,6 +1033,69 @@ func (ctx *cfSchemaContext) gatherResourcePrimaryIdentifier() []string {
 		identifiers[i] = naming.ToSdkName(v)
 	}
 	return identifiers
+}
+
+func (ctx *cfSchemaContext) hasListHandler() bool {
+	handlersAny, ok := ctx.resourceSpec.Extras["handlers"]
+	if !ok {
+		return false
+	}
+	handlers, ok := handlersAny.(map[string]interface{})
+	if !ok {
+		return false
+	}
+	_, ok = handlers["list"]
+	return ok
+}
+
+func (ctx *cfSchemaContext) gatherListInputs() (*pschema.ObjectTypeSpec, error) {
+	if !ctx.hasListHandler() {
+		return nil, nil
+	}
+
+	listInputs := &pschema.ObjectTypeSpec{
+		Type:       jsschema.ObjectType.String(),
+		Properties: map[string]pschema.PropertySpec{},
+	}
+
+	listSchema := ctx.gatherListHandlerSchema()
+	if listSchema == nil {
+		return listInputs, nil
+	}
+
+	cfnNamesBySdkName := map[string]string{}
+	for _, cfnName := range maputil.SortedKeys(listSchema.Properties) {
+		prop := listSchema.Properties[cfnName]
+		sdkName := naming.ToSdkName(cfnName)
+		if previousCfnName, ok := cfnNamesBySdkName[sdkName]; ok {
+			return nil, fmt.Errorf("list handler properties %q and %q for %s both map to SDK name %q",
+				previousCfnName, cfnName, ctx.cfTypeName, sdkName)
+		}
+		cfnNamesBySdkName[sdkName] = cfnName
+		listInputs.Properties[sdkName] = pschema.PropertySpec{
+			Description: naming.SanitizeCfnString(prop.Description),
+			TypeSpec:    listHandlerPropertyTypeSpec(prop.Type),
+		}
+	}
+
+	required := codegen.NewStringSet()
+	for _, cfnName := range listSchema.Required {
+		sdkName := naming.ToSdkName(cfnName)
+		if _, ok := listInputs.Properties[sdkName]; !ok {
+			if previousCfnName, ok := cfnNamesBySdkName[sdkName]; ok {
+				return nil, fmt.Errorf("list handler properties %q and %q for %s both map to SDK name %q",
+					previousCfnName, cfnName, ctx.cfTypeName, sdkName)
+			}
+			cfnNamesBySdkName[sdkName] = cfnName
+			listInputs.Properties[sdkName] = pschema.PropertySpec{
+				TypeSpec: pschema.TypeSpec{Ref: "pulumi.json#/Any"},
+			}
+		}
+		required.Add(sdkName)
+	}
+	listInputs.Required = required.SortedValues()
+
+	return listInputs, nil
 }
 
 func (ctx *cfSchemaContext) gatherListHandlerSchema() *metadata.ListHandlerSchema {
@@ -1121,6 +1191,23 @@ func (ctx *cfSchemaContext) gatherListHandlerSchema() *metadata.ListHandlerSchem
 	return result
 }
 
+func listHandlerPropertyTypeSpec(typ string) pschema.TypeSpec {
+	switch typ {
+	case jsschema.StringType.String():
+		return pschema.TypeSpec{Type: jsschema.StringType.String()}
+	case jsschema.IntegerType.String():
+		return pschema.TypeSpec{Type: jsschema.IntegerType.String()}
+	case jsschema.NumberType.String():
+		return pschema.TypeSpec{Type: jsschema.NumberType.String()}
+	case jsschema.BooleanType.String():
+		return pschema.TypeSpec{Type: jsschema.BooleanType.String()}
+	case jsschema.ArrayType.String():
+		return pschema.TypeSpec{Type: jsschema.ArrayType.String(), Items: &pschema.TypeSpec{Ref: "pulumi.json#/Any"}}
+	default:
+		return pschema.TypeSpec{Ref: "pulumi.json#/Any"}
+	}
+}
+
 func parsePropertyNameFromRef(ref string) string {
 	const propToken = "/properties/"
 	idx := strings.Index(ref, propToken)
@@ -1134,17 +1221,17 @@ func firstPrimitiveType(types jsschema.PrimitiveTypes) string {
 	for _, t := range types {
 		switch t {
 		case jsschema.StringType:
-			return "string"
+			return jsschema.StringType.String()
 		case jsschema.NumberType:
-			return "number"
+			return jsschema.NumberType.String()
 		case jsschema.IntegerType:
-			return "integer"
+			return jsschema.IntegerType.String()
 		case jsschema.BooleanType:
-			return "boolean"
+			return jsschema.BooleanType.String()
 		case jsschema.ArrayType:
-			return "array"
+			return jsschema.ArrayType.String()
 		case jsschema.ObjectType:
-			return "object"
+			return jsschema.ObjectType.String()
 		case jsschema.NullType:
 			return "null"
 		}
