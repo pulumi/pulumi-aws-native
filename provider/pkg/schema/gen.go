@@ -8,6 +8,7 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"slices"
 	"strings"
 
 	"github.com/pkg/errors"
@@ -1009,6 +1010,7 @@ func (ctx *cfSchemaContext) gatherResourceType() error {
 		return err
 	}
 	resourceSpec.ListInputs = listInputs
+	listIrreversibleNames := listHandlerIrreversibleNames(listHandlerSchema)
 
 	err = ctx.markCreateOnlyProperties(createOnlyProperties, &resourceSpec)
 	if err != nil {
@@ -1018,21 +1020,23 @@ func (ctx *cfSchemaContext) gatherResourceType() error {
 	ctx.pkg.Resources[ctx.resourceToken] = resourceSpec
 
 	ctx.metadata.Resources[ctx.resourceToken] = metadata.CloudAPIResource{
-		CfType:             ctx.cfTypeName,
-		Inputs:             inputProperties,
-		Outputs:            properties,
-		CreateOnly:         createOnlyProperties.SortedValues(),
-		Required:           requiredInputs.SortedValues(),
-		AutoNamingSpec:     autoNamingSpec,
-		WriteOnly:          writeOnlyProperties.SortedValues(),
-		ReadOnly:           readPropSdkNames(ctx.resourceSpec, "readOnlyProperties").SortedValues(),
-		IrreversibleNames:  irreversibleNames,
-		TagsProperty:       naming.ToSdkName(tagsProp),
-		TagsStyle:          tagsStyle,
-		PrimaryIdentifier:  ctx.gatherResourcePrimaryIdentifier(),
-		ListHandlerSchema:  listHandlerSchema,
-		HasListHandler:     hasListHandler,
-		PropertyTransforms: readPropertyTransforms(ctx.resourceSpec),
+		CfType:                ctx.cfTypeName,
+		Inputs:                inputProperties,
+		Outputs:               properties,
+		CreateOnly:            createOnlyProperties.SortedValues(),
+		Required:              requiredInputs.SortedValues(),
+		AutoNamingSpec:        autoNamingSpec,
+		WriteOnly:             writeOnlyProperties.SortedValues(),
+		ReadOnly:              readPropSdkNames(ctx.resourceSpec, "readOnlyProperties").SortedValues(),
+		IrreversibleNames:     irreversibleNames,
+		TagsProperty:          naming.ToSdkName(tagsProp),
+		TagsStyle:             tagsStyle,
+		PrimaryIdentifier:     ctx.gatherResourcePrimaryIdentifier(),
+		ListHandlerSchema:     listHandlerSchema,
+		ListInputs:            listInputs,
+		ListIrreversibleNames: listIrreversibleNames,
+		HasListHandler:        hasListHandler,
+		PropertyTransforms:    readPropertyTransforms(ctx.resourceSpec),
 	}
 	return nil
 }
@@ -1046,6 +1050,7 @@ func (ctx *cfSchemaContext) gatherResourcePrimaryIdentifier() []string {
 	return identifiers
 }
 
+// hasListHandler reports whether the CloudFormation schema declares a list handler.
 func (ctx *cfSchemaContext) hasListHandler() (bool, error) {
 	handlersAny, ok := ctx.resourceSpec.Extras["handlers"]
 	if !ok {
@@ -1065,6 +1070,7 @@ func (ctx *cfSchemaContext) hasListHandler() (bool, error) {
 	return true, nil
 }
 
+// gatherListInputs builds the Pulumi input object type for provider List queries.
 func (ctx *cfSchemaContext) gatherListInputs() (*pschema.ObjectTypeSpec, error) {
 	hasListHandler, err := ctx.hasListHandler()
 	if err != nil {
@@ -1077,6 +1083,7 @@ func (ctx *cfSchemaContext) gatherListInputs() (*pschema.ObjectTypeSpec, error) 
 	return ctx.gatherListInputsForSchema(hasListHandler, listSchema)
 }
 
+// gatherListInputsForSchema converts CloudFormation list handler metadata into Pulumi input properties.
 func (ctx *cfSchemaContext) gatherListInputsForSchema(
 	hasListHandler bool, listSchema *metadata.ListHandlerSchema,
 ) (*pschema.ObjectTypeSpec, error) {
@@ -1121,6 +1128,29 @@ func (ctx *cfSchemaContext) gatherListInputsForSchema(
 	return listInputs, nil
 }
 
+// listHandlerIrreversibleNames maps generated SDK List input names back to their CloudFormation names.
+func listHandlerIrreversibleNames(listSchema *metadata.ListHandlerSchema) map[string]string {
+	if listSchema == nil {
+		return nil
+	}
+	result := map[string]string{}
+	for cfnName := range listSchema.Properties {
+		sdkName := naming.ToSdkName(cfnName)
+		if naming.ToCfnName(sdkName, nil) != cfnName {
+			result[sdkName] = cfnName
+		}
+	}
+	if len(result) == 0 {
+		return nil
+	}
+	return result
+}
+
+// gatherListHandlerSchema extracts and normalizes the CloudFormation list handler schema.
+//
+// Some CloudFormation handler schemas reference resource properties instead of repeating
+// description and type information. This normalizes those references so runtime metadata
+// contains a direct property schema for each supported List query input.
 func (ctx *cfSchemaContext) gatherListHandlerSchema() (*metadata.ListHandlerSchema, error) {
 	handlersAny, ok := ctx.resourceSpec.Extras["handlers"]
 	if !ok {
@@ -1185,7 +1215,7 @@ func (ctx *cfSchemaContext) gatherListHandlerSchema() (*metadata.ListHandlerSche
 
 			resultName := propName
 			if refName := listHandlerResourcePropertyRefName(propMap); refName != "" &&
-				refName != propName && stringSliceContains(result.Required, refName) {
+				refName != propName && slices.Contains(result.Required, refName) {
 				resultName = refName
 			}
 			result.Properties[resultName] = prop
@@ -1216,27 +1246,20 @@ func (ctx *cfSchemaContext) gatherListHandlerSchema() (*metadata.ListHandlerSche
 	return result, nil
 }
 
-func stringSliceContains(values []string, value string) bool {
-	for _, v := range values {
-		if v == value {
-			return true
-		}
-	}
-	return false
-}
-
+// listHandlerResourcePropertyRefName returns the resource property named by a list handler $ref.
 func listHandlerResourcePropertyRefName(propMap map[string]interface{}) string {
 	ref, ok := propMap["$ref"].(string)
 	if !ok {
 		return ""
 	}
 	const propertiesPrefix = "resource-schema.json#/properties/"
-	if strings.HasPrefix(ref, propertiesPrefix) {
-		return strings.TrimPrefix(ref, propertiesPrefix)
+	if name, ok := strings.CutPrefix(ref, propertiesPrefix); ok {
+		return name
 	}
 	return ""
 }
 
+// listHandlerPropertyFromMap reads a list handler property schema from the raw CloudFormation map.
 func (ctx *cfSchemaContext) listHandlerPropertyFromMap(propMap map[string]interface{}) metadata.ListHandlerProperty {
 	var prop metadata.ListHandlerProperty
 	if desc, ok := propMap["description"].(string); ok {
@@ -1255,11 +1278,13 @@ func (ctx *cfSchemaContext) listHandlerPropertyFromMap(propMap map[string]interf
 	return prop
 }
 
+// listHandlerPropertyFromResourceProperty derives list handler metadata from a resource property schema.
 func (ctx *cfSchemaContext) listHandlerPropertyFromResourceProperty(name string) metadata.ListHandlerProperty {
 	propSchema := ctx.resolveListHandlerSchema(ctx.resourceSpec.Properties[name], map[string]bool{})
 	return listHandlerPropertyFromSchema(propSchema)
 }
 
+// listHandlerPropertyFromSchema converts a JSON schema into the metadata needed for List query inputs.
 func listHandlerPropertyFromSchema(propSchema *jsschema.Schema) metadata.ListHandlerProperty {
 	if propSchema == nil {
 		return metadata.ListHandlerProperty{}
@@ -1272,6 +1297,7 @@ func listHandlerPropertyFromSchema(propSchema *jsschema.Schema) metadata.ListHan
 	return prop
 }
 
+// resolveListHandlerRef resolves a list handler $ref against the current resource schema.
 func (ctx *cfSchemaContext) resolveListHandlerRef(ref string, seen map[string]bool) *jsschema.Schema {
 	var schema *jsschema.Schema
 	switch {
@@ -1293,6 +1319,7 @@ func (ctx *cfSchemaContext) resolveListHandlerRef(ref string, seen map[string]bo
 	return ctx.resolveListHandlerSchema(schema, seen)
 }
 
+// resolveListHandlerSchema follows list handler schema references until it reaches a concrete schema.
 func (ctx *cfSchemaContext) resolveListHandlerSchema(schema *jsschema.Schema, seen map[string]bool) *jsschema.Schema {
 	if schema == nil || schema.Reference == "" {
 		return schema
@@ -1311,6 +1338,7 @@ func (ctx *cfSchemaContext) resolveListHandlerSchema(schema *jsschema.Schema, se
 	return resolved
 }
 
+// listHandlerPropertyTypeSpec maps CloudFormation primitive schema types to Pulumi schema type specs.
 func listHandlerPropertyTypeSpec(typ string) pschema.TypeSpec {
 	switch typ {
 	case jsschema.StringType.String():
@@ -1328,22 +1356,22 @@ func listHandlerPropertyTypeSpec(typ string) pschema.TypeSpec {
 	}
 }
 
+// parsePropertyNameFromRef extracts the property name segment from a JSON schema reference.
 func parsePropertyNameFromRef(ref string) string {
 	const propToken = "/properties/"
-	idx := strings.Index(ref, propToken)
-	if idx == -1 {
-		return ""
+	if _, name, ok := strings.Cut(ref, propToken); ok {
+		return name
 	}
-	return ref[idx+len(propToken):]
+	return ""
 }
 
+// parseDefinitionNameFromRef extracts the definition name segment from a JSON schema reference.
 func parseDefinitionNameFromRef(ref string) string {
 	const definitionToken = "/definitions/"
-	idx := strings.Index(ref, definitionToken)
-	if idx == -1 {
-		return ""
+	if _, name, ok := strings.Cut(ref, definitionToken); ok {
+		return name
 	}
-	return ref[idx+len(definitionToken):]
+	return ""
 }
 
 func firstPrimitiveType(types jsschema.PrimitiveTypes) string {

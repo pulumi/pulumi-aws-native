@@ -19,15 +19,16 @@ import (
 	"bytes"
 	"compress/gzip"
 	"context"
+	"crypto/sha256"
 	"encoding/json"
 	"fmt"
-	"math"
 	"os"
 	"os/user"
 	"path/filepath"
 	"runtime"
 	"strconv"
 	"strings"
+	"sync"
 	"time"
 
 	"github.com/aws/aws-sdk-go-v2/aws"
@@ -102,6 +103,8 @@ type cfnProvider struct {
 	partition           partition
 	resourceMap         *metadata.CloudAPIMetadata
 	roleArn             *string
+	listSessionsMu      sync.Mutex
+	listSessions        *listSessionStore
 	autoNamingConfig    *autonaming.ProviderAutoNamingConfig
 	allowedAccountIds   []string
 	forbiddenAccountIds []string
@@ -136,6 +139,7 @@ func NewAwsNativeProvider(host *provider.HostClient, name, version string,
 		name:           name,
 		version:        version,
 		resourceMap:    resourceMap,
+		listSessions:   newListSessionStore(defaultListSessionTTL),
 		pulumiSchema:   pulumiSchema,
 		transformCache: resources.NewTransformCache(),
 	}, nil
@@ -1239,9 +1243,22 @@ func (p *cfnProvider) Delete(ctx context.Context, req *pulumirpc.DeleteRequest) 
 	return &pbempty.Empty{}, nil
 }
 
+// cloudControlListMaxResultsLimit is the CloudControl ListResources MaxResults upper bound.
+// The provider clamps per-RPC page sizes to this API limit before calling CloudControl.
 const cloudControlListMaxResultsLimit int32 = 100
 
+// List streams resource identifiers for one provider resource type.
 func (p *cfnProvider) List(req *pulumirpc.ListRequest, stream pulumirpc.ResourceProvider_ListServer) error {
+	if req.GetLimit() < 0 {
+		return status.Error(codes.InvalidArgument, "limit must be >= 0")
+	}
+	if req.GetPageSize() < 0 {
+		return status.Error(codes.InvalidArgument, "page_size must be >= 0")
+	}
+	if req.GetPageSize() > int64(cloudControlListMaxResultsLimit) {
+		return status.Errorf(codes.InvalidArgument, "page_size must be <= %d", cloudControlListMaxResultsLimit)
+	}
+
 	token := req.GetToken()
 	if _, isCustom := p.customResources[token]; isCustom {
 		return status.Errorf(codes.Unimplemented, "resource type %s does not support List", token)
@@ -1265,8 +1282,9 @@ func (p *cfnProvider) List(req *pulumirpc.ListRequest, stream pulumirpc.Resource
 			},
 		})
 	}
+	query = filterNullProperties(query)
 
-	cfnQuery, err := convertListQueryToCfn(&spec, query)
+	cfnQuery, err := convertListQueryToCfn(&spec, p.resourceMap.Types, query)
 	if err != nil {
 		return err
 	}
@@ -1281,20 +1299,42 @@ func (p *cfnProvider) List(req *pulumirpc.ListRequest, stream pulumirpc.Resource
 		resourceModel = &s
 	}
 
-	var nextToken *string
+	queryHash := listQueryHash(resourceModel)
+	var session *listSession
+	var providerContinuationToken string
+	var releaseSession func()
 	if req.GetContinuationToken() != "" {
-		s := req.GetContinuationToken()
-		nextToken = &s
+		session, releaseSession, err = p.ensureListSessions().get(
+			req.GetContinuationToken(), token, queryHash, req.GetLimit())
+		if err != nil {
+			return err
+		}
+		defer releaseSession()
+		providerContinuationToken = req.GetContinuationToken()
+	} else {
+		session = &listSession{
+			resourceToken: token,
+			queryHash:     queryHash,
+			limit:         req.GetLimit(),
+		}
 	}
 
-	maxResults := effectiveCloudControlListMaxResults(req.GetPageSize(), req.GetLimit())
+	remainingLimit := session.remainingLimit()
+	if remainingLimit != nil && *remainingLimit <= 0 {
+		if providerContinuationToken != "" {
+			p.ensureListSessions().remove(providerContinuationToken)
+		}
+		return nil
+	}
+
+	maxResults := effectiveCloudControlListMaxResults(req.GetPageSize(), remainingLimitValue(remainingLimit))
 	listCtx, cancel := p.listContext(stream.Context())
 	defer cancel()
-	glog.V(9).Infof("%s.ListResources %q token %q resourceModel %t nextToken %t maxResults %s",
-		p.name, spec.CfType, token, resourceModel != nil, nextToken != nil, listMaxResultsForLog(maxResults))
+	glog.V(9).Infof("%s.ListResources %q token %q resourceModel %t nextToken %t maxResults %s", p.name,
+		spec.CfType, token, resourceModel != nil, session.cloudControlNextToken != "", listMaxResultsForLog(maxResults))
 	identifiers, continuation, err := p.ccc.List(listCtx, spec.CfType, client.ListRequest{
 		ResourceModel: resourceModel,
-		NextToken:     nextToken,
+		NextToken:     session.nextTokenPtr(),
 		MaxResults:    maxResults,
 	})
 	if err != nil {
@@ -1317,16 +1357,46 @@ func (p *cfnProvider) List(req *pulumirpc.ListRequest, stream pulumirpc.Resource
 		}
 	}
 
-	if continuation != nil && *continuation != "" {
-		return stream.Send(&pulumirpc.ListResponse{
-			Response: &pulumirpc.ListResponse_Continuation_{
-				Continuation: &pulumirpc.ListResponse_Continuation{ContinuationToken: *continuation},
-			},
-		})
+	nextReturned := session.returned + int64(len(identifiers))
+	if continuation == nil || *continuation == "" || (session.limit > 0 && nextReturned >= session.limit) {
+		if providerContinuationToken != "" {
+			p.ensureListSessions().remove(providerContinuationToken)
+		}
+		return nil
 	}
+
+	if providerContinuationToken == "" {
+		providerContinuationToken, err = p.ensureListSessions().put(session)
+		if err != nil {
+			return err
+		}
+	}
+	if err := stream.Send(&pulumirpc.ListResponse{
+		Response: &pulumirpc.ListResponse_Continuation_{
+			Continuation: &pulumirpc.ListResponse_Continuation{ContinuationToken: providerContinuationToken},
+		},
+	}); err != nil {
+		if req.GetContinuationToken() == "" {
+			p.ensureListSessions().remove(providerContinuationToken)
+		}
+		return err
+	}
+	session.returned = nextReturned
+	session.cloudControlNextToken = *continuation
 	return nil
 }
 
+// ensureListSessions lazily initializes the provider-owned List continuation session store.
+func (p *cfnProvider) ensureListSessions() *listSessionStore {
+	p.listSessionsMu.Lock()
+	defer p.listSessionsMu.Unlock()
+	if p.listSessions == nil {
+		p.listSessions = newListSessionStore(defaultListSessionTTL)
+	}
+	return p.listSessions
+}
+
+// listMaxResultsForLog formats an optional CloudControl MaxResults value for logs.
 func listMaxResultsForLog(maxResults *int32) string {
 	if maxResults == nil {
 		return "unset"
@@ -1334,6 +1404,7 @@ func listMaxResultsForLog(maxResults *int32) string {
 	return fmt.Sprintf("%d", *maxResults)
 }
 
+// listContext links List calls to the provider cancellation context when one exists.
 func (p *cfnProvider) listContext(streamCtx context.Context) (context.Context, context.CancelFunc) {
 	if p.canceler == nil || p.canceler.context == nil {
 		return streamCtx, func() {}
@@ -1346,6 +1417,7 @@ func (p *cfnProvider) listContext(streamCtx context.Context) (context.Context, c
 	}
 }
 
+// unmarshalListQuery converts the RPC query struct into Pulumi property values.
 func unmarshalListQuery(query *structpb.Struct, token string) (resource.PropertyMap, error) {
 	if query == nil {
 		return resource.PropertyMap{}, nil
@@ -1362,180 +1434,82 @@ func unmarshalListQuery(query *structpb.Struct, token string) (resource.Property
 	return props, nil
 }
 
+// convertListQueryToCfn validates a List query and converts SDK property names to CloudFormation names.
 func convertListQueryToCfn(
 	spec *metadata.CloudAPIResource,
+	types map[string]metadata.CloudAPIType,
 	query resource.PropertyMap,
 ) (map[string]interface{}, error) {
-	if spec.ListHandlerSchema == nil {
-		if len(query) == 0 {
-			return nil, nil
-		}
-		return nil, status.Error(codes.InvalidArgument, "List query is not supported for this resource type")
-	}
-	if len(spec.ListHandlerSchema.Properties) == 0 {
-		if len(spec.ListHandlerSchema.Required) > 0 {
-			return nil, status.Error(codes.Internal, "List handler metadata has required properties without schemas")
-		}
+	if spec.ListInputs == nil || len(spec.ListInputs.Properties) == 0 {
 		if len(query) == 0 {
 			return nil, nil
 		}
 		return nil, status.Error(codes.InvalidArgument, "List query is not supported for this resource type")
 	}
 
-	cfnNamesBySdkName := map[string]string{}
-	propsBySdkName := map[string]metadata.ListHandlerProperty{}
-	for cfnName, prop := range spec.ListHandlerSchema.Properties {
-		sdkName := naming.ToSdkName(cfnName)
-		cfnNamesBySdkName[sdkName] = cfnName
-		propsBySdkName[sdkName] = prop
+	listSpec := listQueryResourceSpec(spec)
+	failures, err := resources.ValidateResource(listSpec, types, query)
+	if err != nil {
+		return nil, err
 	}
-	for _, cfnName := range spec.ListHandlerSchema.Required {
-		sdkName := naming.ToSdkName(cfnName)
-		if _, ok := cfnNamesBySdkName[sdkName]; !ok {
-			return nil, status.Errorf(codes.Internal, "required List query property %q has no schema", sdkName)
-		}
-	}
-
-	for _, cfnName := range spec.ListHandlerSchema.Required {
-		sdkName := naming.ToSdkName(cfnName)
-		value, ok := query[resource.PropertyKey(sdkName)]
-		if !ok || value.IsNull() {
-			return nil, status.Errorf(codes.InvalidArgument, "missing required List query property %q", sdkName)
-		}
+	if len(failures) > 0 {
+		return nil, status.Error(codes.InvalidArgument, formatValidationFailures(failures))
 	}
 	if len(query) == 0 {
 		return nil, nil
 	}
-
-	result := map[string]interface{}{}
-	for key, value := range query {
-		sdkName := string(key)
-		cfnName, ok := cfnNamesBySdkName[sdkName]
-		if !ok {
-			return nil, status.Errorf(codes.InvalidArgument, "unknown List query property %q", sdkName)
-		}
-		if value.IsNull() {
-			continue
-		}
-		converted, err := listQueryValueToInterface(sdkName, propsBySdkName[sdkName].Type, value)
-		if err != nil {
-			return nil, err
-		}
-		result[cfnName] = converted
-	}
-	return result, nil
+	return naming.SdkToCfn(listSpec, types, resourcex.Decode(query))
 }
 
-func listQueryValueToInterface(sdkName string, typ string, value resource.PropertyValue) (interface{}, error) {
-	for value.IsSecret() || value.IsOutput() {
-		if value.IsSecret() {
-			value = value.SecretValue().Element
-			continue
-		}
-		if value.IsOutput() {
-			value = value.OutputValue().Element
-		}
+// listQueryResourceSpec adapts generated List input metadata to the existing resource validation/conversion pipeline.
+func listQueryResourceSpec(spec *metadata.CloudAPIResource) *metadata.CloudAPIResource {
+	return &metadata.CloudAPIResource{
+		Inputs:            spec.ListInputs.Properties,
+		Required:          spec.ListInputs.Required,
+		IrreversibleNames: spec.ListIrreversibleNames,
 	}
-
-	if typ == "" {
-		switch {
-		case value.IsNull():
-			return nil, nil
-		case value.IsString():
-			return value.StringValue(), nil
-		case value.IsBool():
-			return value.BoolValue(), nil
-		case value.IsNumber():
-			return value.NumberValue(), nil
-		case value.IsArray():
-			values := make([]interface{}, 0, len(value.ArrayValue()))
-			for _, element := range value.ArrayValue() {
-				converted, err := listQueryValueToInterface(sdkName, "", element)
-				if err != nil {
-					return nil, err
-				}
-				values = append(values, converted)
-			}
-			return values, nil
-		case value.IsObject():
-			return listQueryObjectToInterface(value.ObjectValue())
-		}
-	}
-
-	switch typ {
-	case "object":
-		if value.IsObject() {
-			return listQueryObjectToInterface(value.ObjectValue())
-		}
-	case "string":
-		if value.IsString() {
-			return value.StringValue(), nil
-		}
-	case "boolean":
-		if value.IsBool() {
-			return value.BoolValue(), nil
-		}
-	case "number":
-		if value.IsNumber() {
-			return value.NumberValue(), nil
-		}
-	case "integer":
-		if value.IsNumber() && math.Trunc(value.NumberValue()) == value.NumberValue() {
-			return value.NumberValue(), nil
-		}
-	case "array":
-		if value.IsArray() {
-			values := make([]interface{}, 0, len(value.ArrayValue()))
-			for _, element := range value.ArrayValue() {
-				converted, err := listQueryValueToInterface(sdkName, "", element)
-				if err != nil {
-					return nil, err
-				}
-				values = append(values, converted)
-			}
-			return values, nil
-		}
-	}
-
-	return nil, status.Errorf(codes.InvalidArgument, "List query property %q expected %s, got %s",
-		sdkName, listHandlerTypeName(typ), value.TypeString())
 }
 
-func listQueryObjectToInterface(value resource.PropertyMap) (map[string]interface{}, error) {
-	result := map[string]interface{}{}
-	for key, element := range value {
-		converted, err := listQueryValueToInterface(string(key), "", element)
-		if err != nil {
-			return nil, err
-		}
-		result[string(key)] = converted
+// formatValidationFailures formats List query validation failures for the direct List RPC error.
+func formatValidationFailures(failures []resources.ValidationFailure) string {
+	reasons := make([]string, 0, len(failures))
+	for _, failure := range failures {
+		reasons = append(reasons, failure.Reason)
 	}
-	return result, nil
+	return strings.Join(reasons, "; ")
 }
 
-func listHandlerTypeName(typ string) string {
-	if typ == "" {
-		return "a supported JSON value"
+// listQueryHash returns a stable hash for the CloudFormation List resource model payload.
+func listQueryHash(resourceModel *string) string {
+	if resourceModel == nil {
+		return ""
 	}
-	return typ
+	hash := sha256.Sum256([]byte(*resourceModel))
+	return fmt.Sprintf("%x", hash[:])
 }
 
+// remainingLimitValue returns zero when there is no caller limit remaining to enforce.
+func remainingLimitValue(limit *int64) int64 {
+	if limit == nil {
+		return 0
+	}
+	return *limit
+}
+
+// effectiveCloudControlListMaxResults computes the CloudControl MaxResults value for one ListResources call.
 func effectiveCloudControlListMaxResults(pageSize, limit int64) *int32 {
 	var effective int64
-	for _, value := range []int64{pageSize, limit} {
-		if value <= 0 {
-			continue
-		}
-		if effective == 0 || value < effective {
-			effective = value
-		}
-	}
-	if effective == 0 {
+	switch {
+	case pageSize > 0 && limit > 0:
+		effective = min(pageSize, limit)
+	case pageSize > 0:
+		effective = pageSize
+	case limit > 0:
+		effective = limit
+	default:
 		return nil
 	}
-	if effective > int64(cloudControlListMaxResultsLimit) {
-		effective = int64(cloudControlListMaxResultsLimit)
-	}
+	effective = min(effective, int64(cloudControlListMaxResultsLimit))
 	maxResults := int32(effective)
 	return &maxResults
 }

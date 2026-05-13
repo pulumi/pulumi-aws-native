@@ -55,6 +55,9 @@ type CloudControlClient interface {
 	Delete(ctx context.Context, urn resource.URN, typeName, identifier string) error
 }
 
+// ListRequest contains the CloudControl ListResources request fields owned by the provider runtime.
+// ResourceModel is the optional CloudFormation-scoped query payload. NextToken and MaxResults
+// map directly to CloudControl's pagination fields for a single provider-to-CloudControl request.
 type ListRequest struct {
 	ResourceModel *string
 	NextToken     *string
@@ -152,6 +155,7 @@ func (c *clientImpl) Read(ctx context.Context, typeName, identifier string) (res
 	return resourceState, true, nil
 }
 
+// List returns a single CloudControl ListResources page of resource identifiers.
 func (c *clientImpl) List(
 	ctx context.Context,
 	typeName string,
@@ -174,6 +178,7 @@ func (c *clientImpl) List(
 	return identifiers, continuation, nil
 }
 
+// listMaxResultsForError formats an optional CloudControl MaxResults value for error messages.
 func listMaxResultsForError(maxResults *int32) string {
 	if maxResults == nil {
 		return "unset"
