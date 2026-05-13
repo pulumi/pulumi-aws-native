@@ -10,7 +10,7 @@ The implementation should be schema-driven:
 
 - CloudFormation resource schemas that declare `handlers.list` are listable through CloudControl.
 - `handlers.list.handlerSchema`, when present, describes the query input shape that should become Pulumi `ResourceSpec.listInputs`.
-- Resources with `handlers.list` but no `handlerSchema` are still listable. They should get an empty `listInputs` object and runtime should omit `ResourceModel` unless the user supplies a query.
+- Resources with `handlers.list` but no `handlerSchema` are still listable. They should get an empty `listInputs` object, and runtime should reject non-empty queries because there is no handler schema to validate or map to CloudFormation casing.
 - The `List` result `id` must be the CloudControl `ResourceDescription.Identifier`, because the Pulumi `List` protocol expects an importable ID.
 
 The initial implementation should support every generated AWS Native resource whose CloudFormation schema declares a `list` handler and whose resource type is otherwise included in the generated provider.
@@ -48,9 +48,9 @@ Current Pulumi engine support should be treated as protocol and schema plumbing,
 6. `listInputs.required` mirrors `handlerSchema.required`, after converting property names to Pulumi SDK casing.
 7. `ListRequest.Query` is converted from Pulumi SDK casing to CloudFormation casing and serialized as CloudControl `ListResourcesInput.ResourceModel`.
 8. If the converted query is empty, `ResourceModel` is omitted.
-9. `ListRequest.ContinuationToken` is passed to CloudControl `NextToken`.
-10. `ListRequest.PageSize`, when non-zero and within CloudControl limits, is passed to CloudControl `MaxResults`.
-11. `ListRequest.Limit` caps how many results the provider streams for that call. If more results are available, the provider returns a continuation token.
+9. `ListRequest.ContinuationToken` is passed through to CloudControl `NextToken`.
+10. `ListRequest.PageSize`, when non-zero and within CloudControl limits, contributes to the effective CloudControl `MaxResults` for the current streaming response.
+11. `ListRequest.Limit`, when non-zero, contributes to the effective CloudControl `MaxResults` for the current streaming response.
 12. Each CloudControl `ResourceDescription.Identifier` is streamed as `ListResponse.Result.Id`.
 13. `ListResponse.Result.Id` must be importable through the existing provider `Read` path.
 14. `ListResponse.Result.Name` is optional. The first implementation should leave it empty unless a clear protocol or product requirement identifies a stable name rule.
@@ -59,6 +59,7 @@ Current Pulumi engine support should be treated as protocol and schema plumbing,
 17. If the query contains unknown/computed values, the provider returns `ListResponse.Computed` instead of calling CloudControl.
 18. The provider returns a bounded page of importable IDs. It does not automatically drain every CloudControl page.
 19. The provider does not implement arbitrary search by name, tags, or resource properties.
+20. A non-empty query for a resource with empty `listInputs` is invalid.
 
 ## Design
 
@@ -84,6 +85,10 @@ When `ListHandlerSchema` is present:
 - Preserve descriptions and primitive types where available.
 - Include required and optional properties.
 - Set `ListInputs.Required` from handler schema `Required`, converted to SDK casing.
+
+`ListHandlerSchema` should remain stored in CloudFormation casing as the source of truth. Runtime should build a per-resource `sdkName -> cfnName` map from `ListHandlerSchema.Properties`, validate incoming `ListRequest.Query` keys against the SDK names, and serialize accepted values under the mapped CloudFormation names.
+
+If two CloudFormation list handler fields collapse to the same SDK name, the generator should fail. The runtime should not guess which CloudFormation field a colliding SDK name means.
 
 When `ListHandlerSchema` is nil but `HasListHandler` is true:
 
@@ -158,17 +163,17 @@ The method should:
 
 1. Look up `req.Token` in generated metadata.
 2. Return an unimplemented or invalid-argument error if the token is unknown, custom-only, or not listable.
-3. Validate `req.Query` against the generated list input metadata:
+3. If `req.Query` contains unknown/computed values, send a single `ListResponse.Computed` and do not call CloudControl.
+4. Reject a non-empty `req.Query` for resources whose list input object is empty.
+5. Validate `req.Query` against the generated list input metadata:
    - all required list inputs are present;
-   - supplied fields are declared by `ListHandlerSchema`, unless the list input object is empty;
+   - supplied fields are declared by `ListHandlerSchema`;
    - supplied primitive values match the generated list input type well enough to serialize to CloudControl.
-4. If `req.Query` contains unknown/computed values, send a single `ListResponse.Computed` and do not call CloudControl.
-5. Convert `req.Query` from Pulumi SDK names to CloudFormation names using existing naming/resource metadata machinery.
-6. Serialize the converted query to JSON as `ResourceModel` only when non-empty.
-7. Call CloudControl `ListResources` with `TypeName`, `ResourceModel`, `NextToken`, `MaxResults`, and configured `RoleArn`.
-8. Stream one `ListResponse.Result` per returned `ResourceDescription` with `Id` set to `Identifier`.
-9. Stop once `Limit` is reached, if `Limit` is non-zero.
-10. Send `ListResponse.Continuation` if CloudControl returned `NextToken` or if provider-side limit handling means another page should be fetched.
+6. Convert `req.Query` from Pulumi SDK names to CloudFormation names using the generated list-handler `sdkName -> cfnName` map.
+7. Serialize the converted query to JSON as `ResourceModel` only when non-empty.
+8. Call CloudControl `ListResources` with `TypeName`, `ResourceModel`, `NextToken`, effective `MaxResults`, and configured `RoleArn`.
+9. Stream one `ListResponse.Result` per returned `ResourceDescription` with `Id` set to `Identifier`.
+10. Send `ListResponse.Continuation` if CloudControl returned `NextToken`.
 
 The first implementation should not call `GetResource` for every listed item. That would turn list into list-plus-read and make broad enumeration unexpectedly expensive.
 
@@ -176,19 +181,23 @@ The first implementation should not call `GetResource` for every listed item. Th
 
 CloudControl already returns `NextToken`, so v1 should pass that token through unchanged.
 
+`PageSize` and `Limit` both bound the current streaming response. AWS Native v1 does not interpret `Limit` as a cross-request total. A caller that wants a total cap across multiple pages should stop issuing continuation requests after it has received enough results.
+
 One provider `List` call should correspond to one bounded CloudControl `ListResources` call. The caller can continue by passing the returned continuation token to a later `List` request.
 
-`PageSize` should map to CloudControl `MaxResults` when non-zero. If both `PageSize` and `Limit` are set, the provider may use the smaller value as `MaxResults` for that CloudControl request.
+For each CloudControl call, the effective CloudControl `MaxResults` should be the smaller non-zero value among `PageSize`, `Limit`, and the CloudControl `MaxResults` cap of 100. If neither `PageSize` nor `Limit` is non-zero, omit `MaxResults` and let CloudControl choose its default page size.
 
-The provider should not implement partial-page buffering in v1. If CloudControl returns a page, the provider streams that page, subject to the effective `MaxResults` it requested. It should not fetch an oversized CloudControl page and then invent a continuation token for item offsets inside that already-fetched page.
+Continuation requests should normally use the same `Token` and `Query` as the initial request because the CloudControl token belongs to that logical query. The provider should pass through CloudControl errors for invalid or inconsistent continuation tokens rather than maintaining provider-side continuation state.
 
-If a future caller requires exact total `Limit` semantics across partial CloudControl pages, add an opaque provider continuation token with enough encoded state to resume precisely, plus tests for partial-page resume. That is out of scope for v1.
+The provider should not implement partial-page buffering in v1. It should request at most the number of results it is prepared to stream. If CloudControl returns more descriptions than the effective requested maximum, the provider should return an error rather than stream extra items, silently drop items, or invent item-offset state inside an already-fetched CloudControl page.
 
 ## Edge Cases
 
 ### Empty Query
 
 For resources with empty `listInputs`, `Query` should normally be nil or empty. The provider should omit `ResourceModel`.
+
+If `Query` is non-empty for a resource with empty `listInputs`, the provider should return an invalid-argument error. Empty `listInputs` means the list handler accepts no modeled query shape, not that the provider supports arbitrary search by resource property.
 
 ### Scoped List Queries
 
@@ -223,6 +232,7 @@ Add codegen tests covering:
 - `handlers.list` with no `handlerSchema` emits empty `listInputs`.
 - `handlers.list.handlerSchema` emits required and optional `listInputs`.
 - handler schema properties are converted from CloudFormation casing to SDK casing.
+- CloudFormation list handler field names that collide after SDK casing conversion fail generation.
 - resources without `handlers.list` do not emit `listInputs`.
 - generated metadata preserves `HasListHandler` independently from `ListHandlerSchema`.
 
@@ -239,12 +249,18 @@ Add CloudControl client tests covering:
 Add provider RPC tests covering:
 
 - unknown or non-listable token is rejected.
+- non-empty query against empty `listInputs` is rejected.
 - missing required query inputs are rejected by the provider.
 - unknown/computed query inputs return `ListResponse.Computed` without calling CloudControl.
 - empty-query list call omits `ResourceModel`.
 - scoped-query list call sends CloudFormation-cased `ResourceModel`.
 - streamed results use CloudControl `Identifier` as `Id`.
 - continuation token is streamed when CloudControl returns `NextToken`.
+- continuation token is passed through to CloudControl `NextToken`.
+- `PageSize` maps to effective `MaxResults` for the current CloudControl call.
+- `Limit` maps to effective `MaxResults` for the current CloudControl call.
+- combined `PageSize` and `Limit` use the smaller value for `MaxResults`.
+- effective `MaxResults` is capped at the CloudControl limit of 100.
 - nil or empty identifier is treated as an error.
 
 ### Integration Validation
