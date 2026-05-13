@@ -16,6 +16,8 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+const listResourcesNextToken = "next"
+
 func TestCloudControlApiClientListResourcesSerializesRequest(t *testing.T) {
 	type requestBody struct {
 		TypeName      string `json:"TypeName"`
@@ -49,7 +51,7 @@ func TestCloudControlApiClientListResourcesSerializesRequest(t *testing.T) {
 	roleArn := "arn:aws:iam::123456789012:role/cloudcontrol"
 	client := NewCloudControlApiClient(cctl, &roleArn)
 	resourceModel := `{"DomainName":"example"}`
-	nextToken := "next"
+	nextToken := listResourcesNextToken
 	maxResults := int32(25)
 
 	descriptions, continuation, err := client.ListResources(

@@ -1243,11 +1243,11 @@ const cloudControlListMaxResultsLimit int32 = 100
 
 func (p *cfnProvider) List(req *pulumirpc.ListRequest, stream pulumirpc.ResourceProvider_ListServer) error {
 	token := req.GetToken()
+	if _, isCustom := p.customResources[token]; isCustom {
+		return status.Errorf(codes.Unimplemented, "resource type %s does not support List", token)
+	}
 	spec, ok := p.resourceMap.Resources[token]
 	if !ok {
-		if _, isCustom := p.customResources[token]; isCustom {
-			return status.Errorf(codes.Unimplemented, "resource type %s does not support List", token)
-		}
 		return status.Errorf(codes.InvalidArgument, "resource type %s not found", token)
 	}
 	if !spec.HasListHandler {
@@ -1290,22 +1290,27 @@ func (p *cfnProvider) List(req *pulumirpc.ListRequest, stream pulumirpc.Resource
 	maxResults := effectiveCloudControlListMaxResults(req.GetPageSize(), req.GetLimit())
 	listCtx, cancel := p.listContext(stream.Context())
 	defer cancel()
-	descriptions, continuation, err := p.ccc.List(listCtx, spec.CfType, resourceModel, nextToken, maxResults)
+	glog.V(9).Infof("%s.ListResources %q token %q resourceModel %t nextToken %t maxResults %s",
+		p.name, spec.CfType, token, resourceModel != nil, nextToken != nil, listMaxResultsForLog(maxResults))
+	identifiers, continuation, err := p.ccc.List(listCtx, spec.CfType, client.ListRequest{
+		ResourceModel: resourceModel,
+		NextToken:     nextToken,
+		MaxResults:    maxResults,
+	})
 	if err != nil {
-		return err
+		return fmt.Errorf("listing %s (%s): %w", token, spec.CfType, err)
 	}
-	if maxResults != nil && len(descriptions) > int(*maxResults) {
+	if maxResults != nil && len(identifiers) > int(*maxResults) {
 		return status.Errorf(codes.Internal, "CloudControl returned %d resources, more than requested maximum %d",
-			len(descriptions), *maxResults)
+			len(identifiers), *maxResults)
 	}
+	glog.V(9).Infof("%s.ListResources %q token %q returned %d resources continuation %t",
+		p.name, spec.CfType, token, len(identifiers), continuation != nil && *continuation != "")
 
-	for _, description := range descriptions {
-		if description.Identifier == nil || *description.Identifier == "" {
-			return status.Errorf(codes.Internal, "CloudControl returned a resource with an empty identifier for %s", token)
-		}
+	for _, identifier := range identifiers {
 		if err := stream.Send(&pulumirpc.ListResponse{
 			Response: &pulumirpc.ListResponse_Result_{
-				Result: &pulumirpc.ListResponse_Result{Id: *description.Identifier},
+				Result: &pulumirpc.ListResponse_Result{Id: identifier},
 			},
 		}); err != nil {
 			return err
@@ -1320,6 +1325,13 @@ func (p *cfnProvider) List(req *pulumirpc.ListRequest, stream pulumirpc.Resource
 		})
 	}
 	return nil
+}
+
+func listMaxResultsForLog(maxResults *int32) string {
+	if maxResults == nil {
+		return "unset"
+	}
+	return fmt.Sprintf("%d", *maxResults)
 }
 
 func (p *cfnProvider) listContext(streamCtx context.Context) (context.Context, context.CancelFunc) {
@@ -1350,7 +1362,10 @@ func unmarshalListQuery(query *structpb.Struct, token string) (resource.Property
 	return props, nil
 }
 
-func convertListQueryToCfn(spec *metadata.CloudAPIResource, query resource.PropertyMap) (map[string]interface{}, error) {
+func convertListQueryToCfn(
+	spec *metadata.CloudAPIResource,
+	query resource.PropertyMap,
+) (map[string]interface{}, error) {
 	if spec.ListHandlerSchema == nil {
 		if len(query) == 0 {
 			return nil, nil
@@ -1412,11 +1427,14 @@ func convertListQueryToCfn(spec *metadata.CloudAPIResource, query resource.Prope
 }
 
 func listQueryValueToInterface(sdkName string, typ string, value resource.PropertyValue) (interface{}, error) {
-	if value.IsSecret() {
-		value = value.SecretValue().Element
-	}
-	if value.IsOutput() {
-		value = value.OutputValue().Element
+	for value.IsSecret() || value.IsOutput() {
+		if value.IsSecret() {
+			value = value.SecretValue().Element
+			continue
+		}
+		if value.IsOutput() {
+			value = value.OutputValue().Element
+		}
 	}
 
 	if typ == "" {

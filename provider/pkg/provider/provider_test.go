@@ -8,7 +8,6 @@ import (
 	"testing"
 	"time"
 
-	"github.com/aws/aws-sdk-go-v2/service/cloudcontrol/types"
 	"github.com/mattbaird/jsonpatch"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
@@ -34,6 +33,8 @@ type listTestStream struct {
 	sendErr   error
 	responses []*pulumirpc.ListResponse
 }
+
+const testBucketA = "bucket-a"
 
 func (s *listTestStream) Send(response *pulumirpc.ListResponse) error {
 	if s.sendErr != nil {
@@ -167,12 +168,110 @@ func TestListRejectsQueryWhenListInputsAreEmpty(t *testing.T) {
 	err := provider.List(&pulumirpc.ListRequest{
 		Token: "aws:s3/bucket:Bucket",
 		Query: listQueryStruct(t, resource.PropertyMap{
-			"name": resource.NewStringProperty("bucket-a"),
+			"name": resource.NewStringProperty(testBucketA),
 		}),
 	}, &listTestStream{})
 
 	require.Error(t, err)
 	assert.Contains(t, err.Error(), "List query is not supported")
+}
+
+func TestListRejectsInvalidQueryBeforeCloudControl(t *testing.T) {
+	tests := []struct {
+		name      string
+		spec      metadata.CloudAPIResource
+		query     resource.PropertyMap
+		wantError string
+	}{
+		{
+			name: "nil list handler schema with query",
+			spec: metadata.CloudAPIResource{
+				CfType:         "AWS::S3::Bucket",
+				HasListHandler: true,
+			},
+			query: resource.PropertyMap{
+				"name": resource.NewStringProperty(testBucketA),
+			},
+			wantError: "List query is not supported",
+		},
+		{
+			name: "missing required",
+			spec: metadata.CloudAPIResource{
+				CfType:         "AWS::ApiGateway::Stage",
+				HasListHandler: true,
+				ListHandlerSchema: &metadata.ListHandlerSchema{
+					Properties: map[string]metadata.ListHandlerProperty{"RestApiId": {Type: "string"}},
+					Required:   []string{"RestApiId"},
+				},
+			},
+			query:     resource.PropertyMap{},
+			wantError: "missing required List query property",
+		},
+		{
+			name: "unknown property",
+			spec: metadata.CloudAPIResource{
+				CfType:         "AWS::ApiGateway::Stage",
+				HasListHandler: true,
+				ListHandlerSchema: &metadata.ListHandlerSchema{
+					Properties: map[string]metadata.ListHandlerProperty{"RestApiId": {Type: "string"}},
+				},
+			},
+			query: resource.PropertyMap{
+				"restApiId": resource.NewStringProperty("api-123"),
+				"unknown":   resource.NewStringProperty("value"),
+			},
+			wantError: "unknown List query property",
+		},
+		{
+			name: "wrong type",
+			spec: metadata.CloudAPIResource{
+				CfType:         "AWS::ApiGateway::Stage",
+				HasListHandler: true,
+				ListHandlerSchema: &metadata.ListHandlerSchema{
+					Properties: map[string]metadata.ListHandlerProperty{"RestApiId": {Type: "string"}},
+				},
+			},
+			query: resource.PropertyMap{
+				"restApiId": resource.NewNumberProperty(42),
+			},
+			wantError: "expected string",
+		},
+		{
+			name: "required without schema",
+			spec: metadata.CloudAPIResource{
+				CfType:         "AWS::ApiGateway::Stage",
+				HasListHandler: true,
+				ListHandlerSchema: &metadata.ListHandlerSchema{
+					Required: []string{"RestApiId"},
+				},
+			},
+			query:     resource.PropertyMap{},
+			wantError: "required properties without schemas",
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			ctrl := gomock.NewController(t)
+			defer ctrl.Finish()
+
+			provider := &cfnProvider{
+				resourceMap: &metadata.CloudAPIMetadata{Resources: map[string]metadata.CloudAPIResource{
+					"aws:apigateway/stage:Stage": tt.spec,
+				}},
+				customResources: map[string]resources.CustomResource{},
+				ccc:             client.NewMockCloudControlClient(ctrl),
+			}
+
+			err := provider.List(&pulumirpc.ListRequest{
+				Token: "aws:apigateway/stage:Stage",
+				Query: listQueryStruct(t, tt.query),
+			}, &listTestStream{})
+
+			require.Error(t, err)
+			assert.Contains(t, err.Error(), tt.wantError)
+		})
+	}
 }
 
 func TestListEmptyQueryAndContinuation(t *testing.T) {
@@ -191,14 +290,11 @@ func TestListEmptyQueryAndContinuation(t *testing.T) {
 		ccc:             mockCCC,
 	}
 
-	id1, id2, continuation := "bucket-a", "bucket-b", "next-page"
+	id1, id2, continuation := testBucketA, "bucket-b", "next-page"
 	expectedMaxResults := int32(50)
 	mockCCC.EXPECT().
-		List(gomock.Any(), "AWS::S3::Bucket", (*string)(nil), (*string)(nil), &expectedMaxResults).
-		Return([]types.ResourceDescription{
-			{Identifier: &id1},
-			{Identifier: &id2},
-		}, &continuation, nil)
+		List(gomock.Any(), "AWS::S3::Bucket", client.ListRequest{MaxResults: &expectedMaxResults}).
+		Return([]string{id1, id2}, &continuation, nil)
 
 	stream := &listTestStream{}
 	err := provider.List(&pulumirpc.ListRequest{
@@ -245,7 +341,7 @@ func TestListMaxResults(t *testing.T) {
 			}
 
 			mockCCC.EXPECT().
-				List(gomock.Any(), "AWS::S3::Bucket", (*string)(nil), (*string)(nil), tt.expected).
+				List(gomock.Any(), "AWS::S3::Bucket", client.ListRequest{MaxResults: tt.expected}).
 				Return(nil, nil, nil)
 
 			err := provider.List(&pulumirpc.ListRequest{
@@ -275,11 +371,11 @@ func TestListErrorsWhenCloudControlReturnsMoreThanRequested(t *testing.T) {
 		ccc:             mockCCC,
 	}
 
-	id1, id2 := "bucket-a", "bucket-b"
+	id1, id2 := testBucketA, "bucket-b"
 	expectedMaxResults := int32(1)
 	mockCCC.EXPECT().
-		List(gomock.Any(), "AWS::S3::Bucket", (*string)(nil), (*string)(nil), &expectedMaxResults).
-		Return([]types.ResourceDescription{{Identifier: &id1}, {Identifier: &id2}}, nil, nil)
+		List(gomock.Any(), "AWS::S3::Bucket", client.ListRequest{MaxResults: &expectedMaxResults}).
+		Return([]string{id1, id2}, nil, nil)
 
 	err := provider.List(&pulumirpc.ListRequest{
 		Token: "aws:s3/bucket:Bucket",
@@ -290,42 +386,32 @@ func TestListErrorsWhenCloudControlReturnsMoreThanRequested(t *testing.T) {
 	assert.Contains(t, err.Error(), "more than requested maximum")
 }
 
-func TestListErrorsWhenIdentifierIsMissing(t *testing.T) {
-	tests := []struct {
-		name       string
-		identifier *string
-	}{
-		{name: "nil", identifier: nil},
-		{name: "empty", identifier: stringPtr("")},
+func TestListWrapsCloudControlErrorsWithTokenContext(t *testing.T) {
+	ctrl := gomock.NewController(t)
+	defer ctrl.Finish()
+
+	mockCCC := client.NewMockCloudControlClient(ctrl)
+	provider := &cfnProvider{
+		resourceMap: &metadata.CloudAPIMetadata{Resources: map[string]metadata.CloudAPIResource{
+			"aws:s3/bucket:Bucket": {
+				CfType:         "AWS::S3::Bucket",
+				HasListHandler: true,
+			},
+		}},
+		customResources: map[string]resources.CustomResource{},
+		ccc:             mockCCC,
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			ctrl := gomock.NewController(t)
-			defer ctrl.Finish()
+	expectedErr := errors.New("access denied")
+	mockCCC.EXPECT().
+		List(gomock.Any(), "AWS::S3::Bucket", client.ListRequest{}).
+		Return(nil, nil, expectedErr)
 
-			mockCCC := client.NewMockCloudControlClient(ctrl)
-			provider := &cfnProvider{
-				resourceMap: &metadata.CloudAPIMetadata{Resources: map[string]metadata.CloudAPIResource{
-					"aws:s3/bucket:Bucket": {
-						CfType:         "AWS::S3::Bucket",
-						HasListHandler: true,
-					},
-				}},
-				customResources: map[string]resources.CustomResource{},
-				ccc:             mockCCC,
-			}
+	err := provider.List(&pulumirpc.ListRequest{Token: "aws:s3/bucket:Bucket"}, &listTestStream{})
 
-			mockCCC.EXPECT().
-				List(gomock.Any(), "AWS::S3::Bucket", (*string)(nil), (*string)(nil), gomock.Nil()).
-				Return([]types.ResourceDescription{{Identifier: tt.identifier}}, nil, nil)
-
-			err := provider.List(&pulumirpc.ListRequest{Token: "aws:s3/bucket:Bucket"}, &listTestStream{})
-
-			require.Error(t, err)
-			assert.Contains(t, err.Error(), "empty identifier")
-		})
-	}
+	require.ErrorIs(t, err, expectedErr)
+	assert.Contains(t, err.Error(), "aws:s3/bucket:Bucket")
+	assert.Contains(t, err.Error(), "AWS::S3::Bucket")
 }
 
 func TestListPropagatesProviderCancellation(t *testing.T) {
@@ -351,14 +437,12 @@ func TestListPropagatesProviderCancellation(t *testing.T) {
 	}
 
 	mockCCC.EXPECT().
-		List(gomock.Any(), "AWS::S3::Bucket", (*string)(nil), (*string)(nil), gomock.Nil()).
+		List(gomock.Any(), "AWS::S3::Bucket", client.ListRequest{}).
 		DoAndReturn(func(
 			ctx context.Context,
 			_ string,
-			_ *string,
-			_ *string,
-			_ *int32,
-		) ([]types.ResourceDescription, *string, error) {
+			_ client.ListRequest,
+		) ([]string, *string, error) {
 			cancel()
 			select {
 			case <-ctx.Done():
@@ -389,10 +473,10 @@ func TestListReturnsStreamSendError(t *testing.T) {
 		ccc:             mockCCC,
 	}
 
-	id := "bucket-a"
+	id := testBucketA
 	mockCCC.EXPECT().
-		List(gomock.Any(), "AWS::S3::Bucket", (*string)(nil), (*string)(nil), gomock.Nil()).
-		Return([]types.ResourceDescription{{Identifier: &id}}, nil, nil)
+		List(gomock.Any(), "AWS::S3::Bucket", client.ListRequest{}).
+		Return([]string{id}, nil, nil)
 
 	sendErr := errors.New("send failed")
 	err := provider.List(&pulumirpc.ListRequest{Token: "aws:s3/bucket:Bucket"}, &listTestStream{sendErr: sendErr})
@@ -426,16 +510,16 @@ func TestListScopedQueryConvertsToCloudFormationCasing(t *testing.T) {
 
 	nextToken := "next"
 	mockCCC.EXPECT().
-		List(gomock.Any(), "AWS::ApiGateway::Stage", gomock.Any(), &nextToken, gomock.Nil()).
+		List(gomock.Any(), "AWS::ApiGateway::Stage", gomock.Any()).
 		DoAndReturn(func(
 			_ context.Context,
 			_ string,
-			resourceModel *string,
-			_ *string,
-			_ *int32,
-		) ([]types.ResourceDescription, *string, error) {
-			require.NotNil(t, resourceModel)
-			assert.JSONEq(t, `{"RestApiId":"api-123","IncludeValues":true,"MinimumVersion":2}`, *resourceModel)
+			request client.ListRequest,
+		) ([]string, *string, error) {
+			require.NotNil(t, request.ResourceModel)
+			assert.JSONEq(t, `{"RestApiId":"api-123","IncludeValues":true,"MinimumVersion":2}`, *request.ResourceModel)
+			assert.Equal(t, &nextToken, request.NextToken)
+			assert.Nil(t, request.MaxResults)
 			return nil, nil, nil
 		})
 
@@ -443,7 +527,10 @@ func TestListScopedQueryConvertsToCloudFormationCasing(t *testing.T) {
 		Token:             "aws:apigateway/stage:Stage",
 		ContinuationToken: nextToken,
 		Query: listQueryStruct(t, resource.PropertyMap{
-			"restApiId":      resource.NewStringProperty("api-123"),
+			"restApiId": resource.NewOutputProperty(resource.Output{
+				Element: resource.MakeSecret(resource.NewStringProperty("api-123")),
+				Known:   true,
+			}),
 			"includeValues":  resource.NewBoolProperty(true),
 			"minimumVersion": resource.NewNumberProperty(2),
 		}),

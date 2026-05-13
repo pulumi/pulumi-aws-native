@@ -31,10 +31,6 @@ func TestGatherListHandlerSchema(t *testing.T) {
 									"type":        "string",
 									"pattern":     "ignored",
 								},
-								// This property should be ignored because it lacks description and type.
-								"EmptyProp": map[string]interface{}{
-									"pattern": "ignored",
-								},
 							},
 							"required": []interface{}{"FunctionName"},
 						},
@@ -44,7 +40,8 @@ func TestGatherListHandlerSchema(t *testing.T) {
 		},
 	}
 
-	listSchema := ctx.gatherListHandlerSchema()
+	listSchema, err := ctx.gatherListHandlerSchema()
+	require.NoError(t, err)
 	require.NotNil(t, listSchema)
 	assert.Equal(t, []string{"FunctionName"}, listSchema.Required)
 	assert.Equal(t, map[string]metadata.ListHandlerProperty{
@@ -80,7 +77,8 @@ func TestGatherListHandlerSchemaWithRefFallback(t *testing.T) {
 		},
 	}
 
-	listSchema := ctx.gatherListHandlerSchema()
+	listSchema, err := ctx.gatherListHandlerSchema()
+	require.NoError(t, err)
 	require.NotNil(t, listSchema)
 	assert.Equal(t, []string{"ApiId"}, listSchema.Required)
 	assert.Equal(t, map[string]metadata.ListHandlerProperty{
@@ -121,7 +119,8 @@ func TestGatherListHandlerSchemaWithRefThroughDefinition(t *testing.T) {
 		},
 	}
 
-	listSchema := ctx.gatherListHandlerSchema()
+	listSchema, err := ctx.gatherListHandlerSchema()
+	require.NoError(t, err)
 	require.NotNil(t, listSchema)
 	assert.Equal(t, []string{"DomainName"}, listSchema.Required)
 	assert.Equal(t, map[string]metadata.ListHandlerProperty{
@@ -158,13 +157,16 @@ func TestGatherListHandlerSchemaRequiredPropertyFromResourceSchema(t *testing.T)
 		},
 	}
 
-	listSchema := ctx.gatherListHandlerSchema()
+	listSchema, err := ctx.gatherListHandlerSchema()
+	require.NoError(t, err)
 	require.NotNil(t, listSchema)
 	assert.Equal(t, []string{"MultiplexId"}, listSchema.Required)
-	assert.Equal(t, metadata.ListHandlerProperty{
-		Description: "The ID of the multiplex that the program belongs to.",
-		Type:        "string",
-	}, listSchema.Properties["MultiplexId"])
+	assert.Equal(t, map[string]metadata.ListHandlerProperty{
+		"MultiplexId": {
+			Description: "The ID of the multiplex that the program belongs to.",
+			Type:        "string",
+		},
+	}, listSchema.Properties)
 }
 
 func TestGatherListHandlerSchemaWithRefDifferentName(t *testing.T) {
@@ -193,7 +195,8 @@ func TestGatherListHandlerSchemaWithRefDifferentName(t *testing.T) {
 		},
 	}
 
-	listSchema := ctx.gatherListHandlerSchema()
+	listSchema, err := ctx.gatherListHandlerSchema()
+	require.NoError(t, err)
 	require.NotNil(t, listSchema)
 	assert.Equal(t, []string{"AliasName"}, listSchema.Required)
 	assert.Equal(t, map[string]metadata.ListHandlerProperty{
@@ -211,7 +214,33 @@ func TestGatherListHandlerSchemaMissing(t *testing.T) {
 		},
 	}
 
-	assert.Nil(t, ctx.gatherListHandlerSchema())
+	listSchema, err := ctx.gatherListHandlerSchema()
+	require.NoError(t, err)
+	assert.Nil(t, listSchema)
+}
+
+func TestGatherListHandlerSchemaFailsOnMalformedHandlerSchema(t *testing.T) {
+	ctx := cfSchemaContext{
+		cfTypeName: "AWS::Test::Resource",
+		resourceSpec: &jsschema.Schema{
+			Extras: map[string]interface{}{
+				"handlers": map[string]interface{}{
+					"list": map[string]interface{}{
+						"handlerSchema": map[string]interface{}{
+							"properties": map[string]interface{}{
+								"ScopeName": map[string]interface{}{
+									"pattern": "missing type or ref",
+								},
+							},
+						},
+					},
+				},
+			},
+		},
+	}
+
+	_, err := ctx.gatherListHandlerSchema()
+	require.ErrorContains(t, err, `list handler property "ScopeName" for AWS::Test::Resource has no schema`)
 }
 
 func TestGatherListInputsEmptyWhenNoHandlerSchema(t *testing.T) {
@@ -336,5 +365,5 @@ func TestGatherListInputsFailsWhenRequiredPropertyHasNoSchema(t *testing.T) {
 	}
 
 	_, err := ctx.gatherListInputs()
-	require.ErrorContains(t, err, `required list handler property "ScopeName" for AWS::Test::Resource has no schema`)
+	require.ErrorContains(t, err, `list handler property "ScopeName" for AWS::Test::Resource has no schema`)
 }

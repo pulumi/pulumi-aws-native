@@ -995,7 +995,16 @@ func (ctx *cfSchemaContext) gatherResourceType() error {
 		DeprecationMessage: deprecationMessage,
 	}
 
-	listInputs, err := ctx.gatherListInputs()
+	hasListHandler, err := ctx.hasListHandler()
+	if err != nil {
+		return err
+	}
+	listHandlerSchema, err := ctx.gatherListHandlerSchema()
+	if err != nil {
+		return err
+	}
+
+	listInputs, err := ctx.gatherListInputsForSchema(hasListHandler, listHandlerSchema)
 	if err != nil {
 		return err
 	}
@@ -1021,8 +1030,8 @@ func (ctx *cfSchemaContext) gatherResourceType() error {
 		TagsProperty:       naming.ToSdkName(tagsProp),
 		TagsStyle:          tagsStyle,
 		PrimaryIdentifier:  ctx.gatherResourcePrimaryIdentifier(),
-		ListHandlerSchema:  ctx.gatherListHandlerSchema(),
-		HasListHandler:     ctx.hasListHandler(),
+		ListHandlerSchema:  listHandlerSchema,
+		HasListHandler:     hasListHandler,
 		PropertyTransforms: readPropertyTransforms(ctx.resourceSpec),
 	}
 	return nil
@@ -1037,21 +1046,41 @@ func (ctx *cfSchemaContext) gatherResourcePrimaryIdentifier() []string {
 	return identifiers
 }
 
-func (ctx *cfSchemaContext) hasListHandler() bool {
+func (ctx *cfSchemaContext) hasListHandler() (bool, error) {
 	handlersAny, ok := ctx.resourceSpec.Extras["handlers"]
 	if !ok {
-		return false
+		return false, nil
 	}
 	handlers, ok := handlersAny.(map[string]interface{})
 	if !ok {
-		return false
+		return false, fmt.Errorf("handlers for %s must be an object", ctx.cfTypeName)
 	}
-	_, ok = handlers["list"]
-	return ok
+	listAny, ok := handlers["list"]
+	if !ok {
+		return false, nil
+	}
+	if _, ok := listAny.(map[string]interface{}); !ok {
+		return false, fmt.Errorf("list handler for %s must be an object", ctx.cfTypeName)
+	}
+	return true, nil
 }
 
 func (ctx *cfSchemaContext) gatherListInputs() (*pschema.ObjectTypeSpec, error) {
-	if !ctx.hasListHandler() {
+	hasListHandler, err := ctx.hasListHandler()
+	if err != nil {
+		return nil, err
+	}
+	listSchema, err := ctx.gatherListHandlerSchema()
+	if err != nil {
+		return nil, err
+	}
+	return ctx.gatherListInputsForSchema(hasListHandler, listSchema)
+}
+
+func (ctx *cfSchemaContext) gatherListInputsForSchema(
+	hasListHandler bool, listSchema *metadata.ListHandlerSchema,
+) (*pschema.ObjectTypeSpec, error) {
+	if !hasListHandler {
 		return nil, nil
 	}
 
@@ -1060,7 +1089,6 @@ func (ctx *cfSchemaContext) gatherListInputs() (*pschema.ObjectTypeSpec, error) 
 		Properties: map[string]pschema.PropertySpec{},
 	}
 
-	listSchema := ctx.gatherListHandlerSchema()
 	if listSchema == nil {
 		return listInputs, nil
 	}
@@ -1093,67 +1121,77 @@ func (ctx *cfSchemaContext) gatherListInputs() (*pschema.ObjectTypeSpec, error) 
 	return listInputs, nil
 }
 
-func (ctx *cfSchemaContext) gatherListHandlerSchema() *metadata.ListHandlerSchema {
+func (ctx *cfSchemaContext) gatherListHandlerSchema() (*metadata.ListHandlerSchema, error) {
 	handlersAny, ok := ctx.resourceSpec.Extras["handlers"]
 	if !ok {
-		return nil
+		return nil, nil
 	}
 	handlers, ok := handlersAny.(map[string]interface{})
 	if !ok {
-		return nil
+		return nil, fmt.Errorf("handlers for %s must be an object", ctx.cfTypeName)
 	}
 
 	listAny, ok := handlers["list"]
 	if !ok {
-		return nil
+		return nil, nil
 	}
 	list, ok := listAny.(map[string]interface{})
 	if !ok {
-		return nil
+		return nil, fmt.Errorf("list handler for %s must be an object", ctx.cfTypeName)
 	}
 
 	handlerSchemaAny, ok := list["handlerSchema"]
 	if !ok {
-		return nil
+		return nil, nil
 	}
 	handlerSchema, ok := handlerSchemaAny.(map[string]interface{})
 	if !ok {
-		return nil
+		return nil, fmt.Errorf("list handler schema for %s must be an object", ctx.cfTypeName)
 	}
 
 	result := &metadata.ListHandlerSchema{}
 
 	if reqAny, ok := handlerSchema["required"]; ok {
-		if reqSlice, ok := reqAny.([]interface{}); ok {
-			for _, v := range reqSlice {
-				if s, ok := v.(string); ok {
-					result.Required = append(result.Required, s)
-				}
+		reqSlice, ok := reqAny.([]interface{})
+		if !ok {
+			return nil, fmt.Errorf("list handler schema required for %s must be an array", ctx.cfTypeName)
+		}
+		for _, v := range reqSlice {
+			s, ok := v.(string)
+			if !ok {
+				return nil, fmt.Errorf("list handler schema required entries for %s must be strings", ctx.cfTypeName)
 			}
+			result.Required = append(result.Required, s)
 		}
 	}
 
 	if propsAny, ok := handlerSchema["properties"]; ok {
-		if propsMap, ok := propsAny.(map[string]interface{}); ok {
-			result.Properties = map[string]metadata.ListHandlerProperty{}
-			for propName, propVal := range propsMap {
-				propMap, ok := propVal.(map[string]interface{})
-				if !ok {
-					continue
-				}
-
-				prop := ctx.listHandlerPropertyFromMap(propMap)
-
-				// Only include properties when at least one field is present.
-				if prop.Description == "" && prop.Type == "" {
-					continue
-				}
-
-				result.Properties[propName] = prop
+		propsMap, ok := propsAny.(map[string]interface{})
+		if !ok {
+			return nil, fmt.Errorf("list handler schema properties for %s must be an object", ctx.cfTypeName)
+		}
+		result.Properties = map[string]metadata.ListHandlerProperty{}
+		for propName, propVal := range propsMap {
+			propMap, ok := propVal.(map[string]interface{})
+			if !ok {
+				return nil, fmt.Errorf("list handler property %q for %s must be an object", propName, ctx.cfTypeName)
 			}
-			if len(result.Properties) == 0 {
-				result.Properties = nil
+
+			prop := ctx.listHandlerPropertyFromMap(propMap)
+
+			if prop.Description == "" && prop.Type == "" {
+				return nil, fmt.Errorf("list handler property %q for %s has no schema", propName, ctx.cfTypeName)
 			}
+
+			resultName := propName
+			if refName := listHandlerResourcePropertyRefName(propMap); refName != "" &&
+				refName != propName && stringSliceContains(result.Required, refName) {
+				resultName = refName
+			}
+			result.Properties[resultName] = prop
+		}
+		if len(result.Properties) == 0 {
+			result.Properties = nil
 		}
 	}
 
@@ -1163,7 +1201,7 @@ func (ctx *cfSchemaContext) gatherListHandlerSchema() *metadata.ListHandlerSchem
 		}
 		prop := ctx.listHandlerPropertyFromResourceProperty(requiredName)
 		if prop.Description == "" && prop.Type == "" {
-			continue
+			return nil, fmt.Errorf("required list handler property %q for %s has no schema", requiredName, ctx.cfTypeName)
 		}
 		if result.Properties == nil {
 			result.Properties = map[string]metadata.ListHandlerProperty{}
@@ -1172,10 +1210,31 @@ func (ctx *cfSchemaContext) gatherListHandlerSchema() *metadata.ListHandlerSchem
 	}
 
 	if len(result.Required) == 0 && len(result.Properties) == 0 {
-		return nil
+		return nil, nil
 	}
 
-	return result
+	return result, nil
+}
+
+func stringSliceContains(values []string, value string) bool {
+	for _, v := range values {
+		if v == value {
+			return true
+		}
+	}
+	return false
+}
+
+func listHandlerResourcePropertyRefName(propMap map[string]interface{}) string {
+	ref, ok := propMap["$ref"].(string)
+	if !ok {
+		return ""
+	}
+	const propertiesPrefix = "resource-schema.json#/properties/"
+	if strings.HasPrefix(ref, propertiesPrefix) {
+		return strings.TrimPrefix(ref, propertiesPrefix)
+	}
+	return ""
 }
 
 func (ctx *cfSchemaContext) listHandlerPropertyFromMap(propMap map[string]interface{}) metadata.ListHandlerProperty {

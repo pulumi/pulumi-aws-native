@@ -13,7 +13,6 @@ import (
 	context "context"
 	reflect "reflect"
 
-	types "github.com/aws/aws-sdk-go-v2/service/cloudcontrol/types"
 	jsonpatch "github.com/mattbaird/jsonpatch"
 	diag "github.com/pulumi/pulumi/sdk/v3/go/common/diag"
 	resource "github.com/pulumi/pulumi/sdk/v3/go/common/resource"
@@ -113,19 +112,19 @@ func (mr *MockCloudControlClientMockRecorder) Delete(ctx, urn, typeName, identif
 }
 
 // List mocks base method.
-func (m *MockCloudControlClient) List(ctx context.Context, typeName string, resourceModel, nextToken *string, maxResults *int32) ([]types.ResourceDescription, *string, error) {
+func (m *MockCloudControlClient) List(ctx context.Context, typeName string, request ListRequest) ([]string, *string, error) {
 	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "List", ctx, typeName, resourceModel, nextToken, maxResults)
-	ret0, _ := ret[0].([]types.ResourceDescription)
+	ret := m.ctrl.Call(m, "List", ctx, typeName, request)
+	ret0, _ := ret[0].([]string)
 	ret1, _ := ret[1].(*string)
 	ret2, _ := ret[2].(error)
 	return ret0, ret1, ret2
 }
 
 // List indicates an expected call of List.
-func (mr *MockCloudControlClientMockRecorder) List(ctx, typeName, resourceModel, nextToken, maxResults any) *gomock.Call {
+func (mr *MockCloudControlClientMockRecorder) List(ctx, typeName, request any) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "List", reflect.TypeOf((*MockCloudControlClient)(nil).List), ctx, typeName, resourceModel, nextToken, maxResults)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "List", reflect.TypeOf((*MockCloudControlClient)(nil).List), ctx, typeName, request)
 }
 
 // Read mocks base method.

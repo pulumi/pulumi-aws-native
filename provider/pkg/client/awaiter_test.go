@@ -171,7 +171,7 @@ func (*awaiterTestAPI) GetResource(ctx context.Context, typeName, identifier str
 }
 
 func (*awaiterTestAPI) ListResources(
-	ctx context.Context,
+	_ context.Context,
 	_ string,
 	_ *string,
 	_ *string,

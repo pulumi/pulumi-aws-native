@@ -18,6 +18,7 @@ import (
 	"github.com/golang/glog"
 	"github.com/mattbaird/jsonpatch"
 	"github.com/pkg/errors"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/common/diag"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
@@ -31,7 +32,7 @@ type Logger interface {
 // CloudControlApiClient providers CRUD operations around Cloud Control API, with the mechanics of API calls abstracted away.
 // For instance, it serializes and deserializes wire data and follows the protocol of long-running operations.
 //
-//go:generate mockgen -package client -source client.go -destination mock_client.go CloudControlApiClient
+//go:generate mockgen -package client -source client.go -destination mock_client.go CloudControlClient,Logger
 type CloudControlClient interface {
 	// Create creates a resource of the specified type with the desired state.
 	// It awaits the operation until completion and returns a map of output property values.
@@ -42,9 +43,8 @@ type CloudControlClient interface {
 	// If the resource does not exist, no error is returned but the flag exists is set to false.
 	Read(ctx context.Context, typeName, identifier string) (resourceState map[string]interface{}, exists bool, err error)
 
-	// List returns one CloudControl page of resource descriptions for a type.
-	List(ctx context.Context, typeName string, resourceModel *string, nextToken *string, maxResults *int32) (
-		[]types.ResourceDescription, *string, error)
+	// List returns one CloudControl page of resource identifiers for a type.
+	List(ctx context.Context, typeName string, request ListRequest) ([]string, *string, error)
 
 	// Update updates a resource of the specified type with the specified changeset.
 	// It awaits the operation until completion and returns a map of output property values.
@@ -53,6 +53,12 @@ type CloudControlClient interface {
 	// Delete deletes a resource of the specified type with the given identifier.
 	// It awaits the operation until completion.
 	Delete(ctx context.Context, urn resource.URN, typeName, identifier string) error
+}
+
+type ListRequest struct {
+	ResourceModel *string
+	NextToken     *string
+	MaxResults    *int32
 }
 
 type clientImpl struct {
@@ -149,15 +155,30 @@ func (c *clientImpl) Read(ctx context.Context, typeName, identifier string) (res
 func (c *clientImpl) List(
 	ctx context.Context,
 	typeName string,
-	resourceModel *string,
-	nextToken *string,
-	maxResults *int32,
-) ([]types.ResourceDescription, *string, error) {
-	descriptions, continuation, err := c.api.ListResources(ctx, typeName, resourceModel, nextToken, maxResults)
+	request ListRequest,
+) ([]string, *string, error) {
+	descriptions, continuation, err := c.api.ListResources(
+		ctx, typeName, request.ResourceModel, request.NextToken, request.MaxResults)
 	if err != nil {
-		return nil, nil, fmt.Errorf("listing resources: %w", err)
+		return nil, nil, fmt.Errorf("listing resources of type %s (resourceModel=%t, nextToken=%t, maxResults=%s): %w",
+			typeName, request.ResourceModel != nil, request.NextToken != nil, listMaxResultsForError(request.MaxResults), err)
 	}
-	return descriptions, continuation, nil
+	identifiers := make([]string, 0, len(descriptions))
+	for _, description := range descriptions {
+		if description.Identifier == nil || *description.Identifier == "" {
+			return nil, nil, fmt.Errorf(
+				"listing resources of type %s: CloudControl returned a resource with an empty identifier", typeName)
+		}
+		identifiers = append(identifiers, *description.Identifier)
+	}
+	return identifiers, continuation, nil
+}
+
+func listMaxResultsForError(maxResults *int32) string {
+	if maxResults == nil {
+		return "unset"
+	}
+	return fmt.Sprintf("%d", *maxResults)
 }
 
 func (c *clientImpl) Update(ctx context.Context, urn resource.URN, typeName, identifier string, patches []jsonpatch.JsonPatchOperation) (map[string]interface{}, error) {
