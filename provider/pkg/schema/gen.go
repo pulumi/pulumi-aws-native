@@ -11,7 +11,14 @@ import (
 	"strings"
 
 	"github.com/pkg/errors"
+
 	jsschema "github.com/pulumi/jsschema"
+	dotnetgen "github.com/pulumi/pulumi-dotnet/pulumi-language-dotnet/v3/codegen"
+	"github.com/pulumi/pulumi/pkg/v3/codegen"
+	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/maputil"
+
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/autonaming"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/default_tags"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
@@ -19,11 +26,6 @@ import (
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/refdb"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/resources"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/schema/docs"
-	dotnetgen "github.com/pulumi/pulumi-dotnet/pulumi-language-dotnet/v3/codegen"
-	"github.com/pulumi/pulumi/pkg/v3/codegen"
-	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
-	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
-	"github.com/pulumi/pulumi/sdk/v3/go/common/util/maputil"
 )
 
 const packageName = "aws-native"
@@ -1082,14 +1084,7 @@ func (ctx *cfSchemaContext) gatherListInputs() (*pschema.ObjectTypeSpec, error) 
 	for _, cfnName := range listSchema.Required {
 		sdkName := naming.ToSdkName(cfnName)
 		if _, ok := listInputs.Properties[sdkName]; !ok {
-			if previousCfnName, ok := cfnNamesBySdkName[sdkName]; ok {
-				return nil, fmt.Errorf("list handler properties %q and %q for %s both map to SDK name %q",
-					previousCfnName, cfnName, ctx.cfTypeName, sdkName)
-			}
-			cfnNamesBySdkName[sdkName] = cfnName
-			listInputs.Properties[sdkName] = pschema.PropertySpec{
-				TypeSpec: pschema.TypeSpec{Ref: "pulumi.json#/Any"},
-			}
+			return nil, fmt.Errorf("required list handler property %q for %s has no schema", cfnName, ctx.cfTypeName)
 		}
 		required.Add(sdkName)
 	}
@@ -1147,29 +1142,7 @@ func (ctx *cfSchemaContext) gatherListHandlerSchema() *metadata.ListHandlerSchem
 					continue
 				}
 
-				var prop metadata.ListHandlerProperty
-				if desc, ok := propMap["description"].(string); ok {
-					prop.Description = desc
-				}
-				if typ, ok := propMap["type"].(string); ok {
-					prop.Type = typ
-				}
-
-				if prop.Description == "" && prop.Type == "" {
-					if ref, ok := propMap["$ref"].(string); ok {
-						refName := parsePropertyNameFromRef(ref)
-						if refName != "" {
-							if propSchema, ok := ctx.resourceSpec.Properties[refName]; ok && propSchema != nil {
-								if prop.Description == "" && propSchema.Description != "" {
-									prop.Description = naming.SanitizeCfnString(propSchema.Description)
-								}
-								if prop.Type == "" {
-									prop.Type = firstPrimitiveType(propSchema.Type)
-								}
-							}
-						}
-					}
-				}
+				prop := ctx.listHandlerPropertyFromMap(propMap)
 
 				// Only include properties when at least one field is present.
 				if prop.Description == "" && prop.Type == "" {
@@ -1184,11 +1157,99 @@ func (ctx *cfSchemaContext) gatherListHandlerSchema() *metadata.ListHandlerSchem
 		}
 	}
 
+	for _, requiredName := range result.Required {
+		if _, ok := result.Properties[requiredName]; ok {
+			continue
+		}
+		prop := ctx.listHandlerPropertyFromResourceProperty(requiredName)
+		if prop.Description == "" && prop.Type == "" {
+			continue
+		}
+		if result.Properties == nil {
+			result.Properties = map[string]metadata.ListHandlerProperty{}
+		}
+		result.Properties[requiredName] = prop
+	}
+
 	if len(result.Required) == 0 && len(result.Properties) == 0 {
 		return nil
 	}
 
 	return result
+}
+
+func (ctx *cfSchemaContext) listHandlerPropertyFromMap(propMap map[string]interface{}) metadata.ListHandlerProperty {
+	var prop metadata.ListHandlerProperty
+	if desc, ok := propMap["description"].(string); ok {
+		prop.Description = desc
+	}
+	if typ, ok := propMap["type"].(string); ok {
+		prop.Type = typ
+	}
+
+	if prop.Description == "" && prop.Type == "" {
+		if ref, ok := propMap["$ref"].(string); ok {
+			propSchema := ctx.resolveListHandlerRef(ref, map[string]bool{})
+			prop = listHandlerPropertyFromSchema(propSchema)
+		}
+	}
+	return prop
+}
+
+func (ctx *cfSchemaContext) listHandlerPropertyFromResourceProperty(name string) metadata.ListHandlerProperty {
+	propSchema := ctx.resolveListHandlerSchema(ctx.resourceSpec.Properties[name], map[string]bool{})
+	return listHandlerPropertyFromSchema(propSchema)
+}
+
+func listHandlerPropertyFromSchema(propSchema *jsschema.Schema) metadata.ListHandlerProperty {
+	if propSchema == nil {
+		return metadata.ListHandlerProperty{}
+	}
+	prop := metadata.ListHandlerProperty{}
+	if propSchema.Description != "" {
+		prop.Description = naming.SanitizeCfnString(propSchema.Description)
+	}
+	prop.Type = firstPrimitiveType(propSchema.Type)
+	return prop
+}
+
+func (ctx *cfSchemaContext) resolveListHandlerRef(ref string, seen map[string]bool) *jsschema.Schema {
+	var schema *jsschema.Schema
+	switch {
+	case strings.Contains(ref, "/properties/"):
+		refName := parsePropertyNameFromRef(ref)
+		if refName == "" {
+			return nil
+		}
+		schema = ctx.resourceSpec.Properties[refName]
+	case strings.Contains(ref, "/definitions/"):
+		refName := parseDefinitionNameFromRef(ref)
+		if refName == "" {
+			return nil
+		}
+		schema = ctx.resourceSpec.Definitions[refName]
+	default:
+		return nil
+	}
+	return ctx.resolveListHandlerSchema(schema, seen)
+}
+
+func (ctx *cfSchemaContext) resolveListHandlerSchema(schema *jsschema.Schema, seen map[string]bool) *jsschema.Schema {
+	if schema == nil || schema.Reference == "" {
+		return schema
+	}
+	if seen[schema.Reference] {
+		return schema
+	}
+	seen[schema.Reference] = true
+	resolved := ctx.resolveListHandlerRef(schema.Reference, seen)
+	if resolved == nil {
+		return schema
+	}
+	if resolved.Reference != "" {
+		return ctx.resolveListHandlerSchema(resolved, seen)
+	}
+	return resolved
 }
 
 func listHandlerPropertyTypeSpec(typ string) pschema.TypeSpec {
@@ -1215,6 +1276,15 @@ func parsePropertyNameFromRef(ref string) string {
 		return ""
 	}
 	return ref[idx+len(propToken):]
+}
+
+func parseDefinitionNameFromRef(ref string) string {
+	const definitionToken = "/definitions/"
+	idx := strings.Index(ref, definitionToken)
+	if idx == -1 {
+		return ""
+	}
+	return ref[idx+len(definitionToken):]
 }
 
 func firstPrimitiveType(types jsschema.PrimitiveTypes) string {

@@ -3,11 +3,12 @@ package schema
 import (
 	"testing"
 
-	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
 	jsschema "github.com/pulumi/jsschema"
+	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
+
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
 )
 
@@ -87,6 +88,83 @@ func TestGatherListHandlerSchemaWithRefFallback(t *testing.T) {
 			Type: "string",
 		},
 	}, listSchema.Properties)
+}
+
+func TestGatherListHandlerSchemaWithRefThroughDefinition(t *testing.T) {
+	ctx := cfSchemaContext{
+		resourceSpec: &jsschema.Schema{
+			Properties: map[string]*jsschema.Schema{
+				"DomainName": {
+					Reference: "#/definitions/DomainName",
+				},
+			},
+			Definitions: map[string]*jsschema.Schema{
+				"DomainName": {
+					Type:        jsschema.PrimitiveTypes{jsschema.StringType},
+					Description: "The unique name of the domain.",
+				},
+			},
+			Extras: map[string]interface{}{
+				"handlers": map[string]interface{}{
+					"list": map[string]interface{}{
+						"handlerSchema": map[string]interface{}{
+							"properties": map[string]interface{}{
+								"DomainName": map[string]interface{}{
+									"$ref": "resource-schema.json#/properties/DomainName",
+								},
+							},
+							"required": []interface{}{"DomainName"},
+						},
+					},
+				},
+			},
+		},
+	}
+
+	listSchema := ctx.gatherListHandlerSchema()
+	require.NotNil(t, listSchema)
+	assert.Equal(t, []string{"DomainName"}, listSchema.Required)
+	assert.Equal(t, map[string]metadata.ListHandlerProperty{
+		"DomainName": {
+			Description: "The unique name of the domain.",
+			Type:        "string",
+		},
+	}, listSchema.Properties)
+}
+
+func TestGatherListHandlerSchemaRequiredPropertyFromResourceSchema(t *testing.T) {
+	ctx := cfSchemaContext{
+		resourceSpec: &jsschema.Schema{
+			Properties: map[string]*jsschema.Schema{
+				"MultiplexId": {
+					Type:        jsschema.PrimitiveTypes{jsschema.StringType},
+					Description: "The ID of the multiplex that the program belongs to.",
+				},
+			},
+			Extras: map[string]interface{}{
+				"handlers": map[string]interface{}{
+					"list": map[string]interface{}{
+						"handlerSchema": map[string]interface{}{
+							"properties": map[string]interface{}{
+								"Arn": map[string]interface{}{
+									"$ref": "resource-schema.json#/properties/MultiplexId",
+								},
+							},
+							"required": []interface{}{"MultiplexId"},
+						},
+					},
+				},
+			},
+		},
+	}
+
+	listSchema := ctx.gatherListHandlerSchema()
+	require.NotNil(t, listSchema)
+	assert.Equal(t, []string{"MultiplexId"}, listSchema.Required)
+	assert.Equal(t, metadata.ListHandlerProperty{
+		Description: "The ID of the multiplex that the program belongs to.",
+		Type:        "string",
+	}, listSchema.Properties["MultiplexId"])
 }
 
 func TestGatherListHandlerSchemaWithRefDifferentName(t *testing.T) {
@@ -234,4 +312,29 @@ func TestGatherListInputsFailsOnSdkNameCollision(t *testing.T) {
 
 	_, err := ctx.gatherListInputs()
 	require.ErrorContains(t, err, "both map to SDK name")
+}
+
+func TestGatherListInputsFailsWhenRequiredPropertyHasNoSchema(t *testing.T) {
+	ctx := cfSchemaContext{
+		cfTypeName: "AWS::Test::Resource",
+		resourceSpec: &jsschema.Schema{
+			Extras: map[string]interface{}{
+				"handlers": map[string]interface{}{
+					"list": map[string]interface{}{
+						"handlerSchema": map[string]interface{}{
+							"properties": map[string]interface{}{
+								"ScopeName": map[string]interface{}{
+									"$ref": "resource-schema.json#/properties/ScopeName",
+								},
+							},
+							"required": []interface{}{"ScopeName"},
+						},
+					},
+				},
+			},
+		},
+	}
+
+	_, err := ctx.gatherListInputs()
+	require.ErrorContains(t, err, `required list handler property "ScopeName" for AWS::Test::Resource has no schema`)
 }

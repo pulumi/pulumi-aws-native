@@ -1288,7 +1288,9 @@ func (p *cfnProvider) List(req *pulumirpc.ListRequest, stream pulumirpc.Resource
 	}
 
 	maxResults := effectiveCloudControlListMaxResults(req.GetPageSize(), req.GetLimit())
-	descriptions, continuation, err := p.ccc.List(stream.Context(), spec.CfType, resourceModel, nextToken, maxResults)
+	listCtx, cancel := p.listContext(stream.Context())
+	defer cancel()
+	descriptions, continuation, err := p.ccc.List(listCtx, spec.CfType, resourceModel, nextToken, maxResults)
 	if err != nil {
 		return err
 	}
@@ -1320,6 +1322,18 @@ func (p *cfnProvider) List(req *pulumirpc.ListRequest, stream pulumirpc.Resource
 	return nil
 }
 
+func (p *cfnProvider) listContext(streamCtx context.Context) (context.Context, context.CancelFunc) {
+	if p.canceler == nil || p.canceler.context == nil {
+		return streamCtx, func() {}
+	}
+	ctx, cancel := context.WithCancel(streamCtx)
+	stop := context.AfterFunc(p.canceler.context, cancel)
+	return ctx, func() {
+		stop()
+		cancel()
+	}
+}
+
 func unmarshalListQuery(query *structpb.Struct, token string) (resource.PropertyMap, error) {
 	if query == nil {
 		return resource.PropertyMap{}, nil
@@ -1337,7 +1351,16 @@ func unmarshalListQuery(query *structpb.Struct, token string) (resource.Property
 }
 
 func convertListQueryToCfn(spec *metadata.CloudAPIResource, query resource.PropertyMap) (map[string]interface{}, error) {
-	if spec.ListHandlerSchema == nil || len(spec.ListHandlerSchema.Properties) == 0 {
+	if spec.ListHandlerSchema == nil {
+		if len(query) == 0 {
+			return nil, nil
+		}
+		return nil, status.Error(codes.InvalidArgument, "List query is not supported for this resource type")
+	}
+	if len(spec.ListHandlerSchema.Properties) == 0 {
+		if len(spec.ListHandlerSchema.Required) > 0 {
+			return nil, status.Error(codes.Internal, "List handler metadata has required properties without schemas")
+		}
 		if len(query) == 0 {
 			return nil, nil
 		}
@@ -1354,8 +1377,7 @@ func convertListQueryToCfn(spec *metadata.CloudAPIResource, query resource.Prope
 	for _, cfnName := range spec.ListHandlerSchema.Required {
 		sdkName := naming.ToSdkName(cfnName)
 		if _, ok := cfnNamesBySdkName[sdkName]; !ok {
-			cfnNamesBySdkName[sdkName] = cfnName
-			propsBySdkName[sdkName] = metadata.ListHandlerProperty{}
+			return nil, status.Errorf(codes.Internal, "required List query property %q has no schema", sdkName)
 		}
 	}
 

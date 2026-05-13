@@ -2,24 +2,26 @@ package provider
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"reflect"
 	"testing"
 	"time"
 
+	"github.com/aws/aws-sdk-go-v2/service/cloudcontrol/types"
 	"github.com/mattbaird/jsonpatch"
-	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
-	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
-	"github.com/pulumi/pulumi/sdk/v3/go/common/resource/plugin"
-	"github.com/pulumi/pulumi/sdk/v3/go/common/util/rpcutil/rpcerror"
-	pulumirpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	gomock "go.uber.org/mock/gomock"
 	grpcmetadata "google.golang.org/grpc/metadata"
 	"google.golang.org/protobuf/types/known/structpb"
 
-	"github.com/aws/aws-sdk-go-v2/service/cloudcontrol/types"
+	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/resource/plugin"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/rpcutil/rpcerror"
+	pulumirpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
+
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/autonaming"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/client"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/default_tags"
@@ -29,10 +31,14 @@ import (
 
 type listTestStream struct {
 	ctx       context.Context
+	sendErr   error
 	responses []*pulumirpc.ListResponse
 }
 
 func (s *listTestStream) Send(response *pulumirpc.ListResponse) error {
+	if s.sendErr != nil {
+		return s.sendErr
+	}
 	s.responses = append(s.responses, response)
 	return nil
 }
@@ -93,6 +99,22 @@ func TestListRejectsNonListableResource(t *testing.T) {
 	assert.Contains(t, err.Error(), "does not support List")
 }
 
+func TestListRejectsUnknownResource(t *testing.T) {
+	ctrl := gomock.NewController(t)
+	defer ctrl.Finish()
+
+	provider := &cfnProvider{
+		resourceMap:     &metadata.CloudAPIMetadata{Resources: map[string]metadata.CloudAPIResource{}},
+		customResources: map[string]resources.CustomResource{},
+		ccc:             client.NewMockCloudControlClient(ctrl),
+	}
+
+	err := provider.List(&pulumirpc.ListRequest{Token: "aws:missing/resource:Resource"}, &listTestStream{})
+
+	require.Error(t, err)
+	assert.Contains(t, err.Error(), "not found")
+}
+
 func TestListReturnsComputedForUnknownQuery(t *testing.T) {
 	ctrl := gomock.NewController(t)
 	defer ctrl.Finish()
@@ -124,6 +146,33 @@ func TestListReturnsComputedForUnknownQuery(t *testing.T) {
 	require.NoError(t, err)
 	require.Len(t, stream.responses, 1)
 	assert.NotNil(t, stream.responses[0].GetComputed())
+}
+
+func TestListRejectsQueryWhenListInputsAreEmpty(t *testing.T) {
+	ctrl := gomock.NewController(t)
+	defer ctrl.Finish()
+
+	provider := &cfnProvider{
+		resourceMap: &metadata.CloudAPIMetadata{Resources: map[string]metadata.CloudAPIResource{
+			"aws:s3/bucket:Bucket": {
+				CfType:            "AWS::S3::Bucket",
+				HasListHandler:    true,
+				ListHandlerSchema: &metadata.ListHandlerSchema{},
+			},
+		}},
+		customResources: map[string]resources.CustomResource{},
+		ccc:             client.NewMockCloudControlClient(ctrl),
+	}
+
+	err := provider.List(&pulumirpc.ListRequest{
+		Token: "aws:s3/bucket:Bucket",
+		Query: listQueryStruct(t, resource.PropertyMap{
+			"name": resource.NewStringProperty("bucket-a"),
+		}),
+	}, &listTestStream{})
+
+	require.Error(t, err)
+	assert.Contains(t, err.Error(), "List query is not supported")
 }
 
 func TestListEmptyQueryAndContinuation(t *testing.T) {
@@ -163,6 +212,192 @@ func TestListEmptyQueryAndContinuation(t *testing.T) {
 	assert.Equal(t, id1, stream.responses[0].GetResult().GetId())
 	assert.Equal(t, id2, stream.responses[1].GetResult().GetId())
 	assert.Equal(t, continuation, stream.responses[2].GetContinuation().GetContinuationToken())
+}
+
+func TestListMaxResults(t *testing.T) {
+	tests := []struct {
+		name     string
+		pageSize int64
+		limit    int64
+		expected *int32
+	}{
+		{name: "page size only", pageSize: 25, expected: int32Ptr(25)},
+		{name: "limit only", limit: 15, expected: int32Ptr(15)},
+		{name: "omitted", expected: nil},
+		{name: "capped", pageSize: 250, expected: int32Ptr(100)},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			ctrl := gomock.NewController(t)
+			defer ctrl.Finish()
+
+			mockCCC := client.NewMockCloudControlClient(ctrl)
+			provider := &cfnProvider{
+				resourceMap: &metadata.CloudAPIMetadata{Resources: map[string]metadata.CloudAPIResource{
+					"aws:s3/bucket:Bucket": {
+						CfType:         "AWS::S3::Bucket",
+						HasListHandler: true,
+					},
+				}},
+				customResources: map[string]resources.CustomResource{},
+				ccc:             mockCCC,
+			}
+
+			mockCCC.EXPECT().
+				List(gomock.Any(), "AWS::S3::Bucket", (*string)(nil), (*string)(nil), tt.expected).
+				Return(nil, nil, nil)
+
+			err := provider.List(&pulumirpc.ListRequest{
+				Token:    "aws:s3/bucket:Bucket",
+				PageSize: tt.pageSize,
+				Limit:    tt.limit,
+			}, &listTestStream{})
+
+			require.NoError(t, err)
+		})
+	}
+}
+
+func TestListErrorsWhenCloudControlReturnsMoreThanRequested(t *testing.T) {
+	ctrl := gomock.NewController(t)
+	defer ctrl.Finish()
+
+	mockCCC := client.NewMockCloudControlClient(ctrl)
+	provider := &cfnProvider{
+		resourceMap: &metadata.CloudAPIMetadata{Resources: map[string]metadata.CloudAPIResource{
+			"aws:s3/bucket:Bucket": {
+				CfType:         "AWS::S3::Bucket",
+				HasListHandler: true,
+			},
+		}},
+		customResources: map[string]resources.CustomResource{},
+		ccc:             mockCCC,
+	}
+
+	id1, id2 := "bucket-a", "bucket-b"
+	expectedMaxResults := int32(1)
+	mockCCC.EXPECT().
+		List(gomock.Any(), "AWS::S3::Bucket", (*string)(nil), (*string)(nil), &expectedMaxResults).
+		Return([]types.ResourceDescription{{Identifier: &id1}, {Identifier: &id2}}, nil, nil)
+
+	err := provider.List(&pulumirpc.ListRequest{
+		Token: "aws:s3/bucket:Bucket",
+		Limit: 1,
+	}, &listTestStream{})
+
+	require.Error(t, err)
+	assert.Contains(t, err.Error(), "more than requested maximum")
+}
+
+func TestListErrorsWhenIdentifierIsMissing(t *testing.T) {
+	tests := []struct {
+		name       string
+		identifier *string
+	}{
+		{name: "nil", identifier: nil},
+		{name: "empty", identifier: stringPtr("")},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			ctrl := gomock.NewController(t)
+			defer ctrl.Finish()
+
+			mockCCC := client.NewMockCloudControlClient(ctrl)
+			provider := &cfnProvider{
+				resourceMap: &metadata.CloudAPIMetadata{Resources: map[string]metadata.CloudAPIResource{
+					"aws:s3/bucket:Bucket": {
+						CfType:         "AWS::S3::Bucket",
+						HasListHandler: true,
+					},
+				}},
+				customResources: map[string]resources.CustomResource{},
+				ccc:             mockCCC,
+			}
+
+			mockCCC.EXPECT().
+				List(gomock.Any(), "AWS::S3::Bucket", (*string)(nil), (*string)(nil), gomock.Nil()).
+				Return([]types.ResourceDescription{{Identifier: tt.identifier}}, nil, nil)
+
+			err := provider.List(&pulumirpc.ListRequest{Token: "aws:s3/bucket:Bucket"}, &listTestStream{})
+
+			require.Error(t, err)
+			assert.Contains(t, err.Error(), "empty identifier")
+		})
+	}
+}
+
+func TestListPropagatesProviderCancellation(t *testing.T) {
+	ctrl := gomock.NewController(t)
+	defer ctrl.Finish()
+
+	providerCtx, cancel := context.WithCancel(context.Background())
+	defer cancel()
+	mockCCC := client.NewMockCloudControlClient(ctrl)
+	provider := &cfnProvider{
+		resourceMap: &metadata.CloudAPIMetadata{Resources: map[string]metadata.CloudAPIResource{
+			"aws:s3/bucket:Bucket": {
+				CfType:         "AWS::S3::Bucket",
+				HasListHandler: true,
+			},
+		}},
+		customResources: map[string]resources.CustomResource{},
+		ccc:             mockCCC,
+		canceler: &cancellationContext{
+			context: providerCtx,
+			cancel:  cancel,
+		},
+	}
+
+	mockCCC.EXPECT().
+		List(gomock.Any(), "AWS::S3::Bucket", (*string)(nil), (*string)(nil), gomock.Nil()).
+		DoAndReturn(func(
+			ctx context.Context,
+			_ string,
+			_ *string,
+			_ *string,
+			_ *int32,
+		) ([]types.ResourceDescription, *string, error) {
+			cancel()
+			select {
+			case <-ctx.Done():
+			case <-time.After(time.Second):
+				t.Fatal("timed out waiting for List context cancellation")
+			}
+			return nil, nil, ctx.Err()
+		})
+
+	err := provider.List(&pulumirpc.ListRequest{Token: "aws:s3/bucket:Bucket"}, &listTestStream{})
+
+	require.ErrorIs(t, err, context.Canceled)
+}
+
+func TestListReturnsStreamSendError(t *testing.T) {
+	ctrl := gomock.NewController(t)
+	defer ctrl.Finish()
+
+	mockCCC := client.NewMockCloudControlClient(ctrl)
+	provider := &cfnProvider{
+		resourceMap: &metadata.CloudAPIMetadata{Resources: map[string]metadata.CloudAPIResource{
+			"aws:s3/bucket:Bucket": {
+				CfType:         "AWS::S3::Bucket",
+				HasListHandler: true,
+			},
+		}},
+		customResources: map[string]resources.CustomResource{},
+		ccc:             mockCCC,
+	}
+
+	id := "bucket-a"
+	mockCCC.EXPECT().
+		List(gomock.Any(), "AWS::S3::Bucket", (*string)(nil), (*string)(nil), gomock.Nil()).
+		Return([]types.ResourceDescription{{Identifier: &id}}, nil, nil)
+
+	sendErr := errors.New("send failed")
+	err := provider.List(&pulumirpc.ListRequest{Token: "aws:s3/bucket:Bucket"}, &listTestStream{sendErr: sendErr})
+
+	require.ErrorIs(t, err, sendErr)
 }
 
 func TestListScopedQueryConvertsToCloudFormationCasing(t *testing.T) {
@@ -241,6 +476,14 @@ func TestListRejectsInvalidQuery(t *testing.T) {
 		"restApiId": resource.NewNumberProperty(42),
 	})
 	require.ErrorContains(t, err, "expected string")
+
+	_, err = convertListQueryToCfn(&metadata.CloudAPIResource{
+		HasListHandler: true,
+		ListHandlerSchema: &metadata.ListHandlerSchema{
+			Required: []string{"RestApiId"},
+		},
+	}, resource.PropertyMap{})
+	require.ErrorContains(t, err, "required properties without schemas")
 }
 
 func TestConfigure(t *testing.T) {
@@ -2242,4 +2485,8 @@ func parsePluginError(err error) (
 
 func stringPtr(s string) *string {
 	return &s
+}
+
+func int32Ptr(i int32) *int32 {
+	return &i
 }

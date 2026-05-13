@@ -85,10 +85,12 @@ When `ListHandlerSchema` is present:
 - Include required and optional properties.
 - Set `ListInputs.Required` from handler schema `Required`, converted to SDK casing.
 
-Some CloudFormation schemas declare required list handler fields that are absent from `handlerSchema.properties`.
-For these, emit the required SDK-cased list input with an `Any` type and keep the CloudFormation required field name as the runtime serialization key.
+Some CloudFormation schemas declare required list handler fields through `$ref` chains rather than inline property schemas.
+The generator should resolve those references before emitting `listInputs`.
+If a required list handler field is missing from `handlerSchema.properties`, the generator may resolve that field from the resource's own property schema.
+If a required list handler field cannot be resolved to schema metadata from either source, generation should fail instead of emitting an untyped required `Any` input.
 
-`ListHandlerSchema` should remain stored in CloudFormation casing as the source of truth. Runtime should build a per-resource `sdkName -> cfnName` map from `ListHandlerSchema.Properties` plus any required fields absent from `properties`, validate incoming `ListRequest.Query` keys against the SDK names, and serialize accepted values under the mapped CloudFormation names.
+`ListHandlerSchema` should remain stored in CloudFormation casing as the source of truth. Runtime should build a per-resource `sdkName -> cfnName` map from `ListHandlerSchema.Properties`, validate incoming `ListRequest.Query` keys against the SDK names, and serialize accepted values under the mapped CloudFormation names.
 
 If two CloudFormation list handler fields collapse to the same SDK name, the generator should fail. The runtime should not guess which CloudFormation field a colliding SDK name means.
 
@@ -193,6 +195,40 @@ Continuation requests should normally use the same `Token` and `Query` as the in
 
 The provider should not implement partial-page buffering in v1. It should request at most the number of results it is prepared to stream. If CloudControl returns more descriptions than the effective requested maximum, the provider should return an error rather than stream extra items, silently drop items, or invent item-offset state inside an already-fetched CloudControl page.
 
+### Limit And Page Size Semantics
+
+The Pulumi `List` protocol leaves room for two plausible interpretations of `Limit`, `PageSize`, and `ContinuationToken`.
+
+Under a stateless page API interpretation, each provider `List` RPC is one page request. `PageSize` and `Limit` both bound the current response stream. A non-empty continuation token is returned to the caller, and the caller decides whether to request another page. In this model:
+
+- `limit=50, pageSize=10` returns up to 10 results plus a continuation token if more results exist.
+- If the caller follows the continuation token with the same `limit=50, pageSize=10`, the next call again returns up to 10 results.
+- The provider does not know how many results the caller has already received unless that state is encoded in the continuation token.
+- The caller is responsible for stopping after 50 total results if it wants an overall cap.
+
+This maps directly to CloudControl. The Pulumi continuation token can be the CloudControl `NextToken`, one provider RPC corresponds to one CloudControl `ListResources` call, and the provider does not need process-local sessions, token encryption, or cross-request accounting. The tradeoff is that `Limit` is not a logical total across a continuation chain. If a higher-level CLI expects `--limit 50` to return at most 50 total results while automatically following continuations, the caller must enforce that total.
+
+Under a logical list operation interpretation, `Limit` is the overall cap for the whole continuation chain and `PageSize` bounds each provider response stream. In this model:
+
+- `limit=50, pageSize=10` returns up to 10 results plus a continuation token.
+- The second through fifth calls return the next chunks.
+- After 50 total results, the provider returns no continuation token even if the backing service has more resources.
+- The provider must remember or reconstruct how many results were already returned.
+
+This better matches a user-facing command where `--limit 50 --page-size 10` means "return 50 results to the user, using internal pages of 10." It also matches the provider protocol comment that a continuation request should use the same `token`, `query`, and `limit` as the first page. The tradeoff is that it requires provider-owned continuation state. A provider can implement this with an in-memory session keyed by an opaque token, or with a stateless encrypted/authenticated continuation token that carries the upstream token and returned-result count.
+
+An in-memory session token is simple and avoids encoding query data, but it assumes a long-running provider process. Tokens expire, provider restarts invalidate them, cleanup is required, and concurrent use must be serialized. A stateless token survives provider restarts and fits CloudControl pass-through better, but it must be designed carefully: it must not contain raw query values or unkeyed query hashes because list queries may contain Pulumi secrets. If stateless query consistency is needed, use a keyed MAC over a canonical query and authenticate the entire continuation payload.
+
+AWS Native v1 currently chooses the stateless page API interpretation because it is the smallest CloudControl-aligned implementation:
+
+- CloudControl already exposes a `NextToken`.
+- CloudControl caps `MaxResults` at 100, so each provider call must be bounded anyway.
+- One provider `List` RPC maps to one CloudControl `ListResources` call.
+- The provider does not buffer pages or run background enumeration work.
+- The provider does not need durable provider-owned continuation storage.
+
+This decision should change if the Pulumi CLI, engine, or SDK contract settles on the logical list operation interpretation. In that case, AWS Native should stop returning CloudControl `NextToken` directly and instead return a provider-owned opaque token that tracks CloudControl `NextToken`, original request identity, original `Limit`, and the number of results already returned.
+
 ## Edge Cases
 
 ### Empty Query
@@ -234,6 +270,7 @@ Add codegen tests covering:
 - `handlers.list` with no `handlerSchema` emits empty `listInputs`.
 - `handlers.list.handlerSchema` emits required and optional `listInputs`.
 - handler schema properties are converted from CloudFormation casing to SDK casing.
+- required handler schema properties that cannot be resolved fail generation.
 - CloudFormation list handler field names that collide after SDK casing conversion fail generation.
 - resources without `handlers.list` do not emit `listInputs`.
 - generated metadata preserves `HasListHandler` independently from `ListHandlerSchema`.
@@ -278,3 +315,6 @@ Do not run the broad provider integration suite locally by default.
 
 1. Whether `Name` should remain empty permanently or later use a conservative resource-specific rule.
 2. Whether list inputs should support only primitive handler schema properties initially, or recursively support object shapes if CloudFormation list handler schemas ever include them.
+3. Whether Pulumi CLI, engine, or SDK callers will expose continuation tokens to users or consume them internally until `Limit` is reached.
+4. Whether the provider protocol intends `Limit` to be a total cap across a continuation chain for all providers. If yes, AWS Native should replace CloudControl token pass-through with provider-owned continuation tokens.
+5. Whether provider-owned continuation tokens should be process-local sessions or stateless authenticated tokens. If stateless tokens are used, they must not include raw query values or unkeyed query hashes.
