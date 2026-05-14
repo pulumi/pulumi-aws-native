@@ -23,14 +23,14 @@ __all__ = ['BrowserCustomArgs', 'BrowserCustom']
 class BrowserCustomArgs:
     def __init__(__self__, *,
                  network_configuration: pulumi.Input['BrowserCustomBrowserNetworkConfigurationArgs'],
-                 browser_signing: Optional[pulumi.Input['BrowserCustomBrowserSigningArgs']] = None,
-                 certificates: Optional[pulumi.Input[Sequence[pulumi.Input['BrowserCustomCertificateArgs']]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enterprise_policies: Optional[pulumi.Input[Sequence[pulumi.Input['BrowserCustomBrowserEnterprisePolicyArgs']]]] = None,
-                 execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 recording_config: Optional[pulumi.Input['BrowserCustomRecordingConfigArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 browser_signing: pulumi.Input[Optional['BrowserCustomBrowserSigningArgs']] = None,
+                 certificates: pulumi.Input[Optional[Sequence[pulumi.Input['BrowserCustomCertificateArgs']]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enterprise_policies: pulumi.Input[Optional[Sequence[pulumi.Input['BrowserCustomBrowserEnterprisePolicyArgs']]]] = None,
+                 execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 recording_config: pulumi.Input[Optional['BrowserCustomRecordingConfigArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a BrowserCustom resource.
 
@@ -76,98 +76,98 @@ class BrowserCustomArgs:
 
     @_builtins.property
     @pulumi.getter(name="browserSigning")
-    def browser_signing(self) -> Optional[pulumi.Input['BrowserCustomBrowserSigningArgs']]:
+    def browser_signing(self) -> pulumi.Input[Optional['BrowserCustomBrowserSigningArgs']]:
         """
         Browser signing configuration.
         """
         return pulumi.get(self, "browser_signing")
 
     @browser_signing.setter
-    def browser_signing(self, value: Optional[pulumi.Input['BrowserCustomBrowserSigningArgs']]):
+    def browser_signing(self, value: pulumi.Input[Optional['BrowserCustomBrowserSigningArgs']]):
         pulumi.set(self, "browser_signing", value)
 
     @_builtins.property
     @pulumi.getter
-    def certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BrowserCustomCertificateArgs']]]]:
+    def certificates(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BrowserCustomCertificateArgs']]]]:
         """
         List of root CA certificates in PEM format.
         """
         return pulumi.get(self, "certificates")
 
     @certificates.setter
-    def certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BrowserCustomCertificateArgs']]]]):
+    def certificates(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BrowserCustomCertificateArgs']]]]):
         pulumi.set(self, "certificates", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the browser.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="enterprisePolicies")
-    def enterprise_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BrowserCustomBrowserEnterprisePolicyArgs']]]]:
+    def enterprise_policies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BrowserCustomBrowserEnterprisePolicyArgs']]]]:
         """
         A list of enterprise policy files for the browser.
         """
         return pulumi.get(self, "enterprise_policies")
 
     @enterprise_policies.setter
-    def enterprise_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BrowserCustomBrowserEnterprisePolicyArgs']]]]):
+    def enterprise_policies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BrowserCustomBrowserEnterprisePolicyArgs']]]]):
         pulumi.set(self, "enterprise_policies", value)
 
     @_builtins.property
     @pulumi.getter(name="executionRoleArn")
-    def execution_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def execution_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the IAM role that the browser uses to access resources.
         """
         return pulumi.get(self, "execution_role_arn")
 
     @execution_role_arn.setter
-    def execution_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def execution_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "execution_role_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the browser.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="recordingConfig")
-    def recording_config(self) -> Optional[pulumi.Input['BrowserCustomRecordingConfigArgs']]:
+    def recording_config(self) -> pulumi.Input[Optional['BrowserCustomRecordingConfigArgs']]:
         """
         Recording configuration for browser.
         """
         return pulumi.get(self, "recording_config")
 
     @recording_config.setter
-    def recording_config(self, value: Optional[pulumi.Input['BrowserCustomRecordingConfigArgs']]):
+    def recording_config(self, value: pulumi.Input[Optional['BrowserCustomRecordingConfigArgs']]):
         pulumi.set(self, "recording_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The tags for the custom browser.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -177,15 +177,15 @@ class BrowserCustom(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 browser_signing: Optional[pulumi.Input[Union['BrowserCustomBrowserSigningArgs', 'BrowserCustomBrowserSigningArgsDict']]] = None,
-                 certificates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BrowserCustomCertificateArgs', 'BrowserCustomCertificateArgsDict']]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enterprise_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BrowserCustomBrowserEnterprisePolicyArgs', 'BrowserCustomBrowserEnterprisePolicyArgsDict']]]]] = None,
-                 execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_configuration: Optional[pulumi.Input[Union['BrowserCustomBrowserNetworkConfigurationArgs', 'BrowserCustomBrowserNetworkConfigurationArgsDict']]] = None,
-                 recording_config: Optional[pulumi.Input[Union['BrowserCustomRecordingConfigArgs', 'BrowserCustomRecordingConfigArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 browser_signing: pulumi.Input[Optional[Union['BrowserCustomBrowserSigningArgs', 'BrowserCustomBrowserSigningArgsDict']]] = None,
+                 certificates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BrowserCustomCertificateArgs', 'BrowserCustomCertificateArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enterprise_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BrowserCustomBrowserEnterprisePolicyArgs', 'BrowserCustomBrowserEnterprisePolicyArgsDict']]]]] = None,
+                 execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_configuration: pulumi.Input[Optional[Union['BrowserCustomBrowserNetworkConfigurationArgs', 'BrowserCustomBrowserNetworkConfigurationArgsDict']]] = None,
+                 recording_config: pulumi.Input[Optional[Union['BrowserCustomRecordingConfigArgs', 'BrowserCustomRecordingConfigArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Resource definition for AWS::BedrockAgentCore::BrowserCustom
@@ -228,15 +228,15 @@ class BrowserCustom(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 browser_signing: Optional[pulumi.Input[Union['BrowserCustomBrowserSigningArgs', 'BrowserCustomBrowserSigningArgsDict']]] = None,
-                 certificates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BrowserCustomCertificateArgs', 'BrowserCustomCertificateArgsDict']]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enterprise_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BrowserCustomBrowserEnterprisePolicyArgs', 'BrowserCustomBrowserEnterprisePolicyArgsDict']]]]] = None,
-                 execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_configuration: Optional[pulumi.Input[Union['BrowserCustomBrowserNetworkConfigurationArgs', 'BrowserCustomBrowserNetworkConfigurationArgsDict']]] = None,
-                 recording_config: Optional[pulumi.Input[Union['BrowserCustomRecordingConfigArgs', 'BrowserCustomRecordingConfigArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 browser_signing: pulumi.Input[Optional[Union['BrowserCustomBrowserSigningArgs', 'BrowserCustomBrowserSigningArgsDict']]] = None,
+                 certificates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BrowserCustomCertificateArgs', 'BrowserCustomCertificateArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enterprise_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BrowserCustomBrowserEnterprisePolicyArgs', 'BrowserCustomBrowserEnterprisePolicyArgsDict']]]]] = None,
+                 execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_configuration: pulumi.Input[Optional[Union['BrowserCustomBrowserNetworkConfigurationArgs', 'BrowserCustomBrowserNetworkConfigurationArgsDict']]] = None,
+                 recording_config: pulumi.Input[Optional[Union['BrowserCustomRecordingConfigArgs', 'BrowserCustomRecordingConfigArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

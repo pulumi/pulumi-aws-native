@@ -22,14 +22,14 @@ __all__ = ['StageArgs', 'Stage']
 class StageArgs:
     def __init__(__self__, *,
                  api_id: pulumi.Input[_builtins.str],
-                 access_log_settings: Optional[pulumi.Input['StageAccessLogSettingsArgs']] = None,
-                 auto_deploy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 client_certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_route_settings: Optional[pulumi.Input['StageRouteSettingsArgs']] = None,
-                 deployment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 access_log_settings: pulumi.Input[Optional['StageAccessLogSettingsArgs']] = None,
+                 auto_deploy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 client_certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_route_settings: pulumi.Input[Optional['StageRouteSettingsArgs']] = None,
+                 deployment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
                  route_settings: Optional[Any] = None,
-                 stage_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 stage_name: pulumi.Input[Optional[_builtins.str]] = None,
                  stage_variables: Optional[Any] = None,
                  tags: Optional[Any] = None):
         """
@@ -89,74 +89,74 @@ class StageArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessLogSettings")
-    def access_log_settings(self) -> Optional[pulumi.Input['StageAccessLogSettingsArgs']]:
+    def access_log_settings(self) -> pulumi.Input[Optional['StageAccessLogSettingsArgs']]:
         """
         Settings for logging access in this stage.
         """
         return pulumi.get(self, "access_log_settings")
 
     @access_log_settings.setter
-    def access_log_settings(self, value: Optional[pulumi.Input['StageAccessLogSettingsArgs']]):
+    def access_log_settings(self, value: pulumi.Input[Optional['StageAccessLogSettingsArgs']]):
         pulumi.set(self, "access_log_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="autoDeploy")
-    def auto_deploy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_deploy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether updates to an API automatically trigger a new deployment. The default value is `false` .
         """
         return pulumi.get(self, "auto_deploy")
 
     @auto_deploy.setter
-    def auto_deploy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_deploy(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_deploy", value)
 
     @_builtins.property
     @pulumi.getter(name="clientCertificateId")
-    def client_certificate_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_certificate_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier of a client certificate for a `Stage` . Supported only for WebSocket APIs.
         """
         return pulumi.get(self, "client_certificate_id")
 
     @client_certificate_id.setter
-    def client_certificate_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_certificate_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_certificate_id", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultRouteSettings")
-    def default_route_settings(self) -> Optional[pulumi.Input['StageRouteSettingsArgs']]:
+    def default_route_settings(self) -> pulumi.Input[Optional['StageRouteSettingsArgs']]:
         """
         The default route settings for the stage.
         """
         return pulumi.get(self, "default_route_settings")
 
     @default_route_settings.setter
-    def default_route_settings(self, value: Optional[pulumi.Input['StageRouteSettingsArgs']]):
+    def default_route_settings(self, value: pulumi.Input[Optional['StageRouteSettingsArgs']]):
         pulumi.set(self, "default_route_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="deploymentId")
-    def deployment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def deployment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The deployment identifier for the API stage. Can't be updated if `autoDeploy` is enabled.
         """
         return pulumi.get(self, "deployment_id")
 
     @deployment_id.setter
-    def deployment_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def deployment_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "deployment_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description for the API stage.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
@@ -175,14 +175,14 @@ class StageArgs:
 
     @_builtins.property
     @pulumi.getter(name="stageName")
-    def stage_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def stage_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The stage name. Stage names can contain only alphanumeric characters, hyphens, and underscores, or be `$default` . Maximum length is 128 characters.
         """
         return pulumi.get(self, "stage_name")
 
     @stage_name.setter
-    def stage_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def stage_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "stage_name", value)
 
     @_builtins.property
@@ -220,15 +220,15 @@ class Stage(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_log_settings: Optional[pulumi.Input[Union['StageAccessLogSettingsArgs', 'StageAccessLogSettingsArgsDict']]] = None,
-                 api_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_deploy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 client_certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_route_settings: Optional[pulumi.Input[Union['StageRouteSettingsArgs', 'StageRouteSettingsArgsDict']]] = None,
-                 deployment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 access_log_settings: pulumi.Input[Optional[Union['StageAccessLogSettingsArgs', 'StageAccessLogSettingsArgsDict']]] = None,
+                 api_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_deploy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 client_certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_route_settings: pulumi.Input[Optional[Union['StageRouteSettingsArgs', 'StageRouteSettingsArgsDict']]] = None,
+                 deployment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
                  route_settings: Optional[Any] = None,
-                 stage_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 stage_name: pulumi.Input[Optional[_builtins.str]] = None,
                  stage_variables: Optional[Any] = None,
                  tags: Optional[Any] = None,
                  __props__=None):
@@ -281,15 +281,15 @@ class Stage(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_log_settings: Optional[pulumi.Input[Union['StageAccessLogSettingsArgs', 'StageAccessLogSettingsArgsDict']]] = None,
-                 api_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_deploy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 client_certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_route_settings: Optional[pulumi.Input[Union['StageRouteSettingsArgs', 'StageRouteSettingsArgsDict']]] = None,
-                 deployment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 access_log_settings: pulumi.Input[Optional[Union['StageAccessLogSettingsArgs', 'StageAccessLogSettingsArgsDict']]] = None,
+                 api_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_deploy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 client_certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_route_settings: pulumi.Input[Optional[Union['StageRouteSettingsArgs', 'StageRouteSettingsArgsDict']]] = None,
+                 deployment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
                  route_settings: Optional[Any] = None,
-                 stage_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 stage_name: pulumi.Input[Optional[_builtins.str]] = None,
                  stage_variables: Optional[Any] = None,
                  tags: Optional[Any] = None,
                  __props__=None):

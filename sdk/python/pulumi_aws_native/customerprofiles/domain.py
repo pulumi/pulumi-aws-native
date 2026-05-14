@@ -25,13 +25,13 @@ __all__ = ['DomainArgs', 'Domain']
 class DomainArgs:
     def __init__(__self__, *,
                  default_expiration_days: pulumi.Input[_builtins.int],
-                 data_store: Optional[pulumi.Input['DomainDataStoreArgs']] = None,
-                 dead_letter_queue_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_encryption_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 matching: Optional[pulumi.Input['DomainMatchingArgs']] = None,
-                 rule_based_matching: Optional[pulumi.Input['DomainRuleBasedMatchingArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 data_store: pulumi.Input[Optional['DomainDataStoreArgs']] = None,
+                 dead_letter_queue_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_encryption_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 matching: pulumi.Input[Optional['DomainMatchingArgs']] = None,
+                 rule_based_matching: pulumi.Input[Optional['DomainRuleBasedMatchingArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Domain resource.
 
@@ -73,83 +73,83 @@ class DomainArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataStore")
-    def data_store(self) -> Optional[pulumi.Input['DomainDataStoreArgs']]:
+    def data_store(self) -> pulumi.Input[Optional['DomainDataStoreArgs']]:
         return pulumi.get(self, "data_store")
 
     @data_store.setter
-    def data_store(self, value: Optional[pulumi.Input['DomainDataStoreArgs']]):
+    def data_store(self, value: pulumi.Input[Optional['DomainDataStoreArgs']]):
         pulumi.set(self, "data_store", value)
 
     @_builtins.property
     @pulumi.getter(name="deadLetterQueueUrl")
-    def dead_letter_queue_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dead_letter_queue_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL of the SQS dead letter queue
         """
         return pulumi.get(self, "dead_letter_queue_url")
 
     @dead_letter_queue_url.setter
-    def dead_letter_queue_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dead_letter_queue_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dead_letter_queue_url", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultEncryptionKey")
-    def default_encryption_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_encryption_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The default encryption key
         """
         return pulumi.get(self, "default_encryption_key")
 
     @default_encryption_key.setter
-    def default_encryption_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_encryption_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_encryption_key", value)
 
     @_builtins.property
     @pulumi.getter(name="domainName")
-    def domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique name of the domain.
         """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
-    def domain_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def matching(self) -> Optional[pulumi.Input['DomainMatchingArgs']]:
+    def matching(self) -> pulumi.Input[Optional['DomainMatchingArgs']]:
         """
         The process of matching duplicate profiles.
         """
         return pulumi.get(self, "matching")
 
     @matching.setter
-    def matching(self, value: Optional[pulumi.Input['DomainMatchingArgs']]):
+    def matching(self, value: pulumi.Input[Optional['DomainMatchingArgs']]):
         pulumi.set(self, "matching", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleBasedMatching")
-    def rule_based_matching(self) -> Optional[pulumi.Input['DomainRuleBasedMatchingArgs']]:
+    def rule_based_matching(self) -> pulumi.Input[Optional['DomainRuleBasedMatchingArgs']]:
         """
         The process of matching duplicate profiles using Rule-Based matching.
         """
         return pulumi.get(self, "rule_based_matching")
 
     @rule_based_matching.setter
-    def rule_based_matching(self, value: Optional[pulumi.Input['DomainRuleBasedMatchingArgs']]):
+    def rule_based_matching(self, value: pulumi.Input[Optional['DomainRuleBasedMatchingArgs']]):
         pulumi.set(self, "rule_based_matching", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags (keys and values) associated with the domain
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -159,14 +159,14 @@ class Domain(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_store: Optional[pulumi.Input[Union['DomainDataStoreArgs', 'DomainDataStoreArgsDict']]] = None,
-                 dead_letter_queue_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_encryption_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_expiration_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 matching: Optional[pulumi.Input[Union['DomainMatchingArgs', 'DomainMatchingArgsDict']]] = None,
-                 rule_based_matching: Optional[pulumi.Input[Union['DomainRuleBasedMatchingArgs', 'DomainRuleBasedMatchingArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 data_store: pulumi.Input[Optional[Union['DomainDataStoreArgs', 'DomainDataStoreArgsDict']]] = None,
+                 dead_letter_queue_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_encryption_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_expiration_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 matching: pulumi.Input[Optional[Union['DomainMatchingArgs', 'DomainMatchingArgsDict']]] = None,
+                 rule_based_matching: pulumi.Input[Optional[Union['DomainRuleBasedMatchingArgs', 'DomainRuleBasedMatchingArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         A domain defined for 3rd party data source in Profile Service
@@ -207,14 +207,14 @@ class Domain(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_store: Optional[pulumi.Input[Union['DomainDataStoreArgs', 'DomainDataStoreArgsDict']]] = None,
-                 dead_letter_queue_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_encryption_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_expiration_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 matching: Optional[pulumi.Input[Union['DomainMatchingArgs', 'DomainMatchingArgsDict']]] = None,
-                 rule_based_matching: Optional[pulumi.Input[Union['DomainRuleBasedMatchingArgs', 'DomainRuleBasedMatchingArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 data_store: pulumi.Input[Optional[Union['DomainDataStoreArgs', 'DomainDataStoreArgsDict']]] = None,
+                 dead_letter_queue_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_encryption_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_expiration_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 matching: pulumi.Input[Optional[Union['DomainMatchingArgs', 'DomainMatchingArgsDict']]] = None,
+                 rule_based_matching: pulumi.Input[Optional[Union['DomainRuleBasedMatchingArgs', 'DomainRuleBasedMatchingArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

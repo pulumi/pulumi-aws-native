@@ -197,8 +197,8 @@ def get_plugin(application_id: Optional[_builtins.str] = None,
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-def get_plugin_output(application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                      plugin_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_plugin_output(application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                      plugin_id: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPluginResult]:
     """
     Definition of AWS::QBusiness::Plugin Resource Type

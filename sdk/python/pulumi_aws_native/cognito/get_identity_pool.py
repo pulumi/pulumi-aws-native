@@ -199,7 +199,7 @@ def get_identity_pool(id: Optional[_builtins.str] = None,
         open_id_connect_provider_arns=pulumi.get(__ret__, 'open_id_connect_provider_arns'),
         saml_provider_arns=pulumi.get(__ret__, 'saml_provider_arns'),
         supported_login_providers=pulumi.get(__ret__, 'supported_login_providers'))
-def get_identity_pool_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_identity_pool_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIdentityPoolResult]:
     """
     Resource Type definition for AWS::Cognito::IdentityPool

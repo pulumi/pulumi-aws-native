@@ -65,58 +65,58 @@ __all__ = [
 class ManagedInstancePropertiesArgsDict(TypedDict):
     image_id: pulumi.Input[_builtins.str]
     instance_type: pulumi.Input[_builtins.str]
-    block_device_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkspaceInstanceBlockDeviceMappingArgsDict']]]]
-    capacity_reservation_specification: NotRequired[pulumi.Input['WorkspaceInstanceCapacityReservationSpecificationArgsDict']]
-    cpu_options: NotRequired[pulumi.Input['WorkspaceInstanceCpuOptionsRequestArgsDict']]
-    credit_specification: NotRequired[pulumi.Input['WorkspaceInstanceCreditSpecificationRequestArgsDict']]
-    disable_api_stop: NotRequired[pulumi.Input[_builtins.bool]]
-    ebs_optimized: NotRequired[pulumi.Input[_builtins.bool]]
-    enable_primary_ipv6: NotRequired[pulumi.Input[_builtins.bool]]
-    enclave_options: NotRequired[pulumi.Input['WorkspaceInstanceEnclaveOptionsRequestArgsDict']]
-    hibernation_options: NotRequired[pulumi.Input['WorkspaceInstanceHibernationOptionsRequestArgsDict']]
-    iam_instance_profile: NotRequired[pulumi.Input['WorkspaceInstanceIamInstanceProfileSpecificationArgsDict']]
-    ipv6_address_count: NotRequired[pulumi.Input[_builtins.int]]
-    key_name: NotRequired[pulumi.Input[_builtins.str]]
-    license_specifications: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkspaceInstanceLicenseConfigurationRequestArgsDict']]]]
-    maintenance_options: NotRequired[pulumi.Input['WorkspaceInstanceInstanceMaintenanceOptionsRequestArgsDict']]
-    metadata_options: NotRequired[pulumi.Input['WorkspaceInstanceInstanceMetadataOptionsRequestArgsDict']]
-    monitoring: NotRequired[pulumi.Input['WorkspaceInstanceRunInstancesMonitoringEnabledArgsDict']]
-    network_interfaces: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkspaceInstanceInstanceNetworkInterfaceSpecificationArgsDict']]]]
-    network_performance_options: NotRequired[pulumi.Input['WorkspaceInstanceInstanceNetworkPerformanceOptionsRequestArgsDict']]
-    placement: NotRequired[pulumi.Input['WorkspaceInstancePlacementArgsDict']]
-    private_dns_name_options: NotRequired[pulumi.Input['WorkspaceInstancePrivateDnsNameOptionsRequestArgsDict']]
-    subnet_id: NotRequired[pulumi.Input[_builtins.str]]
-    tag_specifications: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkspaceInstanceTagSpecificationArgsDict']]]]
-    user_data: NotRequired[pulumi.Input[_builtins.str]]
+    block_device_mappings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WorkspaceInstanceBlockDeviceMappingArgs']]]]]
+    capacity_reservation_specification: NotRequired[pulumi.Input[Optional['WorkspaceInstanceCapacityReservationSpecificationArgs']]]
+    cpu_options: NotRequired[pulumi.Input[Optional['WorkspaceInstanceCpuOptionsRequestArgs']]]
+    credit_specification: NotRequired[pulumi.Input[Optional['WorkspaceInstanceCreditSpecificationRequestArgs']]]
+    disable_api_stop: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    ebs_optimized: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    enable_primary_ipv6: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    enclave_options: NotRequired[pulumi.Input[Optional['WorkspaceInstanceEnclaveOptionsRequestArgs']]]
+    hibernation_options: NotRequired[pulumi.Input[Optional['WorkspaceInstanceHibernationOptionsRequestArgs']]]
+    iam_instance_profile: NotRequired[pulumi.Input[Optional['WorkspaceInstanceIamInstanceProfileSpecificationArgs']]]
+    ipv6_address_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    key_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    license_specifications: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WorkspaceInstanceLicenseConfigurationRequestArgs']]]]]
+    maintenance_options: NotRequired[pulumi.Input[Optional['WorkspaceInstanceInstanceMaintenanceOptionsRequestArgs']]]
+    metadata_options: NotRequired[pulumi.Input[Optional['WorkspaceInstanceInstanceMetadataOptionsRequestArgs']]]
+    monitoring: NotRequired[pulumi.Input[Optional['WorkspaceInstanceRunInstancesMonitoringEnabledArgs']]]
+    network_interfaces: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WorkspaceInstanceInstanceNetworkInterfaceSpecificationArgs']]]]]
+    network_performance_options: NotRequired[pulumi.Input[Optional['WorkspaceInstanceInstanceNetworkPerformanceOptionsRequestArgs']]]
+    placement: NotRequired[pulumi.Input[Optional['WorkspaceInstancePlacementArgs']]]
+    private_dns_name_options: NotRequired[pulumi.Input[Optional['WorkspaceInstancePrivateDnsNameOptionsRequestArgs']]]
+    subnet_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    tag_specifications: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WorkspaceInstanceTagSpecificationArgs']]]]]
+    user_data: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class ManagedInstancePropertiesArgs:
     def __init__(__self__, *,
                  image_id: pulumi.Input[_builtins.str],
                  instance_type: pulumi.Input[_builtins.str],
-                 block_device_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceInstanceBlockDeviceMappingArgs']]]] = None,
-                 capacity_reservation_specification: Optional[pulumi.Input['WorkspaceInstanceCapacityReservationSpecificationArgs']] = None,
-                 cpu_options: Optional[pulumi.Input['WorkspaceInstanceCpuOptionsRequestArgs']] = None,
-                 credit_specification: Optional[pulumi.Input['WorkspaceInstanceCreditSpecificationRequestArgs']] = None,
-                 disable_api_stop: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ebs_optimized: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_primary_ipv6: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enclave_options: Optional[pulumi.Input['WorkspaceInstanceEnclaveOptionsRequestArgs']] = None,
-                 hibernation_options: Optional[pulumi.Input['WorkspaceInstanceHibernationOptionsRequestArgs']] = None,
-                 iam_instance_profile: Optional[pulumi.Input['WorkspaceInstanceIamInstanceProfileSpecificationArgs']] = None,
-                 ipv6_address_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 key_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 license_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceInstanceLicenseConfigurationRequestArgs']]]] = None,
-                 maintenance_options: Optional[pulumi.Input['WorkspaceInstanceInstanceMaintenanceOptionsRequestArgs']] = None,
-                 metadata_options: Optional[pulumi.Input['WorkspaceInstanceInstanceMetadataOptionsRequestArgs']] = None,
-                 monitoring: Optional[pulumi.Input['WorkspaceInstanceRunInstancesMonitoringEnabledArgs']] = None,
-                 network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceInstanceInstanceNetworkInterfaceSpecificationArgs']]]] = None,
-                 network_performance_options: Optional[pulumi.Input['WorkspaceInstanceInstanceNetworkPerformanceOptionsRequestArgs']] = None,
-                 placement: Optional[pulumi.Input['WorkspaceInstancePlacementArgs']] = None,
-                 private_dns_name_options: Optional[pulumi.Input['WorkspaceInstancePrivateDnsNameOptionsRequestArgs']] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceInstanceTagSpecificationArgs']]]] = None,
-                 user_data: Optional[pulumi.Input[_builtins.str]] = None):
+                 block_device_mappings: pulumi.Input[Optional[Sequence[pulumi.Input['WorkspaceInstanceBlockDeviceMappingArgs']]]] = None,
+                 capacity_reservation_specification: pulumi.Input[Optional['WorkspaceInstanceCapacityReservationSpecificationArgs']] = None,
+                 cpu_options: pulumi.Input[Optional['WorkspaceInstanceCpuOptionsRequestArgs']] = None,
+                 credit_specification: pulumi.Input[Optional['WorkspaceInstanceCreditSpecificationRequestArgs']] = None,
+                 disable_api_stop: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ebs_optimized: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_primary_ipv6: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enclave_options: pulumi.Input[Optional['WorkspaceInstanceEnclaveOptionsRequestArgs']] = None,
+                 hibernation_options: pulumi.Input[Optional['WorkspaceInstanceHibernationOptionsRequestArgs']] = None,
+                 iam_instance_profile: pulumi.Input[Optional['WorkspaceInstanceIamInstanceProfileSpecificationArgs']] = None,
+                 ipv6_address_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 key_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 license_specifications: pulumi.Input[Optional[Sequence[pulumi.Input['WorkspaceInstanceLicenseConfigurationRequestArgs']]]] = None,
+                 maintenance_options: pulumi.Input[Optional['WorkspaceInstanceInstanceMaintenanceOptionsRequestArgs']] = None,
+                 metadata_options: pulumi.Input[Optional['WorkspaceInstanceInstanceMetadataOptionsRequestArgs']] = None,
+                 monitoring: pulumi.Input[Optional['WorkspaceInstanceRunInstancesMonitoringEnabledArgs']] = None,
+                 network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input['WorkspaceInstanceInstanceNetworkInterfaceSpecificationArgs']]]] = None,
+                 network_performance_options: pulumi.Input[Optional['WorkspaceInstanceInstanceNetworkPerformanceOptionsRequestArgs']] = None,
+                 placement: pulumi.Input[Optional['WorkspaceInstancePlacementArgs']] = None,
+                 private_dns_name_options: pulumi.Input[Optional['WorkspaceInstancePrivateDnsNameOptionsRequestArgs']] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_specifications: pulumi.Input[Optional[Sequence[pulumi.Input['WorkspaceInstanceTagSpecificationArgs']]]] = None,
+                 user_data: pulumi.Input[Optional[_builtins.str]] = None):
         pulumi.set(__self__, "image_id", image_id)
         pulumi.set(__self__, "instance_type", instance_type)
         if block_device_mappings is not None:
@@ -186,215 +186,215 @@ class ManagedInstancePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="blockDeviceMappings")
-    def block_device_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceInstanceBlockDeviceMappingArgs']]]]:
+    def block_device_mappings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WorkspaceInstanceBlockDeviceMappingArgs']]]]:
         return pulumi.get(self, "block_device_mappings")
 
     @block_device_mappings.setter
-    def block_device_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceInstanceBlockDeviceMappingArgs']]]]):
+    def block_device_mappings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WorkspaceInstanceBlockDeviceMappingArgs']]]]):
         pulumi.set(self, "block_device_mappings", value)
 
     @_builtins.property
     @pulumi.getter(name="capacityReservationSpecification")
-    def capacity_reservation_specification(self) -> Optional[pulumi.Input['WorkspaceInstanceCapacityReservationSpecificationArgs']]:
+    def capacity_reservation_specification(self) -> pulumi.Input[Optional['WorkspaceInstanceCapacityReservationSpecificationArgs']]:
         return pulumi.get(self, "capacity_reservation_specification")
 
     @capacity_reservation_specification.setter
-    def capacity_reservation_specification(self, value: Optional[pulumi.Input['WorkspaceInstanceCapacityReservationSpecificationArgs']]):
+    def capacity_reservation_specification(self, value: pulumi.Input[Optional['WorkspaceInstanceCapacityReservationSpecificationArgs']]):
         pulumi.set(self, "capacity_reservation_specification", value)
 
     @_builtins.property
     @pulumi.getter(name="cpuOptions")
-    def cpu_options(self) -> Optional[pulumi.Input['WorkspaceInstanceCpuOptionsRequestArgs']]:
+    def cpu_options(self) -> pulumi.Input[Optional['WorkspaceInstanceCpuOptionsRequestArgs']]:
         return pulumi.get(self, "cpu_options")
 
     @cpu_options.setter
-    def cpu_options(self, value: Optional[pulumi.Input['WorkspaceInstanceCpuOptionsRequestArgs']]):
+    def cpu_options(self, value: pulumi.Input[Optional['WorkspaceInstanceCpuOptionsRequestArgs']]):
         pulumi.set(self, "cpu_options", value)
 
     @_builtins.property
     @pulumi.getter(name="creditSpecification")
-    def credit_specification(self) -> Optional[pulumi.Input['WorkspaceInstanceCreditSpecificationRequestArgs']]:
+    def credit_specification(self) -> pulumi.Input[Optional['WorkspaceInstanceCreditSpecificationRequestArgs']]:
         return pulumi.get(self, "credit_specification")
 
     @credit_specification.setter
-    def credit_specification(self, value: Optional[pulumi.Input['WorkspaceInstanceCreditSpecificationRequestArgs']]):
+    def credit_specification(self, value: pulumi.Input[Optional['WorkspaceInstanceCreditSpecificationRequestArgs']]):
         pulumi.set(self, "credit_specification", value)
 
     @_builtins.property
     @pulumi.getter(name="disableApiStop")
-    def disable_api_stop(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_api_stop(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "disable_api_stop")
 
     @disable_api_stop.setter
-    def disable_api_stop(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_api_stop(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_api_stop", value)
 
     @_builtins.property
     @pulumi.getter(name="ebsOptimized")
-    def ebs_optimized(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ebs_optimized(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "ebs_optimized")
 
     @ebs_optimized.setter
-    def ebs_optimized(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ebs_optimized(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ebs_optimized", value)
 
     @_builtins.property
     @pulumi.getter(name="enablePrimaryIpv6")
-    def enable_primary_ipv6(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_primary_ipv6(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "enable_primary_ipv6")
 
     @enable_primary_ipv6.setter
-    def enable_primary_ipv6(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_primary_ipv6(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_primary_ipv6", value)
 
     @_builtins.property
     @pulumi.getter(name="enclaveOptions")
-    def enclave_options(self) -> Optional[pulumi.Input['WorkspaceInstanceEnclaveOptionsRequestArgs']]:
+    def enclave_options(self) -> pulumi.Input[Optional['WorkspaceInstanceEnclaveOptionsRequestArgs']]:
         return pulumi.get(self, "enclave_options")
 
     @enclave_options.setter
-    def enclave_options(self, value: Optional[pulumi.Input['WorkspaceInstanceEnclaveOptionsRequestArgs']]):
+    def enclave_options(self, value: pulumi.Input[Optional['WorkspaceInstanceEnclaveOptionsRequestArgs']]):
         pulumi.set(self, "enclave_options", value)
 
     @_builtins.property
     @pulumi.getter(name="hibernationOptions")
-    def hibernation_options(self) -> Optional[pulumi.Input['WorkspaceInstanceHibernationOptionsRequestArgs']]:
+    def hibernation_options(self) -> pulumi.Input[Optional['WorkspaceInstanceHibernationOptionsRequestArgs']]:
         return pulumi.get(self, "hibernation_options")
 
     @hibernation_options.setter
-    def hibernation_options(self, value: Optional[pulumi.Input['WorkspaceInstanceHibernationOptionsRequestArgs']]):
+    def hibernation_options(self, value: pulumi.Input[Optional['WorkspaceInstanceHibernationOptionsRequestArgs']]):
         pulumi.set(self, "hibernation_options", value)
 
     @_builtins.property
     @pulumi.getter(name="iamInstanceProfile")
-    def iam_instance_profile(self) -> Optional[pulumi.Input['WorkspaceInstanceIamInstanceProfileSpecificationArgs']]:
+    def iam_instance_profile(self) -> pulumi.Input[Optional['WorkspaceInstanceIamInstanceProfileSpecificationArgs']]:
         return pulumi.get(self, "iam_instance_profile")
 
     @iam_instance_profile.setter
-    def iam_instance_profile(self, value: Optional[pulumi.Input['WorkspaceInstanceIamInstanceProfileSpecificationArgs']]):
+    def iam_instance_profile(self, value: pulumi.Input[Optional['WorkspaceInstanceIamInstanceProfileSpecificationArgs']]):
         pulumi.set(self, "iam_instance_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv6AddressCount")
-    def ipv6_address_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ipv6_address_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "ipv6_address_count")
 
     @ipv6_address_count.setter
-    def ipv6_address_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ipv6_address_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ipv6_address_count", value)
 
     @_builtins.property
     @pulumi.getter(name="keyName")
-    def key_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "key_name")
 
     @key_name.setter
-    def key_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_name", value)
 
     @_builtins.property
     @pulumi.getter(name="licenseSpecifications")
-    def license_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceInstanceLicenseConfigurationRequestArgs']]]]:
+    def license_specifications(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WorkspaceInstanceLicenseConfigurationRequestArgs']]]]:
         return pulumi.get(self, "license_specifications")
 
     @license_specifications.setter
-    def license_specifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceInstanceLicenseConfigurationRequestArgs']]]]):
+    def license_specifications(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WorkspaceInstanceLicenseConfigurationRequestArgs']]]]):
         pulumi.set(self, "license_specifications", value)
 
     @_builtins.property
     @pulumi.getter(name="maintenanceOptions")
-    def maintenance_options(self) -> Optional[pulumi.Input['WorkspaceInstanceInstanceMaintenanceOptionsRequestArgs']]:
+    def maintenance_options(self) -> pulumi.Input[Optional['WorkspaceInstanceInstanceMaintenanceOptionsRequestArgs']]:
         return pulumi.get(self, "maintenance_options")
 
     @maintenance_options.setter
-    def maintenance_options(self, value: Optional[pulumi.Input['WorkspaceInstanceInstanceMaintenanceOptionsRequestArgs']]):
+    def maintenance_options(self, value: pulumi.Input[Optional['WorkspaceInstanceInstanceMaintenanceOptionsRequestArgs']]):
         pulumi.set(self, "maintenance_options", value)
 
     @_builtins.property
     @pulumi.getter(name="metadataOptions")
-    def metadata_options(self) -> Optional[pulumi.Input['WorkspaceInstanceInstanceMetadataOptionsRequestArgs']]:
+    def metadata_options(self) -> pulumi.Input[Optional['WorkspaceInstanceInstanceMetadataOptionsRequestArgs']]:
         return pulumi.get(self, "metadata_options")
 
     @metadata_options.setter
-    def metadata_options(self, value: Optional[pulumi.Input['WorkspaceInstanceInstanceMetadataOptionsRequestArgs']]):
+    def metadata_options(self, value: pulumi.Input[Optional['WorkspaceInstanceInstanceMetadataOptionsRequestArgs']]):
         pulumi.set(self, "metadata_options", value)
 
     @_builtins.property
     @pulumi.getter
-    def monitoring(self) -> Optional[pulumi.Input['WorkspaceInstanceRunInstancesMonitoringEnabledArgs']]:
+    def monitoring(self) -> pulumi.Input[Optional['WorkspaceInstanceRunInstancesMonitoringEnabledArgs']]:
         return pulumi.get(self, "monitoring")
 
     @monitoring.setter
-    def monitoring(self, value: Optional[pulumi.Input['WorkspaceInstanceRunInstancesMonitoringEnabledArgs']]):
+    def monitoring(self, value: pulumi.Input[Optional['WorkspaceInstanceRunInstancesMonitoringEnabledArgs']]):
         pulumi.set(self, "monitoring", value)
 
     @_builtins.property
     @pulumi.getter(name="networkInterfaces")
-    def network_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceInstanceInstanceNetworkInterfaceSpecificationArgs']]]]:
+    def network_interfaces(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WorkspaceInstanceInstanceNetworkInterfaceSpecificationArgs']]]]:
         return pulumi.get(self, "network_interfaces")
 
     @network_interfaces.setter
-    def network_interfaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceInstanceInstanceNetworkInterfaceSpecificationArgs']]]]):
+    def network_interfaces(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WorkspaceInstanceInstanceNetworkInterfaceSpecificationArgs']]]]):
         pulumi.set(self, "network_interfaces", value)
 
     @_builtins.property
     @pulumi.getter(name="networkPerformanceOptions")
-    def network_performance_options(self) -> Optional[pulumi.Input['WorkspaceInstanceInstanceNetworkPerformanceOptionsRequestArgs']]:
+    def network_performance_options(self) -> pulumi.Input[Optional['WorkspaceInstanceInstanceNetworkPerformanceOptionsRequestArgs']]:
         return pulumi.get(self, "network_performance_options")
 
     @network_performance_options.setter
-    def network_performance_options(self, value: Optional[pulumi.Input['WorkspaceInstanceInstanceNetworkPerformanceOptionsRequestArgs']]):
+    def network_performance_options(self, value: pulumi.Input[Optional['WorkspaceInstanceInstanceNetworkPerformanceOptionsRequestArgs']]):
         pulumi.set(self, "network_performance_options", value)
 
     @_builtins.property
     @pulumi.getter
-    def placement(self) -> Optional[pulumi.Input['WorkspaceInstancePlacementArgs']]:
+    def placement(self) -> pulumi.Input[Optional['WorkspaceInstancePlacementArgs']]:
         return pulumi.get(self, "placement")
 
     @placement.setter
-    def placement(self, value: Optional[pulumi.Input['WorkspaceInstancePlacementArgs']]):
+    def placement(self, value: pulumi.Input[Optional['WorkspaceInstancePlacementArgs']]):
         pulumi.set(self, "placement", value)
 
     @_builtins.property
     @pulumi.getter(name="privateDnsNameOptions")
-    def private_dns_name_options(self) -> Optional[pulumi.Input['WorkspaceInstancePrivateDnsNameOptionsRequestArgs']]:
+    def private_dns_name_options(self) -> pulumi.Input[Optional['WorkspaceInstancePrivateDnsNameOptionsRequestArgs']]:
         return pulumi.get(self, "private_dns_name_options")
 
     @private_dns_name_options.setter
-    def private_dns_name_options(self, value: Optional[pulumi.Input['WorkspaceInstancePrivateDnsNameOptionsRequestArgs']]):
+    def private_dns_name_options(self, value: pulumi.Input[Optional['WorkspaceInstancePrivateDnsNameOptionsRequestArgs']]):
         pulumi.set(self, "private_dns_name_options", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tagSpecifications")
-    def tag_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceInstanceTagSpecificationArgs']]]]:
+    def tag_specifications(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WorkspaceInstanceTagSpecificationArgs']]]]:
         return pulumi.get(self, "tag_specifications")
 
     @tag_specifications.setter
-    def tag_specifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceInstanceTagSpecificationArgs']]]]):
+    def tag_specifications(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WorkspaceInstanceTagSpecificationArgs']]]]):
         pulumi.set(self, "tag_specifications", value)
 
     @_builtins.property
     @pulumi.getter(name="userData")
-    def user_data(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_data(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "user_data")
 
     @user_data.setter
-    def user_data(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_data(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_data", value)
 
 
 class VolumeTagSpecificationArgsDict(TypedDict):
-    resource_type: NotRequired[pulumi.Input['VolumeTagSpecificationResourceType']]
-    tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['VolumeTagArgsDict']]]]
+    resource_type: NotRequired[pulumi.Input[Optional['VolumeTagSpecificationResourceType']]]
+    tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VolumeTagArgs']]]]]
     """
     The tags to apply to the resource
     """
@@ -402,8 +402,8 @@ class VolumeTagSpecificationArgsDict(TypedDict):
 @pulumi.input_type
 class VolumeTagSpecificationArgs:
     def __init__(__self__, *,
-                 resource_type: Optional[pulumi.Input['VolumeTagSpecificationResourceType']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeTagArgs']]]] = None):
+                 resource_type: pulumi.Input[Optional['VolumeTagSpecificationResourceType']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['VolumeTagArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['VolumeTagArgs']]] tags: The tags to apply to the resource
         """
@@ -414,23 +414,23 @@ class VolumeTagSpecificationArgs:
 
     @_builtins.property
     @pulumi.getter(name="resourceType")
-    def resource_type(self) -> Optional[pulumi.Input['VolumeTagSpecificationResourceType']]:
+    def resource_type(self) -> pulumi.Input[Optional['VolumeTagSpecificationResourceType']]:
         return pulumi.get(self, "resource_type")
 
     @resource_type.setter
-    def resource_type(self, value: Optional[pulumi.Input['VolumeTagSpecificationResourceType']]):
+    def resource_type(self, value: pulumi.Input[Optional['VolumeTagSpecificationResourceType']]):
         pulumi.set(self, "resource_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VolumeTagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VolumeTagArgs']]]]:
         """
         The tags to apply to the resource
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeTagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VolumeTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -482,18 +482,18 @@ class VolumeTagArgs:
 
 
 class WorkspaceInstanceBlockDeviceMappingArgsDict(TypedDict):
-    device_name: NotRequired[pulumi.Input[_builtins.str]]
-    ebs: NotRequired[pulumi.Input['WorkspaceInstanceEbsBlockDeviceArgsDict']]
-    no_device: NotRequired[pulumi.Input[_builtins.str]]
-    virtual_name: NotRequired[pulumi.Input[_builtins.str]]
+    device_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    ebs: NotRequired[pulumi.Input[Optional['WorkspaceInstanceEbsBlockDeviceArgs']]]
+    no_device: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    virtual_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class WorkspaceInstanceBlockDeviceMappingArgs:
     def __init__(__self__, *,
-                 device_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ebs: Optional[pulumi.Input['WorkspaceInstanceEbsBlockDeviceArgs']] = None,
-                 no_device: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 device_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ebs: pulumi.Input[Optional['WorkspaceInstanceEbsBlockDeviceArgs']] = None,
+                 no_device: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_name: pulumi.Input[Optional[_builtins.str]] = None):
         if device_name is not None:
             pulumi.set(__self__, "device_name", device_name)
         if ebs is not None:
@@ -505,50 +505,50 @@ class WorkspaceInstanceBlockDeviceMappingArgs:
 
     @_builtins.property
     @pulumi.getter(name="deviceName")
-    def device_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def device_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "device_name")
 
     @device_name.setter
-    def device_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def device_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "device_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def ebs(self) -> Optional[pulumi.Input['WorkspaceInstanceEbsBlockDeviceArgs']]:
+    def ebs(self) -> pulumi.Input[Optional['WorkspaceInstanceEbsBlockDeviceArgs']]:
         return pulumi.get(self, "ebs")
 
     @ebs.setter
-    def ebs(self, value: Optional[pulumi.Input['WorkspaceInstanceEbsBlockDeviceArgs']]):
+    def ebs(self, value: pulumi.Input[Optional['WorkspaceInstanceEbsBlockDeviceArgs']]):
         pulumi.set(self, "ebs", value)
 
     @_builtins.property
     @pulumi.getter(name="noDevice")
-    def no_device(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def no_device(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "no_device")
 
     @no_device.setter
-    def no_device(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def no_device(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "no_device", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualName")
-    def virtual_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "virtual_name")
 
     @virtual_name.setter
-    def virtual_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_name", value)
 
 
 class WorkspaceInstanceCapacityReservationSpecificationArgsDict(TypedDict):
-    capacity_reservation_preference: NotRequired[pulumi.Input['WorkspaceInstanceCapacityReservationSpecificationCapacityReservationPreference']]
-    capacity_reservation_target: NotRequired[pulumi.Input['WorkspaceInstanceCapacityReservationTargetArgsDict']]
+    capacity_reservation_preference: NotRequired[pulumi.Input[Optional['WorkspaceInstanceCapacityReservationSpecificationCapacityReservationPreference']]]
+    capacity_reservation_target: NotRequired[pulumi.Input[Optional['WorkspaceInstanceCapacityReservationTargetArgs']]]
 
 @pulumi.input_type
 class WorkspaceInstanceCapacityReservationSpecificationArgs:
     def __init__(__self__, *,
-                 capacity_reservation_preference: Optional[pulumi.Input['WorkspaceInstanceCapacityReservationSpecificationCapacityReservationPreference']] = None,
-                 capacity_reservation_target: Optional[pulumi.Input['WorkspaceInstanceCapacityReservationTargetArgs']] = None):
+                 capacity_reservation_preference: pulumi.Input[Optional['WorkspaceInstanceCapacityReservationSpecificationCapacityReservationPreference']] = None,
+                 capacity_reservation_target: pulumi.Input[Optional['WorkspaceInstanceCapacityReservationTargetArgs']] = None):
         if capacity_reservation_preference is not None:
             pulumi.set(__self__, "capacity_reservation_preference", capacity_reservation_preference)
         if capacity_reservation_target is not None:
@@ -556,32 +556,32 @@ class WorkspaceInstanceCapacityReservationSpecificationArgs:
 
     @_builtins.property
     @pulumi.getter(name="capacityReservationPreference")
-    def capacity_reservation_preference(self) -> Optional[pulumi.Input['WorkspaceInstanceCapacityReservationSpecificationCapacityReservationPreference']]:
+    def capacity_reservation_preference(self) -> pulumi.Input[Optional['WorkspaceInstanceCapacityReservationSpecificationCapacityReservationPreference']]:
         return pulumi.get(self, "capacity_reservation_preference")
 
     @capacity_reservation_preference.setter
-    def capacity_reservation_preference(self, value: Optional[pulumi.Input['WorkspaceInstanceCapacityReservationSpecificationCapacityReservationPreference']]):
+    def capacity_reservation_preference(self, value: pulumi.Input[Optional['WorkspaceInstanceCapacityReservationSpecificationCapacityReservationPreference']]):
         pulumi.set(self, "capacity_reservation_preference", value)
 
     @_builtins.property
     @pulumi.getter(name="capacityReservationTarget")
-    def capacity_reservation_target(self) -> Optional[pulumi.Input['WorkspaceInstanceCapacityReservationTargetArgs']]:
+    def capacity_reservation_target(self) -> pulumi.Input[Optional['WorkspaceInstanceCapacityReservationTargetArgs']]:
         return pulumi.get(self, "capacity_reservation_target")
 
     @capacity_reservation_target.setter
-    def capacity_reservation_target(self, value: Optional[pulumi.Input['WorkspaceInstanceCapacityReservationTargetArgs']]):
+    def capacity_reservation_target(self, value: pulumi.Input[Optional['WorkspaceInstanceCapacityReservationTargetArgs']]):
         pulumi.set(self, "capacity_reservation_target", value)
 
 
 class WorkspaceInstanceCapacityReservationTargetArgsDict(TypedDict):
-    capacity_reservation_id: NotRequired[pulumi.Input[_builtins.str]]
-    capacity_reservation_resource_group_arn: NotRequired[pulumi.Input[_builtins.str]]
+    capacity_reservation_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    capacity_reservation_resource_group_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class WorkspaceInstanceCapacityReservationTargetArgs:
     def __init__(__self__, *,
-                 capacity_reservation_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 capacity_reservation_resource_group_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 capacity_reservation_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 capacity_reservation_resource_group_arn: pulumi.Input[Optional[_builtins.str]] = None):
         if capacity_reservation_id is not None:
             pulumi.set(__self__, "capacity_reservation_id", capacity_reservation_id)
         if capacity_reservation_resource_group_arn is not None:
@@ -589,32 +589,32 @@ class WorkspaceInstanceCapacityReservationTargetArgs:
 
     @_builtins.property
     @pulumi.getter(name="capacityReservationId")
-    def capacity_reservation_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def capacity_reservation_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "capacity_reservation_id")
 
     @capacity_reservation_id.setter
-    def capacity_reservation_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def capacity_reservation_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "capacity_reservation_id", value)
 
     @_builtins.property
     @pulumi.getter(name="capacityReservationResourceGroupArn")
-    def capacity_reservation_resource_group_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def capacity_reservation_resource_group_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "capacity_reservation_resource_group_arn")
 
     @capacity_reservation_resource_group_arn.setter
-    def capacity_reservation_resource_group_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def capacity_reservation_resource_group_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "capacity_reservation_resource_group_arn", value)
 
 
 class WorkspaceInstanceCpuOptionsRequestArgsDict(TypedDict):
-    core_count: NotRequired[pulumi.Input[_builtins.int]]
-    threads_per_core: NotRequired[pulumi.Input[_builtins.int]]
+    core_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    threads_per_core: NotRequired[pulumi.Input[Optional[_builtins.int]]]
 
 @pulumi.input_type
 class WorkspaceInstanceCpuOptionsRequestArgs:
     def __init__(__self__, *,
-                 core_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 threads_per_core: Optional[pulumi.Input[_builtins.int]] = None):
+                 core_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 threads_per_core: pulumi.Input[Optional[_builtins.int]] = None):
         if core_count is not None:
             pulumi.set(__self__, "core_count", core_count)
         if threads_per_core is not None:
@@ -622,60 +622,60 @@ class WorkspaceInstanceCpuOptionsRequestArgs:
 
     @_builtins.property
     @pulumi.getter(name="coreCount")
-    def core_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def core_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "core_count")
 
     @core_count.setter
-    def core_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def core_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "core_count", value)
 
     @_builtins.property
     @pulumi.getter(name="threadsPerCore")
-    def threads_per_core(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def threads_per_core(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "threads_per_core")
 
     @threads_per_core.setter
-    def threads_per_core(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def threads_per_core(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "threads_per_core", value)
 
 
 class WorkspaceInstanceCreditSpecificationRequestArgsDict(TypedDict):
-    cpu_credits: NotRequired[pulumi.Input['WorkspaceInstanceCreditSpecificationRequestCpuCredits']]
+    cpu_credits: NotRequired[pulumi.Input[Optional['WorkspaceInstanceCreditSpecificationRequestCpuCredits']]]
 
 @pulumi.input_type
 class WorkspaceInstanceCreditSpecificationRequestArgs:
     def __init__(__self__, *,
-                 cpu_credits: Optional[pulumi.Input['WorkspaceInstanceCreditSpecificationRequestCpuCredits']] = None):
+                 cpu_credits: pulumi.Input[Optional['WorkspaceInstanceCreditSpecificationRequestCpuCredits']] = None):
         if cpu_credits is not None:
             pulumi.set(__self__, "cpu_credits", cpu_credits)
 
     @_builtins.property
     @pulumi.getter(name="cpuCredits")
-    def cpu_credits(self) -> Optional[pulumi.Input['WorkspaceInstanceCreditSpecificationRequestCpuCredits']]:
+    def cpu_credits(self) -> pulumi.Input[Optional['WorkspaceInstanceCreditSpecificationRequestCpuCredits']]:
         return pulumi.get(self, "cpu_credits")
 
     @cpu_credits.setter
-    def cpu_credits(self, value: Optional[pulumi.Input['WorkspaceInstanceCreditSpecificationRequestCpuCredits']]):
+    def cpu_credits(self, value: pulumi.Input[Optional['WorkspaceInstanceCreditSpecificationRequestCpuCredits']]):
         pulumi.set(self, "cpu_credits", value)
 
 
 class WorkspaceInstanceEbsBlockDeviceArgsDict(TypedDict):
-    encrypted: NotRequired[pulumi.Input[_builtins.bool]]
-    iops: NotRequired[pulumi.Input[_builtins.int]]
-    kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
-    throughput: NotRequired[pulumi.Input[_builtins.int]]
-    volume_size: NotRequired[pulumi.Input[_builtins.int]]
-    volume_type: NotRequired[pulumi.Input['WorkspaceInstanceEbsBlockDeviceVolumeType']]
+    encrypted: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    iops: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    kms_key_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    throughput: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    volume_size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    volume_type: NotRequired[pulumi.Input[Optional['WorkspaceInstanceEbsBlockDeviceVolumeType']]]
 
 @pulumi.input_type
 class WorkspaceInstanceEbsBlockDeviceArgs:
     def __init__(__self__, *,
-                 encrypted: Optional[pulumi.Input[_builtins.bool]] = None,
-                 iops: Optional[pulumi.Input[_builtins.int]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 throughput: Optional[pulumi.Input[_builtins.int]] = None,
-                 volume_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 volume_type: Optional[pulumi.Input['WorkspaceInstanceEbsBlockDeviceVolumeType']] = None):
+                 encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
+                 iops: pulumi.Input[Optional[_builtins.int]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 throughput: pulumi.Input[Optional[_builtins.int]] = None,
+                 volume_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 volume_type: pulumi.Input[Optional['WorkspaceInstanceEbsBlockDeviceVolumeType']] = None):
         if encrypted is not None:
             pulumi.set(__self__, "encrypted", encrypted)
         if iops is not None:
@@ -691,108 +691,108 @@ class WorkspaceInstanceEbsBlockDeviceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def encrypted(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def encrypted(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "encrypted")
 
     @encrypted.setter
-    def encrypted(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def encrypted(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "encrypted", value)
 
     @_builtins.property
     @pulumi.getter
-    def iops(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def iops(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "iops")
 
     @iops.setter
-    def iops(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def iops(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "iops", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def throughput(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def throughput(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "throughput")
 
     @throughput.setter
-    def throughput(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def throughput(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "throughput", value)
 
     @_builtins.property
     @pulumi.getter(name="volumeSize")
-    def volume_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def volume_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "volume_size")
 
     @volume_size.setter
-    def volume_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def volume_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "volume_size", value)
 
     @_builtins.property
     @pulumi.getter(name="volumeType")
-    def volume_type(self) -> Optional[pulumi.Input['WorkspaceInstanceEbsBlockDeviceVolumeType']]:
+    def volume_type(self) -> pulumi.Input[Optional['WorkspaceInstanceEbsBlockDeviceVolumeType']]:
         return pulumi.get(self, "volume_type")
 
     @volume_type.setter
-    def volume_type(self, value: Optional[pulumi.Input['WorkspaceInstanceEbsBlockDeviceVolumeType']]):
+    def volume_type(self, value: pulumi.Input[Optional['WorkspaceInstanceEbsBlockDeviceVolumeType']]):
         pulumi.set(self, "volume_type", value)
 
 
 class WorkspaceInstanceEnclaveOptionsRequestArgsDict(TypedDict):
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
 
 @pulumi.input_type
 class WorkspaceInstanceEnclaveOptionsRequestArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
 
 class WorkspaceInstanceHibernationOptionsRequestArgsDict(TypedDict):
-    configured: NotRequired[pulumi.Input[_builtins.bool]]
+    configured: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
 
 @pulumi.input_type
 class WorkspaceInstanceHibernationOptionsRequestArgs:
     def __init__(__self__, *,
-                 configured: Optional[pulumi.Input[_builtins.bool]] = None):
+                 configured: pulumi.Input[Optional[_builtins.bool]] = None):
         if configured is not None:
             pulumi.set(__self__, "configured", configured)
 
     @_builtins.property
     @pulumi.getter
-    def configured(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def configured(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "configured")
 
     @configured.setter
-    def configured(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def configured(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "configured", value)
 
 
 class WorkspaceInstanceIamInstanceProfileSpecificationArgsDict(TypedDict):
-    arn: NotRequired[pulumi.Input[_builtins.str]]
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class WorkspaceInstanceIamInstanceProfileSpecificationArgs:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
         if name is not None:
@@ -800,58 +800,58 @@ class WorkspaceInstanceIamInstanceProfileSpecificationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 class WorkspaceInstanceInstanceMaintenanceOptionsRequestArgsDict(TypedDict):
-    auto_recovery: NotRequired[pulumi.Input['WorkspaceInstanceInstanceMaintenanceOptionsRequestAutoRecovery']]
+    auto_recovery: NotRequired[pulumi.Input[Optional['WorkspaceInstanceInstanceMaintenanceOptionsRequestAutoRecovery']]]
 
 @pulumi.input_type
 class WorkspaceInstanceInstanceMaintenanceOptionsRequestArgs:
     def __init__(__self__, *,
-                 auto_recovery: Optional[pulumi.Input['WorkspaceInstanceInstanceMaintenanceOptionsRequestAutoRecovery']] = None):
+                 auto_recovery: pulumi.Input[Optional['WorkspaceInstanceInstanceMaintenanceOptionsRequestAutoRecovery']] = None):
         if auto_recovery is not None:
             pulumi.set(__self__, "auto_recovery", auto_recovery)
 
     @_builtins.property
     @pulumi.getter(name="autoRecovery")
-    def auto_recovery(self) -> Optional[pulumi.Input['WorkspaceInstanceInstanceMaintenanceOptionsRequestAutoRecovery']]:
+    def auto_recovery(self) -> pulumi.Input[Optional['WorkspaceInstanceInstanceMaintenanceOptionsRequestAutoRecovery']]:
         return pulumi.get(self, "auto_recovery")
 
     @auto_recovery.setter
-    def auto_recovery(self, value: Optional[pulumi.Input['WorkspaceInstanceInstanceMaintenanceOptionsRequestAutoRecovery']]):
+    def auto_recovery(self, value: pulumi.Input[Optional['WorkspaceInstanceInstanceMaintenanceOptionsRequestAutoRecovery']]):
         pulumi.set(self, "auto_recovery", value)
 
 
 class WorkspaceInstanceInstanceMetadataOptionsRequestArgsDict(TypedDict):
-    http_endpoint: NotRequired[pulumi.Input['WorkspaceInstanceInstanceMetadataOptionsRequestHttpEndpoint']]
-    http_protocol_ipv6: NotRequired[pulumi.Input['WorkspaceInstanceInstanceMetadataOptionsRequestHttpProtocolIpv6']]
-    http_put_response_hop_limit: NotRequired[pulumi.Input[_builtins.int]]
-    http_tokens: NotRequired[pulumi.Input['WorkspaceInstanceInstanceMetadataOptionsRequestHttpTokens']]
-    instance_metadata_tags: NotRequired[pulumi.Input['WorkspaceInstanceInstanceMetadataOptionsRequestInstanceMetadataTags']]
+    http_endpoint: NotRequired[pulumi.Input[Optional['WorkspaceInstanceInstanceMetadataOptionsRequestHttpEndpoint']]]
+    http_protocol_ipv6: NotRequired[pulumi.Input[Optional['WorkspaceInstanceInstanceMetadataOptionsRequestHttpProtocolIpv6']]]
+    http_put_response_hop_limit: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    http_tokens: NotRequired[pulumi.Input[Optional['WorkspaceInstanceInstanceMetadataOptionsRequestHttpTokens']]]
+    instance_metadata_tags: NotRequired[pulumi.Input[Optional['WorkspaceInstanceInstanceMetadataOptionsRequestInstanceMetadataTags']]]
 
 @pulumi.input_type
 class WorkspaceInstanceInstanceMetadataOptionsRequestArgs:
     def __init__(__self__, *,
-                 http_endpoint: Optional[pulumi.Input['WorkspaceInstanceInstanceMetadataOptionsRequestHttpEndpoint']] = None,
-                 http_protocol_ipv6: Optional[pulumi.Input['WorkspaceInstanceInstanceMetadataOptionsRequestHttpProtocolIpv6']] = None,
-                 http_put_response_hop_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 http_tokens: Optional[pulumi.Input['WorkspaceInstanceInstanceMetadataOptionsRequestHttpTokens']] = None,
-                 instance_metadata_tags: Optional[pulumi.Input['WorkspaceInstanceInstanceMetadataOptionsRequestInstanceMetadataTags']] = None):
+                 http_endpoint: pulumi.Input[Optional['WorkspaceInstanceInstanceMetadataOptionsRequestHttpEndpoint']] = None,
+                 http_protocol_ipv6: pulumi.Input[Optional['WorkspaceInstanceInstanceMetadataOptionsRequestHttpProtocolIpv6']] = None,
+                 http_put_response_hop_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 http_tokens: pulumi.Input[Optional['WorkspaceInstanceInstanceMetadataOptionsRequestHttpTokens']] = None,
+                 instance_metadata_tags: pulumi.Input[Optional['WorkspaceInstanceInstanceMetadataOptionsRequestInstanceMetadataTags']] = None):
         if http_endpoint is not None:
             pulumi.set(__self__, "http_endpoint", http_endpoint)
         if http_protocol_ipv6 is not None:
@@ -865,63 +865,63 @@ class WorkspaceInstanceInstanceMetadataOptionsRequestArgs:
 
     @_builtins.property
     @pulumi.getter(name="httpEndpoint")
-    def http_endpoint(self) -> Optional[pulumi.Input['WorkspaceInstanceInstanceMetadataOptionsRequestHttpEndpoint']]:
+    def http_endpoint(self) -> pulumi.Input[Optional['WorkspaceInstanceInstanceMetadataOptionsRequestHttpEndpoint']]:
         return pulumi.get(self, "http_endpoint")
 
     @http_endpoint.setter
-    def http_endpoint(self, value: Optional[pulumi.Input['WorkspaceInstanceInstanceMetadataOptionsRequestHttpEndpoint']]):
+    def http_endpoint(self, value: pulumi.Input[Optional['WorkspaceInstanceInstanceMetadataOptionsRequestHttpEndpoint']]):
         pulumi.set(self, "http_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="httpProtocolIpv6")
-    def http_protocol_ipv6(self) -> Optional[pulumi.Input['WorkspaceInstanceInstanceMetadataOptionsRequestHttpProtocolIpv6']]:
+    def http_protocol_ipv6(self) -> pulumi.Input[Optional['WorkspaceInstanceInstanceMetadataOptionsRequestHttpProtocolIpv6']]:
         return pulumi.get(self, "http_protocol_ipv6")
 
     @http_protocol_ipv6.setter
-    def http_protocol_ipv6(self, value: Optional[pulumi.Input['WorkspaceInstanceInstanceMetadataOptionsRequestHttpProtocolIpv6']]):
+    def http_protocol_ipv6(self, value: pulumi.Input[Optional['WorkspaceInstanceInstanceMetadataOptionsRequestHttpProtocolIpv6']]):
         pulumi.set(self, "http_protocol_ipv6", value)
 
     @_builtins.property
     @pulumi.getter(name="httpPutResponseHopLimit")
-    def http_put_response_hop_limit(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def http_put_response_hop_limit(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "http_put_response_hop_limit")
 
     @http_put_response_hop_limit.setter
-    def http_put_response_hop_limit(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def http_put_response_hop_limit(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "http_put_response_hop_limit", value)
 
     @_builtins.property
     @pulumi.getter(name="httpTokens")
-    def http_tokens(self) -> Optional[pulumi.Input['WorkspaceInstanceInstanceMetadataOptionsRequestHttpTokens']]:
+    def http_tokens(self) -> pulumi.Input[Optional['WorkspaceInstanceInstanceMetadataOptionsRequestHttpTokens']]:
         return pulumi.get(self, "http_tokens")
 
     @http_tokens.setter
-    def http_tokens(self, value: Optional[pulumi.Input['WorkspaceInstanceInstanceMetadataOptionsRequestHttpTokens']]):
+    def http_tokens(self, value: pulumi.Input[Optional['WorkspaceInstanceInstanceMetadataOptionsRequestHttpTokens']]):
         pulumi.set(self, "http_tokens", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceMetadataTags")
-    def instance_metadata_tags(self) -> Optional[pulumi.Input['WorkspaceInstanceInstanceMetadataOptionsRequestInstanceMetadataTags']]:
+    def instance_metadata_tags(self) -> pulumi.Input[Optional['WorkspaceInstanceInstanceMetadataOptionsRequestInstanceMetadataTags']]:
         return pulumi.get(self, "instance_metadata_tags")
 
     @instance_metadata_tags.setter
-    def instance_metadata_tags(self, value: Optional[pulumi.Input['WorkspaceInstanceInstanceMetadataOptionsRequestInstanceMetadataTags']]):
+    def instance_metadata_tags(self, value: pulumi.Input[Optional['WorkspaceInstanceInstanceMetadataOptionsRequestInstanceMetadataTags']]):
         pulumi.set(self, "instance_metadata_tags", value)
 
 
 class WorkspaceInstanceInstanceNetworkInterfaceSpecificationArgsDict(TypedDict):
-    description: NotRequired[pulumi.Input[_builtins.str]]
-    device_index: NotRequired[pulumi.Input[_builtins.int]]
-    groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    device_index: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    subnet_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class WorkspaceInstanceInstanceNetworkInterfaceSpecificationArgs:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 device_index: Optional[pulumi.Input[_builtins.int]] = None,
-                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 device_index: pulumi.Input[Optional[_builtins.int]] = None,
+                 groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None):
         if description is not None:
             pulumi.set(__self__, "description", description)
         if device_index is not None:
@@ -933,96 +933,96 @@ class WorkspaceInstanceInstanceNetworkInterfaceSpecificationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="deviceIndex")
-    def device_index(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def device_index(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "device_index")
 
     @device_index.setter
-    def device_index(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def device_index(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "device_index", value)
 
     @_builtins.property
     @pulumi.getter
-    def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "groups")
 
     @groups.setter
-    def groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "groups", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_id", value)
 
 
 class WorkspaceInstanceInstanceNetworkPerformanceOptionsRequestArgsDict(TypedDict):
-    bandwidth_weighting: NotRequired[pulumi.Input['WorkspaceInstanceInstanceNetworkPerformanceOptionsRequestBandwidthWeighting']]
+    bandwidth_weighting: NotRequired[pulumi.Input[Optional['WorkspaceInstanceInstanceNetworkPerformanceOptionsRequestBandwidthWeighting']]]
 
 @pulumi.input_type
 class WorkspaceInstanceInstanceNetworkPerformanceOptionsRequestArgs:
     def __init__(__self__, *,
-                 bandwidth_weighting: Optional[pulumi.Input['WorkspaceInstanceInstanceNetworkPerformanceOptionsRequestBandwidthWeighting']] = None):
+                 bandwidth_weighting: pulumi.Input[Optional['WorkspaceInstanceInstanceNetworkPerformanceOptionsRequestBandwidthWeighting']] = None):
         if bandwidth_weighting is not None:
             pulumi.set(__self__, "bandwidth_weighting", bandwidth_weighting)
 
     @_builtins.property
     @pulumi.getter(name="bandwidthWeighting")
-    def bandwidth_weighting(self) -> Optional[pulumi.Input['WorkspaceInstanceInstanceNetworkPerformanceOptionsRequestBandwidthWeighting']]:
+    def bandwidth_weighting(self) -> pulumi.Input[Optional['WorkspaceInstanceInstanceNetworkPerformanceOptionsRequestBandwidthWeighting']]:
         return pulumi.get(self, "bandwidth_weighting")
 
     @bandwidth_weighting.setter
-    def bandwidth_weighting(self, value: Optional[pulumi.Input['WorkspaceInstanceInstanceNetworkPerformanceOptionsRequestBandwidthWeighting']]):
+    def bandwidth_weighting(self, value: pulumi.Input[Optional['WorkspaceInstanceInstanceNetworkPerformanceOptionsRequestBandwidthWeighting']]):
         pulumi.set(self, "bandwidth_weighting", value)
 
 
 class WorkspaceInstanceLicenseConfigurationRequestArgsDict(TypedDict):
-    license_configuration_arn: NotRequired[pulumi.Input[_builtins.str]]
+    license_configuration_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class WorkspaceInstanceLicenseConfigurationRequestArgs:
     def __init__(__self__, *,
-                 license_configuration_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 license_configuration_arn: pulumi.Input[Optional[_builtins.str]] = None):
         if license_configuration_arn is not None:
             pulumi.set(__self__, "license_configuration_arn", license_configuration_arn)
 
     @_builtins.property
     @pulumi.getter(name="licenseConfigurationArn")
-    def license_configuration_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def license_configuration_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "license_configuration_arn")
 
     @license_configuration_arn.setter
-    def license_configuration_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def license_configuration_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "license_configuration_arn", value)
 
 
 class WorkspaceInstancePlacementArgsDict(TypedDict):
-    availability_zone: NotRequired[pulumi.Input[_builtins.str]]
-    group_id: NotRequired[pulumi.Input[_builtins.str]]
-    group_name: NotRequired[pulumi.Input[_builtins.str]]
-    partition_number: NotRequired[pulumi.Input[_builtins.int]]
-    tenancy: NotRequired[pulumi.Input['WorkspaceInstancePlacementTenancy']]
+    availability_zone: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    group_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    group_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    partition_number: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    tenancy: NotRequired[pulumi.Input[Optional['WorkspaceInstancePlacementTenancy']]]
 
 @pulumi.input_type
 class WorkspaceInstancePlacementArgs:
     def __init__(__self__, *,
-                 availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition_number: Optional[pulumi.Input[_builtins.int]] = None,
-                 tenancy: Optional[pulumi.Input['WorkspaceInstancePlacementTenancy']] = None):
+                 availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition_number: pulumi.Input[Optional[_builtins.int]] = None,
+                 tenancy: pulumi.Input[Optional['WorkspaceInstancePlacementTenancy']] = None):
         if availability_zone is not None:
             pulumi.set(__self__, "availability_zone", availability_zone)
         if group_id is not None:
@@ -1036,61 +1036,61 @@ class WorkspaceInstancePlacementArgs:
 
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def availability_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
-    def availability_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def availability_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "availability_zone", value)
 
     @_builtins.property
     @pulumi.getter(name="groupId")
-    def group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "group_id")
 
     @group_id.setter
-    def group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="groupName")
-    def group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "group_name")
 
     @group_name.setter
-    def group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="partitionNumber")
-    def partition_number(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def partition_number(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "partition_number")
 
     @partition_number.setter
-    def partition_number(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def partition_number(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "partition_number", value)
 
     @_builtins.property
     @pulumi.getter
-    def tenancy(self) -> Optional[pulumi.Input['WorkspaceInstancePlacementTenancy']]:
+    def tenancy(self) -> pulumi.Input[Optional['WorkspaceInstancePlacementTenancy']]:
         return pulumi.get(self, "tenancy")
 
     @tenancy.setter
-    def tenancy(self, value: Optional[pulumi.Input['WorkspaceInstancePlacementTenancy']]):
+    def tenancy(self, value: pulumi.Input[Optional['WorkspaceInstancePlacementTenancy']]):
         pulumi.set(self, "tenancy", value)
 
 
 class WorkspaceInstancePrivateDnsNameOptionsRequestArgsDict(TypedDict):
-    enable_resource_name_dns_a_record: NotRequired[pulumi.Input[_builtins.bool]]
-    enable_resource_name_dns_aaaa_record: NotRequired[pulumi.Input[_builtins.bool]]
-    hostname_type: NotRequired[pulumi.Input['WorkspaceInstancePrivateDnsNameOptionsRequestHostnameType']]
+    enable_resource_name_dns_a_record: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    enable_resource_name_dns_aaaa_record: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    hostname_type: NotRequired[pulumi.Input[Optional['WorkspaceInstancePrivateDnsNameOptionsRequestHostnameType']]]
 
 @pulumi.input_type
 class WorkspaceInstancePrivateDnsNameOptionsRequestArgs:
     def __init__(__self__, *,
-                 enable_resource_name_dns_a_record: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_resource_name_dns_aaaa_record: Optional[pulumi.Input[_builtins.bool]] = None,
-                 hostname_type: Optional[pulumi.Input['WorkspaceInstancePrivateDnsNameOptionsRequestHostnameType']] = None):
+                 enable_resource_name_dns_a_record: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_resource_name_dns_aaaa_record: pulumi.Input[Optional[_builtins.bool]] = None,
+                 hostname_type: pulumi.Input[Optional['WorkspaceInstancePrivateDnsNameOptionsRequestHostnameType']] = None):
         if enable_resource_name_dns_a_record is not None:
             pulumi.set(__self__, "enable_resource_name_dns_a_record", enable_resource_name_dns_a_record)
         if enable_resource_name_dns_aaaa_record is not None:
@@ -1100,61 +1100,61 @@ class WorkspaceInstancePrivateDnsNameOptionsRequestArgs:
 
     @_builtins.property
     @pulumi.getter(name="enableResourceNameDnsARecord")
-    def enable_resource_name_dns_a_record(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_resource_name_dns_a_record(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "enable_resource_name_dns_a_record")
 
     @enable_resource_name_dns_a_record.setter
-    def enable_resource_name_dns_a_record(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_resource_name_dns_a_record(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_resource_name_dns_a_record", value)
 
     @_builtins.property
     @pulumi.getter(name="enableResourceNameDnsAaaaRecord")
-    def enable_resource_name_dns_aaaa_record(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_resource_name_dns_aaaa_record(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "enable_resource_name_dns_aaaa_record")
 
     @enable_resource_name_dns_aaaa_record.setter
-    def enable_resource_name_dns_aaaa_record(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_resource_name_dns_aaaa_record(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_resource_name_dns_aaaa_record", value)
 
     @_builtins.property
     @pulumi.getter(name="hostnameType")
-    def hostname_type(self) -> Optional[pulumi.Input['WorkspaceInstancePrivateDnsNameOptionsRequestHostnameType']]:
+    def hostname_type(self) -> pulumi.Input[Optional['WorkspaceInstancePrivateDnsNameOptionsRequestHostnameType']]:
         return pulumi.get(self, "hostname_type")
 
     @hostname_type.setter
-    def hostname_type(self, value: Optional[pulumi.Input['WorkspaceInstancePrivateDnsNameOptionsRequestHostnameType']]):
+    def hostname_type(self, value: pulumi.Input[Optional['WorkspaceInstancePrivateDnsNameOptionsRequestHostnameType']]):
         pulumi.set(self, "hostname_type", value)
 
 
 class WorkspaceInstanceRunInstancesMonitoringEnabledArgsDict(TypedDict):
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
 
 @pulumi.input_type
 class WorkspaceInstanceRunInstancesMonitoringEnabledArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
 
 class WorkspaceInstanceTagSpecificationArgsDict(TypedDict):
-    resource_type: NotRequired[pulumi.Input['WorkspaceInstanceTagSpecificationResourceType']]
-    tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkspaceInstanceTagArgsDict']]]]
+    resource_type: NotRequired[pulumi.Input[Optional['WorkspaceInstanceTagSpecificationResourceType']]]
+    tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WorkspaceInstanceTagArgs']]]]]
 
 @pulumi.input_type
 class WorkspaceInstanceTagSpecificationArgs:
     def __init__(__self__, *,
-                 resource_type: Optional[pulumi.Input['WorkspaceInstanceTagSpecificationResourceType']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceInstanceTagArgs']]]] = None):
+                 resource_type: pulumi.Input[Optional['WorkspaceInstanceTagSpecificationResourceType']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['WorkspaceInstanceTagArgs']]]] = None):
         if resource_type is not None:
             pulumi.set(__self__, "resource_type", resource_type)
         if tags is not None:
@@ -1162,32 +1162,32 @@ class WorkspaceInstanceTagSpecificationArgs:
 
     @_builtins.property
     @pulumi.getter(name="resourceType")
-    def resource_type(self) -> Optional[pulumi.Input['WorkspaceInstanceTagSpecificationResourceType']]:
+    def resource_type(self) -> pulumi.Input[Optional['WorkspaceInstanceTagSpecificationResourceType']]:
         return pulumi.get(self, "resource_type")
 
     @resource_type.setter
-    def resource_type(self, value: Optional[pulumi.Input['WorkspaceInstanceTagSpecificationResourceType']]):
+    def resource_type(self, value: pulumi.Input[Optional['WorkspaceInstanceTagSpecificationResourceType']]):
         pulumi.set(self, "resource_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceInstanceTagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WorkspaceInstanceTagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceInstanceTagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WorkspaceInstanceTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
 class WorkspaceInstanceTagArgsDict(TypedDict):
     key: pulumi.Input[_builtins.str]
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class WorkspaceInstanceTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[_builtins.str],
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         pulumi.set(__self__, "key", key)
         if value is not None:
             pulumi.set(__self__, "value", value)
@@ -1203,11 +1203,11 @@ class WorkspaceInstanceTagArgs:
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 

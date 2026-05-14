@@ -150,13 +150,13 @@ class DataRepositoryAssociationS3ArgsDict(TypedDict):
     """
     The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
     """
-    auto_export_policy: NotRequired[pulumi.Input['DataRepositoryAssociationAutoExportPolicyArgsDict']]
+    auto_export_policy: NotRequired[pulumi.Input[Optional['DataRepositoryAssociationAutoExportPolicyArgs']]]
     """
     Describes a data repository association's automatic export policy. The `AutoExportPolicy` defines the types of updated objects on the file system that will be automatically exported to the data repository. As you create, modify, or delete files, Amazon FSx for Lustre automatically exports the defined changes asynchronously once your application finishes modifying the file.
 
     The `AutoExportPolicy` is only supported on Amazon FSx for Lustre file systems with a data repository association.
     """
-    auto_import_policy: NotRequired[pulumi.Input['DataRepositoryAssociationAutoImportPolicyArgsDict']]
+    auto_import_policy: NotRequired[pulumi.Input[Optional['DataRepositoryAssociationAutoImportPolicyArgs']]]
     """
     Describes the data repository association's automatic import policy. The AutoImportPolicy defines how Amazon FSx keeps your file metadata and directory listings up to date by importing changes to your Amazon FSx for Lustre file system as you modify objects in a linked S3 bucket.
 
@@ -166,8 +166,8 @@ class DataRepositoryAssociationS3ArgsDict(TypedDict):
 @pulumi.input_type
 class DataRepositoryAssociationS3Args:
     def __init__(__self__, *,
-                 auto_export_policy: Optional[pulumi.Input['DataRepositoryAssociationAutoExportPolicyArgs']] = None,
-                 auto_import_policy: Optional[pulumi.Input['DataRepositoryAssociationAutoImportPolicyArgs']] = None):
+                 auto_export_policy: pulumi.Input[Optional['DataRepositoryAssociationAutoExportPolicyArgs']] = None,
+                 auto_import_policy: pulumi.Input[Optional['DataRepositoryAssociationAutoImportPolicyArgs']] = None):
         """
         The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
 
@@ -185,7 +185,7 @@ class DataRepositoryAssociationS3Args:
 
     @_builtins.property
     @pulumi.getter(name="autoExportPolicy")
-    def auto_export_policy(self) -> Optional[pulumi.Input['DataRepositoryAssociationAutoExportPolicyArgs']]:
+    def auto_export_policy(self) -> pulumi.Input[Optional['DataRepositoryAssociationAutoExportPolicyArgs']]:
         """
         Describes a data repository association's automatic export policy. The `AutoExportPolicy` defines the types of updated objects on the file system that will be automatically exported to the data repository. As you create, modify, or delete files, Amazon FSx for Lustre automatically exports the defined changes asynchronously once your application finishes modifying the file.
 
@@ -194,12 +194,12 @@ class DataRepositoryAssociationS3Args:
         return pulumi.get(self, "auto_export_policy")
 
     @auto_export_policy.setter
-    def auto_export_policy(self, value: Optional[pulumi.Input['DataRepositoryAssociationAutoExportPolicyArgs']]):
+    def auto_export_policy(self, value: pulumi.Input[Optional['DataRepositoryAssociationAutoExportPolicyArgs']]):
         pulumi.set(self, "auto_export_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="autoImportPolicy")
-    def auto_import_policy(self) -> Optional[pulumi.Input['DataRepositoryAssociationAutoImportPolicyArgs']]:
+    def auto_import_policy(self) -> pulumi.Input[Optional['DataRepositoryAssociationAutoImportPolicyArgs']]:
         """
         Describes the data repository association's automatic import policy. The AutoImportPolicy defines how Amazon FSx keeps your file metadata and directory listings up to date by importing changes to your Amazon FSx for Lustre file system as you modify objects in a linked S3 bucket.
 
@@ -208,7 +208,7 @@ class DataRepositoryAssociationS3Args:
         return pulumi.get(self, "auto_import_policy")
 
     @auto_import_policy.setter
-    def auto_import_policy(self, value: Optional[pulumi.Input['DataRepositoryAssociationAutoImportPolicyArgs']]):
+    def auto_import_policy(self, value: pulumi.Input[Optional['DataRepositoryAssociationAutoImportPolicyArgs']]):
         pulumi.set(self, "auto_import_policy", value)
 
 
@@ -245,11 +245,11 @@ class S3AccessPointAttachmentOntapFileSystemIdentityArgsDict(TypedDict):
     """
     Specifies the FSx for ONTAP user identity type, accepts either UNIX or WINDOWS.
     """
-    unix_user: NotRequired[pulumi.Input['S3AccessPointAttachmentOntapUnixFileSystemUserArgsDict']]
+    unix_user: NotRequired[pulumi.Input[Optional['S3AccessPointAttachmentOntapUnixFileSystemUserArgs']]]
     """
     Specifies the properties of the file system UNIX user.
     """
-    windows_user: NotRequired[pulumi.Input['S3AccessPointAttachmentOntapWindowsFileSystemUserArgsDict']]
+    windows_user: NotRequired[pulumi.Input[Optional['S3AccessPointAttachmentOntapWindowsFileSystemUserArgs']]]
     """
     Specifies the properties of the file system Windows user.
     """
@@ -258,8 +258,8 @@ class S3AccessPointAttachmentOntapFileSystemIdentityArgsDict(TypedDict):
 class S3AccessPointAttachmentOntapFileSystemIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input['S3AccessPointAttachmentOntapFileSystemIdentityType'],
-                 unix_user: Optional[pulumi.Input['S3AccessPointAttachmentOntapUnixFileSystemUserArgs']] = None,
-                 windows_user: Optional[pulumi.Input['S3AccessPointAttachmentOntapWindowsFileSystemUserArgs']] = None):
+                 unix_user: pulumi.Input[Optional['S3AccessPointAttachmentOntapUnixFileSystemUserArgs']] = None,
+                 windows_user: pulumi.Input[Optional['S3AccessPointAttachmentOntapWindowsFileSystemUserArgs']] = None):
         """
         :param pulumi.Input['S3AccessPointAttachmentOntapFileSystemIdentityType'] type: Specifies the FSx for ONTAP user identity type, accepts either UNIX or WINDOWS.
         :param pulumi.Input['S3AccessPointAttachmentOntapUnixFileSystemUserArgs'] unix_user: Specifies the properties of the file system UNIX user.
@@ -285,26 +285,26 @@ class S3AccessPointAttachmentOntapFileSystemIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="unixUser")
-    def unix_user(self) -> Optional[pulumi.Input['S3AccessPointAttachmentOntapUnixFileSystemUserArgs']]:
+    def unix_user(self) -> pulumi.Input[Optional['S3AccessPointAttachmentOntapUnixFileSystemUserArgs']]:
         """
         Specifies the properties of the file system UNIX user.
         """
         return pulumi.get(self, "unix_user")
 
     @unix_user.setter
-    def unix_user(self, value: Optional[pulumi.Input['S3AccessPointAttachmentOntapUnixFileSystemUserArgs']]):
+    def unix_user(self, value: pulumi.Input[Optional['S3AccessPointAttachmentOntapUnixFileSystemUserArgs']]):
         pulumi.set(self, "unix_user", value)
 
     @_builtins.property
     @pulumi.getter(name="windowsUser")
-    def windows_user(self) -> Optional[pulumi.Input['S3AccessPointAttachmentOntapWindowsFileSystemUserArgs']]:
+    def windows_user(self) -> pulumi.Input[Optional['S3AccessPointAttachmentOntapWindowsFileSystemUserArgs']]:
         """
         Specifies the properties of the file system Windows user.
         """
         return pulumi.get(self, "windows_user")
 
     @windows_user.setter
-    def windows_user(self, value: Optional[pulumi.Input['S3AccessPointAttachmentOntapWindowsFileSystemUserArgs']]):
+    def windows_user(self, value: pulumi.Input[Optional['S3AccessPointAttachmentOntapWindowsFileSystemUserArgs']]):
         pulumi.set(self, "windows_user", value)
 
 
@@ -420,7 +420,7 @@ class S3AccessPointAttachmentOpenZfsPosixFileSystemUserArgsDict(TypedDict):
     """
     The UID of the file system user.
     """
-    secondary_gids: NotRequired[pulumi.Input[Sequence[pulumi.Input['S3AccessPointAttachmentFileSystemGidArgsDict']]]]
+    secondary_gids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['S3AccessPointAttachmentFileSystemGidArgs']]]]]
     """
     The list of secondary GIDs for the file system user.
     """
@@ -430,7 +430,7 @@ class S3AccessPointAttachmentOpenZfsPosixFileSystemUserArgs:
     def __init__(__self__, *,
                  gid: pulumi.Input[_builtins.float],
                  uid: pulumi.Input[_builtins.float],
-                 secondary_gids: Optional[pulumi.Input[Sequence[pulumi.Input['S3AccessPointAttachmentFileSystemGidArgs']]]] = None):
+                 secondary_gids: pulumi.Input[Optional[Sequence[pulumi.Input['S3AccessPointAttachmentFileSystemGidArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.float] gid: The GID of the file system user.
         :param pulumi.Input[_builtins.float] uid: The UID of the file system user.
@@ -467,14 +467,14 @@ class S3AccessPointAttachmentOpenZfsPosixFileSystemUserArgs:
 
     @_builtins.property
     @pulumi.getter(name="secondaryGids")
-    def secondary_gids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['S3AccessPointAttachmentFileSystemGidArgs']]]]:
+    def secondary_gids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['S3AccessPointAttachmentFileSystemGidArgs']]]]:
         """
         The list of secondary GIDs for the file system user.
         """
         return pulumi.get(self, "secondary_gids")
 
     @secondary_gids.setter
-    def secondary_gids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['S3AccessPointAttachmentFileSystemGidArgs']]]]):
+    def secondary_gids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['S3AccessPointAttachmentFileSystemGidArgs']]]]):
         pulumi.set(self, "secondary_gids", value)
 
 
@@ -601,19 +601,19 @@ class S3AccessPointAttachmentS3AccessPointVpcConfigurationArgs:
 
 
 class S3AccessPointAttachmentS3AccessPointArgsDict(TypedDict):
-    alias: NotRequired[pulumi.Input[_builtins.str]]
+    alias: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The S3 access point's alias.
     """
-    policy: NotRequired[Any]
+    policy: NotRequired[Optional[Any]]
     """
     The S3 access point's policy.
     """
-    resource_arn: NotRequired[pulumi.Input[_builtins.str]]
+    resource_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The S3 access point's ARN.
     """
-    vpc_configuration: NotRequired[pulumi.Input['S3AccessPointAttachmentS3AccessPointVpcConfigurationArgsDict']]
+    vpc_configuration: NotRequired[pulumi.Input[Optional['S3AccessPointAttachmentS3AccessPointVpcConfigurationArgs']]]
     """
     The S3 access point's virtual private cloud (VPC) configuration.
     """
@@ -621,10 +621,10 @@ class S3AccessPointAttachmentS3AccessPointArgsDict(TypedDict):
 @pulumi.input_type
 class S3AccessPointAttachmentS3AccessPointArgs:
     def __init__(__self__, *,
-                 alias: Optional[pulumi.Input[_builtins.str]] = None,
+                 alias: pulumi.Input[Optional[_builtins.str]] = None,
                  policy: Optional[Any] = None,
-                 resource_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc_configuration: Optional[pulumi.Input['S3AccessPointAttachmentS3AccessPointVpcConfigurationArgs']] = None):
+                 resource_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_configuration: pulumi.Input[Optional['S3AccessPointAttachmentS3AccessPointVpcConfigurationArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] alias: The S3 access point's alias.
         :param Any policy: The S3 access point's policy.
@@ -642,14 +642,14 @@ class S3AccessPointAttachmentS3AccessPointArgs:
 
     @_builtins.property
     @pulumi.getter
-    def alias(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def alias(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The S3 access point's alias.
         """
         return pulumi.get(self, "alias")
 
     @alias.setter
-    def alias(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def alias(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "alias", value)
 
     @_builtins.property
@@ -666,26 +666,26 @@ class S3AccessPointAttachmentS3AccessPointArgs:
 
     @_builtins.property
     @pulumi.getter(name="resourceArn")
-    def resource_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The S3 access point's ARN.
         """
         return pulumi.get(self, "resource_arn")
 
     @resource_arn.setter
-    def resource_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcConfiguration")
-    def vpc_configuration(self) -> Optional[pulumi.Input['S3AccessPointAttachmentS3AccessPointVpcConfigurationArgs']]:
+    def vpc_configuration(self) -> pulumi.Input[Optional['S3AccessPointAttachmentS3AccessPointVpcConfigurationArgs']]:
         """
         The S3 access point's virtual private cloud (VPC) configuration.
         """
         return pulumi.get(self, "vpc_configuration")
 
     @vpc_configuration.setter
-    def vpc_configuration(self, value: Optional[pulumi.Input['S3AccessPointAttachmentS3AccessPointVpcConfigurationArgs']]):
+    def vpc_configuration(self, value: pulumi.Input[Optional['S3AccessPointAttachmentS3AccessPointVpcConfigurationArgs']]):
         pulumi.set(self, "vpc_configuration", value)
 
 

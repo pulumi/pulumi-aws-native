@@ -219,7 +219,7 @@ def get_compute_node_group(arn: Optional[_builtins.str] = None,
         status=pulumi.get(__ret__, 'status'),
         subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_compute_node_group_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_compute_node_group_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetComputeNodeGroupResult]:
     """
     AWS::PCS::ComputeNodeGroup resource creates an AWS PCS compute node group.

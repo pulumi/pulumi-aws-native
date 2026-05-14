@@ -24,15 +24,15 @@ __all__ = ['PermissionSetArgs', 'PermissionSet']
 class PermissionSetArgs:
     def __init__(__self__, *,
                  instance_arn: pulumi.Input[_builtins.str],
-                 customer_managed_policy_references: Optional[pulumi.Input[Sequence[pulumi.Input['PermissionSetCustomerManagedPolicyReferenceArgs']]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 customer_managed_policy_references: pulumi.Input[Optional[Sequence[pulumi.Input['PermissionSetCustomerManagedPolicyReferenceArgs']]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
                  inline_policy: Optional[Any] = None,
-                 managed_policies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 permissions_boundary: Optional[pulumi.Input['PermissionSetPermissionsBoundaryArgs']] = None,
-                 relay_state_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 session_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 managed_policies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 permissions_boundary: pulumi.Input[Optional['PermissionSetPermissionsBoundaryArgs']] = None,
+                 relay_state_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 session_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a PermissionSet resource.
 
@@ -85,26 +85,26 @@ class PermissionSetArgs:
 
     @_builtins.property
     @pulumi.getter(name="customerManagedPolicyReferences")
-    def customer_managed_policy_references(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PermissionSetCustomerManagedPolicyReferenceArgs']]]]:
+    def customer_managed_policy_references(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PermissionSetCustomerManagedPolicyReferenceArgs']]]]:
         """
         Specifies the names and paths of the customer managed policies that you have attached to your permission set.
         """
         return pulumi.get(self, "customer_managed_policy_references")
 
     @customer_managed_policy_references.setter
-    def customer_managed_policy_references(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PermissionSetCustomerManagedPolicyReferenceArgs']]]]):
+    def customer_managed_policy_references(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PermissionSetCustomerManagedPolicyReferenceArgs']]]]):
         pulumi.set(self, "customer_managed_policy_references", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The permission set description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
@@ -123,31 +123,31 @@ class PermissionSetArgs:
 
     @_builtins.property
     @pulumi.getter(name="managedPolicies")
-    def managed_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def managed_policies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A structure that stores a list of managed policy ARNs that describe the associated AWS managed policy.
         """
         return pulumi.get(self, "managed_policies")
 
     @managed_policies.setter
-    def managed_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def managed_policies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "managed_policies", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name you want to assign to this permission set.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="permissionsBoundary")
-    def permissions_boundary(self) -> Optional[pulumi.Input['PermissionSetPermissionsBoundaryArgs']]:
+    def permissions_boundary(self) -> pulumi.Input[Optional['PermissionSetPermissionsBoundaryArgs']]:
         """
         Specifies the configuration of the AWS managed or customer managed policy that you want to set as a permissions boundary. Specify either `CustomerManagedPolicyReference` to use the name and path of a customer managed policy, or `ManagedPolicyArn` to use the ARN of an AWS managed policy. A permissions boundary represents the maximum permissions that any policy can grant your role. For more information, see [Permissions boundaries for IAM entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html) in the *IAM User Guide* .
 
@@ -156,43 +156,43 @@ class PermissionSetArgs:
         return pulumi.get(self, "permissions_boundary")
 
     @permissions_boundary.setter
-    def permissions_boundary(self, value: Optional[pulumi.Input['PermissionSetPermissionsBoundaryArgs']]):
+    def permissions_boundary(self, value: pulumi.Input[Optional['PermissionSetPermissionsBoundaryArgs']]):
         pulumi.set(self, "permissions_boundary", value)
 
     @_builtins.property
     @pulumi.getter(name="relayStateType")
-    def relay_state_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def relay_state_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The relay state URL that redirect links to any service in the AWS Management Console.
         """
         return pulumi.get(self, "relay_state_type")
 
     @relay_state_type.setter
-    def relay_state_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def relay_state_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "relay_state_type", value)
 
     @_builtins.property
     @pulumi.getter(name="sessionDuration")
-    def session_duration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def session_duration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The length of time that a user can be signed in to an AWS account.
         """
         return pulumi.get(self, "session_duration")
 
     @session_duration.setter
-    def session_duration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def session_duration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "session_duration", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags to attach to the new `PermissionSet` .
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -202,16 +202,16 @@ class PermissionSet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 customer_managed_policy_references: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PermissionSetCustomerManagedPolicyReferenceArgs', 'PermissionSetCustomerManagedPolicyReferenceArgsDict']]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 customer_managed_policy_references: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PermissionSetCustomerManagedPolicyReferenceArgs', 'PermissionSetCustomerManagedPolicyReferenceArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
                  inline_policy: Optional[Any] = None,
-                 instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_policies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 permissions_boundary: Optional[pulumi.Input[Union['PermissionSetPermissionsBoundaryArgs', 'PermissionSetPermissionsBoundaryArgsDict']]] = None,
-                 relay_state_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 session_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_policies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 permissions_boundary: pulumi.Input[Optional[Union['PermissionSetPermissionsBoundaryArgs', 'PermissionSetPermissionsBoundaryArgsDict']]] = None,
+                 relay_state_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 session_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for SSO PermissionSet
@@ -259,16 +259,16 @@ class PermissionSet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 customer_managed_policy_references: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PermissionSetCustomerManagedPolicyReferenceArgs', 'PermissionSetCustomerManagedPolicyReferenceArgsDict']]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 customer_managed_policy_references: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PermissionSetCustomerManagedPolicyReferenceArgs', 'PermissionSetCustomerManagedPolicyReferenceArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
                  inline_policy: Optional[Any] = None,
-                 instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_policies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 permissions_boundary: Optional[pulumi.Input[Union['PermissionSetPermissionsBoundaryArgs', 'PermissionSetPermissionsBoundaryArgsDict']]] = None,
-                 relay_state_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 session_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_policies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 permissions_boundary: pulumi.Input[Optional[Union['PermissionSetPermissionsBoundaryArgs', 'PermissionSetPermissionsBoundaryArgsDict']]] = None,
+                 relay_state_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 session_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

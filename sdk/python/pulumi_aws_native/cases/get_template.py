@@ -194,7 +194,7 @@ def get_template(template_arn: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         template_arn=pulumi.get(__ret__, 'template_arn'),
         template_id=pulumi.get(__ret__, 'template_id'))
-def get_template_output(template_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_template_output(template_arn: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTemplateResult]:
     """
     A template in the Cases domain. This template is used to define the case object model (that is, to define what data can be captured on cases) in a Cases domain. A template must have a unique name within a domain, and it must reference existing field IDs and layout IDs.

@@ -145,8 +145,8 @@ def get_integration(domain_name: Optional[_builtins.str] = None,
         object_type_names=pulumi.get(__ret__, 'object_type_names'),
         scope=pulumi.get(__ret__, 'scope'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_integration_output(domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                           uri: Optional[pulumi.Input[_builtins.str]] = None,
+def get_integration_output(domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                           uri: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIntegrationResult]:
     """
     The resource schema for creating an Amazon Connect Customer Profiles Integration.

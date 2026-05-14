@@ -25,25 +25,25 @@ __all__ = ['TableArgs', 'Table']
 class TableArgs:
     def __init__(__self__, *,
                  key_schema: pulumi.Input[Union[Sequence[pulumi.Input['TableKeySchemaArgs']], Any]],
-                 attribute_definitions: Optional[pulumi.Input[Sequence[pulumi.Input['TableAttributeDefinitionArgs']]]] = None,
-                 billing_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 contributor_insights_specification: Optional[pulumi.Input['TableContributorInsightsSpecificationArgs']] = None,
-                 deletion_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 global_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input['TableGlobalSecondaryIndexArgs']]]] = None,
-                 import_source_specification: Optional[pulumi.Input['TableImportSourceSpecificationArgs']] = None,
-                 kinesis_stream_specification: Optional[pulumi.Input['TableKinesisStreamSpecificationArgs']] = None,
-                 local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input['TableLocalSecondaryIndexArgs']]]] = None,
-                 on_demand_throughput: Optional[pulumi.Input['TableOnDemandThroughputArgs']] = None,
-                 point_in_time_recovery_specification: Optional[pulumi.Input['TablePointInTimeRecoverySpecificationArgs']] = None,
-                 provisioned_throughput: Optional[pulumi.Input['TableProvisionedThroughputArgs']] = None,
-                 resource_policy: Optional[pulumi.Input['TableResourcePolicyArgs']] = None,
-                 sse_specification: Optional[pulumi.Input['TableSseSpecificationArgs']] = None,
-                 stream_specification: Optional[pulumi.Input['TableStreamSpecificationArgs']] = None,
-                 table_class: Optional[pulumi.Input[_builtins.str]] = None,
-                 table_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 time_to_live_specification: Optional[pulumi.Input['TableTimeToLiveSpecificationArgs']] = None,
-                 warm_throughput: Optional[pulumi.Input['TableWarmThroughputArgs']] = None):
+                 attribute_definitions: pulumi.Input[Optional[Sequence[pulumi.Input['TableAttributeDefinitionArgs']]]] = None,
+                 billing_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 contributor_insights_specification: pulumi.Input[Optional['TableContributorInsightsSpecificationArgs']] = None,
+                 deletion_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 global_secondary_indexes: pulumi.Input[Optional[Sequence[pulumi.Input['TableGlobalSecondaryIndexArgs']]]] = None,
+                 import_source_specification: pulumi.Input[Optional['TableImportSourceSpecificationArgs']] = None,
+                 kinesis_stream_specification: pulumi.Input[Optional['TableKinesisStreamSpecificationArgs']] = None,
+                 local_secondary_indexes: pulumi.Input[Optional[Sequence[pulumi.Input['TableLocalSecondaryIndexArgs']]]] = None,
+                 on_demand_throughput: pulumi.Input[Optional['TableOnDemandThroughputArgs']] = None,
+                 point_in_time_recovery_specification: pulumi.Input[Optional['TablePointInTimeRecoverySpecificationArgs']] = None,
+                 provisioned_throughput: pulumi.Input[Optional['TableProvisionedThroughputArgs']] = None,
+                 resource_policy: pulumi.Input[Optional['TableResourcePolicyArgs']] = None,
+                 sse_specification: pulumi.Input[Optional['TableSseSpecificationArgs']] = None,
+                 stream_specification: pulumi.Input[Optional['TableStreamSpecificationArgs']] = None,
+                 table_class: pulumi.Input[Optional[_builtins.str]] = None,
+                 table_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 time_to_live_specification: pulumi.Input[Optional['TableTimeToLiveSpecificationArgs']] = None,
+                 warm_throughput: pulumi.Input[Optional['TableWarmThroughputArgs']] = None):
         """
         The set of arguments for constructing a Table resource.
 
@@ -142,7 +142,7 @@ class TableArgs:
 
     @_builtins.property
     @pulumi.getter(name="attributeDefinitions")
-    def attribute_definitions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableAttributeDefinitionArgs']]]]:
+    def attribute_definitions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TableAttributeDefinitionArgs']]]]:
         """
         A list of attributes that describe the key schema for the table and indexes.
          This property is required to create a DDB table.
@@ -151,12 +151,12 @@ class TableArgs:
         return pulumi.get(self, "attribute_definitions")
 
     @attribute_definitions.setter
-    def attribute_definitions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TableAttributeDefinitionArgs']]]]):
+    def attribute_definitions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TableAttributeDefinitionArgs']]]]):
         pulumi.set(self, "attribute_definitions", value)
 
     @_builtins.property
     @pulumi.getter(name="billingMode")
-    def billing_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def billing_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify how you are charged for read and write throughput and how you manage capacity.
          Valid values include:
@@ -168,36 +168,36 @@ class TableArgs:
         return pulumi.get(self, "billing_mode")
 
     @billing_mode.setter
-    def billing_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def billing_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "billing_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="contributorInsightsSpecification")
-    def contributor_insights_specification(self) -> Optional[pulumi.Input['TableContributorInsightsSpecificationArgs']]:
+    def contributor_insights_specification(self) -> pulumi.Input[Optional['TableContributorInsightsSpecificationArgs']]:
         """
         The settings used to specify whether to enable CloudWatch Contributor Insights for the table and define which events to monitor.
         """
         return pulumi.get(self, "contributor_insights_specification")
 
     @contributor_insights_specification.setter
-    def contributor_insights_specification(self, value: Optional[pulumi.Input['TableContributorInsightsSpecificationArgs']]):
+    def contributor_insights_specification(self, value: pulumi.Input[Optional['TableContributorInsightsSpecificationArgs']]):
         pulumi.set(self, "contributor_insights_specification", value)
 
     @_builtins.property
     @pulumi.getter(name="deletionProtectionEnabled")
-    def deletion_protection_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def deletion_protection_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Determines if a table is protected from deletion. When enabled, the table cannot be deleted by any user or process. This setting is disabled by default. For more information, see [Using deletion protection](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.Basics.html#WorkingWithTables.Basics.DeletionProtection) in the *Developer Guide*.
         """
         return pulumi.get(self, "deletion_protection_enabled")
 
     @deletion_protection_enabled.setter
-    def deletion_protection_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def deletion_protection_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "deletion_protection_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="globalSecondaryIndexes")
-    def global_secondary_indexes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableGlobalSecondaryIndexArgs']]]]:
+    def global_secondary_indexes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TableGlobalSecondaryIndexArgs']]]]:
         """
         Global secondary indexes to be created on the table. You can create up to 20 global secondary indexes.
           If you update a table to include a new global secondary index, CFNlong initiates the index creation and then proceeds with the stack update. CFNlong doesn't wait for the index to complete creation because the backfilling phase can take a long time, depending on the size of the table. You can't use the index or update the table until the index's status is ``ACTIVE``. You can track its status by using the DynamoDB [DescribeTable](https://docs.aws.amazon.com/cli/latest/reference/dynamodb/describe-table.html) command.
@@ -209,12 +209,12 @@ class TableArgs:
         return pulumi.get(self, "global_secondary_indexes")
 
     @global_secondary_indexes.setter
-    def global_secondary_indexes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TableGlobalSecondaryIndexArgs']]]]):
+    def global_secondary_indexes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TableGlobalSecondaryIndexArgs']]]]):
         pulumi.set(self, "global_secondary_indexes", value)
 
     @_builtins.property
     @pulumi.getter(name="importSourceSpecification")
-    def import_source_specification(self) -> Optional[pulumi.Input['TableImportSourceSpecificationArgs']]:
+    def import_source_specification(self) -> pulumi.Input[Optional['TableImportSourceSpecificationArgs']]:
         """
         Specifies the properties of data being imported from the S3 bucket source to the" table.
           If you specify the ``ImportSourceSpecification`` property, and also specify either the ``StreamSpecification``, the ``TableClass`` property, the ``DeletionProtectionEnabled`` property, or the ``WarmThroughput`` property, the IAM entity creating/updating stack must have ``UpdateTable`` permission.
@@ -222,60 +222,60 @@ class TableArgs:
         return pulumi.get(self, "import_source_specification")
 
     @import_source_specification.setter
-    def import_source_specification(self, value: Optional[pulumi.Input['TableImportSourceSpecificationArgs']]):
+    def import_source_specification(self, value: pulumi.Input[Optional['TableImportSourceSpecificationArgs']]):
         pulumi.set(self, "import_source_specification", value)
 
     @_builtins.property
     @pulumi.getter(name="kinesisStreamSpecification")
-    def kinesis_stream_specification(self) -> Optional[pulumi.Input['TableKinesisStreamSpecificationArgs']]:
+    def kinesis_stream_specification(self) -> pulumi.Input[Optional['TableKinesisStreamSpecificationArgs']]:
         """
         The Kinesis Data Streams configuration for the specified table.
         """
         return pulumi.get(self, "kinesis_stream_specification")
 
     @kinesis_stream_specification.setter
-    def kinesis_stream_specification(self, value: Optional[pulumi.Input['TableKinesisStreamSpecificationArgs']]):
+    def kinesis_stream_specification(self, value: pulumi.Input[Optional['TableKinesisStreamSpecificationArgs']]):
         pulumi.set(self, "kinesis_stream_specification", value)
 
     @_builtins.property
     @pulumi.getter(name="localSecondaryIndexes")
-    def local_secondary_indexes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableLocalSecondaryIndexArgs']]]]:
+    def local_secondary_indexes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TableLocalSecondaryIndexArgs']]]]:
         """
         Local secondary indexes to be created on the table. You can create up to 5 local secondary indexes. Each index is scoped to a given hash key value. The size of each hash key can be up to 10 gigabytes.
         """
         return pulumi.get(self, "local_secondary_indexes")
 
     @local_secondary_indexes.setter
-    def local_secondary_indexes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TableLocalSecondaryIndexArgs']]]]):
+    def local_secondary_indexes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TableLocalSecondaryIndexArgs']]]]):
         pulumi.set(self, "local_secondary_indexes", value)
 
     @_builtins.property
     @pulumi.getter(name="onDemandThroughput")
-    def on_demand_throughput(self) -> Optional[pulumi.Input['TableOnDemandThroughputArgs']]:
+    def on_demand_throughput(self) -> pulumi.Input[Optional['TableOnDemandThroughputArgs']]:
         """
         Sets the maximum number of read and write units for the specified on-demand table. If you use this property, you must specify ``MaxReadRequestUnits``, ``MaxWriteRequestUnits``, or both.
         """
         return pulumi.get(self, "on_demand_throughput")
 
     @on_demand_throughput.setter
-    def on_demand_throughput(self, value: Optional[pulumi.Input['TableOnDemandThroughputArgs']]):
+    def on_demand_throughput(self, value: pulumi.Input[Optional['TableOnDemandThroughputArgs']]):
         pulumi.set(self, "on_demand_throughput", value)
 
     @_builtins.property
     @pulumi.getter(name="pointInTimeRecoverySpecification")
-    def point_in_time_recovery_specification(self) -> Optional[pulumi.Input['TablePointInTimeRecoverySpecificationArgs']]:
+    def point_in_time_recovery_specification(self) -> pulumi.Input[Optional['TablePointInTimeRecoverySpecificationArgs']]:
         """
         The settings used to enable point in time recovery.
         """
         return pulumi.get(self, "point_in_time_recovery_specification")
 
     @point_in_time_recovery_specification.setter
-    def point_in_time_recovery_specification(self, value: Optional[pulumi.Input['TablePointInTimeRecoverySpecificationArgs']]):
+    def point_in_time_recovery_specification(self, value: pulumi.Input[Optional['TablePointInTimeRecoverySpecificationArgs']]):
         pulumi.set(self, "point_in_time_recovery_specification", value)
 
     @_builtins.property
     @pulumi.getter(name="provisionedThroughput")
-    def provisioned_throughput(self) -> Optional[pulumi.Input['TableProvisionedThroughputArgs']]:
+    def provisioned_throughput(self) -> pulumi.Input[Optional['TableProvisionedThroughputArgs']]:
         """
         Throughput for the specified table, which consists of values for ``ReadCapacityUnits`` and ``WriteCapacityUnits``. For more information about the contents of a provisioned throughput structure, see [Amazon DynamoDB Table ProvisionedThroughput](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ProvisionedThroughput.html). 
          If you set ``BillingMode`` as ``PROVISIONED``, you must specify this property. If you set ``BillingMode`` as ``PAY_PER_REQUEST``, you cannot specify this property.
@@ -283,12 +283,12 @@ class TableArgs:
         return pulumi.get(self, "provisioned_throughput")
 
     @provisioned_throughput.setter
-    def provisioned_throughput(self, value: Optional[pulumi.Input['TableProvisionedThroughputArgs']]):
+    def provisioned_throughput(self, value: pulumi.Input[Optional['TableProvisionedThroughputArgs']]):
         pulumi.set(self, "provisioned_throughput", value)
 
     @_builtins.property
     @pulumi.getter(name="resourcePolicy")
-    def resource_policy(self) -> Optional[pulumi.Input['TableResourcePolicyArgs']]:
+    def resource_policy(self) -> pulumi.Input[Optional['TableResourcePolicyArgs']]:
         """
         An AWS resource-based policy document in JSON format that will be attached to the table.
          When you attach a resource-based policy while creating a table, the policy application is *strongly consistent*.
@@ -298,48 +298,48 @@ class TableArgs:
         return pulumi.get(self, "resource_policy")
 
     @resource_policy.setter
-    def resource_policy(self, value: Optional[pulumi.Input['TableResourcePolicyArgs']]):
+    def resource_policy(self, value: pulumi.Input[Optional['TableResourcePolicyArgs']]):
         pulumi.set(self, "resource_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="sseSpecification")
-    def sse_specification(self) -> Optional[pulumi.Input['TableSseSpecificationArgs']]:
+    def sse_specification(self) -> pulumi.Input[Optional['TableSseSpecificationArgs']]:
         """
         Specifies the settings to enable server-side encryption.
         """
         return pulumi.get(self, "sse_specification")
 
     @sse_specification.setter
-    def sse_specification(self, value: Optional[pulumi.Input['TableSseSpecificationArgs']]):
+    def sse_specification(self, value: pulumi.Input[Optional['TableSseSpecificationArgs']]):
         pulumi.set(self, "sse_specification", value)
 
     @_builtins.property
     @pulumi.getter(name="streamSpecification")
-    def stream_specification(self) -> Optional[pulumi.Input['TableStreamSpecificationArgs']]:
+    def stream_specification(self) -> pulumi.Input[Optional['TableStreamSpecificationArgs']]:
         """
         The settings for the DDB table stream, which captures changes to items stored in the table. Including this property in your CFNlong template automatically enables streaming.
         """
         return pulumi.get(self, "stream_specification")
 
     @stream_specification.setter
-    def stream_specification(self, value: Optional[pulumi.Input['TableStreamSpecificationArgs']]):
+    def stream_specification(self, value: pulumi.Input[Optional['TableStreamSpecificationArgs']]):
         pulumi.set(self, "stream_specification", value)
 
     @_builtins.property
     @pulumi.getter(name="tableClass")
-    def table_class(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def table_class(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The table class of the new table. Valid values are ``STANDARD`` and ``STANDARD_INFREQUENT_ACCESS``.
         """
         return pulumi.get(self, "table_class")
 
     @table_class.setter
-    def table_class(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def table_class(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "table_class", value)
 
     @_builtins.property
     @pulumi.getter(name="tableName")
-    def table_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def table_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A name for the table. If you don't specify a name, CFNlong generates a unique physical ID and uses that ID for the table name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
           If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
@@ -347,12 +347,12 @@ class TableArgs:
         return pulumi.get(self, "table_name")
 
     @table_name.setter
-    def table_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def table_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "table_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
          For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
@@ -360,12 +360,12 @@ class TableArgs:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="timeToLiveSpecification")
-    def time_to_live_specification(self) -> Optional[pulumi.Input['TableTimeToLiveSpecificationArgs']]:
+    def time_to_live_specification(self) -> pulumi.Input[Optional['TableTimeToLiveSpecificationArgs']]:
         """
         Specifies the Time to Live (TTL) settings for the table.
           For detailed information about the limits in DynamoDB, see [Limits in Amazon DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html) in the Amazon DynamoDB Developer Guide.
@@ -373,19 +373,19 @@ class TableArgs:
         return pulumi.get(self, "time_to_live_specification")
 
     @time_to_live_specification.setter
-    def time_to_live_specification(self, value: Optional[pulumi.Input['TableTimeToLiveSpecificationArgs']]):
+    def time_to_live_specification(self, value: pulumi.Input[Optional['TableTimeToLiveSpecificationArgs']]):
         pulumi.set(self, "time_to_live_specification", value)
 
     @_builtins.property
     @pulumi.getter(name="warmThroughput")
-    def warm_throughput(self) -> Optional[pulumi.Input['TableWarmThroughputArgs']]:
+    def warm_throughput(self) -> pulumi.Input[Optional['TableWarmThroughputArgs']]:
         """
         Represents the warm throughput (in read units per second and write units per second) for creating a table.
         """
         return pulumi.get(self, "warm_throughput")
 
     @warm_throughput.setter
-    def warm_throughput(self, value: Optional[pulumi.Input['TableWarmThroughputArgs']]):
+    def warm_throughput(self, value: pulumi.Input[Optional['TableWarmThroughputArgs']]):
         pulumi.set(self, "warm_throughput", value)
 
 
@@ -395,26 +395,26 @@ class Table(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attribute_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableAttributeDefinitionArgs', 'TableAttributeDefinitionArgsDict']]]]] = None,
-                 billing_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 contributor_insights_specification: Optional[pulumi.Input[Union['TableContributorInsightsSpecificationArgs', 'TableContributorInsightsSpecificationArgsDict']]] = None,
-                 deletion_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 global_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableGlobalSecondaryIndexArgs', 'TableGlobalSecondaryIndexArgsDict']]]]] = None,
-                 import_source_specification: Optional[pulumi.Input[Union['TableImportSourceSpecificationArgs', 'TableImportSourceSpecificationArgsDict']]] = None,
-                 key_schema: Optional[pulumi.Input[Union[Sequence[pulumi.Input[Union['TableKeySchemaArgs', 'TableKeySchemaArgsDict']]], Any]]] = None,
-                 kinesis_stream_specification: Optional[pulumi.Input[Union['TableKinesisStreamSpecificationArgs', 'TableKinesisStreamSpecificationArgsDict']]] = None,
-                 local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableLocalSecondaryIndexArgs', 'TableLocalSecondaryIndexArgsDict']]]]] = None,
-                 on_demand_throughput: Optional[pulumi.Input[Union['TableOnDemandThroughputArgs', 'TableOnDemandThroughputArgsDict']]] = None,
-                 point_in_time_recovery_specification: Optional[pulumi.Input[Union['TablePointInTimeRecoverySpecificationArgs', 'TablePointInTimeRecoverySpecificationArgsDict']]] = None,
-                 provisioned_throughput: Optional[pulumi.Input[Union['TableProvisionedThroughputArgs', 'TableProvisionedThroughputArgsDict']]] = None,
-                 resource_policy: Optional[pulumi.Input[Union['TableResourcePolicyArgs', 'TableResourcePolicyArgsDict']]] = None,
-                 sse_specification: Optional[pulumi.Input[Union['TableSseSpecificationArgs', 'TableSseSpecificationArgsDict']]] = None,
-                 stream_specification: Optional[pulumi.Input[Union['TableStreamSpecificationArgs', 'TableStreamSpecificationArgsDict']]] = None,
-                 table_class: Optional[pulumi.Input[_builtins.str]] = None,
-                 table_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 time_to_live_specification: Optional[pulumi.Input[Union['TableTimeToLiveSpecificationArgs', 'TableTimeToLiveSpecificationArgsDict']]] = None,
-                 warm_throughput: Optional[pulumi.Input[Union['TableWarmThroughputArgs', 'TableWarmThroughputArgsDict']]] = None,
+                 attribute_definitions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TableAttributeDefinitionArgs', 'TableAttributeDefinitionArgsDict']]]]] = None,
+                 billing_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 contributor_insights_specification: pulumi.Input[Optional[Union['TableContributorInsightsSpecificationArgs', 'TableContributorInsightsSpecificationArgsDict']]] = None,
+                 deletion_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 global_secondary_indexes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TableGlobalSecondaryIndexArgs', 'TableGlobalSecondaryIndexArgsDict']]]]] = None,
+                 import_source_specification: pulumi.Input[Optional[Union['TableImportSourceSpecificationArgs', 'TableImportSourceSpecificationArgsDict']]] = None,
+                 key_schema: pulumi.Input[Optional[Union[Sequence[pulumi.Input[Union['TableKeySchemaArgs', 'TableKeySchemaArgsDict']]], Any]]] = None,
+                 kinesis_stream_specification: pulumi.Input[Optional[Union['TableKinesisStreamSpecificationArgs', 'TableKinesisStreamSpecificationArgsDict']]] = None,
+                 local_secondary_indexes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TableLocalSecondaryIndexArgs', 'TableLocalSecondaryIndexArgsDict']]]]] = None,
+                 on_demand_throughput: pulumi.Input[Optional[Union['TableOnDemandThroughputArgs', 'TableOnDemandThroughputArgsDict']]] = None,
+                 point_in_time_recovery_specification: pulumi.Input[Optional[Union['TablePointInTimeRecoverySpecificationArgs', 'TablePointInTimeRecoverySpecificationArgsDict']]] = None,
+                 provisioned_throughput: pulumi.Input[Optional[Union['TableProvisionedThroughputArgs', 'TableProvisionedThroughputArgsDict']]] = None,
+                 resource_policy: pulumi.Input[Optional[Union['TableResourcePolicyArgs', 'TableResourcePolicyArgsDict']]] = None,
+                 sse_specification: pulumi.Input[Optional[Union['TableSseSpecificationArgs', 'TableSseSpecificationArgsDict']]] = None,
+                 stream_specification: pulumi.Input[Optional[Union['TableStreamSpecificationArgs', 'TableStreamSpecificationArgsDict']]] = None,
+                 table_class: pulumi.Input[Optional[_builtins.str]] = None,
+                 table_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 time_to_live_specification: pulumi.Input[Optional[Union['TableTimeToLiveSpecificationArgs', 'TableTimeToLiveSpecificationArgsDict']]] = None,
+                 warm_throughput: pulumi.Input[Optional[Union['TableWarmThroughputArgs', 'TableWarmThroughputArgsDict']]] = None,
                  __props__=None):
         """
         The ``AWS::DynamoDB::Table`` resource creates a DDB table. For more information, see [CreateTable](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_CreateTable.html) in the *API Reference*.
@@ -948,26 +948,26 @@ class Table(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attribute_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableAttributeDefinitionArgs', 'TableAttributeDefinitionArgsDict']]]]] = None,
-                 billing_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 contributor_insights_specification: Optional[pulumi.Input[Union['TableContributorInsightsSpecificationArgs', 'TableContributorInsightsSpecificationArgsDict']]] = None,
-                 deletion_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 global_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableGlobalSecondaryIndexArgs', 'TableGlobalSecondaryIndexArgsDict']]]]] = None,
-                 import_source_specification: Optional[pulumi.Input[Union['TableImportSourceSpecificationArgs', 'TableImportSourceSpecificationArgsDict']]] = None,
-                 key_schema: Optional[pulumi.Input[Union[Sequence[pulumi.Input[Union['TableKeySchemaArgs', 'TableKeySchemaArgsDict']]], Any]]] = None,
-                 kinesis_stream_specification: Optional[pulumi.Input[Union['TableKinesisStreamSpecificationArgs', 'TableKinesisStreamSpecificationArgsDict']]] = None,
-                 local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableLocalSecondaryIndexArgs', 'TableLocalSecondaryIndexArgsDict']]]]] = None,
-                 on_demand_throughput: Optional[pulumi.Input[Union['TableOnDemandThroughputArgs', 'TableOnDemandThroughputArgsDict']]] = None,
-                 point_in_time_recovery_specification: Optional[pulumi.Input[Union['TablePointInTimeRecoverySpecificationArgs', 'TablePointInTimeRecoverySpecificationArgsDict']]] = None,
-                 provisioned_throughput: Optional[pulumi.Input[Union['TableProvisionedThroughputArgs', 'TableProvisionedThroughputArgsDict']]] = None,
-                 resource_policy: Optional[pulumi.Input[Union['TableResourcePolicyArgs', 'TableResourcePolicyArgsDict']]] = None,
-                 sse_specification: Optional[pulumi.Input[Union['TableSseSpecificationArgs', 'TableSseSpecificationArgsDict']]] = None,
-                 stream_specification: Optional[pulumi.Input[Union['TableStreamSpecificationArgs', 'TableStreamSpecificationArgsDict']]] = None,
-                 table_class: Optional[pulumi.Input[_builtins.str]] = None,
-                 table_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 time_to_live_specification: Optional[pulumi.Input[Union['TableTimeToLiveSpecificationArgs', 'TableTimeToLiveSpecificationArgsDict']]] = None,
-                 warm_throughput: Optional[pulumi.Input[Union['TableWarmThroughputArgs', 'TableWarmThroughputArgsDict']]] = None,
+                 attribute_definitions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TableAttributeDefinitionArgs', 'TableAttributeDefinitionArgsDict']]]]] = None,
+                 billing_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 contributor_insights_specification: pulumi.Input[Optional[Union['TableContributorInsightsSpecificationArgs', 'TableContributorInsightsSpecificationArgsDict']]] = None,
+                 deletion_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 global_secondary_indexes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TableGlobalSecondaryIndexArgs', 'TableGlobalSecondaryIndexArgsDict']]]]] = None,
+                 import_source_specification: pulumi.Input[Optional[Union['TableImportSourceSpecificationArgs', 'TableImportSourceSpecificationArgsDict']]] = None,
+                 key_schema: pulumi.Input[Optional[Union[Sequence[pulumi.Input[Union['TableKeySchemaArgs', 'TableKeySchemaArgsDict']]], Any]]] = None,
+                 kinesis_stream_specification: pulumi.Input[Optional[Union['TableKinesisStreamSpecificationArgs', 'TableKinesisStreamSpecificationArgsDict']]] = None,
+                 local_secondary_indexes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TableLocalSecondaryIndexArgs', 'TableLocalSecondaryIndexArgsDict']]]]] = None,
+                 on_demand_throughput: pulumi.Input[Optional[Union['TableOnDemandThroughputArgs', 'TableOnDemandThroughputArgsDict']]] = None,
+                 point_in_time_recovery_specification: pulumi.Input[Optional[Union['TablePointInTimeRecoverySpecificationArgs', 'TablePointInTimeRecoverySpecificationArgsDict']]] = None,
+                 provisioned_throughput: pulumi.Input[Optional[Union['TableProvisionedThroughputArgs', 'TableProvisionedThroughputArgsDict']]] = None,
+                 resource_policy: pulumi.Input[Optional[Union['TableResourcePolicyArgs', 'TableResourcePolicyArgsDict']]] = None,
+                 sse_specification: pulumi.Input[Optional[Union['TableSseSpecificationArgs', 'TableSseSpecificationArgsDict']]] = None,
+                 stream_specification: pulumi.Input[Optional[Union['TableStreamSpecificationArgs', 'TableStreamSpecificationArgsDict']]] = None,
+                 table_class: pulumi.Input[Optional[_builtins.str]] = None,
+                 table_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 time_to_live_specification: pulumi.Input[Optional[Union['TableTimeToLiveSpecificationArgs', 'TableTimeToLiveSpecificationArgsDict']]] = None,
+                 warm_throughput: pulumi.Input[Optional[Union['TableWarmThroughputArgs', 'TableWarmThroughputArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

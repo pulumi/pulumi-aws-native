@@ -26,7 +26,7 @@ class PrincipalPermissionsArgs:
                  permissions_with_grant_option: pulumi.Input[Sequence[pulumi.Input['PrincipalPermissionsPermission']]],
                  principal: pulumi.Input['PrincipalPermissionsDataLakePrincipalArgs'],
                  resource: pulumi.Input['PrincipalPermissionsResourceArgs'],
-                 catalog: Optional[pulumi.Input[_builtins.str]] = None):
+                 catalog: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a PrincipalPermissions resource.
 
@@ -93,14 +93,14 @@ class PrincipalPermissionsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def catalog(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def catalog(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier for the GLUDC. By default, the account ID. The GLUDC is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
         """
         return pulumi.get(self, "catalog")
 
     @catalog.setter
-    def catalog(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def catalog(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "catalog", value)
 
 
@@ -110,11 +110,11 @@ class PrincipalPermissions(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 catalog: Optional[pulumi.Input[_builtins.str]] = None,
-                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input['PrincipalPermissionsPermission']]]] = None,
-                 permissions_with_grant_option: Optional[pulumi.Input[Sequence[pulumi.Input['PrincipalPermissionsPermission']]]] = None,
-                 principal: Optional[pulumi.Input[Union['PrincipalPermissionsDataLakePrincipalArgs', 'PrincipalPermissionsDataLakePrincipalArgsDict']]] = None,
-                 resource: Optional[pulumi.Input[Union['PrincipalPermissionsResourceArgs', 'PrincipalPermissionsResourceArgsDict']]] = None,
+                 catalog: pulumi.Input[Optional[_builtins.str]] = None,
+                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input['PrincipalPermissionsPermission']]]] = None,
+                 permissions_with_grant_option: pulumi.Input[Optional[Sequence[pulumi.Input['PrincipalPermissionsPermission']]]] = None,
+                 principal: pulumi.Input[Optional[Union['PrincipalPermissionsDataLakePrincipalArgs', 'PrincipalPermissionsDataLakePrincipalArgsDict']]] = None,
+                 resource: pulumi.Input[Optional[Union['PrincipalPermissionsResourceArgs', 'PrincipalPermissionsResourceArgsDict']]] = None,
                  __props__=None):
         """
         The ``AWS::LakeFormation::PrincipalPermissions`` resource represents the permissions that a principal has on a GLUDC resource (such as GLUlong databases or GLUlong tables). When you create a ``PrincipalPermissions`` resource, the permissions are granted via the LFlong``GrantPermissions`` API operation. When you delete a ``PrincipalPermissions`` resource, the permissions on principal-resource pair are revoked via the LFlong``RevokePermissions`` API operation.
@@ -153,11 +153,11 @@ class PrincipalPermissions(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 catalog: Optional[pulumi.Input[_builtins.str]] = None,
-                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input['PrincipalPermissionsPermission']]]] = None,
-                 permissions_with_grant_option: Optional[pulumi.Input[Sequence[pulumi.Input['PrincipalPermissionsPermission']]]] = None,
-                 principal: Optional[pulumi.Input[Union['PrincipalPermissionsDataLakePrincipalArgs', 'PrincipalPermissionsDataLakePrincipalArgsDict']]] = None,
-                 resource: Optional[pulumi.Input[Union['PrincipalPermissionsResourceArgs', 'PrincipalPermissionsResourceArgsDict']]] = None,
+                 catalog: pulumi.Input[Optional[_builtins.str]] = None,
+                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input['PrincipalPermissionsPermission']]]] = None,
+                 permissions_with_grant_option: pulumi.Input[Optional[Sequence[pulumi.Input['PrincipalPermissionsPermission']]]] = None,
+                 principal: pulumi.Input[Optional[Union['PrincipalPermissionsDataLakePrincipalArgs', 'PrincipalPermissionsDataLakePrincipalArgsDict']]] = None,
+                 resource: pulumi.Input[Optional[Union['PrincipalPermissionsResourceArgs', 'PrincipalPermissionsResourceArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

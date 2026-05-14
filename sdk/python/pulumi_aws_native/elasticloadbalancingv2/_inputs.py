@@ -107,36 +107,36 @@ class ListenerActionArgsDict(TypedDict):
     """
     The type of action.
     """
-    authenticate_cognito_config: NotRequired[pulumi.Input['ListenerAuthenticateCognitoConfigArgsDict']]
+    authenticate_cognito_config: NotRequired[pulumi.Input[Optional['ListenerAuthenticateCognitoConfigArgs']]]
     """
     [HTTPS listeners] Information for using Amazon Cognito to authenticate users. Specify only when ``Type`` is ``authenticate-cognito``.
     """
-    authenticate_oidc_config: NotRequired[pulumi.Input['ListenerAuthenticateOidcConfigArgsDict']]
+    authenticate_oidc_config: NotRequired[pulumi.Input[Optional['ListenerAuthenticateOidcConfigArgs']]]
     """
     [HTTPS listeners] Information about an identity provider that is compliant with OpenID Connect (OIDC). Specify only when ``Type`` is ``authenticate-oidc``.
     """
-    fixed_response_config: NotRequired[pulumi.Input['ListenerFixedResponseConfigArgsDict']]
+    fixed_response_config: NotRequired[pulumi.Input[Optional['ListenerFixedResponseConfigArgs']]]
     """
     [Application Load Balancer] Information for creating an action that returns a custom HTTP response. Specify only when ``Type`` is ``fixed-response``.
     """
-    forward_config: NotRequired[pulumi.Input['ListenerForwardConfigArgsDict']]
+    forward_config: NotRequired[pulumi.Input[Optional['ListenerForwardConfigArgs']]]
     """
     Information for creating an action that distributes requests among multiple target groups. Specify only when ``Type`` is ``forward``.
      If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
     """
-    jwt_validation_config: NotRequired[pulumi.Input['ListenerJwtValidationConfigArgsDict']]
+    jwt_validation_config: NotRequired[pulumi.Input[Optional['ListenerJwtValidationConfigArgs']]]
     """
     [HTTPS listeners] Information for validating JWT access tokens in client requests. Specify only when ``Type`` is ``jwt-validation``.
     """
-    order: NotRequired[pulumi.Input[_builtins.int]]
+    order: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first.
     """
-    redirect_config: NotRequired[pulumi.Input['ListenerRedirectConfigArgsDict']]
+    redirect_config: NotRequired[pulumi.Input[Optional['ListenerRedirectConfigArgs']]]
     """
     [Application Load Balancer] Information for creating a redirect action. Specify only when ``Type`` is ``redirect``.
     """
-    target_group_arn: NotRequired[pulumi.Input[_builtins.str]]
+    target_group_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon Resource Name (ARN) of the target group. Specify only when ``Type`` is ``forward`` and you want to route to a single target group. To route to multiple target groups, you must use ``ForwardConfig`` instead.
     """
@@ -145,14 +145,14 @@ class ListenerActionArgsDict(TypedDict):
 class ListenerActionArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 authenticate_cognito_config: Optional[pulumi.Input['ListenerAuthenticateCognitoConfigArgs']] = None,
-                 authenticate_oidc_config: Optional[pulumi.Input['ListenerAuthenticateOidcConfigArgs']] = None,
-                 fixed_response_config: Optional[pulumi.Input['ListenerFixedResponseConfigArgs']] = None,
-                 forward_config: Optional[pulumi.Input['ListenerForwardConfigArgs']] = None,
-                 jwt_validation_config: Optional[pulumi.Input['ListenerJwtValidationConfigArgs']] = None,
-                 order: Optional[pulumi.Input[_builtins.int]] = None,
-                 redirect_config: Optional[pulumi.Input['ListenerRedirectConfigArgs']] = None,
-                 target_group_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 authenticate_cognito_config: pulumi.Input[Optional['ListenerAuthenticateCognitoConfigArgs']] = None,
+                 authenticate_oidc_config: pulumi.Input[Optional['ListenerAuthenticateOidcConfigArgs']] = None,
+                 fixed_response_config: pulumi.Input[Optional['ListenerFixedResponseConfigArgs']] = None,
+                 forward_config: pulumi.Input[Optional['ListenerForwardConfigArgs']] = None,
+                 jwt_validation_config: pulumi.Input[Optional['ListenerJwtValidationConfigArgs']] = None,
+                 order: pulumi.Input[Optional[_builtins.int]] = None,
+                 redirect_config: pulumi.Input[Optional['ListenerRedirectConfigArgs']] = None,
+                 target_group_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Specifies an action for a listener rule.
 
@@ -199,43 +199,43 @@ class ListenerActionArgs:
 
     @_builtins.property
     @pulumi.getter(name="authenticateCognitoConfig")
-    def authenticate_cognito_config(self) -> Optional[pulumi.Input['ListenerAuthenticateCognitoConfigArgs']]:
+    def authenticate_cognito_config(self) -> pulumi.Input[Optional['ListenerAuthenticateCognitoConfigArgs']]:
         """
         [HTTPS listeners] Information for using Amazon Cognito to authenticate users. Specify only when ``Type`` is ``authenticate-cognito``.
         """
         return pulumi.get(self, "authenticate_cognito_config")
 
     @authenticate_cognito_config.setter
-    def authenticate_cognito_config(self, value: Optional[pulumi.Input['ListenerAuthenticateCognitoConfigArgs']]):
+    def authenticate_cognito_config(self, value: pulumi.Input[Optional['ListenerAuthenticateCognitoConfigArgs']]):
         pulumi.set(self, "authenticate_cognito_config", value)
 
     @_builtins.property
     @pulumi.getter(name="authenticateOidcConfig")
-    def authenticate_oidc_config(self) -> Optional[pulumi.Input['ListenerAuthenticateOidcConfigArgs']]:
+    def authenticate_oidc_config(self) -> pulumi.Input[Optional['ListenerAuthenticateOidcConfigArgs']]:
         """
         [HTTPS listeners] Information about an identity provider that is compliant with OpenID Connect (OIDC). Specify only when ``Type`` is ``authenticate-oidc``.
         """
         return pulumi.get(self, "authenticate_oidc_config")
 
     @authenticate_oidc_config.setter
-    def authenticate_oidc_config(self, value: Optional[pulumi.Input['ListenerAuthenticateOidcConfigArgs']]):
+    def authenticate_oidc_config(self, value: pulumi.Input[Optional['ListenerAuthenticateOidcConfigArgs']]):
         pulumi.set(self, "authenticate_oidc_config", value)
 
     @_builtins.property
     @pulumi.getter(name="fixedResponseConfig")
-    def fixed_response_config(self) -> Optional[pulumi.Input['ListenerFixedResponseConfigArgs']]:
+    def fixed_response_config(self) -> pulumi.Input[Optional['ListenerFixedResponseConfigArgs']]:
         """
         [Application Load Balancer] Information for creating an action that returns a custom HTTP response. Specify only when ``Type`` is ``fixed-response``.
         """
         return pulumi.get(self, "fixed_response_config")
 
     @fixed_response_config.setter
-    def fixed_response_config(self, value: Optional[pulumi.Input['ListenerFixedResponseConfigArgs']]):
+    def fixed_response_config(self, value: pulumi.Input[Optional['ListenerFixedResponseConfigArgs']]):
         pulumi.set(self, "fixed_response_config", value)
 
     @_builtins.property
     @pulumi.getter(name="forwardConfig")
-    def forward_config(self) -> Optional[pulumi.Input['ListenerForwardConfigArgs']]:
+    def forward_config(self) -> pulumi.Input[Optional['ListenerForwardConfigArgs']]:
         """
         Information for creating an action that distributes requests among multiple target groups. Specify only when ``Type`` is ``forward``.
          If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
@@ -243,55 +243,55 @@ class ListenerActionArgs:
         return pulumi.get(self, "forward_config")
 
     @forward_config.setter
-    def forward_config(self, value: Optional[pulumi.Input['ListenerForwardConfigArgs']]):
+    def forward_config(self, value: pulumi.Input[Optional['ListenerForwardConfigArgs']]):
         pulumi.set(self, "forward_config", value)
 
     @_builtins.property
     @pulumi.getter(name="jwtValidationConfig")
-    def jwt_validation_config(self) -> Optional[pulumi.Input['ListenerJwtValidationConfigArgs']]:
+    def jwt_validation_config(self) -> pulumi.Input[Optional['ListenerJwtValidationConfigArgs']]:
         """
         [HTTPS listeners] Information for validating JWT access tokens in client requests. Specify only when ``Type`` is ``jwt-validation``.
         """
         return pulumi.get(self, "jwt_validation_config")
 
     @jwt_validation_config.setter
-    def jwt_validation_config(self, value: Optional[pulumi.Input['ListenerJwtValidationConfigArgs']]):
+    def jwt_validation_config(self, value: pulumi.Input[Optional['ListenerJwtValidationConfigArgs']]):
         pulumi.set(self, "jwt_validation_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def order(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def order(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first.
         """
         return pulumi.get(self, "order")
 
     @order.setter
-    def order(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def order(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "order", value)
 
     @_builtins.property
     @pulumi.getter(name="redirectConfig")
-    def redirect_config(self) -> Optional[pulumi.Input['ListenerRedirectConfigArgs']]:
+    def redirect_config(self) -> pulumi.Input[Optional['ListenerRedirectConfigArgs']]:
         """
         [Application Load Balancer] Information for creating a redirect action. Specify only when ``Type`` is ``redirect``.
         """
         return pulumi.get(self, "redirect_config")
 
     @redirect_config.setter
-    def redirect_config(self, value: Optional[pulumi.Input['ListenerRedirectConfigArgs']]):
+    def redirect_config(self, value: pulumi.Input[Optional['ListenerRedirectConfigArgs']]):
         pulumi.set(self, "redirect_config", value)
 
     @_builtins.property
     @pulumi.getter(name="targetGroupArn")
-    def target_group_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_group_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the target group. Specify only when ``Type`` is ``forward`` and you want to route to a single target group. To route to multiple target groups, you must use ``ForwardConfig`` instead.
         """
         return pulumi.get(self, "target_group_arn")
 
     @target_group_arn.setter
-    def target_group_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_group_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_group_arn", value)
 
 
@@ -299,7 +299,7 @@ class ListenerAttributeArgsDict(TypedDict):
     """
     Information about a listener attribute.
     """
-    key: NotRequired[pulumi.Input[_builtins.str]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the attribute.
      The following attribute is supported by Network Load Balancers, and Gateway Load Balancers.
@@ -326,7 +326,7 @@ class ListenerAttributeArgsDict(TypedDict):
       +  ``routing.http.response.x_content_type_options.header_value`` - Indicates whether the MIME types advertised in the *Content-Type* headers should be followed and not be changed.
       +  ``routing.http.response.x_frame_options.header_value`` - Indicates whether the browser is allowed to render a page in a *frame*, *iframe*, *embed* or *object*.
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The value of the attribute.
     """
@@ -334,8 +334,8 @@ class ListenerAttributeArgsDict(TypedDict):
 @pulumi.input_type
 class ListenerAttributeArgs:
     def __init__(__self__, *,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Information about a listener attribute.
 
@@ -372,7 +372,7 @@ class ListenerAttributeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the attribute.
          The following attribute is supported by Network Load Balancers, and Gateway Load Balancers.
@@ -402,19 +402,19 @@ class ListenerAttributeArgs:
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value of the attribute.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
@@ -434,27 +434,27 @@ class ListenerAuthenticateCognitoConfigArgsDict(TypedDict):
     """
     The domain prefix or fully-qualified domain name of the Amazon Cognito user pool.
     """
-    authentication_request_extra_params: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    authentication_request_extra_params: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     The query parameters (up to 10) to include in the redirect request to the authorization endpoint.
     """
-    on_unauthenticated_request: NotRequired[pulumi.Input[_builtins.str]]
+    on_unauthenticated_request: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The behavior if the user is not authenticated. The following are possible values:
       +  deny```` - Return an HTTP 401 Unauthorized error.
       +  allow```` - Allow the request to be forwarded to the target.
       +  authenticate```` - Redirect the request to the IdP authorization endpoint. This is the default value.
     """
-    scope: NotRequired[pulumi.Input[_builtins.str]]
+    scope: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The set of user claims to be requested from the IdP. The default is ``openid``.
      To verify which scope values your IdP supports and how to separate multiple values, see the documentation for your IdP.
     """
-    session_cookie_name: NotRequired[pulumi.Input[_builtins.str]]
+    session_cookie_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the cookie used to maintain session information. The default is AWSELBAuthSessionCookie.
     """
-    session_timeout: NotRequired[pulumi.Input[_builtins.str]]
+    session_timeout: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The maximum duration of the authentication session, in seconds. The default is 604800 seconds (7 days).
     """
@@ -465,11 +465,11 @@ class ListenerAuthenticateCognitoConfigArgs:
                  user_pool_arn: pulumi.Input[_builtins.str],
                  user_pool_client_id: pulumi.Input[_builtins.str],
                  user_pool_domain: pulumi.Input[_builtins.str],
-                 authentication_request_extra_params: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 on_unauthenticated_request: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 session_cookie_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 session_timeout: Optional[pulumi.Input[_builtins.str]] = None):
+                 authentication_request_extra_params: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 on_unauthenticated_request: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 session_cookie_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 session_timeout: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Specifies information required when integrating with Amazon Cognito to authenticate users.
 
@@ -538,19 +538,19 @@ class ListenerAuthenticateCognitoConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="authenticationRequestExtraParams")
-    def authentication_request_extra_params(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def authentication_request_extra_params(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The query parameters (up to 10) to include in the redirect request to the authorization endpoint.
         """
         return pulumi.get(self, "authentication_request_extra_params")
 
     @authentication_request_extra_params.setter
-    def authentication_request_extra_params(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def authentication_request_extra_params(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "authentication_request_extra_params", value)
 
     @_builtins.property
     @pulumi.getter(name="onUnauthenticatedRequest")
-    def on_unauthenticated_request(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def on_unauthenticated_request(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The behavior if the user is not authenticated. The following are possible values:
           +  deny```` - Return an HTTP 401 Unauthorized error.
@@ -560,12 +560,12 @@ class ListenerAuthenticateCognitoConfigArgs:
         return pulumi.get(self, "on_unauthenticated_request")
 
     @on_unauthenticated_request.setter
-    def on_unauthenticated_request(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def on_unauthenticated_request(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "on_unauthenticated_request", value)
 
     @_builtins.property
     @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The set of user claims to be requested from the IdP. The default is ``openid``.
          To verify which scope values your IdP supports and how to separate multiple values, see the documentation for your IdP.
@@ -573,31 +573,31 @@ class ListenerAuthenticateCognitoConfigArgs:
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scope(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scope", value)
 
     @_builtins.property
     @pulumi.getter(name="sessionCookieName")
-    def session_cookie_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def session_cookie_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the cookie used to maintain session information. The default is AWSELBAuthSessionCookie.
         """
         return pulumi.get(self, "session_cookie_name")
 
     @session_cookie_name.setter
-    def session_cookie_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def session_cookie_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "session_cookie_name", value)
 
     @_builtins.property
     @pulumi.getter(name="sessionTimeout")
-    def session_timeout(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def session_timeout(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The maximum duration of the authentication session, in seconds. The default is 604800 seconds (7 days).
         """
         return pulumi.get(self, "session_timeout")
 
     @session_timeout.setter
-    def session_timeout(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def session_timeout(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "session_timeout", value)
 
 
@@ -625,35 +625,35 @@ class ListenerAuthenticateOidcConfigArgsDict(TypedDict):
     """
     The user info endpoint of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.
     """
-    authentication_request_extra_params: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    authentication_request_extra_params: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     The query parameters (up to 10) to include in the redirect request to the authorization endpoint.
     """
-    client_secret: NotRequired[pulumi.Input[_builtins.str]]
+    client_secret: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The OAuth 2.0 client secret. This parameter is required if you are creating a rule. If you are modifying a rule, you can omit this parameter if you set ``UseExistingClientSecret`` to true.
     """
-    on_unauthenticated_request: NotRequired[pulumi.Input[_builtins.str]]
+    on_unauthenticated_request: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The behavior if the user is not authenticated. The following are possible values:
       +  deny```` - Return an HTTP 401 Unauthorized error.
       +  allow```` - Allow the request to be forwarded to the target.
       +  authenticate```` - Redirect the request to the IdP authorization endpoint. This is the default value.
     """
-    scope: NotRequired[pulumi.Input[_builtins.str]]
+    scope: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The set of user claims to be requested from the IdP. The default is ``openid``.
      To verify which scope values your IdP supports and how to separate multiple values, see the documentation for your IdP.
     """
-    session_cookie_name: NotRequired[pulumi.Input[_builtins.str]]
+    session_cookie_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the cookie used to maintain session information. The default is AWSELBAuthSessionCookie.
     """
-    session_timeout: NotRequired[pulumi.Input[_builtins.str]]
+    session_timeout: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The maximum duration of the authentication session, in seconds. The default is 604800 seconds (7 days).
     """
-    use_existing_client_secret: NotRequired[pulumi.Input[_builtins.bool]]
+    use_existing_client_secret: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether to use the existing client secret when modifying a rule. If you are creating a rule, you can omit this parameter or set it to false.
     """
@@ -666,13 +666,13 @@ class ListenerAuthenticateOidcConfigArgs:
                  issuer: pulumi.Input[_builtins.str],
                  token_endpoint: pulumi.Input[_builtins.str],
                  user_info_endpoint: pulumi.Input[_builtins.str],
-                 authentication_request_extra_params: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 on_unauthenticated_request: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 session_cookie_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 session_timeout: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_existing_client_secret: Optional[pulumi.Input[_builtins.bool]] = None):
+                 authentication_request_extra_params: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 on_unauthenticated_request: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 session_cookie_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 session_timeout: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_existing_client_secret: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Specifies information required using an identity provide (IdP) that is compliant with OpenID Connect (OIDC) to authenticate users.
 
@@ -775,31 +775,31 @@ class ListenerAuthenticateOidcConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="authenticationRequestExtraParams")
-    def authentication_request_extra_params(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def authentication_request_extra_params(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The query parameters (up to 10) to include in the redirect request to the authorization endpoint.
         """
         return pulumi.get(self, "authentication_request_extra_params")
 
     @authentication_request_extra_params.setter
-    def authentication_request_extra_params(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def authentication_request_extra_params(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "authentication_request_extra_params", value)
 
     @_builtins.property
     @pulumi.getter(name="clientSecret")
-    def client_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_secret(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The OAuth 2.0 client secret. This parameter is required if you are creating a rule. If you are modifying a rule, you can omit this parameter if you set ``UseExistingClientSecret`` to true.
         """
         return pulumi.get(self, "client_secret")
 
     @client_secret.setter
-    def client_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_secret(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_secret", value)
 
     @_builtins.property
     @pulumi.getter(name="onUnauthenticatedRequest")
-    def on_unauthenticated_request(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def on_unauthenticated_request(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The behavior if the user is not authenticated. The following are possible values:
           +  deny```` - Return an HTTP 401 Unauthorized error.
@@ -809,12 +809,12 @@ class ListenerAuthenticateOidcConfigArgs:
         return pulumi.get(self, "on_unauthenticated_request")
 
     @on_unauthenticated_request.setter
-    def on_unauthenticated_request(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def on_unauthenticated_request(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "on_unauthenticated_request", value)
 
     @_builtins.property
     @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The set of user claims to be requested from the IdP. The default is ``openid``.
          To verify which scope values your IdP supports and how to separate multiple values, see the documentation for your IdP.
@@ -822,43 +822,43 @@ class ListenerAuthenticateOidcConfigArgs:
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scope(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scope", value)
 
     @_builtins.property
     @pulumi.getter(name="sessionCookieName")
-    def session_cookie_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def session_cookie_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the cookie used to maintain session information. The default is AWSELBAuthSessionCookie.
         """
         return pulumi.get(self, "session_cookie_name")
 
     @session_cookie_name.setter
-    def session_cookie_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def session_cookie_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "session_cookie_name", value)
 
     @_builtins.property
     @pulumi.getter(name="sessionTimeout")
-    def session_timeout(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def session_timeout(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The maximum duration of the authentication session, in seconds. The default is 604800 seconds (7 days).
         """
         return pulumi.get(self, "session_timeout")
 
     @session_timeout.setter
-    def session_timeout(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def session_timeout(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "session_timeout", value)
 
     @_builtins.property
     @pulumi.getter(name="useExistingClientSecret")
-    def use_existing_client_secret(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_existing_client_secret(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether to use the existing client secret when modifying a rule. If you are creating a rule, you can omit this parameter or set it to false.
         """
         return pulumi.get(self, "use_existing_client_secret")
 
     @use_existing_client_secret.setter
-    def use_existing_client_secret(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_existing_client_secret(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_existing_client_secret", value)
 
 
@@ -866,7 +866,7 @@ class ListenerCertificateArgsDict(TypedDict):
     """
     Specifies an SSL server certificate to use as the default certificate for a secure listener.
     """
-    certificate_arn: NotRequired[pulumi.Input[_builtins.str]]
+    certificate_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon Resource Name (ARN) of the certificate.
     """
@@ -874,7 +874,7 @@ class ListenerCertificateArgsDict(TypedDict):
 @pulumi.input_type
 class ListenerCertificateArgs:
     def __init__(__self__, *,
-                 certificate_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 certificate_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Specifies an SSL server certificate to use as the default certificate for a secure listener.
 
@@ -885,14 +885,14 @@ class ListenerCertificateArgs:
 
     @_builtins.property
     @pulumi.getter(name="certificateArn")
-    def certificate_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the certificate.
         """
         return pulumi.get(self, "certificate_arn")
 
     @certificate_arn.setter
-    def certificate_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_arn", value)
 
 
@@ -904,12 +904,12 @@ class ListenerFixedResponseConfigArgsDict(TypedDict):
     """
     The HTTP response code (2XX, 4XX, or 5XX).
     """
-    content_type: NotRequired[pulumi.Input[_builtins.str]]
+    content_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The content type.
      Valid Values: text/plain | text/css | text/html | application/javascript | application/json
     """
-    message_body: NotRequired[pulumi.Input[_builtins.str]]
+    message_body: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The message.
     """
@@ -918,8 +918,8 @@ class ListenerFixedResponseConfigArgsDict(TypedDict):
 class ListenerFixedResponseConfigArgs:
     def __init__(__self__, *,
                  status_code: pulumi.Input[_builtins.str],
-                 content_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 message_body: Optional[pulumi.Input[_builtins.str]] = None):
+                 content_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 message_body: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Specifies information required when returning a custom HTTP response.
 
@@ -948,7 +948,7 @@ class ListenerFixedResponseConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="contentType")
-    def content_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The content type.
          Valid Values: text/plain | text/css | text/html | application/javascript | application/json
@@ -956,19 +956,19 @@ class ListenerFixedResponseConfigArgs:
         return pulumi.get(self, "content_type")
 
     @content_type.setter
-    def content_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content_type", value)
 
     @_builtins.property
     @pulumi.getter(name="messageBody")
-    def message_body(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def message_body(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The message.
         """
         return pulumi.get(self, "message_body")
 
     @message_body.setter
-    def message_body(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def message_body(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "message_body", value)
 
 
@@ -977,11 +977,11 @@ class ListenerForwardConfigArgsDict(TypedDict):
     Information for creating an action that distributes requests among multiple target groups. Specify only when ``Type`` is ``forward``.
      If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
     """
-    target_group_stickiness_config: NotRequired[pulumi.Input['ListenerTargetGroupStickinessConfigArgsDict']]
+    target_group_stickiness_config: NotRequired[pulumi.Input[Optional['ListenerTargetGroupStickinessConfigArgs']]]
     """
     Information about the target group stickiness for a rule.
     """
-    target_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['ListenerTargetGroupTupleArgsDict']]]]
+    target_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ListenerTargetGroupTupleArgs']]]]]
     """
     Information about how traffic will be distributed between multiple target groups in a forward rule.
     """
@@ -989,8 +989,8 @@ class ListenerForwardConfigArgsDict(TypedDict):
 @pulumi.input_type
 class ListenerForwardConfigArgs:
     def __init__(__self__, *,
-                 target_group_stickiness_config: Optional[pulumi.Input['ListenerTargetGroupStickinessConfigArgs']] = None,
-                 target_groups: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerTargetGroupTupleArgs']]]] = None):
+                 target_group_stickiness_config: pulumi.Input[Optional['ListenerTargetGroupStickinessConfigArgs']] = None,
+                 target_groups: pulumi.Input[Optional[Sequence[pulumi.Input['ListenerTargetGroupTupleArgs']]]] = None):
         """
         Information for creating an action that distributes requests among multiple target groups. Specify only when ``Type`` is ``forward``.
          If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
@@ -1005,26 +1005,26 @@ class ListenerForwardConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="targetGroupStickinessConfig")
-    def target_group_stickiness_config(self) -> Optional[pulumi.Input['ListenerTargetGroupStickinessConfigArgs']]:
+    def target_group_stickiness_config(self) -> pulumi.Input[Optional['ListenerTargetGroupStickinessConfigArgs']]:
         """
         Information about the target group stickiness for a rule.
         """
         return pulumi.get(self, "target_group_stickiness_config")
 
     @target_group_stickiness_config.setter
-    def target_group_stickiness_config(self, value: Optional[pulumi.Input['ListenerTargetGroupStickinessConfigArgs']]):
+    def target_group_stickiness_config(self, value: pulumi.Input[Optional['ListenerTargetGroupStickinessConfigArgs']]):
         pulumi.set(self, "target_group_stickiness_config", value)
 
     @_builtins.property
     @pulumi.getter(name="targetGroups")
-    def target_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ListenerTargetGroupTupleArgs']]]]:
+    def target_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ListenerTargetGroupTupleArgs']]]]:
         """
         Information about how traffic will be distributed between multiple target groups in a forward rule.
         """
         return pulumi.get(self, "target_groups")
 
     @target_groups.setter
-    def target_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerTargetGroupTupleArgs']]]]):
+    def target_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ListenerTargetGroupTupleArgs']]]]):
         pulumi.set(self, "target_groups", value)
 
 
@@ -1102,14 +1102,14 @@ class ListenerJwtValidationActionAdditionalClaimArgs:
 class ListenerJwtValidationConfigArgsDict(TypedDict):
     issuer: pulumi.Input[_builtins.str]
     jwks_endpoint: pulumi.Input[_builtins.str]
-    additional_claims: NotRequired[pulumi.Input[Sequence[pulumi.Input['ListenerJwtValidationActionAdditionalClaimArgsDict']]]]
+    additional_claims: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ListenerJwtValidationActionAdditionalClaimArgs']]]]]
 
 @pulumi.input_type
 class ListenerJwtValidationConfigArgs:
     def __init__(__self__, *,
                  issuer: pulumi.Input[_builtins.str],
                  jwks_endpoint: pulumi.Input[_builtins.str],
-                 additional_claims: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerJwtValidationActionAdditionalClaimArgs']]]] = None):
+                 additional_claims: pulumi.Input[Optional[Sequence[pulumi.Input['ListenerJwtValidationActionAdditionalClaimArgs']]]] = None):
         pulumi.set(__self__, "issuer", issuer)
         pulumi.set(__self__, "jwks_endpoint", jwks_endpoint)
         if additional_claims is not None:
@@ -1135,11 +1135,11 @@ class ListenerJwtValidationConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="additionalClaims")
-    def additional_claims(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ListenerJwtValidationActionAdditionalClaimArgs']]]]:
+    def additional_claims(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ListenerJwtValidationActionAdditionalClaimArgs']]]]:
         return pulumi.get(self, "additional_claims")
 
     @additional_claims.setter
-    def additional_claims(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerJwtValidationActionAdditionalClaimArgs']]]]):
+    def additional_claims(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ListenerJwtValidationActionAdditionalClaimArgs']]]]):
         pulumi.set(self, "additional_claims", value)
 
 
@@ -1147,19 +1147,19 @@ class ListenerMutualAuthenticationArgsDict(TypedDict):
     """
     The mutual authentication configuration information.
     """
-    advertise_trust_store_ca_names: NotRequired[pulumi.Input[_builtins.str]]
+    advertise_trust_store_ca_names: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Indicates whether trust store CA certificate names are advertised.
     """
-    ignore_client_certificate_expiry: NotRequired[pulumi.Input[_builtins.bool]]
+    ignore_client_certificate_expiry: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether expired client certificates are ignored.
     """
-    mode: NotRequired[pulumi.Input[_builtins.str]]
+    mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The client certificate handling method. Options are ``off``, ``passthrough`` or ``verify``. The default value is ``off``.
     """
-    trust_store_arn: NotRequired[pulumi.Input[_builtins.str]]
+    trust_store_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon Resource Name (ARN) of the trust store.
     """
@@ -1167,10 +1167,10 @@ class ListenerMutualAuthenticationArgsDict(TypedDict):
 @pulumi.input_type
 class ListenerMutualAuthenticationArgs:
     def __init__(__self__, *,
-                 advertise_trust_store_ca_names: Optional[pulumi.Input[_builtins.str]] = None,
-                 ignore_client_certificate_expiry: Optional[pulumi.Input[_builtins.bool]] = None,
-                 mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 trust_store_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 advertise_trust_store_ca_names: pulumi.Input[Optional[_builtins.str]] = None,
+                 ignore_client_certificate_expiry: pulumi.Input[Optional[_builtins.bool]] = None,
+                 mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 trust_store_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The mutual authentication configuration information.
 
@@ -1190,50 +1190,50 @@ class ListenerMutualAuthenticationArgs:
 
     @_builtins.property
     @pulumi.getter(name="advertiseTrustStoreCaNames")
-    def advertise_trust_store_ca_names(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def advertise_trust_store_ca_names(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates whether trust store CA certificate names are advertised.
         """
         return pulumi.get(self, "advertise_trust_store_ca_names")
 
     @advertise_trust_store_ca_names.setter
-    def advertise_trust_store_ca_names(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def advertise_trust_store_ca_names(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "advertise_trust_store_ca_names", value)
 
     @_builtins.property
     @pulumi.getter(name="ignoreClientCertificateExpiry")
-    def ignore_client_certificate_expiry(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ignore_client_certificate_expiry(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether expired client certificates are ignored.
         """
         return pulumi.get(self, "ignore_client_certificate_expiry")
 
     @ignore_client_certificate_expiry.setter
-    def ignore_client_certificate_expiry(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ignore_client_certificate_expiry(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ignore_client_certificate_expiry", value)
 
     @_builtins.property
     @pulumi.getter
-    def mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The client certificate handling method. Options are ``off``, ``passthrough`` or ``verify``. The default value is ``off``.
         """
         return pulumi.get(self, "mode")
 
     @mode.setter
-    def mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mode", value)
 
     @_builtins.property
     @pulumi.getter(name="trustStoreArn")
-    def trust_store_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def trust_store_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the trust store.
         """
         return pulumi.get(self, "trust_store_arn")
 
     @trust_store_arn.setter
-    def trust_store_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def trust_store_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "trust_store_arn", value)
 
 
@@ -1254,23 +1254,23 @@ class ListenerRedirectConfigArgsDict(TypedDict):
     """
     The HTTP redirect code. The redirect is either permanent (HTTP 301) or temporary (HTTP 302).
     """
-    host: NotRequired[pulumi.Input[_builtins.str]]
+    host: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The hostname. This component is not percent-encoded. The hostname can contain #{host}.
     """
-    path: NotRequired[pulumi.Input[_builtins.str]]
+    path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}.
     """
-    port: NotRequired[pulumi.Input[_builtins.str]]
+    port: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The port. You can specify a value from 1 to 65535 or #{port}.
     """
-    protocol: NotRequired[pulumi.Input[_builtins.str]]
+    protocol: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The protocol. You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to HTTP, HTTP to HTTPS, and HTTPS to HTTPS. You can't redirect HTTPS to HTTP.
     """
-    query: NotRequired[pulumi.Input[_builtins.str]]
+    query: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?", as it is automatically added. You can specify any of the reserved keywords.
     """
@@ -1279,11 +1279,11 @@ class ListenerRedirectConfigArgsDict(TypedDict):
 class ListenerRedirectConfigArgs:
     def __init__(__self__, *,
                  status_code: pulumi.Input[_builtins.str],
-                 host: Optional[pulumi.Input[_builtins.str]] = None,
-                 path: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.str]] = None,
-                 protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 query: Optional[pulumi.Input[_builtins.str]] = None):
+                 host: pulumi.Input[Optional[_builtins.str]] = None,
+                 path: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.str]] = None,
+                 protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 query: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Information about a redirect action.
          A URI consists of the following components: protocol://hostname:port/path?query. You must modify at least one of the following components to avoid a redirect loop: protocol, hostname, port, or path. Any components that you do not modify retain their original values.
@@ -1329,62 +1329,62 @@ class ListenerRedirectConfigArgs:
 
     @_builtins.property
     @pulumi.getter
-    def host(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The hostname. This component is not percent-encoded. The hostname can contain #{host}.
         """
         return pulumi.get(self, "host")
 
     @host.setter
-    def host(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host", value)
 
     @_builtins.property
     @pulumi.getter
-    def path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}.
         """
         return pulumi.get(self, "path")
 
     @path.setter
-    def path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "path", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The port. You can specify a value from 1 to 65535 or #{port}.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "port", value)
 
     @_builtins.property
     @pulumi.getter
-    def protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The protocol. You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to HTTP, HTTP to HTTPS, and HTTPS to HTTPS. You can't redirect HTTPS to HTTP.
         """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
-    def protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def protocol(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "protocol", value)
 
     @_builtins.property
     @pulumi.getter
-    def query(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def query(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?", as it is automatically added. You can specify any of the reserved keywords.
         """
         return pulumi.get(self, "query")
 
     @query.setter
-    def query(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def query(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "query", value)
 
 
@@ -1396,36 +1396,36 @@ class ListenerRuleActionArgsDict(TypedDict):
     """
     The type of action.
     """
-    authenticate_cognito_config: NotRequired[pulumi.Input['ListenerRuleAuthenticateCognitoConfigArgsDict']]
+    authenticate_cognito_config: NotRequired[pulumi.Input[Optional['ListenerRuleAuthenticateCognitoConfigArgs']]]
     """
     [HTTPS listeners] Information for using Amazon Cognito to authenticate users. Specify only when ``Type`` is ``authenticate-cognito``.
     """
-    authenticate_oidc_config: NotRequired[pulumi.Input['ListenerRuleAuthenticateOidcConfigArgsDict']]
+    authenticate_oidc_config: NotRequired[pulumi.Input[Optional['ListenerRuleAuthenticateOidcConfigArgs']]]
     """
     [HTTPS listeners] Information about an identity provider that is compliant with OpenID Connect (OIDC). Specify only when ``Type`` is ``authenticate-oidc``.
     """
-    fixed_response_config: NotRequired[pulumi.Input['ListenerRuleFixedResponseConfigArgsDict']]
+    fixed_response_config: NotRequired[pulumi.Input[Optional['ListenerRuleFixedResponseConfigArgs']]]
     """
     [Application Load Balancer] Information for creating an action that returns a custom HTTP response. Specify only when ``Type`` is ``fixed-response``.
     """
-    forward_config: NotRequired[pulumi.Input['ListenerRuleForwardConfigArgsDict']]
+    forward_config: NotRequired[pulumi.Input[Optional['ListenerRuleForwardConfigArgs']]]
     """
     Information for creating an action that distributes requests among multiple target groups. Specify only when ``Type`` is ``forward``.
      If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
     """
-    jwt_validation_config: NotRequired[pulumi.Input['ListenerRuleJwtValidationConfigArgsDict']]
+    jwt_validation_config: NotRequired[pulumi.Input[Optional['ListenerRuleJwtValidationConfigArgs']]]
     """
     [HTTPS listeners] Information for validating JWT access tokens in client requests. Specify only when ``Type`` is ``jwt-validation``.
     """
-    order: NotRequired[pulumi.Input[_builtins.int]]
+    order: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first.
     """
-    redirect_config: NotRequired[pulumi.Input['ListenerRuleRedirectConfigArgsDict']]
+    redirect_config: NotRequired[pulumi.Input[Optional['ListenerRuleRedirectConfigArgs']]]
     """
     [Application Load Balancer] Information for creating a redirect action. Specify only when ``Type`` is ``redirect``.
     """
-    target_group_arn: NotRequired[pulumi.Input[_builtins.str]]
+    target_group_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon Resource Name (ARN) of the target group. Specify only when ``Type`` is ``forward`` and you want to route to a single target group. To route to multiple target groups, you must use ``ForwardConfig`` instead.
     """
@@ -1434,14 +1434,14 @@ class ListenerRuleActionArgsDict(TypedDict):
 class ListenerRuleActionArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 authenticate_cognito_config: Optional[pulumi.Input['ListenerRuleAuthenticateCognitoConfigArgs']] = None,
-                 authenticate_oidc_config: Optional[pulumi.Input['ListenerRuleAuthenticateOidcConfigArgs']] = None,
-                 fixed_response_config: Optional[pulumi.Input['ListenerRuleFixedResponseConfigArgs']] = None,
-                 forward_config: Optional[pulumi.Input['ListenerRuleForwardConfigArgs']] = None,
-                 jwt_validation_config: Optional[pulumi.Input['ListenerRuleJwtValidationConfigArgs']] = None,
-                 order: Optional[pulumi.Input[_builtins.int]] = None,
-                 redirect_config: Optional[pulumi.Input['ListenerRuleRedirectConfigArgs']] = None,
-                 target_group_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 authenticate_cognito_config: pulumi.Input[Optional['ListenerRuleAuthenticateCognitoConfigArgs']] = None,
+                 authenticate_oidc_config: pulumi.Input[Optional['ListenerRuleAuthenticateOidcConfigArgs']] = None,
+                 fixed_response_config: pulumi.Input[Optional['ListenerRuleFixedResponseConfigArgs']] = None,
+                 forward_config: pulumi.Input[Optional['ListenerRuleForwardConfigArgs']] = None,
+                 jwt_validation_config: pulumi.Input[Optional['ListenerRuleJwtValidationConfigArgs']] = None,
+                 order: pulumi.Input[Optional[_builtins.int]] = None,
+                 redirect_config: pulumi.Input[Optional['ListenerRuleRedirectConfigArgs']] = None,
+                 target_group_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Specifies an action for a listener rule.
 
@@ -1488,43 +1488,43 @@ class ListenerRuleActionArgs:
 
     @_builtins.property
     @pulumi.getter(name="authenticateCognitoConfig")
-    def authenticate_cognito_config(self) -> Optional[pulumi.Input['ListenerRuleAuthenticateCognitoConfigArgs']]:
+    def authenticate_cognito_config(self) -> pulumi.Input[Optional['ListenerRuleAuthenticateCognitoConfigArgs']]:
         """
         [HTTPS listeners] Information for using Amazon Cognito to authenticate users. Specify only when ``Type`` is ``authenticate-cognito``.
         """
         return pulumi.get(self, "authenticate_cognito_config")
 
     @authenticate_cognito_config.setter
-    def authenticate_cognito_config(self, value: Optional[pulumi.Input['ListenerRuleAuthenticateCognitoConfigArgs']]):
+    def authenticate_cognito_config(self, value: pulumi.Input[Optional['ListenerRuleAuthenticateCognitoConfigArgs']]):
         pulumi.set(self, "authenticate_cognito_config", value)
 
     @_builtins.property
     @pulumi.getter(name="authenticateOidcConfig")
-    def authenticate_oidc_config(self) -> Optional[pulumi.Input['ListenerRuleAuthenticateOidcConfigArgs']]:
+    def authenticate_oidc_config(self) -> pulumi.Input[Optional['ListenerRuleAuthenticateOidcConfigArgs']]:
         """
         [HTTPS listeners] Information about an identity provider that is compliant with OpenID Connect (OIDC). Specify only when ``Type`` is ``authenticate-oidc``.
         """
         return pulumi.get(self, "authenticate_oidc_config")
 
     @authenticate_oidc_config.setter
-    def authenticate_oidc_config(self, value: Optional[pulumi.Input['ListenerRuleAuthenticateOidcConfigArgs']]):
+    def authenticate_oidc_config(self, value: pulumi.Input[Optional['ListenerRuleAuthenticateOidcConfigArgs']]):
         pulumi.set(self, "authenticate_oidc_config", value)
 
     @_builtins.property
     @pulumi.getter(name="fixedResponseConfig")
-    def fixed_response_config(self) -> Optional[pulumi.Input['ListenerRuleFixedResponseConfigArgs']]:
+    def fixed_response_config(self) -> pulumi.Input[Optional['ListenerRuleFixedResponseConfigArgs']]:
         """
         [Application Load Balancer] Information for creating an action that returns a custom HTTP response. Specify only when ``Type`` is ``fixed-response``.
         """
         return pulumi.get(self, "fixed_response_config")
 
     @fixed_response_config.setter
-    def fixed_response_config(self, value: Optional[pulumi.Input['ListenerRuleFixedResponseConfigArgs']]):
+    def fixed_response_config(self, value: pulumi.Input[Optional['ListenerRuleFixedResponseConfigArgs']]):
         pulumi.set(self, "fixed_response_config", value)
 
     @_builtins.property
     @pulumi.getter(name="forwardConfig")
-    def forward_config(self) -> Optional[pulumi.Input['ListenerRuleForwardConfigArgs']]:
+    def forward_config(self) -> pulumi.Input[Optional['ListenerRuleForwardConfigArgs']]:
         """
         Information for creating an action that distributes requests among multiple target groups. Specify only when ``Type`` is ``forward``.
          If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
@@ -1532,55 +1532,55 @@ class ListenerRuleActionArgs:
         return pulumi.get(self, "forward_config")
 
     @forward_config.setter
-    def forward_config(self, value: Optional[pulumi.Input['ListenerRuleForwardConfigArgs']]):
+    def forward_config(self, value: pulumi.Input[Optional['ListenerRuleForwardConfigArgs']]):
         pulumi.set(self, "forward_config", value)
 
     @_builtins.property
     @pulumi.getter(name="jwtValidationConfig")
-    def jwt_validation_config(self) -> Optional[pulumi.Input['ListenerRuleJwtValidationConfigArgs']]:
+    def jwt_validation_config(self) -> pulumi.Input[Optional['ListenerRuleJwtValidationConfigArgs']]:
         """
         [HTTPS listeners] Information for validating JWT access tokens in client requests. Specify only when ``Type`` is ``jwt-validation``.
         """
         return pulumi.get(self, "jwt_validation_config")
 
     @jwt_validation_config.setter
-    def jwt_validation_config(self, value: Optional[pulumi.Input['ListenerRuleJwtValidationConfigArgs']]):
+    def jwt_validation_config(self, value: pulumi.Input[Optional['ListenerRuleJwtValidationConfigArgs']]):
         pulumi.set(self, "jwt_validation_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def order(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def order(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first.
         """
         return pulumi.get(self, "order")
 
     @order.setter
-    def order(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def order(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "order", value)
 
     @_builtins.property
     @pulumi.getter(name="redirectConfig")
-    def redirect_config(self) -> Optional[pulumi.Input['ListenerRuleRedirectConfigArgs']]:
+    def redirect_config(self) -> pulumi.Input[Optional['ListenerRuleRedirectConfigArgs']]:
         """
         [Application Load Balancer] Information for creating a redirect action. Specify only when ``Type`` is ``redirect``.
         """
         return pulumi.get(self, "redirect_config")
 
     @redirect_config.setter
-    def redirect_config(self, value: Optional[pulumi.Input['ListenerRuleRedirectConfigArgs']]):
+    def redirect_config(self, value: pulumi.Input[Optional['ListenerRuleRedirectConfigArgs']]):
         pulumi.set(self, "redirect_config", value)
 
     @_builtins.property
     @pulumi.getter(name="targetGroupArn")
-    def target_group_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_group_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the target group. Specify only when ``Type`` is ``forward`` and you want to route to a single target group. To route to multiple target groups, you must use ``ForwardConfig`` instead.
         """
         return pulumi.get(self, "target_group_arn")
 
     @target_group_arn.setter
-    def target_group_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_group_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_group_arn", value)
 
 
@@ -1600,27 +1600,27 @@ class ListenerRuleAuthenticateCognitoConfigArgsDict(TypedDict):
     """
     The domain prefix or fully-qualified domain name of the Amazon Cognito user pool.
     """
-    authentication_request_extra_params: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    authentication_request_extra_params: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     The query parameters (up to 10) to include in the redirect request to the authorization endpoint.
     """
-    on_unauthenticated_request: NotRequired[pulumi.Input[_builtins.str]]
+    on_unauthenticated_request: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The behavior if the user is not authenticated. The following are possible values:
       +  deny```` - Return an HTTP 401 Unauthorized error.
       +  allow```` - Allow the request to be forwarded to the target.
       +  authenticate```` - Redirect the request to the IdP authorization endpoint. This is the default value.
     """
-    scope: NotRequired[pulumi.Input[_builtins.str]]
+    scope: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The set of user claims to be requested from the IdP. The default is ``openid``.
      To verify which scope values your IdP supports and how to separate multiple values, see the documentation for your IdP.
     """
-    session_cookie_name: NotRequired[pulumi.Input[_builtins.str]]
+    session_cookie_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the cookie used to maintain session information. The default is AWSELBAuthSessionCookie.
     """
-    session_timeout: NotRequired[pulumi.Input[_builtins.int]]
+    session_timeout: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum duration of the authentication session, in seconds. The default is 604800 seconds (7 days).
     """
@@ -1631,11 +1631,11 @@ class ListenerRuleAuthenticateCognitoConfigArgs:
                  user_pool_arn: pulumi.Input[_builtins.str],
                  user_pool_client_id: pulumi.Input[_builtins.str],
                  user_pool_domain: pulumi.Input[_builtins.str],
-                 authentication_request_extra_params: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 on_unauthenticated_request: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 session_cookie_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 session_timeout: Optional[pulumi.Input[_builtins.int]] = None):
+                 authentication_request_extra_params: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 on_unauthenticated_request: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 session_cookie_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 session_timeout: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Specifies information required when integrating with Amazon Cognito to authenticate users.
 
@@ -1704,19 +1704,19 @@ class ListenerRuleAuthenticateCognitoConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="authenticationRequestExtraParams")
-    def authentication_request_extra_params(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def authentication_request_extra_params(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The query parameters (up to 10) to include in the redirect request to the authorization endpoint.
         """
         return pulumi.get(self, "authentication_request_extra_params")
 
     @authentication_request_extra_params.setter
-    def authentication_request_extra_params(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def authentication_request_extra_params(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "authentication_request_extra_params", value)
 
     @_builtins.property
     @pulumi.getter(name="onUnauthenticatedRequest")
-    def on_unauthenticated_request(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def on_unauthenticated_request(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The behavior if the user is not authenticated. The following are possible values:
           +  deny```` - Return an HTTP 401 Unauthorized error.
@@ -1726,12 +1726,12 @@ class ListenerRuleAuthenticateCognitoConfigArgs:
         return pulumi.get(self, "on_unauthenticated_request")
 
     @on_unauthenticated_request.setter
-    def on_unauthenticated_request(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def on_unauthenticated_request(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "on_unauthenticated_request", value)
 
     @_builtins.property
     @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The set of user claims to be requested from the IdP. The default is ``openid``.
          To verify which scope values your IdP supports and how to separate multiple values, see the documentation for your IdP.
@@ -1739,31 +1739,31 @@ class ListenerRuleAuthenticateCognitoConfigArgs:
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scope(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scope", value)
 
     @_builtins.property
     @pulumi.getter(name="sessionCookieName")
-    def session_cookie_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def session_cookie_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the cookie used to maintain session information. The default is AWSELBAuthSessionCookie.
         """
         return pulumi.get(self, "session_cookie_name")
 
     @session_cookie_name.setter
-    def session_cookie_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def session_cookie_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "session_cookie_name", value)
 
     @_builtins.property
     @pulumi.getter(name="sessionTimeout")
-    def session_timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def session_timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum duration of the authentication session, in seconds. The default is 604800 seconds (7 days).
         """
         return pulumi.get(self, "session_timeout")
 
     @session_timeout.setter
-    def session_timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def session_timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "session_timeout", value)
 
 
@@ -1791,35 +1791,35 @@ class ListenerRuleAuthenticateOidcConfigArgsDict(TypedDict):
     """
     The user info endpoint of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.
     """
-    authentication_request_extra_params: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    authentication_request_extra_params: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     The query parameters (up to 10) to include in the redirect request to the authorization endpoint.
     """
-    client_secret: NotRequired[pulumi.Input[_builtins.str]]
+    client_secret: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The OAuth 2.0 client secret. This parameter is required if you are creating a rule. If you are modifying a rule, you can omit this parameter if you set ``UseExistingClientSecret`` to true.
     """
-    on_unauthenticated_request: NotRequired[pulumi.Input[_builtins.str]]
+    on_unauthenticated_request: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The behavior if the user is not authenticated. The following are possible values:
       +  deny```` - Return an HTTP 401 Unauthorized error.
       +  allow```` - Allow the request to be forwarded to the target.
       +  authenticate```` - Redirect the request to the IdP authorization endpoint. This is the default value.
     """
-    scope: NotRequired[pulumi.Input[_builtins.str]]
+    scope: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The set of user claims to be requested from the IdP. The default is ``openid``.
      To verify which scope values your IdP supports and how to separate multiple values, see the documentation for your IdP.
     """
-    session_cookie_name: NotRequired[pulumi.Input[_builtins.str]]
+    session_cookie_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the cookie used to maintain session information. The default is AWSELBAuthSessionCookie.
     """
-    session_timeout: NotRequired[pulumi.Input[_builtins.int]]
+    session_timeout: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum duration of the authentication session, in seconds. The default is 604800 seconds (7 days).
     """
-    use_existing_client_secret: NotRequired[pulumi.Input[_builtins.bool]]
+    use_existing_client_secret: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether to use the existing client secret when modifying a rule. If you are creating a rule, you can omit this parameter or set it to false.
     """
@@ -1832,13 +1832,13 @@ class ListenerRuleAuthenticateOidcConfigArgs:
                  issuer: pulumi.Input[_builtins.str],
                  token_endpoint: pulumi.Input[_builtins.str],
                  user_info_endpoint: pulumi.Input[_builtins.str],
-                 authentication_request_extra_params: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 on_unauthenticated_request: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 session_cookie_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 session_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 use_existing_client_secret: Optional[pulumi.Input[_builtins.bool]] = None):
+                 authentication_request_extra_params: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 on_unauthenticated_request: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 session_cookie_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 session_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 use_existing_client_secret: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Specifies information required using an identity provide (IdP) that is compliant with OpenID Connect (OIDC) to authenticate users.
 
@@ -1941,31 +1941,31 @@ class ListenerRuleAuthenticateOidcConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="authenticationRequestExtraParams")
-    def authentication_request_extra_params(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def authentication_request_extra_params(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The query parameters (up to 10) to include in the redirect request to the authorization endpoint.
         """
         return pulumi.get(self, "authentication_request_extra_params")
 
     @authentication_request_extra_params.setter
-    def authentication_request_extra_params(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def authentication_request_extra_params(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "authentication_request_extra_params", value)
 
     @_builtins.property
     @pulumi.getter(name="clientSecret")
-    def client_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_secret(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The OAuth 2.0 client secret. This parameter is required if you are creating a rule. If you are modifying a rule, you can omit this parameter if you set ``UseExistingClientSecret`` to true.
         """
         return pulumi.get(self, "client_secret")
 
     @client_secret.setter
-    def client_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_secret(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_secret", value)
 
     @_builtins.property
     @pulumi.getter(name="onUnauthenticatedRequest")
-    def on_unauthenticated_request(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def on_unauthenticated_request(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The behavior if the user is not authenticated. The following are possible values:
           +  deny```` - Return an HTTP 401 Unauthorized error.
@@ -1975,12 +1975,12 @@ class ListenerRuleAuthenticateOidcConfigArgs:
         return pulumi.get(self, "on_unauthenticated_request")
 
     @on_unauthenticated_request.setter
-    def on_unauthenticated_request(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def on_unauthenticated_request(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "on_unauthenticated_request", value)
 
     @_builtins.property
     @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The set of user claims to be requested from the IdP. The default is ``openid``.
          To verify which scope values your IdP supports and how to separate multiple values, see the documentation for your IdP.
@@ -1988,43 +1988,43 @@ class ListenerRuleAuthenticateOidcConfigArgs:
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scope(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scope", value)
 
     @_builtins.property
     @pulumi.getter(name="sessionCookieName")
-    def session_cookie_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def session_cookie_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the cookie used to maintain session information. The default is AWSELBAuthSessionCookie.
         """
         return pulumi.get(self, "session_cookie_name")
 
     @session_cookie_name.setter
-    def session_cookie_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def session_cookie_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "session_cookie_name", value)
 
     @_builtins.property
     @pulumi.getter(name="sessionTimeout")
-    def session_timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def session_timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum duration of the authentication session, in seconds. The default is 604800 seconds (7 days).
         """
         return pulumi.get(self, "session_timeout")
 
     @session_timeout.setter
-    def session_timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def session_timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "session_timeout", value)
 
     @_builtins.property
     @pulumi.getter(name="useExistingClientSecret")
-    def use_existing_client_secret(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_existing_client_secret(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether to use the existing client secret when modifying a rule. If you are creating a rule, you can omit this parameter or set it to false.
         """
         return pulumi.get(self, "use_existing_client_secret")
 
     @use_existing_client_secret.setter
-    def use_existing_client_secret(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_existing_client_secret(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_existing_client_secret", value)
 
 
@@ -2036,12 +2036,12 @@ class ListenerRuleFixedResponseConfigArgsDict(TypedDict):
     """
     The HTTP response code (2XX, 4XX, or 5XX).
     """
-    content_type: NotRequired[pulumi.Input[_builtins.str]]
+    content_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The content type.
      Valid Values: text/plain | text/css | text/html | application/javascript | application/json
     """
-    message_body: NotRequired[pulumi.Input[_builtins.str]]
+    message_body: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The message.
     """
@@ -2050,8 +2050,8 @@ class ListenerRuleFixedResponseConfigArgsDict(TypedDict):
 class ListenerRuleFixedResponseConfigArgs:
     def __init__(__self__, *,
                  status_code: pulumi.Input[_builtins.str],
-                 content_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 message_body: Optional[pulumi.Input[_builtins.str]] = None):
+                 content_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 message_body: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Specifies information required when returning a custom HTTP response.
 
@@ -2080,7 +2080,7 @@ class ListenerRuleFixedResponseConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="contentType")
-    def content_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The content type.
          Valid Values: text/plain | text/css | text/html | application/javascript | application/json
@@ -2088,19 +2088,19 @@ class ListenerRuleFixedResponseConfigArgs:
         return pulumi.get(self, "content_type")
 
     @content_type.setter
-    def content_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content_type", value)
 
     @_builtins.property
     @pulumi.getter(name="messageBody")
-    def message_body(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def message_body(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The message.
         """
         return pulumi.get(self, "message_body")
 
     @message_body.setter
-    def message_body(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def message_body(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "message_body", value)
 
 
@@ -2109,11 +2109,11 @@ class ListenerRuleForwardConfigArgsDict(TypedDict):
     Information for creating an action that distributes requests among multiple target groups. Specify only when ``Type`` is ``forward``.
      If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
     """
-    target_group_stickiness_config: NotRequired[pulumi.Input['ListenerRuleTargetGroupStickinessConfigArgsDict']]
+    target_group_stickiness_config: NotRequired[pulumi.Input[Optional['ListenerRuleTargetGroupStickinessConfigArgs']]]
     """
     Information about the target group stickiness for a rule.
     """
-    target_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['ListenerRuleTargetGroupTupleArgsDict']]]]
+    target_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ListenerRuleTargetGroupTupleArgs']]]]]
     """
     Information about how traffic will be distributed between multiple target groups in a forward rule.
     """
@@ -2121,8 +2121,8 @@ class ListenerRuleForwardConfigArgsDict(TypedDict):
 @pulumi.input_type
 class ListenerRuleForwardConfigArgs:
     def __init__(__self__, *,
-                 target_group_stickiness_config: Optional[pulumi.Input['ListenerRuleTargetGroupStickinessConfigArgs']] = None,
-                 target_groups: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerRuleTargetGroupTupleArgs']]]] = None):
+                 target_group_stickiness_config: pulumi.Input[Optional['ListenerRuleTargetGroupStickinessConfigArgs']] = None,
+                 target_groups: pulumi.Input[Optional[Sequence[pulumi.Input['ListenerRuleTargetGroupTupleArgs']]]] = None):
         """
         Information for creating an action that distributes requests among multiple target groups. Specify only when ``Type`` is ``forward``.
          If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
@@ -2137,26 +2137,26 @@ class ListenerRuleForwardConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="targetGroupStickinessConfig")
-    def target_group_stickiness_config(self) -> Optional[pulumi.Input['ListenerRuleTargetGroupStickinessConfigArgs']]:
+    def target_group_stickiness_config(self) -> pulumi.Input[Optional['ListenerRuleTargetGroupStickinessConfigArgs']]:
         """
         Information about the target group stickiness for a rule.
         """
         return pulumi.get(self, "target_group_stickiness_config")
 
     @target_group_stickiness_config.setter
-    def target_group_stickiness_config(self, value: Optional[pulumi.Input['ListenerRuleTargetGroupStickinessConfigArgs']]):
+    def target_group_stickiness_config(self, value: pulumi.Input[Optional['ListenerRuleTargetGroupStickinessConfigArgs']]):
         pulumi.set(self, "target_group_stickiness_config", value)
 
     @_builtins.property
     @pulumi.getter(name="targetGroups")
-    def target_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ListenerRuleTargetGroupTupleArgs']]]]:
+    def target_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ListenerRuleTargetGroupTupleArgs']]]]:
         """
         Information about how traffic will be distributed between multiple target groups in a forward rule.
         """
         return pulumi.get(self, "target_groups")
 
     @target_groups.setter
-    def target_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerRuleTargetGroupTupleArgs']]]]):
+    def target_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ListenerRuleTargetGroupTupleArgs']]]]):
         pulumi.set(self, "target_groups", value)
 
 
@@ -2164,8 +2164,8 @@ class ListenerRuleHostHeaderConfigArgsDict(TypedDict):
     """
     Information about a host header condition.
     """
-    regex_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    regex_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The host names. The maximum length of each string is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character). You must include at least one "." character. You can include only alphabetical characters after the final "." character.
      If you specify multiple strings, the condition is satisfied if one of the strings matches the host name.
@@ -2174,8 +2174,8 @@ class ListenerRuleHostHeaderConfigArgsDict(TypedDict):
 @pulumi.input_type
 class ListenerRuleHostHeaderConfigArgs:
     def __init__(__self__, *,
-                 regex_values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 regex_values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Information about a host header condition.
 
@@ -2189,16 +2189,16 @@ class ListenerRuleHostHeaderConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="regexValues")
-    def regex_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def regex_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "regex_values")
 
     @regex_values.setter
-    def regex_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def regex_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "regex_values", value)
 
     @_builtins.property
     @pulumi.getter
-    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The host names. The maximum length of each string is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character). You must include at least one "." character. You can include only alphabetical characters after the final "." character.
          If you specify multiple strings, the condition is satisfied if one of the strings matches the host name.
@@ -2206,7 +2206,7 @@ class ListenerRuleHostHeaderConfigArgs:
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "values", value)
 
 
@@ -2215,12 +2215,12 @@ class ListenerRuleHttpHeaderConfigArgsDict(TypedDict):
     Information about an HTTP header condition.
      There is a set of standard HTTP header fields. You can also define custom HTTP header fields.
     """
-    http_header_name: NotRequired[pulumi.Input[_builtins.str]]
+    http_header_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the HTTP header field. The maximum size is 40 characters. The header name is case insensitive. The allowed characters are specified by RFC 7230. Wildcards are not supported.
     """
-    regex_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    regex_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The strings to compare against the value of the HTTP header. The maximum length of each string is 128 characters. The comparison strings are case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
      If the same header appears multiple times in the request, we search them in order until a match is found.
@@ -2230,9 +2230,9 @@ class ListenerRuleHttpHeaderConfigArgsDict(TypedDict):
 @pulumi.input_type
 class ListenerRuleHttpHeaderConfigArgs:
     def __init__(__self__, *,
-                 http_header_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 regex_values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 http_header_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 regex_values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Information about an HTTP header condition.
          There is a set of standard HTTP header fields. You can also define custom HTTP header fields.
@@ -2251,28 +2251,28 @@ class ListenerRuleHttpHeaderConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="httpHeaderName")
-    def http_header_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def http_header_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the HTTP header field. The maximum size is 40 characters. The header name is case insensitive. The allowed characters are specified by RFC 7230. Wildcards are not supported.
         """
         return pulumi.get(self, "http_header_name")
 
     @http_header_name.setter
-    def http_header_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def http_header_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "http_header_name", value)
 
     @_builtins.property
     @pulumi.getter(name="regexValues")
-    def regex_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def regex_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "regex_values")
 
     @regex_values.setter
-    def regex_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def regex_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "regex_values", value)
 
     @_builtins.property
     @pulumi.getter
-    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The strings to compare against the value of the HTTP header. The maximum length of each string is 128 characters. The comparison strings are case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
          If the same header appears multiple times in the request, we search them in order until a match is found.
@@ -2281,7 +2281,7 @@ class ListenerRuleHttpHeaderConfigArgs:
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "values", value)
 
 
@@ -2290,7 +2290,7 @@ class ListenerRuleHttpRequestMethodConfigArgsDict(TypedDict):
     Information about an HTTP method condition.
      HTTP defines a set of request methods, also referred to as HTTP verbs. For more information, see the [HTTP Method Registry](https://docs.aws.amazon.com/https://www.iana.org/assignments/http-methods/http-methods.xhtml). You can also define custom HTTP methods.
     """
-    values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The name of the request method. The maximum length is 40 characters. The allowed characters are A-Z, hyphen (-), and underscore (_). The comparison is case sensitive. Wildcards are not supported; therefore, the method name must be an exact match.
      If you specify multiple strings, the condition is satisfied if one of the strings matches the HTTP request method. We recommend that you route GET and HEAD requests in the same way, because the response to a HEAD request may be cached.
@@ -2299,7 +2299,7 @@ class ListenerRuleHttpRequestMethodConfigArgsDict(TypedDict):
 @pulumi.input_type
 class ListenerRuleHttpRequestMethodConfigArgs:
     def __init__(__self__, *,
-                 values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Information about an HTTP method condition.
          HTTP defines a set of request methods, also referred to as HTTP verbs. For more information, see the [HTTP Method Registry](https://docs.aws.amazon.com/https://www.iana.org/assignments/http-methods/http-methods.xhtml). You can also define custom HTTP methods.
@@ -2312,7 +2312,7 @@ class ListenerRuleHttpRequestMethodConfigArgs:
 
     @_builtins.property
     @pulumi.getter
-    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The name of the request method. The maximum length is 40 characters. The allowed characters are A-Z, hyphen (-), and underscore (_). The comparison is case sensitive. Wildcards are not supported; therefore, the method name must be an exact match.
          If you specify multiple strings, the condition is satisfied if one of the strings matches the HTTP request method. We recommend that you route GET and HEAD requests in the same way, because the response to a HEAD request may be cached.
@@ -2320,7 +2320,7 @@ class ListenerRuleHttpRequestMethodConfigArgs:
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "values", value)
 
 
@@ -2398,14 +2398,14 @@ class ListenerRuleJwtValidationActionAdditionalClaimArgs:
 class ListenerRuleJwtValidationConfigArgsDict(TypedDict):
     issuer: pulumi.Input[_builtins.str]
     jwks_endpoint: pulumi.Input[_builtins.str]
-    additional_claims: NotRequired[pulumi.Input[Sequence[pulumi.Input['ListenerRuleJwtValidationActionAdditionalClaimArgsDict']]]]
+    additional_claims: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ListenerRuleJwtValidationActionAdditionalClaimArgs']]]]]
 
 @pulumi.input_type
 class ListenerRuleJwtValidationConfigArgs:
     def __init__(__self__, *,
                  issuer: pulumi.Input[_builtins.str],
                  jwks_endpoint: pulumi.Input[_builtins.str],
-                 additional_claims: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerRuleJwtValidationActionAdditionalClaimArgs']]]] = None):
+                 additional_claims: pulumi.Input[Optional[Sequence[pulumi.Input['ListenerRuleJwtValidationActionAdditionalClaimArgs']]]] = None):
         pulumi.set(__self__, "issuer", issuer)
         pulumi.set(__self__, "jwks_endpoint", jwks_endpoint)
         if additional_claims is not None:
@@ -2431,11 +2431,11 @@ class ListenerRuleJwtValidationConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="additionalClaims")
-    def additional_claims(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ListenerRuleJwtValidationActionAdditionalClaimArgs']]]]:
+    def additional_claims(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ListenerRuleJwtValidationActionAdditionalClaimArgs']]]]:
         return pulumi.get(self, "additional_claims")
 
     @additional_claims.setter
-    def additional_claims(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerRuleJwtValidationActionAdditionalClaimArgs']]]]):
+    def additional_claims(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ListenerRuleJwtValidationActionAdditionalClaimArgs']]]]):
         pulumi.set(self, "additional_claims", value)
 
 
@@ -2443,8 +2443,8 @@ class ListenerRulePathPatternConfigArgsDict(TypedDict):
     """
     Information about a path pattern condition.
     """
-    regex_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    regex_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The path patterns to compare against the request URL. The maximum size of each string is 128 characters. The comparison is case sensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
      If you specify multiple strings, the condition is satisfied if one of them matches the request URL. The path pattern is compared only to the path of the URL, not to its query string.
@@ -2453,8 +2453,8 @@ class ListenerRulePathPatternConfigArgsDict(TypedDict):
 @pulumi.input_type
 class ListenerRulePathPatternConfigArgs:
     def __init__(__self__, *,
-                 regex_values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 regex_values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Information about a path pattern condition.
 
@@ -2468,16 +2468,16 @@ class ListenerRulePathPatternConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="regexValues")
-    def regex_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def regex_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "regex_values")
 
     @regex_values.setter
-    def regex_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def regex_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "regex_values", value)
 
     @_builtins.property
     @pulumi.getter
-    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The path patterns to compare against the request URL. The maximum size of each string is 128 characters. The comparison is case sensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
          If you specify multiple strings, the condition is satisfied if one of them matches the request URL. The path pattern is compared only to the path of the URL, not to its query string.
@@ -2485,7 +2485,7 @@ class ListenerRulePathPatternConfigArgs:
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "values", value)
 
 
@@ -2494,7 +2494,7 @@ class ListenerRuleQueryStringConfigArgsDict(TypedDict):
     Information about a query string condition.
      The query string component of a URI starts after the first '?' character and is terminated by either a '#' character or the end of the URI. A typical query string contains key/value pairs separated by '&' characters. The allowed characters are specified by RFC 3986. Any character can be percentage encoded.
     """
-    values: NotRequired[pulumi.Input[Sequence[pulumi.Input['ListenerRuleQueryStringKeyValueArgsDict']]]]
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ListenerRuleQueryStringKeyValueArgs']]]]]
     """
     The key/value pairs or values to find in the query string. The maximum length of each string is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '*' or '?' character in a query string, you must escape these characters in ``Values`` using a '\\' character.
      If you specify multiple key/value pairs or values, the condition is satisfied if one of them is found in the query string.
@@ -2503,7 +2503,7 @@ class ListenerRuleQueryStringConfigArgsDict(TypedDict):
 @pulumi.input_type
 class ListenerRuleQueryStringConfigArgs:
     def __init__(__self__, *,
-                 values: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerRuleQueryStringKeyValueArgs']]]] = None):
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input['ListenerRuleQueryStringKeyValueArgs']]]] = None):
         """
         Information about a query string condition.
          The query string component of a URI starts after the first '?' character and is terminated by either a '#' character or the end of the URI. A typical query string contains key/value pairs separated by '&' characters. The allowed characters are specified by RFC 3986. Any character can be percentage encoded.
@@ -2516,7 +2516,7 @@ class ListenerRuleQueryStringConfigArgs:
 
     @_builtins.property
     @pulumi.getter
-    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ListenerRuleQueryStringKeyValueArgs']]]]:
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ListenerRuleQueryStringKeyValueArgs']]]]:
         """
         The key/value pairs or values to find in the query string. The maximum length of each string is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '*' or '?' character in a query string, you must escape these characters in ``Values`` using a '\\' character.
          If you specify multiple key/value pairs or values, the condition is satisfied if one of them is found in the query string.
@@ -2524,7 +2524,7 @@ class ListenerRuleQueryStringConfigArgs:
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerRuleQueryStringKeyValueArgs']]]]):
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ListenerRuleQueryStringKeyValueArgs']]]]):
         pulumi.set(self, "values", value)
 
 
@@ -2532,11 +2532,11 @@ class ListenerRuleQueryStringKeyValueArgsDict(TypedDict):
     """
     Information about a key/value pair.
     """
-    key: NotRequired[pulumi.Input[_builtins.str]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The key. You can omit the key.
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The value.
     """
@@ -2544,8 +2544,8 @@ class ListenerRuleQueryStringKeyValueArgsDict(TypedDict):
 @pulumi.input_type
 class ListenerRuleQueryStringKeyValueArgs:
     def __init__(__self__, *,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Information about a key/value pair.
 
@@ -2559,26 +2559,26 @@ class ListenerRuleQueryStringKeyValueArgs:
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The key. You can omit the key.
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
@@ -2599,23 +2599,23 @@ class ListenerRuleRedirectConfigArgsDict(TypedDict):
     """
     The HTTP redirect code. The redirect is either permanent (HTTP 301) or temporary (HTTP 302).
     """
-    host: NotRequired[pulumi.Input[_builtins.str]]
+    host: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The hostname. This component is not percent-encoded. The hostname can contain #{host}.
     """
-    path: NotRequired[pulumi.Input[_builtins.str]]
+    path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}.
     """
-    port: NotRequired[pulumi.Input[_builtins.str]]
+    port: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The port. You can specify a value from 1 to 65535 or #{port}.
     """
-    protocol: NotRequired[pulumi.Input[_builtins.str]]
+    protocol: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The protocol. You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to HTTP, HTTP to HTTPS, and HTTPS to HTTPS. You can't redirect HTTPS to HTTP.
     """
-    query: NotRequired[pulumi.Input[_builtins.str]]
+    query: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?", as it is automatically added. You can specify any of the reserved keywords.
     """
@@ -2624,11 +2624,11 @@ class ListenerRuleRedirectConfigArgsDict(TypedDict):
 class ListenerRuleRedirectConfigArgs:
     def __init__(__self__, *,
                  status_code: pulumi.Input[_builtins.str],
-                 host: Optional[pulumi.Input[_builtins.str]] = None,
-                 path: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.str]] = None,
-                 protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 query: Optional[pulumi.Input[_builtins.str]] = None):
+                 host: pulumi.Input[Optional[_builtins.str]] = None,
+                 path: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.str]] = None,
+                 protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 query: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Information about a redirect action.
          A URI consists of the following components: protocol://hostname:port/path?query. You must modify at least one of the following components to avoid a redirect loop: protocol, hostname, port, or path. Any components that you do not modify retain their original values.
@@ -2674,62 +2674,62 @@ class ListenerRuleRedirectConfigArgs:
 
     @_builtins.property
     @pulumi.getter
-    def host(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The hostname. This component is not percent-encoded. The hostname can contain #{host}.
         """
         return pulumi.get(self, "host")
 
     @host.setter
-    def host(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host", value)
 
     @_builtins.property
     @pulumi.getter
-    def path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}.
         """
         return pulumi.get(self, "path")
 
     @path.setter
-    def path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "path", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The port. You can specify a value from 1 to 65535 or #{port}.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "port", value)
 
     @_builtins.property
     @pulumi.getter
-    def protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The protocol. You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to HTTP, HTTP to HTTPS, and HTTPS to HTTPS. You can't redirect HTTPS to HTTP.
         """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
-    def protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def protocol(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "protocol", value)
 
     @_builtins.property
     @pulumi.getter
-    def query(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def query(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?", as it is automatically added. You can specify any of the reserved keywords.
         """
         return pulumi.get(self, "query")
 
     @query.setter
-    def query(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def query(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "query", value)
 
 
@@ -2808,7 +2808,7 @@ class ListenerRuleRuleConditionArgsDict(TypedDict):
     """
     Specifies a condition for a listener rule.
     """
-    field: NotRequired[pulumi.Input[_builtins.str]]
+    field: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The field in the HTTP request. The following are the possible values:
       +   ``http-header`` 
@@ -2818,35 +2818,35 @@ class ListenerRuleRuleConditionArgsDict(TypedDict):
       +   ``query-string`` 
       +   ``source-ip``
     """
-    host_header_config: NotRequired[pulumi.Input['ListenerRuleHostHeaderConfigArgsDict']]
+    host_header_config: NotRequired[pulumi.Input[Optional['ListenerRuleHostHeaderConfigArgs']]]
     """
     Information for a host header condition. Specify only when ``Field`` is ``host-header``.
     """
-    http_header_config: NotRequired[pulumi.Input['ListenerRuleHttpHeaderConfigArgsDict']]
+    http_header_config: NotRequired[pulumi.Input[Optional['ListenerRuleHttpHeaderConfigArgs']]]
     """
     Information for an HTTP header condition. Specify only when ``Field`` is ``http-header``.
     """
-    http_request_method_config: NotRequired[pulumi.Input['ListenerRuleHttpRequestMethodConfigArgsDict']]
+    http_request_method_config: NotRequired[pulumi.Input[Optional['ListenerRuleHttpRequestMethodConfigArgs']]]
     """
     Information for an HTTP method condition. Specify only when ``Field`` is ``http-request-method``.
     """
-    path_pattern_config: NotRequired[pulumi.Input['ListenerRulePathPatternConfigArgsDict']]
+    path_pattern_config: NotRequired[pulumi.Input[Optional['ListenerRulePathPatternConfigArgs']]]
     """
     Information for a path pattern condition. Specify only when ``Field`` is ``path-pattern``.
     """
-    query_string_config: NotRequired[pulumi.Input['ListenerRuleQueryStringConfigArgsDict']]
+    query_string_config: NotRequired[pulumi.Input[Optional['ListenerRuleQueryStringConfigArgs']]]
     """
     Information for a query string condition. Specify only when ``Field`` is ``query-string``.
     """
-    regex_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    regex_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The regular expressions to match against the condition field. The maximum length of each string is 128 characters. Specify only when ``Field`` is ``http-header``, ``host-header``, or ``path-pattern``.
     """
-    source_ip_config: NotRequired[pulumi.Input['ListenerRuleSourceIpConfigArgsDict']]
+    source_ip_config: NotRequired[pulumi.Input[Optional['ListenerRuleSourceIpConfigArgs']]]
     """
     Information for a source IP condition. Specify only when ``Field`` is ``source-ip``.
     """
-    values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The condition value. Specify only when ``Field`` is ``host-header`` or ``path-pattern``. Alternatively, to specify multiple host names or multiple path patterns, use ``HostHeaderConfig`` or ``PathPatternConfig``.
      If ``Field`` is ``host-header`` and you're not using ``HostHeaderConfig``, you can specify a single host name (for example, my.example.com). A host name is case insensitive, can be up to 128 characters in length, and can contain any of the following characters.
@@ -2866,15 +2866,15 @@ class ListenerRuleRuleConditionArgsDict(TypedDict):
 @pulumi.input_type
 class ListenerRuleRuleConditionArgs:
     def __init__(__self__, *,
-                 field: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_header_config: Optional[pulumi.Input['ListenerRuleHostHeaderConfigArgs']] = None,
-                 http_header_config: Optional[pulumi.Input['ListenerRuleHttpHeaderConfigArgs']] = None,
-                 http_request_method_config: Optional[pulumi.Input['ListenerRuleHttpRequestMethodConfigArgs']] = None,
-                 path_pattern_config: Optional[pulumi.Input['ListenerRulePathPatternConfigArgs']] = None,
-                 query_string_config: Optional[pulumi.Input['ListenerRuleQueryStringConfigArgs']] = None,
-                 regex_values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 source_ip_config: Optional[pulumi.Input['ListenerRuleSourceIpConfigArgs']] = None,
-                 values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 field: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_header_config: pulumi.Input[Optional['ListenerRuleHostHeaderConfigArgs']] = None,
+                 http_header_config: pulumi.Input[Optional['ListenerRuleHttpHeaderConfigArgs']] = None,
+                 http_request_method_config: pulumi.Input[Optional['ListenerRuleHttpRequestMethodConfigArgs']] = None,
+                 path_pattern_config: pulumi.Input[Optional['ListenerRulePathPatternConfigArgs']] = None,
+                 query_string_config: pulumi.Input[Optional['ListenerRuleQueryStringConfigArgs']] = None,
+                 regex_values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 source_ip_config: pulumi.Input[Optional['ListenerRuleSourceIpConfigArgs']] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Specifies a condition for a listener rule.
 
@@ -2927,7 +2927,7 @@ class ListenerRuleRuleConditionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def field(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def field(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The field in the HTTP request. The following are the possible values:
           +   ``http-header`` 
@@ -2940,96 +2940,96 @@ class ListenerRuleRuleConditionArgs:
         return pulumi.get(self, "field")
 
     @field.setter
-    def field(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def field(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "field", value)
 
     @_builtins.property
     @pulumi.getter(name="hostHeaderConfig")
-    def host_header_config(self) -> Optional[pulumi.Input['ListenerRuleHostHeaderConfigArgs']]:
+    def host_header_config(self) -> pulumi.Input[Optional['ListenerRuleHostHeaderConfigArgs']]:
         """
         Information for a host header condition. Specify only when ``Field`` is ``host-header``.
         """
         return pulumi.get(self, "host_header_config")
 
     @host_header_config.setter
-    def host_header_config(self, value: Optional[pulumi.Input['ListenerRuleHostHeaderConfigArgs']]):
+    def host_header_config(self, value: pulumi.Input[Optional['ListenerRuleHostHeaderConfigArgs']]):
         pulumi.set(self, "host_header_config", value)
 
     @_builtins.property
     @pulumi.getter(name="httpHeaderConfig")
-    def http_header_config(self) -> Optional[pulumi.Input['ListenerRuleHttpHeaderConfigArgs']]:
+    def http_header_config(self) -> pulumi.Input[Optional['ListenerRuleHttpHeaderConfigArgs']]:
         """
         Information for an HTTP header condition. Specify only when ``Field`` is ``http-header``.
         """
         return pulumi.get(self, "http_header_config")
 
     @http_header_config.setter
-    def http_header_config(self, value: Optional[pulumi.Input['ListenerRuleHttpHeaderConfigArgs']]):
+    def http_header_config(self, value: pulumi.Input[Optional['ListenerRuleHttpHeaderConfigArgs']]):
         pulumi.set(self, "http_header_config", value)
 
     @_builtins.property
     @pulumi.getter(name="httpRequestMethodConfig")
-    def http_request_method_config(self) -> Optional[pulumi.Input['ListenerRuleHttpRequestMethodConfigArgs']]:
+    def http_request_method_config(self) -> pulumi.Input[Optional['ListenerRuleHttpRequestMethodConfigArgs']]:
         """
         Information for an HTTP method condition. Specify only when ``Field`` is ``http-request-method``.
         """
         return pulumi.get(self, "http_request_method_config")
 
     @http_request_method_config.setter
-    def http_request_method_config(self, value: Optional[pulumi.Input['ListenerRuleHttpRequestMethodConfigArgs']]):
+    def http_request_method_config(self, value: pulumi.Input[Optional['ListenerRuleHttpRequestMethodConfigArgs']]):
         pulumi.set(self, "http_request_method_config", value)
 
     @_builtins.property
     @pulumi.getter(name="pathPatternConfig")
-    def path_pattern_config(self) -> Optional[pulumi.Input['ListenerRulePathPatternConfigArgs']]:
+    def path_pattern_config(self) -> pulumi.Input[Optional['ListenerRulePathPatternConfigArgs']]:
         """
         Information for a path pattern condition. Specify only when ``Field`` is ``path-pattern``.
         """
         return pulumi.get(self, "path_pattern_config")
 
     @path_pattern_config.setter
-    def path_pattern_config(self, value: Optional[pulumi.Input['ListenerRulePathPatternConfigArgs']]):
+    def path_pattern_config(self, value: pulumi.Input[Optional['ListenerRulePathPatternConfigArgs']]):
         pulumi.set(self, "path_pattern_config", value)
 
     @_builtins.property
     @pulumi.getter(name="queryStringConfig")
-    def query_string_config(self) -> Optional[pulumi.Input['ListenerRuleQueryStringConfigArgs']]:
+    def query_string_config(self) -> pulumi.Input[Optional['ListenerRuleQueryStringConfigArgs']]:
         """
         Information for a query string condition. Specify only when ``Field`` is ``query-string``.
         """
         return pulumi.get(self, "query_string_config")
 
     @query_string_config.setter
-    def query_string_config(self, value: Optional[pulumi.Input['ListenerRuleQueryStringConfigArgs']]):
+    def query_string_config(self, value: pulumi.Input[Optional['ListenerRuleQueryStringConfigArgs']]):
         pulumi.set(self, "query_string_config", value)
 
     @_builtins.property
     @pulumi.getter(name="regexValues")
-    def regex_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def regex_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The regular expressions to match against the condition field. The maximum length of each string is 128 characters. Specify only when ``Field`` is ``http-header``, ``host-header``, or ``path-pattern``.
         """
         return pulumi.get(self, "regex_values")
 
     @regex_values.setter
-    def regex_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def regex_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "regex_values", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceIpConfig")
-    def source_ip_config(self) -> Optional[pulumi.Input['ListenerRuleSourceIpConfigArgs']]:
+    def source_ip_config(self) -> pulumi.Input[Optional['ListenerRuleSourceIpConfigArgs']]:
         """
         Information for a source IP condition. Specify only when ``Field`` is ``source-ip``.
         """
         return pulumi.get(self, "source_ip_config")
 
     @source_ip_config.setter
-    def source_ip_config(self, value: Optional[pulumi.Input['ListenerRuleSourceIpConfigArgs']]):
+    def source_ip_config(self, value: pulumi.Input[Optional['ListenerRuleSourceIpConfigArgs']]):
         pulumi.set(self, "source_ip_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The condition value. Specify only when ``Field`` is ``host-header`` or ``path-pattern``. Alternatively, to specify multiple host names or multiple path patterns, use ``HostHeaderConfig`` or ``PathPatternConfig``.
          If ``Field`` is ``host-header`` and you're not using ``HostHeaderConfig``, you can specify a single host name (for example, my.example.com). A host name is case insensitive, can be up to 128 characters in length, and can contain any of the following characters.
@@ -3048,7 +3048,7 @@ class ListenerRuleRuleConditionArgs:
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "values", value)
 
 
@@ -3057,7 +3057,7 @@ class ListenerRuleSourceIpConfigArgsDict(TypedDict):
     Information about a source IP condition.
      You can use this condition to route based on the IP address of the source that connects to the load balancer. If a client is behind a proxy, this is the IP address of the proxy not the IP address of the client.
     """
-    values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The source IP addresses, in CIDR format. You can use both IPv4 and IPv6 addresses. Wildcards are not supported.
      If you specify multiple addresses, the condition is satisfied if the source IP address of the request matches one of the CIDR blocks. This condition is not satisfied by the addresses in the X-Forwarded-For header.
@@ -3066,7 +3066,7 @@ class ListenerRuleSourceIpConfigArgsDict(TypedDict):
 @pulumi.input_type
 class ListenerRuleSourceIpConfigArgs:
     def __init__(__self__, *,
-                 values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Information about a source IP condition.
          You can use this condition to route based on the IP address of the source that connects to the load balancer. If a client is behind a proxy, this is the IP address of the proxy not the IP address of the client.
@@ -3079,7 +3079,7 @@ class ListenerRuleSourceIpConfigArgs:
 
     @_builtins.property
     @pulumi.getter
-    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The source IP addresses, in CIDR format. You can use both IPv4 and IPv6 addresses. Wildcards are not supported.
          If you specify multiple addresses, the condition is satisfied if the source IP address of the request matches one of the CIDR blocks. This condition is not satisfied by the addresses in the X-Forwarded-For header.
@@ -3087,7 +3087,7 @@ class ListenerRuleSourceIpConfigArgs:
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "values", value)
 
 
@@ -3095,11 +3095,11 @@ class ListenerRuleTargetGroupStickinessConfigArgsDict(TypedDict):
     """
     Information about the target group stickiness for a rule.
     """
-    duration_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    duration_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     [Application Load Balancers] The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days). You must specify this value when enabling target group stickiness.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether target group stickiness is enabled.
     """
@@ -3107,8 +3107,8 @@ class ListenerRuleTargetGroupStickinessConfigArgsDict(TypedDict):
 @pulumi.input_type
 class ListenerRuleTargetGroupStickinessConfigArgs:
     def __init__(__self__, *,
-                 duration_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 duration_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Information about the target group stickiness for a rule.
 
@@ -3122,26 +3122,26 @@ class ListenerRuleTargetGroupStickinessConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="durationSeconds")
-    def duration_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def duration_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         [Application Load Balancers] The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days). You must specify this value when enabling target group stickiness.
         """
         return pulumi.get(self, "duration_seconds")
 
     @duration_seconds.setter
-    def duration_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def duration_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "duration_seconds", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether target group stickiness is enabled.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
 
@@ -3149,11 +3149,11 @@ class ListenerRuleTargetGroupTupleArgsDict(TypedDict):
     """
     Information about how traffic will be distributed between multiple target groups in a forward rule.
     """
-    target_group_arn: NotRequired[pulumi.Input[_builtins.str]]
+    target_group_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon Resource Name (ARN) of the target group.
     """
-    weight: NotRequired[pulumi.Input[_builtins.int]]
+    weight: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The weight. The range is 0 to 999.
     """
@@ -3161,8 +3161,8 @@ class ListenerRuleTargetGroupTupleArgsDict(TypedDict):
 @pulumi.input_type
 class ListenerRuleTargetGroupTupleArgs:
     def __init__(__self__, *,
-                 target_group_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 weight: Optional[pulumi.Input[_builtins.int]] = None):
+                 target_group_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 weight: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Information about how traffic will be distributed between multiple target groups in a forward rule.
 
@@ -3176,40 +3176,40 @@ class ListenerRuleTargetGroupTupleArgs:
 
     @_builtins.property
     @pulumi.getter(name="targetGroupArn")
-    def target_group_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_group_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the target group.
         """
         return pulumi.get(self, "target_group_arn")
 
     @target_group_arn.setter
-    def target_group_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_group_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_group_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def weight(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def weight(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The weight. The range is 0 to 999.
         """
         return pulumi.get(self, "weight")
 
     @weight.setter
-    def weight(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def weight(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "weight", value)
 
 
 class ListenerRuleTransformArgsDict(TypedDict):
     type: pulumi.Input[_builtins.str]
-    host_header_rewrite_config: NotRequired[pulumi.Input['ListenerRuleRewriteConfigObjectArgsDict']]
-    url_rewrite_config: NotRequired[pulumi.Input['ListenerRuleRewriteConfigObjectArgsDict']]
+    host_header_rewrite_config: NotRequired[pulumi.Input[Optional['ListenerRuleRewriteConfigObjectArgs']]]
+    url_rewrite_config: NotRequired[pulumi.Input[Optional['ListenerRuleRewriteConfigObjectArgs']]]
 
 @pulumi.input_type
 class ListenerRuleTransformArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 host_header_rewrite_config: Optional[pulumi.Input['ListenerRuleRewriteConfigObjectArgs']] = None,
-                 url_rewrite_config: Optional[pulumi.Input['ListenerRuleRewriteConfigObjectArgs']] = None):
+                 host_header_rewrite_config: pulumi.Input[Optional['ListenerRuleRewriteConfigObjectArgs']] = None,
+                 url_rewrite_config: pulumi.Input[Optional['ListenerRuleRewriteConfigObjectArgs']] = None):
         pulumi.set(__self__, "type", type)
         if host_header_rewrite_config is not None:
             pulumi.set(__self__, "host_header_rewrite_config", host_header_rewrite_config)
@@ -3227,20 +3227,20 @@ class ListenerRuleTransformArgs:
 
     @_builtins.property
     @pulumi.getter(name="hostHeaderRewriteConfig")
-    def host_header_rewrite_config(self) -> Optional[pulumi.Input['ListenerRuleRewriteConfigObjectArgs']]:
+    def host_header_rewrite_config(self) -> pulumi.Input[Optional['ListenerRuleRewriteConfigObjectArgs']]:
         return pulumi.get(self, "host_header_rewrite_config")
 
     @host_header_rewrite_config.setter
-    def host_header_rewrite_config(self, value: Optional[pulumi.Input['ListenerRuleRewriteConfigObjectArgs']]):
+    def host_header_rewrite_config(self, value: pulumi.Input[Optional['ListenerRuleRewriteConfigObjectArgs']]):
         pulumi.set(self, "host_header_rewrite_config", value)
 
     @_builtins.property
     @pulumi.getter(name="urlRewriteConfig")
-    def url_rewrite_config(self) -> Optional[pulumi.Input['ListenerRuleRewriteConfigObjectArgs']]:
+    def url_rewrite_config(self) -> pulumi.Input[Optional['ListenerRuleRewriteConfigObjectArgs']]:
         return pulumi.get(self, "url_rewrite_config")
 
     @url_rewrite_config.setter
-    def url_rewrite_config(self, value: Optional[pulumi.Input['ListenerRuleRewriteConfigObjectArgs']]):
+    def url_rewrite_config(self, value: pulumi.Input[Optional['ListenerRuleRewriteConfigObjectArgs']]):
         pulumi.set(self, "url_rewrite_config", value)
 
 
@@ -3248,11 +3248,11 @@ class ListenerTargetGroupStickinessConfigArgsDict(TypedDict):
     """
     Information about the target group stickiness for a rule.
     """
-    duration_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    duration_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     [Application Load Balancers] The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days). You must specify this value when enabling target group stickiness.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether target group stickiness is enabled.
     """
@@ -3260,8 +3260,8 @@ class ListenerTargetGroupStickinessConfigArgsDict(TypedDict):
 @pulumi.input_type
 class ListenerTargetGroupStickinessConfigArgs:
     def __init__(__self__, *,
-                 duration_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 duration_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Information about the target group stickiness for a rule.
 
@@ -3275,26 +3275,26 @@ class ListenerTargetGroupStickinessConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="durationSeconds")
-    def duration_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def duration_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         [Application Load Balancers] The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days). You must specify this value when enabling target group stickiness.
         """
         return pulumi.get(self, "duration_seconds")
 
     @duration_seconds.setter
-    def duration_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def duration_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "duration_seconds", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether target group stickiness is enabled.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
 
@@ -3302,11 +3302,11 @@ class ListenerTargetGroupTupleArgsDict(TypedDict):
     """
     Information about how traffic will be distributed between multiple target groups in a forward rule.
     """
-    target_group_arn: NotRequired[pulumi.Input[_builtins.str]]
+    target_group_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon Resource Name (ARN) of the target group.
     """
-    weight: NotRequired[pulumi.Input[_builtins.int]]
+    weight: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The weight. The range is 0 to 999.
     """
@@ -3314,8 +3314,8 @@ class ListenerTargetGroupTupleArgsDict(TypedDict):
 @pulumi.input_type
 class ListenerTargetGroupTupleArgs:
     def __init__(__self__, *,
-                 target_group_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 weight: Optional[pulumi.Input[_builtins.int]] = None):
+                 target_group_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 weight: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Information about how traffic will be distributed between multiple target groups in a forward rule.
 
@@ -3329,26 +3329,26 @@ class ListenerTargetGroupTupleArgs:
 
     @_builtins.property
     @pulumi.getter(name="targetGroupArn")
-    def target_group_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_group_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the target group.
         """
         return pulumi.get(self, "target_group_arn")
 
     @target_group_arn.setter
-    def target_group_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_group_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_group_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def weight(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def weight(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The weight. The range is 0 to 999.
         """
         return pulumi.get(self, "weight")
 
     @weight.setter
-    def weight(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def weight(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "weight", value)
 
 
@@ -3356,7 +3356,7 @@ class LoadBalancerAttributeArgsDict(TypedDict):
     """
     Specifies an attribute for an Application Load Balancer, a Network Load Balancer, or a Gateway Load Balancer.
     """
-    key: NotRequired[pulumi.Input[_builtins.str]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the attribute.
      The following attributes are supported by all load balancers:
@@ -3396,7 +3396,7 @@ class LoadBalancerAttributeArgsDict(TypedDict):
       +  ``dns_record.client_routing_policy`` - Indicates how traffic is distributed among the load balancer Availability Zones. The possible values are ``availability_zone_affinity`` with 100 percent zonal affinity, ``partial_availability_zone_affinity`` with 85 percent zonal affinity, and ``any_availability_zone`` with 0 percent zonal affinity.
       +  ``secondary_ips.auto_assigned.per_subnet`` - The number of secondary IP addresses to configure for your load balancer nodes. Use to address port allocation errors if you can't add targets. The valid range is 0 to 7. The default is 0. After you set this value, you can't decrease it.
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The value of the attribute.
     """
@@ -3404,8 +3404,8 @@ class LoadBalancerAttributeArgsDict(TypedDict):
 @pulumi.input_type
 class LoadBalancerAttributeArgs:
     def __init__(__self__, *,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Specifies an attribute for an Application Load Balancer, a Network Load Balancer, or a Gateway Load Balancer.
 
@@ -3455,7 +3455,7 @@ class LoadBalancerAttributeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the attribute.
          The following attributes are supported by all load balancers:
@@ -3498,19 +3498,19 @@ class LoadBalancerAttributeArgs:
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value of the attribute.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
@@ -3555,19 +3555,19 @@ class LoadBalancerSubnetMappingArgsDict(TypedDict):
     """
     The ID of the subnet.
     """
-    allocation_id: NotRequired[pulumi.Input[_builtins.str]]
+    allocation_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     [Network Load Balancers] The allocation ID of the Elastic IP address for an internet-facing load balancer.
     """
-    i_pv6_address: NotRequired[pulumi.Input[_builtins.str]]
+    i_pv6_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     [Network Load Balancers] The IPv6 address.
     """
-    private_i_pv4_address: NotRequired[pulumi.Input[_builtins.str]]
+    private_i_pv4_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     [Network Load Balancers] The private IPv4 address for an internal load balancer.
     """
-    source_nat_ipv6_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    source_nat_ipv6_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     [Network Load Balancers with UDP listeners] The IPv6 prefix to use for source NAT. Specify an IPv6 prefix (/80 netmask) from the subnet CIDR block or ``auto_assigned`` to use an IPv6 prefix selected at random from the subnet CIDR block.
     """
@@ -3576,10 +3576,10 @@ class LoadBalancerSubnetMappingArgsDict(TypedDict):
 class LoadBalancerSubnetMappingArgs:
     def __init__(__self__, *,
                  subnet_id: pulumi.Input[_builtins.str],
-                 allocation_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 i_pv6_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_i_pv4_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_nat_ipv6_prefix: Optional[pulumi.Input[_builtins.str]] = None):
+                 allocation_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 i_pv6_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_i_pv4_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_nat_ipv6_prefix: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Specifies a subnet for a load balancer.
 
@@ -3613,59 +3613,59 @@ class LoadBalancerSubnetMappingArgs:
 
     @_builtins.property
     @pulumi.getter(name="allocationId")
-    def allocation_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def allocation_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         [Network Load Balancers] The allocation ID of the Elastic IP address for an internet-facing load balancer.
         """
         return pulumi.get(self, "allocation_id")
 
     @allocation_id.setter
-    def allocation_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def allocation_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "allocation_id", value)
 
     @_builtins.property
     @pulumi.getter(name="iPv6Address")
-    def i_pv6_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def i_pv6_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         [Network Load Balancers] The IPv6 address.
         """
         return pulumi.get(self, "i_pv6_address")
 
     @i_pv6_address.setter
-    def i_pv6_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def i_pv6_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "i_pv6_address", value)
 
     @_builtins.property
     @pulumi.getter(name="privateIPv4Address")
-    def private_i_pv4_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_i_pv4_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         [Network Load Balancers] The private IPv4 address for an internal load balancer.
         """
         return pulumi.get(self, "private_i_pv4_address")
 
     @private_i_pv4_address.setter
-    def private_i_pv4_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_i_pv4_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_i_pv4_address", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceNatIpv6Prefix")
-    def source_nat_ipv6_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_nat_ipv6_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         [Network Load Balancers with UDP listeners] The IPv6 prefix to use for source NAT. Specify an IPv6 prefix (/80 netmask) from the subnet CIDR block or ``auto_assigned`` to use an IPv6 prefix selected at random from the subnet CIDR block.
         """
         return pulumi.get(self, "source_nat_ipv6_prefix")
 
     @source_nat_ipv6_prefix.setter
-    def source_nat_ipv6_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_nat_ipv6_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_nat_ipv6_prefix", value)
 
 
 class TargetGroupAttributeArgsDict(TypedDict):
-    key: NotRequired[pulumi.Input[_builtins.str]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The value of the attribute.
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the attribute.
     """
@@ -3673,8 +3673,8 @@ class TargetGroupAttributeArgsDict(TypedDict):
 @pulumi.input_type
 class TargetGroupAttributeArgs:
     def __init__(__self__, *,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] key: The value of the attribute.
         :param pulumi.Input[_builtins.str] value: The name of the attribute.
@@ -3686,35 +3686,35 @@ class TargetGroupAttributeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value of the attribute.
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the attribute.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
 class TargetGroupMatcherArgsDict(TypedDict):
-    grpc_code: NotRequired[pulumi.Input[_builtins.str]]
+    grpc_code: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     You can specify values between 0 and 99. You can specify multiple values, or a range of values. The default value is 12.
     """
-    http_code: NotRequired[pulumi.Input[_builtins.str]]
+    http_code: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     For Application Load Balancers, you can specify values between 200 and 499, and the default value is 200. You can specify multiple values or a range of values. 
     """
@@ -3722,8 +3722,8 @@ class TargetGroupMatcherArgsDict(TypedDict):
 @pulumi.input_type
 class TargetGroupMatcherArgs:
     def __init__(__self__, *,
-                 grpc_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 http_code: Optional[pulumi.Input[_builtins.str]] = None):
+                 grpc_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 http_code: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] grpc_code: You can specify values between 0 and 99. You can specify multiple values, or a range of values. The default value is 12.
         :param pulumi.Input[_builtins.str] http_code: For Application Load Balancers, you can specify values between 200 and 499, and the default value is 200. You can specify multiple values or a range of values. 
@@ -3735,26 +3735,26 @@ class TargetGroupMatcherArgs:
 
     @_builtins.property
     @pulumi.getter(name="grpcCode")
-    def grpc_code(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def grpc_code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         You can specify values between 0 and 99. You can specify multiple values, or a range of values. The default value is 12.
         """
         return pulumi.get(self, "grpc_code")
 
     @grpc_code.setter
-    def grpc_code(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def grpc_code(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "grpc_code", value)
 
     @_builtins.property
     @pulumi.getter(name="httpCode")
-    def http_code(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def http_code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         For Application Load Balancers, you can specify values between 200 and 499, and the default value is 200. You can specify multiple values or a range of values. 
         """
         return pulumi.get(self, "http_code")
 
     @http_code.setter
-    def http_code(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def http_code(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "http_code", value)
 
 
@@ -3763,15 +3763,15 @@ class TargetGroupTargetDescriptionArgsDict(TypedDict):
     """
     The ID of the target. If the target type of the target group is instance, specify an instance ID. If the target type is ip, specify an IP address. If the target type is lambda, specify the ARN of the Lambda function. If the target type is alb, specify the ARN of the Application Load Balancer target. 
     """
-    availability_zone: NotRequired[pulumi.Input[_builtins.str]]
+    availability_zone: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     An Availability Zone or all. This determines whether the target receives traffic from the load balancer nodes in the specified Availability Zone or from all enabled Availability Zones for the load balancer.
     """
-    port: NotRequired[pulumi.Input[_builtins.int]]
+    port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The port on which the target is listening. If the target group protocol is GENEVE, the supported port is 6081. If the target type is alb, the targeted Application Load Balancer must have at least one listener whose port matches the target group port. Not used if the target is a Lambda function.
     """
-    quic_server_id: NotRequired[pulumi.Input[_builtins.str]]
+    quic_server_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Server ID used by targets when using QUIC or TCP_QUIC protocols.
     """
@@ -3780,9 +3780,9 @@ class TargetGroupTargetDescriptionArgsDict(TypedDict):
 class TargetGroupTargetDescriptionArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[_builtins.str],
-                 availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 quic_server_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 quic_server_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] id: The ID of the target. If the target type of the target group is instance, specify an instance ID. If the target type is ip, specify an IP address. If the target type is lambda, specify the ARN of the Lambda function. If the target type is alb, specify the ARN of the Application Load Balancer target. 
         :param pulumi.Input[_builtins.str] availability_zone: An Availability Zone or all. This determines whether the target receives traffic from the load balancer nodes in the specified Availability Zone or from all enabled Availability Zones for the load balancer.
@@ -3811,55 +3811,55 @@ class TargetGroupTargetDescriptionArgs:
 
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def availability_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An Availability Zone or all. This determines whether the target receives traffic from the load balancer nodes in the specified Availability Zone or from all enabled Availability Zones for the load balancer.
         """
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
-    def availability_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def availability_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "availability_zone", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The port on which the target is listening. If the target group protocol is GENEVE, the supported port is 6081. If the target type is alb, the targeted Application Load Balancer must have at least one listener whose port matches the target group port. Not used if the target is a Lambda function.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port", value)
 
     @_builtins.property
     @pulumi.getter(name="quicServerId")
-    def quic_server_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def quic_server_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Server ID used by targets when using QUIC or TCP_QUIC protocols.
         """
         return pulumi.get(self, "quic_server_id")
 
     @quic_server_id.setter
-    def quic_server_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def quic_server_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "quic_server_id", value)
 
 
 class TrustStoreRevocationRevocationContentArgsDict(TypedDict):
-    revocation_type: NotRequired[pulumi.Input[_builtins.str]]
+    revocation_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The type of revocation file.
     """
-    s3_bucket: NotRequired[pulumi.Input[_builtins.str]]
+    s3_bucket: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon S3 bucket for the revocation file.
     """
-    s3_key: NotRequired[pulumi.Input[_builtins.str]]
+    s3_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon S3 path for the revocation file.
     """
-    s3_object_version: NotRequired[pulumi.Input[_builtins.str]]
+    s3_object_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon S3 object version of the revocation file.
     """
@@ -3867,10 +3867,10 @@ class TrustStoreRevocationRevocationContentArgsDict(TypedDict):
 @pulumi.input_type
 class TrustStoreRevocationRevocationContentArgs:
     def __init__(__self__, *,
-                 revocation_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_object_version: Optional[pulumi.Input[_builtins.str]] = None):
+                 revocation_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_object_version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] revocation_type: The type of revocation file.
         :param pulumi.Input[_builtins.str] s3_bucket: The Amazon S3 bucket for the revocation file.
@@ -3888,50 +3888,50 @@ class TrustStoreRevocationRevocationContentArgs:
 
     @_builtins.property
     @pulumi.getter(name="revocationType")
-    def revocation_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def revocation_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of revocation file.
         """
         return pulumi.get(self, "revocation_type")
 
     @revocation_type.setter
-    def revocation_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def revocation_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "revocation_type", value)
 
     @_builtins.property
     @pulumi.getter(name="s3Bucket")
-    def s3_bucket(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def s3_bucket(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon S3 bucket for the revocation file.
         """
         return pulumi.get(self, "s3_bucket")
 
     @s3_bucket.setter
-    def s3_bucket(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def s3_bucket(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "s3_bucket", value)
 
     @_builtins.property
     @pulumi.getter(name="s3Key")
-    def s3_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def s3_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon S3 path for the revocation file.
         """
         return pulumi.get(self, "s3_key")
 
     @s3_key.setter
-    def s3_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def s3_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "s3_key", value)
 
     @_builtins.property
     @pulumi.getter(name="s3ObjectVersion")
-    def s3_object_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def s3_object_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon S3 object version of the revocation file.
         """
         return pulumi.get(self, "s3_object_version")
 
     @s3_object_version.setter
-    def s3_object_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def s3_object_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "s3_object_version", value)
 
 

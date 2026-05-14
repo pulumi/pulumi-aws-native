@@ -66,8 +66,8 @@ def get_channel_policy(channel_group_name: Optional[_builtins.str] = None,
 
     return AwaitableGetChannelPolicyResult(
         policy=pulumi.get(__ret__, 'policy'))
-def get_channel_policy_output(channel_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                              channel_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_channel_policy_output(channel_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                              channel_name: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetChannelPolicyResult]:
     """
     <p>Represents a resource-based policy that allows or denies access to a channel.</p>

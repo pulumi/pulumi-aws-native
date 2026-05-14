@@ -95,7 +95,7 @@ class ApplicationAlarmArgsDict(TypedDict):
     """
     The name of the CloudWatch alarm to be monitored for the component.
     """
-    severity: NotRequired[pulumi.Input['ApplicationAlarmSeverity']]
+    severity: NotRequired[pulumi.Input[Optional['ApplicationAlarmSeverity']]]
     """
     Indicates the degree of outage when the alarm goes off.
     """
@@ -104,7 +104,7 @@ class ApplicationAlarmArgsDict(TypedDict):
 class ApplicationAlarmArgs:
     def __init__(__self__, *,
                  alarm_name: pulumi.Input[_builtins.str],
-                 severity: Optional[pulumi.Input['ApplicationAlarmSeverity']] = None):
+                 severity: pulumi.Input[Optional['ApplicationAlarmSeverity']] = None):
         """
         A CloudWatch alarm to be monitored for the component.
 
@@ -129,14 +129,14 @@ class ApplicationAlarmArgs:
 
     @_builtins.property
     @pulumi.getter
-    def severity(self) -> Optional[pulumi.Input['ApplicationAlarmSeverity']]:
+    def severity(self) -> pulumi.Input[Optional['ApplicationAlarmSeverity']]:
         """
         Indicates the degree of outage when the alarm goes off.
         """
         return pulumi.get(self, "severity")
 
     @severity.setter
-    def severity(self, value: Optional[pulumi.Input['ApplicationAlarmSeverity']]):
+    def severity(self, value: pulumi.Input[Optional['ApplicationAlarmSeverity']]):
         pulumi.set(self, "severity", value)
 
 
@@ -144,11 +144,11 @@ class ApplicationComponentConfigurationArgsDict(TypedDict):
     """
     The configuration settings of the component.
     """
-    configuration_details: NotRequired[pulumi.Input['ApplicationConfigurationDetailsArgsDict']]
+    configuration_details: NotRequired[pulumi.Input[Optional['ApplicationConfigurationDetailsArgs']]]
     """
     The configuration settings
     """
-    sub_component_type_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationSubComponentTypeConfigurationArgsDict']]]]
+    sub_component_type_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationSubComponentTypeConfigurationArgs']]]]]
     """
     Sub component configurations of the component.
     """
@@ -156,8 +156,8 @@ class ApplicationComponentConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class ApplicationComponentConfigurationArgs:
     def __init__(__self__, *,
-                 configuration_details: Optional[pulumi.Input['ApplicationConfigurationDetailsArgs']] = None,
-                 sub_component_type_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationSubComponentTypeConfigurationArgs']]]] = None):
+                 configuration_details: pulumi.Input[Optional['ApplicationConfigurationDetailsArgs']] = None,
+                 sub_component_type_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationSubComponentTypeConfigurationArgs']]]] = None):
         """
         The configuration settings of the component.
 
@@ -171,26 +171,26 @@ class ApplicationComponentConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="configurationDetails")
-    def configuration_details(self) -> Optional[pulumi.Input['ApplicationConfigurationDetailsArgs']]:
+    def configuration_details(self) -> pulumi.Input[Optional['ApplicationConfigurationDetailsArgs']]:
         """
         The configuration settings
         """
         return pulumi.get(self, "configuration_details")
 
     @configuration_details.setter
-    def configuration_details(self, value: Optional[pulumi.Input['ApplicationConfigurationDetailsArgs']]):
+    def configuration_details(self, value: pulumi.Input[Optional['ApplicationConfigurationDetailsArgs']]):
         pulumi.set(self, "configuration_details", value)
 
     @_builtins.property
     @pulumi.getter(name="subComponentTypeConfigurations")
-    def sub_component_type_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationSubComponentTypeConfigurationArgs']]]]:
+    def sub_component_type_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationSubComponentTypeConfigurationArgs']]]]:
         """
         Sub component configurations of the component.
         """
         return pulumi.get(self, "sub_component_type_configurations")
 
     @sub_component_type_configurations.setter
-    def sub_component_type_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationSubComponentTypeConfigurationArgs']]]]):
+    def sub_component_type_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationSubComponentTypeConfigurationArgs']]]]):
         pulumi.set(self, "sub_component_type_configurations", value)
 
 
@@ -206,19 +206,19 @@ class ApplicationComponentMonitoringSettingArgsDict(TypedDict):
     """
     The tier of the application component.
     """
-    component_arn: NotRequired[pulumi.Input[_builtins.str]]
+    component_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of the compnonent.
     """
-    component_name: NotRequired[pulumi.Input[_builtins.str]]
+    component_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the component.
     """
-    custom_component_configuration: NotRequired[pulumi.Input['ApplicationComponentConfigurationArgsDict']]
+    custom_component_configuration: NotRequired[pulumi.Input[Optional['ApplicationComponentConfigurationArgs']]]
     """
     The monitoring configuration of the component.
     """
-    default_overwrite_component_configuration: NotRequired[pulumi.Input['ApplicationComponentConfigurationArgsDict']]
+    default_overwrite_component_configuration: NotRequired[pulumi.Input[Optional['ApplicationComponentConfigurationArgs']]]
     """
     The overwritten settings on default component monitoring configuration.
     """
@@ -228,10 +228,10 @@ class ApplicationComponentMonitoringSettingArgs:
     def __init__(__self__, *,
                  component_configuration_mode: pulumi.Input['ApplicationComponentMonitoringSettingComponentConfigurationMode'],
                  tier: pulumi.Input[_builtins.str],
-                 component_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 component_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_component_configuration: Optional[pulumi.Input['ApplicationComponentConfigurationArgs']] = None,
-                 default_overwrite_component_configuration: Optional[pulumi.Input['ApplicationComponentConfigurationArgs']] = None):
+                 component_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 component_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_component_configuration: pulumi.Input[Optional['ApplicationComponentConfigurationArgs']] = None,
+                 default_overwrite_component_configuration: pulumi.Input[Optional['ApplicationComponentConfigurationArgs']] = None):
         """
         The monitoring setting of the component.
 
@@ -279,50 +279,50 @@ class ApplicationComponentMonitoringSettingArgs:
 
     @_builtins.property
     @pulumi.getter(name="componentArn")
-    def component_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def component_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the compnonent.
         """
         return pulumi.get(self, "component_arn")
 
     @component_arn.setter
-    def component_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def component_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "component_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="componentName")
-    def component_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def component_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the component.
         """
         return pulumi.get(self, "component_name")
 
     @component_name.setter
-    def component_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def component_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "component_name", value)
 
     @_builtins.property
     @pulumi.getter(name="customComponentConfiguration")
-    def custom_component_configuration(self) -> Optional[pulumi.Input['ApplicationComponentConfigurationArgs']]:
+    def custom_component_configuration(self) -> pulumi.Input[Optional['ApplicationComponentConfigurationArgs']]:
         """
         The monitoring configuration of the component.
         """
         return pulumi.get(self, "custom_component_configuration")
 
     @custom_component_configuration.setter
-    def custom_component_configuration(self, value: Optional[pulumi.Input['ApplicationComponentConfigurationArgs']]):
+    def custom_component_configuration(self, value: pulumi.Input[Optional['ApplicationComponentConfigurationArgs']]):
         pulumi.set(self, "custom_component_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultOverwriteComponentConfiguration")
-    def default_overwrite_component_configuration(self) -> Optional[pulumi.Input['ApplicationComponentConfigurationArgs']]:
+    def default_overwrite_component_configuration(self) -> pulumi.Input[Optional['ApplicationComponentConfigurationArgs']]:
         """
         The overwritten settings on default component monitoring configuration.
         """
         return pulumi.get(self, "default_overwrite_component_configuration")
 
     @default_overwrite_component_configuration.setter
-    def default_overwrite_component_configuration(self, value: Optional[pulumi.Input['ApplicationComponentConfigurationArgs']]):
+    def default_overwrite_component_configuration(self, value: pulumi.Input[Optional['ApplicationComponentConfigurationArgs']]):
         pulumi.set(self, "default_overwrite_component_configuration", value)
 
 
@@ -330,43 +330,43 @@ class ApplicationConfigurationDetailsArgsDict(TypedDict):
     """
     The configuration settings.
     """
-    alarm_metrics: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationAlarmMetricArgsDict']]]]
+    alarm_metrics: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationAlarmMetricArgs']]]]]
     """
     A list of metrics to monitor for the component.
     """
-    alarms: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationAlarmArgsDict']]]]
+    alarms: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationAlarmArgs']]]]]
     """
     A list of alarms to monitor for the component.
     """
-    ha_cluster_prometheus_exporter: NotRequired[pulumi.Input['ApplicationHaClusterPrometheusExporterArgsDict']]
+    ha_cluster_prometheus_exporter: NotRequired[pulumi.Input[Optional['ApplicationHaClusterPrometheusExporterArgs']]]
     """
     The HA cluster Prometheus Exporter settings.
     """
-    hana_prometheus_exporter: NotRequired[pulumi.Input['ApplicationHanaPrometheusExporterArgsDict']]
+    hana_prometheus_exporter: NotRequired[pulumi.Input[Optional['ApplicationHanaPrometheusExporterArgs']]]
     """
     The HANA DB Prometheus Exporter settings.
     """
-    jmx_prometheus_exporter: NotRequired[pulumi.Input['ApplicationJmxPrometheusExporterArgsDict']]
+    jmx_prometheus_exporter: NotRequired[pulumi.Input[Optional['ApplicationJmxPrometheusExporterArgs']]]
     """
     The JMX Prometheus Exporter settings.
     """
-    logs: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationLogArgsDict']]]]
+    logs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationLogArgs']]]]]
     """
     A list of logs to monitor for the component.
     """
-    net_weaver_prometheus_exporter: NotRequired[pulumi.Input['ApplicationNetWeaverPrometheusExporterArgsDict']]
+    net_weaver_prometheus_exporter: NotRequired[pulumi.Input[Optional['ApplicationNetWeaverPrometheusExporterArgs']]]
     """
     The NetWeaver Prometheus Exporter settings.
     """
-    processes: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationProcessArgsDict']]]]
+    processes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationProcessArgs']]]]]
     """
     A list of processes to monitor for the component. Only Windows EC2 instances can have a processes section.
     """
-    sql_server_prometheus_exporter: NotRequired[pulumi.Input['ApplicationSqlServerPrometheusExporterArgsDict']]
+    sql_server_prometheus_exporter: NotRequired[pulumi.Input[Optional['ApplicationSqlServerPrometheusExporterArgs']]]
     """
     The SQL Prometheus Exporter settings.
     """
-    windows_events: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationWindowsEventArgsDict']]]]
+    windows_events: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationWindowsEventArgs']]]]]
     """
     A list of Windows Events to log.
     """
@@ -374,16 +374,16 @@ class ApplicationConfigurationDetailsArgsDict(TypedDict):
 @pulumi.input_type
 class ApplicationConfigurationDetailsArgs:
     def __init__(__self__, *,
-                 alarm_metrics: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationAlarmMetricArgs']]]] = None,
-                 alarms: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationAlarmArgs']]]] = None,
-                 ha_cluster_prometheus_exporter: Optional[pulumi.Input['ApplicationHaClusterPrometheusExporterArgs']] = None,
-                 hana_prometheus_exporter: Optional[pulumi.Input['ApplicationHanaPrometheusExporterArgs']] = None,
-                 jmx_prometheus_exporter: Optional[pulumi.Input['ApplicationJmxPrometheusExporterArgs']] = None,
-                 logs: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationLogArgs']]]] = None,
-                 net_weaver_prometheus_exporter: Optional[pulumi.Input['ApplicationNetWeaverPrometheusExporterArgs']] = None,
-                 processes: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationProcessArgs']]]] = None,
-                 sql_server_prometheus_exporter: Optional[pulumi.Input['ApplicationSqlServerPrometheusExporterArgs']] = None,
-                 windows_events: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationWindowsEventArgs']]]] = None):
+                 alarm_metrics: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationAlarmMetricArgs']]]] = None,
+                 alarms: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationAlarmArgs']]]] = None,
+                 ha_cluster_prometheus_exporter: pulumi.Input[Optional['ApplicationHaClusterPrometheusExporterArgs']] = None,
+                 hana_prometheus_exporter: pulumi.Input[Optional['ApplicationHanaPrometheusExporterArgs']] = None,
+                 jmx_prometheus_exporter: pulumi.Input[Optional['ApplicationJmxPrometheusExporterArgs']] = None,
+                 logs: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationLogArgs']]]] = None,
+                 net_weaver_prometheus_exporter: pulumi.Input[Optional['ApplicationNetWeaverPrometheusExporterArgs']] = None,
+                 processes: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationProcessArgs']]]] = None,
+                 sql_server_prometheus_exporter: pulumi.Input[Optional['ApplicationSqlServerPrometheusExporterArgs']] = None,
+                 windows_events: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationWindowsEventArgs']]]] = None):
         """
         The configuration settings.
 
@@ -421,122 +421,122 @@ class ApplicationConfigurationDetailsArgs:
 
     @_builtins.property
     @pulumi.getter(name="alarmMetrics")
-    def alarm_metrics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationAlarmMetricArgs']]]]:
+    def alarm_metrics(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationAlarmMetricArgs']]]]:
         """
         A list of metrics to monitor for the component.
         """
         return pulumi.get(self, "alarm_metrics")
 
     @alarm_metrics.setter
-    def alarm_metrics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationAlarmMetricArgs']]]]):
+    def alarm_metrics(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationAlarmMetricArgs']]]]):
         pulumi.set(self, "alarm_metrics", value)
 
     @_builtins.property
     @pulumi.getter
-    def alarms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationAlarmArgs']]]]:
+    def alarms(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationAlarmArgs']]]]:
         """
         A list of alarms to monitor for the component.
         """
         return pulumi.get(self, "alarms")
 
     @alarms.setter
-    def alarms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationAlarmArgs']]]]):
+    def alarms(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationAlarmArgs']]]]):
         pulumi.set(self, "alarms", value)
 
     @_builtins.property
     @pulumi.getter(name="haClusterPrometheusExporter")
-    def ha_cluster_prometheus_exporter(self) -> Optional[pulumi.Input['ApplicationHaClusterPrometheusExporterArgs']]:
+    def ha_cluster_prometheus_exporter(self) -> pulumi.Input[Optional['ApplicationHaClusterPrometheusExporterArgs']]:
         """
         The HA cluster Prometheus Exporter settings.
         """
         return pulumi.get(self, "ha_cluster_prometheus_exporter")
 
     @ha_cluster_prometheus_exporter.setter
-    def ha_cluster_prometheus_exporter(self, value: Optional[pulumi.Input['ApplicationHaClusterPrometheusExporterArgs']]):
+    def ha_cluster_prometheus_exporter(self, value: pulumi.Input[Optional['ApplicationHaClusterPrometheusExporterArgs']]):
         pulumi.set(self, "ha_cluster_prometheus_exporter", value)
 
     @_builtins.property
     @pulumi.getter(name="hanaPrometheusExporter")
-    def hana_prometheus_exporter(self) -> Optional[pulumi.Input['ApplicationHanaPrometheusExporterArgs']]:
+    def hana_prometheus_exporter(self) -> pulumi.Input[Optional['ApplicationHanaPrometheusExporterArgs']]:
         """
         The HANA DB Prometheus Exporter settings.
         """
         return pulumi.get(self, "hana_prometheus_exporter")
 
     @hana_prometheus_exporter.setter
-    def hana_prometheus_exporter(self, value: Optional[pulumi.Input['ApplicationHanaPrometheusExporterArgs']]):
+    def hana_prometheus_exporter(self, value: pulumi.Input[Optional['ApplicationHanaPrometheusExporterArgs']]):
         pulumi.set(self, "hana_prometheus_exporter", value)
 
     @_builtins.property
     @pulumi.getter(name="jmxPrometheusExporter")
-    def jmx_prometheus_exporter(self) -> Optional[pulumi.Input['ApplicationJmxPrometheusExporterArgs']]:
+    def jmx_prometheus_exporter(self) -> pulumi.Input[Optional['ApplicationJmxPrometheusExporterArgs']]:
         """
         The JMX Prometheus Exporter settings.
         """
         return pulumi.get(self, "jmx_prometheus_exporter")
 
     @jmx_prometheus_exporter.setter
-    def jmx_prometheus_exporter(self, value: Optional[pulumi.Input['ApplicationJmxPrometheusExporterArgs']]):
+    def jmx_prometheus_exporter(self, value: pulumi.Input[Optional['ApplicationJmxPrometheusExporterArgs']]):
         pulumi.set(self, "jmx_prometheus_exporter", value)
 
     @_builtins.property
     @pulumi.getter
-    def logs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationLogArgs']]]]:
+    def logs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationLogArgs']]]]:
         """
         A list of logs to monitor for the component.
         """
         return pulumi.get(self, "logs")
 
     @logs.setter
-    def logs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationLogArgs']]]]):
+    def logs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationLogArgs']]]]):
         pulumi.set(self, "logs", value)
 
     @_builtins.property
     @pulumi.getter(name="netWeaverPrometheusExporter")
-    def net_weaver_prometheus_exporter(self) -> Optional[pulumi.Input['ApplicationNetWeaverPrometheusExporterArgs']]:
+    def net_weaver_prometheus_exporter(self) -> pulumi.Input[Optional['ApplicationNetWeaverPrometheusExporterArgs']]:
         """
         The NetWeaver Prometheus Exporter settings.
         """
         return pulumi.get(self, "net_weaver_prometheus_exporter")
 
     @net_weaver_prometheus_exporter.setter
-    def net_weaver_prometheus_exporter(self, value: Optional[pulumi.Input['ApplicationNetWeaverPrometheusExporterArgs']]):
+    def net_weaver_prometheus_exporter(self, value: pulumi.Input[Optional['ApplicationNetWeaverPrometheusExporterArgs']]):
         pulumi.set(self, "net_weaver_prometheus_exporter", value)
 
     @_builtins.property
     @pulumi.getter
-    def processes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationProcessArgs']]]]:
+    def processes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationProcessArgs']]]]:
         """
         A list of processes to monitor for the component. Only Windows EC2 instances can have a processes section.
         """
         return pulumi.get(self, "processes")
 
     @processes.setter
-    def processes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationProcessArgs']]]]):
+    def processes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationProcessArgs']]]]):
         pulumi.set(self, "processes", value)
 
     @_builtins.property
     @pulumi.getter(name="sqlServerPrometheusExporter")
-    def sql_server_prometheus_exporter(self) -> Optional[pulumi.Input['ApplicationSqlServerPrometheusExporterArgs']]:
+    def sql_server_prometheus_exporter(self) -> pulumi.Input[Optional['ApplicationSqlServerPrometheusExporterArgs']]:
         """
         The SQL Prometheus Exporter settings.
         """
         return pulumi.get(self, "sql_server_prometheus_exporter")
 
     @sql_server_prometheus_exporter.setter
-    def sql_server_prometheus_exporter(self, value: Optional[pulumi.Input['ApplicationSqlServerPrometheusExporterArgs']]):
+    def sql_server_prometheus_exporter(self, value: pulumi.Input[Optional['ApplicationSqlServerPrometheusExporterArgs']]):
         pulumi.set(self, "sql_server_prometheus_exporter", value)
 
     @_builtins.property
     @pulumi.getter(name="windowsEvents")
-    def windows_events(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationWindowsEventArgs']]]]:
+    def windows_events(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationWindowsEventArgs']]]]:
         """
         A list of Windows Events to log.
         """
         return pulumi.get(self, "windows_events")
 
     @windows_events.setter
-    def windows_events(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationWindowsEventArgs']]]]):
+    def windows_events(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationWindowsEventArgs']]]]):
         pulumi.set(self, "windows_events", value)
 
 
@@ -596,7 +596,7 @@ class ApplicationHaClusterPrometheusExporterArgsDict(TypedDict):
     """
     The HA cluster Prometheus Exporter settings.
     """
-    prometheus_port: NotRequired[pulumi.Input[_builtins.str]]
+    prometheus_port: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Prometheus exporter port.
     """
@@ -604,7 +604,7 @@ class ApplicationHaClusterPrometheusExporterArgsDict(TypedDict):
 @pulumi.input_type
 class ApplicationHaClusterPrometheusExporterArgs:
     def __init__(__self__, *,
-                 prometheus_port: Optional[pulumi.Input[_builtins.str]] = None):
+                 prometheus_port: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The HA cluster Prometheus Exporter settings.
 
@@ -615,14 +615,14 @@ class ApplicationHaClusterPrometheusExporterArgs:
 
     @_builtins.property
     @pulumi.getter(name="prometheusPort")
-    def prometheus_port(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def prometheus_port(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Prometheus exporter port.
         """
         return pulumi.get(self, "prometheus_port")
 
     @prometheus_port.setter
-    def prometheus_port(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def prometheus_port(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "prometheus_port", value)
 
 
@@ -649,7 +649,7 @@ class ApplicationHanaPrometheusExporterArgsDict(TypedDict):
     """
     HANA DB SID.
     """
-    prometheus_port: NotRequired[pulumi.Input[_builtins.str]]
+    prometheus_port: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Prometheus exporter port.
     """
@@ -661,7 +661,7 @@ class ApplicationHanaPrometheusExporterArgs:
                  hana_port: pulumi.Input[_builtins.str],
                  hana_secret_name: pulumi.Input[_builtins.str],
                  hanasid: pulumi.Input[_builtins.str],
-                 prometheus_port: Optional[pulumi.Input[_builtins.str]] = None):
+                 prometheus_port: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The HANA DB Prometheus Exporter settings.
 
@@ -734,14 +734,14 @@ class ApplicationHanaPrometheusExporterArgs:
 
     @_builtins.property
     @pulumi.getter(name="prometheusPort")
-    def prometheus_port(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def prometheus_port(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Prometheus exporter port.
         """
         return pulumi.get(self, "prometheus_port")
 
     @prometheus_port.setter
-    def prometheus_port(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def prometheus_port(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "prometheus_port", value)
 
 
@@ -749,15 +749,15 @@ class ApplicationJmxPrometheusExporterArgsDict(TypedDict):
     """
     The JMX Prometheus Exporter settings.
     """
-    host_port: NotRequired[pulumi.Input[_builtins.str]]
+    host_port: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Java agent host port
     """
-    jmxurl: NotRequired[pulumi.Input[_builtins.str]]
+    jmxurl: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     JMX service URL.
     """
-    prometheus_port: NotRequired[pulumi.Input[_builtins.str]]
+    prometheus_port: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Prometheus exporter port.
     """
@@ -765,9 +765,9 @@ class ApplicationJmxPrometheusExporterArgsDict(TypedDict):
 @pulumi.input_type
 class ApplicationJmxPrometheusExporterArgs:
     def __init__(__self__, *,
-                 host_port: Optional[pulumi.Input[_builtins.str]] = None,
-                 jmxurl: Optional[pulumi.Input[_builtins.str]] = None,
-                 prometheus_port: Optional[pulumi.Input[_builtins.str]] = None):
+                 host_port: pulumi.Input[Optional[_builtins.str]] = None,
+                 jmxurl: pulumi.Input[Optional[_builtins.str]] = None,
+                 prometheus_port: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The JMX Prometheus Exporter settings.
 
@@ -784,38 +784,38 @@ class ApplicationJmxPrometheusExporterArgs:
 
     @_builtins.property
     @pulumi.getter(name="hostPort")
-    def host_port(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host_port(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Java agent host port
         """
         return pulumi.get(self, "host_port")
 
     @host_port.setter
-    def host_port(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host_port(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host_port", value)
 
     @_builtins.property
     @pulumi.getter
-    def jmxurl(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def jmxurl(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         JMX service URL.
         """
         return pulumi.get(self, "jmxurl")
 
     @jmxurl.setter
-    def jmxurl(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def jmxurl(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "jmxurl", value)
 
     @_builtins.property
     @pulumi.getter(name="prometheusPort")
-    def prometheus_port(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def prometheus_port(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Prometheus exporter port.
         """
         return pulumi.get(self, "prometheus_port")
 
     @prometheus_port.setter
-    def prometheus_port(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def prometheus_port(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "prometheus_port", value)
 
 
@@ -950,19 +950,19 @@ class ApplicationLogArgsDict(TypedDict):
     """
     The log type decides the log patterns against which Application Insights analyzes the log.
     """
-    encoding: NotRequired[pulumi.Input['ApplicationLogEncoding']]
+    encoding: NotRequired[pulumi.Input[Optional['ApplicationLogEncoding']]]
     """
     The type of encoding of the logs to be monitored.
     """
-    log_group_name: NotRequired[pulumi.Input[_builtins.str]]
+    log_group_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The CloudWatch log group name to be associated to the monitored log.
     """
-    log_path: NotRequired[pulumi.Input[_builtins.str]]
+    log_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The path of the logs to be monitored.
     """
-    pattern_set: NotRequired[pulumi.Input[_builtins.str]]
+    pattern_set: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the log pattern set.
     """
@@ -971,10 +971,10 @@ class ApplicationLogArgsDict(TypedDict):
 class ApplicationLogArgs:
     def __init__(__self__, *,
                  log_type: pulumi.Input[_builtins.str],
-                 encoding: Optional[pulumi.Input['ApplicationLogEncoding']] = None,
-                 log_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 pattern_set: Optional[pulumi.Input[_builtins.str]] = None):
+                 encoding: pulumi.Input[Optional['ApplicationLogEncoding']] = None,
+                 log_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 pattern_set: pulumi.Input[Optional[_builtins.str]] = None):
         """
         A log to be monitored for the component.
 
@@ -1008,50 +1008,50 @@ class ApplicationLogArgs:
 
     @_builtins.property
     @pulumi.getter
-    def encoding(self) -> Optional[pulumi.Input['ApplicationLogEncoding']]:
+    def encoding(self) -> pulumi.Input[Optional['ApplicationLogEncoding']]:
         """
         The type of encoding of the logs to be monitored.
         """
         return pulumi.get(self, "encoding")
 
     @encoding.setter
-    def encoding(self, value: Optional[pulumi.Input['ApplicationLogEncoding']]):
+    def encoding(self, value: pulumi.Input[Optional['ApplicationLogEncoding']]):
         pulumi.set(self, "encoding", value)
 
     @_builtins.property
     @pulumi.getter(name="logGroupName")
-    def log_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The CloudWatch log group name to be associated to the monitored log.
         """
         return pulumi.get(self, "log_group_name")
 
     @log_group_name.setter
-    def log_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="logPath")
-    def log_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The path of the logs to be monitored.
         """
         return pulumi.get(self, "log_path")
 
     @log_path.setter
-    def log_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_path", value)
 
     @_builtins.property
     @pulumi.getter(name="patternSet")
-    def pattern_set(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pattern_set(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the log pattern set.
         """
         return pulumi.get(self, "pattern_set")
 
     @pattern_set.setter
-    def pattern_set(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pattern_set(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pattern_set", value)
 
 
@@ -1067,7 +1067,7 @@ class ApplicationNetWeaverPrometheusExporterArgsDict(TypedDict):
     """
     SAP NetWeaver SID.
     """
-    prometheus_port: NotRequired[pulumi.Input[_builtins.str]]
+    prometheus_port: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Prometheus exporter port.
     """
@@ -1077,7 +1077,7 @@ class ApplicationNetWeaverPrometheusExporterArgs:
     def __init__(__self__, *,
                  instance_numbers: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  sapsid: pulumi.Input[_builtins.str],
-                 prometheus_port: Optional[pulumi.Input[_builtins.str]] = None):
+                 prometheus_port: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The NetWeaver Prometheus Exporter Settings.
 
@@ -1116,14 +1116,14 @@ class ApplicationNetWeaverPrometheusExporterArgs:
 
     @_builtins.property
     @pulumi.getter(name="prometheusPort")
-    def prometheus_port(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def prometheus_port(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Prometheus exporter port.
         """
         return pulumi.get(self, "prometheus_port")
 
     @prometheus_port.setter
-    def prometheus_port(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def prometheus_port(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "prometheus_port", value)
 
 
@@ -1235,19 +1235,19 @@ class ApplicationSubComponentConfigurationDetailsArgsDict(TypedDict):
     """
     The configuration settings of sub components.
     """
-    alarm_metrics: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationAlarmMetricArgsDict']]]]
+    alarm_metrics: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationAlarmMetricArgs']]]]]
     """
     A list of metrics to monitor for the component.
     """
-    logs: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationLogArgsDict']]]]
+    logs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationLogArgs']]]]]
     """
     A list of logs to monitor for the component.
     """
-    processes: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationProcessArgsDict']]]]
+    processes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationProcessArgs']]]]]
     """
     A list of processes to monitor for the component. Only Windows EC2 instances can have a processes section.
     """
-    windows_events: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationWindowsEventArgsDict']]]]
+    windows_events: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationWindowsEventArgs']]]]]
     """
     A list of Windows Events to log.
     """
@@ -1255,10 +1255,10 @@ class ApplicationSubComponentConfigurationDetailsArgsDict(TypedDict):
 @pulumi.input_type
 class ApplicationSubComponentConfigurationDetailsArgs:
     def __init__(__self__, *,
-                 alarm_metrics: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationAlarmMetricArgs']]]] = None,
-                 logs: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationLogArgs']]]] = None,
-                 processes: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationProcessArgs']]]] = None,
-                 windows_events: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationWindowsEventArgs']]]] = None):
+                 alarm_metrics: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationAlarmMetricArgs']]]] = None,
+                 logs: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationLogArgs']]]] = None,
+                 processes: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationProcessArgs']]]] = None,
+                 windows_events: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationWindowsEventArgs']]]] = None):
         """
         The configuration settings of sub components.
 
@@ -1278,50 +1278,50 @@ class ApplicationSubComponentConfigurationDetailsArgs:
 
     @_builtins.property
     @pulumi.getter(name="alarmMetrics")
-    def alarm_metrics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationAlarmMetricArgs']]]]:
+    def alarm_metrics(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationAlarmMetricArgs']]]]:
         """
         A list of metrics to monitor for the component.
         """
         return pulumi.get(self, "alarm_metrics")
 
     @alarm_metrics.setter
-    def alarm_metrics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationAlarmMetricArgs']]]]):
+    def alarm_metrics(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationAlarmMetricArgs']]]]):
         pulumi.set(self, "alarm_metrics", value)
 
     @_builtins.property
     @pulumi.getter
-    def logs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationLogArgs']]]]:
+    def logs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationLogArgs']]]]:
         """
         A list of logs to monitor for the component.
         """
         return pulumi.get(self, "logs")
 
     @logs.setter
-    def logs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationLogArgs']]]]):
+    def logs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationLogArgs']]]]):
         pulumi.set(self, "logs", value)
 
     @_builtins.property
     @pulumi.getter
-    def processes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationProcessArgs']]]]:
+    def processes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationProcessArgs']]]]:
         """
         A list of processes to monitor for the component. Only Windows EC2 instances can have a processes section.
         """
         return pulumi.get(self, "processes")
 
     @processes.setter
-    def processes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationProcessArgs']]]]):
+    def processes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationProcessArgs']]]]):
         pulumi.set(self, "processes", value)
 
     @_builtins.property
     @pulumi.getter(name="windowsEvents")
-    def windows_events(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationWindowsEventArgs']]]]:
+    def windows_events(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationWindowsEventArgs']]]]:
         """
         A list of Windows Events to log.
         """
         return pulumi.get(self, "windows_events")
 
     @windows_events.setter
-    def windows_events(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationWindowsEventArgs']]]]):
+    def windows_events(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationWindowsEventArgs']]]]):
         pulumi.set(self, "windows_events", value)
 
 
@@ -1393,7 +1393,7 @@ class ApplicationWindowsEventArgsDict(TypedDict):
     """
     The CloudWatch log group name to be associated to the monitored log.
     """
-    pattern_set: NotRequired[pulumi.Input[_builtins.str]]
+    pattern_set: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the log pattern set.
     """
@@ -1404,7 +1404,7 @@ class ApplicationWindowsEventArgs:
                  event_levels: pulumi.Input[Sequence[pulumi.Input['ApplicationEventLevel']]],
                  event_name: pulumi.Input[_builtins.str],
                  log_group_name: pulumi.Input[_builtins.str],
-                 pattern_set: Optional[pulumi.Input[_builtins.str]] = None):
+                 pattern_set: pulumi.Input[Optional[_builtins.str]] = None):
         """
         A Windows Event to be monitored for the component.
 
@@ -1457,14 +1457,14 @@ class ApplicationWindowsEventArgs:
 
     @_builtins.property
     @pulumi.getter(name="patternSet")
-    def pattern_set(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pattern_set(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the log pattern set.
         """
         return pulumi.get(self, "pattern_set")
 
     @pattern_set.setter
-    def pattern_set(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pattern_set(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pattern_set", value)
 
 

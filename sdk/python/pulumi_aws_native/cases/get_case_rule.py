@@ -154,7 +154,7 @@ def get_case_rule(case_rule_arn: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         rule=pulumi.get(__ret__, 'rule'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_case_rule_output(case_rule_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_case_rule_output(case_rule_arn: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCaseRuleResult]:
     """
     A case rule. In the Amazon Connect admin website, case rules are known as case field conditions. Case rules are used to define the situations under which fields should have certain effects (such as required).

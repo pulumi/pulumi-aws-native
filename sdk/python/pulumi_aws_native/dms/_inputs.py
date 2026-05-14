@@ -53,15 +53,15 @@ __all__ = [
 ]
 
 class DataMigrationSettingsArgsDict(TypedDict):
-    cloudwatch_logs_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    cloudwatch_logs_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     The property specifies whether to enable the CloudWatch log.
     """
-    number_of_jobs: NotRequired[pulumi.Input[_builtins.int]]
+    number_of_jobs: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The number of parallel jobs that trigger parallel threads to unload the tables from the source, and then load them to the target.
     """
-    selection_rules: NotRequired[pulumi.Input[_builtins.str]]
+    selection_rules: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The property specifies the rules of selecting objects for data migration.
     """
@@ -69,9 +69,9 @@ class DataMigrationSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class DataMigrationSettingsArgs:
     def __init__(__self__, *,
-                 cloudwatch_logs_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 number_of_jobs: Optional[pulumi.Input[_builtins.int]] = None,
-                 selection_rules: Optional[pulumi.Input[_builtins.str]] = None):
+                 cloudwatch_logs_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 number_of_jobs: pulumi.Input[Optional[_builtins.int]] = None,
+                 selection_rules: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.bool] cloudwatch_logs_enabled: The property specifies whether to enable the CloudWatch log.
         :param pulumi.Input[_builtins.int] number_of_jobs: The number of parallel jobs that trigger parallel threads to unload the tables from the source, and then load them to the target.
@@ -86,55 +86,55 @@ class DataMigrationSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="cloudwatchLogsEnabled")
-    def cloudwatch_logs_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def cloudwatch_logs_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The property specifies whether to enable the CloudWatch log.
         """
         return pulumi.get(self, "cloudwatch_logs_enabled")
 
     @cloudwatch_logs_enabled.setter
-    def cloudwatch_logs_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def cloudwatch_logs_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "cloudwatch_logs_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="numberOfJobs")
-    def number_of_jobs(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def number_of_jobs(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of parallel jobs that trigger parallel threads to unload the tables from the source, and then load them to the target.
         """
         return pulumi.get(self, "number_of_jobs")
 
     @number_of_jobs.setter
-    def number_of_jobs(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def number_of_jobs(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "number_of_jobs", value)
 
     @_builtins.property
     @pulumi.getter(name="selectionRules")
-    def selection_rules(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def selection_rules(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The property specifies the rules of selecting objects for data migration.
         """
         return pulumi.get(self, "selection_rules")
 
     @selection_rules.setter
-    def selection_rules(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def selection_rules(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "selection_rules", value)
 
 
 class DataMigrationSourceDataSettingsArgsDict(TypedDict):
-    cdc_start_position: NotRequired[pulumi.Input[_builtins.str]]
+    cdc_start_position: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The property is a point in the database engine's log that defines a time where you can begin CDC.
     """
-    cdc_start_time: NotRequired[pulumi.Input[_builtins.str]]
+    cdc_start_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The property indicates the start time for a change data capture (CDC) operation. The value is server time in UTC format.
     """
-    cdc_stop_time: NotRequired[pulumi.Input[_builtins.str]]
+    cdc_stop_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The property indicates the stop time for a change data capture (CDC) operation. The value is server time in UTC format.
     """
-    slot_name: NotRequired[pulumi.Input[_builtins.str]]
+    slot_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The property sets the name of a previously created logical replication slot for a change data capture (CDC) load of the source instance.
     """
@@ -142,10 +142,10 @@ class DataMigrationSourceDataSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class DataMigrationSourceDataSettingsArgs:
     def __init__(__self__, *,
-                 cdc_start_position: Optional[pulumi.Input[_builtins.str]] = None,
-                 cdc_start_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 cdc_stop_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 slot_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 cdc_start_position: pulumi.Input[Optional[_builtins.str]] = None,
+                 cdc_start_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 cdc_stop_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 slot_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] cdc_start_position: The property is a point in the database engine's log that defines a time where you can begin CDC.
         :param pulumi.Input[_builtins.str] cdc_start_time: The property indicates the start time for a change data capture (CDC) operation. The value is server time in UTC format.
@@ -163,50 +163,50 @@ class DataMigrationSourceDataSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="cdcStartPosition")
-    def cdc_start_position(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cdc_start_position(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The property is a point in the database engine's log that defines a time where you can begin CDC.
         """
         return pulumi.get(self, "cdc_start_position")
 
     @cdc_start_position.setter
-    def cdc_start_position(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cdc_start_position(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cdc_start_position", value)
 
     @_builtins.property
     @pulumi.getter(name="cdcStartTime")
-    def cdc_start_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cdc_start_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The property indicates the start time for a change data capture (CDC) operation. The value is server time in UTC format.
         """
         return pulumi.get(self, "cdc_start_time")
 
     @cdc_start_time.setter
-    def cdc_start_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cdc_start_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cdc_start_time", value)
 
     @_builtins.property
     @pulumi.getter(name="cdcStopTime")
-    def cdc_stop_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cdc_stop_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The property indicates the stop time for a change data capture (CDC) operation. The value is server time in UTC format.
         """
         return pulumi.get(self, "cdc_stop_time")
 
     @cdc_stop_time.setter
-    def cdc_stop_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cdc_stop_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cdc_stop_time", value)
 
     @_builtins.property
     @pulumi.getter(name="slotName")
-    def slot_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def slot_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The property sets the name of a previously created logical replication slot for a change data capture (CDC) load of the source instance.
         """
         return pulumi.get(self, "slot_name")
 
     @slot_name.setter
-    def slot_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def slot_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "slot_name", value)
 
 
@@ -214,20 +214,20 @@ class MigrationProjectDataProviderDescriptorArgsDict(TypedDict):
     """
     It is an object that describes Source and Target DataProviders and credentials for connecting to databases that are used in MigrationProject
     """
-    data_provider_arn: NotRequired[pulumi.Input[_builtins.str]]
+    data_provider_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon Resource Name (ARN) of the data provider.
     """
-    data_provider_identifier: NotRequired[pulumi.Input[_builtins.str]]
-    data_provider_name: NotRequired[pulumi.Input[_builtins.str]]
+    data_provider_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    data_provider_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The user-friendly name of the data provider.
     """
-    secrets_manager_access_role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    secrets_manager_access_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of the role used to access AWS Secrets Manager.
     """
-    secrets_manager_secret_id: NotRequired[pulumi.Input[_builtins.str]]
+    secrets_manager_secret_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The identifier of the AWS Secrets Manager Secret used to store access credentials for the data provider.
     """
@@ -235,11 +235,11 @@ class MigrationProjectDataProviderDescriptorArgsDict(TypedDict):
 @pulumi.input_type
 class MigrationProjectDataProviderDescriptorArgs:
     def __init__(__self__, *,
-                 data_provider_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_provider_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_provider_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 secrets_manager_access_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 secrets_manager_secret_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 data_provider_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_provider_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_provider_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 secrets_manager_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 secrets_manager_secret_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         It is an object that describes Source and Target DataProviders and credentials for connecting to databases that are used in MigrationProject
 
@@ -261,59 +261,59 @@ class MigrationProjectDataProviderDescriptorArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataProviderArn")
-    def data_provider_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_provider_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the data provider.
         """
         return pulumi.get(self, "data_provider_arn")
 
     @data_provider_arn.setter
-    def data_provider_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_provider_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_provider_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="dataProviderIdentifier")
-    def data_provider_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_provider_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "data_provider_identifier")
 
     @data_provider_identifier.setter
-    def data_provider_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_provider_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_provider_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="dataProviderName")
-    def data_provider_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_provider_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The user-friendly name of the data provider.
         """
         return pulumi.get(self, "data_provider_name")
 
     @data_provider_name.setter
-    def data_provider_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_provider_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_provider_name", value)
 
     @_builtins.property
     @pulumi.getter(name="secretsManagerAccessRoleArn")
-    def secrets_manager_access_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secrets_manager_access_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the role used to access AWS Secrets Manager.
         """
         return pulumi.get(self, "secrets_manager_access_role_arn")
 
     @secrets_manager_access_role_arn.setter
-    def secrets_manager_access_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secrets_manager_access_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secrets_manager_access_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="secretsManagerSecretId")
-    def secrets_manager_secret_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secrets_manager_secret_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier of the AWS Secrets Manager Secret used to store access credentials for the data provider.
         """
         return pulumi.get(self, "secrets_manager_secret_id")
 
     @secrets_manager_secret_id.setter
-    def secrets_manager_secret_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secrets_manager_secret_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secrets_manager_secret_id", value)
 
 
@@ -325,15 +325,15 @@ class ReplicationConfigComputeConfigArgsDict(TypedDict):
     """
     Specifies the maximum value of the AWS DMS capacity units (DCUs) for which a given AWS DMS Serverless replication can be provisioned. A single DCU is 2GB of RAM, with 1 DCU as the minimum value allowed. The list of valid DCU values includes 1, 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384. So, the maximum value that you can specify for AWS DMS Serverless is 384. The `MaxCapacityUnits` parameter is the only DCU parameter you are required to specify.
     """
-    availability_zone: NotRequired[pulumi.Input[_builtins.str]]
+    availability_zone: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Availability Zone where the AWS DMS Serverless replication using this configuration will run. The default value is a random, system-chosen Availability Zone in the configuration's AWS Region , for example, `"us-west-2"` . You can't set this parameter if the `MultiAZ` parameter is set to `true` .
     """
-    dns_name_servers: NotRequired[pulumi.Input[_builtins.str]]
+    dns_name_servers: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A list of custom DNS name servers supported for the AWS DMS Serverless replication to access your source or target database. This list overrides the default name servers supported by the AWS DMS Serverless replication. You can specify a comma-separated list of internet addresses for up to four DNS name servers. For example: `"1.1.1.1,2.2.2.2,3.3.3.3,4.4.4.4"`
     """
-    kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    kms_key_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     An AWS Key Management Service ( AWS  ) key Amazon Resource Name (ARN) that is used to encrypt the data during AWS DMS Serverless replication.
 
@@ -341,15 +341,15 @@ class ReplicationConfigComputeConfigArgsDict(TypedDict):
 
     AWS  creates the default encryption key for your Amazon Web Services account. Your AWS account has a different default encryption key for each AWS Region .
     """
-    min_capacity_units: NotRequired[pulumi.Input[_builtins.int]]
+    min_capacity_units: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the minimum value of the AWS DMS capacity units (DCUs) for which a given AWS DMS Serverless replication can be provisioned. A single DCU is 2GB of RAM, with 1 DCU as the minimum value allowed. The list of valid DCU values includes 1, 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384. So, the minimum DCU value that you can specify for AWS DMS Serverless is 1. If you don't set this value, AWS DMS sets this parameter to the minimum DCU value allowed, 1. If there is no current source activity, AWS DMS scales down your replication until it reaches the value specified in `MinCapacityUnits` .
     """
-    multi_az: NotRequired[pulumi.Input[_builtins.bool]]
+    multi_az: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether the AWS DMS Serverless replication is a Multi-AZ deployment. You can't set the `AvailabilityZone` parameter if the `MultiAZ` parameter is set to `true` .
     """
-    preferred_maintenance_window: NotRequired[pulumi.Input[_builtins.str]]
+    preferred_maintenance_window: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The weekly time range during which system maintenance can occur for the AWS DMS Serverless replication, in Universal Coordinated Time (UTC). The format is `ddd:hh24:mi-ddd:hh24:mi` .
 
@@ -357,11 +357,11 @@ class ReplicationConfigComputeConfigArgsDict(TypedDict):
 
     Constraints include a minimum 30-minute window.
     """
-    replication_subnet_group_id: NotRequired[pulumi.Input[_builtins.str]]
+    replication_subnet_group_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies a subnet group identifier to associate with the AWS DMS Serverless replication.
     """
-    vpc_security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    vpc_security_group_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies the virtual private cloud (VPC) security group to use with the AWS DMS Serverless replication. The VPC security group must work with the VPC containing the replication.
     """
@@ -370,14 +370,14 @@ class ReplicationConfigComputeConfigArgsDict(TypedDict):
 class ReplicationConfigComputeConfigArgs:
     def __init__(__self__, *,
                  max_capacity_units: pulumi.Input[_builtins.int],
-                 availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_name_servers: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 min_capacity_units: Optional[pulumi.Input[_builtins.int]] = None,
-                 multi_az: Optional[pulumi.Input[_builtins.bool]] = None,
-                 preferred_maintenance_window: Optional[pulumi.Input[_builtins.str]] = None,
-                 replication_subnet_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_name_servers: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 min_capacity_units: pulumi.Input[Optional[_builtins.int]] = None,
+                 multi_az: pulumi.Input[Optional[_builtins.bool]] = None,
+                 preferred_maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 replication_subnet_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Configuration parameters for provisioning a AWS DMS Serverless replication
 
@@ -431,31 +431,31 @@ class ReplicationConfigComputeConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def availability_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Availability Zone where the AWS DMS Serverless replication using this configuration will run. The default value is a random, system-chosen Availability Zone in the configuration's AWS Region , for example, `"us-west-2"` . You can't set this parameter if the `MultiAZ` parameter is set to `true` .
         """
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
-    def availability_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def availability_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "availability_zone", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsNameServers")
-    def dns_name_servers(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dns_name_servers(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A list of custom DNS name servers supported for the AWS DMS Serverless replication to access your source or target database. This list overrides the default name servers supported by the AWS DMS Serverless replication. You can specify a comma-separated list of internet addresses for up to four DNS name servers. For example: `"1.1.1.1,2.2.2.2,3.3.3.3,4.4.4.4"`
         """
         return pulumi.get(self, "dns_name_servers")
 
     @dns_name_servers.setter
-    def dns_name_servers(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dns_name_servers(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dns_name_servers", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An AWS Key Management Service ( AWS  ) key Amazon Resource Name (ARN) that is used to encrypt the data during AWS DMS Serverless replication.
 
@@ -466,36 +466,36 @@ class ReplicationConfigComputeConfigArgs:
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="minCapacityUnits")
-    def min_capacity_units(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_capacity_units(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the minimum value of the AWS DMS capacity units (DCUs) for which a given AWS DMS Serverless replication can be provisioned. A single DCU is 2GB of RAM, with 1 DCU as the minimum value allowed. The list of valid DCU values includes 1, 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384. So, the minimum DCU value that you can specify for AWS DMS Serverless is 1. If you don't set this value, AWS DMS sets this parameter to the minimum DCU value allowed, 1. If there is no current source activity, AWS DMS scales down your replication until it reaches the value specified in `MinCapacityUnits` .
         """
         return pulumi.get(self, "min_capacity_units")
 
     @min_capacity_units.setter
-    def min_capacity_units(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_capacity_units(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_capacity_units", value)
 
     @_builtins.property
     @pulumi.getter(name="multiAz")
-    def multi_az(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def multi_az(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the AWS DMS Serverless replication is a Multi-AZ deployment. You can't set the `AvailabilityZone` parameter if the `MultiAZ` parameter is set to `true` .
         """
         return pulumi.get(self, "multi_az")
 
     @multi_az.setter
-    def multi_az(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def multi_az(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "multi_az", value)
 
     @_builtins.property
     @pulumi.getter(name="preferredMaintenanceWindow")
-    def preferred_maintenance_window(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def preferred_maintenance_window(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The weekly time range during which system maintenance can occur for the AWS DMS Serverless replication, in Universal Coordinated Time (UTC). The format is `ddd:hh24:mi-ddd:hh24:mi` .
 
@@ -506,31 +506,31 @@ class ReplicationConfigComputeConfigArgs:
         return pulumi.get(self, "preferred_maintenance_window")
 
     @preferred_maintenance_window.setter
-    def preferred_maintenance_window(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def preferred_maintenance_window(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "preferred_maintenance_window", value)
 
     @_builtins.property
     @pulumi.getter(name="replicationSubnetGroupId")
-    def replication_subnet_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def replication_subnet_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a subnet group identifier to associate with the AWS DMS Serverless replication.
         """
         return pulumi.get(self, "replication_subnet_group_id")
 
     @replication_subnet_group_id.setter
-    def replication_subnet_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def replication_subnet_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "replication_subnet_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcSecurityGroupIds")
-    def vpc_security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def vpc_security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the virtual private cloud (VPC) security group to use with the AWS DMS Serverless replication. The VPC security group must work with the VPC containing the replication.
         """
         return pulumi.get(self, "vpc_security_group_ids")
 
     @vpc_security_group_ids.setter
-    def vpc_security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def vpc_security_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "vpc_security_group_ids", value)
 
 
@@ -538,14 +538,14 @@ class SchemaConversionApplicationAttributesPropertiesArgsDict(TypedDict):
     """
     The property describes schema conversion application attributes for the migration project.
     """
-    s3_bucket_path: NotRequired[pulumi.Input[_builtins.str]]
-    s3_bucket_role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    s3_bucket_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    s3_bucket_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class SchemaConversionApplicationAttributesPropertiesArgs:
     def __init__(__self__, *,
-                 s3_bucket_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_bucket_role_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 s3_bucket_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_bucket_role_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The property describes schema conversion application attributes for the migration project.
         """
@@ -556,20 +556,20 @@ class SchemaConversionApplicationAttributesPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="s3BucketPath")
-    def s3_bucket_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def s3_bucket_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "s3_bucket_path")
 
     @s3_bucket_path.setter
-    def s3_bucket_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def s3_bucket_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "s3_bucket_path", value)
 
     @_builtins.property
     @pulumi.getter(name="s3BucketRoleArn")
-    def s3_bucket_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def s3_bucket_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "s3_bucket_role_arn")
 
     @s3_bucket_role_arn.setter
-    def s3_bucket_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def s3_bucket_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "s3_bucket_role_arn", value)
 
 
@@ -580,8 +580,8 @@ class SettingsPropertiesDocDbSettingsPropertiesArgsDict(TypedDict):
     database_name: pulumi.Input[_builtins.str]
     port: pulumi.Input[_builtins.int]
     server_name: pulumi.Input[_builtins.str]
-    certificate_arn: NotRequired[pulumi.Input[_builtins.str]]
-    ssl_mode: NotRequired[pulumi.Input['DataProviderMongoDbSslModeValue']]
+    certificate_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    ssl_mode: NotRequired[pulumi.Input[Optional['DataProviderMongoDbSslModeValue']]]
 
 @pulumi.input_type
 class SettingsPropertiesDocDbSettingsPropertiesArgs:
@@ -589,8 +589,8 @@ class SettingsPropertiesDocDbSettingsPropertiesArgs:
                  database_name: pulumi.Input[_builtins.str],
                  port: pulumi.Input[_builtins.int],
                  server_name: pulumi.Input[_builtins.str],
-                 certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssl_mode: Optional[pulumi.Input['DataProviderMongoDbSslModeValue']] = None):
+                 certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_mode: pulumi.Input[Optional['DataProviderMongoDbSslModeValue']] = None):
         """
         DocDbSettings property identifier.
         """
@@ -631,20 +631,20 @@ class SettingsPropertiesDocDbSettingsPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="certificateArn")
-    def certificate_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "certificate_arn")
 
     @certificate_arn.setter
-    def certificate_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="sslMode")
-    def ssl_mode(self) -> Optional[pulumi.Input['DataProviderMongoDbSslModeValue']]:
+    def ssl_mode(self) -> pulumi.Input[Optional['DataProviderMongoDbSslModeValue']]:
         return pulumi.get(self, "ssl_mode")
 
     @ssl_mode.setter
-    def ssl_mode(self, value: Optional[pulumi.Input['DataProviderMongoDbSslModeValue']]):
+    def ssl_mode(self, value: pulumi.Input[Optional['DataProviderMongoDbSslModeValue']]):
         pulumi.set(self, "ssl_mode", value)
 
 
@@ -656,7 +656,7 @@ class SettingsPropertiesIbmDb2LuwSettingsPropertiesArgsDict(TypedDict):
     port: pulumi.Input[_builtins.int]
     server_name: pulumi.Input[_builtins.str]
     ssl_mode: pulumi.Input['DataProviderDb2SslModeValue']
-    certificate_arn: NotRequired[pulumi.Input[_builtins.str]]
+    certificate_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class SettingsPropertiesIbmDb2LuwSettingsPropertiesArgs:
@@ -665,7 +665,7 @@ class SettingsPropertiesIbmDb2LuwSettingsPropertiesArgs:
                  port: pulumi.Input[_builtins.int],
                  server_name: pulumi.Input[_builtins.str],
                  ssl_mode: pulumi.Input['DataProviderDb2SslModeValue'],
-                 certificate_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 certificate_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         IbmDb2LuwSettings property identifier.
         """
@@ -714,11 +714,11 @@ class SettingsPropertiesIbmDb2LuwSettingsPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="certificateArn")
-    def certificate_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "certificate_arn")
 
     @certificate_arn.setter
-    def certificate_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_arn", value)
 
 
@@ -730,7 +730,7 @@ class SettingsPropertiesIbmDb2zOsSettingsPropertiesArgsDict(TypedDict):
     port: pulumi.Input[_builtins.int]
     server_name: pulumi.Input[_builtins.str]
     ssl_mode: pulumi.Input['DataProviderDb2SslModeValue']
-    certificate_arn: NotRequired[pulumi.Input[_builtins.str]]
+    certificate_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class SettingsPropertiesIbmDb2zOsSettingsPropertiesArgs:
@@ -739,7 +739,7 @@ class SettingsPropertiesIbmDb2zOsSettingsPropertiesArgs:
                  port: pulumi.Input[_builtins.int],
                  server_name: pulumi.Input[_builtins.str],
                  ssl_mode: pulumi.Input['DataProviderDb2SslModeValue'],
-                 certificate_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 certificate_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         IbmDb2zOsSettings property identifier.
         """
@@ -788,11 +788,11 @@ class SettingsPropertiesIbmDb2zOsSettingsPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="certificateArn")
-    def certificate_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "certificate_arn")
 
     @certificate_arn.setter
-    def certificate_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_arn", value)
 
 
@@ -803,7 +803,7 @@ class SettingsPropertiesMariaDbSettingsPropertiesArgsDict(TypedDict):
     port: pulumi.Input[_builtins.int]
     server_name: pulumi.Input[_builtins.str]
     ssl_mode: pulumi.Input['DataProviderDmsSslModeValue']
-    certificate_arn: NotRequired[pulumi.Input[_builtins.str]]
+    certificate_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class SettingsPropertiesMariaDbSettingsPropertiesArgs:
@@ -811,7 +811,7 @@ class SettingsPropertiesMariaDbSettingsPropertiesArgs:
                  port: pulumi.Input[_builtins.int],
                  server_name: pulumi.Input[_builtins.str],
                  ssl_mode: pulumi.Input['DataProviderDmsSslModeValue'],
-                 certificate_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 certificate_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         MariaDbSettings property identifier.
         """
@@ -850,11 +850,11 @@ class SettingsPropertiesMariaDbSettingsPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="certificateArn")
-    def certificate_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "certificate_arn")
 
     @certificate_arn.setter
-    def certificate_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_arn", value)
 
 
@@ -866,7 +866,7 @@ class SettingsPropertiesMicrosoftSqlServerSettingsPropertiesArgsDict(TypedDict):
     port: pulumi.Input[_builtins.int]
     server_name: pulumi.Input[_builtins.str]
     ssl_mode: pulumi.Input['DataProviderDmsSslModeValue']
-    certificate_arn: NotRequired[pulumi.Input[_builtins.str]]
+    certificate_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class SettingsPropertiesMicrosoftSqlServerSettingsPropertiesArgs:
@@ -875,7 +875,7 @@ class SettingsPropertiesMicrosoftSqlServerSettingsPropertiesArgs:
                  port: pulumi.Input[_builtins.int],
                  server_name: pulumi.Input[_builtins.str],
                  ssl_mode: pulumi.Input['DataProviderDmsSslModeValue'],
-                 certificate_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 certificate_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         MicrosoftSqlServerSettings property identifier.
         """
@@ -924,11 +924,11 @@ class SettingsPropertiesMicrosoftSqlServerSettingsPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="certificateArn")
-    def certificate_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "certificate_arn")
 
     @certificate_arn.setter
-    def certificate_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_arn", value)
 
 
@@ -938,24 +938,24 @@ class SettingsPropertiesMongoDbSettingsPropertiesArgsDict(TypedDict):
     """
     port: pulumi.Input[_builtins.int]
     server_name: pulumi.Input[_builtins.str]
-    auth_mechanism: NotRequired[pulumi.Input['DataProviderMongoDbAuthMechanism']]
-    auth_source: NotRequired[pulumi.Input[_builtins.str]]
-    auth_type: NotRequired[pulumi.Input['DataProviderMongoDbAuthType']]
-    certificate_arn: NotRequired[pulumi.Input[_builtins.str]]
-    database_name: NotRequired[pulumi.Input[_builtins.str]]
-    ssl_mode: NotRequired[pulumi.Input['DataProviderMongoDbSslModeValue']]
+    auth_mechanism: NotRequired[pulumi.Input[Optional['DataProviderMongoDbAuthMechanism']]]
+    auth_source: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    auth_type: NotRequired[pulumi.Input[Optional['DataProviderMongoDbAuthType']]]
+    certificate_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    database_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    ssl_mode: NotRequired[pulumi.Input[Optional['DataProviderMongoDbSslModeValue']]]
 
 @pulumi.input_type
 class SettingsPropertiesMongoDbSettingsPropertiesArgs:
     def __init__(__self__, *,
                  port: pulumi.Input[_builtins.int],
                  server_name: pulumi.Input[_builtins.str],
-                 auth_mechanism: Optional[pulumi.Input['DataProviderMongoDbAuthMechanism']] = None,
-                 auth_source: Optional[pulumi.Input[_builtins.str]] = None,
-                 auth_type: Optional[pulumi.Input['DataProviderMongoDbAuthType']] = None,
-                 certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssl_mode: Optional[pulumi.Input['DataProviderMongoDbSslModeValue']] = None):
+                 auth_mechanism: pulumi.Input[Optional['DataProviderMongoDbAuthMechanism']] = None,
+                 auth_source: pulumi.Input[Optional[_builtins.str]] = None,
+                 auth_type: pulumi.Input[Optional['DataProviderMongoDbAuthType']] = None,
+                 certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_mode: pulumi.Input[Optional['DataProviderMongoDbSslModeValue']] = None):
         """
         MongoDbSettings property identifier.
         """
@@ -994,56 +994,56 @@ class SettingsPropertiesMongoDbSettingsPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="authMechanism")
-    def auth_mechanism(self) -> Optional[pulumi.Input['DataProviderMongoDbAuthMechanism']]:
+    def auth_mechanism(self) -> pulumi.Input[Optional['DataProviderMongoDbAuthMechanism']]:
         return pulumi.get(self, "auth_mechanism")
 
     @auth_mechanism.setter
-    def auth_mechanism(self, value: Optional[pulumi.Input['DataProviderMongoDbAuthMechanism']]):
+    def auth_mechanism(self, value: pulumi.Input[Optional['DataProviderMongoDbAuthMechanism']]):
         pulumi.set(self, "auth_mechanism", value)
 
     @_builtins.property
     @pulumi.getter(name="authSource")
-    def auth_source(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def auth_source(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "auth_source")
 
     @auth_source.setter
-    def auth_source(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def auth_source(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "auth_source", value)
 
     @_builtins.property
     @pulumi.getter(name="authType")
-    def auth_type(self) -> Optional[pulumi.Input['DataProviderMongoDbAuthType']]:
+    def auth_type(self) -> pulumi.Input[Optional['DataProviderMongoDbAuthType']]:
         return pulumi.get(self, "auth_type")
 
     @auth_type.setter
-    def auth_type(self, value: Optional[pulumi.Input['DataProviderMongoDbAuthType']]):
+    def auth_type(self, value: pulumi.Input[Optional['DataProviderMongoDbAuthType']]):
         pulumi.set(self, "auth_type", value)
 
     @_builtins.property
     @pulumi.getter(name="certificateArn")
-    def certificate_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "certificate_arn")
 
     @certificate_arn.setter
-    def certificate_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="databaseName")
-    def database_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "database_name")
 
     @database_name.setter
-    def database_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database_name", value)
 
     @_builtins.property
     @pulumi.getter(name="sslMode")
-    def ssl_mode(self) -> Optional[pulumi.Input['DataProviderMongoDbSslModeValue']]:
+    def ssl_mode(self) -> pulumi.Input[Optional['DataProviderMongoDbSslModeValue']]:
         return pulumi.get(self, "ssl_mode")
 
     @ssl_mode.setter
-    def ssl_mode(self, value: Optional[pulumi.Input['DataProviderMongoDbSslModeValue']]):
+    def ssl_mode(self, value: pulumi.Input[Optional['DataProviderMongoDbSslModeValue']]):
         pulumi.set(self, "ssl_mode", value)
 
 
@@ -1054,7 +1054,7 @@ class SettingsPropertiesMySqlSettingsPropertiesArgsDict(TypedDict):
     port: pulumi.Input[_builtins.int]
     server_name: pulumi.Input[_builtins.str]
     ssl_mode: pulumi.Input['DataProviderDmsSslModeValue']
-    certificate_arn: NotRequired[pulumi.Input[_builtins.str]]
+    certificate_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class SettingsPropertiesMySqlSettingsPropertiesArgs:
@@ -1062,7 +1062,7 @@ class SettingsPropertiesMySqlSettingsPropertiesArgs:
                  port: pulumi.Input[_builtins.int],
                  server_name: pulumi.Input[_builtins.str],
                  ssl_mode: pulumi.Input['DataProviderDmsSslModeValue'],
-                 certificate_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 certificate_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         MySqlSettings property identifier.
         """
@@ -1101,11 +1101,11 @@ class SettingsPropertiesMySqlSettingsPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="certificateArn")
-    def certificate_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "certificate_arn")
 
     @certificate_arn.setter
-    def certificate_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_arn", value)
 
 
@@ -1117,12 +1117,12 @@ class SettingsPropertiesOracleSettingsPropertiesArgsDict(TypedDict):
     port: pulumi.Input[_builtins.int]
     server_name: pulumi.Input[_builtins.str]
     ssl_mode: pulumi.Input['DataProviderDmsSslModeValue']
-    asm_server: NotRequired[pulumi.Input[_builtins.str]]
-    certificate_arn: NotRequired[pulumi.Input[_builtins.str]]
-    secrets_manager_oracle_asm_access_role_arn: NotRequired[pulumi.Input[_builtins.str]]
-    secrets_manager_oracle_asm_secret_id: NotRequired[pulumi.Input[_builtins.str]]
-    secrets_manager_security_db_encryption_access_role_arn: NotRequired[pulumi.Input[_builtins.str]]
-    secrets_manager_security_db_encryption_secret_id: NotRequired[pulumi.Input[_builtins.str]]
+    asm_server: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    certificate_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    secrets_manager_oracle_asm_access_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    secrets_manager_oracle_asm_secret_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    secrets_manager_security_db_encryption_access_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    secrets_manager_security_db_encryption_secret_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class SettingsPropertiesOracleSettingsPropertiesArgs:
@@ -1131,12 +1131,12 @@ class SettingsPropertiesOracleSettingsPropertiesArgs:
                  port: pulumi.Input[_builtins.int],
                  server_name: pulumi.Input[_builtins.str],
                  ssl_mode: pulumi.Input['DataProviderDmsSslModeValue'],
-                 asm_server: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 secrets_manager_oracle_asm_access_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 secrets_manager_oracle_asm_secret_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 secrets_manager_security_db_encryption_access_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 secrets_manager_security_db_encryption_secret_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 asm_server: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 secrets_manager_oracle_asm_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 secrets_manager_oracle_asm_secret_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 secrets_manager_security_db_encryption_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 secrets_manager_security_db_encryption_secret_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         OracleSettings property identifier.
         """
@@ -1195,56 +1195,56 @@ class SettingsPropertiesOracleSettingsPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="asmServer")
-    def asm_server(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def asm_server(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "asm_server")
 
     @asm_server.setter
-    def asm_server(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def asm_server(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "asm_server", value)
 
     @_builtins.property
     @pulumi.getter(name="certificateArn")
-    def certificate_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "certificate_arn")
 
     @certificate_arn.setter
-    def certificate_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="secretsManagerOracleAsmAccessRoleArn")
-    def secrets_manager_oracle_asm_access_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secrets_manager_oracle_asm_access_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "secrets_manager_oracle_asm_access_role_arn")
 
     @secrets_manager_oracle_asm_access_role_arn.setter
-    def secrets_manager_oracle_asm_access_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secrets_manager_oracle_asm_access_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secrets_manager_oracle_asm_access_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="secretsManagerOracleAsmSecretId")
-    def secrets_manager_oracle_asm_secret_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secrets_manager_oracle_asm_secret_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "secrets_manager_oracle_asm_secret_id")
 
     @secrets_manager_oracle_asm_secret_id.setter
-    def secrets_manager_oracle_asm_secret_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secrets_manager_oracle_asm_secret_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secrets_manager_oracle_asm_secret_id", value)
 
     @_builtins.property
     @pulumi.getter(name="secretsManagerSecurityDbEncryptionAccessRoleArn")
-    def secrets_manager_security_db_encryption_access_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secrets_manager_security_db_encryption_access_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "secrets_manager_security_db_encryption_access_role_arn")
 
     @secrets_manager_security_db_encryption_access_role_arn.setter
-    def secrets_manager_security_db_encryption_access_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secrets_manager_security_db_encryption_access_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secrets_manager_security_db_encryption_access_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="secretsManagerSecurityDbEncryptionSecretId")
-    def secrets_manager_security_db_encryption_secret_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secrets_manager_security_db_encryption_secret_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "secrets_manager_security_db_encryption_secret_id")
 
     @secrets_manager_security_db_encryption_secret_id.setter
-    def secrets_manager_security_db_encryption_secret_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secrets_manager_security_db_encryption_secret_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secrets_manager_security_db_encryption_secret_id", value)
 
 
@@ -1256,7 +1256,7 @@ class SettingsPropertiesPostgreSqlSettingsPropertiesArgsDict(TypedDict):
     port: pulumi.Input[_builtins.int]
     server_name: pulumi.Input[_builtins.str]
     ssl_mode: pulumi.Input['DataProviderDmsSslModeValue']
-    certificate_arn: NotRequired[pulumi.Input[_builtins.str]]
+    certificate_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class SettingsPropertiesPostgreSqlSettingsPropertiesArgs:
@@ -1265,7 +1265,7 @@ class SettingsPropertiesPostgreSqlSettingsPropertiesArgs:
                  port: pulumi.Input[_builtins.int],
                  server_name: pulumi.Input[_builtins.str],
                  ssl_mode: pulumi.Input['DataProviderDmsSslModeValue'],
-                 certificate_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 certificate_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         PostgreSqlSettings property identifier.
         """
@@ -1314,11 +1314,11 @@ class SettingsPropertiesPostgreSqlSettingsPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="certificateArn")
-    def certificate_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "certificate_arn")
 
     @certificate_arn.setter
-    def certificate_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_arn", value)
 
 
@@ -1378,9 +1378,9 @@ class SettingsPropertiesSybaseAseSettingsPropertiesArgsDict(TypedDict):
     port: pulumi.Input[_builtins.int]
     server_name: pulumi.Input[_builtins.str]
     ssl_mode: pulumi.Input['DataProviderSybaseSslModeValue']
-    certificate_arn: NotRequired[pulumi.Input[_builtins.str]]
-    database_name: NotRequired[pulumi.Input[_builtins.str]]
-    encrypt_password: NotRequired[pulumi.Input[_builtins.bool]]
+    certificate_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    database_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    encrypt_password: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
 
 @pulumi.input_type
 class SettingsPropertiesSybaseAseSettingsPropertiesArgs:
@@ -1388,9 +1388,9 @@ class SettingsPropertiesSybaseAseSettingsPropertiesArgs:
                  port: pulumi.Input[_builtins.int],
                  server_name: pulumi.Input[_builtins.str],
                  ssl_mode: pulumi.Input['DataProviderSybaseSslModeValue'],
-                 certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 encrypt_password: Optional[pulumi.Input[_builtins.bool]] = None):
+                 certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 encrypt_password: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         SybaseAseSettings property identifier.
         """
@@ -1433,29 +1433,29 @@ class SettingsPropertiesSybaseAseSettingsPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="certificateArn")
-    def certificate_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "certificate_arn")
 
     @certificate_arn.setter
-    def certificate_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="databaseName")
-    def database_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "database_name")
 
     @database_name.setter
-    def database_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database_name", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptPassword")
-    def encrypt_password(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def encrypt_password(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "encrypt_password")
 
     @encrypt_password.setter
-    def encrypt_password(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def encrypt_password(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "encrypt_password", value)
 
 
@@ -1463,47 +1463,47 @@ class SettingsPropertiesArgsDict(TypedDict):
     """
     The property identifies the exact type of settings for the data provider.
     """
-    doc_db_settings: NotRequired[pulumi.Input['SettingsPropertiesDocDbSettingsPropertiesArgsDict']]
+    doc_db_settings: NotRequired[pulumi.Input[Optional['SettingsPropertiesDocDbSettingsPropertiesArgs']]]
     """
     DocDbSettings property identifier.
     """
-    ibm_db2_luw_settings: NotRequired[pulumi.Input['SettingsPropertiesIbmDb2LuwSettingsPropertiesArgsDict']]
+    ibm_db2_luw_settings: NotRequired[pulumi.Input[Optional['SettingsPropertiesIbmDb2LuwSettingsPropertiesArgs']]]
     """
     IbmDb2LuwSettings property identifier.
     """
-    ibm_db2z_os_settings: NotRequired[pulumi.Input['SettingsPropertiesIbmDb2zOsSettingsPropertiesArgsDict']]
+    ibm_db2z_os_settings: NotRequired[pulumi.Input[Optional['SettingsPropertiesIbmDb2zOsSettingsPropertiesArgs']]]
     """
     IbmDb2zOsSettings property identifier.
     """
-    maria_db_settings: NotRequired[pulumi.Input['SettingsPropertiesMariaDbSettingsPropertiesArgsDict']]
+    maria_db_settings: NotRequired[pulumi.Input[Optional['SettingsPropertiesMariaDbSettingsPropertiesArgs']]]
     """
     MariaDbSettings property identifier.
     """
-    microsoft_sql_server_settings: NotRequired[pulumi.Input['SettingsPropertiesMicrosoftSqlServerSettingsPropertiesArgsDict']]
+    microsoft_sql_server_settings: NotRequired[pulumi.Input[Optional['SettingsPropertiesMicrosoftSqlServerSettingsPropertiesArgs']]]
     """
     MicrosoftSqlServerSettings property identifier.
     """
-    mongo_db_settings: NotRequired[pulumi.Input['SettingsPropertiesMongoDbSettingsPropertiesArgsDict']]
+    mongo_db_settings: NotRequired[pulumi.Input[Optional['SettingsPropertiesMongoDbSettingsPropertiesArgs']]]
     """
     MongoDbSettings property identifier.
     """
-    my_sql_settings: NotRequired[pulumi.Input['SettingsPropertiesMySqlSettingsPropertiesArgsDict']]
+    my_sql_settings: NotRequired[pulumi.Input[Optional['SettingsPropertiesMySqlSettingsPropertiesArgs']]]
     """
     MySqlSettings property identifier.
     """
-    oracle_settings: NotRequired[pulumi.Input['SettingsPropertiesOracleSettingsPropertiesArgsDict']]
+    oracle_settings: NotRequired[pulumi.Input[Optional['SettingsPropertiesOracleSettingsPropertiesArgs']]]
     """
     OracleSettings property identifier.
     """
-    postgre_sql_settings: NotRequired[pulumi.Input['SettingsPropertiesPostgreSqlSettingsPropertiesArgsDict']]
+    postgre_sql_settings: NotRequired[pulumi.Input[Optional['SettingsPropertiesPostgreSqlSettingsPropertiesArgs']]]
     """
     PostgreSqlSettings property identifier.
     """
-    redshift_settings: NotRequired[pulumi.Input['SettingsPropertiesRedshiftSettingsPropertiesArgsDict']]
+    redshift_settings: NotRequired[pulumi.Input[Optional['SettingsPropertiesRedshiftSettingsPropertiesArgs']]]
     """
     RedshiftSettings property identifier.
     """
-    sybase_ase_settings: NotRequired[pulumi.Input['SettingsPropertiesSybaseAseSettingsPropertiesArgsDict']]
+    sybase_ase_settings: NotRequired[pulumi.Input[Optional['SettingsPropertiesSybaseAseSettingsPropertiesArgs']]]
     """
     SybaseAseSettings property identifier.
     """
@@ -1511,17 +1511,17 @@ class SettingsPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class SettingsPropertiesArgs:
     def __init__(__self__, *,
-                 doc_db_settings: Optional[pulumi.Input['SettingsPropertiesDocDbSettingsPropertiesArgs']] = None,
-                 ibm_db2_luw_settings: Optional[pulumi.Input['SettingsPropertiesIbmDb2LuwSettingsPropertiesArgs']] = None,
-                 ibm_db2z_os_settings: Optional[pulumi.Input['SettingsPropertiesIbmDb2zOsSettingsPropertiesArgs']] = None,
-                 maria_db_settings: Optional[pulumi.Input['SettingsPropertiesMariaDbSettingsPropertiesArgs']] = None,
-                 microsoft_sql_server_settings: Optional[pulumi.Input['SettingsPropertiesMicrosoftSqlServerSettingsPropertiesArgs']] = None,
-                 mongo_db_settings: Optional[pulumi.Input['SettingsPropertiesMongoDbSettingsPropertiesArgs']] = None,
-                 my_sql_settings: Optional[pulumi.Input['SettingsPropertiesMySqlSettingsPropertiesArgs']] = None,
-                 oracle_settings: Optional[pulumi.Input['SettingsPropertiesOracleSettingsPropertiesArgs']] = None,
-                 postgre_sql_settings: Optional[pulumi.Input['SettingsPropertiesPostgreSqlSettingsPropertiesArgs']] = None,
-                 redshift_settings: Optional[pulumi.Input['SettingsPropertiesRedshiftSettingsPropertiesArgs']] = None,
-                 sybase_ase_settings: Optional[pulumi.Input['SettingsPropertiesSybaseAseSettingsPropertiesArgs']] = None):
+                 doc_db_settings: pulumi.Input[Optional['SettingsPropertiesDocDbSettingsPropertiesArgs']] = None,
+                 ibm_db2_luw_settings: pulumi.Input[Optional['SettingsPropertiesIbmDb2LuwSettingsPropertiesArgs']] = None,
+                 ibm_db2z_os_settings: pulumi.Input[Optional['SettingsPropertiesIbmDb2zOsSettingsPropertiesArgs']] = None,
+                 maria_db_settings: pulumi.Input[Optional['SettingsPropertiesMariaDbSettingsPropertiesArgs']] = None,
+                 microsoft_sql_server_settings: pulumi.Input[Optional['SettingsPropertiesMicrosoftSqlServerSettingsPropertiesArgs']] = None,
+                 mongo_db_settings: pulumi.Input[Optional['SettingsPropertiesMongoDbSettingsPropertiesArgs']] = None,
+                 my_sql_settings: pulumi.Input[Optional['SettingsPropertiesMySqlSettingsPropertiesArgs']] = None,
+                 oracle_settings: pulumi.Input[Optional['SettingsPropertiesOracleSettingsPropertiesArgs']] = None,
+                 postgre_sql_settings: pulumi.Input[Optional['SettingsPropertiesPostgreSqlSettingsPropertiesArgs']] = None,
+                 redshift_settings: pulumi.Input[Optional['SettingsPropertiesRedshiftSettingsPropertiesArgs']] = None,
+                 sybase_ase_settings: pulumi.Input[Optional['SettingsPropertiesSybaseAseSettingsPropertiesArgs']] = None):
         """
         The property identifies the exact type of settings for the data provider.
 
@@ -1562,134 +1562,134 @@ class SettingsPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="docDbSettings")
-    def doc_db_settings(self) -> Optional[pulumi.Input['SettingsPropertiesDocDbSettingsPropertiesArgs']]:
+    def doc_db_settings(self) -> pulumi.Input[Optional['SettingsPropertiesDocDbSettingsPropertiesArgs']]:
         """
         DocDbSettings property identifier.
         """
         return pulumi.get(self, "doc_db_settings")
 
     @doc_db_settings.setter
-    def doc_db_settings(self, value: Optional[pulumi.Input['SettingsPropertiesDocDbSettingsPropertiesArgs']]):
+    def doc_db_settings(self, value: pulumi.Input[Optional['SettingsPropertiesDocDbSettingsPropertiesArgs']]):
         pulumi.set(self, "doc_db_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="ibmDb2LuwSettings")
-    def ibm_db2_luw_settings(self) -> Optional[pulumi.Input['SettingsPropertiesIbmDb2LuwSettingsPropertiesArgs']]:
+    def ibm_db2_luw_settings(self) -> pulumi.Input[Optional['SettingsPropertiesIbmDb2LuwSettingsPropertiesArgs']]:
         """
         IbmDb2LuwSettings property identifier.
         """
         return pulumi.get(self, "ibm_db2_luw_settings")
 
     @ibm_db2_luw_settings.setter
-    def ibm_db2_luw_settings(self, value: Optional[pulumi.Input['SettingsPropertiesIbmDb2LuwSettingsPropertiesArgs']]):
+    def ibm_db2_luw_settings(self, value: pulumi.Input[Optional['SettingsPropertiesIbmDb2LuwSettingsPropertiesArgs']]):
         pulumi.set(self, "ibm_db2_luw_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="ibmDb2zOsSettings")
-    def ibm_db2z_os_settings(self) -> Optional[pulumi.Input['SettingsPropertiesIbmDb2zOsSettingsPropertiesArgs']]:
+    def ibm_db2z_os_settings(self) -> pulumi.Input[Optional['SettingsPropertiesIbmDb2zOsSettingsPropertiesArgs']]:
         """
         IbmDb2zOsSettings property identifier.
         """
         return pulumi.get(self, "ibm_db2z_os_settings")
 
     @ibm_db2z_os_settings.setter
-    def ibm_db2z_os_settings(self, value: Optional[pulumi.Input['SettingsPropertiesIbmDb2zOsSettingsPropertiesArgs']]):
+    def ibm_db2z_os_settings(self, value: pulumi.Input[Optional['SettingsPropertiesIbmDb2zOsSettingsPropertiesArgs']]):
         pulumi.set(self, "ibm_db2z_os_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="mariaDbSettings")
-    def maria_db_settings(self) -> Optional[pulumi.Input['SettingsPropertiesMariaDbSettingsPropertiesArgs']]:
+    def maria_db_settings(self) -> pulumi.Input[Optional['SettingsPropertiesMariaDbSettingsPropertiesArgs']]:
         """
         MariaDbSettings property identifier.
         """
         return pulumi.get(self, "maria_db_settings")
 
     @maria_db_settings.setter
-    def maria_db_settings(self, value: Optional[pulumi.Input['SettingsPropertiesMariaDbSettingsPropertiesArgs']]):
+    def maria_db_settings(self, value: pulumi.Input[Optional['SettingsPropertiesMariaDbSettingsPropertiesArgs']]):
         pulumi.set(self, "maria_db_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="microsoftSqlServerSettings")
-    def microsoft_sql_server_settings(self) -> Optional[pulumi.Input['SettingsPropertiesMicrosoftSqlServerSettingsPropertiesArgs']]:
+    def microsoft_sql_server_settings(self) -> pulumi.Input[Optional['SettingsPropertiesMicrosoftSqlServerSettingsPropertiesArgs']]:
         """
         MicrosoftSqlServerSettings property identifier.
         """
         return pulumi.get(self, "microsoft_sql_server_settings")
 
     @microsoft_sql_server_settings.setter
-    def microsoft_sql_server_settings(self, value: Optional[pulumi.Input['SettingsPropertiesMicrosoftSqlServerSettingsPropertiesArgs']]):
+    def microsoft_sql_server_settings(self, value: pulumi.Input[Optional['SettingsPropertiesMicrosoftSqlServerSettingsPropertiesArgs']]):
         pulumi.set(self, "microsoft_sql_server_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="mongoDbSettings")
-    def mongo_db_settings(self) -> Optional[pulumi.Input['SettingsPropertiesMongoDbSettingsPropertiesArgs']]:
+    def mongo_db_settings(self) -> pulumi.Input[Optional['SettingsPropertiesMongoDbSettingsPropertiesArgs']]:
         """
         MongoDbSettings property identifier.
         """
         return pulumi.get(self, "mongo_db_settings")
 
     @mongo_db_settings.setter
-    def mongo_db_settings(self, value: Optional[pulumi.Input['SettingsPropertiesMongoDbSettingsPropertiesArgs']]):
+    def mongo_db_settings(self, value: pulumi.Input[Optional['SettingsPropertiesMongoDbSettingsPropertiesArgs']]):
         pulumi.set(self, "mongo_db_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="mySqlSettings")
-    def my_sql_settings(self) -> Optional[pulumi.Input['SettingsPropertiesMySqlSettingsPropertiesArgs']]:
+    def my_sql_settings(self) -> pulumi.Input[Optional['SettingsPropertiesMySqlSettingsPropertiesArgs']]:
         """
         MySqlSettings property identifier.
         """
         return pulumi.get(self, "my_sql_settings")
 
     @my_sql_settings.setter
-    def my_sql_settings(self, value: Optional[pulumi.Input['SettingsPropertiesMySqlSettingsPropertiesArgs']]):
+    def my_sql_settings(self, value: pulumi.Input[Optional['SettingsPropertiesMySqlSettingsPropertiesArgs']]):
         pulumi.set(self, "my_sql_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="oracleSettings")
-    def oracle_settings(self) -> Optional[pulumi.Input['SettingsPropertiesOracleSettingsPropertiesArgs']]:
+    def oracle_settings(self) -> pulumi.Input[Optional['SettingsPropertiesOracleSettingsPropertiesArgs']]:
         """
         OracleSettings property identifier.
         """
         return pulumi.get(self, "oracle_settings")
 
     @oracle_settings.setter
-    def oracle_settings(self, value: Optional[pulumi.Input['SettingsPropertiesOracleSettingsPropertiesArgs']]):
+    def oracle_settings(self, value: pulumi.Input[Optional['SettingsPropertiesOracleSettingsPropertiesArgs']]):
         pulumi.set(self, "oracle_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="postgreSqlSettings")
-    def postgre_sql_settings(self) -> Optional[pulumi.Input['SettingsPropertiesPostgreSqlSettingsPropertiesArgs']]:
+    def postgre_sql_settings(self) -> pulumi.Input[Optional['SettingsPropertiesPostgreSqlSettingsPropertiesArgs']]:
         """
         PostgreSqlSettings property identifier.
         """
         return pulumi.get(self, "postgre_sql_settings")
 
     @postgre_sql_settings.setter
-    def postgre_sql_settings(self, value: Optional[pulumi.Input['SettingsPropertiesPostgreSqlSettingsPropertiesArgs']]):
+    def postgre_sql_settings(self, value: pulumi.Input[Optional['SettingsPropertiesPostgreSqlSettingsPropertiesArgs']]):
         pulumi.set(self, "postgre_sql_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="redshiftSettings")
-    def redshift_settings(self) -> Optional[pulumi.Input['SettingsPropertiesRedshiftSettingsPropertiesArgs']]:
+    def redshift_settings(self) -> pulumi.Input[Optional['SettingsPropertiesRedshiftSettingsPropertiesArgs']]:
         """
         RedshiftSettings property identifier.
         """
         return pulumi.get(self, "redshift_settings")
 
     @redshift_settings.setter
-    def redshift_settings(self, value: Optional[pulumi.Input['SettingsPropertiesRedshiftSettingsPropertiesArgs']]):
+    def redshift_settings(self, value: pulumi.Input[Optional['SettingsPropertiesRedshiftSettingsPropertiesArgs']]):
         pulumi.set(self, "redshift_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="sybaseAseSettings")
-    def sybase_ase_settings(self) -> Optional[pulumi.Input['SettingsPropertiesSybaseAseSettingsPropertiesArgs']]:
+    def sybase_ase_settings(self) -> pulumi.Input[Optional['SettingsPropertiesSybaseAseSettingsPropertiesArgs']]:
         """
         SybaseAseSettings property identifier.
         """
         return pulumi.get(self, "sybase_ase_settings")
 
     @sybase_ase_settings.setter
-    def sybase_ase_settings(self, value: Optional[pulumi.Input['SettingsPropertiesSybaseAseSettingsPropertiesArgs']]):
+    def sybase_ase_settings(self, value: pulumi.Input[Optional['SettingsPropertiesSybaseAseSettingsPropertiesArgs']]):
         pulumi.set(self, "sybase_ase_settings", value)
 
 

@@ -28,9 +28,9 @@ class CapabilityArgs:
                  delete_propagation_policy: pulumi.Input['CapabilityDeletePropagationPolicy'],
                  role_arn: pulumi.Input[_builtins.str],
                  type: pulumi.Input['CapabilityType'],
-                 capability_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 configuration: Optional[pulumi.Input['CapabilityConfigurationArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 capability_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration: pulumi.Input[Optional['CapabilityConfigurationArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Capability resource.
 
@@ -103,38 +103,38 @@ class CapabilityArgs:
 
     @_builtins.property
     @pulumi.getter(name="capabilityName")
-    def capability_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def capability_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A unique name for the capability. The name must be unique within your cluster and can contain alphanumeric characters, hyphens, and underscores.
         """
         return pulumi.get(self, "capability_name")
 
     @capability_name.setter
-    def capability_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def capability_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "capability_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def configuration(self) -> Optional[pulumi.Input['CapabilityConfigurationArgs']]:
+    def configuration(self) -> pulumi.Input[Optional['CapabilityConfigurationArgs']]:
         """
         The configuration settings for the capability. The structure of this object varies depending on the capability type. For Argo CD capabilities, you can configure IAM Identity Center integration, RBAC role mappings, and network access settings.
         """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
-    def configuration(self, value: Optional[pulumi.Input['CapabilityConfigurationArgs']]):
+    def configuration(self, value: pulumi.Input[Optional['CapabilityConfigurationArgs']]):
         pulumi.set(self, "configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -144,13 +144,13 @@ class Capability(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capability_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 configuration: Optional[pulumi.Input[Union['CapabilityConfigurationArgs', 'CapabilityConfigurationArgsDict']]] = None,
-                 delete_propagation_policy: Optional[pulumi.Input['CapabilityDeletePropagationPolicy']] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 type: Optional[pulumi.Input['CapabilityType']] = None,
+                 capability_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration: pulumi.Input[Optional[Union['CapabilityConfigurationArgs', 'CapabilityConfigurationArgsDict']]] = None,
+                 delete_propagation_policy: pulumi.Input[Optional['CapabilityDeletePropagationPolicy']] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 type: pulumi.Input[Optional['CapabilityType']] = None,
                  __props__=None):
         """
         Resource Type definition for EKS Capability.
@@ -191,13 +191,13 @@ class Capability(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capability_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 configuration: Optional[pulumi.Input[Union['CapabilityConfigurationArgs', 'CapabilityConfigurationArgsDict']]] = None,
-                 delete_propagation_policy: Optional[pulumi.Input['CapabilityDeletePropagationPolicy']] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 type: Optional[pulumi.Input['CapabilityType']] = None,
+                 capability_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration: pulumi.Input[Optional[Union['CapabilityConfigurationArgs', 'CapabilityConfigurationArgsDict']]] = None,
+                 delete_propagation_policy: pulumi.Input[Optional['CapabilityDeletePropagationPolicy']] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 type: pulumi.Input[Optional['CapabilityType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

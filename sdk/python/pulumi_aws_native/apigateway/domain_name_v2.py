@@ -24,14 +24,14 @@ __all__ = ['DomainNameV2Args', 'DomainNameV2']
 @pulumi.input_type
 class DomainNameV2Args:
     def __init__(__self__, *,
-                 certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint_access_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint_configuration: Optional[pulumi.Input['DomainNameV2EndpointConfigurationArgs']] = None,
+                 certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint_access_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint_configuration: pulumi.Input[Optional['DomainNameV2EndpointConfigurationArgs']] = None,
                  policy: Optional[Any] = None,
-                 routing_mode: Optional[pulumi.Input['DomainNameV2RoutingMode']] = None,
-                 security_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 routing_mode: pulumi.Input[Optional['DomainNameV2RoutingMode']] = None,
+                 security_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DomainNameV2 resource.
 
@@ -65,50 +65,50 @@ class DomainNameV2Args:
 
     @_builtins.property
     @pulumi.getter(name="certificateArn")
-    def certificate_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The reference to an AWS -managed certificate that will be used by the private endpoint for this domain name. AWS Certificate Manager is the only supported source.
         """
         return pulumi.get(self, "certificate_arn")
 
     @certificate_arn.setter
-    def certificate_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="domainName")
-    def domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Represents a custom domain name as a user-friendly host name of an API (RestApi).
         """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
-    def domain_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain_name", value)
 
     @_builtins.property
     @pulumi.getter(name="endpointAccessMode")
-    def endpoint_access_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint_access_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The endpoint access mode for your DomainName.
         """
         return pulumi.get(self, "endpoint_access_mode")
 
     @endpoint_access_mode.setter
-    def endpoint_access_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint_access_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint_access_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="endpointConfiguration")
-    def endpoint_configuration(self) -> Optional[pulumi.Input['DomainNameV2EndpointConfigurationArgs']]:
+    def endpoint_configuration(self) -> pulumi.Input[Optional['DomainNameV2EndpointConfigurationArgs']]:
         """
         The endpoint configuration to indicate the types of endpoints an API (RestApi) or its custom domain name (DomainName) has and the IP address types that can invoke it.
         """
         return pulumi.get(self, "endpoint_configuration")
 
     @endpoint_configuration.setter
-    def endpoint_configuration(self, value: Optional[pulumi.Input['DomainNameV2EndpointConfigurationArgs']]):
+    def endpoint_configuration(self, value: pulumi.Input[Optional['DomainNameV2EndpointConfigurationArgs']]):
         pulumi.set(self, "endpoint_configuration", value)
 
     @_builtins.property
@@ -127,38 +127,38 @@ class DomainNameV2Args:
 
     @_builtins.property
     @pulumi.getter(name="routingMode")
-    def routing_mode(self) -> Optional[pulumi.Input['DomainNameV2RoutingMode']]:
+    def routing_mode(self) -> pulumi.Input[Optional['DomainNameV2RoutingMode']]:
         """
         The valid routing modes are [BASE_PATH_MAPPING_ONLY], [ROUTING_RULE_THEN_BASE_PATH_MAPPING] and [ROUTING_RULE_ONLY]. All other inputs are invalid.
         """
         return pulumi.get(self, "routing_mode")
 
     @routing_mode.setter
-    def routing_mode(self, value: Optional[pulumi.Input['DomainNameV2RoutingMode']]):
+    def routing_mode(self, value: pulumi.Input[Optional['DomainNameV2RoutingMode']]):
         pulumi.set(self, "routing_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="securityPolicy")
-    def security_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def security_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Transport Layer Security (TLS) version + cipher suite for this DomainName.
         """
         return pulumi.get(self, "security_policy")
 
     @security_policy.setter
-    def security_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def security_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "security_policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The collection of tags. Each tag element is associated with a given resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -168,14 +168,14 @@ class DomainNameV2(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint_access_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint_configuration: Optional[pulumi.Input[Union['DomainNameV2EndpointConfigurationArgs', 'DomainNameV2EndpointConfigurationArgsDict']]] = None,
+                 certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint_access_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint_configuration: pulumi.Input[Optional[Union['DomainNameV2EndpointConfigurationArgs', 'DomainNameV2EndpointConfigurationArgsDict']]] = None,
                  policy: Optional[Any] = None,
-                 routing_mode: Optional[pulumi.Input['DomainNameV2RoutingMode']] = None,
-                 security_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 routing_mode: pulumi.Input[Optional['DomainNameV2RoutingMode']] = None,
+                 security_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::ApiGateway::DomainNameV2.
@@ -219,14 +219,14 @@ class DomainNameV2(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint_access_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint_configuration: Optional[pulumi.Input[Union['DomainNameV2EndpointConfigurationArgs', 'DomainNameV2EndpointConfigurationArgsDict']]] = None,
+                 certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint_access_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint_configuration: pulumi.Input[Optional[Union['DomainNameV2EndpointConfigurationArgs', 'DomainNameV2EndpointConfigurationArgsDict']]] = None,
                  policy: Optional[Any] = None,
-                 routing_mode: Optional[pulumi.Input['DomainNameV2RoutingMode']] = None,
-                 security_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 routing_mode: pulumi.Input[Optional['DomainNameV2RoutingMode']] = None,
+                 security_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

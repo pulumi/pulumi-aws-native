@@ -151,7 +151,7 @@ def get_configuration_set(name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         tracking_options=pulumi.get(__ret__, 'tracking_options'),
         vdm_options=pulumi.get(__ret__, 'vdm_options'))
-def get_configuration_set_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_configuration_set_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigurationSetResult]:
     """
     Resource schema for AWS::SES::ConfigurationSet.

@@ -176,8 +176,8 @@ def get_threat_entity_set(detector_id: Optional[_builtins.str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-def get_threat_entity_set_output(detector_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                 id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_threat_entity_set_output(detector_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                 id: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetThreatEntitySetResult]:
     """
     Resource Type definition for AWS::GuardDuty::ThreatEntitySet

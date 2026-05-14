@@ -503,12 +503,12 @@ class FieldAttributesArgsDict(TypedDict):
     """
     Union of field attributes
     """
-    text: NotRequired[pulumi.Input['FieldTextAttributesArgsDict']]
+    text: NotRequired[pulumi.Input[Optional['FieldTextAttributesArgs']]]
 
 @pulumi.input_type
 class FieldAttributesArgs:
     def __init__(__self__, *,
-                 text: Optional[pulumi.Input['FieldTextAttributesArgs']] = None):
+                 text: pulumi.Input[Optional['FieldTextAttributesArgs']] = None):
         """
         Union of field attributes
         """
@@ -517,11 +517,11 @@ class FieldAttributesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def text(self) -> Optional[pulumi.Input['FieldTextAttributesArgs']]:
+    def text(self) -> pulumi.Input[Optional['FieldTextAttributesArgs']]:
         return pulumi.get(self, "text")
 
     @text.setter
-    def text(self, value: Optional[pulumi.Input['FieldTextAttributesArgs']]):
+    def text(self, value: pulumi.Input[Optional['FieldTextAttributesArgs']]):
         pulumi.set(self, "text", value)
 
 
@@ -562,14 +562,14 @@ class LayoutBasicLayoutArgsDict(TypedDict):
     """
     Defines the field layout for the agent's case interface. Configures which fields appear in the top panel (immediately visible) and More Info tab (expandable section) of the case view, allowing customization of the agent experience.
     """
-    more_info: NotRequired[pulumi.Input['LayoutSectionsArgsDict']]
-    top_panel: NotRequired[pulumi.Input['LayoutSectionsArgsDict']]
+    more_info: NotRequired[pulumi.Input[Optional['LayoutSectionsArgs']]]
+    top_panel: NotRequired[pulumi.Input[Optional['LayoutSectionsArgs']]]
 
 @pulumi.input_type
 class LayoutBasicLayoutArgs:
     def __init__(__self__, *,
-                 more_info: Optional[pulumi.Input['LayoutSectionsArgs']] = None,
-                 top_panel: Optional[pulumi.Input['LayoutSectionsArgs']] = None):
+                 more_info: pulumi.Input[Optional['LayoutSectionsArgs']] = None,
+                 top_panel: pulumi.Input[Optional['LayoutSectionsArgs']] = None):
         """
         Defines the field layout for the agent's case interface. Configures which fields appear in the top panel (immediately visible) and More Info tab (expandable section) of the case view, allowing customization of the agent experience.
         """
@@ -580,20 +580,20 @@ class LayoutBasicLayoutArgs:
 
     @_builtins.property
     @pulumi.getter(name="moreInfo")
-    def more_info(self) -> Optional[pulumi.Input['LayoutSectionsArgs']]:
+    def more_info(self) -> pulumi.Input[Optional['LayoutSectionsArgs']]:
         return pulumi.get(self, "more_info")
 
     @more_info.setter
-    def more_info(self, value: Optional[pulumi.Input['LayoutSectionsArgs']]):
+    def more_info(self, value: pulumi.Input[Optional['LayoutSectionsArgs']]):
         pulumi.set(self, "more_info", value)
 
     @_builtins.property
     @pulumi.getter(name="topPanel")
-    def top_panel(self) -> Optional[pulumi.Input['LayoutSectionsArgs']]:
+    def top_panel(self) -> pulumi.Input[Optional['LayoutSectionsArgs']]:
         return pulumi.get(self, "top_panel")
 
     @top_panel.setter
-    def top_panel(self, value: Optional[pulumi.Input['LayoutSectionsArgs']]):
+    def top_panel(self, value: pulumi.Input[Optional['LayoutSectionsArgs']]):
         pulumi.set(self, "top_panel", value)
 
 
@@ -630,7 +630,7 @@ class LayoutFieldGroupArgsDict(TypedDict):
     """
     An ordered list of fields to display in this group. The order determines the sequence in which fields appear in the agent interface. Each field is referenced by its unique field ID.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A descriptive name for the field group. Helps organize related fields together in the layout interface.
     """
@@ -639,7 +639,7 @@ class LayoutFieldGroupArgsDict(TypedDict):
 class LayoutFieldGroupArgs:
     def __init__(__self__, *,
                  fields: pulumi.Input[Sequence[pulumi.Input['LayoutFieldItemArgs']]],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Consists of a group of fields and associated properties.
 
@@ -664,14 +664,14 @@ class LayoutFieldGroupArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A descriptive name for the field group. Helps organize related fields together in the layout interface.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -737,7 +737,7 @@ class LayoutSectionsArgsDict(TypedDict):
     """
     Sections within a panel or tab of the page layout.
     """
-    sections: NotRequired[pulumi.Input[Sequence[pulumi.Input['LayoutSectionPropertiesArgsDict']]]]
+    sections: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LayoutSectionPropertiesArgs']]]]]
     """
     Defines the sections within a panel or tab. Contains field groups that organize related fields together.
     """
@@ -745,7 +745,7 @@ class LayoutSectionsArgsDict(TypedDict):
 @pulumi.input_type
 class LayoutSectionsArgs:
     def __init__(__self__, *,
-                 sections: Optional[pulumi.Input[Sequence[pulumi.Input['LayoutSectionPropertiesArgs']]]] = None):
+                 sections: pulumi.Input[Optional[Sequence[pulumi.Input['LayoutSectionPropertiesArgs']]]] = None):
         """
         Sections within a panel or tab of the page layout.
 
@@ -756,14 +756,14 @@ class LayoutSectionsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def sections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LayoutSectionPropertiesArgs']]]]:
+    def sections(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LayoutSectionPropertiesArgs']]]]:
         """
         Defines the sections within a panel or tab. Contains field groups that organize related fields together.
         """
         return pulumi.get(self, "sections")
 
     @sections.setter
-    def sections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LayoutSectionPropertiesArgs']]]]):
+    def sections(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LayoutSectionPropertiesArgs']]]]):
         pulumi.set(self, "sections", value)
 
 
@@ -771,7 +771,7 @@ class TemplateLayoutConfigurationArgsDict(TypedDict):
     """
     Specifies the default layout to use when displaying cases created from this template. The layout determines which fields are visible and their arrangement in the agent interface.
     """
-    default_layout: NotRequired[pulumi.Input[_builtins.str]]
+    default_layout: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The unique identifier of a layout.
     """
@@ -779,7 +779,7 @@ class TemplateLayoutConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class TemplateLayoutConfigurationArgs:
     def __init__(__self__, *,
-                 default_layout: Optional[pulumi.Input[_builtins.str]] = None):
+                 default_layout: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Specifies the default layout to use when displaying cases created from this template. The layout determines which fields are visible and their arrangement in the agent interface.
 
@@ -790,14 +790,14 @@ class TemplateLayoutConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="defaultLayout")
-    def default_layout(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_layout(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique identifier of a layout.
         """
         return pulumi.get(self, "default_layout")
 
     @default_layout.setter
-    def default_layout(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_layout(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_layout", value)
 
 
@@ -842,7 +842,7 @@ class TemplateRuleArgsDict(TypedDict):
     """
     The unique identifier of a case rule.
     """
-    field_id: NotRequired[pulumi.Input[_builtins.str]]
+    field_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the field that this rule applies to.
     """
@@ -851,7 +851,7 @@ class TemplateRuleArgsDict(TypedDict):
 class TemplateRuleArgs:
     def __init__(__self__, *,
                  case_rule_id: pulumi.Input[_builtins.str],
-                 field_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 field_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Links a case rule to a specific field within this template. When specified, the rule's conditions will be evaluated for the associated field, controlling behavior like required status, visibility, or available options.
 
@@ -876,14 +876,14 @@ class TemplateRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="fieldId")
-    def field_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def field_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the field that this rule applies to.
         """
         return pulumi.get(self, "field_id")
 
     @field_id.setter
-    def field_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def field_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "field_id", value)
 
 

@@ -24,10 +24,10 @@ __all__ = ['UserArgs', 'User']
 @pulumi.input_type
 class UserArgs:
     def __init__(__self__, *,
-                 access_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 authentication_mode: Optional[pulumi.Input['AuthenticationModePropertiesArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 user_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 access_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 authentication_mode: pulumi.Input[Optional['AuthenticationModePropertiesArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 user_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a User resource.
 
@@ -51,19 +51,19 @@ class UserArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessString")
-    def access_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def access_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Access permissions string used for this user account.
         """
         return pulumi.get(self, "access_string")
 
     @access_string.setter
-    def access_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def access_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "access_string", value)
 
     @_builtins.property
     @pulumi.getter(name="authenticationMode")
-    def authentication_mode(self) -> Optional[pulumi.Input['AuthenticationModePropertiesArgs']]:
+    def authentication_mode(self) -> pulumi.Input[Optional['AuthenticationModePropertiesArgs']]:
         """
         Denotes whether the user requires a password to authenticate.
 
@@ -74,31 +74,31 @@ class UserArgs:
         return pulumi.get(self, "authentication_mode")
 
     @authentication_mode.setter
-    def authentication_mode(self, value: Optional[pulumi.Input['AuthenticationModePropertiesArgs']]):
+    def authentication_mode(self, value: pulumi.Input[Optional['AuthenticationModePropertiesArgs']]):
         pulumi.set(self, "authentication_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this user.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="userName")
-    def user_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the user.
         """
         return pulumi.get(self, "user_name")
 
     @user_name.setter
-    def user_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_name", value)
 
 
@@ -108,10 +108,10 @@ class User(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 authentication_mode: Optional[pulumi.Input[Union['AuthenticationModePropertiesArgs', 'AuthenticationModePropertiesArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 user_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 access_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 authentication_mode: pulumi.Input[Optional[Union['AuthenticationModePropertiesArgs', 'AuthenticationModePropertiesArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 user_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::MemoryDB::User
@@ -153,10 +153,10 @@ class User(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 authentication_mode: Optional[pulumi.Input[Union['AuthenticationModePropertiesArgs', 'AuthenticationModePropertiesArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 user_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 access_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 authentication_mode: pulumi.Input[Optional[Union['AuthenticationModePropertiesArgs', 'AuthenticationModePropertiesArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 user_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -72,7 +72,7 @@ def get_o_tel_enrichment(account_id: Optional[_builtins.str] = None,
     return AwaitableGetOTelEnrichmentResult(
         account_id=pulumi.get(__ret__, 'account_id'),
         status=pulumi.get(__ret__, 'status'))
-def get_o_tel_enrichment_output(account_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_o_tel_enrichment_output(account_id: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOTelEnrichmentResult]:
     """
     AWS::CloudWatch::OTelEnrichment enables OTel metric enrichment in CloudWatch, allowing CloudWatch vended metrics to be available for PromQL querying enriched with AWS resource tags and metadata.

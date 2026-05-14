@@ -28,23 +28,23 @@ class EnvironmentLoggingConfigurationArgsDict(TypedDict):
     """
     Logging configuration for the environment.
     """
-    dag_processing_logs: NotRequired[pulumi.Input['EnvironmentModuleLoggingConfigurationArgsDict']]
+    dag_processing_logs: NotRequired[pulumi.Input[Optional['EnvironmentModuleLoggingConfigurationArgs']]]
     """
     Defines the processing logs sent to CloudWatch Logs and the logging level to send.
     """
-    scheduler_logs: NotRequired[pulumi.Input['EnvironmentModuleLoggingConfigurationArgsDict']]
+    scheduler_logs: NotRequired[pulumi.Input[Optional['EnvironmentModuleLoggingConfigurationArgs']]]
     """
     Defines the scheduler logs sent to CloudWatch Logs and the logging level to send.
     """
-    task_logs: NotRequired[pulumi.Input['EnvironmentModuleLoggingConfigurationArgsDict']]
+    task_logs: NotRequired[pulumi.Input[Optional['EnvironmentModuleLoggingConfigurationArgs']]]
     """
     Defines the task logs sent to CloudWatch Logs and the logging level to send.
     """
-    webserver_logs: NotRequired[pulumi.Input['EnvironmentModuleLoggingConfigurationArgsDict']]
+    webserver_logs: NotRequired[pulumi.Input[Optional['EnvironmentModuleLoggingConfigurationArgs']]]
     """
     Defines the web server logs sent to CloudWatch Logs and the logging level to send.
     """
-    worker_logs: NotRequired[pulumi.Input['EnvironmentModuleLoggingConfigurationArgsDict']]
+    worker_logs: NotRequired[pulumi.Input[Optional['EnvironmentModuleLoggingConfigurationArgs']]]
     """
     Defines the worker logs sent to CloudWatch Logs and the logging level to send.
     """
@@ -52,11 +52,11 @@ class EnvironmentLoggingConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class EnvironmentLoggingConfigurationArgs:
     def __init__(__self__, *,
-                 dag_processing_logs: Optional[pulumi.Input['EnvironmentModuleLoggingConfigurationArgs']] = None,
-                 scheduler_logs: Optional[pulumi.Input['EnvironmentModuleLoggingConfigurationArgs']] = None,
-                 task_logs: Optional[pulumi.Input['EnvironmentModuleLoggingConfigurationArgs']] = None,
-                 webserver_logs: Optional[pulumi.Input['EnvironmentModuleLoggingConfigurationArgs']] = None,
-                 worker_logs: Optional[pulumi.Input['EnvironmentModuleLoggingConfigurationArgs']] = None):
+                 dag_processing_logs: pulumi.Input[Optional['EnvironmentModuleLoggingConfigurationArgs']] = None,
+                 scheduler_logs: pulumi.Input[Optional['EnvironmentModuleLoggingConfigurationArgs']] = None,
+                 task_logs: pulumi.Input[Optional['EnvironmentModuleLoggingConfigurationArgs']] = None,
+                 webserver_logs: pulumi.Input[Optional['EnvironmentModuleLoggingConfigurationArgs']] = None,
+                 worker_logs: pulumi.Input[Optional['EnvironmentModuleLoggingConfigurationArgs']] = None):
         """
         Logging configuration for the environment.
 
@@ -79,62 +79,62 @@ class EnvironmentLoggingConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="dagProcessingLogs")
-    def dag_processing_logs(self) -> Optional[pulumi.Input['EnvironmentModuleLoggingConfigurationArgs']]:
+    def dag_processing_logs(self) -> pulumi.Input[Optional['EnvironmentModuleLoggingConfigurationArgs']]:
         """
         Defines the processing logs sent to CloudWatch Logs and the logging level to send.
         """
         return pulumi.get(self, "dag_processing_logs")
 
     @dag_processing_logs.setter
-    def dag_processing_logs(self, value: Optional[pulumi.Input['EnvironmentModuleLoggingConfigurationArgs']]):
+    def dag_processing_logs(self, value: pulumi.Input[Optional['EnvironmentModuleLoggingConfigurationArgs']]):
         pulumi.set(self, "dag_processing_logs", value)
 
     @_builtins.property
     @pulumi.getter(name="schedulerLogs")
-    def scheduler_logs(self) -> Optional[pulumi.Input['EnvironmentModuleLoggingConfigurationArgs']]:
+    def scheduler_logs(self) -> pulumi.Input[Optional['EnvironmentModuleLoggingConfigurationArgs']]:
         """
         Defines the scheduler logs sent to CloudWatch Logs and the logging level to send.
         """
         return pulumi.get(self, "scheduler_logs")
 
     @scheduler_logs.setter
-    def scheduler_logs(self, value: Optional[pulumi.Input['EnvironmentModuleLoggingConfigurationArgs']]):
+    def scheduler_logs(self, value: pulumi.Input[Optional['EnvironmentModuleLoggingConfigurationArgs']]):
         pulumi.set(self, "scheduler_logs", value)
 
     @_builtins.property
     @pulumi.getter(name="taskLogs")
-    def task_logs(self) -> Optional[pulumi.Input['EnvironmentModuleLoggingConfigurationArgs']]:
+    def task_logs(self) -> pulumi.Input[Optional['EnvironmentModuleLoggingConfigurationArgs']]:
         """
         Defines the task logs sent to CloudWatch Logs and the logging level to send.
         """
         return pulumi.get(self, "task_logs")
 
     @task_logs.setter
-    def task_logs(self, value: Optional[pulumi.Input['EnvironmentModuleLoggingConfigurationArgs']]):
+    def task_logs(self, value: pulumi.Input[Optional['EnvironmentModuleLoggingConfigurationArgs']]):
         pulumi.set(self, "task_logs", value)
 
     @_builtins.property
     @pulumi.getter(name="webserverLogs")
-    def webserver_logs(self) -> Optional[pulumi.Input['EnvironmentModuleLoggingConfigurationArgs']]:
+    def webserver_logs(self) -> pulumi.Input[Optional['EnvironmentModuleLoggingConfigurationArgs']]:
         """
         Defines the web server logs sent to CloudWatch Logs and the logging level to send.
         """
         return pulumi.get(self, "webserver_logs")
 
     @webserver_logs.setter
-    def webserver_logs(self, value: Optional[pulumi.Input['EnvironmentModuleLoggingConfigurationArgs']]):
+    def webserver_logs(self, value: pulumi.Input[Optional['EnvironmentModuleLoggingConfigurationArgs']]):
         pulumi.set(self, "webserver_logs", value)
 
     @_builtins.property
     @pulumi.getter(name="workerLogs")
-    def worker_logs(self) -> Optional[pulumi.Input['EnvironmentModuleLoggingConfigurationArgs']]:
+    def worker_logs(self) -> pulumi.Input[Optional['EnvironmentModuleLoggingConfigurationArgs']]:
         """
         Defines the worker logs sent to CloudWatch Logs and the logging level to send.
         """
         return pulumi.get(self, "worker_logs")
 
     @worker_logs.setter
-    def worker_logs(self, value: Optional[pulumi.Input['EnvironmentModuleLoggingConfigurationArgs']]):
+    def worker_logs(self, value: pulumi.Input[Optional['EnvironmentModuleLoggingConfigurationArgs']]):
         pulumi.set(self, "worker_logs", value)
 
 
@@ -142,17 +142,17 @@ class EnvironmentModuleLoggingConfigurationArgsDict(TypedDict):
     """
     Logging configuration for a specific airflow component.
     """
-    cloud_watch_log_group_arn: NotRequired[pulumi.Input[_builtins.str]]
+    cloud_watch_log_group_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of the CloudWatch Logs log group for each type of Apache Airflow log type that you have enabled.
 
     > `CloudWatchLogGroupArn` is available only as a return value, accessible when specified as an attribute in the [`Fn:GetAtt`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#aws-resource-mwaa-environment-return-values) intrinsic function. Any value you provide for `CloudWatchLogGroupArn` is discarded by Amazon MWAA.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether to enable the Apache Airflow log type (e.g. `DagProcessingLogs` ) in CloudWatch Logs.
     """
-    log_level: NotRequired[pulumi.Input['EnvironmentLoggingLevel']]
+    log_level: NotRequired[pulumi.Input[Optional['EnvironmentLoggingLevel']]]
     """
     Defines the Apache Airflow logs to send for the log type (e.g. `DagProcessingLogs` ) to CloudWatch Logs.
     """
@@ -160,9 +160,9 @@ class EnvironmentModuleLoggingConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class EnvironmentModuleLoggingConfigurationArgs:
     def __init__(__self__, *,
-                 cloud_watch_log_group_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 log_level: Optional[pulumi.Input['EnvironmentLoggingLevel']] = None):
+                 cloud_watch_log_group_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 log_level: pulumi.Input[Optional['EnvironmentLoggingLevel']] = None):
         """
         Logging configuration for a specific airflow component.
 
@@ -181,7 +181,7 @@ class EnvironmentModuleLoggingConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="cloudWatchLogGroupArn")
-    def cloud_watch_log_group_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cloud_watch_log_group_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the CloudWatch Logs log group for each type of Apache Airflow log type that you have enabled.
 
@@ -190,31 +190,31 @@ class EnvironmentModuleLoggingConfigurationArgs:
         return pulumi.get(self, "cloud_watch_log_group_arn")
 
     @cloud_watch_log_group_arn.setter
-    def cloud_watch_log_group_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cloud_watch_log_group_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cloud_watch_log_group_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether to enable the Apache Airflow log type (e.g. `DagProcessingLogs` ) in CloudWatch Logs.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="logLevel")
-    def log_level(self) -> Optional[pulumi.Input['EnvironmentLoggingLevel']]:
+    def log_level(self) -> pulumi.Input[Optional['EnvironmentLoggingLevel']]:
         """
         Defines the Apache Airflow logs to send for the log type (e.g. `DagProcessingLogs` ) to CloudWatch Logs.
         """
         return pulumi.get(self, "log_level")
 
     @log_level.setter
-    def log_level(self, value: Optional[pulumi.Input['EnvironmentLoggingLevel']]):
+    def log_level(self, value: pulumi.Input[Optional['EnvironmentLoggingLevel']]):
         pulumi.set(self, "log_level", value)
 
 
@@ -222,11 +222,11 @@ class EnvironmentNetworkConfigurationArgsDict(TypedDict):
     """
     Configures the network resources of the environment.
     """
-    security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    security_group_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of security groups to use for the environment.
     """
-    subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    subnet_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of subnets to use for the environment. These must be private subnets, in the same VPC, in two different availability zones.
     """
@@ -234,8 +234,8 @@ class EnvironmentNetworkConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class EnvironmentNetworkConfigurationArgs:
     def __init__(__self__, *,
-                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Configures the network resources of the environment.
 
@@ -249,26 +249,26 @@ class EnvironmentNetworkConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of security groups to use for the environment.
         """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
-    def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def security_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "security_group_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def subnet_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of subnets to use for the environment. These must be private subnets, in the same VPC, in two different availability zones.
         """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
-    def subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def subnet_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "subnet_ids", value)
 
 

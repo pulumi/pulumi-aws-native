@@ -222,7 +222,7 @@ def get_rest_api(rest_api_id: Optional[_builtins.str] = None,
         root_resource_id=pulumi.get(__ret__, 'root_resource_id'),
         security_policy=pulumi.get(__ret__, 'security_policy'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_rest_api_output(rest_api_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_rest_api_output(rest_api_id: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRestApiResult]:
     """
     The ``AWS::ApiGateway::RestApi`` resource creates a REST API. For more information, see [restapi:create](https://docs.aws.amazon.com/apigateway/latest/api/API_CreateRestApi.html) in the *Amazon API Gateway REST API Reference*.

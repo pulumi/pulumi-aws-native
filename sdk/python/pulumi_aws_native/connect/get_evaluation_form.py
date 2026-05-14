@@ -211,7 +211,7 @@ def get_evaluation_form(evaluation_form_arn: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         target_configuration=pulumi.get(__ret__, 'target_configuration'),
         title=pulumi.get(__ret__, 'title'))
-def get_evaluation_form_output(evaluation_form_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_evaluation_form_output(evaluation_form_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEvaluationFormResult]:
     """
     Creates an evaluation form for the specified CON instance.

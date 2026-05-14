@@ -24,10 +24,10 @@ __all__ = ['ServiceNetworkArgs', 'ServiceNetwork']
 @pulumi.input_type
 class ServiceNetworkArgs:
     def __init__(__self__, *,
-                 auth_type: Optional[pulumi.Input['ServiceNetworkAuthType']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sharing_config: Optional[pulumi.Input['ServiceNetworkSharingConfigArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 auth_type: pulumi.Input[Optional['ServiceNetworkAuthType']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sharing_config: pulumi.Input[Optional['ServiceNetworkSharingConfigArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ServiceNetwork resource.
 
@@ -52,7 +52,7 @@ class ServiceNetworkArgs:
 
     @_builtins.property
     @pulumi.getter(name="authType")
-    def auth_type(self) -> Optional[pulumi.Input['ServiceNetworkAuthType']]:
+    def auth_type(self) -> pulumi.Input[Optional['ServiceNetworkAuthType']]:
         """
         The type of IAM policy.
 
@@ -62,12 +62,12 @@ class ServiceNetworkArgs:
         return pulumi.get(self, "auth_type")
 
     @auth_type.setter
-    def auth_type(self, value: Optional[pulumi.Input['ServiceNetworkAuthType']]):
+    def auth_type(self, value: pulumi.Input[Optional['ServiceNetworkAuthType']]):
         pulumi.set(self, "auth_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the service network. The name must be unique to the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
 
@@ -76,31 +76,31 @@ class ServiceNetworkArgs:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="sharingConfig")
-    def sharing_config(self) -> Optional[pulumi.Input['ServiceNetworkSharingConfigArgs']]:
+    def sharing_config(self) -> pulumi.Input[Optional['ServiceNetworkSharingConfigArgs']]:
         """
         Specify if the service network should be enabled for sharing.
         """
         return pulumi.get(self, "sharing_config")
 
     @sharing_config.setter
-    def sharing_config(self, value: Optional[pulumi.Input['ServiceNetworkSharingConfigArgs']]):
+    def sharing_config(self, value: pulumi.Input[Optional['ServiceNetworkSharingConfigArgs']]):
         pulumi.set(self, "sharing_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags for the service network.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -110,10 +110,10 @@ class ServiceNetwork(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth_type: Optional[pulumi.Input['ServiceNetworkAuthType']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sharing_config: Optional[pulumi.Input[Union['ServiceNetworkSharingConfigArgs', 'ServiceNetworkSharingConfigArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 auth_type: pulumi.Input[Optional['ServiceNetworkAuthType']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sharing_config: pulumi.Input[Optional[Union['ServiceNetworkSharingConfigArgs', 'ServiceNetworkSharingConfigArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         A service network is a logical boundary for a collection of services. You can associate services and VPCs with a service network.
@@ -156,10 +156,10 @@ class ServiceNetwork(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth_type: Optional[pulumi.Input['ServiceNetworkAuthType']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sharing_config: Optional[pulumi.Input[Union['ServiceNetworkSharingConfigArgs', 'ServiceNetworkSharingConfigArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 auth_type: pulumi.Input[Optional['ServiceNetworkAuthType']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sharing_config: pulumi.Input[Optional[Union['ServiceNetworkSharingConfigArgs', 'ServiceNetworkSharingConfigArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

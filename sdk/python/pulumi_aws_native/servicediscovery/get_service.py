@@ -147,7 +147,7 @@ def get_service(id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         service_attributes=pulumi.get(__ret__, 'service_attributes'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_service_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_service_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceResult]:
     """
     Resource Type definition for AWS::ServiceDiscovery::Service

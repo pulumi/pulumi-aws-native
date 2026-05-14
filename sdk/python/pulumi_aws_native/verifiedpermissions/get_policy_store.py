@@ -158,7 +158,7 @@ def get_policy_store(policy_store_id: Optional[_builtins.str] = None,
         schema=pulumi.get(__ret__, 'schema'),
         tags=pulumi.get(__ret__, 'tags'),
         validation_settings=pulumi.get(__ret__, 'validation_settings'))
-def get_policy_store_output(policy_store_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_policy_store_output(policy_store_id: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicyStoreResult]:
     """
     Represents a policy store that you can place schema, policies, and policy templates in to validate authorization requests

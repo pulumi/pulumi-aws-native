@@ -28,9 +28,9 @@ class EndpointArgs:
                  release_label: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
                  virtual_cluster_id: pulumi.Input[_builtins.str],
-                 configuration_overrides: Optional[pulumi.Input['EndpointConfigurationOverridesArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 configuration_overrides: pulumi.Input[Optional['EndpointConfigurationOverridesArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Endpoint resource.
 
@@ -103,38 +103,38 @@ class EndpointArgs:
 
     @_builtins.property
     @pulumi.getter(name="configurationOverrides")
-    def configuration_overrides(self) -> Optional[pulumi.Input['EndpointConfigurationOverridesArgs']]:
+    def configuration_overrides(self) -> pulumi.Input[Optional['EndpointConfigurationOverridesArgs']]:
         """
         The configuration overrides for the managed endpoint.
         """
         return pulumi.get(self, "configuration_overrides")
 
     @configuration_overrides.setter
-    def configuration_overrides(self, value: Optional[pulumi.Input['EndpointConfigurationOverridesArgs']]):
+    def configuration_overrides(self, value: pulumi.Input[Optional['EndpointConfigurationOverridesArgs']]):
         pulumi.set(self, "configuration_overrides", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the managed endpoint.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this managed endpoint.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -144,13 +144,13 @@ class Endpoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration_overrides: Optional[pulumi.Input[Union['EndpointConfigurationOverridesArgs', 'EndpointConfigurationOverridesArgsDict']]] = None,
-                 execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 release_label: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 configuration_overrides: pulumi.Input[Optional[Union['EndpointConfigurationOverridesArgs', 'EndpointConfigurationOverridesArgsDict']]] = None,
+                 execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 release_label: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Schema of AWS::EMRContainers::Endpoint Type
@@ -191,13 +191,13 @@ class Endpoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration_overrides: Optional[pulumi.Input[Union['EndpointConfigurationOverridesArgs', 'EndpointConfigurationOverridesArgsDict']]] = None,
-                 execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 release_label: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 configuration_overrides: pulumi.Input[Optional[Union['EndpointConfigurationOverridesArgs', 'EndpointConfigurationOverridesArgsDict']]] = None,
+                 execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 release_label: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

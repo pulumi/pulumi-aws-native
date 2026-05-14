@@ -78,8 +78,8 @@ def get_trust_store_revocation(revocation_id: Optional[_builtins.int] = None,
     return AwaitableGetTrustStoreRevocationResult(
         revocation_id=pulumi.get(__ret__, 'revocation_id'),
         trust_store_revocations=pulumi.get(__ret__, 'trust_store_revocations'))
-def get_trust_store_revocation_output(revocation_id: Optional[pulumi.Input[_builtins.int]] = None,
-                                      trust_store_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_trust_store_revocation_output(revocation_id: pulumi.Input[Optional[_builtins.int]] = None,
+                                      trust_store_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTrustStoreRevocationResult]:
     """
     Resource Type definition for AWS::ElasticLoadBalancingV2::TrustStoreRevocation

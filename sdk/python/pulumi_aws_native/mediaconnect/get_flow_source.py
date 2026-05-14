@@ -298,7 +298,7 @@ def get_flow_source(source_arn: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         vpc_interface_name=pulumi.get(__ret__, 'vpc_interface_name'),
         whitelist_cidr=pulumi.get(__ret__, 'whitelist_cidr'))
-def get_flow_source_output(source_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_flow_source_output(source_arn: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFlowSourceResult]:
     """
     Resource Type definition for AWS::MediaConnect::FlowSource

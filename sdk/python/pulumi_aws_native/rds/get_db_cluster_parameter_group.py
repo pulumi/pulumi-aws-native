@@ -84,7 +84,7 @@ def get_db_cluster_parameter_group(db_cluster_parameter_group_name: Optional[_bu
     return AwaitableGetDbClusterParameterGroupResult(
         parameters=pulumi.get(__ret__, 'parameters'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_db_cluster_parameter_group_output(db_cluster_parameter_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_db_cluster_parameter_group_output(db_cluster_parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDbClusterParameterGroupResult]:
     """
     The ``AWS::RDS::DBClusterParameterGroup`` resource creates a new Amazon RDS DB cluster parameter group.

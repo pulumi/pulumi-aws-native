@@ -25,11 +25,11 @@ __all__ = ['PolicyStoreArgs', 'PolicyStore']
 class PolicyStoreArgs:
     def __init__(__self__, *,
                  validation_settings: pulumi.Input['PolicyStoreValidationSettingsArgs'],
-                 deletion_protection: Optional[pulumi.Input['PolicyStoreDeletionProtectionArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_settings: Optional[pulumi.Input['PolicyStoreEncryptionSettingsArgs']] = None,
-                 schema: Optional[pulumi.Input['PolicyStoreSchemaDefinitionArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 deletion_protection: pulumi.Input[Optional['PolicyStoreDeletionProtectionArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_settings: pulumi.Input[Optional['PolicyStoreEncryptionSettingsArgs']] = None,
+                 schema: pulumi.Input[Optional['PolicyStoreSchemaDefinitionArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a PolicyStore resource.
 
@@ -75,7 +75,7 @@ class PolicyStoreArgs:
 
     @_builtins.property
     @pulumi.getter(name="deletionProtection")
-    def deletion_protection(self) -> Optional[pulumi.Input['PolicyStoreDeletionProtectionArgs']]:
+    def deletion_protection(self) -> pulumi.Input[Optional['PolicyStoreDeletionProtectionArgs']]:
         """
         Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted.
 
@@ -84,52 +84,52 @@ class PolicyStoreArgs:
         return pulumi.get(self, "deletion_protection")
 
     @deletion_protection.setter
-    def deletion_protection(self, value: Optional[pulumi.Input['PolicyStoreDeletionProtectionArgs']]):
+    def deletion_protection(self, value: pulumi.Input[Optional['PolicyStoreDeletionProtectionArgs']]):
         pulumi.set(self, "deletion_protection", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Descriptive text that you can provide to help with identification of the current policy store.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionSettings")
-    def encryption_settings(self) -> Optional[pulumi.Input['PolicyStoreEncryptionSettingsArgs']]:
+    def encryption_settings(self) -> pulumi.Input[Optional['PolicyStoreEncryptionSettingsArgs']]:
         return pulumi.get(self, "encryption_settings")
 
     @encryption_settings.setter
-    def encryption_settings(self, value: Optional[pulumi.Input['PolicyStoreEncryptionSettingsArgs']]):
+    def encryption_settings(self, value: pulumi.Input[Optional['PolicyStoreEncryptionSettingsArgs']]):
         pulumi.set(self, "encryption_settings", value)
 
     @_builtins.property
     @pulumi.getter
-    def schema(self) -> Optional[pulumi.Input['PolicyStoreSchemaDefinitionArgs']]:
+    def schema(self) -> pulumi.Input[Optional['PolicyStoreSchemaDefinitionArgs']]:
         """
         Creates or updates the policy schema in a policy store. Cedar can use the schema to validate any Cedar policies and policy templates submitted to the policy store. Any changes to the schema validate only policies and templates submitted after the schema change. Existing policies and templates are not re-evaluated against the changed schema. If you later update a policy, then it is evaluated against the new schema at that time.
         """
         return pulumi.get(self, "schema")
 
     @schema.setter
-    def schema(self, value: Optional[pulumi.Input['PolicyStoreSchemaDefinitionArgs']]):
+    def schema(self, value: pulumi.Input[Optional['PolicyStoreSchemaDefinitionArgs']]):
         pulumi.set(self, "schema", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags to add to the policy store
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -139,12 +139,12 @@ class PolicyStore(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 deletion_protection: Optional[pulumi.Input[Union['PolicyStoreDeletionProtectionArgs', 'PolicyStoreDeletionProtectionArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_settings: Optional[pulumi.Input[Union['PolicyStoreEncryptionSettingsArgs', 'PolicyStoreEncryptionSettingsArgsDict']]] = None,
-                 schema: Optional[pulumi.Input[Union['PolicyStoreSchemaDefinitionArgs', 'PolicyStoreSchemaDefinitionArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 validation_settings: Optional[pulumi.Input[Union['PolicyStoreValidationSettingsArgs', 'PolicyStoreValidationSettingsArgsDict']]] = None,
+                 deletion_protection: pulumi.Input[Optional[Union['PolicyStoreDeletionProtectionArgs', 'PolicyStoreDeletionProtectionArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_settings: pulumi.Input[Optional[Union['PolicyStoreEncryptionSettingsArgs', 'PolicyStoreEncryptionSettingsArgsDict']]] = None,
+                 schema: pulumi.Input[Optional[Union['PolicyStoreSchemaDefinitionArgs', 'PolicyStoreSchemaDefinitionArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 validation_settings: pulumi.Input[Optional[Union['PolicyStoreValidationSettingsArgs', 'PolicyStoreValidationSettingsArgsDict']]] = None,
                  __props__=None):
         """
         Represents a policy store that you can place schema, policies, and policy templates in to validate authorization requests
@@ -223,12 +223,12 @@ class PolicyStore(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 deletion_protection: Optional[pulumi.Input[Union['PolicyStoreDeletionProtectionArgs', 'PolicyStoreDeletionProtectionArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_settings: Optional[pulumi.Input[Union['PolicyStoreEncryptionSettingsArgs', 'PolicyStoreEncryptionSettingsArgsDict']]] = None,
-                 schema: Optional[pulumi.Input[Union['PolicyStoreSchemaDefinitionArgs', 'PolicyStoreSchemaDefinitionArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 validation_settings: Optional[pulumi.Input[Union['PolicyStoreValidationSettingsArgs', 'PolicyStoreValidationSettingsArgsDict']]] = None,
+                 deletion_protection: pulumi.Input[Optional[Union['PolicyStoreDeletionProtectionArgs', 'PolicyStoreDeletionProtectionArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_settings: pulumi.Input[Optional[Union['PolicyStoreEncryptionSettingsArgs', 'PolicyStoreEncryptionSettingsArgsDict']]] = None,
+                 schema: pulumi.Input[Optional[Union['PolicyStoreSchemaDefinitionArgs', 'PolicyStoreSchemaDefinitionArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 validation_settings: pulumi.Input[Optional[Union['PolicyStoreValidationSettingsArgs', 'PolicyStoreValidationSettingsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -28,7 +28,7 @@ class ApplicationInstanceManifestOverridesPayloadArgsDict(TypedDict):
     """
     Parameter overrides for an application instance. This is a JSON document that has a single key (``PayloadData``) where the value is an escaped string representation of the overrides document.
     """
-    payload_data: NotRequired[pulumi.Input[_builtins.str]]
+    payload_data: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The overrides document.
     """
@@ -36,7 +36,7 @@ class ApplicationInstanceManifestOverridesPayloadArgsDict(TypedDict):
 @pulumi.input_type
 class ApplicationInstanceManifestOverridesPayloadArgs:
     def __init__(__self__, *,
-                 payload_data: Optional[pulumi.Input[_builtins.str]] = None):
+                 payload_data: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Parameter overrides for an application instance. This is a JSON document that has a single key (``PayloadData``) where the value is an escaped string representation of the overrides document.
 
@@ -47,14 +47,14 @@ class ApplicationInstanceManifestOverridesPayloadArgs:
 
     @_builtins.property
     @pulumi.getter(name="payloadData")
-    def payload_data(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def payload_data(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The overrides document.
         """
         return pulumi.get(self, "payload_data")
 
     @payload_data.setter
-    def payload_data(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def payload_data(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "payload_data", value)
 
 
@@ -62,7 +62,7 @@ class ApplicationInstanceManifestPayloadArgsDict(TypedDict):
     """
     A application verion's manifest file. This is a JSON document that has a single key (``PayloadData``) where the value is an escaped string representation of the application manifest (``graph.json``). This file is located in the ``graphs`` folder in your application source.
     """
-    payload_data: NotRequired[pulumi.Input[_builtins.str]]
+    payload_data: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The application manifest.
     """
@@ -70,7 +70,7 @@ class ApplicationInstanceManifestPayloadArgsDict(TypedDict):
 @pulumi.input_type
 class ApplicationInstanceManifestPayloadArgs:
     def __init__(__self__, *,
-                 payload_data: Optional[pulumi.Input[_builtins.str]] = None):
+                 payload_data: pulumi.Input[Optional[_builtins.str]] = None):
         """
         A application verion's manifest file. This is a JSON document that has a single key (``PayloadData``) where the value is an escaped string representation of the application manifest (``graph.json``). This file is located in the ``graphs`` folder in your application source.
 
@@ -81,14 +81,14 @@ class ApplicationInstanceManifestPayloadArgs:
 
     @_builtins.property
     @pulumi.getter(name="payloadData")
-    def payload_data(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def payload_data(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The application manifest.
         """
         return pulumi.get(self, "payload_data")
 
     @payload_data.setter
-    def payload_data(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def payload_data(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "payload_data", value)
 
 
@@ -96,23 +96,23 @@ class PackageStorageLocationArgsDict(TypedDict):
     """
     A storage location.
     """
-    binary_prefix_location: NotRequired[pulumi.Input[_builtins.str]]
+    binary_prefix_location: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The location's binary prefix.
     """
-    bucket: NotRequired[pulumi.Input[_builtins.str]]
+    bucket: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The location's bucket.
     """
-    generated_prefix_location: NotRequired[pulumi.Input[_builtins.str]]
+    generated_prefix_location: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The location's generated prefix.
     """
-    manifest_prefix_location: NotRequired[pulumi.Input[_builtins.str]]
+    manifest_prefix_location: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The location's manifest prefix.
     """
-    repo_prefix_location: NotRequired[pulumi.Input[_builtins.str]]
+    repo_prefix_location: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The location's repo prefix.
     """
@@ -120,11 +120,11 @@ class PackageStorageLocationArgsDict(TypedDict):
 @pulumi.input_type
 class PackageStorageLocationArgs:
     def __init__(__self__, *,
-                 binary_prefix_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                 generated_prefix_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 manifest_prefix_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 repo_prefix_location: Optional[pulumi.Input[_builtins.str]] = None):
+                 binary_prefix_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 generated_prefix_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 manifest_prefix_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 repo_prefix_location: pulumi.Input[Optional[_builtins.str]] = None):
         """
         A storage location.
 
@@ -147,62 +147,62 @@ class PackageStorageLocationArgs:
 
     @_builtins.property
     @pulumi.getter(name="binaryPrefixLocation")
-    def binary_prefix_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def binary_prefix_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The location's binary prefix.
         """
         return pulumi.get(self, "binary_prefix_location")
 
     @binary_prefix_location.setter
-    def binary_prefix_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def binary_prefix_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "binary_prefix_location", value)
 
     @_builtins.property
     @pulumi.getter
-    def bucket(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bucket(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The location's bucket.
         """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
-    def bucket(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bucket(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bucket", value)
 
     @_builtins.property
     @pulumi.getter(name="generatedPrefixLocation")
-    def generated_prefix_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def generated_prefix_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The location's generated prefix.
         """
         return pulumi.get(self, "generated_prefix_location")
 
     @generated_prefix_location.setter
-    def generated_prefix_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def generated_prefix_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "generated_prefix_location", value)
 
     @_builtins.property
     @pulumi.getter(name="manifestPrefixLocation")
-    def manifest_prefix_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def manifest_prefix_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The location's manifest prefix.
         """
         return pulumi.get(self, "manifest_prefix_location")
 
     @manifest_prefix_location.setter
-    def manifest_prefix_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def manifest_prefix_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "manifest_prefix_location", value)
 
     @_builtins.property
     @pulumi.getter(name="repoPrefixLocation")
-    def repo_prefix_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def repo_prefix_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The location's repo prefix.
         """
         return pulumi.get(self, "repo_prefix_location")
 
     @repo_prefix_location.setter
-    def repo_prefix_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def repo_prefix_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repo_prefix_location", value)
 
 

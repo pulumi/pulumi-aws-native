@@ -23,12 +23,12 @@ __all__ = ['ApplicationArgs', 'Application']
 class ApplicationArgs:
     def __init__(__self__, *,
                  engine_type: pulumi.Input['ApplicationEngineType'],
-                 definition: Optional[pulumi.Input[Union['ApplicationDefinition0PropertiesArgs', 'ApplicationDefinition1PropertiesArgs']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 definition: pulumi.Input[Optional[Union['ApplicationDefinition0PropertiesArgs', 'ApplicationDefinition1PropertiesArgs']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Application resource.
 
@@ -72,7 +72,7 @@ class ApplicationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def definition(self) -> Optional[pulumi.Input[Union['ApplicationDefinition0PropertiesArgs', 'ApplicationDefinition1PropertiesArgs']]]:
+    def definition(self) -> pulumi.Input[Optional[Union['ApplicationDefinition0PropertiesArgs', 'ApplicationDefinition1PropertiesArgs']]]:
         """
         The application definition for a particular application. You can specify either inline JSON or an Amazon S3 bucket location.
 
@@ -81,60 +81,60 @@ class ApplicationArgs:
         return pulumi.get(self, "definition")
 
     @definition.setter
-    def definition(self, value: Optional[pulumi.Input[Union['ApplicationDefinition0PropertiesArgs', 'ApplicationDefinition1PropertiesArgs']]]):
+    def definition(self, value: pulumi.Input[Optional[Union['ApplicationDefinition0PropertiesArgs', 'ApplicationDefinition1PropertiesArgs']]]):
         pulumi.set(self, "definition", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the application.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID or the Amazon Resource Name (ARN) of the customer managed KMS Key used for encrypting application-related resources.
         """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the application.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the role associated with the application.
         """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
-    def role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         An array of key-value pairs to apply to this resource.
 
@@ -143,7 +143,7 @@ class ApplicationArgs:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -153,13 +153,13 @@ class Application(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 definition: Optional[pulumi.Input[Union[Union['ApplicationDefinition0PropertiesArgs', 'ApplicationDefinition0PropertiesArgsDict'], Union['ApplicationDefinition1PropertiesArgs', 'ApplicationDefinition1PropertiesArgsDict']]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine_type: Optional[pulumi.Input['ApplicationEngineType']] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 definition: pulumi.Input[Optional[Union[Union['ApplicationDefinition0PropertiesArgs', 'ApplicationDefinition0PropertiesArgsDict'], Union['ApplicationDefinition1PropertiesArgs', 'ApplicationDefinition1PropertiesArgsDict']]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine_type: pulumi.Input[Optional['ApplicationEngineType']] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Represents an application that runs on an AWS Mainframe Modernization Environment
@@ -204,13 +204,13 @@ class Application(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 definition: Optional[pulumi.Input[Union[Union['ApplicationDefinition0PropertiesArgs', 'ApplicationDefinition0PropertiesArgsDict'], Union['ApplicationDefinition1PropertiesArgs', 'ApplicationDefinition1PropertiesArgsDict']]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine_type: Optional[pulumi.Input['ApplicationEngineType']] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 definition: pulumi.Input[Optional[Union[Union['ApplicationDefinition0PropertiesArgs', 'ApplicationDefinition0PropertiesArgsDict'], Union['ApplicationDefinition1PropertiesArgs', 'ApplicationDefinition1PropertiesArgsDict']]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine_type: pulumi.Input[Optional['ApplicationEngineType']] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

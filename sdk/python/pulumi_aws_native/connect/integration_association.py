@@ -97,9 +97,9 @@ class IntegrationAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 instance_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 integration_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 integration_type: Optional[pulumi.Input['IntegrationAssociationIntegrationType']] = None,
+                 instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 integration_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 integration_type: pulumi.Input[Optional['IntegrationAssociationIntegrationType']] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Connect::IntegrationAssociation
@@ -222,9 +222,9 @@ class IntegrationAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 instance_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 integration_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 integration_type: Optional[pulumi.Input['IntegrationAssociationIntegrationType']] = None,
+                 instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 integration_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 integration_type: pulumi.Input[Optional['IntegrationAssociationIntegrationType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

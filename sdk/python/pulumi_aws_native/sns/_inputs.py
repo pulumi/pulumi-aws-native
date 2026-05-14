@@ -31,15 +31,15 @@ class TopicLoggingConfigArgsDict(TypedDict):
     Indicates one of the supported protocols for the Amazon SNS topic.
       At least one of the other three ``LoggingConfig`` properties is recommend along with ``Protocol``.
     """
-    failure_feedback_role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    failure_feedback_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The IAM role ARN to be used when logging failed message deliveries in Amazon CloudWatch.
     """
-    success_feedback_role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    success_feedback_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The IAM role ARN to be used when logging successful message deliveries in Amazon CloudWatch.
     """
-    success_feedback_sample_rate: NotRequired[pulumi.Input[_builtins.str]]
+    success_feedback_sample_rate: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The percentage of successful message deliveries to be logged in Amazon CloudWatch. Valid percentage values range from 0 to 100.
     """
@@ -48,9 +48,9 @@ class TopicLoggingConfigArgsDict(TypedDict):
 class TopicLoggingConfigArgs:
     def __init__(__self__, *,
                  protocol: pulumi.Input['TopicLoggingConfigProtocol'],
-                 failure_feedback_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 success_feedback_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 success_feedback_sample_rate: Optional[pulumi.Input[_builtins.str]] = None):
+                 failure_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 success_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 success_feedback_sample_rate: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The ``LoggingConfig`` property type specifies the ``Delivery`` status logging configuration for an [AWS::SNS::Topic](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.html).
 
@@ -83,38 +83,38 @@ class TopicLoggingConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="failureFeedbackRoleArn")
-    def failure_feedback_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def failure_feedback_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IAM role ARN to be used when logging failed message deliveries in Amazon CloudWatch.
         """
         return pulumi.get(self, "failure_feedback_role_arn")
 
     @failure_feedback_role_arn.setter
-    def failure_feedback_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def failure_feedback_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "failure_feedback_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="successFeedbackRoleArn")
-    def success_feedback_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def success_feedback_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IAM role ARN to be used when logging successful message deliveries in Amazon CloudWatch.
         """
         return pulumi.get(self, "success_feedback_role_arn")
 
     @success_feedback_role_arn.setter
-    def success_feedback_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def success_feedback_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "success_feedback_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="successFeedbackSampleRate")
-    def success_feedback_sample_rate(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def success_feedback_sample_rate(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The percentage of successful message deliveries to be logged in Amazon CloudWatch. Valid percentage values range from 0 to 100.
         """
         return pulumi.get(self, "success_feedback_sample_rate")
 
     @success_feedback_sample_rate.setter
-    def success_feedback_sample_rate(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def success_feedback_sample_rate(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "success_feedback_sample_rate", value)
 
 

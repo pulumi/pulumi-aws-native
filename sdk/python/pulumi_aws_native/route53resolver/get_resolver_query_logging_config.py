@@ -153,7 +153,7 @@ def get_resolver_query_logging_config(id: Optional[_builtins.str] = None,
         owner_id=pulumi.get(__ret__, 'owner_id'),
         share_status=pulumi.get(__ret__, 'share_status'),
         status=pulumi.get(__ret__, 'status'))
-def get_resolver_query_logging_config_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_resolver_query_logging_config_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResolverQueryLoggingConfigResult]:
     """
     Resource schema for AWS::Route53Resolver::ResolverQueryLoggingConfig.

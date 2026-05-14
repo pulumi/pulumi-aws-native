@@ -88,7 +88,7 @@ def get_service_network_resource_association(arn: Optional[_builtins.str] = None
         arn=pulumi.get(__ret__, 'arn'),
         id=pulumi.get(__ret__, 'id'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_service_network_resource_association_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_service_network_resource_association_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceNetworkResourceAssociationResult]:
     """
     VpcLattice ServiceNetworkResourceAssociation CFN resource

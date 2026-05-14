@@ -62,27 +62,27 @@ class AgentSpaceAwsResourcesArgsDict(TypedDict):
     """
     AWS resource configuration
     """
-    iam_roles: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    iam_roles: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     IAM role ARNs
     """
-    lambda_function_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    lambda_function_arns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Lambda function ARNs used to retrieve tester credentials for pentests
     """
-    log_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    log_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     CloudWatch log group ARNs
     """
-    s3_buckets: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    s3_buckets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     S3 bucket ARNs
     """
-    secret_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    secret_arns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     SecretsManager secret ARNs used to store tester credentials for pentests
     """
-    vpcs: NotRequired[pulumi.Input[Sequence[pulumi.Input['AgentSpaceVpcConfigArgsDict']]]]
+    vpcs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentSpaceVpcConfigArgs']]]]]
     """
     VPC configurations
     """
@@ -90,12 +90,12 @@ class AgentSpaceAwsResourcesArgsDict(TypedDict):
 @pulumi.input_type
 class AgentSpaceAwsResourcesArgs:
     def __init__(__self__, *,
-                 iam_roles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 lambda_function_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 log_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 s3_buckets: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 secret_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 vpcs: Optional[pulumi.Input[Sequence[pulumi.Input['AgentSpaceVpcConfigArgs']]]] = None):
+                 iam_roles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 lambda_function_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 log_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 s3_buckets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 secret_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 vpcs: pulumi.Input[Optional[Sequence[pulumi.Input['AgentSpaceVpcConfigArgs']]]] = None):
         """
         AWS resource configuration
 
@@ -121,74 +121,74 @@ class AgentSpaceAwsResourcesArgs:
 
     @_builtins.property
     @pulumi.getter(name="iamRoles")
-    def iam_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def iam_roles(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         IAM role ARNs
         """
         return pulumi.get(self, "iam_roles")
 
     @iam_roles.setter
-    def iam_roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def iam_roles(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "iam_roles", value)
 
     @_builtins.property
     @pulumi.getter(name="lambdaFunctionArns")
-    def lambda_function_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def lambda_function_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Lambda function ARNs used to retrieve tester credentials for pentests
         """
         return pulumi.get(self, "lambda_function_arns")
 
     @lambda_function_arns.setter
-    def lambda_function_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def lambda_function_arns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "lambda_function_arns", value)
 
     @_builtins.property
     @pulumi.getter(name="logGroups")
-    def log_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def log_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         CloudWatch log group ARNs
         """
         return pulumi.get(self, "log_groups")
 
     @log_groups.setter
-    def log_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def log_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "log_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="s3Buckets")
-    def s3_buckets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def s3_buckets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         S3 bucket ARNs
         """
         return pulumi.get(self, "s3_buckets")
 
     @s3_buckets.setter
-    def s3_buckets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def s3_buckets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "s3_buckets", value)
 
     @_builtins.property
     @pulumi.getter(name="secretArns")
-    def secret_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def secret_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         SecretsManager secret ARNs used to store tester credentials for pentests
         """
         return pulumi.get(self, "secret_arns")
 
     @secret_arns.setter
-    def secret_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def secret_arns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "secret_arns", value)
 
     @_builtins.property
     @pulumi.getter
-    def vpcs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentSpaceVpcConfigArgs']]]]:
+    def vpcs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AgentSpaceVpcConfigArgs']]]]:
         """
         VPC configurations
         """
         return pulumi.get(self, "vpcs")
 
     @vpcs.setter
-    def vpcs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AgentSpaceVpcConfigArgs']]]]):
+    def vpcs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AgentSpaceVpcConfigArgs']]]]):
         pulumi.set(self, "vpcs", value)
 
 
@@ -404,14 +404,14 @@ class AgentSpaceProviderResourceArgsDict(TypedDict):
     """
     Selected Resource (eg: Code Repository) from an Integration
     """
-    git_hub_capabilities: NotRequired[pulumi.Input['AgentSpaceGitHubCapabilitiesResourceArgsDict']]
-    git_hub_repository: NotRequired[pulumi.Input['AgentSpaceGitHubRepositoryResourceArgsDict']]
+    git_hub_capabilities: NotRequired[pulumi.Input[Optional['AgentSpaceGitHubCapabilitiesResourceArgs']]]
+    git_hub_repository: NotRequired[pulumi.Input[Optional['AgentSpaceGitHubRepositoryResourceArgs']]]
 
 @pulumi.input_type
 class AgentSpaceProviderResourceArgs:
     def __init__(__self__, *,
-                 git_hub_capabilities: Optional[pulumi.Input['AgentSpaceGitHubCapabilitiesResourceArgs']] = None,
-                 git_hub_repository: Optional[pulumi.Input['AgentSpaceGitHubRepositoryResourceArgs']] = None):
+                 git_hub_capabilities: pulumi.Input[Optional['AgentSpaceGitHubCapabilitiesResourceArgs']] = None,
+                 git_hub_repository: pulumi.Input[Optional['AgentSpaceGitHubRepositoryResourceArgs']] = None):
         """
         Selected Resource (eg: Code Repository) from an Integration
         """
@@ -422,20 +422,20 @@ class AgentSpaceProviderResourceArgs:
 
     @_builtins.property
     @pulumi.getter(name="gitHubCapabilities")
-    def git_hub_capabilities(self) -> Optional[pulumi.Input['AgentSpaceGitHubCapabilitiesResourceArgs']]:
+    def git_hub_capabilities(self) -> pulumi.Input[Optional['AgentSpaceGitHubCapabilitiesResourceArgs']]:
         return pulumi.get(self, "git_hub_capabilities")
 
     @git_hub_capabilities.setter
-    def git_hub_capabilities(self, value: Optional[pulumi.Input['AgentSpaceGitHubCapabilitiesResourceArgs']]):
+    def git_hub_capabilities(self, value: pulumi.Input[Optional['AgentSpaceGitHubCapabilitiesResourceArgs']]):
         pulumi.set(self, "git_hub_capabilities", value)
 
     @_builtins.property
     @pulumi.getter(name="gitHubRepository")
-    def git_hub_repository(self) -> Optional[pulumi.Input['AgentSpaceGitHubRepositoryResourceArgs']]:
+    def git_hub_repository(self) -> pulumi.Input[Optional['AgentSpaceGitHubRepositoryResourceArgs']]:
         return pulumi.get(self, "git_hub_repository")
 
     @git_hub_repository.setter
-    def git_hub_repository(self, value: Optional[pulumi.Input['AgentSpaceGitHubRepositoryResourceArgs']]):
+    def git_hub_repository(self, value: pulumi.Input[Optional['AgentSpaceGitHubRepositoryResourceArgs']]):
         pulumi.set(self, "git_hub_repository", value)
 
 
@@ -443,15 +443,15 @@ class AgentSpaceVpcConfigArgsDict(TypedDict):
     """
     Customer VPC configuration that the security testing environment accesses
     """
-    security_group_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    security_group_arns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of security group ARNs in the customer VPC
     """
-    subnet_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    subnet_arns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of subnet ARNs in the customer VPC
     """
-    vpc_arn: NotRequired[pulumi.Input[_builtins.str]]
+    vpc_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ARN of the customer VPC
     """
@@ -459,9 +459,9 @@ class AgentSpaceVpcConfigArgsDict(TypedDict):
 @pulumi.input_type
 class AgentSpaceVpcConfigArgs:
     def __init__(__self__, *,
-                 security_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subnet_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 vpc_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 security_group_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subnet_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 vpc_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Customer VPC configuration that the security testing environment accesses
 
@@ -478,50 +478,50 @@ class AgentSpaceVpcConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="securityGroupArns")
-    def security_group_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def security_group_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of security group ARNs in the customer VPC
         """
         return pulumi.get(self, "security_group_arns")
 
     @security_group_arns.setter
-    def security_group_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def security_group_arns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "security_group_arns", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetArns")
-    def subnet_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def subnet_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of subnet ARNs in the customer VPC
         """
         return pulumi.get(self, "subnet_arns")
 
     @subnet_arns.setter
-    def subnet_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def subnet_arns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "subnet_arns", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcArn")
-    def vpc_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vpc_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the customer VPC
         """
         return pulumi.get(self, "vpc_arn")
 
     @vpc_arn.setter
-    def vpc_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vpc_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpc_arn", value)
 
 
 class ApplicationIdCConfigurationArgsDict(TypedDict):
-    id_c_application_arn: NotRequired[pulumi.Input[_builtins.str]]
-    id_c_instance_arn: NotRequired[pulumi.Input[_builtins.str]]
+    id_c_application_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    id_c_instance_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class ApplicationIdCConfigurationArgs:
     def __init__(__self__, *,
-                 id_c_application_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 id_c_instance_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 id_c_application_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 id_c_instance_arn: pulumi.Input[Optional[_builtins.str]] = None):
         if id_c_application_arn is not None:
             pulumi.set(__self__, "id_c_application_arn", id_c_application_arn)
         if id_c_instance_arn is not None:
@@ -529,20 +529,20 @@ class ApplicationIdCConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="idCApplicationArn")
-    def id_c_application_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id_c_application_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "id_c_application_arn")
 
     @id_c_application_arn.setter
-    def id_c_application_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id_c_application_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id_c_application_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="idCInstanceArn")
-    def id_c_instance_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id_c_instance_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "id_c_instance_arn")
 
     @id_c_instance_arn.setter
-    def id_c_instance_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id_c_instance_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id_c_instance_arn", value)
 
 
@@ -550,19 +550,19 @@ class PentestActorArgsDict(TypedDict):
     """
     An authenticated actor to be used during pentest execution
     """
-    authentication: NotRequired[pulumi.Input['PentestAuthenticationArgsDict']]
+    authentication: NotRequired[pulumi.Input[Optional['PentestAuthenticationArgs']]]
     """
     Authentication credentials for this actor
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Description of the actor
     """
-    identifier: NotRequired[pulumi.Input[_builtins.str]]
+    identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Identifier for the actor
     """
-    uris: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    uris: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of URIs this actor is authorized to access
     """
@@ -570,10 +570,10 @@ class PentestActorArgsDict(TypedDict):
 @pulumi.input_type
 class PentestActorArgs:
     def __init__(__self__, *,
-                 authentication: Optional[pulumi.Input['PentestAuthenticationArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 uris: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 authentication: pulumi.Input[Optional['PentestAuthenticationArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 uris: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         An authenticated actor to be used during pentest execution
 
@@ -593,50 +593,50 @@ class PentestActorArgs:
 
     @_builtins.property
     @pulumi.getter
-    def authentication(self) -> Optional[pulumi.Input['PentestAuthenticationArgs']]:
+    def authentication(self) -> pulumi.Input[Optional['PentestAuthenticationArgs']]:
         """
         Authentication credentials for this actor
         """
         return pulumi.get(self, "authentication")
 
     @authentication.setter
-    def authentication(self, value: Optional[pulumi.Input['PentestAuthenticationArgs']]):
+    def authentication(self, value: pulumi.Input[Optional['PentestAuthenticationArgs']]):
         pulumi.set(self, "authentication", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the actor
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier for the actor
         """
         return pulumi.get(self, "identifier")
 
     @identifier.setter
-    def identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "identifier", value)
 
     @_builtins.property
     @pulumi.getter
-    def uris(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def uris(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of URIs this actor is authorized to access
         """
         return pulumi.get(self, "uris")
 
     @uris.setter
-    def uris(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def uris(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "uris", value)
 
 
@@ -644,23 +644,23 @@ class PentestAssetsArgsDict(TypedDict):
     """
     Collection of assets to be tested during the pentest
     """
-    actors: NotRequired[pulumi.Input[Sequence[pulumi.Input['PentestActorArgsDict']]]]
+    actors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PentestActorArgs']]]]]
     """
     List of actors used during testing
     """
-    documents: NotRequired[pulumi.Input[Sequence[pulumi.Input['PentestDocumentInfoArgsDict']]]]
+    documents: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PentestDocumentInfoArgs']]]]]
     """
     List of documents providing additional context for the pentest
     """
-    endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['PentestEndpointArgsDict']]]]
+    endpoints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PentestEndpointArgs']]]]]
     """
     List of endpoints to test
     """
-    integrated_repositories: NotRequired[pulumi.Input[Sequence[pulumi.Input['PentestIntegratedRepositoryArgsDict']]]]
+    integrated_repositories: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PentestIntegratedRepositoryArgs']]]]]
     """
     List of repositories connected via provider integrations
     """
-    source_code: NotRequired[pulumi.Input[Sequence[pulumi.Input['PentestSourceCodeRepositoryArgsDict']]]]
+    source_code: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PentestSourceCodeRepositoryArgs']]]]]
     """
     List of source code repositories to analyze
     """
@@ -668,11 +668,11 @@ class PentestAssetsArgsDict(TypedDict):
 @pulumi.input_type
 class PentestAssetsArgs:
     def __init__(__self__, *,
-                 actors: Optional[pulumi.Input[Sequence[pulumi.Input['PentestActorArgs']]]] = None,
-                 documents: Optional[pulumi.Input[Sequence[pulumi.Input['PentestDocumentInfoArgs']]]] = None,
-                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['PentestEndpointArgs']]]] = None,
-                 integrated_repositories: Optional[pulumi.Input[Sequence[pulumi.Input['PentestIntegratedRepositoryArgs']]]] = None,
-                 source_code: Optional[pulumi.Input[Sequence[pulumi.Input['PentestSourceCodeRepositoryArgs']]]] = None):
+                 actors: pulumi.Input[Optional[Sequence[pulumi.Input['PentestActorArgs']]]] = None,
+                 documents: pulumi.Input[Optional[Sequence[pulumi.Input['PentestDocumentInfoArgs']]]] = None,
+                 endpoints: pulumi.Input[Optional[Sequence[pulumi.Input['PentestEndpointArgs']]]] = None,
+                 integrated_repositories: pulumi.Input[Optional[Sequence[pulumi.Input['PentestIntegratedRepositoryArgs']]]] = None,
+                 source_code: pulumi.Input[Optional[Sequence[pulumi.Input['PentestSourceCodeRepositoryArgs']]]] = None):
         """
         Collection of assets to be tested during the pentest
 
@@ -695,62 +695,62 @@ class PentestAssetsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def actors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PentestActorArgs']]]]:
+    def actors(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PentestActorArgs']]]]:
         """
         List of actors used during testing
         """
         return pulumi.get(self, "actors")
 
     @actors.setter
-    def actors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PentestActorArgs']]]]):
+    def actors(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PentestActorArgs']]]]):
         pulumi.set(self, "actors", value)
 
     @_builtins.property
     @pulumi.getter
-    def documents(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PentestDocumentInfoArgs']]]]:
+    def documents(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PentestDocumentInfoArgs']]]]:
         """
         List of documents providing additional context for the pentest
         """
         return pulumi.get(self, "documents")
 
     @documents.setter
-    def documents(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PentestDocumentInfoArgs']]]]):
+    def documents(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PentestDocumentInfoArgs']]]]):
         pulumi.set(self, "documents", value)
 
     @_builtins.property
     @pulumi.getter
-    def endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PentestEndpointArgs']]]]:
+    def endpoints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PentestEndpointArgs']]]]:
         """
         List of endpoints to test
         """
         return pulumi.get(self, "endpoints")
 
     @endpoints.setter
-    def endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PentestEndpointArgs']]]]):
+    def endpoints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PentestEndpointArgs']]]]):
         pulumi.set(self, "endpoints", value)
 
     @_builtins.property
     @pulumi.getter(name="integratedRepositories")
-    def integrated_repositories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PentestIntegratedRepositoryArgs']]]]:
+    def integrated_repositories(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PentestIntegratedRepositoryArgs']]]]:
         """
         List of repositories connected via provider integrations
         """
         return pulumi.get(self, "integrated_repositories")
 
     @integrated_repositories.setter
-    def integrated_repositories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PentestIntegratedRepositoryArgs']]]]):
+    def integrated_repositories(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PentestIntegratedRepositoryArgs']]]]):
         pulumi.set(self, "integrated_repositories", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceCode")
-    def source_code(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PentestSourceCodeRepositoryArgs']]]]:
+    def source_code(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PentestSourceCodeRepositoryArgs']]]]:
         """
         List of source code repositories to analyze
         """
         return pulumi.get(self, "source_code")
 
     @source_code.setter
-    def source_code(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PentestSourceCodeRepositoryArgs']]]]):
+    def source_code(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PentestSourceCodeRepositoryArgs']]]]):
         pulumi.set(self, "source_code", value)
 
 
@@ -758,11 +758,11 @@ class PentestAuthenticationArgsDict(TypedDict):
     """
     Authentication configuration for a pentest actor
     """
-    provider_type: NotRequired[pulumi.Input['PentestAuthenticationProviderType']]
+    provider_type: NotRequired[pulumi.Input[Optional['PentestAuthenticationProviderType']]]
     """
     Type of authentication provider
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Reference value for the authentication provider, such as a secret ARN or Lambda ARN
     """
@@ -770,8 +770,8 @@ class PentestAuthenticationArgsDict(TypedDict):
 @pulumi.input_type
 class PentestAuthenticationArgs:
     def __init__(__self__, *,
-                 provider_type: Optional[pulumi.Input['PentestAuthenticationProviderType']] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 provider_type: pulumi.Input[Optional['PentestAuthenticationProviderType']] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Authentication configuration for a pentest actor
 
@@ -785,26 +785,26 @@ class PentestAuthenticationArgs:
 
     @_builtins.property
     @pulumi.getter(name="providerType")
-    def provider_type(self) -> Optional[pulumi.Input['PentestAuthenticationProviderType']]:
+    def provider_type(self) -> pulumi.Input[Optional['PentestAuthenticationProviderType']]:
         """
         Type of authentication provider
         """
         return pulumi.get(self, "provider_type")
 
     @provider_type.setter
-    def provider_type(self, value: Optional[pulumi.Input['PentestAuthenticationProviderType']]):
+    def provider_type(self, value: pulumi.Input[Optional['PentestAuthenticationProviderType']]):
         pulumi.set(self, "provider_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Reference value for the authentication provider, such as a secret ARN or Lambda ARN
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
@@ -812,11 +812,11 @@ class PentestCloudWatchLogArgsDict(TypedDict):
     """
     CloudWatch Logs configuration for pentest output
     """
-    log_group: NotRequired[pulumi.Input[_builtins.str]]
+    log_group: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     CloudWatch log group
     """
-    log_stream: NotRequired[pulumi.Input[_builtins.str]]
+    log_stream: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     CloudWatch log stream
     """
@@ -824,8 +824,8 @@ class PentestCloudWatchLogArgsDict(TypedDict):
 @pulumi.input_type
 class PentestCloudWatchLogArgs:
     def __init__(__self__, *,
-                 log_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_stream: Optional[pulumi.Input[_builtins.str]] = None):
+                 log_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_stream: pulumi.Input[Optional[_builtins.str]] = None):
         """
         CloudWatch Logs configuration for pentest output
 
@@ -839,26 +839,26 @@ class PentestCloudWatchLogArgs:
 
     @_builtins.property
     @pulumi.getter(name="logGroup")
-    def log_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         CloudWatch log group
         """
         return pulumi.get(self, "log_group")
 
     @log_group.setter
-    def log_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_group", value)
 
     @_builtins.property
     @pulumi.getter(name="logStream")
-    def log_stream(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_stream(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         CloudWatch log stream
         """
         return pulumi.get(self, "log_stream")
 
     @log_stream.setter
-    def log_stream(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_stream(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_stream", value)
 
 
@@ -866,11 +866,11 @@ class PentestCustomHeaderArgsDict(TypedDict):
     """
     A custom header to include in outbound requests
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the header
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Value of the header
     """
@@ -878,8 +878,8 @@ class PentestCustomHeaderArgsDict(TypedDict):
 @pulumi.input_type
 class PentestCustomHeaderArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         A custom header to include in outbound requests
 
@@ -893,26 +893,26 @@ class PentestCustomHeaderArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the header
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Value of the header
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
@@ -920,11 +920,11 @@ class PentestDocumentInfoArgsDict(TypedDict):
     """
     A document stored in S3 that provides context for the pentest
     """
-    artifact_id: NotRequired[pulumi.Input[_builtins.str]]
+    artifact_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Artifact identifier
     """
-    s3_location: NotRequired[pulumi.Input[_builtins.str]]
+    s3_location: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     S3 document location
     """
@@ -932,8 +932,8 @@ class PentestDocumentInfoArgsDict(TypedDict):
 @pulumi.input_type
 class PentestDocumentInfoArgs:
     def __init__(__self__, *,
-                 artifact_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_location: Optional[pulumi.Input[_builtins.str]] = None):
+                 artifact_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_location: pulumi.Input[Optional[_builtins.str]] = None):
         """
         A document stored in S3 that provides context for the pentest
 
@@ -947,26 +947,26 @@ class PentestDocumentInfoArgs:
 
     @_builtins.property
     @pulumi.getter(name="artifactId")
-    def artifact_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def artifact_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Artifact identifier
         """
         return pulumi.get(self, "artifact_id")
 
     @artifact_id.setter
-    def artifact_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def artifact_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "artifact_id", value)
 
     @_builtins.property
     @pulumi.getter(name="s3Location")
-    def s3_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def s3_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         S3 document location
         """
         return pulumi.get(self, "s3_location")
 
     @s3_location.setter
-    def s3_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def s3_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "s3_location", value)
 
 
@@ -974,7 +974,7 @@ class PentestEndpointArgsDict(TypedDict):
     """
     An endpoint to be tested during the pentest
     """
-    uri: NotRequired[pulumi.Input[_builtins.str]]
+    uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     URI of the endpoint to test
     """
@@ -982,7 +982,7 @@ class PentestEndpointArgsDict(TypedDict):
 @pulumi.input_type
 class PentestEndpointArgs:
     def __init__(__self__, *,
-                 uri: Optional[pulumi.Input[_builtins.str]] = None):
+                 uri: pulumi.Input[Optional[_builtins.str]] = None):
         """
         An endpoint to be tested during the pentest
 
@@ -993,14 +993,14 @@ class PentestEndpointArgs:
 
     @_builtins.property
     @pulumi.getter
-    def uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URI of the endpoint to test
         """
         return pulumi.get(self, "uri")
 
     @uri.setter
-    def uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "uri", value)
 
 
@@ -1060,11 +1060,11 @@ class PentestNetworkTrafficConfigArgsDict(TypedDict):
     """
     Network traffic configuration for the pentest
     """
-    custom_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['PentestCustomHeaderArgsDict']]]]
+    custom_headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PentestCustomHeaderArgs']]]]]
     """
     Custom headers to include in outbound requests
     """
-    rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['PentestNetworkTrafficRuleArgsDict']]]]
+    rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PentestNetworkTrafficRuleArgs']]]]]
     """
     Ordered list of network traffic rules
     """
@@ -1072,8 +1072,8 @@ class PentestNetworkTrafficConfigArgsDict(TypedDict):
 @pulumi.input_type
 class PentestNetworkTrafficConfigArgs:
     def __init__(__self__, *,
-                 custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input['PentestCustomHeaderArgs']]]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['PentestNetworkTrafficRuleArgs']]]] = None):
+                 custom_headers: pulumi.Input[Optional[Sequence[pulumi.Input['PentestCustomHeaderArgs']]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input['PentestNetworkTrafficRuleArgs']]]] = None):
         """
         Network traffic configuration for the pentest
 
@@ -1087,26 +1087,26 @@ class PentestNetworkTrafficConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="customHeaders")
-    def custom_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PentestCustomHeaderArgs']]]]:
+    def custom_headers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PentestCustomHeaderArgs']]]]:
         """
         Custom headers to include in outbound requests
         """
         return pulumi.get(self, "custom_headers")
 
     @custom_headers.setter
-    def custom_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PentestCustomHeaderArgs']]]]):
+    def custom_headers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PentestCustomHeaderArgs']]]]):
         pulumi.set(self, "custom_headers", value)
 
     @_builtins.property
     @pulumi.getter
-    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PentestNetworkTrafficRuleArgs']]]]:
+    def rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PentestNetworkTrafficRuleArgs']]]]:
         """
         Ordered list of network traffic rules
         """
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PentestNetworkTrafficRuleArgs']]]]):
+    def rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PentestNetworkTrafficRuleArgs']]]]):
         pulumi.set(self, "rules", value)
 
 
@@ -1114,15 +1114,15 @@ class PentestNetworkTrafficRuleArgsDict(TypedDict):
     """
     Network traffic rule
     """
-    effect: NotRequired[pulumi.Input['PentestNetworkTrafficRuleEffect']]
+    effect: NotRequired[pulumi.Input[Optional['PentestNetworkTrafficRuleEffect']]]
     """
     Whether to allow or deny traffic matching this rule
     """
-    network_traffic_rule_type: NotRequired[pulumi.Input['PentestNetworkTrafficRuleNetworkTrafficRuleType']]
+    network_traffic_rule_type: NotRequired[pulumi.Input[Optional['PentestNetworkTrafficRuleNetworkTrafficRuleType']]]
     """
     Type of pattern matching for this rule
     """
-    pattern: NotRequired[pulumi.Input[_builtins.str]]
+    pattern: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     URL pattern this rule applies to
     """
@@ -1130,9 +1130,9 @@ class PentestNetworkTrafficRuleArgsDict(TypedDict):
 @pulumi.input_type
 class PentestNetworkTrafficRuleArgs:
     def __init__(__self__, *,
-                 effect: Optional[pulumi.Input['PentestNetworkTrafficRuleEffect']] = None,
-                 network_traffic_rule_type: Optional[pulumi.Input['PentestNetworkTrafficRuleNetworkTrafficRuleType']] = None,
-                 pattern: Optional[pulumi.Input[_builtins.str]] = None):
+                 effect: pulumi.Input[Optional['PentestNetworkTrafficRuleEffect']] = None,
+                 network_traffic_rule_type: pulumi.Input[Optional['PentestNetworkTrafficRuleNetworkTrafficRuleType']] = None,
+                 pattern: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Network traffic rule
 
@@ -1149,38 +1149,38 @@ class PentestNetworkTrafficRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def effect(self) -> Optional[pulumi.Input['PentestNetworkTrafficRuleEffect']]:
+    def effect(self) -> pulumi.Input[Optional['PentestNetworkTrafficRuleEffect']]:
         """
         Whether to allow or deny traffic matching this rule
         """
         return pulumi.get(self, "effect")
 
     @effect.setter
-    def effect(self, value: Optional[pulumi.Input['PentestNetworkTrafficRuleEffect']]):
+    def effect(self, value: pulumi.Input[Optional['PentestNetworkTrafficRuleEffect']]):
         pulumi.set(self, "effect", value)
 
     @_builtins.property
     @pulumi.getter(name="networkTrafficRuleType")
-    def network_traffic_rule_type(self) -> Optional[pulumi.Input['PentestNetworkTrafficRuleNetworkTrafficRuleType']]:
+    def network_traffic_rule_type(self) -> pulumi.Input[Optional['PentestNetworkTrafficRuleNetworkTrafficRuleType']]:
         """
         Type of pattern matching for this rule
         """
         return pulumi.get(self, "network_traffic_rule_type")
 
     @network_traffic_rule_type.setter
-    def network_traffic_rule_type(self, value: Optional[pulumi.Input['PentestNetworkTrafficRuleNetworkTrafficRuleType']]):
+    def network_traffic_rule_type(self, value: pulumi.Input[Optional['PentestNetworkTrafficRuleNetworkTrafficRuleType']]):
         pulumi.set(self, "network_traffic_rule_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URL pattern this rule applies to
         """
         return pulumi.get(self, "pattern")
 
     @pattern.setter
-    def pattern(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pattern(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pattern", value)
 
 
@@ -1188,7 +1188,7 @@ class PentestSourceCodeRepositoryArgsDict(TypedDict):
     """
     A source code archive stored in S3 for analysis during the pentest
     """
-    s3_location: NotRequired[pulumi.Input[_builtins.str]]
+    s3_location: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     S3 source code location
     """
@@ -1196,7 +1196,7 @@ class PentestSourceCodeRepositoryArgsDict(TypedDict):
 @pulumi.input_type
 class PentestSourceCodeRepositoryArgs:
     def __init__(__self__, *,
-                 s3_location: Optional[pulumi.Input[_builtins.str]] = None):
+                 s3_location: pulumi.Input[Optional[_builtins.str]] = None):
         """
         A source code archive stored in S3 for analysis during the pentest
 
@@ -1207,14 +1207,14 @@ class PentestSourceCodeRepositoryArgs:
 
     @_builtins.property
     @pulumi.getter(name="s3Location")
-    def s3_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def s3_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         S3 source code location
         """
         return pulumi.get(self, "s3_location")
 
     @s3_location.setter
-    def s3_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def s3_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "s3_location", value)
 
 
@@ -1222,22 +1222,22 @@ class PentestVpcConfigArgsDict(TypedDict):
     """
     VPC configuration that the pentest agent accesses
     """
-    security_group_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    security_group_arns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of security groups in the VPC
     """
-    subnet_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    subnet_arns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of subnets in the VPC
     """
-    vpc_arn: NotRequired[pulumi.Input[_builtins.str]]
+    vpc_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class PentestVpcConfigArgs:
     def __init__(__self__, *,
-                 security_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subnet_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 vpc_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 security_group_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subnet_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 vpc_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         VPC configuration that the pentest agent accesses
 
@@ -1253,35 +1253,35 @@ class PentestVpcConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="securityGroupArns")
-    def security_group_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def security_group_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of security groups in the VPC
         """
         return pulumi.get(self, "security_group_arns")
 
     @security_group_arns.setter
-    def security_group_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def security_group_arns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "security_group_arns", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetArns")
-    def subnet_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def subnet_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of subnets in the VPC
         """
         return pulumi.get(self, "subnet_arns")
 
     @subnet_arns.setter
-    def subnet_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def subnet_arns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "subnet_arns", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcArn")
-    def vpc_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vpc_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "vpc_arn")
 
     @vpc_arn.setter
-    def vpc_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vpc_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpc_arn", value)
 
 

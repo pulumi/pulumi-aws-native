@@ -25,17 +25,17 @@ class ClusterArgs:
                  broker_node_group_info: pulumi.Input['ClusterBrokerNodeGroupInfoArgs'],
                  kafka_version: pulumi.Input[_builtins.str],
                  number_of_broker_nodes: pulumi.Input[_builtins.int],
-                 client_authentication: Optional[pulumi.Input['ClusterClientAuthenticationArgs']] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 configuration_info: Optional[pulumi.Input['ClusterConfigurationInfoArgs']] = None,
-                 encryption_info: Optional[pulumi.Input['ClusterEncryptionInfoArgs']] = None,
-                 enhanced_monitoring: Optional[pulumi.Input['ClusterEnhancedMonitoring']] = None,
-                 logging_info: Optional[pulumi.Input['ClusterLoggingInfoArgs']] = None,
-                 open_monitoring: Optional[pulumi.Input['ClusterOpenMonitoringArgs']] = None,
-                 rebalancing: Optional[pulumi.Input['ClusterRebalancingArgs']] = None,
-                 storage_mode: Optional[pulumi.Input['ClusterStorageMode']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zookeeper_access: Optional[pulumi.Input['ClusterZookeeperAccessArgs']] = None):
+                 client_authentication: pulumi.Input[Optional['ClusterClientAuthenticationArgs']] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration_info: pulumi.Input[Optional['ClusterConfigurationInfoArgs']] = None,
+                 encryption_info: pulumi.Input[Optional['ClusterEncryptionInfoArgs']] = None,
+                 enhanced_monitoring: pulumi.Input[Optional['ClusterEnhancedMonitoring']] = None,
+                 logging_info: pulumi.Input[Optional['ClusterLoggingInfoArgs']] = None,
+                 open_monitoring: pulumi.Input[Optional['ClusterOpenMonitoringArgs']] = None,
+                 rebalancing: pulumi.Input[Optional['ClusterRebalancingArgs']] = None,
+                 storage_mode: pulumi.Input[Optional['ClusterStorageMode']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zookeeper_access: pulumi.Input[Optional['ClusterZookeeperAccessArgs']] = None):
         """
         The set of arguments for constructing a Cluster resource.
 
@@ -116,128 +116,128 @@ class ClusterArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientAuthentication")
-    def client_authentication(self) -> Optional[pulumi.Input['ClusterClientAuthenticationArgs']]:
+    def client_authentication(self) -> pulumi.Input[Optional['ClusterClientAuthenticationArgs']]:
         """
         Includes all client authentication related information.
         """
         return pulumi.get(self, "client_authentication")
 
     @client_authentication.setter
-    def client_authentication(self, value: Optional[pulumi.Input['ClusterClientAuthenticationArgs']]):
+    def client_authentication(self, value: pulumi.Input[Optional['ClusterClientAuthenticationArgs']]):
         pulumi.set(self, "client_authentication", value)
 
     @_builtins.property
     @pulumi.getter(name="clusterName")
-    def cluster_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cluster_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the cluster.
         """
         return pulumi.get(self, "cluster_name")
 
     @cluster_name.setter
-    def cluster_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cluster_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cluster_name", value)
 
     @_builtins.property
     @pulumi.getter(name="configurationInfo")
-    def configuration_info(self) -> Optional[pulumi.Input['ClusterConfigurationInfoArgs']]:
+    def configuration_info(self) -> pulumi.Input[Optional['ClusterConfigurationInfoArgs']]:
         """
         Represents the configuration that you want MSK to use for the cluster.
         """
         return pulumi.get(self, "configuration_info")
 
     @configuration_info.setter
-    def configuration_info(self, value: Optional[pulumi.Input['ClusterConfigurationInfoArgs']]):
+    def configuration_info(self, value: pulumi.Input[Optional['ClusterConfigurationInfoArgs']]):
         pulumi.set(self, "configuration_info", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionInfo")
-    def encryption_info(self) -> Optional[pulumi.Input['ClusterEncryptionInfoArgs']]:
+    def encryption_info(self) -> pulumi.Input[Optional['ClusterEncryptionInfoArgs']]:
         """
         Includes all encryption-related information.
         """
         return pulumi.get(self, "encryption_info")
 
     @encryption_info.setter
-    def encryption_info(self, value: Optional[pulumi.Input['ClusterEncryptionInfoArgs']]):
+    def encryption_info(self, value: pulumi.Input[Optional['ClusterEncryptionInfoArgs']]):
         pulumi.set(self, "encryption_info", value)
 
     @_builtins.property
     @pulumi.getter(name="enhancedMonitoring")
-    def enhanced_monitoring(self) -> Optional[pulumi.Input['ClusterEnhancedMonitoring']]:
+    def enhanced_monitoring(self) -> pulumi.Input[Optional['ClusterEnhancedMonitoring']]:
         """
         Specifies the level of monitoring for the MSK cluster.
         """
         return pulumi.get(self, "enhanced_monitoring")
 
     @enhanced_monitoring.setter
-    def enhanced_monitoring(self, value: Optional[pulumi.Input['ClusterEnhancedMonitoring']]):
+    def enhanced_monitoring(self, value: pulumi.Input[Optional['ClusterEnhancedMonitoring']]):
         pulumi.set(self, "enhanced_monitoring", value)
 
     @_builtins.property
     @pulumi.getter(name="loggingInfo")
-    def logging_info(self) -> Optional[pulumi.Input['ClusterLoggingInfoArgs']]:
+    def logging_info(self) -> pulumi.Input[Optional['ClusterLoggingInfoArgs']]:
         """
         Logging info details for the cluster.
         """
         return pulumi.get(self, "logging_info")
 
     @logging_info.setter
-    def logging_info(self, value: Optional[pulumi.Input['ClusterLoggingInfoArgs']]):
+    def logging_info(self, value: pulumi.Input[Optional['ClusterLoggingInfoArgs']]):
         pulumi.set(self, "logging_info", value)
 
     @_builtins.property
     @pulumi.getter(name="openMonitoring")
-    def open_monitoring(self) -> Optional[pulumi.Input['ClusterOpenMonitoringArgs']]:
+    def open_monitoring(self) -> pulumi.Input[Optional['ClusterOpenMonitoringArgs']]:
         """
         The settings for open monitoring.
         """
         return pulumi.get(self, "open_monitoring")
 
     @open_monitoring.setter
-    def open_monitoring(self, value: Optional[pulumi.Input['ClusterOpenMonitoringArgs']]):
+    def open_monitoring(self, value: pulumi.Input[Optional['ClusterOpenMonitoringArgs']]):
         pulumi.set(self, "open_monitoring", value)
 
     @_builtins.property
     @pulumi.getter
-    def rebalancing(self) -> Optional[pulumi.Input['ClusterRebalancingArgs']]:
+    def rebalancing(self) -> pulumi.Input[Optional['ClusterRebalancingArgs']]:
         return pulumi.get(self, "rebalancing")
 
     @rebalancing.setter
-    def rebalancing(self, value: Optional[pulumi.Input['ClusterRebalancingArgs']]):
+    def rebalancing(self, value: pulumi.Input[Optional['ClusterRebalancingArgs']]):
         pulumi.set(self, "rebalancing", value)
 
     @_builtins.property
     @pulumi.getter(name="storageMode")
-    def storage_mode(self) -> Optional[pulumi.Input['ClusterStorageMode']]:
+    def storage_mode(self) -> pulumi.Input[Optional['ClusterStorageMode']]:
         """
         This controls storage mode for supported storage tiers.
         """
         return pulumi.get(self, "storage_mode")
 
     @storage_mode.setter
-    def storage_mode(self, value: Optional[pulumi.Input['ClusterStorageMode']]):
+    def storage_mode(self, value: pulumi.Input[Optional['ClusterStorageMode']]):
         pulumi.set(self, "storage_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A key-value pair to associate with a resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="zookeeperAccess")
-    def zookeeper_access(self) -> Optional[pulumi.Input['ClusterZookeeperAccessArgs']]:
+    def zookeeper_access(self) -> pulumi.Input[Optional['ClusterZookeeperAccessArgs']]:
         return pulumi.get(self, "zookeeper_access")
 
     @zookeeper_access.setter
-    def zookeeper_access(self, value: Optional[pulumi.Input['ClusterZookeeperAccessArgs']]):
+    def zookeeper_access(self, value: pulumi.Input[Optional['ClusterZookeeperAccessArgs']]):
         pulumi.set(self, "zookeeper_access", value)
 
 
@@ -247,20 +247,20 @@ class Cluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 broker_node_group_info: Optional[pulumi.Input[Union['ClusterBrokerNodeGroupInfoArgs', 'ClusterBrokerNodeGroupInfoArgsDict']]] = None,
-                 client_authentication: Optional[pulumi.Input[Union['ClusterClientAuthenticationArgs', 'ClusterClientAuthenticationArgsDict']]] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 configuration_info: Optional[pulumi.Input[Union['ClusterConfigurationInfoArgs', 'ClusterConfigurationInfoArgsDict']]] = None,
-                 encryption_info: Optional[pulumi.Input[Union['ClusterEncryptionInfoArgs', 'ClusterEncryptionInfoArgsDict']]] = None,
-                 enhanced_monitoring: Optional[pulumi.Input['ClusterEnhancedMonitoring']] = None,
-                 kafka_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 logging_info: Optional[pulumi.Input[Union['ClusterLoggingInfoArgs', 'ClusterLoggingInfoArgsDict']]] = None,
-                 number_of_broker_nodes: Optional[pulumi.Input[_builtins.int]] = None,
-                 open_monitoring: Optional[pulumi.Input[Union['ClusterOpenMonitoringArgs', 'ClusterOpenMonitoringArgsDict']]] = None,
-                 rebalancing: Optional[pulumi.Input[Union['ClusterRebalancingArgs', 'ClusterRebalancingArgsDict']]] = None,
-                 storage_mode: Optional[pulumi.Input['ClusterStorageMode']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zookeeper_access: Optional[pulumi.Input[Union['ClusterZookeeperAccessArgs', 'ClusterZookeeperAccessArgsDict']]] = None,
+                 broker_node_group_info: pulumi.Input[Optional[Union['ClusterBrokerNodeGroupInfoArgs', 'ClusterBrokerNodeGroupInfoArgsDict']]] = None,
+                 client_authentication: pulumi.Input[Optional[Union['ClusterClientAuthenticationArgs', 'ClusterClientAuthenticationArgsDict']]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration_info: pulumi.Input[Optional[Union['ClusterConfigurationInfoArgs', 'ClusterConfigurationInfoArgsDict']]] = None,
+                 encryption_info: pulumi.Input[Optional[Union['ClusterEncryptionInfoArgs', 'ClusterEncryptionInfoArgsDict']]] = None,
+                 enhanced_monitoring: pulumi.Input[Optional['ClusterEnhancedMonitoring']] = None,
+                 kafka_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 logging_info: pulumi.Input[Optional[Union['ClusterLoggingInfoArgs', 'ClusterLoggingInfoArgsDict']]] = None,
+                 number_of_broker_nodes: pulumi.Input[Optional[_builtins.int]] = None,
+                 open_monitoring: pulumi.Input[Optional[Union['ClusterOpenMonitoringArgs', 'ClusterOpenMonitoringArgsDict']]] = None,
+                 rebalancing: pulumi.Input[Optional[Union['ClusterRebalancingArgs', 'ClusterRebalancingArgsDict']]] = None,
+                 storage_mode: pulumi.Input[Optional['ClusterStorageMode']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zookeeper_access: pulumi.Input[Optional[Union['ClusterZookeeperAccessArgs', 'ClusterZookeeperAccessArgsDict']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::MSK::Cluster
@@ -306,20 +306,20 @@ class Cluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 broker_node_group_info: Optional[pulumi.Input[Union['ClusterBrokerNodeGroupInfoArgs', 'ClusterBrokerNodeGroupInfoArgsDict']]] = None,
-                 client_authentication: Optional[pulumi.Input[Union['ClusterClientAuthenticationArgs', 'ClusterClientAuthenticationArgsDict']]] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 configuration_info: Optional[pulumi.Input[Union['ClusterConfigurationInfoArgs', 'ClusterConfigurationInfoArgsDict']]] = None,
-                 encryption_info: Optional[pulumi.Input[Union['ClusterEncryptionInfoArgs', 'ClusterEncryptionInfoArgsDict']]] = None,
-                 enhanced_monitoring: Optional[pulumi.Input['ClusterEnhancedMonitoring']] = None,
-                 kafka_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 logging_info: Optional[pulumi.Input[Union['ClusterLoggingInfoArgs', 'ClusterLoggingInfoArgsDict']]] = None,
-                 number_of_broker_nodes: Optional[pulumi.Input[_builtins.int]] = None,
-                 open_monitoring: Optional[pulumi.Input[Union['ClusterOpenMonitoringArgs', 'ClusterOpenMonitoringArgsDict']]] = None,
-                 rebalancing: Optional[pulumi.Input[Union['ClusterRebalancingArgs', 'ClusterRebalancingArgsDict']]] = None,
-                 storage_mode: Optional[pulumi.Input['ClusterStorageMode']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zookeeper_access: Optional[pulumi.Input[Union['ClusterZookeeperAccessArgs', 'ClusterZookeeperAccessArgsDict']]] = None,
+                 broker_node_group_info: pulumi.Input[Optional[Union['ClusterBrokerNodeGroupInfoArgs', 'ClusterBrokerNodeGroupInfoArgsDict']]] = None,
+                 client_authentication: pulumi.Input[Optional[Union['ClusterClientAuthenticationArgs', 'ClusterClientAuthenticationArgsDict']]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration_info: pulumi.Input[Optional[Union['ClusterConfigurationInfoArgs', 'ClusterConfigurationInfoArgsDict']]] = None,
+                 encryption_info: pulumi.Input[Optional[Union['ClusterEncryptionInfoArgs', 'ClusterEncryptionInfoArgsDict']]] = None,
+                 enhanced_monitoring: pulumi.Input[Optional['ClusterEnhancedMonitoring']] = None,
+                 kafka_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 logging_info: pulumi.Input[Optional[Union['ClusterLoggingInfoArgs', 'ClusterLoggingInfoArgsDict']]] = None,
+                 number_of_broker_nodes: pulumi.Input[Optional[_builtins.int]] = None,
+                 open_monitoring: pulumi.Input[Optional[Union['ClusterOpenMonitoringArgs', 'ClusterOpenMonitoringArgsDict']]] = None,
+                 rebalancing: pulumi.Input[Optional[Union['ClusterRebalancingArgs', 'ClusterRebalancingArgsDict']]] = None,
+                 storage_mode: pulumi.Input[Optional['ClusterStorageMode']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zookeeper_access: pulumi.Input[Optional[Union['ClusterZookeeperAccessArgs', 'ClusterZookeeperAccessArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -268,9 +268,9 @@ def get_data_source(application_id: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         updated_at=pulumi.get(__ret__, 'updated_at'),
         vpc_configuration=pulumi.get(__ret__, 'vpc_configuration'))
-def get_data_source_output(application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                           data_source_id: Optional[pulumi.Input[_builtins.str]] = None,
-                           index_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_data_source_output(application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                           data_source_id: pulumi.Input[Optional[_builtins.str]] = None,
+                           index_id: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataSourceResult]:
     """
     Definition of AWS::QBusiness::DataSource Resource Type

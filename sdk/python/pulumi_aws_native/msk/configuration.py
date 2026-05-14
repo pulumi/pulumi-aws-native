@@ -22,10 +22,10 @@ __all__ = ['ConfigurationArgs', 'Configuration']
 class ConfigurationArgs:
     def __init__(__self__, *,
                  server_properties: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 kafka_versions_list: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 latest_revision: Optional[pulumi.Input['ConfigurationLatestRevisionArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 kafka_versions_list: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 latest_revision: pulumi.Input[Optional['ConfigurationLatestRevisionArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Configuration resource.
 
@@ -65,19 +65,19 @@ class ConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the configuration.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="kafkaVersionsList")
-    def kafka_versions_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def kafka_versions_list(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The [versions of Apache Kafka](https://docs.aws.amazon.com/msk/latest/developerguide/supported-kafka-versions.html) with which you can use this MSK configuration.
 
@@ -90,31 +90,31 @@ class ConfigurationArgs:
         return pulumi.get(self, "kafka_versions_list")
 
     @kafka_versions_list.setter
-    def kafka_versions_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def kafka_versions_list(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "kafka_versions_list", value)
 
     @_builtins.property
     @pulumi.getter(name="latestRevision")
-    def latest_revision(self) -> Optional[pulumi.Input['ConfigurationLatestRevisionArgs']]:
+    def latest_revision(self) -> pulumi.Input[Optional['ConfigurationLatestRevisionArgs']]:
         """
         Latest revision of the MSK configuration.
         """
         return pulumi.get(self, "latest_revision")
 
     @latest_revision.setter
-    def latest_revision(self, value: Optional[pulumi.Input['ConfigurationLatestRevisionArgs']]):
+    def latest_revision(self, value: pulumi.Input[Optional['ConfigurationLatestRevisionArgs']]):
         pulumi.set(self, "latest_revision", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the configuration. Configuration names are strings that match the regex "^[0-9A-Za-z][0-9A-Za-z-]{0,}$".
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -124,11 +124,11 @@ class Configuration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 kafka_versions_list: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 latest_revision: Optional[pulumi.Input[Union['ConfigurationLatestRevisionArgs', 'ConfigurationLatestRevisionArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_properties: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 kafka_versions_list: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 latest_revision: pulumi.Input[Optional[Union['ConfigurationLatestRevisionArgs', 'ConfigurationLatestRevisionArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_properties: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::MSK::Configuration
@@ -173,11 +173,11 @@ class Configuration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 kafka_versions_list: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 latest_revision: Optional[pulumi.Input[Union['ConfigurationLatestRevisionArgs', 'ConfigurationLatestRevisionArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_properties: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 kafka_versions_list: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 latest_revision: pulumi.Input[Optional[Union['ConfigurationLatestRevisionArgs', 'ConfigurationLatestRevisionArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_properties: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

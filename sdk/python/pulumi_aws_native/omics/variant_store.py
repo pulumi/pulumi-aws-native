@@ -23,10 +23,10 @@ __all__ = ['VariantStoreArgs', 'VariantStore']
 class VariantStoreArgs:
     def __init__(__self__, *,
                  reference: pulumi.Input['VariantStoreReferenceItemArgs'],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sse_config: Optional[pulumi.Input['VariantStoreSseConfigArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sse_config: pulumi.Input[Optional['VariantStoreSseConfigArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a VariantStore resource.
 
@@ -60,50 +60,50 @@ class VariantStoreArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description for the store.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A name for the store.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="sseConfig")
-    def sse_config(self) -> Optional[pulumi.Input['VariantStoreSseConfigArgs']]:
+    def sse_config(self) -> pulumi.Input[Optional['VariantStoreSseConfigArgs']]:
         """
         Server-side encryption (SSE) settings for the store.
         """
         return pulumi.get(self, "sse_config")
 
     @sse_config.setter
-    def sse_config(self, value: Optional[pulumi.Input['VariantStoreSseConfigArgs']]):
+    def sse_config(self, value: pulumi.Input[Optional['VariantStoreSseConfigArgs']]):
         pulumi.set(self, "sse_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Tags for the store.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -113,11 +113,11 @@ class VariantStore(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 reference: Optional[pulumi.Input[Union['VariantStoreReferenceItemArgs', 'VariantStoreReferenceItemArgsDict']]] = None,
-                 sse_config: Optional[pulumi.Input[Union['VariantStoreSseConfigArgs', 'VariantStoreSseConfigArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[Union['VariantStoreReferenceItemArgs', 'VariantStoreReferenceItemArgsDict']]] = None,
+                 sse_config: pulumi.Input[Optional[Union['VariantStoreSseConfigArgs', 'VariantStoreSseConfigArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Definition of AWS::Omics::VariantStore Resource Type
@@ -156,11 +156,11 @@ class VariantStore(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 reference: Optional[pulumi.Input[Union['VariantStoreReferenceItemArgs', 'VariantStoreReferenceItemArgsDict']]] = None,
-                 sse_config: Optional[pulumi.Input[Union['VariantStoreSseConfigArgs', 'VariantStoreSseConfigArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[Union['VariantStoreReferenceItemArgs', 'VariantStoreReferenceItemArgsDict']]] = None,
+                 sse_config: pulumi.Input[Optional[Union['VariantStoreSseConfigArgs', 'VariantStoreSseConfigArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

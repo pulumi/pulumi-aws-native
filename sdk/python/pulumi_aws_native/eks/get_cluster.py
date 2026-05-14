@@ -313,7 +313,7 @@ def get_cluster(name: Optional[_builtins.str] = None,
         upgrade_policy=pulumi.get(__ret__, 'upgrade_policy'),
         version=pulumi.get(__ret__, 'version'),
         zonal_shift_config=pulumi.get(__ret__, 'zonal_shift_config'))
-def get_cluster_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_cluster_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterResult]:
     """
     An object representing an Amazon EKS cluster.

@@ -19,8 +19,8 @@ __all__ = ['ServicePrincipalNameArgs', 'ServicePrincipalName']
 @pulumi.input_type
 class ServicePrincipalNameArgs:
     def __init__(__self__, *,
-                 connector_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 directory_registration_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 connector_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 directory_registration_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServicePrincipalName resource.
 
@@ -34,26 +34,26 @@ class ServicePrincipalNameArgs:
 
     @_builtins.property
     @pulumi.getter(name="connectorArn")
-    def connector_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connector_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) that was returned when you called [CreateConnector.html](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html) .
         """
         return pulumi.get(self, "connector_arn")
 
     @connector_arn.setter
-    def connector_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connector_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connector_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="directoryRegistrationArn")
-    def directory_registration_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def directory_registration_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) that was returned when you called [CreateDirectoryRegistration](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html) .
         """
         return pulumi.get(self, "directory_registration_arn")
 
     @directory_registration_arn.setter
-    def directory_registration_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def directory_registration_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "directory_registration_arn", value)
 
 
@@ -63,8 +63,8 @@ class ServicePrincipalName(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connector_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 directory_registration_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 connector_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 directory_registration_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Definition of AWS::PCAConnectorAD::ServicePrincipalName Resource Type
@@ -100,8 +100,8 @@ class ServicePrincipalName(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connector_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 directory_registration_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 connector_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 directory_registration_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

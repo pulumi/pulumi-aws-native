@@ -207,7 +207,7 @@ def get_container_group_definition(name: Optional[_builtins.str] = None,
         total_vcpu_limit=pulumi.get(__ret__, 'total_vcpu_limit'),
         version_description=pulumi.get(__ret__, 'version_description'),
         version_number=pulumi.get(__ret__, 'version_number'))
-def get_container_group_definition_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_container_group_definition_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetContainerGroupDefinitionResult]:
     """
     The AWS::GameLift::ContainerGroupDefinition resource creates an Amazon GameLift container group definition.

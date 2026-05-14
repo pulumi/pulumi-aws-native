@@ -109,7 +109,7 @@ def get_finding_aggregator(finding_aggregator_arn: Optional[_builtins.str] = Non
         finding_aggregator_arn=pulumi.get(__ret__, 'finding_aggregator_arn'),
         region_linking_mode=pulumi.get(__ret__, 'region_linking_mode'),
         regions=pulumi.get(__ret__, 'regions'))
-def get_finding_aggregator_output(finding_aggregator_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_finding_aggregator_output(finding_aggregator_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFindingAggregatorResult]:
     """
     The ``AWS::SecurityHub::FindingAggregator`` resource enables cross-Region aggregation. When cross-Region aggregation is enabled, you can aggregate findings, finding updates, insights, control compliance statuses, and security scores from one or more linked Regions to a single aggregation Region. You can then view and manage all of this data from the aggregation Region. For more details about cross-Region aggregation, see [Cross-Region aggregation](https://docs.aws.amazon.com/securityhub/latest/userguide/finding-aggregation.html) in the *User Guide*

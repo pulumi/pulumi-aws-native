@@ -128,7 +128,7 @@ def get_api_key(api_key_id: Optional[_builtins.str] = None,
         enabled=pulumi.get(__ret__, 'enabled'),
         stage_keys=pulumi.get(__ret__, 'stage_keys'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_api_key_output(api_key_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_api_key_output(api_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApiKeyResult]:
     """
     The ``AWS::ApiGateway::ApiKey`` resource creates a unique key that you can distribute to clients who are executing API Gateway ``Method`` resources that require an API key. To specify which API key clients must use, map the API key with the ``RestApi`` and ``Stage`` resources that include the methods that require a key.

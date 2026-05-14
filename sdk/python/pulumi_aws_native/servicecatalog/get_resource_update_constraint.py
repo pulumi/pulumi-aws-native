@@ -87,7 +87,7 @@ def get_resource_update_constraint(id: Optional[_builtins.str] = None,
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
         tag_update_on_provisioned_product=pulumi.get(__ret__, 'tag_update_on_provisioned_product'))
-def get_resource_update_constraint_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_resource_update_constraint_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourceUpdateConstraintResult]:
     """
     Resource type definition for AWS::ServiceCatalog::ResourceUpdateConstraint

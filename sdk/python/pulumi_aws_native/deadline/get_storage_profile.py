@@ -107,8 +107,8 @@ def get_storage_profile(farm_id: Optional[_builtins.str] = None,
         file_system_locations=pulumi.get(__ret__, 'file_system_locations'),
         os_family=pulumi.get(__ret__, 'os_family'),
         storage_profile_id=pulumi.get(__ret__, 'storage_profile_id'))
-def get_storage_profile_output(farm_id: Optional[pulumi.Input[_builtins.str]] = None,
-                               storage_profile_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_storage_profile_output(farm_id: pulumi.Input[Optional[_builtins.str]] = None,
+                               storage_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStorageProfileResult]:
     """
     Resource Type definition for AWS::Deadline::StorageProfile

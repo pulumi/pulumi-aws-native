@@ -115,7 +115,7 @@ def get_type_activation(arn: Optional[_builtins.str] = None,
         publisher_id=pulumi.get(__ret__, 'publisher_id'),
         type_name=pulumi.get(__ret__, 'type_name'),
         type_name_alias=pulumi.get(__ret__, 'type_name_alias'))
-def get_type_activation_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_type_activation_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTypeActivationResult]:
     """
     Enable a resource that has been published in the CloudFormation Registry.

@@ -87,7 +87,7 @@ def get_stream_consumer(consumer_arn: Optional[_builtins.str] = None,
         consumer_arn=pulumi.get(__ret__, 'consumer_arn'),
         consumer_creation_timestamp=pulumi.get(__ret__, 'consumer_creation_timestamp'),
         consumer_status=pulumi.get(__ret__, 'consumer_status'))
-def get_stream_consumer_output(consumer_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_stream_consumer_output(consumer_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStreamConsumerResult]:
     """
     Resource Type definition for AWS::Kinesis::StreamConsumer

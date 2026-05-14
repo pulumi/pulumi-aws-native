@@ -25,11 +25,11 @@ __all__ = ['SourceLocationArgs', 'SourceLocation']
 class SourceLocationArgs:
     def __init__(__self__, *,
                  http_configuration: pulumi.Input['SourceLocationHttpConfigurationArgs'],
-                 access_configuration: Optional[pulumi.Input['SourceLocationAccessConfigurationArgs']] = None,
-                 default_segment_delivery_configuration: Optional[pulumi.Input['SourceLocationDefaultSegmentDeliveryConfigurationArgs']] = None,
-                 segment_delivery_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['SourceLocationSegmentDeliveryConfigurationArgs']]]] = None,
-                 source_location_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 access_configuration: pulumi.Input[Optional['SourceLocationAccessConfigurationArgs']] = None,
+                 default_segment_delivery_configuration: pulumi.Input[Optional['SourceLocationDefaultSegmentDeliveryConfigurationArgs']] = None,
+                 segment_delivery_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['SourceLocationSegmentDeliveryConfigurationArgs']]]] = None,
+                 source_location_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a SourceLocation resource.
 
@@ -66,62 +66,62 @@ class SourceLocationArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessConfiguration")
-    def access_configuration(self) -> Optional[pulumi.Input['SourceLocationAccessConfigurationArgs']]:
+    def access_configuration(self) -> pulumi.Input[Optional['SourceLocationAccessConfigurationArgs']]:
         """
         The access configuration for the source location.
         """
         return pulumi.get(self, "access_configuration")
 
     @access_configuration.setter
-    def access_configuration(self, value: Optional[pulumi.Input['SourceLocationAccessConfigurationArgs']]):
+    def access_configuration(self, value: pulumi.Input[Optional['SourceLocationAccessConfigurationArgs']]):
         pulumi.set(self, "access_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultSegmentDeliveryConfiguration")
-    def default_segment_delivery_configuration(self) -> Optional[pulumi.Input['SourceLocationDefaultSegmentDeliveryConfigurationArgs']]:
+    def default_segment_delivery_configuration(self) -> pulumi.Input[Optional['SourceLocationDefaultSegmentDeliveryConfigurationArgs']]:
         """
         The default segment delivery configuration.
         """
         return pulumi.get(self, "default_segment_delivery_configuration")
 
     @default_segment_delivery_configuration.setter
-    def default_segment_delivery_configuration(self, value: Optional[pulumi.Input['SourceLocationDefaultSegmentDeliveryConfigurationArgs']]):
+    def default_segment_delivery_configuration(self, value: pulumi.Input[Optional['SourceLocationDefaultSegmentDeliveryConfigurationArgs']]):
         pulumi.set(self, "default_segment_delivery_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="segmentDeliveryConfigurations")
-    def segment_delivery_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SourceLocationSegmentDeliveryConfigurationArgs']]]]:
+    def segment_delivery_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SourceLocationSegmentDeliveryConfigurationArgs']]]]:
         """
         <p>A list of the segment delivery configurations associated with this resource.</p>
         """
         return pulumi.get(self, "segment_delivery_configurations")
 
     @segment_delivery_configurations.setter
-    def segment_delivery_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SourceLocationSegmentDeliveryConfigurationArgs']]]]):
+    def segment_delivery_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SourceLocationSegmentDeliveryConfigurationArgs']]]]):
         pulumi.set(self, "segment_delivery_configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceLocationName")
-    def source_location_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_location_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the source location.
         """
         return pulumi.get(self, "source_location_name")
 
     @source_location_name.setter
-    def source_location_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_location_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_location_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags to assign to the source location.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -131,12 +131,12 @@ class SourceLocation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_configuration: Optional[pulumi.Input[Union['SourceLocationAccessConfigurationArgs', 'SourceLocationAccessConfigurationArgsDict']]] = None,
-                 default_segment_delivery_configuration: Optional[pulumi.Input[Union['SourceLocationDefaultSegmentDeliveryConfigurationArgs', 'SourceLocationDefaultSegmentDeliveryConfigurationArgsDict']]] = None,
-                 http_configuration: Optional[pulumi.Input[Union['SourceLocationHttpConfigurationArgs', 'SourceLocationHttpConfigurationArgsDict']]] = None,
-                 segment_delivery_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SourceLocationSegmentDeliveryConfigurationArgs', 'SourceLocationSegmentDeliveryConfigurationArgsDict']]]]] = None,
-                 source_location_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 access_configuration: pulumi.Input[Optional[Union['SourceLocationAccessConfigurationArgs', 'SourceLocationAccessConfigurationArgsDict']]] = None,
+                 default_segment_delivery_configuration: pulumi.Input[Optional[Union['SourceLocationDefaultSegmentDeliveryConfigurationArgs', 'SourceLocationDefaultSegmentDeliveryConfigurationArgsDict']]] = None,
+                 http_configuration: pulumi.Input[Optional[Union['SourceLocationHttpConfigurationArgs', 'SourceLocationHttpConfigurationArgsDict']]] = None,
+                 segment_delivery_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SourceLocationSegmentDeliveryConfigurationArgs', 'SourceLocationSegmentDeliveryConfigurationArgsDict']]]]] = None,
+                 source_location_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::MediaTailor::SourceLocation Resource Type
@@ -176,12 +176,12 @@ class SourceLocation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_configuration: Optional[pulumi.Input[Union['SourceLocationAccessConfigurationArgs', 'SourceLocationAccessConfigurationArgsDict']]] = None,
-                 default_segment_delivery_configuration: Optional[pulumi.Input[Union['SourceLocationDefaultSegmentDeliveryConfigurationArgs', 'SourceLocationDefaultSegmentDeliveryConfigurationArgsDict']]] = None,
-                 http_configuration: Optional[pulumi.Input[Union['SourceLocationHttpConfigurationArgs', 'SourceLocationHttpConfigurationArgsDict']]] = None,
-                 segment_delivery_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SourceLocationSegmentDeliveryConfigurationArgs', 'SourceLocationSegmentDeliveryConfigurationArgsDict']]]]] = None,
-                 source_location_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 access_configuration: pulumi.Input[Optional[Union['SourceLocationAccessConfigurationArgs', 'SourceLocationAccessConfigurationArgsDict']]] = None,
+                 default_segment_delivery_configuration: pulumi.Input[Optional[Union['SourceLocationDefaultSegmentDeliveryConfigurationArgs', 'SourceLocationDefaultSegmentDeliveryConfigurationArgsDict']]] = None,
+                 http_configuration: pulumi.Input[Optional[Union['SourceLocationHttpConfigurationArgs', 'SourceLocationHttpConfigurationArgsDict']]] = None,
+                 segment_delivery_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SourceLocationSegmentDeliveryConfigurationArgs', 'SourceLocationSegmentDeliveryConfigurationArgsDict']]]]] = None,
+                 source_location_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

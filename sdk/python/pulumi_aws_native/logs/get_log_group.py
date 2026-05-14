@@ -199,7 +199,7 @@ def get_log_group(log_group_name: Optional[_builtins.str] = None,
         resource_policy_document=pulumi.get(__ret__, 'resource_policy_document'),
         retention_in_days=pulumi.get(__ret__, 'retention_in_days'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_log_group_output(log_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_log_group_output(log_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLogGroupResult]:
     """
     The ``AWS::Logs::LogGroup`` resource specifies a log group. A log group defines common properties for log streams, such as their retention and access control rules. Each log stream must belong to one log group.

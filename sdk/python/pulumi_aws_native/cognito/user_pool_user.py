@@ -22,13 +22,13 @@ __all__ = ['UserPoolUserArgs', 'UserPoolUser']
 class UserPoolUserArgs:
     def __init__(__self__, *,
                  user_pool_id: pulumi.Input[_builtins.str],
-                 client_metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 desired_delivery_mediums: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 force_alias_creation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 message_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['UserPoolUserAttributeTypeArgs']]]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None,
-                 validation_data: Optional[pulumi.Input[Sequence[pulumi.Input['UserPoolUserAttributeTypeArgs']]]] = None):
+                 client_metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 desired_delivery_mediums: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 force_alias_creation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 message_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_attributes: pulumi.Input[Optional[Sequence[pulumi.Input['UserPoolUserAttributeTypeArgs']]]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None,
+                 validation_data: pulumi.Input[Optional[Sequence[pulumi.Input['UserPoolUserAttributeTypeArgs']]]] = None):
         """
         The set of arguments for constructing a UserPoolUser resource.
 
@@ -104,7 +104,7 @@ class UserPoolUserArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientMetadata")
-    def client_metadata(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def client_metadata(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers. You create custom workflows by assigning AWS Lambda functions to user pool triggers.
 
@@ -121,24 +121,24 @@ class UserPoolUserArgs:
         return pulumi.get(self, "client_metadata")
 
     @client_metadata.setter
-    def client_metadata(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def client_metadata(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "client_metadata", value)
 
     @_builtins.property
     @pulumi.getter(name="desiredDeliveryMediums")
-    def desired_delivery_mediums(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def desired_delivery_mediums(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify `EMAIL` if email will be used to send the welcome message. Specify `SMS` if the phone number will be used. The default value is `SMS` . You can specify more than one value.
         """
         return pulumi.get(self, "desired_delivery_mediums")
 
     @desired_delivery_mediums.setter
-    def desired_delivery_mediums(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def desired_delivery_mediums(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "desired_delivery_mediums", value)
 
     @_builtins.property
     @pulumi.getter(name="forceAliasCreation")
-    def force_alias_creation(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def force_alias_creation(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         This parameter is used only if the `phone_number_verified` or `email_verified` attribute is set to `True` . Otherwise, it is ignored.
 
@@ -149,24 +149,24 @@ class UserPoolUserArgs:
         return pulumi.get(self, "force_alias_creation")
 
     @force_alias_creation.setter
-    def force_alias_creation(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def force_alias_creation(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "force_alias_creation", value)
 
     @_builtins.property
     @pulumi.getter(name="messageAction")
-    def message_action(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def message_action(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Set to `RESEND` to resend the invitation message to a user that already exists, and to reset the temporary-password duration with a new temporary password. Set to `SUPPRESS` to suppress sending the message. You can specify only one value.
         """
         return pulumi.get(self, "message_action")
 
     @message_action.setter
-    def message_action(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def message_action(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "message_action", value)
 
     @_builtins.property
     @pulumi.getter(name="userAttributes")
-    def user_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserPoolUserAttributeTypeArgs']]]]:
+    def user_attributes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['UserPoolUserAttributeTypeArgs']]]]:
         """
         An array of name-value pairs that contain user attributes and attribute values to be set for the user to be created. You can create a user without specifying any attributes other than `Username` . However, any attributes that you specify as required (when creating a user pool or in the *Attributes* tab of the console) either you should supply (in your call to `AdminCreateUser` ) or the user should supply (when they sign up in response to your welcome message).
 
@@ -184,12 +184,12 @@ class UserPoolUserArgs:
         return pulumi.get(self, "user_attributes")
 
     @user_attributes.setter
-    def user_attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserPoolUserAttributeTypeArgs']]]]):
+    def user_attributes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['UserPoolUserAttributeTypeArgs']]]]):
         pulumi.set(self, "user_attributes", value)
 
     @_builtins.property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value that you want to set as the username sign-in attribute. The following conditions apply to the username parameter.
 
@@ -200,12 +200,12 @@ class UserPoolUserArgs:
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username", value)
 
     @_builtins.property
     @pulumi.getter(name="validationData")
-    def validation_data(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserPoolUserAttributeTypeArgs']]]]:
+    def validation_data(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['UserPoolUserAttributeTypeArgs']]]]:
         """
         Temporary user attributes that contribute to the outcomes of your pre sign-up Lambda trigger. This set of key-value pairs are for custom validation of information that you collect from your users but don't need to retain.
 
@@ -216,7 +216,7 @@ class UserPoolUserArgs:
         return pulumi.get(self, "validation_data")
 
     @validation_data.setter
-    def validation_data(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserPoolUserAttributeTypeArgs']]]]):
+    def validation_data(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['UserPoolUserAttributeTypeArgs']]]]):
         pulumi.set(self, "validation_data", value)
 
 
@@ -226,14 +226,14 @@ class UserPoolUser(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 client_metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 desired_delivery_mediums: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 force_alias_creation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 message_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserPoolUserAttributeTypeArgs', 'UserPoolUserAttributeTypeArgsDict']]]]] = None,
-                 user_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None,
-                 validation_data: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserPoolUserAttributeTypeArgs', 'UserPoolUserAttributeTypeArgsDict']]]]] = None,
+                 client_metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 desired_delivery_mediums: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 force_alias_creation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 message_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserPoolUserAttributeTypeArgs', 'UserPoolUserAttributeTypeArgsDict']]]]] = None,
+                 user_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None,
+                 validation_data: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserPoolUserAttributeTypeArgs', 'UserPoolUserAttributeTypeArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Cognito::UserPoolUser
@@ -308,14 +308,14 @@ class UserPoolUser(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 client_metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 desired_delivery_mediums: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 force_alias_creation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 message_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserPoolUserAttributeTypeArgs', 'UserPoolUserAttributeTypeArgsDict']]]]] = None,
-                 user_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None,
-                 validation_data: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserPoolUserAttributeTypeArgs', 'UserPoolUserAttributeTypeArgsDict']]]]] = None,
+                 client_metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 desired_delivery_mediums: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 force_alias_creation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 message_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserPoolUserAttributeTypeArgs', 'UserPoolUserAttributeTypeArgsDict']]]]] = None,
+                 user_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None,
+                 validation_data: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserPoolUserAttributeTypeArgs', 'UserPoolUserAttributeTypeArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

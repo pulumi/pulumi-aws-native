@@ -63,7 +63,7 @@ def get_resource_policy(resource_arn: Optional[_builtins.str] = None,
 
     return AwaitableGetResourcePolicyResult(
         policy=pulumi.get(__ret__, 'policy'))
-def get_resource_policy_output(resource_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_resource_policy_output(resource_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourcePolicyResult]:
     """
     Retrieves information about the resource policy. The resource policy is an IAM policy created by AWS RAM on behalf of the resource owner when they share a resource.

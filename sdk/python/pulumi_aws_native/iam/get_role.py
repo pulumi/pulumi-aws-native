@@ -195,7 +195,7 @@ def get_role(role_name: Optional[_builtins.str] = None,
         policies=pulumi.get(__ret__, 'policies'),
         role_id=pulumi.get(__ret__, 'role_id'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_role_output(role_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_role_output(role_name: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRoleResult]:
     """
     Creates a new role for your AWS-account.

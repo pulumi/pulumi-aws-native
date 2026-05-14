@@ -78,7 +78,7 @@ def get_private_graph_endpoint(private_graph_endpoint_identifier: Optional[_buil
     return AwaitableGetPrivateGraphEndpointResult(
         private_graph_endpoint_identifier=pulumi.get(__ret__, 'private_graph_endpoint_identifier'),
         vpc_endpoint_id=pulumi.get(__ret__, 'vpc_endpoint_id'))
-def get_private_graph_endpoint_output(private_graph_endpoint_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+def get_private_graph_endpoint_output(private_graph_endpoint_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateGraphEndpointResult]:
     """
     The AWS::NeptuneGraph::PrivateGraphEndpoint resource creates an Amazon NeptuneGraph PrivateGraphEndpoint.

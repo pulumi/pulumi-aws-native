@@ -24,15 +24,15 @@ __all__ = ['RepositoryArgs', 'Repository']
 @pulumi.input_type
 class RepositoryArgs:
     def __init__(__self__, *,
-                 empty_on_delete: Optional[pulumi.Input[_builtins.bool]] = None,
-                 encryption_configuration: Optional[pulumi.Input['RepositoryEncryptionConfigurationArgs']] = None,
-                 image_scanning_configuration: Optional[pulumi.Input['RepositoryImageScanningConfigurationArgs']] = None,
-                 image_tag_mutability: Optional[pulumi.Input['RepositoryImageTagMutability']] = None,
-                 image_tag_mutability_exclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryImageTagMutabilityExclusionFilterArgs']]]] = None,
-                 lifecycle_policy: Optional[pulumi.Input['RepositoryLifecyclePolicyArgs']] = None,
-                 repository_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 empty_on_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+                 encryption_configuration: pulumi.Input[Optional['RepositoryEncryptionConfigurationArgs']] = None,
+                 image_scanning_configuration: pulumi.Input[Optional['RepositoryImageScanningConfigurationArgs']] = None,
+                 image_tag_mutability: pulumi.Input[Optional['RepositoryImageTagMutability']] = None,
+                 image_tag_mutability_exclusion_filters: pulumi.Input[Optional[Sequence[pulumi.Input['RepositoryImageTagMutabilityExclusionFilterArgs']]]] = None,
+                 lifecycle_policy: pulumi.Input[Optional['RepositoryLifecyclePolicyArgs']] = None,
+                 repository_name: pulumi.Input[Optional[_builtins.str]] = None,
                  repository_policy_text: Optional[Any] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Repository resource.
 
@@ -72,31 +72,31 @@ class RepositoryArgs:
 
     @_builtins.property
     @pulumi.getter(name="emptyOnDelete")
-    def empty_on_delete(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def empty_on_delete(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, deleting the repository force deletes the contents of the repository. If false, the repository must be empty before attempting to delete it.
         """
         return pulumi.get(self, "empty_on_delete")
 
     @empty_on_delete.setter
-    def empty_on_delete(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def empty_on_delete(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "empty_on_delete", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionConfiguration")
-    def encryption_configuration(self) -> Optional[pulumi.Input['RepositoryEncryptionConfigurationArgs']]:
+    def encryption_configuration(self) -> pulumi.Input[Optional['RepositoryEncryptionConfigurationArgs']]:
         """
         The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest.
         """
         return pulumi.get(self, "encryption_configuration")
 
     @encryption_configuration.setter
-    def encryption_configuration(self, value: Optional[pulumi.Input['RepositoryEncryptionConfigurationArgs']]):
+    def encryption_configuration(self, value: pulumi.Input[Optional['RepositoryEncryptionConfigurationArgs']]):
         pulumi.set(self, "encryption_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="imageScanningConfiguration")
-    def image_scanning_configuration(self) -> Optional[pulumi.Input['RepositoryImageScanningConfigurationArgs']]:
+    def image_scanning_configuration(self) -> pulumi.Input[Optional['RepositoryImageScanningConfigurationArgs']]:
         """
         The ``imageScanningConfiguration`` parameter is being deprecated, in favor of specifying the image scanning configuration at the registry level. For more information, see ``PutRegistryScanningConfiguration``.
           The image scanning configuration for the repository. This determines whether images are scanned for known vulnerabilities after being pushed to the repository.
@@ -104,48 +104,48 @@ class RepositoryArgs:
         return pulumi.get(self, "image_scanning_configuration")
 
     @image_scanning_configuration.setter
-    def image_scanning_configuration(self, value: Optional[pulumi.Input['RepositoryImageScanningConfigurationArgs']]):
+    def image_scanning_configuration(self, value: pulumi.Input[Optional['RepositoryImageScanningConfigurationArgs']]):
         pulumi.set(self, "image_scanning_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="imageTagMutability")
-    def image_tag_mutability(self) -> Optional[pulumi.Input['RepositoryImageTagMutability']]:
+    def image_tag_mutability(self) -> pulumi.Input[Optional['RepositoryImageTagMutability']]:
         """
         The tag mutability setting for the repository. If this parameter is omitted, the default setting of ``MUTABLE`` will be used which will allow image tags to be overwritten. If ``IMMUTABLE`` is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
         """
         return pulumi.get(self, "image_tag_mutability")
 
     @image_tag_mutability.setter
-    def image_tag_mutability(self, value: Optional[pulumi.Input['RepositoryImageTagMutability']]):
+    def image_tag_mutability(self, value: pulumi.Input[Optional['RepositoryImageTagMutability']]):
         pulumi.set(self, "image_tag_mutability", value)
 
     @_builtins.property
     @pulumi.getter(name="imageTagMutabilityExclusionFilters")
-    def image_tag_mutability_exclusion_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryImageTagMutabilityExclusionFilterArgs']]]]:
+    def image_tag_mutability_exclusion_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RepositoryImageTagMutabilityExclusionFilterArgs']]]]:
         """
         A list of filters that specify which image tags are excluded from the repository's image tag mutability setting.
         """
         return pulumi.get(self, "image_tag_mutability_exclusion_filters")
 
     @image_tag_mutability_exclusion_filters.setter
-    def image_tag_mutability_exclusion_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryImageTagMutabilityExclusionFilterArgs']]]]):
+    def image_tag_mutability_exclusion_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RepositoryImageTagMutabilityExclusionFilterArgs']]]]):
         pulumi.set(self, "image_tag_mutability_exclusion_filters", value)
 
     @_builtins.property
     @pulumi.getter(name="lifecyclePolicy")
-    def lifecycle_policy(self) -> Optional[pulumi.Input['RepositoryLifecyclePolicyArgs']]:
+    def lifecycle_policy(self) -> pulumi.Input[Optional['RepositoryLifecyclePolicyArgs']]:
         """
         Creates or updates a lifecycle policy. For information about lifecycle policy syntax, see [Lifecycle policy template](https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html).
         """
         return pulumi.get(self, "lifecycle_policy")
 
     @lifecycle_policy.setter
-    def lifecycle_policy(self, value: Optional[pulumi.Input['RepositoryLifecyclePolicyArgs']]):
+    def lifecycle_policy(self, value: pulumi.Input[Optional['RepositoryLifecyclePolicyArgs']]):
         pulumi.set(self, "lifecycle_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="repositoryName")
-    def repository_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def repository_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name to use for the repository. The repository name may be specified on its own (such as ``nginx-web-app``) or it can be prepended with a namespace to group the repository into a category (such as ``project-a/nginx-web-app``). If you don't specify a name, CFNlong generates a unique physical ID and uses that ID for the repository name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
          The repository name must start with a letter and can only contain lowercase letters, numbers, hyphens, underscores, and forward slashes.
@@ -154,7 +154,7 @@ class RepositoryArgs:
         return pulumi.get(self, "repository_name")
 
     @repository_name.setter
-    def repository_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def repository_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repository_name", value)
 
     @_builtins.property
@@ -173,14 +173,14 @@ class RepositoryArgs:
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -190,15 +190,15 @@ class Repository(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 empty_on_delete: Optional[pulumi.Input[_builtins.bool]] = None,
-                 encryption_configuration: Optional[pulumi.Input[Union['RepositoryEncryptionConfigurationArgs', 'RepositoryEncryptionConfigurationArgsDict']]] = None,
-                 image_scanning_configuration: Optional[pulumi.Input[Union['RepositoryImageScanningConfigurationArgs', 'RepositoryImageScanningConfigurationArgsDict']]] = None,
-                 image_tag_mutability: Optional[pulumi.Input['RepositoryImageTagMutability']] = None,
-                 image_tag_mutability_exclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RepositoryImageTagMutabilityExclusionFilterArgs', 'RepositoryImageTagMutabilityExclusionFilterArgsDict']]]]] = None,
-                 lifecycle_policy: Optional[pulumi.Input[Union['RepositoryLifecyclePolicyArgs', 'RepositoryLifecyclePolicyArgsDict']]] = None,
-                 repository_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 empty_on_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+                 encryption_configuration: pulumi.Input[Optional[Union['RepositoryEncryptionConfigurationArgs', 'RepositoryEncryptionConfigurationArgsDict']]] = None,
+                 image_scanning_configuration: pulumi.Input[Optional[Union['RepositoryImageScanningConfigurationArgs', 'RepositoryImageScanningConfigurationArgsDict']]] = None,
+                 image_tag_mutability: pulumi.Input[Optional['RepositoryImageTagMutability']] = None,
+                 image_tag_mutability_exclusion_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RepositoryImageTagMutabilityExclusionFilterArgs', 'RepositoryImageTagMutabilityExclusionFilterArgsDict']]]]] = None,
+                 lifecycle_policy: pulumi.Input[Optional[Union['RepositoryLifecyclePolicyArgs', 'RepositoryLifecyclePolicyArgsDict']]] = None,
+                 repository_name: pulumi.Input[Optional[_builtins.str]] = None,
                  repository_policy_text: Optional[Any] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         The ``AWS::ECR::Repository`` resource specifies an Amazon Elastic Container Registry (Amazon ECR) repository, where users can push and pull Docker images, Open Container Initiative (OCI) images, and OCI compatible artifacts. For more information, see [Amazon ECR private repositories](https://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html) in the *Amazon ECR User Guide*.
@@ -326,15 +326,15 @@ class Repository(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 empty_on_delete: Optional[pulumi.Input[_builtins.bool]] = None,
-                 encryption_configuration: Optional[pulumi.Input[Union['RepositoryEncryptionConfigurationArgs', 'RepositoryEncryptionConfigurationArgsDict']]] = None,
-                 image_scanning_configuration: Optional[pulumi.Input[Union['RepositoryImageScanningConfigurationArgs', 'RepositoryImageScanningConfigurationArgsDict']]] = None,
-                 image_tag_mutability: Optional[pulumi.Input['RepositoryImageTagMutability']] = None,
-                 image_tag_mutability_exclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RepositoryImageTagMutabilityExclusionFilterArgs', 'RepositoryImageTagMutabilityExclusionFilterArgsDict']]]]] = None,
-                 lifecycle_policy: Optional[pulumi.Input[Union['RepositoryLifecyclePolicyArgs', 'RepositoryLifecyclePolicyArgsDict']]] = None,
-                 repository_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 empty_on_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+                 encryption_configuration: pulumi.Input[Optional[Union['RepositoryEncryptionConfigurationArgs', 'RepositoryEncryptionConfigurationArgsDict']]] = None,
+                 image_scanning_configuration: pulumi.Input[Optional[Union['RepositoryImageScanningConfigurationArgs', 'RepositoryImageScanningConfigurationArgsDict']]] = None,
+                 image_tag_mutability: pulumi.Input[Optional['RepositoryImageTagMutability']] = None,
+                 image_tag_mutability_exclusion_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RepositoryImageTagMutabilityExclusionFilterArgs', 'RepositoryImageTagMutabilityExclusionFilterArgsDict']]]]] = None,
+                 lifecycle_policy: pulumi.Input[Optional[Union['RepositoryLifecyclePolicyArgs', 'RepositoryLifecyclePolicyArgsDict']]] = None,
+                 repository_name: pulumi.Input[Optional[_builtins.str]] = None,
                  repository_policy_text: Optional[Any] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

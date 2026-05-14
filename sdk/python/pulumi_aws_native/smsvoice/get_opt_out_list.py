@@ -75,7 +75,7 @@ def get_opt_out_list(opt_out_list_name: Optional[_builtins.str] = None,
     return AwaitableGetOptOutListResult(
         arn=pulumi.get(__ret__, 'arn'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_opt_out_list_output(opt_out_list_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_opt_out_list_output(opt_out_list_name: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOptOutListResult]:
     """
     Resource Type definition for AWS::SMSVOICE::OptOutList

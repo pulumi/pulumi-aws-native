@@ -27,9 +27,9 @@ class WebhookArgs:
                  filters: pulumi.Input[Sequence[pulumi.Input['WebhookFilterRuleArgs']]],
                  target_action: pulumi.Input[_builtins.str],
                  target_pipeline: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 register_with_third_party: Optional[pulumi.Input[_builtins.bool]] = None,
-                 target_pipeline_version: Optional[pulumi.Input[_builtins.int]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 register_with_third_party: pulumi.Input[Optional[_builtins.bool]] = None,
+                 target_pipeline_version: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a Webhook resource.
 
@@ -116,38 +116,38 @@ class WebhookArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the webhook
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="registerWithThirdParty")
-    def register_with_third_party(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def register_with_third_party(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Configures a connection between the webhook that was created and the external tool with events to be detected.
         """
         return pulumi.get(self, "register_with_third_party")
 
     @register_with_third_party.setter
-    def register_with_third_party(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def register_with_third_party(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "register_with_third_party", value)
 
     @_builtins.property
     @pulumi.getter(name="targetPipelineVersion")
-    def target_pipeline_version(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def target_pipeline_version(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The version number of the pipeline to be connected to the trigger request.
         """
         return pulumi.get(self, "target_pipeline_version")
 
     @target_pipeline_version.setter
-    def target_pipeline_version(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def target_pipeline_version(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "target_pipeline_version", value)
 
 
@@ -157,14 +157,14 @@ class Webhook(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication: Optional[pulumi.Input['WebhookAuthentication']] = None,
-                 authentication_configuration: Optional[pulumi.Input[Union['WebhookAuthConfigurationArgs', 'WebhookAuthConfigurationArgsDict']]] = None,
-                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WebhookFilterRuleArgs', 'WebhookFilterRuleArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 register_with_third_party: Optional[pulumi.Input[_builtins.bool]] = None,
-                 target_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_pipeline: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_pipeline_version: Optional[pulumi.Input[_builtins.int]] = None,
+                 authentication: pulumi.Input[Optional['WebhookAuthentication']] = None,
+                 authentication_configuration: pulumi.Input[Optional[Union['WebhookAuthConfigurationArgs', 'WebhookAuthConfigurationArgsDict']]] = None,
+                 filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WebhookFilterRuleArgs', 'WebhookFilterRuleArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 register_with_third_party: pulumi.Input[Optional[_builtins.bool]] = None,
+                 target_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_pipeline: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_pipeline_version: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::CodePipeline::Webhook
@@ -206,14 +206,14 @@ class Webhook(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication: Optional[pulumi.Input['WebhookAuthentication']] = None,
-                 authentication_configuration: Optional[pulumi.Input[Union['WebhookAuthConfigurationArgs', 'WebhookAuthConfigurationArgsDict']]] = None,
-                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WebhookFilterRuleArgs', 'WebhookFilterRuleArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 register_with_third_party: Optional[pulumi.Input[_builtins.bool]] = None,
-                 target_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_pipeline: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_pipeline_version: Optional[pulumi.Input[_builtins.int]] = None,
+                 authentication: pulumi.Input[Optional['WebhookAuthentication']] = None,
+                 authentication_configuration: pulumi.Input[Optional[Union['WebhookAuthConfigurationArgs', 'WebhookAuthConfigurationArgsDict']]] = None,
+                 filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WebhookFilterRuleArgs', 'WebhookFilterRuleArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 register_with_third_party: pulumi.Input[Optional[_builtins.bool]] = None,
+                 target_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_pipeline: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_pipeline_version: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -131,7 +131,7 @@ def get_restore_testing_plan(restore_testing_plan_name: Optional[_builtins.str] 
         schedule_expression_timezone=pulumi.get(__ret__, 'schedule_expression_timezone'),
         start_window_hours=pulumi.get(__ret__, 'start_window_hours'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_restore_testing_plan_output(restore_testing_plan_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_restore_testing_plan_output(restore_testing_plan_name: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRestoreTestingPlanResult]:
     """
     Definition of AWS::Backup::RestoreTestingPlan Resource Type

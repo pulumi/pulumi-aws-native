@@ -132,8 +132,8 @@ def get_table(database_name: Optional[_builtins.str] = None,
         retention_properties=pulumi.get(__ret__, 'retention_properties'),
         schema=pulumi.get(__ret__, 'schema'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_table_output(database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                     table_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_table_output(database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                     table_name: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTableResult]:
     """
     The AWS::Timestream::Table resource creates a Timestream Table.

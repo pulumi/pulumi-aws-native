@@ -115,7 +115,7 @@ def get_component(arn: Optional[_builtins.str] = None,
         latest_version=pulumi.get(__ret__, 'latest_version'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_component_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_component_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetComponentResult]:
     """
     Resource schema for AWS::ImageBuilder::Component

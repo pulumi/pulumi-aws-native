@@ -76,7 +76,7 @@ def get_vpn_gateway(vpn_gateway_id: Optional[_builtins.str] = None,
     return AwaitableGetVpnGatewayResult(
         tags=pulumi.get(__ret__, 'tags'),
         vpn_gateway_id=pulumi.get(__ret__, 'vpn_gateway_id'))
-def get_vpn_gateway_output(vpn_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_vpn_gateway_output(vpn_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpnGatewayResult]:
     """
     Specifies a virtual private gateway. A virtual private gateway is the endpoint on the VPC side of your VPN connection. You can create a virtual private gateway before creating the VPC itself.

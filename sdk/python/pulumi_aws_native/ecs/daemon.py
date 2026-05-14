@@ -24,15 +24,15 @@ __all__ = ['DaemonArgs', 'Daemon']
 @pulumi.input_type
 class DaemonArgs:
     def __init__(__self__, *,
-                 capacity_provider_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 cluster_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 daemon_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 daemon_task_definition_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 deployment_configuration: Optional[pulumi.Input['DaemonDeploymentConfigurationArgs']] = None,
-                 enable_ecs_managed_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_execute_command: Optional[pulumi.Input[_builtins.bool]] = None,
-                 propagate_tags: Optional[pulumi.Input['DaemonPropagateTags']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 capacity_provider_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cluster_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 daemon_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 daemon_task_definition_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 deployment_configuration: pulumi.Input[Optional['DaemonDeploymentConfigurationArgs']] = None,
+                 enable_ecs_managed_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_execute_command: pulumi.Input[Optional[_builtins.bool]] = None,
+                 propagate_tags: pulumi.Input[Optional['DaemonPropagateTags']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Daemon resource.
 
@@ -65,104 +65,104 @@ class DaemonArgs:
 
     @_builtins.property
     @pulumi.getter(name="capacityProviderArns")
-    def capacity_provider_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def capacity_provider_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The Amazon Resource Names (ARNs) of the capacity providers associated with the daemon.
         """
         return pulumi.get(self, "capacity_provider_arns")
 
     @capacity_provider_arns.setter
-    def capacity_provider_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def capacity_provider_arns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "capacity_provider_arns", value)
 
     @_builtins.property
     @pulumi.getter(name="clusterArn")
-    def cluster_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cluster_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the cluster that the daemon is running in.
         """
         return pulumi.get(self, "cluster_arn")
 
     @cluster_arn.setter
-    def cluster_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cluster_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cluster_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="daemonName")
-    def daemon_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def daemon_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "daemon_name")
 
     @daemon_name.setter
-    def daemon_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def daemon_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "daemon_name", value)
 
     @_builtins.property
     @pulumi.getter(name="daemonTaskDefinitionArn")
-    def daemon_task_definition_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def daemon_task_definition_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the daemon task definition used by this revision.
         """
         return pulumi.get(self, "daemon_task_definition_arn")
 
     @daemon_task_definition_arn.setter
-    def daemon_task_definition_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def daemon_task_definition_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "daemon_task_definition_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="deploymentConfiguration")
-    def deployment_configuration(self) -> Optional[pulumi.Input['DaemonDeploymentConfigurationArgs']]:
+    def deployment_configuration(self) -> pulumi.Input[Optional['DaemonDeploymentConfigurationArgs']]:
         """
         The deployment configuration used for this daemon deployment.
         """
         return pulumi.get(self, "deployment_configuration")
 
     @deployment_configuration.setter
-    def deployment_configuration(self, value: Optional[pulumi.Input['DaemonDeploymentConfigurationArgs']]):
+    def deployment_configuration(self, value: pulumi.Input[Optional['DaemonDeploymentConfigurationArgs']]):
         pulumi.set(self, "deployment_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="enableEcsManagedTags")
-    def enable_ecs_managed_tags(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_ecs_managed_tags(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether Amazon ECS managed tags are turned on for the daemon tasks.
         """
         return pulumi.get(self, "enable_ecs_managed_tags")
 
     @enable_ecs_managed_tags.setter
-    def enable_ecs_managed_tags(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_ecs_managed_tags(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_ecs_managed_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="enableExecuteCommand")
-    def enable_execute_command(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_execute_command(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the execute command functionality is turned on for the daemon tasks.
         """
         return pulumi.get(self, "enable_execute_command")
 
     @enable_execute_command.setter
-    def enable_execute_command(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_execute_command(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_execute_command", value)
 
     @_builtins.property
     @pulumi.getter(name="propagateTags")
-    def propagate_tags(self) -> Optional[pulumi.Input['DaemonPropagateTags']]:
+    def propagate_tags(self) -> pulumi.Input[Optional['DaemonPropagateTags']]:
         """
         Specifies whether tags are propagated from the daemon to the daemon tasks.
         """
         return pulumi.get(self, "propagate_tags")
 
     @propagate_tags.setter
-    def propagate_tags(self, value: Optional[pulumi.Input['DaemonPropagateTags']]):
+    def propagate_tags(self, value: pulumi.Input[Optional['DaemonPropagateTags']]):
         pulumi.set(self, "propagate_tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -172,15 +172,15 @@ class Daemon(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capacity_provider_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 cluster_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 daemon_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 daemon_task_definition_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 deployment_configuration: Optional[pulumi.Input[Union['DaemonDeploymentConfigurationArgs', 'DaemonDeploymentConfigurationArgsDict']]] = None,
-                 enable_ecs_managed_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_execute_command: Optional[pulumi.Input[_builtins.bool]] = None,
-                 propagate_tags: Optional[pulumi.Input['DaemonPropagateTags']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 capacity_provider_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cluster_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 daemon_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 daemon_task_definition_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 deployment_configuration: pulumi.Input[Optional[Union['DaemonDeploymentConfigurationArgs', 'DaemonDeploymentConfigurationArgsDict']]] = None,
+                 enable_ecs_managed_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_execute_command: pulumi.Input[Optional[_builtins.bool]] = None,
+                 propagate_tags: pulumi.Input[Optional['DaemonPropagateTags']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Information about a daemon resource.
@@ -221,15 +221,15 @@ class Daemon(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capacity_provider_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 cluster_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 daemon_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 daemon_task_definition_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 deployment_configuration: Optional[pulumi.Input[Union['DaemonDeploymentConfigurationArgs', 'DaemonDeploymentConfigurationArgsDict']]] = None,
-                 enable_ecs_managed_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_execute_command: Optional[pulumi.Input[_builtins.bool]] = None,
-                 propagate_tags: Optional[pulumi.Input['DaemonPropagateTags']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 capacity_provider_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cluster_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 daemon_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 daemon_task_definition_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 deployment_configuration: pulumi.Input[Optional[Union['DaemonDeploymentConfigurationArgs', 'DaemonDeploymentConfigurationArgsDict']]] = None,
+                 enable_ecs_managed_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_execute_command: pulumi.Input[Optional[_builtins.bool]] = None,
+                 propagate_tags: pulumi.Input[Optional['DaemonPropagateTags']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

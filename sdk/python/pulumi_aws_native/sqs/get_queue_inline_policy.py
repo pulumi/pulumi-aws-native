@@ -63,7 +63,7 @@ def get_queue_inline_policy(queue: Optional[_builtins.str] = None,
 
     return AwaitableGetQueueInlinePolicyResult(
         policy_document=pulumi.get(__ret__, 'policy_document'))
-def get_queue_inline_policy_output(queue: Optional[pulumi.Input[_builtins.str]] = None,
+def get_queue_inline_policy_output(queue: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetQueueInlinePolicyResult]:
     """
     Schema for SQS QueueInlinePolicy

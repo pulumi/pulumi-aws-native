@@ -38,7 +38,7 @@ class RobotApplicationRobotSoftwareSuiteArgsDict(TypedDict):
     """
     The name of robot software suite.
     """
-    version: NotRequired[pulumi.Input['RobotApplicationRobotSoftwareSuiteVersion']]
+    version: NotRequired[pulumi.Input[Optional['RobotApplicationRobotSoftwareSuiteVersion']]]
     """
     The version of robot software suite.
     """
@@ -47,7 +47,7 @@ class RobotApplicationRobotSoftwareSuiteArgsDict(TypedDict):
 class RobotApplicationRobotSoftwareSuiteArgs:
     def __init__(__self__, *,
                  name: pulumi.Input['RobotApplicationRobotSoftwareSuiteName'],
-                 version: Optional[pulumi.Input['RobotApplicationRobotSoftwareSuiteVersion']] = None):
+                 version: pulumi.Input[Optional['RobotApplicationRobotSoftwareSuiteVersion']] = None):
         """
         The robot software suite used by the robot application.
 
@@ -72,14 +72,14 @@ class RobotApplicationRobotSoftwareSuiteArgs:
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input['RobotApplicationRobotSoftwareSuiteVersion']]:
+    def version(self) -> pulumi.Input[Optional['RobotApplicationRobotSoftwareSuiteVersion']]:
         """
         The version of robot software suite.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input['RobotApplicationRobotSoftwareSuiteVersion']]):
+    def version(self, value: pulumi.Input[Optional['RobotApplicationRobotSoftwareSuiteVersion']]):
         pulumi.set(self, "version", value)
 
 
@@ -209,7 +209,7 @@ class SimulationApplicationRobotSoftwareSuiteArgsDict(TypedDict):
     """
     The name of the robot software suite.
     """
-    version: NotRequired[pulumi.Input['SimulationApplicationRobotSoftwareSuiteVersion']]
+    version: NotRequired[pulumi.Input[Optional['SimulationApplicationRobotSoftwareSuiteVersion']]]
     """
     The version of the robot software suite.
     """
@@ -218,7 +218,7 @@ class SimulationApplicationRobotSoftwareSuiteArgsDict(TypedDict):
 class SimulationApplicationRobotSoftwareSuiteArgs:
     def __init__(__self__, *,
                  name: pulumi.Input['SimulationApplicationRobotSoftwareSuiteName'],
-                 version: Optional[pulumi.Input['SimulationApplicationRobotSoftwareSuiteVersion']] = None):
+                 version: pulumi.Input[Optional['SimulationApplicationRobotSoftwareSuiteVersion']] = None):
         """
         Information about a robot software suite.
 
@@ -243,14 +243,14 @@ class SimulationApplicationRobotSoftwareSuiteArgs:
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input['SimulationApplicationRobotSoftwareSuiteVersion']]:
+    def version(self) -> pulumi.Input[Optional['SimulationApplicationRobotSoftwareSuiteVersion']]:
         """
         The version of the robot software suite.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input['SimulationApplicationRobotSoftwareSuiteVersion']]):
+    def version(self, value: pulumi.Input[Optional['SimulationApplicationRobotSoftwareSuiteVersion']]):
         pulumi.set(self, "version", value)
 
 
@@ -262,7 +262,7 @@ class SimulationApplicationSimulationSoftwareSuiteArgsDict(TypedDict):
     """
     The name of the simulation software suite.
     """
-    version: NotRequired[pulumi.Input['SimulationApplicationSimulationSoftwareSuiteVersion']]
+    version: NotRequired[pulumi.Input[Optional['SimulationApplicationSimulationSoftwareSuiteVersion']]]
     """
     The version of the simulation software suite.
     """
@@ -271,7 +271,7 @@ class SimulationApplicationSimulationSoftwareSuiteArgsDict(TypedDict):
 class SimulationApplicationSimulationSoftwareSuiteArgs:
     def __init__(__self__, *,
                  name: pulumi.Input['SimulationApplicationSimulationSoftwareSuiteName'],
-                 version: Optional[pulumi.Input['SimulationApplicationSimulationSoftwareSuiteVersion']] = None):
+                 version: pulumi.Input[Optional['SimulationApplicationSimulationSoftwareSuiteVersion']] = None):
         """
         Information about a simulation software suite.
 
@@ -296,14 +296,14 @@ class SimulationApplicationSimulationSoftwareSuiteArgs:
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input['SimulationApplicationSimulationSoftwareSuiteVersion']]:
+    def version(self) -> pulumi.Input[Optional['SimulationApplicationSimulationSoftwareSuiteVersion']]:
         """
         The version of the simulation software suite.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input['SimulationApplicationSimulationSoftwareSuiteVersion']]):
+    def version(self, value: pulumi.Input[Optional['SimulationApplicationSimulationSoftwareSuiteVersion']]):
         pulumi.set(self, "version", value)
 
 

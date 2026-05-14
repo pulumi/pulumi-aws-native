@@ -26,14 +26,14 @@ class ConfigurationProfileArgs:
     def __init__(__self__, *,
                  application_id: pulumi.Input[_builtins.str],
                  location_uri: pulumi.Input[_builtins.str],
-                 deletion_protection_check: Optional[pulumi.Input['ConfigurationProfileDeletionProtectionCheck']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 retrieval_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 validators: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationProfileValidatorsArgs']]]] = None):
+                 deletion_protection_check: pulumi.Input[Optional['ConfigurationProfileDeletionProtectionCheck']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 retrieval_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 validators: pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationProfileValidatorsArgs']]]] = None):
         """
         The set of arguments for constructing a ConfigurationProfile resource.
 
@@ -93,98 +93,98 @@ class ConfigurationProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="deletionProtectionCheck")
-    def deletion_protection_check(self) -> Optional[pulumi.Input['ConfigurationProfileDeletionProtectionCheck']]:
+    def deletion_protection_check(self) -> pulumi.Input[Optional['ConfigurationProfileDeletionProtectionCheck']]:
         """
         On resource deletion this controls whether the Deletion Protection check should be applied, bypassed, or (the default) whether the behavior should be controlled by the account-level Deletion Protection setting. See https://docs.aws.amazon.com/appconfig/latest/userguide/deletion-protection.html
         """
         return pulumi.get(self, "deletion_protection_check")
 
     @deletion_protection_check.setter
-    def deletion_protection_check(self, value: Optional[pulumi.Input['ConfigurationProfileDeletionProtectionCheck']]):
+    def deletion_protection_check(self, value: pulumi.Input[Optional['ConfigurationProfileDeletionProtectionCheck']]):
         pulumi.set(self, "deletion_protection_check", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the configuration profile.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyIdentifier")
-    def kms_key_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS Key Management Service key identifier (key ID, key alias, or key ARN) provided when the resource was created or updated.
         """
         return pulumi.get(self, "kms_key_identifier")
 
     @kms_key_identifier.setter
-    def kms_key_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_identifier", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A name for the configuration profile.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="retrievalRoleArn")
-    def retrieval_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def retrieval_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of an IAM role with permission to access the configuration at the specified LocationUri.
         """
         return pulumi.get(self, "retrieval_role_arn")
 
     @retrieval_role_arn.setter
-    def retrieval_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def retrieval_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "retrieval_role_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Metadata to assign to the configuration profile. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of configurations contained in the profile. When calling this API, enter one of the following values for Type: AWS.AppConfig.FeatureFlags, AWS.Freeform
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter
-    def validators(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationProfileValidatorsArgs']]]]:
+    def validators(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationProfileValidatorsArgs']]]]:
         """
         A list of methods for validating the configuration.
         """
         return pulumi.get(self, "validators")
 
     @validators.setter
-    def validators(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationProfileValidatorsArgs']]]]):
+    def validators(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationProfileValidatorsArgs']]]]):
         pulumi.set(self, "validators", value)
 
 
@@ -194,16 +194,16 @@ class ConfigurationProfile(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 deletion_protection_check: Optional[pulumi.Input['ConfigurationProfileDeletionProtectionCheck']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 location_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 retrieval_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 validators: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationProfileValidatorsArgs', 'ConfigurationProfileValidatorsArgsDict']]]]] = None,
+                 application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 deletion_protection_check: pulumi.Input[Optional['ConfigurationProfileDeletionProtectionCheck']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 location_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 retrieval_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 validators: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConfigurationProfileValidatorsArgs', 'ConfigurationProfileValidatorsArgsDict']]]]] = None,
                  __props__=None):
         """
         An example resource schema demonstrating some basic constructs and validation rules.
@@ -247,16 +247,16 @@ class ConfigurationProfile(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 deletion_protection_check: Optional[pulumi.Input['ConfigurationProfileDeletionProtectionCheck']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 location_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 retrieval_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 validators: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationProfileValidatorsArgs', 'ConfigurationProfileValidatorsArgsDict']]]]] = None,
+                 application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 deletion_protection_check: pulumi.Input[Optional['ConfigurationProfileDeletionProtectionCheck']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 location_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 retrieval_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 validators: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConfigurationProfileValidatorsArgs', 'ConfigurationProfileValidatorsArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

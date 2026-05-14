@@ -196,7 +196,7 @@ def get_knowledge_base(knowledge_base_id: Optional[_builtins.str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-def get_knowledge_base_output(knowledge_base_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_knowledge_base_output(knowledge_base_id: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKnowledgeBaseResult]:
     """
     Definition of AWS::Bedrock::KnowledgeBase Resource Type

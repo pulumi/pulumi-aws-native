@@ -126,7 +126,7 @@ def get_studio(studio_id: Optional[_builtins.str] = None,
         studio_id=pulumi.get(__ret__, 'studio_id'),
         studio_url=pulumi.get(__ret__, 'studio_url'),
         user_role_arn=pulumi.get(__ret__, 'user_role_arn'))
-def get_studio_output(studio_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_studio_output(studio_id: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStudioResult]:
     """
     Resource Type definition for AWS::NimbleStudio::Studio

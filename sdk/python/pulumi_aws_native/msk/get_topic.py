@@ -74,7 +74,7 @@ def get_topic(topic_arn: Optional[_builtins.str] = None,
     return AwaitableGetTopicResult(
         partition_count=pulumi.get(__ret__, 'partition_count'),
         topic_arn=pulumi.get(__ret__, 'topic_arn'))
-def get_topic_output(topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_topic_output(topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTopicResult]:
     """
     Resource Type definition for AWS::MSK::Topic

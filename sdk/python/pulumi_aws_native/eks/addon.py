@@ -25,15 +25,15 @@ __all__ = ['AddonArgs', 'Addon']
 class AddonArgs:
     def __init__(__self__, *,
                  cluster_name: pulumi.Input[_builtins.str],
-                 addon_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 addon_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 configuration_values: Optional[pulumi.Input[_builtins.str]] = None,
-                 namespace_config: Optional[pulumi.Input['NamespaceConfigPropertiesArgs']] = None,
-                 pod_identity_associations: Optional[pulumi.Input[Sequence[pulumi.Input['AddonPodIdentityAssociationArgs']]]] = None,
-                 preserve_on_delete: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resolve_conflicts: Optional[pulumi.Input['AddonResolveConflicts']] = None,
-                 service_account_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 addon_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 addon_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration_values: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace_config: pulumi.Input[Optional['NamespaceConfigPropertiesArgs']] = None,
+                 pod_identity_associations: pulumi.Input[Optional[Sequence[pulumi.Input['AddonPodIdentityAssociationArgs']]]] = None,
+                 preserve_on_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resolve_conflicts: pulumi.Input[Optional['AddonResolveConflicts']] = None,
+                 service_account_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Addon resource.
 
@@ -82,110 +82,110 @@ class AddonArgs:
 
     @_builtins.property
     @pulumi.getter(name="addonName")
-    def addon_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def addon_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of Addon
         """
         return pulumi.get(self, "addon_name")
 
     @addon_name.setter
-    def addon_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def addon_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "addon_name", value)
 
     @_builtins.property
     @pulumi.getter(name="addonVersion")
-    def addon_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def addon_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Version of Addon
         """
         return pulumi.get(self, "addon_version")
 
     @addon_version.setter
-    def addon_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def addon_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "addon_version", value)
 
     @_builtins.property
     @pulumi.getter(name="configurationValues")
-    def configuration_values(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def configuration_values(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The configuration values to use with the add-on
         """
         return pulumi.get(self, "configuration_values")
 
     @configuration_values.setter
-    def configuration_values(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def configuration_values(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "configuration_values", value)
 
     @_builtins.property
     @pulumi.getter(name="namespaceConfig")
-    def namespace_config(self) -> Optional[pulumi.Input['NamespaceConfigPropertiesArgs']]:
+    def namespace_config(self) -> pulumi.Input[Optional['NamespaceConfigPropertiesArgs']]:
         """
         The custom namespace configuration to use with the add-on
         """
         return pulumi.get(self, "namespace_config")
 
     @namespace_config.setter
-    def namespace_config(self, value: Optional[pulumi.Input['NamespaceConfigPropertiesArgs']]):
+    def namespace_config(self, value: pulumi.Input[Optional['NamespaceConfigPropertiesArgs']]):
         pulumi.set(self, "namespace_config", value)
 
     @_builtins.property
     @pulumi.getter(name="podIdentityAssociations")
-    def pod_identity_associations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AddonPodIdentityAssociationArgs']]]]:
+    def pod_identity_associations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AddonPodIdentityAssociationArgs']]]]:
         """
         An array of pod identities to apply to this add-on.
         """
         return pulumi.get(self, "pod_identity_associations")
 
     @pod_identity_associations.setter
-    def pod_identity_associations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AddonPodIdentityAssociationArgs']]]]):
+    def pod_identity_associations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AddonPodIdentityAssociationArgs']]]]):
         pulumi.set(self, "pod_identity_associations", value)
 
     @_builtins.property
     @pulumi.getter(name="preserveOnDelete")
-    def preserve_on_delete(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def preserve_on_delete(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         PreserveOnDelete parameter value
         """
         return pulumi.get(self, "preserve_on_delete")
 
     @preserve_on_delete.setter
-    def preserve_on_delete(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def preserve_on_delete(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "preserve_on_delete", value)
 
     @_builtins.property
     @pulumi.getter(name="resolveConflicts")
-    def resolve_conflicts(self) -> Optional[pulumi.Input['AddonResolveConflicts']]:
+    def resolve_conflicts(self) -> pulumi.Input[Optional['AddonResolveConflicts']]:
         """
         Resolve parameter value conflicts
         """
         return pulumi.get(self, "resolve_conflicts")
 
     @resolve_conflicts.setter
-    def resolve_conflicts(self, value: Optional[pulumi.Input['AddonResolveConflicts']]):
+    def resolve_conflicts(self, value: pulumi.Input[Optional['AddonResolveConflicts']]):
         pulumi.set(self, "resolve_conflicts", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceAccountRoleArn")
-    def service_account_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_account_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IAM role to bind to the add-on's service account
         """
         return pulumi.get(self, "service_account_role_arn")
 
     @service_account_role_arn.setter
-    def service_account_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_account_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_account_role_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -195,16 +195,16 @@ class Addon(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 addon_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 addon_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 configuration_values: Optional[pulumi.Input[_builtins.str]] = None,
-                 namespace_config: Optional[pulumi.Input[Union['NamespaceConfigPropertiesArgs', 'NamespaceConfigPropertiesArgsDict']]] = None,
-                 pod_identity_associations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AddonPodIdentityAssociationArgs', 'AddonPodIdentityAssociationArgsDict']]]]] = None,
-                 preserve_on_delete: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resolve_conflicts: Optional[pulumi.Input['AddonResolveConflicts']] = None,
-                 service_account_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 addon_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 addon_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration_values: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace_config: pulumi.Input[Optional[Union['NamespaceConfigPropertiesArgs', 'NamespaceConfigPropertiesArgsDict']]] = None,
+                 pod_identity_associations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AddonPodIdentityAssociationArgs', 'AddonPodIdentityAssociationArgsDict']]]]] = None,
+                 preserve_on_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resolve_conflicts: pulumi.Input[Optional['AddonResolveConflicts']] = None,
+                 service_account_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Schema for AWS::EKS::Addon
@@ -248,16 +248,16 @@ class Addon(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 addon_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 addon_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 configuration_values: Optional[pulumi.Input[_builtins.str]] = None,
-                 namespace_config: Optional[pulumi.Input[Union['NamespaceConfigPropertiesArgs', 'NamespaceConfigPropertiesArgsDict']]] = None,
-                 pod_identity_associations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AddonPodIdentityAssociationArgs', 'AddonPodIdentityAssociationArgsDict']]]]] = None,
-                 preserve_on_delete: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resolve_conflicts: Optional[pulumi.Input['AddonResolveConflicts']] = None,
-                 service_account_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 addon_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 addon_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration_values: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace_config: pulumi.Input[Optional[Union['NamespaceConfigPropertiesArgs', 'NamespaceConfigPropertiesArgsDict']]] = None,
+                 pod_identity_associations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AddonPodIdentityAssociationArgs', 'AddonPodIdentityAssociationArgsDict']]]]] = None,
+                 preserve_on_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resolve_conflicts: pulumi.Input[Optional['AddonResolveConflicts']] = None,
+                 service_account_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

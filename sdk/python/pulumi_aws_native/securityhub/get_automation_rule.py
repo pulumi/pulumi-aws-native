@@ -210,7 +210,7 @@ def get_automation_rule(rule_arn: Optional[_builtins.str] = None,
         rule_status=pulumi.get(__ret__, 'rule_status'),
         tags=pulumi.get(__ret__, 'tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-def get_automation_rule_output(rule_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_automation_rule_output(rule_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAutomationRuleResult]:
     """
     The ``AWS::SecurityHub::AutomationRule`` resource specifies an automation rule based on input parameters. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *User Guide*.

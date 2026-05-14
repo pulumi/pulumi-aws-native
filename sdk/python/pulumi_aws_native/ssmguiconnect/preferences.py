@@ -21,7 +21,7 @@ __all__ = ['PreferencesArgs', 'Preferences']
 @pulumi.input_type
 class PreferencesArgs:
     def __init__(__self__, *,
-                 connection_recording_preferences: Optional[pulumi.Input['ConnectionRecordingPreferencesPropertiesArgs']] = None):
+                 connection_recording_preferences: pulumi.Input[Optional['ConnectionRecordingPreferencesPropertiesArgs']] = None):
         """
         The set of arguments for constructing a Preferences resource.
 
@@ -32,14 +32,14 @@ class PreferencesArgs:
 
     @_builtins.property
     @pulumi.getter(name="connectionRecordingPreferences")
-    def connection_recording_preferences(self) -> Optional[pulumi.Input['ConnectionRecordingPreferencesPropertiesArgs']]:
+    def connection_recording_preferences(self) -> pulumi.Input[Optional['ConnectionRecordingPreferencesPropertiesArgs']]:
         """
         The set of preferences used for recording RDP connections in the requesting AWS account and AWS Region. This includes details such as which S3 bucket recordings are stored in.
         """
         return pulumi.get(self, "connection_recording_preferences")
 
     @connection_recording_preferences.setter
-    def connection_recording_preferences(self, value: Optional[pulumi.Input['ConnectionRecordingPreferencesPropertiesArgs']]):
+    def connection_recording_preferences(self, value: pulumi.Input[Optional['ConnectionRecordingPreferencesPropertiesArgs']]):
         pulumi.set(self, "connection_recording_preferences", value)
 
 
@@ -49,7 +49,7 @@ class Preferences(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connection_recording_preferences: Optional[pulumi.Input[Union['ConnectionRecordingPreferencesPropertiesArgs', 'ConnectionRecordingPreferencesPropertiesArgsDict']]] = None,
+                 connection_recording_preferences: pulumi.Input[Optional[Union['ConnectionRecordingPreferencesPropertiesArgs', 'ConnectionRecordingPreferencesPropertiesArgsDict']]] = None,
                  __props__=None):
         """
         Definition of AWS::SSMGuiConnect::Preferences Resource Type
@@ -84,7 +84,7 @@ class Preferences(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connection_recording_preferences: Optional[pulumi.Input[Union['ConnectionRecordingPreferencesPropertiesArgs', 'ConnectionRecordingPreferencesPropertiesArgsDict']]] = None,
+                 connection_recording_preferences: pulumi.Input[Optional[Union['ConnectionRecordingPreferencesPropertiesArgs', 'ConnectionRecordingPreferencesPropertiesArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -194,7 +194,7 @@ def get_workspace(arn: Optional[_builtins.str] = None,
         theme=pulumi.get(__ret__, 'theme'),
         title=pulumi.get(__ret__, 'title'),
         visibility=pulumi.get(__ret__, 'visibility'))
-def get_workspace_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_workspace_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkspaceResult]:
     """
     Resource Type definition for AWS::Connect::Workspace

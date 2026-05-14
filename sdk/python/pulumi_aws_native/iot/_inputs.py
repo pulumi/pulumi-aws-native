@@ -257,71 +257,71 @@ class AccountAuditConfigurationAuditCheckConfigurationsArgsDict(TypedDict):
     """
     Specifies which audit checks are enabled and disabled for this account.
     """
-    authenticated_cognito_role_overly_permissive_check: NotRequired[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgsDict']]
+    authenticated_cognito_role_overly_permissive_check: NotRequired[pulumi.Input[Optional['AccountAuditConfigurationAuditCheckConfigurationArgs']]]
     """
     Checks the permissiveness of an authenticated Amazon Cognito identity pool role. For this check, AWS IoT Device Defender audits all Amazon Cognito identity pools that have been used to connect to the AWS IoT message broker during the 31 days before the audit is performed.
     """
-    ca_certificate_expiring_check: NotRequired[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgsDict']]
+    ca_certificate_expiring_check: NotRequired[pulumi.Input[Optional['AccountAuditConfigurationAuditCheckConfigurationArgs']]]
     """
     Checks if a CA certificate is expiring. This check applies to CA certificates expiring within 30 days or that have expired.
     """
-    ca_certificate_key_quality_check: NotRequired[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgsDict']]
+    ca_certificate_key_quality_check: NotRequired[pulumi.Input[Optional['AccountAuditConfigurationAuditCheckConfigurationArgs']]]
     """
     Checks the quality of the CA certificate key. The quality checks if the key is in a valid format, not expired, and if the key meets a minimum required size. This check applies to CA certificates that are `ACTIVE` or `PENDING_TRANSFER` .
     """
-    conflicting_client_ids_check: NotRequired[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgsDict']]
+    conflicting_client_ids_check: NotRequired[pulumi.Input[Optional['AccountAuditConfigurationAuditCheckConfigurationArgs']]]
     """
     Checks if multiple devices connect using the same client ID.
     """
-    device_certificate_age_check: NotRequired[pulumi.Input['AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationArgsDict']]
+    device_certificate_age_check: NotRequired[pulumi.Input[Optional['AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationArgs']]]
     """
     Checks when a device certificate has been active for a number of days greater than or equal to the number you specify.
     """
-    device_certificate_expiring_check: NotRequired[pulumi.Input['AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationArgsDict']]
+    device_certificate_expiring_check: NotRequired[pulumi.Input[Optional['AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationArgs']]]
     """
     Checks if a device certificate is expiring. By default, this check applies to device certificates expiring within 30 days or that have expired. You can modify this threshold by configuring the DeviceCertExpirationAuditCheckConfiguration.
     """
-    device_certificate_key_quality_check: NotRequired[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgsDict']]
+    device_certificate_key_quality_check: NotRequired[pulumi.Input[Optional['AccountAuditConfigurationAuditCheckConfigurationArgs']]]
     """
     Checks the quality of the device certificate key. The quality checks if the key is in a valid format, not expired, signed by a registered certificate authority, and if the key meets a minimum required size.
     """
-    device_certificate_shared_check: NotRequired[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgsDict']]
+    device_certificate_shared_check: NotRequired[pulumi.Input[Optional['AccountAuditConfigurationAuditCheckConfigurationArgs']]]
     """
     Checks if multiple concurrent connections use the same X.509 certificate to authenticate with AWS IoT .
     """
-    intermediate_ca_revoked_for_active_device_certificates_check: NotRequired[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgsDict']]
+    intermediate_ca_revoked_for_active_device_certificates_check: NotRequired[pulumi.Input[Optional['AccountAuditConfigurationAuditCheckConfigurationArgs']]]
     """
     Checks if device certificates are still active despite being revoked by an intermediate CA.
     """
-    io_t_policy_potential_mis_configuration_check: NotRequired[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgsDict']]
+    io_t_policy_potential_mis_configuration_check: NotRequired[pulumi.Input[Optional['AccountAuditConfigurationAuditCheckConfigurationArgs']]]
     """
     Checks if an AWS IoT policy is potentially misconfigured. Misconfigured policies, including overly permissive policies, can cause security incidents like allowing devices access to unintended resources. This check is a warning for you to make sure that only intended actions are allowed before updating the policy.
     """
-    iot_policy_overly_permissive_check: NotRequired[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgsDict']]
+    iot_policy_overly_permissive_check: NotRequired[pulumi.Input[Optional['AccountAuditConfigurationAuditCheckConfigurationArgs']]]
     """
     Checks the permissiveness of a policy attached to an authenticated Amazon Cognito identity pool role.
     """
-    iot_role_alias_allows_access_to_unused_services_check: NotRequired[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgsDict']]
+    iot_role_alias_allows_access_to_unused_services_check: NotRequired[pulumi.Input[Optional['AccountAuditConfigurationAuditCheckConfigurationArgs']]]
     """
     Checks if a role alias has access to services that haven't been used for the AWS IoT device in the last year.
     """
-    iot_role_alias_overly_permissive_check: NotRequired[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgsDict']]
+    iot_role_alias_overly_permissive_check: NotRequired[pulumi.Input[Optional['AccountAuditConfigurationAuditCheckConfigurationArgs']]]
     """
     Checks if the temporary credentials provided by AWS IoT role aliases are overly permissive.
     """
-    logging_disabled_check: NotRequired[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgsDict']]
+    logging_disabled_check: NotRequired[pulumi.Input[Optional['AccountAuditConfigurationAuditCheckConfigurationArgs']]]
     """
     Checks if AWS IoT logs are disabled.
     """
-    revoked_ca_certificate_still_active_check: NotRequired[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgsDict']]
+    revoked_ca_certificate_still_active_check: NotRequired[pulumi.Input[Optional['AccountAuditConfigurationAuditCheckConfigurationArgs']]]
     """
     Checks if a revoked CA certificate is still active.
     """
-    revoked_device_certificate_still_active_check: NotRequired[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgsDict']]
+    revoked_device_certificate_still_active_check: NotRequired[pulumi.Input[Optional['AccountAuditConfigurationAuditCheckConfigurationArgs']]]
     """
     Checks if a revoked device certificate is still active.
     """
-    unauthenticated_cognito_role_overly_permissive_check: NotRequired[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgsDict']]
+    unauthenticated_cognito_role_overly_permissive_check: NotRequired[pulumi.Input[Optional['AccountAuditConfigurationAuditCheckConfigurationArgs']]]
     """
     Checks if policy attached to an unauthenticated Amazon Cognito identity pool role is too permissive.
     """
@@ -329,23 +329,23 @@ class AccountAuditConfigurationAuditCheckConfigurationsArgsDict(TypedDict):
 @pulumi.input_type
 class AccountAuditConfigurationAuditCheckConfigurationsArgs:
     def __init__(__self__, *,
-                 authenticated_cognito_role_overly_permissive_check: Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']] = None,
-                 ca_certificate_expiring_check: Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']] = None,
-                 ca_certificate_key_quality_check: Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']] = None,
-                 conflicting_client_ids_check: Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']] = None,
-                 device_certificate_age_check: Optional[pulumi.Input['AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationArgs']] = None,
-                 device_certificate_expiring_check: Optional[pulumi.Input['AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationArgs']] = None,
-                 device_certificate_key_quality_check: Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']] = None,
-                 device_certificate_shared_check: Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']] = None,
-                 intermediate_ca_revoked_for_active_device_certificates_check: Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']] = None,
-                 io_t_policy_potential_mis_configuration_check: Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']] = None,
-                 iot_policy_overly_permissive_check: Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']] = None,
-                 iot_role_alias_allows_access_to_unused_services_check: Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']] = None,
-                 iot_role_alias_overly_permissive_check: Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']] = None,
-                 logging_disabled_check: Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']] = None,
-                 revoked_ca_certificate_still_active_check: Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']] = None,
-                 revoked_device_certificate_still_active_check: Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']] = None,
-                 unauthenticated_cognito_role_overly_permissive_check: Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']] = None):
+                 authenticated_cognito_role_overly_permissive_check: pulumi.Input[Optional['AccountAuditConfigurationAuditCheckConfigurationArgs']] = None,
+                 ca_certificate_expiring_check: pulumi.Input[Optional['AccountAuditConfigurationAuditCheckConfigurationArgs']] = None,
+                 ca_certificate_key_quality_check: pulumi.Input[Optional['AccountAuditConfigurationAuditCheckConfigurationArgs']] = None,
+                 conflicting_client_ids_check: pulumi.Input[Optional['AccountAuditConfigurationAuditCheckConfigurationArgs']] = None,
+                 device_certificate_age_check: pulumi.Input[Optional['AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationArgs']] = None,
+                 device_certificate_expiring_check: pulumi.Input[Optional['AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationArgs']] = None,
+                 device_certificate_key_quality_check: pulumi.Input[Optional['AccountAuditConfigurationAuditCheckConfigurationArgs']] = None,
+                 device_certificate_shared_check: pulumi.Input[Optional['AccountAuditConfigurationAuditCheckConfigurationArgs']] = None,
+                 intermediate_ca_revoked_for_active_device_certificates_check: pulumi.Input[Optional['AccountAuditConfigurationAuditCheckConfigurationArgs']] = None,
+                 io_t_policy_potential_mis_configuration_check: pulumi.Input[Optional['AccountAuditConfigurationAuditCheckConfigurationArgs']] = None,
+                 iot_policy_overly_permissive_check: pulumi.Input[Optional['AccountAuditConfigurationAuditCheckConfigurationArgs']] = None,
+                 iot_role_alias_allows_access_to_unused_services_check: pulumi.Input[Optional['AccountAuditConfigurationAuditCheckConfigurationArgs']] = None,
+                 iot_role_alias_overly_permissive_check: pulumi.Input[Optional['AccountAuditConfigurationAuditCheckConfigurationArgs']] = None,
+                 logging_disabled_check: pulumi.Input[Optional['AccountAuditConfigurationAuditCheckConfigurationArgs']] = None,
+                 revoked_ca_certificate_still_active_check: pulumi.Input[Optional['AccountAuditConfigurationAuditCheckConfigurationArgs']] = None,
+                 revoked_device_certificate_still_active_check: pulumi.Input[Optional['AccountAuditConfigurationAuditCheckConfigurationArgs']] = None,
+                 unauthenticated_cognito_role_overly_permissive_check: pulumi.Input[Optional['AccountAuditConfigurationAuditCheckConfigurationArgs']] = None):
         """
         Specifies which audit checks are enabled and disabled for this account.
 
@@ -404,206 +404,206 @@ class AccountAuditConfigurationAuditCheckConfigurationsArgs:
 
     @_builtins.property
     @pulumi.getter(name="authenticatedCognitoRoleOverlyPermissiveCheck")
-    def authenticated_cognito_role_overly_permissive_check(self) -> Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']]:
+    def authenticated_cognito_role_overly_permissive_check(self) -> pulumi.Input[Optional['AccountAuditConfigurationAuditCheckConfigurationArgs']]:
         """
         Checks the permissiveness of an authenticated Amazon Cognito identity pool role. For this check, AWS IoT Device Defender audits all Amazon Cognito identity pools that have been used to connect to the AWS IoT message broker during the 31 days before the audit is performed.
         """
         return pulumi.get(self, "authenticated_cognito_role_overly_permissive_check")
 
     @authenticated_cognito_role_overly_permissive_check.setter
-    def authenticated_cognito_role_overly_permissive_check(self, value: Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']]):
+    def authenticated_cognito_role_overly_permissive_check(self, value: pulumi.Input[Optional['AccountAuditConfigurationAuditCheckConfigurationArgs']]):
         pulumi.set(self, "authenticated_cognito_role_overly_permissive_check", value)
 
     @_builtins.property
     @pulumi.getter(name="caCertificateExpiringCheck")
-    def ca_certificate_expiring_check(self) -> Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']]:
+    def ca_certificate_expiring_check(self) -> pulumi.Input[Optional['AccountAuditConfigurationAuditCheckConfigurationArgs']]:
         """
         Checks if a CA certificate is expiring. This check applies to CA certificates expiring within 30 days or that have expired.
         """
         return pulumi.get(self, "ca_certificate_expiring_check")
 
     @ca_certificate_expiring_check.setter
-    def ca_certificate_expiring_check(self, value: Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']]):
+    def ca_certificate_expiring_check(self, value: pulumi.Input[Optional['AccountAuditConfigurationAuditCheckConfigurationArgs']]):
         pulumi.set(self, "ca_certificate_expiring_check", value)
 
     @_builtins.property
     @pulumi.getter(name="caCertificateKeyQualityCheck")
-    def ca_certificate_key_quality_check(self) -> Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']]:
+    def ca_certificate_key_quality_check(self) -> pulumi.Input[Optional['AccountAuditConfigurationAuditCheckConfigurationArgs']]:
         """
         Checks the quality of the CA certificate key. The quality checks if the key is in a valid format, not expired, and if the key meets a minimum required size. This check applies to CA certificates that are `ACTIVE` or `PENDING_TRANSFER` .
         """
         return pulumi.get(self, "ca_certificate_key_quality_check")
 
     @ca_certificate_key_quality_check.setter
-    def ca_certificate_key_quality_check(self, value: Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']]):
+    def ca_certificate_key_quality_check(self, value: pulumi.Input[Optional['AccountAuditConfigurationAuditCheckConfigurationArgs']]):
         pulumi.set(self, "ca_certificate_key_quality_check", value)
 
     @_builtins.property
     @pulumi.getter(name="conflictingClientIdsCheck")
-    def conflicting_client_ids_check(self) -> Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']]:
+    def conflicting_client_ids_check(self) -> pulumi.Input[Optional['AccountAuditConfigurationAuditCheckConfigurationArgs']]:
         """
         Checks if multiple devices connect using the same client ID.
         """
         return pulumi.get(self, "conflicting_client_ids_check")
 
     @conflicting_client_ids_check.setter
-    def conflicting_client_ids_check(self, value: Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']]):
+    def conflicting_client_ids_check(self, value: pulumi.Input[Optional['AccountAuditConfigurationAuditCheckConfigurationArgs']]):
         pulumi.set(self, "conflicting_client_ids_check", value)
 
     @_builtins.property
     @pulumi.getter(name="deviceCertificateAgeCheck")
-    def device_certificate_age_check(self) -> Optional[pulumi.Input['AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationArgs']]:
+    def device_certificate_age_check(self) -> pulumi.Input[Optional['AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationArgs']]:
         """
         Checks when a device certificate has been active for a number of days greater than or equal to the number you specify.
         """
         return pulumi.get(self, "device_certificate_age_check")
 
     @device_certificate_age_check.setter
-    def device_certificate_age_check(self, value: Optional[pulumi.Input['AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationArgs']]):
+    def device_certificate_age_check(self, value: pulumi.Input[Optional['AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationArgs']]):
         pulumi.set(self, "device_certificate_age_check", value)
 
     @_builtins.property
     @pulumi.getter(name="deviceCertificateExpiringCheck")
-    def device_certificate_expiring_check(self) -> Optional[pulumi.Input['AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationArgs']]:
+    def device_certificate_expiring_check(self) -> pulumi.Input[Optional['AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationArgs']]:
         """
         Checks if a device certificate is expiring. By default, this check applies to device certificates expiring within 30 days or that have expired. You can modify this threshold by configuring the DeviceCertExpirationAuditCheckConfiguration.
         """
         return pulumi.get(self, "device_certificate_expiring_check")
 
     @device_certificate_expiring_check.setter
-    def device_certificate_expiring_check(self, value: Optional[pulumi.Input['AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationArgs']]):
+    def device_certificate_expiring_check(self, value: pulumi.Input[Optional['AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationArgs']]):
         pulumi.set(self, "device_certificate_expiring_check", value)
 
     @_builtins.property
     @pulumi.getter(name="deviceCertificateKeyQualityCheck")
-    def device_certificate_key_quality_check(self) -> Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']]:
+    def device_certificate_key_quality_check(self) -> pulumi.Input[Optional['AccountAuditConfigurationAuditCheckConfigurationArgs']]:
         """
         Checks the quality of the device certificate key. The quality checks if the key is in a valid format, not expired, signed by a registered certificate authority, and if the key meets a minimum required size.
         """
         return pulumi.get(self, "device_certificate_key_quality_check")
 
     @device_certificate_key_quality_check.setter
-    def device_certificate_key_quality_check(self, value: Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']]):
+    def device_certificate_key_quality_check(self, value: pulumi.Input[Optional['AccountAuditConfigurationAuditCheckConfigurationArgs']]):
         pulumi.set(self, "device_certificate_key_quality_check", value)
 
     @_builtins.property
     @pulumi.getter(name="deviceCertificateSharedCheck")
-    def device_certificate_shared_check(self) -> Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']]:
+    def device_certificate_shared_check(self) -> pulumi.Input[Optional['AccountAuditConfigurationAuditCheckConfigurationArgs']]:
         """
         Checks if multiple concurrent connections use the same X.509 certificate to authenticate with AWS IoT .
         """
         return pulumi.get(self, "device_certificate_shared_check")
 
     @device_certificate_shared_check.setter
-    def device_certificate_shared_check(self, value: Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']]):
+    def device_certificate_shared_check(self, value: pulumi.Input[Optional['AccountAuditConfigurationAuditCheckConfigurationArgs']]):
         pulumi.set(self, "device_certificate_shared_check", value)
 
     @_builtins.property
     @pulumi.getter(name="intermediateCaRevokedForActiveDeviceCertificatesCheck")
-    def intermediate_ca_revoked_for_active_device_certificates_check(self) -> Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']]:
+    def intermediate_ca_revoked_for_active_device_certificates_check(self) -> pulumi.Input[Optional['AccountAuditConfigurationAuditCheckConfigurationArgs']]:
         """
         Checks if device certificates are still active despite being revoked by an intermediate CA.
         """
         return pulumi.get(self, "intermediate_ca_revoked_for_active_device_certificates_check")
 
     @intermediate_ca_revoked_for_active_device_certificates_check.setter
-    def intermediate_ca_revoked_for_active_device_certificates_check(self, value: Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']]):
+    def intermediate_ca_revoked_for_active_device_certificates_check(self, value: pulumi.Input[Optional['AccountAuditConfigurationAuditCheckConfigurationArgs']]):
         pulumi.set(self, "intermediate_ca_revoked_for_active_device_certificates_check", value)
 
     @_builtins.property
     @pulumi.getter(name="ioTPolicyPotentialMisConfigurationCheck")
-    def io_t_policy_potential_mis_configuration_check(self) -> Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']]:
+    def io_t_policy_potential_mis_configuration_check(self) -> pulumi.Input[Optional['AccountAuditConfigurationAuditCheckConfigurationArgs']]:
         """
         Checks if an AWS IoT policy is potentially misconfigured. Misconfigured policies, including overly permissive policies, can cause security incidents like allowing devices access to unintended resources. This check is a warning for you to make sure that only intended actions are allowed before updating the policy.
         """
         return pulumi.get(self, "io_t_policy_potential_mis_configuration_check")
 
     @io_t_policy_potential_mis_configuration_check.setter
-    def io_t_policy_potential_mis_configuration_check(self, value: Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']]):
+    def io_t_policy_potential_mis_configuration_check(self, value: pulumi.Input[Optional['AccountAuditConfigurationAuditCheckConfigurationArgs']]):
         pulumi.set(self, "io_t_policy_potential_mis_configuration_check", value)
 
     @_builtins.property
     @pulumi.getter(name="iotPolicyOverlyPermissiveCheck")
-    def iot_policy_overly_permissive_check(self) -> Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']]:
+    def iot_policy_overly_permissive_check(self) -> pulumi.Input[Optional['AccountAuditConfigurationAuditCheckConfigurationArgs']]:
         """
         Checks the permissiveness of a policy attached to an authenticated Amazon Cognito identity pool role.
         """
         return pulumi.get(self, "iot_policy_overly_permissive_check")
 
     @iot_policy_overly_permissive_check.setter
-    def iot_policy_overly_permissive_check(self, value: Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']]):
+    def iot_policy_overly_permissive_check(self, value: pulumi.Input[Optional['AccountAuditConfigurationAuditCheckConfigurationArgs']]):
         pulumi.set(self, "iot_policy_overly_permissive_check", value)
 
     @_builtins.property
     @pulumi.getter(name="iotRoleAliasAllowsAccessToUnusedServicesCheck")
-    def iot_role_alias_allows_access_to_unused_services_check(self) -> Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']]:
+    def iot_role_alias_allows_access_to_unused_services_check(self) -> pulumi.Input[Optional['AccountAuditConfigurationAuditCheckConfigurationArgs']]:
         """
         Checks if a role alias has access to services that haven't been used for the AWS IoT device in the last year.
         """
         return pulumi.get(self, "iot_role_alias_allows_access_to_unused_services_check")
 
     @iot_role_alias_allows_access_to_unused_services_check.setter
-    def iot_role_alias_allows_access_to_unused_services_check(self, value: Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']]):
+    def iot_role_alias_allows_access_to_unused_services_check(self, value: pulumi.Input[Optional['AccountAuditConfigurationAuditCheckConfigurationArgs']]):
         pulumi.set(self, "iot_role_alias_allows_access_to_unused_services_check", value)
 
     @_builtins.property
     @pulumi.getter(name="iotRoleAliasOverlyPermissiveCheck")
-    def iot_role_alias_overly_permissive_check(self) -> Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']]:
+    def iot_role_alias_overly_permissive_check(self) -> pulumi.Input[Optional['AccountAuditConfigurationAuditCheckConfigurationArgs']]:
         """
         Checks if the temporary credentials provided by AWS IoT role aliases are overly permissive.
         """
         return pulumi.get(self, "iot_role_alias_overly_permissive_check")
 
     @iot_role_alias_overly_permissive_check.setter
-    def iot_role_alias_overly_permissive_check(self, value: Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']]):
+    def iot_role_alias_overly_permissive_check(self, value: pulumi.Input[Optional['AccountAuditConfigurationAuditCheckConfigurationArgs']]):
         pulumi.set(self, "iot_role_alias_overly_permissive_check", value)
 
     @_builtins.property
     @pulumi.getter(name="loggingDisabledCheck")
-    def logging_disabled_check(self) -> Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']]:
+    def logging_disabled_check(self) -> pulumi.Input[Optional['AccountAuditConfigurationAuditCheckConfigurationArgs']]:
         """
         Checks if AWS IoT logs are disabled.
         """
         return pulumi.get(self, "logging_disabled_check")
 
     @logging_disabled_check.setter
-    def logging_disabled_check(self, value: Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']]):
+    def logging_disabled_check(self, value: pulumi.Input[Optional['AccountAuditConfigurationAuditCheckConfigurationArgs']]):
         pulumi.set(self, "logging_disabled_check", value)
 
     @_builtins.property
     @pulumi.getter(name="revokedCaCertificateStillActiveCheck")
-    def revoked_ca_certificate_still_active_check(self) -> Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']]:
+    def revoked_ca_certificate_still_active_check(self) -> pulumi.Input[Optional['AccountAuditConfigurationAuditCheckConfigurationArgs']]:
         """
         Checks if a revoked CA certificate is still active.
         """
         return pulumi.get(self, "revoked_ca_certificate_still_active_check")
 
     @revoked_ca_certificate_still_active_check.setter
-    def revoked_ca_certificate_still_active_check(self, value: Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']]):
+    def revoked_ca_certificate_still_active_check(self, value: pulumi.Input[Optional['AccountAuditConfigurationAuditCheckConfigurationArgs']]):
         pulumi.set(self, "revoked_ca_certificate_still_active_check", value)
 
     @_builtins.property
     @pulumi.getter(name="revokedDeviceCertificateStillActiveCheck")
-    def revoked_device_certificate_still_active_check(self) -> Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']]:
+    def revoked_device_certificate_still_active_check(self) -> pulumi.Input[Optional['AccountAuditConfigurationAuditCheckConfigurationArgs']]:
         """
         Checks if a revoked device certificate is still active.
         """
         return pulumi.get(self, "revoked_device_certificate_still_active_check")
 
     @revoked_device_certificate_still_active_check.setter
-    def revoked_device_certificate_still_active_check(self, value: Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']]):
+    def revoked_device_certificate_still_active_check(self, value: pulumi.Input[Optional['AccountAuditConfigurationAuditCheckConfigurationArgs']]):
         pulumi.set(self, "revoked_device_certificate_still_active_check", value)
 
     @_builtins.property
     @pulumi.getter(name="unauthenticatedCognitoRoleOverlyPermissiveCheck")
-    def unauthenticated_cognito_role_overly_permissive_check(self) -> Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']]:
+    def unauthenticated_cognito_role_overly_permissive_check(self) -> pulumi.Input[Optional['AccountAuditConfigurationAuditCheckConfigurationArgs']]:
         """
         Checks if policy attached to an unauthenticated Amazon Cognito identity pool role is too permissive.
         """
         return pulumi.get(self, "unauthenticated_cognito_role_overly_permissive_check")
 
     @unauthenticated_cognito_role_overly_permissive_check.setter
-    def unauthenticated_cognito_role_overly_permissive_check(self, value: Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']]):
+    def unauthenticated_cognito_role_overly_permissive_check(self, value: pulumi.Input[Optional['AccountAuditConfigurationAuditCheckConfigurationArgs']]):
         pulumi.set(self, "unauthenticated_cognito_role_overly_permissive_check", value)
 
 
@@ -611,7 +611,7 @@ class AccountAuditConfigurationAuditCheckConfigurationArgsDict(TypedDict):
     """
     The configuration for a specific audit check.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     True if the check is enabled.
     """
@@ -619,7 +619,7 @@ class AccountAuditConfigurationAuditCheckConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class AccountAuditConfigurationAuditCheckConfigurationArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The configuration for a specific audit check.
 
@@ -630,14 +630,14 @@ class AccountAuditConfigurationAuditCheckConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         True if the check is enabled.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
 
@@ -645,7 +645,7 @@ class AccountAuditConfigurationAuditNotificationTargetConfigurationsArgsDict(Typ
     """
     Information about the targets to which audit notifications are sent.
     """
-    sns: NotRequired[pulumi.Input['AccountAuditConfigurationAuditNotificationTargetArgsDict']]
+    sns: NotRequired[pulumi.Input[Optional['AccountAuditConfigurationAuditNotificationTargetArgs']]]
     """
     The `Sns` notification target.
     """
@@ -653,7 +653,7 @@ class AccountAuditConfigurationAuditNotificationTargetConfigurationsArgsDict(Typ
 @pulumi.input_type
 class AccountAuditConfigurationAuditNotificationTargetConfigurationsArgs:
     def __init__(__self__, *,
-                 sns: Optional[pulumi.Input['AccountAuditConfigurationAuditNotificationTargetArgs']] = None):
+                 sns: pulumi.Input[Optional['AccountAuditConfigurationAuditNotificationTargetArgs']] = None):
         """
         Information about the targets to which audit notifications are sent.
 
@@ -664,27 +664,27 @@ class AccountAuditConfigurationAuditNotificationTargetConfigurationsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def sns(self) -> Optional[pulumi.Input['AccountAuditConfigurationAuditNotificationTargetArgs']]:
+    def sns(self) -> pulumi.Input[Optional['AccountAuditConfigurationAuditNotificationTargetArgs']]:
         """
         The `Sns` notification target.
         """
         return pulumi.get(self, "sns")
 
     @sns.setter
-    def sns(self, value: Optional[pulumi.Input['AccountAuditConfigurationAuditNotificationTargetArgs']]):
+    def sns(self, value: pulumi.Input[Optional['AccountAuditConfigurationAuditNotificationTargetArgs']]):
         pulumi.set(self, "sns", value)
 
 
 class AccountAuditConfigurationAuditNotificationTargetArgsDict(TypedDict):
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     True if notifications to the target are enabled.
     """
-    role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of the role that grants permission to send notifications to the target.
     """
-    target_arn: NotRequired[pulumi.Input[_builtins.str]]
+    target_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of the target (SNS topic) to which audit notifications are sent.
     """
@@ -692,9 +692,9 @@ class AccountAuditConfigurationAuditNotificationTargetArgsDict(TypedDict):
 @pulumi.input_type
 class AccountAuditConfigurationAuditNotificationTargetArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.bool] enabled: True if notifications to the target are enabled.
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the role that grants permission to send notifications to the target.
@@ -709,38 +709,38 @@ class AccountAuditConfigurationAuditNotificationTargetArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         True if notifications to the target are enabled.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the role that grants permission to send notifications to the target.
         """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
-    def role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="targetArn")
-    def target_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the target (SNS topic) to which audit notifications are sent.
         """
         return pulumi.get(self, "target_arn")
 
     @target_arn.setter
-    def target_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_arn", value)
 
 
@@ -748,7 +748,7 @@ class AccountAuditConfigurationCertAgeCheckCustomConfigurationArgsDict(TypedDict
     """
     A structure containing the configName and corresponding configValue for configuring audit checks.
     """
-    cert_age_threshold_in_days: NotRequired[pulumi.Input[_builtins.str]]
+    cert_age_threshold_in_days: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The number of days that defines when a device certificate is considered to have aged. The check will report a finding if a certificate has been active for a number of days greater than or equal to this threshold value.
     """
@@ -756,7 +756,7 @@ class AccountAuditConfigurationCertAgeCheckCustomConfigurationArgsDict(TypedDict
 @pulumi.input_type
 class AccountAuditConfigurationCertAgeCheckCustomConfigurationArgs:
     def __init__(__self__, *,
-                 cert_age_threshold_in_days: Optional[pulumi.Input[_builtins.str]] = None):
+                 cert_age_threshold_in_days: pulumi.Input[Optional[_builtins.str]] = None):
         """
         A structure containing the configName and corresponding configValue for configuring audit checks.
 
@@ -767,14 +767,14 @@ class AccountAuditConfigurationCertAgeCheckCustomConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="certAgeThresholdInDays")
-    def cert_age_threshold_in_days(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cert_age_threshold_in_days(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The number of days that defines when a device certificate is considered to have aged. The check will report a finding if a certificate has been active for a number of days greater than or equal to this threshold value.
         """
         return pulumi.get(self, "cert_age_threshold_in_days")
 
     @cert_age_threshold_in_days.setter
-    def cert_age_threshold_in_days(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cert_age_threshold_in_days(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cert_age_threshold_in_days", value)
 
 
@@ -782,7 +782,7 @@ class AccountAuditConfigurationCertExpirationCheckCustomConfigurationArgsDict(Ty
     """
     A structure containing the configName and corresponding configValue for configuring audit checks.
     """
-    cert_expiration_threshold_in_days: NotRequired[pulumi.Input[_builtins.str]]
+    cert_expiration_threshold_in_days: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The number of days before expiration that defines when a device certificate is considered to be approaching expiration. The check will report a finding if a certificate will expire within this number of days.
     """
@@ -790,7 +790,7 @@ class AccountAuditConfigurationCertExpirationCheckCustomConfigurationArgsDict(Ty
 @pulumi.input_type
 class AccountAuditConfigurationCertExpirationCheckCustomConfigurationArgs:
     def __init__(__self__, *,
-                 cert_expiration_threshold_in_days: Optional[pulumi.Input[_builtins.str]] = None):
+                 cert_expiration_threshold_in_days: pulumi.Input[Optional[_builtins.str]] = None):
         """
         A structure containing the configName and corresponding configValue for configuring audit checks.
 
@@ -801,14 +801,14 @@ class AccountAuditConfigurationCertExpirationCheckCustomConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="certExpirationThresholdInDays")
-    def cert_expiration_threshold_in_days(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cert_expiration_threshold_in_days(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The number of days before expiration that defines when a device certificate is considered to be approaching expiration. The check will report a finding if a certificate will expire within this number of days.
         """
         return pulumi.get(self, "cert_expiration_threshold_in_days")
 
     @cert_expiration_threshold_in_days.setter
-    def cert_expiration_threshold_in_days(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cert_expiration_threshold_in_days(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cert_expiration_threshold_in_days", value)
 
 
@@ -816,11 +816,11 @@ class AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationArgsDict(Type
     """
     A structure containing the configName and corresponding configValue for configuring DeviceCertAgeCheck.
     """
-    configuration: NotRequired[pulumi.Input['AccountAuditConfigurationCertAgeCheckCustomConfigurationArgsDict']]
+    configuration: NotRequired[pulumi.Input[Optional['AccountAuditConfigurationCertAgeCheckCustomConfigurationArgs']]]
     """
     Configuration settings for the device certificate age check, including the threshold in days for certificate age. This configuration is of type `CertAgeCheckCustomConfiguration` .
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     True if the check is enabled.
     """
@@ -828,8 +828,8 @@ class AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationArgsDict(Type
 @pulumi.input_type
 class AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationArgs:
     def __init__(__self__, *,
-                 configuration: Optional[pulumi.Input['AccountAuditConfigurationCertAgeCheckCustomConfigurationArgs']] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 configuration: pulumi.Input[Optional['AccountAuditConfigurationCertAgeCheckCustomConfigurationArgs']] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         A structure containing the configName and corresponding configValue for configuring DeviceCertAgeCheck.
 
@@ -843,26 +843,26 @@ class AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def configuration(self) -> Optional[pulumi.Input['AccountAuditConfigurationCertAgeCheckCustomConfigurationArgs']]:
+    def configuration(self) -> pulumi.Input[Optional['AccountAuditConfigurationCertAgeCheckCustomConfigurationArgs']]:
         """
         Configuration settings for the device certificate age check, including the threshold in days for certificate age. This configuration is of type `CertAgeCheckCustomConfiguration` .
         """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
-    def configuration(self, value: Optional[pulumi.Input['AccountAuditConfigurationCertAgeCheckCustomConfigurationArgs']]):
+    def configuration(self, value: pulumi.Input[Optional['AccountAuditConfigurationCertAgeCheckCustomConfigurationArgs']]):
         pulumi.set(self, "configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         True if the check is enabled.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
 
@@ -870,11 +870,11 @@ class AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationArgsDi
     """
     A structure containing the configName and corresponding configValue for configuring DeviceCertExpirationCheck.
     """
-    configuration: NotRequired[pulumi.Input['AccountAuditConfigurationCertExpirationCheckCustomConfigurationArgsDict']]
+    configuration: NotRequired[pulumi.Input[Optional['AccountAuditConfigurationCertExpirationCheckCustomConfigurationArgs']]]
     """
     Configuration settings for the device certificate expiration check, including the threshold in days before expiration. This configuration is of type `CertExpirationCheckCustomConfiguration`
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     True if the check is enabled.
     """
@@ -882,8 +882,8 @@ class AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationArgsDi
 @pulumi.input_type
 class AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationArgs:
     def __init__(__self__, *,
-                 configuration: Optional[pulumi.Input['AccountAuditConfigurationCertExpirationCheckCustomConfigurationArgs']] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 configuration: pulumi.Input[Optional['AccountAuditConfigurationCertExpirationCheckCustomConfigurationArgs']] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         A structure containing the configName and corresponding configValue for configuring DeviceCertExpirationCheck.
 
@@ -897,26 +897,26 @@ class AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def configuration(self) -> Optional[pulumi.Input['AccountAuditConfigurationCertExpirationCheckCustomConfigurationArgs']]:
+    def configuration(self) -> pulumi.Input[Optional['AccountAuditConfigurationCertExpirationCheckCustomConfigurationArgs']]:
         """
         Configuration settings for the device certificate expiration check, including the threshold in days before expiration. This configuration is of type `CertExpirationCheckCustomConfiguration`
         """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
-    def configuration(self, value: Optional[pulumi.Input['AccountAuditConfigurationCertExpirationCheckCustomConfigurationArgs']]):
+    def configuration(self, value: pulumi.Input[Optional['AccountAuditConfigurationCertExpirationCheckCustomConfigurationArgs']]):
         pulumi.set(self, "configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         True if the check is enabled.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
 
@@ -924,7 +924,7 @@ class BillingGroupPropertiesPropertiesArgsDict(TypedDict):
     """
     The properties of the billing group.
     """
-    billing_group_description: NotRequired[pulumi.Input[_builtins.str]]
+    billing_group_description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The description of the billing group.
     """
@@ -932,7 +932,7 @@ class BillingGroupPropertiesPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class BillingGroupPropertiesPropertiesArgs:
     def __init__(__self__, *,
-                 billing_group_description: Optional[pulumi.Input[_builtins.str]] = None):
+                 billing_group_description: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The properties of the billing group.
 
@@ -943,27 +943,27 @@ class BillingGroupPropertiesPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="billingGroupDescription")
-    def billing_group_description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def billing_group_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the billing group.
         """
         return pulumi.get(self, "billing_group_description")
 
     @billing_group_description.setter
-    def billing_group_description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def billing_group_description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "billing_group_description", value)
 
 
 class CaCertificateRegistrationConfigArgsDict(TypedDict):
-    role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of the role.
     """
-    template_body: NotRequired[pulumi.Input[_builtins.str]]
+    template_body: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The template body.
     """
-    template_name: NotRequired[pulumi.Input[_builtins.str]]
+    template_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the provisioning template.
     """
@@ -971,9 +971,9 @@ class CaCertificateRegistrationConfigArgsDict(TypedDict):
 @pulumi.input_type
 class CaCertificateRegistrationConfigArgs:
     def __init__(__self__, *,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 template_body: Optional[pulumi.Input[_builtins.str]] = None,
-                 template_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 template_body: pulumi.Input[Optional[_builtins.str]] = None,
+                 template_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the role.
         :param pulumi.Input[_builtins.str] template_body: The template body.
@@ -988,38 +988,38 @@ class CaCertificateRegistrationConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the role.
         """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
-    def role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="templateBody")
-    def template_body(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def template_body(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The template body.
         """
         return pulumi.get(self, "template_body")
 
     @template_body.setter
-    def template_body(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def template_body(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "template_body", value)
 
     @_builtins.property
     @pulumi.getter(name="templateName")
-    def template_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def template_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the provisioning template.
         """
         return pulumi.get(self, "template_name")
 
     @template_name.setter
-    def template_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def template_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "template_name", value)
 
 
@@ -1043,20 +1043,20 @@ class CommandAwsJsonSubstitutionCommandPreprocessorConfigArgs:
 
 
 class CommandParameterValueComparisonOperandArgsDict(TypedDict):
-    number: NotRequired[pulumi.Input[_builtins.str]]
-    number_range: NotRequired[pulumi.Input['CommandParameterValueNumberRangeArgsDict']]
-    numbers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    string: NotRequired[pulumi.Input[_builtins.str]]
-    strings: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    number: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    number_range: NotRequired[pulumi.Input[Optional['CommandParameterValueNumberRangeArgs']]]
+    numbers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    string: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    strings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
 
 @pulumi.input_type
 class CommandParameterValueComparisonOperandArgs:
     def __init__(__self__, *,
-                 number: Optional[pulumi.Input[_builtins.str]] = None,
-                 number_range: Optional[pulumi.Input['CommandParameterValueNumberRangeArgs']] = None,
-                 numbers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 string: Optional[pulumi.Input[_builtins.str]] = None,
-                 strings: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 number: pulumi.Input[Optional[_builtins.str]] = None,
+                 number_range: pulumi.Input[Optional['CommandParameterValueNumberRangeArgs']] = None,
+                 numbers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 string: pulumi.Input[Optional[_builtins.str]] = None,
+                 strings: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         if number is not None:
             pulumi.set(__self__, "number", number)
         if number_range is not None:
@@ -1070,47 +1070,47 @@ class CommandParameterValueComparisonOperandArgs:
 
     @_builtins.property
     @pulumi.getter
-    def number(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def number(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "number")
 
     @number.setter
-    def number(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def number(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "number", value)
 
     @_builtins.property
     @pulumi.getter(name="numberRange")
-    def number_range(self) -> Optional[pulumi.Input['CommandParameterValueNumberRangeArgs']]:
+    def number_range(self) -> pulumi.Input[Optional['CommandParameterValueNumberRangeArgs']]:
         return pulumi.get(self, "number_range")
 
     @number_range.setter
-    def number_range(self, value: Optional[pulumi.Input['CommandParameterValueNumberRangeArgs']]):
+    def number_range(self, value: pulumi.Input[Optional['CommandParameterValueNumberRangeArgs']]):
         pulumi.set(self, "number_range", value)
 
     @_builtins.property
     @pulumi.getter
-    def numbers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def numbers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "numbers")
 
     @numbers.setter
-    def numbers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def numbers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "numbers", value)
 
     @_builtins.property
     @pulumi.getter
-    def string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def string(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "string")
 
     @string.setter
-    def string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "string", value)
 
     @_builtins.property
     @pulumi.getter
-    def strings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def strings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "strings")
 
     @strings.setter
-    def strings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def strings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "strings", value)
 
 
@@ -1177,24 +1177,24 @@ class CommandParameterValueNumberRangeArgs:
 
 
 class CommandParameterValueArgsDict(TypedDict):
-    b: NotRequired[pulumi.Input[_builtins.bool]]
-    bin: NotRequired[pulumi.Input[_builtins.str]]
-    d: NotRequired[pulumi.Input[_builtins.float]]
-    i: NotRequired[pulumi.Input[_builtins.int]]
-    l: NotRequired[pulumi.Input[_builtins.str]]
-    s: NotRequired[pulumi.Input[_builtins.str]]
-    ul: NotRequired[pulumi.Input[_builtins.str]]
+    b: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    bin: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    d: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    i: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    l: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    s: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    ul: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class CommandParameterValueArgs:
     def __init__(__self__, *,
-                 b: Optional[pulumi.Input[_builtins.bool]] = None,
-                 bin: Optional[pulumi.Input[_builtins.str]] = None,
-                 d: Optional[pulumi.Input[_builtins.float]] = None,
-                 i: Optional[pulumi.Input[_builtins.int]] = None,
-                 l: Optional[pulumi.Input[_builtins.str]] = None,
-                 s: Optional[pulumi.Input[_builtins.str]] = None,
-                 ul: Optional[pulumi.Input[_builtins.str]] = None):
+                 b: pulumi.Input[Optional[_builtins.bool]] = None,
+                 bin: pulumi.Input[Optional[_builtins.str]] = None,
+                 d: pulumi.Input[Optional[_builtins.float]] = None,
+                 i: pulumi.Input[Optional[_builtins.int]] = None,
+                 l: pulumi.Input[Optional[_builtins.str]] = None,
+                 s: pulumi.Input[Optional[_builtins.str]] = None,
+                 ul: pulumi.Input[Optional[_builtins.str]] = None):
         if b is not None:
             pulumi.set(__self__, "b", b)
         if bin is not None:
@@ -1212,85 +1212,85 @@ class CommandParameterValueArgs:
 
     @_builtins.property
     @pulumi.getter
-    def b(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def b(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "b")
 
     @b.setter
-    def b(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def b(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "b", value)
 
     @_builtins.property
     @pulumi.getter
-    def bin(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bin(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "bin")
 
     @bin.setter
-    def bin(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bin(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bin", value)
 
     @_builtins.property
     @pulumi.getter
-    def d(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def d(self) -> pulumi.Input[Optional[_builtins.float]]:
         return pulumi.get(self, "d")
 
     @d.setter
-    def d(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def d(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "d", value)
 
     @_builtins.property
     @pulumi.getter
-    def i(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def i(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "i")
 
     @i.setter
-    def i(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def i(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "i", value)
 
     @_builtins.property
     @pulumi.getter
-    def l(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def l(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "l")
 
     @l.setter
-    def l(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def l(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "l", value)
 
     @_builtins.property
     @pulumi.getter
-    def s(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def s(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "s")
 
     @s.setter
-    def s(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def s(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "s", value)
 
     @_builtins.property
     @pulumi.getter
-    def ul(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ul(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "ul")
 
     @ul.setter
-    def ul(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ul(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ul", value)
 
 
 class CommandParameterArgsDict(TypedDict):
     name: pulumi.Input[_builtins.str]
-    default_value: NotRequired[pulumi.Input['CommandParameterValueArgsDict']]
-    description: NotRequired[pulumi.Input[_builtins.str]]
-    type: NotRequired[pulumi.Input['CommandParameterType']]
-    value: NotRequired[pulumi.Input['CommandParameterValueArgsDict']]
-    value_conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['CommandParameterValueConditionArgsDict']]]]
+    default_value: NotRequired[pulumi.Input[Optional['CommandParameterValueArgs']]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    type: NotRequired[pulumi.Input[Optional['CommandParameterType']]]
+    value: NotRequired[pulumi.Input[Optional['CommandParameterValueArgs']]]
+    value_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CommandParameterValueConditionArgs']]]]]
 
 @pulumi.input_type
 class CommandParameterArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 default_value: Optional[pulumi.Input['CommandParameterValueArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input['CommandParameterType']] = None,
-                 value: Optional[pulumi.Input['CommandParameterValueArgs']] = None,
-                 value_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['CommandParameterValueConditionArgs']]]] = None):
+                 default_value: pulumi.Input[Optional['CommandParameterValueArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional['CommandParameterType']] = None,
+                 value: pulumi.Input[Optional['CommandParameterValueArgs']] = None,
+                 value_conditions: pulumi.Input[Optional[Sequence[pulumi.Input['CommandParameterValueConditionArgs']]]] = None):
         pulumi.set(__self__, "name", name)
         if default_value is not None:
             pulumi.set(__self__, "default_value", default_value)
@@ -1314,59 +1314,59 @@ class CommandParameterArgs:
 
     @_builtins.property
     @pulumi.getter(name="defaultValue")
-    def default_value(self) -> Optional[pulumi.Input['CommandParameterValueArgs']]:
+    def default_value(self) -> pulumi.Input[Optional['CommandParameterValueArgs']]:
         return pulumi.get(self, "default_value")
 
     @default_value.setter
-    def default_value(self, value: Optional[pulumi.Input['CommandParameterValueArgs']]):
+    def default_value(self, value: pulumi.Input[Optional['CommandParameterValueArgs']]):
         pulumi.set(self, "default_value", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['CommandParameterType']]:
+    def type(self) -> pulumi.Input[Optional['CommandParameterType']]:
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['CommandParameterType']]):
+    def type(self, value: pulumi.Input[Optional['CommandParameterType']]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input['CommandParameterValueArgs']]:
+    def value(self) -> pulumi.Input[Optional['CommandParameterValueArgs']]:
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input['CommandParameterValueArgs']]):
+    def value(self, value: pulumi.Input[Optional['CommandParameterValueArgs']]):
         pulumi.set(self, "value", value)
 
     @_builtins.property
     @pulumi.getter(name="valueConditions")
-    def value_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CommandParameterValueConditionArgs']]]]:
+    def value_conditions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CommandParameterValueConditionArgs']]]]:
         return pulumi.get(self, "value_conditions")
 
     @value_conditions.setter
-    def value_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CommandParameterValueConditionArgs']]]]):
+    def value_conditions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CommandParameterValueConditionArgs']]]]):
         pulumi.set(self, "value_conditions", value)
 
 
 class CommandPayloadArgsDict(TypedDict):
-    content: NotRequired[pulumi.Input[_builtins.str]]
-    content_type: NotRequired[pulumi.Input[_builtins.str]]
+    content: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    content_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class CommandPayloadArgs:
     def __init__(__self__, *,
-                 content: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 content: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_type: pulumi.Input[Optional[_builtins.str]] = None):
         if content is not None:
             pulumi.set(__self__, "content", content)
         if content_type is not None:
@@ -1374,49 +1374,49 @@ class CommandPayloadArgs:
 
     @_builtins.property
     @pulumi.getter
-    def content(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "content")
 
     @content.setter
-    def content(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content", value)
 
     @_builtins.property
     @pulumi.getter(name="contentType")
-    def content_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "content_type")
 
     @content_type.setter
-    def content_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content_type", value)
 
 
 class CommandPreprocessorArgsDict(TypedDict):
-    aws_json_substitution: NotRequired[pulumi.Input['CommandAwsJsonSubstitutionCommandPreprocessorConfigArgsDict']]
+    aws_json_substitution: NotRequired[pulumi.Input[Optional['CommandAwsJsonSubstitutionCommandPreprocessorConfigArgs']]]
 
 @pulumi.input_type
 class CommandPreprocessorArgs:
     def __init__(__self__, *,
-                 aws_json_substitution: Optional[pulumi.Input['CommandAwsJsonSubstitutionCommandPreprocessorConfigArgs']] = None):
+                 aws_json_substitution: pulumi.Input[Optional['CommandAwsJsonSubstitutionCommandPreprocessorConfigArgs']] = None):
         if aws_json_substitution is not None:
             pulumi.set(__self__, "aws_json_substitution", aws_json_substitution)
 
     @_builtins.property
     @pulumi.getter(name="awsJsonSubstitution")
-    def aws_json_substitution(self) -> Optional[pulumi.Input['CommandAwsJsonSubstitutionCommandPreprocessorConfigArgs']]:
+    def aws_json_substitution(self) -> pulumi.Input[Optional['CommandAwsJsonSubstitutionCommandPreprocessorConfigArgs']]:
         return pulumi.get(self, "aws_json_substitution")
 
     @aws_json_substitution.setter
-    def aws_json_substitution(self, value: Optional[pulumi.Input['CommandAwsJsonSubstitutionCommandPreprocessorConfigArgs']]):
+    def aws_json_substitution(self, value: pulumi.Input[Optional['CommandAwsJsonSubstitutionCommandPreprocessorConfigArgs']]):
         pulumi.set(self, "aws_json_substitution", value)
 
 
 class DomainConfigurationAuthorizerConfigArgsDict(TypedDict):
-    allow_authorizer_override: NotRequired[pulumi.Input[_builtins.bool]]
+    allow_authorizer_override: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     A Boolean that specifies whether the domain configuration's authorization service can be overridden.
     """
-    default_authorizer_name: NotRequired[pulumi.Input[_builtins.str]]
+    default_authorizer_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the authorization service for a domain configuration.
     """
@@ -1424,8 +1424,8 @@ class DomainConfigurationAuthorizerConfigArgsDict(TypedDict):
 @pulumi.input_type
 class DomainConfigurationAuthorizerConfigArgs:
     def __init__(__self__, *,
-                 allow_authorizer_override: Optional[pulumi.Input[_builtins.bool]] = None,
-                 default_authorizer_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 allow_authorizer_override: pulumi.Input[Optional[_builtins.bool]] = None,
+                 default_authorizer_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.bool] allow_authorizer_override: A Boolean that specifies whether the domain configuration's authorization service can be overridden.
         :param pulumi.Input[_builtins.str] default_authorizer_name: The name of the authorization service for a domain configuration.
@@ -1437,31 +1437,31 @@ class DomainConfigurationAuthorizerConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowAuthorizerOverride")
-    def allow_authorizer_override(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_authorizer_override(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A Boolean that specifies whether the domain configuration's authorization service can be overridden.
         """
         return pulumi.get(self, "allow_authorizer_override")
 
     @allow_authorizer_override.setter
-    def allow_authorizer_override(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_authorizer_override(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_authorizer_override", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultAuthorizerName")
-    def default_authorizer_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_authorizer_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the authorization service for a domain configuration.
         """
         return pulumi.get(self, "default_authorizer_name")
 
     @default_authorizer_name.setter
-    def default_authorizer_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_authorizer_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_authorizer_name", value)
 
 
 class DomainConfigurationClientCertificateConfigArgsDict(TypedDict):
-    client_certificate_callback_arn: NotRequired[pulumi.Input[_builtins.str]]
+    client_certificate_callback_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of the Lambda function that IoT invokes after mutual TLS authentication during the connection.
     """
@@ -1469,7 +1469,7 @@ class DomainConfigurationClientCertificateConfigArgsDict(TypedDict):
 @pulumi.input_type
 class DomainConfigurationClientCertificateConfigArgs:
     def __init__(__self__, *,
-                 client_certificate_callback_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 client_certificate_callback_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] client_certificate_callback_arn: The ARN of the Lambda function that IoT invokes after mutual TLS authentication during the connection.
         """
@@ -1478,27 +1478,27 @@ class DomainConfigurationClientCertificateConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientCertificateCallbackArn")
-    def client_certificate_callback_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_certificate_callback_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the Lambda function that IoT invokes after mutual TLS authentication during the connection.
         """
         return pulumi.get(self, "client_certificate_callback_arn")
 
     @client_certificate_callback_arn.setter
-    def client_certificate_callback_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_certificate_callback_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_certificate_callback_arn", value)
 
 
 class DomainConfigurationServerCertificateConfigArgsDict(TypedDict):
-    enable_ocsp_check: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_ocsp_check: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     A Boolean value that indicates whether Online Certificate Status Protocol (OCSP) server certificate check is enabled or not. For more information, see [Configurable endpoints](https://docs.aws.amazon.com//iot/latest/developerguide/iot-custom-endpoints-configurable.html) from the AWS IoT Core Developer Guide.
     """
-    ocsp_authorized_responder_arn: NotRequired[pulumi.Input[_builtins.str]]
+    ocsp_authorized_responder_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon Resource Name (ARN) for an X.509 certificate stored in ACM. If provided, AWS IoT Core will use this certificate to validate the signature of the received OCSP response. The OCSP responder must sign responses using either this authorized responder certificate or the issuing certificate, depending on whether the ARN is provided or not. The certificate must be in the same account and region as the domain configuration.
     """
-    ocsp_lambda_arn: NotRequired[pulumi.Input[_builtins.str]]
+    ocsp_lambda_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon Resource Name (ARN) for a Lambda function that acts as a Request for Comments (RFC) 6960-compliant Online Certificate Status Protocol (OCSP) responder, supporting basic OCSP responses. The Lambda function accepts a base64-encoding of the OCSP request in the Distinguished Encoding Rules (DER) format. The Lambda function's response is also a base64-encoded OCSP response in the DER format. The response size must not exceed 4 kilobytes (KiB). The Lambda function must be in the same account and region as the domain configuration.
     """
@@ -1506,9 +1506,9 @@ class DomainConfigurationServerCertificateConfigArgsDict(TypedDict):
 @pulumi.input_type
 class DomainConfigurationServerCertificateConfigArgs:
     def __init__(__self__, *,
-                 enable_ocsp_check: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ocsp_authorized_responder_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 ocsp_lambda_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 enable_ocsp_check: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ocsp_authorized_responder_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 ocsp_lambda_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.bool] enable_ocsp_check: A Boolean value that indicates whether Online Certificate Status Protocol (OCSP) server certificate check is enabled or not. For more information, see [Configurable endpoints](https://docs.aws.amazon.com//iot/latest/developerguide/iot-custom-endpoints-configurable.html) from the AWS IoT Core Developer Guide.
         :param pulumi.Input[_builtins.str] ocsp_authorized_responder_arn: The Amazon Resource Name (ARN) for an X.509 certificate stored in ACM. If provided, AWS IoT Core will use this certificate to validate the signature of the received OCSP response. The OCSP responder must sign responses using either this authorized responder certificate or the issuing certificate, depending on whether the ARN is provided or not. The certificate must be in the same account and region as the domain configuration.
@@ -1523,43 +1523,43 @@ class DomainConfigurationServerCertificateConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="enableOcspCheck")
-    def enable_ocsp_check(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_ocsp_check(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A Boolean value that indicates whether Online Certificate Status Protocol (OCSP) server certificate check is enabled or not. For more information, see [Configurable endpoints](https://docs.aws.amazon.com//iot/latest/developerguide/iot-custom-endpoints-configurable.html) from the AWS IoT Core Developer Guide.
         """
         return pulumi.get(self, "enable_ocsp_check")
 
     @enable_ocsp_check.setter
-    def enable_ocsp_check(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_ocsp_check(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_ocsp_check", value)
 
     @_builtins.property
     @pulumi.getter(name="ocspAuthorizedResponderArn")
-    def ocsp_authorized_responder_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ocsp_authorized_responder_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) for an X.509 certificate stored in ACM. If provided, AWS IoT Core will use this certificate to validate the signature of the received OCSP response. The OCSP responder must sign responses using either this authorized responder certificate or the issuing certificate, depending on whether the ARN is provided or not. The certificate must be in the same account and region as the domain configuration.
         """
         return pulumi.get(self, "ocsp_authorized_responder_arn")
 
     @ocsp_authorized_responder_arn.setter
-    def ocsp_authorized_responder_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ocsp_authorized_responder_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ocsp_authorized_responder_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="ocspLambdaArn")
-    def ocsp_lambda_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ocsp_lambda_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) for a Lambda function that acts as a Request for Comments (RFC) 6960-compliant Online Certificate Status Protocol (OCSP) responder, supporting basic OCSP responses. The Lambda function accepts a base64-encoding of the OCSP request in the Distinguished Encoding Rules (DER) format. The Lambda function's response is also a base64-encoded OCSP response in the DER format. The response size must not exceed 4 kilobytes (KiB). The Lambda function must be in the same account and region as the domain configuration.
         """
         return pulumi.get(self, "ocsp_lambda_arn")
 
     @ocsp_lambda_arn.setter
-    def ocsp_lambda_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ocsp_lambda_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ocsp_lambda_arn", value)
 
 
 class DomainConfigurationTlsConfigArgsDict(TypedDict):
-    security_policy: NotRequired[pulumi.Input[_builtins.str]]
+    security_policy: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The security policy for a domain configuration. For more information, see [Security policies](https://docs.aws.amazon.com/iot/latest/developerguide/transport-security.html#tls-policy-table) in the *AWS IoT Core developer guide* .
     """
@@ -1567,7 +1567,7 @@ class DomainConfigurationTlsConfigArgsDict(TypedDict):
 @pulumi.input_type
 class DomainConfigurationTlsConfigArgs:
     def __init__(__self__, *,
-                 security_policy: Optional[pulumi.Input[_builtins.str]] = None):
+                 security_policy: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] security_policy: The security policy for a domain configuration. For more information, see [Security policies](https://docs.aws.amazon.com/iot/latest/developerguide/transport-security.html#tls-policy-table) in the *AWS IoT Core developer guide* .
         """
@@ -1576,14 +1576,14 @@ class DomainConfigurationTlsConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="securityPolicy")
-    def security_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def security_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The security policy for a domain configuration. For more information, see [Security policies](https://docs.aws.amazon.com/iot/latest/developerguide/transport-security.html#tls-policy-table) in the *AWS IoT Core developer guide* .
         """
         return pulumi.get(self, "security_policy")
 
     @security_policy.setter
-    def security_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def security_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "security_policy", value)
 
 
@@ -1643,7 +1643,7 @@ class JobExecutionsRetryConfigPropertiesArgsDict(TypedDict):
     """
     Allows you to create the criteria to retry a job.
     """
-    retry_criteria_list: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobTemplateRetryCriteriaArgsDict']]]]
+    retry_criteria_list: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['JobTemplateRetryCriteriaArgs']]]]]
     """
     The list of criteria that determines how many retries are allowed for each failure type for a job.
     """
@@ -1651,7 +1651,7 @@ class JobExecutionsRetryConfigPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class JobExecutionsRetryConfigPropertiesArgs:
     def __init__(__self__, *,
-                 retry_criteria_list: Optional[pulumi.Input[Sequence[pulumi.Input['JobTemplateRetryCriteriaArgs']]]] = None):
+                 retry_criteria_list: pulumi.Input[Optional[Sequence[pulumi.Input['JobTemplateRetryCriteriaArgs']]]] = None):
         """
         Allows you to create the criteria to retry a job.
 
@@ -1662,14 +1662,14 @@ class JobExecutionsRetryConfigPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="retryCriteriaList")
-    def retry_criteria_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobTemplateRetryCriteriaArgs']]]]:
+    def retry_criteria_list(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['JobTemplateRetryCriteriaArgs']]]]:
         """
         The list of criteria that determines how many retries are allowed for each failure type for a job.
         """
         return pulumi.get(self, "retry_criteria_list")
 
     @retry_criteria_list.setter
-    def retry_criteria_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobTemplateRetryCriteriaArgs']]]]):
+    def retry_criteria_list(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['JobTemplateRetryCriteriaArgs']]]]):
         pulumi.set(self, "retry_criteria_list", value)
 
 
@@ -1677,11 +1677,11 @@ class JobExecutionsRolloutConfigPropertiesArgsDict(TypedDict):
     """
     Allows you to create a staged rollout of a job.
     """
-    exponential_rollout_rate: NotRequired[pulumi.Input['JobTemplateExponentialRolloutRateArgsDict']]
+    exponential_rollout_rate: NotRequired[pulumi.Input[Optional['JobTemplateExponentialRolloutRateArgs']]]
     """
     The rate of increase for a job rollout. This parameter allows you to define an exponential rate for a job rollout.
     """
-    maximum_per_minute: NotRequired[pulumi.Input[_builtins.int]]
+    maximum_per_minute: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum number of things that will be notified of a pending job, per minute. This parameter allows you to create a staged rollout.
     """
@@ -1689,8 +1689,8 @@ class JobExecutionsRolloutConfigPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class JobExecutionsRolloutConfigPropertiesArgs:
     def __init__(__self__, *,
-                 exponential_rollout_rate: Optional[pulumi.Input['JobTemplateExponentialRolloutRateArgs']] = None,
-                 maximum_per_minute: Optional[pulumi.Input[_builtins.int]] = None):
+                 exponential_rollout_rate: pulumi.Input[Optional['JobTemplateExponentialRolloutRateArgs']] = None,
+                 maximum_per_minute: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Allows you to create a staged rollout of a job.
 
@@ -1704,26 +1704,26 @@ class JobExecutionsRolloutConfigPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="exponentialRolloutRate")
-    def exponential_rollout_rate(self) -> Optional[pulumi.Input['JobTemplateExponentialRolloutRateArgs']]:
+    def exponential_rollout_rate(self) -> pulumi.Input[Optional['JobTemplateExponentialRolloutRateArgs']]:
         """
         The rate of increase for a job rollout. This parameter allows you to define an exponential rate for a job rollout.
         """
         return pulumi.get(self, "exponential_rollout_rate")
 
     @exponential_rollout_rate.setter
-    def exponential_rollout_rate(self, value: Optional[pulumi.Input['JobTemplateExponentialRolloutRateArgs']]):
+    def exponential_rollout_rate(self, value: pulumi.Input[Optional['JobTemplateExponentialRolloutRateArgs']]):
         pulumi.set(self, "exponential_rollout_rate", value)
 
     @_builtins.property
     @pulumi.getter(name="maximumPerMinute")
-    def maximum_per_minute(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def maximum_per_minute(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of things that will be notified of a pending job, per minute. This parameter allows you to create a staged rollout.
         """
         return pulumi.get(self, "maximum_per_minute")
 
     @maximum_per_minute.setter
-    def maximum_per_minute(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def maximum_per_minute(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "maximum_per_minute", value)
 
 
@@ -1892,11 +1892,11 @@ class JobTemplateMaintenanceWindowArgsDict(TypedDict):
     """
     Specifies a start time and duration for a scheduled Job.
     """
-    duration_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    duration_in_minutes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Displays the duration of the next maintenance window.
     """
-    start_time: NotRequired[pulumi.Input[_builtins.str]]
+    start_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Displays the start time of the next maintenance window.
     """
@@ -1904,8 +1904,8 @@ class JobTemplateMaintenanceWindowArgsDict(TypedDict):
 @pulumi.input_type
 class JobTemplateMaintenanceWindowArgs:
     def __init__(__self__, *,
-                 duration_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 start_time: Optional[pulumi.Input[_builtins.str]] = None):
+                 duration_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 start_time: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Specifies a start time and duration for a scheduled Job.
 
@@ -1919,35 +1919,35 @@ class JobTemplateMaintenanceWindowArgs:
 
     @_builtins.property
     @pulumi.getter(name="durationInMinutes")
-    def duration_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def duration_in_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Displays the duration of the next maintenance window.
         """
         return pulumi.get(self, "duration_in_minutes")
 
     @duration_in_minutes.setter
-    def duration_in_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def duration_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "duration_in_minutes", value)
 
     @_builtins.property
     @pulumi.getter(name="startTime")
-    def start_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Displays the start time of the next maintenance window.
         """
         return pulumi.get(self, "start_time")
 
     @start_time.setter
-    def start_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start_time", value)
 
 
 class JobTemplateRateIncreaseCriteriaArgsDict(TypedDict):
-    number_of_notified_things: NotRequired[pulumi.Input[_builtins.int]]
+    number_of_notified_things: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The threshold for number of notified things that will initiate the increase in rate of rollout.
     """
-    number_of_succeeded_things: NotRequired[pulumi.Input[_builtins.int]]
+    number_of_succeeded_things: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The threshold for number of succeeded things that will initiate the increase in rate of rollout.
     """
@@ -1955,8 +1955,8 @@ class JobTemplateRateIncreaseCriteriaArgsDict(TypedDict):
 @pulumi.input_type
 class JobTemplateRateIncreaseCriteriaArgs:
     def __init__(__self__, *,
-                 number_of_notified_things: Optional[pulumi.Input[_builtins.int]] = None,
-                 number_of_succeeded_things: Optional[pulumi.Input[_builtins.int]] = None):
+                 number_of_notified_things: pulumi.Input[Optional[_builtins.int]] = None,
+                 number_of_succeeded_things: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] number_of_notified_things: The threshold for number of notified things that will initiate the increase in rate of rollout.
         :param pulumi.Input[_builtins.int] number_of_succeeded_things: The threshold for number of succeeded things that will initiate the increase in rate of rollout.
@@ -1968,26 +1968,26 @@ class JobTemplateRateIncreaseCriteriaArgs:
 
     @_builtins.property
     @pulumi.getter(name="numberOfNotifiedThings")
-    def number_of_notified_things(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def number_of_notified_things(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The threshold for number of notified things that will initiate the increase in rate of rollout.
         """
         return pulumi.get(self, "number_of_notified_things")
 
     @number_of_notified_things.setter
-    def number_of_notified_things(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def number_of_notified_things(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "number_of_notified_things", value)
 
     @_builtins.property
     @pulumi.getter(name="numberOfSucceededThings")
-    def number_of_succeeded_things(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def number_of_succeeded_things(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The threshold for number of succeeded things that will initiate the increase in rate of rollout.
         """
         return pulumi.get(self, "number_of_succeeded_things")
 
     @number_of_succeeded_things.setter
-    def number_of_succeeded_things(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def number_of_succeeded_things(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "number_of_succeeded_things", value)
 
 
@@ -1995,11 +1995,11 @@ class JobTemplateRetryCriteriaArgsDict(TypedDict):
     """
     Specifies how many times a failure type should be retried.
     """
-    failure_type: NotRequired[pulumi.Input['JobTemplateJobRetryFailureType']]
+    failure_type: NotRequired[pulumi.Input[Optional['JobTemplateJobRetryFailureType']]]
     """
     The type of job execution failures that can initiate a job retry.
     """
-    number_of_retries: NotRequired[pulumi.Input[_builtins.int]]
+    number_of_retries: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The number of retries allowed for a failure type for the job.
     """
@@ -2007,8 +2007,8 @@ class JobTemplateRetryCriteriaArgsDict(TypedDict):
 @pulumi.input_type
 class JobTemplateRetryCriteriaArgs:
     def __init__(__self__, *,
-                 failure_type: Optional[pulumi.Input['JobTemplateJobRetryFailureType']] = None,
-                 number_of_retries: Optional[pulumi.Input[_builtins.int]] = None):
+                 failure_type: pulumi.Input[Optional['JobTemplateJobRetryFailureType']] = None,
+                 number_of_retries: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Specifies how many times a failure type should be retried.
 
@@ -2022,26 +2022,26 @@ class JobTemplateRetryCriteriaArgs:
 
     @_builtins.property
     @pulumi.getter(name="failureType")
-    def failure_type(self) -> Optional[pulumi.Input['JobTemplateJobRetryFailureType']]:
+    def failure_type(self) -> pulumi.Input[Optional['JobTemplateJobRetryFailureType']]:
         """
         The type of job execution failures that can initiate a job retry.
         """
         return pulumi.get(self, "failure_type")
 
     @failure_type.setter
-    def failure_type(self, value: Optional[pulumi.Input['JobTemplateJobRetryFailureType']]):
+    def failure_type(self, value: pulumi.Input[Optional['JobTemplateJobRetryFailureType']]):
         pulumi.set(self, "failure_type", value)
 
     @_builtins.property
     @pulumi.getter(name="numberOfRetries")
-    def number_of_retries(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def number_of_retries(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of retries allowed for a failure type for the job.
         """
         return pulumi.get(self, "number_of_retries")
 
     @number_of_retries.setter
-    def number_of_retries(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def number_of_retries(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "number_of_retries", value)
 
 
@@ -2053,11 +2053,11 @@ class LoggingEventConfigurationArgsDict(TypedDict):
     """
     The type of event to log. These include event types like Connect, Publish, and Disconnect.
     """
-    log_destination: NotRequired[pulumi.Input[_builtins.str]]
+    log_destination: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     CloudWatch Log Group for event-based logging. Specifies where log events should be sent. The log destination for event-based logging overrides default Log Group for the specified event type and applies to all resources associated with that event.
     """
-    log_level: NotRequired[pulumi.Input['LoggingEventConfigurationLogLevel']]
+    log_level: NotRequired[pulumi.Input[Optional['LoggingEventConfigurationLogLevel']]]
     """
     The logging level for the specified event type. Determines the verbosity of log messages generated for this event type.
     """
@@ -2066,8 +2066,8 @@ class LoggingEventConfigurationArgsDict(TypedDict):
 class LoggingEventConfigurationArgs:
     def __init__(__self__, *,
                  event_type: pulumi.Input[_builtins.str],
-                 log_destination: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_level: Optional[pulumi.Input['LoggingEventConfigurationLogLevel']] = None):
+                 log_destination: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_level: pulumi.Input[Optional['LoggingEventConfigurationLogLevel']] = None):
         """
         Configuration for event-based logging that specifies which event types to log and their logging settings. Used for account-level logging overrides.
 
@@ -2095,26 +2095,26 @@ class LoggingEventConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="logDestination")
-    def log_destination(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_destination(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         CloudWatch Log Group for event-based logging. Specifies where log events should be sent. The log destination for event-based logging overrides default Log Group for the specified event type and applies to all resources associated with that event.
         """
         return pulumi.get(self, "log_destination")
 
     @log_destination.setter
-    def log_destination(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_destination(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_destination", value)
 
     @_builtins.property
     @pulumi.getter(name="logLevel")
-    def log_level(self) -> Optional[pulumi.Input['LoggingEventConfigurationLogLevel']]:
+    def log_level(self) -> pulumi.Input[Optional['LoggingEventConfigurationLogLevel']]:
         """
         The logging level for the specified event type. Determines the verbosity of log messages generated for this event type.
         """
         return pulumi.get(self, "log_level")
 
     @log_level.setter
-    def log_level(self, value: Optional[pulumi.Input['LoggingEventConfigurationLogLevel']]):
+    def log_level(self, value: pulumi.Input[Optional['LoggingEventConfigurationLogLevel']]):
         pulumi.set(self, "log_level", value)
 
 
@@ -2174,27 +2174,27 @@ class MitigationActionActionParamsArgsDict(TypedDict):
     """
     The set of parameters for this mitigation action. You can specify only one type of parameter (in other words, you can apply only one action for each defined mitigation action).
     """
-    add_things_to_thing_group_params: NotRequired[pulumi.Input['MitigationActionAddThingsToThingGroupParamsArgsDict']]
+    add_things_to_thing_group_params: NotRequired[pulumi.Input[Optional['MitigationActionAddThingsToThingGroupParamsArgs']]]
     """
     Specifies the group to which you want to add the devices.
     """
-    enable_io_t_logging_params: NotRequired[pulumi.Input['MitigationActionEnableIoTLoggingParamsArgsDict']]
+    enable_io_t_logging_params: NotRequired[pulumi.Input[Optional['MitigationActionEnableIoTLoggingParamsArgs']]]
     """
     Specifies the logging level and the role with permissions for logging. You cannot specify a logging level of `DISABLED` .
     """
-    publish_finding_to_sns_params: NotRequired[pulumi.Input['MitigationActionPublishFindingToSnsParamsArgsDict']]
+    publish_finding_to_sns_params: NotRequired[pulumi.Input[Optional['MitigationActionPublishFindingToSnsParamsArgs']]]
     """
     Specifies the topic to which the finding should be published.
     """
-    replace_default_policy_version_params: NotRequired[pulumi.Input['MitigationActionReplaceDefaultPolicyVersionParamsArgsDict']]
+    replace_default_policy_version_params: NotRequired[pulumi.Input[Optional['MitigationActionReplaceDefaultPolicyVersionParamsArgs']]]
     """
     Replaces the policy version with a default or blank policy. You specify the template name. Only a value of `BLANK_POLICY` is currently supported.
     """
-    update_ca_certificate_params: NotRequired[pulumi.Input['MitigationActionUpdateCaCertificateParamsArgsDict']]
+    update_ca_certificate_params: NotRequired[pulumi.Input[Optional['MitigationActionUpdateCaCertificateParamsArgs']]]
     """
     Specifies the new state for the CA certificate. Only a value of `DEACTIVATE` is currently supported.
     """
-    update_device_certificate_params: NotRequired[pulumi.Input['MitigationActionUpdateDeviceCertificateParamsArgsDict']]
+    update_device_certificate_params: NotRequired[pulumi.Input[Optional['MitigationActionUpdateDeviceCertificateParamsArgs']]]
     """
     Specifies the new state for a device certificate. Only a value of `DEACTIVATE` is currently supported.
     """
@@ -2202,12 +2202,12 @@ class MitigationActionActionParamsArgsDict(TypedDict):
 @pulumi.input_type
 class MitigationActionActionParamsArgs:
     def __init__(__self__, *,
-                 add_things_to_thing_group_params: Optional[pulumi.Input['MitigationActionAddThingsToThingGroupParamsArgs']] = None,
-                 enable_io_t_logging_params: Optional[pulumi.Input['MitigationActionEnableIoTLoggingParamsArgs']] = None,
-                 publish_finding_to_sns_params: Optional[pulumi.Input['MitigationActionPublishFindingToSnsParamsArgs']] = None,
-                 replace_default_policy_version_params: Optional[pulumi.Input['MitigationActionReplaceDefaultPolicyVersionParamsArgs']] = None,
-                 update_ca_certificate_params: Optional[pulumi.Input['MitigationActionUpdateCaCertificateParamsArgs']] = None,
-                 update_device_certificate_params: Optional[pulumi.Input['MitigationActionUpdateDeviceCertificateParamsArgs']] = None):
+                 add_things_to_thing_group_params: pulumi.Input[Optional['MitigationActionAddThingsToThingGroupParamsArgs']] = None,
+                 enable_io_t_logging_params: pulumi.Input[Optional['MitigationActionEnableIoTLoggingParamsArgs']] = None,
+                 publish_finding_to_sns_params: pulumi.Input[Optional['MitigationActionPublishFindingToSnsParamsArgs']] = None,
+                 replace_default_policy_version_params: pulumi.Input[Optional['MitigationActionReplaceDefaultPolicyVersionParamsArgs']] = None,
+                 update_ca_certificate_params: pulumi.Input[Optional['MitigationActionUpdateCaCertificateParamsArgs']] = None,
+                 update_device_certificate_params: pulumi.Input[Optional['MitigationActionUpdateDeviceCertificateParamsArgs']] = None):
         """
         The set of parameters for this mitigation action. You can specify only one type of parameter (in other words, you can apply only one action for each defined mitigation action).
 
@@ -2233,74 +2233,74 @@ class MitigationActionActionParamsArgs:
 
     @_builtins.property
     @pulumi.getter(name="addThingsToThingGroupParams")
-    def add_things_to_thing_group_params(self) -> Optional[pulumi.Input['MitigationActionAddThingsToThingGroupParamsArgs']]:
+    def add_things_to_thing_group_params(self) -> pulumi.Input[Optional['MitigationActionAddThingsToThingGroupParamsArgs']]:
         """
         Specifies the group to which you want to add the devices.
         """
         return pulumi.get(self, "add_things_to_thing_group_params")
 
     @add_things_to_thing_group_params.setter
-    def add_things_to_thing_group_params(self, value: Optional[pulumi.Input['MitigationActionAddThingsToThingGroupParamsArgs']]):
+    def add_things_to_thing_group_params(self, value: pulumi.Input[Optional['MitigationActionAddThingsToThingGroupParamsArgs']]):
         pulumi.set(self, "add_things_to_thing_group_params", value)
 
     @_builtins.property
     @pulumi.getter(name="enableIoTLoggingParams")
-    def enable_io_t_logging_params(self) -> Optional[pulumi.Input['MitigationActionEnableIoTLoggingParamsArgs']]:
+    def enable_io_t_logging_params(self) -> pulumi.Input[Optional['MitigationActionEnableIoTLoggingParamsArgs']]:
         """
         Specifies the logging level and the role with permissions for logging. You cannot specify a logging level of `DISABLED` .
         """
         return pulumi.get(self, "enable_io_t_logging_params")
 
     @enable_io_t_logging_params.setter
-    def enable_io_t_logging_params(self, value: Optional[pulumi.Input['MitigationActionEnableIoTLoggingParamsArgs']]):
+    def enable_io_t_logging_params(self, value: pulumi.Input[Optional['MitigationActionEnableIoTLoggingParamsArgs']]):
         pulumi.set(self, "enable_io_t_logging_params", value)
 
     @_builtins.property
     @pulumi.getter(name="publishFindingToSnsParams")
-    def publish_finding_to_sns_params(self) -> Optional[pulumi.Input['MitigationActionPublishFindingToSnsParamsArgs']]:
+    def publish_finding_to_sns_params(self) -> pulumi.Input[Optional['MitigationActionPublishFindingToSnsParamsArgs']]:
         """
         Specifies the topic to which the finding should be published.
         """
         return pulumi.get(self, "publish_finding_to_sns_params")
 
     @publish_finding_to_sns_params.setter
-    def publish_finding_to_sns_params(self, value: Optional[pulumi.Input['MitigationActionPublishFindingToSnsParamsArgs']]):
+    def publish_finding_to_sns_params(self, value: pulumi.Input[Optional['MitigationActionPublishFindingToSnsParamsArgs']]):
         pulumi.set(self, "publish_finding_to_sns_params", value)
 
     @_builtins.property
     @pulumi.getter(name="replaceDefaultPolicyVersionParams")
-    def replace_default_policy_version_params(self) -> Optional[pulumi.Input['MitigationActionReplaceDefaultPolicyVersionParamsArgs']]:
+    def replace_default_policy_version_params(self) -> pulumi.Input[Optional['MitigationActionReplaceDefaultPolicyVersionParamsArgs']]:
         """
         Replaces the policy version with a default or blank policy. You specify the template name. Only a value of `BLANK_POLICY` is currently supported.
         """
         return pulumi.get(self, "replace_default_policy_version_params")
 
     @replace_default_policy_version_params.setter
-    def replace_default_policy_version_params(self, value: Optional[pulumi.Input['MitigationActionReplaceDefaultPolicyVersionParamsArgs']]):
+    def replace_default_policy_version_params(self, value: pulumi.Input[Optional['MitigationActionReplaceDefaultPolicyVersionParamsArgs']]):
         pulumi.set(self, "replace_default_policy_version_params", value)
 
     @_builtins.property
     @pulumi.getter(name="updateCaCertificateParams")
-    def update_ca_certificate_params(self) -> Optional[pulumi.Input['MitigationActionUpdateCaCertificateParamsArgs']]:
+    def update_ca_certificate_params(self) -> pulumi.Input[Optional['MitigationActionUpdateCaCertificateParamsArgs']]:
         """
         Specifies the new state for the CA certificate. Only a value of `DEACTIVATE` is currently supported.
         """
         return pulumi.get(self, "update_ca_certificate_params")
 
     @update_ca_certificate_params.setter
-    def update_ca_certificate_params(self, value: Optional[pulumi.Input['MitigationActionUpdateCaCertificateParamsArgs']]):
+    def update_ca_certificate_params(self, value: pulumi.Input[Optional['MitigationActionUpdateCaCertificateParamsArgs']]):
         pulumi.set(self, "update_ca_certificate_params", value)
 
     @_builtins.property
     @pulumi.getter(name="updateDeviceCertificateParams")
-    def update_device_certificate_params(self) -> Optional[pulumi.Input['MitigationActionUpdateDeviceCertificateParamsArgs']]:
+    def update_device_certificate_params(self) -> pulumi.Input[Optional['MitigationActionUpdateDeviceCertificateParamsArgs']]:
         """
         Specifies the new state for a device certificate. Only a value of `DEACTIVATE` is currently supported.
         """
         return pulumi.get(self, "update_device_certificate_params")
 
     @update_device_certificate_params.setter
-    def update_device_certificate_params(self, value: Optional[pulumi.Input['MitigationActionUpdateDeviceCertificateParamsArgs']]):
+    def update_device_certificate_params(self, value: pulumi.Input[Optional['MitigationActionUpdateDeviceCertificateParamsArgs']]):
         pulumi.set(self, "update_device_certificate_params", value)
 
 
@@ -2312,7 +2312,7 @@ class MitigationActionAddThingsToThingGroupParamsArgsDict(TypedDict):
     """
     The list of groups to which you want to add the things that triggered the mitigation action.
     """
-    override_dynamic_groups: NotRequired[pulumi.Input[_builtins.bool]]
+    override_dynamic_groups: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies if this mitigation action can move the things that triggered the mitigation action out of one or more dynamic thing groups.
     """
@@ -2321,7 +2321,7 @@ class MitigationActionAddThingsToThingGroupParamsArgsDict(TypedDict):
 class MitigationActionAddThingsToThingGroupParamsArgs:
     def __init__(__self__, *,
                  thing_group_names: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 override_dynamic_groups: Optional[pulumi.Input[_builtins.bool]] = None):
+                 override_dynamic_groups: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Parameters to define a mitigation action that moves devices associated with a certificate to one or more specified thing groups, typically for quarantine.
 
@@ -2346,14 +2346,14 @@ class MitigationActionAddThingsToThingGroupParamsArgs:
 
     @_builtins.property
     @pulumi.getter(name="overrideDynamicGroups")
-    def override_dynamic_groups(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def override_dynamic_groups(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if this mitigation action can move the things that triggered the mitigation action out of one or more dynamic thing groups.
         """
         return pulumi.get(self, "override_dynamic_groups")
 
     @override_dynamic_groups.setter
-    def override_dynamic_groups(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def override_dynamic_groups(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "override_dynamic_groups", value)
 
 
@@ -2551,7 +2551,7 @@ class PresignedUrlConfigPropertiesArgsDict(TypedDict):
 
     > For information about addressing the confused deputy problem, see [cross-service confused deputy prevention](https://docs.aws.amazon.com/iot/latest/developerguide/cross-service-confused-deputy-prevention.html) in the *AWS IoT Core developer guide* .
     """
-    expires_in_sec: NotRequired[pulumi.Input[_builtins.int]]
+    expires_in_sec: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     How long (in seconds) pre-signed URLs are valid. Valid values are 60 - 3600, the default value is 3600 seconds. Pre-signed URLs are generated when Jobs receives an MQTT request for the job document.
     """
@@ -2560,7 +2560,7 @@ class PresignedUrlConfigPropertiesArgsDict(TypedDict):
 class PresignedUrlConfigPropertiesArgs:
     def __init__(__self__, *,
                  role_arn: pulumi.Input[_builtins.str],
-                 expires_in_sec: Optional[pulumi.Input[_builtins.int]] = None):
+                 expires_in_sec: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Configuration for pre-signed S3 URLs.
 
@@ -2589,23 +2589,23 @@ class PresignedUrlConfigPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="expiresInSec")
-    def expires_in_sec(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def expires_in_sec(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         How long (in seconds) pre-signed URLs are valid. Valid values are 60 - 3600, the default value is 3600 seconds. Pre-signed URLs are generated when Jobs receives an MQTT request for the job document.
         """
         return pulumi.get(self, "expires_in_sec")
 
     @expires_in_sec.setter
-    def expires_in_sec(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def expires_in_sec(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "expires_in_sec", value)
 
 
 class ProvisioningTemplateProvisioningHookArgsDict(TypedDict):
-    payload_version: NotRequired[pulumi.Input[_builtins.str]]
+    payload_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The payload that was sent to the target function. The valid payload is `"2020-04-01"` .
     """
-    target_arn: NotRequired[pulumi.Input[_builtins.str]]
+    target_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of the target function.
     """
@@ -2613,8 +2613,8 @@ class ProvisioningTemplateProvisioningHookArgsDict(TypedDict):
 @pulumi.input_type
 class ProvisioningTemplateProvisioningHookArgs:
     def __init__(__self__, *,
-                 payload_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 payload_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] payload_version: The payload that was sent to the target function. The valid payload is `"2020-04-01"` .
         :param pulumi.Input[_builtins.str] target_arn: The ARN of the target function.
@@ -2626,26 +2626,26 @@ class ProvisioningTemplateProvisioningHookArgs:
 
     @_builtins.property
     @pulumi.getter(name="payloadVersion")
-    def payload_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def payload_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The payload that was sent to the target function. The valid payload is `"2020-04-01"` .
         """
         return pulumi.get(self, "payload_version")
 
     @payload_version.setter
-    def payload_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def payload_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "payload_version", value)
 
     @_builtins.property
     @pulumi.getter(name="targetArn")
-    def target_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the target function.
         """
         return pulumi.get(self, "target_arn")
 
     @target_arn.setter
-    def target_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_arn", value)
 
 
@@ -2705,31 +2705,31 @@ class SecurityProfileBehaviorCriteriaArgsDict(TypedDict):
     """
     The criteria by which the behavior is determined to be normal.
     """
-    comparison_operator: NotRequired[pulumi.Input['SecurityProfileBehaviorCriteriaComparisonOperator']]
+    comparison_operator: NotRequired[pulumi.Input[Optional['SecurityProfileBehaviorCriteriaComparisonOperator']]]
     """
     The operator that relates the thing measured (metric) to the criteria (containing a value or statisticalThreshold).
     """
-    consecutive_datapoints_to_alarm: NotRequired[pulumi.Input[_builtins.int]]
+    consecutive_datapoints_to_alarm: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     If a device is in violation of the behavior for the specified number of consecutive datapoints, an alarm occurs. If not specified, the default is 1.
     """
-    consecutive_datapoints_to_clear: NotRequired[pulumi.Input[_builtins.int]]
+    consecutive_datapoints_to_clear: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     If an alarm has occurred and the offending device is no longer in violation of the behavior for the specified number of consecutive datapoints, the alarm is cleared. If not specified, the default is 1.
     """
-    duration_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    duration_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Use this to specify the time duration over which the behavior is evaluated.
     """
-    ml_detection_config: NotRequired[pulumi.Input['SecurityProfileMachineLearningDetectionConfigArgsDict']]
+    ml_detection_config: NotRequired[pulumi.Input[Optional['SecurityProfileMachineLearningDetectionConfigArgs']]]
     """
     The confidence level of the detection model.
     """
-    statistical_threshold: NotRequired[pulumi.Input['SecurityProfileStatisticalThresholdArgsDict']]
+    statistical_threshold: NotRequired[pulumi.Input[Optional['SecurityProfileStatisticalThresholdArgs']]]
     """
     A statistical ranking (percentile)that indicates a threshold value by which a behavior is determined to be in compliance or in violation of the behavior.
     """
-    value: NotRequired[pulumi.Input['SecurityProfileMetricValueArgsDict']]
+    value: NotRequired[pulumi.Input[Optional['SecurityProfileMetricValueArgs']]]
     """
     The value to be compared with the `metric` .
     """
@@ -2737,13 +2737,13 @@ class SecurityProfileBehaviorCriteriaArgsDict(TypedDict):
 @pulumi.input_type
 class SecurityProfileBehaviorCriteriaArgs:
     def __init__(__self__, *,
-                 comparison_operator: Optional[pulumi.Input['SecurityProfileBehaviorCriteriaComparisonOperator']] = None,
-                 consecutive_datapoints_to_alarm: Optional[pulumi.Input[_builtins.int]] = None,
-                 consecutive_datapoints_to_clear: Optional[pulumi.Input[_builtins.int]] = None,
-                 duration_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 ml_detection_config: Optional[pulumi.Input['SecurityProfileMachineLearningDetectionConfigArgs']] = None,
-                 statistical_threshold: Optional[pulumi.Input['SecurityProfileStatisticalThresholdArgs']] = None,
-                 value: Optional[pulumi.Input['SecurityProfileMetricValueArgs']] = None):
+                 comparison_operator: pulumi.Input[Optional['SecurityProfileBehaviorCriteriaComparisonOperator']] = None,
+                 consecutive_datapoints_to_alarm: pulumi.Input[Optional[_builtins.int]] = None,
+                 consecutive_datapoints_to_clear: pulumi.Input[Optional[_builtins.int]] = None,
+                 duration_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 ml_detection_config: pulumi.Input[Optional['SecurityProfileMachineLearningDetectionConfigArgs']] = None,
+                 statistical_threshold: pulumi.Input[Optional['SecurityProfileStatisticalThresholdArgs']] = None,
+                 value: pulumi.Input[Optional['SecurityProfileMetricValueArgs']] = None):
         """
         The criteria by which the behavior is determined to be normal.
 
@@ -2772,86 +2772,86 @@ class SecurityProfileBehaviorCriteriaArgs:
 
     @_builtins.property
     @pulumi.getter(name="comparisonOperator")
-    def comparison_operator(self) -> Optional[pulumi.Input['SecurityProfileBehaviorCriteriaComparisonOperator']]:
+    def comparison_operator(self) -> pulumi.Input[Optional['SecurityProfileBehaviorCriteriaComparisonOperator']]:
         """
         The operator that relates the thing measured (metric) to the criteria (containing a value or statisticalThreshold).
         """
         return pulumi.get(self, "comparison_operator")
 
     @comparison_operator.setter
-    def comparison_operator(self, value: Optional[pulumi.Input['SecurityProfileBehaviorCriteriaComparisonOperator']]):
+    def comparison_operator(self, value: pulumi.Input[Optional['SecurityProfileBehaviorCriteriaComparisonOperator']]):
         pulumi.set(self, "comparison_operator", value)
 
     @_builtins.property
     @pulumi.getter(name="consecutiveDatapointsToAlarm")
-    def consecutive_datapoints_to_alarm(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def consecutive_datapoints_to_alarm(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         If a device is in violation of the behavior for the specified number of consecutive datapoints, an alarm occurs. If not specified, the default is 1.
         """
         return pulumi.get(self, "consecutive_datapoints_to_alarm")
 
     @consecutive_datapoints_to_alarm.setter
-    def consecutive_datapoints_to_alarm(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def consecutive_datapoints_to_alarm(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "consecutive_datapoints_to_alarm", value)
 
     @_builtins.property
     @pulumi.getter(name="consecutiveDatapointsToClear")
-    def consecutive_datapoints_to_clear(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def consecutive_datapoints_to_clear(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         If an alarm has occurred and the offending device is no longer in violation of the behavior for the specified number of consecutive datapoints, the alarm is cleared. If not specified, the default is 1.
         """
         return pulumi.get(self, "consecutive_datapoints_to_clear")
 
     @consecutive_datapoints_to_clear.setter
-    def consecutive_datapoints_to_clear(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def consecutive_datapoints_to_clear(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "consecutive_datapoints_to_clear", value)
 
     @_builtins.property
     @pulumi.getter(name="durationSeconds")
-    def duration_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def duration_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Use this to specify the time duration over which the behavior is evaluated.
         """
         return pulumi.get(self, "duration_seconds")
 
     @duration_seconds.setter
-    def duration_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def duration_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "duration_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="mlDetectionConfig")
-    def ml_detection_config(self) -> Optional[pulumi.Input['SecurityProfileMachineLearningDetectionConfigArgs']]:
+    def ml_detection_config(self) -> pulumi.Input[Optional['SecurityProfileMachineLearningDetectionConfigArgs']]:
         """
         The confidence level of the detection model.
         """
         return pulumi.get(self, "ml_detection_config")
 
     @ml_detection_config.setter
-    def ml_detection_config(self, value: Optional[pulumi.Input['SecurityProfileMachineLearningDetectionConfigArgs']]):
+    def ml_detection_config(self, value: pulumi.Input[Optional['SecurityProfileMachineLearningDetectionConfigArgs']]):
         pulumi.set(self, "ml_detection_config", value)
 
     @_builtins.property
     @pulumi.getter(name="statisticalThreshold")
-    def statistical_threshold(self) -> Optional[pulumi.Input['SecurityProfileStatisticalThresholdArgs']]:
+    def statistical_threshold(self) -> pulumi.Input[Optional['SecurityProfileStatisticalThresholdArgs']]:
         """
         A statistical ranking (percentile)that indicates a threshold value by which a behavior is determined to be in compliance or in violation of the behavior.
         """
         return pulumi.get(self, "statistical_threshold")
 
     @statistical_threshold.setter
-    def statistical_threshold(self, value: Optional[pulumi.Input['SecurityProfileStatisticalThresholdArgs']]):
+    def statistical_threshold(self, value: pulumi.Input[Optional['SecurityProfileStatisticalThresholdArgs']]):
         pulumi.set(self, "statistical_threshold", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input['SecurityProfileMetricValueArgs']]:
+    def value(self) -> pulumi.Input[Optional['SecurityProfileMetricValueArgs']]:
         """
         The value to be compared with the `metric` .
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input['SecurityProfileMetricValueArgs']]):
+    def value(self, value: pulumi.Input[Optional['SecurityProfileMetricValueArgs']]):
         pulumi.set(self, "value", value)
 
 
@@ -2863,25 +2863,25 @@ class SecurityProfileBehaviorArgsDict(TypedDict):
     """
     The name for the behavior.
     """
-    criteria: NotRequired[pulumi.Input['SecurityProfileBehaviorCriteriaArgsDict']]
+    criteria: NotRequired[pulumi.Input[Optional['SecurityProfileBehaviorCriteriaArgs']]]
     """
     The criteria that determine if a device is behaving normally in regard to the `metric` .
 
     > In the AWS IoT console, you can choose to be sent an alert through Amazon SNS when AWS IoT Device Defender detects that a device is behaving anomalously.
     """
-    export_metric: NotRequired[pulumi.Input[_builtins.bool]]
+    export_metric: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Value indicates exporting metrics related to the behavior when it is true.
     """
-    metric: NotRequired[pulumi.Input[_builtins.str]]
+    metric: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     What is measured by the behavior.
     """
-    metric_dimension: NotRequired[pulumi.Input['SecurityProfileMetricDimensionArgsDict']]
+    metric_dimension: NotRequired[pulumi.Input[Optional['SecurityProfileMetricDimensionArgs']]]
     """
     The dimension of the metric.
     """
-    suppress_alerts: NotRequired[pulumi.Input[_builtins.bool]]
+    suppress_alerts: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Manage Detect alarm SNS notifications by setting behavior notification to on or suppressed. Detect will continue to performing device behavior evaluations. However, suppressed alarms wouldn't be forwarded for SNS notification.
     """
@@ -2890,11 +2890,11 @@ class SecurityProfileBehaviorArgsDict(TypedDict):
 class SecurityProfileBehaviorArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 criteria: Optional[pulumi.Input['SecurityProfileBehaviorCriteriaArgs']] = None,
-                 export_metric: Optional[pulumi.Input[_builtins.bool]] = None,
-                 metric: Optional[pulumi.Input[_builtins.str]] = None,
-                 metric_dimension: Optional[pulumi.Input['SecurityProfileMetricDimensionArgs']] = None,
-                 suppress_alerts: Optional[pulumi.Input[_builtins.bool]] = None):
+                 criteria: pulumi.Input[Optional['SecurityProfileBehaviorCriteriaArgs']] = None,
+                 export_metric: pulumi.Input[Optional[_builtins.bool]] = None,
+                 metric: pulumi.Input[Optional[_builtins.str]] = None,
+                 metric_dimension: pulumi.Input[Optional['SecurityProfileMetricDimensionArgs']] = None,
+                 suppress_alerts: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         A security profile behavior.
 
@@ -2933,7 +2933,7 @@ class SecurityProfileBehaviorArgs:
 
     @_builtins.property
     @pulumi.getter
-    def criteria(self) -> Optional[pulumi.Input['SecurityProfileBehaviorCriteriaArgs']]:
+    def criteria(self) -> pulumi.Input[Optional['SecurityProfileBehaviorCriteriaArgs']]:
         """
         The criteria that determine if a device is behaving normally in regard to the `metric` .
 
@@ -2942,55 +2942,55 @@ class SecurityProfileBehaviorArgs:
         return pulumi.get(self, "criteria")
 
     @criteria.setter
-    def criteria(self, value: Optional[pulumi.Input['SecurityProfileBehaviorCriteriaArgs']]):
+    def criteria(self, value: pulumi.Input[Optional['SecurityProfileBehaviorCriteriaArgs']]):
         pulumi.set(self, "criteria", value)
 
     @_builtins.property
     @pulumi.getter(name="exportMetric")
-    def export_metric(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def export_metric(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Value indicates exporting metrics related to the behavior when it is true.
         """
         return pulumi.get(self, "export_metric")
 
     @export_metric.setter
-    def export_metric(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def export_metric(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "export_metric", value)
 
     @_builtins.property
     @pulumi.getter
-    def metric(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metric(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         What is measured by the behavior.
         """
         return pulumi.get(self, "metric")
 
     @metric.setter
-    def metric(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metric(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "metric", value)
 
     @_builtins.property
     @pulumi.getter(name="metricDimension")
-    def metric_dimension(self) -> Optional[pulumi.Input['SecurityProfileMetricDimensionArgs']]:
+    def metric_dimension(self) -> pulumi.Input[Optional['SecurityProfileMetricDimensionArgs']]:
         """
         The dimension of the metric.
         """
         return pulumi.get(self, "metric_dimension")
 
     @metric_dimension.setter
-    def metric_dimension(self, value: Optional[pulumi.Input['SecurityProfileMetricDimensionArgs']]):
+    def metric_dimension(self, value: pulumi.Input[Optional['SecurityProfileMetricDimensionArgs']]):
         pulumi.set(self, "metric_dimension", value)
 
     @_builtins.property
     @pulumi.getter(name="suppressAlerts")
-    def suppress_alerts(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def suppress_alerts(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Manage Detect alarm SNS notifications by setting behavior notification to on or suppressed. Detect will continue to performing device behavior evaluations. However, suppressed alarms wouldn't be forwarded for SNS notification.
         """
         return pulumi.get(self, "suppress_alerts")
 
     @suppress_alerts.setter
-    def suppress_alerts(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def suppress_alerts(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "suppress_alerts", value)
 
 
@@ -2998,7 +2998,7 @@ class SecurityProfileMachineLearningDetectionConfigArgsDict(TypedDict):
     """
     The configuration of an ML Detect Security Profile.
     """
-    confidence_level: NotRequired[pulumi.Input['SecurityProfileMachineLearningDetectionConfigConfidenceLevel']]
+    confidence_level: NotRequired[pulumi.Input[Optional['SecurityProfileMachineLearningDetectionConfigConfidenceLevel']]]
     """
     The sensitivity of anomalous behavior evaluation. Can be Low, Medium, or High.
     """
@@ -3006,7 +3006,7 @@ class SecurityProfileMachineLearningDetectionConfigArgsDict(TypedDict):
 @pulumi.input_type
 class SecurityProfileMachineLearningDetectionConfigArgs:
     def __init__(__self__, *,
-                 confidence_level: Optional[pulumi.Input['SecurityProfileMachineLearningDetectionConfigConfidenceLevel']] = None):
+                 confidence_level: pulumi.Input[Optional['SecurityProfileMachineLearningDetectionConfigConfidenceLevel']] = None):
         """
         The configuration of an ML Detect Security Profile.
 
@@ -3017,14 +3017,14 @@ class SecurityProfileMachineLearningDetectionConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="confidenceLevel")
-    def confidence_level(self) -> Optional[pulumi.Input['SecurityProfileMachineLearningDetectionConfigConfidenceLevel']]:
+    def confidence_level(self) -> pulumi.Input[Optional['SecurityProfileMachineLearningDetectionConfigConfidenceLevel']]:
         """
         The sensitivity of anomalous behavior evaluation. Can be Low, Medium, or High.
         """
         return pulumi.get(self, "confidence_level")
 
     @confidence_level.setter
-    def confidence_level(self, value: Optional[pulumi.Input['SecurityProfileMachineLearningDetectionConfigConfidenceLevel']]):
+    def confidence_level(self, value: pulumi.Input[Optional['SecurityProfileMachineLearningDetectionConfigConfidenceLevel']]):
         pulumi.set(self, "confidence_level", value)
 
 
@@ -3036,7 +3036,7 @@ class SecurityProfileMetricDimensionArgsDict(TypedDict):
     """
     A unique identifier for the dimension.
     """
-    operator: NotRequired[pulumi.Input['SecurityProfileMetricDimensionOperator']]
+    operator: NotRequired[pulumi.Input[Optional['SecurityProfileMetricDimensionOperator']]]
     """
     Defines how the dimensionValues of a dimension are interpreted.
     """
@@ -3045,7 +3045,7 @@ class SecurityProfileMetricDimensionArgsDict(TypedDict):
 class SecurityProfileMetricDimensionArgs:
     def __init__(__self__, *,
                  dimension_name: pulumi.Input[_builtins.str],
-                 operator: Optional[pulumi.Input['SecurityProfileMetricDimensionOperator']] = None):
+                 operator: pulumi.Input[Optional['SecurityProfileMetricDimensionOperator']] = None):
         """
         The dimension of a metric.
 
@@ -3070,14 +3070,14 @@ class SecurityProfileMetricDimensionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def operator(self) -> Optional[pulumi.Input['SecurityProfileMetricDimensionOperator']]:
+    def operator(self) -> pulumi.Input[Optional['SecurityProfileMetricDimensionOperator']]:
         """
         Defines how the dimensionValues of a dimension are interpreted.
         """
         return pulumi.get(self, "operator")
 
     @operator.setter
-    def operator(self, value: Optional[pulumi.Input['SecurityProfileMetricDimensionOperator']]):
+    def operator(self, value: pulumi.Input[Optional['SecurityProfileMetricDimensionOperator']]):
         pulumi.set(self, "operator", value)
 
 
@@ -3089,11 +3089,11 @@ class SecurityProfileMetricToRetainArgsDict(TypedDict):
     """
     What is measured by the behavior.
     """
-    export_metric: NotRequired[pulumi.Input[_builtins.bool]]
+    export_metric: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     The value indicates exporting metrics related to the `MetricToRetain` when it's true.
     """
-    metric_dimension: NotRequired[pulumi.Input['SecurityProfileMetricDimensionArgsDict']]
+    metric_dimension: NotRequired[pulumi.Input[Optional['SecurityProfileMetricDimensionArgs']]]
     """
     The dimension of the metric.
     """
@@ -3102,8 +3102,8 @@ class SecurityProfileMetricToRetainArgsDict(TypedDict):
 class SecurityProfileMetricToRetainArgs:
     def __init__(__self__, *,
                  metric: pulumi.Input[_builtins.str],
-                 export_metric: Optional[pulumi.Input[_builtins.bool]] = None,
-                 metric_dimension: Optional[pulumi.Input['SecurityProfileMetricDimensionArgs']] = None):
+                 export_metric: pulumi.Input[Optional[_builtins.bool]] = None,
+                 metric_dimension: pulumi.Input[Optional['SecurityProfileMetricDimensionArgs']] = None):
         """
         The metric you want to retain. Dimensions are optional.
 
@@ -3131,26 +3131,26 @@ class SecurityProfileMetricToRetainArgs:
 
     @_builtins.property
     @pulumi.getter(name="exportMetric")
-    def export_metric(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def export_metric(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The value indicates exporting metrics related to the `MetricToRetain` when it's true.
         """
         return pulumi.get(self, "export_metric")
 
     @export_metric.setter
-    def export_metric(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def export_metric(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "export_metric", value)
 
     @_builtins.property
     @pulumi.getter(name="metricDimension")
-    def metric_dimension(self) -> Optional[pulumi.Input['SecurityProfileMetricDimensionArgs']]:
+    def metric_dimension(self) -> pulumi.Input[Optional['SecurityProfileMetricDimensionArgs']]:
         """
         The dimension of the metric.
         """
         return pulumi.get(self, "metric_dimension")
 
     @metric_dimension.setter
-    def metric_dimension(self, value: Optional[pulumi.Input['SecurityProfileMetricDimensionArgs']]):
+    def metric_dimension(self, value: pulumi.Input[Optional['SecurityProfileMetricDimensionArgs']]):
         pulumi.set(self, "metric_dimension", value)
 
 
@@ -3158,27 +3158,27 @@ class SecurityProfileMetricValueArgsDict(TypedDict):
     """
     The value to be compared with the metric.
     """
-    cidrs: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    cidrs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     If the ComparisonOperator calls for a set of CIDRs, use this to specify that set to be compared with the metric.
     """
-    count: NotRequired[pulumi.Input[_builtins.str]]
+    count: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     If the ComparisonOperator calls for a numeric value, use this to specify that (integer) numeric value to be compared with the metric.
     """
-    number: NotRequired[pulumi.Input[_builtins.float]]
+    number: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The numeral value of a metric.
     """
-    numbers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.float]]]]
+    numbers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.float]]]]]
     """
     The numeral values of a metric.
     """
-    ports: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
+    ports: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]]
     """
     If the ComparisonOperator calls for a set of ports, use this to specify that set to be compared with the metric.
     """
-    strings: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    strings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The string values of a metric.
     """
@@ -3186,12 +3186,12 @@ class SecurityProfileMetricValueArgsDict(TypedDict):
 @pulumi.input_type
 class SecurityProfileMetricValueArgs:
     def __init__(__self__, *,
-                 cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 count: Optional[pulumi.Input[_builtins.str]] = None,
-                 number: Optional[pulumi.Input[_builtins.float]] = None,
-                 numbers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.float]]]] = None,
-                 ports: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 strings: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 cidrs: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 count: pulumi.Input[Optional[_builtins.str]] = None,
+                 number: pulumi.Input[Optional[_builtins.float]] = None,
+                 numbers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.float]]]] = None,
+                 ports: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 strings: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The value to be compared with the metric.
 
@@ -3217,74 +3217,74 @@ class SecurityProfileMetricValueArgs:
 
     @_builtins.property
     @pulumi.getter
-    def cidrs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def cidrs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         If the ComparisonOperator calls for a set of CIDRs, use this to specify that set to be compared with the metric.
         """
         return pulumi.get(self, "cidrs")
 
     @cidrs.setter
-    def cidrs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def cidrs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "cidrs", value)
 
     @_builtins.property
     @pulumi.getter
-    def count(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def count(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If the ComparisonOperator calls for a numeric value, use this to specify that (integer) numeric value to be compared with the metric.
         """
         return pulumi.get(self, "count")
 
     @count.setter
-    def count(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def count(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "count", value)
 
     @_builtins.property
     @pulumi.getter
-    def number(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def number(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The numeral value of a metric.
         """
         return pulumi.get(self, "number")
 
     @number.setter
-    def number(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def number(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "number", value)
 
     @_builtins.property
     @pulumi.getter
-    def numbers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.float]]]]:
+    def numbers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.float]]]]:
         """
         The numeral values of a metric.
         """
         return pulumi.get(self, "numbers")
 
     @numbers.setter
-    def numbers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.float]]]]):
+    def numbers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.float]]]]):
         pulumi.set(self, "numbers", value)
 
     @_builtins.property
     @pulumi.getter
-    def ports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+    def ports(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         """
         If the ComparisonOperator calls for a set of ports, use this to specify that set to be compared with the metric.
         """
         return pulumi.get(self, "ports")
 
     @ports.setter
-    def ports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
+    def ports(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "ports", value)
 
     @_builtins.property
     @pulumi.getter
-    def strings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def strings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The string values of a metric.
         """
         return pulumi.get(self, "strings")
 
     @strings.setter
-    def strings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def strings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "strings", value)
 
 
@@ -3292,7 +3292,7 @@ class SecurityProfileStatisticalThresholdArgsDict(TypedDict):
     """
     A statistical ranking (percentile) which indicates a threshold value by which a behavior is determined to be in compliance or in violation of the behavior.
     """
-    statistic: NotRequired[pulumi.Input['SecurityProfileStatisticalThresholdStatistic']]
+    statistic: NotRequired[pulumi.Input[Optional['SecurityProfileStatisticalThresholdStatistic']]]
     """
     The percentile which resolves to a threshold value by which compliance with a behavior is determined
     """
@@ -3300,7 +3300,7 @@ class SecurityProfileStatisticalThresholdArgsDict(TypedDict):
 @pulumi.input_type
 class SecurityProfileStatisticalThresholdArgs:
     def __init__(__self__, *,
-                 statistic: Optional[pulumi.Input['SecurityProfileStatisticalThresholdStatistic']] = None):
+                 statistic: pulumi.Input[Optional['SecurityProfileStatisticalThresholdStatistic']] = None):
         """
         A statistical ranking (percentile) which indicates a threshold value by which a behavior is determined to be in compliance or in violation of the behavior.
 
@@ -3311,14 +3311,14 @@ class SecurityProfileStatisticalThresholdArgs:
 
     @_builtins.property
     @pulumi.getter
-    def statistic(self) -> Optional[pulumi.Input['SecurityProfileStatisticalThresholdStatistic']]:
+    def statistic(self) -> pulumi.Input[Optional['SecurityProfileStatisticalThresholdStatistic']]:
         """
         The percentile which resolves to a threshold value by which compliance with a behavior is determined
         """
         return pulumi.get(self, "statistic")
 
     @statistic.setter
-    def statistic(self, value: Optional[pulumi.Input['SecurityProfileStatisticalThresholdStatistic']]):
+    def statistic(self, value: pulumi.Input[Optional['SecurityProfileStatisticalThresholdStatistic']]):
         pulumi.set(self, "statistic", value)
 
 
@@ -3444,7 +3444,7 @@ class SoftwarePackageVersionSbomArgs:
 
 
 class ThingAttributePayloadArgsDict(TypedDict):
-    attributes: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    attributes: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     A JSON string containing up to three key-value pair in JSON format. For example:
 
@@ -3454,7 +3454,7 @@ class ThingAttributePayloadArgsDict(TypedDict):
 @pulumi.input_type
 class ThingAttributePayloadArgs:
     def __init__(__self__, *,
-                 attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 attributes: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] attributes: A JSON string containing up to three key-value pair in JSON format. For example:
                
@@ -3465,7 +3465,7 @@ class ThingAttributePayloadArgs:
 
     @_builtins.property
     @pulumi.getter
-    def attributes(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def attributes(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A JSON string containing up to three key-value pair in JSON format. For example:
 
@@ -3474,12 +3474,12 @@ class ThingAttributePayloadArgs:
         return pulumi.get(self, "attributes")
 
     @attributes.setter
-    def attributes(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def attributes(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "attributes", value)
 
 
 class ThingGroupAttributePayloadArgsDict(TypedDict):
-    attributes: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    attributes: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     A JSON string containing up to three key-value pair in JSON format. For example:
 
@@ -3489,7 +3489,7 @@ class ThingGroupAttributePayloadArgsDict(TypedDict):
 @pulumi.input_type
 class ThingGroupAttributePayloadArgs:
     def __init__(__self__, *,
-                 attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 attributes: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] attributes: A JSON string containing up to three key-value pair in JSON format. For example:
                
@@ -3500,7 +3500,7 @@ class ThingGroupAttributePayloadArgs:
 
     @_builtins.property
     @pulumi.getter
-    def attributes(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def attributes(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A JSON string containing up to three key-value pair in JSON format. For example:
 
@@ -3509,7 +3509,7 @@ class ThingGroupAttributePayloadArgs:
         return pulumi.get(self, "attributes")
 
     @attributes.setter
-    def attributes(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def attributes(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "attributes", value)
 
 
@@ -3517,11 +3517,11 @@ class ThingGroupPropertiesPropertiesArgsDict(TypedDict):
     """
     Thing group properties.
     """
-    attribute_payload: NotRequired[pulumi.Input['ThingGroupAttributePayloadArgsDict']]
+    attribute_payload: NotRequired[pulumi.Input[Optional['ThingGroupAttributePayloadArgs']]]
     """
     The thing group attributes in JSON format.
     """
-    thing_group_description: NotRequired[pulumi.Input[_builtins.str]]
+    thing_group_description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The thing group description.
     """
@@ -3529,8 +3529,8 @@ class ThingGroupPropertiesPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class ThingGroupPropertiesPropertiesArgs:
     def __init__(__self__, *,
-                 attribute_payload: Optional[pulumi.Input['ThingGroupAttributePayloadArgs']] = None,
-                 thing_group_description: Optional[pulumi.Input[_builtins.str]] = None):
+                 attribute_payload: pulumi.Input[Optional['ThingGroupAttributePayloadArgs']] = None,
+                 thing_group_description: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Thing group properties.
 
@@ -3544,26 +3544,26 @@ class ThingGroupPropertiesPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="attributePayload")
-    def attribute_payload(self) -> Optional[pulumi.Input['ThingGroupAttributePayloadArgs']]:
+    def attribute_payload(self) -> pulumi.Input[Optional['ThingGroupAttributePayloadArgs']]:
         """
         The thing group attributes in JSON format.
         """
         return pulumi.get(self, "attribute_payload")
 
     @attribute_payload.setter
-    def attribute_payload(self, value: Optional[pulumi.Input['ThingGroupAttributePayloadArgs']]):
+    def attribute_payload(self, value: pulumi.Input[Optional['ThingGroupAttributePayloadArgs']]):
         pulumi.set(self, "attribute_payload", value)
 
     @_builtins.property
     @pulumi.getter(name="thingGroupDescription")
-    def thing_group_description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def thing_group_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The thing group description.
         """
         return pulumi.get(self, "thing_group_description")
 
     @thing_group_description.setter
-    def thing_group_description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def thing_group_description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "thing_group_description", value)
 
 
@@ -3572,11 +3572,11 @@ class ThingTypePropagatingAttributeArgsDict(TypedDict):
     """
     The key of the MQTT 5 user property, which is a key-value pair.
     """
-    connection_attribute: NotRequired[pulumi.Input['ThingTypePropagatingAttributeConnectionAttribute']]
+    connection_attribute: NotRequired[pulumi.Input[Optional['ThingTypePropagatingAttributeConnectionAttribute']]]
     """
     The attribute associated with the connection details.
     """
-    thing_attribute: NotRequired[pulumi.Input[_builtins.str]]
+    thing_attribute: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The thing attribute that is propagating for MQTT 5 message enrichment.
     """
@@ -3585,8 +3585,8 @@ class ThingTypePropagatingAttributeArgsDict(TypedDict):
 class ThingTypePropagatingAttributeArgs:
     def __init__(__self__, *,
                  user_property_key: pulumi.Input[_builtins.str],
-                 connection_attribute: Optional[pulumi.Input['ThingTypePropagatingAttributeConnectionAttribute']] = None,
-                 thing_attribute: Optional[pulumi.Input[_builtins.str]] = None):
+                 connection_attribute: pulumi.Input[Optional['ThingTypePropagatingAttributeConnectionAttribute']] = None,
+                 thing_attribute: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] user_property_key: The key of the MQTT 5 user property, which is a key-value pair.
         :param pulumi.Input['ThingTypePropagatingAttributeConnectionAttribute'] connection_attribute: The attribute associated with the connection details.
@@ -3612,26 +3612,26 @@ class ThingTypePropagatingAttributeArgs:
 
     @_builtins.property
     @pulumi.getter(name="connectionAttribute")
-    def connection_attribute(self) -> Optional[pulumi.Input['ThingTypePropagatingAttributeConnectionAttribute']]:
+    def connection_attribute(self) -> pulumi.Input[Optional['ThingTypePropagatingAttributeConnectionAttribute']]:
         """
         The attribute associated with the connection details.
         """
         return pulumi.get(self, "connection_attribute")
 
     @connection_attribute.setter
-    def connection_attribute(self, value: Optional[pulumi.Input['ThingTypePropagatingAttributeConnectionAttribute']]):
+    def connection_attribute(self, value: pulumi.Input[Optional['ThingTypePropagatingAttributeConnectionAttribute']]):
         pulumi.set(self, "connection_attribute", value)
 
     @_builtins.property
     @pulumi.getter(name="thingAttribute")
-    def thing_attribute(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def thing_attribute(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The thing attribute that is propagating for MQTT 5 message enrichment.
         """
         return pulumi.get(self, "thing_attribute")
 
     @thing_attribute.setter
-    def thing_attribute(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def thing_attribute(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "thing_attribute", value)
 
 
@@ -3639,12 +3639,12 @@ class ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesArgsDict(TypedDic
     """
     The configuration to add user-defined properties to enrich MQTT 5 messages.
     """
-    propagating_attributes: NotRequired[pulumi.Input[Sequence[pulumi.Input['ThingTypePropagatingAttributeArgsDict']]]]
+    propagating_attributes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ThingTypePropagatingAttributeArgs']]]]]
 
 @pulumi.input_type
 class ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesArgs:
     def __init__(__self__, *,
-                 propagating_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['ThingTypePropagatingAttributeArgs']]]] = None):
+                 propagating_attributes: pulumi.Input[Optional[Sequence[pulumi.Input['ThingTypePropagatingAttributeArgs']]]] = None):
         """
         The configuration to add user-defined properties to enrich MQTT 5 messages.
         """
@@ -3653,11 +3653,11 @@ class ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="propagatingAttributes")
-    def propagating_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ThingTypePropagatingAttributeArgs']]]]:
+    def propagating_attributes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ThingTypePropagatingAttributeArgs']]]]:
         return pulumi.get(self, "propagating_attributes")
 
     @propagating_attributes.setter
-    def propagating_attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ThingTypePropagatingAttributeArgs']]]]):
+    def propagating_attributes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ThingTypePropagatingAttributeArgs']]]]):
         pulumi.set(self, "propagating_attributes", value)
 
 
@@ -3665,15 +3665,15 @@ class ThingTypePropertiesPropertiesArgsDict(TypedDict):
     """
     The thing type properties for the thing type to create. It contains information about the new thing type including a description, a list of searchable thing attribute names, and a list of propagating attributes. After a thing type is created, you can only update `Mqtt5Configuration` .
     """
-    mqtt5_configuration: NotRequired[pulumi.Input['ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesArgsDict']]
+    mqtt5_configuration: NotRequired[pulumi.Input[Optional['ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesArgs']]]
     """
     The configuration to add user-defined properties to enrich MQTT 5 messages.
     """
-    searchable_attributes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    searchable_attributes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of searchable thing attribute names.
     """
-    thing_type_description: NotRequired[pulumi.Input[_builtins.str]]
+    thing_type_description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The description of the thing type.
     """
@@ -3681,9 +3681,9 @@ class ThingTypePropertiesPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class ThingTypePropertiesPropertiesArgs:
     def __init__(__self__, *,
-                 mqtt5_configuration: Optional[pulumi.Input['ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesArgs']] = None,
-                 searchable_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 thing_type_description: Optional[pulumi.Input[_builtins.str]] = None):
+                 mqtt5_configuration: pulumi.Input[Optional['ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesArgs']] = None,
+                 searchable_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 thing_type_description: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The thing type properties for the thing type to create. It contains information about the new thing type including a description, a list of searchable thing attribute names, and a list of propagating attributes. After a thing type is created, you can only update `Mqtt5Configuration` .
 
@@ -3700,38 +3700,38 @@ class ThingTypePropertiesPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="mqtt5Configuration")
-    def mqtt5_configuration(self) -> Optional[pulumi.Input['ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesArgs']]:
+    def mqtt5_configuration(self) -> pulumi.Input[Optional['ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesArgs']]:
         """
         The configuration to add user-defined properties to enrich MQTT 5 messages.
         """
         return pulumi.get(self, "mqtt5_configuration")
 
     @mqtt5_configuration.setter
-    def mqtt5_configuration(self, value: Optional[pulumi.Input['ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesArgs']]):
+    def mqtt5_configuration(self, value: pulumi.Input[Optional['ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesArgs']]):
         pulumi.set(self, "mqtt5_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="searchableAttributes")
-    def searchable_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def searchable_attributes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of searchable thing attribute names.
         """
         return pulumi.get(self, "searchable_attributes")
 
     @searchable_attributes.setter
-    def searchable_attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def searchable_attributes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "searchable_attributes", value)
 
     @_builtins.property
     @pulumi.getter(name="thingTypeDescription")
-    def thing_type_description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def thing_type_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the thing type.
         """
         return pulumi.get(self, "thing_type_description")
 
     @thing_type_description.setter
-    def thing_type_description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def thing_type_description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "thing_type_description", value)
 
 
@@ -3769,93 +3769,93 @@ class TimeoutConfigPropertiesArgs:
 
 
 class TopicRuleActionArgsDict(TypedDict):
-    cloudwatch_alarm: NotRequired[pulumi.Input['TopicRuleCloudwatchAlarmActionArgsDict']]
+    cloudwatch_alarm: NotRequired[pulumi.Input[Optional['TopicRuleCloudwatchAlarmActionArgs']]]
     """
     Change the state of a CloudWatch alarm.
     """
-    cloudwatch_logs: NotRequired[pulumi.Input['TopicRuleCloudwatchLogsActionArgsDict']]
+    cloudwatch_logs: NotRequired[pulumi.Input[Optional['TopicRuleCloudwatchLogsActionArgs']]]
     """
     Sends data to CloudWatch.
     """
-    cloudwatch_metric: NotRequired[pulumi.Input['TopicRuleCloudwatchMetricActionArgsDict']]
+    cloudwatch_metric: NotRequired[pulumi.Input[Optional['TopicRuleCloudwatchMetricActionArgs']]]
     """
     Capture a CloudWatch metric.
     """
-    dynamo_d_bv2: NotRequired[pulumi.Input['TopicRuleDynamoDBv2ActionArgsDict']]
+    dynamo_d_bv2: NotRequired[pulumi.Input[Optional['TopicRuleDynamoDBv2ActionArgs']]]
     """
     Write to a DynamoDB table. This is a new version of the DynamoDB action. It allows you to write each attribute in an MQTT message payload into a separate DynamoDB column.
     """
-    dynamo_db: NotRequired[pulumi.Input['TopicRuleDynamoDbActionArgsDict']]
+    dynamo_db: NotRequired[pulumi.Input[Optional['TopicRuleDynamoDbActionArgs']]]
     """
     Write to a DynamoDB table.
     """
-    elasticsearch: NotRequired[pulumi.Input['TopicRuleElasticsearchActionArgsDict']]
+    elasticsearch: NotRequired[pulumi.Input[Optional['TopicRuleElasticsearchActionArgs']]]
     """
     Write data to an Amazon OpenSearch Service domain.
 
     > The `Elasticsearch` action can only be used by existing rule actions. To create a new rule action or to update an existing rule action, use the `OpenSearch` rule action instead. For more information, see [OpenSearchAction](https://docs.aws.amazon.com//iot/latest/apireference/API_OpenSearchAction.html) .
     """
-    firehose: NotRequired[pulumi.Input['TopicRuleFirehoseActionArgsDict']]
+    firehose: NotRequired[pulumi.Input[Optional['TopicRuleFirehoseActionArgs']]]
     """
     Write to an Amazon Kinesis Firehose stream.
     """
-    http: NotRequired[pulumi.Input['TopicRuleHttpActionArgsDict']]
+    http: NotRequired[pulumi.Input[Optional['TopicRuleHttpActionArgs']]]
     """
     Send data to an HTTPS endpoint.
     """
-    iot_analytics: NotRequired[pulumi.Input['TopicRuleIotAnalyticsActionArgsDict']]
+    iot_analytics: NotRequired[pulumi.Input[Optional['TopicRuleIotAnalyticsActionArgs']]]
     """
     Sends message data to an AWS IoT Analytics channel.
     """
-    iot_events: NotRequired[pulumi.Input['TopicRuleIotEventsActionArgsDict']]
+    iot_events: NotRequired[pulumi.Input[Optional['TopicRuleIotEventsActionArgs']]]
     """
     Sends an input to an AWS IoT Events detector.
     """
-    iot_site_wise: NotRequired[pulumi.Input['TopicRuleIotSiteWiseActionArgsDict']]
+    iot_site_wise: NotRequired[pulumi.Input[Optional['TopicRuleIotSiteWiseActionArgs']]]
     """
     Sends data from the MQTT message that triggered the rule to AWS IoT SiteWise asset properties.
     """
-    kafka: NotRequired[pulumi.Input['TopicRuleKafkaActionArgsDict']]
+    kafka: NotRequired[pulumi.Input[Optional['TopicRuleKafkaActionArgs']]]
     """
     Send messages to an Amazon Managed Streaming for Apache Kafka (Amazon MSK) or self-managed Apache Kafka cluster.
     """
-    kinesis: NotRequired[pulumi.Input['TopicRuleKinesisActionArgsDict']]
+    kinesis: NotRequired[pulumi.Input[Optional['TopicRuleKinesisActionArgs']]]
     """
     Write data to an Amazon Kinesis stream.
     """
-    lambda_: NotRequired[pulumi.Input['TopicRuleLambdaActionArgsDict']]
+    lambda_: NotRequired[pulumi.Input[Optional['TopicRuleLambdaActionArgs']]]
     """
     Invoke a Lambda function.
     """
-    location: NotRequired[pulumi.Input['TopicRuleLocationActionArgsDict']]
+    location: NotRequired[pulumi.Input[Optional['TopicRuleLocationActionArgs']]]
     """
     Sends device location data to [Amazon Location Service](https://docs.aws.amazon.com//location/latest/developerguide/welcome.html) .
     """
-    open_search: NotRequired[pulumi.Input['TopicRuleOpenSearchActionArgsDict']]
+    open_search: NotRequired[pulumi.Input[Optional['TopicRuleOpenSearchActionArgs']]]
     """
     Write data to an Amazon OpenSearch Service domain.
     """
-    republish: NotRequired[pulumi.Input['TopicRuleRepublishActionArgsDict']]
+    republish: NotRequired[pulumi.Input[Optional['TopicRuleRepublishActionArgs']]]
     """
     Publish to another MQTT topic.
     """
-    s3: NotRequired[pulumi.Input['TopicRuleS3ActionArgsDict']]
+    s3: NotRequired[pulumi.Input[Optional['TopicRuleS3ActionArgs']]]
     """
     Write to an Amazon S3 bucket.
     """
-    sns: NotRequired[pulumi.Input['TopicRuleSnsActionArgsDict']]
+    sns: NotRequired[pulumi.Input[Optional['TopicRuleSnsActionArgs']]]
     """
     Publish to an Amazon SNS topic.
     """
-    sqs: NotRequired[pulumi.Input['TopicRuleSqsActionArgsDict']]
+    sqs: NotRequired[pulumi.Input[Optional['TopicRuleSqsActionArgs']]]
     """
     Publish to an Amazon SQS queue.
     """
-    step_functions: NotRequired[pulumi.Input['TopicRuleStepFunctionsActionArgsDict']]
+    step_functions: NotRequired[pulumi.Input[Optional['TopicRuleStepFunctionsActionArgs']]]
     """
     Starts execution of a Step Functions state machine.
     """
-    timestream: NotRequired[pulumi.Input['TopicRuleTimestreamActionArgsDict']]
+    timestream: NotRequired[pulumi.Input[Optional['TopicRuleTimestreamActionArgs']]]
     """
     Writes attributes from an MQTT message.
     """
@@ -3863,28 +3863,28 @@ class TopicRuleActionArgsDict(TypedDict):
 @pulumi.input_type
 class TopicRuleActionArgs:
     def __init__(__self__, *,
-                 cloudwatch_alarm: Optional[pulumi.Input['TopicRuleCloudwatchAlarmActionArgs']] = None,
-                 cloudwatch_logs: Optional[pulumi.Input['TopicRuleCloudwatchLogsActionArgs']] = None,
-                 cloudwatch_metric: Optional[pulumi.Input['TopicRuleCloudwatchMetricActionArgs']] = None,
-                 dynamo_d_bv2: Optional[pulumi.Input['TopicRuleDynamoDBv2ActionArgs']] = None,
-                 dynamo_db: Optional[pulumi.Input['TopicRuleDynamoDbActionArgs']] = None,
-                 elasticsearch: Optional[pulumi.Input['TopicRuleElasticsearchActionArgs']] = None,
-                 firehose: Optional[pulumi.Input['TopicRuleFirehoseActionArgs']] = None,
-                 http: Optional[pulumi.Input['TopicRuleHttpActionArgs']] = None,
-                 iot_analytics: Optional[pulumi.Input['TopicRuleIotAnalyticsActionArgs']] = None,
-                 iot_events: Optional[pulumi.Input['TopicRuleIotEventsActionArgs']] = None,
-                 iot_site_wise: Optional[pulumi.Input['TopicRuleIotSiteWiseActionArgs']] = None,
-                 kafka: Optional[pulumi.Input['TopicRuleKafkaActionArgs']] = None,
-                 kinesis: Optional[pulumi.Input['TopicRuleKinesisActionArgs']] = None,
-                 lambda_: Optional[pulumi.Input['TopicRuleLambdaActionArgs']] = None,
-                 location: Optional[pulumi.Input['TopicRuleLocationActionArgs']] = None,
-                 open_search: Optional[pulumi.Input['TopicRuleOpenSearchActionArgs']] = None,
-                 republish: Optional[pulumi.Input['TopicRuleRepublishActionArgs']] = None,
-                 s3: Optional[pulumi.Input['TopicRuleS3ActionArgs']] = None,
-                 sns: Optional[pulumi.Input['TopicRuleSnsActionArgs']] = None,
-                 sqs: Optional[pulumi.Input['TopicRuleSqsActionArgs']] = None,
-                 step_functions: Optional[pulumi.Input['TopicRuleStepFunctionsActionArgs']] = None,
-                 timestream: Optional[pulumi.Input['TopicRuleTimestreamActionArgs']] = None):
+                 cloudwatch_alarm: pulumi.Input[Optional['TopicRuleCloudwatchAlarmActionArgs']] = None,
+                 cloudwatch_logs: pulumi.Input[Optional['TopicRuleCloudwatchLogsActionArgs']] = None,
+                 cloudwatch_metric: pulumi.Input[Optional['TopicRuleCloudwatchMetricActionArgs']] = None,
+                 dynamo_d_bv2: pulumi.Input[Optional['TopicRuleDynamoDBv2ActionArgs']] = None,
+                 dynamo_db: pulumi.Input[Optional['TopicRuleDynamoDbActionArgs']] = None,
+                 elasticsearch: pulumi.Input[Optional['TopicRuleElasticsearchActionArgs']] = None,
+                 firehose: pulumi.Input[Optional['TopicRuleFirehoseActionArgs']] = None,
+                 http: pulumi.Input[Optional['TopicRuleHttpActionArgs']] = None,
+                 iot_analytics: pulumi.Input[Optional['TopicRuleIotAnalyticsActionArgs']] = None,
+                 iot_events: pulumi.Input[Optional['TopicRuleIotEventsActionArgs']] = None,
+                 iot_site_wise: pulumi.Input[Optional['TopicRuleIotSiteWiseActionArgs']] = None,
+                 kafka: pulumi.Input[Optional['TopicRuleKafkaActionArgs']] = None,
+                 kinesis: pulumi.Input[Optional['TopicRuleKinesisActionArgs']] = None,
+                 lambda_: pulumi.Input[Optional['TopicRuleLambdaActionArgs']] = None,
+                 location: pulumi.Input[Optional['TopicRuleLocationActionArgs']] = None,
+                 open_search: pulumi.Input[Optional['TopicRuleOpenSearchActionArgs']] = None,
+                 republish: pulumi.Input[Optional['TopicRuleRepublishActionArgs']] = None,
+                 s3: pulumi.Input[Optional['TopicRuleS3ActionArgs']] = None,
+                 sns: pulumi.Input[Optional['TopicRuleSnsActionArgs']] = None,
+                 sqs: pulumi.Input[Optional['TopicRuleSqsActionArgs']] = None,
+                 step_functions: pulumi.Input[Optional['TopicRuleStepFunctionsActionArgs']] = None,
+                 timestream: pulumi.Input[Optional['TopicRuleTimestreamActionArgs']] = None):
         """
         :param pulumi.Input['TopicRuleCloudwatchAlarmActionArgs'] cloudwatch_alarm: Change the state of a CloudWatch alarm.
         :param pulumi.Input['TopicRuleCloudwatchLogsActionArgs'] cloudwatch_logs: Sends data to CloudWatch.
@@ -3958,67 +3958,67 @@ class TopicRuleActionArgs:
 
     @_builtins.property
     @pulumi.getter(name="cloudwatchAlarm")
-    def cloudwatch_alarm(self) -> Optional[pulumi.Input['TopicRuleCloudwatchAlarmActionArgs']]:
+    def cloudwatch_alarm(self) -> pulumi.Input[Optional['TopicRuleCloudwatchAlarmActionArgs']]:
         """
         Change the state of a CloudWatch alarm.
         """
         return pulumi.get(self, "cloudwatch_alarm")
 
     @cloudwatch_alarm.setter
-    def cloudwatch_alarm(self, value: Optional[pulumi.Input['TopicRuleCloudwatchAlarmActionArgs']]):
+    def cloudwatch_alarm(self, value: pulumi.Input[Optional['TopicRuleCloudwatchAlarmActionArgs']]):
         pulumi.set(self, "cloudwatch_alarm", value)
 
     @_builtins.property
     @pulumi.getter(name="cloudwatchLogs")
-    def cloudwatch_logs(self) -> Optional[pulumi.Input['TopicRuleCloudwatchLogsActionArgs']]:
+    def cloudwatch_logs(self) -> pulumi.Input[Optional['TopicRuleCloudwatchLogsActionArgs']]:
         """
         Sends data to CloudWatch.
         """
         return pulumi.get(self, "cloudwatch_logs")
 
     @cloudwatch_logs.setter
-    def cloudwatch_logs(self, value: Optional[pulumi.Input['TopicRuleCloudwatchLogsActionArgs']]):
+    def cloudwatch_logs(self, value: pulumi.Input[Optional['TopicRuleCloudwatchLogsActionArgs']]):
         pulumi.set(self, "cloudwatch_logs", value)
 
     @_builtins.property
     @pulumi.getter(name="cloudwatchMetric")
-    def cloudwatch_metric(self) -> Optional[pulumi.Input['TopicRuleCloudwatchMetricActionArgs']]:
+    def cloudwatch_metric(self) -> pulumi.Input[Optional['TopicRuleCloudwatchMetricActionArgs']]:
         """
         Capture a CloudWatch metric.
         """
         return pulumi.get(self, "cloudwatch_metric")
 
     @cloudwatch_metric.setter
-    def cloudwatch_metric(self, value: Optional[pulumi.Input['TopicRuleCloudwatchMetricActionArgs']]):
+    def cloudwatch_metric(self, value: pulumi.Input[Optional['TopicRuleCloudwatchMetricActionArgs']]):
         pulumi.set(self, "cloudwatch_metric", value)
 
     @_builtins.property
     @pulumi.getter(name="dynamoDBv2")
-    def dynamo_d_bv2(self) -> Optional[pulumi.Input['TopicRuleDynamoDBv2ActionArgs']]:
+    def dynamo_d_bv2(self) -> pulumi.Input[Optional['TopicRuleDynamoDBv2ActionArgs']]:
         """
         Write to a DynamoDB table. This is a new version of the DynamoDB action. It allows you to write each attribute in an MQTT message payload into a separate DynamoDB column.
         """
         return pulumi.get(self, "dynamo_d_bv2")
 
     @dynamo_d_bv2.setter
-    def dynamo_d_bv2(self, value: Optional[pulumi.Input['TopicRuleDynamoDBv2ActionArgs']]):
+    def dynamo_d_bv2(self, value: pulumi.Input[Optional['TopicRuleDynamoDBv2ActionArgs']]):
         pulumi.set(self, "dynamo_d_bv2", value)
 
     @_builtins.property
     @pulumi.getter(name="dynamoDb")
-    def dynamo_db(self) -> Optional[pulumi.Input['TopicRuleDynamoDbActionArgs']]:
+    def dynamo_db(self) -> pulumi.Input[Optional['TopicRuleDynamoDbActionArgs']]:
         """
         Write to a DynamoDB table.
         """
         return pulumi.get(self, "dynamo_db")
 
     @dynamo_db.setter
-    def dynamo_db(self, value: Optional[pulumi.Input['TopicRuleDynamoDbActionArgs']]):
+    def dynamo_db(self, value: pulumi.Input[Optional['TopicRuleDynamoDbActionArgs']]):
         pulumi.set(self, "dynamo_db", value)
 
     @_builtins.property
     @pulumi.getter
-    def elasticsearch(self) -> Optional[pulumi.Input['TopicRuleElasticsearchActionArgs']]:
+    def elasticsearch(self) -> pulumi.Input[Optional['TopicRuleElasticsearchActionArgs']]:
         """
         Write data to an Amazon OpenSearch Service domain.
 
@@ -4027,199 +4027,199 @@ class TopicRuleActionArgs:
         return pulumi.get(self, "elasticsearch")
 
     @elasticsearch.setter
-    def elasticsearch(self, value: Optional[pulumi.Input['TopicRuleElasticsearchActionArgs']]):
+    def elasticsearch(self, value: pulumi.Input[Optional['TopicRuleElasticsearchActionArgs']]):
         pulumi.set(self, "elasticsearch", value)
 
     @_builtins.property
     @pulumi.getter
-    def firehose(self) -> Optional[pulumi.Input['TopicRuleFirehoseActionArgs']]:
+    def firehose(self) -> pulumi.Input[Optional['TopicRuleFirehoseActionArgs']]:
         """
         Write to an Amazon Kinesis Firehose stream.
         """
         return pulumi.get(self, "firehose")
 
     @firehose.setter
-    def firehose(self, value: Optional[pulumi.Input['TopicRuleFirehoseActionArgs']]):
+    def firehose(self, value: pulumi.Input[Optional['TopicRuleFirehoseActionArgs']]):
         pulumi.set(self, "firehose", value)
 
     @_builtins.property
     @pulumi.getter
-    def http(self) -> Optional[pulumi.Input['TopicRuleHttpActionArgs']]:
+    def http(self) -> pulumi.Input[Optional['TopicRuleHttpActionArgs']]:
         """
         Send data to an HTTPS endpoint.
         """
         return pulumi.get(self, "http")
 
     @http.setter
-    def http(self, value: Optional[pulumi.Input['TopicRuleHttpActionArgs']]):
+    def http(self, value: pulumi.Input[Optional['TopicRuleHttpActionArgs']]):
         pulumi.set(self, "http", value)
 
     @_builtins.property
     @pulumi.getter(name="iotAnalytics")
-    def iot_analytics(self) -> Optional[pulumi.Input['TopicRuleIotAnalyticsActionArgs']]:
+    def iot_analytics(self) -> pulumi.Input[Optional['TopicRuleIotAnalyticsActionArgs']]:
         """
         Sends message data to an AWS IoT Analytics channel.
         """
         return pulumi.get(self, "iot_analytics")
 
     @iot_analytics.setter
-    def iot_analytics(self, value: Optional[pulumi.Input['TopicRuleIotAnalyticsActionArgs']]):
+    def iot_analytics(self, value: pulumi.Input[Optional['TopicRuleIotAnalyticsActionArgs']]):
         pulumi.set(self, "iot_analytics", value)
 
     @_builtins.property
     @pulumi.getter(name="iotEvents")
-    def iot_events(self) -> Optional[pulumi.Input['TopicRuleIotEventsActionArgs']]:
+    def iot_events(self) -> pulumi.Input[Optional['TopicRuleIotEventsActionArgs']]:
         """
         Sends an input to an AWS IoT Events detector.
         """
         return pulumi.get(self, "iot_events")
 
     @iot_events.setter
-    def iot_events(self, value: Optional[pulumi.Input['TopicRuleIotEventsActionArgs']]):
+    def iot_events(self, value: pulumi.Input[Optional['TopicRuleIotEventsActionArgs']]):
         pulumi.set(self, "iot_events", value)
 
     @_builtins.property
     @pulumi.getter(name="iotSiteWise")
-    def iot_site_wise(self) -> Optional[pulumi.Input['TopicRuleIotSiteWiseActionArgs']]:
+    def iot_site_wise(self) -> pulumi.Input[Optional['TopicRuleIotSiteWiseActionArgs']]:
         """
         Sends data from the MQTT message that triggered the rule to AWS IoT SiteWise asset properties.
         """
         return pulumi.get(self, "iot_site_wise")
 
     @iot_site_wise.setter
-    def iot_site_wise(self, value: Optional[pulumi.Input['TopicRuleIotSiteWiseActionArgs']]):
+    def iot_site_wise(self, value: pulumi.Input[Optional['TopicRuleIotSiteWiseActionArgs']]):
         pulumi.set(self, "iot_site_wise", value)
 
     @_builtins.property
     @pulumi.getter
-    def kafka(self) -> Optional[pulumi.Input['TopicRuleKafkaActionArgs']]:
+    def kafka(self) -> pulumi.Input[Optional['TopicRuleKafkaActionArgs']]:
         """
         Send messages to an Amazon Managed Streaming for Apache Kafka (Amazon MSK) or self-managed Apache Kafka cluster.
         """
         return pulumi.get(self, "kafka")
 
     @kafka.setter
-    def kafka(self, value: Optional[pulumi.Input['TopicRuleKafkaActionArgs']]):
+    def kafka(self, value: pulumi.Input[Optional['TopicRuleKafkaActionArgs']]):
         pulumi.set(self, "kafka", value)
 
     @_builtins.property
     @pulumi.getter
-    def kinesis(self) -> Optional[pulumi.Input['TopicRuleKinesisActionArgs']]:
+    def kinesis(self) -> pulumi.Input[Optional['TopicRuleKinesisActionArgs']]:
         """
         Write data to an Amazon Kinesis stream.
         """
         return pulumi.get(self, "kinesis")
 
     @kinesis.setter
-    def kinesis(self, value: Optional[pulumi.Input['TopicRuleKinesisActionArgs']]):
+    def kinesis(self, value: pulumi.Input[Optional['TopicRuleKinesisActionArgs']]):
         pulumi.set(self, "kinesis", value)
 
     @_builtins.property
     @pulumi.getter(name="lambda")
-    def lambda_(self) -> Optional[pulumi.Input['TopicRuleLambdaActionArgs']]:
+    def lambda_(self) -> pulumi.Input[Optional['TopicRuleLambdaActionArgs']]:
         """
         Invoke a Lambda function.
         """
         return pulumi.get(self, "lambda_")
 
     @lambda_.setter
-    def lambda_(self, value: Optional[pulumi.Input['TopicRuleLambdaActionArgs']]):
+    def lambda_(self, value: pulumi.Input[Optional['TopicRuleLambdaActionArgs']]):
         pulumi.set(self, "lambda_", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input['TopicRuleLocationActionArgs']]:
+    def location(self) -> pulumi.Input[Optional['TopicRuleLocationActionArgs']]:
         """
         Sends device location data to [Amazon Location Service](https://docs.aws.amazon.com//location/latest/developerguide/welcome.html) .
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input['TopicRuleLocationActionArgs']]):
+    def location(self, value: pulumi.Input[Optional['TopicRuleLocationActionArgs']]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="openSearch")
-    def open_search(self) -> Optional[pulumi.Input['TopicRuleOpenSearchActionArgs']]:
+    def open_search(self) -> pulumi.Input[Optional['TopicRuleOpenSearchActionArgs']]:
         """
         Write data to an Amazon OpenSearch Service domain.
         """
         return pulumi.get(self, "open_search")
 
     @open_search.setter
-    def open_search(self, value: Optional[pulumi.Input['TopicRuleOpenSearchActionArgs']]):
+    def open_search(self, value: pulumi.Input[Optional['TopicRuleOpenSearchActionArgs']]):
         pulumi.set(self, "open_search", value)
 
     @_builtins.property
     @pulumi.getter
-    def republish(self) -> Optional[pulumi.Input['TopicRuleRepublishActionArgs']]:
+    def republish(self) -> pulumi.Input[Optional['TopicRuleRepublishActionArgs']]:
         """
         Publish to another MQTT topic.
         """
         return pulumi.get(self, "republish")
 
     @republish.setter
-    def republish(self, value: Optional[pulumi.Input['TopicRuleRepublishActionArgs']]):
+    def republish(self, value: pulumi.Input[Optional['TopicRuleRepublishActionArgs']]):
         pulumi.set(self, "republish", value)
 
     @_builtins.property
     @pulumi.getter
-    def s3(self) -> Optional[pulumi.Input['TopicRuleS3ActionArgs']]:
+    def s3(self) -> pulumi.Input[Optional['TopicRuleS3ActionArgs']]:
         """
         Write to an Amazon S3 bucket.
         """
         return pulumi.get(self, "s3")
 
     @s3.setter
-    def s3(self, value: Optional[pulumi.Input['TopicRuleS3ActionArgs']]):
+    def s3(self, value: pulumi.Input[Optional['TopicRuleS3ActionArgs']]):
         pulumi.set(self, "s3", value)
 
     @_builtins.property
     @pulumi.getter
-    def sns(self) -> Optional[pulumi.Input['TopicRuleSnsActionArgs']]:
+    def sns(self) -> pulumi.Input[Optional['TopicRuleSnsActionArgs']]:
         """
         Publish to an Amazon SNS topic.
         """
         return pulumi.get(self, "sns")
 
     @sns.setter
-    def sns(self, value: Optional[pulumi.Input['TopicRuleSnsActionArgs']]):
+    def sns(self, value: pulumi.Input[Optional['TopicRuleSnsActionArgs']]):
         pulumi.set(self, "sns", value)
 
     @_builtins.property
     @pulumi.getter
-    def sqs(self) -> Optional[pulumi.Input['TopicRuleSqsActionArgs']]:
+    def sqs(self) -> pulumi.Input[Optional['TopicRuleSqsActionArgs']]:
         """
         Publish to an Amazon SQS queue.
         """
         return pulumi.get(self, "sqs")
 
     @sqs.setter
-    def sqs(self, value: Optional[pulumi.Input['TopicRuleSqsActionArgs']]):
+    def sqs(self, value: pulumi.Input[Optional['TopicRuleSqsActionArgs']]):
         pulumi.set(self, "sqs", value)
 
     @_builtins.property
     @pulumi.getter(name="stepFunctions")
-    def step_functions(self) -> Optional[pulumi.Input['TopicRuleStepFunctionsActionArgs']]:
+    def step_functions(self) -> pulumi.Input[Optional['TopicRuleStepFunctionsActionArgs']]:
         """
         Starts execution of a Step Functions state machine.
         """
         return pulumi.get(self, "step_functions")
 
     @step_functions.setter
-    def step_functions(self, value: Optional[pulumi.Input['TopicRuleStepFunctionsActionArgs']]):
+    def step_functions(self, value: pulumi.Input[Optional['TopicRuleStepFunctionsActionArgs']]):
         pulumi.set(self, "step_functions", value)
 
     @_builtins.property
     @pulumi.getter
-    def timestream(self) -> Optional[pulumi.Input['TopicRuleTimestreamActionArgs']]:
+    def timestream(self) -> pulumi.Input[Optional['TopicRuleTimestreamActionArgs']]:
         """
         Writes attributes from an MQTT message.
         """
         return pulumi.get(self, "timestream")
 
     @timestream.setter
-    def timestream(self, value: Optional[pulumi.Input['TopicRuleTimestreamActionArgs']]):
+    def timestream(self, value: pulumi.Input[Optional['TopicRuleTimestreamActionArgs']]):
         pulumi.set(self, "timestream", value)
 
 
@@ -4228,7 +4228,7 @@ class TopicRuleAssetPropertyTimestampArgsDict(TypedDict):
     """
     A string that contains the time in seconds since epoch. Accepts substitution templates.
     """
-    offset_in_nanos: NotRequired[pulumi.Input[_builtins.str]]
+    offset_in_nanos: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Optional. A string that contains the nanosecond time offset. Accepts substitution templates.
     """
@@ -4237,7 +4237,7 @@ class TopicRuleAssetPropertyTimestampArgsDict(TypedDict):
 class TopicRuleAssetPropertyTimestampArgs:
     def __init__(__self__, *,
                  time_in_seconds: pulumi.Input[_builtins.str],
-                 offset_in_nanos: Optional[pulumi.Input[_builtins.str]] = None):
+                 offset_in_nanos: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] time_in_seconds: A string that contains the time in seconds since epoch. Accepts substitution templates.
         :param pulumi.Input[_builtins.str] offset_in_nanos: Optional. A string that contains the nanosecond time offset. Accepts substitution templates.
@@ -4260,14 +4260,14 @@ class TopicRuleAssetPropertyTimestampArgs:
 
     @_builtins.property
     @pulumi.getter(name="offsetInNanos")
-    def offset_in_nanos(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def offset_in_nanos(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Optional. A string that contains the nanosecond time offset. Accepts substitution templates.
         """
         return pulumi.get(self, "offset_in_nanos")
 
     @offset_in_nanos.setter
-    def offset_in_nanos(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def offset_in_nanos(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "offset_in_nanos", value)
 
 
@@ -4280,7 +4280,7 @@ class TopicRuleAssetPropertyValueArgsDict(TypedDict):
     """
     The value of the asset property.
     """
-    quality: NotRequired[pulumi.Input[_builtins.str]]
+    quality: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Optional. A string that describes the quality of the value. Accepts substitution templates. Must be `GOOD` , `BAD` , or `UNCERTAIN` .
     """
@@ -4290,7 +4290,7 @@ class TopicRuleAssetPropertyValueArgs:
     def __init__(__self__, *,
                  timestamp: pulumi.Input['TopicRuleAssetPropertyTimestampArgs'],
                  value: pulumi.Input['TopicRuleAssetPropertyVariantArgs'],
-                 quality: Optional[pulumi.Input[_builtins.str]] = None):
+                 quality: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input['TopicRuleAssetPropertyTimestampArgs'] timestamp: The asset property value timestamp.
         :param pulumi.Input['TopicRuleAssetPropertyVariantArgs'] value: The value of the asset property.
@@ -4327,31 +4327,31 @@ class TopicRuleAssetPropertyValueArgs:
 
     @_builtins.property
     @pulumi.getter
-    def quality(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def quality(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Optional. A string that describes the quality of the value. Accepts substitution templates. Must be `GOOD` , `BAD` , or `UNCERTAIN` .
         """
         return pulumi.get(self, "quality")
 
     @quality.setter
-    def quality(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def quality(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "quality", value)
 
 
 class TopicRuleAssetPropertyVariantArgsDict(TypedDict):
-    boolean_value: NotRequired[pulumi.Input[_builtins.str]]
+    boolean_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Optional. A string that contains the boolean value ( `true` or `false` ) of the value entry. Accepts substitution templates.
     """
-    double_value: NotRequired[pulumi.Input[_builtins.str]]
+    double_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Optional. A string that contains the double value of the value entry. Accepts substitution templates.
     """
-    integer_value: NotRequired[pulumi.Input[_builtins.str]]
+    integer_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Optional. A string that contains the integer value of the value entry. Accepts substitution templates.
     """
-    string_value: NotRequired[pulumi.Input[_builtins.str]]
+    string_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Optional. The string value of the value entry. Accepts substitution templates.
     """
@@ -4359,10 +4359,10 @@ class TopicRuleAssetPropertyVariantArgsDict(TypedDict):
 @pulumi.input_type
 class TopicRuleAssetPropertyVariantArgs:
     def __init__(__self__, *,
-                 boolean_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 double_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 integer_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 string_value: Optional[pulumi.Input[_builtins.str]] = None):
+                 boolean_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 double_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 integer_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 string_value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] boolean_value: Optional. A string that contains the boolean value ( `true` or `false` ) of the value entry. Accepts substitution templates.
         :param pulumi.Input[_builtins.str] double_value: Optional. A string that contains the double value of the value entry. Accepts substitution templates.
@@ -4380,66 +4380,66 @@ class TopicRuleAssetPropertyVariantArgs:
 
     @_builtins.property
     @pulumi.getter(name="booleanValue")
-    def boolean_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def boolean_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Optional. A string that contains the boolean value ( `true` or `false` ) of the value entry. Accepts substitution templates.
         """
         return pulumi.get(self, "boolean_value")
 
     @boolean_value.setter
-    def boolean_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def boolean_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "boolean_value", value)
 
     @_builtins.property
     @pulumi.getter(name="doubleValue")
-    def double_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def double_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Optional. A string that contains the double value of the value entry. Accepts substitution templates.
         """
         return pulumi.get(self, "double_value")
 
     @double_value.setter
-    def double_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def double_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "double_value", value)
 
     @_builtins.property
     @pulumi.getter(name="integerValue")
-    def integer_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def integer_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Optional. A string that contains the integer value of the value entry. Accepts substitution templates.
         """
         return pulumi.get(self, "integer_value")
 
     @integer_value.setter
-    def integer_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def integer_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "integer_value", value)
 
     @_builtins.property
     @pulumi.getter(name="stringValue")
-    def string_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def string_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Optional. The string value of the value entry. Accepts substitution templates.
         """
         return pulumi.get(self, "string_value")
 
     @string_value.setter
-    def string_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def string_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "string_value", value)
 
 
 class TopicRuleBatchConfigArgsDict(TypedDict):
-    batch_across_topics: NotRequired[pulumi.Input[_builtins.bool]]
-    max_batch_open_ms: NotRequired[pulumi.Input[_builtins.int]]
-    max_batch_size: NotRequired[pulumi.Input[_builtins.int]]
-    max_batch_size_bytes: NotRequired[pulumi.Input[_builtins.int]]
+    batch_across_topics: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    max_batch_open_ms: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    max_batch_size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    max_batch_size_bytes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
 
 @pulumi.input_type
 class TopicRuleBatchConfigArgs:
     def __init__(__self__, *,
-                 batch_across_topics: Optional[pulumi.Input[_builtins.bool]] = None,
-                 max_batch_open_ms: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_batch_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_batch_size_bytes: Optional[pulumi.Input[_builtins.int]] = None):
+                 batch_across_topics: pulumi.Input[Optional[_builtins.bool]] = None,
+                 max_batch_open_ms: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_batch_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_batch_size_bytes: pulumi.Input[Optional[_builtins.int]] = None):
         if batch_across_topics is not None:
             pulumi.set(__self__, "batch_across_topics", batch_across_topics)
         if max_batch_open_ms is not None:
@@ -4451,38 +4451,38 @@ class TopicRuleBatchConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="batchAcrossTopics")
-    def batch_across_topics(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def batch_across_topics(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "batch_across_topics")
 
     @batch_across_topics.setter
-    def batch_across_topics(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def batch_across_topics(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "batch_across_topics", value)
 
     @_builtins.property
     @pulumi.getter(name="maxBatchOpenMs")
-    def max_batch_open_ms(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_batch_open_ms(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "max_batch_open_ms")
 
     @max_batch_open_ms.setter
-    def max_batch_open_ms(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_batch_open_ms(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_batch_open_ms", value)
 
     @_builtins.property
     @pulumi.getter(name="maxBatchSize")
-    def max_batch_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_batch_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "max_batch_size")
 
     @max_batch_size.setter
-    def max_batch_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_batch_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_batch_size", value)
 
     @_builtins.property
     @pulumi.getter(name="maxBatchSizeBytes")
-    def max_batch_size_bytes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_batch_size_bytes(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "max_batch_size_bytes")
 
     @max_batch_size_bytes.setter
-    def max_batch_size_bytes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_batch_size_bytes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_batch_size_bytes", value)
 
 
@@ -4580,7 +4580,7 @@ class TopicRuleCloudwatchLogsActionArgsDict(TypedDict):
     """
     The IAM role that allows access to the CloudWatch log.
     """
-    batch_mode: NotRequired[pulumi.Input[_builtins.bool]]
+    batch_mode: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether batches of log records will be extracted and uploaded into CloudWatch.
     """
@@ -4590,7 +4590,7 @@ class TopicRuleCloudwatchLogsActionArgs:
     def __init__(__self__, *,
                  log_group_name: pulumi.Input[_builtins.str],
                  role_arn: pulumi.Input[_builtins.str],
-                 batch_mode: Optional[pulumi.Input[_builtins.bool]] = None):
+                 batch_mode: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] log_group_name: The CloudWatch log name.
         :param pulumi.Input[_builtins.str] role_arn: The IAM role that allows access to the CloudWatch log.
@@ -4627,14 +4627,14 @@ class TopicRuleCloudwatchLogsActionArgs:
 
     @_builtins.property
     @pulumi.getter(name="batchMode")
-    def batch_mode(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def batch_mode(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether batches of log records will be extracted and uploaded into CloudWatch.
         """
         return pulumi.get(self, "batch_mode")
 
     @batch_mode.setter
-    def batch_mode(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def batch_mode(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "batch_mode", value)
 
 
@@ -4659,7 +4659,7 @@ class TopicRuleCloudwatchMetricActionArgsDict(TypedDict):
     """
     The IAM role that allows access to the CloudWatch metric.
     """
-    metric_timestamp: NotRequired[pulumi.Input[_builtins.str]]
+    metric_timestamp: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     An optional [Unix timestamp](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp) .
     """
@@ -4672,7 +4672,7 @@ class TopicRuleCloudwatchMetricActionArgs:
                  metric_unit: pulumi.Input[_builtins.str],
                  metric_value: pulumi.Input[_builtins.str],
                  role_arn: pulumi.Input[_builtins.str],
-                 metric_timestamp: Optional[pulumi.Input[_builtins.str]] = None):
+                 metric_timestamp: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] metric_name: The CloudWatch metric name.
         :param pulumi.Input[_builtins.str] metric_namespace: The CloudWatch metric namespace name.
@@ -4751,19 +4751,19 @@ class TopicRuleCloudwatchMetricActionArgs:
 
     @_builtins.property
     @pulumi.getter(name="metricTimestamp")
-    def metric_timestamp(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metric_timestamp(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An optional [Unix timestamp](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp) .
         """
         return pulumi.get(self, "metric_timestamp")
 
     @metric_timestamp.setter
-    def metric_timestamp(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metric_timestamp(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "metric_timestamp", value)
 
 
 class TopicRuleDestinationHttpUrlDestinationSummaryArgsDict(TypedDict):
-    confirmation_url: NotRequired[pulumi.Input[_builtins.str]]
+    confirmation_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The URL used to confirm the HTTP topic rule destination URL.
     """
@@ -4771,7 +4771,7 @@ class TopicRuleDestinationHttpUrlDestinationSummaryArgsDict(TypedDict):
 @pulumi.input_type
 class TopicRuleDestinationHttpUrlDestinationSummaryArgs:
     def __init__(__self__, *,
-                 confirmation_url: Optional[pulumi.Input[_builtins.str]] = None):
+                 confirmation_url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] confirmation_url: The URL used to confirm the HTTP topic rule destination URL.
         """
@@ -4780,31 +4780,31 @@ class TopicRuleDestinationHttpUrlDestinationSummaryArgs:
 
     @_builtins.property
     @pulumi.getter(name="confirmationUrl")
-    def confirmation_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def confirmation_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL used to confirm the HTTP topic rule destination URL.
         """
         return pulumi.get(self, "confirmation_url")
 
     @confirmation_url.setter
-    def confirmation_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def confirmation_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "confirmation_url", value)
 
 
 class TopicRuleDestinationVpcDestinationPropertiesArgsDict(TypedDict):
-    role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of a role that has permission to create and attach to elastic network interfaces (ENIs).
     """
-    security_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    security_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The security groups of the VPC destination.
     """
-    subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    subnet_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The subnet IDs of the VPC destination.
     """
-    vpc_id: NotRequired[pulumi.Input[_builtins.str]]
+    vpc_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the VPC.
     """
@@ -4812,10 +4812,10 @@ class TopicRuleDestinationVpcDestinationPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class TopicRuleDestinationVpcDestinationPropertiesArgs:
     def __init__(__self__, *,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 vpc_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] role_arn: The ARN of a role that has permission to create and attach to elastic network interfaces (ENIs).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_groups: The security groups of the VPC destination.
@@ -4833,55 +4833,55 @@ class TopicRuleDestinationVpcDestinationPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of a role that has permission to create and attach to elastic network interfaces (ENIs).
         """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
-    def role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="securityGroups")
-    def security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def security_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The security groups of the VPC destination.
         """
         return pulumi.get(self, "security_groups")
 
     @security_groups.setter
-    def security_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def security_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "security_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def subnet_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The subnet IDs of the VPC destination.
         """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
-    def subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def subnet_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "subnet_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vpc_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the VPC.
         """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
-    def vpc_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vpc_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpc_id", value)
 
 
 class TopicRuleDynamoDBv2ActionArgsDict(TypedDict):
-    put_item: NotRequired[pulumi.Input['TopicRulePutItemInputArgsDict']]
+    put_item: NotRequired[pulumi.Input[Optional['TopicRulePutItemInputArgs']]]
     """
     Specifies the DynamoDB table to which the message data will be written. For example:
 
@@ -4889,7 +4889,7 @@ class TopicRuleDynamoDBv2ActionArgsDict(TypedDict):
 
     Each attribute in the message payload will be written to a separate column in the DynamoDB database.
     """
-    role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of the IAM role that grants access to the DynamoDB table.
     """
@@ -4897,8 +4897,8 @@ class TopicRuleDynamoDBv2ActionArgsDict(TypedDict):
 @pulumi.input_type
 class TopicRuleDynamoDBv2ActionArgs:
     def __init__(__self__, *,
-                 put_item: Optional[pulumi.Input['TopicRulePutItemInputArgs']] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 put_item: pulumi.Input[Optional['TopicRulePutItemInputArgs']] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input['TopicRulePutItemInputArgs'] put_item: Specifies the DynamoDB table to which the message data will be written. For example:
                
@@ -4914,7 +4914,7 @@ class TopicRuleDynamoDBv2ActionArgs:
 
     @_builtins.property
     @pulumi.getter(name="putItem")
-    def put_item(self) -> Optional[pulumi.Input['TopicRulePutItemInputArgs']]:
+    def put_item(self) -> pulumi.Input[Optional['TopicRulePutItemInputArgs']]:
         """
         Specifies the DynamoDB table to which the message data will be written. For example:
 
@@ -4925,19 +4925,19 @@ class TopicRuleDynamoDBv2ActionArgs:
         return pulumi.get(self, "put_item")
 
     @put_item.setter
-    def put_item(self, value: Optional[pulumi.Input['TopicRulePutItemInputArgs']]):
+    def put_item(self, value: pulumi.Input[Optional['TopicRulePutItemInputArgs']]):
         pulumi.set(self, "put_item", value)
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the IAM role that grants access to the DynamoDB table.
         """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
-    def role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_arn", value)
 
 
@@ -4958,23 +4958,23 @@ class TopicRuleDynamoDbActionArgsDict(TypedDict):
     """
     The name of the DynamoDB table.
     """
-    hash_key_type: NotRequired[pulumi.Input[_builtins.str]]
+    hash_key_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The hash key type. Valid values are "STRING" or "NUMBER"
     """
-    payload_field: NotRequired[pulumi.Input[_builtins.str]]
+    payload_field: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The action payload. This name can be customized.
     """
-    range_key_field: NotRequired[pulumi.Input[_builtins.str]]
+    range_key_field: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The range key name.
     """
-    range_key_type: NotRequired[pulumi.Input[_builtins.str]]
+    range_key_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The range key type. Valid values are "STRING" or "NUMBER"
     """
-    range_key_value: NotRequired[pulumi.Input[_builtins.str]]
+    range_key_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The range key value.
     """
@@ -4986,11 +4986,11 @@ class TopicRuleDynamoDbActionArgs:
                  hash_key_value: pulumi.Input[_builtins.str],
                  role_arn: pulumi.Input[_builtins.str],
                  table_name: pulumi.Input[_builtins.str],
-                 hash_key_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 payload_field: Optional[pulumi.Input[_builtins.str]] = None,
-                 range_key_field: Optional[pulumi.Input[_builtins.str]] = None,
-                 range_key_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 range_key_value: Optional[pulumi.Input[_builtins.str]] = None):
+                 hash_key_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 payload_field: pulumi.Input[Optional[_builtins.str]] = None,
+                 range_key_field: pulumi.Input[Optional[_builtins.str]] = None,
+                 range_key_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 range_key_value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] hash_key_field: The hash key name.
         :param pulumi.Input[_builtins.str] hash_key_value: The hash key value.
@@ -5067,62 +5067,62 @@ class TopicRuleDynamoDbActionArgs:
 
     @_builtins.property
     @pulumi.getter(name="hashKeyType")
-    def hash_key_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hash_key_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The hash key type. Valid values are "STRING" or "NUMBER"
         """
         return pulumi.get(self, "hash_key_type")
 
     @hash_key_type.setter
-    def hash_key_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hash_key_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hash_key_type", value)
 
     @_builtins.property
     @pulumi.getter(name="payloadField")
-    def payload_field(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def payload_field(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The action payload. This name can be customized.
         """
         return pulumi.get(self, "payload_field")
 
     @payload_field.setter
-    def payload_field(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def payload_field(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "payload_field", value)
 
     @_builtins.property
     @pulumi.getter(name="rangeKeyField")
-    def range_key_field(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def range_key_field(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The range key name.
         """
         return pulumi.get(self, "range_key_field")
 
     @range_key_field.setter
-    def range_key_field(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def range_key_field(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "range_key_field", value)
 
     @_builtins.property
     @pulumi.getter(name="rangeKeyType")
-    def range_key_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def range_key_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The range key type. Valid values are "STRING" or "NUMBER"
         """
         return pulumi.get(self, "range_key_type")
 
     @range_key_type.setter
-    def range_key_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def range_key_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "range_key_type", value)
 
     @_builtins.property
     @pulumi.getter(name="rangeKeyValue")
-    def range_key_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def range_key_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The range key value.
         """
         return pulumi.get(self, "range_key_value")
 
     @range_key_value.setter
-    def range_key_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def range_key_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "range_key_value", value)
 
 
@@ -5239,13 +5239,13 @@ class TopicRuleFirehoseActionArgsDict(TypedDict):
     """
     The IAM role that grants access to the Amazon Kinesis Firehose stream.
     """
-    batch_mode: NotRequired[pulumi.Input[_builtins.bool]]
+    batch_mode: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to deliver the Kinesis Data Firehose stream as a batch by using [`PutRecordBatch`](https://docs.aws.amazon.com/firehose/latest/APIReference/API_PutRecordBatch.html) . The default value is `false` .
 
     When `batchMode` is `true` and the rule's SQL statement evaluates to an Array, each Array element forms one record in the [`PutRecordBatch`](https://docs.aws.amazon.com/firehose/latest/APIReference/API_PutRecordBatch.html) request. The resulting array can't have more than 500 records.
     """
-    separator: NotRequired[pulumi.Input[_builtins.str]]
+    separator: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A character separator that will be used to separate records written to the Firehose stream. Valid values are: '\\n' (newline), '\\t' (tab), '\\r\\n' (Windows newline), ',' (comma).
     """
@@ -5255,8 +5255,8 @@ class TopicRuleFirehoseActionArgs:
     def __init__(__self__, *,
                  delivery_stream_name: pulumi.Input[_builtins.str],
                  role_arn: pulumi.Input[_builtins.str],
-                 batch_mode: Optional[pulumi.Input[_builtins.bool]] = None,
-                 separator: Optional[pulumi.Input[_builtins.str]] = None):
+                 batch_mode: pulumi.Input[Optional[_builtins.bool]] = None,
+                 separator: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] delivery_stream_name: The delivery stream name.
         :param pulumi.Input[_builtins.str] role_arn: The IAM role that grants access to the Amazon Kinesis Firehose stream.
@@ -5298,7 +5298,7 @@ class TopicRuleFirehoseActionArgs:
 
     @_builtins.property
     @pulumi.getter(name="batchMode")
-    def batch_mode(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def batch_mode(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to deliver the Kinesis Data Firehose stream as a batch by using [`PutRecordBatch`](https://docs.aws.amazon.com/firehose/latest/APIReference/API_PutRecordBatch.html) . The default value is `false` .
 
@@ -5307,19 +5307,19 @@ class TopicRuleFirehoseActionArgs:
         return pulumi.get(self, "batch_mode")
 
     @batch_mode.setter
-    def batch_mode(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def batch_mode(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "batch_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def separator(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def separator(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A character separator that will be used to separate records written to the Firehose stream. Valid values are: '\\n' (newline), '\\t' (tab), '\\r\\n' (Windows newline), ',' (comma).
         """
         return pulumi.get(self, "separator")
 
     @separator.setter
-    def separator(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def separator(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "separator", value)
 
 
@@ -5375,17 +5375,17 @@ class TopicRuleHttpActionArgsDict(TypedDict):
     """
     The endpoint URL. If substitution templates are used in the URL, you must also specify a `confirmationUrl` . If this is a new destination, a new `TopicRuleDestination` is created if possible.
     """
-    auth: NotRequired[pulumi.Input['TopicRuleHttpAuthorizationArgsDict']]
+    auth: NotRequired[pulumi.Input[Optional['TopicRuleHttpAuthorizationArgs']]]
     """
     The authentication method to use when sending data to an HTTPS endpoint.
     """
-    batch_config: NotRequired[pulumi.Input['TopicRuleBatchConfigArgsDict']]
-    confirmation_url: NotRequired[pulumi.Input[_builtins.str]]
+    batch_config: NotRequired[pulumi.Input[Optional['TopicRuleBatchConfigArgs']]]
+    confirmation_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The URL to which AWS IoT sends a confirmation message. The value of the confirmation URL must be a prefix of the endpoint URL. If you do not specify a confirmation URL AWS IoT uses the endpoint URL as the confirmation URL. If you use substitution templates in the confirmationUrl, you must create and enable topic rule destinations that match each possible value of the substitution template before traffic is allowed to your endpoint URL.
     """
-    enable_batching: NotRequired[pulumi.Input[_builtins.bool]]
-    headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['TopicRuleHttpActionHeaderArgsDict']]]]
+    enable_batching: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleHttpActionHeaderArgs']]]]]
     """
     The HTTP headers to send with the message data.
     """
@@ -5394,11 +5394,11 @@ class TopicRuleHttpActionArgsDict(TypedDict):
 class TopicRuleHttpActionArgs:
     def __init__(__self__, *,
                  url: pulumi.Input[_builtins.str],
-                 auth: Optional[pulumi.Input['TopicRuleHttpAuthorizationArgs']] = None,
-                 batch_config: Optional[pulumi.Input['TopicRuleBatchConfigArgs']] = None,
-                 confirmation_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_batching: Optional[pulumi.Input[_builtins.bool]] = None,
-                 headers: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleHttpActionHeaderArgs']]]] = None):
+                 auth: pulumi.Input[Optional['TopicRuleHttpAuthorizationArgs']] = None,
+                 batch_config: pulumi.Input[Optional['TopicRuleBatchConfigArgs']] = None,
+                 confirmation_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_batching: pulumi.Input[Optional[_builtins.bool]] = None,
+                 headers: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleHttpActionHeaderArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] url: The endpoint URL. If substitution templates are used in the URL, you must also specify a `confirmationUrl` . If this is a new destination, a new `TopicRuleDestination` is created if possible.
         :param pulumi.Input['TopicRuleHttpAuthorizationArgs'] auth: The authentication method to use when sending data to an HTTPS endpoint.
@@ -5431,61 +5431,61 @@ class TopicRuleHttpActionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def auth(self) -> Optional[pulumi.Input['TopicRuleHttpAuthorizationArgs']]:
+    def auth(self) -> pulumi.Input[Optional['TopicRuleHttpAuthorizationArgs']]:
         """
         The authentication method to use when sending data to an HTTPS endpoint.
         """
         return pulumi.get(self, "auth")
 
     @auth.setter
-    def auth(self, value: Optional[pulumi.Input['TopicRuleHttpAuthorizationArgs']]):
+    def auth(self, value: pulumi.Input[Optional['TopicRuleHttpAuthorizationArgs']]):
         pulumi.set(self, "auth", value)
 
     @_builtins.property
     @pulumi.getter(name="batchConfig")
-    def batch_config(self) -> Optional[pulumi.Input['TopicRuleBatchConfigArgs']]:
+    def batch_config(self) -> pulumi.Input[Optional['TopicRuleBatchConfigArgs']]:
         return pulumi.get(self, "batch_config")
 
     @batch_config.setter
-    def batch_config(self, value: Optional[pulumi.Input['TopicRuleBatchConfigArgs']]):
+    def batch_config(self, value: pulumi.Input[Optional['TopicRuleBatchConfigArgs']]):
         pulumi.set(self, "batch_config", value)
 
     @_builtins.property
     @pulumi.getter(name="confirmationUrl")
-    def confirmation_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def confirmation_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL to which AWS IoT sends a confirmation message. The value of the confirmation URL must be a prefix of the endpoint URL. If you do not specify a confirmation URL AWS IoT uses the endpoint URL as the confirmation URL. If you use substitution templates in the confirmationUrl, you must create and enable topic rule destinations that match each possible value of the substitution template before traffic is allowed to your endpoint URL.
         """
         return pulumi.get(self, "confirmation_url")
 
     @confirmation_url.setter
-    def confirmation_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def confirmation_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "confirmation_url", value)
 
     @_builtins.property
     @pulumi.getter(name="enableBatching")
-    def enable_batching(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_batching(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "enable_batching")
 
     @enable_batching.setter
-    def enable_batching(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_batching(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_batching", value)
 
     @_builtins.property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleHttpActionHeaderArgs']]]]:
+    def headers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleHttpActionHeaderArgs']]]]:
         """
         The HTTP headers to send with the message data.
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleHttpActionHeaderArgs']]]]):
+    def headers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleHttpActionHeaderArgs']]]]):
         pulumi.set(self, "headers", value)
 
 
 class TopicRuleHttpAuthorizationArgsDict(TypedDict):
-    sigv4: NotRequired[pulumi.Input['TopicRuleSigV4AuthorizationArgsDict']]
+    sigv4: NotRequired[pulumi.Input[Optional['TopicRuleSigV4AuthorizationArgs']]]
     """
     Use Sig V4 authorization. For more information, see [Signature Version 4 Signing Process](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) .
     """
@@ -5493,7 +5493,7 @@ class TopicRuleHttpAuthorizationArgsDict(TypedDict):
 @pulumi.input_type
 class TopicRuleHttpAuthorizationArgs:
     def __init__(__self__, *,
-                 sigv4: Optional[pulumi.Input['TopicRuleSigV4AuthorizationArgs']] = None):
+                 sigv4: pulumi.Input[Optional['TopicRuleSigV4AuthorizationArgs']] = None):
         """
         :param pulumi.Input['TopicRuleSigV4AuthorizationArgs'] sigv4: Use Sig V4 authorization. For more information, see [Signature Version 4 Signing Process](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) .
         """
@@ -5502,14 +5502,14 @@ class TopicRuleHttpAuthorizationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def sigv4(self) -> Optional[pulumi.Input['TopicRuleSigV4AuthorizationArgs']]:
+    def sigv4(self) -> pulumi.Input[Optional['TopicRuleSigV4AuthorizationArgs']]:
         """
         Use Sig V4 authorization. For more information, see [Signature Version 4 Signing Process](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) .
         """
         return pulumi.get(self, "sigv4")
 
     @sigv4.setter
-    def sigv4(self, value: Optional[pulumi.Input['TopicRuleSigV4AuthorizationArgs']]):
+    def sigv4(self, value: pulumi.Input[Optional['TopicRuleSigV4AuthorizationArgs']]):
         pulumi.set(self, "sigv4", value)
 
 
@@ -5522,7 +5522,7 @@ class TopicRuleIotAnalyticsActionArgsDict(TypedDict):
     """
     The ARN of the role which has a policy that grants IoT Analytics permission to send message data via IoT Analytics (iotanalytics:BatchPutMessage).
     """
-    batch_mode: NotRequired[pulumi.Input[_builtins.bool]]
+    batch_mode: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to process the action as a batch. The default value is `false` .
 
@@ -5534,7 +5534,7 @@ class TopicRuleIotAnalyticsActionArgs:
     def __init__(__self__, *,
                  channel_name: pulumi.Input[_builtins.str],
                  role_arn: pulumi.Input[_builtins.str],
-                 batch_mode: Optional[pulumi.Input[_builtins.bool]] = None):
+                 batch_mode: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] channel_name: The name of the IoT Analytics channel to which message data will be sent.
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the role which has a policy that grants IoT Analytics permission to send message data via IoT Analytics (iotanalytics:BatchPutMessage).
@@ -5573,7 +5573,7 @@ class TopicRuleIotAnalyticsActionArgs:
 
     @_builtins.property
     @pulumi.getter(name="batchMode")
-    def batch_mode(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def batch_mode(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to process the action as a batch. The default value is `false` .
 
@@ -5582,7 +5582,7 @@ class TopicRuleIotAnalyticsActionArgs:
         return pulumi.get(self, "batch_mode")
 
     @batch_mode.setter
-    def batch_mode(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def batch_mode(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "batch_mode", value)
 
 
@@ -5595,7 +5595,7 @@ class TopicRuleIotEventsActionArgsDict(TypedDict):
     """
     The ARN of the role that grants AWS IoT permission to send an input to an AWS IoT Events detector. ("Action":"iotevents:BatchPutMessage").
     """
-    batch_mode: NotRequired[pulumi.Input[_builtins.bool]]
+    batch_mode: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to process the event actions as a batch. The default value is `false` .
 
@@ -5603,7 +5603,7 @@ class TopicRuleIotEventsActionArgsDict(TypedDict):
 
     When `batchMode` is `true` and the rule SQL statement evaluates to an Array, each Array element is treated as a separate message when Events by calling [`BatchPutMessage`](https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_BatchPutMessage.html) . The resulting array can't have more than 10 messages.
     """
-    message_id: NotRequired[pulumi.Input[_builtins.str]]
+    message_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the message. The default `messageId` is a new UUID value.
 
@@ -5617,8 +5617,8 @@ class TopicRuleIotEventsActionArgs:
     def __init__(__self__, *,
                  input_name: pulumi.Input[_builtins.str],
                  role_arn: pulumi.Input[_builtins.str],
-                 batch_mode: Optional[pulumi.Input[_builtins.bool]] = None,
-                 message_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 batch_mode: pulumi.Input[Optional[_builtins.bool]] = None,
+                 message_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] input_name: The name of the AWS IoT Events input.
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the role that grants AWS IoT permission to send an input to an AWS IoT Events detector. ("Action":"iotevents:BatchPutMessage").
@@ -5666,7 +5666,7 @@ class TopicRuleIotEventsActionArgs:
 
     @_builtins.property
     @pulumi.getter(name="batchMode")
-    def batch_mode(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def batch_mode(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to process the event actions as a batch. The default value is `false` .
 
@@ -5677,12 +5677,12 @@ class TopicRuleIotEventsActionArgs:
         return pulumi.get(self, "batch_mode")
 
     @batch_mode.setter
-    def batch_mode(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def batch_mode(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "batch_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="messageId")
-    def message_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def message_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the message. The default `messageId` is a new UUID value.
 
@@ -5693,7 +5693,7 @@ class TopicRuleIotEventsActionArgs:
         return pulumi.get(self, "message_id")
 
     @message_id.setter
-    def message_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def message_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "message_id", value)
 
 
@@ -5804,15 +5804,15 @@ class TopicRuleKafkaActionArgsDict(TypedDict):
     """
     The Kafka topic for messages to be sent to the Kafka broker.
     """
-    headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['TopicRuleKafkaActionHeaderArgsDict']]]]
+    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleKafkaActionHeaderArgs']]]]]
     """
     The list of Kafka headers that you specify.
     """
-    key: NotRequired[pulumi.Input[_builtins.str]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Kafka message key.
     """
-    partition: NotRequired[pulumi.Input[_builtins.str]]
+    partition: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Kafka message partition.
     """
@@ -5823,9 +5823,9 @@ class TopicRuleKafkaActionArgs:
                  client_properties: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]],
                  destination_arn: pulumi.Input[_builtins.str],
                  topic: pulumi.Input[_builtins.str],
-                 headers: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleKafkaActionHeaderArgs']]]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition: Optional[pulumi.Input[_builtins.str]] = None):
+                 headers: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleKafkaActionHeaderArgs']]]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] client_properties: Properties of the Apache Kafka producer client.
         :param pulumi.Input[_builtins.str] destination_arn: The ARN of Kafka action's VPC `TopicRuleDestination` .
@@ -5882,38 +5882,38 @@ class TopicRuleKafkaActionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleKafkaActionHeaderArgs']]]]:
+    def headers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleKafkaActionHeaderArgs']]]]:
         """
         The list of Kafka headers that you specify.
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleKafkaActionHeaderArgs']]]]):
+    def headers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleKafkaActionHeaderArgs']]]]):
         pulumi.set(self, "headers", value)
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Kafka message key.
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter
-    def partition(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def partition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Kafka message partition.
         """
         return pulumi.get(self, "partition")
 
     @partition.setter
-    def partition(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def partition(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "partition", value)
 
 
@@ -5926,7 +5926,7 @@ class TopicRuleKinesisActionArgsDict(TypedDict):
     """
     The name of the Amazon Kinesis stream.
     """
-    partition_key: NotRequired[pulumi.Input[_builtins.str]]
+    partition_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The partition key.
     """
@@ -5936,7 +5936,7 @@ class TopicRuleKinesisActionArgs:
     def __init__(__self__, *,
                  role_arn: pulumi.Input[_builtins.str],
                  stream_name: pulumi.Input[_builtins.str],
-                 partition_key: Optional[pulumi.Input[_builtins.str]] = None):
+                 partition_key: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the IAM role that grants access to the Amazon Kinesis stream.
         :param pulumi.Input[_builtins.str] stream_name: The name of the Amazon Kinesis stream.
@@ -5973,19 +5973,19 @@ class TopicRuleKinesisActionArgs:
 
     @_builtins.property
     @pulumi.getter(name="partitionKey")
-    def partition_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def partition_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The partition key.
         """
         return pulumi.get(self, "partition_key")
 
     @partition_key.setter
-    def partition_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def partition_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "partition_key", value)
 
 
 class TopicRuleLambdaActionArgsDict(TypedDict):
-    function_arn: NotRequired[pulumi.Input[_builtins.str]]
+    function_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of the Lambda function.
     """
@@ -5993,7 +5993,7 @@ class TopicRuleLambdaActionArgsDict(TypedDict):
 @pulumi.input_type
 class TopicRuleLambdaActionArgs:
     def __init__(__self__, *,
-                 function_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 function_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] function_arn: The ARN of the Lambda function.
         """
@@ -6002,14 +6002,14 @@ class TopicRuleLambdaActionArgs:
 
     @_builtins.property
     @pulumi.getter(name="functionArn")
-    def function_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def function_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the Lambda function.
         """
         return pulumi.get(self, "function_arn")
 
     @function_arn.setter
-    def function_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def function_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "function_arn", value)
 
 
@@ -6034,7 +6034,7 @@ class TopicRuleLocationActionArgsDict(TypedDict):
     """
     The name of the tracker resource in Amazon Location in which the location is updated.
     """
-    timestamp: NotRequired[pulumi.Input['TopicRuleTimestampArgsDict']]
+    timestamp: NotRequired[pulumi.Input[Optional['TopicRuleTimestampArgs']]]
     """
     The time that the location data was sampled. The default value is the time the MQTT message was processed.
     """
@@ -6047,7 +6047,7 @@ class TopicRuleLocationActionArgs:
                  longitude: pulumi.Input[_builtins.str],
                  role_arn: pulumi.Input[_builtins.str],
                  tracker_name: pulumi.Input[_builtins.str],
-                 timestamp: Optional[pulumi.Input['TopicRuleTimestampArgs']] = None):
+                 timestamp: pulumi.Input[Optional['TopicRuleTimestampArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] device_id: The unique ID of the device providing the location data.
         :param pulumi.Input[_builtins.str] latitude: A string that evaluates to a double value that represents the latitude of the device's location.
@@ -6126,14 +6126,14 @@ class TopicRuleLocationActionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def timestamp(self) -> Optional[pulumi.Input['TopicRuleTimestampArgs']]:
+    def timestamp(self) -> pulumi.Input[Optional['TopicRuleTimestampArgs']]:
         """
         The time that the location data was sampled. The default value is the time the MQTT message was processed.
         """
         return pulumi.get(self, "timestamp")
 
     @timestamp.setter
-    def timestamp(self, value: Optional[pulumi.Input['TopicRuleTimestampArgs']]):
+    def timestamp(self, value: pulumi.Input[Optional['TopicRuleTimestampArgs']]):
         pulumi.set(self, "timestamp", value)
 
 
@@ -6250,21 +6250,21 @@ class TopicRulePayloadArgsDict(TypedDict):
     """
     The SQL statement used to query the topic. For more information, see [AWS IoT SQL Reference](https://docs.aws.amazon.com/iot/latest/developerguide/iot-sql-reference.html) in the *AWS IoT Developer Guide* .
     """
-    aws_iot_sql_version: NotRequired[pulumi.Input[_builtins.str]]
+    aws_iot_sql_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The version of the SQL rules engine to use when evaluating the rule.
 
     The default value is 2015-10-08.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The description of the rule.
     """
-    error_action: NotRequired[pulumi.Input['TopicRuleActionArgsDict']]
+    error_action: NotRequired[pulumi.Input[Optional['TopicRuleActionArgs']]]
     """
     The action to take when an error occurs.
     """
-    rule_disabled: NotRequired[pulumi.Input[_builtins.bool]]
+    rule_disabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether the rule is disabled.
     """
@@ -6274,10 +6274,10 @@ class TopicRulePayloadArgs:
     def __init__(__self__, *,
                  actions: pulumi.Input[Sequence[pulumi.Input['TopicRuleActionArgs']]],
                  sql: pulumi.Input[_builtins.str],
-                 aws_iot_sql_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 error_action: Optional[pulumi.Input['TopicRuleActionArgs']] = None,
-                 rule_disabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 aws_iot_sql_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 error_action: pulumi.Input[Optional['TopicRuleActionArgs']] = None,
+                 rule_disabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['TopicRuleActionArgs']]] actions: The actions associated with the rule.
         :param pulumi.Input[_builtins.str] sql: The SQL statement used to query the topic. For more information, see [AWS IoT SQL Reference](https://docs.aws.amazon.com/iot/latest/developerguide/iot-sql-reference.html) in the *AWS IoT Developer Guide* .
@@ -6325,7 +6325,7 @@ class TopicRulePayloadArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsIotSqlVersion")
-    def aws_iot_sql_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aws_iot_sql_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the SQL rules engine to use when evaluating the rule.
 
@@ -6334,43 +6334,43 @@ class TopicRulePayloadArgs:
         return pulumi.get(self, "aws_iot_sql_version")
 
     @aws_iot_sql_version.setter
-    def aws_iot_sql_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aws_iot_sql_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aws_iot_sql_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the rule.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="errorAction")
-    def error_action(self) -> Optional[pulumi.Input['TopicRuleActionArgs']]:
+    def error_action(self) -> pulumi.Input[Optional['TopicRuleActionArgs']]:
         """
         The action to take when an error occurs.
         """
         return pulumi.get(self, "error_action")
 
     @error_action.setter
-    def error_action(self, value: Optional[pulumi.Input['TopicRuleActionArgs']]):
+    def error_action(self, value: pulumi.Input[Optional['TopicRuleActionArgs']]):
         pulumi.set(self, "error_action", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleDisabled")
-    def rule_disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def rule_disabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the rule is disabled.
         """
         return pulumi.get(self, "rule_disabled")
 
     @rule_disabled.setter
-    def rule_disabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def rule_disabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "rule_disabled", value)
 
 
@@ -6379,19 +6379,19 @@ class TopicRulePutAssetPropertyValueEntryArgsDict(TypedDict):
     """
     A list of property values to insert that each contain timestamp, quality, and value (TQV) information.
     """
-    asset_id: NotRequired[pulumi.Input[_builtins.str]]
+    asset_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the AWS IoT SiteWise asset. You must specify either a `propertyAlias` or both an `aliasId` and a `propertyId` . Accepts substitution templates.
     """
-    entry_id: NotRequired[pulumi.Input[_builtins.str]]
+    entry_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Optional. A unique identifier for this entry that you can define to better track which message caused an error in case of failure. Accepts substitution templates. Defaults to a new UUID.
     """
-    property_alias: NotRequired[pulumi.Input[_builtins.str]]
+    property_alias: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the property alias associated with your asset property. You must specify either a `propertyAlias` or both an `aliasId` and a `propertyId` . Accepts substitution templates.
     """
-    property_id: NotRequired[pulumi.Input[_builtins.str]]
+    property_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the asset's property. You must specify either a `propertyAlias` or both an `aliasId` and a `propertyId` . Accepts substitution templates.
     """
@@ -6400,10 +6400,10 @@ class TopicRulePutAssetPropertyValueEntryArgsDict(TypedDict):
 class TopicRulePutAssetPropertyValueEntryArgs:
     def __init__(__self__, *,
                  property_values: pulumi.Input[Sequence[pulumi.Input['TopicRuleAssetPropertyValueArgs']]],
-                 asset_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 entry_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 property_alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 property_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 asset_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 entry_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 property_alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 property_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['TopicRuleAssetPropertyValueArgs']]] property_values: A list of property values to insert that each contain timestamp, quality, and value (TQV) information.
         :param pulumi.Input[_builtins.str] asset_id: The ID of the AWS IoT SiteWise asset. You must specify either a `propertyAlias` or both an `aliasId` and a `propertyId` . Accepts substitution templates.
@@ -6435,50 +6435,50 @@ class TopicRulePutAssetPropertyValueEntryArgs:
 
     @_builtins.property
     @pulumi.getter(name="assetId")
-    def asset_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def asset_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the AWS IoT SiteWise asset. You must specify either a `propertyAlias` or both an `aliasId` and a `propertyId` . Accepts substitution templates.
         """
         return pulumi.get(self, "asset_id")
 
     @asset_id.setter
-    def asset_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def asset_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "asset_id", value)
 
     @_builtins.property
     @pulumi.getter(name="entryId")
-    def entry_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def entry_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Optional. A unique identifier for this entry that you can define to better track which message caused an error in case of failure. Accepts substitution templates. Defaults to a new UUID.
         """
         return pulumi.get(self, "entry_id")
 
     @entry_id.setter
-    def entry_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def entry_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "entry_id", value)
 
     @_builtins.property
     @pulumi.getter(name="propertyAlias")
-    def property_alias(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def property_alias(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the property alias associated with your asset property. You must specify either a `propertyAlias` or both an `aliasId` and a `propertyId` . Accepts substitution templates.
         """
         return pulumi.get(self, "property_alias")
 
     @property_alias.setter
-    def property_alias(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def property_alias(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "property_alias", value)
 
     @_builtins.property
     @pulumi.getter(name="propertyId")
-    def property_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def property_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the asset's property. You must specify either a `propertyAlias` or both an `aliasId` and a `propertyId` . Accepts substitution templates.
         """
         return pulumi.get(self, "property_id")
 
     @property_id.setter
-    def property_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def property_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "property_id", value)
 
 
@@ -6511,7 +6511,7 @@ class TopicRulePutItemInputArgs:
 
 
 class TopicRuleRepublishActionHeadersArgsDict(TypedDict):
-    content_type: NotRequired[pulumi.Input[_builtins.str]]
+    content_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A UTF-8 encoded string that describes the content of the publishing message.
 
@@ -6519,7 +6519,7 @@ class TopicRuleRepublishActionHeadersArgsDict(TypedDict):
 
     Supports [substitution templates](https://docs.aws.amazon.com//iot/latest/developerguide/iot-substitution-templates.html) .
     """
-    correlation_data: NotRequired[pulumi.Input[_builtins.str]]
+    correlation_data: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The base64-encoded binary data used by the sender of the request message to identify which request the response message is for.
 
@@ -6529,13 +6529,13 @@ class TopicRuleRepublishActionHeadersArgsDict(TypedDict):
 
     > This binary data must be base64-encoded.
     """
-    message_expiry: NotRequired[pulumi.Input[_builtins.str]]
+    message_expiry: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A user-defined integer value that represents the message expiry interval at the broker. If the messages haven't been sent to the subscribers within that interval, the message expires and is removed. The value of `messageExpiry` represents the number of seconds before it expires. For more information about the limits of `messageExpiry` , see [Message broker and protocol limits and quotas](https://docs.aws.amazon.com//general/latest/gr/iot-core.html#limits_iot) in the IoT Core Reference Guide.
 
     Supports [substitution templates](https://docs.aws.amazon.com//iot/latest/developerguide/iot-substitution-templates.html) .
     """
-    payload_format_indicator: NotRequired[pulumi.Input[_builtins.str]]
+    payload_format_indicator: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     An `Enum` string value that indicates whether the payload is formatted as UTF-8.
 
@@ -6545,7 +6545,7 @@ class TopicRuleRepublishActionHeadersArgsDict(TypedDict):
 
     Supports [substitution templates](https://docs.aws.amazon.com//iot/latest/developerguide/iot-substitution-templates.html) .
     """
-    response_topic: NotRequired[pulumi.Input[_builtins.str]]
+    response_topic: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A UTF-8 encoded string that's used as the topic name for a response message. The response topic is used to describe the topic to which the receiver should publish as part of the request-response flow. The topic must not contain wildcard characters.
 
@@ -6553,7 +6553,7 @@ class TopicRuleRepublishActionHeadersArgsDict(TypedDict):
 
     Supports [substitution templates](https://docs.aws.amazon.com//iot/latest/developerguide/iot-substitution-templates.html) .
     """
-    user_properties: NotRequired[pulumi.Input[Sequence[pulumi.Input['TopicRuleUserPropertyArgsDict']]]]
+    user_properties: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleUserPropertyArgs']]]]]
     """
     An array of key-value pairs that you define in the MQTT5 header.
     """
@@ -6561,12 +6561,12 @@ class TopicRuleRepublishActionHeadersArgsDict(TypedDict):
 @pulumi.input_type
 class TopicRuleRepublishActionHeadersArgs:
     def __init__(__self__, *,
-                 content_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 correlation_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 message_expiry: Optional[pulumi.Input[_builtins.str]] = None,
-                 payload_format_indicator: Optional[pulumi.Input[_builtins.str]] = None,
-                 response_topic: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_properties: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleUserPropertyArgs']]]] = None):
+                 content_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 correlation_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 message_expiry: pulumi.Input[Optional[_builtins.str]] = None,
+                 payload_format_indicator: pulumi.Input[Optional[_builtins.str]] = None,
+                 response_topic: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_properties: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleUserPropertyArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] content_type: A UTF-8 encoded string that describes the content of the publishing message.
                
@@ -6612,7 +6612,7 @@ class TopicRuleRepublishActionHeadersArgs:
 
     @_builtins.property
     @pulumi.getter(name="contentType")
-    def content_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A UTF-8 encoded string that describes the content of the publishing message.
 
@@ -6623,12 +6623,12 @@ class TopicRuleRepublishActionHeadersArgs:
         return pulumi.get(self, "content_type")
 
     @content_type.setter
-    def content_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content_type", value)
 
     @_builtins.property
     @pulumi.getter(name="correlationData")
-    def correlation_data(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def correlation_data(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The base64-encoded binary data used by the sender of the request message to identify which request the response message is for.
 
@@ -6641,12 +6641,12 @@ class TopicRuleRepublishActionHeadersArgs:
         return pulumi.get(self, "correlation_data")
 
     @correlation_data.setter
-    def correlation_data(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def correlation_data(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "correlation_data", value)
 
     @_builtins.property
     @pulumi.getter(name="messageExpiry")
-    def message_expiry(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def message_expiry(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A user-defined integer value that represents the message expiry interval at the broker. If the messages haven't been sent to the subscribers within that interval, the message expires and is removed. The value of `messageExpiry` represents the number of seconds before it expires. For more information about the limits of `messageExpiry` , see [Message broker and protocol limits and quotas](https://docs.aws.amazon.com//general/latest/gr/iot-core.html#limits_iot) in the IoT Core Reference Guide.
 
@@ -6655,12 +6655,12 @@ class TopicRuleRepublishActionHeadersArgs:
         return pulumi.get(self, "message_expiry")
 
     @message_expiry.setter
-    def message_expiry(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def message_expiry(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "message_expiry", value)
 
     @_builtins.property
     @pulumi.getter(name="payloadFormatIndicator")
-    def payload_format_indicator(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def payload_format_indicator(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An `Enum` string value that indicates whether the payload is formatted as UTF-8.
 
@@ -6673,12 +6673,12 @@ class TopicRuleRepublishActionHeadersArgs:
         return pulumi.get(self, "payload_format_indicator")
 
     @payload_format_indicator.setter
-    def payload_format_indicator(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def payload_format_indicator(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "payload_format_indicator", value)
 
     @_builtins.property
     @pulumi.getter(name="responseTopic")
-    def response_topic(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def response_topic(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A UTF-8 encoded string that's used as the topic name for a response message. The response topic is used to describe the topic to which the receiver should publish as part of the request-response flow. The topic must not contain wildcard characters.
 
@@ -6689,19 +6689,19 @@ class TopicRuleRepublishActionHeadersArgs:
         return pulumi.get(self, "response_topic")
 
     @response_topic.setter
-    def response_topic(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def response_topic(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "response_topic", value)
 
     @_builtins.property
     @pulumi.getter(name="userProperties")
-    def user_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleUserPropertyArgs']]]]:
+    def user_properties(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleUserPropertyArgs']]]]:
         """
         An array of key-value pairs that you define in the MQTT5 header.
         """
         return pulumi.get(self, "user_properties")
 
     @user_properties.setter
-    def user_properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleUserPropertyArgs']]]]):
+    def user_properties(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleUserPropertyArgs']]]]):
         pulumi.set(self, "user_properties", value)
 
 
@@ -6714,11 +6714,11 @@ class TopicRuleRepublishActionArgsDict(TypedDict):
     """
     The name of the MQTT topic.
     """
-    headers: NotRequired[pulumi.Input['TopicRuleRepublishActionHeadersArgsDict']]
+    headers: NotRequired[pulumi.Input[Optional['TopicRuleRepublishActionHeadersArgs']]]
     """
     MQTT Version 5.0 headers information. For more information, see [MQTT](https://docs.aws.amazon.com//iot/latest/developerguide/mqtt.html) in the IoT Core Developer Guide.
     """
-    qos: NotRequired[pulumi.Input[_builtins.int]]
+    qos: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The Quality of Service (QoS) level to use when republishing messages. The default value is 0.
     """
@@ -6728,8 +6728,8 @@ class TopicRuleRepublishActionArgs:
     def __init__(__self__, *,
                  role_arn: pulumi.Input[_builtins.str],
                  topic: pulumi.Input[_builtins.str],
-                 headers: Optional[pulumi.Input['TopicRuleRepublishActionHeadersArgs']] = None,
-                 qos: Optional[pulumi.Input[_builtins.int]] = None):
+                 headers: pulumi.Input[Optional['TopicRuleRepublishActionHeadersArgs']] = None,
+                 qos: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the IAM role that grants access.
         :param pulumi.Input[_builtins.str] topic: The name of the MQTT topic.
@@ -6769,26 +6769,26 @@ class TopicRuleRepublishActionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input['TopicRuleRepublishActionHeadersArgs']]:
+    def headers(self) -> pulumi.Input[Optional['TopicRuleRepublishActionHeadersArgs']]:
         """
         MQTT Version 5.0 headers information. For more information, see [MQTT](https://docs.aws.amazon.com//iot/latest/developerguide/mqtt.html) in the IoT Core Developer Guide.
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input['TopicRuleRepublishActionHeadersArgs']]):
+    def headers(self, value: pulumi.Input[Optional['TopicRuleRepublishActionHeadersArgs']]):
         pulumi.set(self, "headers", value)
 
     @_builtins.property
     @pulumi.getter
-    def qos(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def qos(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The Quality of Service (QoS) level to use when republishing messages. The default value is 0.
         """
         return pulumi.get(self, "qos")
 
     @qos.setter
-    def qos(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def qos(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "qos", value)
 
 
@@ -6805,7 +6805,7 @@ class TopicRuleS3ActionArgsDict(TypedDict):
     """
     The ARN of the IAM role that grants access.
     """
-    canned_acl: NotRequired[pulumi.Input['TopicRuleCannedAccessControlList']]
+    canned_acl: NotRequired[pulumi.Input[Optional['TopicRuleCannedAccessControlList']]]
     """
     The Amazon S3 canned ACL that controls access to the object identified by the object key. For more information, see [S3 canned ACLs](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) .
     """
@@ -6816,7 +6816,7 @@ class TopicRuleS3ActionArgs:
                  bucket_name: pulumi.Input[_builtins.str],
                  key: pulumi.Input[_builtins.str],
                  role_arn: pulumi.Input[_builtins.str],
-                 canned_acl: Optional[pulumi.Input['TopicRuleCannedAccessControlList']] = None):
+                 canned_acl: pulumi.Input[Optional['TopicRuleCannedAccessControlList']] = None):
         """
         :param pulumi.Input[_builtins.str] bucket_name: The Amazon S3 bucket.
         :param pulumi.Input[_builtins.str] key: The object key. For more information, see [Actions, resources, and condition keys for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/list_amazons3.html) .
@@ -6867,14 +6867,14 @@ class TopicRuleS3ActionArgs:
 
     @_builtins.property
     @pulumi.getter(name="cannedAcl")
-    def canned_acl(self) -> Optional[pulumi.Input['TopicRuleCannedAccessControlList']]:
+    def canned_acl(self) -> pulumi.Input[Optional['TopicRuleCannedAccessControlList']]:
         """
         The Amazon S3 canned ACL that controls access to the object identified by the object key. For more information, see [S3 canned ACLs](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) .
         """
         return pulumi.get(self, "canned_acl")
 
     @canned_acl.setter
-    def canned_acl(self, value: Optional[pulumi.Input['TopicRuleCannedAccessControlList']]):
+    def canned_acl(self, value: pulumi.Input[Optional['TopicRuleCannedAccessControlList']]):
         pulumi.set(self, "canned_acl", value)
 
 
@@ -6953,7 +6953,7 @@ class TopicRuleSnsActionArgsDict(TypedDict):
     """
     The ARN of the SNS topic.
     """
-    message_format: NotRequired[pulumi.Input[_builtins.str]]
+    message_format: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Optional) The message format of the message to publish. Accepted values are "JSON" and "RAW". The default value of the attribute is "RAW". SNS uses this setting to determine if the payload should be parsed and relevant platform-specific bits of the payload should be extracted. For more information, see [Amazon SNS Message and JSON Formats](https://docs.aws.amazon.com/sns/latest/dg/json-formats.html) in the *Amazon Simple Notification Service Developer Guide* .
     """
@@ -6963,7 +6963,7 @@ class TopicRuleSnsActionArgs:
     def __init__(__self__, *,
                  role_arn: pulumi.Input[_builtins.str],
                  target_arn: pulumi.Input[_builtins.str],
-                 message_format: Optional[pulumi.Input[_builtins.str]] = None):
+                 message_format: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the IAM role that grants access.
         :param pulumi.Input[_builtins.str] target_arn: The ARN of the SNS topic.
@@ -7000,14 +7000,14 @@ class TopicRuleSnsActionArgs:
 
     @_builtins.property
     @pulumi.getter(name="messageFormat")
-    def message_format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def message_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional) The message format of the message to publish. Accepted values are "JSON" and "RAW". The default value of the attribute is "RAW". SNS uses this setting to determine if the payload should be parsed and relevant platform-specific bits of the payload should be extracted. For more information, see [Amazon SNS Message and JSON Formats](https://docs.aws.amazon.com/sns/latest/dg/json-formats.html) in the *Amazon Simple Notification Service Developer Guide* .
         """
         return pulumi.get(self, "message_format")
 
     @message_format.setter
-    def message_format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def message_format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "message_format", value)
 
 
@@ -7020,7 +7020,7 @@ class TopicRuleSqsActionArgsDict(TypedDict):
     """
     The ARN of the IAM role that grants access.
     """
-    use_base64: NotRequired[pulumi.Input[_builtins.bool]]
+    use_base64: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether to use Base64 encoding.
     """
@@ -7030,7 +7030,7 @@ class TopicRuleSqsActionArgs:
     def __init__(__self__, *,
                  queue_url: pulumi.Input[_builtins.str],
                  role_arn: pulumi.Input[_builtins.str],
-                 use_base64: Optional[pulumi.Input[_builtins.bool]] = None):
+                 use_base64: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] queue_url: The URL of the Amazon SQS queue.
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the IAM role that grants access.
@@ -7067,14 +7067,14 @@ class TopicRuleSqsActionArgs:
 
     @_builtins.property
     @pulumi.getter(name="useBase64")
-    def use_base64(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_base64(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether to use Base64 encoding.
         """
         return pulumi.get(self, "use_base64")
 
     @use_base64.setter
-    def use_base64(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_base64(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_base64", value)
 
 
@@ -7087,7 +7087,7 @@ class TopicRuleStepFunctionsActionArgsDict(TypedDict):
     """
     The name of the Step Functions state machine whose execution will be started.
     """
-    execution_name_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    execution_name_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Optional) A name will be given to the state machine execution consisting of this prefix followed by a UUID. Step Functions automatically creates a unique name for each state machine execution if one is not provided.
     """
@@ -7097,7 +7097,7 @@ class TopicRuleStepFunctionsActionArgs:
     def __init__(__self__, *,
                  role_arn: pulumi.Input[_builtins.str],
                  state_machine_name: pulumi.Input[_builtins.str],
-                 execution_name_prefix: Optional[pulumi.Input[_builtins.str]] = None):
+                 execution_name_prefix: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the role that grants IoT permission to start execution of a state machine ("Action":"states:StartExecution").
         :param pulumi.Input[_builtins.str] state_machine_name: The name of the Step Functions state machine whose execution will be started.
@@ -7134,14 +7134,14 @@ class TopicRuleStepFunctionsActionArgs:
 
     @_builtins.property
     @pulumi.getter(name="executionNamePrefix")
-    def execution_name_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def execution_name_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional) A name will be given to the state machine execution consisting of this prefix followed by a UUID. Step Functions automatically creates a unique name for each state machine execution if one is not provided.
         """
         return pulumi.get(self, "execution_name_prefix")
 
     @execution_name_prefix.setter
-    def execution_name_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def execution_name_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "execution_name_prefix", value)
 
 
@@ -7150,7 +7150,7 @@ class TopicRuleTimestampArgsDict(TypedDict):
     """
     An expression that returns a long epoch time value.
     """
-    unit: NotRequired[pulumi.Input[_builtins.str]]
+    unit: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The precision of the timestamp value that results from the expression described in `value` .
     """
@@ -7159,7 +7159,7 @@ class TopicRuleTimestampArgsDict(TypedDict):
 class TopicRuleTimestampArgs:
     def __init__(__self__, *,
                  value: pulumi.Input[_builtins.str],
-                 unit: Optional[pulumi.Input[_builtins.str]] = None):
+                 unit: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] value: An expression that returns a long epoch time value.
         :param pulumi.Input[_builtins.str] unit: The precision of the timestamp value that results from the expression described in `value` .
@@ -7182,14 +7182,14 @@ class TopicRuleTimestampArgs:
 
     @_builtins.property
     @pulumi.getter
-    def unit(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def unit(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The precision of the timestamp value that results from the expression described in `value` .
         """
         return pulumi.get(self, "unit")
 
     @unit.setter
-    def unit(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def unit(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "unit", value)
 
 
@@ -7210,7 +7210,7 @@ class TopicRuleTimestreamActionArgsDict(TypedDict):
     """
     The table where the message data will be written.
     """
-    timestamp: NotRequired[pulumi.Input['TopicRuleTimestreamTimestampArgsDict']]
+    timestamp: NotRequired[pulumi.Input[Optional['TopicRuleTimestreamTimestampArgs']]]
     """
     The value to use for the entry's timestamp. If blank, the time that the entry was processed is used.
     """
@@ -7222,7 +7222,7 @@ class TopicRuleTimestreamActionArgs:
                  dimensions: pulumi.Input[Sequence[pulumi.Input['TopicRuleTimestreamDimensionArgs']]],
                  role_arn: pulumi.Input[_builtins.str],
                  table_name: pulumi.Input[_builtins.str],
-                 timestamp: Optional[pulumi.Input['TopicRuleTimestreamTimestampArgs']] = None):
+                 timestamp: pulumi.Input[Optional['TopicRuleTimestreamTimestampArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] database_name: The name of an Amazon Timestream database that has the table to write records into.
         :param pulumi.Input[Sequence[pulumi.Input['TopicRuleTimestreamDimensionArgs']]] dimensions: Metadata attributes of the time series that are written in each measure record.
@@ -7287,14 +7287,14 @@ class TopicRuleTimestreamActionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def timestamp(self) -> Optional[pulumi.Input['TopicRuleTimestreamTimestampArgs']]:
+    def timestamp(self) -> pulumi.Input[Optional['TopicRuleTimestreamTimestampArgs']]:
         """
         The value to use for the entry's timestamp. If blank, the time that the entry was processed is used.
         """
         return pulumi.get(self, "timestamp")
 
     @timestamp.setter
-    def timestamp(self, value: Optional[pulumi.Input['TopicRuleTimestreamTimestampArgs']]):
+    def timestamp(self, value: pulumi.Input[Optional['TopicRuleTimestreamTimestampArgs']]):
         pulumi.set(self, "timestamp", value)
 
 

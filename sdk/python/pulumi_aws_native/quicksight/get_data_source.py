@@ -218,8 +218,8 @@ def get_data_source(aws_account_id: Optional[_builtins.str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_connection_properties=pulumi.get(__ret__, 'vpc_connection_properties'))
-def get_data_source_output(aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                           data_source_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_data_source_output(aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                           data_source_id: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataSourceResult]:
     """
     Definition of the AWS::QuickSight::DataSource Resource Type.

@@ -134,7 +134,7 @@ def get_rule_group(rule_group_arn: Optional[_builtins.str] = None,
         rule_group_id=pulumi.get(__ret__, 'rule_group_id'),
         summary_configuration=pulumi.get(__ret__, 'summary_configuration'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_rule_group_output(rule_group_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_rule_group_output(rule_group_arn: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRuleGroupResult]:
     """
     Resource type definition for AWS::NetworkFirewall::RuleGroup

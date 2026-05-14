@@ -128,7 +128,7 @@ def get_destination(name: Optional[_builtins.str] = None,
         expression_type=pulumi.get(__ret__, 'expression_type'),
         role_arn=pulumi.get(__ret__, 'role_arn'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_destination_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_destination_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDestinationResult]:
     """
     Destination's resource schema demonstrating some basic constructs and validation rules.

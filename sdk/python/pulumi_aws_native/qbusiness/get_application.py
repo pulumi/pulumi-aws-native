@@ -233,7 +233,7 @@ def get_application(application_id: Optional[_builtins.str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-def get_application_output(application_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_application_output(application_id: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationResult]:
     """
     Definition of AWS::QBusiness::Application Resource Type

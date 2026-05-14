@@ -151,7 +151,7 @@ def get_policy(policy_arn: Optional[_builtins.str] = None,
         status=pulumi.get(__ret__, 'status'),
         status_reasons=pulumi.get(__ret__, 'status_reasons'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-def get_policy_output(policy_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_policy_output(policy_arn: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicyResult]:
     """
     Resource Type definition for AWS::BedrockAgentCore::Policy

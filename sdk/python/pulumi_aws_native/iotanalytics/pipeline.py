@@ -24,8 +24,8 @@ __all__ = ['PipelineArgs', 'Pipeline']
 class PipelineArgs:
     def __init__(__self__, *,
                  pipeline_activities: pulumi.Input[Sequence[pulumi.Input['PipelineActivityArgs']]],
-                 pipeline_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 pipeline_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Pipeline resource.
 
@@ -63,19 +63,19 @@ class PipelineArgs:
 
     @_builtins.property
     @pulumi.getter(name="pipelineName")
-    def pipeline_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pipeline_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the pipeline.
         """
         return pulumi.get(self, "pipeline_name")
 
     @pipeline_name.setter
-    def pipeline_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pipeline_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pipeline_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Metadata which can be used to manage the pipeline.
 
@@ -84,7 +84,7 @@ class PipelineArgs:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -94,9 +94,9 @@ class Pipeline(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 pipeline_activities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PipelineActivityArgs', 'PipelineActivityArgsDict']]]]] = None,
-                 pipeline_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 pipeline_activities: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipelineActivityArgs', 'PipelineActivityArgsDict']]]]] = None,
+                 pipeline_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::IoTAnalytics::Pipeline
@@ -531,9 +531,9 @@ class Pipeline(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 pipeline_activities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PipelineActivityArgs', 'PipelineActivityArgsDict']]]]] = None,
-                 pipeline_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 pipeline_activities: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipelineActivityArgs', 'PipelineActivityArgsDict']]]]] = None,
+                 pipeline_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

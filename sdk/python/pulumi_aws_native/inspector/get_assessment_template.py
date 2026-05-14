@@ -61,7 +61,7 @@ def get_assessment_template(arn: Optional[_builtins.str] = None,
 
     return AwaitableGetAssessmentTemplateResult(
         arn=pulumi.get(__ret__, 'arn'))
-def get_assessment_template_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_assessment_template_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAssessmentTemplateResult]:
     """
     Resource Type definition for AWS::Inspector::AssessmentTemplate

@@ -205,7 +205,7 @@ def get_function_configuration(function_arn: Optional[_builtins.str] = None,
         response_mapping_template=pulumi.get(__ret__, 'response_mapping_template'),
         runtime=pulumi.get(__ret__, 'runtime'),
         sync_config=pulumi.get(__ret__, 'sync_config'))
-def get_function_configuration_output(function_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_function_configuration_output(function_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFunctionConfigurationResult]:
     """
     An example resource schema demonstrating some basic constructs and validation rules.

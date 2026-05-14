@@ -100,15 +100,15 @@ class ContactStageArgsDict(TypedDict):
     """
     A set amount of time that an escalation plan or engagement plan engages the specified contacts or contact methods.
     """
-    duration_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    duration_in_minutes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The time to wait until beginning the next stage.
     """
-    rotation_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    rotation_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of Rotation Ids to associate with Contact
     """
-    targets: NotRequired[pulumi.Input[Sequence[pulumi.Input['ContactTargetsArgsDict']]]]
+    targets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ContactTargetsArgs']]]]]
     """
     The contacts or contact methods that the escalation plan or engagement plan is engaging.
     """
@@ -116,9 +116,9 @@ class ContactStageArgsDict(TypedDict):
 @pulumi.input_type
 class ContactStageArgs:
     def __init__(__self__, *,
-                 duration_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 rotation_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 targets: Optional[pulumi.Input[Sequence[pulumi.Input['ContactTargetsArgs']]]] = None):
+                 duration_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 rotation_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 targets: pulumi.Input[Optional[Sequence[pulumi.Input['ContactTargetsArgs']]]] = None):
         """
         A set amount of time that an escalation plan or engagement plan engages the specified contacts or contact methods.
 
@@ -135,38 +135,38 @@ class ContactStageArgs:
 
     @_builtins.property
     @pulumi.getter(name="durationInMinutes")
-    def duration_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def duration_in_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The time to wait until beginning the next stage.
         """
         return pulumi.get(self, "duration_in_minutes")
 
     @duration_in_minutes.setter
-    def duration_in_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def duration_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "duration_in_minutes", value)
 
     @_builtins.property
     @pulumi.getter(name="rotationIds")
-    def rotation_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def rotation_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of Rotation Ids to associate with Contact
         """
         return pulumi.get(self, "rotation_ids")
 
     @rotation_ids.setter
-    def rotation_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def rotation_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "rotation_ids", value)
 
     @_builtins.property
     @pulumi.getter
-    def targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContactTargetsArgs']]]]:
+    def targets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ContactTargetsArgs']]]]:
         """
         The contacts or contact methods that the escalation plan or engagement plan is engaging.
         """
         return pulumi.get(self, "targets")
 
     @targets.setter
-    def targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ContactTargetsArgs']]]]):
+    def targets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ContactTargetsArgs']]]]):
         pulumi.set(self, "targets", value)
 
 
@@ -226,11 +226,11 @@ class ContactTargetsArgsDict(TypedDict):
     """
     The contacts or contact methods that the escalation plan or engagement plan is engaging.
     """
-    channel_target_info: NotRequired[pulumi.Input['ContactChannelTargetInfoArgsDict']]
+    channel_target_info: NotRequired[pulumi.Input[Optional['ContactChannelTargetInfoArgs']]]
     """
     Information about the contact channel that Incident Manager engages.
     """
-    contact_target_info: NotRequired[pulumi.Input['ContactTargetInfoArgsDict']]
+    contact_target_info: NotRequired[pulumi.Input[Optional['ContactTargetInfoArgs']]]
     """
     The contact that Incident Manager is engaging during an incident.
     """
@@ -238,8 +238,8 @@ class ContactTargetsArgsDict(TypedDict):
 @pulumi.input_type
 class ContactTargetsArgs:
     def __init__(__self__, *,
-                 channel_target_info: Optional[pulumi.Input['ContactChannelTargetInfoArgs']] = None,
-                 contact_target_info: Optional[pulumi.Input['ContactTargetInfoArgs']] = None):
+                 channel_target_info: pulumi.Input[Optional['ContactChannelTargetInfoArgs']] = None,
+                 contact_target_info: pulumi.Input[Optional['ContactTargetInfoArgs']] = None):
         """
         The contacts or contact methods that the escalation plan or engagement plan is engaging.
 
@@ -253,26 +253,26 @@ class ContactTargetsArgs:
 
     @_builtins.property
     @pulumi.getter(name="channelTargetInfo")
-    def channel_target_info(self) -> Optional[pulumi.Input['ContactChannelTargetInfoArgs']]:
+    def channel_target_info(self) -> pulumi.Input[Optional['ContactChannelTargetInfoArgs']]:
         """
         Information about the contact channel that Incident Manager engages.
         """
         return pulumi.get(self, "channel_target_info")
 
     @channel_target_info.setter
-    def channel_target_info(self, value: Optional[pulumi.Input['ContactChannelTargetInfoArgs']]):
+    def channel_target_info(self, value: pulumi.Input[Optional['ContactChannelTargetInfoArgs']]):
         pulumi.set(self, "channel_target_info", value)
 
     @_builtins.property
     @pulumi.getter(name="contactTargetInfo")
-    def contact_target_info(self) -> Optional[pulumi.Input['ContactTargetInfoArgs']]:
+    def contact_target_info(self) -> pulumi.Input[Optional['ContactTargetInfoArgs']]:
         """
         The contact that Incident Manager is engaging during an incident.
         """
         return pulumi.get(self, "contact_target_info")
 
     @contact_target_info.setter
-    def contact_target_info(self, value: Optional[pulumi.Input['ContactTargetInfoArgs']]):
+    def contact_target_info(self, value: pulumi.Input[Optional['ContactTargetInfoArgs']]):
         pulumi.set(self, "contact_target_info", value)
 
 
@@ -388,7 +388,7 @@ class PlanStageArgsDict(TypedDict):
     """
     The time to wait until beginning the next stage.
     """
-    targets: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanTargetsArgsDict']]]]
+    targets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanTargetsArgs']]]]]
     """
     The contacts or contact methods that the escalation plan or engagement plan is engaging.
     """
@@ -397,7 +397,7 @@ class PlanStageArgsDict(TypedDict):
 class PlanStageArgs:
     def __init__(__self__, *,
                  duration_in_minutes: pulumi.Input[_builtins.int],
-                 targets: Optional[pulumi.Input[Sequence[pulumi.Input['PlanTargetsArgs']]]] = None):
+                 targets: pulumi.Input[Optional[Sequence[pulumi.Input['PlanTargetsArgs']]]] = None):
         """
         A set amount of time that an escalation plan or engagement plan engages the specified contacts or contact methods.
 
@@ -422,14 +422,14 @@ class PlanStageArgs:
 
     @_builtins.property
     @pulumi.getter
-    def targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PlanTargetsArgs']]]]:
+    def targets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PlanTargetsArgs']]]]:
         """
         The contacts or contact methods that the escalation plan or engagement plan is engaging.
         """
         return pulumi.get(self, "targets")
 
     @targets.setter
-    def targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PlanTargetsArgs']]]]):
+    def targets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PlanTargetsArgs']]]]):
         pulumi.set(self, "targets", value)
 
 
@@ -437,11 +437,11 @@ class PlanTargetsArgsDict(TypedDict):
     """
     The contacts or contact methods that the escalation plan or engagement plan is engaging.
     """
-    channel_target_info: NotRequired[pulumi.Input['PlanChannelTargetInfoArgsDict']]
+    channel_target_info: NotRequired[pulumi.Input[Optional['PlanChannelTargetInfoArgs']]]
     """
     Information about the contact channel that Incident Manager engages.
     """
-    contact_target_info: NotRequired[pulumi.Input['PlanContactTargetInfoArgsDict']]
+    contact_target_info: NotRequired[pulumi.Input[Optional['PlanContactTargetInfoArgs']]]
     """
     Information about the contact that Incident Manager engages.
     """
@@ -449,8 +449,8 @@ class PlanTargetsArgsDict(TypedDict):
 @pulumi.input_type
 class PlanTargetsArgs:
     def __init__(__self__, *,
-                 channel_target_info: Optional[pulumi.Input['PlanChannelTargetInfoArgs']] = None,
-                 contact_target_info: Optional[pulumi.Input['PlanContactTargetInfoArgs']] = None):
+                 channel_target_info: pulumi.Input[Optional['PlanChannelTargetInfoArgs']] = None,
+                 contact_target_info: pulumi.Input[Optional['PlanContactTargetInfoArgs']] = None):
         """
         The contacts or contact methods that the escalation plan or engagement plan is engaging.
 
@@ -464,26 +464,26 @@ class PlanTargetsArgs:
 
     @_builtins.property
     @pulumi.getter(name="channelTargetInfo")
-    def channel_target_info(self) -> Optional[pulumi.Input['PlanChannelTargetInfoArgs']]:
+    def channel_target_info(self) -> pulumi.Input[Optional['PlanChannelTargetInfoArgs']]:
         """
         Information about the contact channel that Incident Manager engages.
         """
         return pulumi.get(self, "channel_target_info")
 
     @channel_target_info.setter
-    def channel_target_info(self, value: Optional[pulumi.Input['PlanChannelTargetInfoArgs']]):
+    def channel_target_info(self, value: pulumi.Input[Optional['PlanChannelTargetInfoArgs']]):
         pulumi.set(self, "channel_target_info", value)
 
     @_builtins.property
     @pulumi.getter(name="contactTargetInfo")
-    def contact_target_info(self) -> Optional[pulumi.Input['PlanContactTargetInfoArgs']]:
+    def contact_target_info(self) -> pulumi.Input[Optional['PlanContactTargetInfoArgs']]:
         """
         Information about the contact that Incident Manager engages.
         """
         return pulumi.get(self, "contact_target_info")
 
     @contact_target_info.setter
-    def contact_target_info(self, value: Optional[pulumi.Input['PlanContactTargetInfoArgs']]):
+    def contact_target_info(self, value: pulumi.Input[Optional['PlanContactTargetInfoArgs']]):
         pulumi.set(self, "contact_target_info", value)
 
 
@@ -595,27 +595,27 @@ class RotationRecurrenceSettingsArgsDict(TypedDict):
     """
     Information about when an on-call rotation is in effect and how long the rotation period lasts.
     """
-    daily_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    daily_settings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Information about on-call rotations that recur daily.
     """
-    monthly_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['RotationMonthlySettingArgsDict']]]]
+    monthly_settings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RotationMonthlySettingArgs']]]]]
     """
     Information about on-call rotations that recur monthly.
     """
-    number_of_on_calls: NotRequired[pulumi.Input[_builtins.int]]
+    number_of_on_calls: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Number of Oncalls per shift.
     """
-    recurrence_multiplier: NotRequired[pulumi.Input[_builtins.int]]
+    recurrence_multiplier: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The number of days, weeks, or months a single rotation lasts.
     """
-    shift_coverages: NotRequired[pulumi.Input[Sequence[pulumi.Input['RotationShiftCoverageArgsDict']]]]
+    shift_coverages: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RotationShiftCoverageArgs']]]]]
     """
     Information about the days of the week included in on-call rotation coverage.
     """
-    weekly_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['RotationWeeklySettingArgsDict']]]]
+    weekly_settings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RotationWeeklySettingArgs']]]]]
     """
     Information about on-call rotations that recur weekly.
     """
@@ -623,12 +623,12 @@ class RotationRecurrenceSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class RotationRecurrenceSettingsArgs:
     def __init__(__self__, *,
-                 daily_settings: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 monthly_settings: Optional[pulumi.Input[Sequence[pulumi.Input['RotationMonthlySettingArgs']]]] = None,
-                 number_of_on_calls: Optional[pulumi.Input[_builtins.int]] = None,
-                 recurrence_multiplier: Optional[pulumi.Input[_builtins.int]] = None,
-                 shift_coverages: Optional[pulumi.Input[Sequence[pulumi.Input['RotationShiftCoverageArgs']]]] = None,
-                 weekly_settings: Optional[pulumi.Input[Sequence[pulumi.Input['RotationWeeklySettingArgs']]]] = None):
+                 daily_settings: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 monthly_settings: pulumi.Input[Optional[Sequence[pulumi.Input['RotationMonthlySettingArgs']]]] = None,
+                 number_of_on_calls: pulumi.Input[Optional[_builtins.int]] = None,
+                 recurrence_multiplier: pulumi.Input[Optional[_builtins.int]] = None,
+                 shift_coverages: pulumi.Input[Optional[Sequence[pulumi.Input['RotationShiftCoverageArgs']]]] = None,
+                 weekly_settings: pulumi.Input[Optional[Sequence[pulumi.Input['RotationWeeklySettingArgs']]]] = None):
         """
         Information about when an on-call rotation is in effect and how long the rotation period lasts.
 
@@ -654,74 +654,74 @@ class RotationRecurrenceSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="dailySettings")
-    def daily_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def daily_settings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Information about on-call rotations that recur daily.
         """
         return pulumi.get(self, "daily_settings")
 
     @daily_settings.setter
-    def daily_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def daily_settings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "daily_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="monthlySettings")
-    def monthly_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RotationMonthlySettingArgs']]]]:
+    def monthly_settings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RotationMonthlySettingArgs']]]]:
         """
         Information about on-call rotations that recur monthly.
         """
         return pulumi.get(self, "monthly_settings")
 
     @monthly_settings.setter
-    def monthly_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RotationMonthlySettingArgs']]]]):
+    def monthly_settings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RotationMonthlySettingArgs']]]]):
         pulumi.set(self, "monthly_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="numberOfOnCalls")
-    def number_of_on_calls(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def number_of_on_calls(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of Oncalls per shift.
         """
         return pulumi.get(self, "number_of_on_calls")
 
     @number_of_on_calls.setter
-    def number_of_on_calls(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def number_of_on_calls(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "number_of_on_calls", value)
 
     @_builtins.property
     @pulumi.getter(name="recurrenceMultiplier")
-    def recurrence_multiplier(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def recurrence_multiplier(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of days, weeks, or months a single rotation lasts.
         """
         return pulumi.get(self, "recurrence_multiplier")
 
     @recurrence_multiplier.setter
-    def recurrence_multiplier(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def recurrence_multiplier(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "recurrence_multiplier", value)
 
     @_builtins.property
     @pulumi.getter(name="shiftCoverages")
-    def shift_coverages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RotationShiftCoverageArgs']]]]:
+    def shift_coverages(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RotationShiftCoverageArgs']]]]:
         """
         Information about the days of the week included in on-call rotation coverage.
         """
         return pulumi.get(self, "shift_coverages")
 
     @shift_coverages.setter
-    def shift_coverages(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RotationShiftCoverageArgs']]]]):
+    def shift_coverages(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RotationShiftCoverageArgs']]]]):
         pulumi.set(self, "shift_coverages", value)
 
     @_builtins.property
     @pulumi.getter(name="weeklySettings")
-    def weekly_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RotationWeeklySettingArgs']]]]:
+    def weekly_settings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RotationWeeklySettingArgs']]]]:
         """
         Information about on-call rotations that recur weekly.
         """
         return pulumi.get(self, "weekly_settings")
 
     @weekly_settings.setter
-    def weekly_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RotationWeeklySettingArgs']]]]):
+    def weekly_settings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RotationWeeklySettingArgs']]]]):
         pulumi.set(self, "weekly_settings", value)
 
 

@@ -127,7 +127,7 @@ def get_playback_restriction_policy(arn: Optional[_builtins.str] = None,
         enable_strict_origin_enforcement=pulumi.get(__ret__, 'enable_strict_origin_enforcement'),
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_playback_restriction_policy_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_playback_restriction_policy_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPlaybackRestrictionPolicyResult]:
     """
     Resource Type definition for AWS::IVS::PlaybackRestrictionPolicy.

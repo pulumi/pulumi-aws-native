@@ -88,7 +88,7 @@ def get_worker_configuration(worker_configuration_arn: Optional[_builtins.str] =
         revision=pulumi.get(__ret__, 'revision'),
         tags=pulumi.get(__ret__, 'tags'),
         worker_configuration_arn=pulumi.get(__ret__, 'worker_configuration_arn'))
-def get_worker_configuration_output(worker_configuration_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_worker_configuration_output(worker_configuration_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkerConfigurationResult]:
     """
     The configuration of the workers, which are the processes that run the connector logic.

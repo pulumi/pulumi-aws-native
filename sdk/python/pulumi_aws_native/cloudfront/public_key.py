@@ -48,7 +48,7 @@ class PublicKey(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 public_key_config: Optional[pulumi.Input[Union['PublicKeyConfigArgs', 'PublicKeyConfigArgsDict']]] = None,
+                 public_key_config: pulumi.Input[Optional[Union['PublicKeyConfigArgs', 'PublicKeyConfigArgsDict']]] = None,
                  __props__=None):
         """
         A public key that you can use with [signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html), or with [field-level encryption](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html).
@@ -85,7 +85,7 @@ class PublicKey(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 public_key_config: Optional[pulumi.Input[Union['PublicKeyConfigArgs', 'PublicKeyConfigArgsDict']]] = None,
+                 public_key_config: pulumi.Input[Optional[Union['PublicKeyConfigArgs', 'PublicKeyConfigArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

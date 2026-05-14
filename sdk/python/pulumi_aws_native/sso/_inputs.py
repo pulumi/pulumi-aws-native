@@ -36,11 +36,11 @@ class ApplicationPortalOptionsConfigurationArgsDict(TypedDict):
     """
     A structure that describes the options for the access portal associated with an application
     """
-    sign_in_options: NotRequired[pulumi.Input['ApplicationSignInOptionsArgsDict']]
+    sign_in_options: NotRequired[pulumi.Input[Optional['ApplicationSignInOptionsArgs']]]
     """
     A structure that describes the sign-in options for the access portal
     """
-    visibility: NotRequired[pulumi.Input['ApplicationPortalOptionsConfigurationVisibility']]
+    visibility: NotRequired[pulumi.Input[Optional['ApplicationPortalOptionsConfigurationVisibility']]]
     """
     Indicates whether this application is visible in the access portal
     """
@@ -48,8 +48,8 @@ class ApplicationPortalOptionsConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class ApplicationPortalOptionsConfigurationArgs:
     def __init__(__self__, *,
-                 sign_in_options: Optional[pulumi.Input['ApplicationSignInOptionsArgs']] = None,
-                 visibility: Optional[pulumi.Input['ApplicationPortalOptionsConfigurationVisibility']] = None):
+                 sign_in_options: pulumi.Input[Optional['ApplicationSignInOptionsArgs']] = None,
+                 visibility: pulumi.Input[Optional['ApplicationPortalOptionsConfigurationVisibility']] = None):
         """
         A structure that describes the options for the access portal associated with an application
 
@@ -63,26 +63,26 @@ class ApplicationPortalOptionsConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="signInOptions")
-    def sign_in_options(self) -> Optional[pulumi.Input['ApplicationSignInOptionsArgs']]:
+    def sign_in_options(self) -> pulumi.Input[Optional['ApplicationSignInOptionsArgs']]:
         """
         A structure that describes the sign-in options for the access portal
         """
         return pulumi.get(self, "sign_in_options")
 
     @sign_in_options.setter
-    def sign_in_options(self, value: Optional[pulumi.Input['ApplicationSignInOptionsArgs']]):
+    def sign_in_options(self, value: pulumi.Input[Optional['ApplicationSignInOptionsArgs']]):
         pulumi.set(self, "sign_in_options", value)
 
     @_builtins.property
     @pulumi.getter
-    def visibility(self) -> Optional[pulumi.Input['ApplicationPortalOptionsConfigurationVisibility']]:
+    def visibility(self) -> pulumi.Input[Optional['ApplicationPortalOptionsConfigurationVisibility']]:
         """
         Indicates whether this application is visible in the access portal
         """
         return pulumi.get(self, "visibility")
 
     @visibility.setter
-    def visibility(self, value: Optional[pulumi.Input['ApplicationPortalOptionsConfigurationVisibility']]):
+    def visibility(self, value: pulumi.Input[Optional['ApplicationPortalOptionsConfigurationVisibility']]):
         pulumi.set(self, "visibility", value)
 
 
@@ -94,7 +94,7 @@ class ApplicationSignInOptionsArgsDict(TypedDict):
     """
     This determines how IAM Identity Center navigates the user to the target application
     """
-    application_url: NotRequired[pulumi.Input[_builtins.str]]
+    application_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The URL that accepts authentication requests for an application, this is a required parameter if the Origin parameter is APPLICATION
     """
@@ -103,7 +103,7 @@ class ApplicationSignInOptionsArgsDict(TypedDict):
 class ApplicationSignInOptionsArgs:
     def __init__(__self__, *,
                  origin: pulumi.Input['ApplicationSignInOptionsOrigin'],
-                 application_url: Optional[pulumi.Input[_builtins.str]] = None):
+                 application_url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         A structure that describes the sign-in options for an application portal
 
@@ -128,14 +128,14 @@ class ApplicationSignInOptionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="applicationUrl")
-    def application_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL that accepts authentication requests for an application, this is a required parameter if the Origin parameter is APPLICATION
         """
         return pulumi.get(self, "application_url")
 
     @application_url.setter
-    def application_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_url", value)
 
 
@@ -219,7 +219,7 @@ class PermissionSetCustomerManagedPolicyReferenceArgsDict(TypedDict):
     """
     The name of the IAM policy that you have configured in each account where you want to deploy your permission set.
     """
-    path: NotRequired[pulumi.Input[_builtins.str]]
+    path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The path to the IAM policy that you have configured in each account where you want to deploy your permission set. The default is `/` . For more information, see [Friendly names and paths](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) in the *IAM User Guide* .
     """
@@ -228,7 +228,7 @@ class PermissionSetCustomerManagedPolicyReferenceArgsDict(TypedDict):
 class PermissionSetCustomerManagedPolicyReferenceArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 path: Optional[pulumi.Input[_builtins.str]] = None):
+                 path: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the IAM policy that you have configured in each account where you want to deploy your permission set.
         :param pulumi.Input[_builtins.str] path: The path to the IAM policy that you have configured in each account where you want to deploy your permission set. The default is `/` . For more information, see [Friendly names and paths](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) in the *IAM User Guide* .
@@ -251,23 +251,23 @@ class PermissionSetCustomerManagedPolicyReferenceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The path to the IAM policy that you have configured in each account where you want to deploy your permission set. The default is `/` . For more information, see [Friendly names and paths](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) in the *IAM User Guide* .
         """
         return pulumi.get(self, "path")
 
     @path.setter
-    def path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "path", value)
 
 
 class PermissionSetPermissionsBoundaryArgsDict(TypedDict):
-    customer_managed_policy_reference: NotRequired[pulumi.Input['PermissionSetCustomerManagedPolicyReferenceArgsDict']]
+    customer_managed_policy_reference: NotRequired[pulumi.Input[Optional['PermissionSetCustomerManagedPolicyReferenceArgs']]]
     """
     Specifies the name and path of a customer managed policy. You must have an IAM policy that matches the name and path in each AWS account where you want to deploy your permission set.
     """
-    managed_policy_arn: NotRequired[pulumi.Input[_builtins.str]]
+    managed_policy_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The AWS managed policy ARN that you want to attach to a permission set as a permissions boundary.
     """
@@ -275,8 +275,8 @@ class PermissionSetPermissionsBoundaryArgsDict(TypedDict):
 @pulumi.input_type
 class PermissionSetPermissionsBoundaryArgs:
     def __init__(__self__, *,
-                 customer_managed_policy_reference: Optional[pulumi.Input['PermissionSetCustomerManagedPolicyReferenceArgs']] = None,
-                 managed_policy_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 customer_managed_policy_reference: pulumi.Input[Optional['PermissionSetCustomerManagedPolicyReferenceArgs']] = None,
+                 managed_policy_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input['PermissionSetCustomerManagedPolicyReferenceArgs'] customer_managed_policy_reference: Specifies the name and path of a customer managed policy. You must have an IAM policy that matches the name and path in each AWS account where you want to deploy your permission set.
         :param pulumi.Input[_builtins.str] managed_policy_arn: The AWS managed policy ARN that you want to attach to a permission set as a permissions boundary.
@@ -288,26 +288,26 @@ class PermissionSetPermissionsBoundaryArgs:
 
     @_builtins.property
     @pulumi.getter(name="customerManagedPolicyReference")
-    def customer_managed_policy_reference(self) -> Optional[pulumi.Input['PermissionSetCustomerManagedPolicyReferenceArgs']]:
+    def customer_managed_policy_reference(self) -> pulumi.Input[Optional['PermissionSetCustomerManagedPolicyReferenceArgs']]:
         """
         Specifies the name and path of a customer managed policy. You must have an IAM policy that matches the name and path in each AWS account where you want to deploy your permission set.
         """
         return pulumi.get(self, "customer_managed_policy_reference")
 
     @customer_managed_policy_reference.setter
-    def customer_managed_policy_reference(self, value: Optional[pulumi.Input['PermissionSetCustomerManagedPolicyReferenceArgs']]):
+    def customer_managed_policy_reference(self, value: pulumi.Input[Optional['PermissionSetCustomerManagedPolicyReferenceArgs']]):
         pulumi.set(self, "customer_managed_policy_reference", value)
 
     @_builtins.property
     @pulumi.getter(name="managedPolicyArn")
-    def managed_policy_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_policy_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS managed policy ARN that you want to attach to a permission set as a permissions boundary.
         """
         return pulumi.get(self, "managed_policy_arn")
 
     @managed_policy_arn.setter
-    def managed_policy_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_policy_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_policy_arn", value)
 
 

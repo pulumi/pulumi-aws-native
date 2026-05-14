@@ -24,15 +24,15 @@ __all__ = ['DataAutomationProjectArgs', 'DataAutomationProject']
 @pulumi.input_type
 class DataAutomationProjectArgs:
     def __init__(__self__, *,
-                 custom_output_configuration: Optional[pulumi.Input['DataAutomationProjectCustomOutputConfigurationArgs']] = None,
-                 kms_encryption_context: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 override_configuration: Optional[pulumi.Input['DataAutomationProjectOverrideConfigurationArgs']] = None,
-                 project_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_type: Optional[pulumi.Input['DataAutomationProjectProjectType']] = None,
-                 standard_output_configuration: Optional[pulumi.Input['DataAutomationProjectStandardOutputConfigurationArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 custom_output_configuration: pulumi.Input[Optional['DataAutomationProjectCustomOutputConfigurationArgs']] = None,
+                 kms_encryption_context: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 override_configuration: pulumi.Input[Optional['DataAutomationProjectOverrideConfigurationArgs']] = None,
+                 project_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_type: pulumi.Input[Optional['DataAutomationProjectProjectType']] = None,
+                 standard_output_configuration: pulumi.Input[Optional['DataAutomationProjectStandardOutputConfigurationArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DataAutomationProject resource.
 
@@ -67,110 +67,110 @@ class DataAutomationProjectArgs:
 
     @_builtins.property
     @pulumi.getter(name="customOutputConfiguration")
-    def custom_output_configuration(self) -> Optional[pulumi.Input['DataAutomationProjectCustomOutputConfigurationArgs']]:
+    def custom_output_configuration(self) -> pulumi.Input[Optional['DataAutomationProjectCustomOutputConfigurationArgs']]:
         """
         Blueprints to apply to objects processed by the project.
         """
         return pulumi.get(self, "custom_output_configuration")
 
     @custom_output_configuration.setter
-    def custom_output_configuration(self, value: Optional[pulumi.Input['DataAutomationProjectCustomOutputConfigurationArgs']]):
+    def custom_output_configuration(self, value: pulumi.Input[Optional['DataAutomationProjectCustomOutputConfigurationArgs']]):
         pulumi.set(self, "custom_output_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsEncryptionContext")
-    def kms_encryption_context(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def kms_encryption_context(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         KMS encryption context
         """
         return pulumi.get(self, "kms_encryption_context")
 
     @kms_encryption_context.setter
-    def kms_encryption_context(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def kms_encryption_context(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "kms_encryption_context", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         KMS key identifier
         """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="overrideConfiguration")
-    def override_configuration(self) -> Optional[pulumi.Input['DataAutomationProjectOverrideConfigurationArgs']]:
+    def override_configuration(self) -> pulumi.Input[Optional['DataAutomationProjectOverrideConfigurationArgs']]:
         """
         Additional settings for the project.
         """
         return pulumi.get(self, "override_configuration")
 
     @override_configuration.setter
-    def override_configuration(self, value: Optional[pulumi.Input['DataAutomationProjectOverrideConfigurationArgs']]):
+    def override_configuration(self, value: pulumi.Input[Optional['DataAutomationProjectOverrideConfigurationArgs']]):
         pulumi.set(self, "override_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="projectDescription")
-    def project_description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the DataAutomationProject
         """
         return pulumi.get(self, "project_description")
 
     @project_description.setter
-    def project_description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_description", value)
 
     @_builtins.property
     @pulumi.getter(name="projectName")
-    def project_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the DataAutomationProject
         """
         return pulumi.get(self, "project_name")
 
     @project_name.setter
-    def project_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_name", value)
 
     @_builtins.property
     @pulumi.getter(name="projectType")
-    def project_type(self) -> Optional[pulumi.Input['DataAutomationProjectProjectType']]:
+    def project_type(self) -> pulumi.Input[Optional['DataAutomationProjectProjectType']]:
         """
         Type of the DataAutomationProject - Sync or Async
         """
         return pulumi.get(self, "project_type")
 
     @project_type.setter
-    def project_type(self, value: Optional[pulumi.Input['DataAutomationProjectProjectType']]):
+    def project_type(self, value: pulumi.Input[Optional['DataAutomationProjectProjectType']]):
         pulumi.set(self, "project_type", value)
 
     @_builtins.property
     @pulumi.getter(name="standardOutputConfiguration")
-    def standard_output_configuration(self) -> Optional[pulumi.Input['DataAutomationProjectStandardOutputConfigurationArgs']]:
+    def standard_output_configuration(self) -> pulumi.Input[Optional['DataAutomationProjectStandardOutputConfigurationArgs']]:
         """
         The project's standard output configuration.
         """
         return pulumi.get(self, "standard_output_configuration")
 
     @standard_output_configuration.setter
-    def standard_output_configuration(self, value: Optional[pulumi.Input['DataAutomationProjectStandardOutputConfigurationArgs']]):
+    def standard_output_configuration(self, value: pulumi.Input[Optional['DataAutomationProjectStandardOutputConfigurationArgs']]):
         pulumi.set(self, "standard_output_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         List of Tags
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -180,15 +180,15 @@ class DataAutomationProject(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_output_configuration: Optional[pulumi.Input[Union['DataAutomationProjectCustomOutputConfigurationArgs', 'DataAutomationProjectCustomOutputConfigurationArgsDict']]] = None,
-                 kms_encryption_context: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 override_configuration: Optional[pulumi.Input[Union['DataAutomationProjectOverrideConfigurationArgs', 'DataAutomationProjectOverrideConfigurationArgsDict']]] = None,
-                 project_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_type: Optional[pulumi.Input['DataAutomationProjectProjectType']] = None,
-                 standard_output_configuration: Optional[pulumi.Input[Union['DataAutomationProjectStandardOutputConfigurationArgs', 'DataAutomationProjectStandardOutputConfigurationArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 custom_output_configuration: pulumi.Input[Optional[Union['DataAutomationProjectCustomOutputConfigurationArgs', 'DataAutomationProjectCustomOutputConfigurationArgsDict']]] = None,
+                 kms_encryption_context: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 override_configuration: pulumi.Input[Optional[Union['DataAutomationProjectOverrideConfigurationArgs', 'DataAutomationProjectOverrideConfigurationArgsDict']]] = None,
+                 project_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_type: pulumi.Input[Optional['DataAutomationProjectProjectType']] = None,
+                 standard_output_configuration: pulumi.Input[Optional[Union['DataAutomationProjectStandardOutputConfigurationArgs', 'DataAutomationProjectStandardOutputConfigurationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::Bedrock::DataAutomationProject Resource Type
@@ -231,15 +231,15 @@ class DataAutomationProject(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_output_configuration: Optional[pulumi.Input[Union['DataAutomationProjectCustomOutputConfigurationArgs', 'DataAutomationProjectCustomOutputConfigurationArgsDict']]] = None,
-                 kms_encryption_context: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 override_configuration: Optional[pulumi.Input[Union['DataAutomationProjectOverrideConfigurationArgs', 'DataAutomationProjectOverrideConfigurationArgsDict']]] = None,
-                 project_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_type: Optional[pulumi.Input['DataAutomationProjectProjectType']] = None,
-                 standard_output_configuration: Optional[pulumi.Input[Union['DataAutomationProjectStandardOutputConfigurationArgs', 'DataAutomationProjectStandardOutputConfigurationArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 custom_output_configuration: pulumi.Input[Optional[Union['DataAutomationProjectCustomOutputConfigurationArgs', 'DataAutomationProjectCustomOutputConfigurationArgsDict']]] = None,
+                 kms_encryption_context: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 override_configuration: pulumi.Input[Optional[Union['DataAutomationProjectOverrideConfigurationArgs', 'DataAutomationProjectOverrideConfigurationArgsDict']]] = None,
+                 project_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_type: pulumi.Input[Optional['DataAutomationProjectProjectType']] = None,
+                 standard_output_configuration: pulumi.Input[Optional[Union['DataAutomationProjectStandardOutputConfigurationArgs', 'DataAutomationProjectStandardOutputConfigurationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

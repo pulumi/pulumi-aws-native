@@ -259,7 +259,7 @@ def get_automation_rule(rule_arn: Optional[_builtins.str] = None,
         schedule=pulumi.get(__ret__, 'schedule'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_automation_rule_output(rule_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_automation_rule_output(rule_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAutomationRuleResult]:
     """
     Creates an AWS Compute Optimizer automation rule that automatically implements recommended actions based on your defined criteria and schedule. Automation rules are global resources that manage automated actions across all AWS Regions where Compute Optimizer Automation is available. Organization-level rules can only be created by the management account or delegated administrator.

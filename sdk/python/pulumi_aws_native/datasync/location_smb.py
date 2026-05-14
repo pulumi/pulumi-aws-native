@@ -25,20 +25,20 @@ __all__ = ['LocationSmbArgs', 'LocationSmb']
 class LocationSmbArgs:
     def __init__(__self__, *,
                  agent_arns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 authentication_type: Optional[pulumi.Input['LocationSmbAuthenticationType']] = None,
-                 cmk_secret_config: Optional[pulumi.Input['LocationSmbCmkSecretConfigArgs']] = None,
-                 custom_secret_config: Optional[pulumi.Input['LocationSmbCustomSecretConfigArgs']] = None,
-                 dns_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 kerberos_keytab: Optional[pulumi.Input[_builtins.str]] = None,
-                 kerberos_krb5_conf: Optional[pulumi.Input[_builtins.str]] = None,
-                 kerberos_principal: Optional[pulumi.Input[_builtins.str]] = None,
-                 mount_options: Optional[pulumi.Input['LocationSmbMountOptionsArgs']] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_hostname: Optional[pulumi.Input[_builtins.str]] = None,
-                 subdirectory: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 user: Optional[pulumi.Input[_builtins.str]] = None):
+                 authentication_type: pulumi.Input[Optional['LocationSmbAuthenticationType']] = None,
+                 cmk_secret_config: pulumi.Input[Optional['LocationSmbCmkSecretConfigArgs']] = None,
+                 custom_secret_config: pulumi.Input[Optional['LocationSmbCustomSecretConfigArgs']] = None,
+                 dns_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 kerberos_keytab: pulumi.Input[Optional[_builtins.str]] = None,
+                 kerberos_krb5_conf: pulumi.Input[Optional[_builtins.str]] = None,
+                 kerberos_principal: pulumi.Input[Optional[_builtins.str]] = None,
+                 mount_options: pulumi.Input[Optional['LocationSmbMountOptionsArgs']] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_hostname: pulumi.Input[Optional[_builtins.str]] = None,
+                 subdirectory: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 user: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a LocationSmb resource.
 
@@ -106,19 +106,19 @@ class LocationSmbArgs:
 
     @_builtins.property
     @pulumi.getter(name="authenticationType")
-    def authentication_type(self) -> Optional[pulumi.Input['LocationSmbAuthenticationType']]:
+    def authentication_type(self) -> pulumi.Input[Optional['LocationSmbAuthenticationType']]:
         """
         The authentication mode used to determine identity of user.
         """
         return pulumi.get(self, "authentication_type")
 
     @authentication_type.setter
-    def authentication_type(self, value: Optional[pulumi.Input['LocationSmbAuthenticationType']]):
+    def authentication_type(self, value: pulumi.Input[Optional['LocationSmbAuthenticationType']]):
         pulumi.set(self, "authentication_type", value)
 
     @_builtins.property
     @pulumi.getter(name="cmkSecretConfig")
-    def cmk_secret_config(self) -> Optional[pulumi.Input['LocationSmbCmkSecretConfigArgs']]:
+    def cmk_secret_config(self) -> pulumi.Input[Optional['LocationSmbCmkSecretConfigArgs']]:
         """
         Specifies configuration information for a DataSync-managed secret, such as an authentication token, secret key, password, or Kerberos keytab that DataSync uses to access a specific storage location, with a customer-managed AWS KMS key .
 
@@ -127,12 +127,12 @@ class LocationSmbArgs:
         return pulumi.get(self, "cmk_secret_config")
 
     @cmk_secret_config.setter
-    def cmk_secret_config(self, value: Optional[pulumi.Input['LocationSmbCmkSecretConfigArgs']]):
+    def cmk_secret_config(self, value: pulumi.Input[Optional['LocationSmbCmkSecretConfigArgs']]):
         pulumi.set(self, "cmk_secret_config", value)
 
     @_builtins.property
     @pulumi.getter(name="customSecretConfig")
-    def custom_secret_config(self) -> Optional[pulumi.Input['LocationSmbCustomSecretConfigArgs']]:
+    def custom_secret_config(self) -> pulumi.Input[Optional['LocationSmbCustomSecretConfigArgs']]:
         """
         Specifies configuration information for a customer-managed Secrets Manager secret where a storage location credentials is stored in Secrets Manager as plain text (for authentication token, secret key, or password) or as binary (for Kerberos keytab). This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.
 
@@ -141,139 +141,139 @@ class LocationSmbArgs:
         return pulumi.get(self, "custom_secret_config")
 
     @custom_secret_config.setter
-    def custom_secret_config(self, value: Optional[pulumi.Input['LocationSmbCustomSecretConfigArgs']]):
+    def custom_secret_config(self, value: pulumi.Input[Optional['LocationSmbCustomSecretConfigArgs']]):
         pulumi.set(self, "custom_secret_config", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsIpAddresses")
-    def dns_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def dns_ip_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the IPv4 addresses for the DNS servers that your SMB file server belongs to. This parameter applies only if AuthenticationType is set to KERBEROS. If you have multiple domains in your environment, configuring this parameter makes sure that DataSync connects to the right SMB file server.
         """
         return pulumi.get(self, "dns_ip_addresses")
 
     @dns_ip_addresses.setter
-    def dns_ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def dns_ip_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "dns_ip_addresses", value)
 
     @_builtins.property
     @pulumi.getter
-    def domain(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Windows domain that the SMB server belongs to.
         """
         return pulumi.get(self, "domain")
 
     @domain.setter
-    def domain(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain", value)
 
     @_builtins.property
     @pulumi.getter(name="kerberosKeytab")
-    def kerberos_keytab(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kerberos_keytab(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Base64 string representation of the Keytab file. Specifies your Kerberos key table (keytab) file, which includes mappings between your service principal name (SPN) and encryption keys. To avoid task execution errors, make sure that the SPN in the keytab file matches exactly what you specify for KerberosPrincipal and in your krb5.conf file.
         """
         return pulumi.get(self, "kerberos_keytab")
 
     @kerberos_keytab.setter
-    def kerberos_keytab(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kerberos_keytab(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kerberos_keytab", value)
 
     @_builtins.property
     @pulumi.getter(name="kerberosKrb5Conf")
-    def kerberos_krb5_conf(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kerberos_krb5_conf(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The string representation of the Krb5Conf file, or the presigned URL to access the Krb5.conf file within an S3 bucket. Specifies a Kerberos configuration file (krb5.conf) that defines your Kerberos realm configuration. To avoid task execution errors, make sure that the service principal name (SPN) in the krb5.conf file matches exactly what you specify for KerberosPrincipal and in your keytab file.
         """
         return pulumi.get(self, "kerberos_krb5_conf")
 
     @kerberos_krb5_conf.setter
-    def kerberos_krb5_conf(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kerberos_krb5_conf(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kerberos_krb5_conf", value)
 
     @_builtins.property
     @pulumi.getter(name="kerberosPrincipal")
-    def kerberos_principal(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kerberos_principal(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a service principal name (SPN), which is an identity in your Kerberos realm that has permission to access the files, folders, and file metadata in your SMB file server. SPNs are case sensitive and must include a prepended cifs/. For example, an SPN might look like cifs/kerberosuser@EXAMPLE.COM. Your task execution will fail if the SPN that you provide for this parameter doesn't match exactly what's in your keytab or krb5.conf files.
         """
         return pulumi.get(self, "kerberos_principal")
 
     @kerberos_principal.setter
-    def kerberos_principal(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kerberos_principal(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kerberos_principal", value)
 
     @_builtins.property
     @pulumi.getter(name="mountOptions")
-    def mount_options(self) -> Optional[pulumi.Input['LocationSmbMountOptionsArgs']]:
+    def mount_options(self) -> pulumi.Input[Optional['LocationSmbMountOptionsArgs']]:
         """
         Specifies the version of the SMB protocol that DataSync uses to access your SMB file server.
         """
         return pulumi.get(self, "mount_options")
 
     @mount_options.setter
-    def mount_options(self, value: Optional[pulumi.Input['LocationSmbMountOptionsArgs']]):
+    def mount_options(self, value: pulumi.Input[Optional['LocationSmbMountOptionsArgs']]):
         pulumi.set(self, "mount_options", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The password of the user who can mount the share and has the permissions to access files and folders in the SMB share.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter(name="serverHostname")
-    def server_hostname(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def server_hostname(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the SMB server. This value is the IP address or Domain Name Service (DNS) name of the SMB server.
         """
         return pulumi.get(self, "server_hostname")
 
     @server_hostname.setter
-    def server_hostname(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def server_hostname(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "server_hostname", value)
 
     @_builtins.property
     @pulumi.getter
-    def subdirectory(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subdirectory(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The subdirectory in the SMB file system that is used to read data from the SMB source location or write data to the SMB destination
         """
         return pulumi.get(self, "subdirectory")
 
     @subdirectory.setter
-    def subdirectory(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subdirectory(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subdirectory", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def user(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The user who can mount the share, has the permissions to access files and folders in the SMB share.
         """
         return pulumi.get(self, "user")
 
     @user.setter
-    def user(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user", value)
 
 
@@ -283,21 +283,21 @@ class LocationSmb(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 authentication_type: Optional[pulumi.Input['LocationSmbAuthenticationType']] = None,
-                 cmk_secret_config: Optional[pulumi.Input[Union['LocationSmbCmkSecretConfigArgs', 'LocationSmbCmkSecretConfigArgsDict']]] = None,
-                 custom_secret_config: Optional[pulumi.Input[Union['LocationSmbCustomSecretConfigArgs', 'LocationSmbCustomSecretConfigArgsDict']]] = None,
-                 dns_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 kerberos_keytab: Optional[pulumi.Input[_builtins.str]] = None,
-                 kerberos_krb5_conf: Optional[pulumi.Input[_builtins.str]] = None,
-                 kerberos_principal: Optional[pulumi.Input[_builtins.str]] = None,
-                 mount_options: Optional[pulumi.Input[Union['LocationSmbMountOptionsArgs', 'LocationSmbMountOptionsArgsDict']]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_hostname: Optional[pulumi.Input[_builtins.str]] = None,
-                 subdirectory: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 user: Optional[pulumi.Input[_builtins.str]] = None,
+                 agent_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 authentication_type: pulumi.Input[Optional['LocationSmbAuthenticationType']] = None,
+                 cmk_secret_config: pulumi.Input[Optional[Union['LocationSmbCmkSecretConfigArgs', 'LocationSmbCmkSecretConfigArgsDict']]] = None,
+                 custom_secret_config: pulumi.Input[Optional[Union['LocationSmbCustomSecretConfigArgs', 'LocationSmbCustomSecretConfigArgsDict']]] = None,
+                 dns_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 kerberos_keytab: pulumi.Input[Optional[_builtins.str]] = None,
+                 kerberos_krb5_conf: pulumi.Input[Optional[_builtins.str]] = None,
+                 kerberos_principal: pulumi.Input[Optional[_builtins.str]] = None,
+                 mount_options: pulumi.Input[Optional[Union['LocationSmbMountOptionsArgs', 'LocationSmbMountOptionsArgsDict']]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_hostname: pulumi.Input[Optional[_builtins.str]] = None,
+                 subdirectory: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 user: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::DataSync::LocationSMB.
@@ -350,21 +350,21 @@ class LocationSmb(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 authentication_type: Optional[pulumi.Input['LocationSmbAuthenticationType']] = None,
-                 cmk_secret_config: Optional[pulumi.Input[Union['LocationSmbCmkSecretConfigArgs', 'LocationSmbCmkSecretConfigArgsDict']]] = None,
-                 custom_secret_config: Optional[pulumi.Input[Union['LocationSmbCustomSecretConfigArgs', 'LocationSmbCustomSecretConfigArgsDict']]] = None,
-                 dns_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 kerberos_keytab: Optional[pulumi.Input[_builtins.str]] = None,
-                 kerberos_krb5_conf: Optional[pulumi.Input[_builtins.str]] = None,
-                 kerberos_principal: Optional[pulumi.Input[_builtins.str]] = None,
-                 mount_options: Optional[pulumi.Input[Union['LocationSmbMountOptionsArgs', 'LocationSmbMountOptionsArgsDict']]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_hostname: Optional[pulumi.Input[_builtins.str]] = None,
-                 subdirectory: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 user: Optional[pulumi.Input[_builtins.str]] = None,
+                 agent_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 authentication_type: pulumi.Input[Optional['LocationSmbAuthenticationType']] = None,
+                 cmk_secret_config: pulumi.Input[Optional[Union['LocationSmbCmkSecretConfigArgs', 'LocationSmbCmkSecretConfigArgsDict']]] = None,
+                 custom_secret_config: pulumi.Input[Optional[Union['LocationSmbCustomSecretConfigArgs', 'LocationSmbCustomSecretConfigArgsDict']]] = None,
+                 dns_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 kerberos_keytab: pulumi.Input[Optional[_builtins.str]] = None,
+                 kerberos_krb5_conf: pulumi.Input[Optional[_builtins.str]] = None,
+                 kerberos_principal: pulumi.Input[Optional[_builtins.str]] = None,
+                 mount_options: pulumi.Input[Optional[Union['LocationSmbMountOptionsArgs', 'LocationSmbMountOptionsArgsDict']]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_hostname: pulumi.Input[Optional[_builtins.str]] = None,
+                 subdirectory: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 user: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

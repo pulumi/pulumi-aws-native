@@ -25,12 +25,12 @@ __all__ = ['MonitoringScheduleArgs', 'MonitoringSchedule']
 class MonitoringScheduleArgs:
     def __init__(__self__, *,
                  monitoring_schedule_config: pulumi.Input['MonitoringScheduleConfigArgs'],
-                 endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 failure_reason: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_monitoring_execution_summary: Optional[pulumi.Input['MonitoringScheduleMonitoringExecutionSummaryArgs']] = None,
-                 monitoring_schedule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitoring_schedule_status: Optional[pulumi.Input['MonitoringScheduleStatus']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 failure_reason: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_monitoring_execution_summary: pulumi.Input[Optional['MonitoringScheduleMonitoringExecutionSummaryArgs']] = None,
+                 monitoring_schedule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitoring_schedule_status: pulumi.Input[Optional['MonitoringScheduleStatus']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a MonitoringSchedule resource.
 
@@ -70,74 +70,74 @@ class MonitoringScheduleArgs:
 
     @_builtins.property
     @pulumi.getter(name="endpointName")
-    def endpoint_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the endpoint using the monitoring schedule.
         """
         return pulumi.get(self, "endpoint_name")
 
     @endpoint_name.setter
-    def endpoint_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint_name", value)
 
     @_builtins.property
     @pulumi.getter(name="failureReason")
-    def failure_reason(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def failure_reason(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Contains the reason a monitoring job failed, if it failed.
         """
         return pulumi.get(self, "failure_reason")
 
     @failure_reason.setter
-    def failure_reason(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def failure_reason(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "failure_reason", value)
 
     @_builtins.property
     @pulumi.getter(name="lastMonitoringExecutionSummary")
-    def last_monitoring_execution_summary(self) -> Optional[pulumi.Input['MonitoringScheduleMonitoringExecutionSummaryArgs']]:
+    def last_monitoring_execution_summary(self) -> pulumi.Input[Optional['MonitoringScheduleMonitoringExecutionSummaryArgs']]:
         """
         Describes metadata on the last execution to run, if there was one.
         """
         return pulumi.get(self, "last_monitoring_execution_summary")
 
     @last_monitoring_execution_summary.setter
-    def last_monitoring_execution_summary(self, value: Optional[pulumi.Input['MonitoringScheduleMonitoringExecutionSummaryArgs']]):
+    def last_monitoring_execution_summary(self, value: pulumi.Input[Optional['MonitoringScheduleMonitoringExecutionSummaryArgs']]):
         pulumi.set(self, "last_monitoring_execution_summary", value)
 
     @_builtins.property
     @pulumi.getter(name="monitoringScheduleName")
-    def monitoring_schedule_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def monitoring_schedule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the monitoring schedule.
         """
         return pulumi.get(self, "monitoring_schedule_name")
 
     @monitoring_schedule_name.setter
-    def monitoring_schedule_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def monitoring_schedule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "monitoring_schedule_name", value)
 
     @_builtins.property
     @pulumi.getter(name="monitoringScheduleStatus")
-    def monitoring_schedule_status(self) -> Optional[pulumi.Input['MonitoringScheduleStatus']]:
+    def monitoring_schedule_status(self) -> pulumi.Input[Optional['MonitoringScheduleStatus']]:
         """
         The status of a schedule job.
         """
         return pulumi.get(self, "monitoring_schedule_status")
 
     @monitoring_schedule_status.setter
-    def monitoring_schedule_status(self, value: Optional[pulumi.Input['MonitoringScheduleStatus']]):
+    def monitoring_schedule_status(self, value: pulumi.Input[Optional['MonitoringScheduleStatus']]):
         pulumi.set(self, "monitoring_schedule_status", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -147,13 +147,13 @@ class MonitoringSchedule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 failure_reason: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_monitoring_execution_summary: Optional[pulumi.Input[Union['MonitoringScheduleMonitoringExecutionSummaryArgs', 'MonitoringScheduleMonitoringExecutionSummaryArgsDict']]] = None,
-                 monitoring_schedule_config: Optional[pulumi.Input[Union['MonitoringScheduleConfigArgs', 'MonitoringScheduleConfigArgsDict']]] = None,
-                 monitoring_schedule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitoring_schedule_status: Optional[pulumi.Input['MonitoringScheduleStatus']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 failure_reason: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_monitoring_execution_summary: pulumi.Input[Optional[Union['MonitoringScheduleMonitoringExecutionSummaryArgs', 'MonitoringScheduleMonitoringExecutionSummaryArgsDict']]] = None,
+                 monitoring_schedule_config: pulumi.Input[Optional[Union['MonitoringScheduleConfigArgs', 'MonitoringScheduleConfigArgsDict']]] = None,
+                 monitoring_schedule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitoring_schedule_status: pulumi.Input[Optional['MonitoringScheduleStatus']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SageMaker::MonitoringSchedule
@@ -194,13 +194,13 @@ class MonitoringSchedule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 failure_reason: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_monitoring_execution_summary: Optional[pulumi.Input[Union['MonitoringScheduleMonitoringExecutionSummaryArgs', 'MonitoringScheduleMonitoringExecutionSummaryArgsDict']]] = None,
-                 monitoring_schedule_config: Optional[pulumi.Input[Union['MonitoringScheduleConfigArgs', 'MonitoringScheduleConfigArgsDict']]] = None,
-                 monitoring_schedule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitoring_schedule_status: Optional[pulumi.Input['MonitoringScheduleStatus']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 failure_reason: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_monitoring_execution_summary: pulumi.Input[Optional[Union['MonitoringScheduleMonitoringExecutionSummaryArgs', 'MonitoringScheduleMonitoringExecutionSummaryArgsDict']]] = None,
+                 monitoring_schedule_config: pulumi.Input[Optional[Union['MonitoringScheduleConfigArgs', 'MonitoringScheduleConfigArgsDict']]] = None,
+                 monitoring_schedule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitoring_schedule_status: pulumi.Input[Optional['MonitoringScheduleStatus']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

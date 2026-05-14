@@ -284,7 +284,7 @@ def get_cache_cluster(cluster_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         transit_encryption_enabled=pulumi.get(__ret__, 'transit_encryption_enabled'),
         vpc_security_group_ids=pulumi.get(__ret__, 'vpc_security_group_ids'))
-def get_cache_cluster_output(cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_cache_cluster_output(cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCacheClusterResult]:
     """
     Resource type definition for AWS::ElastiCache::CacheCluster

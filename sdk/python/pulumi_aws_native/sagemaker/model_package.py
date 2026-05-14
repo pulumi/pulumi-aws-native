@@ -24,32 +24,32 @@ __all__ = ['ModelPackageArgs', 'ModelPackage']
 @pulumi.input_type
 class ModelPackageArgs:
     def __init__(__self__, *,
-                 additional_inference_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['ModelPackageAdditionalInferenceSpecificationDefinitionArgs']]]] = None,
-                 additional_inference_specifications_to_add: Optional[pulumi.Input[Sequence[pulumi.Input['ModelPackageAdditionalInferenceSpecificationDefinitionArgs']]]] = None,
-                 approval_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 certify_for_marketplace: Optional[pulumi.Input[_builtins.bool]] = None,
-                 client_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_metadata_properties: Optional[pulumi.Input['ModelPackageCustomerMetadataPropertiesArgs']] = None,
-                 domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 drift_check_baselines: Optional[pulumi.Input['ModelPackageDriftCheckBaselinesArgs']] = None,
-                 inference_specification: Optional[pulumi.Input['ModelPackageInferenceSpecificationArgs']] = None,
-                 metadata_properties: Optional[pulumi.Input['ModelPackageMetadataPropertiesArgs']] = None,
-                 model_approval_status: Optional[pulumi.Input['ModelPackageModelApprovalStatus']] = None,
-                 model_card: Optional[pulumi.Input['ModelPackageModelCardArgs']] = None,
-                 model_metrics: Optional[pulumi.Input['ModelPackageModelMetricsArgs']] = None,
-                 model_package_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 model_package_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 model_package_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 model_package_status_details: Optional[pulumi.Input['ModelPackageStatusDetailsArgs']] = None,
-                 model_package_version: Optional[pulumi.Input[_builtins.int]] = None,
-                 sample_payload_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_config: Optional[pulumi.Input['ModelPackageSecurityConfigArgs']] = None,
-                 skip_model_validation: Optional[pulumi.Input['ModelPackageSkipModelValidation']] = None,
-                 source_algorithm_specification: Optional[pulumi.Input['ModelPackageSourceAlgorithmSpecificationArgs']] = None,
-                 source_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 task: Optional[pulumi.Input[_builtins.str]] = None,
-                 validation_specification: Optional[pulumi.Input['ModelPackageValidationSpecificationArgs']] = None):
+                 additional_inference_specifications: pulumi.Input[Optional[Sequence[pulumi.Input['ModelPackageAdditionalInferenceSpecificationDefinitionArgs']]]] = None,
+                 additional_inference_specifications_to_add: pulumi.Input[Optional[Sequence[pulumi.Input['ModelPackageAdditionalInferenceSpecificationDefinitionArgs']]]] = None,
+                 approval_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 certify_for_marketplace: pulumi.Input[Optional[_builtins.bool]] = None,
+                 client_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_metadata_properties: pulumi.Input[Optional['ModelPackageCustomerMetadataPropertiesArgs']] = None,
+                 domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 drift_check_baselines: pulumi.Input[Optional['ModelPackageDriftCheckBaselinesArgs']] = None,
+                 inference_specification: pulumi.Input[Optional['ModelPackageInferenceSpecificationArgs']] = None,
+                 metadata_properties: pulumi.Input[Optional['ModelPackageMetadataPropertiesArgs']] = None,
+                 model_approval_status: pulumi.Input[Optional['ModelPackageModelApprovalStatus']] = None,
+                 model_card: pulumi.Input[Optional['ModelPackageModelCardArgs']] = None,
+                 model_metrics: pulumi.Input[Optional['ModelPackageModelMetricsArgs']] = None,
+                 model_package_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 model_package_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 model_package_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 model_package_status_details: pulumi.Input[Optional['ModelPackageStatusDetailsArgs']] = None,
+                 model_package_version: pulumi.Input[Optional[_builtins.int]] = None,
+                 sample_payload_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_config: pulumi.Input[Optional['ModelPackageSecurityConfigArgs']] = None,
+                 skip_model_validation: pulumi.Input[Optional['ModelPackageSkipModelValidation']] = None,
+                 source_algorithm_specification: pulumi.Input[Optional['ModelPackageSourceAlgorithmSpecificationArgs']] = None,
+                 source_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 task: pulumi.Input[Optional[_builtins.str]] = None,
+                 validation_specification: pulumi.Input[Optional['ModelPackageValidationSpecificationArgs']] = None):
         """
         The set of arguments for constructing a ModelPackage resource.
 
@@ -141,127 +141,127 @@ class ModelPackageArgs:
 
     @_builtins.property
     @pulumi.getter(name="additionalInferenceSpecifications")
-    def additional_inference_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ModelPackageAdditionalInferenceSpecificationDefinitionArgs']]]]:
+    def additional_inference_specifications(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ModelPackageAdditionalInferenceSpecificationDefinitionArgs']]]]:
         """
         An array of additional Inference Specification objects.
         """
         return pulumi.get(self, "additional_inference_specifications")
 
     @additional_inference_specifications.setter
-    def additional_inference_specifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ModelPackageAdditionalInferenceSpecificationDefinitionArgs']]]]):
+    def additional_inference_specifications(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ModelPackageAdditionalInferenceSpecificationDefinitionArgs']]]]):
         pulumi.set(self, "additional_inference_specifications", value)
 
     @_builtins.property
     @pulumi.getter(name="additionalInferenceSpecificationsToAdd")
-    def additional_inference_specifications_to_add(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ModelPackageAdditionalInferenceSpecificationDefinitionArgs']]]]:
+    def additional_inference_specifications_to_add(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ModelPackageAdditionalInferenceSpecificationDefinitionArgs']]]]:
         """
         An array of additional Inference Specification objects to be added to the existing array. The total number of additional Inference Specification objects cannot exceed 15. Each additional Inference Specification object specifies artifacts based on this model package that can be used on inference endpoints. Generally used with SageMaker Neo to store the compiled artifacts.
         """
         return pulumi.get(self, "additional_inference_specifications_to_add")
 
     @additional_inference_specifications_to_add.setter
-    def additional_inference_specifications_to_add(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ModelPackageAdditionalInferenceSpecificationDefinitionArgs']]]]):
+    def additional_inference_specifications_to_add(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ModelPackageAdditionalInferenceSpecificationDefinitionArgs']]]]):
         pulumi.set(self, "additional_inference_specifications_to_add", value)
 
     @_builtins.property
     @pulumi.getter(name="approvalDescription")
-    def approval_description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def approval_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description provided when the model approval is set.
         """
         return pulumi.get(self, "approval_description")
 
     @approval_description.setter
-    def approval_description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def approval_description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "approval_description", value)
 
     @_builtins.property
     @pulumi.getter(name="certifyForMarketplace")
-    def certify_for_marketplace(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def certify_for_marketplace(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the model package is to be certified to be listed on AWS Marketplace. For information about listing model packages on AWS Marketplace, see [List Your Algorithm or Model Package on AWS Marketplace](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-mkt-list.html) .
         """
         return pulumi.get(self, "certify_for_marketplace")
 
     @certify_for_marketplace.setter
-    def certify_for_marketplace(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def certify_for_marketplace(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "certify_for_marketplace", value)
 
     @_builtins.property
     @pulumi.getter(name="clientToken")
-    def client_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A unique token that guarantees that the call to this API is idempotent.
         """
         return pulumi.get(self, "client_token")
 
     @client_token.setter
-    def client_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_token", value)
 
     @_builtins.property
     @pulumi.getter(name="customerMetadataProperties")
-    def customer_metadata_properties(self) -> Optional[pulumi.Input['ModelPackageCustomerMetadataPropertiesArgs']]:
+    def customer_metadata_properties(self) -> pulumi.Input[Optional['ModelPackageCustomerMetadataPropertiesArgs']]:
         """
         The metadata properties for the model package.
         """
         return pulumi.get(self, "customer_metadata_properties")
 
     @customer_metadata_properties.setter
-    def customer_metadata_properties(self, value: Optional[pulumi.Input['ModelPackageCustomerMetadataPropertiesArgs']]):
+    def customer_metadata_properties(self, value: pulumi.Input[Optional['ModelPackageCustomerMetadataPropertiesArgs']]):
         pulumi.set(self, "customer_metadata_properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def domain(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The machine learning domain of your model package and its components. Common machine learning domains include computer vision and natural language processing.
         """
         return pulumi.get(self, "domain")
 
     @domain.setter
-    def domain(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain", value)
 
     @_builtins.property
     @pulumi.getter(name="driftCheckBaselines")
-    def drift_check_baselines(self) -> Optional[pulumi.Input['ModelPackageDriftCheckBaselinesArgs']]:
+    def drift_check_baselines(self) -> pulumi.Input[Optional['ModelPackageDriftCheckBaselinesArgs']]:
         """
         Represents the drift check baselines that can be used when the model monitor is set using the model package.
         """
         return pulumi.get(self, "drift_check_baselines")
 
     @drift_check_baselines.setter
-    def drift_check_baselines(self, value: Optional[pulumi.Input['ModelPackageDriftCheckBaselinesArgs']]):
+    def drift_check_baselines(self, value: pulumi.Input[Optional['ModelPackageDriftCheckBaselinesArgs']]):
         pulumi.set(self, "drift_check_baselines", value)
 
     @_builtins.property
     @pulumi.getter(name="inferenceSpecification")
-    def inference_specification(self) -> Optional[pulumi.Input['ModelPackageInferenceSpecificationArgs']]:
+    def inference_specification(self) -> pulumi.Input[Optional['ModelPackageInferenceSpecificationArgs']]:
         """
         Defines how to perform inference generation after a training job is run.
         """
         return pulumi.get(self, "inference_specification")
 
     @inference_specification.setter
-    def inference_specification(self, value: Optional[pulumi.Input['ModelPackageInferenceSpecificationArgs']]):
+    def inference_specification(self, value: pulumi.Input[Optional['ModelPackageInferenceSpecificationArgs']]):
         pulumi.set(self, "inference_specification", value)
 
     @_builtins.property
     @pulumi.getter(name="metadataProperties")
-    def metadata_properties(self) -> Optional[pulumi.Input['ModelPackageMetadataPropertiesArgs']]:
+    def metadata_properties(self) -> pulumi.Input[Optional['ModelPackageMetadataPropertiesArgs']]:
         """
         Metadata properties of the tracking entity, trial, or trial component.
         """
         return pulumi.get(self, "metadata_properties")
 
     @metadata_properties.setter
-    def metadata_properties(self, value: Optional[pulumi.Input['ModelPackageMetadataPropertiesArgs']]):
+    def metadata_properties(self, value: pulumi.Input[Optional['ModelPackageMetadataPropertiesArgs']]):
         pulumi.set(self, "metadata_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="modelApprovalStatus")
-    def model_approval_status(self) -> Optional[pulumi.Input['ModelPackageModelApprovalStatus']]:
+    def model_approval_status(self) -> pulumi.Input[Optional['ModelPackageModelApprovalStatus']]:
         """
         The approval status of the model. This can be one of the following values.
 
@@ -272,60 +272,60 @@ class ModelPackageArgs:
         return pulumi.get(self, "model_approval_status")
 
     @model_approval_status.setter
-    def model_approval_status(self, value: Optional[pulumi.Input['ModelPackageModelApprovalStatus']]):
+    def model_approval_status(self, value: pulumi.Input[Optional['ModelPackageModelApprovalStatus']]):
         pulumi.set(self, "model_approval_status", value)
 
     @_builtins.property
     @pulumi.getter(name="modelCard")
-    def model_card(self) -> Optional[pulumi.Input['ModelPackageModelCardArgs']]:
+    def model_card(self) -> pulumi.Input[Optional['ModelPackageModelCardArgs']]:
         """
         An Amazon SageMaker Model Card.
         """
         return pulumi.get(self, "model_card")
 
     @model_card.setter
-    def model_card(self, value: Optional[pulumi.Input['ModelPackageModelCardArgs']]):
+    def model_card(self, value: pulumi.Input[Optional['ModelPackageModelCardArgs']]):
         pulumi.set(self, "model_card", value)
 
     @_builtins.property
     @pulumi.getter(name="modelMetrics")
-    def model_metrics(self) -> Optional[pulumi.Input['ModelPackageModelMetricsArgs']]:
+    def model_metrics(self) -> pulumi.Input[Optional['ModelPackageModelMetricsArgs']]:
         """
         Metrics for the model.
         """
         return pulumi.get(self, "model_metrics")
 
     @model_metrics.setter
-    def model_metrics(self, value: Optional[pulumi.Input['ModelPackageModelMetricsArgs']]):
+    def model_metrics(self, value: pulumi.Input[Optional['ModelPackageModelMetricsArgs']]):
         pulumi.set(self, "model_metrics", value)
 
     @_builtins.property
     @pulumi.getter(name="modelPackageDescription")
-    def model_package_description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def model_package_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the model package.
         """
         return pulumi.get(self, "model_package_description")
 
     @model_package_description.setter
-    def model_package_description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def model_package_description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "model_package_description", value)
 
     @_builtins.property
     @pulumi.getter(name="modelPackageGroupName")
-    def model_package_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def model_package_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The model group to which the model belongs.
         """
         return pulumi.get(self, "model_package_group_name")
 
     @model_package_group_name.setter
-    def model_package_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def model_package_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "model_package_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="modelPackageName")
-    def model_package_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def model_package_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the model package. The name can be as follows:
 
@@ -335,124 +335,124 @@ class ModelPackageArgs:
         return pulumi.get(self, "model_package_name")
 
     @model_package_name.setter
-    def model_package_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def model_package_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "model_package_name", value)
 
     @_builtins.property
     @pulumi.getter(name="modelPackageStatusDetails")
-    def model_package_status_details(self) -> Optional[pulumi.Input['ModelPackageStatusDetailsArgs']]:
+    def model_package_status_details(self) -> pulumi.Input[Optional['ModelPackageStatusDetailsArgs']]:
         """
         Specifies the validation and image scan statuses of the model package.
         """
         return pulumi.get(self, "model_package_status_details")
 
     @model_package_status_details.setter
-    def model_package_status_details(self, value: Optional[pulumi.Input['ModelPackageStatusDetailsArgs']]):
+    def model_package_status_details(self, value: pulumi.Input[Optional['ModelPackageStatusDetailsArgs']]):
         pulumi.set(self, "model_package_status_details", value)
 
     @_builtins.property
     @pulumi.getter(name="modelPackageVersion")
-    def model_package_version(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def model_package_version(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The version number of a versioned model.
         """
         return pulumi.get(self, "model_package_version")
 
     @model_package_version.setter
-    def model_package_version(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def model_package_version(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "model_package_version", value)
 
     @_builtins.property
     @pulumi.getter(name="samplePayloadUrl")
-    def sample_payload_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sample_payload_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Simple Storage Service path where the sample payload are stored. This path must point to a single gzip compressed tar archive (.tar.gz suffix).
         """
         return pulumi.get(self, "sample_payload_url")
 
     @sample_payload_url.setter
-    def sample_payload_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sample_payload_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sample_payload_url", value)
 
     @_builtins.property
     @pulumi.getter(name="securityConfig")
-    def security_config(self) -> Optional[pulumi.Input['ModelPackageSecurityConfigArgs']]:
+    def security_config(self) -> pulumi.Input[Optional['ModelPackageSecurityConfigArgs']]:
         return pulumi.get(self, "security_config")
 
     @security_config.setter
-    def security_config(self, value: Optional[pulumi.Input['ModelPackageSecurityConfigArgs']]):
+    def security_config(self, value: pulumi.Input[Optional['ModelPackageSecurityConfigArgs']]):
         pulumi.set(self, "security_config", value)
 
     @_builtins.property
     @pulumi.getter(name="skipModelValidation")
-    def skip_model_validation(self) -> Optional[pulumi.Input['ModelPackageSkipModelValidation']]:
+    def skip_model_validation(self) -> pulumi.Input[Optional['ModelPackageSkipModelValidation']]:
         """
         Indicates if you want to skip model validation.
         """
         return pulumi.get(self, "skip_model_validation")
 
     @skip_model_validation.setter
-    def skip_model_validation(self, value: Optional[pulumi.Input['ModelPackageSkipModelValidation']]):
+    def skip_model_validation(self, value: pulumi.Input[Optional['ModelPackageSkipModelValidation']]):
         pulumi.set(self, "skip_model_validation", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceAlgorithmSpecification")
-    def source_algorithm_specification(self) -> Optional[pulumi.Input['ModelPackageSourceAlgorithmSpecificationArgs']]:
+    def source_algorithm_specification(self) -> pulumi.Input[Optional['ModelPackageSourceAlgorithmSpecificationArgs']]:
         """
         A list of algorithms that were used to create a model package.
         """
         return pulumi.get(self, "source_algorithm_specification")
 
     @source_algorithm_specification.setter
-    def source_algorithm_specification(self, value: Optional[pulumi.Input['ModelPackageSourceAlgorithmSpecificationArgs']]):
+    def source_algorithm_specification(self, value: pulumi.Input[Optional['ModelPackageSourceAlgorithmSpecificationArgs']]):
         pulumi.set(self, "source_algorithm_specification", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceUri")
-    def source_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URI of the source for the model package.
         """
         return pulumi.get(self, "source_uri")
 
     @source_uri.setter
-    def source_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_uri", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def task(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def task(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The machine learning task your model package accomplishes. Common machine learning tasks include object detection and image classification.
         """
         return pulumi.get(self, "task")
 
     @task.setter
-    def task(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def task(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "task", value)
 
     @_builtins.property
     @pulumi.getter(name="validationSpecification")
-    def validation_specification(self) -> Optional[pulumi.Input['ModelPackageValidationSpecificationArgs']]:
+    def validation_specification(self) -> pulumi.Input[Optional['ModelPackageValidationSpecificationArgs']]:
         """
         Specifies batch transform jobs that SageMaker runs to validate your model package.
         """
         return pulumi.get(self, "validation_specification")
 
     @validation_specification.setter
-    def validation_specification(self, value: Optional[pulumi.Input['ModelPackageValidationSpecificationArgs']]):
+    def validation_specification(self, value: pulumi.Input[Optional['ModelPackageValidationSpecificationArgs']]):
         pulumi.set(self, "validation_specification", value)
 
 
@@ -462,32 +462,32 @@ class ModelPackage(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_inference_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ModelPackageAdditionalInferenceSpecificationDefinitionArgs', 'ModelPackageAdditionalInferenceSpecificationDefinitionArgsDict']]]]] = None,
-                 additional_inference_specifications_to_add: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ModelPackageAdditionalInferenceSpecificationDefinitionArgs', 'ModelPackageAdditionalInferenceSpecificationDefinitionArgsDict']]]]] = None,
-                 approval_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 certify_for_marketplace: Optional[pulumi.Input[_builtins.bool]] = None,
-                 client_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_metadata_properties: Optional[pulumi.Input[Union['ModelPackageCustomerMetadataPropertiesArgs', 'ModelPackageCustomerMetadataPropertiesArgsDict']]] = None,
-                 domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 drift_check_baselines: Optional[pulumi.Input[Union['ModelPackageDriftCheckBaselinesArgs', 'ModelPackageDriftCheckBaselinesArgsDict']]] = None,
-                 inference_specification: Optional[pulumi.Input[Union['ModelPackageInferenceSpecificationArgs', 'ModelPackageInferenceSpecificationArgsDict']]] = None,
-                 metadata_properties: Optional[pulumi.Input[Union['ModelPackageMetadataPropertiesArgs', 'ModelPackageMetadataPropertiesArgsDict']]] = None,
-                 model_approval_status: Optional[pulumi.Input['ModelPackageModelApprovalStatus']] = None,
-                 model_card: Optional[pulumi.Input[Union['ModelPackageModelCardArgs', 'ModelPackageModelCardArgsDict']]] = None,
-                 model_metrics: Optional[pulumi.Input[Union['ModelPackageModelMetricsArgs', 'ModelPackageModelMetricsArgsDict']]] = None,
-                 model_package_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 model_package_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 model_package_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 model_package_status_details: Optional[pulumi.Input[Union['ModelPackageStatusDetailsArgs', 'ModelPackageStatusDetailsArgsDict']]] = None,
-                 model_package_version: Optional[pulumi.Input[_builtins.int]] = None,
-                 sample_payload_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_config: Optional[pulumi.Input[Union['ModelPackageSecurityConfigArgs', 'ModelPackageSecurityConfigArgsDict']]] = None,
-                 skip_model_validation: Optional[pulumi.Input['ModelPackageSkipModelValidation']] = None,
-                 source_algorithm_specification: Optional[pulumi.Input[Union['ModelPackageSourceAlgorithmSpecificationArgs', 'ModelPackageSourceAlgorithmSpecificationArgsDict']]] = None,
-                 source_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 task: Optional[pulumi.Input[_builtins.str]] = None,
-                 validation_specification: Optional[pulumi.Input[Union['ModelPackageValidationSpecificationArgs', 'ModelPackageValidationSpecificationArgsDict']]] = None,
+                 additional_inference_specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ModelPackageAdditionalInferenceSpecificationDefinitionArgs', 'ModelPackageAdditionalInferenceSpecificationDefinitionArgsDict']]]]] = None,
+                 additional_inference_specifications_to_add: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ModelPackageAdditionalInferenceSpecificationDefinitionArgs', 'ModelPackageAdditionalInferenceSpecificationDefinitionArgsDict']]]]] = None,
+                 approval_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 certify_for_marketplace: pulumi.Input[Optional[_builtins.bool]] = None,
+                 client_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_metadata_properties: pulumi.Input[Optional[Union['ModelPackageCustomerMetadataPropertiesArgs', 'ModelPackageCustomerMetadataPropertiesArgsDict']]] = None,
+                 domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 drift_check_baselines: pulumi.Input[Optional[Union['ModelPackageDriftCheckBaselinesArgs', 'ModelPackageDriftCheckBaselinesArgsDict']]] = None,
+                 inference_specification: pulumi.Input[Optional[Union['ModelPackageInferenceSpecificationArgs', 'ModelPackageInferenceSpecificationArgsDict']]] = None,
+                 metadata_properties: pulumi.Input[Optional[Union['ModelPackageMetadataPropertiesArgs', 'ModelPackageMetadataPropertiesArgsDict']]] = None,
+                 model_approval_status: pulumi.Input[Optional['ModelPackageModelApprovalStatus']] = None,
+                 model_card: pulumi.Input[Optional[Union['ModelPackageModelCardArgs', 'ModelPackageModelCardArgsDict']]] = None,
+                 model_metrics: pulumi.Input[Optional[Union['ModelPackageModelMetricsArgs', 'ModelPackageModelMetricsArgsDict']]] = None,
+                 model_package_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 model_package_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 model_package_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 model_package_status_details: pulumi.Input[Optional[Union['ModelPackageStatusDetailsArgs', 'ModelPackageStatusDetailsArgsDict']]] = None,
+                 model_package_version: pulumi.Input[Optional[_builtins.int]] = None,
+                 sample_payload_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_config: pulumi.Input[Optional[Union['ModelPackageSecurityConfigArgs', 'ModelPackageSecurityConfigArgsDict']]] = None,
+                 skip_model_validation: pulumi.Input[Optional['ModelPackageSkipModelValidation']] = None,
+                 source_algorithm_specification: pulumi.Input[Optional[Union['ModelPackageSourceAlgorithmSpecificationArgs', 'ModelPackageSourceAlgorithmSpecificationArgsDict']]] = None,
+                 source_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 task: pulumi.Input[Optional[_builtins.str]] = None,
+                 validation_specification: pulumi.Input[Optional[Union['ModelPackageValidationSpecificationArgs', 'ModelPackageValidationSpecificationArgsDict']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SageMaker::ModelPackage
@@ -553,32 +553,32 @@ class ModelPackage(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_inference_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ModelPackageAdditionalInferenceSpecificationDefinitionArgs', 'ModelPackageAdditionalInferenceSpecificationDefinitionArgsDict']]]]] = None,
-                 additional_inference_specifications_to_add: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ModelPackageAdditionalInferenceSpecificationDefinitionArgs', 'ModelPackageAdditionalInferenceSpecificationDefinitionArgsDict']]]]] = None,
-                 approval_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 certify_for_marketplace: Optional[pulumi.Input[_builtins.bool]] = None,
-                 client_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_metadata_properties: Optional[pulumi.Input[Union['ModelPackageCustomerMetadataPropertiesArgs', 'ModelPackageCustomerMetadataPropertiesArgsDict']]] = None,
-                 domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 drift_check_baselines: Optional[pulumi.Input[Union['ModelPackageDriftCheckBaselinesArgs', 'ModelPackageDriftCheckBaselinesArgsDict']]] = None,
-                 inference_specification: Optional[pulumi.Input[Union['ModelPackageInferenceSpecificationArgs', 'ModelPackageInferenceSpecificationArgsDict']]] = None,
-                 metadata_properties: Optional[pulumi.Input[Union['ModelPackageMetadataPropertiesArgs', 'ModelPackageMetadataPropertiesArgsDict']]] = None,
-                 model_approval_status: Optional[pulumi.Input['ModelPackageModelApprovalStatus']] = None,
-                 model_card: Optional[pulumi.Input[Union['ModelPackageModelCardArgs', 'ModelPackageModelCardArgsDict']]] = None,
-                 model_metrics: Optional[pulumi.Input[Union['ModelPackageModelMetricsArgs', 'ModelPackageModelMetricsArgsDict']]] = None,
-                 model_package_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 model_package_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 model_package_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 model_package_status_details: Optional[pulumi.Input[Union['ModelPackageStatusDetailsArgs', 'ModelPackageStatusDetailsArgsDict']]] = None,
-                 model_package_version: Optional[pulumi.Input[_builtins.int]] = None,
-                 sample_payload_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_config: Optional[pulumi.Input[Union['ModelPackageSecurityConfigArgs', 'ModelPackageSecurityConfigArgsDict']]] = None,
-                 skip_model_validation: Optional[pulumi.Input['ModelPackageSkipModelValidation']] = None,
-                 source_algorithm_specification: Optional[pulumi.Input[Union['ModelPackageSourceAlgorithmSpecificationArgs', 'ModelPackageSourceAlgorithmSpecificationArgsDict']]] = None,
-                 source_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 task: Optional[pulumi.Input[_builtins.str]] = None,
-                 validation_specification: Optional[pulumi.Input[Union['ModelPackageValidationSpecificationArgs', 'ModelPackageValidationSpecificationArgsDict']]] = None,
+                 additional_inference_specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ModelPackageAdditionalInferenceSpecificationDefinitionArgs', 'ModelPackageAdditionalInferenceSpecificationDefinitionArgsDict']]]]] = None,
+                 additional_inference_specifications_to_add: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ModelPackageAdditionalInferenceSpecificationDefinitionArgs', 'ModelPackageAdditionalInferenceSpecificationDefinitionArgsDict']]]]] = None,
+                 approval_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 certify_for_marketplace: pulumi.Input[Optional[_builtins.bool]] = None,
+                 client_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_metadata_properties: pulumi.Input[Optional[Union['ModelPackageCustomerMetadataPropertiesArgs', 'ModelPackageCustomerMetadataPropertiesArgsDict']]] = None,
+                 domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 drift_check_baselines: pulumi.Input[Optional[Union['ModelPackageDriftCheckBaselinesArgs', 'ModelPackageDriftCheckBaselinesArgsDict']]] = None,
+                 inference_specification: pulumi.Input[Optional[Union['ModelPackageInferenceSpecificationArgs', 'ModelPackageInferenceSpecificationArgsDict']]] = None,
+                 metadata_properties: pulumi.Input[Optional[Union['ModelPackageMetadataPropertiesArgs', 'ModelPackageMetadataPropertiesArgsDict']]] = None,
+                 model_approval_status: pulumi.Input[Optional['ModelPackageModelApprovalStatus']] = None,
+                 model_card: pulumi.Input[Optional[Union['ModelPackageModelCardArgs', 'ModelPackageModelCardArgsDict']]] = None,
+                 model_metrics: pulumi.Input[Optional[Union['ModelPackageModelMetricsArgs', 'ModelPackageModelMetricsArgsDict']]] = None,
+                 model_package_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 model_package_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 model_package_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 model_package_status_details: pulumi.Input[Optional[Union['ModelPackageStatusDetailsArgs', 'ModelPackageStatusDetailsArgsDict']]] = None,
+                 model_package_version: pulumi.Input[Optional[_builtins.int]] = None,
+                 sample_payload_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_config: pulumi.Input[Optional[Union['ModelPackageSecurityConfigArgs', 'ModelPackageSecurityConfigArgsDict']]] = None,
+                 skip_model_validation: pulumi.Input[Optional['ModelPackageSkipModelValidation']] = None,
+                 source_algorithm_specification: pulumi.Input[Optional[Union['ModelPackageSourceAlgorithmSpecificationArgs', 'ModelPackageSourceAlgorithmSpecificationArgsDict']]] = None,
+                 source_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 task: pulumi.Input[Optional[_builtins.str]] = None,
+                 validation_specification: pulumi.Input[Optional[Union['ModelPackageValidationSpecificationArgs', 'ModelPackageValidationSpecificationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -25,10 +25,10 @@ class MetricFilterArgs:
                  filter_pattern: pulumi.Input[_builtins.str],
                  log_group_name: pulumi.Input[_builtins.str],
                  metric_transformations: pulumi.Input[Sequence[pulumi.Input['MetricFilterMetricTransformationArgs']]],
-                 apply_on_transformed_logs: Optional[pulumi.Input[_builtins.bool]] = None,
-                 emit_system_field_dimensions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 field_selection_criteria: Optional[pulumi.Input[_builtins.str]] = None,
-                 filter_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 apply_on_transformed_logs: pulumi.Input[Optional[_builtins.bool]] = None,
+                 emit_system_field_dimensions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 field_selection_criteria: pulumi.Input[Optional[_builtins.str]] = None,
+                 filter_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a MetricFilter resource.
 
@@ -91,7 +91,7 @@ class MetricFilterArgs:
 
     @_builtins.property
     @pulumi.getter(name="applyOnTransformedLogs")
-    def apply_on_transformed_logs(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def apply_on_transformed_logs(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         This parameter is valid only for log groups that have an active log transformer. For more information about log transformers, see [PutTransformer](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.html).
          If this value is ``true``, the metric filter is applied on the transformed version of the log events instead of the original ingested log events.
@@ -99,43 +99,43 @@ class MetricFilterArgs:
         return pulumi.get(self, "apply_on_transformed_logs")
 
     @apply_on_transformed_logs.setter
-    def apply_on_transformed_logs(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def apply_on_transformed_logs(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "apply_on_transformed_logs", value)
 
     @_builtins.property
     @pulumi.getter(name="emitSystemFieldDimensions")
-    def emit_system_field_dimensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def emit_system_field_dimensions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of system fields that are emitted as additional dimensions in the generated metrics. Returns the ``emitSystemFieldDimensions`` value if it was specified when the metric filter was created.
         """
         return pulumi.get(self, "emit_system_field_dimensions")
 
     @emit_system_field_dimensions.setter
-    def emit_system_field_dimensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def emit_system_field_dimensions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "emit_system_field_dimensions", value)
 
     @_builtins.property
     @pulumi.getter(name="fieldSelectionCriteria")
-    def field_selection_criteria(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def field_selection_criteria(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The filter expression that specifies which log events are processed by this metric filter based on system fields. Returns the ``fieldSelectionCriteria`` value if it was specified when the metric filter was created.
         """
         return pulumi.get(self, "field_selection_criteria")
 
     @field_selection_criteria.setter
-    def field_selection_criteria(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def field_selection_criteria(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "field_selection_criteria", value)
 
     @_builtins.property
     @pulumi.getter(name="filterName")
-    def filter_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def filter_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the metric filter.
         """
         return pulumi.get(self, "filter_name")
 
     @filter_name.setter
-    def filter_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def filter_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "filter_name", value)
 
 
@@ -145,13 +145,13 @@ class MetricFilter(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 apply_on_transformed_logs: Optional[pulumi.Input[_builtins.bool]] = None,
-                 emit_system_field_dimensions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 field_selection_criteria: Optional[pulumi.Input[_builtins.str]] = None,
-                 filter_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 filter_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 metric_transformations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MetricFilterMetricTransformationArgs', 'MetricFilterMetricTransformationArgsDict']]]]] = None,
+                 apply_on_transformed_logs: pulumi.Input[Optional[_builtins.bool]] = None,
+                 emit_system_field_dimensions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 field_selection_criteria: pulumi.Input[Optional[_builtins.str]] = None,
+                 filter_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 filter_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 metric_transformations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricFilterMetricTransformationArgs', 'MetricFilterMetricTransformationArgsDict']]]]] = None,
                  __props__=None):
         """
         The ``AWS::Logs::MetricFilter`` resource specifies a metric filter that describes how CWL extracts information from logs and transforms it into Amazon CloudWatch metrics. If you have multiple metric filters that are associated with a log group, all the filters are applied to the log streams in that group.
@@ -195,13 +195,13 @@ class MetricFilter(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 apply_on_transformed_logs: Optional[pulumi.Input[_builtins.bool]] = None,
-                 emit_system_field_dimensions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 field_selection_criteria: Optional[pulumi.Input[_builtins.str]] = None,
-                 filter_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 filter_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 metric_transformations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MetricFilterMetricTransformationArgs', 'MetricFilterMetricTransformationArgsDict']]]]] = None,
+                 apply_on_transformed_logs: pulumi.Input[Optional[_builtins.bool]] = None,
+                 emit_system_field_dimensions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 field_selection_criteria: pulumi.Input[Optional[_builtins.str]] = None,
+                 filter_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 filter_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 metric_transformations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricFilterMetricTransformationArgs', 'MetricFilterMetricTransformationArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

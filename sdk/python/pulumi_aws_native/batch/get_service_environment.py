@@ -101,7 +101,7 @@ def get_service_environment(service_environment_arn: Optional[_builtins.str] = N
         service_environment_arn=pulumi.get(__ret__, 'service_environment_arn'),
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_service_environment_output(service_environment_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_service_environment_output(service_environment_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceEnvironmentResult]:
     """
     Resource Type definition for AWS::Batch::ServiceEnvironment

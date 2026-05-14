@@ -210,8 +210,8 @@ def get_vpc_connection(aws_account_id: Optional[_builtins.str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
-def get_vpc_connection_output(aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                              vpc_connection_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_vpc_connection_output(aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                              vpc_connection_id: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcConnectionResult]:
     """
     Definition of the AWS::QuickSight::VPCConnection Resource Type.

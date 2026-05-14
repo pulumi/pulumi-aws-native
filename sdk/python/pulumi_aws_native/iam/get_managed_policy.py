@@ -232,7 +232,7 @@ def get_managed_policy(policy_arn: Optional[_builtins.str] = None,
         roles=pulumi.get(__ret__, 'roles'),
         update_date=pulumi.get(__ret__, 'update_date'),
         users=pulumi.get(__ret__, 'users'))
-def get_managed_policy_output(policy_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_managed_policy_output(policy_arn: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedPolicyResult]:
     """
     Creates a new managed policy for your AWS-account.

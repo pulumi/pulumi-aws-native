@@ -100,7 +100,7 @@ def get_access_grants_location(access_grants_location_id: Optional[_builtins.str
         access_grants_location_id=pulumi.get(__ret__, 'access_grants_location_id'),
         iam_role_arn=pulumi.get(__ret__, 'iam_role_arn'),
         location_scope=pulumi.get(__ret__, 'location_scope'))
-def get_access_grants_location_output(access_grants_location_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_access_grants_location_output(access_grants_location_id: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccessGrantsLocationResult]:
     """
     The AWS::S3::AccessGrantsLocation resource is an Amazon S3 resource type hosted in an access grants instance which can be the target of S3 access grants.

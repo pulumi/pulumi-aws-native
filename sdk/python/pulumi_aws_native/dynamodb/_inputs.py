@@ -180,7 +180,7 @@ class GlobalTableCapacityAutoScalingSettingsArgsDict(TypedDict):
     """
     Defines a target tracking scaling policy.
     """
-    seed_capacity: NotRequired[pulumi.Input[_builtins.int]]
+    seed_capacity: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     When switching billing mode from `PAY_PER_REQUEST` to `PROVISIONED` , DynamoDB requires you to specify read and write capacity unit values for the table and for each global secondary index. These values will be applied to all replicas. The table will use these provisioned values until CloudFormation creates the autoscaling policies you configured in your template. CloudFormation cannot determine what capacity the table and its global secondary indexes will require in this time period, since they are application-dependent.
 
@@ -195,7 +195,7 @@ class GlobalTableCapacityAutoScalingSettingsArgs:
                  max_capacity: pulumi.Input[_builtins.int],
                  min_capacity: pulumi.Input[_builtins.int],
                  target_tracking_scaling_policy_configuration: pulumi.Input['GlobalTableTargetTrackingScalingPolicyConfigurationArgs'],
-                 seed_capacity: Optional[pulumi.Input[_builtins.int]] = None):
+                 seed_capacity: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] max_capacity: The maximum provisioned capacity units for the global table.
         :param pulumi.Input[_builtins.int] min_capacity: The minimum provisioned capacity units for the global table.
@@ -250,7 +250,7 @@ class GlobalTableCapacityAutoScalingSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="seedCapacity")
-    def seed_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def seed_capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         When switching billing mode from `PAY_PER_REQUEST` to `PROVISIONED` , DynamoDB requires you to specify read and write capacity unit values for the table and for each global secondary index. These values will be applied to all replicas. The table will use these provisioned values until CloudFormation creates the autoscaling policies you configured in your template. CloudFormation cannot determine what capacity the table and its global secondary indexes will require in this time period, since they are application-dependent.
 
@@ -261,7 +261,7 @@ class GlobalTableCapacityAutoScalingSettingsArgs:
         return pulumi.get(self, "seed_capacity")
 
     @seed_capacity.setter
-    def seed_capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def seed_capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "seed_capacity", value)
 
 
@@ -270,7 +270,7 @@ class GlobalTableContributorInsightsSpecificationArgsDict(TypedDict):
     """
     Indicates whether CloudWatch Contributor Insights are to be enabled (true) or disabled (false).
     """
-    mode: NotRequired[pulumi.Input['GlobalTableContributorInsightsSpecificationMode']]
+    mode: NotRequired[pulumi.Input[Optional['GlobalTableContributorInsightsSpecificationMode']]]
     """
     Specifies the CloudWatch Contributor Insights mode for a global table. Valid values are `ACCESSED_AND_THROTTLED_KEYS` (tracks all access and throttled events) or `THROTTLED_KEYS` (tracks only throttled events). This setting determines what type of contributor insights data is collected for the global table.
     """
@@ -279,7 +279,7 @@ class GlobalTableContributorInsightsSpecificationArgsDict(TypedDict):
 class GlobalTableContributorInsightsSpecificationArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[_builtins.bool],
-                 mode: Optional[pulumi.Input['GlobalTableContributorInsightsSpecificationMode']] = None):
+                 mode: pulumi.Input[Optional['GlobalTableContributorInsightsSpecificationMode']] = None):
         """
         :param pulumi.Input[_builtins.bool] enabled: Indicates whether CloudWatch Contributor Insights are to be enabled (true) or disabled (false).
         :param pulumi.Input['GlobalTableContributorInsightsSpecificationMode'] mode: Specifies the CloudWatch Contributor Insights mode for a global table. Valid values are `ACCESSED_AND_THROTTLED_KEYS` (tracks all access and throttled events) or `THROTTLED_KEYS` (tracks only throttled events). This setting determines what type of contributor insights data is collected for the global table.
@@ -302,34 +302,34 @@ class GlobalTableContributorInsightsSpecificationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def mode(self) -> Optional[pulumi.Input['GlobalTableContributorInsightsSpecificationMode']]:
+    def mode(self) -> pulumi.Input[Optional['GlobalTableContributorInsightsSpecificationMode']]:
         """
         Specifies the CloudWatch Contributor Insights mode for a global table. Valid values are `ACCESSED_AND_THROTTLED_KEYS` (tracks all access and throttled events) or `THROTTLED_KEYS` (tracks only throttled events). This setting determines what type of contributor insights data is collected for the global table.
         """
         return pulumi.get(self, "mode")
 
     @mode.setter
-    def mode(self, value: Optional[pulumi.Input['GlobalTableContributorInsightsSpecificationMode']]):
+    def mode(self, value: pulumi.Input[Optional['GlobalTableContributorInsightsSpecificationMode']]):
         pulumi.set(self, "mode", value)
 
 
 class GlobalTableGlobalReadProvisionedThroughputSettingsArgsDict(TypedDict):
-    read_capacity_units: NotRequired[pulumi.Input[_builtins.int]]
+    read_capacity_units: NotRequired[pulumi.Input[Optional[_builtins.int]]]
 
 @pulumi.input_type
 class GlobalTableGlobalReadProvisionedThroughputSettingsArgs:
     def __init__(__self__, *,
-                 read_capacity_units: Optional[pulumi.Input[_builtins.int]] = None):
+                 read_capacity_units: pulumi.Input[Optional[_builtins.int]] = None):
         if read_capacity_units is not None:
             pulumi.set(__self__, "read_capacity_units", read_capacity_units)
 
     @_builtins.property
     @pulumi.getter(name="readCapacityUnits")
-    def read_capacity_units(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def read_capacity_units(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "read_capacity_units")
 
     @read_capacity_units.setter
-    def read_capacity_units(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def read_capacity_units(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "read_capacity_units", value)
 
 
@@ -353,17 +353,17 @@ class GlobalTableGlobalSecondaryIndexArgsDict(TypedDict):
     """
     Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
     """
-    read_on_demand_throughput_settings: NotRequired[pulumi.Input['GlobalTableReadOnDemandThroughputSettingsArgsDict']]
-    read_provisioned_throughput_settings: NotRequired[pulumi.Input['GlobalTableGlobalReadProvisionedThroughputSettingsArgsDict']]
-    warm_throughput: NotRequired[pulumi.Input['GlobalTableWarmThroughputArgsDict']]
+    read_on_demand_throughput_settings: NotRequired[pulumi.Input[Optional['GlobalTableReadOnDemandThroughputSettingsArgs']]]
+    read_provisioned_throughput_settings: NotRequired[pulumi.Input[Optional['GlobalTableGlobalReadProvisionedThroughputSettingsArgs']]]
+    warm_throughput: NotRequired[pulumi.Input[Optional['GlobalTableWarmThroughputArgs']]]
     """
     Represents the warm throughput value (in read units per second and write units per second) for the specified secondary index. If you use this parameter, you must specify `ReadUnitsPerSecond` , `WriteUnitsPerSecond` , or both.
     """
-    write_on_demand_throughput_settings: NotRequired[pulumi.Input['GlobalTableWriteOnDemandThroughputSettingsArgsDict']]
+    write_on_demand_throughput_settings: NotRequired[pulumi.Input[Optional['GlobalTableWriteOnDemandThroughputSettingsArgs']]]
     """
     Sets the write request settings for a global table or a global secondary index. You can only specify this setting if your resource uses the `PAY_PER_REQUEST` `BillingMode` .
     """
-    write_provisioned_throughput_settings: NotRequired[pulumi.Input['GlobalTableWriteProvisionedThroughputSettingsArgsDict']]
+    write_provisioned_throughput_settings: NotRequired[pulumi.Input[Optional['GlobalTableWriteProvisionedThroughputSettingsArgs']]]
     """
     Defines write capacity settings for the global secondary index. You must specify a value for this property if the table's `BillingMode` is `PROVISIONED` . All replicas will have the same write capacity settings for this global secondary index.
     """
@@ -374,11 +374,11 @@ class GlobalTableGlobalSecondaryIndexArgs:
                  index_name: pulumi.Input[_builtins.str],
                  key_schema: pulumi.Input[Sequence[pulumi.Input['GlobalTableKeySchemaArgs']]],
                  projection: pulumi.Input['GlobalTableProjectionArgs'],
-                 read_on_demand_throughput_settings: Optional[pulumi.Input['GlobalTableReadOnDemandThroughputSettingsArgs']] = None,
-                 read_provisioned_throughput_settings: Optional[pulumi.Input['GlobalTableGlobalReadProvisionedThroughputSettingsArgs']] = None,
-                 warm_throughput: Optional[pulumi.Input['GlobalTableWarmThroughputArgs']] = None,
-                 write_on_demand_throughput_settings: Optional[pulumi.Input['GlobalTableWriteOnDemandThroughputSettingsArgs']] = None,
-                 write_provisioned_throughput_settings: Optional[pulumi.Input['GlobalTableWriteProvisionedThroughputSettingsArgs']] = None):
+                 read_on_demand_throughput_settings: pulumi.Input[Optional['GlobalTableReadOnDemandThroughputSettingsArgs']] = None,
+                 read_provisioned_throughput_settings: pulumi.Input[Optional['GlobalTableGlobalReadProvisionedThroughputSettingsArgs']] = None,
+                 warm_throughput: pulumi.Input[Optional['GlobalTableWarmThroughputArgs']] = None,
+                 write_on_demand_throughput_settings: pulumi.Input[Optional['GlobalTableWriteOnDemandThroughputSettingsArgs']] = None,
+                 write_provisioned_throughput_settings: pulumi.Input[Optional['GlobalTableWriteProvisionedThroughputSettingsArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] index_name: The name of the global secondary index. The name must be unique among all other indexes on this table.
         :param pulumi.Input[Sequence[pulumi.Input['GlobalTableKeySchemaArgs']]] key_schema: The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:
@@ -453,56 +453,56 @@ class GlobalTableGlobalSecondaryIndexArgs:
 
     @_builtins.property
     @pulumi.getter(name="readOnDemandThroughputSettings")
-    def read_on_demand_throughput_settings(self) -> Optional[pulumi.Input['GlobalTableReadOnDemandThroughputSettingsArgs']]:
+    def read_on_demand_throughput_settings(self) -> pulumi.Input[Optional['GlobalTableReadOnDemandThroughputSettingsArgs']]:
         return pulumi.get(self, "read_on_demand_throughput_settings")
 
     @read_on_demand_throughput_settings.setter
-    def read_on_demand_throughput_settings(self, value: Optional[pulumi.Input['GlobalTableReadOnDemandThroughputSettingsArgs']]):
+    def read_on_demand_throughput_settings(self, value: pulumi.Input[Optional['GlobalTableReadOnDemandThroughputSettingsArgs']]):
         pulumi.set(self, "read_on_demand_throughput_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="readProvisionedThroughputSettings")
-    def read_provisioned_throughput_settings(self) -> Optional[pulumi.Input['GlobalTableGlobalReadProvisionedThroughputSettingsArgs']]:
+    def read_provisioned_throughput_settings(self) -> pulumi.Input[Optional['GlobalTableGlobalReadProvisionedThroughputSettingsArgs']]:
         return pulumi.get(self, "read_provisioned_throughput_settings")
 
     @read_provisioned_throughput_settings.setter
-    def read_provisioned_throughput_settings(self, value: Optional[pulumi.Input['GlobalTableGlobalReadProvisionedThroughputSettingsArgs']]):
+    def read_provisioned_throughput_settings(self, value: pulumi.Input[Optional['GlobalTableGlobalReadProvisionedThroughputSettingsArgs']]):
         pulumi.set(self, "read_provisioned_throughput_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="warmThroughput")
-    def warm_throughput(self) -> Optional[pulumi.Input['GlobalTableWarmThroughputArgs']]:
+    def warm_throughput(self) -> pulumi.Input[Optional['GlobalTableWarmThroughputArgs']]:
         """
         Represents the warm throughput value (in read units per second and write units per second) for the specified secondary index. If you use this parameter, you must specify `ReadUnitsPerSecond` , `WriteUnitsPerSecond` , or both.
         """
         return pulumi.get(self, "warm_throughput")
 
     @warm_throughput.setter
-    def warm_throughput(self, value: Optional[pulumi.Input['GlobalTableWarmThroughputArgs']]):
+    def warm_throughput(self, value: pulumi.Input[Optional['GlobalTableWarmThroughputArgs']]):
         pulumi.set(self, "warm_throughput", value)
 
     @_builtins.property
     @pulumi.getter(name="writeOnDemandThroughputSettings")
-    def write_on_demand_throughput_settings(self) -> Optional[pulumi.Input['GlobalTableWriteOnDemandThroughputSettingsArgs']]:
+    def write_on_demand_throughput_settings(self) -> pulumi.Input[Optional['GlobalTableWriteOnDemandThroughputSettingsArgs']]:
         """
         Sets the write request settings for a global table or a global secondary index. You can only specify this setting if your resource uses the `PAY_PER_REQUEST` `BillingMode` .
         """
         return pulumi.get(self, "write_on_demand_throughput_settings")
 
     @write_on_demand_throughput_settings.setter
-    def write_on_demand_throughput_settings(self, value: Optional[pulumi.Input['GlobalTableWriteOnDemandThroughputSettingsArgs']]):
+    def write_on_demand_throughput_settings(self, value: pulumi.Input[Optional['GlobalTableWriteOnDemandThroughputSettingsArgs']]):
         pulumi.set(self, "write_on_demand_throughput_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="writeProvisionedThroughputSettings")
-    def write_provisioned_throughput_settings(self) -> Optional[pulumi.Input['GlobalTableWriteProvisionedThroughputSettingsArgs']]:
+    def write_provisioned_throughput_settings(self) -> pulumi.Input[Optional['GlobalTableWriteProvisionedThroughputSettingsArgs']]:
         """
         Defines write capacity settings for the global secondary index. You must specify a value for this property if the table's `BillingMode` is `PROVISIONED` . All replicas will have the same write capacity settings for this global secondary index.
         """
         return pulumi.get(self, "write_provisioned_throughput_settings")
 
     @write_provisioned_throughput_settings.setter
-    def write_provisioned_throughput_settings(self, value: Optional[pulumi.Input['GlobalTableWriteProvisionedThroughputSettingsArgs']]):
+    def write_provisioned_throughput_settings(self, value: pulumi.Input[Optional['GlobalTableWriteProvisionedThroughputSettingsArgs']]):
         pulumi.set(self, "write_provisioned_throughput_settings", value)
 
 
@@ -579,7 +579,7 @@ class GlobalTableKinesisStreamSpecificationArgsDict(TypedDict):
     """
     The ARN for a specific Kinesis data stream.
     """
-    approximate_creation_date_time_precision: NotRequired[pulumi.Input['GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecision']]
+    approximate_creation_date_time_precision: NotRequired[pulumi.Input[Optional['GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecision']]]
     """
     The precision for the time and date that the stream was created.
     """
@@ -588,7 +588,7 @@ class GlobalTableKinesisStreamSpecificationArgsDict(TypedDict):
 class GlobalTableKinesisStreamSpecificationArgs:
     def __init__(__self__, *,
                  stream_arn: pulumi.Input[_builtins.str],
-                 approximate_creation_date_time_precision: Optional[pulumi.Input['GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecision']] = None):
+                 approximate_creation_date_time_precision: pulumi.Input[Optional['GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecision']] = None):
         """
         :param pulumi.Input[_builtins.str] stream_arn: The ARN for a specific Kinesis data stream.
         :param pulumi.Input['GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecision'] approximate_creation_date_time_precision: The precision for the time and date that the stream was created.
@@ -611,14 +611,14 @@ class GlobalTableKinesisStreamSpecificationArgs:
 
     @_builtins.property
     @pulumi.getter(name="approximateCreationDateTimePrecision")
-    def approximate_creation_date_time_precision(self) -> Optional[pulumi.Input['GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecision']]:
+    def approximate_creation_date_time_precision(self) -> pulumi.Input[Optional['GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecision']]:
         """
         The precision for the time and date that the stream was created.
         """
         return pulumi.get(self, "approximate_creation_date_time_precision")
 
     @approximate_creation_date_time_precision.setter
-    def approximate_creation_date_time_precision(self, value: Optional[pulumi.Input['GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecision']]):
+    def approximate_creation_date_time_precision(self, value: pulumi.Input[Optional['GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecision']]):
         pulumi.set(self, "approximate_creation_date_time_precision", value)
 
 
@@ -710,11 +710,11 @@ class GlobalTableLocalSecondaryIndexArgs:
 
 
 class GlobalTablePointInTimeRecoverySpecificationArgsDict(TypedDict):
-    point_in_time_recovery_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    point_in_time_recovery_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether point in time recovery is enabled (true) or disabled (false) on the table.
     """
-    recovery_period_in_days: NotRequired[pulumi.Input[_builtins.int]]
+    recovery_period_in_days: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The number of preceding days for which continuous backups are taken and maintained. Your table data is only recoverable to any point-in-time from within the configured recovery period. This parameter is optional. If no value is provided, the value will default to 35.
     """
@@ -722,8 +722,8 @@ class GlobalTablePointInTimeRecoverySpecificationArgsDict(TypedDict):
 @pulumi.input_type
 class GlobalTablePointInTimeRecoverySpecificationArgs:
     def __init__(__self__, *,
-                 point_in_time_recovery_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 recovery_period_in_days: Optional[pulumi.Input[_builtins.int]] = None):
+                 point_in_time_recovery_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 recovery_period_in_days: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.bool] point_in_time_recovery_enabled: Indicates whether point in time recovery is enabled (true) or disabled (false) on the table.
         :param pulumi.Input[_builtins.int] recovery_period_in_days: The number of preceding days for which continuous backups are taken and maintained. Your table data is only recoverable to any point-in-time from within the configured recovery period. This parameter is optional. If no value is provided, the value will default to 35.
@@ -735,37 +735,37 @@ class GlobalTablePointInTimeRecoverySpecificationArgs:
 
     @_builtins.property
     @pulumi.getter(name="pointInTimeRecoveryEnabled")
-    def point_in_time_recovery_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def point_in_time_recovery_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether point in time recovery is enabled (true) or disabled (false) on the table.
         """
         return pulumi.get(self, "point_in_time_recovery_enabled")
 
     @point_in_time_recovery_enabled.setter
-    def point_in_time_recovery_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def point_in_time_recovery_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "point_in_time_recovery_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="recoveryPeriodInDays")
-    def recovery_period_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def recovery_period_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of preceding days for which continuous backups are taken and maintained. Your table data is only recoverable to any point-in-time from within the configured recovery period. This parameter is optional. If no value is provided, the value will default to 35.
         """
         return pulumi.get(self, "recovery_period_in_days")
 
     @recovery_period_in_days.setter
-    def recovery_period_in_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def recovery_period_in_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "recovery_period_in_days", value)
 
 
 class GlobalTableProjectionArgsDict(TypedDict):
-    non_key_attributes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    non_key_attributes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Represents the non-key attribute names which will be projected into the index.
 
     For global and local secondary indexes, the total count of `NonKeyAttributes` summed across all of the secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total. This limit only applies when you specify the ProjectionType of `INCLUDE` . You still can specify the ProjectionType of `ALL` to project all attributes from the source table, even if the table has more than 100 attributes.
     """
-    projection_type: NotRequired[pulumi.Input[_builtins.str]]
+    projection_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The set of attributes that are projected into the index:
 
@@ -779,8 +779,8 @@ class GlobalTableProjectionArgsDict(TypedDict):
 @pulumi.input_type
 class GlobalTableProjectionArgs:
     def __init__(__self__, *,
-                 non_key_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 projection_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 non_key_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 projection_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] non_key_attributes: Represents the non-key attribute names which will be projected into the index.
                
@@ -800,7 +800,7 @@ class GlobalTableProjectionArgs:
 
     @_builtins.property
     @pulumi.getter(name="nonKeyAttributes")
-    def non_key_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def non_key_attributes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Represents the non-key attribute names which will be projected into the index.
 
@@ -809,12 +809,12 @@ class GlobalTableProjectionArgs:
         return pulumi.get(self, "non_key_attributes")
 
     @non_key_attributes.setter
-    def non_key_attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def non_key_attributes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "non_key_attributes", value)
 
     @_builtins.property
     @pulumi.getter(name="projectionType")
-    def projection_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def projection_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The set of attributes that are projected into the index:
 
@@ -827,12 +827,12 @@ class GlobalTableProjectionArgs:
         return pulumi.get(self, "projection_type")
 
     @projection_type.setter
-    def projection_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def projection_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "projection_type", value)
 
 
 class GlobalTableReadOnDemandThroughputSettingsArgsDict(TypedDict):
-    max_read_request_units: NotRequired[pulumi.Input[_builtins.int]]
+    max_read_request_units: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Maximum number of read request units for the specified replica of a global table.
     """
@@ -840,7 +840,7 @@ class GlobalTableReadOnDemandThroughputSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class GlobalTableReadOnDemandThroughputSettingsArgs:
     def __init__(__self__, *,
-                 max_read_request_units: Optional[pulumi.Input[_builtins.int]] = None):
+                 max_read_request_units: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] max_read_request_units: Maximum number of read request units for the specified replica of a global table.
         """
@@ -849,23 +849,23 @@ class GlobalTableReadOnDemandThroughputSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="maxReadRequestUnits")
-    def max_read_request_units(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_read_request_units(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum number of read request units for the specified replica of a global table.
         """
         return pulumi.get(self, "max_read_request_units")
 
     @max_read_request_units.setter
-    def max_read_request_units(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_read_request_units(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_read_request_units", value)
 
 
 class GlobalTableReadProvisionedThroughputSettingsArgsDict(TypedDict):
-    read_capacity_auto_scaling_settings: NotRequired[pulumi.Input['GlobalTableCapacityAutoScalingSettingsArgsDict']]
+    read_capacity_auto_scaling_settings: NotRequired[pulumi.Input[Optional['GlobalTableCapacityAutoScalingSettingsArgs']]]
     """
     Specifies auto scaling settings for the replica table or global secondary index.
     """
-    read_capacity_units: NotRequired[pulumi.Input[_builtins.int]]
+    read_capacity_units: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies a fixed read capacity for the replica table or global secondary index.
     """
@@ -873,8 +873,8 @@ class GlobalTableReadProvisionedThroughputSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class GlobalTableReadProvisionedThroughputSettingsArgs:
     def __init__(__self__, *,
-                 read_capacity_auto_scaling_settings: Optional[pulumi.Input['GlobalTableCapacityAutoScalingSettingsArgs']] = None,
-                 read_capacity_units: Optional[pulumi.Input[_builtins.int]] = None):
+                 read_capacity_auto_scaling_settings: pulumi.Input[Optional['GlobalTableCapacityAutoScalingSettingsArgs']] = None,
+                 read_capacity_units: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input['GlobalTableCapacityAutoScalingSettingsArgs'] read_capacity_auto_scaling_settings: Specifies auto scaling settings for the replica table or global secondary index.
         :param pulumi.Input[_builtins.int] read_capacity_units: Specifies a fixed read capacity for the replica table or global secondary index.
@@ -886,26 +886,26 @@ class GlobalTableReadProvisionedThroughputSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="readCapacityAutoScalingSettings")
-    def read_capacity_auto_scaling_settings(self) -> Optional[pulumi.Input['GlobalTableCapacityAutoScalingSettingsArgs']]:
+    def read_capacity_auto_scaling_settings(self) -> pulumi.Input[Optional['GlobalTableCapacityAutoScalingSettingsArgs']]:
         """
         Specifies auto scaling settings for the replica table or global secondary index.
         """
         return pulumi.get(self, "read_capacity_auto_scaling_settings")
 
     @read_capacity_auto_scaling_settings.setter
-    def read_capacity_auto_scaling_settings(self, value: Optional[pulumi.Input['GlobalTableCapacityAutoScalingSettingsArgs']]):
+    def read_capacity_auto_scaling_settings(self, value: pulumi.Input[Optional['GlobalTableCapacityAutoScalingSettingsArgs']]):
         pulumi.set(self, "read_capacity_auto_scaling_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="readCapacityUnits")
-    def read_capacity_units(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def read_capacity_units(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies a fixed read capacity for the replica table or global secondary index.
         """
         return pulumi.get(self, "read_capacity_units")
 
     @read_capacity_units.setter
-    def read_capacity_units(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def read_capacity_units(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "read_capacity_units", value)
 
 
@@ -914,15 +914,15 @@ class GlobalTableReplicaGlobalSecondaryIndexSpecificationArgsDict(TypedDict):
     """
     The name of the global secondary index. The name must be unique among all other indexes on this table.
     """
-    contributor_insights_specification: NotRequired[pulumi.Input['GlobalTableContributorInsightsSpecificationArgsDict']]
+    contributor_insights_specification: NotRequired[pulumi.Input[Optional['GlobalTableContributorInsightsSpecificationArgs']]]
     """
     Updates the status for contributor insights for a specific table or index. CloudWatch Contributor Insights for DynamoDB graphs display the partition key and (if applicable) sort key of frequently accessed items and frequently throttled items in plaintext. If you require the use of AWS Key Management Service (KMS) to encrypt this table’s partition key and sort key data with an AWS managed key or customer managed key, you should not enable CloudWatch Contributor Insights for DynamoDB for this table.
     """
-    read_on_demand_throughput_settings: NotRequired[pulumi.Input['GlobalTableReadOnDemandThroughputSettingsArgsDict']]
+    read_on_demand_throughput_settings: NotRequired[pulumi.Input[Optional['GlobalTableReadOnDemandThroughputSettingsArgs']]]
     """
     Sets the read request settings for a replica global secondary index. You can only specify this setting if your resource uses the `PAY_PER_REQUEST` `BillingMode` .
     """
-    read_provisioned_throughput_settings: NotRequired[pulumi.Input['GlobalTableReadProvisionedThroughputSettingsArgsDict']]
+    read_provisioned_throughput_settings: NotRequired[pulumi.Input[Optional['GlobalTableReadProvisionedThroughputSettingsArgs']]]
     """
     Allows you to specify the read capacity settings for a replica global secondary index when the `BillingMode` is set to `PROVISIONED` .
     """
@@ -931,9 +931,9 @@ class GlobalTableReplicaGlobalSecondaryIndexSpecificationArgsDict(TypedDict):
 class GlobalTableReplicaGlobalSecondaryIndexSpecificationArgs:
     def __init__(__self__, *,
                  index_name: pulumi.Input[_builtins.str],
-                 contributor_insights_specification: Optional[pulumi.Input['GlobalTableContributorInsightsSpecificationArgs']] = None,
-                 read_on_demand_throughput_settings: Optional[pulumi.Input['GlobalTableReadOnDemandThroughputSettingsArgs']] = None,
-                 read_provisioned_throughput_settings: Optional[pulumi.Input['GlobalTableReadProvisionedThroughputSettingsArgs']] = None):
+                 contributor_insights_specification: pulumi.Input[Optional['GlobalTableContributorInsightsSpecificationArgs']] = None,
+                 read_on_demand_throughput_settings: pulumi.Input[Optional['GlobalTableReadOnDemandThroughputSettingsArgs']] = None,
+                 read_provisioned_throughput_settings: pulumi.Input[Optional['GlobalTableReadProvisionedThroughputSettingsArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] index_name: The name of the global secondary index. The name must be unique among all other indexes on this table.
         :param pulumi.Input['GlobalTableContributorInsightsSpecificationArgs'] contributor_insights_specification: Updates the status for contributor insights for a specific table or index. CloudWatch Contributor Insights for DynamoDB graphs display the partition key and (if applicable) sort key of frequently accessed items and frequently throttled items in plaintext. If you require the use of AWS Key Management Service (KMS) to encrypt this table’s partition key and sort key data with an AWS managed key or customer managed key, you should not enable CloudWatch Contributor Insights for DynamoDB for this table.
@@ -962,38 +962,38 @@ class GlobalTableReplicaGlobalSecondaryIndexSpecificationArgs:
 
     @_builtins.property
     @pulumi.getter(name="contributorInsightsSpecification")
-    def contributor_insights_specification(self) -> Optional[pulumi.Input['GlobalTableContributorInsightsSpecificationArgs']]:
+    def contributor_insights_specification(self) -> pulumi.Input[Optional['GlobalTableContributorInsightsSpecificationArgs']]:
         """
         Updates the status for contributor insights for a specific table or index. CloudWatch Contributor Insights for DynamoDB graphs display the partition key and (if applicable) sort key of frequently accessed items and frequently throttled items in plaintext. If you require the use of AWS Key Management Service (KMS) to encrypt this table’s partition key and sort key data with an AWS managed key or customer managed key, you should not enable CloudWatch Contributor Insights for DynamoDB for this table.
         """
         return pulumi.get(self, "contributor_insights_specification")
 
     @contributor_insights_specification.setter
-    def contributor_insights_specification(self, value: Optional[pulumi.Input['GlobalTableContributorInsightsSpecificationArgs']]):
+    def contributor_insights_specification(self, value: pulumi.Input[Optional['GlobalTableContributorInsightsSpecificationArgs']]):
         pulumi.set(self, "contributor_insights_specification", value)
 
     @_builtins.property
     @pulumi.getter(name="readOnDemandThroughputSettings")
-    def read_on_demand_throughput_settings(self) -> Optional[pulumi.Input['GlobalTableReadOnDemandThroughputSettingsArgs']]:
+    def read_on_demand_throughput_settings(self) -> pulumi.Input[Optional['GlobalTableReadOnDemandThroughputSettingsArgs']]:
         """
         Sets the read request settings for a replica global secondary index. You can only specify this setting if your resource uses the `PAY_PER_REQUEST` `BillingMode` .
         """
         return pulumi.get(self, "read_on_demand_throughput_settings")
 
     @read_on_demand_throughput_settings.setter
-    def read_on_demand_throughput_settings(self, value: Optional[pulumi.Input['GlobalTableReadOnDemandThroughputSettingsArgs']]):
+    def read_on_demand_throughput_settings(self, value: pulumi.Input[Optional['GlobalTableReadOnDemandThroughputSettingsArgs']]):
         pulumi.set(self, "read_on_demand_throughput_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="readProvisionedThroughputSettings")
-    def read_provisioned_throughput_settings(self) -> Optional[pulumi.Input['GlobalTableReadProvisionedThroughputSettingsArgs']]:
+    def read_provisioned_throughput_settings(self) -> pulumi.Input[Optional['GlobalTableReadProvisionedThroughputSettingsArgs']]:
         """
         Allows you to specify the read capacity settings for a replica global secondary index when the `BillingMode` is set to `PROVISIONED` .
         """
         return pulumi.get(self, "read_provisioned_throughput_settings")
 
     @read_provisioned_throughput_settings.setter
-    def read_provisioned_throughput_settings(self, value: Optional[pulumi.Input['GlobalTableReadProvisionedThroughputSettingsArgs']]):
+    def read_provisioned_throughput_settings(self, value: pulumi.Input[Optional['GlobalTableReadProvisionedThroughputSettingsArgs']]):
         pulumi.set(self, "read_provisioned_throughput_settings", value)
 
 
@@ -1002,54 +1002,54 @@ class GlobalTableReplicaSpecificationArgsDict(TypedDict):
     """
     The region in which this replica exists.
     """
-    contributor_insights_specification: NotRequired[pulumi.Input['GlobalTableContributorInsightsSpecificationArgsDict']]
+    contributor_insights_specification: NotRequired[pulumi.Input[Optional['GlobalTableContributorInsightsSpecificationArgs']]]
     """
     The settings used to enable or disable CloudWatch Contributor Insights for the specified replica. When not specified, defaults to contributor insights disabled for the replica.
     """
-    deletion_protection_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    deletion_protection_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Determines if a replica is protected from deletion. When enabled, the table cannot be deleted by any user or process. This setting is disabled by default. For more information, see [Using deletion protection](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.Basics.html#WorkingWithTables.Basics.DeletionProtection) in the *Amazon DynamoDB Developer Guide* .
     """
-    global_secondary_indexes: NotRequired[pulumi.Input[Sequence[pulumi.Input['GlobalTableReplicaGlobalSecondaryIndexSpecificationArgsDict']]]]
+    global_secondary_indexes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['GlobalTableReplicaGlobalSecondaryIndexSpecificationArgs']]]]]
     """
     Defines additional settings for the global secondary indexes of this replica.
     """
-    global_table_settings_replication_mode: NotRequired[pulumi.Input['GlobalTableReplicaSpecificationGlobalTableSettingsReplicationMode']]
-    kinesis_stream_specification: NotRequired[pulumi.Input['GlobalTableKinesisStreamSpecificationArgsDict']]
+    global_table_settings_replication_mode: NotRequired[pulumi.Input[Optional['GlobalTableReplicaSpecificationGlobalTableSettingsReplicationMode']]]
+    kinesis_stream_specification: NotRequired[pulumi.Input[Optional['GlobalTableKinesisStreamSpecificationArgs']]]
     """
     Defines the Kinesis Data Streams configuration for the specified replica.
     """
-    point_in_time_recovery_specification: NotRequired[pulumi.Input['GlobalTablePointInTimeRecoverySpecificationArgsDict']]
+    point_in_time_recovery_specification: NotRequired[pulumi.Input[Optional['GlobalTablePointInTimeRecoverySpecificationArgs']]]
     """
     The settings used to enable point in time recovery. When not specified, defaults to point in time recovery disabled for the replica.
     """
-    read_on_demand_throughput_settings: NotRequired[pulumi.Input['GlobalTableReadOnDemandThroughputSettingsArgsDict']]
+    read_on_demand_throughput_settings: NotRequired[pulumi.Input[Optional['GlobalTableReadOnDemandThroughputSettingsArgs']]]
     """
     Sets read request settings for the replica table.
     """
-    read_provisioned_throughput_settings: NotRequired[pulumi.Input['GlobalTableReadProvisionedThroughputSettingsArgsDict']]
+    read_provisioned_throughput_settings: NotRequired[pulumi.Input[Optional['GlobalTableReadProvisionedThroughputSettingsArgs']]]
     """
     Defines read capacity settings for the replica table.
     """
-    replica_stream_specification: NotRequired[pulumi.Input['GlobalTableReplicaStreamSpecificationArgsDict']]
+    replica_stream_specification: NotRequired[pulumi.Input[Optional['GlobalTableReplicaStreamSpecificationArgs']]]
     """
     Represents the DynamoDB Streams configuration for a global table replica.
     """
-    resource_policy: NotRequired[pulumi.Input['GlobalTableResourcePolicyArgsDict']]
+    resource_policy: NotRequired[pulumi.Input[Optional['GlobalTableResourcePolicyArgs']]]
     """
     A resource-based policy document that contains permissions to add to the specified replica of a DynamoDB global table. Resource-based policies let you define access permissions by specifying who has access to each resource, and the actions they are allowed to perform on each resource.
 
     In a CloudFormation template, you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to DynamoDB . For more information about resource-based policies, see [Using resource-based policies for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html) .
     """
-    sse_specification: NotRequired[pulumi.Input['GlobalTableReplicaSseSpecificationArgsDict']]
+    sse_specification: NotRequired[pulumi.Input[Optional['GlobalTableReplicaSseSpecificationArgs']]]
     """
     Allows you to specify a customer-managed key for the replica. When using customer-managed keys for server-side encryption, this property must have a value in all replicas.
     """
-    table_class: NotRequired[pulumi.Input[_builtins.str]]
+    table_class: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The table class of the specified table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS` .
     """
-    tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['GlobalTableTagArgsDict']]]]
+    tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['GlobalTableTagArgs']]]]]
     """
     An array of key-value pairs to apply to this replica.
 
@@ -1060,19 +1060,19 @@ class GlobalTableReplicaSpecificationArgsDict(TypedDict):
 class GlobalTableReplicaSpecificationArgs:
     def __init__(__self__, *,
                  region: pulumi.Input[_builtins.str],
-                 contributor_insights_specification: Optional[pulumi.Input['GlobalTableContributorInsightsSpecificationArgs']] = None,
-                 deletion_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 global_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableReplicaGlobalSecondaryIndexSpecificationArgs']]]] = None,
-                 global_table_settings_replication_mode: Optional[pulumi.Input['GlobalTableReplicaSpecificationGlobalTableSettingsReplicationMode']] = None,
-                 kinesis_stream_specification: Optional[pulumi.Input['GlobalTableKinesisStreamSpecificationArgs']] = None,
-                 point_in_time_recovery_specification: Optional[pulumi.Input['GlobalTablePointInTimeRecoverySpecificationArgs']] = None,
-                 read_on_demand_throughput_settings: Optional[pulumi.Input['GlobalTableReadOnDemandThroughputSettingsArgs']] = None,
-                 read_provisioned_throughput_settings: Optional[pulumi.Input['GlobalTableReadProvisionedThroughputSettingsArgs']] = None,
-                 replica_stream_specification: Optional[pulumi.Input['GlobalTableReplicaStreamSpecificationArgs']] = None,
-                 resource_policy: Optional[pulumi.Input['GlobalTableResourcePolicyArgs']] = None,
-                 sse_specification: Optional[pulumi.Input['GlobalTableReplicaSseSpecificationArgs']] = None,
-                 table_class: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableTagArgs']]]] = None):
+                 contributor_insights_specification: pulumi.Input[Optional['GlobalTableContributorInsightsSpecificationArgs']] = None,
+                 deletion_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 global_secondary_indexes: pulumi.Input[Optional[Sequence[pulumi.Input['GlobalTableReplicaGlobalSecondaryIndexSpecificationArgs']]]] = None,
+                 global_table_settings_replication_mode: pulumi.Input[Optional['GlobalTableReplicaSpecificationGlobalTableSettingsReplicationMode']] = None,
+                 kinesis_stream_specification: pulumi.Input[Optional['GlobalTableKinesisStreamSpecificationArgs']] = None,
+                 point_in_time_recovery_specification: pulumi.Input[Optional['GlobalTablePointInTimeRecoverySpecificationArgs']] = None,
+                 read_on_demand_throughput_settings: pulumi.Input[Optional['GlobalTableReadOnDemandThroughputSettingsArgs']] = None,
+                 read_provisioned_throughput_settings: pulumi.Input[Optional['GlobalTableReadProvisionedThroughputSettingsArgs']] = None,
+                 replica_stream_specification: pulumi.Input[Optional['GlobalTableReplicaStreamSpecificationArgs']] = None,
+                 resource_policy: pulumi.Input[Optional['GlobalTableResourcePolicyArgs']] = None,
+                 sse_specification: pulumi.Input[Optional['GlobalTableReplicaSseSpecificationArgs']] = None,
+                 table_class: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['GlobalTableTagArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] region: The region in which this replica exists.
         :param pulumi.Input['GlobalTableContributorInsightsSpecificationArgs'] contributor_insights_specification: The settings used to enable or disable CloudWatch Contributor Insights for the specified replica. When not specified, defaults to contributor insights disabled for the replica.
@@ -1134,112 +1134,112 @@ class GlobalTableReplicaSpecificationArgs:
 
     @_builtins.property
     @pulumi.getter(name="contributorInsightsSpecification")
-    def contributor_insights_specification(self) -> Optional[pulumi.Input['GlobalTableContributorInsightsSpecificationArgs']]:
+    def contributor_insights_specification(self) -> pulumi.Input[Optional['GlobalTableContributorInsightsSpecificationArgs']]:
         """
         The settings used to enable or disable CloudWatch Contributor Insights for the specified replica. When not specified, defaults to contributor insights disabled for the replica.
         """
         return pulumi.get(self, "contributor_insights_specification")
 
     @contributor_insights_specification.setter
-    def contributor_insights_specification(self, value: Optional[pulumi.Input['GlobalTableContributorInsightsSpecificationArgs']]):
+    def contributor_insights_specification(self, value: pulumi.Input[Optional['GlobalTableContributorInsightsSpecificationArgs']]):
         pulumi.set(self, "contributor_insights_specification", value)
 
     @_builtins.property
     @pulumi.getter(name="deletionProtectionEnabled")
-    def deletion_protection_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def deletion_protection_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Determines if a replica is protected from deletion. When enabled, the table cannot be deleted by any user or process. This setting is disabled by default. For more information, see [Using deletion protection](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.Basics.html#WorkingWithTables.Basics.DeletionProtection) in the *Amazon DynamoDB Developer Guide* .
         """
         return pulumi.get(self, "deletion_protection_enabled")
 
     @deletion_protection_enabled.setter
-    def deletion_protection_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def deletion_protection_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "deletion_protection_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="globalSecondaryIndexes")
-    def global_secondary_indexes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableReplicaGlobalSecondaryIndexSpecificationArgs']]]]:
+    def global_secondary_indexes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['GlobalTableReplicaGlobalSecondaryIndexSpecificationArgs']]]]:
         """
         Defines additional settings for the global secondary indexes of this replica.
         """
         return pulumi.get(self, "global_secondary_indexes")
 
     @global_secondary_indexes.setter
-    def global_secondary_indexes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableReplicaGlobalSecondaryIndexSpecificationArgs']]]]):
+    def global_secondary_indexes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['GlobalTableReplicaGlobalSecondaryIndexSpecificationArgs']]]]):
         pulumi.set(self, "global_secondary_indexes", value)
 
     @_builtins.property
     @pulumi.getter(name="globalTableSettingsReplicationMode")
-    def global_table_settings_replication_mode(self) -> Optional[pulumi.Input['GlobalTableReplicaSpecificationGlobalTableSettingsReplicationMode']]:
+    def global_table_settings_replication_mode(self) -> pulumi.Input[Optional['GlobalTableReplicaSpecificationGlobalTableSettingsReplicationMode']]:
         return pulumi.get(self, "global_table_settings_replication_mode")
 
     @global_table_settings_replication_mode.setter
-    def global_table_settings_replication_mode(self, value: Optional[pulumi.Input['GlobalTableReplicaSpecificationGlobalTableSettingsReplicationMode']]):
+    def global_table_settings_replication_mode(self, value: pulumi.Input[Optional['GlobalTableReplicaSpecificationGlobalTableSettingsReplicationMode']]):
         pulumi.set(self, "global_table_settings_replication_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="kinesisStreamSpecification")
-    def kinesis_stream_specification(self) -> Optional[pulumi.Input['GlobalTableKinesisStreamSpecificationArgs']]:
+    def kinesis_stream_specification(self) -> pulumi.Input[Optional['GlobalTableKinesisStreamSpecificationArgs']]:
         """
         Defines the Kinesis Data Streams configuration for the specified replica.
         """
         return pulumi.get(self, "kinesis_stream_specification")
 
     @kinesis_stream_specification.setter
-    def kinesis_stream_specification(self, value: Optional[pulumi.Input['GlobalTableKinesisStreamSpecificationArgs']]):
+    def kinesis_stream_specification(self, value: pulumi.Input[Optional['GlobalTableKinesisStreamSpecificationArgs']]):
         pulumi.set(self, "kinesis_stream_specification", value)
 
     @_builtins.property
     @pulumi.getter(name="pointInTimeRecoverySpecification")
-    def point_in_time_recovery_specification(self) -> Optional[pulumi.Input['GlobalTablePointInTimeRecoverySpecificationArgs']]:
+    def point_in_time_recovery_specification(self) -> pulumi.Input[Optional['GlobalTablePointInTimeRecoverySpecificationArgs']]:
         """
         The settings used to enable point in time recovery. When not specified, defaults to point in time recovery disabled for the replica.
         """
         return pulumi.get(self, "point_in_time_recovery_specification")
 
     @point_in_time_recovery_specification.setter
-    def point_in_time_recovery_specification(self, value: Optional[pulumi.Input['GlobalTablePointInTimeRecoverySpecificationArgs']]):
+    def point_in_time_recovery_specification(self, value: pulumi.Input[Optional['GlobalTablePointInTimeRecoverySpecificationArgs']]):
         pulumi.set(self, "point_in_time_recovery_specification", value)
 
     @_builtins.property
     @pulumi.getter(name="readOnDemandThroughputSettings")
-    def read_on_demand_throughput_settings(self) -> Optional[pulumi.Input['GlobalTableReadOnDemandThroughputSettingsArgs']]:
+    def read_on_demand_throughput_settings(self) -> pulumi.Input[Optional['GlobalTableReadOnDemandThroughputSettingsArgs']]:
         """
         Sets read request settings for the replica table.
         """
         return pulumi.get(self, "read_on_demand_throughput_settings")
 
     @read_on_demand_throughput_settings.setter
-    def read_on_demand_throughput_settings(self, value: Optional[pulumi.Input['GlobalTableReadOnDemandThroughputSettingsArgs']]):
+    def read_on_demand_throughput_settings(self, value: pulumi.Input[Optional['GlobalTableReadOnDemandThroughputSettingsArgs']]):
         pulumi.set(self, "read_on_demand_throughput_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="readProvisionedThroughputSettings")
-    def read_provisioned_throughput_settings(self) -> Optional[pulumi.Input['GlobalTableReadProvisionedThroughputSettingsArgs']]:
+    def read_provisioned_throughput_settings(self) -> pulumi.Input[Optional['GlobalTableReadProvisionedThroughputSettingsArgs']]:
         """
         Defines read capacity settings for the replica table.
         """
         return pulumi.get(self, "read_provisioned_throughput_settings")
 
     @read_provisioned_throughput_settings.setter
-    def read_provisioned_throughput_settings(self, value: Optional[pulumi.Input['GlobalTableReadProvisionedThroughputSettingsArgs']]):
+    def read_provisioned_throughput_settings(self, value: pulumi.Input[Optional['GlobalTableReadProvisionedThroughputSettingsArgs']]):
         pulumi.set(self, "read_provisioned_throughput_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="replicaStreamSpecification")
-    def replica_stream_specification(self) -> Optional[pulumi.Input['GlobalTableReplicaStreamSpecificationArgs']]:
+    def replica_stream_specification(self) -> pulumi.Input[Optional['GlobalTableReplicaStreamSpecificationArgs']]:
         """
         Represents the DynamoDB Streams configuration for a global table replica.
         """
         return pulumi.get(self, "replica_stream_specification")
 
     @replica_stream_specification.setter
-    def replica_stream_specification(self, value: Optional[pulumi.Input['GlobalTableReplicaStreamSpecificationArgs']]):
+    def replica_stream_specification(self, value: pulumi.Input[Optional['GlobalTableReplicaStreamSpecificationArgs']]):
         pulumi.set(self, "replica_stream_specification", value)
 
     @_builtins.property
     @pulumi.getter(name="resourcePolicy")
-    def resource_policy(self) -> Optional[pulumi.Input['GlobalTableResourcePolicyArgs']]:
+    def resource_policy(self) -> pulumi.Input[Optional['GlobalTableResourcePolicyArgs']]:
         """
         A resource-based policy document that contains permissions to add to the specified replica of a DynamoDB global table. Resource-based policies let you define access permissions by specifying who has access to each resource, and the actions they are allowed to perform on each resource.
 
@@ -1248,36 +1248,36 @@ class GlobalTableReplicaSpecificationArgs:
         return pulumi.get(self, "resource_policy")
 
     @resource_policy.setter
-    def resource_policy(self, value: Optional[pulumi.Input['GlobalTableResourcePolicyArgs']]):
+    def resource_policy(self, value: pulumi.Input[Optional['GlobalTableResourcePolicyArgs']]):
         pulumi.set(self, "resource_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="sseSpecification")
-    def sse_specification(self) -> Optional[pulumi.Input['GlobalTableReplicaSseSpecificationArgs']]:
+    def sse_specification(self) -> pulumi.Input[Optional['GlobalTableReplicaSseSpecificationArgs']]:
         """
         Allows you to specify a customer-managed key for the replica. When using customer-managed keys for server-side encryption, this property must have a value in all replicas.
         """
         return pulumi.get(self, "sse_specification")
 
     @sse_specification.setter
-    def sse_specification(self, value: Optional[pulumi.Input['GlobalTableReplicaSseSpecificationArgs']]):
+    def sse_specification(self, value: pulumi.Input[Optional['GlobalTableReplicaSseSpecificationArgs']]):
         pulumi.set(self, "sse_specification", value)
 
     @_builtins.property
     @pulumi.getter(name="tableClass")
-    def table_class(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def table_class(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The table class of the specified table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS` .
         """
         return pulumi.get(self, "table_class")
 
     @table_class.setter
-    def table_class(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def table_class(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "table_class", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableTagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['GlobalTableTagArgs']]]]:
         """
         An array of key-value pairs to apply to this replica.
 
@@ -1286,7 +1286,7 @@ class GlobalTableReplicaSpecificationArgs:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableTagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['GlobalTableTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -1391,7 +1391,7 @@ class GlobalTableSseSpecificationArgsDict(TypedDict):
     """
     Indicates whether server-side encryption is performed using an AWS managed key or an AWS owned key. If enabled (true), server-side encryption type is set to KMS and an AWS managed key is used ( AWS  charges apply). If disabled (false) or not specified,server-side encryption is set to an AWS owned key. If you choose to use KMS encryption, you can also use customer managed KMS keys by specifying them in the `ReplicaSpecification.SSESpecification` object. You cannot mix AWS managed and customer managed KMS keys.
     """
-    sse_type: NotRequired[pulumi.Input[_builtins.str]]
+    sse_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Server-side encryption type. The only supported value is:
 
@@ -1402,7 +1402,7 @@ class GlobalTableSseSpecificationArgsDict(TypedDict):
 class GlobalTableSseSpecificationArgs:
     def __init__(__self__, *,
                  sse_enabled: pulumi.Input[_builtins.bool],
-                 sse_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 sse_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.bool] sse_enabled: Indicates whether server-side encryption is performed using an AWS managed key or an AWS owned key. If enabled (true), server-side encryption type is set to KMS and an AWS managed key is used ( AWS  charges apply). If disabled (false) or not specified,server-side encryption is set to an AWS owned key. If you choose to use KMS encryption, you can also use customer managed KMS keys by specifying them in the `ReplicaSpecification.SSESpecification` object. You cannot mix AWS managed and customer managed KMS keys.
         :param pulumi.Input[_builtins.str] sse_type: Server-side encryption type. The only supported value is:
@@ -1427,7 +1427,7 @@ class GlobalTableSseSpecificationArgs:
 
     @_builtins.property
     @pulumi.getter(name="sseType")
-    def sse_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sse_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Server-side encryption type. The only supported value is:
 
@@ -1436,7 +1436,7 @@ class GlobalTableSseSpecificationArgs:
         return pulumi.get(self, "sse_type")
 
     @sse_type.setter
-    def sse_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sse_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sse_type", value)
 
 
@@ -1535,15 +1535,15 @@ class GlobalTableTargetTrackingScalingPolicyConfigurationArgsDict(TypedDict):
     """
     Defines a target value for the scaling policy.
     """
-    disable_scale_in: NotRequired[pulumi.Input[_builtins.bool]]
+    disable_scale_in: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether scale in by the target tracking scaling policy is disabled. The default value is `false` .
     """
-    scale_in_cooldown: NotRequired[pulumi.Input[_builtins.int]]
+    scale_in_cooldown: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The amount of time, in seconds, after a scale-in activity completes before another scale-in activity can start.
     """
-    scale_out_cooldown: NotRequired[pulumi.Input[_builtins.int]]
+    scale_out_cooldown: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The amount of time, in seconds, after a scale-out activity completes before another scale-out activity can start.
     """
@@ -1552,9 +1552,9 @@ class GlobalTableTargetTrackingScalingPolicyConfigurationArgsDict(TypedDict):
 class GlobalTableTargetTrackingScalingPolicyConfigurationArgs:
     def __init__(__self__, *,
                  target_value: pulumi.Input[_builtins.float],
-                 disable_scale_in: Optional[pulumi.Input[_builtins.bool]] = None,
-                 scale_in_cooldown: Optional[pulumi.Input[_builtins.int]] = None,
-                 scale_out_cooldown: Optional[pulumi.Input[_builtins.int]] = None):
+                 disable_scale_in: pulumi.Input[Optional[_builtins.bool]] = None,
+                 scale_in_cooldown: pulumi.Input[Optional[_builtins.int]] = None,
+                 scale_out_cooldown: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.float] target_value: Defines a target value for the scaling policy.
         :param pulumi.Input[_builtins.bool] disable_scale_in: Indicates whether scale in by the target tracking scaling policy is disabled. The default value is `false` .
@@ -1583,38 +1583,38 @@ class GlobalTableTargetTrackingScalingPolicyConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="disableScaleIn")
-    def disable_scale_in(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_scale_in(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether scale in by the target tracking scaling policy is disabled. The default value is `false` .
         """
         return pulumi.get(self, "disable_scale_in")
 
     @disable_scale_in.setter
-    def disable_scale_in(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_scale_in(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_scale_in", value)
 
     @_builtins.property
     @pulumi.getter(name="scaleInCooldown")
-    def scale_in_cooldown(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def scale_in_cooldown(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The amount of time, in seconds, after a scale-in activity completes before another scale-in activity can start.
         """
         return pulumi.get(self, "scale_in_cooldown")
 
     @scale_in_cooldown.setter
-    def scale_in_cooldown(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def scale_in_cooldown(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "scale_in_cooldown", value)
 
     @_builtins.property
     @pulumi.getter(name="scaleOutCooldown")
-    def scale_out_cooldown(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def scale_out_cooldown(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The amount of time, in seconds, after a scale-out activity completes before another scale-out activity can start.
         """
         return pulumi.get(self, "scale_out_cooldown")
 
     @scale_out_cooldown.setter
-    def scale_out_cooldown(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def scale_out_cooldown(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "scale_out_cooldown", value)
 
 
@@ -1623,7 +1623,7 @@ class GlobalTableTimeToLiveSpecificationArgsDict(TypedDict):
     """
     Indicates whether TTL is to be enabled (true) or disabled (false) on the table.
     """
-    attribute_name: NotRequired[pulumi.Input[_builtins.str]]
+    attribute_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the attribute used to store the expiration time for items in the table.
 
@@ -1634,7 +1634,7 @@ class GlobalTableTimeToLiveSpecificationArgsDict(TypedDict):
 class GlobalTableTimeToLiveSpecificationArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[_builtins.bool],
-                 attribute_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 attribute_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.bool] enabled: Indicates whether TTL is to be enabled (true) or disabled (false) on the table.
         :param pulumi.Input[_builtins.str] attribute_name: The name of the attribute used to store the expiration time for items in the table.
@@ -1659,7 +1659,7 @@ class GlobalTableTimeToLiveSpecificationArgs:
 
     @_builtins.property
     @pulumi.getter(name="attributeName")
-    def attribute_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def attribute_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the attribute used to store the expiration time for items in the table.
 
@@ -1668,16 +1668,16 @@ class GlobalTableTimeToLiveSpecificationArgs:
         return pulumi.get(self, "attribute_name")
 
     @attribute_name.setter
-    def attribute_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def attribute_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "attribute_name", value)
 
 
 class GlobalTableWarmThroughputArgsDict(TypedDict):
-    read_units_per_second: NotRequired[pulumi.Input[_builtins.int]]
+    read_units_per_second: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Represents the number of read operations your base table can instantaneously support.
     """
-    write_units_per_second: NotRequired[pulumi.Input[_builtins.int]]
+    write_units_per_second: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Represents the number of write operations your base table can instantaneously support.
     """
@@ -1685,8 +1685,8 @@ class GlobalTableWarmThroughputArgsDict(TypedDict):
 @pulumi.input_type
 class GlobalTableWarmThroughputArgs:
     def __init__(__self__, *,
-                 read_units_per_second: Optional[pulumi.Input[_builtins.int]] = None,
-                 write_units_per_second: Optional[pulumi.Input[_builtins.int]] = None):
+                 read_units_per_second: pulumi.Input[Optional[_builtins.int]] = None,
+                 write_units_per_second: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] read_units_per_second: Represents the number of read operations your base table can instantaneously support.
         :param pulumi.Input[_builtins.int] write_units_per_second: Represents the number of write operations your base table can instantaneously support.
@@ -1698,31 +1698,31 @@ class GlobalTableWarmThroughputArgs:
 
     @_builtins.property
     @pulumi.getter(name="readUnitsPerSecond")
-    def read_units_per_second(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def read_units_per_second(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Represents the number of read operations your base table can instantaneously support.
         """
         return pulumi.get(self, "read_units_per_second")
 
     @read_units_per_second.setter
-    def read_units_per_second(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def read_units_per_second(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "read_units_per_second", value)
 
     @_builtins.property
     @pulumi.getter(name="writeUnitsPerSecond")
-    def write_units_per_second(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def write_units_per_second(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Represents the number of write operations your base table can instantaneously support.
         """
         return pulumi.get(self, "write_units_per_second")
 
     @write_units_per_second.setter
-    def write_units_per_second(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def write_units_per_second(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "write_units_per_second", value)
 
 
 class GlobalTableWitnessArgsDict(TypedDict):
-    region: NotRequired[pulumi.Input[_builtins.str]]
+    region: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the AWS Region that serves as a witness for the MRSC global table.
     """
@@ -1730,7 +1730,7 @@ class GlobalTableWitnessArgsDict(TypedDict):
 @pulumi.input_type
 class GlobalTableWitnessArgs:
     def __init__(__self__, *,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] region: The name of the AWS Region that serves as a witness for the MRSC global table.
         """
@@ -1739,19 +1739,19 @@ class GlobalTableWitnessArgs:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the AWS Region that serves as a witness for the MRSC global table.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 class GlobalTableWriteOnDemandThroughputSettingsArgsDict(TypedDict):
-    max_write_request_units: NotRequired[pulumi.Input[_builtins.int]]
+    max_write_request_units: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Maximum number of write request settings for the specified replica of a global table.
     """
@@ -1759,7 +1759,7 @@ class GlobalTableWriteOnDemandThroughputSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class GlobalTableWriteOnDemandThroughputSettingsArgs:
     def __init__(__self__, *,
-                 max_write_request_units: Optional[pulumi.Input[_builtins.int]] = None):
+                 max_write_request_units: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] max_write_request_units: Maximum number of write request settings for the specified replica of a global table.
         """
@@ -1768,19 +1768,19 @@ class GlobalTableWriteOnDemandThroughputSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="maxWriteRequestUnits")
-    def max_write_request_units(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_write_request_units(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum number of write request settings for the specified replica of a global table.
         """
         return pulumi.get(self, "max_write_request_units")
 
     @max_write_request_units.setter
-    def max_write_request_units(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_write_request_units(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_write_request_units", value)
 
 
 class GlobalTableWriteProvisionedThroughputSettingsArgsDict(TypedDict):
-    write_capacity_auto_scaling_settings: NotRequired[pulumi.Input['GlobalTableCapacityAutoScalingSettingsArgsDict']]
+    write_capacity_auto_scaling_settings: NotRequired[pulumi.Input[Optional['GlobalTableCapacityAutoScalingSettingsArgs']]]
     """
     Specifies auto scaling settings for the replica table or global secondary index.
     """
@@ -1788,7 +1788,7 @@ class GlobalTableWriteProvisionedThroughputSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class GlobalTableWriteProvisionedThroughputSettingsArgs:
     def __init__(__self__, *,
-                 write_capacity_auto_scaling_settings: Optional[pulumi.Input['GlobalTableCapacityAutoScalingSettingsArgs']] = None):
+                 write_capacity_auto_scaling_settings: pulumi.Input[Optional['GlobalTableCapacityAutoScalingSettingsArgs']] = None):
         """
         :param pulumi.Input['GlobalTableCapacityAutoScalingSettingsArgs'] write_capacity_auto_scaling_settings: Specifies auto scaling settings for the replica table or global secondary index.
         """
@@ -1797,14 +1797,14 @@ class GlobalTableWriteProvisionedThroughputSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="writeCapacityAutoScalingSettings")
-    def write_capacity_auto_scaling_settings(self) -> Optional[pulumi.Input['GlobalTableCapacityAutoScalingSettingsArgs']]:
+    def write_capacity_auto_scaling_settings(self) -> pulumi.Input[Optional['GlobalTableCapacityAutoScalingSettingsArgs']]:
         """
         Specifies auto scaling settings for the replica table or global secondary index.
         """
         return pulumi.get(self, "write_capacity_auto_scaling_settings")
 
     @write_capacity_auto_scaling_settings.setter
-    def write_capacity_auto_scaling_settings(self, value: Optional[pulumi.Input['GlobalTableCapacityAutoScalingSettingsArgs']]):
+    def write_capacity_auto_scaling_settings(self, value: pulumi.Input[Optional['GlobalTableCapacityAutoScalingSettingsArgs']]):
         pulumi.set(self, "write_capacity_auto_scaling_settings", value)
 
 
@@ -1877,7 +1877,7 @@ class TableContributorInsightsSpecificationArgsDict(TypedDict):
     """
     Indicates whether CloudWatch Contributor Insights are to be enabled (true) or disabled (false).
     """
-    mode: NotRequired[pulumi.Input['TableContributorInsightsSpecificationMode']]
+    mode: NotRequired[pulumi.Input[Optional['TableContributorInsightsSpecificationMode']]]
     """
     Specifies the CloudWatch Contributor Insights mode for a table. Valid values are ``ACCESSED_AND_THROTTLED_KEYS`` (tracks all access and throttled events) or ``THROTTLED_KEYS`` (tracks only throttled events). This setting determines what type of contributor insights data is collected for the table.
     """
@@ -1886,7 +1886,7 @@ class TableContributorInsightsSpecificationArgsDict(TypedDict):
 class TableContributorInsightsSpecificationArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[_builtins.bool],
-                 mode: Optional[pulumi.Input['TableContributorInsightsSpecificationMode']] = None):
+                 mode: pulumi.Input[Optional['TableContributorInsightsSpecificationMode']] = None):
         """
         Configures contributor insights settings for a table or one of its indexes.
 
@@ -1911,14 +1911,14 @@ class TableContributorInsightsSpecificationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def mode(self) -> Optional[pulumi.Input['TableContributorInsightsSpecificationMode']]:
+    def mode(self) -> pulumi.Input[Optional['TableContributorInsightsSpecificationMode']]:
         """
         Specifies the CloudWatch Contributor Insights mode for a table. Valid values are ``ACCESSED_AND_THROTTLED_KEYS`` (tracks all access and throttled events) or ``THROTTLED_KEYS`` (tracks only throttled events). This setting determines what type of contributor insights data is collected for the table.
         """
         return pulumi.get(self, "mode")
 
     @mode.setter
-    def mode(self, value: Optional[pulumi.Input['TableContributorInsightsSpecificationMode']]):
+    def mode(self, value: pulumi.Input[Optional['TableContributorInsightsSpecificationMode']]):
         pulumi.set(self, "mode", value)
 
 
@@ -1926,11 +1926,11 @@ class TableCsvArgsDict(TypedDict):
     """
     The options for imported source files in CSV format. The values are Delimiter and HeaderList.
     """
-    delimiter: NotRequired[pulumi.Input[_builtins.str]]
+    delimiter: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The delimiter used for separating items in the CSV file being imported.
     """
-    header_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    header_list: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of the headers used to specify a common header for all source CSV files being imported. If this field is specified then the first line of each CSV file is treated as data instead of the header. If this field is not specified the the first line of each CSV file is treated as the header.
     """
@@ -1938,8 +1938,8 @@ class TableCsvArgsDict(TypedDict):
 @pulumi.input_type
 class TableCsvArgs:
     def __init__(__self__, *,
-                 delimiter: Optional[pulumi.Input[_builtins.str]] = None,
-                 header_list: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 delimiter: pulumi.Input[Optional[_builtins.str]] = None,
+                 header_list: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The options for imported source files in CSV format. The values are Delimiter and HeaderList.
 
@@ -1953,26 +1953,26 @@ class TableCsvArgs:
 
     @_builtins.property
     @pulumi.getter
-    def delimiter(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delimiter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The delimiter used for separating items in the CSV file being imported.
         """
         return pulumi.get(self, "delimiter")
 
     @delimiter.setter
-    def delimiter(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delimiter(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delimiter", value)
 
     @_builtins.property
     @pulumi.getter(name="headerList")
-    def header_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def header_list(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of the headers used to specify a common header for all source CSV files being imported. If this field is specified then the first line of each CSV file is treated as data instead of the header. If this field is not specified the the first line of each CSV file is treated as the header.
         """
         return pulumi.get(self, "header_list")
 
     @header_list.setter
-    def header_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def header_list(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "header_list", value)
 
 
@@ -1997,20 +1997,20 @@ class TableGlobalSecondaryIndexArgsDict(TypedDict):
     """
     Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
     """
-    contributor_insights_specification: NotRequired[pulumi.Input['TableContributorInsightsSpecificationArgsDict']]
+    contributor_insights_specification: NotRequired[pulumi.Input[Optional['TableContributorInsightsSpecificationArgs']]]
     """
     The settings used to specify whether to enable CloudWatch Contributor Insights for the global table and define which events to monitor.
     """
-    on_demand_throughput: NotRequired[pulumi.Input['TableOnDemandThroughputArgsDict']]
+    on_demand_throughput: NotRequired[pulumi.Input[Optional['TableOnDemandThroughputArgs']]]
     """
     The maximum number of read and write units for the specified global secondary index. If you use this parameter, you must specify ``MaxReadRequestUnits``, ``MaxWriteRequestUnits``, or both. You must use either ``OnDemandThroughput`` or ``ProvisionedThroughput`` based on your table's capacity mode.
     """
-    provisioned_throughput: NotRequired[pulumi.Input['TableProvisionedThroughputArgsDict']]
+    provisioned_throughput: NotRequired[pulumi.Input[Optional['TableProvisionedThroughputArgs']]]
     """
     Represents the provisioned throughput settings for the specified global secondary index. You must use either ``OnDemandThroughput`` or ``ProvisionedThroughput`` based on your table's capacity mode.
      For current minimum and maximum provisioned throughput values, see [Service, Account, and Table Quotas](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html) in the *Amazon DynamoDB Developer Guide*.
     """
-    warm_throughput: NotRequired[pulumi.Input['TableWarmThroughputArgsDict']]
+    warm_throughput: NotRequired[pulumi.Input[Optional['TableWarmThroughputArgs']]]
     """
     Represents the warm throughput value (in read units per second and write units per second) for the specified secondary index. If you use this parameter, you must specify ``ReadUnitsPerSecond``, ``WriteUnitsPerSecond``, or both.
     """
@@ -2021,10 +2021,10 @@ class TableGlobalSecondaryIndexArgs:
                  index_name: pulumi.Input[_builtins.str],
                  key_schema: pulumi.Input[Sequence[pulumi.Input['TableKeySchemaArgs']]],
                  projection: pulumi.Input['TableProjectionArgs'],
-                 contributor_insights_specification: Optional[pulumi.Input['TableContributorInsightsSpecificationArgs']] = None,
-                 on_demand_throughput: Optional[pulumi.Input['TableOnDemandThroughputArgs']] = None,
-                 provisioned_throughput: Optional[pulumi.Input['TableProvisionedThroughputArgs']] = None,
-                 warm_throughput: Optional[pulumi.Input['TableWarmThroughputArgs']] = None):
+                 contributor_insights_specification: pulumi.Input[Optional['TableContributorInsightsSpecificationArgs']] = None,
+                 on_demand_throughput: pulumi.Input[Optional['TableOnDemandThroughputArgs']] = None,
+                 provisioned_throughput: pulumi.Input[Optional['TableProvisionedThroughputArgs']] = None,
+                 warm_throughput: pulumi.Input[Optional['TableWarmThroughputArgs']] = None):
         """
         Represents the properties of a global secondary index.
 
@@ -2097,31 +2097,31 @@ class TableGlobalSecondaryIndexArgs:
 
     @_builtins.property
     @pulumi.getter(name="contributorInsightsSpecification")
-    def contributor_insights_specification(self) -> Optional[pulumi.Input['TableContributorInsightsSpecificationArgs']]:
+    def contributor_insights_specification(self) -> pulumi.Input[Optional['TableContributorInsightsSpecificationArgs']]:
         """
         The settings used to specify whether to enable CloudWatch Contributor Insights for the global table and define which events to monitor.
         """
         return pulumi.get(self, "contributor_insights_specification")
 
     @contributor_insights_specification.setter
-    def contributor_insights_specification(self, value: Optional[pulumi.Input['TableContributorInsightsSpecificationArgs']]):
+    def contributor_insights_specification(self, value: pulumi.Input[Optional['TableContributorInsightsSpecificationArgs']]):
         pulumi.set(self, "contributor_insights_specification", value)
 
     @_builtins.property
     @pulumi.getter(name="onDemandThroughput")
-    def on_demand_throughput(self) -> Optional[pulumi.Input['TableOnDemandThroughputArgs']]:
+    def on_demand_throughput(self) -> pulumi.Input[Optional['TableOnDemandThroughputArgs']]:
         """
         The maximum number of read and write units for the specified global secondary index. If you use this parameter, you must specify ``MaxReadRequestUnits``, ``MaxWriteRequestUnits``, or both. You must use either ``OnDemandThroughput`` or ``ProvisionedThroughput`` based on your table's capacity mode.
         """
         return pulumi.get(self, "on_demand_throughput")
 
     @on_demand_throughput.setter
-    def on_demand_throughput(self, value: Optional[pulumi.Input['TableOnDemandThroughputArgs']]):
+    def on_demand_throughput(self, value: pulumi.Input[Optional['TableOnDemandThroughputArgs']]):
         pulumi.set(self, "on_demand_throughput", value)
 
     @_builtins.property
     @pulumi.getter(name="provisionedThroughput")
-    def provisioned_throughput(self) -> Optional[pulumi.Input['TableProvisionedThroughputArgs']]:
+    def provisioned_throughput(self) -> pulumi.Input[Optional['TableProvisionedThroughputArgs']]:
         """
         Represents the provisioned throughput settings for the specified global secondary index. You must use either ``OnDemandThroughput`` or ``ProvisionedThroughput`` based on your table's capacity mode.
          For current minimum and maximum provisioned throughput values, see [Service, Account, and Table Quotas](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html) in the *Amazon DynamoDB Developer Guide*.
@@ -2129,19 +2129,19 @@ class TableGlobalSecondaryIndexArgs:
         return pulumi.get(self, "provisioned_throughput")
 
     @provisioned_throughput.setter
-    def provisioned_throughput(self, value: Optional[pulumi.Input['TableProvisionedThroughputArgs']]):
+    def provisioned_throughput(self, value: pulumi.Input[Optional['TableProvisionedThroughputArgs']]):
         pulumi.set(self, "provisioned_throughput", value)
 
     @_builtins.property
     @pulumi.getter(name="warmThroughput")
-    def warm_throughput(self) -> Optional[pulumi.Input['TableWarmThroughputArgs']]:
+    def warm_throughput(self) -> pulumi.Input[Optional['TableWarmThroughputArgs']]:
         """
         Represents the warm throughput value (in read units per second and write units per second) for the specified secondary index. If you use this parameter, you must specify ``ReadUnitsPerSecond``, ``WriteUnitsPerSecond``, or both.
         """
         return pulumi.get(self, "warm_throughput")
 
     @warm_throughput.setter
-    def warm_throughput(self, value: Optional[pulumi.Input['TableWarmThroughputArgs']]):
+    def warm_throughput(self, value: pulumi.Input[Optional['TableWarmThroughputArgs']]):
         pulumi.set(self, "warm_throughput", value)
 
 
@@ -2157,11 +2157,11 @@ class TableImportSourceSpecificationArgsDict(TypedDict):
     """
     The S3 bucket that provides the source for the import.
     """
-    input_compression_type: NotRequired[pulumi.Input[_builtins.str]]
+    input_compression_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Type of compression to be used on the input coming from the imported table.
     """
-    input_format_options: NotRequired[pulumi.Input['TableInputFormatOptionsArgsDict']]
+    input_format_options: NotRequired[pulumi.Input[Optional['TableInputFormatOptionsArgs']]]
     """
     Additional properties that specify how the input is formatted,
     """
@@ -2171,8 +2171,8 @@ class TableImportSourceSpecificationArgs:
     def __init__(__self__, *,
                  input_format: pulumi.Input[_builtins.str],
                  s3_bucket_source: pulumi.Input['TableS3BucketSourceArgs'],
-                 input_compression_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 input_format_options: Optional[pulumi.Input['TableInputFormatOptionsArgs']] = None):
+                 input_compression_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 input_format_options: pulumi.Input[Optional['TableInputFormatOptionsArgs']] = None):
         """
         Specifies the properties of data being imported from the S3 bucket source to the table.
 
@@ -2214,26 +2214,26 @@ class TableImportSourceSpecificationArgs:
 
     @_builtins.property
     @pulumi.getter(name="inputCompressionType")
-    def input_compression_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def input_compression_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of compression to be used on the input coming from the imported table.
         """
         return pulumi.get(self, "input_compression_type")
 
     @input_compression_type.setter
-    def input_compression_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def input_compression_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "input_compression_type", value)
 
     @_builtins.property
     @pulumi.getter(name="inputFormatOptions")
-    def input_format_options(self) -> Optional[pulumi.Input['TableInputFormatOptionsArgs']]:
+    def input_format_options(self) -> pulumi.Input[Optional['TableInputFormatOptionsArgs']]:
         """
         Additional properties that specify how the input is formatted,
         """
         return pulumi.get(self, "input_format_options")
 
     @input_format_options.setter
-    def input_format_options(self, value: Optional[pulumi.Input['TableInputFormatOptionsArgs']]):
+    def input_format_options(self, value: pulumi.Input[Optional['TableInputFormatOptionsArgs']]):
         pulumi.set(self, "input_format_options", value)
 
 
@@ -2241,7 +2241,7 @@ class TableInputFormatOptionsArgsDict(TypedDict):
     """
     The format options for the data that was imported into the target table. There is one value, CsvOption.
     """
-    csv: NotRequired[pulumi.Input['TableCsvArgsDict']]
+    csv: NotRequired[pulumi.Input[Optional['TableCsvArgs']]]
     """
     The options for imported source files in CSV format. The values are Delimiter and HeaderList.
     """
@@ -2249,7 +2249,7 @@ class TableInputFormatOptionsArgsDict(TypedDict):
 @pulumi.input_type
 class TableInputFormatOptionsArgs:
     def __init__(__self__, *,
-                 csv: Optional[pulumi.Input['TableCsvArgs']] = None):
+                 csv: pulumi.Input[Optional['TableCsvArgs']] = None):
         """
         The format options for the data that was imported into the target table. There is one value, CsvOption.
 
@@ -2260,14 +2260,14 @@ class TableInputFormatOptionsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def csv(self) -> Optional[pulumi.Input['TableCsvArgs']]:
+    def csv(self) -> pulumi.Input[Optional['TableCsvArgs']]:
         """
         The options for imported source files in CSV format. The values are Delimiter and HeaderList.
         """
         return pulumi.get(self, "csv")
 
     @csv.setter
-    def csv(self, value: Optional[pulumi.Input['TableCsvArgs']]):
+    def csv(self, value: pulumi.Input[Optional['TableCsvArgs']]):
         pulumi.set(self, "csv", value)
 
 
@@ -2351,7 +2351,7 @@ class TableKinesisStreamSpecificationArgsDict(TypedDict):
     The ARN for a specific Kinesis data stream.
      Length Constraints: Minimum length of 37. Maximum length of 1024.
     """
-    approximate_creation_date_time_precision: NotRequired[pulumi.Input['TableKinesisStreamSpecificationApproximateCreationDateTimePrecision']]
+    approximate_creation_date_time_precision: NotRequired[pulumi.Input[Optional['TableKinesisStreamSpecificationApproximateCreationDateTimePrecision']]]
     """
     The precision for the time and date that the stream was created.
     """
@@ -2360,7 +2360,7 @@ class TableKinesisStreamSpecificationArgsDict(TypedDict):
 class TableKinesisStreamSpecificationArgs:
     def __init__(__self__, *,
                  stream_arn: pulumi.Input[_builtins.str],
-                 approximate_creation_date_time_precision: Optional[pulumi.Input['TableKinesisStreamSpecificationApproximateCreationDateTimePrecision']] = None):
+                 approximate_creation_date_time_precision: pulumi.Input[Optional['TableKinesisStreamSpecificationApproximateCreationDateTimePrecision']] = None):
         """
         The Kinesis Data Streams configuration for the specified table.
 
@@ -2387,14 +2387,14 @@ class TableKinesisStreamSpecificationArgs:
 
     @_builtins.property
     @pulumi.getter(name="approximateCreationDateTimePrecision")
-    def approximate_creation_date_time_precision(self) -> Optional[pulumi.Input['TableKinesisStreamSpecificationApproximateCreationDateTimePrecision']]:
+    def approximate_creation_date_time_precision(self) -> pulumi.Input[Optional['TableKinesisStreamSpecificationApproximateCreationDateTimePrecision']]:
         """
         The precision for the time and date that the stream was created.
         """
         return pulumi.get(self, "approximate_creation_date_time_precision")
 
     @approximate_creation_date_time_precision.setter
-    def approximate_creation_date_time_precision(self, value: Optional[pulumi.Input['TableKinesisStreamSpecificationApproximateCreationDateTimePrecision']]):
+    def approximate_creation_date_time_precision(self, value: pulumi.Input[Optional['TableKinesisStreamSpecificationApproximateCreationDateTimePrecision']]):
         pulumi.set(self, "approximate_creation_date_time_precision", value)
 
 
@@ -2488,12 +2488,12 @@ class TableOnDemandThroughputArgsDict(TypedDict):
     """
     Sets the maximum number of read and write units for the specified on-demand table. If you use this property, you must specify ``MaxReadRequestUnits``, ``MaxWriteRequestUnits``, or both.
     """
-    max_read_request_units: NotRequired[pulumi.Input[_builtins.int]]
+    max_read_request_units: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Maximum number of read request units for the specified table.
      To specify a maximum ``OnDemandThroughput`` on your table, set the value of ``MaxReadRequestUnits`` as greater than or equal to 1. To remove the maximum ``OnDemandThroughput`` that is currently set on your table, set the value of ``MaxReadRequestUnits`` to -1.
     """
-    max_write_request_units: NotRequired[pulumi.Input[_builtins.int]]
+    max_write_request_units: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Maximum number of write request units for the specified table.
      To specify a maximum ``OnDemandThroughput`` on your table, set the value of ``MaxWriteRequestUnits`` as greater than or equal to 1. To remove the maximum ``OnDemandThroughput`` that is currently set on your table, set the value of ``MaxWriteRequestUnits`` to -1.
@@ -2502,8 +2502,8 @@ class TableOnDemandThroughputArgsDict(TypedDict):
 @pulumi.input_type
 class TableOnDemandThroughputArgs:
     def __init__(__self__, *,
-                 max_read_request_units: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_write_request_units: Optional[pulumi.Input[_builtins.int]] = None):
+                 max_read_request_units: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_write_request_units: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Sets the maximum number of read and write units for the specified on-demand table. If you use this property, you must specify ``MaxReadRequestUnits``, ``MaxWriteRequestUnits``, or both.
 
@@ -2519,7 +2519,7 @@ class TableOnDemandThroughputArgs:
 
     @_builtins.property
     @pulumi.getter(name="maxReadRequestUnits")
-    def max_read_request_units(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_read_request_units(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum number of read request units for the specified table.
          To specify a maximum ``OnDemandThroughput`` on your table, set the value of ``MaxReadRequestUnits`` as greater than or equal to 1. To remove the maximum ``OnDemandThroughput`` that is currently set on your table, set the value of ``MaxReadRequestUnits`` to -1.
@@ -2527,12 +2527,12 @@ class TableOnDemandThroughputArgs:
         return pulumi.get(self, "max_read_request_units")
 
     @max_read_request_units.setter
-    def max_read_request_units(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_read_request_units(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_read_request_units", value)
 
     @_builtins.property
     @pulumi.getter(name="maxWriteRequestUnits")
-    def max_write_request_units(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_write_request_units(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum number of write request units for the specified table.
          To specify a maximum ``OnDemandThroughput`` on your table, set the value of ``MaxWriteRequestUnits`` as greater than or equal to 1. To remove the maximum ``OnDemandThroughput`` that is currently set on your table, set the value of ``MaxWriteRequestUnits`` to -1.
@@ -2540,7 +2540,7 @@ class TableOnDemandThroughputArgs:
         return pulumi.get(self, "max_write_request_units")
 
     @max_write_request_units.setter
-    def max_write_request_units(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_write_request_units(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_write_request_units", value)
 
 
@@ -2548,11 +2548,11 @@ class TablePointInTimeRecoverySpecificationArgsDict(TypedDict):
     """
     The settings used to enable point in time recovery.
     """
-    point_in_time_recovery_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    point_in_time_recovery_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether point in time recovery is enabled (true) or disabled (false) on the table.
     """
-    recovery_period_in_days: NotRequired[pulumi.Input[_builtins.int]]
+    recovery_period_in_days: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The number of preceding days for which continuous backups are taken and maintained. Your table data is only recoverable to any point-in-time from within the configured recovery period. This parameter is optional. If no value is provided, the value will default to 35.
     """
@@ -2560,8 +2560,8 @@ class TablePointInTimeRecoverySpecificationArgsDict(TypedDict):
 @pulumi.input_type
 class TablePointInTimeRecoverySpecificationArgs:
     def __init__(__self__, *,
-                 point_in_time_recovery_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 recovery_period_in_days: Optional[pulumi.Input[_builtins.int]] = None):
+                 point_in_time_recovery_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 recovery_period_in_days: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The settings used to enable point in time recovery.
 
@@ -2575,26 +2575,26 @@ class TablePointInTimeRecoverySpecificationArgs:
 
     @_builtins.property
     @pulumi.getter(name="pointInTimeRecoveryEnabled")
-    def point_in_time_recovery_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def point_in_time_recovery_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether point in time recovery is enabled (true) or disabled (false) on the table.
         """
         return pulumi.get(self, "point_in_time_recovery_enabled")
 
     @point_in_time_recovery_enabled.setter
-    def point_in_time_recovery_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def point_in_time_recovery_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "point_in_time_recovery_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="recoveryPeriodInDays")
-    def recovery_period_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def recovery_period_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of preceding days for which continuous backups are taken and maintained. Your table data is only recoverable to any point-in-time from within the configured recovery period. This parameter is optional. If no value is provided, the value will default to 35.
         """
         return pulumi.get(self, "recovery_period_in_days")
 
     @recovery_period_in_days.setter
-    def recovery_period_in_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def recovery_period_in_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "recovery_period_in_days", value)
 
 
@@ -2602,12 +2602,12 @@ class TableProjectionArgsDict(TypedDict):
     """
     Represents attributes that are copied (projected) from the table into an index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
     """
-    non_key_attributes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    non_key_attributes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Represents the non-key attribute names which will be projected into the index.
      For global and local secondary indexes, the total count of ``NonKeyAttributes`` summed across all of the secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total. This limit only applies when you specify the ProjectionType of ``INCLUDE``. You still can specify the ProjectionType of ``ALL`` to project all attributes from the source table, even if the table has more than 100 attributes.
     """
-    projection_type: NotRequired[pulumi.Input[_builtins.str]]
+    projection_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The set of attributes that are projected into the index:
       +  ``KEYS_ONLY`` - Only the index and primary keys are projected into the index.
@@ -2620,8 +2620,8 @@ class TableProjectionArgsDict(TypedDict):
 @pulumi.input_type
 class TableProjectionArgs:
     def __init__(__self__, *,
-                 non_key_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 projection_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 non_key_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 projection_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Represents attributes that are copied (projected) from the table into an index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
 
@@ -2641,7 +2641,7 @@ class TableProjectionArgs:
 
     @_builtins.property
     @pulumi.getter(name="nonKeyAttributes")
-    def non_key_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def non_key_attributes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Represents the non-key attribute names which will be projected into the index.
          For global and local secondary indexes, the total count of ``NonKeyAttributes`` summed across all of the secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total. This limit only applies when you specify the ProjectionType of ``INCLUDE``. You still can specify the ProjectionType of ``ALL`` to project all attributes from the source table, even if the table has more than 100 attributes.
@@ -2649,12 +2649,12 @@ class TableProjectionArgs:
         return pulumi.get(self, "non_key_attributes")
 
     @non_key_attributes.setter
-    def non_key_attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def non_key_attributes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "non_key_attributes", value)
 
     @_builtins.property
     @pulumi.getter(name="projectionType")
-    def projection_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def projection_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The set of attributes that are projected into the index:
           +  ``KEYS_ONLY`` - Only the index and primary keys are projected into the index.
@@ -2666,7 +2666,7 @@ class TableProjectionArgs:
         return pulumi.get(self, "projection_type")
 
     @projection_type.setter
-    def projection_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def projection_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "projection_type", value)
 
 
@@ -2787,11 +2787,11 @@ class TableS3BucketSourceArgsDict(TypedDict):
     """
     The S3 bucket that is being imported from.
     """
-    s3_bucket_owner: NotRequired[pulumi.Input[_builtins.str]]
+    s3_bucket_owner: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The account number of the S3 bucket that is being imported from. If the bucket is owned by the requester this is optional.
     """
-    s3_key_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    s3_key_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The key prefix shared by all S3 Objects that are being imported.
     """
@@ -2800,8 +2800,8 @@ class TableS3BucketSourceArgsDict(TypedDict):
 class TableS3BucketSourceArgs:
     def __init__(__self__, *,
                  s3_bucket: pulumi.Input[_builtins.str],
-                 s3_bucket_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_key_prefix: Optional[pulumi.Input[_builtins.str]] = None):
+                 s3_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_key_prefix: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The S3 bucket that is being imported from.
 
@@ -2829,26 +2829,26 @@ class TableS3BucketSourceArgs:
 
     @_builtins.property
     @pulumi.getter(name="s3BucketOwner")
-    def s3_bucket_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def s3_bucket_owner(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The account number of the S3 bucket that is being imported from. If the bucket is owned by the requester this is optional.
         """
         return pulumi.get(self, "s3_bucket_owner")
 
     @s3_bucket_owner.setter
-    def s3_bucket_owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def s3_bucket_owner(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "s3_bucket_owner", value)
 
     @_builtins.property
     @pulumi.getter(name="s3KeyPrefix")
-    def s3_key_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def s3_key_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The key prefix shared by all S3 Objects that are being imported.
         """
         return pulumi.get(self, "s3_key_prefix")
 
     @s3_key_prefix.setter
-    def s3_key_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def s3_key_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "s3_key_prefix", value)
 
 
@@ -2860,11 +2860,11 @@ class TableSseSpecificationArgsDict(TypedDict):
     """
     Indicates whether server-side encryption is done using an AWS managed key or an AWS owned key. If enabled (true), server-side encryption type is set to ``KMS`` and an AWS managed key is used (KMS charges apply). If disabled (false) or not specified, server-side encryption is set to AWS owned key.
     """
-    kms_master_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    kms_master_key_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The KMS key that should be used for the KMS encryption. To specify a key, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB key ``alias/aws/dynamodb``.
     """
-    sse_type: NotRequired[pulumi.Input[_builtins.str]]
+    sse_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Server-side encryption type. The only supported value is:
       +  ``KMS`` - Server-side encryption that uses KMSlong. The key is stored in your account and is managed by KMS (KMS charges apply).
@@ -2874,8 +2874,8 @@ class TableSseSpecificationArgsDict(TypedDict):
 class TableSseSpecificationArgs:
     def __init__(__self__, *,
                  sse_enabled: pulumi.Input[_builtins.bool],
-                 kms_master_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 sse_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 kms_master_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 sse_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Represents the settings used to enable server-side encryption.
 
@@ -2904,19 +2904,19 @@ class TableSseSpecificationArgs:
 
     @_builtins.property
     @pulumi.getter(name="kmsMasterKeyId")
-    def kms_master_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_master_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The KMS key that should be used for the KMS encryption. To specify a key, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB key ``alias/aws/dynamodb``.
         """
         return pulumi.get(self, "kms_master_key_id")
 
     @kms_master_key_id.setter
-    def kms_master_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_master_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_master_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="sseType")
-    def sse_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sse_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Server-side encryption type. The only supported value is:
           +  ``KMS`` - Server-side encryption that uses KMSlong. The key is stored in your account and is managed by KMS (KMS charges apply).
@@ -2924,7 +2924,7 @@ class TableSseSpecificationArgs:
         return pulumi.get(self, "sse_type")
 
     @sse_type.setter
-    def sse_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sse_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sse_type", value)
 
 
@@ -2940,7 +2940,7 @@ class TableStreamSpecificationArgsDict(TypedDict):
       +  ``OLD_IMAGE`` - The entire item, as it appeared before it was modified, is written to the stream.
       +  ``NEW_AND_OLD_IMAGES`` - Both the new and the old item images of the item are written to the stream.
     """
-    resource_policy: NotRequired[pulumi.Input['TableResourcePolicyArgsDict']]
+    resource_policy: NotRequired[pulumi.Input[Optional['TableResourcePolicyArgs']]]
     """
     Creates or updates a resource-based policy document that contains the permissions for DDB resources, such as a table's streams. Resource-based policies let you define access permissions by specifying who has access to each resource, and the actions they are allowed to perform on each resource.
       When you remove the ``StreamSpecification`` property from the template, DynamoDB disables the stream but retains any attached resource policy until the stream is deleted after 24 hours. When you modify the ``StreamViewType`` property, DynamoDB creates a new stream and retains the old stream's resource policy. The old stream and its resource policy are deleted after the 24-hour retention period.
@@ -2951,7 +2951,7 @@ class TableStreamSpecificationArgsDict(TypedDict):
 class TableStreamSpecificationArgs:
     def __init__(__self__, *,
                  stream_view_type: pulumi.Input[_builtins.str],
-                 resource_policy: Optional[pulumi.Input['TableResourcePolicyArgs']] = None):
+                 resource_policy: pulumi.Input[Optional['TableResourcePolicyArgs']] = None):
         """
         Represents the DynamoDB Streams configuration for a table in DynamoDB.
 
@@ -2986,7 +2986,7 @@ class TableStreamSpecificationArgs:
 
     @_builtins.property
     @pulumi.getter(name="resourcePolicy")
-    def resource_policy(self) -> Optional[pulumi.Input['TableResourcePolicyArgs']]:
+    def resource_policy(self) -> pulumi.Input[Optional['TableResourcePolicyArgs']]:
         """
         Creates or updates a resource-based policy document that contains the permissions for DDB resources, such as a table's streams. Resource-based policies let you define access permissions by specifying who has access to each resource, and the actions they are allowed to perform on each resource.
           When you remove the ``StreamSpecification`` property from the template, DynamoDB disables the stream but retains any attached resource policy until the stream is deleted after 24 hours. When you modify the ``StreamViewType`` property, DynamoDB creates a new stream and retains the old stream's resource policy. The old stream and its resource policy are deleted after the 24-hour retention period.
@@ -2995,7 +2995,7 @@ class TableStreamSpecificationArgs:
         return pulumi.get(self, "resource_policy")
 
     @resource_policy.setter
-    def resource_policy(self, value: Optional[pulumi.Input['TableResourcePolicyArgs']]):
+    def resource_policy(self, value: pulumi.Input[Optional['TableResourcePolicyArgs']]):
         pulumi.set(self, "resource_policy", value)
 
 
@@ -3007,7 +3007,7 @@ class TableTimeToLiveSpecificationArgsDict(TypedDict):
     """
     Indicates whether TTL is to be enabled (true) or disabled (false) on the table.
     """
-    attribute_name: NotRequired[pulumi.Input[_builtins.str]]
+    attribute_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the TTL attribute used to store the expiration time for items in the table.
        +  The ``AttributeName`` property is required when enabling the TTL, or when TTL is already enabled.
@@ -3018,7 +3018,7 @@ class TableTimeToLiveSpecificationArgsDict(TypedDict):
 class TableTimeToLiveSpecificationArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[_builtins.bool],
-                 attribute_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 attribute_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Represents the settings used to enable or disable Time to Live (TTL) for the specified table.
 
@@ -3045,7 +3045,7 @@ class TableTimeToLiveSpecificationArgs:
 
     @_builtins.property
     @pulumi.getter(name="attributeName")
-    def attribute_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def attribute_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the TTL attribute used to store the expiration time for items in the table.
            +  The ``AttributeName`` property is required when enabling the TTL, or when TTL is already enabled.
@@ -3054,7 +3054,7 @@ class TableTimeToLiveSpecificationArgs:
         return pulumi.get(self, "attribute_name")
 
     @attribute_name.setter
-    def attribute_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def attribute_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "attribute_name", value)
 
 
@@ -3062,11 +3062,11 @@ class TableWarmThroughputArgsDict(TypedDict):
     """
     Provides visibility into the number of read and write operations your table or secondary index can instantaneously support. The settings can be modified using the ``UpdateTable`` operation to meet the throughput requirements of an upcoming peak event.
     """
-    read_units_per_second: NotRequired[pulumi.Input[_builtins.int]]
+    read_units_per_second: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Represents the number of read operations your base table can instantaneously support.
     """
-    write_units_per_second: NotRequired[pulumi.Input[_builtins.int]]
+    write_units_per_second: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Represents the number of write operations your base table can instantaneously support.
     """
@@ -3074,8 +3074,8 @@ class TableWarmThroughputArgsDict(TypedDict):
 @pulumi.input_type
 class TableWarmThroughputArgs:
     def __init__(__self__, *,
-                 read_units_per_second: Optional[pulumi.Input[_builtins.int]] = None,
-                 write_units_per_second: Optional[pulumi.Input[_builtins.int]] = None):
+                 read_units_per_second: pulumi.Input[Optional[_builtins.int]] = None,
+                 write_units_per_second: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Provides visibility into the number of read and write operations your table or secondary index can instantaneously support. The settings can be modified using the ``UpdateTable`` operation to meet the throughput requirements of an upcoming peak event.
 
@@ -3089,26 +3089,26 @@ class TableWarmThroughputArgs:
 
     @_builtins.property
     @pulumi.getter(name="readUnitsPerSecond")
-    def read_units_per_second(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def read_units_per_second(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Represents the number of read operations your base table can instantaneously support.
         """
         return pulumi.get(self, "read_units_per_second")
 
     @read_units_per_second.setter
-    def read_units_per_second(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def read_units_per_second(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "read_units_per_second", value)
 
     @_builtins.property
     @pulumi.getter(name="writeUnitsPerSecond")
-    def write_units_per_second(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def write_units_per_second(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Represents the number of write operations your base table can instantaneously support.
         """
         return pulumi.get(self, "write_units_per_second")
 
     @write_units_per_second.setter
-    def write_units_per_second(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def write_units_per_second(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "write_units_per_second", value)
 
 

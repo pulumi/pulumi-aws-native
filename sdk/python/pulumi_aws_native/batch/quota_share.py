@@ -26,9 +26,9 @@ class QuotaShareArgs:
                  job_queue: pulumi.Input[_builtins.str],
                  preemption_configuration: pulumi.Input['QuotaSharePreemptionConfigurationArgs'],
                  resource_sharing_configuration: pulumi.Input['QuotaShareResourceSharingConfigurationArgs'],
-                 quota_share_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input['QuotaShareState']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 quota_share_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional['QuotaShareState']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a QuotaShare resource.
 
@@ -101,38 +101,38 @@ class QuotaShareArgs:
 
     @_builtins.property
     @pulumi.getter(name="quotaShareName")
-    def quota_share_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def quota_share_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the quota share. It can be up to 128 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
         """
         return pulumi.get(self, "quota_share_name")
 
     @quota_share_name.setter
-    def quota_share_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def quota_share_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "quota_share_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input['QuotaShareState']]:
+    def state(self) -> pulumi.Input[Optional['QuotaShareState']]:
         """
         The state of the quota share. If the quota share is `ENABLED`, it is able to accept jobs. If the quota share is `DISABLED`, new jobs won't be accepted but jobs already submitted can finish. The default state is `ENABLED`.
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input['QuotaShareState']]):
+    def state(self, value: pulumi.Input[Optional['QuotaShareState']]):
         pulumi.set(self, "state", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The tags that you apply to the quota share to help you categorize and organize your resources. Each tag consists of a key and an optional value.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -142,13 +142,13 @@ class QuotaShare(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capacity_limits: Optional[pulumi.Input[Sequence[pulumi.Input[Union['QuotaShareCapacityLimitArgs', 'QuotaShareCapacityLimitArgsDict']]]]] = None,
-                 job_queue: Optional[pulumi.Input[_builtins.str]] = None,
-                 preemption_configuration: Optional[pulumi.Input[Union['QuotaSharePreemptionConfigurationArgs', 'QuotaSharePreemptionConfigurationArgsDict']]] = None,
-                 quota_share_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_sharing_configuration: Optional[pulumi.Input[Union['QuotaShareResourceSharingConfigurationArgs', 'QuotaShareResourceSharingConfigurationArgsDict']]] = None,
-                 state: Optional[pulumi.Input['QuotaShareState']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 capacity_limits: pulumi.Input[Optional[Sequence[pulumi.Input[Union['QuotaShareCapacityLimitArgs', 'QuotaShareCapacityLimitArgsDict']]]]] = None,
+                 job_queue: pulumi.Input[Optional[_builtins.str]] = None,
+                 preemption_configuration: pulumi.Input[Optional[Union['QuotaSharePreemptionConfigurationArgs', 'QuotaSharePreemptionConfigurationArgsDict']]] = None,
+                 quota_share_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_sharing_configuration: pulumi.Input[Optional[Union['QuotaShareResourceSharingConfigurationArgs', 'QuotaShareResourceSharingConfigurationArgsDict']]] = None,
+                 state: pulumi.Input[Optional['QuotaShareState']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Creates an AWS Batch quota share. Each quota share operates as a virtual queue with a configured compute capacity, resource sharing strategy, and borrow limits.
@@ -189,13 +189,13 @@ class QuotaShare(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capacity_limits: Optional[pulumi.Input[Sequence[pulumi.Input[Union['QuotaShareCapacityLimitArgs', 'QuotaShareCapacityLimitArgsDict']]]]] = None,
-                 job_queue: Optional[pulumi.Input[_builtins.str]] = None,
-                 preemption_configuration: Optional[pulumi.Input[Union['QuotaSharePreemptionConfigurationArgs', 'QuotaSharePreemptionConfigurationArgsDict']]] = None,
-                 quota_share_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_sharing_configuration: Optional[pulumi.Input[Union['QuotaShareResourceSharingConfigurationArgs', 'QuotaShareResourceSharingConfigurationArgsDict']]] = None,
-                 state: Optional[pulumi.Input['QuotaShareState']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 capacity_limits: pulumi.Input[Optional[Sequence[pulumi.Input[Union['QuotaShareCapacityLimitArgs', 'QuotaShareCapacityLimitArgsDict']]]]] = None,
+                 job_queue: pulumi.Input[Optional[_builtins.str]] = None,
+                 preemption_configuration: pulumi.Input[Optional[Union['QuotaSharePreemptionConfigurationArgs', 'QuotaSharePreemptionConfigurationArgsDict']]] = None,
+                 quota_share_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_sharing_configuration: pulumi.Input[Optional[Union['QuotaShareResourceSharingConfigurationArgs', 'QuotaShareResourceSharingConfigurationArgsDict']]] = None,
+                 state: pulumi.Input[Optional['QuotaShareState']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -68,8 +68,8 @@ def get_security_key(association_id: Optional[_builtins.str] = None,
 
     return AwaitableGetSecurityKeyResult(
         association_id=pulumi.get(__ret__, 'association_id'))
-def get_security_key_output(association_id: Optional[pulumi.Input[_builtins.str]] = None,
-                            instance_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_security_key_output(association_id: pulumi.Input[Optional[_builtins.str]] = None,
+                            instance_id: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityKeyResult]:
     """
     Resource Type definition for AWS::Connect::SecurityKey

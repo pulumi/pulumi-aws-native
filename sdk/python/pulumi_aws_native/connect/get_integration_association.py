@@ -78,9 +78,9 @@ def get_integration_association(instance_id: Optional[_builtins.str] = None,
 
     return AwaitableGetIntegrationAssociationResult(
         integration_association_id=pulumi.get(__ret__, 'integration_association_id'))
-def get_integration_association_output(instance_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                       integration_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                                       integration_type: Optional[pulumi.Input['IntegrationAssociationIntegrationType']] = None,
+def get_integration_association_output(instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                       integration_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                                       integration_type: pulumi.Input[Optional['IntegrationAssociationIntegrationType']] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIntegrationAssociationResult]:
     """
     Resource Type definition for AWS::Connect::IntegrationAssociation

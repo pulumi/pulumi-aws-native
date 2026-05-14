@@ -34,11 +34,11 @@ class NotificationChannelConfigArgsDict(TypedDict):
     """
     Information about notification channels you have configured with DevOps Guru.
     """
-    filters: NotRequired[pulumi.Input['NotificationChannelNotificationFilterConfigArgsDict']]
+    filters: NotRequired[pulumi.Input[Optional['NotificationChannelNotificationFilterConfigArgs']]]
     """
     The filter configurations for the Amazon SNS notification topic you use with DevOps Guru. If you do not provide filter configurations, the default configurations are to receive notifications for all message types of `High` or `Medium` severity.
     """
-    sns: NotRequired[pulumi.Input['NotificationChannelSnsChannelConfigArgsDict']]
+    sns: NotRequired[pulumi.Input[Optional['NotificationChannelSnsChannelConfigArgs']]]
     """
     Information about a notification channel configured in DevOps Guru to send notifications when insights are created.
 
@@ -50,8 +50,8 @@ class NotificationChannelConfigArgsDict(TypedDict):
 @pulumi.input_type
 class NotificationChannelConfigArgs:
     def __init__(__self__, *,
-                 filters: Optional[pulumi.Input['NotificationChannelNotificationFilterConfigArgs']] = None,
-                 sns: Optional[pulumi.Input['NotificationChannelSnsChannelConfigArgs']] = None):
+                 filters: pulumi.Input[Optional['NotificationChannelNotificationFilterConfigArgs']] = None,
+                 sns: pulumi.Input[Optional['NotificationChannelSnsChannelConfigArgs']] = None):
         """
         Information about notification channels you have configured with DevOps Guru.
 
@@ -69,19 +69,19 @@ class NotificationChannelConfigArgs:
 
     @_builtins.property
     @pulumi.getter
-    def filters(self) -> Optional[pulumi.Input['NotificationChannelNotificationFilterConfigArgs']]:
+    def filters(self) -> pulumi.Input[Optional['NotificationChannelNotificationFilterConfigArgs']]:
         """
         The filter configurations for the Amazon SNS notification topic you use with DevOps Guru. If you do not provide filter configurations, the default configurations are to receive notifications for all message types of `High` or `Medium` severity.
         """
         return pulumi.get(self, "filters")
 
     @filters.setter
-    def filters(self, value: Optional[pulumi.Input['NotificationChannelNotificationFilterConfigArgs']]):
+    def filters(self, value: pulumi.Input[Optional['NotificationChannelNotificationFilterConfigArgs']]):
         pulumi.set(self, "filters", value)
 
     @_builtins.property
     @pulumi.getter
-    def sns(self) -> Optional[pulumi.Input['NotificationChannelSnsChannelConfigArgs']]:
+    def sns(self) -> pulumi.Input[Optional['NotificationChannelSnsChannelConfigArgs']]:
         """
         Information about a notification channel configured in DevOps Guru to send notifications when insights are created.
 
@@ -92,7 +92,7 @@ class NotificationChannelConfigArgs:
         return pulumi.get(self, "sns")
 
     @sns.setter
-    def sns(self, value: Optional[pulumi.Input['NotificationChannelSnsChannelConfigArgs']]):
+    def sns(self, value: pulumi.Input[Optional['NotificationChannelSnsChannelConfigArgs']]):
         pulumi.set(self, "sns", value)
 
 
@@ -100,11 +100,11 @@ class NotificationChannelNotificationFilterConfigArgsDict(TypedDict):
     """
     Information about filters of a notification channel configured in DevOpsGuru to filter for insights.
     """
-    message_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['NotificationChannelNotificationMessageType']]]]
+    message_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NotificationChannelNotificationMessageType']]]]]
     """
     The events that you want to receive notifications for. For example, you can choose to receive notifications only when the severity level is upgraded or a new insight is created.
     """
-    severities: NotRequired[pulumi.Input[Sequence[pulumi.Input['NotificationChannelInsightSeverity']]]]
+    severities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NotificationChannelInsightSeverity']]]]]
     """
     The severity levels that you want to receive notifications for. For example, you can choose to receive notifications only for insights with `HIGH` and `MEDIUM` severity levels. For more information, see [Understanding insight severities](https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities) .
     """
@@ -112,8 +112,8 @@ class NotificationChannelNotificationFilterConfigArgsDict(TypedDict):
 @pulumi.input_type
 class NotificationChannelNotificationFilterConfigArgs:
     def __init__(__self__, *,
-                 message_types: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationChannelNotificationMessageType']]]] = None,
-                 severities: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationChannelInsightSeverity']]]] = None):
+                 message_types: pulumi.Input[Optional[Sequence[pulumi.Input['NotificationChannelNotificationMessageType']]]] = None,
+                 severities: pulumi.Input[Optional[Sequence[pulumi.Input['NotificationChannelInsightSeverity']]]] = None):
         """
         Information about filters of a notification channel configured in DevOpsGuru to filter for insights.
 
@@ -127,26 +127,26 @@ class NotificationChannelNotificationFilterConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="messageTypes")
-    def message_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NotificationChannelNotificationMessageType']]]]:
+    def message_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NotificationChannelNotificationMessageType']]]]:
         """
         The events that you want to receive notifications for. For example, you can choose to receive notifications only when the severity level is upgraded or a new insight is created.
         """
         return pulumi.get(self, "message_types")
 
     @message_types.setter
-    def message_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationChannelNotificationMessageType']]]]):
+    def message_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NotificationChannelNotificationMessageType']]]]):
         pulumi.set(self, "message_types", value)
 
     @_builtins.property
     @pulumi.getter
-    def severities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NotificationChannelInsightSeverity']]]]:
+    def severities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NotificationChannelInsightSeverity']]]]:
         """
         The severity levels that you want to receive notifications for. For example, you can choose to receive notifications only for insights with `HIGH` and `MEDIUM` severity levels. For more information, see [Understanding insight severities](https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities) .
         """
         return pulumi.get(self, "severities")
 
     @severities.setter
-    def severities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationChannelInsightSeverity']]]]):
+    def severities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NotificationChannelInsightSeverity']]]]):
         pulumi.set(self, "severities", value)
 
 
@@ -154,7 +154,7 @@ class NotificationChannelSnsChannelConfigArgsDict(TypedDict):
     """
     Information about a notification channel configured in DevOps Guru to send notifications when insights are created.
     """
-    topic_arn: NotRequired[pulumi.Input[_builtins.str]]
+    topic_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic.
     """
@@ -162,7 +162,7 @@ class NotificationChannelSnsChannelConfigArgsDict(TypedDict):
 @pulumi.input_type
 class NotificationChannelSnsChannelConfigArgs:
     def __init__(__self__, *,
-                 topic_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 topic_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Information about a notification channel configured in DevOps Guru to send notifications when insights are created.
 
@@ -173,14 +173,14 @@ class NotificationChannelSnsChannelConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="topicArn")
-    def topic_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def topic_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic.
         """
         return pulumi.get(self, "topic_arn")
 
     @topic_arn.setter
-    def topic_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def topic_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "topic_arn", value)
 
 
@@ -188,7 +188,7 @@ class ResourceCollectionCloudFormationCollectionFilterArgsDict(TypedDict):
     """
     CloudFormation resource for DevOps Guru to monitor
     """
-    stack_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    stack_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     An array of CloudFormation stack names.
     """
@@ -196,7 +196,7 @@ class ResourceCollectionCloudFormationCollectionFilterArgsDict(TypedDict):
 @pulumi.input_type
 class ResourceCollectionCloudFormationCollectionFilterArgs:
     def __init__(__self__, *,
-                 stack_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 stack_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         CloudFormation resource for DevOps Guru to monitor
 
@@ -207,14 +207,14 @@ class ResourceCollectionCloudFormationCollectionFilterArgs:
 
     @_builtins.property
     @pulumi.getter(name="stackNames")
-    def stack_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def stack_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         An array of CloudFormation stack names.
         """
         return pulumi.get(self, "stack_names")
 
     @stack_names.setter
-    def stack_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def stack_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "stack_names", value)
 
 
@@ -222,11 +222,11 @@ class ResourceCollectionFilterArgsDict(TypedDict):
     """
     Information about a filter used to specify which AWS resources are analyzed for anomalous behavior by DevOps Guru.
     """
-    cloud_formation: NotRequired[pulumi.Input['ResourceCollectionCloudFormationCollectionFilterArgsDict']]
+    cloud_formation: NotRequired[pulumi.Input[Optional['ResourceCollectionCloudFormationCollectionFilterArgs']]]
     """
     Information about AWS CloudFormation stacks. You can use up to 1000 stacks to specify which AWS resources in your account to analyze. For more information, see [Stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacks.html) in the *AWS CloudFormation User Guide* .
     """
-    tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceCollectionTagCollectionArgsDict']]]]
+    tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ResourceCollectionTagCollectionArgs']]]]]
     """
     The AWS tags used to filter the resources in the resource collection.
 
@@ -245,8 +245,8 @@ class ResourceCollectionFilterArgsDict(TypedDict):
 @pulumi.input_type
 class ResourceCollectionFilterArgs:
     def __init__(__self__, *,
-                 cloud_formation: Optional[pulumi.Input['ResourceCollectionCloudFormationCollectionFilterArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceCollectionTagCollectionArgs']]]] = None):
+                 cloud_formation: pulumi.Input[Optional['ResourceCollectionCloudFormationCollectionFilterArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceCollectionTagCollectionArgs']]]] = None):
         """
         Information about a filter used to specify which AWS resources are analyzed for anomalous behavior by DevOps Guru.
 
@@ -271,19 +271,19 @@ class ResourceCollectionFilterArgs:
 
     @_builtins.property
     @pulumi.getter(name="cloudFormation")
-    def cloud_formation(self) -> Optional[pulumi.Input['ResourceCollectionCloudFormationCollectionFilterArgs']]:
+    def cloud_formation(self) -> pulumi.Input[Optional['ResourceCollectionCloudFormationCollectionFilterArgs']]:
         """
         Information about AWS CloudFormation stacks. You can use up to 1000 stacks to specify which AWS resources in your account to analyze. For more information, see [Stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacks.html) in the *AWS CloudFormation User Guide* .
         """
         return pulumi.get(self, "cloud_formation")
 
     @cloud_formation.setter
-    def cloud_formation(self, value: Optional[pulumi.Input['ResourceCollectionCloudFormationCollectionFilterArgs']]):
+    def cloud_formation(self, value: pulumi.Input[Optional['ResourceCollectionCloudFormationCollectionFilterArgs']]):
         pulumi.set(self, "cloud_formation", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceCollectionTagCollectionArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ResourceCollectionTagCollectionArgs']]]]:
         """
         The AWS tags used to filter the resources in the resource collection.
 
@@ -301,7 +301,7 @@ class ResourceCollectionFilterArgs:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceCollectionTagCollectionArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceCollectionTagCollectionArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -309,11 +309,11 @@ class ResourceCollectionTagCollectionArgsDict(TypedDict):
     """
     Tagged resource for DevOps Guru to monitor
     """
-    app_boundary_key: NotRequired[pulumi.Input[_builtins.str]]
+    app_boundary_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A Tag key for DevOps Guru app boundary.
     """
-    tag_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    tag_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Tag values of DevOps Guru app boundary.
     """
@@ -321,8 +321,8 @@ class ResourceCollectionTagCollectionArgsDict(TypedDict):
 @pulumi.input_type
 class ResourceCollectionTagCollectionArgs:
     def __init__(__self__, *,
-                 app_boundary_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 app_boundary_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Tagged resource for DevOps Guru to monitor
 
@@ -336,26 +336,26 @@ class ResourceCollectionTagCollectionArgs:
 
     @_builtins.property
     @pulumi.getter(name="appBoundaryKey")
-    def app_boundary_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_boundary_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A Tag key for DevOps Guru app boundary.
         """
         return pulumi.get(self, "app_boundary_key")
 
     @app_boundary_key.setter
-    def app_boundary_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_boundary_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_boundary_key", value)
 
     @_builtins.property
     @pulumi.getter(name="tagValues")
-    def tag_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def tag_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Tag values of DevOps Guru app boundary.
         """
         return pulumi.get(self, "tag_values")
 
     @tag_values.setter
-    def tag_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def tag_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tag_values", value)
 
 

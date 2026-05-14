@@ -22,7 +22,7 @@ class PermissionArgs:
                  actions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  certificate_authority_arn: pulumi.Input[_builtins.str],
                  principal: pulumi.Input[_builtins.str],
-                 source_account: Optional[pulumi.Input[_builtins.str]] = None):
+                 source_account: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Permission resource.
 
@@ -75,14 +75,14 @@ class PermissionArgs:
 
     @_builtins.property
     @pulumi.getter(name="sourceAccount")
-    def source_account(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_account(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the calling account.
         """
         return pulumi.get(self, "source_account")
 
     @source_account.setter
-    def source_account(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_account(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_account", value)
 
 
@@ -92,10 +92,10 @@ class Permission(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 certificate_authority_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_account: Optional[pulumi.Input[_builtins.str]] = None,
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 certificate_authority_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_account: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Permission set on private certificate authority
@@ -133,10 +133,10 @@ class Permission(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 certificate_authority_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_account: Optional[pulumi.Input[_builtins.str]] = None,
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 certificate_authority_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_account: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

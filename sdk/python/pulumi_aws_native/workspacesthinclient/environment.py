@@ -25,15 +25,15 @@ __all__ = ['EnvironmentArgs', 'Environment']
 class EnvironmentArgs:
     def __init__(__self__, *,
                  desktop_arn: pulumi.Input[_builtins.str],
-                 desired_software_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 desktop_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 device_creation_tags: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentTagArgs']]]] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 maintenance_window: Optional[pulumi.Input['EnvironmentMaintenanceWindowArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 software_set_update_mode: Optional[pulumi.Input['EnvironmentSoftwareSetUpdateMode']] = None,
-                 software_set_update_schedule: Optional[pulumi.Input['EnvironmentSoftwareSetUpdateSchedule']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 desired_software_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 desktop_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 device_creation_tags: pulumi.Input[Optional[Sequence[pulumi.Input['EnvironmentTagArgs']]]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 maintenance_window: pulumi.Input[Optional['EnvironmentMaintenanceWindowArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 software_set_update_mode: pulumi.Input[Optional['EnvironmentSoftwareSetUpdateMode']] = None,
+                 software_set_update_schedule: pulumi.Input[Optional['EnvironmentSoftwareSetUpdateSchedule']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Environment resource.
 
@@ -82,110 +82,110 @@ class EnvironmentArgs:
 
     @_builtins.property
     @pulumi.getter(name="desiredSoftwareSetId")
-    def desired_software_set_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def desired_software_set_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the software set to apply.
         """
         return pulumi.get(self, "desired_software_set_id")
 
     @desired_software_set_id.setter
-    def desired_software_set_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def desired_software_set_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "desired_software_set_id", value)
 
     @_builtins.property
     @pulumi.getter(name="desktopEndpoint")
-    def desktop_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def desktop_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL for the identity provider login (only for environments that use AppStream 2.0).
         """
         return pulumi.get(self, "desktop_endpoint")
 
     @desktop_endpoint.setter
-    def desktop_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def desktop_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "desktop_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="deviceCreationTags")
-    def device_creation_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentTagArgs']]]]:
+    def device_creation_tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EnvironmentTagArgs']]]]:
         """
         An array of key-value pairs to apply to the newly created devices for this environment.
         """
         return pulumi.get(self, "device_creation_tags")
 
     @device_creation_tags.setter
-    def device_creation_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentTagArgs']]]]):
+    def device_creation_tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EnvironmentTagArgs']]]]):
         pulumi.set(self, "device_creation_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
-    def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the AWS Key Management Service key used to encrypt the environment.
         """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
-    def kms_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="maintenanceWindow")
-    def maintenance_window(self) -> Optional[pulumi.Input['EnvironmentMaintenanceWindowArgs']]:
+    def maintenance_window(self) -> pulumi.Input[Optional['EnvironmentMaintenanceWindowArgs']]:
         """
         A specification for a time window to apply software updates.
         """
         return pulumi.get(self, "maintenance_window")
 
     @maintenance_window.setter
-    def maintenance_window(self, value: Optional[pulumi.Input['EnvironmentMaintenanceWindowArgs']]):
+    def maintenance_window(self, value: pulumi.Input[Optional['EnvironmentMaintenanceWindowArgs']]):
         pulumi.set(self, "maintenance_window", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the environment.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="softwareSetUpdateMode")
-    def software_set_update_mode(self) -> Optional[pulumi.Input['EnvironmentSoftwareSetUpdateMode']]:
+    def software_set_update_mode(self) -> pulumi.Input[Optional['EnvironmentSoftwareSetUpdateMode']]:
         """
         An option to define which software updates to apply.
         """
         return pulumi.get(self, "software_set_update_mode")
 
     @software_set_update_mode.setter
-    def software_set_update_mode(self, value: Optional[pulumi.Input['EnvironmentSoftwareSetUpdateMode']]):
+    def software_set_update_mode(self, value: pulumi.Input[Optional['EnvironmentSoftwareSetUpdateMode']]):
         pulumi.set(self, "software_set_update_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="softwareSetUpdateSchedule")
-    def software_set_update_schedule(self) -> Optional[pulumi.Input['EnvironmentSoftwareSetUpdateSchedule']]:
+    def software_set_update_schedule(self) -> pulumi.Input[Optional['EnvironmentSoftwareSetUpdateSchedule']]:
         """
         An option to define if software updates should be applied within a maintenance window.
         """
         return pulumi.get(self, "software_set_update_schedule")
 
     @software_set_update_schedule.setter
-    def software_set_update_schedule(self, value: Optional[pulumi.Input['EnvironmentSoftwareSetUpdateSchedule']]):
+    def software_set_update_schedule(self, value: pulumi.Input[Optional['EnvironmentSoftwareSetUpdateSchedule']]):
         pulumi.set(self, "software_set_update_schedule", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -195,16 +195,16 @@ class Environment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 desired_software_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 desktop_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 desktop_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 device_creation_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentTagArgs', 'EnvironmentTagArgsDict']]]]] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 maintenance_window: Optional[pulumi.Input[Union['EnvironmentMaintenanceWindowArgs', 'EnvironmentMaintenanceWindowArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 software_set_update_mode: Optional[pulumi.Input['EnvironmentSoftwareSetUpdateMode']] = None,
-                 software_set_update_schedule: Optional[pulumi.Input['EnvironmentSoftwareSetUpdateSchedule']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 desired_software_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 desktop_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 desktop_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 device_creation_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentTagArgs', 'EnvironmentTagArgsDict']]]]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 maintenance_window: pulumi.Input[Optional[Union['EnvironmentMaintenanceWindowArgs', 'EnvironmentMaintenanceWindowArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 software_set_update_mode: pulumi.Input[Optional['EnvironmentSoftwareSetUpdateMode']] = None,
+                 software_set_update_schedule: pulumi.Input[Optional['EnvironmentSoftwareSetUpdateSchedule']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource type definition for AWS::WorkSpacesThinClient::Environment.
@@ -248,16 +248,16 @@ class Environment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 desired_software_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 desktop_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 desktop_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 device_creation_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentTagArgs', 'EnvironmentTagArgsDict']]]]] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 maintenance_window: Optional[pulumi.Input[Union['EnvironmentMaintenanceWindowArgs', 'EnvironmentMaintenanceWindowArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 software_set_update_mode: Optional[pulumi.Input['EnvironmentSoftwareSetUpdateMode']] = None,
-                 software_set_update_schedule: Optional[pulumi.Input['EnvironmentSoftwareSetUpdateSchedule']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 desired_software_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 desktop_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 desktop_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 device_creation_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentTagArgs', 'EnvironmentTagArgsDict']]]]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 maintenance_window: pulumi.Input[Optional[Union['EnvironmentMaintenanceWindowArgs', 'EnvironmentMaintenanceWindowArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 software_set_update_mode: pulumi.Input[Optional['EnvironmentSoftwareSetUpdateMode']] = None,
+                 software_set_update_schedule: pulumi.Input[Optional['EnvironmentSoftwareSetUpdateSchedule']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

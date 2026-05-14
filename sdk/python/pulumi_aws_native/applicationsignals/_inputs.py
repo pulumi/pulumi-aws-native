@@ -59,14 +59,14 @@ __all__ = [
 class GroupingConfigurationGroupingAttributeDefinitionArgsDict(TypedDict):
     grouping_name: pulumi.Input[_builtins.str]
     grouping_source_keys: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-    default_grouping_value: NotRequired[pulumi.Input[_builtins.str]]
+    default_grouping_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class GroupingConfigurationGroupingAttributeDefinitionArgs:
     def __init__(__self__, *,
                  grouping_name: pulumi.Input[_builtins.str],
                  grouping_source_keys: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 default_grouping_value: Optional[pulumi.Input[_builtins.str]] = None):
+                 default_grouping_value: pulumi.Input[Optional[_builtins.str]] = None):
         pulumi.set(__self__, "grouping_name", grouping_name)
         pulumi.set(__self__, "grouping_source_keys", grouping_source_keys)
         if default_grouping_value is not None:
@@ -92,11 +92,11 @@ class GroupingConfigurationGroupingAttributeDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter(name="defaultGroupingValue")
-    def default_grouping_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_grouping_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "default_grouping_value")
 
     @default_grouping_value.setter
-    def default_grouping_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_grouping_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_grouping_value", value)
 
 
@@ -338,12 +338,12 @@ class ServiceLevelObjectiveExclusionWindowArgsDict(TypedDict):
     This object defines a time exclusion window for this SLO. The time exclusion window is used to exclude breaching data points from affecting attainment rate, error budget, and burn rate metrics.
     """
     window: pulumi.Input['ServiceLevelObjectiveWindowArgsDict']
-    reason: NotRequired[pulumi.Input[_builtins.str]]
+    reason: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     An optional reason for scheduling this time exclusion window. Default is 'No reason'.
     """
-    recurrence_rule: NotRequired[pulumi.Input['ServiceLevelObjectiveRecurrenceRuleArgsDict']]
-    start_time: NotRequired[pulumi.Input[_builtins.str]]
+    recurrence_rule: NotRequired[pulumi.Input[Optional['ServiceLevelObjectiveRecurrenceRuleArgs']]]
+    start_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The time you want the exclusion window to start at. Note that time exclusion windows can only be scheduled in the future, not the past.
     """
@@ -352,9 +352,9 @@ class ServiceLevelObjectiveExclusionWindowArgsDict(TypedDict):
 class ServiceLevelObjectiveExclusionWindowArgs:
     def __init__(__self__, *,
                  window: pulumi.Input['ServiceLevelObjectiveWindowArgs'],
-                 reason: Optional[pulumi.Input[_builtins.str]] = None,
-                 recurrence_rule: Optional[pulumi.Input['ServiceLevelObjectiveRecurrenceRuleArgs']] = None,
-                 start_time: Optional[pulumi.Input[_builtins.str]] = None):
+                 reason: pulumi.Input[Optional[_builtins.str]] = None,
+                 recurrence_rule: pulumi.Input[Optional['ServiceLevelObjectiveRecurrenceRuleArgs']] = None,
+                 start_time: pulumi.Input[Optional[_builtins.str]] = None):
         """
         This object defines a time exclusion window for this SLO. The time exclusion window is used to exclude breaching data points from affecting attainment rate, error budget, and burn rate metrics.
 
@@ -380,35 +380,35 @@ class ServiceLevelObjectiveExclusionWindowArgs:
 
     @_builtins.property
     @pulumi.getter
-    def reason(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def reason(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An optional reason for scheduling this time exclusion window. Default is 'No reason'.
         """
         return pulumi.get(self, "reason")
 
     @reason.setter
-    def reason(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def reason(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "reason", value)
 
     @_builtins.property
     @pulumi.getter(name="recurrenceRule")
-    def recurrence_rule(self) -> Optional[pulumi.Input['ServiceLevelObjectiveRecurrenceRuleArgs']]:
+    def recurrence_rule(self) -> pulumi.Input[Optional['ServiceLevelObjectiveRecurrenceRuleArgs']]:
         return pulumi.get(self, "recurrence_rule")
 
     @recurrence_rule.setter
-    def recurrence_rule(self, value: Optional[pulumi.Input['ServiceLevelObjectiveRecurrenceRuleArgs']]):
+    def recurrence_rule(self, value: pulumi.Input[Optional['ServiceLevelObjectiveRecurrenceRuleArgs']]):
         pulumi.set(self, "recurrence_rule", value)
 
     @_builtins.property
     @pulumi.getter(name="startTime")
-    def start_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The time you want the exclusion window to start at. Note that time exclusion windows can only be scheduled in the future, not the past.
         """
         return pulumi.get(self, "start_time")
 
     @start_time.setter
-    def start_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start_time", value)
 
 
@@ -416,18 +416,18 @@ class ServiceLevelObjectiveGoalArgsDict(TypedDict):
     """
     A structure that contains the attributes that determine the goal of the SLO. This includes the time period for evaluation and the attainment threshold.
     """
-    attainment_goal: NotRequired[pulumi.Input[_builtins.float]]
+    attainment_goal: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The threshold that determines if the goal is being met. An attainment goal is the ratio of good periods that meet the threshold requirements to the total periods within the interval. For example, an attainment goal of 99.9% means that within your interval, you are targeting 99.9% of the periods to be in healthy state.
     If you omit this parameter, 99 is used to represent 99% as the attainment goal.
     """
-    interval: NotRequired[pulumi.Input['ServiceLevelObjectiveIntervalArgsDict']]
+    interval: NotRequired[pulumi.Input[Optional['ServiceLevelObjectiveIntervalArgs']]]
     """
     The time period used to evaluate the SLO. It can be either a calendar interval or rolling interval.
 
     If you omit this parameter, a rolling interval of 7 days is used.
     """
-    warning_threshold: NotRequired[pulumi.Input[_builtins.float]]
+    warning_threshold: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The percentage of remaining budget over total budget that you want to get warnings for. If you omit this parameter, the default of 50.0 is used.
     """
@@ -435,9 +435,9 @@ class ServiceLevelObjectiveGoalArgsDict(TypedDict):
 @pulumi.input_type
 class ServiceLevelObjectiveGoalArgs:
     def __init__(__self__, *,
-                 attainment_goal: Optional[pulumi.Input[_builtins.float]] = None,
-                 interval: Optional[pulumi.Input['ServiceLevelObjectiveIntervalArgs']] = None,
-                 warning_threshold: Optional[pulumi.Input[_builtins.float]] = None):
+                 attainment_goal: pulumi.Input[Optional[_builtins.float]] = None,
+                 interval: pulumi.Input[Optional['ServiceLevelObjectiveIntervalArgs']] = None,
+                 warning_threshold: pulumi.Input[Optional[_builtins.float]] = None):
         """
         A structure that contains the attributes that determine the goal of the SLO. This includes the time period for evaluation and the attainment threshold.
 
@@ -457,7 +457,7 @@ class ServiceLevelObjectiveGoalArgs:
 
     @_builtins.property
     @pulumi.getter(name="attainmentGoal")
-    def attainment_goal(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def attainment_goal(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The threshold that determines if the goal is being met. An attainment goal is the ratio of good periods that meet the threshold requirements to the total periods within the interval. For example, an attainment goal of 99.9% means that within your interval, you are targeting 99.9% of the periods to be in healthy state.
         If you omit this parameter, 99 is used to represent 99% as the attainment goal.
@@ -465,12 +465,12 @@ class ServiceLevelObjectiveGoalArgs:
         return pulumi.get(self, "attainment_goal")
 
     @attainment_goal.setter
-    def attainment_goal(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def attainment_goal(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "attainment_goal", value)
 
     @_builtins.property
     @pulumi.getter
-    def interval(self) -> Optional[pulumi.Input['ServiceLevelObjectiveIntervalArgs']]:
+    def interval(self) -> pulumi.Input[Optional['ServiceLevelObjectiveIntervalArgs']]:
         """
         The time period used to evaluate the SLO. It can be either a calendar interval or rolling interval.
 
@@ -479,19 +479,19 @@ class ServiceLevelObjectiveGoalArgs:
         return pulumi.get(self, "interval")
 
     @interval.setter
-    def interval(self, value: Optional[pulumi.Input['ServiceLevelObjectiveIntervalArgs']]):
+    def interval(self, value: pulumi.Input[Optional['ServiceLevelObjectiveIntervalArgs']]):
         pulumi.set(self, "interval", value)
 
     @_builtins.property
     @pulumi.getter(name="warningThreshold")
-    def warning_threshold(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def warning_threshold(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The percentage of remaining budget over total budget that you want to get warnings for. If you omit this parameter, the default of 50.0 is used.
         """
         return pulumi.get(self, "warning_threshold")
 
     @warning_threshold.setter
-    def warning_threshold(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def warning_threshold(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "warning_threshold", value)
 
 
@@ -500,11 +500,11 @@ class ServiceLevelObjectiveIntervalArgsDict(TypedDict):
     The time period used to evaluate the SLO. It can be either a calendar interval or rolling interval.
     If you omit this parameter, a rolling interval of 7 days is used.
     """
-    calendar_interval: NotRequired[pulumi.Input['ServiceLevelObjectiveCalendarIntervalArgsDict']]
+    calendar_interval: NotRequired[pulumi.Input[Optional['ServiceLevelObjectiveCalendarIntervalArgs']]]
     """
     If the interval is a calendar interval, this structure contains the interval specifications.
     """
-    rolling_interval: NotRequired[pulumi.Input['ServiceLevelObjectiveRollingIntervalArgsDict']]
+    rolling_interval: NotRequired[pulumi.Input[Optional['ServiceLevelObjectiveRollingIntervalArgs']]]
     """
     If the interval is a rolling interval, this structure contains the interval specifications.
     """
@@ -512,8 +512,8 @@ class ServiceLevelObjectiveIntervalArgsDict(TypedDict):
 @pulumi.input_type
 class ServiceLevelObjectiveIntervalArgs:
     def __init__(__self__, *,
-                 calendar_interval: Optional[pulumi.Input['ServiceLevelObjectiveCalendarIntervalArgs']] = None,
-                 rolling_interval: Optional[pulumi.Input['ServiceLevelObjectiveRollingIntervalArgs']] = None):
+                 calendar_interval: pulumi.Input[Optional['ServiceLevelObjectiveCalendarIntervalArgs']] = None,
+                 rolling_interval: pulumi.Input[Optional['ServiceLevelObjectiveRollingIntervalArgs']] = None):
         """
         The time period used to evaluate the SLO. It can be either a calendar interval or rolling interval.
         If you omit this parameter, a rolling interval of 7 days is used.
@@ -528,26 +528,26 @@ class ServiceLevelObjectiveIntervalArgs:
 
     @_builtins.property
     @pulumi.getter(name="calendarInterval")
-    def calendar_interval(self) -> Optional[pulumi.Input['ServiceLevelObjectiveCalendarIntervalArgs']]:
+    def calendar_interval(self) -> pulumi.Input[Optional['ServiceLevelObjectiveCalendarIntervalArgs']]:
         """
         If the interval is a calendar interval, this structure contains the interval specifications.
         """
         return pulumi.get(self, "calendar_interval")
 
     @calendar_interval.setter
-    def calendar_interval(self, value: Optional[pulumi.Input['ServiceLevelObjectiveCalendarIntervalArgs']]):
+    def calendar_interval(self, value: pulumi.Input[Optional['ServiceLevelObjectiveCalendarIntervalArgs']]):
         pulumi.set(self, "calendar_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="rollingInterval")
-    def rolling_interval(self) -> Optional[pulumi.Input['ServiceLevelObjectiveRollingIntervalArgs']]:
+    def rolling_interval(self) -> pulumi.Input[Optional['ServiceLevelObjectiveRollingIntervalArgs']]:
         """
         If the interval is a rolling interval, this structure contains the interval specifications.
         """
         return pulumi.get(self, "rolling_interval")
 
     @rolling_interval.setter
-    def rolling_interval(self, value: Optional[pulumi.Input['ServiceLevelObjectiveRollingIntervalArgs']]):
+    def rolling_interval(self, value: pulumi.Input[Optional['ServiceLevelObjectiveRollingIntervalArgs']]):
         pulumi.set(self, "rolling_interval", value)
 
 
@@ -560,19 +560,19 @@ class ServiceLevelObjectiveMetricDataQueryArgsDict(TypedDict):
     """
     A short name used to tie this object to the results in the response.
     """
-    account_id: NotRequired[pulumi.Input[_builtins.str]]
+    account_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the account where the metrics are located, if this is a cross-account alarm.
     """
-    expression: NotRequired[pulumi.Input[_builtins.str]]
+    expression: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The math expression to be performed on the returned data.
     """
-    metric_stat: NotRequired[pulumi.Input['ServiceLevelObjectiveMetricStatArgsDict']]
+    metric_stat: NotRequired[pulumi.Input[Optional['ServiceLevelObjectiveMetricStatArgs']]]
     """
     A metric to be used directly for the SLO, or to be used in the math expression that will be used for the SLO. Within one MetricDataQuery, you must specify either Expression or MetricStat but not both.
     """
-    return_data: NotRequired[pulumi.Input[_builtins.bool]]
+    return_data: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     This option indicates whether to return the timestamps and raw data values of this metric.
     """
@@ -581,10 +581,10 @@ class ServiceLevelObjectiveMetricDataQueryArgsDict(TypedDict):
 class ServiceLevelObjectiveMetricDataQueryArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[_builtins.str],
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 metric_stat: Optional[pulumi.Input['ServiceLevelObjectiveMetricStatArgs']] = None,
-                 return_data: Optional[pulumi.Input[_builtins.bool]] = None):
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 metric_stat: pulumi.Input[Optional['ServiceLevelObjectiveMetricStatArgs']] = None,
+                 return_data: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Use this structure to define a metric or metric math expression that you want to use as for a service level objective.
         Each `MetricDataQuery` in the `MetricDataQueries` array specifies either a metric to retrieve, or a metric math expression to be performed on retrieved metrics. A single `MetricDataQueries` array can include as many as 20 `MetricDataQuery` structures in the array. The 20 structures can include as many as 10 structures that contain a `MetricStat` parameter to retrieve a metric, and as many as 10 structures that contain the `Expression` parameter to perform a math expression. Of those Expression structures, exactly one must have true as the value for `ReturnData`. The result of this expression used for the SLO.
@@ -619,50 +619,50 @@ class ServiceLevelObjectiveMetricDataQueryArgs:
 
     @_builtins.property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the account where the metrics are located, if this is a cross-account alarm.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def expression(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expression(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The math expression to be performed on the returned data.
         """
         return pulumi.get(self, "expression")
 
     @expression.setter
-    def expression(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expression(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expression", value)
 
     @_builtins.property
     @pulumi.getter(name="metricStat")
-    def metric_stat(self) -> Optional[pulumi.Input['ServiceLevelObjectiveMetricStatArgs']]:
+    def metric_stat(self) -> pulumi.Input[Optional['ServiceLevelObjectiveMetricStatArgs']]:
         """
         A metric to be used directly for the SLO, or to be used in the math expression that will be used for the SLO. Within one MetricDataQuery, you must specify either Expression or MetricStat but not both.
         """
         return pulumi.get(self, "metric_stat")
 
     @metric_stat.setter
-    def metric_stat(self, value: Optional[pulumi.Input['ServiceLevelObjectiveMetricStatArgs']]):
+    def metric_stat(self, value: pulumi.Input[Optional['ServiceLevelObjectiveMetricStatArgs']]):
         pulumi.set(self, "metric_stat", value)
 
     @_builtins.property
     @pulumi.getter(name="returnData")
-    def return_data(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def return_data(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         This option indicates whether to return the timestamps and raw data values of this metric.
         """
         return pulumi.get(self, "return_data")
 
     @return_data.setter
-    def return_data(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def return_data(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "return_data", value)
 
 
@@ -679,7 +679,7 @@ class ServiceLevelObjectiveMetricStatArgsDict(TypedDict):
     """
     The statistic to use for comparison to the threshold. It can be any CloudWatch statistic or extended statistic.
     """
-    unit: NotRequired[pulumi.Input[_builtins.str]]
+    unit: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     If you omit Unit then all data that was collected with any unit is returned, along with the corresponding units that were specified when the data was reported to CloudWatch. If you specify a unit, the operation returns only data that was collected with that unit specified. If you specify a unit that does not match the data collected, the results of the operation are null. CloudWatch does not perform unit conversions.
     """
@@ -690,7 +690,7 @@ class ServiceLevelObjectiveMetricStatArgs:
                  metric: pulumi.Input['ServiceLevelObjectiveMetricArgs'],
                  period: pulumi.Input[_builtins.int],
                  stat: pulumi.Input[_builtins.str],
-                 unit: Optional[pulumi.Input[_builtins.str]] = None):
+                 unit: pulumi.Input[Optional[_builtins.str]] = None):
         """
         A metric to be used directly for the SLO, or to be used in the math expression that will be used for the SLO. Within one MetricDataQuery object, you must specify either Expression or MetricStat but not both.
 
@@ -739,14 +739,14 @@ class ServiceLevelObjectiveMetricStatArgs:
 
     @_builtins.property
     @pulumi.getter
-    def unit(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def unit(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If you omit Unit then all data that was collected with any unit is returned, along with the corresponding units that were specified when the data was reported to CloudWatch. If you specify a unit, the operation returns only data that was collected with that unit specified. If you specify a unit that does not match the data collected, the results of the operation are null. CloudWatch does not perform unit conversions.
         """
         return pulumi.get(self, "unit")
 
     @unit.setter
-    def unit(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def unit(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "unit", value)
 
 
@@ -754,15 +754,15 @@ class ServiceLevelObjectiveMetricArgsDict(TypedDict):
     """
     This structure defines the metric used for a service level indicator, including the metric name, namespace, and dimensions.
     """
-    dimensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveDimensionArgsDict']]]]
+    dimensions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceLevelObjectiveDimensionArgs']]]]]
     """
     An array of one or more dimensions to use to define the metric that you want to use.
     """
-    metric_name: NotRequired[pulumi.Input[_builtins.str]]
+    metric_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the metric to use.
     """
-    namespace: NotRequired[pulumi.Input[_builtins.str]]
+    namespace: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The namespace of the metric.
     """
@@ -770,9 +770,9 @@ class ServiceLevelObjectiveMetricArgsDict(TypedDict):
 @pulumi.input_type
 class ServiceLevelObjectiveMetricArgs:
     def __init__(__self__, *,
-                 dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveDimensionArgs']]]] = None,
-                 metric_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 namespace: Optional[pulumi.Input[_builtins.str]] = None):
+                 dimensions: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceLevelObjectiveDimensionArgs']]]] = None,
+                 metric_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace: pulumi.Input[Optional[_builtins.str]] = None):
         """
         This structure defines the metric used for a service level indicator, including the metric name, namespace, and dimensions.
 
@@ -789,38 +789,38 @@ class ServiceLevelObjectiveMetricArgs:
 
     @_builtins.property
     @pulumi.getter
-    def dimensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveDimensionArgs']]]]:
+    def dimensions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServiceLevelObjectiveDimensionArgs']]]]:
         """
         An array of one or more dimensions to use to define the metric that you want to use.
         """
         return pulumi.get(self, "dimensions")
 
     @dimensions.setter
-    def dimensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveDimensionArgs']]]]):
+    def dimensions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceLevelObjectiveDimensionArgs']]]]):
         pulumi.set(self, "dimensions", value)
 
     @_builtins.property
     @pulumi.getter(name="metricName")
-    def metric_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metric_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the metric to use.
         """
         return pulumi.get(self, "metric_name")
 
     @metric_name.setter
-    def metric_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metric_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "metric_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def namespace(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The namespace of the metric.
         """
         return pulumi.get(self, "namespace")
 
     @namespace.setter
-    def namespace(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def namespace(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "namespace", value)
 
 
@@ -828,11 +828,11 @@ class ServiceLevelObjectiveMonitoredRequestCountMetricArgsDict(TypedDict):
     """
     This structure defines the metric that is used as the "good request" or "bad request" value for a request-based SLO. This value observed for the metric defined in `TotalRequestCountMetric` is divided by the number found for `MonitoredRequestCountMetric` to determine the percentage of successful requests that this SLO tracks.
     """
-    bad_count_metric: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveMetricDataQueryArgsDict']]]]
+    bad_count_metric: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceLevelObjectiveMetricDataQueryArgs']]]]]
     """
     If you want to count "bad requests" to determine the percentage of successful requests for this request-based SLO, specify the metric to use as "bad requests" in this structure.
     """
-    good_count_metric: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveMetricDataQueryArgsDict']]]]
+    good_count_metric: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceLevelObjectiveMetricDataQueryArgs']]]]]
     """
     If you want to count "good requests" to determine the percentage of successful requests for this request-based SLO, specify the metric to use as "good requests" in this structure.
     """
@@ -840,8 +840,8 @@ class ServiceLevelObjectiveMonitoredRequestCountMetricArgsDict(TypedDict):
 @pulumi.input_type
 class ServiceLevelObjectiveMonitoredRequestCountMetricArgs:
     def __init__(__self__, *,
-                 bad_count_metric: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveMetricDataQueryArgs']]]] = None,
-                 good_count_metric: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveMetricDataQueryArgs']]]] = None):
+                 bad_count_metric: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceLevelObjectiveMetricDataQueryArgs']]]] = None,
+                 good_count_metric: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceLevelObjectiveMetricDataQueryArgs']]]] = None):
         """
         This structure defines the metric that is used as the "good request" or "bad request" value for a request-based SLO. This value observed for the metric defined in `TotalRequestCountMetric` is divided by the number found for `MonitoredRequestCountMetric` to determine the percentage of successful requests that this SLO tracks.
 
@@ -855,26 +855,26 @@ class ServiceLevelObjectiveMonitoredRequestCountMetricArgs:
 
     @_builtins.property
     @pulumi.getter(name="badCountMetric")
-    def bad_count_metric(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveMetricDataQueryArgs']]]]:
+    def bad_count_metric(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServiceLevelObjectiveMetricDataQueryArgs']]]]:
         """
         If you want to count "bad requests" to determine the percentage of successful requests for this request-based SLO, specify the metric to use as "bad requests" in this structure.
         """
         return pulumi.get(self, "bad_count_metric")
 
     @bad_count_metric.setter
-    def bad_count_metric(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveMetricDataQueryArgs']]]]):
+    def bad_count_metric(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceLevelObjectiveMetricDataQueryArgs']]]]):
         pulumi.set(self, "bad_count_metric", value)
 
     @_builtins.property
     @pulumi.getter(name="goodCountMetric")
-    def good_count_metric(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveMetricDataQueryArgs']]]]:
+    def good_count_metric(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServiceLevelObjectiveMetricDataQueryArgs']]]]:
         """
         If you want to count "good requests" to determine the percentage of successful requests for this request-based SLO, specify the metric to use as "good requests" in this structure.
         """
         return pulumi.get(self, "good_count_metric")
 
     @good_count_metric.setter
-    def good_count_metric(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveMetricDataQueryArgs']]]]):
+    def good_count_metric(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceLevelObjectiveMetricDataQueryArgs']]]]):
         pulumi.set(self, "good_count_metric", value)
 
 
@@ -915,11 +915,11 @@ class ServiceLevelObjectiveRequestBasedSliMetricArgsDict(TypedDict):
     """
     This structure contains the information about the metric that is used for a request-based SLO.
     """
-    dependency_config: NotRequired[pulumi.Input['ServiceLevelObjectiveDependencyConfigArgsDict']]
+    dependency_config: NotRequired[pulumi.Input[Optional['ServiceLevelObjectiveDependencyConfigArgs']]]
     """
     Identifies the dependency using the `DependencyKeyAttributes` and `DependencyOperationName` .
     """
-    key_attributes: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    key_attributes: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     This is a string-to-string map that contains information about the type of object that this SLO is related to. It can include the following fields.
 
@@ -930,19 +930,19 @@ class ServiceLevelObjectiveRequestBasedSliMetricArgsDict(TypedDict):
     - `Environment` specifies the location where this object is hosted, or what it belongs to.
     - `AwsAccountId` allows you to create an SLO for an object that exists in another account.
     """
-    metric_type: NotRequired[pulumi.Input['ServiceLevelObjectiveRequestBasedSliMetricMetricType']]
+    metric_type: NotRequired[pulumi.Input[Optional['ServiceLevelObjectiveRequestBasedSliMetricMetricType']]]
     """
     If the SLO monitors either the LATENCY or AVAILABILITY metric that Application Signals collects, this field displays which of those metrics is used.
     """
-    monitored_request_count_metric: NotRequired[pulumi.Input['ServiceLevelObjectiveMonitoredRequestCountMetricArgsDict']]
+    monitored_request_count_metric: NotRequired[pulumi.Input[Optional['ServiceLevelObjectiveMonitoredRequestCountMetricArgs']]]
     """
     Use this structure to define the metric that you want to use as the "good request" or "bad request" value for a request-based SLO. This value observed for the metric defined in `TotalRequestCountMetric` will be divided by the number found for `MonitoredRequestCountMetric` to determine the percentage of successful requests that this SLO tracks.
     """
-    operation_name: NotRequired[pulumi.Input[_builtins.str]]
+    operation_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     If the SLO monitors a specific operation of the service, this field displays that operation name.
     """
-    total_request_count_metric: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveMetricDataQueryArgsDict']]]]
+    total_request_count_metric: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceLevelObjectiveMetricDataQueryArgs']]]]]
     """
     This structure defines the metric that is used as the "total requests" number for a request-based SLO. The number observed for this metric is divided by the number of "good requests" or "bad requests" that is observed for the metric defined in `MonitoredRequestCountMetric`.
     """
@@ -950,12 +950,12 @@ class ServiceLevelObjectiveRequestBasedSliMetricArgsDict(TypedDict):
 @pulumi.input_type
 class ServiceLevelObjectiveRequestBasedSliMetricArgs:
     def __init__(__self__, *,
-                 dependency_config: Optional[pulumi.Input['ServiceLevelObjectiveDependencyConfigArgs']] = None,
-                 key_attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 metric_type: Optional[pulumi.Input['ServiceLevelObjectiveRequestBasedSliMetricMetricType']] = None,
-                 monitored_request_count_metric: Optional[pulumi.Input['ServiceLevelObjectiveMonitoredRequestCountMetricArgs']] = None,
-                 operation_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 total_request_count_metric: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveMetricDataQueryArgs']]]] = None):
+                 dependency_config: pulumi.Input[Optional['ServiceLevelObjectiveDependencyConfigArgs']] = None,
+                 key_attributes: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 metric_type: pulumi.Input[Optional['ServiceLevelObjectiveRequestBasedSliMetricMetricType']] = None,
+                 monitored_request_count_metric: pulumi.Input[Optional['ServiceLevelObjectiveMonitoredRequestCountMetricArgs']] = None,
+                 operation_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 total_request_count_metric: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceLevelObjectiveMetricDataQueryArgs']]]] = None):
         """
         This structure contains the information about the metric that is used for a request-based SLO.
 
@@ -988,19 +988,19 @@ class ServiceLevelObjectiveRequestBasedSliMetricArgs:
 
     @_builtins.property
     @pulumi.getter(name="dependencyConfig")
-    def dependency_config(self) -> Optional[pulumi.Input['ServiceLevelObjectiveDependencyConfigArgs']]:
+    def dependency_config(self) -> pulumi.Input[Optional['ServiceLevelObjectiveDependencyConfigArgs']]:
         """
         Identifies the dependency using the `DependencyKeyAttributes` and `DependencyOperationName` .
         """
         return pulumi.get(self, "dependency_config")
 
     @dependency_config.setter
-    def dependency_config(self, value: Optional[pulumi.Input['ServiceLevelObjectiveDependencyConfigArgs']]):
+    def dependency_config(self, value: pulumi.Input[Optional['ServiceLevelObjectiveDependencyConfigArgs']]):
         pulumi.set(self, "dependency_config", value)
 
     @_builtins.property
     @pulumi.getter(name="keyAttributes")
-    def key_attributes(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def key_attributes(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         This is a string-to-string map that contains information about the type of object that this SLO is related to. It can include the following fields.
 
@@ -1014,55 +1014,55 @@ class ServiceLevelObjectiveRequestBasedSliMetricArgs:
         return pulumi.get(self, "key_attributes")
 
     @key_attributes.setter
-    def key_attributes(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def key_attributes(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "key_attributes", value)
 
     @_builtins.property
     @pulumi.getter(name="metricType")
-    def metric_type(self) -> Optional[pulumi.Input['ServiceLevelObjectiveRequestBasedSliMetricMetricType']]:
+    def metric_type(self) -> pulumi.Input[Optional['ServiceLevelObjectiveRequestBasedSliMetricMetricType']]:
         """
         If the SLO monitors either the LATENCY or AVAILABILITY metric that Application Signals collects, this field displays which of those metrics is used.
         """
         return pulumi.get(self, "metric_type")
 
     @metric_type.setter
-    def metric_type(self, value: Optional[pulumi.Input['ServiceLevelObjectiveRequestBasedSliMetricMetricType']]):
+    def metric_type(self, value: pulumi.Input[Optional['ServiceLevelObjectiveRequestBasedSliMetricMetricType']]):
         pulumi.set(self, "metric_type", value)
 
     @_builtins.property
     @pulumi.getter(name="monitoredRequestCountMetric")
-    def monitored_request_count_metric(self) -> Optional[pulumi.Input['ServiceLevelObjectiveMonitoredRequestCountMetricArgs']]:
+    def monitored_request_count_metric(self) -> pulumi.Input[Optional['ServiceLevelObjectiveMonitoredRequestCountMetricArgs']]:
         """
         Use this structure to define the metric that you want to use as the "good request" or "bad request" value for a request-based SLO. This value observed for the metric defined in `TotalRequestCountMetric` will be divided by the number found for `MonitoredRequestCountMetric` to determine the percentage of successful requests that this SLO tracks.
         """
         return pulumi.get(self, "monitored_request_count_metric")
 
     @monitored_request_count_metric.setter
-    def monitored_request_count_metric(self, value: Optional[pulumi.Input['ServiceLevelObjectiveMonitoredRequestCountMetricArgs']]):
+    def monitored_request_count_metric(self, value: pulumi.Input[Optional['ServiceLevelObjectiveMonitoredRequestCountMetricArgs']]):
         pulumi.set(self, "monitored_request_count_metric", value)
 
     @_builtins.property
     @pulumi.getter(name="operationName")
-    def operation_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def operation_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If the SLO monitors a specific operation of the service, this field displays that operation name.
         """
         return pulumi.get(self, "operation_name")
 
     @operation_name.setter
-    def operation_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def operation_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "operation_name", value)
 
     @_builtins.property
     @pulumi.getter(name="totalRequestCountMetric")
-    def total_request_count_metric(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveMetricDataQueryArgs']]]]:
+    def total_request_count_metric(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServiceLevelObjectiveMetricDataQueryArgs']]]]:
         """
         This structure defines the metric that is used as the "total requests" number for a request-based SLO. The number observed for this metric is divided by the number of "good requests" or "bad requests" that is observed for the metric defined in `MonitoredRequestCountMetric`.
         """
         return pulumi.get(self, "total_request_count_metric")
 
     @total_request_count_metric.setter
-    def total_request_count_metric(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveMetricDataQueryArgs']]]]):
+    def total_request_count_metric(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceLevelObjectiveMetricDataQueryArgs']]]]):
         pulumi.set(self, "total_request_count_metric", value)
 
 
@@ -1074,11 +1074,11 @@ class ServiceLevelObjectiveRequestBasedSliArgsDict(TypedDict):
     """
     A structure that contains information about the metric that the SLO monitors.
     """
-    comparison_operator: NotRequired[pulumi.Input['ServiceLevelObjectiveRequestBasedSliComparisonOperator']]
+    comparison_operator: NotRequired[pulumi.Input[Optional['ServiceLevelObjectiveRequestBasedSliComparisonOperator']]]
     """
     The arithmetic operation used when comparing the specified metric to the threshold.
     """
-    metric_threshold: NotRequired[pulumi.Input[_builtins.float]]
+    metric_threshold: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The value that the SLI metric is compared to.
     """
@@ -1087,8 +1087,8 @@ class ServiceLevelObjectiveRequestBasedSliArgsDict(TypedDict):
 class ServiceLevelObjectiveRequestBasedSliArgs:
     def __init__(__self__, *,
                  request_based_sli_metric: pulumi.Input['ServiceLevelObjectiveRequestBasedSliMetricArgs'],
-                 comparison_operator: Optional[pulumi.Input['ServiceLevelObjectiveRequestBasedSliComparisonOperator']] = None,
-                 metric_threshold: Optional[pulumi.Input[_builtins.float]] = None):
+                 comparison_operator: pulumi.Input[Optional['ServiceLevelObjectiveRequestBasedSliComparisonOperator']] = None,
+                 metric_threshold: pulumi.Input[Optional[_builtins.float]] = None):
         """
         This structure contains information about the performance metric that a request-based SLO monitors.
 
@@ -1116,26 +1116,26 @@ class ServiceLevelObjectiveRequestBasedSliArgs:
 
     @_builtins.property
     @pulumi.getter(name="comparisonOperator")
-    def comparison_operator(self) -> Optional[pulumi.Input['ServiceLevelObjectiveRequestBasedSliComparisonOperator']]:
+    def comparison_operator(self) -> pulumi.Input[Optional['ServiceLevelObjectiveRequestBasedSliComparisonOperator']]:
         """
         The arithmetic operation used when comparing the specified metric to the threshold.
         """
         return pulumi.get(self, "comparison_operator")
 
     @comparison_operator.setter
-    def comparison_operator(self, value: Optional[pulumi.Input['ServiceLevelObjectiveRequestBasedSliComparisonOperator']]):
+    def comparison_operator(self, value: pulumi.Input[Optional['ServiceLevelObjectiveRequestBasedSliComparisonOperator']]):
         pulumi.set(self, "comparison_operator", value)
 
     @_builtins.property
     @pulumi.getter(name="metricThreshold")
-    def metric_threshold(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def metric_threshold(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The value that the SLI metric is compared to.
         """
         return pulumi.get(self, "metric_threshold")
 
     @metric_threshold.setter
-    def metric_threshold(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def metric_threshold(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "metric_threshold", value)
 
 
@@ -1195,11 +1195,11 @@ class ServiceLevelObjectiveSliMetricArgsDict(TypedDict):
     """
     A structure that contains information about the metric that the SLO monitors.
     """
-    dependency_config: NotRequired[pulumi.Input['ServiceLevelObjectiveDependencyConfigArgsDict']]
+    dependency_config: NotRequired[pulumi.Input[Optional['ServiceLevelObjectiveDependencyConfigArgs']]]
     """
     Identifies the dependency using the `DependencyKeyAttributes` and `DependencyOperationName` .
     """
-    key_attributes: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    key_attributes: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     If this SLO is related to a metric collected by Application Signals, you must use this field to specify which service the SLO metric is related to. To do so, you must specify at least the `Type` , `Name` , and `Environment` attributes.
 
@@ -1211,23 +1211,23 @@ class ServiceLevelObjectiveSliMetricArgsDict(TypedDict):
     - `Identifier` identifies the resource objects of this resource. This is used only if the value of the `Type` field is `Resource` or `AWS::Resource` .
     - `Environment` specifies the location where this object is hosted, or what it belongs to.
     """
-    metric_data_queries: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveMetricDataQueryArgsDict']]]]
+    metric_data_queries: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceLevelObjectiveMetricDataQueryArgs']]]]]
     """
     If this SLO monitors a CloudWatch metric or the result of a CloudWatch metric math expression, use this structure to specify that metric or expression.
     """
-    metric_type: NotRequired[pulumi.Input['ServiceLevelObjectiveSliMetricMetricType']]
+    metric_type: NotRequired[pulumi.Input[Optional['ServiceLevelObjectiveSliMetricMetricType']]]
     """
     If the SLO monitors either the LATENCY or AVAILABILITY metric that Application Signals collects, this field displays which of those metrics is used.
     """
-    operation_name: NotRequired[pulumi.Input[_builtins.str]]
+    operation_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     If the SLO monitors a specific operation of the service, this field displays that operation name.
     """
-    period_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    period_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The number of seconds to use as the period for SLO evaluation. Your application's performance is compared to the SLI during each period. For each period, the application is determined to have either achieved or not achieved the necessary performance.
     """
-    statistic: NotRequired[pulumi.Input[_builtins.str]]
+    statistic: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The statistic to use for comparison to the threshold. It can be any CloudWatch statistic or extended statistic
     """
@@ -1235,13 +1235,13 @@ class ServiceLevelObjectiveSliMetricArgsDict(TypedDict):
 @pulumi.input_type
 class ServiceLevelObjectiveSliMetricArgs:
     def __init__(__self__, *,
-                 dependency_config: Optional[pulumi.Input['ServiceLevelObjectiveDependencyConfigArgs']] = None,
-                 key_attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 metric_data_queries: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveMetricDataQueryArgs']]]] = None,
-                 metric_type: Optional[pulumi.Input['ServiceLevelObjectiveSliMetricMetricType']] = None,
-                 operation_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 period_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 statistic: Optional[pulumi.Input[_builtins.str]] = None):
+                 dependency_config: pulumi.Input[Optional['ServiceLevelObjectiveDependencyConfigArgs']] = None,
+                 key_attributes: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 metric_data_queries: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceLevelObjectiveMetricDataQueryArgs']]]] = None,
+                 metric_type: pulumi.Input[Optional['ServiceLevelObjectiveSliMetricMetricType']] = None,
+                 operation_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 period_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 statistic: pulumi.Input[Optional[_builtins.str]] = None):
         """
         A structure that contains information about the metric that the SLO monitors.
 
@@ -1278,19 +1278,19 @@ class ServiceLevelObjectiveSliMetricArgs:
 
     @_builtins.property
     @pulumi.getter(name="dependencyConfig")
-    def dependency_config(self) -> Optional[pulumi.Input['ServiceLevelObjectiveDependencyConfigArgs']]:
+    def dependency_config(self) -> pulumi.Input[Optional['ServiceLevelObjectiveDependencyConfigArgs']]:
         """
         Identifies the dependency using the `DependencyKeyAttributes` and `DependencyOperationName` .
         """
         return pulumi.get(self, "dependency_config")
 
     @dependency_config.setter
-    def dependency_config(self, value: Optional[pulumi.Input['ServiceLevelObjectiveDependencyConfigArgs']]):
+    def dependency_config(self, value: pulumi.Input[Optional['ServiceLevelObjectiveDependencyConfigArgs']]):
         pulumi.set(self, "dependency_config", value)
 
     @_builtins.property
     @pulumi.getter(name="keyAttributes")
-    def key_attributes(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def key_attributes(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         If this SLO is related to a metric collected by Application Signals, you must use this field to specify which service the SLO metric is related to. To do so, you must specify at least the `Type` , `Name` , and `Environment` attributes.
 
@@ -1305,67 +1305,67 @@ class ServiceLevelObjectiveSliMetricArgs:
         return pulumi.get(self, "key_attributes")
 
     @key_attributes.setter
-    def key_attributes(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def key_attributes(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "key_attributes", value)
 
     @_builtins.property
     @pulumi.getter(name="metricDataQueries")
-    def metric_data_queries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveMetricDataQueryArgs']]]]:
+    def metric_data_queries(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServiceLevelObjectiveMetricDataQueryArgs']]]]:
         """
         If this SLO monitors a CloudWatch metric or the result of a CloudWatch metric math expression, use this structure to specify that metric or expression.
         """
         return pulumi.get(self, "metric_data_queries")
 
     @metric_data_queries.setter
-    def metric_data_queries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveMetricDataQueryArgs']]]]):
+    def metric_data_queries(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceLevelObjectiveMetricDataQueryArgs']]]]):
         pulumi.set(self, "metric_data_queries", value)
 
     @_builtins.property
     @pulumi.getter(name="metricType")
-    def metric_type(self) -> Optional[pulumi.Input['ServiceLevelObjectiveSliMetricMetricType']]:
+    def metric_type(self) -> pulumi.Input[Optional['ServiceLevelObjectiveSliMetricMetricType']]:
         """
         If the SLO monitors either the LATENCY or AVAILABILITY metric that Application Signals collects, this field displays which of those metrics is used.
         """
         return pulumi.get(self, "metric_type")
 
     @metric_type.setter
-    def metric_type(self, value: Optional[pulumi.Input['ServiceLevelObjectiveSliMetricMetricType']]):
+    def metric_type(self, value: pulumi.Input[Optional['ServiceLevelObjectiveSliMetricMetricType']]):
         pulumi.set(self, "metric_type", value)
 
     @_builtins.property
     @pulumi.getter(name="operationName")
-    def operation_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def operation_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If the SLO monitors a specific operation of the service, this field displays that operation name.
         """
         return pulumi.get(self, "operation_name")
 
     @operation_name.setter
-    def operation_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def operation_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "operation_name", value)
 
     @_builtins.property
     @pulumi.getter(name="periodSeconds")
-    def period_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def period_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of seconds to use as the period for SLO evaluation. Your application's performance is compared to the SLI during each period. For each period, the application is determined to have either achieved or not achieved the necessary performance.
         """
         return pulumi.get(self, "period_seconds")
 
     @period_seconds.setter
-    def period_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def period_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "period_seconds", value)
 
     @_builtins.property
     @pulumi.getter
-    def statistic(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def statistic(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The statistic to use for comparison to the threshold. It can be any CloudWatch statistic or extended statistic
         """
         return pulumi.get(self, "statistic")
 
     @statistic.setter
-    def statistic(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def statistic(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "statistic", value)
 
 

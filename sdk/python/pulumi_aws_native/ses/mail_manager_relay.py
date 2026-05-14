@@ -26,8 +26,8 @@ class MailManagerRelayArgs:
                  authentication: pulumi.Input[Union['MailManagerRelayRelayAuthentication0PropertiesArgs', 'MailManagerRelayRelayAuthentication1PropertiesArgs']],
                  server_name: pulumi.Input[_builtins.str],
                  server_port: pulumi.Input[_builtins.float],
-                 relay_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 relay_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a MailManagerRelay resource.
 
@@ -83,26 +83,26 @@ class MailManagerRelayArgs:
 
     @_builtins.property
     @pulumi.getter(name="relayName")
-    def relay_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def relay_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique relay name.
         """
         return pulumi.get(self, "relay_name")
 
     @relay_name.setter
-    def relay_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def relay_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "relay_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags used to organize, track, or control access for the resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -112,11 +112,11 @@ class MailManagerRelay(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication: Optional[pulumi.Input[Union[Union['MailManagerRelayRelayAuthentication0PropertiesArgs', 'MailManagerRelayRelayAuthentication0PropertiesArgsDict'], Union['MailManagerRelayRelayAuthentication1PropertiesArgs', 'MailManagerRelayRelayAuthentication1PropertiesArgsDict']]]] = None,
-                 relay_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_port: Optional[pulumi.Input[_builtins.float]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 authentication: pulumi.Input[Optional[Union[Union['MailManagerRelayRelayAuthentication0PropertiesArgs', 'MailManagerRelayRelayAuthentication0PropertiesArgsDict'], Union['MailManagerRelayRelayAuthentication1PropertiesArgs', 'MailManagerRelayRelayAuthentication1PropertiesArgsDict']]]] = None,
+                 relay_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_port: pulumi.Input[Optional[_builtins.float]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::SES::MailManagerRelay Resource Type
@@ -155,11 +155,11 @@ class MailManagerRelay(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication: Optional[pulumi.Input[Union[Union['MailManagerRelayRelayAuthentication0PropertiesArgs', 'MailManagerRelayRelayAuthentication0PropertiesArgsDict'], Union['MailManagerRelayRelayAuthentication1PropertiesArgs', 'MailManagerRelayRelayAuthentication1PropertiesArgsDict']]]] = None,
-                 relay_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_port: Optional[pulumi.Input[_builtins.float]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 authentication: pulumi.Input[Optional[Union[Union['MailManagerRelayRelayAuthentication0PropertiesArgs', 'MailManagerRelayRelayAuthentication0PropertiesArgsDict'], Union['MailManagerRelayRelayAuthentication1PropertiesArgs', 'MailManagerRelayRelayAuthentication1PropertiesArgsDict']]]] = None,
+                 relay_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_port: pulumi.Input[Optional[_builtins.float]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

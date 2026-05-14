@@ -23,16 +23,16 @@ __all__ = ['FleetMetricArgs', 'FleetMetric']
 @pulumi.input_type
 class FleetMetricArgs:
     def __init__(__self__, *,
-                 aggregation_field: Optional[pulumi.Input[_builtins.str]] = None,
-                 aggregation_type: Optional[pulumi.Input['FleetMetricAggregationTypeArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 index_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 metric_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 period: Optional[pulumi.Input[_builtins.int]] = None,
-                 query_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 unit: Optional[pulumi.Input[_builtins.str]] = None):
+                 aggregation_field: pulumi.Input[Optional[_builtins.str]] = None,
+                 aggregation_type: pulumi.Input[Optional['FleetMetricAggregationTypeArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 index_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 metric_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 period: pulumi.Input[Optional[_builtins.int]] = None,
+                 query_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 unit: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a FleetMetric resource.
 
@@ -70,122 +70,122 @@ class FleetMetricArgs:
 
     @_builtins.property
     @pulumi.getter(name="aggregationField")
-    def aggregation_field(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aggregation_field(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The aggregation field to perform aggregation and metric emission
         """
         return pulumi.get(self, "aggregation_field")
 
     @aggregation_field.setter
-    def aggregation_field(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aggregation_field(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aggregation_field", value)
 
     @_builtins.property
     @pulumi.getter(name="aggregationType")
-    def aggregation_type(self) -> Optional[pulumi.Input['FleetMetricAggregationTypeArgs']]:
+    def aggregation_type(self) -> pulumi.Input[Optional['FleetMetricAggregationTypeArgs']]:
         """
         The type of the aggregation query.
         """
         return pulumi.get(self, "aggregation_type")
 
     @aggregation_type.setter
-    def aggregation_type(self, value: Optional[pulumi.Input['FleetMetricAggregationTypeArgs']]):
+    def aggregation_type(self, value: pulumi.Input[Optional['FleetMetricAggregationTypeArgs']]):
         pulumi.set(self, "aggregation_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of a fleet metric
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="indexName")
-    def index_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def index_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The index name of a fleet metric
         """
         return pulumi.get(self, "index_name")
 
     @index_name.setter
-    def index_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def index_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "index_name", value)
 
     @_builtins.property
     @pulumi.getter(name="metricName")
-    def metric_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metric_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the fleet metric
         """
         return pulumi.get(self, "metric_name")
 
     @metric_name.setter
-    def metric_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metric_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "metric_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def period(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def period(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The period of metric emission in seconds
         """
         return pulumi.get(self, "period")
 
     @period.setter
-    def period(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def period(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "period", value)
 
     @_builtins.property
     @pulumi.getter(name="queryString")
-    def query_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def query_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Fleet Indexing query used by a fleet metric
         """
         return pulumi.get(self, "query_string")
 
     @query_string.setter
-    def query_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def query_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "query_string", value)
 
     @_builtins.property
     @pulumi.getter(name="queryVersion")
-    def query_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def query_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of a Fleet Indexing query used by a fleet metric
         """
         return pulumi.get(self, "query_version")
 
     @query_version.setter
-    def query_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def query_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "query_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def unit(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def unit(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unit of data points emitted by a fleet metric
         """
         return pulumi.get(self, "unit")
 
     @unit.setter
-    def unit(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def unit(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "unit", value)
 
 
@@ -195,16 +195,16 @@ class FleetMetric(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aggregation_field: Optional[pulumi.Input[_builtins.str]] = None,
-                 aggregation_type: Optional[pulumi.Input[Union['FleetMetricAggregationTypeArgs', 'FleetMetricAggregationTypeArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 index_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 metric_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 period: Optional[pulumi.Input[_builtins.int]] = None,
-                 query_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 unit: Optional[pulumi.Input[_builtins.str]] = None,
+                 aggregation_field: pulumi.Input[Optional[_builtins.str]] = None,
+                 aggregation_type: pulumi.Input[Optional[Union['FleetMetricAggregationTypeArgs', 'FleetMetricAggregationTypeArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 index_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 metric_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 period: pulumi.Input[Optional[_builtins.int]] = None,
+                 query_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 unit: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         An aggregated metric of certain devices in your fleet
@@ -248,16 +248,16 @@ class FleetMetric(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aggregation_field: Optional[pulumi.Input[_builtins.str]] = None,
-                 aggregation_type: Optional[pulumi.Input[Union['FleetMetricAggregationTypeArgs', 'FleetMetricAggregationTypeArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 index_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 metric_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 period: Optional[pulumi.Input[_builtins.int]] = None,
-                 query_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 unit: Optional[pulumi.Input[_builtins.str]] = None,
+                 aggregation_field: pulumi.Input[Optional[_builtins.str]] = None,
+                 aggregation_type: pulumi.Input[Optional[Union['FleetMetricAggregationTypeArgs', 'FleetMetricAggregationTypeArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 index_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 metric_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 period: pulumi.Input[Optional[_builtins.int]] = None,
+                 query_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 unit: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

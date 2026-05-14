@@ -65,14 +65,14 @@ __all__ = [
 ]
 
 class ComponentVersionComponentDependencyRequirementArgsDict(TypedDict):
-    dependency_type: NotRequired[pulumi.Input['ComponentVersionComponentDependencyRequirementDependencyType']]
-    version_requirement: NotRequired[pulumi.Input[_builtins.str]]
+    dependency_type: NotRequired[pulumi.Input[Optional['ComponentVersionComponentDependencyRequirementDependencyType']]]
+    version_requirement: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class ComponentVersionComponentDependencyRequirementArgs:
     def __init__(__self__, *,
-                 dependency_type: Optional[pulumi.Input['ComponentVersionComponentDependencyRequirementDependencyType']] = None,
-                 version_requirement: Optional[pulumi.Input[_builtins.str]] = None):
+                 dependency_type: pulumi.Input[Optional['ComponentVersionComponentDependencyRequirementDependencyType']] = None,
+                 version_requirement: pulumi.Input[Optional[_builtins.str]] = None):
         if dependency_type is not None:
             pulumi.set(__self__, "dependency_type", dependency_type)
         if version_requirement is not None:
@@ -80,29 +80,29 @@ class ComponentVersionComponentDependencyRequirementArgs:
 
     @_builtins.property
     @pulumi.getter(name="dependencyType")
-    def dependency_type(self) -> Optional[pulumi.Input['ComponentVersionComponentDependencyRequirementDependencyType']]:
+    def dependency_type(self) -> pulumi.Input[Optional['ComponentVersionComponentDependencyRequirementDependencyType']]:
         return pulumi.get(self, "dependency_type")
 
     @dependency_type.setter
-    def dependency_type(self, value: Optional[pulumi.Input['ComponentVersionComponentDependencyRequirementDependencyType']]):
+    def dependency_type(self, value: pulumi.Input[Optional['ComponentVersionComponentDependencyRequirementDependencyType']]):
         pulumi.set(self, "dependency_type", value)
 
     @_builtins.property
     @pulumi.getter(name="versionRequirement")
-    def version_requirement(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version_requirement(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "version_requirement")
 
     @version_requirement.setter
-    def version_requirement(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version_requirement(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version_requirement", value)
 
 
 class ComponentVersionComponentPlatformArgsDict(TypedDict):
-    attributes: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    attributes: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     A dictionary of attributes for the platform. The AWS IoT Greengrass Core software defines the `os` and `platform` by default. You can specify additional platform attributes for a core device when you deploy the AWS IoT Greengrass nucleus component. For more information, see the [AWS IoT Greengrass nucleus component](https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-nucleus-component.html) in the *AWS IoT Greengrass V2 Developer Guide* .
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The friendly name of the platform. This name helps you identify the platform.
 
@@ -112,8 +112,8 @@ class ComponentVersionComponentPlatformArgsDict(TypedDict):
 @pulumi.input_type
 class ComponentVersionComponentPlatformArgs:
     def __init__(__self__, *,
-                 attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 attributes: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] attributes: A dictionary of attributes for the platform. The AWS IoT Greengrass Core software defines the `os` and `platform` by default. You can specify additional platform attributes for a core device when you deploy the AWS IoT Greengrass nucleus component. For more information, see the [AWS IoT Greengrass nucleus component](https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-nucleus-component.html) in the *AWS IoT Greengrass V2 Developer Guide* .
         :param pulumi.Input[_builtins.str] name: The friendly name of the platform. This name helps you identify the platform.
@@ -127,19 +127,19 @@ class ComponentVersionComponentPlatformArgs:
 
     @_builtins.property
     @pulumi.getter
-    def attributes(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def attributes(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A dictionary of attributes for the platform. The AWS IoT Greengrass Core software defines the `os` and `platform` by default. You can specify additional platform attributes for a core device when you deploy the AWS IoT Greengrass nucleus component. For more information, see the [AWS IoT Greengrass nucleus component](https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-nucleus-component.html) in the *AWS IoT Greengrass V2 Developer Guide* .
         """
         return pulumi.get(self, "attributes")
 
     @attributes.setter
-    def attributes(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def attributes(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "attributes", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The friendly name of the platform. This name helps you identify the platform.
 
@@ -148,28 +148,28 @@ class ComponentVersionComponentPlatformArgs:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 class ComponentVersionLambdaContainerParamsArgsDict(TypedDict):
-    devices: NotRequired[pulumi.Input[Sequence[pulumi.Input['ComponentVersionLambdaDeviceMountArgsDict']]]]
+    devices: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ComponentVersionLambdaDeviceMountArgs']]]]]
     """
     The list of system devices that the container can access.
     """
-    memory_size_in_kb: NotRequired[pulumi.Input[_builtins.int]]
+    memory_size_in_kb: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The memory size of the container, expressed in kilobytes.
 
     Default: `16384` (16 MB)
     """
-    mount_ro_sysfs: NotRequired[pulumi.Input[_builtins.bool]]
+    mount_ro_sysfs: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether or not the container can read information from the device's `/sys` folder.
 
     Default: `false`
     """
-    volumes: NotRequired[pulumi.Input[Sequence[pulumi.Input['ComponentVersionLambdaVolumeMountArgsDict']]]]
+    volumes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ComponentVersionLambdaVolumeMountArgs']]]]]
     """
     The list of volumes that the container can access.
     """
@@ -177,10 +177,10 @@ class ComponentVersionLambdaContainerParamsArgsDict(TypedDict):
 @pulumi.input_type
 class ComponentVersionLambdaContainerParamsArgs:
     def __init__(__self__, *,
-                 devices: Optional[pulumi.Input[Sequence[pulumi.Input['ComponentVersionLambdaDeviceMountArgs']]]] = None,
-                 memory_size_in_kb: Optional[pulumi.Input[_builtins.int]] = None,
-                 mount_ro_sysfs: Optional[pulumi.Input[_builtins.bool]] = None,
-                 volumes: Optional[pulumi.Input[Sequence[pulumi.Input['ComponentVersionLambdaVolumeMountArgs']]]] = None):
+                 devices: pulumi.Input[Optional[Sequence[pulumi.Input['ComponentVersionLambdaDeviceMountArgs']]]] = None,
+                 memory_size_in_kb: pulumi.Input[Optional[_builtins.int]] = None,
+                 mount_ro_sysfs: pulumi.Input[Optional[_builtins.bool]] = None,
+                 volumes: pulumi.Input[Optional[Sequence[pulumi.Input['ComponentVersionLambdaVolumeMountArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['ComponentVersionLambdaDeviceMountArgs']]] devices: The list of system devices that the container can access.
         :param pulumi.Input[_builtins.int] memory_size_in_kb: The memory size of the container, expressed in kilobytes.
@@ -202,19 +202,19 @@ class ComponentVersionLambdaContainerParamsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def devices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ComponentVersionLambdaDeviceMountArgs']]]]:
+    def devices(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ComponentVersionLambdaDeviceMountArgs']]]]:
         """
         The list of system devices that the container can access.
         """
         return pulumi.get(self, "devices")
 
     @devices.setter
-    def devices(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ComponentVersionLambdaDeviceMountArgs']]]]):
+    def devices(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ComponentVersionLambdaDeviceMountArgs']]]]):
         pulumi.set(self, "devices", value)
 
     @_builtins.property
     @pulumi.getter(name="memorySizeInKb")
-    def memory_size_in_kb(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def memory_size_in_kb(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The memory size of the container, expressed in kilobytes.
 
@@ -223,12 +223,12 @@ class ComponentVersionLambdaContainerParamsArgs:
         return pulumi.get(self, "memory_size_in_kb")
 
     @memory_size_in_kb.setter
-    def memory_size_in_kb(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def memory_size_in_kb(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "memory_size_in_kb", value)
 
     @_builtins.property
     @pulumi.getter(name="mountRoSysfs")
-    def mount_ro_sysfs(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def mount_ro_sysfs(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not the container can read information from the device's `/sys` folder.
 
@@ -237,34 +237,34 @@ class ComponentVersionLambdaContainerParamsArgs:
         return pulumi.get(self, "mount_ro_sysfs")
 
     @mount_ro_sysfs.setter
-    def mount_ro_sysfs(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def mount_ro_sysfs(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "mount_ro_sysfs", value)
 
     @_builtins.property
     @pulumi.getter
-    def volumes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ComponentVersionLambdaVolumeMountArgs']]]]:
+    def volumes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ComponentVersionLambdaVolumeMountArgs']]]]:
         """
         The list of volumes that the container can access.
         """
         return pulumi.get(self, "volumes")
 
     @volumes.setter
-    def volumes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ComponentVersionLambdaVolumeMountArgs']]]]):
+    def volumes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ComponentVersionLambdaVolumeMountArgs']]]]):
         pulumi.set(self, "volumes", value)
 
 
 class ComponentVersionLambdaDeviceMountArgsDict(TypedDict):
-    add_group_owner: NotRequired[pulumi.Input[_builtins.bool]]
+    add_group_owner: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether or not to add the component's system user as an owner of the device.
 
     Default: `false`
     """
-    path: NotRequired[pulumi.Input[_builtins.str]]
+    path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The mount path for the device in the file system.
     """
-    permission: NotRequired[pulumi.Input['ComponentVersionLambdaFilesystemPermission']]
+    permission: NotRequired[pulumi.Input[Optional['ComponentVersionLambdaFilesystemPermission']]]
     """
     The permission to access the device: read/only ( `ro` ) or read/write ( `rw` ).
 
@@ -274,9 +274,9 @@ class ComponentVersionLambdaDeviceMountArgsDict(TypedDict):
 @pulumi.input_type
 class ComponentVersionLambdaDeviceMountArgs:
     def __init__(__self__, *,
-                 add_group_owner: Optional[pulumi.Input[_builtins.bool]] = None,
-                 path: Optional[pulumi.Input[_builtins.str]] = None,
-                 permission: Optional[pulumi.Input['ComponentVersionLambdaFilesystemPermission']] = None):
+                 add_group_owner: pulumi.Input[Optional[_builtins.bool]] = None,
+                 path: pulumi.Input[Optional[_builtins.str]] = None,
+                 permission: pulumi.Input[Optional['ComponentVersionLambdaFilesystemPermission']] = None):
         """
         :param pulumi.Input[_builtins.bool] add_group_owner: Whether or not to add the component's system user as an owner of the device.
                
@@ -295,7 +295,7 @@ class ComponentVersionLambdaDeviceMountArgs:
 
     @_builtins.property
     @pulumi.getter(name="addGroupOwner")
-    def add_group_owner(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def add_group_owner(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not to add the component's system user as an owner of the device.
 
@@ -304,24 +304,24 @@ class ComponentVersionLambdaDeviceMountArgs:
         return pulumi.get(self, "add_group_owner")
 
     @add_group_owner.setter
-    def add_group_owner(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def add_group_owner(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "add_group_owner", value)
 
     @_builtins.property
     @pulumi.getter
-    def path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The mount path for the device in the file system.
         """
         return pulumi.get(self, "path")
 
     @path.setter
-    def path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "path", value)
 
     @_builtins.property
     @pulumi.getter
-    def permission(self) -> Optional[pulumi.Input['ComponentVersionLambdaFilesystemPermission']]:
+    def permission(self) -> pulumi.Input[Optional['ComponentVersionLambdaFilesystemPermission']]:
         """
         The permission to access the device: read/only ( `ro` ) or read/write ( `rw` ).
 
@@ -330,16 +330,16 @@ class ComponentVersionLambdaDeviceMountArgs:
         return pulumi.get(self, "permission")
 
     @permission.setter
-    def permission(self, value: Optional[pulumi.Input['ComponentVersionLambdaFilesystemPermission']]):
+    def permission(self, value: pulumi.Input[Optional['ComponentVersionLambdaFilesystemPermission']]):
         pulumi.set(self, "permission", value)
 
 
 class ComponentVersionLambdaEventSourceArgsDict(TypedDict):
-    topic: NotRequired[pulumi.Input[_builtins.str]]
+    topic: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The topic to which to subscribe to receive event messages.
     """
-    type: NotRequired[pulumi.Input['ComponentVersionLambdaEventSourceType']]
+    type: NotRequired[pulumi.Input[Optional['ComponentVersionLambdaEventSourceType']]]
     """
     The type of event source. Choose from the following options:
 
@@ -350,8 +350,8 @@ class ComponentVersionLambdaEventSourceArgsDict(TypedDict):
 @pulumi.input_type
 class ComponentVersionLambdaEventSourceArgs:
     def __init__(__self__, *,
-                 topic: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input['ComponentVersionLambdaEventSourceType']] = None):
+                 topic: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional['ComponentVersionLambdaEventSourceType']] = None):
         """
         :param pulumi.Input[_builtins.str] topic: The topic to which to subscribe to receive event messages.
         :param pulumi.Input['ComponentVersionLambdaEventSourceType'] type: The type of event source. Choose from the following options:
@@ -366,19 +366,19 @@ class ComponentVersionLambdaEventSourceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def topic(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def topic(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The topic to which to subscribe to receive event messages.
         """
         return pulumi.get(self, "topic")
 
     @topic.setter
-    def topic(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def topic(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "topic", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['ComponentVersionLambdaEventSourceType']]:
+    def type(self) -> pulumi.Input[Optional['ComponentVersionLambdaEventSourceType']]:
         """
         The type of event source. Choose from the following options:
 
@@ -388,46 +388,46 @@ class ComponentVersionLambdaEventSourceArgs:
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['ComponentVersionLambdaEventSourceType']]):
+    def type(self, value: pulumi.Input[Optional['ComponentVersionLambdaEventSourceType']]):
         pulumi.set(self, "type", value)
 
 
 class ComponentVersionLambdaExecutionParametersArgsDict(TypedDict):
-    environment_variables: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    environment_variables: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     The map of environment variables that are available to the Lambda function when it runs.
     """
-    event_sources: NotRequired[pulumi.Input[Sequence[pulumi.Input['ComponentVersionLambdaEventSourceArgsDict']]]]
+    event_sources: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ComponentVersionLambdaEventSourceArgs']]]]]
     """
     The list of event sources to which to subscribe to receive work messages. The Lambda function runs when it receives a message from an event source. You can subscribe this function to local publish/subscribe messages and AWS IoT Core MQTT messages.
     """
-    exec_args: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    exec_args: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of arguments to pass to the Lambda function when it runs.
     """
-    input_payload_encoding_type: NotRequired[pulumi.Input['ComponentVersionLambdaExecutionParametersInputPayloadEncodingType']]
+    input_payload_encoding_type: NotRequired[pulumi.Input[Optional['ComponentVersionLambdaExecutionParametersInputPayloadEncodingType']]]
     """
     The encoding type that the Lambda function supports.
 
     Default: `json`
     """
-    linux_process_params: NotRequired[pulumi.Input['ComponentVersionLambdaLinuxProcessParamsArgsDict']]
+    linux_process_params: NotRequired[pulumi.Input[Optional['ComponentVersionLambdaLinuxProcessParamsArgs']]]
     """
     The parameters for the Linux process that contains the Lambda function.
     """
-    max_idle_time_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    max_idle_time_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum amount of time in seconds that a non-pinned Lambda function can idle before the AWS IoT Greengrass Core software stops its process.
     """
-    max_instances_count: NotRequired[pulumi.Input[_builtins.int]]
+    max_instances_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum number of instances that a non-pinned Lambda function can run at the same time.
     """
-    max_queue_size: NotRequired[pulumi.Input[_builtins.int]]
+    max_queue_size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum size of the message queue for the Lambda function component. The AWS IoT Greengrass core device stores messages in a FIFO (first-in-first-out) queue until it can run the Lambda function to consume each message.
     """
-    pinned: NotRequired[pulumi.Input[_builtins.bool]]
+    pinned: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether or not the Lambda function is pinned, or long-lived.
 
@@ -436,11 +436,11 @@ class ComponentVersionLambdaExecutionParametersArgsDict(TypedDict):
 
     Default: `true`
     """
-    status_timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    status_timeout_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The interval in seconds at which a pinned (also known as long-lived) Lambda function component sends status updates to the Lambda manager component.
     """
-    timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    timeout_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum amount of time in seconds that the Lambda function can process a work item.
     """
@@ -448,17 +448,17 @@ class ComponentVersionLambdaExecutionParametersArgsDict(TypedDict):
 @pulumi.input_type
 class ComponentVersionLambdaExecutionParametersArgs:
     def __init__(__self__, *,
-                 environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 event_sources: Optional[pulumi.Input[Sequence[pulumi.Input['ComponentVersionLambdaEventSourceArgs']]]] = None,
-                 exec_args: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 input_payload_encoding_type: Optional[pulumi.Input['ComponentVersionLambdaExecutionParametersInputPayloadEncodingType']] = None,
-                 linux_process_params: Optional[pulumi.Input['ComponentVersionLambdaLinuxProcessParamsArgs']] = None,
-                 max_idle_time_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_instances_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_queue_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 pinned: Optional[pulumi.Input[_builtins.bool]] = None,
-                 status_timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None):
+                 environment_variables: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 event_sources: pulumi.Input[Optional[Sequence[pulumi.Input['ComponentVersionLambdaEventSourceArgs']]]] = None,
+                 exec_args: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 input_payload_encoding_type: pulumi.Input[Optional['ComponentVersionLambdaExecutionParametersInputPayloadEncodingType']] = None,
+                 linux_process_params: pulumi.Input[Optional['ComponentVersionLambdaLinuxProcessParamsArgs']] = None,
+                 max_idle_time_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_instances_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_queue_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 pinned: pulumi.Input[Optional[_builtins.bool]] = None,
+                 status_timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] environment_variables: The map of environment variables that are available to the Lambda function when it runs.
         :param pulumi.Input[Sequence[pulumi.Input['ComponentVersionLambdaEventSourceArgs']]] event_sources: The list of event sources to which to subscribe to receive work messages. The Lambda function runs when it receives a message from an event source. You can subscribe this function to local publish/subscribe messages and AWS IoT Core MQTT messages.
@@ -504,43 +504,43 @@ class ComponentVersionLambdaExecutionParametersArgs:
 
     @_builtins.property
     @pulumi.getter(name="environmentVariables")
-    def environment_variables(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def environment_variables(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The map of environment variables that are available to the Lambda function when it runs.
         """
         return pulumi.get(self, "environment_variables")
 
     @environment_variables.setter
-    def environment_variables(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def environment_variables(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "environment_variables", value)
 
     @_builtins.property
     @pulumi.getter(name="eventSources")
-    def event_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ComponentVersionLambdaEventSourceArgs']]]]:
+    def event_sources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ComponentVersionLambdaEventSourceArgs']]]]:
         """
         The list of event sources to which to subscribe to receive work messages. The Lambda function runs when it receives a message from an event source. You can subscribe this function to local publish/subscribe messages and AWS IoT Core MQTT messages.
         """
         return pulumi.get(self, "event_sources")
 
     @event_sources.setter
-    def event_sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ComponentVersionLambdaEventSourceArgs']]]]):
+    def event_sources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ComponentVersionLambdaEventSourceArgs']]]]):
         pulumi.set(self, "event_sources", value)
 
     @_builtins.property
     @pulumi.getter(name="execArgs")
-    def exec_args(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def exec_args(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of arguments to pass to the Lambda function when it runs.
         """
         return pulumi.get(self, "exec_args")
 
     @exec_args.setter
-    def exec_args(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def exec_args(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "exec_args", value)
 
     @_builtins.property
     @pulumi.getter(name="inputPayloadEncodingType")
-    def input_payload_encoding_type(self) -> Optional[pulumi.Input['ComponentVersionLambdaExecutionParametersInputPayloadEncodingType']]:
+    def input_payload_encoding_type(self) -> pulumi.Input[Optional['ComponentVersionLambdaExecutionParametersInputPayloadEncodingType']]:
         """
         The encoding type that the Lambda function supports.
 
@@ -549,60 +549,60 @@ class ComponentVersionLambdaExecutionParametersArgs:
         return pulumi.get(self, "input_payload_encoding_type")
 
     @input_payload_encoding_type.setter
-    def input_payload_encoding_type(self, value: Optional[pulumi.Input['ComponentVersionLambdaExecutionParametersInputPayloadEncodingType']]):
+    def input_payload_encoding_type(self, value: pulumi.Input[Optional['ComponentVersionLambdaExecutionParametersInputPayloadEncodingType']]):
         pulumi.set(self, "input_payload_encoding_type", value)
 
     @_builtins.property
     @pulumi.getter(name="linuxProcessParams")
-    def linux_process_params(self) -> Optional[pulumi.Input['ComponentVersionLambdaLinuxProcessParamsArgs']]:
+    def linux_process_params(self) -> pulumi.Input[Optional['ComponentVersionLambdaLinuxProcessParamsArgs']]:
         """
         The parameters for the Linux process that contains the Lambda function.
         """
         return pulumi.get(self, "linux_process_params")
 
     @linux_process_params.setter
-    def linux_process_params(self, value: Optional[pulumi.Input['ComponentVersionLambdaLinuxProcessParamsArgs']]):
+    def linux_process_params(self, value: pulumi.Input[Optional['ComponentVersionLambdaLinuxProcessParamsArgs']]):
         pulumi.set(self, "linux_process_params", value)
 
     @_builtins.property
     @pulumi.getter(name="maxIdleTimeInSeconds")
-    def max_idle_time_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_idle_time_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum amount of time in seconds that a non-pinned Lambda function can idle before the AWS IoT Greengrass Core software stops its process.
         """
         return pulumi.get(self, "max_idle_time_in_seconds")
 
     @max_idle_time_in_seconds.setter
-    def max_idle_time_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_idle_time_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_idle_time_in_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="maxInstancesCount")
-    def max_instances_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_instances_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of instances that a non-pinned Lambda function can run at the same time.
         """
         return pulumi.get(self, "max_instances_count")
 
     @max_instances_count.setter
-    def max_instances_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_instances_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_instances_count", value)
 
     @_builtins.property
     @pulumi.getter(name="maxQueueSize")
-    def max_queue_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_queue_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum size of the message queue for the Lambda function component. The AWS IoT Greengrass core device stores messages in a FIFO (first-in-first-out) queue until it can run the Lambda function to consume each message.
         """
         return pulumi.get(self, "max_queue_size")
 
     @max_queue_size.setter
-    def max_queue_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_queue_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_queue_size", value)
 
     @_builtins.property
     @pulumi.getter
-    def pinned(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def pinned(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not the Lambda function is pinned, or long-lived.
 
@@ -614,60 +614,60 @@ class ComponentVersionLambdaExecutionParametersArgs:
         return pulumi.get(self, "pinned")
 
     @pinned.setter
-    def pinned(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def pinned(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "pinned", value)
 
     @_builtins.property
     @pulumi.getter(name="statusTimeoutInSeconds")
-    def status_timeout_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def status_timeout_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The interval in seconds at which a pinned (also known as long-lived) Lambda function component sends status updates to the Lambda manager component.
         """
         return pulumi.get(self, "status_timeout_in_seconds")
 
     @status_timeout_in_seconds.setter
-    def status_timeout_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def status_timeout_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "status_timeout_in_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="timeoutInSeconds")
-    def timeout_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def timeout_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum amount of time in seconds that the Lambda function can process a work item.
         """
         return pulumi.get(self, "timeout_in_seconds")
 
     @timeout_in_seconds.setter
-    def timeout_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def timeout_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "timeout_in_seconds", value)
 
 
 class ComponentVersionLambdaFunctionRecipeSourceArgsDict(TypedDict):
-    component_dependencies: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['ComponentVersionComponentDependencyRequirementArgsDict']]]]
+    component_dependencies: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input['ComponentVersionComponentDependencyRequirementArgs']]]]]
     """
     The component versions on which this Lambda function component depends.
     """
-    component_lambda_parameters: NotRequired[pulumi.Input['ComponentVersionLambdaExecutionParametersArgsDict']]
+    component_lambda_parameters: NotRequired[pulumi.Input[Optional['ComponentVersionLambdaExecutionParametersArgs']]]
     """
     The system and runtime parameters for the Lambda function as it runs on the AWS IoT Greengrass core device.
     """
-    component_name: NotRequired[pulumi.Input[_builtins.str]]
+    component_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the component.
 
     Defaults to the name of the Lambda function.
     """
-    component_platforms: NotRequired[pulumi.Input[Sequence[pulumi.Input['ComponentVersionComponentPlatformArgsDict']]]]
+    component_platforms: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ComponentVersionComponentPlatformArgs']]]]]
     """
     The platforms that the component version supports.
     """
-    component_version: NotRequired[pulumi.Input[_builtins.str]]
+    component_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The version of the component.
 
     Defaults to the version of the Lambda function as a semantic version. For example, if your function version is `3` , the component version becomes `3.0.0` .
     """
-    lambda_arn: NotRequired[pulumi.Input[_builtins.str]]
+    lambda_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of the Lambda function. The ARN must include the version of the function to import. You can't use version aliases like `$LATEST` .
     """
@@ -675,12 +675,12 @@ class ComponentVersionLambdaFunctionRecipeSourceArgsDict(TypedDict):
 @pulumi.input_type
 class ComponentVersionLambdaFunctionRecipeSourceArgs:
     def __init__(__self__, *,
-                 component_dependencies: Optional[pulumi.Input[Mapping[str, pulumi.Input['ComponentVersionComponentDependencyRequirementArgs']]]] = None,
-                 component_lambda_parameters: Optional[pulumi.Input['ComponentVersionLambdaExecutionParametersArgs']] = None,
-                 component_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 component_platforms: Optional[pulumi.Input[Sequence[pulumi.Input['ComponentVersionComponentPlatformArgs']]]] = None,
-                 component_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 lambda_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 component_dependencies: pulumi.Input[Optional[Mapping[str, pulumi.Input['ComponentVersionComponentDependencyRequirementArgs']]]] = None,
+                 component_lambda_parameters: pulumi.Input[Optional['ComponentVersionLambdaExecutionParametersArgs']] = None,
+                 component_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 component_platforms: pulumi.Input[Optional[Sequence[pulumi.Input['ComponentVersionComponentPlatformArgs']]]] = None,
+                 component_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 lambda_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Mapping[str, pulumi.Input['ComponentVersionComponentDependencyRequirementArgs']]] component_dependencies: The component versions on which this Lambda function component depends.
         :param pulumi.Input['ComponentVersionLambdaExecutionParametersArgs'] component_lambda_parameters: The system and runtime parameters for the Lambda function as it runs on the AWS IoT Greengrass core device.
@@ -708,31 +708,31 @@ class ComponentVersionLambdaFunctionRecipeSourceArgs:
 
     @_builtins.property
     @pulumi.getter(name="componentDependencies")
-    def component_dependencies(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ComponentVersionComponentDependencyRequirementArgs']]]]:
+    def component_dependencies(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['ComponentVersionComponentDependencyRequirementArgs']]]]:
         """
         The component versions on which this Lambda function component depends.
         """
         return pulumi.get(self, "component_dependencies")
 
     @component_dependencies.setter
-    def component_dependencies(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ComponentVersionComponentDependencyRequirementArgs']]]]):
+    def component_dependencies(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['ComponentVersionComponentDependencyRequirementArgs']]]]):
         pulumi.set(self, "component_dependencies", value)
 
     @_builtins.property
     @pulumi.getter(name="componentLambdaParameters")
-    def component_lambda_parameters(self) -> Optional[pulumi.Input['ComponentVersionLambdaExecutionParametersArgs']]:
+    def component_lambda_parameters(self) -> pulumi.Input[Optional['ComponentVersionLambdaExecutionParametersArgs']]:
         """
         The system and runtime parameters for the Lambda function as it runs on the AWS IoT Greengrass core device.
         """
         return pulumi.get(self, "component_lambda_parameters")
 
     @component_lambda_parameters.setter
-    def component_lambda_parameters(self, value: Optional[pulumi.Input['ComponentVersionLambdaExecutionParametersArgs']]):
+    def component_lambda_parameters(self, value: pulumi.Input[Optional['ComponentVersionLambdaExecutionParametersArgs']]):
         pulumi.set(self, "component_lambda_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="componentName")
-    def component_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def component_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the component.
 
@@ -741,24 +741,24 @@ class ComponentVersionLambdaFunctionRecipeSourceArgs:
         return pulumi.get(self, "component_name")
 
     @component_name.setter
-    def component_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def component_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "component_name", value)
 
     @_builtins.property
     @pulumi.getter(name="componentPlatforms")
-    def component_platforms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ComponentVersionComponentPlatformArgs']]]]:
+    def component_platforms(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ComponentVersionComponentPlatformArgs']]]]:
         """
         The platforms that the component version supports.
         """
         return pulumi.get(self, "component_platforms")
 
     @component_platforms.setter
-    def component_platforms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ComponentVersionComponentPlatformArgs']]]]):
+    def component_platforms(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ComponentVersionComponentPlatformArgs']]]]):
         pulumi.set(self, "component_platforms", value)
 
     @_builtins.property
     @pulumi.getter(name="componentVersion")
-    def component_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def component_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the component.
 
@@ -767,28 +767,28 @@ class ComponentVersionLambdaFunctionRecipeSourceArgs:
         return pulumi.get(self, "component_version")
 
     @component_version.setter
-    def component_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def component_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "component_version", value)
 
     @_builtins.property
     @pulumi.getter(name="lambdaArn")
-    def lambda_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def lambda_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the Lambda function. The ARN must include the version of the function to import. You can't use version aliases like `$LATEST` .
         """
         return pulumi.get(self, "lambda_arn")
 
     @lambda_arn.setter
-    def lambda_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def lambda_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "lambda_arn", value)
 
 
 class ComponentVersionLambdaLinuxProcessParamsArgsDict(TypedDict):
-    container_params: NotRequired[pulumi.Input['ComponentVersionLambdaContainerParamsArgsDict']]
+    container_params: NotRequired[pulumi.Input[Optional['ComponentVersionLambdaContainerParamsArgs']]]
     """
     The parameters for the container in which the Lambda function runs.
     """
-    isolation_mode: NotRequired[pulumi.Input['ComponentVersionLambdaLinuxProcessParamsIsolationMode']]
+    isolation_mode: NotRequired[pulumi.Input[Optional['ComponentVersionLambdaLinuxProcessParamsIsolationMode']]]
     """
     The isolation mode for the process that contains the Lambda function. The process can run in an isolated runtime environment inside the AWS IoT Greengrass container, or as a regular process outside any container.
 
@@ -798,8 +798,8 @@ class ComponentVersionLambdaLinuxProcessParamsArgsDict(TypedDict):
 @pulumi.input_type
 class ComponentVersionLambdaLinuxProcessParamsArgs:
     def __init__(__self__, *,
-                 container_params: Optional[pulumi.Input['ComponentVersionLambdaContainerParamsArgs']] = None,
-                 isolation_mode: Optional[pulumi.Input['ComponentVersionLambdaLinuxProcessParamsIsolationMode']] = None):
+                 container_params: pulumi.Input[Optional['ComponentVersionLambdaContainerParamsArgs']] = None,
+                 isolation_mode: pulumi.Input[Optional['ComponentVersionLambdaLinuxProcessParamsIsolationMode']] = None):
         """
         :param pulumi.Input['ComponentVersionLambdaContainerParamsArgs'] container_params: The parameters for the container in which the Lambda function runs.
         :param pulumi.Input['ComponentVersionLambdaLinuxProcessParamsIsolationMode'] isolation_mode: The isolation mode for the process that contains the Lambda function. The process can run in an isolated runtime environment inside the AWS IoT Greengrass container, or as a regular process outside any container.
@@ -813,19 +813,19 @@ class ComponentVersionLambdaLinuxProcessParamsArgs:
 
     @_builtins.property
     @pulumi.getter(name="containerParams")
-    def container_params(self) -> Optional[pulumi.Input['ComponentVersionLambdaContainerParamsArgs']]:
+    def container_params(self) -> pulumi.Input[Optional['ComponentVersionLambdaContainerParamsArgs']]:
         """
         The parameters for the container in which the Lambda function runs.
         """
         return pulumi.get(self, "container_params")
 
     @container_params.setter
-    def container_params(self, value: Optional[pulumi.Input['ComponentVersionLambdaContainerParamsArgs']]):
+    def container_params(self, value: pulumi.Input[Optional['ComponentVersionLambdaContainerParamsArgs']]):
         pulumi.set(self, "container_params", value)
 
     @_builtins.property
     @pulumi.getter(name="isolationMode")
-    def isolation_mode(self) -> Optional[pulumi.Input['ComponentVersionLambdaLinuxProcessParamsIsolationMode']]:
+    def isolation_mode(self) -> pulumi.Input[Optional['ComponentVersionLambdaLinuxProcessParamsIsolationMode']]:
         """
         The isolation mode for the process that contains the Lambda function. The process can run in an isolated runtime environment inside the AWS IoT Greengrass container, or as a regular process outside any container.
 
@@ -834,28 +834,28 @@ class ComponentVersionLambdaLinuxProcessParamsArgs:
         return pulumi.get(self, "isolation_mode")
 
     @isolation_mode.setter
-    def isolation_mode(self, value: Optional[pulumi.Input['ComponentVersionLambdaLinuxProcessParamsIsolationMode']]):
+    def isolation_mode(self, value: pulumi.Input[Optional['ComponentVersionLambdaLinuxProcessParamsIsolationMode']]):
         pulumi.set(self, "isolation_mode", value)
 
 
 class ComponentVersionLambdaVolumeMountArgsDict(TypedDict):
-    add_group_owner: NotRequired[pulumi.Input[_builtins.bool]]
+    add_group_owner: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether or not to add the AWS IoT Greengrass user group as an owner of the volume.
 
     Default: `false`
     """
-    destination_path: NotRequired[pulumi.Input[_builtins.str]]
+    destination_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The path to the logical volume in the file system.
     """
-    permission: NotRequired[pulumi.Input['ComponentVersionLambdaFilesystemPermission']]
+    permission: NotRequired[pulumi.Input[Optional['ComponentVersionLambdaFilesystemPermission']]]
     """
     The permission to access the volume: read/only ( `ro` ) or read/write ( `rw` ).
 
     Default: `ro`
     """
-    source_path: NotRequired[pulumi.Input[_builtins.str]]
+    source_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The path to the physical volume in the file system.
     """
@@ -863,10 +863,10 @@ class ComponentVersionLambdaVolumeMountArgsDict(TypedDict):
 @pulumi.input_type
 class ComponentVersionLambdaVolumeMountArgs:
     def __init__(__self__, *,
-                 add_group_owner: Optional[pulumi.Input[_builtins.bool]] = None,
-                 destination_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 permission: Optional[pulumi.Input['ComponentVersionLambdaFilesystemPermission']] = None,
-                 source_path: Optional[pulumi.Input[_builtins.str]] = None):
+                 add_group_owner: pulumi.Input[Optional[_builtins.bool]] = None,
+                 destination_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 permission: pulumi.Input[Optional['ComponentVersionLambdaFilesystemPermission']] = None,
+                 source_path: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.bool] add_group_owner: Whether or not to add the AWS IoT Greengrass user group as an owner of the volume.
                
@@ -888,7 +888,7 @@ class ComponentVersionLambdaVolumeMountArgs:
 
     @_builtins.property
     @pulumi.getter(name="addGroupOwner")
-    def add_group_owner(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def add_group_owner(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not to add the AWS IoT Greengrass user group as an owner of the volume.
 
@@ -897,24 +897,24 @@ class ComponentVersionLambdaVolumeMountArgs:
         return pulumi.get(self, "add_group_owner")
 
     @add_group_owner.setter
-    def add_group_owner(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def add_group_owner(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "add_group_owner", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationPath")
-    def destination_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The path to the logical volume in the file system.
         """
         return pulumi.get(self, "destination_path")
 
     @destination_path.setter
-    def destination_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination_path", value)
 
     @_builtins.property
     @pulumi.getter
-    def permission(self) -> Optional[pulumi.Input['ComponentVersionLambdaFilesystemPermission']]:
+    def permission(self) -> pulumi.Input[Optional['ComponentVersionLambdaFilesystemPermission']]:
         """
         The permission to access the volume: read/only ( `ro` ) or read/write ( `rw` ).
 
@@ -923,31 +923,31 @@ class ComponentVersionLambdaVolumeMountArgs:
         return pulumi.get(self, "permission")
 
     @permission.setter
-    def permission(self, value: Optional[pulumi.Input['ComponentVersionLambdaFilesystemPermission']]):
+    def permission(self, value: pulumi.Input[Optional['ComponentVersionLambdaFilesystemPermission']]):
         pulumi.set(self, "permission", value)
 
     @_builtins.property
     @pulumi.getter(name="sourcePath")
-    def source_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The path to the physical volume in the file system.
         """
         return pulumi.get(self, "source_path")
 
     @source_path.setter
-    def source_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_path", value)
 
 
 class DeploymentComponentConfigurationUpdateArgsDict(TypedDict):
-    merge: NotRequired[pulumi.Input[_builtins.str]]
-    reset: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    merge: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    reset: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
 
 @pulumi.input_type
 class DeploymentComponentConfigurationUpdateArgs:
     def __init__(__self__, *,
-                 merge: Optional[pulumi.Input[_builtins.str]] = None,
-                 reset: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 merge: pulumi.Input[Optional[_builtins.str]] = None,
+                 reset: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         if merge is not None:
             pulumi.set(__self__, "merge", merge)
         if reset is not None:
@@ -955,34 +955,34 @@ class DeploymentComponentConfigurationUpdateArgs:
 
     @_builtins.property
     @pulumi.getter
-    def merge(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def merge(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "merge")
 
     @merge.setter
-    def merge(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def merge(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "merge", value)
 
     @_builtins.property
     @pulumi.getter
-    def reset(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def reset(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "reset")
 
     @reset.setter
-    def reset(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def reset(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "reset", value)
 
 
 class DeploymentComponentDeploymentSpecificationArgsDict(TypedDict):
-    component_version: NotRequired[pulumi.Input[_builtins.str]]
-    configuration_update: NotRequired[pulumi.Input['DeploymentComponentConfigurationUpdateArgsDict']]
-    run_with: NotRequired[pulumi.Input['DeploymentComponentRunWithArgsDict']]
+    component_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    configuration_update: NotRequired[pulumi.Input[Optional['DeploymentComponentConfigurationUpdateArgs']]]
+    run_with: NotRequired[pulumi.Input[Optional['DeploymentComponentRunWithArgs']]]
 
 @pulumi.input_type
 class DeploymentComponentDeploymentSpecificationArgs:
     def __init__(__self__, *,
-                 component_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 configuration_update: Optional[pulumi.Input['DeploymentComponentConfigurationUpdateArgs']] = None,
-                 run_with: Optional[pulumi.Input['DeploymentComponentRunWithArgs']] = None):
+                 component_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration_update: pulumi.Input[Optional['DeploymentComponentConfigurationUpdateArgs']] = None,
+                 run_with: pulumi.Input[Optional['DeploymentComponentRunWithArgs']] = None):
         if component_version is not None:
             pulumi.set(__self__, "component_version", component_version)
         if configuration_update is not None:
@@ -992,43 +992,43 @@ class DeploymentComponentDeploymentSpecificationArgs:
 
     @_builtins.property
     @pulumi.getter(name="componentVersion")
-    def component_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def component_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "component_version")
 
     @component_version.setter
-    def component_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def component_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "component_version", value)
 
     @_builtins.property
     @pulumi.getter(name="configurationUpdate")
-    def configuration_update(self) -> Optional[pulumi.Input['DeploymentComponentConfigurationUpdateArgs']]:
+    def configuration_update(self) -> pulumi.Input[Optional['DeploymentComponentConfigurationUpdateArgs']]:
         return pulumi.get(self, "configuration_update")
 
     @configuration_update.setter
-    def configuration_update(self, value: Optional[pulumi.Input['DeploymentComponentConfigurationUpdateArgs']]):
+    def configuration_update(self, value: pulumi.Input[Optional['DeploymentComponentConfigurationUpdateArgs']]):
         pulumi.set(self, "configuration_update", value)
 
     @_builtins.property
     @pulumi.getter(name="runWith")
-    def run_with(self) -> Optional[pulumi.Input['DeploymentComponentRunWithArgs']]:
+    def run_with(self) -> pulumi.Input[Optional['DeploymentComponentRunWithArgs']]:
         return pulumi.get(self, "run_with")
 
     @run_with.setter
-    def run_with(self, value: Optional[pulumi.Input['DeploymentComponentRunWithArgs']]):
+    def run_with(self, value: pulumi.Input[Optional['DeploymentComponentRunWithArgs']]):
         pulumi.set(self, "run_with", value)
 
 
 class DeploymentComponentRunWithArgsDict(TypedDict):
-    posix_user: NotRequired[pulumi.Input[_builtins.str]]
-    system_resource_limits: NotRequired[pulumi.Input['DeploymentSystemResourceLimitsArgsDict']]
-    windows_user: NotRequired[pulumi.Input[_builtins.str]]
+    posix_user: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    system_resource_limits: NotRequired[pulumi.Input[Optional['DeploymentSystemResourceLimitsArgs']]]
+    windows_user: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class DeploymentComponentRunWithArgs:
     def __init__(__self__, *,
-                 posix_user: Optional[pulumi.Input[_builtins.str]] = None,
-                 system_resource_limits: Optional[pulumi.Input['DeploymentSystemResourceLimitsArgs']] = None,
-                 windows_user: Optional[pulumi.Input[_builtins.str]] = None):
+                 posix_user: pulumi.Input[Optional[_builtins.str]] = None,
+                 system_resource_limits: pulumi.Input[Optional['DeploymentSystemResourceLimitsArgs']] = None,
+                 windows_user: pulumi.Input[Optional[_builtins.str]] = None):
         if posix_user is not None:
             pulumi.set(__self__, "posix_user", posix_user)
         if system_resource_limits is not None:
@@ -1038,34 +1038,34 @@ class DeploymentComponentRunWithArgs:
 
     @_builtins.property
     @pulumi.getter(name="posixUser")
-    def posix_user(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def posix_user(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "posix_user")
 
     @posix_user.setter
-    def posix_user(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def posix_user(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "posix_user", value)
 
     @_builtins.property
     @pulumi.getter(name="systemResourceLimits")
-    def system_resource_limits(self) -> Optional[pulumi.Input['DeploymentSystemResourceLimitsArgs']]:
+    def system_resource_limits(self) -> pulumi.Input[Optional['DeploymentSystemResourceLimitsArgs']]:
         return pulumi.get(self, "system_resource_limits")
 
     @system_resource_limits.setter
-    def system_resource_limits(self, value: Optional[pulumi.Input['DeploymentSystemResourceLimitsArgs']]):
+    def system_resource_limits(self, value: pulumi.Input[Optional['DeploymentSystemResourceLimitsArgs']]):
         pulumi.set(self, "system_resource_limits", value)
 
     @_builtins.property
     @pulumi.getter(name="windowsUser")
-    def windows_user(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def windows_user(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "windows_user")
 
     @windows_user.setter
-    def windows_user(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def windows_user(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "windows_user", value)
 
 
 class DeploymentComponentUpdatePolicyArgsDict(TypedDict):
-    action: NotRequired[pulumi.Input['DeploymentComponentUpdatePolicyAction']]
+    action: NotRequired[pulumi.Input[Optional['DeploymentComponentUpdatePolicyAction']]]
     """
     Whether or not to notify components and wait for components to become safe to update. Choose from the following options:
 
@@ -1074,7 +1074,7 @@ class DeploymentComponentUpdatePolicyArgsDict(TypedDict):
 
     Default: `NOTIFY_COMPONENTS`
     """
-    timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    timeout_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The amount of time in seconds that each component on a device has to report that it's safe to update. If the component waits for longer than this timeout, then the deployment proceeds on the device.
 
@@ -1084,8 +1084,8 @@ class DeploymentComponentUpdatePolicyArgsDict(TypedDict):
 @pulumi.input_type
 class DeploymentComponentUpdatePolicyArgs:
     def __init__(__self__, *,
-                 action: Optional[pulumi.Input['DeploymentComponentUpdatePolicyAction']] = None,
-                 timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None):
+                 action: pulumi.Input[Optional['DeploymentComponentUpdatePolicyAction']] = None,
+                 timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input['DeploymentComponentUpdatePolicyAction'] action: Whether or not to notify components and wait for components to become safe to update. Choose from the following options:
                
@@ -1104,7 +1104,7 @@ class DeploymentComponentUpdatePolicyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def action(self) -> Optional[pulumi.Input['DeploymentComponentUpdatePolicyAction']]:
+    def action(self) -> pulumi.Input[Optional['DeploymentComponentUpdatePolicyAction']]:
         """
         Whether or not to notify components and wait for components to become safe to update. Choose from the following options:
 
@@ -1116,12 +1116,12 @@ class DeploymentComponentUpdatePolicyArgs:
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: Optional[pulumi.Input['DeploymentComponentUpdatePolicyAction']]):
+    def action(self, value: pulumi.Input[Optional['DeploymentComponentUpdatePolicyAction']]):
         pulumi.set(self, "action", value)
 
     @_builtins.property
     @pulumi.getter(name="timeoutInSeconds")
-    def timeout_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def timeout_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The amount of time in seconds that each component on a device has to report that it's safe to update. If the component waits for longer than this timeout, then the deployment proceeds on the device.
 
@@ -1130,12 +1130,12 @@ class DeploymentComponentUpdatePolicyArgs:
         return pulumi.get(self, "timeout_in_seconds")
 
     @timeout_in_seconds.setter
-    def timeout_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def timeout_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "timeout_in_seconds", value)
 
 
 class DeploymentConfigurationValidationPolicyArgsDict(TypedDict):
-    timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    timeout_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The amount of time in seconds that a component can validate its configuration updates. If the validation time exceeds this timeout, then the deployment proceeds for the device.
 
@@ -1145,7 +1145,7 @@ class DeploymentConfigurationValidationPolicyArgsDict(TypedDict):
 @pulumi.input_type
 class DeploymentConfigurationValidationPolicyArgs:
     def __init__(__self__, *,
-                 timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None):
+                 timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] timeout_in_seconds: The amount of time in seconds that a component can validate its configuration updates. If the validation time exceeds this timeout, then the deployment proceeds for the device.
                
@@ -1156,7 +1156,7 @@ class DeploymentConfigurationValidationPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="timeoutInSeconds")
-    def timeout_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def timeout_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The amount of time in seconds that a component can validate its configuration updates. If the validation time exceeds this timeout, then the deployment proceeds for the device.
 
@@ -1165,7 +1165,7 @@ class DeploymentConfigurationValidationPolicyArgs:
         return pulumi.get(self, "timeout_in_seconds")
 
     @timeout_in_seconds.setter
-    def timeout_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def timeout_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "timeout_in_seconds", value)
 
 
@@ -1289,15 +1289,15 @@ class DeploymentIoTJobAbortCriteriaArgs:
 
 
 class DeploymentIoTJobConfigurationArgsDict(TypedDict):
-    abort_config: NotRequired[pulumi.Input['DeploymentIoTJobAbortConfigArgsDict']]
+    abort_config: NotRequired[pulumi.Input[Optional['DeploymentIoTJobAbortConfigArgs']]]
     """
     The stop configuration for the job. This configuration defines when and how to stop a job rollout.
     """
-    job_executions_rollout_config: NotRequired[pulumi.Input['DeploymentIoTJobExecutionsRolloutConfigArgsDict']]
+    job_executions_rollout_config: NotRequired[pulumi.Input[Optional['DeploymentIoTJobExecutionsRolloutConfigArgs']]]
     """
     The rollout configuration for the job. This configuration defines the rate at which the job rolls out to the fleet of target devices.
     """
-    timeout_config: NotRequired[pulumi.Input['DeploymentIoTJobTimeoutConfigArgsDict']]
+    timeout_config: NotRequired[pulumi.Input[Optional['DeploymentIoTJobTimeoutConfigArgs']]]
     """
     The timeout configuration for the job. This configuration defines the amount of time each device has to complete the job.
     """
@@ -1305,9 +1305,9 @@ class DeploymentIoTJobConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class DeploymentIoTJobConfigurationArgs:
     def __init__(__self__, *,
-                 abort_config: Optional[pulumi.Input['DeploymentIoTJobAbortConfigArgs']] = None,
-                 job_executions_rollout_config: Optional[pulumi.Input['DeploymentIoTJobExecutionsRolloutConfigArgs']] = None,
-                 timeout_config: Optional[pulumi.Input['DeploymentIoTJobTimeoutConfigArgs']] = None):
+                 abort_config: pulumi.Input[Optional['DeploymentIoTJobAbortConfigArgs']] = None,
+                 job_executions_rollout_config: pulumi.Input[Optional['DeploymentIoTJobExecutionsRolloutConfigArgs']] = None,
+                 timeout_config: pulumi.Input[Optional['DeploymentIoTJobTimeoutConfigArgs']] = None):
         """
         :param pulumi.Input['DeploymentIoTJobAbortConfigArgs'] abort_config: The stop configuration for the job. This configuration defines when and how to stop a job rollout.
         :param pulumi.Input['DeploymentIoTJobExecutionsRolloutConfigArgs'] job_executions_rollout_config: The rollout configuration for the job. This configuration defines the rate at which the job rolls out to the fleet of target devices.
@@ -1322,47 +1322,47 @@ class DeploymentIoTJobConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="abortConfig")
-    def abort_config(self) -> Optional[pulumi.Input['DeploymentIoTJobAbortConfigArgs']]:
+    def abort_config(self) -> pulumi.Input[Optional['DeploymentIoTJobAbortConfigArgs']]:
         """
         The stop configuration for the job. This configuration defines when and how to stop a job rollout.
         """
         return pulumi.get(self, "abort_config")
 
     @abort_config.setter
-    def abort_config(self, value: Optional[pulumi.Input['DeploymentIoTJobAbortConfigArgs']]):
+    def abort_config(self, value: pulumi.Input[Optional['DeploymentIoTJobAbortConfigArgs']]):
         pulumi.set(self, "abort_config", value)
 
     @_builtins.property
     @pulumi.getter(name="jobExecutionsRolloutConfig")
-    def job_executions_rollout_config(self) -> Optional[pulumi.Input['DeploymentIoTJobExecutionsRolloutConfigArgs']]:
+    def job_executions_rollout_config(self) -> pulumi.Input[Optional['DeploymentIoTJobExecutionsRolloutConfigArgs']]:
         """
         The rollout configuration for the job. This configuration defines the rate at which the job rolls out to the fleet of target devices.
         """
         return pulumi.get(self, "job_executions_rollout_config")
 
     @job_executions_rollout_config.setter
-    def job_executions_rollout_config(self, value: Optional[pulumi.Input['DeploymentIoTJobExecutionsRolloutConfigArgs']]):
+    def job_executions_rollout_config(self, value: pulumi.Input[Optional['DeploymentIoTJobExecutionsRolloutConfigArgs']]):
         pulumi.set(self, "job_executions_rollout_config", value)
 
     @_builtins.property
     @pulumi.getter(name="timeoutConfig")
-    def timeout_config(self) -> Optional[pulumi.Input['DeploymentIoTJobTimeoutConfigArgs']]:
+    def timeout_config(self) -> pulumi.Input[Optional['DeploymentIoTJobTimeoutConfigArgs']]:
         """
         The timeout configuration for the job. This configuration defines the amount of time each device has to complete the job.
         """
         return pulumi.get(self, "timeout_config")
 
     @timeout_config.setter
-    def timeout_config(self, value: Optional[pulumi.Input['DeploymentIoTJobTimeoutConfigArgs']]):
+    def timeout_config(self, value: pulumi.Input[Optional['DeploymentIoTJobTimeoutConfigArgs']]):
         pulumi.set(self, "timeout_config", value)
 
 
 class DeploymentIoTJobExecutionsRolloutConfigArgsDict(TypedDict):
-    exponential_rate: NotRequired[pulumi.Input['DeploymentIoTJobExponentialRolloutRateArgsDict']]
+    exponential_rate: NotRequired[pulumi.Input[Optional['DeploymentIoTJobExponentialRolloutRateArgs']]]
     """
     The exponential rate to increase the job rollout rate.
     """
-    maximum_per_minute: NotRequired[pulumi.Input[_builtins.int]]
+    maximum_per_minute: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum number of devices that receive a pending job notification, per minute.
     """
@@ -1370,8 +1370,8 @@ class DeploymentIoTJobExecutionsRolloutConfigArgsDict(TypedDict):
 @pulumi.input_type
 class DeploymentIoTJobExecutionsRolloutConfigArgs:
     def __init__(__self__, *,
-                 exponential_rate: Optional[pulumi.Input['DeploymentIoTJobExponentialRolloutRateArgs']] = None,
-                 maximum_per_minute: Optional[pulumi.Input[_builtins.int]] = None):
+                 exponential_rate: pulumi.Input[Optional['DeploymentIoTJobExponentialRolloutRateArgs']] = None,
+                 maximum_per_minute: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input['DeploymentIoTJobExponentialRolloutRateArgs'] exponential_rate: The exponential rate to increase the job rollout rate.
         :param pulumi.Input[_builtins.int] maximum_per_minute: The maximum number of devices that receive a pending job notification, per minute.
@@ -1383,26 +1383,26 @@ class DeploymentIoTJobExecutionsRolloutConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="exponentialRate")
-    def exponential_rate(self) -> Optional[pulumi.Input['DeploymentIoTJobExponentialRolloutRateArgs']]:
+    def exponential_rate(self) -> pulumi.Input[Optional['DeploymentIoTJobExponentialRolloutRateArgs']]:
         """
         The exponential rate to increase the job rollout rate.
         """
         return pulumi.get(self, "exponential_rate")
 
     @exponential_rate.setter
-    def exponential_rate(self, value: Optional[pulumi.Input['DeploymentIoTJobExponentialRolloutRateArgs']]):
+    def exponential_rate(self, value: pulumi.Input[Optional['DeploymentIoTJobExponentialRolloutRateArgs']]):
         pulumi.set(self, "exponential_rate", value)
 
     @_builtins.property
     @pulumi.getter(name="maximumPerMinute")
-    def maximum_per_minute(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def maximum_per_minute(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of devices that receive a pending job notification, per minute.
         """
         return pulumi.get(self, "maximum_per_minute")
 
     @maximum_per_minute.setter
-    def maximum_per_minute(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def maximum_per_minute(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "maximum_per_minute", value)
 
 
@@ -1488,7 +1488,7 @@ class DeploymentIoTJobRateIncreaseCriteriaArgs:
 
 
 class DeploymentIoTJobTimeoutConfigArgsDict(TypedDict):
-    in_progress_timeout_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    in_progress_timeout_in_minutes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The amount of time, in minutes, that devices have to complete the job. The timer starts when the job status is set to `IN_PROGRESS` . If the job status doesn't change to a terminal state before the time expires, then the job status is set to `TIMED_OUT` .
 
@@ -1498,7 +1498,7 @@ class DeploymentIoTJobTimeoutConfigArgsDict(TypedDict):
 @pulumi.input_type
 class DeploymentIoTJobTimeoutConfigArgs:
     def __init__(__self__, *,
-                 in_progress_timeout_in_minutes: Optional[pulumi.Input[_builtins.int]] = None):
+                 in_progress_timeout_in_minutes: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] in_progress_timeout_in_minutes: The amount of time, in minutes, that devices have to complete the job. The timer starts when the job status is set to `IN_PROGRESS` . If the job status doesn't change to a terminal state before the time expires, then the job status is set to `TIMED_OUT` .
                
@@ -1509,7 +1509,7 @@ class DeploymentIoTJobTimeoutConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="inProgressTimeoutInMinutes")
-    def in_progress_timeout_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def in_progress_timeout_in_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The amount of time, in minutes, that devices have to complete the job. The timer starts when the job status is set to `IN_PROGRESS` . If the job status doesn't change to a terminal state before the time expires, then the job status is set to `TIMED_OUT` .
 
@@ -1518,20 +1518,20 @@ class DeploymentIoTJobTimeoutConfigArgs:
         return pulumi.get(self, "in_progress_timeout_in_minutes")
 
     @in_progress_timeout_in_minutes.setter
-    def in_progress_timeout_in_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def in_progress_timeout_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "in_progress_timeout_in_minutes", value)
 
 
 class DeploymentPoliciesArgsDict(TypedDict):
-    component_update_policy: NotRequired[pulumi.Input['DeploymentComponentUpdatePolicyArgsDict']]
+    component_update_policy: NotRequired[pulumi.Input[Optional['DeploymentComponentUpdatePolicyArgs']]]
     """
     The component update policy for the configuration deployment. This policy defines when it's safe to deploy the configuration to devices.
     """
-    configuration_validation_policy: NotRequired[pulumi.Input['DeploymentConfigurationValidationPolicyArgsDict']]
+    configuration_validation_policy: NotRequired[pulumi.Input[Optional['DeploymentConfigurationValidationPolicyArgs']]]
     """
     The configuration validation policy for the configuration deployment. This policy defines how long each component has to validate its configure updates.
     """
-    failure_handling_policy: NotRequired[pulumi.Input['DeploymentPoliciesFailureHandlingPolicy']]
+    failure_handling_policy: NotRequired[pulumi.Input[Optional['DeploymentPoliciesFailureHandlingPolicy']]]
     """
     The failure handling policy for the configuration deployment. This policy defines what to do if the deployment fails.
 
@@ -1541,9 +1541,9 @@ class DeploymentPoliciesArgsDict(TypedDict):
 @pulumi.input_type
 class DeploymentPoliciesArgs:
     def __init__(__self__, *,
-                 component_update_policy: Optional[pulumi.Input['DeploymentComponentUpdatePolicyArgs']] = None,
-                 configuration_validation_policy: Optional[pulumi.Input['DeploymentConfigurationValidationPolicyArgs']] = None,
-                 failure_handling_policy: Optional[pulumi.Input['DeploymentPoliciesFailureHandlingPolicy']] = None):
+                 component_update_policy: pulumi.Input[Optional['DeploymentComponentUpdatePolicyArgs']] = None,
+                 configuration_validation_policy: pulumi.Input[Optional['DeploymentConfigurationValidationPolicyArgs']] = None,
+                 failure_handling_policy: pulumi.Input[Optional['DeploymentPoliciesFailureHandlingPolicy']] = None):
         """
         :param pulumi.Input['DeploymentComponentUpdatePolicyArgs'] component_update_policy: The component update policy for the configuration deployment. This policy defines when it's safe to deploy the configuration to devices.
         :param pulumi.Input['DeploymentConfigurationValidationPolicyArgs'] configuration_validation_policy: The configuration validation policy for the configuration deployment. This policy defines how long each component has to validate its configure updates.
@@ -1560,31 +1560,31 @@ class DeploymentPoliciesArgs:
 
     @_builtins.property
     @pulumi.getter(name="componentUpdatePolicy")
-    def component_update_policy(self) -> Optional[pulumi.Input['DeploymentComponentUpdatePolicyArgs']]:
+    def component_update_policy(self) -> pulumi.Input[Optional['DeploymentComponentUpdatePolicyArgs']]:
         """
         The component update policy for the configuration deployment. This policy defines when it's safe to deploy the configuration to devices.
         """
         return pulumi.get(self, "component_update_policy")
 
     @component_update_policy.setter
-    def component_update_policy(self, value: Optional[pulumi.Input['DeploymentComponentUpdatePolicyArgs']]):
+    def component_update_policy(self, value: pulumi.Input[Optional['DeploymentComponentUpdatePolicyArgs']]):
         pulumi.set(self, "component_update_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="configurationValidationPolicy")
-    def configuration_validation_policy(self) -> Optional[pulumi.Input['DeploymentConfigurationValidationPolicyArgs']]:
+    def configuration_validation_policy(self) -> pulumi.Input[Optional['DeploymentConfigurationValidationPolicyArgs']]:
         """
         The configuration validation policy for the configuration deployment. This policy defines how long each component has to validate its configure updates.
         """
         return pulumi.get(self, "configuration_validation_policy")
 
     @configuration_validation_policy.setter
-    def configuration_validation_policy(self, value: Optional[pulumi.Input['DeploymentConfigurationValidationPolicyArgs']]):
+    def configuration_validation_policy(self, value: pulumi.Input[Optional['DeploymentConfigurationValidationPolicyArgs']]):
         pulumi.set(self, "configuration_validation_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="failureHandlingPolicy")
-    def failure_handling_policy(self) -> Optional[pulumi.Input['DeploymentPoliciesFailureHandlingPolicy']]:
+    def failure_handling_policy(self) -> pulumi.Input[Optional['DeploymentPoliciesFailureHandlingPolicy']]:
         """
         The failure handling policy for the configuration deployment. This policy defines what to do if the deployment fails.
 
@@ -1593,19 +1593,19 @@ class DeploymentPoliciesArgs:
         return pulumi.get(self, "failure_handling_policy")
 
     @failure_handling_policy.setter
-    def failure_handling_policy(self, value: Optional[pulumi.Input['DeploymentPoliciesFailureHandlingPolicy']]):
+    def failure_handling_policy(self, value: pulumi.Input[Optional['DeploymentPoliciesFailureHandlingPolicy']]):
         pulumi.set(self, "failure_handling_policy", value)
 
 
 class DeploymentSystemResourceLimitsArgsDict(TypedDict):
-    cpus: NotRequired[pulumi.Input[_builtins.float]]
-    memory: NotRequired[pulumi.Input[_builtins.int]]
+    cpus: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    memory: NotRequired[pulumi.Input[Optional[_builtins.int]]]
 
 @pulumi.input_type
 class DeploymentSystemResourceLimitsArgs:
     def __init__(__self__, *,
-                 cpus: Optional[pulumi.Input[_builtins.float]] = None,
-                 memory: Optional[pulumi.Input[_builtins.int]] = None):
+                 cpus: pulumi.Input[Optional[_builtins.float]] = None,
+                 memory: pulumi.Input[Optional[_builtins.int]] = None):
         if cpus is not None:
             pulumi.set(__self__, "cpus", cpus)
         if memory is not None:
@@ -1613,20 +1613,20 @@ class DeploymentSystemResourceLimitsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def cpus(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def cpus(self) -> pulumi.Input[Optional[_builtins.float]]:
         return pulumi.get(self, "cpus")
 
     @cpus.setter
-    def cpus(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def cpus(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "cpus", value)
 
     @_builtins.property
     @pulumi.getter
-    def memory(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def memory(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "memory")
 
     @memory.setter
-    def memory(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def memory(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "memory", value)
 
 

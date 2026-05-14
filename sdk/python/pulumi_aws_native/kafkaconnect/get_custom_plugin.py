@@ -99,7 +99,7 @@ def get_custom_plugin(custom_plugin_arn: Optional[_builtins.str] = None,
         file_description=pulumi.get(__ret__, 'file_description'),
         revision=pulumi.get(__ret__, 'revision'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_custom_plugin_output(custom_plugin_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_custom_plugin_output(custom_plugin_arn: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCustomPluginResult]:
     """
     An example resource schema demonstrating some basic constructs and validation rules.

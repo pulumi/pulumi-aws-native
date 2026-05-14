@@ -186,8 +186,8 @@ def get_analysis(analysis_id: Optional[_builtins.str] = None,
         sheets=pulumi.get(__ret__, 'sheets'),
         tags=pulumi.get(__ret__, 'tags'),
         theme_arn=pulumi.get(__ret__, 'theme_arn'))
-def get_analysis_output(analysis_id: Optional[pulumi.Input[_builtins.str]] = None,
-                        aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_analysis_output(analysis_id: pulumi.Input[Optional[_builtins.str]] = None,
+                        aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAnalysisResult]:
     """
     Definition of the AWS::QuickSight::Analysis Resource Type.

@@ -88,7 +88,7 @@ def get_custom_data_identifier(id: Optional[_builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         id=pulumi.get(__ret__, 'id'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_custom_data_identifier_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_custom_data_identifier_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCustomDataIdentifierResult]:
     """
     Macie CustomDataIdentifier resource schema

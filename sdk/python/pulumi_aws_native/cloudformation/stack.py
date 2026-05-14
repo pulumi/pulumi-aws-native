@@ -23,21 +23,21 @@ __all__ = ['StackArgs', 'Stack']
 @pulumi.input_type
 class StackArgs:
     def __init__(__self__, *,
-                 capabilities: Optional[pulumi.Input[Sequence[pulumi.Input['StackCapabilitiesItem']]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 disable_rollback: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_termination_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 notification_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 stack_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 capabilities: pulumi.Input[Optional[Sequence[pulumi.Input['StackCapabilitiesItem']]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 disable_rollback: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_termination_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 notification_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 stack_name: pulumi.Input[Optional[_builtins.str]] = None,
                  stack_policy_body: Optional[Any] = None,
-                 stack_policy_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 stack_status_reason: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 stack_policy_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 stack_status_reason: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  template_body: Optional[Any] = None,
-                 template_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeout_in_minutes: Optional[pulumi.Input[_builtins.int]] = None):
+                 template_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeout_in_minutes: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a Stack resource.
 
@@ -147,7 +147,7 @@ class StackArgs:
 
     @_builtins.property
     @pulumi.getter
-    def capabilities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StackCapabilitiesItem']]]]:
+    def capabilities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['StackCapabilitiesItem']]]]:
         """
         In some cases, you must explicitly acknowledge that your stack template contains certain capabilities in order for CloudFormation to create the stack.
 
@@ -187,24 +187,24 @@ class StackArgs:
         return pulumi.get(self, "capabilities")
 
     @capabilities.setter
-    def capabilities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StackCapabilitiesItem']]]]):
+    def capabilities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['StackCapabilitiesItem']]]]):
         pulumi.set(self, "capabilities", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A user-defined description associated with the stack.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="disableRollback")
-    def disable_rollback(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_rollback(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to `true` to disable rollback of the stack if stack creation failed. You can specify either `DisableRollback` or `OnFailure` , but not both.
 
@@ -213,12 +213,12 @@ class StackArgs:
         return pulumi.get(self, "disable_rollback")
 
     @disable_rollback.setter
-    def disable_rollback(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_rollback(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_rollback", value)
 
     @_builtins.property
     @pulumi.getter(name="enableTerminationProtection")
-    def enable_termination_protection(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_termination_protection(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable termination protection on the specified stack. If a user attempts to delete a stack with termination protection enabled, the operation fails and the stack remains unchanged. For more information, see [Protect CloudFormation stacks from being deleted](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-protect-stacks.html) in the *CloudFormation User Guide* . Termination protection is deactivated on stacks by default.
 
@@ -227,24 +227,24 @@ class StackArgs:
         return pulumi.get(self, "enable_termination_protection")
 
     @enable_termination_protection.setter
-    def enable_termination_protection(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_termination_protection(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_termination_protection", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationArns")
-    def notification_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def notification_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The Amazon SNS topic ARNs to publish stack related events. You can find your Amazon SNS topic ARNs using the Amazon SNS console or your Command Line Interface (CLI).
         """
         return pulumi.get(self, "notification_arns")
 
     @notification_arns.setter
-    def notification_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def notification_arns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "notification_arns", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The set value pairs that represent the parameters passed to CloudFormation when this nested stack is created. Each parameter has a name corresponding to a parameter defined in the embedded template and a value representing the value that you want to set for the parameter.
 
@@ -257,12 +257,12 @@ class StackArgs:
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of an IAM role that CloudFormation assumes to create the stack. CloudFormation uses the role's credentials to make calls on your behalf. CloudFormation always uses this role for all future operations on the stack. Provided that users have permission to operate on the stack, CloudFormation uses this role even if the users don't have permission to pass it. Ensure that the role grants least privilege.
 
@@ -271,12 +271,12 @@ class StackArgs:
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
-    def role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="stackName")
-    def stack_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def stack_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name that's associated with the stack. The name must be unique in the Region in which you are creating the stack.
 
@@ -285,7 +285,7 @@ class StackArgs:
         return pulumi.get(self, "stack_name")
 
     @stack_name.setter
-    def stack_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def stack_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "stack_name", value)
 
     @_builtins.property
@@ -304,38 +304,38 @@ class StackArgs:
 
     @_builtins.property
     @pulumi.getter(name="stackPolicyUrl")
-    def stack_policy_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def stack_policy_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Location of a file that contains the stack policy. The URL must point to a policy (maximum size: 16 KB) located in an S3 bucket in the same Region as the stack. You can specify either the `StackPolicyBody` or the `StackPolicyURL` parameter, but not both.
         """
         return pulumi.get(self, "stack_policy_url")
 
     @stack_policy_url.setter
-    def stack_policy_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def stack_policy_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "stack_policy_url", value)
 
     @_builtins.property
     @pulumi.getter(name="stackStatusReason")
-    def stack_status_reason(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def stack_status_reason(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Success/failure message associated with the stack status.
         """
         return pulumi.get(self, "stack_status_reason")
 
     @stack_status_reason.setter
-    def stack_status_reason(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def stack_status_reason(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "stack_status_reason", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Key-value pairs to associate with this stack. CloudFormation also propagates these tags to the resources created in the stack. A maximum number of 50 tags can be specified.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
@@ -356,7 +356,7 @@ class StackArgs:
 
     @_builtins.property
     @pulumi.getter(name="templateUrl")
-    def template_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def template_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL of a file that contains the template body. The URL must point to a template (max size: 1 MB) that's located in an Amazon S3 bucket. The location for an Amazon S3 bucket must start with `https://` .
 
@@ -365,12 +365,12 @@ class StackArgs:
         return pulumi.get(self, "template_url")
 
     @template_url.setter
-    def template_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def template_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "template_url", value)
 
     @_builtins.property
     @pulumi.getter(name="timeoutInMinutes")
-    def timeout_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def timeout_in_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The length of time, in minutes, that CloudFormation waits for the nested stack to reach the `CREATE_COMPLETE` state. The default is no timeout. When CloudFormation detects that the nested stack has reached the `CREATE_COMPLETE` state, it marks the nested stack resource as `CREATE_COMPLETE` in the parent stack and resumes creating the parent stack. If the timeout period expires before the nested stack reaches `CREATE_COMPLETE` , CloudFormation marks the nested stack as failed and rolls back both the nested stack and parent stack.
 
@@ -379,7 +379,7 @@ class StackArgs:
         return pulumi.get(self, "timeout_in_minutes")
 
     @timeout_in_minutes.setter
-    def timeout_in_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def timeout_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "timeout_in_minutes", value)
 
 
@@ -389,21 +389,21 @@ class Stack(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capabilities: Optional[pulumi.Input[Sequence[pulumi.Input['StackCapabilitiesItem']]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 disable_rollback: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_termination_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 notification_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 stack_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 capabilities: pulumi.Input[Optional[Sequence[pulumi.Input['StackCapabilitiesItem']]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 disable_rollback: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_termination_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 notification_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 stack_name: pulumi.Input[Optional[_builtins.str]] = None,
                  stack_policy_body: Optional[Any] = None,
-                 stack_policy_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 stack_status_reason: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 stack_policy_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 stack_status_reason: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  template_body: Optional[Any] = None,
-                 template_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeout_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
+                 template_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeout_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         The AWS::CloudFormation::Stack resource nests a stack as a resource in a top-level template.
@@ -509,21 +509,21 @@ class Stack(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capabilities: Optional[pulumi.Input[Sequence[pulumi.Input['StackCapabilitiesItem']]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 disable_rollback: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_termination_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 notification_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 stack_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 capabilities: pulumi.Input[Optional[Sequence[pulumi.Input['StackCapabilitiesItem']]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 disable_rollback: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_termination_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 notification_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 stack_name: pulumi.Input[Optional[_builtins.str]] = None,
                  stack_policy_body: Optional[Any] = None,
-                 stack_policy_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 stack_status_reason: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 stack_policy_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 stack_status_reason: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  template_body: Optional[Any] = None,
-                 template_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeout_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
+                 template_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeout_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

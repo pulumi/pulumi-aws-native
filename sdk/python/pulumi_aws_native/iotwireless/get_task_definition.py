@@ -155,7 +155,7 @@ def get_task_definition(id: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         task_definition_type=pulumi.get(__ret__, 'task_definition_type'),
         update=pulumi.get(__ret__, 'update'))
-def get_task_definition_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_task_definition_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTaskDefinitionResult]:
     """
     Creates a gateway task definition.

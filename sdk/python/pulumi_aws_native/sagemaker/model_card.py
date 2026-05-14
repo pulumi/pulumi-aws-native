@@ -26,11 +26,11 @@ class ModelCardArgs:
     def __init__(__self__, *,
                  content: pulumi.Input['ModelCardContentArgs'],
                  model_card_status: pulumi.Input['ModelCardStatus'],
-                 created_by: Optional[pulumi.Input['ModelCardUserContextArgs']] = None,
-                 last_modified_by: Optional[pulumi.Input['ModelCardUserContextArgs']] = None,
-                 model_card_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_config: Optional[pulumi.Input['ModelCardSecurityConfigArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 created_by: pulumi.Input[Optional['ModelCardUserContextArgs']] = None,
+                 last_modified_by: pulumi.Input[Optional['ModelCardUserContextArgs']] = None,
+                 model_card_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_config: pulumi.Input[Optional['ModelCardSecurityConfigArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ModelCard resource.
 
@@ -81,62 +81,62 @@ class ModelCardArgs:
 
     @_builtins.property
     @pulumi.getter(name="createdBy")
-    def created_by(self) -> Optional[pulumi.Input['ModelCardUserContextArgs']]:
+    def created_by(self) -> pulumi.Input[Optional['ModelCardUserContextArgs']]:
         """
         Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.
         """
         return pulumi.get(self, "created_by")
 
     @created_by.setter
-    def created_by(self, value: Optional[pulumi.Input['ModelCardUserContextArgs']]):
+    def created_by(self, value: pulumi.Input[Optional['ModelCardUserContextArgs']]):
         pulumi.set(self, "created_by", value)
 
     @_builtins.property
     @pulumi.getter(name="lastModifiedBy")
-    def last_modified_by(self) -> Optional[pulumi.Input['ModelCardUserContextArgs']]:
+    def last_modified_by(self) -> pulumi.Input[Optional['ModelCardUserContextArgs']]:
         """
         Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.
         """
         return pulumi.get(self, "last_modified_by")
 
     @last_modified_by.setter
-    def last_modified_by(self, value: Optional[pulumi.Input['ModelCardUserContextArgs']]):
+    def last_modified_by(self, value: pulumi.Input[Optional['ModelCardUserContextArgs']]):
         pulumi.set(self, "last_modified_by", value)
 
     @_builtins.property
     @pulumi.getter(name="modelCardName")
-    def model_card_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def model_card_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique name of the model card.
         """
         return pulumi.get(self, "model_card_name")
 
     @model_card_name.setter
-    def model_card_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def model_card_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "model_card_name", value)
 
     @_builtins.property
     @pulumi.getter(name="securityConfig")
-    def security_config(self) -> Optional[pulumi.Input['ModelCardSecurityConfigArgs']]:
+    def security_config(self) -> pulumi.Input[Optional['ModelCardSecurityConfigArgs']]:
         """
         The security configuration used to protect model card data.
         """
         return pulumi.get(self, "security_config")
 
     @security_config.setter
-    def security_config(self, value: Optional[pulumi.Input['ModelCardSecurityConfigArgs']]):
+    def security_config(self, value: pulumi.Input[Optional['ModelCardSecurityConfigArgs']]):
         pulumi.set(self, "security_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Key-value pairs used to manage metadata for model cards.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -146,13 +146,13 @@ class ModelCard(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 content: Optional[pulumi.Input[Union['ModelCardContentArgs', 'ModelCardContentArgsDict']]] = None,
-                 created_by: Optional[pulumi.Input[Union['ModelCardUserContextArgs', 'ModelCardUserContextArgsDict']]] = None,
-                 last_modified_by: Optional[pulumi.Input[Union['ModelCardUserContextArgs', 'ModelCardUserContextArgsDict']]] = None,
-                 model_card_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 model_card_status: Optional[pulumi.Input['ModelCardStatus']] = None,
-                 security_config: Optional[pulumi.Input[Union['ModelCardSecurityConfigArgs', 'ModelCardSecurityConfigArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 content: pulumi.Input[Optional[Union['ModelCardContentArgs', 'ModelCardContentArgsDict']]] = None,
+                 created_by: pulumi.Input[Optional[Union['ModelCardUserContextArgs', 'ModelCardUserContextArgsDict']]] = None,
+                 last_modified_by: pulumi.Input[Optional[Union['ModelCardUserContextArgs', 'ModelCardUserContextArgsDict']]] = None,
+                 model_card_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 model_card_status: pulumi.Input[Optional['ModelCardStatus']] = None,
+                 security_config: pulumi.Input[Optional[Union['ModelCardSecurityConfigArgs', 'ModelCardSecurityConfigArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SageMaker::ModelCard.
@@ -193,13 +193,13 @@ class ModelCard(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 content: Optional[pulumi.Input[Union['ModelCardContentArgs', 'ModelCardContentArgsDict']]] = None,
-                 created_by: Optional[pulumi.Input[Union['ModelCardUserContextArgs', 'ModelCardUserContextArgsDict']]] = None,
-                 last_modified_by: Optional[pulumi.Input[Union['ModelCardUserContextArgs', 'ModelCardUserContextArgsDict']]] = None,
-                 model_card_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 model_card_status: Optional[pulumi.Input['ModelCardStatus']] = None,
-                 security_config: Optional[pulumi.Input[Union['ModelCardSecurityConfigArgs', 'ModelCardSecurityConfigArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 content: pulumi.Input[Optional[Union['ModelCardContentArgs', 'ModelCardContentArgsDict']]] = None,
+                 created_by: pulumi.Input[Optional[Union['ModelCardUserContextArgs', 'ModelCardUserContextArgsDict']]] = None,
+                 last_modified_by: pulumi.Input[Optional[Union['ModelCardUserContextArgs', 'ModelCardUserContextArgsDict']]] = None,
+                 model_card_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 model_card_status: pulumi.Input[Optional['ModelCardStatus']] = None,
+                 security_config: pulumi.Input[Optional[Union['ModelCardSecurityConfigArgs', 'ModelCardSecurityConfigArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -27,14 +27,14 @@ class ProcessingJobArgs:
                  app_specification: pulumi.Input['ProcessingJobAppSpecificationArgs'],
                  processing_resources: pulumi.Input['ProcessingJobProcessingResourcesArgs'],
                  role_arn: pulumi.Input[_builtins.str],
-                 environment: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 experiment_config: Optional[pulumi.Input['ProcessingJobExperimentConfigArgs']] = None,
-                 network_config: Optional[pulumi.Input['ProcessingJobNetworkConfigArgs']] = None,
-                 processing_inputs: Optional[pulumi.Input[Sequence[pulumi.Input['ProcessingJobProcessingInputsObjectArgs']]]] = None,
-                 processing_job_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 processing_output_config: Optional[pulumi.Input['ProcessingJobProcessingOutputConfigArgs']] = None,
-                 stopping_condition: Optional[pulumi.Input['ProcessingJobStoppingConditionArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
+                 environment: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 experiment_config: pulumi.Input[Optional['ProcessingJobExperimentConfigArgs']] = None,
+                 network_config: pulumi.Input[Optional['ProcessingJobNetworkConfigArgs']] = None,
+                 processing_inputs: pulumi.Input[Optional[Sequence[pulumi.Input['ProcessingJobProcessingInputsObjectArgs']]]] = None,
+                 processing_job_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 processing_output_config: pulumi.Input[Optional['ProcessingJobProcessingOutputConfigArgs']] = None,
+                 stopping_condition: pulumi.Input[Optional['ProcessingJobStoppingConditionArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a ProcessingJob resource.
 
@@ -108,98 +108,98 @@ class ProcessingJobArgs:
 
     @_builtins.property
     @pulumi.getter
-    def environment(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def environment(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Sets the environment variables in the Docker container.
         """
         return pulumi.get(self, "environment")
 
     @environment.setter
-    def environment(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def environment(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "environment", value)
 
     @_builtins.property
     @pulumi.getter(name="experimentConfig")
-    def experiment_config(self) -> Optional[pulumi.Input['ProcessingJobExperimentConfigArgs']]:
+    def experiment_config(self) -> pulumi.Input[Optional['ProcessingJobExperimentConfigArgs']]:
         """
         Associates a SageMaker job as a trial component with an experiment and trial. Specified when you call the [CreateProcessingJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateProcessingJob.html) API.
         """
         return pulumi.get(self, "experiment_config")
 
     @experiment_config.setter
-    def experiment_config(self, value: Optional[pulumi.Input['ProcessingJobExperimentConfigArgs']]):
+    def experiment_config(self, value: pulumi.Input[Optional['ProcessingJobExperimentConfigArgs']]):
         pulumi.set(self, "experiment_config", value)
 
     @_builtins.property
     @pulumi.getter(name="networkConfig")
-    def network_config(self) -> Optional[pulumi.Input['ProcessingJobNetworkConfigArgs']]:
+    def network_config(self) -> pulumi.Input[Optional['ProcessingJobNetworkConfigArgs']]:
         """
         Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
         """
         return pulumi.get(self, "network_config")
 
     @network_config.setter
-    def network_config(self, value: Optional[pulumi.Input['ProcessingJobNetworkConfigArgs']]):
+    def network_config(self, value: pulumi.Input[Optional['ProcessingJobNetworkConfigArgs']]):
         pulumi.set(self, "network_config", value)
 
     @_builtins.property
     @pulumi.getter(name="processingInputs")
-    def processing_inputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProcessingJobProcessingInputsObjectArgs']]]]:
+    def processing_inputs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ProcessingJobProcessingInputsObjectArgs']]]]:
         """
         An array of inputs configuring the data to download into the processing container.
         """
         return pulumi.get(self, "processing_inputs")
 
     @processing_inputs.setter
-    def processing_inputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProcessingJobProcessingInputsObjectArgs']]]]):
+    def processing_inputs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ProcessingJobProcessingInputsObjectArgs']]]]):
         pulumi.set(self, "processing_inputs", value)
 
     @_builtins.property
     @pulumi.getter(name="processingJobName")
-    def processing_job_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def processing_job_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the processing job. The name must be unique within an AWS Region in the AWS account.
         """
         return pulumi.get(self, "processing_job_name")
 
     @processing_job_name.setter
-    def processing_job_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def processing_job_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "processing_job_name", value)
 
     @_builtins.property
     @pulumi.getter(name="processingOutputConfig")
-    def processing_output_config(self) -> Optional[pulumi.Input['ProcessingJobProcessingOutputConfigArgs']]:
+    def processing_output_config(self) -> pulumi.Input[Optional['ProcessingJobProcessingOutputConfigArgs']]:
         """
         Contains information about the output location for the compiled model and the target device that the model runs on. `TargetDevice` and `TargetPlatform` are mutually exclusive, so you need to choose one between the two to specify your target device or platform. If you cannot find your device you want to use from the `TargetDevice` list, use `TargetPlatform` to describe the platform of your edge device and `CompilerOptions` if there are specific settings that are required or recommended to use for particular TargetPlatform.
         """
         return pulumi.get(self, "processing_output_config")
 
     @processing_output_config.setter
-    def processing_output_config(self, value: Optional[pulumi.Input['ProcessingJobProcessingOutputConfigArgs']]):
+    def processing_output_config(self, value: pulumi.Input[Optional['ProcessingJobProcessingOutputConfigArgs']]):
         pulumi.set(self, "processing_output_config", value)
 
     @_builtins.property
     @pulumi.getter(name="stoppingCondition")
-    def stopping_condition(self) -> Optional[pulumi.Input['ProcessingJobStoppingConditionArgs']]:
+    def stopping_condition(self) -> pulumi.Input[Optional['ProcessingJobStoppingConditionArgs']]:
         """
         Configures conditions under which the processing job should be stopped, such as how long the processing job has been running. After the condition is met, the processing job is stopped.
         """
         return pulumi.get(self, "stopping_condition")
 
     @stopping_condition.setter
-    def stopping_condition(self, value: Optional[pulumi.Input['ProcessingJobStoppingConditionArgs']]):
+    def stopping_condition(self, value: pulumi.Input[Optional['ProcessingJobStoppingConditionArgs']]):
         pulumi.set(self, "stopping_condition", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
         """
         (Optional) An array of key-value pairs. For more information, see Using Cost Allocation Tags(https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL) in the AWS Billing and Cost Management User Guide.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -209,17 +209,17 @@ class ProcessingJob(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_specification: Optional[pulumi.Input[Union['ProcessingJobAppSpecificationArgs', 'ProcessingJobAppSpecificationArgsDict']]] = None,
-                 environment: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 experiment_config: Optional[pulumi.Input[Union['ProcessingJobExperimentConfigArgs', 'ProcessingJobExperimentConfigArgsDict']]] = None,
-                 network_config: Optional[pulumi.Input[Union['ProcessingJobNetworkConfigArgs', 'ProcessingJobNetworkConfigArgsDict']]] = None,
-                 processing_inputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProcessingJobProcessingInputsObjectArgs', 'ProcessingJobProcessingInputsObjectArgsDict']]]]] = None,
-                 processing_job_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 processing_output_config: Optional[pulumi.Input[Union['ProcessingJobProcessingOutputConfigArgs', 'ProcessingJobProcessingOutputConfigArgsDict']]] = None,
-                 processing_resources: Optional[pulumi.Input[Union['ProcessingJobProcessingResourcesArgs', 'ProcessingJobProcessingResourcesArgsDict']]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 stopping_condition: Optional[pulumi.Input[Union['ProcessingJobStoppingConditionArgs', 'ProcessingJobStoppingConditionArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 app_specification: pulumi.Input[Optional[Union['ProcessingJobAppSpecificationArgs', 'ProcessingJobAppSpecificationArgsDict']]] = None,
+                 environment: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 experiment_config: pulumi.Input[Optional[Union['ProcessingJobExperimentConfigArgs', 'ProcessingJobExperimentConfigArgsDict']]] = None,
+                 network_config: pulumi.Input[Optional[Union['ProcessingJobNetworkConfigArgs', 'ProcessingJobNetworkConfigArgsDict']]] = None,
+                 processing_inputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProcessingJobProcessingInputsObjectArgs', 'ProcessingJobProcessingInputsObjectArgsDict']]]]] = None,
+                 processing_job_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 processing_output_config: pulumi.Input[Optional[Union['ProcessingJobProcessingOutputConfigArgs', 'ProcessingJobProcessingOutputConfigArgsDict']]] = None,
+                 processing_resources: pulumi.Input[Optional[Union['ProcessingJobProcessingResourcesArgs', 'ProcessingJobProcessingResourcesArgsDict']]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 stopping_condition: pulumi.Input[Optional[Union['ProcessingJobStoppingConditionArgs', 'ProcessingJobStoppingConditionArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SageMaker::ProcessingJob
@@ -264,17 +264,17 @@ class ProcessingJob(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_specification: Optional[pulumi.Input[Union['ProcessingJobAppSpecificationArgs', 'ProcessingJobAppSpecificationArgsDict']]] = None,
-                 environment: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 experiment_config: Optional[pulumi.Input[Union['ProcessingJobExperimentConfigArgs', 'ProcessingJobExperimentConfigArgsDict']]] = None,
-                 network_config: Optional[pulumi.Input[Union['ProcessingJobNetworkConfigArgs', 'ProcessingJobNetworkConfigArgsDict']]] = None,
-                 processing_inputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProcessingJobProcessingInputsObjectArgs', 'ProcessingJobProcessingInputsObjectArgsDict']]]]] = None,
-                 processing_job_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 processing_output_config: Optional[pulumi.Input[Union['ProcessingJobProcessingOutputConfigArgs', 'ProcessingJobProcessingOutputConfigArgsDict']]] = None,
-                 processing_resources: Optional[pulumi.Input[Union['ProcessingJobProcessingResourcesArgs', 'ProcessingJobProcessingResourcesArgsDict']]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 stopping_condition: Optional[pulumi.Input[Union['ProcessingJobStoppingConditionArgs', 'ProcessingJobStoppingConditionArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 app_specification: pulumi.Input[Optional[Union['ProcessingJobAppSpecificationArgs', 'ProcessingJobAppSpecificationArgsDict']]] = None,
+                 environment: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 experiment_config: pulumi.Input[Optional[Union['ProcessingJobExperimentConfigArgs', 'ProcessingJobExperimentConfigArgsDict']]] = None,
+                 network_config: pulumi.Input[Optional[Union['ProcessingJobNetworkConfigArgs', 'ProcessingJobNetworkConfigArgsDict']]] = None,
+                 processing_inputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProcessingJobProcessingInputsObjectArgs', 'ProcessingJobProcessingInputsObjectArgsDict']]]]] = None,
+                 processing_job_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 processing_output_config: pulumi.Input[Optional[Union['ProcessingJobProcessingOutputConfigArgs', 'ProcessingJobProcessingOutputConfigArgsDict']]] = None,
+                 processing_resources: pulumi.Input[Optional[Union['ProcessingJobProcessingResourcesArgs', 'ProcessingJobProcessingResourcesArgsDict']]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 stopping_condition: pulumi.Input[Optional[Union['ProcessingJobStoppingConditionArgs', 'ProcessingJobStoppingConditionArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

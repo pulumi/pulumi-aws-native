@@ -151,7 +151,7 @@ def get_trust_store(id: Optional[_builtins.str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         use_client_certificate_ocsp_endpoint=pulumi.get(__ret__, 'use_client_certificate_ocsp_endpoint'))
-def get_trust_store_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_trust_store_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTrustStoreResult]:
     """
     A trust store.

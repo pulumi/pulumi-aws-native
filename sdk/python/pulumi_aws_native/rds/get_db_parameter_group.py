@@ -90,7 +90,7 @@ def get_db_parameter_group(db_parameter_group_name: Optional[_builtins.str] = No
     return AwaitableGetDbParameterGroupResult(
         parameters=pulumi.get(__ret__, 'parameters'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_db_parameter_group_output(db_parameter_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_db_parameter_group_output(db_parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDbParameterGroupResult]:
     """
     The ``AWS::RDS::DBParameterGroup`` resource creates a custom parameter group for an RDS database family.

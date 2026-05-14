@@ -117,8 +117,8 @@ def get_addon(addon_name: Optional[_builtins.str] = None,
         configuration_values=pulumi.get(__ret__, 'configuration_values'),
         service_account_role_arn=pulumi.get(__ret__, 'service_account_role_arn'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_addon_output(addon_name: Optional[pulumi.Input[_builtins.str]] = None,
-                     cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_addon_output(addon_name: pulumi.Input[Optional[_builtins.str]] = None,
+                     cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAddonResult]:
     """
     Resource Schema for AWS::EKS::Addon

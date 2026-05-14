@@ -137,7 +137,7 @@ def get_collection(id: Optional[_builtins.str] = None,
         fips_endpoints=pulumi.get(__ret__, 'fips_endpoints'),
         id=pulumi.get(__ret__, 'id'),
         kms_key_arn=pulumi.get(__ret__, 'kms_key_arn'))
-def get_collection_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_collection_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCollectionResult]:
     """
     Amazon OpenSearchServerless collection resource

@@ -94,7 +94,7 @@ def get_origin_request_policy(id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         last_modified_time=pulumi.get(__ret__, 'last_modified_time'),
         origin_request_policy_config=pulumi.get(__ret__, 'origin_request_policy_config'))
-def get_origin_request_policy_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_origin_request_policy_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOriginRequestPolicyResult]:
     """
     An origin request policy.

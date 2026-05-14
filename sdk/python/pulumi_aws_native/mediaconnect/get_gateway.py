@@ -75,7 +75,7 @@ def get_gateway(gateway_arn: Optional[_builtins.str] = None,
     return AwaitableGetGatewayResult(
         gateway_arn=pulumi.get(__ret__, 'gateway_arn'),
         gateway_state=pulumi.get(__ret__, 'gateway_state'))
-def get_gateway_output(gateway_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_gateway_output(gateway_arn: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGatewayResult]:
     """
     Resource schema for AWS::MediaConnect::Gateway

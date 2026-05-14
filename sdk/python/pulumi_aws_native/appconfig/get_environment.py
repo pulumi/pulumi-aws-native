@@ -118,8 +118,8 @@ def get_environment(application_id: Optional[_builtins.str] = None,
         monitors=pulumi.get(__ret__, 'monitors'),
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_environment_output(application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                           environment_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_environment_output(application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                           environment_id: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnvironmentResult]:
     """
     Resource Type definition for AWS::AppConfig::Environment

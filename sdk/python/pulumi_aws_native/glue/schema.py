@@ -26,12 +26,12 @@ class SchemaArgs:
     def __init__(__self__, *,
                  compatibility: pulumi.Input['SchemaCompatibility'],
                  data_format: pulumi.Input['SchemaDataFormat'],
-                 checkpoint_version: Optional[pulumi.Input['SchemaVersionArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 registry: Optional[pulumi.Input['SchemaRegistryArgs']] = None,
-                 schema_definition: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 checkpoint_version: pulumi.Input[Optional['SchemaVersionArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 registry: pulumi.Input[Optional['SchemaRegistryArgs']] = None,
+                 schema_definition: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Schema resource.
 
@@ -85,74 +85,74 @@ class SchemaArgs:
 
     @_builtins.property
     @pulumi.getter(name="checkpointVersion")
-    def checkpoint_version(self) -> Optional[pulumi.Input['SchemaVersionArgs']]:
+    def checkpoint_version(self) -> pulumi.Input[Optional['SchemaVersionArgs']]:
         """
         Specify the `VersionNumber` or the `IsLatest` for setting the checkpoint for the schema. This is only required for updating a checkpoint.
         """
         return pulumi.get(self, "checkpoint_version")
 
     @checkpoint_version.setter
-    def checkpoint_version(self, value: Optional[pulumi.Input['SchemaVersionArgs']]):
+    def checkpoint_version(self, value: pulumi.Input[Optional['SchemaVersionArgs']]):
         pulumi.set(self, "checkpoint_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the schema. If description is not provided, there will not be any default value for this.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the schema.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def registry(self) -> Optional[pulumi.Input['SchemaRegistryArgs']]:
+    def registry(self) -> pulumi.Input[Optional['SchemaRegistryArgs']]:
         """
         The registry where a schema is stored.
         """
         return pulumi.get(self, "registry")
 
     @registry.setter
-    def registry(self, value: Optional[pulumi.Input['SchemaRegistryArgs']]):
+    def registry(self, value: pulumi.Input[Optional['SchemaRegistryArgs']]):
         pulumi.set(self, "registry", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaDefinition")
-    def schema_definition(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def schema_definition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Definition for the initial schema version in plain-text.
         """
         return pulumi.get(self, "schema_definition")
 
     @schema_definition.setter
-    def schema_definition(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def schema_definition(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schema_definition", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         List of tags to tag the schema
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -162,14 +162,14 @@ class Schema(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 checkpoint_version: Optional[pulumi.Input[Union['SchemaVersionArgs', 'SchemaVersionArgsDict']]] = None,
-                 compatibility: Optional[pulumi.Input['SchemaCompatibility']] = None,
-                 data_format: Optional[pulumi.Input['SchemaDataFormat']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 registry: Optional[pulumi.Input[Union['SchemaRegistryArgs', 'SchemaRegistryArgsDict']]] = None,
-                 schema_definition: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 checkpoint_version: pulumi.Input[Optional[Union['SchemaVersionArgs', 'SchemaVersionArgsDict']]] = None,
+                 compatibility: pulumi.Input[Optional['SchemaCompatibility']] = None,
+                 data_format: pulumi.Input[Optional['SchemaDataFormat']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 registry: pulumi.Input[Optional[Union['SchemaRegistryArgs', 'SchemaRegistryArgsDict']]] = None,
+                 schema_definition: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         This resource represents a schema of Glue Schema Registry.
@@ -211,14 +211,14 @@ class Schema(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 checkpoint_version: Optional[pulumi.Input[Union['SchemaVersionArgs', 'SchemaVersionArgsDict']]] = None,
-                 compatibility: Optional[pulumi.Input['SchemaCompatibility']] = None,
-                 data_format: Optional[pulumi.Input['SchemaDataFormat']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 registry: Optional[pulumi.Input[Union['SchemaRegistryArgs', 'SchemaRegistryArgsDict']]] = None,
-                 schema_definition: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 checkpoint_version: pulumi.Input[Optional[Union['SchemaVersionArgs', 'SchemaVersionArgsDict']]] = None,
+                 compatibility: pulumi.Input[Optional['SchemaCompatibility']] = None,
+                 data_format: pulumi.Input[Optional['SchemaDataFormat']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 registry: pulumi.Input[Optional[Union['SchemaRegistryArgs', 'SchemaRegistryArgsDict']]] = None,
+                 schema_definition: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

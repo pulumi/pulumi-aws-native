@@ -150,8 +150,8 @@ def get_subscription_filter(filter_name: Optional[_builtins.str] = None,
         field_selection_criteria=pulumi.get(__ret__, 'field_selection_criteria'),
         filter_pattern=pulumi.get(__ret__, 'filter_pattern'),
         role_arn=pulumi.get(__ret__, 'role_arn'))
-def get_subscription_filter_output(filter_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                   log_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_subscription_filter_output(filter_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                   log_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSubscriptionFilterResult]:
     """
     The ``AWS::Logs::SubscriptionFilter`` resource specifies a subscription filter and associates it with the specified log group. Subscription filters allow you to subscribe to a real-time stream of log events and have them delivered to a specific destination. Currently, the supported destinations are:

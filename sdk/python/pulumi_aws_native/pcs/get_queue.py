@@ -141,7 +141,7 @@ def get_queue(arn: Optional[_builtins.str] = None,
         slurm_configuration=pulumi.get(__ret__, 'slurm_configuration'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_queue_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_queue_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetQueueResult]:
     """
     AWS::PCS::Queue resource creates an AWS PCS queue.

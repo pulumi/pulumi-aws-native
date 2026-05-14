@@ -22,11 +22,11 @@ __all__ = ['LayerVersionArgs', 'LayerVersion']
 class LayerVersionArgs:
     def __init__(__self__, *,
                  content: pulumi.Input['LayerVersionContentArgs'],
-                 compatible_architectures: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 compatible_runtimes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 layer_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 license_info: Optional[pulumi.Input[_builtins.str]] = None):
+                 compatible_architectures: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 compatible_runtimes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 layer_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 license_info: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a LayerVersion resource.
 
@@ -63,62 +63,62 @@ class LayerVersionArgs:
 
     @_builtins.property
     @pulumi.getter(name="compatibleArchitectures")
-    def compatible_architectures(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def compatible_architectures(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of compatible instruction set architectures.
         """
         return pulumi.get(self, "compatible_architectures")
 
     @compatible_architectures.setter
-    def compatible_architectures(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def compatible_architectures(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "compatible_architectures", value)
 
     @_builtins.property
     @pulumi.getter(name="compatibleRuntimes")
-    def compatible_runtimes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def compatible_runtimes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of compatible function runtimes. Used for filtering with ListLayers and ListLayerVersions.
         """
         return pulumi.get(self, "compatible_runtimes")
 
     @compatible_runtimes.setter
-    def compatible_runtimes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def compatible_runtimes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "compatible_runtimes", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the version.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="layerName")
-    def layer_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def layer_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name or Amazon Resource Name (ARN) of the layer.
         """
         return pulumi.get(self, "layer_name")
 
     @layer_name.setter
-    def layer_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def layer_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "layer_name", value)
 
     @_builtins.property
     @pulumi.getter(name="licenseInfo")
-    def license_info(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def license_info(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The layer's software license.
         """
         return pulumi.get(self, "license_info")
 
     @license_info.setter
-    def license_info(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def license_info(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "license_info", value)
 
 
@@ -128,12 +128,12 @@ class LayerVersion(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 compatible_architectures: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 compatible_runtimes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 content: Optional[pulumi.Input[Union['LayerVersionContentArgs', 'LayerVersionContentArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 layer_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 license_info: Optional[pulumi.Input[_builtins.str]] = None,
+                 compatible_architectures: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 compatible_runtimes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 content: pulumi.Input[Optional[Union['LayerVersionContentArgs', 'LayerVersionContentArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 layer_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 license_info: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Lambda::LayerVersion
@@ -173,12 +173,12 @@ class LayerVersion(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 compatible_architectures: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 compatible_runtimes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 content: Optional[pulumi.Input[Union['LayerVersionContentArgs', 'LayerVersionContentArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 layer_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 license_info: Optional[pulumi.Input[_builtins.str]] = None,
+                 compatible_architectures: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 compatible_runtimes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 content: pulumi.Input[Optional[Union['LayerVersionContentArgs', 'LayerVersionContentArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 layer_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 license_info: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

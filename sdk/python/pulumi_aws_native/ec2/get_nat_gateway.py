@@ -193,7 +193,7 @@ def get_nat_gateway(nat_gateway_id: Optional[_builtins.str] = None,
         secondary_private_ip_address_count=pulumi.get(__ret__, 'secondary_private_ip_address_count'),
         secondary_private_ip_addresses=pulumi.get(__ret__, 'secondary_private_ip_addresses'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_nat_gateway_output(nat_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_nat_gateway_output(nat_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNatGatewayResult]:
     """
     Specifies a network address translation (NAT) gateway in the specified subnet. You can create either a public NAT gateway or a private NAT gateway. The default is a public NAT gateway. If you create a public NAT gateway, you must specify an elastic IP address.

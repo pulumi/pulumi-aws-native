@@ -40,7 +40,7 @@ class ComputeNodeGroupInstanceConfigArgsDict(TypedDict):
     """
     An EC2 instance configuration AWS PCS uses to launch compute nodes.
     """
-    instance_type: NotRequired[pulumi.Input[_builtins.str]]
+    instance_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The EC2 instance type that AWS PCS can provision in the compute node group.
     """
@@ -48,7 +48,7 @@ class ComputeNodeGroupInstanceConfigArgsDict(TypedDict):
 @pulumi.input_type
 class ComputeNodeGroupInstanceConfigArgs:
     def __init__(__self__, *,
-                 instance_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 instance_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         An EC2 instance configuration AWS PCS uses to launch compute nodes.
 
@@ -59,14 +59,14 @@ class ComputeNodeGroupInstanceConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="instanceType")
-    def instance_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def instance_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The EC2 instance type that AWS PCS can provision in the compute node group.
         """
         return pulumi.get(self, "instance_type")
 
     @instance_type.setter
-    def instance_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def instance_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "instance_type", value)
 
 
@@ -78,7 +78,7 @@ class CustomLaunchTemplatePropertiesArgsDict(TypedDict):
     """
     The version of the EC2 launch template to use to provision instances.
     """
-    template_id: NotRequired[pulumi.Input[_builtins.str]]
+    template_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the EC2 launch template to use to provision instances.
     """
@@ -87,7 +87,7 @@ class CustomLaunchTemplatePropertiesArgsDict(TypedDict):
 class CustomLaunchTemplatePropertiesArgs:
     def __init__(__self__, *,
                  version: pulumi.Input[_builtins.str],
-                 template_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 template_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         An Amazon EC2 launch template AWS PCS uses to launch compute nodes.
 
@@ -112,14 +112,14 @@ class CustomLaunchTemplatePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="templateId")
-    def template_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def template_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the EC2 launch template to use to provision instances.
         """
         return pulumi.get(self, "template_id")
 
     @template_id.setter
-    def template_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def template_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "template_id", value)
 
 
@@ -127,15 +127,15 @@ class NetworkingPropertiesArgsDict(TypedDict):
     """
     The networking configuration for the cluster's control plane.
     """
-    network_type: NotRequired[pulumi.Input['ClusterNetworkingPropertiesNetworkType']]
+    network_type: NotRequired[pulumi.Input[Optional['ClusterNetworkingPropertiesNetworkType']]]
     """
     The IP of the cluster (IPV4 or IPV6)
     """
-    security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    security_group_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of security group IDs associated with the Elastic Network Interface (ENI) created in subnets.
     """
-    subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    subnet_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of subnet IDs where AWS PCS creates an Elastic Network Interface (ENI) to enable communication between managed controllers and AWS PCS resources. The subnet must have an available IP address, cannot reside in AWS Outposts, AWS Wavelength, or an AWS Local Zone. AWS PCS currently supports only 1 subnet in this list.
     """
@@ -143,9 +143,9 @@ class NetworkingPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class NetworkingPropertiesArgs:
     def __init__(__self__, *,
-                 network_type: Optional[pulumi.Input['ClusterNetworkingPropertiesNetworkType']] = None,
-                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 network_type: pulumi.Input[Optional['ClusterNetworkingPropertiesNetworkType']] = None,
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The networking configuration for the cluster's control plane.
 
@@ -162,38 +162,38 @@ class NetworkingPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="networkType")
-    def network_type(self) -> Optional[pulumi.Input['ClusterNetworkingPropertiesNetworkType']]:
+    def network_type(self) -> pulumi.Input[Optional['ClusterNetworkingPropertiesNetworkType']]:
         """
         The IP of the cluster (IPV4 or IPV6)
         """
         return pulumi.get(self, "network_type")
 
     @network_type.setter
-    def network_type(self, value: Optional[pulumi.Input['ClusterNetworkingPropertiesNetworkType']]):
+    def network_type(self, value: pulumi.Input[Optional['ClusterNetworkingPropertiesNetworkType']]):
         pulumi.set(self, "network_type", value)
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of security group IDs associated with the Elastic Network Interface (ENI) created in subnets.
         """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
-    def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def security_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "security_group_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def subnet_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of subnet IDs where AWS PCS creates an Elastic Network Interface (ENI) to enable communication between managed controllers and AWS PCS resources. The subnet must have an available IP address, cannot reside in AWS Outposts, AWS Wavelength, or an AWS Local Zone. AWS PCS currently supports only 1 subnet in this list.
         """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
-    def subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def subnet_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "subnet_ids", value)
 
 
@@ -201,7 +201,7 @@ class QueueComputeNodeGroupConfigurationArgsDict(TypedDict):
     """
     The compute node group configuration for a queue.
     """
-    compute_node_group_id: NotRequired[pulumi.Input[_builtins.str]]
+    compute_node_group_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The compute node group ID for the compute node group configuration.
     """
@@ -209,7 +209,7 @@ class QueueComputeNodeGroupConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class QueueComputeNodeGroupConfigurationArgs:
     def __init__(__self__, *,
-                 compute_node_group_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 compute_node_group_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The compute node group configuration for a queue.
 
@@ -220,14 +220,14 @@ class QueueComputeNodeGroupConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="computeNodeGroupId")
-    def compute_node_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def compute_node_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The compute node group ID for the compute node group configuration.
         """
         return pulumi.get(self, "compute_node_group_id")
 
     @compute_node_group_id.setter
-    def compute_node_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def compute_node_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "compute_node_group_id", value)
 
 
@@ -391,7 +391,7 @@ class SlurmConfigurationPropertiesArgsDict(TypedDict):
     """
     The Slurm configuration for the queue.
     """
-    slurm_custom_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['QueueSlurmCustomSettingArgsDict']]]]
+    slurm_custom_settings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['QueueSlurmCustomSettingArgs']]]]]
     """
     Custom Slurm parameters that directly map to Slurm configuration settings.
     """
@@ -399,7 +399,7 @@ class SlurmConfigurationPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class SlurmConfigurationPropertiesArgs:
     def __init__(__self__, *,
-                 slurm_custom_settings: Optional[pulumi.Input[Sequence[pulumi.Input['QueueSlurmCustomSettingArgs']]]] = None):
+                 slurm_custom_settings: pulumi.Input[Optional[Sequence[pulumi.Input['QueueSlurmCustomSettingArgs']]]] = None):
         """
         The Slurm configuration for the queue.
 
@@ -410,14 +410,14 @@ class SlurmConfigurationPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="slurmCustomSettings")
-    def slurm_custom_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['QueueSlurmCustomSettingArgs']]]]:
+    def slurm_custom_settings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['QueueSlurmCustomSettingArgs']]]]:
         """
         Custom Slurm parameters that directly map to Slurm configuration settings.
         """
         return pulumi.get(self, "slurm_custom_settings")
 
     @slurm_custom_settings.setter
-    def slurm_custom_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['QueueSlurmCustomSettingArgs']]]]):
+    def slurm_custom_settings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['QueueSlurmCustomSettingArgs']]]]):
         pulumi.set(self, "slurm_custom_settings", value)
 
 
@@ -425,7 +425,7 @@ class SpotOptionsPropertiesArgsDict(TypedDict):
     """
     Additional configuration when you specify SPOT as the purchase option.
     """
-    allocation_strategy: NotRequired[pulumi.Input['ComputeNodeGroupSpotOptionsPropertiesAllocationStrategy']]
+    allocation_strategy: NotRequired[pulumi.Input[Optional['ComputeNodeGroupSpotOptionsPropertiesAllocationStrategy']]]
     """
     The Amazon EC2 allocation strategy AWS PCS uses to provision EC2 instances. AWS PCS supports lowest price, capacity optimized, and price capacity optimized. If you don't provide this option, it defaults to price capacity optimized.
     """
@@ -433,7 +433,7 @@ class SpotOptionsPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class SpotOptionsPropertiesArgs:
     def __init__(__self__, *,
-                 allocation_strategy: Optional[pulumi.Input['ComputeNodeGroupSpotOptionsPropertiesAllocationStrategy']] = None):
+                 allocation_strategy: pulumi.Input[Optional['ComputeNodeGroupSpotOptionsPropertiesAllocationStrategy']] = None):
         """
         Additional configuration when you specify SPOT as the purchase option.
 
@@ -444,14 +444,14 @@ class SpotOptionsPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="allocationStrategy")
-    def allocation_strategy(self) -> Optional[pulumi.Input['ComputeNodeGroupSpotOptionsPropertiesAllocationStrategy']]:
+    def allocation_strategy(self) -> pulumi.Input[Optional['ComputeNodeGroupSpotOptionsPropertiesAllocationStrategy']]:
         """
         The Amazon EC2 allocation strategy AWS PCS uses to provision EC2 instances. AWS PCS supports lowest price, capacity optimized, and price capacity optimized. If you don't provide this option, it defaults to price capacity optimized.
         """
         return pulumi.get(self, "allocation_strategy")
 
     @allocation_strategy.setter
-    def allocation_strategy(self, value: Optional[pulumi.Input['ComputeNodeGroupSpotOptionsPropertiesAllocationStrategy']]):
+    def allocation_strategy(self, value: pulumi.Input[Optional['ComputeNodeGroupSpotOptionsPropertiesAllocationStrategy']]):
         pulumi.set(self, "allocation_strategy", value)
 
 

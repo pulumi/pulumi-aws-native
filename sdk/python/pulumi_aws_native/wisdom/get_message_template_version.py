@@ -87,7 +87,7 @@ def get_message_template_version(message_template_version_arn: Optional[_builtin
         message_template_content_sha256=pulumi.get(__ret__, 'message_template_content_sha256'),
         message_template_version_arn=pulumi.get(__ret__, 'message_template_version_arn'),
         message_template_version_number=pulumi.get(__ret__, 'message_template_version_number'))
-def get_message_template_version_output(message_template_version_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_message_template_version_output(message_template_version_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMessageTemplateVersionResult]:
     """
     A version for the specified customer-managed message template within the specified knowledge base.

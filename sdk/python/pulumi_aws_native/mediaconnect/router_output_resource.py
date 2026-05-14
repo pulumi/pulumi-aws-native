@@ -28,11 +28,11 @@ class RouterOutputResourceArgs:
                  maximum_bitrate: pulumi.Input[_builtins.int],
                  routing_scope: pulumi.Input['RouterOutputResourceRoutingScope'],
                  tier: pulumi.Input['RouterOutputResourceRouterOutputTier'],
-                 availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 maintenance_configuration: Optional[pulumi.Input[Union['RouterOutputResourceMaintenanceConfiguration0PropertiesArgs', 'RouterOutputResourceMaintenanceConfiguration1PropertiesArgs']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 maintenance_configuration: pulumi.Input[Optional[Union['RouterOutputResourceMaintenanceConfiguration0PropertiesArgs', 'RouterOutputResourceMaintenanceConfiguration1PropertiesArgs']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a RouterOutputResource resource.
 
@@ -107,62 +107,62 @@ class RouterOutputResourceArgs:
 
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def availability_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Availability Zone where you want to create the router output. This must be a valid Availability Zone for the region specified by regionName, or the current region if no regionName is provided.
         """
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
-    def availability_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def availability_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "availability_zone", value)
 
     @_builtins.property
     @pulumi.getter(name="maintenanceConfiguration")
-    def maintenance_configuration(self) -> Optional[pulumi.Input[Union['RouterOutputResourceMaintenanceConfiguration0PropertiesArgs', 'RouterOutputResourceMaintenanceConfiguration1PropertiesArgs']]]:
+    def maintenance_configuration(self) -> pulumi.Input[Optional[Union['RouterOutputResourceMaintenanceConfiguration0PropertiesArgs', 'RouterOutputResourceMaintenanceConfiguration1PropertiesArgs']]]:
         """
         The maintenance configuration settings applied to this router output.
         """
         return pulumi.get(self, "maintenance_configuration")
 
     @maintenance_configuration.setter
-    def maintenance_configuration(self, value: Optional[pulumi.Input[Union['RouterOutputResourceMaintenanceConfiguration0PropertiesArgs', 'RouterOutputResourceMaintenanceConfiguration1PropertiesArgs']]]):
+    def maintenance_configuration(self, value: pulumi.Input[Optional[Union['RouterOutputResourceMaintenanceConfiguration0PropertiesArgs', 'RouterOutputResourceMaintenanceConfiguration1PropertiesArgs']]]):
         pulumi.set(self, "maintenance_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the router output.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="regionName")
-    def region_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Web Services Region for the router output. Defaults to the current region if not specified.
         """
         return pulumi.get(self, "region_name")
 
     @region_name.setter
-    def region_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Key-value pairs that can be used to tag this router output.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -172,15 +172,15 @@ class RouterOutputResource(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 configuration: Optional[pulumi.Input[Union[Union['RouterOutputResourceRouterOutputConfiguration0PropertiesArgs', 'RouterOutputResourceRouterOutputConfiguration0PropertiesArgsDict'], Union['RouterOutputResourceRouterOutputConfiguration1PropertiesArgs', 'RouterOutputResourceRouterOutputConfiguration1PropertiesArgsDict'], Union['RouterOutputResourceRouterOutputConfiguration2PropertiesArgs', 'RouterOutputResourceRouterOutputConfiguration2PropertiesArgsDict']]]] = None,
-                 maintenance_configuration: Optional[pulumi.Input[Union[Union['RouterOutputResourceMaintenanceConfiguration0PropertiesArgs', 'RouterOutputResourceMaintenanceConfiguration0PropertiesArgsDict'], Union['RouterOutputResourceMaintenanceConfiguration1PropertiesArgs', 'RouterOutputResourceMaintenanceConfiguration1PropertiesArgsDict']]]] = None,
-                 maximum_bitrate: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_scope: Optional[pulumi.Input['RouterOutputResourceRoutingScope']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 tier: Optional[pulumi.Input['RouterOutputResourceRouterOutputTier']] = None,
+                 availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration: pulumi.Input[Optional[Union[Union['RouterOutputResourceRouterOutputConfiguration0PropertiesArgs', 'RouterOutputResourceRouterOutputConfiguration0PropertiesArgsDict'], Union['RouterOutputResourceRouterOutputConfiguration1PropertiesArgs', 'RouterOutputResourceRouterOutputConfiguration1PropertiesArgsDict'], Union['RouterOutputResourceRouterOutputConfiguration2PropertiesArgs', 'RouterOutputResourceRouterOutputConfiguration2PropertiesArgsDict']]]] = None,
+                 maintenance_configuration: pulumi.Input[Optional[Union[Union['RouterOutputResourceMaintenanceConfiguration0PropertiesArgs', 'RouterOutputResourceMaintenanceConfiguration0PropertiesArgsDict'], Union['RouterOutputResourceMaintenanceConfiguration1PropertiesArgs', 'RouterOutputResourceMaintenanceConfiguration1PropertiesArgsDict']]]] = None,
+                 maximum_bitrate: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_scope: pulumi.Input[Optional['RouterOutputResourceRoutingScope']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tier: pulumi.Input[Optional['RouterOutputResourceRouterOutputTier']] = None,
                  __props__=None):
         """
         Represents a router input in AWS Elemental MediaConnect that can be used to egress content transmitted from router inputs
@@ -222,15 +222,15 @@ class RouterOutputResource(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 configuration: Optional[pulumi.Input[Union[Union['RouterOutputResourceRouterOutputConfiguration0PropertiesArgs', 'RouterOutputResourceRouterOutputConfiguration0PropertiesArgsDict'], Union['RouterOutputResourceRouterOutputConfiguration1PropertiesArgs', 'RouterOutputResourceRouterOutputConfiguration1PropertiesArgsDict'], Union['RouterOutputResourceRouterOutputConfiguration2PropertiesArgs', 'RouterOutputResourceRouterOutputConfiguration2PropertiesArgsDict']]]] = None,
-                 maintenance_configuration: Optional[pulumi.Input[Union[Union['RouterOutputResourceMaintenanceConfiguration0PropertiesArgs', 'RouterOutputResourceMaintenanceConfiguration0PropertiesArgsDict'], Union['RouterOutputResourceMaintenanceConfiguration1PropertiesArgs', 'RouterOutputResourceMaintenanceConfiguration1PropertiesArgsDict']]]] = None,
-                 maximum_bitrate: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_scope: Optional[pulumi.Input['RouterOutputResourceRoutingScope']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 tier: Optional[pulumi.Input['RouterOutputResourceRouterOutputTier']] = None,
+                 availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration: pulumi.Input[Optional[Union[Union['RouterOutputResourceRouterOutputConfiguration0PropertiesArgs', 'RouterOutputResourceRouterOutputConfiguration0PropertiesArgsDict'], Union['RouterOutputResourceRouterOutputConfiguration1PropertiesArgs', 'RouterOutputResourceRouterOutputConfiguration1PropertiesArgsDict'], Union['RouterOutputResourceRouterOutputConfiguration2PropertiesArgs', 'RouterOutputResourceRouterOutputConfiguration2PropertiesArgsDict']]]] = None,
+                 maintenance_configuration: pulumi.Input[Optional[Union[Union['RouterOutputResourceMaintenanceConfiguration0PropertiesArgs', 'RouterOutputResourceMaintenanceConfiguration0PropertiesArgsDict'], Union['RouterOutputResourceMaintenanceConfiguration1PropertiesArgs', 'RouterOutputResourceMaintenanceConfiguration1PropertiesArgsDict']]]] = None,
+                 maximum_bitrate: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_scope: pulumi.Input[Optional['RouterOutputResourceRoutingScope']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tier: pulumi.Input[Optional['RouterOutputResourceRouterOutputTier']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

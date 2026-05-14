@@ -190,7 +190,7 @@ def get_global_resolver(global_resolver_id: Optional[_builtins.str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-def get_global_resolver_output(global_resolver_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_global_resolver_output(global_resolver_id: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGlobalResolverResult]:
     """
     Resource schema for AWS::Route53GlobalResolver::GlobalResolver

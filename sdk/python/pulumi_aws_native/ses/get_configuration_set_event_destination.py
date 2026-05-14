@@ -69,7 +69,7 @@ def get_configuration_set_event_destination(id: Optional[_builtins.str] = None,
     return AwaitableGetConfigurationSetEventDestinationResult(
         event_destination=pulumi.get(__ret__, 'event_destination'),
         id=pulumi.get(__ret__, 'id'))
-def get_configuration_set_event_destination_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_configuration_set_event_destination_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigurationSetEventDestinationResult]:
     """
     Resource Type definition for AWS::SES::ConfigurationSetEventDestination

@@ -20,7 +20,7 @@ __all__ = ['LogStreamArgs', 'LogStream']
 class LogStreamArgs:
     def __init__(__self__, *,
                  log_group_name: pulumi.Input[_builtins.str],
-                 log_stream_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 log_stream_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a LogStream resource.
 
@@ -45,14 +45,14 @@ class LogStreamArgs:
 
     @_builtins.property
     @pulumi.getter(name="logStreamName")
-    def log_stream_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_stream_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the log stream. The name must be unique wihtin the log group.
         """
         return pulumi.get(self, "log_stream_name")
 
     @log_stream_name.setter
-    def log_stream_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_stream_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_stream_name", value)
 
 
@@ -62,8 +62,8 @@ class LogStream(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 log_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_stream_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 log_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_stream_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Logs::LogStream
@@ -99,8 +99,8 @@ class LogStream(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 log_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_stream_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 log_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_stream_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

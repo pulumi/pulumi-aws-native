@@ -128,7 +128,7 @@ def get_cis_scan_configuration(arn: Optional[_builtins.str] = None,
         security_level=pulumi.get(__ret__, 'security_level'),
         tags=pulumi.get(__ret__, 'tags'),
         targets=pulumi.get(__ret__, 'targets'))
-def get_cis_scan_configuration_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_cis_scan_configuration_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCisScanConfigurationResult]:
     """
     CIS Scan Configuration resource schema

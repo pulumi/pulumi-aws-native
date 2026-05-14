@@ -26,28 +26,28 @@ class CacheClusterArgs:
                  cache_node_type: pulumi.Input[_builtins.str],
                  engine: pulumi.Input[_builtins.str],
                  num_cache_nodes: pulumi.Input[_builtins.int],
-                 auto_minor_version_upgrade: Optional[pulumi.Input[_builtins.bool]] = None,
-                 az_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 cache_parameter_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cache_security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 cache_subnet_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_discovery: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_delivery_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['CacheClusterLogDeliveryConfigurationRequestArgs']]]] = None,
-                 network_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 preferred_availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 preferred_availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 preferred_maintenance_window: Optional[pulumi.Input[_builtins.str]] = None,
-                 snapshot_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 snapshot_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 snapshot_retention_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 snapshot_window: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 transit_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 auto_minor_version_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
+                 az_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_security_group_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cache_subnet_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_discovery: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_delivery_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['CacheClusterLogDeliveryConfigurationRequestArgs']]]] = None,
+                 network_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 preferred_availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 preferred_availability_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 preferred_maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 snapshot_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 snapshot_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 snapshot_retention_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 snapshot_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 transit_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CacheCluster resource.
 
@@ -163,266 +163,266 @@ class CacheClusterArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoMinorVersionUpgrade")
-    def auto_minor_version_upgrade(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_minor_version_upgrade(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If you are running Redis engine version 6.0 or later, set this parameter to yes if you want to opt-in to the next minor version upgrade campaign.
         """
         return pulumi.get(self, "auto_minor_version_upgrade")
 
     @auto_minor_version_upgrade.setter
-    def auto_minor_version_upgrade(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_minor_version_upgrade(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_minor_version_upgrade", value)
 
     @_builtins.property
     @pulumi.getter(name="azMode")
-    def az_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def az_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether the nodes in this Memcached cluster are created in a single Availability Zone or created across multiple Availability Zones in the cluster's region.
         """
         return pulumi.get(self, "az_mode")
 
     @az_mode.setter
-    def az_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def az_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "az_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheParameterGroupName")
-    def cache_parameter_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cache_parameter_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the parameter group to associate with this cluster.
         """
         return pulumi.get(self, "cache_parameter_group_name")
 
     @cache_parameter_group_name.setter
-    def cache_parameter_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cache_parameter_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cache_parameter_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheSecurityGroupNames")
-    def cache_security_group_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def cache_security_group_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of security group names to associate with this cluster.
         """
         return pulumi.get(self, "cache_security_group_names")
 
     @cache_security_group_names.setter
-    def cache_security_group_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def cache_security_group_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "cache_security_group_names", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheSubnetGroupName")
-    def cache_subnet_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cache_subnet_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the subnet group to be used for the cluster.
         """
         return pulumi.get(self, "cache_subnet_group_name")
 
     @cache_subnet_group_name.setter
-    def cache_subnet_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cache_subnet_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cache_subnet_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="clusterName")
-    def cluster_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cluster_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A name for the cache cluster.
         """
         return pulumi.get(self, "cluster_name")
 
     @cluster_name.setter
-    def cluster_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cluster_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cluster_name", value)
 
     @_builtins.property
     @pulumi.getter(name="engineVersion")
-    def engine_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def engine_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version number of the cache engine to be used for this cluster
         """
         return pulumi.get(self, "engine_version")
 
     @engine_version.setter
-    def engine_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def engine_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "engine_version", value)
 
     @_builtins.property
     @pulumi.getter(name="ipDiscovery")
-    def ip_discovery(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip_discovery(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Ip Discovery parameter for cachecluster.
         """
         return pulumi.get(self, "ip_discovery")
 
     @ip_discovery.setter
-    def ip_discovery(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip_discovery(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip_discovery", value)
 
     @_builtins.property
     @pulumi.getter(name="logDeliveryConfigurations")
-    def log_delivery_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CacheClusterLogDeliveryConfigurationRequestArgs']]]]:
+    def log_delivery_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CacheClusterLogDeliveryConfigurationRequestArgs']]]]:
         """
         Specifies the destination, format and type of the logs
         """
         return pulumi.get(self, "log_delivery_configurations")
 
     @log_delivery_configurations.setter
-    def log_delivery_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CacheClusterLogDeliveryConfigurationRequestArgs']]]]):
+    def log_delivery_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CacheClusterLogDeliveryConfigurationRequestArgs']]]]):
         pulumi.set(self, "log_delivery_configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="networkType")
-    def network_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The network type parameter for cachecluster.
         """
         return pulumi.get(self, "network_type")
 
     @network_type.setter
-    def network_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_type", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationTopicArn")
-    def notification_topic_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def notification_topic_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) topic to which notifications are sent.
         """
         return pulumi.get(self, "notification_topic_arn")
 
     @notification_topic_arn.setter
-    def notification_topic_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def notification_topic_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "notification_topic_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The port number on which each of the cache nodes accepts connections.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port", value)
 
     @_builtins.property
     @pulumi.getter(name="preferredAvailabilityZone")
-    def preferred_availability_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def preferred_availability_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The EC2 Availability Zone in which the cluster is created.
         """
         return pulumi.get(self, "preferred_availability_zone")
 
     @preferred_availability_zone.setter
-    def preferred_availability_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def preferred_availability_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "preferred_availability_zone", value)
 
     @_builtins.property
     @pulumi.getter(name="preferredAvailabilityZones")
-    def preferred_availability_zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def preferred_availability_zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of the Availability Zones in which cache nodes are created. The order of the zones in the list is not important.
         """
         return pulumi.get(self, "preferred_availability_zones")
 
     @preferred_availability_zones.setter
-    def preferred_availability_zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def preferred_availability_zones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "preferred_availability_zones", value)
 
     @_builtins.property
     @pulumi.getter(name="preferredMaintenanceWindow")
-    def preferred_maintenance_window(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def preferred_maintenance_window(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the weekly time range during which maintenance on the cluster is performed.
         """
         return pulumi.get(self, "preferred_maintenance_window")
 
     @preferred_maintenance_window.setter
-    def preferred_maintenance_window(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def preferred_maintenance_window(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "preferred_maintenance_window", value)
 
     @_builtins.property
     @pulumi.getter(name="snapshotArns")
-    def snapshot_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def snapshot_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A single-element string list containing an Amazon Resource Name (ARN) that uniquely identifies a Redis RDB snapshot file stored in Amazon S3.
         """
         return pulumi.get(self, "snapshot_arns")
 
     @snapshot_arns.setter
-    def snapshot_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def snapshot_arns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "snapshot_arns", value)
 
     @_builtins.property
     @pulumi.getter(name="snapshotName")
-    def snapshot_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def snapshot_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of a Redis snapshot from which to restore data into the new node group (shard).
         """
         return pulumi.get(self, "snapshot_name")
 
     @snapshot_name.setter
-    def snapshot_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def snapshot_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "snapshot_name", value)
 
     @_builtins.property
     @pulumi.getter(name="snapshotRetentionLimit")
-    def snapshot_retention_limit(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def snapshot_retention_limit(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of days for which ElastiCache retains automatic snapshots before deleting them.
         """
         return pulumi.get(self, "snapshot_retention_limit")
 
     @snapshot_retention_limit.setter
-    def snapshot_retention_limit(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def snapshot_retention_limit(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "snapshot_retention_limit", value)
 
     @_builtins.property
     @pulumi.getter(name="snapshotWindow")
-    def snapshot_window(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def snapshot_window(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your node group (shard).
         """
         return pulumi.get(self, "snapshot_window")
 
     @snapshot_window.setter
-    def snapshot_window(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def snapshot_window(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "snapshot_window", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A list of tags to be added to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="transitEncryptionEnabled")
-    def transit_encryption_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def transit_encryption_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A flag that enables in-transit encryption when set to true. You cannot modify the value of TransitEncryptionEnabled after the cluster is created
         """
         return pulumi.get(self, "transit_encryption_enabled")
 
     @transit_encryption_enabled.setter
-    def transit_encryption_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def transit_encryption_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "transit_encryption_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcSecurityGroupIds")
-    def vpc_security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def vpc_security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         One or more VPC security groups associated with the cluster.
         """
         return pulumi.get(self, "vpc_security_group_ids")
 
     @vpc_security_group_ids.setter
-    def vpc_security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def vpc_security_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "vpc_security_group_ids", value)
 
 
@@ -432,31 +432,31 @@ class CacheCluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_minor_version_upgrade: Optional[pulumi.Input[_builtins.bool]] = None,
-                 az_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 cache_node_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 cache_parameter_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cache_security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 cache_subnet_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_discovery: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_delivery_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CacheClusterLogDeliveryConfigurationRequestArgs', 'CacheClusterLogDeliveryConfigurationRequestArgsDict']]]]] = None,
-                 network_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 num_cache_nodes: Optional[pulumi.Input[_builtins.int]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 preferred_availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 preferred_availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 preferred_maintenance_window: Optional[pulumi.Input[_builtins.str]] = None,
-                 snapshot_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 snapshot_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 snapshot_retention_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 snapshot_window: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 transit_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 auto_minor_version_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
+                 az_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_node_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_security_group_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cache_subnet_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_discovery: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_delivery_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CacheClusterLogDeliveryConfigurationRequestArgs', 'CacheClusterLogDeliveryConfigurationRequestArgsDict']]]]] = None,
+                 network_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 num_cache_nodes: pulumi.Input[Optional[_builtins.int]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 preferred_availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 preferred_availability_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 preferred_maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 snapshot_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 snapshot_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 snapshot_retention_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 snapshot_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 transit_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Resource type definition for AWS::ElastiCache::CacheCluster
@@ -515,31 +515,31 @@ class CacheCluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_minor_version_upgrade: Optional[pulumi.Input[_builtins.bool]] = None,
-                 az_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 cache_node_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 cache_parameter_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cache_security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 cache_subnet_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_discovery: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_delivery_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CacheClusterLogDeliveryConfigurationRequestArgs', 'CacheClusterLogDeliveryConfigurationRequestArgsDict']]]]] = None,
-                 network_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 num_cache_nodes: Optional[pulumi.Input[_builtins.int]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 preferred_availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 preferred_availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 preferred_maintenance_window: Optional[pulumi.Input[_builtins.str]] = None,
-                 snapshot_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 snapshot_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 snapshot_retention_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 snapshot_window: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 transit_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 auto_minor_version_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
+                 az_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_node_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_security_group_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cache_subnet_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_discovery: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_delivery_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CacheClusterLogDeliveryConfigurationRequestArgs', 'CacheClusterLogDeliveryConfigurationRequestArgsDict']]]]] = None,
+                 network_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 num_cache_nodes: pulumi.Input[Optional[_builtins.int]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 preferred_availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 preferred_availability_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 preferred_maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 snapshot_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 snapshot_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 snapshot_retention_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 snapshot_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 transit_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

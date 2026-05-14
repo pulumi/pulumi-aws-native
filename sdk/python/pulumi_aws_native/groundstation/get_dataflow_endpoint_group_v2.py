@@ -94,7 +94,7 @@ def get_dataflow_endpoint_group_v2(id: Optional[_builtins.str] = None,
         endpoint_details=pulumi.get(__ret__, 'endpoint_details'),
         id=pulumi.get(__ret__, 'id'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_dataflow_endpoint_group_v2_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_dataflow_endpoint_group_v2_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataflowEndpointGroupV2Result]:
     """
     Resource Type definition for AWS Ground Station DataflowEndpointGroupV2

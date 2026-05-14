@@ -21,8 +21,8 @@ __all__ = ['ThingArgs', 'Thing']
 @pulumi.input_type
 class ThingArgs:
     def __init__(__self__, *,
-                 attribute_payload: Optional[pulumi.Input['ThingAttributePayloadArgs']] = None,
-                 thing_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 attribute_payload: pulumi.Input[Optional['ThingAttributePayloadArgs']] = None,
+                 thing_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Thing resource.
 
@@ -38,19 +38,19 @@ class ThingArgs:
 
     @_builtins.property
     @pulumi.getter(name="attributePayload")
-    def attribute_payload(self) -> Optional[pulumi.Input['ThingAttributePayloadArgs']]:
+    def attribute_payload(self) -> pulumi.Input[Optional['ThingAttributePayloadArgs']]:
         """
         A string that contains up to three key value pairs. Maximum length of 800. Duplicates not allowed.
         """
         return pulumi.get(self, "attribute_payload")
 
     @attribute_payload.setter
-    def attribute_payload(self, value: Optional[pulumi.Input['ThingAttributePayloadArgs']]):
+    def attribute_payload(self, value: pulumi.Input[Optional['ThingAttributePayloadArgs']]):
         pulumi.set(self, "attribute_payload", value)
 
     @_builtins.property
     @pulumi.getter(name="thingName")
-    def thing_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def thing_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the thing to update.
 
@@ -59,7 +59,7 @@ class ThingArgs:
         return pulumi.get(self, "thing_name")
 
     @thing_name.setter
-    def thing_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def thing_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "thing_name", value)
 
 
@@ -69,8 +69,8 @@ class Thing(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attribute_payload: Optional[pulumi.Input[Union['ThingAttributePayloadArgs', 'ThingAttributePayloadArgsDict']]] = None,
-                 thing_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 attribute_payload: pulumi.Input[Optional[Union['ThingAttributePayloadArgs', 'ThingAttributePayloadArgsDict']]] = None,
+                 thing_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::IoT::Thing
@@ -168,8 +168,8 @@ class Thing(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attribute_payload: Optional[pulumi.Input[Union['ThingAttributePayloadArgs', 'ThingAttributePayloadArgsDict']]] = None,
-                 thing_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 attribute_payload: pulumi.Input[Optional[Union['ThingAttributePayloadArgs', 'ThingAttributePayloadArgsDict']]] = None,
+                 thing_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -193,7 +193,7 @@ def get_migration_project(migration_project_arn: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         target_data_provider_descriptors=pulumi.get(__ret__, 'target_data_provider_descriptors'),
         transformation_rules=pulumi.get(__ret__, 'transformation_rules'))
-def get_migration_project_output(migration_project_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_migration_project_output(migration_project_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMigrationProjectResult]:
     """
     Resource schema for AWS::DMS::MigrationProject

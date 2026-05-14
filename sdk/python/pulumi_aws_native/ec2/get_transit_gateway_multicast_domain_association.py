@@ -93,9 +93,9 @@ def get_transit_gateway_multicast_domain_association(subnet_id: Optional[_builti
         resource_id=pulumi.get(__ret__, 'resource_id'),
         resource_type=pulumi.get(__ret__, 'resource_type'),
         state=pulumi.get(__ret__, 'state'))
-def get_transit_gateway_multicast_domain_association_output(subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                                            transit_gateway_attachment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                                            transit_gateway_multicast_domain_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_transit_gateway_multicast_domain_association_output(subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                                            transit_gateway_attachment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                                            transit_gateway_multicast_domain_id: pulumi.Input[Optional[_builtins.str]] = None,
                                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTransitGatewayMulticastDomainAssociationResult]:
     """
     The AWS::EC2::TransitGatewayMulticastDomainAssociation type

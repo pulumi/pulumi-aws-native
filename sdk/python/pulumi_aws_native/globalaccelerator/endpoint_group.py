@@ -24,14 +24,14 @@ class EndpointGroupArgs:
     def __init__(__self__, *,
                  endpoint_group_region: pulumi.Input[_builtins.str],
                  listener_arn: pulumi.Input[_builtins.str],
-                 endpoint_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointGroupEndpointConfigurationArgs']]]] = None,
-                 health_check_interval_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 health_check_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 health_check_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 health_check_protocol: Optional[pulumi.Input['EndpointGroupHealthCheckProtocol']] = None,
-                 port_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointGroupPortOverrideArgs']]]] = None,
-                 threshold_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 traffic_dial_percentage: Optional[pulumi.Input[_builtins.float]] = None):
+                 endpoint_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['EndpointGroupEndpointConfigurationArgs']]]] = None,
+                 health_check_interval_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 health_check_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 health_check_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 health_check_protocol: pulumi.Input[Optional['EndpointGroupHealthCheckProtocol']] = None,
+                 port_overrides: pulumi.Input[Optional[Sequence[pulumi.Input['EndpointGroupPortOverrideArgs']]]] = None,
+                 threshold_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 traffic_dial_percentage: pulumi.Input[Optional[_builtins.float]] = None):
         """
         The set of arguments for constructing a EndpointGroup resource.
 
@@ -91,98 +91,98 @@ class EndpointGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="endpointConfigurations")
-    def endpoint_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointGroupEndpointConfigurationArgs']]]]:
+    def endpoint_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EndpointGroupEndpointConfigurationArgs']]]]:
         """
         The list of endpoint objects.
         """
         return pulumi.get(self, "endpoint_configurations")
 
     @endpoint_configurations.setter
-    def endpoint_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointGroupEndpointConfigurationArgs']]]]):
+    def endpoint_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EndpointGroupEndpointConfigurationArgs']]]]):
         pulumi.set(self, "endpoint_configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="healthCheckIntervalSeconds")
-    def health_check_interval_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def health_check_interval_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The time in seconds between each health check for an endpoint. Must be a value of 10 or 30
         """
         return pulumi.get(self, "health_check_interval_seconds")
 
     @health_check_interval_seconds.setter
-    def health_check_interval_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def health_check_interval_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "health_check_interval_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="healthCheckPath")
-    def health_check_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def health_check_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If the protocol is HTTP/S, then this value provides the ping path that Global Accelerator uses for the destination on the endpoints for health checks. The default is slash (/).
         """
         return pulumi.get(self, "health_check_path")
 
     @health_check_path.setter
-    def health_check_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def health_check_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "health_check_path", value)
 
     @_builtins.property
     @pulumi.getter(name="healthCheckPort")
-    def health_check_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def health_check_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The port that AWS Global Accelerator uses to check the health of endpoints in this endpoint group.
         """
         return pulumi.get(self, "health_check_port")
 
     @health_check_port.setter
-    def health_check_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def health_check_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "health_check_port", value)
 
     @_builtins.property
     @pulumi.getter(name="healthCheckProtocol")
-    def health_check_protocol(self) -> Optional[pulumi.Input['EndpointGroupHealthCheckProtocol']]:
+    def health_check_protocol(self) -> pulumi.Input[Optional['EndpointGroupHealthCheckProtocol']]:
         """
         The protocol that AWS Global Accelerator uses to check the health of endpoints in this endpoint group.
         """
         return pulumi.get(self, "health_check_protocol")
 
     @health_check_protocol.setter
-    def health_check_protocol(self, value: Optional[pulumi.Input['EndpointGroupHealthCheckProtocol']]):
+    def health_check_protocol(self, value: pulumi.Input[Optional['EndpointGroupHealthCheckProtocol']]):
         pulumi.set(self, "health_check_protocol", value)
 
     @_builtins.property
     @pulumi.getter(name="portOverrides")
-    def port_overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointGroupPortOverrideArgs']]]]:
+    def port_overrides(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EndpointGroupPortOverrideArgs']]]]:
         """
         Allows you to override the destination ports used to route traffic to an endpoint. Using a port override lets you map a list of external destination ports (that your users send traffic to) to a list of internal destination ports that you want an application endpoint to receive traffic on.
         """
         return pulumi.get(self, "port_overrides")
 
     @port_overrides.setter
-    def port_overrides(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointGroupPortOverrideArgs']]]]):
+    def port_overrides(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EndpointGroupPortOverrideArgs']]]]):
         pulumi.set(self, "port_overrides", value)
 
     @_builtins.property
     @pulumi.getter(name="thresholdCount")
-    def threshold_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def threshold_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of consecutive health checks required to set the state of the endpoint to unhealthy.
         """
         return pulumi.get(self, "threshold_count")
 
     @threshold_count.setter
-    def threshold_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def threshold_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "threshold_count", value)
 
     @_builtins.property
     @pulumi.getter(name="trafficDialPercentage")
-    def traffic_dial_percentage(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def traffic_dial_percentage(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The percentage of traffic to sent to an AWS Region
         """
         return pulumi.get(self, "traffic_dial_percentage")
 
     @traffic_dial_percentage.setter
-    def traffic_dial_percentage(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def traffic_dial_percentage(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "traffic_dial_percentage", value)
 
 
@@ -192,16 +192,16 @@ class EndpointGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 endpoint_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EndpointGroupEndpointConfigurationArgs', 'EndpointGroupEndpointConfigurationArgsDict']]]]] = None,
-                 endpoint_group_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 health_check_interval_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 health_check_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 health_check_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 health_check_protocol: Optional[pulumi.Input['EndpointGroupHealthCheckProtocol']] = None,
-                 listener_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 port_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EndpointGroupPortOverrideArgs', 'EndpointGroupPortOverrideArgsDict']]]]] = None,
-                 threshold_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 traffic_dial_percentage: Optional[pulumi.Input[_builtins.float]] = None,
+                 endpoint_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointGroupEndpointConfigurationArgs', 'EndpointGroupEndpointConfigurationArgsDict']]]]] = None,
+                 endpoint_group_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 health_check_interval_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 health_check_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 health_check_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 health_check_protocol: pulumi.Input[Optional['EndpointGroupHealthCheckProtocol']] = None,
+                 listener_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 port_overrides: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointGroupPortOverrideArgs', 'EndpointGroupPortOverrideArgsDict']]]]] = None,
+                 threshold_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 traffic_dial_percentage: pulumi.Input[Optional[_builtins.float]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::GlobalAccelerator::EndpointGroup
@@ -245,16 +245,16 @@ class EndpointGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 endpoint_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EndpointGroupEndpointConfigurationArgs', 'EndpointGroupEndpointConfigurationArgsDict']]]]] = None,
-                 endpoint_group_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 health_check_interval_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 health_check_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 health_check_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 health_check_protocol: Optional[pulumi.Input['EndpointGroupHealthCheckProtocol']] = None,
-                 listener_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 port_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EndpointGroupPortOverrideArgs', 'EndpointGroupPortOverrideArgsDict']]]]] = None,
-                 threshold_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 traffic_dial_percentage: Optional[pulumi.Input[_builtins.float]] = None,
+                 endpoint_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointGroupEndpointConfigurationArgs', 'EndpointGroupEndpointConfigurationArgsDict']]]]] = None,
+                 endpoint_group_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 health_check_interval_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 health_check_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 health_check_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 health_check_protocol: pulumi.Input[Optional['EndpointGroupHealthCheckProtocol']] = None,
+                 listener_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 port_overrides: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointGroupPortOverrideArgs', 'EndpointGroupPortOverrideArgsDict']]]]] = None,
+                 threshold_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 traffic_dial_percentage: pulumi.Input[Optional[_builtins.float]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

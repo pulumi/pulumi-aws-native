@@ -156,8 +156,8 @@ def get_environment_blueprint_configuration(domain_id: Optional[_builtins.str] =
         provisioning_role_arn=pulumi.get(__ret__, 'provisioning_role_arn'),
         regional_parameters=pulumi.get(__ret__, 'regional_parameters'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-def get_environment_blueprint_configuration_output(domain_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                                   environment_blueprint_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_environment_blueprint_configuration_output(domain_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                                   environment_blueprint_id: pulumi.Input[Optional[_builtins.str]] = None,
                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnvironmentBlueprintConfigurationResult]:
     """
     Definition of AWS::DataZone::EnvironmentBlueprintConfiguration Resource Type

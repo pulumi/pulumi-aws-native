@@ -180,7 +180,7 @@ def get_app(app_arn: Optional[_builtins.str] = None,
         resiliency_policy_arn=pulumi.get(__ret__, 'resiliency_policy_arn'),
         resource_mappings=pulumi.get(__ret__, 'resource_mappings'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_app_output(app_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_app_output(app_arn: pulumi.Input[Optional[_builtins.str]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAppResult]:
     """
     Resource Type Definition for AWS::ResilienceHub::App.

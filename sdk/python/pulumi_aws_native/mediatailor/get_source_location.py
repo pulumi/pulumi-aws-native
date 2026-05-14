@@ -129,7 +129,7 @@ def get_source_location(source_location_name: Optional[_builtins.str] = None,
         http_configuration=pulumi.get(__ret__, 'http_configuration'),
         segment_delivery_configurations=pulumi.get(__ret__, 'segment_delivery_configurations'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_source_location_output(source_location_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_source_location_output(source_location_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSourceLocationResult]:
     """
     Definition of AWS::MediaTailor::SourceLocation Resource Type

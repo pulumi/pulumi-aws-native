@@ -23,12 +23,12 @@ __all__ = ['ConfigurationSetArgs', 'ConfigurationSet']
 @pulumi.input_type
 class ConfigurationSetArgs:
     def __init__(__self__, *,
-                 configuration_set_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_sender_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_destinations: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationSetEventDestinationArgs']]]] = None,
-                 message_feedback_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 protect_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 configuration_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_sender_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_destinations: pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationSetEventDestinationArgs']]]] = None,
+                 message_feedback_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 protect_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ConfigurationSet resource.
 
@@ -54,74 +54,74 @@ class ConfigurationSetArgs:
 
     @_builtins.property
     @pulumi.getter(name="configurationSetName")
-    def configuration_set_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def configuration_set_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name to use for the configuration set.
         """
         return pulumi.get(self, "configuration_set_name")
 
     @configuration_set_name.setter
-    def configuration_set_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def configuration_set_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "configuration_set_name", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultSenderId")
-    def default_sender_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_sender_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The default sender ID to set for the ConfigurationSet.
         """
         return pulumi.get(self, "default_sender_id")
 
     @default_sender_id.setter
-    def default_sender_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_sender_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_sender_id", value)
 
     @_builtins.property
     @pulumi.getter(name="eventDestinations")
-    def event_destinations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationSetEventDestinationArgs']]]]:
+    def event_destinations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationSetEventDestinationArgs']]]]:
         """
         An event destination is a location where you send message events.
         """
         return pulumi.get(self, "event_destinations")
 
     @event_destinations.setter
-    def event_destinations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationSetEventDestinationArgs']]]]):
+    def event_destinations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationSetEventDestinationArgs']]]]):
         pulumi.set(self, "event_destinations", value)
 
     @_builtins.property
     @pulumi.getter(name="messageFeedbackEnabled")
-    def message_feedback_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def message_feedback_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to true to enable message feedback.
         """
         return pulumi.get(self, "message_feedback_enabled")
 
     @message_feedback_enabled.setter
-    def message_feedback_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def message_feedback_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "message_feedback_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="protectConfigurationId")
-    def protect_configuration_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def protect_configuration_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique identifier for the protect configuration to be associated to the configuration set.
         """
         return pulumi.get(self, "protect_configuration_id")
 
     @protect_configuration_id.setter
-    def protect_configuration_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def protect_configuration_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "protect_configuration_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -131,12 +131,12 @@ class ConfigurationSet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration_set_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_sender_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_destinations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationSetEventDestinationArgs', 'ConfigurationSetEventDestinationArgsDict']]]]] = None,
-                 message_feedback_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 protect_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 configuration_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_sender_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_destinations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConfigurationSetEventDestinationArgs', 'ConfigurationSetEventDestinationArgsDict']]]]] = None,
+                 message_feedback_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 protect_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SMSVOICE::ConfigurationSet
@@ -176,12 +176,12 @@ class ConfigurationSet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration_set_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_sender_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_destinations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationSetEventDestinationArgs', 'ConfigurationSetEventDestinationArgsDict']]]]] = None,
-                 message_feedback_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 protect_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 configuration_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_sender_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_destinations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConfigurationSetEventDestinationArgs', 'ConfigurationSetEventDestinationArgsDict']]]]] = None,
+                 message_feedback_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 protect_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
