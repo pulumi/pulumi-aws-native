@@ -155,41 +155,41 @@ export interface InvestigationGroupArgs {
     /**
      * An array of key-value pairs of notification channels to apply to this resource.
      */
-    chatbotNotificationChannels?: pulumi.Input<pulumi.Input<inputs.aiops.InvestigationGroupChatbotNotificationChannelArgs>[]>;
+    chatbotNotificationChannels?: pulumi.Input<pulumi.Input<inputs.aiops.InvestigationGroupChatbotNotificationChannelArgs>[] | undefined>;
     /**
      * An array of cross account configurations.
      */
-    crossAccountConfigurations?: pulumi.Input<pulumi.Input<inputs.aiops.InvestigationGroupCrossAccountConfigurationArgs>[]>;
+    crossAccountConfigurations?: pulumi.Input<pulumi.Input<inputs.aiops.InvestigationGroupCrossAccountConfigurationArgs>[] | undefined>;
     /**
      * Specifies the customer managed AWS  key that the investigation group uses to encrypt data, if there is one. If not, the investigation group uses an AWS key to encrypt the data.
      */
-    encryptionConfig?: pulumi.Input<inputs.aiops.InvestigationGroupEncryptionConfigMapArgs>;
+    encryptionConfig?: pulumi.Input<inputs.aiops.InvestigationGroupEncryptionConfigMapArgs | undefined>;
     /**
      * Investigation Group policy
      */
-    investigationGroupPolicy?: pulumi.Input<string>;
+    investigationGroupPolicy?: pulumi.Input<string | undefined>;
     /**
      * Flag to enable cloud trail history
      */
-    isCloudTrailEventHistoryEnabled?: pulumi.Input<boolean>;
+    isCloudTrailEventHistoryEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specify either the name or the ARN of the investigation group that you want to view. This is used to set the name of the investigation group.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The number of days to retain the investigation group
      */
-    retentionInDays?: pulumi.Input<number>;
+    retentionInDays?: pulumi.Input<number | undefined>;
     /**
      * The ARN of the IAM role that the investigation group uses for permissions to gather data.
      */
-    roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string | undefined>;
     /**
      * Displays the custom tag keys for custom applications in your system that you have specified in the investigation group. Resource tags help CloudWatch investigations narrow the search space when it is unable to discover definite relationships between resources.
      */
-    tagKeyBoundaries?: pulumi.Input<pulumi.Input<string>[]>;
+    tagKeyBoundaries?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

@@ -152,7 +152,7 @@ export interface PluginArgs {
     /**
      * The identifier of the application that will contain the plugin.
      */
-    applicationId?: pulumi.Input<string>;
+    applicationId?: pulumi.Input<string | undefined>;
     /**
      * Authentication configuration information for an Amazon Q Business plugin.
      */
@@ -160,7 +160,7 @@ export interface PluginArgs {
     /**
      * Configuration information required to create a custom plugin.
      */
-    customPluginConfiguration?: pulumi.Input<inputs.qbusiness.PluginCustomPluginConfigurationArgs>;
+    customPluginConfiguration?: pulumi.Input<inputs.qbusiness.PluginCustomPluginConfigurationArgs | undefined>;
     /**
      * The name of the plugin.
      */
@@ -168,15 +168,15 @@ export interface PluginArgs {
     /**
      * The plugin server URL used for configuration.
      */
-    serverUrl?: pulumi.Input<string>;
+    serverUrl?: pulumi.Input<string | undefined>;
     /**
      * The current status of the plugin.
      */
-    state?: pulumi.Input<enums.qbusiness.PluginState>;
+    state?: pulumi.Input<enums.qbusiness.PluginState | undefined>;
     /**
      * A list of key-value pairs that identify or categorize the data source connector. You can also use tags to help control access to the data source connector. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The type of the plugin.
      */

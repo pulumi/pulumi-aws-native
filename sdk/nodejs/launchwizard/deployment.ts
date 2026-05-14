@@ -141,15 +141,15 @@ export interface DeploymentArgs {
     /**
      * Name of LaunchWizard deployment
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * LaunchWizard deployment specifications
      */
-    specifications?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    specifications?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Tags for LaunchWizard deployment
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * Workload Name for LaunchWizard deployment
      */

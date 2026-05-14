@@ -92,7 +92,7 @@ export interface TagOptionArgs {
     /**
      * The TagOption active state.
      */
-    active?: pulumi.Input<boolean>;
+    active?: pulumi.Input<boolean | undefined>;
     /**
      * The TagOption key.
      */

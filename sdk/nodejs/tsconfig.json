@@ -1,16 +1,22 @@
 {
     "compilerOptions": {
+        // Output
         "outDir": "bin",
-        "target": "ES2020",
-        "module": "commonjs",
-        "moduleResolution": "node",
         "declaration": true,
+        "declarationMap": true,
         "sourceMap": true,
         "stripInternal": true,
-        "experimentalDecorators": true,
+        // Environment
+        "target": "ES2022",
+        "module": "nodenext",
+        "moduleResolution": "nodenext",
+        "moduleDetection": "force",
+        "types": ["node"],
+        // Type Checking
+        "strict": true,
         "noFallthroughCasesInSwitch": true,
-        "forceConsistentCasingInFileNames": true,
-        "strict": true
+        "noImplicitReturns": true,
+        "skipLibCheck": true
     },
     "files": [
         "accessanalyzer/analyzer.ts",
@@ -1506,6 +1512,8 @@
         "imagebuilder/workflow.ts",
         "importValue.ts",
         "index.ts",
+        "index/index.ts",
+        "index/region/index.ts",
         "inspector/assessmentTarget.ts",
         "inspector/assessmentTemplate.ts",
         "inspector/getAssessmentTarget.ts",
@@ -2942,6 +2950,8 @@
         "types/enums/iam/index.ts",
         "types/enums/imagebuilder/index.ts",
         "types/enums/index.ts",
+        "types/enums/index/index.ts",
+        "types/enums/index/region/index.ts",
         "types/enums/inspectorv2/index.ts",
         "types/enums/interconnect/index.ts",
         "types/enums/internetmonitor/index.ts",

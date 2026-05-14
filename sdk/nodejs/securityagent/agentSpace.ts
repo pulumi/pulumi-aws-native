@@ -119,27 +119,27 @@ export class AgentSpace extends pulumi.CustomResource {
  * The set of arguments for constructing a AgentSpace resource.
  */
 export interface AgentSpaceArgs {
-    awsResources?: pulumi.Input<inputs.securityagent.AgentSpaceAwsResourcesArgs>;
-    codeReviewSettings?: pulumi.Input<inputs.securityagent.AgentSpaceCodeReviewSettingsArgs>;
+    awsResources?: pulumi.Input<inputs.securityagent.AgentSpaceAwsResourcesArgs | undefined>;
+    codeReviewSettings?: pulumi.Input<inputs.securityagent.AgentSpaceCodeReviewSettingsArgs | undefined>;
     /**
      * Description of the agent space
      */
-    description?: pulumi.Input<string>;
-    integratedResources?: pulumi.Input<pulumi.Input<inputs.securityagent.AgentSpaceIntegratedResourceArgs>[]>;
+    description?: pulumi.Input<string | undefined>;
+    integratedResources?: pulumi.Input<pulumi.Input<inputs.securityagent.AgentSpaceIntegratedResourceArgs>[] | undefined>;
     /**
      * Identifier of the KMS key used to encrypt data. Can be a key ID, key ARN, alias name, or alias ARN. If not specified, an AWS managed key is used.
      */
-    kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * Name of the agent space
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Tags for the agent space
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * List of target domain identifiers registered with the agent space
      */
-    targetDomainIds?: pulumi.Input<pulumi.Input<string>[]>;
+    targetDomainIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

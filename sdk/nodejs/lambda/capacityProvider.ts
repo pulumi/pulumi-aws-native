@@ -116,19 +116,19 @@ export class CapacityProvider extends pulumi.CustomResource {
  * The set of arguments for constructing a CapacityProvider resource.
  */
 export interface CapacityProviderArgs {
-    capacityProviderName?: pulumi.Input<string>;
+    capacityProviderName?: pulumi.Input<string | undefined>;
     /**
      * The scaling configuration for the capacity provider.
      */
-    capacityProviderScalingConfig?: pulumi.Input<inputs.lambda.CapacityProviderScalingConfigArgs>;
+    capacityProviderScalingConfig?: pulumi.Input<inputs.lambda.CapacityProviderScalingConfigArgs | undefined>;
     /**
      * The instance requirements for compute resources managed by the capacity provider.
      */
-    instanceRequirements?: pulumi.Input<inputs.lambda.CapacityProviderInstanceRequirementsArgs>;
+    instanceRequirements?: pulumi.Input<inputs.lambda.CapacityProviderInstanceRequirementsArgs | undefined>;
     /**
      * The ARN of the KMS key used to encrypt the capacity provider's resources.
      */
-    kmsKeyArn?: pulumi.Input<string>;
+    kmsKeyArn?: pulumi.Input<string | undefined>;
     /**
      * The permissions configuration for the capacity provider.
      */
@@ -136,7 +136,7 @@ export interface CapacityProviderArgs {
     /**
      * A key-value pair that provides metadata for the capacity provider.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The VPC configuration for the capacity provider.
      */

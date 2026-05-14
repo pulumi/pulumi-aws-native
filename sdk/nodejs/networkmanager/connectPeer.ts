@@ -155,7 +155,7 @@ export interface ConnectPeerArgs {
     /**
      * Bgp options for connect peer.
      */
-    bgpOptions?: pulumi.Input<inputs.networkmanager.ConnectPeerBgpOptionsArgs>;
+    bgpOptions?: pulumi.Input<inputs.networkmanager.ConnectPeerBgpOptionsArgs | undefined>;
     /**
      * The ID of the attachment to connect.
      */
@@ -163,11 +163,11 @@ export interface ConnectPeerArgs {
     /**
      * The IP address of a core network.
      */
-    coreNetworkAddress?: pulumi.Input<string>;
+    coreNetworkAddress?: pulumi.Input<string | undefined>;
     /**
      * The inside IP addresses used for a Connect peer configuration.
      */
-    insideCidrBlocks?: pulumi.Input<pulumi.Input<string>[]>;
+    insideCidrBlocks?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The IP address of the Connect peer.
      */
@@ -175,9 +175,9 @@ export interface ConnectPeerArgs {
     /**
      * The subnet ARN for the connect peer.
      */
-    subnetArn?: pulumi.Input<string>;
+    subnetArn?: pulumi.Input<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

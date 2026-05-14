@@ -106,9 +106,9 @@ export interface VpcEndpointConnectionNotificationArgs {
     /**
      * The ID of the endpoint service.
      */
-    serviceId?: pulumi.Input<string>;
+    serviceId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the endpoint.
      */
-    vpcEndpointId?: pulumi.Input<string>;
+    vpcEndpointId?: pulumi.Input<string | undefined>;
 }

@@ -141,19 +141,19 @@ export interface AnalyzerArgs {
     /**
      * The configuration for the analyzer
      */
-    analyzerConfiguration?: pulumi.Input<inputs.accessanalyzer.AnalyzerConfigurationPropertiesArgs>;
+    analyzerConfiguration?: pulumi.Input<inputs.accessanalyzer.AnalyzerConfigurationPropertiesArgs | undefined>;
     /**
      * Analyzer name
      */
-    analyzerName?: pulumi.Input<string>;
+    analyzerName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the archive rules to add for the analyzer. Archive rules automatically archive findings that meet the criteria you define for the rule.
      */
-    archiveRules?: pulumi.Input<pulumi.Input<inputs.accessanalyzer.AnalyzerArchiveRuleArgs>[]>;
+    archiveRules?: pulumi.Input<pulumi.Input<inputs.accessanalyzer.AnalyzerArchiveRuleArgs>[] | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The type of the analyzer, must be one of ACCOUNT, ORGANIZATION, ACCOUNT_INTERNAL_ACCESS, ORGANIZATION_INTERNAL_ACCESS, ACCOUNT_UNUSED_ACCESS and ORGANIZATION_UNUSED_ACCESS
      */

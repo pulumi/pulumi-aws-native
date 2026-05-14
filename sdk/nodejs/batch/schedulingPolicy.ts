@@ -92,14 +92,14 @@ export interface SchedulingPolicyArgs {
     /**
      * The fair-share scheduling policy details.
      */
-    fairsharePolicy?: pulumi.Input<inputs.batch.SchedulingPolicyFairsharePolicyArgs>;
+    fairsharePolicy?: pulumi.Input<inputs.batch.SchedulingPolicyFairsharePolicyArgs | undefined>;
     /**
      * Name of Scheduling Policy.
      */
-    name?: pulumi.Input<string>;
-    quotaSharePolicy?: pulumi.Input<inputs.batch.SchedulingPolicyQuotaSharePolicyArgs>;
+    name?: pulumi.Input<string | undefined>;
+    quotaSharePolicy?: pulumi.Input<inputs.batch.SchedulingPolicyQuotaSharePolicyArgs | undefined>;
     /**
      * A key-value pair to associate with a resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

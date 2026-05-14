@@ -137,11 +137,11 @@ export interface EventBridgeRuleTemplateArgs {
     /**
      * A resource's optional description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Placeholder documentation for __listOfEventBridgeRuleTemplateTarget
      */
-    eventTargets?: pulumi.Input<pulumi.Input<inputs.medialive.EventBridgeRuleTemplateTargetArgs>[]>;
+    eventTargets?: pulumi.Input<pulumi.Input<inputs.medialive.EventBridgeRuleTemplateTargetArgs>[] | undefined>;
     /**
      * The type of event to match with the rule.
      */
@@ -149,10 +149,10 @@ export interface EventBridgeRuleTemplateArgs {
     /**
      * An eventbridge rule template group's identifier. Can be either be its id or current name.
      */
-    groupIdentifier?: pulumi.Input<string>;
+    groupIdentifier?: pulumi.Input<string | undefined>;
     /**
      * A resource's name. Names must be unique within the scope of a resource type in a specific region.
      */
-    name?: pulumi.Input<string>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    name?: pulumi.Input<string | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

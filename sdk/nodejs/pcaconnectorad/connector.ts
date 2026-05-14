@@ -112,7 +112,7 @@ export interface ConnectorArgs {
     /**
      * Metadata assigned to a connector consisting of a key-value pair.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Information of the VPC and security group(s) used with the connector.
      */

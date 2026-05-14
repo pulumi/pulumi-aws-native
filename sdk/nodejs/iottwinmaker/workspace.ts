@@ -119,7 +119,7 @@ export interface WorkspaceArgs {
     /**
      * The description of the workspace.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the execution role associated with the workspace.
      */
@@ -131,7 +131,7 @@ export interface WorkspaceArgs {
     /**
      * A map of key-value pairs to associate with a resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The ID of the workspace.
      */

@@ -141,7 +141,7 @@ export interface RouteArgs {
     /**
      * Configuration for the default route type.
      */
-    defaultRoute?: pulumi.Input<inputs.refactorspaces.RouteDefaultRouteInputArgs>;
+    defaultRoute?: pulumi.Input<inputs.refactorspaces.RouteDefaultRouteInputArgs | undefined>;
     /**
      * The unique identifier of the environment.
      */
@@ -157,9 +157,9 @@ export interface RouteArgs {
     /**
      * Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The configuration for the URI path route type.
      */
-    uriPathRoute?: pulumi.Input<inputs.refactorspaces.RouteUriPathRouteInputArgs>;
+    uriPathRoute?: pulumi.Input<inputs.refactorspaces.RouteUriPathRouteInputArgs | undefined>;
 }

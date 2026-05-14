@@ -111,7 +111,7 @@ export interface ConnectorArgs {
     /**
      * Contains settings relevant to the mobile device management system that you chose for the connector. If you didn't configure `MobileDeviceManagement` , then the connector is for general-purpose use and this object is empty.
      */
-    mobileDeviceManagement?: pulumi.Input<inputs.pcaconnectorscep.ConnectorMobileDeviceManagementArgs>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    vpcEndpointId?: pulumi.Input<string>;
+    mobileDeviceManagement?: pulumi.Input<inputs.pcaconnectorscep.ConnectorMobileDeviceManagementArgs | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    vpcEndpointId?: pulumi.Input<string | undefined>;
 }

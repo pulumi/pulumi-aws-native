@@ -103,9 +103,9 @@ export interface TemplateGroupAccessControlEntryArgs {
     /**
      * Security identifier (SID) of the group object from Active Directory. The SID starts with "S-".
      */
-    groupSecurityIdentifier?: pulumi.Input<string>;
+    groupSecurityIdentifier?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) that was returned when you called [CreateTemplate](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html) .
      */
-    templateArn?: pulumi.Input<string>;
+    templateArn?: pulumi.Input<string | undefined>;
 }

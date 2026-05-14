@@ -100,8 +100,8 @@ export class OutboundExternalLink extends pulumi.CustomResource {
  */
 export interface OutboundExternalLinkArgs {
     gatewayId: pulumi.Input<string>;
-    linkAttributes?: pulumi.Input<inputs.rtbfabric.OutboundExternalLinkLinkAttributesArgs>;
+    linkAttributes?: pulumi.Input<inputs.rtbfabric.OutboundExternalLinkLinkAttributesArgs | undefined>;
     linkLogSettings: pulumi.Input<inputs.rtbfabric.OutboundExternalLinkLinkLogSettingsArgs>;
     publicEndpoint: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

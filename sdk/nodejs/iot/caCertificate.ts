@@ -143,7 +143,7 @@ export interface CaCertificateArgs {
     /**
      * Whether the CA certificate is configured for auto registration of device certificates. Valid values are "ENABLE" and "DISABLE".
      */
-    autoRegistrationStatus?: pulumi.Input<enums.iot.CaCertificateAutoRegistrationStatus>;
+    autoRegistrationStatus?: pulumi.Input<enums.iot.CaCertificateAutoRegistrationStatus | undefined>;
     /**
      * The certificate data in PEM format.
      */
@@ -155,15 +155,15 @@ export interface CaCertificateArgs {
      *
      * Valid values are "DEFAULT" and "SNI_ONLY".
      */
-    certificateMode?: pulumi.Input<enums.iot.CaCertificateCertificateMode>;
+    certificateMode?: pulumi.Input<enums.iot.CaCertificateCertificateMode | undefined>;
     /**
      * Information about the registration configuration.
      */
-    registrationConfig?: pulumi.Input<inputs.iot.CaCertificateRegistrationConfigArgs>;
+    registrationConfig?: pulumi.Input<inputs.iot.CaCertificateRegistrationConfigArgs | undefined>;
     /**
      * If true, removes auto registration.
      */
-    removeAutoRegistration?: pulumi.Input<boolean>;
+    removeAutoRegistration?: pulumi.Input<boolean | undefined>;
     /**
      * The status of the CA certificate.
      *
@@ -173,9 +173,9 @@ export interface CaCertificateArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The private key verification certificate.
      */
-    verificationCertificatePem?: pulumi.Input<string>;
+    verificationCertificatePem?: pulumi.Input<string | undefined>;
 }

@@ -281,7 +281,7 @@ export interface DocumentArgs {
     /**
      * A list of key and value pairs that describe attachments to a version of a document.
      */
-    attachments?: pulumi.Input<pulumi.Input<inputs.ssm.DocumentAttachmentsSourceArgs>[]>;
+    attachments?: pulumi.Input<pulumi.Input<inputs.ssm.DocumentAttachmentsSourceArgs>[] | undefined>;
     /**
      * The content for the Systems Manager document in JSON, YAML or String format.
      *
@@ -291,33 +291,33 @@ export interface DocumentArgs {
     /**
      * Specify the document format for the request. The document format can be either JSON or YAML. JSON is the default format.
      */
-    documentFormat?: pulumi.Input<enums.ssm.DocumentFormat>;
+    documentFormat?: pulumi.Input<enums.ssm.DocumentFormat | undefined>;
     /**
      * The type of document to create.
      */
-    documentType?: pulumi.Input<enums.ssm.DocumentType>;
+    documentType?: pulumi.Input<enums.ssm.DocumentType | undefined>;
     /**
      * A name for the Systems Manager document.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A list of SSM documents required by a document. For example, an ApplicationConfiguration document requires an ApplicationConfigurationSchema document.
      */
-    requires?: pulumi.Input<pulumi.Input<inputs.ssm.DocumentRequiresArgs>[]>;
+    requires?: pulumi.Input<pulumi.Input<inputs.ssm.DocumentRequiresArgs>[] | undefined>;
     /**
      * Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * Specify a target type to define the kinds of resources the document can run on.
      */
-    targetType?: pulumi.Input<string>;
+    targetType?: pulumi.Input<string | undefined>;
     /**
      * Update method - when set to 'Replace', the update will replace the existing document; when set to 'NewVersion', the update will create a new version.
      */
-    updateMethod?: pulumi.Input<enums.ssm.DocumentUpdateMethod>;
+    updateMethod?: pulumi.Input<enums.ssm.DocumentUpdateMethod | undefined>;
     /**
      * An optional field specifying the version of the artifact you are creating with the document. This value is unique across all versions of a document, and cannot be changed.
      */
-    versionName?: pulumi.Input<string>;
+    versionName?: pulumi.Input<string | undefined>;
 }

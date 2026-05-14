@@ -95,13 +95,13 @@ export interface ServiceProfileArgs {
     /**
      * LoRaWAN supports all LoRa specific attributes for service profile for CreateServiceProfile operation
      */
-    loRaWan?: pulumi.Input<inputs.iotwireless.ServiceProfileLoRaWanServiceProfileArgs>;
+    loRaWan?: pulumi.Input<inputs.iotwireless.ServiceProfileLoRaWanServiceProfileArgs | undefined>;
     /**
      * Name of service profile
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A list of key-value pairs that contain metadata for the service profile.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

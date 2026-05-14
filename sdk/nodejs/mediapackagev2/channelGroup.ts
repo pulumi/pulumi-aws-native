@@ -107,13 +107,13 @@ export interface ChannelGroupArgs {
     /**
      * The name of the channel group.
      */
-    channelGroupName?: pulumi.Input<string>;
+    channelGroupName?: pulumi.Input<string | undefined>;
     /**
      * <p>Enter any descriptive text that helps you to identify the channel group.</p>
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The tags associated with the channel group.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

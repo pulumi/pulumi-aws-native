@@ -107,25 +107,25 @@ export interface NetworkAnalyzerConfigurationArgs {
     /**
      * The description of the new resource
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Name of the network analyzer configuration
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * Trace content for your wireless gateway and wireless device resources
      */
-    traceContent?: pulumi.Input<inputs.iotwireless.TraceContentPropertiesArgs>;
+    traceContent?: pulumi.Input<inputs.iotwireless.TraceContentPropertiesArgs | undefined>;
     /**
      * List of wireless gateway resources that have been added to the network analyzer configuration
      */
-    wirelessDevices?: pulumi.Input<pulumi.Input<string>[]>;
+    wirelessDevices?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of wireless gateway resources that have been added to the network analyzer configuration
      */
-    wirelessGateways?: pulumi.Input<pulumi.Input<string>[]>;
+    wirelessGateways?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

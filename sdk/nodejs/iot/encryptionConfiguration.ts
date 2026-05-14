@@ -103,9 +103,9 @@ export interface EncryptionConfigurationArgs {
     /**
      * The Amazon Resource Name (ARN) of the IAM role assumed by AWS IoT Core to call AWS  on behalf of the customer.
      */
-    kmsAccessRoleArn?: pulumi.Input<string>;
+    kmsAccessRoleArn?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the customer managed KMS key.
      */
-    kmsKeyArn?: pulumi.Input<string>;
+    kmsKeyArn?: pulumi.Input<string | undefined>;
 }

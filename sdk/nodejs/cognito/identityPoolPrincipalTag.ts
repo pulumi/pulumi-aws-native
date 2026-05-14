@@ -104,9 +104,9 @@ export interface IdentityPoolPrincipalTagArgs {
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPoolPrincipalTag` for more information about the expected schema for this property.
      */
-    principalTags?: any;
+    principalTags?: any | undefined;
     /**
      * Use a default set of mappings between claims and tags for this provider, instead of a custom map.
      */
-    useDefaults?: pulumi.Input<boolean>;
+    useDefaults?: pulumi.Input<boolean | undefined>;
 }

@@ -104,10 +104,10 @@ export interface EventBridgeRuleTemplateGroupArgs {
     /**
      * A resource's optional description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A resource's name. Names must be unique within the scope of a resource type in a specific region.
      */
-    name?: pulumi.Input<string>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    name?: pulumi.Input<string | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

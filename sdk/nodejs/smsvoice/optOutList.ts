@@ -83,9 +83,9 @@ export interface OptOutListArgs {
     /**
      * The name of the new OptOutList.
      */
-    optOutListName?: pulumi.Input<string>;
+    optOutListName?: pulumi.Input<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

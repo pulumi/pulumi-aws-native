@@ -135,28 +135,28 @@ export interface RuleGroupArgs {
     /**
      * A description of the rule group.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * An object that defines the rule group rules.
      */
-    ruleGroup?: pulumi.Input<inputs.networkfirewall.RuleGroupArgs>;
+    ruleGroup?: pulumi.Input<inputs.networkfirewall.RuleGroupArgs | undefined>;
     /**
      * The descriptive name of the rule group. You can't change the name of a rule group after you create it.
      */
-    ruleGroupName?: pulumi.Input<string>;
+    ruleGroupName?: pulumi.Input<string | undefined>;
     /**
      * A complex type containing the currently selected rule option fields that will be displayed for rule summarization returned by `DescribeRuleGroupSummary` .
      *
      * - The `RuleOptions` specified in `SummaryConfiguration`
      * - Rule metadata organization preferences
      */
-    summaryConfiguration?: pulumi.Input<inputs.networkfirewall.SummaryConfigurationPropertiesArgs>;
+    summaryConfiguration?: pulumi.Input<inputs.networkfirewall.SummaryConfigurationPropertiesArgs | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      *
      * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains
      * stateless rules. If it is stateful, it contains stateful rules.

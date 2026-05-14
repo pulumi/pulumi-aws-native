@@ -101,5 +101,5 @@ export interface ClusterSubnetGroupArgs {
     /**
      * The list of tags for the cluster parameter group.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

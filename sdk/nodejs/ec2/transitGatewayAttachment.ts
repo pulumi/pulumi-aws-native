@@ -110,7 +110,7 @@ export interface TransitGatewayAttachmentArgs {
     /**
      * The options for the transit gateway vpc attachment.
      */
-    options?: pulumi.Input<inputs.ec2.OptionsPropertiesArgs>;
+    options?: pulumi.Input<inputs.ec2.OptionsPropertiesArgs | undefined>;
     /**
      * The IDs of one or more subnets. You can specify only one subnet per Availability Zone. You must specify at least one subnet, but we recommend that you specify two subnets for better availability. The transit gateway uses one IP address from each specified subnet.
      */
@@ -118,7 +118,7 @@ export interface TransitGatewayAttachmentArgs {
     /**
      * The tags for the attachment.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The ID of the transit gateway.
      */

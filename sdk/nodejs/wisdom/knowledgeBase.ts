@@ -128,7 +128,7 @@ export interface KnowledgeBaseArgs {
     /**
      * The description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The type of knowledge base. Only CUSTOM knowledge bases allow you to upload your own content. EXTERNAL knowledge bases support integrations with third-party systems whose content is synchronized automatically.
      */
@@ -136,25 +136,25 @@ export interface KnowledgeBaseArgs {
     /**
      * The name of the knowledge base.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Information about how to render the content.
      */
-    renderingConfiguration?: pulumi.Input<inputs.wisdom.KnowledgeBaseRenderingConfigurationArgs>;
+    renderingConfiguration?: pulumi.Input<inputs.wisdom.KnowledgeBaseRenderingConfigurationArgs | undefined>;
     /**
      * This customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. For more information about setting up a customer managed key for Wisdom, see [Enable Amazon Connect Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) . For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) in the *AWS Key Management Service Developer Guide* .
      */
-    serverSideEncryptionConfiguration?: pulumi.Input<inputs.wisdom.KnowledgeBaseServerSideEncryptionConfigurationArgs>;
+    serverSideEncryptionConfiguration?: pulumi.Input<inputs.wisdom.KnowledgeBaseServerSideEncryptionConfigurationArgs | undefined>;
     /**
      * The source of the knowledge base content. Only set this argument for EXTERNAL or Managed knowledge bases.
      */
-    sourceConfiguration?: pulumi.Input<inputs.wisdom.KnowledgeBaseSourceConfiguration0PropertiesArgs | inputs.wisdom.KnowledgeBaseSourceConfiguration1PropertiesArgs>;
+    sourceConfiguration?: pulumi.Input<inputs.wisdom.KnowledgeBaseSourceConfiguration0PropertiesArgs | inputs.wisdom.KnowledgeBaseSourceConfiguration1PropertiesArgs | undefined>;
     /**
      * The tags used to organize, track, or control access for this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[] | undefined>;
     /**
      * Contains details about how to ingest the documents in a data source.
      */
-    vectorIngestionConfiguration?: pulumi.Input<inputs.wisdom.KnowledgeBaseVectorIngestionConfigurationArgs>;
+    vectorIngestionConfiguration?: pulumi.Input<inputs.wisdom.KnowledgeBaseVectorIngestionConfigurationArgs | undefined>;
 }

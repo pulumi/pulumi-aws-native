@@ -137,19 +137,19 @@ export interface RuleArgs {
     /**
      * The description of the retention rule.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Information about the exclude resource tags used to identify resources that are excluded by the retention rule.
      */
-    excludeResourceTags?: pulumi.Input<pulumi.Input<inputs.rbin.RuleResourceTagArgs>[]>;
+    excludeResourceTags?: pulumi.Input<pulumi.Input<inputs.rbin.RuleResourceTagArgs>[] | undefined>;
     /**
      * Information about the retention rule lock configuration.
      */
-    lockConfiguration?: pulumi.Input<inputs.rbin.RuleUnlockDelayArgs>;
+    lockConfiguration?: pulumi.Input<inputs.rbin.RuleUnlockDelayArgs | undefined>;
     /**
      * Information about the resource tags used to identify resources that are retained by the retention rule.
      */
-    resourceTags?: pulumi.Input<pulumi.Input<inputs.rbin.RuleResourceTagArgs>[]>;
+    resourceTags?: pulumi.Input<pulumi.Input<inputs.rbin.RuleResourceTagArgs>[] | undefined>;
     /**
      * The resource type retained by the retention rule.
      */
@@ -161,9 +161,9 @@ export interface RuleArgs {
     /**
      * The state of the retention rule. Only retention rules that are in the available state retain resources.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Information about the tags assigned to the retention rule.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

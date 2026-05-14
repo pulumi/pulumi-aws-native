@@ -117,15 +117,15 @@ export interface UrlArgs {
     /**
      * The [Cross-Origin Resource Sharing (CORS)](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for your function URL.
      */
-    cors?: pulumi.Input<inputs.lambda.UrlCorsArgs>;
+    cors?: pulumi.Input<inputs.lambda.UrlCorsArgs | undefined>;
     /**
      * The invocation mode for the function's URL. Set to BUFFERED if you want to buffer responses before returning them to the client. Set to RESPONSE_STREAM if you want to stream responses, allowing faster time to first byte and larger response payload sizes. If not set, defaults to BUFFERED.
      */
-    invokeMode?: pulumi.Input<enums.lambda.UrlInvokeMode>;
+    invokeMode?: pulumi.Input<enums.lambda.UrlInvokeMode | undefined>;
     /**
      * The alias qualifier for the target function. If TargetFunctionArn is unqualified then Qualifier must be passed.
      */
-    qualifier?: pulumi.Input<string>;
+    qualifier?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the function associated with the Function URL.
      */

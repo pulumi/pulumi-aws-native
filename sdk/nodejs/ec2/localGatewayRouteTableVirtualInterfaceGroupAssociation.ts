@@ -127,5 +127,5 @@ export interface LocalGatewayRouteTableVirtualInterfaceGroupAssociationArgs {
     /**
      * The tags for the local gateway route table virtual interface group association.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

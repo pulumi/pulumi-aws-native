@@ -149,11 +149,11 @@ export interface LocationAzureBlobArgs {
     /**
      * Specifies the Amazon Resource Name (ARN) of the DataSync agent that can connect with your Azure Blob Storage container. If you are setting up an agentless cross-cloud transfer, you do not need to specify a value for this parameter.
      */
-    agentArns?: pulumi.Input<pulumi.Input<string>[]>;
+    agentArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies an access tier for the objects you're transferring into your Azure Blob Storage container.
      */
-    azureAccessTier?: pulumi.Input<enums.datasync.LocationAzureBlobAzureAccessTier>;
+    azureAccessTier?: pulumi.Input<enums.datasync.LocationAzureBlobAzureAccessTier | undefined>;
     /**
      * The specific authentication type that you want DataSync to use to access your Azure Blob Container.
      */
@@ -161,35 +161,35 @@ export interface LocationAzureBlobArgs {
     /**
      * The URL of the Azure Blob container that was described.
      */
-    azureBlobContainerUrl?: pulumi.Input<string>;
+    azureBlobContainerUrl?: pulumi.Input<string | undefined>;
     /**
      * Specifies the SAS configuration that allows DataSync to access your Azure Blob Storage.
      *
      * > If you provide an authentication token using `SasConfiguration` , but do not provide secret configuration details using `CmkSecretConfig` or `CustomSecretConfig` , then DataSync stores the token using your AWS account's secrets manager secret.
      */
-    azureBlobSasConfiguration?: pulumi.Input<inputs.datasync.LocationAzureBlobAzureBlobSasConfigurationArgs>;
+    azureBlobSasConfiguration?: pulumi.Input<inputs.datasync.LocationAzureBlobAzureBlobSasConfigurationArgs | undefined>;
     /**
      * Specifies a blob type for the objects you're transferring into your Azure Blob Storage container.
      */
-    azureBlobType?: pulumi.Input<enums.datasync.LocationAzureBlobAzureBlobType>;
+    azureBlobType?: pulumi.Input<enums.datasync.LocationAzureBlobAzureBlobType | undefined>;
     /**
      * Specifies configuration information for a DataSync-managed secret, such as an authentication token, secret key, password, or Kerberos keytab that DataSync uses to access a specific storage location, with a customer-managed AWS KMS key .
      *
      * > You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request.
      */
-    cmkSecretConfig?: pulumi.Input<inputs.datasync.LocationAzureBlobCmkSecretConfigArgs>;
+    cmkSecretConfig?: pulumi.Input<inputs.datasync.LocationAzureBlobCmkSecretConfigArgs | undefined>;
     /**
      * Specifies configuration information for a customer-managed Secrets Manager secret where a storage location credentials is stored in Secrets Manager as plain text (for authentication token, secret key, or password) or as binary (for Kerberos keytab). This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.
      *
      * > You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request.
      */
-    customSecretConfig?: pulumi.Input<inputs.datasync.LocationAzureBlobCustomSecretConfigArgs>;
+    customSecretConfig?: pulumi.Input<inputs.datasync.LocationAzureBlobCustomSecretConfigArgs | undefined>;
     /**
      * The subdirectory in the Azure Blob Container that is used to read data from the Azure Blob Source Location.
      */
-    subdirectory?: pulumi.Input<string>;
+    subdirectory?: pulumi.Input<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

@@ -121,19 +121,19 @@ export interface PackagingConfigurationArgs {
     /**
      * A CMAF packaging configuration.
      */
-    cmafPackage?: pulumi.Input<inputs.mediapackage.PackagingConfigurationCmafPackageArgs>;
+    cmafPackage?: pulumi.Input<inputs.mediapackage.PackagingConfigurationCmafPackageArgs | undefined>;
     /**
      * A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
      */
-    dashPackage?: pulumi.Input<inputs.mediapackage.PackagingConfigurationDashPackageArgs>;
+    dashPackage?: pulumi.Input<inputs.mediapackage.PackagingConfigurationDashPackageArgs | undefined>;
     /**
      * An HTTP Live Streaming (HLS) packaging configuration.
      */
-    hlsPackage?: pulumi.Input<inputs.mediapackage.PackagingConfigurationHlsPackageArgs>;
+    hlsPackage?: pulumi.Input<inputs.mediapackage.PackagingConfigurationHlsPackageArgs | undefined>;
     /**
      * A Microsoft Smooth Streaming (MSS) PackagingConfiguration.
      */
-    mssPackage?: pulumi.Input<inputs.mediapackage.PackagingConfigurationMssPackageArgs>;
+    mssPackage?: pulumi.Input<inputs.mediapackage.PackagingConfigurationMssPackageArgs | undefined>;
     /**
      * The ID of a PackagingGroup.
      */
@@ -141,5 +141,5 @@ export interface PackagingConfigurationArgs {
     /**
      * A collection of tags associated with a resource
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

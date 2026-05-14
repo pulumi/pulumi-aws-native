@@ -101,13 +101,13 @@ export interface PackageArgs {
     /**
      * A name for the package.
      */
-    packageName?: pulumi.Input<string>;
+    packageName?: pulumi.Input<string | undefined>;
     /**
      * A storage location.
      */
-    storageLocation?: pulumi.Input<inputs.panorama.PackageStorageLocationArgs>;
+    storageLocation?: pulumi.Input<inputs.panorama.PackageStorageLocationArgs | undefined>;
     /**
      * Tags for the package.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

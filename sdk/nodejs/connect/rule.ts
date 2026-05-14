@@ -141,7 +141,7 @@ export interface RuleArgs {
     /**
      * The name of the rule.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The publish status of the rule.
      *  *Allowed values*: ``DRAFT`` | ``PUBLISHED``
@@ -150,7 +150,7 @@ export interface RuleArgs {
     /**
      * The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The event source to trigger the rule.
      */

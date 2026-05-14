@@ -137,7 +137,7 @@ export interface EndpointGroupArgs {
     /**
      * The list of endpoint objects.
      */
-    endpointConfigurations?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.EndpointGroupEndpointConfigurationArgs>[]>;
+    endpointConfigurations?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.EndpointGroupEndpointConfigurationArgs>[] | undefined>;
     /**
      * The name of the AWS Region where the endpoint group is located
      */
@@ -145,19 +145,19 @@ export interface EndpointGroupArgs {
     /**
      * The time in seconds between each health check for an endpoint. Must be a value of 10 or 30
      */
-    healthCheckIntervalSeconds?: pulumi.Input<number>;
+    healthCheckIntervalSeconds?: pulumi.Input<number | undefined>;
     /**
      * If the protocol is HTTP/S, then this value provides the ping path that Global Accelerator uses for the destination on the endpoints for health checks. The default is slash (/).
      */
-    healthCheckPath?: pulumi.Input<string>;
+    healthCheckPath?: pulumi.Input<string | undefined>;
     /**
      * The port that AWS Global Accelerator uses to check the health of endpoints in this endpoint group.
      */
-    healthCheckPort?: pulumi.Input<number>;
+    healthCheckPort?: pulumi.Input<number | undefined>;
     /**
      * The protocol that AWS Global Accelerator uses to check the health of endpoints in this endpoint group.
      */
-    healthCheckProtocol?: pulumi.Input<enums.globalaccelerator.EndpointGroupHealthCheckProtocol>;
+    healthCheckProtocol?: pulumi.Input<enums.globalaccelerator.EndpointGroupHealthCheckProtocol | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the listener
      */
@@ -165,13 +165,13 @@ export interface EndpointGroupArgs {
     /**
      * Allows you to override the destination ports used to route traffic to an endpoint. Using a port override lets you map a list of external destination ports (that your users send traffic to) to a list of internal destination ports that you want an application endpoint to receive traffic on.
      */
-    portOverrides?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.EndpointGroupPortOverrideArgs>[]>;
+    portOverrides?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.EndpointGroupPortOverrideArgs>[] | undefined>;
     /**
      * The number of consecutive health checks required to set the state of the endpoint to unhealthy.
      */
-    thresholdCount?: pulumi.Input<number>;
+    thresholdCount?: pulumi.Input<number | undefined>;
     /**
      * The percentage of traffic to sent to an AWS Region
      */
-    trafficDialPercentage?: pulumi.Input<number>;
+    trafficDialPercentage?: pulumi.Input<number | undefined>;
 }

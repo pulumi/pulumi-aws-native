@@ -149,37 +149,37 @@ export interface DataAutomationProjectArgs {
     /**
      * Blueprints to apply to objects processed by the project.
      */
-    customOutputConfiguration?: pulumi.Input<inputs.bedrock.DataAutomationProjectCustomOutputConfigurationArgs>;
+    customOutputConfiguration?: pulumi.Input<inputs.bedrock.DataAutomationProjectCustomOutputConfigurationArgs | undefined>;
     /**
      * KMS encryption context
      */
-    kmsEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    kmsEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * KMS key identifier
      */
-    kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * Additional settings for the project.
      */
-    overrideConfiguration?: pulumi.Input<inputs.bedrock.DataAutomationProjectOverrideConfigurationArgs>;
+    overrideConfiguration?: pulumi.Input<inputs.bedrock.DataAutomationProjectOverrideConfigurationArgs | undefined>;
     /**
      * Description of the DataAutomationProject
      */
-    projectDescription?: pulumi.Input<string>;
+    projectDescription?: pulumi.Input<string | undefined>;
     /**
      * Name of the DataAutomationProject
      */
-    projectName?: pulumi.Input<string>;
+    projectName?: pulumi.Input<string | undefined>;
     /**
      * Type of the DataAutomationProject - Sync or Async
      */
-    projectType?: pulumi.Input<enums.bedrock.DataAutomationProjectProjectType>;
+    projectType?: pulumi.Input<enums.bedrock.DataAutomationProjectProjectType | undefined>;
     /**
      * The project's standard output configuration.
      */
-    standardOutputConfiguration?: pulumi.Input<inputs.bedrock.DataAutomationProjectStandardOutputConfigurationArgs>;
+    standardOutputConfiguration?: pulumi.Input<inputs.bedrock.DataAutomationProjectStandardOutputConfigurationArgs | undefined>;
     /**
      * List of Tags
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

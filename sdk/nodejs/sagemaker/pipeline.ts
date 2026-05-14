@@ -152,7 +152,7 @@ export interface PipelineArgs {
     /**
      * The parallelism configuration applied to the pipeline.
      */
-    parallelismConfiguration?: pulumi.Input<inputs.sagemaker.ParallelismConfigurationPropertiesArgs>;
+    parallelismConfiguration?: pulumi.Input<inputs.sagemaker.ParallelismConfigurationPropertiesArgs | undefined>;
     /**
      * The definition of the pipeline. This can be either a JSON string or an Amazon S3 location.
      */
@@ -160,15 +160,15 @@ export interface PipelineArgs {
     /**
      * The description of the Pipeline.
      */
-    pipelineDescription?: pulumi.Input<string>;
+    pipelineDescription?: pulumi.Input<string | undefined>;
     /**
      * The display name of the Pipeline.
      */
-    pipelineDisplayName?: pulumi.Input<string>;
+    pipelineDisplayName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Pipeline.
      */
-    pipelineName?: pulumi.Input<string>;
+    pipelineName?: pulumi.Input<string | undefined>;
     /**
      * Role Arn
      */
@@ -176,5 +176,5 @@ export interface PipelineArgs {
     /**
      * The tags of the pipeline.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

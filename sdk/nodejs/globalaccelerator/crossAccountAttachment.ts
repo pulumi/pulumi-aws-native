@@ -95,19 +95,19 @@ export interface CrossAccountAttachmentArgs {
     /**
      * The Friendly identifier of the attachment.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Principals to share the resources with.
      */
-    principals?: pulumi.Input<pulumi.Input<string>[]>;
+    principals?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Resources shared using the attachment.
      */
-    resources?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.CrossAccountAttachmentResourceArgs>[]>;
+    resources?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.CrossAccountAttachmentResourceArgs>[] | undefined>;
     /**
      * Add tags for a cross-account attachment.
      *
      * For more information, see [Tagging in AWS Global Accelerator](https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html) in the *AWS Global Accelerator Developer Guide* .
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

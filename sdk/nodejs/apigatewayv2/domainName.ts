@@ -121,17 +121,17 @@ export interface DomainNameArgs {
     /**
      * The domain name configurations.
      */
-    domainNameConfigurations?: pulumi.Input<pulumi.Input<inputs.apigatewayv2.DomainNameConfigurationArgs>[]>;
+    domainNameConfigurations?: pulumi.Input<pulumi.Input<inputs.apigatewayv2.DomainNameConfigurationArgs>[] | undefined>;
     /**
      * The mutual TLS authentication configuration for a custom domain name.
      */
-    mutualTlsAuthentication?: pulumi.Input<inputs.apigatewayv2.DomainNameMutualTlsAuthenticationArgs>;
+    mutualTlsAuthentication?: pulumi.Input<inputs.apigatewayv2.DomainNameMutualTlsAuthenticationArgs | undefined>;
     /**
      * The routing mode API Gateway uses to route traffic to your APIs.
      */
-    routingMode?: pulumi.Input<enums.apigatewayv2.DomainNameRoutingMode>;
+    routingMode?: pulumi.Input<enums.apigatewayv2.DomainNameRoutingMode | undefined>;
     /**
      * The collection of tags associated with a domain name.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

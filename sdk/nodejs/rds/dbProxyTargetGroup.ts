@@ -107,15 +107,15 @@ export interface DbProxyTargetGroupArgs {
     /**
      * Displays the settings that control the size and behavior of the connection pool associated with a `DBProxyTarget` .
      */
-    connectionPoolConfigurationInfo?: pulumi.Input<inputs.rds.DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs>;
+    connectionPoolConfigurationInfo?: pulumi.Input<inputs.rds.DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs | undefined>;
     /**
      * One or more DB cluster identifiers.
      */
-    dbClusterIdentifiers?: pulumi.Input<pulumi.Input<string>[]>;
+    dbClusterIdentifiers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * One or more DB instance identifiers.
      */
-    dbInstanceIdentifiers?: pulumi.Input<pulumi.Input<string>[]>;
+    dbInstanceIdentifiers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The identifier for the proxy.
      */

@@ -110,7 +110,7 @@ export interface PredefinedAttributeArgs {
     /**
      * Custom metadata associated to a Predefined attribute that controls how the attribute behaves when used by upstream services.
      */
-    attributeConfiguration?: pulumi.Input<inputs.connect.AttributeConfigurationPropertiesArgs>;
+    attributeConfiguration?: pulumi.Input<inputs.connect.AttributeConfigurationPropertiesArgs | undefined>;
     /**
      * The identifier of the Amazon Connect instance.
      */
@@ -118,13 +118,13 @@ export interface PredefinedAttributeArgs {
     /**
      * The name of the predefined attribute.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The assigned purposes of the predefined attribute.
      */
-    purposes?: pulumi.Input<pulumi.Input<string>[]>;
+    purposes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The values of a predefined attribute.
      */
-    values?: pulumi.Input<inputs.connect.ValuesPropertiesArgs>;
+    values?: pulumi.Input<inputs.connect.ValuesPropertiesArgs | undefined>;
 }

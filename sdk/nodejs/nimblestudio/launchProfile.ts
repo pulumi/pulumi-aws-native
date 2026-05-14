@@ -104,12 +104,12 @@ export class LaunchProfile extends pulumi.CustomResource {
  * The set of arguments for constructing a LaunchProfile resource.
  */
 export interface LaunchProfileArgs {
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     ec2SubnetIds: pulumi.Input<pulumi.Input<string>[]>;
     launchProfileProtocolVersions: pulumi.Input<pulumi.Input<string>[]>;
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     streamConfiguration: pulumi.Input<inputs.nimblestudio.LaunchProfileStreamConfigurationArgs>;
     studioComponentIds: pulumi.Input<pulumi.Input<string>[]>;
     studioId: pulumi.Input<string>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

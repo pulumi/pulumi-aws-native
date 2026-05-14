@@ -120,7 +120,7 @@ export interface StepArgs {
     /**
      * The KMS key ARN to encrypt the logs published to the given Amazon S3 destination. When omitted, EMR falls back to cluster-level logging behavior.
      */
-    encryptionKeyArn?: pulumi.Input<string>;
+    encryptionKeyArn?: pulumi.Input<string | undefined>;
     /**
      * The HadoopJarStepConfig property type specifies a job flow step consisting of a JAR file whose main function will be executed. The main function submits a job for the cluster to execute as a step on the master node, and then waits for the job to finish or fail before executing subsequent steps.
      */
@@ -132,9 +132,9 @@ export interface StepArgs {
     /**
      * The Amazon S3 destination URI for log publishing. When omitted, EMR falls back to cluster-level logging behavior.
      */
-    logUri?: pulumi.Input<string>;
+    logUri?: pulumi.Input<string | undefined>;
     /**
      * The name of the cluster step.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

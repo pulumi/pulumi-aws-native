@@ -134,23 +134,23 @@ export interface FieldArgs {
     /**
      * Field-type specific attributes that control rendering and validation behavior
      */
-    attributes?: pulumi.Input<inputs.cases.FieldAttributesArgs>;
+    attributes?: pulumi.Input<inputs.cases.FieldAttributesArgs | undefined>;
     /**
      * A description explaining the purpose and usage of this field in cases. Helps agents and administrators understand what information should be captured in this field.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The unique identifier of the Cases domain.
      */
-    domainId?: pulumi.Input<string>;
+    domainId?: pulumi.Input<string | undefined>;
     /**
      * The display name of the field as it appears to agents in the case interface. Should be descriptive and user-friendly (e.g., 'Customer Priority Level', 'Issue Category').
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * Type of the field.
      */

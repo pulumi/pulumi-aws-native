@@ -188,19 +188,19 @@ export interface ServerlessCacheArgs {
     /**
      * The cache usage limit for the serverless cache.
      */
-    cacheUsageLimits?: pulumi.Input<inputs.elasticache.ServerlessCacheCacheUsageLimitsArgs>;
+    cacheUsageLimits?: pulumi.Input<inputs.elasticache.ServerlessCacheCacheUsageLimitsArgs | undefined>;
     /**
      * The daily time range (in UTC) during which the service takes automatic snapshot of the Serverless Cache.
      */
-    dailySnapshotTime?: pulumi.Input<string>;
+    dailySnapshotTime?: pulumi.Input<string | undefined>;
     /**
      * The description of the Serverless Cache.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Represents the information required for client programs to connect to a cache node. This value is read-only.
      */
-    endpoint?: pulumi.Input<inputs.elasticache.ServerlessCacheEndpointArgs>;
+    endpoint?: pulumi.Input<inputs.elasticache.ServerlessCacheEndpointArgs | undefined>;
     /**
      * The engine name of the Serverless Cache.
      */
@@ -208,45 +208,45 @@ export interface ServerlessCacheArgs {
     /**
      * The final snapshot name which is taken before Serverless Cache is deleted.
      */
-    finalSnapshotName?: pulumi.Input<string>;
+    finalSnapshotName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the KMS key used to encrypt the cluster.
      */
-    kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * The major engine version of the Serverless Cache.
      */
-    majorEngineVersion?: pulumi.Input<string>;
+    majorEngineVersion?: pulumi.Input<string | undefined>;
     /**
      * Represents the information required for client programs to connect to a cache node. This value is read-only.
      */
-    readerEndpoint?: pulumi.Input<inputs.elasticache.ServerlessCacheEndpointArgs>;
+    readerEndpoint?: pulumi.Input<inputs.elasticache.ServerlessCacheEndpointArgs | undefined>;
     /**
      * One or more Amazon VPC security groups associated with this Serverless Cache.
      */
-    securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    securityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name of the Serverless Cache. This value must be unique.
      */
-    serverlessCacheName?: pulumi.Input<string>;
+    serverlessCacheName?: pulumi.Input<string | undefined>;
     /**
      * The ARN's of snapshot to restore Serverless Cache.
      */
-    snapshotArnsToRestore?: pulumi.Input<pulumi.Input<string>[]>;
+    snapshotArnsToRestore?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The snapshot retention limit of the Serverless Cache.
      */
-    snapshotRetentionLimit?: pulumi.Input<number>;
+    snapshotRetentionLimit?: pulumi.Input<number | undefined>;
     /**
      * The subnet id's of the Serverless Cache.
      */
-    subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    subnetIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * An array of key-value pairs to apply to this Serverless Cache.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The ID of the user group.
      */
-    userGroupId?: pulumi.Input<string>;
+    userGroupId?: pulumi.Input<string | undefined>;
 }

@@ -106,9 +106,9 @@ export interface CertificateAuthorityActivationArgs {
     /**
      * Certificate chain for the Certificate Authority certificate.
      */
-    certificateChain?: pulumi.Input<string>;
+    certificateChain?: pulumi.Input<string | undefined>;
     /**
      * The status of the Certificate Authority.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
 }

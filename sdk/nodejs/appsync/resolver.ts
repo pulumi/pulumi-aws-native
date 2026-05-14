@@ -216,19 +216,19 @@ export interface ResolverArgs {
     /**
      * The caching configuration for the resolver.
      */
-    cachingConfig?: pulumi.Input<inputs.appsync.ResolverCachingConfigArgs>;
+    cachingConfig?: pulumi.Input<inputs.appsync.ResolverCachingConfigArgs | undefined>;
     /**
      * The ``resolver`` code that contains the request and response functions. When code is used, the ``runtime`` is required. The runtime value must be ``APPSYNC_JS``.
      */
-    code?: pulumi.Input<string>;
+    code?: pulumi.Input<string | undefined>;
     /**
      * The Amazon S3 endpoint.
      */
-    codeS3Location?: pulumi.Input<string>;
+    codeS3Location?: pulumi.Input<string | undefined>;
     /**
      * The resolver data source name.
      */
-    dataSourceName?: pulumi.Input<string>;
+    dataSourceName?: pulumi.Input<string | undefined>;
     /**
      * The GraphQL field on a type that invokes the resolver.
      */
@@ -238,44 +238,44 @@ export interface ResolverArgs {
      *   +  *UNIT*: A UNIT resolver type. A UNIT resolver is the default resolver type. You can use a UNIT resolver to run a GraphQL query against a single data source.
      *   +  *PIPELINE*: A PIPELINE resolver type. You can use a PIPELINE resolver to invoke a series of ``Function`` objects in a serial manner. You can use a pipeline resolver to run a GraphQL query against multiple data sources.
      */
-    kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string | undefined>;
     /**
      * The maximum number of resolver request inputs that will be sent to a single LAMlong function in a ``BatchInvoke`` operation.
      */
-    maxBatchSize?: pulumi.Input<number>;
+    maxBatchSize?: pulumi.Input<number | undefined>;
     /**
      * Enables or disables enhanced resolver metrics for specified resolvers. Note that ``MetricsConfig`` won't be used unless the ``resolverLevelMetricsBehavior`` value is set to ``PER_RESOLVER_METRICS``. If the ``resolverLevelMetricsBehavior`` is set to ``FULL_REQUEST_RESOLVER_METRICS`` instead, ``MetricsConfig`` will be ignored. However, you can still set its value.
      */
-    metricsConfig?: pulumi.Input<enums.appsync.ResolverMetricsConfig>;
+    metricsConfig?: pulumi.Input<enums.appsync.ResolverMetricsConfig | undefined>;
     /**
      * Functions linked with the pipeline resolver.
      */
-    pipelineConfig?: pulumi.Input<inputs.appsync.ResolverPipelineConfigArgs>;
+    pipelineConfig?: pulumi.Input<inputs.appsync.ResolverPipelineConfigArgs | undefined>;
     /**
      * The request mapping template.
      *  Request mapping templates are optional when using a Lambda data source. For all other data sources, a request mapping template is required.
      */
-    requestMappingTemplate?: pulumi.Input<string>;
+    requestMappingTemplate?: pulumi.Input<string | undefined>;
     /**
      * The location of a request mapping template in an S3 bucket. Use this if you want to provision with a template file in S3 rather than embedding it in your CFNshort template.
      */
-    requestMappingTemplateS3Location?: pulumi.Input<string>;
+    requestMappingTemplateS3Location?: pulumi.Input<string | undefined>;
     /**
      * The response mapping template.
      */
-    responseMappingTemplate?: pulumi.Input<string>;
+    responseMappingTemplate?: pulumi.Input<string | undefined>;
     /**
      * The location of a response mapping template in an S3 bucket. Use this if you want to provision with a template file in S3 rather than embedding it in your CFNshort template.
      */
-    responseMappingTemplateS3Location?: pulumi.Input<string>;
+    responseMappingTemplateS3Location?: pulumi.Input<string | undefined>;
     /**
      * Describes a runtime used by an APSYlong resolver or APSYlong function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified.
      */
-    runtime?: pulumi.Input<inputs.appsync.ResolverAppSyncRuntimeArgs>;
+    runtime?: pulumi.Input<inputs.appsync.ResolverAppSyncRuntimeArgs | undefined>;
     /**
      * The ``SyncConfig`` for a resolver attached to a versioned data source.
      */
-    syncConfig?: pulumi.Input<inputs.appsync.ResolverSyncConfigArgs>;
+    syncConfig?: pulumi.Input<inputs.appsync.ResolverSyncConfigArgs | undefined>;
     /**
      * The GraphQL type that invokes this resolver.
      */

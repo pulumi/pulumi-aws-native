@@ -152,19 +152,19 @@ export interface AnnotationStoreArgs {
     /**
      * A description for the store.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the Annotation Store.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The genome reference for the store's annotations.
      */
-    reference?: pulumi.Input<inputs.omics.AnnotationStoreReferenceItemArgs>;
+    reference?: pulumi.Input<inputs.omics.AnnotationStoreReferenceItemArgs | undefined>;
     /**
      * The store's server-side encryption (SSE) settings.
      */
-    sseConfig?: pulumi.Input<inputs.omics.AnnotationStoreSseConfigArgs>;
+    sseConfig?: pulumi.Input<inputs.omics.AnnotationStoreSseConfigArgs | undefined>;
     /**
      * The annotation file format of the store.
      */
@@ -172,9 +172,9 @@ export interface AnnotationStoreArgs {
     /**
      * File parsing options for the annotation store.
      */
-    storeOptions?: pulumi.Input<inputs.omics.AnnotationStoreStoreOptionsPropertiesArgs>;
+    storeOptions?: pulumi.Input<inputs.omics.AnnotationStoreStoreOptionsPropertiesArgs | undefined>;
     /**
      * Tags for the store.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

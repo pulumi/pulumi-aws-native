@@ -185,17 +185,17 @@ export interface CollaborationArgs {
     /**
      * The AWS Regions where collaboration query results can be stored. Returns the list of Region identifiers that were specified when the collaboration was created. This list is used to enforce regional storage policies and compliance requirements.
      */
-    allowedResultRegions?: pulumi.Input<pulumi.Input<enums.cleanrooms.CollaborationSupportedS3Region>[]>;
+    allowedResultRegions?: pulumi.Input<pulumi.Input<enums.cleanrooms.CollaborationSupportedS3Region>[] | undefined>;
     /**
      * The analytics engine for the collaboration.
      *
      * > After July 16, 2025, the `CLEAN_ROOMS_SQL` parameter will no longer be available.
      */
-    analyticsEngine?: pulumi.Input<enums.cleanrooms.CollaborationAnalyticsEngine>;
+    analyticsEngine?: pulumi.Input<enums.cleanrooms.CollaborationAnalyticsEngine | undefined>;
     /**
      * The types of change requests that are automatically approved for this collaboration.
      */
-    autoApprovedChangeTypes?: pulumi.Input<pulumi.Input<enums.cleanrooms.CollaborationAutoApprovedChangeType>[]>;
+    autoApprovedChangeTypes?: pulumi.Input<pulumi.Input<enums.cleanrooms.CollaborationAutoApprovedChangeType>[] | undefined>;
     /**
      * A display name of the collaboration creator.
      */
@@ -205,38 +205,38 @@ export interface CollaborationArgs {
      *
      * *Allowed values* `CAN_QUERY` | `CAN_RECEIVE_RESULTS` | `CAN_RUN_JOB`
      */
-    creatorMemberAbilities?: pulumi.Input<pulumi.Input<enums.cleanrooms.CollaborationMemberAbility>[]>;
+    creatorMemberAbilities?: pulumi.Input<pulumi.Input<enums.cleanrooms.CollaborationMemberAbility>[] | undefined>;
     /**
      * The ML member abilities for a collaboration member.
      */
-    creatorMlMemberAbilities?: pulumi.Input<inputs.cleanrooms.CollaborationMlMemberAbilitiesArgs>;
+    creatorMlMemberAbilities?: pulumi.Input<inputs.cleanrooms.CollaborationMlMemberAbilitiesArgs | undefined>;
     /**
      * An object representing the collaboration member's payment responsibilities set by the collaboration creator.
      */
-    creatorPaymentConfiguration?: pulumi.Input<inputs.cleanrooms.CollaborationPaymentConfigurationArgs>;
+    creatorPaymentConfiguration?: pulumi.Input<inputs.cleanrooms.CollaborationPaymentConfigurationArgs | undefined>;
     /**
      * The settings for client-side encryption for cryptographic computing.
      */
-    dataEncryptionMetadata?: pulumi.Input<inputs.cleanrooms.CollaborationDataEncryptionMetadataArgs>;
+    dataEncryptionMetadata?: pulumi.Input<inputs.cleanrooms.CollaborationDataEncryptionMetadataArgs | undefined>;
     /**
      * A description of the collaboration provided by the collaboration owner.
      */
     description: pulumi.Input<string>;
-    isMetricsEnabled?: pulumi.Input<boolean>;
+    isMetricsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * An indicator as to whether job logging has been enabled or disabled for the collaboration.
      *
      * When `ENABLED` , AWS Clean Rooms logs details about jobs run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED` .
      */
-    jobLogStatus?: pulumi.Input<enums.cleanrooms.CollaborationJobLogStatus>;
+    jobLogStatus?: pulumi.Input<enums.cleanrooms.CollaborationJobLogStatus | undefined>;
     /**
      * A list of initial members, not including the creator. This list is immutable.
      */
-    members?: pulumi.Input<pulumi.Input<inputs.cleanrooms.CollaborationMemberSpecificationArgs>[]>;
+    members?: pulumi.Input<pulumi.Input<inputs.cleanrooms.CollaborationMemberSpecificationArgs>[] | undefined>;
     /**
      * A human-readable identifier provided by the collaboration owner. Display names are not unique.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * An indicator as to whether query logging has been enabled or disabled for the collaboration.
      *
@@ -246,5 +246,5 @@ export interface CollaborationArgs {
     /**
      * An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

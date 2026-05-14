@@ -206,69 +206,69 @@ export interface OdbNetworkArgs {
     /**
      * The AWS Availability Zone (AZ) where the ODB network is located.
      */
-    availabilityZone?: pulumi.Input<string>;
+    availabilityZone?: pulumi.Input<string | undefined>;
     /**
      * The AZ ID of the AZ where the ODB network is located.
      */
-    availabilityZoneId?: pulumi.Input<string>;
+    availabilityZoneId?: pulumi.Input<string | undefined>;
     /**
      * The CIDR range of the backup subnet in the ODB network.
      */
-    backupSubnetCidr?: pulumi.Input<string>;
+    backupSubnetCidr?: pulumi.Input<string | undefined>;
     /**
      * The CIDR range of the client subnet in the ODB network.
      */
-    clientSubnetCidr?: pulumi.Input<string>;
+    clientSubnetCidr?: pulumi.Input<string | undefined>;
     /**
      * The cross-Region Amazon S3 restore sources for the ODB network.
      */
-    crossRegionS3RestoreSources?: pulumi.Input<pulumi.Input<string>[]>;
+    crossRegionS3RestoreSources?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The domain name to use for the resources in the ODB network.
      */
-    customDomainName?: pulumi.Input<string>;
+    customDomainName?: pulumi.Input<string | undefined>;
     /**
      * The DNS prefix to the default DNS domain name. The default DNS domain name is oraclevcn.com.
      */
-    defaultDnsPrefix?: pulumi.Input<string>;
+    defaultDnsPrefix?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether to delete associated OCI networking resources along with the ODB network.
      */
-    deleteAssociatedResources?: pulumi.Input<boolean>;
+    deleteAssociatedResources?: pulumi.Input<boolean | undefined>;
     /**
      * The user-friendly name of the ODB network.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The AWS Key Management Service (KMS) access configuration for the ODB network.
      */
-    kmsAccess?: pulumi.Input<enums.odb.OdbNetworkKmsAccess>;
+    kmsAccess?: pulumi.Input<enums.odb.OdbNetworkKmsAccess | undefined>;
     /**
      * The AWS Key Management Service (KMS) policy document that defines permissions for key usage within the ODB network.
      */
-    kmsPolicyDocument?: pulumi.Input<string>;
+    kmsPolicyDocument?: pulumi.Input<string | undefined>;
     /**
      * Specifies the configuration for Amazon S3 access from the ODB network.
      */
-    s3Access?: pulumi.Input<enums.odb.OdbNetworkS3Access>;
+    s3Access?: pulumi.Input<enums.odb.OdbNetworkS3Access | undefined>;
     /**
      * Specifies the endpoint policy for Amazon S3 access from the ODB network.
      */
-    s3PolicyDocument?: pulumi.Input<string>;
+    s3PolicyDocument?: pulumi.Input<string | undefined>;
     /**
      * The AWS Security Token Service (STS) access configuration for the ODB network.
      */
-    stsAccess?: pulumi.Input<enums.odb.OdbNetworkStsAccess>;
+    stsAccess?: pulumi.Input<enums.odb.OdbNetworkStsAccess | undefined>;
     /**
      * The AWS Security Token Service (STS) policy document that defines permissions for token service usage within the ODB network.
      */
-    stsPolicyDocument?: pulumi.Input<string>;
+    stsPolicyDocument?: pulumi.Input<string | undefined>;
     /**
      * Tags to assign to the Odb Network.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * Specifies the configuration for Zero-ETL access from the ODB network.
      */
-    zeroEtlAccess?: pulumi.Input<enums.odb.OdbNetworkZeroEtlAccess>;
+    zeroEtlAccess?: pulumi.Input<enums.odb.OdbNetworkZeroEtlAccess | undefined>;
 }

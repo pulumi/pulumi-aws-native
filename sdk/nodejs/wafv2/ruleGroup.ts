@@ -168,7 +168,7 @@ export interface RuleGroupArgs {
     /**
      * Collection of Available Labels.
      */
-    availableLabels?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupLabelSummaryArgs>[]>;
+    availableLabels?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupLabelSummaryArgs>[] | undefined>;
     /**
      * The web ACL capacity units (WCUs) required for this rule group.
      *
@@ -180,7 +180,7 @@ export interface RuleGroupArgs {
     /**
      * Collection of Consumed Labels.
      */
-    consumedLabels?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupLabelSummaryArgs>[]>;
+    consumedLabels?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupLabelSummaryArgs>[] | undefined>;
     /**
      * A map of custom response keys and content bodies. When you create a rule with a block action, you can send a custom response to the web request. You define these for the rule group, and then use them in the rules that you define in the rule group.
      *
@@ -188,19 +188,19 @@ export interface RuleGroupArgs {
      *
      * For information about the limits on count and size for custom request and response settings, see [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) in the *AWS WAF Developer Guide* .
      */
-    customResponseBodies?: pulumi.Input<{[key: string]: pulumi.Input<inputs.wafv2.RuleGroupCustomResponseBodyArgs>}>;
+    customResponseBodies?: pulumi.Input<{[key: string]: pulumi.Input<inputs.wafv2.RuleGroupCustomResponseBodyArgs>} | undefined>;
     /**
      * A description of the rule group that helps with identification.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the rule group. You cannot change the name of a rule group after you create it.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Collection of Rules.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleArgs>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleArgs>[] | undefined>;
     /**
      * Specifies whether this is for an Amazon CloudFront distribution or for a regional application. For an AWS Amplify application, use `CLOUDFRONT` . A regional application can be an Application Load Balancer (ALB), an  REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
      *
@@ -212,7 +212,7 @@ export interface RuleGroupArgs {
      *
      * > To modify tags on existing resources, use the AWS WAF APIs or command line interface. With AWS CloudFormation , you can only add tags to AWS WAF resources during resource creation.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * Defines and enables Amazon CloudWatch metrics and web request sample collection.
      */

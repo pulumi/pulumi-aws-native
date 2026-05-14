@@ -110,17 +110,17 @@ export interface MailManagerArchiveArgs {
     /**
      * A unique name for the new archive.
      */
-    archiveName?: pulumi.Input<string>;
+    archiveName?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the KMS key for encrypting emails in the archive.
      */
-    kmsKeyArn?: pulumi.Input<string>;
+    kmsKeyArn?: pulumi.Input<string | undefined>;
     /**
      * The period for retaining emails in the archive before automatic deletion.
      */
-    retention?: pulumi.Input<inputs.ses.MailManagerArchiveArchiveRetentionPropertiesArgs>;
+    retention?: pulumi.Input<inputs.ses.MailManagerArchiveArchiveRetentionPropertiesArgs | undefined>;
     /**
      * The tags used to organize, track, or control access for the resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

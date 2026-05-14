@@ -134,7 +134,7 @@ export interface EventTriggerArgs {
     /**
      * The description of the event trigger.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The unique name of the domain.
      */
@@ -146,11 +146,11 @@ export interface EventTriggerArgs {
     /**
      * Defines limits controlling whether an event triggers the destination, based on ingestion latency and the number of invocations per profile over specific time periods.
      */
-    eventTriggerLimits?: pulumi.Input<inputs.customerprofiles.EventTriggerLimitsArgs>;
+    eventTriggerLimits?: pulumi.Input<inputs.customerprofiles.EventTriggerLimitsArgs | undefined>;
     /**
      * The unique name of the event trigger.
      */
-    eventTriggerName?: pulumi.Input<string>;
+    eventTriggerName?: pulumi.Input<string | undefined>;
     /**
      * The unique name of the object type.
      */
@@ -158,9 +158,9 @@ export interface EventTriggerArgs {
     /**
      * The destination is triggered only for profiles that meet the criteria of a segment definition.
      */
-    segmentFilter?: pulumi.Input<string>;
+    segmentFilter?: pulumi.Input<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

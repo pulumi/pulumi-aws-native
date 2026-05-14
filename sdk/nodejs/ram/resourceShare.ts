@@ -199,15 +199,15 @@ export interface ResourceShareArgs {
     /**
      * Specifies whether principals outside your organization in AWS Organizations can be associated with a resource share. A value of `true` lets you share with individual AWS accounts that are not in your organization. A value of `false` only has meaning if your account is a member of an AWS Organization. The default value is `true`.
      */
-    allowExternalPrincipals?: pulumi.Input<boolean>;
+    allowExternalPrincipals?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the name of the resource share.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the AWS RAM permission to associate with the resource share. If you do not specify an ARN for the permission, AWS RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
      */
-    permissionArns?: pulumi.Input<pulumi.Input<string>[]>;
+    permissionArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the principals to associate with the resource share. The possible values are:
      *
@@ -221,17 +221,17 @@ export interface ResourceShareArgs {
      *
      * - An ARN of an IAM user
      */
-    principals?: pulumi.Input<pulumi.Input<string>[]>;
+    principals?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies a list of one or more ARNs of the resources to associate with the resource share.
      */
-    resourceArns?: pulumi.Input<pulumi.Input<string>[]>;
+    resourceArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies from which source accounts the service principal has access to the resources in this resource share.
      */
-    sources?: pulumi.Input<pulumi.Input<string>[]>;
+    sources?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies one or more tags to attach to the resource share itself. It doesn't attach the tags to the resources associated with the resource share.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

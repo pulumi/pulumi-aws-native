@@ -123,20 +123,20 @@ export interface DetectorModelArgs {
     /**
      * A brief description of the detector model.
      */
-    detectorModelDescription?: pulumi.Input<string>;
+    detectorModelDescription?: pulumi.Input<string | undefined>;
     /**
      * The name of the detector model.
      */
-    detectorModelName?: pulumi.Input<string>;
+    detectorModelName?: pulumi.Input<string | undefined>;
     /**
      * Information about the order in which events are evaluated and how actions are executed.
      */
-    evaluationMethod?: pulumi.Input<enums.iotevents.DetectorModelEvaluationMethod>;
+    evaluationMethod?: pulumi.Input<enums.iotevents.DetectorModelEvaluationMethod | undefined>;
     /**
      * The value used to identify a detector instance. When a device or system sends input, a new detector instance with a unique key value is created. ITE can continue to route input to its corresponding detector instance based on this identifying information. 
      *  This parameter uses a JSON-path expression to select the attribute-value pair in the message payload that is used for identification. To route the message to the correct detector instance, the device must send a message payload that contains the same attribute-value.
      */
-    key?: pulumi.Input<string>;
+    key?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the role that grants permission to ITE to perform its operations.
      */
@@ -145,5 +145,5 @@ export interface DetectorModelArgs {
      * An array of key-value pairs to apply to this resource.
      *  For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

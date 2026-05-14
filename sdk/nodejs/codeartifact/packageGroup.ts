@@ -119,11 +119,11 @@ export interface PackageGroupArgs {
     /**
      * The contact info of the package group.
      */
-    contactInfo?: pulumi.Input<string>;
+    contactInfo?: pulumi.Input<string | undefined>;
     /**
      * The text description of the package group.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the domain that contains the package group.
      */
@@ -131,11 +131,11 @@ export interface PackageGroupArgs {
     /**
      * The 12-digit account ID of the AWS account that owns the domain.
      */
-    domainOwner?: pulumi.Input<string>;
+    domainOwner?: pulumi.Input<string | undefined>;
     /**
      * The package origin configuration of the package group.
      */
-    originConfiguration?: pulumi.Input<inputs.codeartifact.PackageGroupOriginConfigurationArgs>;
+    originConfiguration?: pulumi.Input<inputs.codeartifact.PackageGroupOriginConfigurationArgs | undefined>;
     /**
      * The package group pattern that is used to gather packages.
      */
@@ -143,5 +143,5 @@ export interface PackageGroupArgs {
     /**
      * An array of key-value pairs to apply to the package group.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

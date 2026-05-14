@@ -104,19 +104,19 @@ export interface S3AccessPointAttachmentArgs {
     /**
      * The name of the S3 access point attachment; also used for the name of the S3 access point.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The OntapConfiguration of the S3 access point attachment.
      */
-    ontapConfiguration?: pulumi.Input<inputs.fsx.S3AccessPointAttachmentS3AccessPointOntapConfigurationArgs>;
+    ontapConfiguration?: pulumi.Input<inputs.fsx.S3AccessPointAttachmentS3AccessPointOntapConfigurationArgs | undefined>;
     /**
      * The OpenZFSConfiguration of the S3 access point attachment.
      */
-    openZfsConfiguration?: pulumi.Input<inputs.fsx.S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationArgs>;
+    openZfsConfiguration?: pulumi.Input<inputs.fsx.S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationArgs | undefined>;
     /**
      * The S3 access point configuration of the S3 access point attachment.
      */
-    s3AccessPoint?: pulumi.Input<inputs.fsx.S3AccessPointAttachmentS3AccessPointArgs>;
+    s3AccessPoint?: pulumi.Input<inputs.fsx.S3AccessPointAttachmentS3AccessPointArgs | undefined>;
     /**
      * The type of Amazon FSx volume that the S3 access point is attached to.
      */

@@ -121,7 +121,7 @@ export interface TermsArgs {
     /**
      * The ID of the app client that the terms documents are assigned to.
      */
-    clientId?: pulumi.Input<string>;
+    clientId?: pulumi.Input<string | undefined>;
     /**
      * This parameter is reserved for future use and currently accepts one value.
      */
@@ -135,7 +135,7 @@ export interface TermsArgs {
     /**
      * The type and friendly name of the terms documents.
      */
-    termsName?: pulumi.Input<string>;
+    termsName?: pulumi.Input<string | undefined>;
     /**
      * This parameter is reserved for future use and currently accepts one value.
      */

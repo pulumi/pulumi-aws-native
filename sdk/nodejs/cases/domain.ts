@@ -101,9 +101,9 @@ export interface DomainArgs {
     /**
      * The name for your Cases domain. It must be unique for your AWS account.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The tags that you attach to this domain.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

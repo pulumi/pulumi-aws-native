@@ -140,7 +140,7 @@ export interface IntelligentPromptRouterArgs {
     /**
      * Description of the Prompt Router.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The default model to use when the routing criteria is not met.
      */
@@ -152,7 +152,7 @@ export interface IntelligentPromptRouterArgs {
     /**
      * Name of the Prompt Router.
      */
-    promptRouterName?: pulumi.Input<string>;
+    promptRouterName?: pulumi.Input<string | undefined>;
     /**
      * Routing criteria for a prompt router.
      */
@@ -160,5 +160,5 @@ export interface IntelligentPromptRouterArgs {
     /**
      * List of Tags
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

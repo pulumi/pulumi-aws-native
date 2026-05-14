@@ -104,15 +104,15 @@ export class CollectionGroup extends pulumi.CustomResource {
  * The set of arguments for constructing a CollectionGroup resource.
  */
 export interface CollectionGroupArgs {
-    capacityLimits?: pulumi.Input<inputs.opensearchserverless.CollectionGroupCapacityLimitsArgs>;
+    capacityLimits?: pulumi.Input<inputs.opensearchserverless.CollectionGroupCapacityLimitsArgs | undefined>;
     /**
      * The description of the collection group.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the collection group.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether standby replicas are used for the collection group.
      */
@@ -120,5 +120,5 @@ export interface CollectionGroupArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

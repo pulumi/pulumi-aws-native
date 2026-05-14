@@ -128,7 +128,7 @@ export interface AutomatedReasoningPolicyVersionArgs {
     /**
      * The hash of the policy definition that was last updated.
      */
-    lastUpdatedDefinitionHash?: pulumi.Input<string>;
+    lastUpdatedDefinitionHash?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the policy.
      */
@@ -136,5 +136,5 @@ export interface AutomatedReasoningPolicyVersionArgs {
     /**
      * The tags associated with the Automated Reasoning policy version.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[] | undefined>;
 }

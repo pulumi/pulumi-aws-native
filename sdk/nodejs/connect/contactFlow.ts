@@ -147,7 +147,7 @@ export interface ContactFlowArgs {
     /**
      * The description of the contact flow.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The identifier of the Amazon Connect instance (ARN).
      */
@@ -155,15 +155,15 @@ export interface ContactFlowArgs {
     /**
      * The name of the contact flow.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The state of the contact flow.
      */
-    state?: pulumi.Input<enums.connect.ContactFlowState>;
+    state?: pulumi.Input<enums.connect.ContactFlowState | undefined>;
     /**
      * One or more tags.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The type of the contact flow.
      */

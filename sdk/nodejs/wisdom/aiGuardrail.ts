@@ -170,33 +170,33 @@ export interface AiGuardrailArgs {
     /**
      * Contains details about how to handle harmful content.
      */
-    contentPolicyConfig?: pulumi.Input<inputs.wisdom.AiGuardrailAiGuardrailContentPolicyConfigArgs>;
+    contentPolicyConfig?: pulumi.Input<inputs.wisdom.AiGuardrailAiGuardrailContentPolicyConfigArgs | undefined>;
     /**
      * The policy configuration details for the AI Guardrail's contextual grounding policy.
      */
-    contextualGroundingPolicyConfig?: pulumi.Input<inputs.wisdom.AiGuardrailAiGuardrailContextualGroundingPolicyConfigArgs>;
+    contextualGroundingPolicyConfig?: pulumi.Input<inputs.wisdom.AiGuardrailAiGuardrailContextualGroundingPolicyConfigArgs | undefined>;
     /**
      * Description of the guardrail or its version
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the AI Guardrail.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Contains details about PII entities and regular expressions to configure for the AI Guardrail.
      */
-    sensitiveInformationPolicyConfig?: pulumi.Input<inputs.wisdom.AiGuardrailAiGuardrailSensitiveInformationPolicyConfigArgs>;
+    sensitiveInformationPolicyConfig?: pulumi.Input<inputs.wisdom.AiGuardrailAiGuardrailSensitiveInformationPolicyConfigArgs | undefined>;
     /**
      * The tags used to organize, track, or control access for this resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Contains details about topics that the AI Guardrail should identify and deny.
      */
-    topicPolicyConfig?: pulumi.Input<inputs.wisdom.AiGuardrailAiGuardrailTopicPolicyConfigArgs>;
+    topicPolicyConfig?: pulumi.Input<inputs.wisdom.AiGuardrailAiGuardrailTopicPolicyConfigArgs | undefined>;
     /**
      * Contains details about the word policy to configured for the AI Guardrail.
      */
-    wordPolicyConfig?: pulumi.Input<inputs.wisdom.AiGuardrailAiGuardrailWordPolicyConfigArgs>;
+    wordPolicyConfig?: pulumi.Input<inputs.wisdom.AiGuardrailAiGuardrailWordPolicyConfigArgs | undefined>;
 }

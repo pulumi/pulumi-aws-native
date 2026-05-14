@@ -107,5 +107,5 @@ export interface PermissionArgs {
     /**
      * The ID of the calling account.
      */
-    sourceAccount?: pulumi.Input<string>;
+    sourceAccount?: pulumi.Input<string | undefined>;
 }

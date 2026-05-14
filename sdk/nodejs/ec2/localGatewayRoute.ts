@@ -98,17 +98,17 @@ export interface LocalGatewayRouteArgs {
     /**
      * The CIDR block used for destination matches.
      */
-    destinationCidrBlock?: pulumi.Input<string>;
+    destinationCidrBlock?: pulumi.Input<string | undefined>;
     /**
      * The ID of the local gateway route table.
      */
-    localGatewayRouteTableId?: pulumi.Input<string>;
+    localGatewayRouteTableId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the virtual interface group.
      */
-    localGatewayVirtualInterfaceGroupId?: pulumi.Input<string>;
+    localGatewayVirtualInterfaceGroupId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the network interface.
      */
-    networkInterfaceId?: pulumi.Input<string>;
+    networkInterfaceId?: pulumi.Input<string | undefined>;
 }

@@ -99,7 +99,7 @@ export interface TargetAccountConfigurationArgs {
     /**
      * The description of the target account.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The ID of the experiment template.
      */

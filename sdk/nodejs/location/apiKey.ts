@@ -151,11 +151,11 @@ export interface ApiKeyArgs {
     /**
      * Updates the description for the API key resource.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The optional timestamp for when the API key resource will expire in [ISO 8601 format](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) .
      */
-    expireTime?: pulumi.Input<string>;
+    expireTime?: pulumi.Input<string | undefined>;
     /**
      * ForceDelete bypasses an API key's expiry conditions and deletes the key. Set the parameter `true` to delete the key or to `false` to not preemptively delete the API key.
      *
@@ -163,12 +163,12 @@ export interface ApiKeyArgs {
      *
      * > This action is irreversible. Only use ForceDelete if you are certain the key is no longer in use.
      */
-    forceDelete?: pulumi.Input<boolean>;
+    forceDelete?: pulumi.Input<boolean | undefined>;
     /**
      * The boolean flag to be included for updating `ExpireTime` or Restrictions details.
      * Must be set to `true` to update an API key resource that has been used in the past 7 days. `False` if force update is not preferred.
      */
-    forceUpdate?: pulumi.Input<boolean>;
+    forceUpdate?: pulumi.Input<boolean | undefined>;
     /**
      * A custom name for the API key resource.
      *
@@ -178,11 +178,11 @@ export interface ApiKeyArgs {
      * - Must be a unique API key name.
      * - No spaces allowed. For example, `ExampleAPIKey` .
      */
-    keyName?: pulumi.Input<string>;
+    keyName?: pulumi.Input<string | undefined>;
     /**
      * Whether the API key should expire. Set to `true` to set the API key to have no expiration time.
      */
-    noExpiry?: pulumi.Input<boolean>;
+    noExpiry?: pulumi.Input<boolean | undefined>;
     /**
      * The API key restrictions for the API key resource.
      */
@@ -190,5 +190,5 @@ export interface ApiKeyArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

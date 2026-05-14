@@ -123,21 +123,21 @@ export interface DashboardArgs {
     /**
      * The name of the dashboard.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Configures the automatic refresh schedule for the dashboard. Includes the frequency unit (DAYS or HOURS) and value, as well as the status (ENABLED or DISABLED) of the refresh schedule.
      */
-    refreshSchedule?: pulumi.Input<inputs.cloudtrail.DashboardRefreshScheduleArgs>;
+    refreshSchedule?: pulumi.Input<inputs.cloudtrail.DashboardRefreshScheduleArgs | undefined>;
     /**
      * A list of tags.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * Indicates whether the dashboard is protected from termination.
      */
-    terminationProtectionEnabled?: pulumi.Input<boolean>;
+    terminationProtectionEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * List of widgets on the dashboard
      */
-    widgets?: pulumi.Input<pulumi.Input<inputs.cloudtrail.DashboardWidgetArgs>[]>;
+    widgets?: pulumi.Input<pulumi.Input<inputs.cloudtrail.DashboardWidgetArgs>[] | undefined>;
 }

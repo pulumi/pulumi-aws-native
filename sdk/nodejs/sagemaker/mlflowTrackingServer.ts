@@ -129,11 +129,11 @@ export interface MlflowTrackingServerArgs {
     /**
      * A flag to enable Automatic SageMaker Model Registration.
      */
-    automaticModelRegistration?: pulumi.Input<boolean>;
+    automaticModelRegistration?: pulumi.Input<boolean | undefined>;
     /**
      * The MLFlow Version used on the MLFlow Tracking Server.
      */
-    mlflowVersion?: pulumi.Input<string>;
+    mlflowVersion?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on behalf of the customer.
      */
@@ -141,17 +141,17 @@ export interface MlflowTrackingServerArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The name of the MLFlow Tracking Server.
      */
-    trackingServerName?: pulumi.Input<string>;
+    trackingServerName?: pulumi.Input<string | undefined>;
     /**
      * The size of the MLFlow Tracking Server.
      */
-    trackingServerSize?: pulumi.Input<enums.sagemaker.MlflowTrackingServerTrackingServerSize>;
+    trackingServerSize?: pulumi.Input<enums.sagemaker.MlflowTrackingServerTrackingServerSize | undefined>;
     /**
      * The start of the time window for maintenance of the MLFlow Tracking Server in UTC time.
      */
-    weeklyMaintenanceWindowStart?: pulumi.Input<string>;
+    weeklyMaintenanceWindowStart?: pulumi.Input<string | undefined>;
 }

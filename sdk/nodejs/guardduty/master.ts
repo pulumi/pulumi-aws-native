@@ -90,7 +90,7 @@ export interface MasterArgs {
     /**
      * Value used to validate the master account to the member account.
      */
-    invitationId?: pulumi.Input<string>;
+    invitationId?: pulumi.Input<string | undefined>;
     /**
      * ID of the account used as the master account.
      */

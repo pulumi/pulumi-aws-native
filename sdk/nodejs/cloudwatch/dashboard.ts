@@ -81,5 +81,5 @@ export interface DashboardArgs {
     /**
      * The name of the dashboard. The name must be between 1 and 255 characters. If you do not specify a name, one will be generated automatically.
      */
-    dashboardName?: pulumi.Input<string>;
+    dashboardName?: pulumi.Input<string | undefined>;
 }

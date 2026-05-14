@@ -143,39 +143,39 @@ export interface VpcCidrBlockArgs {
     /**
      * Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IPv6 addresses, or the size of the CIDR block.
      */
-    amazonProvidedIpv6CidrBlock?: pulumi.Input<boolean>;
+    amazonProvidedIpv6CidrBlock?: pulumi.Input<boolean | undefined>;
     /**
      * An IPv4 CIDR block to associate with the VPC.
      */
-    cidrBlock?: pulumi.Input<string>;
+    cidrBlock?: pulumi.Input<string | undefined>;
     /**
      * The ID of the IPv4 IPAM pool to Associate a CIDR from to a VPC.
      */
-    ipv4IpamPoolId?: pulumi.Input<string>;
+    ipv4IpamPoolId?: pulumi.Input<string | undefined>;
     /**
      * The netmask length of the IPv4 CIDR you would like to associate from an Amazon VPC IP Address Manager (IPAM) pool.
      */
-    ipv4NetmaskLength?: pulumi.Input<number>;
+    ipv4NetmaskLength?: pulumi.Input<number | undefined>;
     /**
      * An IPv6 CIDR block from the IPv6 address pool.
      */
-    ipv6CidrBlock?: pulumi.Input<string>;
+    ipv6CidrBlock?: pulumi.Input<string | undefined>;
     /**
      * The name of the location from which we advertise the IPV6 CIDR block.
      */
-    ipv6CidrBlockNetworkBorderGroup?: pulumi.Input<string>;
+    ipv6CidrBlockNetworkBorderGroup?: pulumi.Input<string | undefined>;
     /**
      * The ID of the IPv6 IPAM pool to Associate a CIDR from to a VPC.
      */
-    ipv6IpamPoolId?: pulumi.Input<string>;
+    ipv6IpamPoolId?: pulumi.Input<string | undefined>;
     /**
      * The netmask length of the IPv6 CIDR you would like to associate from an Amazon VPC IP Address Manager (IPAM) pool.
      */
-    ipv6NetmaskLength?: pulumi.Input<number>;
+    ipv6NetmaskLength?: pulumi.Input<number | undefined>;
     /**
      * The ID of an IPv6 address pool from which to allocate the IPv6 CIDR block.
      */
-    ipv6Pool?: pulumi.Input<string>;
+    ipv6Pool?: pulumi.Input<string | undefined>;
     /**
      * The ID of the VPC.
      */

@@ -143,7 +143,7 @@ export interface DbParameterGroupArgs {
      *  If you don't specify a value for ``DBParameterGroupName`` property, a name is automatically created for the DB parameter group.
      *   This value is stored as a lowercase string.
      */
-    dbParameterGroupName?: pulumi.Input<string>;
+    dbParameterGroupName?: pulumi.Input<string | undefined>;
     /**
      * Provides the customer-specified description for this DB parameter group.
      */
@@ -179,9 +179,9 @@ export interface DbParameterGroupArgs {
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RDS::DBParameterGroup` for more information about the expected schema for this property.
      */
-    parameters?: any;
+    parameters?: any | undefined;
     /**
      * Tags to assign to the DB parameter group.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

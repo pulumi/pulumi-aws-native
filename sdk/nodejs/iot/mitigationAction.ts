@@ -107,7 +107,7 @@ export interface MitigationActionArgs {
     /**
      * A unique identifier for the mitigation action.
      */
-    actionName?: pulumi.Input<string>;
+    actionName?: pulumi.Input<string | undefined>;
     /**
      * The set of parameters for this mitigation action. The parameters vary, depending on the kind of action you apply.
      */
@@ -119,5 +119,5 @@ export interface MitigationActionArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

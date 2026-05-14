@@ -146,7 +146,7 @@ export interface PrivateVirtualInterfaceArgs {
     /**
      * The Amazon Resource Name (ARN) of the role to allocate the private virtual interface. Needs directconnect:AllocatePrivateVirtualInterface permissions and tag permissions if applicable.
      */
-    allocatePrivateVirtualInterfaceRoleArn?: pulumi.Input<string>;
+    allocatePrivateVirtualInterfaceRoleArn?: pulumi.Input<string | undefined>;
     /**
      * The BGP peers configured on this virtual interface.
      */
@@ -158,27 +158,27 @@ export interface PrivateVirtualInterfaceArgs {
     /**
      * The ID or ARN of the Direct Connect gateway.
      */
-    directConnectGatewayId?: pulumi.Input<string>;
+    directConnectGatewayId?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether to enable or disable SiteLink.
      */
-    enableSiteLink?: pulumi.Input<boolean>;
+    enableSiteLink?: pulumi.Input<boolean | undefined>;
     /**
      * The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.
      */
-    mtu?: pulumi.Input<number>;
+    mtu?: pulumi.Input<number | undefined>;
     /**
      * The tags associated with the private virtual interface.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The ID or ARN of the virtual private gateway.
      */
-    virtualGatewayId?: pulumi.Input<string>;
+    virtualGatewayId?: pulumi.Input<string | undefined>;
     /**
      * The name of the virtual interface assigned by the customer network. The name has a maximum of 100 characters. The following are valid characters: a-z, 0-9 and a hyphen (-).
      */
-    virtualInterfaceName?: pulumi.Input<string>;
+    virtualInterfaceName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the VLAN.
      */

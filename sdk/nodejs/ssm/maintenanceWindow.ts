@@ -191,7 +191,7 @@ export interface MaintenanceWindowArgs {
     /**
      * A description of the maintenance window.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The duration of the maintenance window in hours.
      */
@@ -199,11 +199,11 @@ export interface MaintenanceWindowArgs {
     /**
      * The date and time, in ISO-8601 Extended format, for when the maintenance window is scheduled to become inactive.
      */
-    endDate?: pulumi.Input<string>;
+    endDate?: pulumi.Input<string | undefined>;
     /**
      * The name of the maintenance window.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The schedule of the maintenance window in the form of a cron or rate expression.
      */
@@ -211,17 +211,17 @@ export interface MaintenanceWindowArgs {
     /**
      * The number of days to wait to run a maintenance window after the scheduled cron expression date and time.
      */
-    scheduleOffset?: pulumi.Input<number>;
+    scheduleOffset?: pulumi.Input<number | undefined>;
     /**
      * The time zone that the scheduled maintenance window executions are based on, in Internet Assigned Numbers Authority (IANA) format.
      */
-    scheduleTimezone?: pulumi.Input<string>;
+    scheduleTimezone?: pulumi.Input<string | undefined>;
     /**
      * The date and time, in ISO-8601 Extended format, for when the maintenance window is scheduled to become active. StartDate allows you to delay activation of the maintenance window until the specified future date.
      */
-    startDate?: pulumi.Input<string>;
+    startDate?: pulumi.Input<string | undefined>;
     /**
      * Optional metadata that you assign to a resource in the form of an arbitrary set of tags (key-value pairs). Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag a maintenance window to identify the type of tasks it will run, the types of targets, and the environment it will run in.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

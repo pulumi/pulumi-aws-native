@@ -186,7 +186,7 @@ export interface ResolverEndpointArgs {
     /**
      * Specifies whether DNS64 is enabled for the Inbound Resolver Endpoint. When set to true, if a DNS AAAA query is made for a domain that has only an A (IPv4) record, the resolver automatically synthesizes an AAAA (IPv6) response by embedding the IPv4 address into the well-known prefix 64:ff9b::/96. Default is false.
      */
-    dns64Enabled?: pulumi.Input<boolean>;
+    dns64Enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The subnets and IP addresses in your VPC that DNS queries originate from (for outbound endpoints) or that you forward DNS queries to (for inbound endpoints). The subnet ID uniquely identifies a VPC.
      */
@@ -194,31 +194,31 @@ export interface ResolverEndpointArgs {
     /**
      * Specifies whether IPv6 Internet Gateway access is enabled through the Outbound Resolver Endpoint. When set to true, this property allows your Endpoint ENIs to reach public IPv6 target nameservers through an internet gateway. Default is false.
      */
-    ipv6InternetAccessEnabled?: pulumi.Input<boolean>;
+    ipv6InternetAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A friendly name that lets you easily find a configuration in the Resolver dashboard in the Route 53 console.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ARN (Amazon Resource Name) for the Outpost.
      */
-    outpostArn?: pulumi.Input<string>;
+    outpostArn?: pulumi.Input<string | undefined>;
     /**
      * The Amazon EC2 instance type.
      */
-    preferredInstanceType?: pulumi.Input<string>;
+    preferredInstanceType?: pulumi.Input<string | undefined>;
     /**
      * Protocols used for the endpoint. DoH-FIPS is applicable for inbound endpoints only.
      */
-    protocols?: pulumi.Input<pulumi.Input<string>[]>;
+    protocols?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The Resolver endpoint IP address type.
      */
-    resolverEndpointType?: pulumi.Input<enums.route53resolver.ResolverEndpointType>;
+    resolverEndpointType?: pulumi.Input<enums.route53resolver.ResolverEndpointType | undefined>;
     /**
      * Specifies whether RNI enhanced metrics are enabled for the Resolver Endpoints. When set to true, one-minute granular metrics are published in CloudWatch for each RNI associated with this endpoint. When set to false, metrics are not published. Default is false.
      */
-    rniEnhancedMetricsEnabled?: pulumi.Input<boolean>;
+    rniEnhancedMetricsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of one or more security groups that control access to this VPC. The security group must include one or more inbound rules (for inbound endpoints) or outbound rules (for outbound endpoints). Inbound and outbound rules must allow TCP and UDP access. For inbound access, open port 53. For outbound access, open the port that you're using for DNS queries on your network.
      */
@@ -226,9 +226,9 @@ export interface ResolverEndpointArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * Specifies whether target name server metrics are enabled for the Outbound Resolver Endpoint. When set to true, one-minute granular metrics are published in CloudWatch for each target name server associated with this endpoint. When set to false, metrics are not published. Default is false.
      */
-    targetNameServerMetricsEnabled?: pulumi.Input<boolean>;
+    targetNameServerMetricsEnabled?: pulumi.Input<boolean | undefined>;
 }

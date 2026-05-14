@@ -212,37 +212,37 @@ export interface GameSessionQueueArgs {
     /**
      * Information that is added to all events that are related to this game session queue.
      */
-    customEventData?: pulumi.Input<string>;
+    customEventData?: pulumi.Input<string | undefined>;
     /**
      * A list of fleets and/or fleet aliases that can be used to fulfill game session placement requests in the queue.
      */
-    destinations?: pulumi.Input<pulumi.Input<inputs.gamelift.GameSessionQueueDestinationArgs>[]>;
+    destinations?: pulumi.Input<pulumi.Input<inputs.gamelift.GameSessionQueueDestinationArgs>[] | undefined>;
     /**
      * A list of locations where a queue is allowed to place new game sessions.
      */
-    filterConfiguration?: pulumi.Input<inputs.gamelift.GameSessionQueueFilterConfigurationArgs>;
+    filterConfiguration?: pulumi.Input<inputs.gamelift.GameSessionQueueFilterConfigurationArgs | undefined>;
     /**
      * A descriptive label that is associated with game session queue. Queue names must be unique within each Region.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * An SNS topic ARN that is set up to receive game session placement notifications.
      */
-    notificationTarget?: pulumi.Input<string>;
+    notificationTarget?: pulumi.Input<string | undefined>;
     /**
      * A set of policies that act as a sliding cap on player latency.
      */
-    playerLatencyPolicies?: pulumi.Input<pulumi.Input<inputs.gamelift.GameSessionQueuePlayerLatencyPolicyArgs>[]>;
+    playerLatencyPolicies?: pulumi.Input<pulumi.Input<inputs.gamelift.GameSessionQueuePlayerLatencyPolicyArgs>[] | undefined>;
     /**
      * Custom settings to use when prioritizing destinations and locations for game session placements.
      */
-    priorityConfiguration?: pulumi.Input<inputs.gamelift.GameSessionQueuePriorityConfigurationArgs>;
+    priorityConfiguration?: pulumi.Input<inputs.gamelift.GameSessionQueuePriorityConfigurationArgs | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The maximum time, in seconds, that a new game session placement request remains in the queue.
      */
-    timeoutInSeconds?: pulumi.Input<number>;
+    timeoutInSeconds?: pulumi.Input<number | undefined>;
 }
