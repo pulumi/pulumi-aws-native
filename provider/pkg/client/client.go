@@ -165,7 +165,7 @@ func (c *clientImpl) List(
 		ctx, typeName, request.ResourceModel, request.NextToken, request.MaxResults)
 	if err != nil {
 		return nil, nil, fmt.Errorf("listing resources of type %s (resourceModel=%t, nextToken=%t, maxResults=%s): %w",
-			typeName, request.ResourceModel != nil, request.NextToken != nil, listMaxResultsForError(request.MaxResults), err)
+			typeName, request.ResourceModel != nil, request.NextToken != nil, FormatListMaxResults(request.MaxResults), err)
 	}
 	identifiers := make([]string, 0, len(descriptions))
 	for _, description := range descriptions {
@@ -178,8 +178,8 @@ func (c *clientImpl) List(
 	return identifiers, continuation, nil
 }
 
-// listMaxResultsForError formats an optional CloudControl MaxResults value for error messages.
-func listMaxResultsForError(maxResults *int32) string {
+// FormatListMaxResults formats an optional CloudControl MaxResults value.
+func FormatListMaxResults(maxResults *int32) string {
 	if maxResults == nil {
 		return "unset"
 	}

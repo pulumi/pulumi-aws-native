@@ -1334,7 +1334,8 @@ func (p *cfnProvider) List(req *pulumirpc.ListRequest, stream pulumirpc.Resource
 		listCtx, cancel := p.listContext(stream.Context())
 		defer cancel()
 		glog.V(9).Infof("%s.ListResources %q token %q resourceModel %t nextToken %t maxResults %s", p.name,
-			spec.CfType, token, resourceModel != nil, session.cloudControlNextToken != "", listMaxResultsForLog(maxResults))
+			spec.CfType, token, resourceModel != nil, session.cloudControlNextToken != "",
+			client.FormatListMaxResults(maxResults))
 		identifiers, continuation, err = p.ccc.List(listCtx, spec.CfType, client.ListRequest{
 			ResourceModel: resourceModel,
 			NextToken:     session.nextTokenPtr(),
@@ -1405,14 +1406,6 @@ func (p *cfnProvider) ensureListSessions() *listSessionStore {
 		p.listSessions = newListSessionStore(defaultListSessionTTL)
 	}
 	return p.listSessions
-}
-
-// listMaxResultsForLog formats an optional CloudControl MaxResults value for logs.
-func listMaxResultsForLog(maxResults *int32) string {
-	if maxResults == nil {
-		return "unset"
-	}
-	return fmt.Sprintf("%d", *maxResults)
 }
 
 // chunkListIdentifiers applies the provider RPC chunk size after CloudControl returns.
