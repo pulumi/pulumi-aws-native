@@ -1477,7 +1477,11 @@ func convertListQueryToCfn(
 	if len(query) == 0 {
 		return nil, nil
 	}
-	return naming.SdkToCfn(listSpec, types, resourcex.Decode(query))
+	cfnQuery, err := naming.SdkToCfn(listSpec, types, resourcex.Decode(query))
+	if err != nil {
+		return nil, status.Errorf(codes.InvalidArgument, "failed to convert List query: %v", err)
+	}
+	return cfnQuery, nil
 }
 
 // listQueryResourceSpec adapts generated List input metadata to the existing resource validation/conversion pipeline.
