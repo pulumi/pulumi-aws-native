@@ -19,6 +19,7 @@ import (
 	"bytes"
 	"compress/gzip"
 	"context"
+	"crypto/sha256"
 	"encoding/json"
 	"fmt"
 	"os"
@@ -27,6 +28,7 @@ import (
 	"runtime"
 	"strconv"
 	"strings"
+	"sync"
 	"time"
 
 	"github.com/aws/aws-sdk-go-v2/aws"
@@ -101,6 +103,8 @@ type cfnProvider struct {
 	partition           partition
 	resourceMap         *metadata.CloudAPIMetadata
 	roleArn             *string
+	listSessionsMu      sync.Mutex
+	listSessions        *listSessionStore
 	autoNamingConfig    *autonaming.ProviderAutoNamingConfig
 	allowedAccountIds   []string
 	forbiddenAccountIds []string
@@ -135,6 +139,7 @@ func NewAwsNativeProvider(host *provider.HostClient, name, version string,
 		name:           name,
 		version:        version,
 		resourceMap:    resourceMap,
+		listSessions:   newListSessionStore(defaultListSessionTTL),
 		pulumiSchema:   pulumiSchema,
 		transformCache: resources.NewTransformCache(),
 	}, nil
@@ -1236,6 +1241,293 @@ func (p *cfnProvider) Delete(ctx context.Context, req *pulumirpc.DeleteRequest) 
 	}
 
 	return &pbempty.Empty{}, nil
+}
+
+// cloudControlListMaxResultsLimit is the CloudControl ListResources MaxResults upper bound.
+// The provider clamps per-RPC page sizes to this API limit before calling CloudControl.
+const cloudControlListMaxResultsLimit int32 = 100
+
+// List streams resource identifiers for one provider resource type.
+func (p *cfnProvider) List(req *pulumirpc.ListRequest, stream pulumirpc.ResourceProvider_ListServer) error {
+	if req.GetLimit() < 0 {
+		return status.Error(codes.InvalidArgument, "limit must be >= 0")
+	}
+	if req.GetPageSize() < 0 {
+		return status.Error(codes.InvalidArgument, "page_size must be >= 0")
+	}
+	if req.GetPageSize() > int64(cloudControlListMaxResultsLimit) {
+		return status.Errorf(codes.InvalidArgument, "page_size must be <= %d", cloudControlListMaxResultsLimit)
+	}
+
+	token := req.GetToken()
+	if _, isCustom := p.customResources[token]; isCustom {
+		return status.Errorf(codes.Unimplemented, "resource type %s does not support List", token)
+	}
+	spec, ok := p.resourceMap.Resources[token]
+	if !ok {
+		return status.Errorf(codes.InvalidArgument, "resource type %s not found", token)
+	}
+	if !spec.HasListHandler {
+		return status.Errorf(codes.Unimplemented, "resource type %s does not support List", token)
+	}
+
+	query, err := unmarshalListQuery(req.GetQuery(), token)
+	if err != nil {
+		return err
+	}
+	if query.ContainsUnknowns() {
+		return stream.Send(&pulumirpc.ListResponse{
+			Response: &pulumirpc.ListResponse_Computed_{
+				Computed: &pulumirpc.ListResponse_Computed{},
+			},
+		})
+	}
+	query = filterNullProperties(query)
+
+	cfnQuery, err := convertListQueryToCfn(&spec, p.resourceMap.Types, query)
+	if err != nil {
+		return err
+	}
+
+	var resourceModel *string
+	if len(cfnQuery) > 0 {
+		payload, err := json.Marshal(cfnQuery)
+		if err != nil {
+			return status.Errorf(codes.InvalidArgument, "failed to serialize List query: %v", err)
+		}
+		s := string(payload)
+		resourceModel = &s
+	}
+
+	queryHash := listQueryHash(resourceModel)
+	var session *listSession
+	var providerContinuationToken string
+	var releaseSession func()
+	if req.GetContinuationToken() != "" {
+		session, releaseSession, err = p.ensureListSessions().get(
+			req.GetContinuationToken(), token, queryHash, req.GetLimit())
+		if err != nil {
+			return err
+		}
+		defer releaseSession()
+		providerContinuationToken = req.GetContinuationToken()
+	} else {
+		session = &listSession{
+			resourceToken: token,
+			queryHash:     queryHash,
+			limit:         req.GetLimit(),
+		}
+	}
+
+	remainingLimit := session.remainingLimit()
+	if remainingLimit != nil && *remainingLimit <= 0 {
+		if providerContinuationToken != "" {
+			p.ensureListSessions().remove(providerContinuationToken)
+		}
+		return nil
+	}
+
+	maxResults := effectiveCloudControlListMaxResults(req.GetPageSize(), remainingLimitValue(remainingLimit))
+	identifiers := session.bufferedIDs
+	continuation := session.nextTokenPtr()
+	if len(identifiers) == 0 {
+		listCtx, cancel := p.listContext(stream.Context())
+		defer cancel()
+		glog.V(9).Infof("%s.ListResources %q token %q resourceModel %t nextToken %t maxResults %s", p.name,
+			spec.CfType, token, resourceModel != nil, session.cloudControlNextToken != "",
+			client.FormatListMaxResults(maxResults))
+		identifiers, continuation, err = p.ccc.List(listCtx, spec.CfType, client.ListRequest{
+			ResourceModel: resourceModel,
+			NextToken:     session.nextTokenPtr(),
+			MaxResults:    maxResults,
+		})
+		if err != nil {
+			return fmt.Errorf("listing %s (%s): %w", token, spec.CfType, err)
+		}
+		glog.V(9).Infof("%s.ListResources %q token %q returned %d resources continuation %t",
+			p.name, spec.CfType, token, len(identifiers), continuation != nil && *continuation != "")
+	}
+
+	idsToStream, bufferedIDs := chunkListIdentifiers(identifiers, maxResults)
+
+	for _, identifier := range idsToStream {
+		if err := stream.Send(&pulumirpc.ListResponse{
+			Response: &pulumirpc.ListResponse_Result_{
+				Result: &pulumirpc.ListResponse_Result{Id: identifier},
+			},
+		}); err != nil {
+			return err
+		}
+	}
+
+	nextReturned := session.returned + int64(len(idsToStream))
+	nextCloudControlToken := ""
+	if continuation != nil {
+		nextCloudControlToken = *continuation
+	}
+	hasContinuation := len(bufferedIDs) > 0 || nextCloudControlToken != ""
+	if !hasContinuation || (session.limit > 0 && nextReturned >= session.limit) {
+		if providerContinuationToken != "" {
+			p.ensureListSessions().remove(providerContinuationToken)
+		}
+		return nil
+	}
+
+	if providerContinuationToken == "" {
+		session.bufferedIDs = bufferedIDs
+		session.returned = nextReturned
+		session.cloudControlNextToken = nextCloudControlToken
+		providerContinuationToken, err = p.ensureListSessions().put(session)
+		if err != nil {
+			return err
+		}
+	}
+	if err := stream.Send(&pulumirpc.ListResponse{
+		Response: &pulumirpc.ListResponse_Continuation_{
+			Continuation: &pulumirpc.ListResponse_Continuation{ContinuationToken: providerContinuationToken},
+		},
+	}); err != nil {
+		if req.GetContinuationToken() == "" {
+			p.ensureListSessions().remove(providerContinuationToken)
+		}
+		return err
+	}
+	session.bufferedIDs = bufferedIDs
+	session.returned = nextReturned
+	session.cloudControlNextToken = nextCloudControlToken
+	return nil
+}
+
+// ensureListSessions lazily initializes the provider-owned List continuation session store.
+func (p *cfnProvider) ensureListSessions() *listSessionStore {
+	p.listSessionsMu.Lock()
+	defer p.listSessionsMu.Unlock()
+	if p.listSessions == nil {
+		p.listSessions = newListSessionStore(defaultListSessionTTL)
+	}
+	return p.listSessions
+}
+
+// chunkListIdentifiers applies the provider RPC chunk size after CloudControl returns.
+func chunkListIdentifiers(identifiers []string, maxResults *int32) ([]string, []string) {
+	if maxResults == nil || len(identifiers) <= int(*maxResults) {
+		return identifiers, nil
+	}
+	return identifiers[:*maxResults], identifiers[*maxResults:]
+}
+
+// listContext links List calls to the provider cancellation context when one exists.
+func (p *cfnProvider) listContext(streamCtx context.Context) (context.Context, context.CancelFunc) {
+	if p.canceler == nil || p.canceler.context == nil {
+		return streamCtx, func() {}
+	}
+	ctx, cancel := context.WithCancel(streamCtx)
+	stop := context.AfterFunc(p.canceler.context, cancel)
+	return ctx, func() {
+		stop()
+		cancel()
+	}
+}
+
+// unmarshalListQuery converts the RPC query struct into Pulumi property values.
+func unmarshalListQuery(query *structpb.Struct, token string) (resource.PropertyMap, error) {
+	if query == nil {
+		return resource.PropertyMap{}, nil
+	}
+	props, err := plugin.UnmarshalProperties(query, plugin.MarshalOptions{
+		Label:        fmt.Sprintf("List(%s).query", token),
+		KeepUnknowns: true,
+		RejectAssets: true,
+		KeepSecrets:  true,
+	})
+	if err != nil {
+		return nil, status.Errorf(codes.InvalidArgument, "failed to parse List query: %v", err)
+	}
+	return props, nil
+}
+
+// convertListQueryToCfn validates a List query and converts SDK property names to CloudFormation names.
+func convertListQueryToCfn(
+	spec *metadata.CloudAPIResource,
+	types map[string]metadata.CloudAPIType,
+	query resource.PropertyMap,
+) (map[string]interface{}, error) {
+	if spec.ListInputs == nil || len(spec.ListInputs.Properties) == 0 {
+		if len(query) == 0 {
+			return nil, nil
+		}
+		return nil, status.Error(codes.InvalidArgument, "List query is not supported for this resource type")
+	}
+
+	listSpec := listQueryResourceSpec(spec)
+	failures, err := resources.ValidateResource(listSpec, types, query)
+	if err != nil {
+		return nil, err
+	}
+	if len(failures) > 0 {
+		return nil, status.Error(codes.InvalidArgument, formatValidationFailures(failures))
+	}
+	if len(query) == 0 {
+		return nil, nil
+	}
+	cfnQuery, err := naming.SdkToCfn(listSpec, types, resourcex.Decode(query))
+	if err != nil {
+		return nil, status.Errorf(codes.InvalidArgument, "failed to convert List query: %v", err)
+	}
+	return cfnQuery, nil
+}
+
+// listQueryResourceSpec adapts generated List input metadata to the existing resource validation/conversion pipeline.
+func listQueryResourceSpec(spec *metadata.CloudAPIResource) *metadata.CloudAPIResource {
+	return &metadata.CloudAPIResource{
+		Inputs:            spec.ListInputs.Properties,
+		Required:          spec.ListInputs.Required,
+		IrreversibleNames: spec.ListIrreversibleNames,
+	}
+}
+
+// formatValidationFailures formats List query validation failures for the direct List RPC error.
+func formatValidationFailures(failures []resources.ValidationFailure) string {
+	reasons := make([]string, 0, len(failures))
+	for _, failure := range failures {
+		reasons = append(reasons, failure.Reason)
+	}
+	return strings.Join(reasons, "; ")
+}
+
+// listQueryHash returns a stable hash for the CloudFormation List resource model payload.
+func listQueryHash(resourceModel *string) string {
+	if resourceModel == nil {
+		return ""
+	}
+	hash := sha256.Sum256([]byte(*resourceModel))
+	return fmt.Sprintf("%x", hash[:])
+}
+
+// remainingLimitValue returns zero when there is no caller limit remaining to enforce.
+func remainingLimitValue(limit *int64) int64 {
+	if limit == nil {
+		return 0
+	}
+	return *limit
+}
+
+// effectiveCloudControlListMaxResults computes the CloudControl MaxResults value for one ListResources call.
+func effectiveCloudControlListMaxResults(pageSize, limit int64) *int32 {
+	var effective int64
+	switch {
+	case pageSize > 0 && limit > 0:
+		effective = min(pageSize, limit)
+	case pageSize > 0:
+		effective = pageSize
+	case limit > 0:
+		effective = limit
+	default:
+		return nil
+	}
+	effective = min(effective, int64(cloudControlListMaxResultsLimit))
+	maxResults := int32(effective)
+	return &maxResults
 }
 
 // Construct creates a new component resource.

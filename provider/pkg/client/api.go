@@ -37,6 +37,10 @@ type CloudControlApiClient interface {
 	// the response from the service into a map of untyped values.
 	GetResource(ctx context.Context, typeName, identifier string) (map[string]interface{}, error)
 
+	// ListResources returns one CloudControl page of resource descriptions for a type.
+	ListResources(ctx context.Context, typeName string, resourceModel *string, nextToken *string, maxResults *int32) (
+		[]types.ResourceDescription, *string, error)
+
 	// GetResourceRequestStatus returns the current status of a resource operation request.
 	GetResourceRequestStatus(ctx context.Context, requestToken string) (*types.ProgressEvent, error)
 
@@ -126,6 +130,26 @@ func (client *ccApiClientImpl) GetResource(ctx context.Context, typeName, identi
 	}
 
 	return outputs, nil
+}
+
+func (client *ccApiClientImpl) ListResources(
+	ctx context.Context,
+	typeName string,
+	resourceModel *string,
+	nextToken *string,
+	maxResults *int32,
+) ([]types.ResourceDescription, *string, error) {
+	res, err := client.cctl.ListResources(ctx, &cloudcontrol.ListResourcesInput{
+		TypeName:      aws.String(typeName),
+		ResourceModel: resourceModel,
+		NextToken:     nextToken,
+		MaxResults:    maxResults,
+		RoleArn:       client.roleArn,
+	})
+	if err != nil {
+		return nil, nil, err
+	}
+	return res.ResourceDescriptions, res.NextToken, nil
 }
 
 func (client *ccApiClientImpl) GetResourceRequestStatus(ctx context.Context, requestToken string) (*types.ProgressEvent, error) {

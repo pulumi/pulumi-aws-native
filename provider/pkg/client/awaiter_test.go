@@ -170,6 +170,16 @@ func (*awaiterTestAPI) GetResource(ctx context.Context, typeName, identifier str
 	panic("unexpected GetResource call")
 }
 
+func (*awaiterTestAPI) ListResources(
+	_ context.Context,
+	_ string,
+	_ *string,
+	_ *string,
+	_ *int32,
+) ([]types.ResourceDescription, *string, error) {
+	panic("unexpected ListResources call")
+}
+
 func (*awaiterTestAPI) GetResourceRequestStatus(ctx context.Context, requestToken string) (*types.ProgressEvent, error) {
 	panic("unexpected GetResourceRequestStatus call")
 }

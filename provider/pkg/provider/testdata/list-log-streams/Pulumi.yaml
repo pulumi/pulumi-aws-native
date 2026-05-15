@@ -1,0 +1,25 @@
+name: list-log-streams
+description: Live fixture for scoped List RPC validation with CloudWatch Logs streams.
+runtime: yaml
+config:
+  baseName: list-rpc-test
+resources:
+  group:
+    type: aws-native:logs:LogGroup
+    properties:
+      logGroupName: /aws-native-list-rpc/${baseName}
+      retentionInDays: 1
+  streamA:
+    type: aws-native:logs:LogStream
+    properties:
+      logGroupName: ${group.logGroupName}
+      logStreamName: ${baseName}-a
+  streamB:
+    type: aws-native:logs:LogStream
+    properties:
+      logGroupName: ${group.logGroupName}
+      logStreamName: ${baseName}-b
+outputs:
+  logGroupName: ${group.logGroupName}
+  streamAName: ${streamA.logStreamName}
+  streamBName: ${streamB.logStreamName}
