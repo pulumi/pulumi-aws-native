@@ -32,7 +32,6 @@ namespace Pulumi.AwsNative.Ecs.Outputs
         public readonly bool? InitProcessEnabled;
         /// <summary>
         /// The container path, mount options, and size (in MiB) of the tmpfs mount. This parameter maps to the ``--tmpfs`` option to docker run.
-        ///   If you're using tasks that use the Fargate launch type, the ``tmpfs`` parameter isn't supported.
         /// </summary>
         public readonly ImmutableArray<Outputs.DaemonTaskDefinitionTmpfs> Tmpfs;
 

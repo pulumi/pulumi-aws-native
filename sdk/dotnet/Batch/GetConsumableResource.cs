@@ -80,6 +80,10 @@ namespace Pulumi.AwsNative.Batch
         /// </summary>
         public readonly int? InUseQuantity;
         /// <summary>
+        /// A key-value pair to associate with a resource.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
         /// Total Quantity of ConsumableResource.
         /// </summary>
         public readonly int? TotalQuantity;
@@ -94,12 +98,15 @@ namespace Pulumi.AwsNative.Batch
 
             int? inUseQuantity,
 
+            ImmutableDictionary<string, string>? tags,
+
             int? totalQuantity)
         {
             AvailableQuantity = availableQuantity;
             ConsumableResourceArn = consumableResourceArn;
             CreatedAt = createdAt;
             InUseQuantity = inUseQuantity;
+            Tags = tags;
             TotalQuantity = totalQuantity;
         }
     }

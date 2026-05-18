@@ -201,6 +201,17 @@
       "type" : "object",
       "minProperties" : 0
     },
+    "AdditionalNotes" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "Text" : {
+          "minLength" : 0,
+          "type" : "string",
+          "maxLength" : 2000
+        }
+      }
+    },
     "DataPrepSimpleAggregationFunction" : {
       "additionalProperties" : false,
       "type" : "object",
@@ -280,6 +291,32 @@
         }
       }
     },
+    "TableSemanticMetadata" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "ColumnMetadata" : {
+          "minItems" : 1,
+          "maxItems" : 2000,
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/SharedColumnSemanticMetadata"
+          }
+        }
+      }
+    },
+    "DataSetSemanticDescription" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "Text" : {
+          "minLength" : 1,
+          "type" : "string",
+          "maxLength" : 500
+        }
+      },
+      "required" : [ "Text" ]
+    },
     "InputColumn" : {
       "description" : "<p>Metadata for a column that is used as the input of a transform operation.</p>",
       "additionalProperties" : false,
@@ -294,7 +331,7 @@
         "Id" : {
           "minLength" : 1,
           "type" : "string",
-          "maxLength" : 64
+          "maxLength" : 256
         },
         "Name" : {
           "minLength" : 1,
@@ -315,6 +352,15 @@
       "additionalProperties" : false,
       "type" : "object",
       "minProperties" : 1
+    },
+    "CustomInstruction" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "InlineCustomInstruction" : {
+          "$ref" : "#/definitions/InlineCustomInstruction"
+        }
+      }
     },
     "DateTimeDatasetParameterDefaultValues" : {
       "description" : "<p>The default values of a date time parameter.</p>",
@@ -393,7 +439,7 @@
         "SourceColumnId" : {
           "minLength" : 1,
           "type" : "string",
-          "maxLength" : 64
+          "maxLength" : 256
         },
         "TargetColumnId" : {
           "minLength" : 1,
@@ -1281,7 +1327,7 @@
       "properties" : {
         "Actions" : {
           "minItems" : 1,
-          "maxItems" : 20,
+          "maxItems" : 30,
           "description" : "<p>The IAM action to grant or revoke permissions on.</p>",
           "type" : "array",
           "items" : {
@@ -1397,6 +1443,14 @@
       "additionalProperties" : false,
       "type" : "object",
       "properties" : {
+        "SemanticMetadata" : {
+          "minItems" : 1,
+          "maxItems" : 1,
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/DataSetSemanticMetadata"
+          }
+        },
         "TableMap" : {
           "$ref" : "#/definitions/SemanticTableMap"
         }
@@ -1449,6 +1503,23 @@
         },
         "FailureConfiguration" : {
           "$ref" : "#/definitions/RefreshFailureConfiguration"
+        }
+      }
+    },
+    "DataSetSemanticMetadata" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "CustomInstructions" : {
+          "minItems" : 1,
+          "maxItems" : 2,
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/CustomInstruction"
+          }
+        },
+        "Description" : {
+          "$ref" : "#/definitions/DataSetSemanticDescription"
         }
       }
     },
@@ -1506,6 +1577,17 @@
           "minLength" : 0,
           "type" : "string",
           "maxLength" : 512
+        }
+      }
+    },
+    "UploadedDocumentMetadata" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "Name" : {
+          "minLength" : 1,
+          "type" : "string",
+          "maxLength" : 127
         }
       }
     },
@@ -1725,6 +1807,28 @@
       },
       "required" : [ "TransformOperationId" ]
     },
+    "SharedColumnSemanticMetadata" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "ColumnNames" : {
+          "minItems" : 1,
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "ColumnProperties" : {
+          "minItems" : 1,
+          "maxItems" : 3,
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/ColumnSemanticProperty"
+          }
+        }
+      },
+      "required" : [ "ColumnProperties" ]
+    },
     "FieldFolderMap" : {
       "patternProperties" : {
         ".+" : {
@@ -1805,6 +1909,21 @@
       "type" : "string",
       "enum" : [ "STRING", "INTEGER", "DECIMAL", "DATETIME" ]
     },
+    "ColumnSemanticProperty" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "SemanticType" : {
+          "$ref" : "#/definitions/ColumnSemanticType"
+        },
+        "Description" : {
+          "$ref" : "#/definitions/ColumnDescription"
+        },
+        "AdditionalNotes" : {
+          "$ref" : "#/definitions/AdditionalNotes"
+        }
+      }
+    },
     "DataSetNumericFilterValue" : {
       "additionalProperties" : false,
       "type" : "object",
@@ -1856,6 +1975,9 @@
       "additionalProperties" : false,
       "type" : "object",
       "properties" : {
+        "SemanticMetadata" : {
+          "$ref" : "#/definitions/TableSemanticMetadata"
+        },
         "Alias" : {
           "minLength" : 1,
           "type" : "string",
@@ -1872,6 +1994,21 @@
         }
       },
       "required" : [ "Alias", "DestinationTableId" ]
+    },
+    "InlineCustomInstruction" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "InstructionText" : {
+          "minLength" : 0,
+          "type" : "string",
+          "maxLength" : 50000
+        },
+        "UploadedDocumentMetadata" : {
+          "$ref" : "#/definitions/UploadedDocumentMetadata"
+        }
+      },
+      "required" : [ "InstructionText" ]
     },
     "JoinType" : {
       "type" : "string",
@@ -1996,6 +2133,15 @@
         }
       },
       "required" : [ "DataSetArn", "InputColumns" ]
+    },
+    "ColumnSemanticType" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "GeographicalRole" : {
+          "$ref" : "#/definitions/GeoSpatialDataRole"
+        }
+      }
     },
     "JoinOperation" : {
       "additionalProperties" : false,

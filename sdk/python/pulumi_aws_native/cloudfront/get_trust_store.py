@@ -110,6 +110,9 @@ class GetTrustStoreResult:
     @_builtins.property
     @pulumi.getter(name="useClientCertificateOcspEndpoint")
     def use_client_certificate_ocsp_endpoint(self) -> Optional[_builtins.bool]:
+        """
+        A boolean. When true, performs real-time certificate revocation checks by querying the OCSP endpoint specified within the client certificate.
+        """
         return pulumi.get(self, "use_client_certificate_ocsp_endpoint")
 
 

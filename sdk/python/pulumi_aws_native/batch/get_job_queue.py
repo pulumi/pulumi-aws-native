@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetJobQueueResult:
-    def __init__(__self__, compute_environment_order=None, job_queue_arn=None, job_state_time_limit_actions=None, priority=None, scheduling_policy_arn=None, service_environment_order=None, state=None):
+    def __init__(__self__, compute_environment_order=None, job_queue_arn=None, job_state_time_limit_actions=None, priority=None, scheduling_policy_arn=None, service_environment_order=None, state=None, tags=None):
         if compute_environment_order and not isinstance(compute_environment_order, list):
             raise TypeError("Expected argument 'compute_environment_order' to be a list")
         pulumi.set(__self__, "compute_environment_order", compute_environment_order)
@@ -47,6 +47,9 @@ class GetJobQueueResult:
         if state and not isinstance(state, str):
             raise TypeError("Expected argument 'state' to be a str")
         pulumi.set(__self__, "state", state)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
     @pulumi.getter(name="computeEnvironmentOrder")
@@ -106,6 +109,14 @@ class GetJobQueueResult:
         """
         return pulumi.get(self, "state")
 
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        A key-value pair to associate with a resource.
+        """
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetJobQueueResult(GetJobQueueResult):
     # pylint: disable=using-constant-test
@@ -119,7 +130,8 @@ class AwaitableGetJobQueueResult(GetJobQueueResult):
             priority=self.priority,
             scheduling_policy_arn=self.scheduling_policy_arn,
             service_environment_order=self.service_environment_order,
-            state=self.state)
+            state=self.state,
+            tags=self.tags)
 
 
 def get_job_queue(job_queue_arn: Optional[_builtins.str] = None,
@@ -142,7 +154,8 @@ def get_job_queue(job_queue_arn: Optional[_builtins.str] = None,
         priority=pulumi.get(__ret__, 'priority'),
         scheduling_policy_arn=pulumi.get(__ret__, 'scheduling_policy_arn'),
         service_environment_order=pulumi.get(__ret__, 'service_environment_order'),
-        state=pulumi.get(__ret__, 'state'))
+        state=pulumi.get(__ret__, 'state'),
+        tags=pulumi.get(__ret__, 'tags'))
 def get_job_queue_output(job_queue_arn: Optional[pulumi.Input[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetJobQueueResult]:
     """
@@ -162,4 +175,5 @@ def get_job_queue_output(job_queue_arn: Optional[pulumi.Input[_builtins.str]] = 
         priority=pulumi.get(__response__, 'priority'),
         scheduling_policy_arn=pulumi.get(__response__, 'scheduling_policy_arn'),
         service_environment_order=pulumi.get(__response__, 'service_environment_order'),
-        state=pulumi.get(__response__, 'state')))
+        state=pulumi.get(__response__, 'state'),
+        tags=pulumi.get(__response__, 'tags')))

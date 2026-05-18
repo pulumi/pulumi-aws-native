@@ -104,7 +104,6 @@ namespace Pulumi.AwsNative.Batch
                 {
                     "jobQueueName",
                     "jobQueueType",
-                    "tags.*",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

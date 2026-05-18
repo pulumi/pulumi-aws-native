@@ -4031,7 +4031,7 @@ class DistributionLegacyS3OriginArgsDict(TypedDict):
     origin_access_identity: NotRequired[pulumi.Input[_builtins.str]]
     """
     The CF origin access identity to associate with the distribution. Use an origin access identity to configure the distribution so that end users can only access objects in an S3 through CF.
-      This property is legacy. We recommend that you use [OriginAccessControl](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originaccesscontrol.html) instead.
+      This property is legacy. We recommend that you use [OriginAccessControl](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudfront-originaccesscontrol.html) instead.
     """
 
 @pulumi.input_type
@@ -4045,7 +4045,7 @@ class DistributionLegacyS3OriginArgs:
 
         :param pulumi.Input[_builtins.str] dns_name: The domain name assigned to your CF distribution.
         :param pulumi.Input[_builtins.str] origin_access_identity: The CF origin access identity to associate with the distribution. Use an origin access identity to configure the distribution so that end users can only access objects in an S3 through CF.
-                 This property is legacy. We recommend that you use [OriginAccessControl](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originaccesscontrol.html) instead.
+                 This property is legacy. We recommend that you use [OriginAccessControl](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudfront-originaccesscontrol.html) instead.
         """
         pulumi.set(__self__, "dns_name", dns_name)
         if origin_access_identity is not None:
@@ -4068,7 +4068,7 @@ class DistributionLegacyS3OriginArgs:
     def origin_access_identity(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The CF origin access identity to associate with the distribution. Use an origin access identity to configure the distribution so that end users can only access objects in an S3 through CF.
-          This property is legacy. We recommend that you use [OriginAccessControl](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originaccesscontrol.html) instead.
+          This property is legacy. We recommend that you use [OriginAccessControl](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudfront-originaccesscontrol.html) instead.
         """
         return pulumi.get(self, "origin_access_identity")
 

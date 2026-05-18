@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .. import outputs as _root_outputs
 
 __all__ = [
     'GetDashboardResult',
@@ -23,10 +24,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetDashboardResult:
-    def __init__(__self__, dashboard_body=None):
+    def __init__(__self__, dashboard_body=None, tags=None):
         if dashboard_body and not isinstance(dashboard_body, str):
             raise TypeError("Expected argument 'dashboard_body' to be a str")
         pulumi.set(__self__, "dashboard_body", dashboard_body)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
     @pulumi.getter(name="dashboardBody")
@@ -36,6 +40,14 @@ class GetDashboardResult:
         """
         return pulumi.get(self, "dashboard_body")
 
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        A list of key-value pairs to associate with the cloudwatch dashboard. You can associate up to 50 tags with a dashboard
+        """
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetDashboardResult(GetDashboardResult):
     # pylint: disable=using-constant-test
@@ -43,7 +55,8 @@ class AwaitableGetDashboardResult(GetDashboardResult):
         if False:
             yield self
         return GetDashboardResult(
-            dashboard_body=self.dashboard_body)
+            dashboard_body=self.dashboard_body,
+            tags=self.tags)
 
 
 def get_dashboard(dashboard_name: Optional[_builtins.str] = None,
@@ -60,7 +73,8 @@ def get_dashboard(dashboard_name: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:cloudwatch:getDashboard', __args__, opts=opts, typ=GetDashboardResult).value
 
     return AwaitableGetDashboardResult(
-        dashboard_body=pulumi.get(__ret__, 'dashboard_body'))
+        dashboard_body=pulumi.get(__ret__, 'dashboard_body'),
+        tags=pulumi.get(__ret__, 'tags'))
 def get_dashboard_output(dashboard_name: Optional[pulumi.Input[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDashboardResult]:
     """
@@ -74,4 +88,5 @@ def get_dashboard_output(dashboard_name: Optional[pulumi.Input[_builtins.str]] =
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:cloudwatch:getDashboard', __args__, opts=opts, typ=GetDashboardResult)
     return __ret__.apply(lambda __response__: GetDashboardResult(
-        dashboard_body=pulumi.get(__response__, 'dashboard_body')))
+        dashboard_body=pulumi.get(__response__, 'dashboard_body'),
+        tags=pulumi.get(__response__, 'tags')))

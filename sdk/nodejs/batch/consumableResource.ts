@@ -109,7 +109,7 @@ export class ConsumableResource extends pulumi.CustomResource {
             resourceInputs["totalQuantity"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["consumableResourceName", "resourceType", "tags.*"] };
+        const replaceOnChanges = { replaceOnChanges: ["consumableResourceName", "resourceType"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ConsumableResource.__pulumiType, name, resourceInputs, opts);
     }

@@ -30,6 +30,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("rowLevelPermissionConfiguration")]
         public Input<Inputs.DataSetRowLevelPermissionConfigurationArgs>? RowLevelPermissionConfiguration { get; set; }
 
+        [Input("semanticMetadata")]
+        public Input<Inputs.DataSetTableSemanticMetadataArgs>? SemanticMetadata { get; set; }
+
         public DataSetSemanticTableArgs()
         {
         }

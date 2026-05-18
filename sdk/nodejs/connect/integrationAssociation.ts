@@ -104,6 +104,10 @@ export class IntegrationAssociation extends pulumi.CustomResource {
      * *Allowed Values* : `LEX_BOT` | `LAMBDA_FUNCTION`
      */
     declare public readonly integrationType: pulumi.Output<enums.connect.IntegrationAssociationIntegrationType>;
+    /**
+     * The tags used to organize, track, or control access for this resource.
+     */
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a IntegrationAssociation resource with the given unique name, arguments, and options.
@@ -128,12 +132,14 @@ export class IntegrationAssociation extends pulumi.CustomResource {
             resourceInputs["instanceId"] = args?.instanceId;
             resourceInputs["integrationArn"] = args?.integrationArn;
             resourceInputs["integrationType"] = args?.integrationType;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["integrationAssociationId"] = undefined /*out*/;
         } else {
             resourceInputs["instanceId"] = undefined /*out*/;
             resourceInputs["integrationArn"] = undefined /*out*/;
             resourceInputs["integrationAssociationId"] = undefined /*out*/;
             resourceInputs["integrationType"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const replaceOnChanges = { replaceOnChanges: ["instanceId", "integrationArn", "integrationType"] };
@@ -168,4 +174,8 @@ export interface IntegrationAssociationArgs {
      * *Allowed Values* : `LEX_BOT` | `LAMBDA_FUNCTION`
      */
     integrationType: pulumi.Input<enums.connect.IntegrationAssociationIntegrationType>;
+    /**
+     * The tags used to organize, track, or control access for this resource.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

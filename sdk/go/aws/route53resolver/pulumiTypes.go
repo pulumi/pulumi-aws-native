@@ -29,7 +29,287 @@ type FirewallRuleGroupAssociationTag struct {
 	Value string `pulumi:"value"`
 }
 
-// Firewall Rule associating the Rule Group to a Domain List
+// Configuration for an advanced content category rule type.
+type FirewallRuleGroupFirewallAdvancedContentCategoryConfig struct {
+	// The content category value.
+	Category string `pulumi:"category"`
+}
+
+// FirewallRuleGroupFirewallAdvancedContentCategoryConfigInput is an input type that accepts FirewallRuleGroupFirewallAdvancedContentCategoryConfigArgs and FirewallRuleGroupFirewallAdvancedContentCategoryConfigOutput values.
+// You can construct a concrete instance of `FirewallRuleGroupFirewallAdvancedContentCategoryConfigInput` via:
+//
+//	FirewallRuleGroupFirewallAdvancedContentCategoryConfigArgs{...}
+type FirewallRuleGroupFirewallAdvancedContentCategoryConfigInput interface {
+	pulumi.Input
+
+	ToFirewallRuleGroupFirewallAdvancedContentCategoryConfigOutput() FirewallRuleGroupFirewallAdvancedContentCategoryConfigOutput
+	ToFirewallRuleGroupFirewallAdvancedContentCategoryConfigOutputWithContext(context.Context) FirewallRuleGroupFirewallAdvancedContentCategoryConfigOutput
+}
+
+// Configuration for an advanced content category rule type.
+type FirewallRuleGroupFirewallAdvancedContentCategoryConfigArgs struct {
+	// The content category value.
+	Category pulumi.StringInput `pulumi:"category"`
+}
+
+func (FirewallRuleGroupFirewallAdvancedContentCategoryConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallRuleGroupFirewallAdvancedContentCategoryConfig)(nil)).Elem()
+}
+
+func (i FirewallRuleGroupFirewallAdvancedContentCategoryConfigArgs) ToFirewallRuleGroupFirewallAdvancedContentCategoryConfigOutput() FirewallRuleGroupFirewallAdvancedContentCategoryConfigOutput {
+	return i.ToFirewallRuleGroupFirewallAdvancedContentCategoryConfigOutputWithContext(context.Background())
+}
+
+func (i FirewallRuleGroupFirewallAdvancedContentCategoryConfigArgs) ToFirewallRuleGroupFirewallAdvancedContentCategoryConfigOutputWithContext(ctx context.Context) FirewallRuleGroupFirewallAdvancedContentCategoryConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallRuleGroupFirewallAdvancedContentCategoryConfigOutput)
+}
+
+func (i FirewallRuleGroupFirewallAdvancedContentCategoryConfigArgs) ToFirewallRuleGroupFirewallAdvancedContentCategoryConfigPtrOutput() FirewallRuleGroupFirewallAdvancedContentCategoryConfigPtrOutput {
+	return i.ToFirewallRuleGroupFirewallAdvancedContentCategoryConfigPtrOutputWithContext(context.Background())
+}
+
+func (i FirewallRuleGroupFirewallAdvancedContentCategoryConfigArgs) ToFirewallRuleGroupFirewallAdvancedContentCategoryConfigPtrOutputWithContext(ctx context.Context) FirewallRuleGroupFirewallAdvancedContentCategoryConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallRuleGroupFirewallAdvancedContentCategoryConfigOutput).ToFirewallRuleGroupFirewallAdvancedContentCategoryConfigPtrOutputWithContext(ctx)
+}
+
+// FirewallRuleGroupFirewallAdvancedContentCategoryConfigPtrInput is an input type that accepts FirewallRuleGroupFirewallAdvancedContentCategoryConfigArgs, FirewallRuleGroupFirewallAdvancedContentCategoryConfigPtr and FirewallRuleGroupFirewallAdvancedContentCategoryConfigPtrOutput values.
+// You can construct a concrete instance of `FirewallRuleGroupFirewallAdvancedContentCategoryConfigPtrInput` via:
+//
+//	        FirewallRuleGroupFirewallAdvancedContentCategoryConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type FirewallRuleGroupFirewallAdvancedContentCategoryConfigPtrInput interface {
+	pulumi.Input
+
+	ToFirewallRuleGroupFirewallAdvancedContentCategoryConfigPtrOutput() FirewallRuleGroupFirewallAdvancedContentCategoryConfigPtrOutput
+	ToFirewallRuleGroupFirewallAdvancedContentCategoryConfigPtrOutputWithContext(context.Context) FirewallRuleGroupFirewallAdvancedContentCategoryConfigPtrOutput
+}
+
+type firewallRuleGroupFirewallAdvancedContentCategoryConfigPtrType FirewallRuleGroupFirewallAdvancedContentCategoryConfigArgs
+
+func FirewallRuleGroupFirewallAdvancedContentCategoryConfigPtr(v *FirewallRuleGroupFirewallAdvancedContentCategoryConfigArgs) FirewallRuleGroupFirewallAdvancedContentCategoryConfigPtrInput {
+	return (*firewallRuleGroupFirewallAdvancedContentCategoryConfigPtrType)(v)
+}
+
+func (*firewallRuleGroupFirewallAdvancedContentCategoryConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallRuleGroupFirewallAdvancedContentCategoryConfig)(nil)).Elem()
+}
+
+func (i *firewallRuleGroupFirewallAdvancedContentCategoryConfigPtrType) ToFirewallRuleGroupFirewallAdvancedContentCategoryConfigPtrOutput() FirewallRuleGroupFirewallAdvancedContentCategoryConfigPtrOutput {
+	return i.ToFirewallRuleGroupFirewallAdvancedContentCategoryConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *firewallRuleGroupFirewallAdvancedContentCategoryConfigPtrType) ToFirewallRuleGroupFirewallAdvancedContentCategoryConfigPtrOutputWithContext(ctx context.Context) FirewallRuleGroupFirewallAdvancedContentCategoryConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallRuleGroupFirewallAdvancedContentCategoryConfigPtrOutput)
+}
+
+// Configuration for an advanced content category rule type.
+type FirewallRuleGroupFirewallAdvancedContentCategoryConfigOutput struct{ *pulumi.OutputState }
+
+func (FirewallRuleGroupFirewallAdvancedContentCategoryConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallRuleGroupFirewallAdvancedContentCategoryConfig)(nil)).Elem()
+}
+
+func (o FirewallRuleGroupFirewallAdvancedContentCategoryConfigOutput) ToFirewallRuleGroupFirewallAdvancedContentCategoryConfigOutput() FirewallRuleGroupFirewallAdvancedContentCategoryConfigOutput {
+	return o
+}
+
+func (o FirewallRuleGroupFirewallAdvancedContentCategoryConfigOutput) ToFirewallRuleGroupFirewallAdvancedContentCategoryConfigOutputWithContext(ctx context.Context) FirewallRuleGroupFirewallAdvancedContentCategoryConfigOutput {
+	return o
+}
+
+func (o FirewallRuleGroupFirewallAdvancedContentCategoryConfigOutput) ToFirewallRuleGroupFirewallAdvancedContentCategoryConfigPtrOutput() FirewallRuleGroupFirewallAdvancedContentCategoryConfigPtrOutput {
+	return o.ToFirewallRuleGroupFirewallAdvancedContentCategoryConfigPtrOutputWithContext(context.Background())
+}
+
+func (o FirewallRuleGroupFirewallAdvancedContentCategoryConfigOutput) ToFirewallRuleGroupFirewallAdvancedContentCategoryConfigPtrOutputWithContext(ctx context.Context) FirewallRuleGroupFirewallAdvancedContentCategoryConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirewallRuleGroupFirewallAdvancedContentCategoryConfig) *FirewallRuleGroupFirewallAdvancedContentCategoryConfig {
+		return &v
+	}).(FirewallRuleGroupFirewallAdvancedContentCategoryConfigPtrOutput)
+}
+
+// The content category value.
+func (o FirewallRuleGroupFirewallAdvancedContentCategoryConfigOutput) Category() pulumi.StringOutput {
+	return o.ApplyT(func(v FirewallRuleGroupFirewallAdvancedContentCategoryConfig) string { return v.Category }).(pulumi.StringOutput)
+}
+
+type FirewallRuleGroupFirewallAdvancedContentCategoryConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (FirewallRuleGroupFirewallAdvancedContentCategoryConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallRuleGroupFirewallAdvancedContentCategoryConfig)(nil)).Elem()
+}
+
+func (o FirewallRuleGroupFirewallAdvancedContentCategoryConfigPtrOutput) ToFirewallRuleGroupFirewallAdvancedContentCategoryConfigPtrOutput() FirewallRuleGroupFirewallAdvancedContentCategoryConfigPtrOutput {
+	return o
+}
+
+func (o FirewallRuleGroupFirewallAdvancedContentCategoryConfigPtrOutput) ToFirewallRuleGroupFirewallAdvancedContentCategoryConfigPtrOutputWithContext(ctx context.Context) FirewallRuleGroupFirewallAdvancedContentCategoryConfigPtrOutput {
+	return o
+}
+
+func (o FirewallRuleGroupFirewallAdvancedContentCategoryConfigPtrOutput) Elem() FirewallRuleGroupFirewallAdvancedContentCategoryConfigOutput {
+	return o.ApplyT(func(v *FirewallRuleGroupFirewallAdvancedContentCategoryConfig) FirewallRuleGroupFirewallAdvancedContentCategoryConfig {
+		if v != nil {
+			return *v
+		}
+		var ret FirewallRuleGroupFirewallAdvancedContentCategoryConfig
+		return ret
+	}).(FirewallRuleGroupFirewallAdvancedContentCategoryConfigOutput)
+}
+
+// The content category value.
+func (o FirewallRuleGroupFirewallAdvancedContentCategoryConfigPtrOutput) Category() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirewallRuleGroupFirewallAdvancedContentCategoryConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Category
+	}).(pulumi.StringPtrOutput)
+}
+
+// Configuration for an advanced threat category rule type.
+type FirewallRuleGroupFirewallAdvancedThreatCategoryConfig struct {
+	// The threat category value.
+	Category string `pulumi:"category"`
+}
+
+// FirewallRuleGroupFirewallAdvancedThreatCategoryConfigInput is an input type that accepts FirewallRuleGroupFirewallAdvancedThreatCategoryConfigArgs and FirewallRuleGroupFirewallAdvancedThreatCategoryConfigOutput values.
+// You can construct a concrete instance of `FirewallRuleGroupFirewallAdvancedThreatCategoryConfigInput` via:
+//
+//	FirewallRuleGroupFirewallAdvancedThreatCategoryConfigArgs{...}
+type FirewallRuleGroupFirewallAdvancedThreatCategoryConfigInput interface {
+	pulumi.Input
+
+	ToFirewallRuleGroupFirewallAdvancedThreatCategoryConfigOutput() FirewallRuleGroupFirewallAdvancedThreatCategoryConfigOutput
+	ToFirewallRuleGroupFirewallAdvancedThreatCategoryConfigOutputWithContext(context.Context) FirewallRuleGroupFirewallAdvancedThreatCategoryConfigOutput
+}
+
+// Configuration for an advanced threat category rule type.
+type FirewallRuleGroupFirewallAdvancedThreatCategoryConfigArgs struct {
+	// The threat category value.
+	Category pulumi.StringInput `pulumi:"category"`
+}
+
+func (FirewallRuleGroupFirewallAdvancedThreatCategoryConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallRuleGroupFirewallAdvancedThreatCategoryConfig)(nil)).Elem()
+}
+
+func (i FirewallRuleGroupFirewallAdvancedThreatCategoryConfigArgs) ToFirewallRuleGroupFirewallAdvancedThreatCategoryConfigOutput() FirewallRuleGroupFirewallAdvancedThreatCategoryConfigOutput {
+	return i.ToFirewallRuleGroupFirewallAdvancedThreatCategoryConfigOutputWithContext(context.Background())
+}
+
+func (i FirewallRuleGroupFirewallAdvancedThreatCategoryConfigArgs) ToFirewallRuleGroupFirewallAdvancedThreatCategoryConfigOutputWithContext(ctx context.Context) FirewallRuleGroupFirewallAdvancedThreatCategoryConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallRuleGroupFirewallAdvancedThreatCategoryConfigOutput)
+}
+
+func (i FirewallRuleGroupFirewallAdvancedThreatCategoryConfigArgs) ToFirewallRuleGroupFirewallAdvancedThreatCategoryConfigPtrOutput() FirewallRuleGroupFirewallAdvancedThreatCategoryConfigPtrOutput {
+	return i.ToFirewallRuleGroupFirewallAdvancedThreatCategoryConfigPtrOutputWithContext(context.Background())
+}
+
+func (i FirewallRuleGroupFirewallAdvancedThreatCategoryConfigArgs) ToFirewallRuleGroupFirewallAdvancedThreatCategoryConfigPtrOutputWithContext(ctx context.Context) FirewallRuleGroupFirewallAdvancedThreatCategoryConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallRuleGroupFirewallAdvancedThreatCategoryConfigOutput).ToFirewallRuleGroupFirewallAdvancedThreatCategoryConfigPtrOutputWithContext(ctx)
+}
+
+// FirewallRuleGroupFirewallAdvancedThreatCategoryConfigPtrInput is an input type that accepts FirewallRuleGroupFirewallAdvancedThreatCategoryConfigArgs, FirewallRuleGroupFirewallAdvancedThreatCategoryConfigPtr and FirewallRuleGroupFirewallAdvancedThreatCategoryConfigPtrOutput values.
+// You can construct a concrete instance of `FirewallRuleGroupFirewallAdvancedThreatCategoryConfigPtrInput` via:
+//
+//	        FirewallRuleGroupFirewallAdvancedThreatCategoryConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type FirewallRuleGroupFirewallAdvancedThreatCategoryConfigPtrInput interface {
+	pulumi.Input
+
+	ToFirewallRuleGroupFirewallAdvancedThreatCategoryConfigPtrOutput() FirewallRuleGroupFirewallAdvancedThreatCategoryConfigPtrOutput
+	ToFirewallRuleGroupFirewallAdvancedThreatCategoryConfigPtrOutputWithContext(context.Context) FirewallRuleGroupFirewallAdvancedThreatCategoryConfigPtrOutput
+}
+
+type firewallRuleGroupFirewallAdvancedThreatCategoryConfigPtrType FirewallRuleGroupFirewallAdvancedThreatCategoryConfigArgs
+
+func FirewallRuleGroupFirewallAdvancedThreatCategoryConfigPtr(v *FirewallRuleGroupFirewallAdvancedThreatCategoryConfigArgs) FirewallRuleGroupFirewallAdvancedThreatCategoryConfigPtrInput {
+	return (*firewallRuleGroupFirewallAdvancedThreatCategoryConfigPtrType)(v)
+}
+
+func (*firewallRuleGroupFirewallAdvancedThreatCategoryConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallRuleGroupFirewallAdvancedThreatCategoryConfig)(nil)).Elem()
+}
+
+func (i *firewallRuleGroupFirewallAdvancedThreatCategoryConfigPtrType) ToFirewallRuleGroupFirewallAdvancedThreatCategoryConfigPtrOutput() FirewallRuleGroupFirewallAdvancedThreatCategoryConfigPtrOutput {
+	return i.ToFirewallRuleGroupFirewallAdvancedThreatCategoryConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *firewallRuleGroupFirewallAdvancedThreatCategoryConfigPtrType) ToFirewallRuleGroupFirewallAdvancedThreatCategoryConfigPtrOutputWithContext(ctx context.Context) FirewallRuleGroupFirewallAdvancedThreatCategoryConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallRuleGroupFirewallAdvancedThreatCategoryConfigPtrOutput)
+}
+
+// Configuration for an advanced threat category rule type.
+type FirewallRuleGroupFirewallAdvancedThreatCategoryConfigOutput struct{ *pulumi.OutputState }
+
+func (FirewallRuleGroupFirewallAdvancedThreatCategoryConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallRuleGroupFirewallAdvancedThreatCategoryConfig)(nil)).Elem()
+}
+
+func (o FirewallRuleGroupFirewallAdvancedThreatCategoryConfigOutput) ToFirewallRuleGroupFirewallAdvancedThreatCategoryConfigOutput() FirewallRuleGroupFirewallAdvancedThreatCategoryConfigOutput {
+	return o
+}
+
+func (o FirewallRuleGroupFirewallAdvancedThreatCategoryConfigOutput) ToFirewallRuleGroupFirewallAdvancedThreatCategoryConfigOutputWithContext(ctx context.Context) FirewallRuleGroupFirewallAdvancedThreatCategoryConfigOutput {
+	return o
+}
+
+func (o FirewallRuleGroupFirewallAdvancedThreatCategoryConfigOutput) ToFirewallRuleGroupFirewallAdvancedThreatCategoryConfigPtrOutput() FirewallRuleGroupFirewallAdvancedThreatCategoryConfigPtrOutput {
+	return o.ToFirewallRuleGroupFirewallAdvancedThreatCategoryConfigPtrOutputWithContext(context.Background())
+}
+
+func (o FirewallRuleGroupFirewallAdvancedThreatCategoryConfigOutput) ToFirewallRuleGroupFirewallAdvancedThreatCategoryConfigPtrOutputWithContext(ctx context.Context) FirewallRuleGroupFirewallAdvancedThreatCategoryConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirewallRuleGroupFirewallAdvancedThreatCategoryConfig) *FirewallRuleGroupFirewallAdvancedThreatCategoryConfig {
+		return &v
+	}).(FirewallRuleGroupFirewallAdvancedThreatCategoryConfigPtrOutput)
+}
+
+// The threat category value.
+func (o FirewallRuleGroupFirewallAdvancedThreatCategoryConfigOutput) Category() pulumi.StringOutput {
+	return o.ApplyT(func(v FirewallRuleGroupFirewallAdvancedThreatCategoryConfig) string { return v.Category }).(pulumi.StringOutput)
+}
+
+type FirewallRuleGroupFirewallAdvancedThreatCategoryConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (FirewallRuleGroupFirewallAdvancedThreatCategoryConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallRuleGroupFirewallAdvancedThreatCategoryConfig)(nil)).Elem()
+}
+
+func (o FirewallRuleGroupFirewallAdvancedThreatCategoryConfigPtrOutput) ToFirewallRuleGroupFirewallAdvancedThreatCategoryConfigPtrOutput() FirewallRuleGroupFirewallAdvancedThreatCategoryConfigPtrOutput {
+	return o
+}
+
+func (o FirewallRuleGroupFirewallAdvancedThreatCategoryConfigPtrOutput) ToFirewallRuleGroupFirewallAdvancedThreatCategoryConfigPtrOutputWithContext(ctx context.Context) FirewallRuleGroupFirewallAdvancedThreatCategoryConfigPtrOutput {
+	return o
+}
+
+func (o FirewallRuleGroupFirewallAdvancedThreatCategoryConfigPtrOutput) Elem() FirewallRuleGroupFirewallAdvancedThreatCategoryConfigOutput {
+	return o.ApplyT(func(v *FirewallRuleGroupFirewallAdvancedThreatCategoryConfig) FirewallRuleGroupFirewallAdvancedThreatCategoryConfig {
+		if v != nil {
+			return *v
+		}
+		var ret FirewallRuleGroupFirewallAdvancedThreatCategoryConfig
+		return ret
+	}).(FirewallRuleGroupFirewallAdvancedThreatCategoryConfigOutput)
+}
+
+// The threat category value.
+func (o FirewallRuleGroupFirewallAdvancedThreatCategoryConfigPtrOutput) Category() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirewallRuleGroupFirewallAdvancedThreatCategoryConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Category
+	}).(pulumi.StringPtrOutput)
+}
+
+// Firewall Rule associating the Rule Group to a Domain List or advanced rule type
 type FirewallRuleGroupFirewallRule struct {
 	// Rule Action
 	Action FirewallRuleGroupFirewallRuleAction `pulumi:"action"`
@@ -41,14 +321,16 @@ type FirewallRuleGroupFirewallRule struct {
 	BlockOverrideTtl *int `pulumi:"blockOverrideTtl"`
 	// BlockResponse
 	BlockResponse *FirewallRuleGroupFirewallRuleBlockResponse `pulumi:"blockResponse"`
-	// FirewallDomainRedirectionAction
+	// ConfidenceThreshold
 	ConfidenceThreshold *FirewallRuleGroupFirewallRuleConfidenceThreshold `pulumi:"confidenceThreshold"`
-	// FirewallDomainRedirectionAction
+	// DnsThreatProtection
 	DnsThreatProtection *FirewallRuleGroupFirewallRuleDnsThreatProtection `pulumi:"dnsThreatProtection"`
 	// ResourceId
 	FirewallDomainListId *string `pulumi:"firewallDomainListId"`
 	// FirewallDomainRedirectionAction
 	FirewallDomainRedirectionAction *FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction `pulumi:"firewallDomainRedirectionAction"`
+	// Advanced firewall rule type. Mutually exclusive with FirewallDomainListId and DnsThreatProtection/ConfidenceThreshold.
+	FirewallRuleType *FirewallRuleGroupFirewallRuleType `pulumi:"firewallRuleType"`
 	// ResourceId
 	FirewallThreatProtectionId *string `pulumi:"firewallThreatProtectionId"`
 	// Rule Priority
@@ -68,7 +350,7 @@ type FirewallRuleGroupFirewallRuleInput interface {
 	ToFirewallRuleGroupFirewallRuleOutputWithContext(context.Context) FirewallRuleGroupFirewallRuleOutput
 }
 
-// Firewall Rule associating the Rule Group to a Domain List
+// Firewall Rule associating the Rule Group to a Domain List or advanced rule type
 type FirewallRuleGroupFirewallRuleArgs struct {
 	// Rule Action
 	Action FirewallRuleGroupFirewallRuleActionInput `pulumi:"action"`
@@ -80,14 +362,16 @@ type FirewallRuleGroupFirewallRuleArgs struct {
 	BlockOverrideTtl pulumi.IntPtrInput `pulumi:"blockOverrideTtl"`
 	// BlockResponse
 	BlockResponse FirewallRuleGroupFirewallRuleBlockResponsePtrInput `pulumi:"blockResponse"`
-	// FirewallDomainRedirectionAction
+	// ConfidenceThreshold
 	ConfidenceThreshold FirewallRuleGroupFirewallRuleConfidenceThresholdPtrInput `pulumi:"confidenceThreshold"`
-	// FirewallDomainRedirectionAction
+	// DnsThreatProtection
 	DnsThreatProtection FirewallRuleGroupFirewallRuleDnsThreatProtectionPtrInput `pulumi:"dnsThreatProtection"`
 	// ResourceId
 	FirewallDomainListId pulumi.StringPtrInput `pulumi:"firewallDomainListId"`
 	// FirewallDomainRedirectionAction
 	FirewallDomainRedirectionAction FirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionPtrInput `pulumi:"firewallDomainRedirectionAction"`
+	// Advanced firewall rule type. Mutually exclusive with FirewallDomainListId and DnsThreatProtection/ConfidenceThreshold.
+	FirewallRuleType FirewallRuleGroupFirewallRuleTypePtrInput `pulumi:"firewallRuleType"`
 	// ResourceId
 	FirewallThreatProtectionId pulumi.StringPtrInput `pulumi:"firewallThreatProtectionId"`
 	// Rule Priority
@@ -133,7 +417,7 @@ func (i FirewallRuleGroupFirewallRuleArray) ToFirewallRuleGroupFirewallRuleArray
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallRuleGroupFirewallRuleArrayOutput)
 }
 
-// Firewall Rule associating the Rule Group to a Domain List
+// Firewall Rule associating the Rule Group to a Domain List or advanced rule type
 type FirewallRuleGroupFirewallRuleOutput struct{ *pulumi.OutputState }
 
 func (FirewallRuleGroupFirewallRuleOutput) ElementType() reflect.Type {
@@ -177,14 +461,14 @@ func (o FirewallRuleGroupFirewallRuleOutput) BlockResponse() FirewallRuleGroupFi
 	}).(FirewallRuleGroupFirewallRuleBlockResponsePtrOutput)
 }
 
-// FirewallDomainRedirectionAction
+// ConfidenceThreshold
 func (o FirewallRuleGroupFirewallRuleOutput) ConfidenceThreshold() FirewallRuleGroupFirewallRuleConfidenceThresholdPtrOutput {
 	return o.ApplyT(func(v FirewallRuleGroupFirewallRule) *FirewallRuleGroupFirewallRuleConfidenceThreshold {
 		return v.ConfidenceThreshold
 	}).(FirewallRuleGroupFirewallRuleConfidenceThresholdPtrOutput)
 }
 
-// FirewallDomainRedirectionAction
+// DnsThreatProtection
 func (o FirewallRuleGroupFirewallRuleOutput) DnsThreatProtection() FirewallRuleGroupFirewallRuleDnsThreatProtectionPtrOutput {
 	return o.ApplyT(func(v FirewallRuleGroupFirewallRule) *FirewallRuleGroupFirewallRuleDnsThreatProtection {
 		return v.DnsThreatProtection
@@ -201,6 +485,11 @@ func (o FirewallRuleGroupFirewallRuleOutput) FirewallDomainRedirectionAction() F
 	return o.ApplyT(func(v FirewallRuleGroupFirewallRule) *FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction {
 		return v.FirewallDomainRedirectionAction
 	}).(FirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionPtrOutput)
+}
+
+// Advanced firewall rule type. Mutually exclusive with FirewallDomainListId and DnsThreatProtection/ConfidenceThreshold.
+func (o FirewallRuleGroupFirewallRuleOutput) FirewallRuleType() FirewallRuleGroupFirewallRuleTypePtrOutput {
+	return o.ApplyT(func(v FirewallRuleGroupFirewallRule) *FirewallRuleGroupFirewallRuleType { return v.FirewallRuleType }).(FirewallRuleGroupFirewallRuleTypePtrOutput)
 }
 
 // ResourceId
@@ -236,6 +525,161 @@ func (o FirewallRuleGroupFirewallRuleArrayOutput) Index(i pulumi.IntInput) Firew
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirewallRuleGroupFirewallRule {
 		return vs[0].([]FirewallRuleGroupFirewallRule)[vs[1].(int)]
 	}).(FirewallRuleGroupFirewallRuleOutput)
+}
+
+// Firewall rule type union. Exactly one member must be set. Mutually exclusive with FirewallDomainListId and DnsThreatProtection/ConfidenceThreshold.
+type FirewallRuleGroupFirewallRuleType struct {
+	FirewallAdvancedContentCategory *FirewallRuleGroupFirewallAdvancedContentCategoryConfig `pulumi:"firewallAdvancedContentCategory"`
+	FirewallAdvancedThreatCategory  *FirewallRuleGroupFirewallAdvancedThreatCategoryConfig  `pulumi:"firewallAdvancedThreatCategory"`
+}
+
+// FirewallRuleGroupFirewallRuleTypeInput is an input type that accepts FirewallRuleGroupFirewallRuleTypeArgs and FirewallRuleGroupFirewallRuleTypeOutput values.
+// You can construct a concrete instance of `FirewallRuleGroupFirewallRuleTypeInput` via:
+//
+//	FirewallRuleGroupFirewallRuleTypeArgs{...}
+type FirewallRuleGroupFirewallRuleTypeInput interface {
+	pulumi.Input
+
+	ToFirewallRuleGroupFirewallRuleTypeOutput() FirewallRuleGroupFirewallRuleTypeOutput
+	ToFirewallRuleGroupFirewallRuleTypeOutputWithContext(context.Context) FirewallRuleGroupFirewallRuleTypeOutput
+}
+
+// Firewall rule type union. Exactly one member must be set. Mutually exclusive with FirewallDomainListId and DnsThreatProtection/ConfidenceThreshold.
+type FirewallRuleGroupFirewallRuleTypeArgs struct {
+	FirewallAdvancedContentCategory FirewallRuleGroupFirewallAdvancedContentCategoryConfigPtrInput `pulumi:"firewallAdvancedContentCategory"`
+	FirewallAdvancedThreatCategory  FirewallRuleGroupFirewallAdvancedThreatCategoryConfigPtrInput  `pulumi:"firewallAdvancedThreatCategory"`
+}
+
+func (FirewallRuleGroupFirewallRuleTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallRuleGroupFirewallRuleType)(nil)).Elem()
+}
+
+func (i FirewallRuleGroupFirewallRuleTypeArgs) ToFirewallRuleGroupFirewallRuleTypeOutput() FirewallRuleGroupFirewallRuleTypeOutput {
+	return i.ToFirewallRuleGroupFirewallRuleTypeOutputWithContext(context.Background())
+}
+
+func (i FirewallRuleGroupFirewallRuleTypeArgs) ToFirewallRuleGroupFirewallRuleTypeOutputWithContext(ctx context.Context) FirewallRuleGroupFirewallRuleTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallRuleGroupFirewallRuleTypeOutput)
+}
+
+func (i FirewallRuleGroupFirewallRuleTypeArgs) ToFirewallRuleGroupFirewallRuleTypePtrOutput() FirewallRuleGroupFirewallRuleTypePtrOutput {
+	return i.ToFirewallRuleGroupFirewallRuleTypePtrOutputWithContext(context.Background())
+}
+
+func (i FirewallRuleGroupFirewallRuleTypeArgs) ToFirewallRuleGroupFirewallRuleTypePtrOutputWithContext(ctx context.Context) FirewallRuleGroupFirewallRuleTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallRuleGroupFirewallRuleTypeOutput).ToFirewallRuleGroupFirewallRuleTypePtrOutputWithContext(ctx)
+}
+
+// FirewallRuleGroupFirewallRuleTypePtrInput is an input type that accepts FirewallRuleGroupFirewallRuleTypeArgs, FirewallRuleGroupFirewallRuleTypePtr and FirewallRuleGroupFirewallRuleTypePtrOutput values.
+// You can construct a concrete instance of `FirewallRuleGroupFirewallRuleTypePtrInput` via:
+//
+//	        FirewallRuleGroupFirewallRuleTypeArgs{...}
+//
+//	or:
+//
+//	        nil
+type FirewallRuleGroupFirewallRuleTypePtrInput interface {
+	pulumi.Input
+
+	ToFirewallRuleGroupFirewallRuleTypePtrOutput() FirewallRuleGroupFirewallRuleTypePtrOutput
+	ToFirewallRuleGroupFirewallRuleTypePtrOutputWithContext(context.Context) FirewallRuleGroupFirewallRuleTypePtrOutput
+}
+
+type firewallRuleGroupFirewallRuleTypePtrType FirewallRuleGroupFirewallRuleTypeArgs
+
+func FirewallRuleGroupFirewallRuleTypePtr(v *FirewallRuleGroupFirewallRuleTypeArgs) FirewallRuleGroupFirewallRuleTypePtrInput {
+	return (*firewallRuleGroupFirewallRuleTypePtrType)(v)
+}
+
+func (*firewallRuleGroupFirewallRuleTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallRuleGroupFirewallRuleType)(nil)).Elem()
+}
+
+func (i *firewallRuleGroupFirewallRuleTypePtrType) ToFirewallRuleGroupFirewallRuleTypePtrOutput() FirewallRuleGroupFirewallRuleTypePtrOutput {
+	return i.ToFirewallRuleGroupFirewallRuleTypePtrOutputWithContext(context.Background())
+}
+
+func (i *firewallRuleGroupFirewallRuleTypePtrType) ToFirewallRuleGroupFirewallRuleTypePtrOutputWithContext(ctx context.Context) FirewallRuleGroupFirewallRuleTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallRuleGroupFirewallRuleTypePtrOutput)
+}
+
+// Firewall rule type union. Exactly one member must be set. Mutually exclusive with FirewallDomainListId and DnsThreatProtection/ConfidenceThreshold.
+type FirewallRuleGroupFirewallRuleTypeOutput struct{ *pulumi.OutputState }
+
+func (FirewallRuleGroupFirewallRuleTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallRuleGroupFirewallRuleType)(nil)).Elem()
+}
+
+func (o FirewallRuleGroupFirewallRuleTypeOutput) ToFirewallRuleGroupFirewallRuleTypeOutput() FirewallRuleGroupFirewallRuleTypeOutput {
+	return o
+}
+
+func (o FirewallRuleGroupFirewallRuleTypeOutput) ToFirewallRuleGroupFirewallRuleTypeOutputWithContext(ctx context.Context) FirewallRuleGroupFirewallRuleTypeOutput {
+	return o
+}
+
+func (o FirewallRuleGroupFirewallRuleTypeOutput) ToFirewallRuleGroupFirewallRuleTypePtrOutput() FirewallRuleGroupFirewallRuleTypePtrOutput {
+	return o.ToFirewallRuleGroupFirewallRuleTypePtrOutputWithContext(context.Background())
+}
+
+func (o FirewallRuleGroupFirewallRuleTypeOutput) ToFirewallRuleGroupFirewallRuleTypePtrOutputWithContext(ctx context.Context) FirewallRuleGroupFirewallRuleTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirewallRuleGroupFirewallRuleType) *FirewallRuleGroupFirewallRuleType {
+		return &v
+	}).(FirewallRuleGroupFirewallRuleTypePtrOutput)
+}
+
+func (o FirewallRuleGroupFirewallRuleTypeOutput) FirewallAdvancedContentCategory() FirewallRuleGroupFirewallAdvancedContentCategoryConfigPtrOutput {
+	return o.ApplyT(func(v FirewallRuleGroupFirewallRuleType) *FirewallRuleGroupFirewallAdvancedContentCategoryConfig {
+		return v.FirewallAdvancedContentCategory
+	}).(FirewallRuleGroupFirewallAdvancedContentCategoryConfigPtrOutput)
+}
+
+func (o FirewallRuleGroupFirewallRuleTypeOutput) FirewallAdvancedThreatCategory() FirewallRuleGroupFirewallAdvancedThreatCategoryConfigPtrOutput {
+	return o.ApplyT(func(v FirewallRuleGroupFirewallRuleType) *FirewallRuleGroupFirewallAdvancedThreatCategoryConfig {
+		return v.FirewallAdvancedThreatCategory
+	}).(FirewallRuleGroupFirewallAdvancedThreatCategoryConfigPtrOutput)
+}
+
+type FirewallRuleGroupFirewallRuleTypePtrOutput struct{ *pulumi.OutputState }
+
+func (FirewallRuleGroupFirewallRuleTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallRuleGroupFirewallRuleType)(nil)).Elem()
+}
+
+func (o FirewallRuleGroupFirewallRuleTypePtrOutput) ToFirewallRuleGroupFirewallRuleTypePtrOutput() FirewallRuleGroupFirewallRuleTypePtrOutput {
+	return o
+}
+
+func (o FirewallRuleGroupFirewallRuleTypePtrOutput) ToFirewallRuleGroupFirewallRuleTypePtrOutputWithContext(ctx context.Context) FirewallRuleGroupFirewallRuleTypePtrOutput {
+	return o
+}
+
+func (o FirewallRuleGroupFirewallRuleTypePtrOutput) Elem() FirewallRuleGroupFirewallRuleTypeOutput {
+	return o.ApplyT(func(v *FirewallRuleGroupFirewallRuleType) FirewallRuleGroupFirewallRuleType {
+		if v != nil {
+			return *v
+		}
+		var ret FirewallRuleGroupFirewallRuleType
+		return ret
+	}).(FirewallRuleGroupFirewallRuleTypeOutput)
+}
+
+func (o FirewallRuleGroupFirewallRuleTypePtrOutput) FirewallAdvancedContentCategory() FirewallRuleGroupFirewallAdvancedContentCategoryConfigPtrOutput {
+	return o.ApplyT(func(v *FirewallRuleGroupFirewallRuleType) *FirewallRuleGroupFirewallAdvancedContentCategoryConfig {
+		if v == nil {
+			return nil
+		}
+		return v.FirewallAdvancedContentCategory
+	}).(FirewallRuleGroupFirewallAdvancedContentCategoryConfigPtrOutput)
+}
+
+func (o FirewallRuleGroupFirewallRuleTypePtrOutput) FirewallAdvancedThreatCategory() FirewallRuleGroupFirewallAdvancedThreatCategoryConfigPtrOutput {
+	return o.ApplyT(func(v *FirewallRuleGroupFirewallRuleType) *FirewallRuleGroupFirewallAdvancedThreatCategoryConfig {
+		if v == nil {
+			return nil
+		}
+		return v.FirewallAdvancedThreatCategory
+	}).(FirewallRuleGroupFirewallAdvancedThreatCategoryConfigPtrOutput)
 }
 
 // A key-value pair to associate with a resource.
@@ -525,14 +969,26 @@ func (o ResolverRuleTargetAddressArrayOutput) Index(i pulumi.IntInput) ResolverR
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupFirewallAdvancedContentCategoryConfigInput)(nil)).Elem(), FirewallRuleGroupFirewallAdvancedContentCategoryConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupFirewallAdvancedContentCategoryConfigPtrInput)(nil)).Elem(), FirewallRuleGroupFirewallAdvancedContentCategoryConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupFirewallAdvancedThreatCategoryConfigInput)(nil)).Elem(), FirewallRuleGroupFirewallAdvancedThreatCategoryConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupFirewallAdvancedThreatCategoryConfigPtrInput)(nil)).Elem(), FirewallRuleGroupFirewallAdvancedThreatCategoryConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupFirewallRuleInput)(nil)).Elem(), FirewallRuleGroupFirewallRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupFirewallRuleArrayInput)(nil)).Elem(), FirewallRuleGroupFirewallRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupFirewallRuleTypeInput)(nil)).Elem(), FirewallRuleGroupFirewallRuleTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupFirewallRuleTypePtrInput)(nil)).Elem(), FirewallRuleGroupFirewallRuleTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverEndpointIpAddressRequestInput)(nil)).Elem(), ResolverEndpointIpAddressRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverEndpointIpAddressRequestArrayInput)(nil)).Elem(), ResolverEndpointIpAddressRequestArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverRuleTargetAddressInput)(nil)).Elem(), ResolverRuleTargetAddressArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverRuleTargetAddressArrayInput)(nil)).Elem(), ResolverRuleTargetAddressArray{})
+	pulumi.RegisterOutputType(FirewallRuleGroupFirewallAdvancedContentCategoryConfigOutput{})
+	pulumi.RegisterOutputType(FirewallRuleGroupFirewallAdvancedContentCategoryConfigPtrOutput{})
+	pulumi.RegisterOutputType(FirewallRuleGroupFirewallAdvancedThreatCategoryConfigOutput{})
+	pulumi.RegisterOutputType(FirewallRuleGroupFirewallAdvancedThreatCategoryConfigPtrOutput{})
 	pulumi.RegisterOutputType(FirewallRuleGroupFirewallRuleOutput{})
 	pulumi.RegisterOutputType(FirewallRuleGroupFirewallRuleArrayOutput{})
+	pulumi.RegisterOutputType(FirewallRuleGroupFirewallRuleTypeOutput{})
+	pulumi.RegisterOutputType(FirewallRuleGroupFirewallRuleTypePtrOutput{})
 	pulumi.RegisterOutputType(ResolverEndpointIpAddressRequestOutput{})
 	pulumi.RegisterOutputType(ResolverEndpointIpAddressRequestArrayOutput{})
 	pulumi.RegisterOutputType(ResolverRuleTargetAddressOutput{})

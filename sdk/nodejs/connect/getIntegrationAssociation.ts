@@ -49,6 +49,10 @@ export interface GetIntegrationAssociationResult {
      * Identifier of the association with an Amazon Connect instance.
      */
     readonly integrationAssociationId?: string;
+    /**
+     * The tags used to organize, track, or control access for this resource.
+     */
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::Connect::IntegrationAssociation

@@ -25,6 +25,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// Configuration for row level security that control data access for this semantic table.
         /// </summary>
         public readonly Outputs.DataSetRowLevelPermissionConfiguration? RowLevelPermissionConfiguration;
+        public readonly Outputs.DataSetTableSemanticMetadata? SemanticMetadata;
 
         [OutputConstructor]
         private DataSetSemanticTable(
@@ -32,11 +33,14 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             string destinationTableId,
 
-            Outputs.DataSetRowLevelPermissionConfiguration? rowLevelPermissionConfiguration)
+            Outputs.DataSetRowLevelPermissionConfiguration? rowLevelPermissionConfiguration,
+
+            Outputs.DataSetTableSemanticMetadata? semanticMetadata)
         {
             Alias = alias;
             DestinationTableId = destinationTableId;
             RowLevelPermissionConfiguration = rowLevelPermissionConfiguration;
+            SemanticMetadata = semanticMetadata;
         }
     }
 }

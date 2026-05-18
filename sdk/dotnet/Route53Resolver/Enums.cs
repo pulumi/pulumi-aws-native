@@ -201,7 +201,7 @@ namespace Pulumi.AwsNative.Route53Resolver
     }
 
     /// <summary>
-    /// FirewallDomainRedirectionAction
+    /// ConfidenceThreshold
     /// </summary>
     [EnumType]
     public readonly struct FirewallRuleGroupFirewallRuleConfidenceThreshold : IEquatable<FirewallRuleGroupFirewallRuleConfidenceThreshold>
@@ -233,7 +233,7 @@ namespace Pulumi.AwsNative.Route53Resolver
     }
 
     /// <summary>
-    /// FirewallDomainRedirectionAction
+    /// DnsThreatProtection
     /// </summary>
     [EnumType]
     public readonly struct FirewallRuleGroupFirewallRuleDnsThreatProtection : IEquatable<FirewallRuleGroupFirewallRuleDnsThreatProtection>

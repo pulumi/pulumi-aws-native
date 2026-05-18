@@ -39,6 +39,10 @@ export interface GetConsumableResourceResult {
      */
     readonly inUseQuantity?: number;
     /**
+     * A key-value pair to associate with a resource.
+     */
+    readonly tags?: {[key: string]: string};
+    /**
      * Total Quantity of ConsumableResource.
      */
     readonly totalQuantity?: number;

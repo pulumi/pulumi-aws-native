@@ -692,7 +692,7 @@ func (o ServiceAdditionalServiceDetailsPtrOutput) Elem() ServiceAdditionalServic
 	}).(ServiceAdditionalServiceDetailsOutput)
 }
 
-// Service-specific configuration details
+// Service-specific configuration details - only MCPServerSigV4 supports in-place updates, all other service types require replacement when modified
 type ServiceDetails struct {
 }
 
@@ -707,7 +707,7 @@ type ServiceDetailsInput interface {
 	ToServiceDetailsOutputWithContext(context.Context) ServiceDetailsOutput
 }
 
-// Service-specific configuration details
+// Service-specific configuration details - only MCPServerSigV4 supports in-place updates, all other service types require replacement when modified
 type ServiceDetailsArgs struct {
 }
 
@@ -764,7 +764,7 @@ func (i *serviceDetailsPtrType) ToServiceDetailsPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceDetailsPtrOutput)
 }
 
-// Service-specific configuration details
+// Service-specific configuration details - only MCPServerSigV4 supports in-place updates, all other service types require replacement when modified
 type ServiceDetailsOutput struct{ *pulumi.OutputState }
 
 func (ServiceDetailsOutput) ElementType() reflect.Type {

@@ -36,6 +36,8 @@ type LookupConsumableResourceResult struct {
 	CreatedAt *int `pulumi:"createdAt"`
 	// In-use Quantity of ConsumableResource.
 	InUseQuantity *int `pulumi:"inUseQuantity"`
+	// A key-value pair to associate with a resource.
+	Tags map[string]string `pulumi:"tags"`
 	// Total Quantity of ConsumableResource.
 	TotalQuantity *int `pulumi:"totalQuantity"`
 }
@@ -90,6 +92,11 @@ func (o LookupConsumableResourceResultOutput) CreatedAt() pulumi.IntPtrOutput {
 // In-use Quantity of ConsumableResource.
 func (o LookupConsumableResourceResultOutput) InUseQuantity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupConsumableResourceResult) *int { return v.InUseQuantity }).(pulumi.IntPtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+func (o LookupConsumableResourceResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupConsumableResourceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // Total Quantity of ConsumableResource.

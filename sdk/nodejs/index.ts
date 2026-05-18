@@ -88,6 +88,7 @@ import * as arczonalshift from "./arczonalshift";
 import * as athena from "./athena";
 import * as auditmanager from "./auditmanager";
 import * as autoscaling from "./autoscaling";
+import * as awsexternalanthropic from "./awsexternalanthropic";
 import * as b2bi from "./b2bi";
 import * as backup from "./backup";
 import * as backupgateway from "./backupgateway";
@@ -344,6 +345,7 @@ export {
     athena,
     auditmanager,
     autoscaling,
+    awsexternalanthropic,
     b2bi,
     backup,
     backupgateway,

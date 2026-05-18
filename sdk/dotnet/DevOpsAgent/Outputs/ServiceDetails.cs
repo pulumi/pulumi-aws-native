@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.DevOpsAgent.Outputs
 {
 
     /// <summary>
-    /// Service-specific configuration details
+    /// Service-specific configuration details - only MCPServerSigV4 supports in-place updates, all other service types require replacement when modified
     /// </summary>
     [OutputType]
     public sealed class ServiceDetails

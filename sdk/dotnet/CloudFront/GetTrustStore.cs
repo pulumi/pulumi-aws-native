@@ -91,6 +91,9 @@ namespace Pulumi.AwsNative.CloudFront
         /// A complex type that contains zero or more ``Tag`` elements.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// A boolean. When true, performs real-time certificate revocation checks by querying the OCSP endpoint specified within the client certificate.
+        /// </summary>
         public readonly bool? UseClientCertificateOcspEndpoint;
 
         [OutputConstructor]

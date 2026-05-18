@@ -111,6 +111,12 @@ namespace Pulumi.AwsNative.Connect
         [Output("integrationType")]
         public Output<Pulumi.AwsNative.Connect.IntegrationAssociationIntegrationType> IntegrationType { get; private set; } = null!;
 
+        /// <summary>
+        /// The tags used to organize, track, or control access for this resource.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a IntegrationAssociation resource with the given unique name, arguments, and options.
@@ -189,6 +195,18 @@ namespace Pulumi.AwsNative.Connect
         /// </summary>
         [Input("integrationType", required: true)]
         public Input<Pulumi.AwsNative.Connect.IntegrationAssociationIntegrationType> IntegrationType { get; set; } = null!;
+
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// The tags used to organize, track, or control access for this resource.
+        /// </summary>
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
+        }
 
         public IntegrationAssociationArgs()
         {

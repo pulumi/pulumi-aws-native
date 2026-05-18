@@ -30,7 +30,7 @@ export interface GetKeyValueStoreResult {
      */
     readonly arn?: string;
     /**
-     * A comment for the key value store.
+     * A comment to describe the Key Value Store. Omitting ``Comment`` from the template during updates will clear the existing comment (set to empty string). To preserve an existing comment, you must explicitly include it in the template.
      */
     readonly comment?: string;
     /**
@@ -41,6 +41,9 @@ export interface GetKeyValueStoreResult {
      * The current status of the key value store. For more information, see [Key value store statuses](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/kvs-with-functions-create.html#key-value-store-status) in the *.*
      */
     readonly status?: string;
+    /**
+     * A complex type that contains zero or more ``Tag`` elements.
+     */
     readonly tags?: outputs.Tag[];
 }
 /**

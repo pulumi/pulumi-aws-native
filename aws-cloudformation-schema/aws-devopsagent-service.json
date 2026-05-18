@@ -15,7 +15,7 @@
       "enum" : [ "dynatrace", "mcpserver", "mcpserversplunk", "mcpservernewrelic", "gitlab", "servicenow", "pagerduty", "azureidentity", "mcpserversigv4" ]
     },
     "ServiceDetails" : {
-      "description" : "Service-specific configuration details",
+      "description" : "Service-specific configuration details - only MCPServerSigV4 supports in-place updates, all other service types require replacement when modified",
       "type" : "object",
       "oneOf" : [ {
         "properties" : {
@@ -887,7 +887,7 @@
   "required" : [ "ServiceType" ],
   "readOnlyProperties" : [ "/properties/ServiceId", "/properties/AccessibleResources", "/properties/AdditionalServiceDetails", "/properties/Arn" ],
   "writeOnlyProperties" : [ "/properties/ServiceDetails" ],
-  "createOnlyProperties" : [ "/properties/ServiceType", "/properties/ServiceDetails", "/properties/KmsKeyArn" ],
+  "createOnlyProperties" : [ "/properties/ServiceType", "/properties/ServiceDetails/Dynatrace", "/properties/ServiceDetails/MCPServer", "/properties/ServiceDetails/MCPServerSplunk", "/properties/ServiceDetails/MCPServerNewRelic", "/properties/ServiceDetails/GitLab", "/properties/ServiceDetails/ServiceNow", "/properties/ServiceDetails/PagerDuty", "/properties/ServiceDetails/AzureIdentity", "/properties/KmsKeyArn" ],
   "primaryIdentifier" : [ "/properties/ServiceId" ],
   "handlers" : {
     "create" : {
@@ -897,7 +897,7 @@
       "permissions" : [ "aidevops:GetService", "aidevops:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "aidevops:GetService", "aidevops:TagResource", "aidevops:UntagResource", "aidevops:ListTagsForResource" ]
+      "permissions" : [ "aidevops:UpdateService", "aidevops:GetService", "aidevops:TagResource", "aidevops:UntagResource", "aidevops:ListTagsForResource" ]
     },
     "delete" : {
       "permissions" : [ "aidevops:DeregisterService", "aidevops:GetService" ]

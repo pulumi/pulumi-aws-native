@@ -77,6 +77,8 @@ type ReplicationGroup struct {
 	// The endpoint of the reader node in the replication group.
 	ReaderEndPoint ReplicationGroupEndpointOutput `pulumi:"readerEndPoint"`
 	// An optional parameter that specifies the number of replica nodes in each node group (shard). Valid values are 0 to 5.
+	//
+	// **Note:** Using ReplicasPerNodeGroup with NodeGroupConfiguration results in resource replacement. For online scaling, use ReplicasPerNodeGroup alone.
 	ReplicasPerNodeGroup pulumi.IntPtrOutput `pulumi:"replicasPerNodeGroup"`
 	// A user-created description for the replication group.
 	ReplicationGroupDescription pulumi.StringOutput `pulumi:"replicationGroupDescription"`
@@ -123,7 +125,6 @@ func NewReplicationGroup(ctx *pulumi.Context,
 		"networkType",
 		"port",
 		"preferredCacheClusterAzs[*]",
-		"replicasPerNodeGroup",
 		"replicationGroupId",
 		"snapshotArns[*]",
 		"snapshotName",
@@ -215,6 +216,8 @@ type replicationGroupArgs struct {
 	// The identifier of the cluster that serves as the primary for this replication group. This cluster must already exist and have a status of available.
 	PrimaryClusterId *string `pulumi:"primaryClusterId"`
 	// An optional parameter that specifies the number of replica nodes in each node group (shard). Valid values are 0 to 5.
+	//
+	// **Note:** Using ReplicasPerNodeGroup with NodeGroupConfiguration results in resource replacement. For online scaling, use ReplicasPerNodeGroup alone.
 	ReplicasPerNodeGroup *int `pulumi:"replicasPerNodeGroup"`
 	// A user-created description for the replication group.
 	ReplicationGroupDescription string `pulumi:"replicationGroupDescription"`
@@ -297,6 +300,8 @@ type ReplicationGroupArgs struct {
 	// The identifier of the cluster that serves as the primary for this replication group. This cluster must already exist and have a status of available.
 	PrimaryClusterId pulumi.StringPtrInput
 	// An optional parameter that specifies the number of replica nodes in each node group (shard). Valid values are 0 to 5.
+	//
+	// **Note:** Using ReplicasPerNodeGroup with NodeGroupConfiguration results in resource replacement. For online scaling, use ReplicasPerNodeGroup alone.
 	ReplicasPerNodeGroup pulumi.IntPtrInput
 	// A user-created description for the replication group.
 	ReplicationGroupDescription pulumi.StringInput
@@ -515,6 +520,8 @@ func (o ReplicationGroupOutput) ReaderEndPoint() ReplicationGroupEndpointOutput 
 }
 
 // An optional parameter that specifies the number of replica nodes in each node group (shard). Valid values are 0 to 5.
+//
+// **Note:** Using ReplicasPerNodeGroup with NodeGroupConfiguration results in resource replacement. For online scaling, use ReplicasPerNodeGroup alone.
 func (o ReplicationGroupOutput) ReplicasPerNodeGroup() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ReplicationGroup) pulumi.IntPtrOutput { return v.ReplicasPerNodeGroup }).(pulumi.IntPtrOutput)
 }

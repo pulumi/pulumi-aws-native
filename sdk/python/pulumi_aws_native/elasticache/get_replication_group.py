@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetReplicationGroupResult:
-    def __init__(__self__, auto_minor_version_upgrade=None, automatic_failover_enabled=None, cache_node_type=None, cluster_mode=None, configuration_end_point=None, engine=None, ip_discovery=None, log_delivery_configurations=None, multi_az_enabled=None, num_cache_clusters=None, primary_end_point=None, read_end_point=None, reader_end_point=None, replication_group_description=None, snapshot_retention_limit=None, snapshot_window=None, snapshotting_cluster_id=None, tags=None, transit_encryption_enabled=None, transit_encryption_mode=None, user_group_ids=None):
+    def __init__(__self__, auto_minor_version_upgrade=None, automatic_failover_enabled=None, cache_node_type=None, cluster_mode=None, configuration_end_point=None, engine=None, ip_discovery=None, log_delivery_configurations=None, multi_az_enabled=None, num_cache_clusters=None, primary_end_point=None, read_end_point=None, reader_end_point=None, replicas_per_node_group=None, replication_group_description=None, snapshot_retention_limit=None, snapshot_window=None, snapshotting_cluster_id=None, tags=None, transit_encryption_enabled=None, transit_encryption_mode=None, user_group_ids=None):
         if auto_minor_version_upgrade and not isinstance(auto_minor_version_upgrade, bool):
             raise TypeError("Expected argument 'auto_minor_version_upgrade' to be a bool")
         pulumi.set(__self__, "auto_minor_version_upgrade", auto_minor_version_upgrade)
@@ -65,6 +65,9 @@ class GetReplicationGroupResult:
         if reader_end_point and not isinstance(reader_end_point, dict):
             raise TypeError("Expected argument 'reader_end_point' to be a dict")
         pulumi.set(__self__, "reader_end_point", reader_end_point)
+        if replicas_per_node_group and not isinstance(replicas_per_node_group, int):
+            raise TypeError("Expected argument 'replicas_per_node_group' to be a int")
+        pulumi.set(__self__, "replicas_per_node_group", replicas_per_node_group)
         if replication_group_description and not isinstance(replication_group_description, str):
             raise TypeError("Expected argument 'replication_group_description' to be a str")
         pulumi.set(__self__, "replication_group_description", replication_group_description)
@@ -192,6 +195,16 @@ class GetReplicationGroupResult:
         return pulumi.get(self, "reader_end_point")
 
     @_builtins.property
+    @pulumi.getter(name="replicasPerNodeGroup")
+    def replicas_per_node_group(self) -> Optional[_builtins.int]:
+        """
+        An optional parameter that specifies the number of replica nodes in each node group (shard). Valid values are 0 to 5.
+
+        **Note:** Using ReplicasPerNodeGroup with NodeGroupConfiguration results in resource replacement. For online scaling, use ReplicasPerNodeGroup alone.
+        """
+        return pulumi.get(self, "replicas_per_node_group")
+
+    @_builtins.property
     @pulumi.getter(name="replicationGroupDescription")
     def replication_group_description(self) -> Optional[_builtins.str]:
         """
@@ -275,6 +288,7 @@ class AwaitableGetReplicationGroupResult(GetReplicationGroupResult):
             primary_end_point=self.primary_end_point,
             read_end_point=self.read_end_point,
             reader_end_point=self.reader_end_point,
+            replicas_per_node_group=self.replicas_per_node_group,
             replication_group_description=self.replication_group_description,
             snapshot_retention_limit=self.snapshot_retention_limit,
             snapshot_window=self.snapshot_window,
@@ -312,6 +326,7 @@ def get_replication_group(replication_group_id: Optional[_builtins.str] = None,
         primary_end_point=pulumi.get(__ret__, 'primary_end_point'),
         read_end_point=pulumi.get(__ret__, 'read_end_point'),
         reader_end_point=pulumi.get(__ret__, 'reader_end_point'),
+        replicas_per_node_group=pulumi.get(__ret__, 'replicas_per_node_group'),
         replication_group_description=pulumi.get(__ret__, 'replication_group_description'),
         snapshot_retention_limit=pulumi.get(__ret__, 'snapshot_retention_limit'),
         snapshot_window=pulumi.get(__ret__, 'snapshot_window'),
@@ -346,6 +361,7 @@ def get_replication_group_output(replication_group_id: Optional[pulumi.Input[_bu
         primary_end_point=pulumi.get(__response__, 'primary_end_point'),
         read_end_point=pulumi.get(__response__, 'read_end_point'),
         reader_end_point=pulumi.get(__response__, 'reader_end_point'),
+        replicas_per_node_group=pulumi.get(__response__, 'replicas_per_node_group'),
         replication_group_description=pulumi.get(__response__, 'replication_group_description'),
         snapshot_retention_limit=pulumi.get(__response__, 'snapshot_retention_limit'),
         snapshot_window=pulumi.get(__response__, 'snapshot_window'),

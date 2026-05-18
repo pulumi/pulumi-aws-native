@@ -111,11 +111,19 @@ namespace Pulumi.AwsNative.Connect
         /// Identifier of the association with an Amazon Connect instance.
         /// </summary>
         public readonly string? IntegrationAssociationId;
+        /// <summary>
+        /// The tags used to organize, track, or control access for this resource.
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
-        private GetIntegrationAssociationResult(string? integrationAssociationId)
+        private GetIntegrationAssociationResult(
+            string? integrationAssociationId,
+
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             IntegrationAssociationId = integrationAssociationId;
+            Tags = tags;
         }
     }
 }

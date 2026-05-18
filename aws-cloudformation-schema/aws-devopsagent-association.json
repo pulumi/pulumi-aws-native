@@ -114,6 +114,14 @@
         "additionalProperties" : false
       }, {
         "properties" : {
+          "MCPServerGrafana" : {
+            "$ref" : "#/definitions/MCPServerGrafanaConfiguration"
+          }
+        },
+        "required" : [ "MCPServerGrafana" ],
+        "additionalProperties" : false
+      }, {
+        "properties" : {
           "PagerDuty" : {
             "$ref" : "#/definitions/PagerDutyConfiguration"
           }
@@ -347,7 +355,7 @@
           "type" : "boolean"
         }
       },
-      "required" : [ "Name", "Endpoint", "Tools" ],
+      "required" : [ "Tools" ],
       "additionalProperties" : false
     },
     "MCPServerDatadogConfiguration" : {
@@ -373,7 +381,6 @@
           "type" : "boolean"
         }
       },
-      "required" : [ "Name", "Endpoint" ],
       "additionalProperties" : false
     },
     "MCPServerSplunkConfiguration" : {
@@ -399,7 +406,31 @@
           "type" : "boolean"
         }
       },
-      "required" : [ "Name", "Endpoint" ],
+      "additionalProperties" : false
+    },
+    "MCPServerGrafanaConfiguration" : {
+      "description" : "Grafana MCP server configuration",
+      "type" : "object",
+      "properties" : {
+        "Endpoint" : {
+          "description" : "MCP server endpoint URL",
+          "type" : "string",
+          "pattern" : "^https://[a-zA-Z0-9.-]+(?::[0-9]+)?(?:/.*)?$"
+        },
+        "Tools" : {
+          "description" : "List of tool categories to enable for the Grafana MCP server",
+          "type" : "array",
+          "items" : {
+            "type" : "string",
+            "enum" : [ "alerting", "annotations", "asserts", "cloudwatch", "dashboard", "datasource", "elasticsearch", "examples", "incident", "loki", "navigation", "oncall", "prometheus", "pyroscope", "rendering", "runpanelquery", "search", "searchlogs", "sift" ]
+          }
+        },
+        "EnableWebhookUpdates" : {
+          "description" : "When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service",
+          "type" : "boolean"
+        }
+      },
+      "required" : [ "Endpoint" ],
       "additionalProperties" : false
     },
     "AWSResource" : {
@@ -605,7 +636,7 @@
   "required" : [ "AgentSpaceId", "ServiceId", "Configuration" ],
   "createOnlyProperties" : [ "/properties/AgentSpaceId" ],
   "readOnlyProperties" : [ "/properties/AssociationId", "/properties/CreatedAt", "/properties/UpdatedAt" ],
-  "writeOnlyProperties" : [ "/properties/Configuration/Dynatrace/EnableWebhookUpdates", "/properties/Configuration/ServiceNow/EnableWebhookUpdates", "/properties/Configuration/MCPServer/EnableWebhookUpdates", "/properties/Configuration/MCPServerDatadog/EnableWebhookUpdates", "/properties/Configuration/MCPServerSplunk/EnableWebhookUpdates", "/properties/Configuration/GitLab/EnableWebhookUpdates", "/properties/Configuration/PagerDuty/EnableWebhookUpdates", "/properties/Configuration/EventChannel/EnableWebhookUpdates", "/properties/LinkedAssociationIds" ],
+  "writeOnlyProperties" : [ "/properties/Configuration/Dynatrace/EnableWebhookUpdates", "/properties/Configuration/ServiceNow/EnableWebhookUpdates", "/properties/Configuration/MCPServer/EnableWebhookUpdates", "/properties/Configuration/MCPServerDatadog/EnableWebhookUpdates", "/properties/Configuration/MCPServerSplunk/EnableWebhookUpdates", "/properties/Configuration/MCPServerGrafana/EnableWebhookUpdates", "/properties/Configuration/GitLab/EnableWebhookUpdates", "/properties/Configuration/PagerDuty/EnableWebhookUpdates", "/properties/Configuration/EventChannel/EnableWebhookUpdates", "/properties/LinkedAssociationIds" ],
   "primaryIdentifier" : [ "/properties/AgentSpaceId", "/properties/AssociationId" ],
   "handlers" : {
     "create" : {

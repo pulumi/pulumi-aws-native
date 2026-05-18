@@ -13,14 +13,19 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DataSetSemanticModelConfiguration
     {
+        public readonly ImmutableArray<Outputs.DataSetSemanticMetadata> SemanticMetadata;
         /// <summary>
         /// A map of semantic tables that define the analytical structure.
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.DataSetSemanticTable>? TableMap;
 
         [OutputConstructor]
-        private DataSetSemanticModelConfiguration(ImmutableDictionary<string, Outputs.DataSetSemanticTable>? tableMap)
+        private DataSetSemanticModelConfiguration(
+            ImmutableArray<Outputs.DataSetSemanticMetadata> semanticMetadata,
+
+            ImmutableDictionary<string, Outputs.DataSetSemanticTable>? tableMap)
         {
+            SemanticMetadata = semanticMetadata;
             TableMap = tableMap;
         }
     }

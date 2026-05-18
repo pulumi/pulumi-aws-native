@@ -13,6 +13,8 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 
 __all__ = ['DashboardArgs', 'Dashboard']
 
@@ -20,16 +22,20 @@ __all__ = ['DashboardArgs', 'Dashboard']
 class DashboardArgs:
     def __init__(__self__, *,
                  dashboard_body: pulumi.Input[_builtins.str],
-                 dashboard_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 dashboard_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Dashboard resource.
 
         :param pulumi.Input[_builtins.str] dashboard_body: The detailed information about the dashboard in JSON format, including the widgets to include and their location on the dashboard
         :param pulumi.Input[_builtins.str] dashboard_name: The name of the dashboard. The name must be between 1 and 255 characters. If you do not specify a name, one will be generated automatically.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of key-value pairs to associate with the cloudwatch dashboard. You can associate up to 50 tags with a dashboard
         """
         pulumi.set(__self__, "dashboard_body", dashboard_body)
         if dashboard_name is not None:
             pulumi.set(__self__, "dashboard_name", dashboard_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
     @pulumi.getter(name="dashboardBody")
@@ -55,6 +61,18 @@ class DashboardArgs:
     def dashboard_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "dashboard_name", value)
 
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        A list of key-value pairs to associate with the cloudwatch dashboard. You can associate up to 50 tags with a dashboard
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 @pulumi.type_token("aws-native:cloudwatch:Dashboard")
 class Dashboard(pulumi.CustomResource):
@@ -64,6 +82,7 @@ class Dashboard(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dashboard_body: Optional[pulumi.Input[_builtins.str]] = None,
                  dashboard_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::CloudWatch::Dashboard
@@ -73,6 +92,7 @@ class Dashboard(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] dashboard_body: The detailed information about the dashboard in JSON format, including the widgets to include and their location on the dashboard
         :param pulumi.Input[_builtins.str] dashboard_name: The name of the dashboard. The name must be between 1 and 255 characters. If you do not specify a name, one will be generated automatically.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of key-value pairs to associate with the cloudwatch dashboard. You can associate up to 50 tags with a dashboard
         """
         ...
     @overload
@@ -101,6 +121,7 @@ class Dashboard(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dashboard_body: Optional[pulumi.Input[_builtins.str]] = None,
                  dashboard_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -114,6 +135,7 @@ class Dashboard(pulumi.CustomResource):
                 raise TypeError("Missing required property 'dashboard_body'")
             __props__.__dict__["dashboard_body"] = dashboard_body
             __props__.__dict__["dashboard_name"] = dashboard_name
+            __props__.__dict__["tags"] = tags
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["dashboardName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Dashboard, __self__).__init__(
@@ -140,6 +162,7 @@ class Dashboard(pulumi.CustomResource):
 
         __props__.__dict__["dashboard_body"] = None
         __props__.__dict__["dashboard_name"] = None
+        __props__.__dict__["tags"] = None
         return Dashboard(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -157,4 +180,12 @@ class Dashboard(pulumi.CustomResource):
         The name of the dashboard. The name must be between 1 and 255 characters. If you do not specify a name, one will be generated automatically.
         """
         return pulumi.get(self, "dashboard_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        A list of key-value pairs to associate with the cloudwatch dashboard. You can associate up to 50 tags with a dashboard
+        """
+        return pulumi.get(self, "tags")
 

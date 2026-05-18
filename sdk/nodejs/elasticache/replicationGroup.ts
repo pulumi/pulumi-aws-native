@@ -156,6 +156,8 @@ export class ReplicationGroup extends pulumi.CustomResource {
     declare public /*out*/ readonly readerEndPoint: pulumi.Output<outputs.elasticache.ReplicationGroupEndpoint>;
     /**
      * An optional parameter that specifies the number of replica nodes in each node group (shard). Valid values are 0 to 5.
+     *
+     * **Note:** Using ReplicasPerNodeGroup with NodeGroupConfiguration results in resource replacement. For online scaling, use ReplicasPerNodeGroup alone.
      */
     declare public readonly replicasPerNodeGroup: pulumi.Output<number | undefined>;
     /**
@@ -310,7 +312,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
             resourceInputs["userGroupIds"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["atRestEncryptionEnabled", "cacheSubnetGroupName", "dataTieringEnabled", "globalReplicationGroupId", "kmsKeyId", "networkType", "port", "preferredCacheClusterAzs[*]", "replicasPerNodeGroup", "replicationGroupId", "snapshotArns[*]", "snapshotName"] };
+        const replaceOnChanges = { replaceOnChanges: ["atRestEncryptionEnabled", "cacheSubnetGroupName", "dataTieringEnabled", "globalReplicationGroupId", "kmsKeyId", "networkType", "port", "preferredCacheClusterAzs[*]", "replicationGroupId", "snapshotArns[*]", "snapshotName"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ReplicationGroup.__pulumiType, name, resourceInputs, opts);
     }
@@ -426,6 +428,8 @@ export interface ReplicationGroupArgs {
     primaryClusterId?: pulumi.Input<string>;
     /**
      * An optional parameter that specifies the number of replica nodes in each node group (shard). Valid values are 0 to 5.
+     *
+     * **Note:** Using ReplicasPerNodeGroup with NodeGroupConfiguration results in resource replacement. For online scaling, use ReplicasPerNodeGroup alone.
      */
     replicasPerNodeGroup?: pulumi.Input<number>;
     /**

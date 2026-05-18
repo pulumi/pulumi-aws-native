@@ -13,6 +13,8 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 
 __all__ = ['IntegrationAssociationArgs', 'IntegrationAssociation']
@@ -22,7 +24,8 @@ class IntegrationAssociationArgs:
     def __init__(__self__, *,
                  instance_id: pulumi.Input[_builtins.str],
                  integration_arn: pulumi.Input[_builtins.str],
-                 integration_type: pulumi.Input['IntegrationAssociationIntegrationType']):
+                 integration_type: pulumi.Input['IntegrationAssociationIntegrationType'],
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a IntegrationAssociation resource.
 
@@ -39,10 +42,13 @@ class IntegrationAssociationArgs:
         :param pulumi.Input['IntegrationAssociationIntegrationType'] integration_type: Specifies the integration type to be associated with the instance.
                
                *Allowed Values* : `LEX_BOT` | `LAMBDA_FUNCTION`
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags used to organize, track, or control access for this resource.
         """
         pulumi.set(__self__, "instance_id", instance_id)
         pulumi.set(__self__, "integration_arn", integration_arn)
         pulumi.set(__self__, "integration_type", integration_type)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
     @pulumi.getter(name="instanceId")
@@ -90,6 +96,18 @@ class IntegrationAssociationArgs:
     def integration_type(self, value: pulumi.Input['IntegrationAssociationIntegrationType']):
         pulumi.set(self, "integration_type", value)
 
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        The tags used to organize, track, or control access for this resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 @pulumi.type_token("aws-native:connect:IntegrationAssociation")
 class IntegrationAssociation(pulumi.CustomResource):
@@ -100,6 +118,7 @@ class IntegrationAssociation(pulumi.CustomResource):
                  instance_id: Optional[pulumi.Input[_builtins.str]] = None,
                  integration_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  integration_type: Optional[pulumi.Input['IntegrationAssociationIntegrationType']] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Connect::IntegrationAssociation
@@ -158,6 +177,7 @@ class IntegrationAssociation(pulumi.CustomResource):
         :param pulumi.Input['IntegrationAssociationIntegrationType'] integration_type: Specifies the integration type to be associated with the instance.
                
                *Allowed Values* : `LEX_BOT` | `LAMBDA_FUNCTION`
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags used to organize, track, or control access for this resource.
         """
         ...
     @overload
@@ -225,6 +245,7 @@ class IntegrationAssociation(pulumi.CustomResource):
                  instance_id: Optional[pulumi.Input[_builtins.str]] = None,
                  integration_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  integration_type: Optional[pulumi.Input['IntegrationAssociationIntegrationType']] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -243,6 +264,7 @@ class IntegrationAssociation(pulumi.CustomResource):
             if integration_type is None and not opts.urn:
                 raise TypeError("Missing required property 'integration_type'")
             __props__.__dict__["integration_type"] = integration_type
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["integration_association_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["instanceId", "integrationArn", "integrationType"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -272,6 +294,7 @@ class IntegrationAssociation(pulumi.CustomResource):
         __props__.__dict__["integration_arn"] = None
         __props__.__dict__["integration_association_id"] = None
         __props__.__dict__["integration_type"] = None
+        __props__.__dict__["tags"] = None
         return IntegrationAssociation(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -315,4 +338,12 @@ class IntegrationAssociation(pulumi.CustomResource):
         *Allowed Values* : `LEX_BOT` | `LAMBDA_FUNCTION`
         """
         return pulumi.get(self, "integration_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        The tags used to organize, track, or control access for this resource.
+        """
+        return pulumi.get(self, "tags")
 

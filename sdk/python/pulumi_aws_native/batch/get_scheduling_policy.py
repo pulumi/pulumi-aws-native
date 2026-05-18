@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetSchedulingPolicyResult:
-    def __init__(__self__, arn=None, fairshare_policy=None, quota_share_policy=None):
+    def __init__(__self__, arn=None, fairshare_policy=None, quota_share_policy=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -35,6 +35,9 @@ class GetSchedulingPolicyResult:
         if quota_share_policy and not isinstance(quota_share_policy, dict):
             raise TypeError("Expected argument 'quota_share_policy' to be a dict")
         pulumi.set(__self__, "quota_share_policy", quota_share_policy)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
     @pulumi.getter
@@ -57,6 +60,14 @@ class GetSchedulingPolicyResult:
     def quota_share_policy(self) -> Optional['outputs.SchedulingPolicyQuotaSharePolicy']:
         return pulumi.get(self, "quota_share_policy")
 
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        A key-value pair to associate with a resource.
+        """
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetSchedulingPolicyResult(GetSchedulingPolicyResult):
     # pylint: disable=using-constant-test
@@ -66,7 +77,8 @@ class AwaitableGetSchedulingPolicyResult(GetSchedulingPolicyResult):
         return GetSchedulingPolicyResult(
             arn=self.arn,
             fairshare_policy=self.fairshare_policy,
-            quota_share_policy=self.quota_share_policy)
+            quota_share_policy=self.quota_share_policy,
+            tags=self.tags)
 
 
 def get_scheduling_policy(arn: Optional[_builtins.str] = None,
@@ -85,7 +97,8 @@ def get_scheduling_policy(arn: Optional[_builtins.str] = None,
     return AwaitableGetSchedulingPolicyResult(
         arn=pulumi.get(__ret__, 'arn'),
         fairshare_policy=pulumi.get(__ret__, 'fairshare_policy'),
-        quota_share_policy=pulumi.get(__ret__, 'quota_share_policy'))
+        quota_share_policy=pulumi.get(__ret__, 'quota_share_policy'),
+        tags=pulumi.get(__ret__, 'tags'))
 def get_scheduling_policy_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSchedulingPolicyResult]:
     """
@@ -101,4 +114,5 @@ def get_scheduling_policy_output(arn: Optional[pulumi.Input[_builtins.str]] = No
     return __ret__.apply(lambda __response__: GetSchedulingPolicyResult(
         arn=pulumi.get(__response__, 'arn'),
         fairshare_policy=pulumi.get(__response__, 'fairshare_policy'),
-        quota_share_policy=pulumi.get(__response__, 'quota_share_policy')))
+        quota_share_policy=pulumi.get(__response__, 'quota_share_policy'),
+        tags=pulumi.get(__response__, 'tags')))

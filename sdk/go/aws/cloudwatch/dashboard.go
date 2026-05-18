@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -20,6 +21,8 @@ type Dashboard struct {
 	DashboardBody pulumi.StringOutput `pulumi:"dashboardBody"`
 	// The name of the dashboard. The name must be between 1 and 255 characters. If you do not specify a name, one will be generated automatically.
 	DashboardName pulumi.StringPtrOutput `pulumi:"dashboardName"`
+	// A list of key-value pairs to associate with the cloudwatch dashboard. You can associate up to 50 tags with a dashboard
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewDashboard registers a new resource with the given unique name, arguments, and options.
@@ -73,6 +76,8 @@ type dashboardArgs struct {
 	DashboardBody string `pulumi:"dashboardBody"`
 	// The name of the dashboard. The name must be between 1 and 255 characters. If you do not specify a name, one will be generated automatically.
 	DashboardName *string `pulumi:"dashboardName"`
+	// A list of key-value pairs to associate with the cloudwatch dashboard. You can associate up to 50 tags with a dashboard
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Dashboard resource.
@@ -81,6 +86,8 @@ type DashboardArgs struct {
 	DashboardBody pulumi.StringInput
 	// The name of the dashboard. The name must be between 1 and 255 characters. If you do not specify a name, one will be generated automatically.
 	DashboardName pulumi.StringPtrInput
+	// A list of key-value pairs to associate with the cloudwatch dashboard. You can associate up to 50 tags with a dashboard
+	Tags aws.TagArrayInput
 }
 
 func (DashboardArgs) ElementType() reflect.Type {
@@ -128,6 +135,11 @@ func (o DashboardOutput) DashboardBody() pulumi.StringOutput {
 // The name of the dashboard. The name must be between 1 and 255 characters. If you do not specify a name, one will be generated automatically.
 func (o DashboardOutput) DashboardName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Dashboard) pulumi.StringPtrOutput { return v.DashboardName }).(pulumi.StringPtrOutput)
+}
+
+// A list of key-value pairs to associate with the cloudwatch dashboard. You can associate up to 50 tags with a dashboard
+func (o DashboardOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Dashboard) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

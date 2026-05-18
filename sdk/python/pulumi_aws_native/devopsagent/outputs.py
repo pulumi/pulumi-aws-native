@@ -203,11 +203,11 @@ class ServiceAdditionalServiceDetails(dict):
 @pulumi.output_type
 class ServiceDetails(dict):
     """
-    Service-specific configuration details
+    Service-specific configuration details - only MCPServerSigV4 supports in-place updates, all other service types require replacement when modified
     """
     def __init__(__self__):
         """
-        Service-specific configuration details
+        Service-specific configuration details - only MCPServerSigV4 supports in-place updates, all other service types require replacement when modified
         """
         pass
 

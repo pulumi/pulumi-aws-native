@@ -16,6 +16,12 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'FirewallRuleGroupFirewallAdvancedContentCategoryConfigArgs',
+    'FirewallRuleGroupFirewallAdvancedContentCategoryConfigArgsDict',
+    'FirewallRuleGroupFirewallAdvancedThreatCategoryConfigArgs',
+    'FirewallRuleGroupFirewallAdvancedThreatCategoryConfigArgsDict',
+    'FirewallRuleGroupFirewallRuleTypeArgs',
+    'FirewallRuleGroupFirewallRuleTypeArgsDict',
     'FirewallRuleGroupFirewallRuleArgs',
     'FirewallRuleGroupFirewallRuleArgsDict',
     'ResolverEndpointIpAddressRequestArgs',
@@ -24,9 +30,114 @@ __all__ = [
     'ResolverRuleTargetAddressArgsDict',
 ]
 
+class FirewallRuleGroupFirewallAdvancedContentCategoryConfigArgsDict(TypedDict):
+    """
+    Configuration for an advanced content category rule type.
+    """
+    category: pulumi.Input[_builtins.str]
+    """
+    The content category value.
+    """
+
+@pulumi.input_type
+class FirewallRuleGroupFirewallAdvancedContentCategoryConfigArgs:
+    def __init__(__self__, *,
+                 category: pulumi.Input[_builtins.str]):
+        """
+        Configuration for an advanced content category rule type.
+
+        :param pulumi.Input[_builtins.str] category: The content category value.
+        """
+        pulumi.set(__self__, "category", category)
+
+    @_builtins.property
+    @pulumi.getter
+    def category(self) -> pulumi.Input[_builtins.str]:
+        """
+        The content category value.
+        """
+        return pulumi.get(self, "category")
+
+    @category.setter
+    def category(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "category", value)
+
+
+class FirewallRuleGroupFirewallAdvancedThreatCategoryConfigArgsDict(TypedDict):
+    """
+    Configuration for an advanced threat category rule type.
+    """
+    category: pulumi.Input[_builtins.str]
+    """
+    The threat category value.
+    """
+
+@pulumi.input_type
+class FirewallRuleGroupFirewallAdvancedThreatCategoryConfigArgs:
+    def __init__(__self__, *,
+                 category: pulumi.Input[_builtins.str]):
+        """
+        Configuration for an advanced threat category rule type.
+
+        :param pulumi.Input[_builtins.str] category: The threat category value.
+        """
+        pulumi.set(__self__, "category", category)
+
+    @_builtins.property
+    @pulumi.getter
+    def category(self) -> pulumi.Input[_builtins.str]:
+        """
+        The threat category value.
+        """
+        return pulumi.get(self, "category")
+
+    @category.setter
+    def category(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "category", value)
+
+
+class FirewallRuleGroupFirewallRuleTypeArgsDict(TypedDict):
+    """
+    Firewall rule type union. Exactly one member must be set. Mutually exclusive with FirewallDomainListId and DnsThreatProtection/ConfidenceThreshold.
+    """
+    firewall_advanced_content_category: NotRequired[pulumi.Input['FirewallRuleGroupFirewallAdvancedContentCategoryConfigArgsDict']]
+    firewall_advanced_threat_category: NotRequired[pulumi.Input['FirewallRuleGroupFirewallAdvancedThreatCategoryConfigArgsDict']]
+
+@pulumi.input_type
+class FirewallRuleGroupFirewallRuleTypeArgs:
+    def __init__(__self__, *,
+                 firewall_advanced_content_category: Optional[pulumi.Input['FirewallRuleGroupFirewallAdvancedContentCategoryConfigArgs']] = None,
+                 firewall_advanced_threat_category: Optional[pulumi.Input['FirewallRuleGroupFirewallAdvancedThreatCategoryConfigArgs']] = None):
+        """
+        Firewall rule type union. Exactly one member must be set. Mutually exclusive with FirewallDomainListId and DnsThreatProtection/ConfidenceThreshold.
+        """
+        if firewall_advanced_content_category is not None:
+            pulumi.set(__self__, "firewall_advanced_content_category", firewall_advanced_content_category)
+        if firewall_advanced_threat_category is not None:
+            pulumi.set(__self__, "firewall_advanced_threat_category", firewall_advanced_threat_category)
+
+    @_builtins.property
+    @pulumi.getter(name="firewallAdvancedContentCategory")
+    def firewall_advanced_content_category(self) -> Optional[pulumi.Input['FirewallRuleGroupFirewallAdvancedContentCategoryConfigArgs']]:
+        return pulumi.get(self, "firewall_advanced_content_category")
+
+    @firewall_advanced_content_category.setter
+    def firewall_advanced_content_category(self, value: Optional[pulumi.Input['FirewallRuleGroupFirewallAdvancedContentCategoryConfigArgs']]):
+        pulumi.set(self, "firewall_advanced_content_category", value)
+
+    @_builtins.property
+    @pulumi.getter(name="firewallAdvancedThreatCategory")
+    def firewall_advanced_threat_category(self) -> Optional[pulumi.Input['FirewallRuleGroupFirewallAdvancedThreatCategoryConfigArgs']]:
+        return pulumi.get(self, "firewall_advanced_threat_category")
+
+    @firewall_advanced_threat_category.setter
+    def firewall_advanced_threat_category(self, value: Optional[pulumi.Input['FirewallRuleGroupFirewallAdvancedThreatCategoryConfigArgs']]):
+        pulumi.set(self, "firewall_advanced_threat_category", value)
+
+
 class FirewallRuleGroupFirewallRuleArgsDict(TypedDict):
     """
-    Firewall Rule associating the Rule Group to a Domain List
+    Firewall Rule associating the Rule Group to a Domain List or advanced rule type
     """
     action: pulumi.Input['FirewallRuleGroupFirewallRuleAction']
     """
@@ -54,11 +165,11 @@ class FirewallRuleGroupFirewallRuleArgsDict(TypedDict):
     """
     confidence_threshold: NotRequired[pulumi.Input['FirewallRuleGroupFirewallRuleConfidenceThreshold']]
     """
-    FirewallDomainRedirectionAction
+    ConfidenceThreshold
     """
     dns_threat_protection: NotRequired[pulumi.Input['FirewallRuleGroupFirewallRuleDnsThreatProtection']]
     """
-    FirewallDomainRedirectionAction
+    DnsThreatProtection
     """
     firewall_domain_list_id: NotRequired[pulumi.Input[_builtins.str]]
     """
@@ -67,6 +178,10 @@ class FirewallRuleGroupFirewallRuleArgsDict(TypedDict):
     firewall_domain_redirection_action: NotRequired[pulumi.Input['FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction']]
     """
     FirewallDomainRedirectionAction
+    """
+    firewall_rule_type: NotRequired[pulumi.Input['FirewallRuleGroupFirewallRuleTypeArgsDict']]
+    """
+    Advanced firewall rule type. Mutually exclusive with FirewallDomainListId and DnsThreatProtection/ConfidenceThreshold.
     """
     firewall_threat_protection_id: NotRequired[pulumi.Input[_builtins.str]]
     """
@@ -90,10 +205,11 @@ class FirewallRuleGroupFirewallRuleArgs:
                  dns_threat_protection: Optional[pulumi.Input['FirewallRuleGroupFirewallRuleDnsThreatProtection']] = None,
                  firewall_domain_list_id: Optional[pulumi.Input[_builtins.str]] = None,
                  firewall_domain_redirection_action: Optional[pulumi.Input['FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction']] = None,
+                 firewall_rule_type: Optional[pulumi.Input['FirewallRuleGroupFirewallRuleTypeArgs']] = None,
                  firewall_threat_protection_id: Optional[pulumi.Input[_builtins.str]] = None,
                  qtype: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        Firewall Rule associating the Rule Group to a Domain List
+        Firewall Rule associating the Rule Group to a Domain List or advanced rule type
 
         :param pulumi.Input['FirewallRuleGroupFirewallRuleAction'] action: Rule Action
         :param pulumi.Input[_builtins.int] priority: Rule Priority
@@ -101,10 +217,11 @@ class FirewallRuleGroupFirewallRuleArgs:
         :param pulumi.Input[_builtins.str] block_override_domain: BlockOverrideDomain
         :param pulumi.Input[_builtins.int] block_override_ttl: BlockOverrideTtl
         :param pulumi.Input['FirewallRuleGroupFirewallRuleBlockResponse'] block_response: BlockResponse
-        :param pulumi.Input['FirewallRuleGroupFirewallRuleConfidenceThreshold'] confidence_threshold: FirewallDomainRedirectionAction
-        :param pulumi.Input['FirewallRuleGroupFirewallRuleDnsThreatProtection'] dns_threat_protection: FirewallDomainRedirectionAction
+        :param pulumi.Input['FirewallRuleGroupFirewallRuleConfidenceThreshold'] confidence_threshold: ConfidenceThreshold
+        :param pulumi.Input['FirewallRuleGroupFirewallRuleDnsThreatProtection'] dns_threat_protection: DnsThreatProtection
         :param pulumi.Input[_builtins.str] firewall_domain_list_id: ResourceId
         :param pulumi.Input['FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction'] firewall_domain_redirection_action: FirewallDomainRedirectionAction
+        :param pulumi.Input['FirewallRuleGroupFirewallRuleTypeArgs'] firewall_rule_type: Advanced firewall rule type. Mutually exclusive with FirewallDomainListId and DnsThreatProtection/ConfidenceThreshold.
         :param pulumi.Input[_builtins.str] firewall_threat_protection_id: ResourceId
         :param pulumi.Input[_builtins.str] qtype: Qtype
         """
@@ -126,6 +243,8 @@ class FirewallRuleGroupFirewallRuleArgs:
             pulumi.set(__self__, "firewall_domain_list_id", firewall_domain_list_id)
         if firewall_domain_redirection_action is not None:
             pulumi.set(__self__, "firewall_domain_redirection_action", firewall_domain_redirection_action)
+        if firewall_rule_type is not None:
+            pulumi.set(__self__, "firewall_rule_type", firewall_rule_type)
         if firewall_threat_protection_id is not None:
             pulumi.set(__self__, "firewall_threat_protection_id", firewall_threat_protection_id)
         if qtype is not None:
@@ -207,7 +326,7 @@ class FirewallRuleGroupFirewallRuleArgs:
     @pulumi.getter(name="confidenceThreshold")
     def confidence_threshold(self) -> Optional[pulumi.Input['FirewallRuleGroupFirewallRuleConfidenceThreshold']]:
         """
-        FirewallDomainRedirectionAction
+        ConfidenceThreshold
         """
         return pulumi.get(self, "confidence_threshold")
 
@@ -219,7 +338,7 @@ class FirewallRuleGroupFirewallRuleArgs:
     @pulumi.getter(name="dnsThreatProtection")
     def dns_threat_protection(self) -> Optional[pulumi.Input['FirewallRuleGroupFirewallRuleDnsThreatProtection']]:
         """
-        FirewallDomainRedirectionAction
+        DnsThreatProtection
         """
         return pulumi.get(self, "dns_threat_protection")
 
@@ -250,6 +369,18 @@ class FirewallRuleGroupFirewallRuleArgs:
     @firewall_domain_redirection_action.setter
     def firewall_domain_redirection_action(self, value: Optional[pulumi.Input['FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction']]):
         pulumi.set(self, "firewall_domain_redirection_action", value)
+
+    @_builtins.property
+    @pulumi.getter(name="firewallRuleType")
+    def firewall_rule_type(self) -> Optional[pulumi.Input['FirewallRuleGroupFirewallRuleTypeArgs']]:
+        """
+        Advanced firewall rule type. Mutually exclusive with FirewallDomainListId and DnsThreatProtection/ConfidenceThreshold.
+        """
+        return pulumi.get(self, "firewall_rule_type")
+
+    @firewall_rule_type.setter
+    def firewall_rule_type(self, value: Optional[pulumi.Input['FirewallRuleGroupFirewallRuleTypeArgs']]):
+        pulumi.set(self, "firewall_rule_type", value)
 
     @_builtins.property
     @pulumi.getter(name="firewallThreatProtectionId")

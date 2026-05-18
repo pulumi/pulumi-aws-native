@@ -29,7 +29,7 @@ type KnowledgeBase struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Information about how to render the content.
 	RenderingConfiguration KnowledgeBaseRenderingConfigurationPtrOutput `pulumi:"renderingConfiguration"`
-	// This customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. For more information about setting up a customer managed key for Wisdom, see [Enable Amazon Connect Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) . For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) in the *AWS Key Management Service Developer Guide* .
+	// This customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. For more information about setting up a customer managed key for Wisdom, see [Enable Connect Customer Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) . For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) in the *AWS Key Management Service Developer Guide* .
 	ServerSideEncryptionConfiguration KnowledgeBaseServerSideEncryptionConfigurationPtrOutput `pulumi:"serverSideEncryptionConfiguration"`
 	// The source of the knowledge base content. Only set this argument for EXTERNAL or Managed knowledge bases.
 	SourceConfiguration pulumi.AnyOutput `pulumi:"sourceConfiguration"`
@@ -99,7 +99,7 @@ type knowledgeBaseArgs struct {
 	Name *string `pulumi:"name"`
 	// Information about how to render the content.
 	RenderingConfiguration *KnowledgeBaseRenderingConfiguration `pulumi:"renderingConfiguration"`
-	// This customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. For more information about setting up a customer managed key for Wisdom, see [Enable Amazon Connect Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) . For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) in the *AWS Key Management Service Developer Guide* .
+	// This customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. For more information about setting up a customer managed key for Wisdom, see [Enable Connect Customer Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) . For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) in the *AWS Key Management Service Developer Guide* .
 	ServerSideEncryptionConfiguration *KnowledgeBaseServerSideEncryptionConfiguration `pulumi:"serverSideEncryptionConfiguration"`
 	// The source of the knowledge base content. Only set this argument for EXTERNAL or Managed knowledge bases.
 	SourceConfiguration interface{} `pulumi:"sourceConfiguration"`
@@ -119,7 +119,7 @@ type KnowledgeBaseArgs struct {
 	Name pulumi.StringPtrInput
 	// Information about how to render the content.
 	RenderingConfiguration KnowledgeBaseRenderingConfigurationPtrInput
-	// This customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. For more information about setting up a customer managed key for Wisdom, see [Enable Amazon Connect Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) . For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) in the *AWS Key Management Service Developer Guide* .
+	// This customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. For more information about setting up a customer managed key for Wisdom, see [Enable Connect Customer Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) . For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) in the *AWS Key Management Service Developer Guide* .
 	ServerSideEncryptionConfiguration KnowledgeBaseServerSideEncryptionConfigurationPtrInput
 	// The source of the knowledge base content. Only set this argument for EXTERNAL or Managed knowledge bases.
 	SourceConfiguration pulumi.Input
@@ -196,7 +196,7 @@ func (o KnowledgeBaseOutput) RenderingConfiguration() KnowledgeBaseRenderingConf
 	return o.ApplyT(func(v *KnowledgeBase) KnowledgeBaseRenderingConfigurationPtrOutput { return v.RenderingConfiguration }).(KnowledgeBaseRenderingConfigurationPtrOutput)
 }
 
-// This customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. For more information about setting up a customer managed key for Wisdom, see [Enable Amazon Connect Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) . For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) in the *AWS Key Management Service Developer Guide* .
+// This customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. For more information about setting up a customer managed key for Wisdom, see [Enable Connect Customer Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) . For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) in the *AWS Key Management Service Developer Guide* .
 func (o KnowledgeBaseOutput) ServerSideEncryptionConfiguration() KnowledgeBaseServerSideEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v *KnowledgeBase) KnowledgeBaseServerSideEncryptionConfigurationPtrOutput {
 		return v.ServerSideEncryptionConfiguration

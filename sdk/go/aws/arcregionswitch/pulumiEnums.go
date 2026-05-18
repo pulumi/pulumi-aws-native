@@ -506,19 +506,20 @@ func (in *planDocumentDbUngracefulBehaviorPtr) ToPlanDocumentDbUngracefulBehavio
 type PlanExecutionBlockType string
 
 const (
-	PlanExecutionBlockTypeCustomActionLambda          = PlanExecutionBlockType("CustomActionLambda")
-	PlanExecutionBlockTypeManualApproval              = PlanExecutionBlockType("ManualApproval")
-	PlanExecutionBlockTypeAuroraGlobalDatabase        = PlanExecutionBlockType("AuroraGlobalDatabase")
-	PlanExecutionBlockTypeEc2AutoScaling              = PlanExecutionBlockType("EC2AutoScaling")
-	PlanExecutionBlockTypeArcRoutingControl           = PlanExecutionBlockType("ARCRoutingControl")
 	PlanExecutionBlockTypeArcRegionSwitchPlan         = PlanExecutionBlockType("ARCRegionSwitchPlan")
-	PlanExecutionBlockTypeParallel                    = PlanExecutionBlockType("Parallel")
+	PlanExecutionBlockTypeArcRoutingControl           = PlanExecutionBlockType("ARCRoutingControl")
+	PlanExecutionBlockTypeAuroraGlobalDatabase        = PlanExecutionBlockType("AuroraGlobalDatabase")
+	PlanExecutionBlockTypeCustomActionLambda          = PlanExecutionBlockType("CustomActionLambda")
+	PlanExecutionBlockTypeDocumentDb                  = PlanExecutionBlockType("DocumentDb")
+	PlanExecutionBlockTypeEc2AutoScaling              = PlanExecutionBlockType("EC2AutoScaling")
 	PlanExecutionBlockTypeEcsServiceScaling           = PlanExecutionBlockType("ECSServiceScaling")
 	PlanExecutionBlockTypeEksResourceScaling          = PlanExecutionBlockType("EKSResourceScaling")
-	PlanExecutionBlockTypeRoute53HealthCheck          = PlanExecutionBlockType("Route53HealthCheck")
-	PlanExecutionBlockTypeDocumentDb                  = PlanExecutionBlockType("DocumentDb")
-	PlanExecutionBlockTypeRdsPromoteReadReplica       = PlanExecutionBlockType("RdsPromoteReadReplica")
+	PlanExecutionBlockTypeLambdaEventSourceMapping    = PlanExecutionBlockType("LambdaEventSourceMapping")
+	PlanExecutionBlockTypeManualApproval              = PlanExecutionBlockType("ManualApproval")
+	PlanExecutionBlockTypeParallel                    = PlanExecutionBlockType("Parallel")
 	PlanExecutionBlockTypeRdsCreateCrossRegionReplica = PlanExecutionBlockType("RdsCreateCrossRegionReplica")
+	PlanExecutionBlockTypeRdsPromoteReadReplica       = PlanExecutionBlockType("RdsPromoteReadReplica")
+	PlanExecutionBlockTypeRoute53HealthCheck          = PlanExecutionBlockType("Route53HealthCheck")
 )
 
 func (PlanExecutionBlockType) ElementType() reflect.Type {
@@ -643,19 +644,20 @@ func (o PlanExecutionBlockTypePtrOutput) ToStringPtrOutputWithContext(ctx contex
 // PlanExecutionBlockTypeInput is an input type that accepts values of the PlanExecutionBlockType enum
 // A concrete instance of `PlanExecutionBlockTypeInput` can be one of the following:
 //
-//	PlanExecutionBlockTypeCustomActionLambda
-//	PlanExecutionBlockTypeManualApproval
-//	PlanExecutionBlockTypeAuroraGlobalDatabase
-//	PlanExecutionBlockTypeEc2AutoScaling
-//	PlanExecutionBlockTypeArcRoutingControl
 //	PlanExecutionBlockTypeArcRegionSwitchPlan
-//	PlanExecutionBlockTypeParallel
+//	PlanExecutionBlockTypeArcRoutingControl
+//	PlanExecutionBlockTypeAuroraGlobalDatabase
+//	PlanExecutionBlockTypeCustomActionLambda
+//	PlanExecutionBlockTypeDocumentDb
+//	PlanExecutionBlockTypeEc2AutoScaling
 //	PlanExecutionBlockTypeEcsServiceScaling
 //	PlanExecutionBlockTypeEksResourceScaling
-//	PlanExecutionBlockTypeRoute53HealthCheck
-//	PlanExecutionBlockTypeDocumentDb
-//	PlanExecutionBlockTypeRdsPromoteReadReplica
+//	PlanExecutionBlockTypeLambdaEventSourceMapping
+//	PlanExecutionBlockTypeManualApproval
+//	PlanExecutionBlockTypeParallel
 //	PlanExecutionBlockTypeRdsCreateCrossRegionReplica
+//	PlanExecutionBlockTypeRdsPromoteReadReplica
+//	PlanExecutionBlockTypeRoute53HealthCheck
 type PlanExecutionBlockTypeInput interface {
 	pulumi.Input
 
@@ -851,6 +853,334 @@ func (in *planGlobalAuroraUngracefulBehaviorPtr) ToPlanGlobalAuroraUngracefulBeh
 
 func (in *planGlobalAuroraUngracefulBehaviorPtr) ToPlanGlobalAuroraUngracefulBehaviorPtrOutputWithContext(ctx context.Context) PlanGlobalAuroraUngracefulBehaviorPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(PlanGlobalAuroraUngracefulBehaviorPtrOutput)
+}
+
+type PlanLambdaEventSourceMappingConfigurationAction string
+
+const (
+	PlanLambdaEventSourceMappingConfigurationActionEnable  = PlanLambdaEventSourceMappingConfigurationAction("enable")
+	PlanLambdaEventSourceMappingConfigurationActionDisable = PlanLambdaEventSourceMappingConfigurationAction("disable")
+)
+
+func (PlanLambdaEventSourceMappingConfigurationAction) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanLambdaEventSourceMappingConfigurationAction)(nil)).Elem()
+}
+
+func (e PlanLambdaEventSourceMappingConfigurationAction) ToPlanLambdaEventSourceMappingConfigurationActionOutput() PlanLambdaEventSourceMappingConfigurationActionOutput {
+	return pulumi.ToOutput(e).(PlanLambdaEventSourceMappingConfigurationActionOutput)
+}
+
+func (e PlanLambdaEventSourceMappingConfigurationAction) ToPlanLambdaEventSourceMappingConfigurationActionOutputWithContext(ctx context.Context) PlanLambdaEventSourceMappingConfigurationActionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PlanLambdaEventSourceMappingConfigurationActionOutput)
+}
+
+func (e PlanLambdaEventSourceMappingConfigurationAction) ToPlanLambdaEventSourceMappingConfigurationActionPtrOutput() PlanLambdaEventSourceMappingConfigurationActionPtrOutput {
+	return e.ToPlanLambdaEventSourceMappingConfigurationActionPtrOutputWithContext(context.Background())
+}
+
+func (e PlanLambdaEventSourceMappingConfigurationAction) ToPlanLambdaEventSourceMappingConfigurationActionPtrOutputWithContext(ctx context.Context) PlanLambdaEventSourceMappingConfigurationActionPtrOutput {
+	return PlanLambdaEventSourceMappingConfigurationAction(e).ToPlanLambdaEventSourceMappingConfigurationActionOutputWithContext(ctx).ToPlanLambdaEventSourceMappingConfigurationActionPtrOutputWithContext(ctx)
+}
+
+func (e PlanLambdaEventSourceMappingConfigurationAction) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PlanLambdaEventSourceMappingConfigurationAction) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PlanLambdaEventSourceMappingConfigurationAction) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PlanLambdaEventSourceMappingConfigurationAction) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PlanLambdaEventSourceMappingConfigurationActionOutput struct{ *pulumi.OutputState }
+
+func (PlanLambdaEventSourceMappingConfigurationActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanLambdaEventSourceMappingConfigurationAction)(nil)).Elem()
+}
+
+func (o PlanLambdaEventSourceMappingConfigurationActionOutput) ToPlanLambdaEventSourceMappingConfigurationActionOutput() PlanLambdaEventSourceMappingConfigurationActionOutput {
+	return o
+}
+
+func (o PlanLambdaEventSourceMappingConfigurationActionOutput) ToPlanLambdaEventSourceMappingConfigurationActionOutputWithContext(ctx context.Context) PlanLambdaEventSourceMappingConfigurationActionOutput {
+	return o
+}
+
+func (o PlanLambdaEventSourceMappingConfigurationActionOutput) ToPlanLambdaEventSourceMappingConfigurationActionPtrOutput() PlanLambdaEventSourceMappingConfigurationActionPtrOutput {
+	return o.ToPlanLambdaEventSourceMappingConfigurationActionPtrOutputWithContext(context.Background())
+}
+
+func (o PlanLambdaEventSourceMappingConfigurationActionOutput) ToPlanLambdaEventSourceMappingConfigurationActionPtrOutputWithContext(ctx context.Context) PlanLambdaEventSourceMappingConfigurationActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlanLambdaEventSourceMappingConfigurationAction) *PlanLambdaEventSourceMappingConfigurationAction {
+		return &v
+	}).(PlanLambdaEventSourceMappingConfigurationActionPtrOutput)
+}
+
+func (o PlanLambdaEventSourceMappingConfigurationActionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PlanLambdaEventSourceMappingConfigurationActionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PlanLambdaEventSourceMappingConfigurationAction) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PlanLambdaEventSourceMappingConfigurationActionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PlanLambdaEventSourceMappingConfigurationActionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PlanLambdaEventSourceMappingConfigurationAction) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PlanLambdaEventSourceMappingConfigurationActionPtrOutput struct{ *pulumi.OutputState }
+
+func (PlanLambdaEventSourceMappingConfigurationActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlanLambdaEventSourceMappingConfigurationAction)(nil)).Elem()
+}
+
+func (o PlanLambdaEventSourceMappingConfigurationActionPtrOutput) ToPlanLambdaEventSourceMappingConfigurationActionPtrOutput() PlanLambdaEventSourceMappingConfigurationActionPtrOutput {
+	return o
+}
+
+func (o PlanLambdaEventSourceMappingConfigurationActionPtrOutput) ToPlanLambdaEventSourceMappingConfigurationActionPtrOutputWithContext(ctx context.Context) PlanLambdaEventSourceMappingConfigurationActionPtrOutput {
+	return o
+}
+
+func (o PlanLambdaEventSourceMappingConfigurationActionPtrOutput) Elem() PlanLambdaEventSourceMappingConfigurationActionOutput {
+	return o.ApplyT(func(v *PlanLambdaEventSourceMappingConfigurationAction) PlanLambdaEventSourceMappingConfigurationAction {
+		if v != nil {
+			return *v
+		}
+		var ret PlanLambdaEventSourceMappingConfigurationAction
+		return ret
+	}).(PlanLambdaEventSourceMappingConfigurationActionOutput)
+}
+
+func (o PlanLambdaEventSourceMappingConfigurationActionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PlanLambdaEventSourceMappingConfigurationActionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PlanLambdaEventSourceMappingConfigurationAction) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PlanLambdaEventSourceMappingConfigurationActionInput is an input type that accepts values of the PlanLambdaEventSourceMappingConfigurationAction enum
+// A concrete instance of `PlanLambdaEventSourceMappingConfigurationActionInput` can be one of the following:
+//
+//	PlanLambdaEventSourceMappingConfigurationActionEnable
+//	PlanLambdaEventSourceMappingConfigurationActionDisable
+type PlanLambdaEventSourceMappingConfigurationActionInput interface {
+	pulumi.Input
+
+	ToPlanLambdaEventSourceMappingConfigurationActionOutput() PlanLambdaEventSourceMappingConfigurationActionOutput
+	ToPlanLambdaEventSourceMappingConfigurationActionOutputWithContext(context.Context) PlanLambdaEventSourceMappingConfigurationActionOutput
+}
+
+var planLambdaEventSourceMappingConfigurationActionPtrType = reflect.TypeOf((**PlanLambdaEventSourceMappingConfigurationAction)(nil)).Elem()
+
+type PlanLambdaEventSourceMappingConfigurationActionPtrInput interface {
+	pulumi.Input
+
+	ToPlanLambdaEventSourceMappingConfigurationActionPtrOutput() PlanLambdaEventSourceMappingConfigurationActionPtrOutput
+	ToPlanLambdaEventSourceMappingConfigurationActionPtrOutputWithContext(context.Context) PlanLambdaEventSourceMappingConfigurationActionPtrOutput
+}
+
+type planLambdaEventSourceMappingConfigurationActionPtr string
+
+func PlanLambdaEventSourceMappingConfigurationActionPtr(v string) PlanLambdaEventSourceMappingConfigurationActionPtrInput {
+	return (*planLambdaEventSourceMappingConfigurationActionPtr)(&v)
+}
+
+func (*planLambdaEventSourceMappingConfigurationActionPtr) ElementType() reflect.Type {
+	return planLambdaEventSourceMappingConfigurationActionPtrType
+}
+
+func (in *planLambdaEventSourceMappingConfigurationActionPtr) ToPlanLambdaEventSourceMappingConfigurationActionPtrOutput() PlanLambdaEventSourceMappingConfigurationActionPtrOutput {
+	return pulumi.ToOutput(in).(PlanLambdaEventSourceMappingConfigurationActionPtrOutput)
+}
+
+func (in *planLambdaEventSourceMappingConfigurationActionPtr) ToPlanLambdaEventSourceMappingConfigurationActionPtrOutputWithContext(ctx context.Context) PlanLambdaEventSourceMappingConfigurationActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PlanLambdaEventSourceMappingConfigurationActionPtrOutput)
+}
+
+type PlanLambdaEventSourceMappingUngracefulBehavior string
+
+const (
+	PlanLambdaEventSourceMappingUngracefulBehaviorSkip = PlanLambdaEventSourceMappingUngracefulBehavior("skip")
+)
+
+func (PlanLambdaEventSourceMappingUngracefulBehavior) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanLambdaEventSourceMappingUngracefulBehavior)(nil)).Elem()
+}
+
+func (e PlanLambdaEventSourceMappingUngracefulBehavior) ToPlanLambdaEventSourceMappingUngracefulBehaviorOutput() PlanLambdaEventSourceMappingUngracefulBehaviorOutput {
+	return pulumi.ToOutput(e).(PlanLambdaEventSourceMappingUngracefulBehaviorOutput)
+}
+
+func (e PlanLambdaEventSourceMappingUngracefulBehavior) ToPlanLambdaEventSourceMappingUngracefulBehaviorOutputWithContext(ctx context.Context) PlanLambdaEventSourceMappingUngracefulBehaviorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PlanLambdaEventSourceMappingUngracefulBehaviorOutput)
+}
+
+func (e PlanLambdaEventSourceMappingUngracefulBehavior) ToPlanLambdaEventSourceMappingUngracefulBehaviorPtrOutput() PlanLambdaEventSourceMappingUngracefulBehaviorPtrOutput {
+	return e.ToPlanLambdaEventSourceMappingUngracefulBehaviorPtrOutputWithContext(context.Background())
+}
+
+func (e PlanLambdaEventSourceMappingUngracefulBehavior) ToPlanLambdaEventSourceMappingUngracefulBehaviorPtrOutputWithContext(ctx context.Context) PlanLambdaEventSourceMappingUngracefulBehaviorPtrOutput {
+	return PlanLambdaEventSourceMappingUngracefulBehavior(e).ToPlanLambdaEventSourceMappingUngracefulBehaviorOutputWithContext(ctx).ToPlanLambdaEventSourceMappingUngracefulBehaviorPtrOutputWithContext(ctx)
+}
+
+func (e PlanLambdaEventSourceMappingUngracefulBehavior) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PlanLambdaEventSourceMappingUngracefulBehavior) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PlanLambdaEventSourceMappingUngracefulBehavior) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PlanLambdaEventSourceMappingUngracefulBehavior) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PlanLambdaEventSourceMappingUngracefulBehaviorOutput struct{ *pulumi.OutputState }
+
+func (PlanLambdaEventSourceMappingUngracefulBehaviorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanLambdaEventSourceMappingUngracefulBehavior)(nil)).Elem()
+}
+
+func (o PlanLambdaEventSourceMappingUngracefulBehaviorOutput) ToPlanLambdaEventSourceMappingUngracefulBehaviorOutput() PlanLambdaEventSourceMappingUngracefulBehaviorOutput {
+	return o
+}
+
+func (o PlanLambdaEventSourceMappingUngracefulBehaviorOutput) ToPlanLambdaEventSourceMappingUngracefulBehaviorOutputWithContext(ctx context.Context) PlanLambdaEventSourceMappingUngracefulBehaviorOutput {
+	return o
+}
+
+func (o PlanLambdaEventSourceMappingUngracefulBehaviorOutput) ToPlanLambdaEventSourceMappingUngracefulBehaviorPtrOutput() PlanLambdaEventSourceMappingUngracefulBehaviorPtrOutput {
+	return o.ToPlanLambdaEventSourceMappingUngracefulBehaviorPtrOutputWithContext(context.Background())
+}
+
+func (o PlanLambdaEventSourceMappingUngracefulBehaviorOutput) ToPlanLambdaEventSourceMappingUngracefulBehaviorPtrOutputWithContext(ctx context.Context) PlanLambdaEventSourceMappingUngracefulBehaviorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlanLambdaEventSourceMappingUngracefulBehavior) *PlanLambdaEventSourceMappingUngracefulBehavior {
+		return &v
+	}).(PlanLambdaEventSourceMappingUngracefulBehaviorPtrOutput)
+}
+
+func (o PlanLambdaEventSourceMappingUngracefulBehaviorOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PlanLambdaEventSourceMappingUngracefulBehaviorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PlanLambdaEventSourceMappingUngracefulBehavior) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PlanLambdaEventSourceMappingUngracefulBehaviorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PlanLambdaEventSourceMappingUngracefulBehaviorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PlanLambdaEventSourceMappingUngracefulBehavior) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PlanLambdaEventSourceMappingUngracefulBehaviorPtrOutput struct{ *pulumi.OutputState }
+
+func (PlanLambdaEventSourceMappingUngracefulBehaviorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlanLambdaEventSourceMappingUngracefulBehavior)(nil)).Elem()
+}
+
+func (o PlanLambdaEventSourceMappingUngracefulBehaviorPtrOutput) ToPlanLambdaEventSourceMappingUngracefulBehaviorPtrOutput() PlanLambdaEventSourceMappingUngracefulBehaviorPtrOutput {
+	return o
+}
+
+func (o PlanLambdaEventSourceMappingUngracefulBehaviorPtrOutput) ToPlanLambdaEventSourceMappingUngracefulBehaviorPtrOutputWithContext(ctx context.Context) PlanLambdaEventSourceMappingUngracefulBehaviorPtrOutput {
+	return o
+}
+
+func (o PlanLambdaEventSourceMappingUngracefulBehaviorPtrOutput) Elem() PlanLambdaEventSourceMappingUngracefulBehaviorOutput {
+	return o.ApplyT(func(v *PlanLambdaEventSourceMappingUngracefulBehavior) PlanLambdaEventSourceMappingUngracefulBehavior {
+		if v != nil {
+			return *v
+		}
+		var ret PlanLambdaEventSourceMappingUngracefulBehavior
+		return ret
+	}).(PlanLambdaEventSourceMappingUngracefulBehaviorOutput)
+}
+
+func (o PlanLambdaEventSourceMappingUngracefulBehaviorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PlanLambdaEventSourceMappingUngracefulBehaviorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PlanLambdaEventSourceMappingUngracefulBehavior) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PlanLambdaEventSourceMappingUngracefulBehaviorInput is an input type that accepts values of the PlanLambdaEventSourceMappingUngracefulBehavior enum
+// A concrete instance of `PlanLambdaEventSourceMappingUngracefulBehaviorInput` can be one of the following:
+//
+//	PlanLambdaEventSourceMappingUngracefulBehaviorSkip
+type PlanLambdaEventSourceMappingUngracefulBehaviorInput interface {
+	pulumi.Input
+
+	ToPlanLambdaEventSourceMappingUngracefulBehaviorOutput() PlanLambdaEventSourceMappingUngracefulBehaviorOutput
+	ToPlanLambdaEventSourceMappingUngracefulBehaviorOutputWithContext(context.Context) PlanLambdaEventSourceMappingUngracefulBehaviorOutput
+}
+
+var planLambdaEventSourceMappingUngracefulBehaviorPtrType = reflect.TypeOf((**PlanLambdaEventSourceMappingUngracefulBehavior)(nil)).Elem()
+
+type PlanLambdaEventSourceMappingUngracefulBehaviorPtrInput interface {
+	pulumi.Input
+
+	ToPlanLambdaEventSourceMappingUngracefulBehaviorPtrOutput() PlanLambdaEventSourceMappingUngracefulBehaviorPtrOutput
+	ToPlanLambdaEventSourceMappingUngracefulBehaviorPtrOutputWithContext(context.Context) PlanLambdaEventSourceMappingUngracefulBehaviorPtrOutput
+}
+
+type planLambdaEventSourceMappingUngracefulBehaviorPtr string
+
+func PlanLambdaEventSourceMappingUngracefulBehaviorPtr(v string) PlanLambdaEventSourceMappingUngracefulBehaviorPtrInput {
+	return (*planLambdaEventSourceMappingUngracefulBehaviorPtr)(&v)
+}
+
+func (*planLambdaEventSourceMappingUngracefulBehaviorPtr) ElementType() reflect.Type {
+	return planLambdaEventSourceMappingUngracefulBehaviorPtrType
+}
+
+func (in *planLambdaEventSourceMappingUngracefulBehaviorPtr) ToPlanLambdaEventSourceMappingUngracefulBehaviorPtrOutput() PlanLambdaEventSourceMappingUngracefulBehaviorPtrOutput {
+	return pulumi.ToOutput(in).(PlanLambdaEventSourceMappingUngracefulBehaviorPtrOutput)
+}
+
+func (in *planLambdaEventSourceMappingUngracefulBehaviorPtr) ToPlanLambdaEventSourceMappingUngracefulBehaviorPtrOutputWithContext(ctx context.Context) PlanLambdaEventSourceMappingUngracefulBehaviorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PlanLambdaEventSourceMappingUngracefulBehaviorPtrOutput)
 }
 
 type PlanRecoveryApproach string
@@ -1368,10 +1698,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanAlarmTypePtrInput)(nil)).Elem(), PlanAlarmType("applicationHealth"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanDocumentDbUngracefulBehaviorInput)(nil)).Elem(), PlanDocumentDbUngracefulBehavior("failover"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanDocumentDbUngracefulBehaviorPtrInput)(nil)).Elem(), PlanDocumentDbUngracefulBehavior("failover"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PlanExecutionBlockTypeInput)(nil)).Elem(), PlanExecutionBlockType("CustomActionLambda"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PlanExecutionBlockTypePtrInput)(nil)).Elem(), PlanExecutionBlockType("CustomActionLambda"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanExecutionBlockTypeInput)(nil)).Elem(), PlanExecutionBlockType("ARCRegionSwitchPlan"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanExecutionBlockTypePtrInput)(nil)).Elem(), PlanExecutionBlockType("ARCRegionSwitchPlan"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanGlobalAuroraUngracefulBehaviorInput)(nil)).Elem(), PlanGlobalAuroraUngracefulBehavior("failover"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanGlobalAuroraUngracefulBehaviorPtrInput)(nil)).Elem(), PlanGlobalAuroraUngracefulBehavior("failover"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanLambdaEventSourceMappingConfigurationActionInput)(nil)).Elem(), PlanLambdaEventSourceMappingConfigurationAction("enable"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanLambdaEventSourceMappingConfigurationActionPtrInput)(nil)).Elem(), PlanLambdaEventSourceMappingConfigurationAction("enable"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanLambdaEventSourceMappingUngracefulBehaviorInput)(nil)).Elem(), PlanLambdaEventSourceMappingUngracefulBehavior("skip"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanLambdaEventSourceMappingUngracefulBehaviorPtrInput)(nil)).Elem(), PlanLambdaEventSourceMappingUngracefulBehavior("skip"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanRecoveryApproachInput)(nil)).Elem(), PlanRecoveryApproach("activeActive"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanRecoveryApproachPtrInput)(nil)).Elem(), PlanRecoveryApproach("activeActive"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanRegionToRunInInput)(nil)).Elem(), PlanRegionToRunIn("activatingRegion"))
@@ -1388,6 +1722,10 @@ func init() {
 	pulumi.RegisterOutputType(PlanExecutionBlockTypePtrOutput{})
 	pulumi.RegisterOutputType(PlanGlobalAuroraUngracefulBehaviorOutput{})
 	pulumi.RegisterOutputType(PlanGlobalAuroraUngracefulBehaviorPtrOutput{})
+	pulumi.RegisterOutputType(PlanLambdaEventSourceMappingConfigurationActionOutput{})
+	pulumi.RegisterOutputType(PlanLambdaEventSourceMappingConfigurationActionPtrOutput{})
+	pulumi.RegisterOutputType(PlanLambdaEventSourceMappingUngracefulBehaviorOutput{})
+	pulumi.RegisterOutputType(PlanLambdaEventSourceMappingUngracefulBehaviorPtrOutput{})
 	pulumi.RegisterOutputType(PlanRecoveryApproachOutput{})
 	pulumi.RegisterOutputType(PlanRecoveryApproachPtrOutput{})
 	pulumi.RegisterOutputType(PlanRegionToRunInOutput{})

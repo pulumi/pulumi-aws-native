@@ -33,6 +33,8 @@ type LookupSchedulingPolicyResult struct {
 	// The fair-share scheduling policy details.
 	FairsharePolicy  *SchedulingPolicyFairsharePolicy  `pulumi:"fairsharePolicy"`
 	QuotaSharePolicy *SchedulingPolicyQuotaSharePolicy `pulumi:"quotaSharePolicy"`
+	// A key-value pair to associate with a resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 func LookupSchedulingPolicyOutput(ctx *pulumi.Context, args LookupSchedulingPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupSchedulingPolicyResultOutput {
@@ -79,6 +81,11 @@ func (o LookupSchedulingPolicyResultOutput) FairsharePolicy() SchedulingPolicyFa
 
 func (o LookupSchedulingPolicyResultOutput) QuotaSharePolicy() SchedulingPolicyQuotaSharePolicyPtrOutput {
 	return o.ApplyT(func(v LookupSchedulingPolicyResult) *SchedulingPolicyQuotaSharePolicy { return v.QuotaSharePolicy }).(SchedulingPolicyQuotaSharePolicyPtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+func (o LookupSchedulingPolicyResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupSchedulingPolicyResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func init() {

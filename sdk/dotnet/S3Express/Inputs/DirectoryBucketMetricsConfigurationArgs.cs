@@ -24,8 +24,8 @@ namespace Pulumi.AwsNative.S3Express.Inputs
         /// <summary>
         /// The ID used to identify the metrics configuration.
         /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         /// <summary>
         /// The prefix used when evaluating a metrics filter.

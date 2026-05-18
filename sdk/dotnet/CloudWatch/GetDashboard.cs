@@ -67,11 +67,19 @@ namespace Pulumi.AwsNative.CloudWatch
         /// The detailed information about the dashboard in JSON format, including the widgets to include and their location on the dashboard
         /// </summary>
         public readonly string? DashboardBody;
+        /// <summary>
+        /// A list of key-value pairs to associate with the cloudwatch dashboard. You can associate up to 50 tags with a dashboard
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
-        private GetDashboardResult(string? dashboardBody)
+        private GetDashboardResult(
+            string? dashboardBody,
+
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             DashboardBody = dashboardBody;
+            Tags = tags;
         }
     }
 }

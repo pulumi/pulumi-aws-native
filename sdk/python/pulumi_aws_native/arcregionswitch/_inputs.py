@@ -42,6 +42,8 @@ __all__ = [
     'PlanEksResourceScalingConfigurationArgsDict',
     'PlanEksResourceScalingUngracefulArgs',
     'PlanEksResourceScalingUngracefulArgsDict',
+    'PlanEventSourceMappingArgs',
+    'PlanEventSourceMappingArgsDict',
     'PlanExecutionApprovalConfigurationArgs',
     'PlanExecutionApprovalConfigurationArgsDict',
     'PlanExecutionBlockConfiguration0PropertiesArgs',
@@ -52,6 +54,8 @@ __all__ = [
     'PlanExecutionBlockConfiguration11PropertiesArgsDict',
     'PlanExecutionBlockConfiguration12PropertiesArgs',
     'PlanExecutionBlockConfiguration12PropertiesArgsDict',
+    'PlanExecutionBlockConfiguration13PropertiesArgs',
+    'PlanExecutionBlockConfiguration13PropertiesArgsDict',
     'PlanExecutionBlockConfiguration1PropertiesArgs',
     'PlanExecutionBlockConfiguration1PropertiesArgsDict',
     'PlanExecutionBlockConfiguration2PropertiesArgs',
@@ -76,6 +80,10 @@ __all__ = [
     'PlanGlobalAuroraUngracefulArgsDict',
     'PlanKubernetesResourceTypeArgs',
     'PlanKubernetesResourceTypeArgsDict',
+    'PlanLambdaEventSourceMappingConfigurationArgs',
+    'PlanLambdaEventSourceMappingConfigurationArgsDict',
+    'PlanLambdaEventSourceMappingUngracefulArgs',
+    'PlanLambdaEventSourceMappingUngracefulArgsDict',
     'PlanLambdaUngracefulArgs',
     'PlanLambdaUngracefulArgsDict',
     'PlanLambdasArgs',
@@ -826,6 +834,51 @@ class PlanEksResourceScalingUngracefulArgs:
         pulumi.set(self, "minimum_success_percentage", value)
 
 
+class PlanEventSourceMappingArgsDict(TypedDict):
+    arn: pulumi.Input[_builtins.str]
+    cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
+    external_id: NotRequired[pulumi.Input[_builtins.str]]
+
+@pulumi.input_type
+class PlanEventSourceMappingArgs:
+    def __init__(__self__, *,
+                 arn: pulumi.Input[_builtins.str],
+                 cross_account_role: Optional[pulumi.Input[_builtins.str]] = None,
+                 external_id: Optional[pulumi.Input[_builtins.str]] = None):
+        pulumi.set(__self__, "arn", arn)
+        if cross_account_role is not None:
+            pulumi.set(__self__, "cross_account_role", cross_account_role)
+        if external_id is not None:
+            pulumi.set(__self__, "external_id", external_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="crossAccountRole")
+    def cross_account_role(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "cross_account_role")
+
+    @cross_account_role.setter
+    def cross_account_role(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "cross_account_role", value)
+
+    @_builtins.property
+    @pulumi.getter(name="externalId")
+    def external_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "external_id")
+
+    @external_id.setter
+    def external_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "external_id", value)
+
+
 class PlanExecutionApprovalConfigurationArgsDict(TypedDict):
     approval_role: pulumi.Input[_builtins.str]
     timeout_minutes: NotRequired[pulumi.Input[_builtins.float]]
@@ -932,6 +985,25 @@ class PlanExecutionBlockConfiguration12PropertiesArgs:
     @rds_create_cross_region_read_replica_config.setter
     def rds_create_cross_region_read_replica_config(self, value: pulumi.Input['PlanRdsCreateCrossRegionReplicaConfigurationArgs']):
         pulumi.set(self, "rds_create_cross_region_read_replica_config", value)
+
+
+class PlanExecutionBlockConfiguration13PropertiesArgsDict(TypedDict):
+    lambda_event_source_mapping_config: pulumi.Input['PlanLambdaEventSourceMappingConfigurationArgsDict']
+
+@pulumi.input_type
+class PlanExecutionBlockConfiguration13PropertiesArgs:
+    def __init__(__self__, *,
+                 lambda_event_source_mapping_config: pulumi.Input['PlanLambdaEventSourceMappingConfigurationArgs']):
+        pulumi.set(__self__, "lambda_event_source_mapping_config", lambda_event_source_mapping_config)
+
+    @_builtins.property
+    @pulumi.getter(name="lambdaEventSourceMappingConfig")
+    def lambda_event_source_mapping_config(self) -> pulumi.Input['PlanLambdaEventSourceMappingConfigurationArgs']:
+        return pulumi.get(self, "lambda_event_source_mapping_config")
+
+    @lambda_event_source_mapping_config.setter
+    def lambda_event_source_mapping_config(self, value: pulumi.Input['PlanLambdaEventSourceMappingConfigurationArgs']):
+        pulumi.set(self, "lambda_event_source_mapping_config", value)
 
 
 class PlanExecutionBlockConfiguration1PropertiesArgsDict(TypedDict):
@@ -1249,6 +1321,83 @@ class PlanKubernetesResourceTypeArgs:
     @kind.setter
     def kind(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "kind", value)
+
+
+class PlanLambdaEventSourceMappingConfigurationArgsDict(TypedDict):
+    action: pulumi.Input['PlanLambdaEventSourceMappingConfigurationAction']
+    region_event_source_mappings: pulumi.Input[Mapping[str, pulumi.Input['PlanEventSourceMappingArgsDict']]]
+    timeout_minutes: NotRequired[pulumi.Input[_builtins.float]]
+    ungraceful: NotRequired[pulumi.Input['PlanLambdaEventSourceMappingUngracefulArgsDict']]
+
+@pulumi.input_type
+class PlanLambdaEventSourceMappingConfigurationArgs:
+    def __init__(__self__, *,
+                 action: pulumi.Input['PlanLambdaEventSourceMappingConfigurationAction'],
+                 region_event_source_mappings: pulumi.Input[Mapping[str, pulumi.Input['PlanEventSourceMappingArgs']]],
+                 timeout_minutes: Optional[pulumi.Input[_builtins.float]] = None,
+                 ungraceful: Optional[pulumi.Input['PlanLambdaEventSourceMappingUngracefulArgs']] = None):
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "region_event_source_mappings", region_event_source_mappings)
+        if timeout_minutes is not None:
+            pulumi.set(__self__, "timeout_minutes", timeout_minutes)
+        if ungraceful is not None:
+            pulumi.set(__self__, "ungraceful", ungraceful)
+
+    @_builtins.property
+    @pulumi.getter
+    def action(self) -> pulumi.Input['PlanLambdaEventSourceMappingConfigurationAction']:
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: pulumi.Input['PlanLambdaEventSourceMappingConfigurationAction']):
+        pulumi.set(self, "action", value)
+
+    @_builtins.property
+    @pulumi.getter(name="regionEventSourceMappings")
+    def region_event_source_mappings(self) -> pulumi.Input[Mapping[str, pulumi.Input['PlanEventSourceMappingArgs']]]:
+        return pulumi.get(self, "region_event_source_mappings")
+
+    @region_event_source_mappings.setter
+    def region_event_source_mappings(self, value: pulumi.Input[Mapping[str, pulumi.Input['PlanEventSourceMappingArgs']]]):
+        pulumi.set(self, "region_event_source_mappings", value)
+
+    @_builtins.property
+    @pulumi.getter(name="timeoutMinutes")
+    def timeout_minutes(self) -> Optional[pulumi.Input[_builtins.float]]:
+        return pulumi.get(self, "timeout_minutes")
+
+    @timeout_minutes.setter
+    def timeout_minutes(self, value: Optional[pulumi.Input[_builtins.float]]):
+        pulumi.set(self, "timeout_minutes", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def ungraceful(self) -> Optional[pulumi.Input['PlanLambdaEventSourceMappingUngracefulArgs']]:
+        return pulumi.get(self, "ungraceful")
+
+    @ungraceful.setter
+    def ungraceful(self, value: Optional[pulumi.Input['PlanLambdaEventSourceMappingUngracefulArgs']]):
+        pulumi.set(self, "ungraceful", value)
+
+
+class PlanLambdaEventSourceMappingUngracefulArgsDict(TypedDict):
+    behavior: NotRequired[pulumi.Input['PlanLambdaEventSourceMappingUngracefulBehavior']]
+
+@pulumi.input_type
+class PlanLambdaEventSourceMappingUngracefulArgs:
+    def __init__(__self__, *,
+                 behavior: Optional[pulumi.Input['PlanLambdaEventSourceMappingUngracefulBehavior']] = None):
+        if behavior is not None:
+            pulumi.set(__self__, "behavior", behavior)
+
+    @_builtins.property
+    @pulumi.getter
+    def behavior(self) -> Optional[pulumi.Input['PlanLambdaEventSourceMappingUngracefulBehavior']]:
+        return pulumi.get(self, "behavior")
+
+    @behavior.setter
+    def behavior(self, value: Optional[pulumi.Input['PlanLambdaEventSourceMappingUngracefulBehavior']]):
+        pulumi.set(self, "behavior", value)
 
 
 class PlanLambdaUngracefulArgsDict(TypedDict):
@@ -1754,7 +1903,7 @@ class PlanServiceArgs:
 
 
 class PlanStepArgsDict(TypedDict):
-    execution_block_configuration: pulumi.Input[Union['PlanExecutionBlockConfiguration0PropertiesArgsDict', 'PlanExecutionBlockConfiguration1PropertiesArgsDict', 'PlanExecutionBlockConfiguration2PropertiesArgsDict', 'PlanExecutionBlockConfiguration3PropertiesArgsDict', 'PlanExecutionBlockConfiguration4PropertiesArgsDict', 'PlanExecutionBlockConfiguration5PropertiesArgsDict', 'PlanExecutionBlockConfiguration6PropertiesArgsDict', 'PlanExecutionBlockConfiguration7PropertiesArgsDict', 'PlanExecutionBlockConfiguration8PropertiesArgsDict', 'PlanExecutionBlockConfiguration9PropertiesArgsDict', 'PlanExecutionBlockConfiguration10PropertiesArgsDict', 'PlanExecutionBlockConfiguration11PropertiesArgsDict', 'PlanExecutionBlockConfiguration12PropertiesArgsDict']]
+    execution_block_configuration: pulumi.Input[Union['PlanExecutionBlockConfiguration0PropertiesArgsDict', 'PlanExecutionBlockConfiguration1PropertiesArgsDict', 'PlanExecutionBlockConfiguration2PropertiesArgsDict', 'PlanExecutionBlockConfiguration3PropertiesArgsDict', 'PlanExecutionBlockConfiguration4PropertiesArgsDict', 'PlanExecutionBlockConfiguration5PropertiesArgsDict', 'PlanExecutionBlockConfiguration6PropertiesArgsDict', 'PlanExecutionBlockConfiguration7PropertiesArgsDict', 'PlanExecutionBlockConfiguration8PropertiesArgsDict', 'PlanExecutionBlockConfiguration9PropertiesArgsDict', 'PlanExecutionBlockConfiguration10PropertiesArgsDict', 'PlanExecutionBlockConfiguration11PropertiesArgsDict', 'PlanExecutionBlockConfiguration12PropertiesArgsDict', 'PlanExecutionBlockConfiguration13PropertiesArgsDict']]
     """
     The configuration for an execution block in a workflow.
     """
@@ -1774,12 +1923,12 @@ class PlanStepArgsDict(TypedDict):
 @pulumi.input_type
 class PlanStepArgs:
     def __init__(__self__, *,
-                 execution_block_configuration: pulumi.Input[Union['PlanExecutionBlockConfiguration0PropertiesArgs', 'PlanExecutionBlockConfiguration1PropertiesArgs', 'PlanExecutionBlockConfiguration2PropertiesArgs', 'PlanExecutionBlockConfiguration3PropertiesArgs', 'PlanExecutionBlockConfiguration4PropertiesArgs', 'PlanExecutionBlockConfiguration5PropertiesArgs', 'PlanExecutionBlockConfiguration6PropertiesArgs', 'PlanExecutionBlockConfiguration7PropertiesArgs', 'PlanExecutionBlockConfiguration8PropertiesArgs', 'PlanExecutionBlockConfiguration9PropertiesArgs', 'PlanExecutionBlockConfiguration10PropertiesArgs', 'PlanExecutionBlockConfiguration11PropertiesArgs', 'PlanExecutionBlockConfiguration12PropertiesArgs']],
+                 execution_block_configuration: pulumi.Input[Union['PlanExecutionBlockConfiguration0PropertiesArgs', 'PlanExecutionBlockConfiguration1PropertiesArgs', 'PlanExecutionBlockConfiguration2PropertiesArgs', 'PlanExecutionBlockConfiguration3PropertiesArgs', 'PlanExecutionBlockConfiguration4PropertiesArgs', 'PlanExecutionBlockConfiguration5PropertiesArgs', 'PlanExecutionBlockConfiguration6PropertiesArgs', 'PlanExecutionBlockConfiguration7PropertiesArgs', 'PlanExecutionBlockConfiguration8PropertiesArgs', 'PlanExecutionBlockConfiguration9PropertiesArgs', 'PlanExecutionBlockConfiguration10PropertiesArgs', 'PlanExecutionBlockConfiguration11PropertiesArgs', 'PlanExecutionBlockConfiguration12PropertiesArgs', 'PlanExecutionBlockConfiguration13PropertiesArgs']],
                  execution_block_type: pulumi.Input['PlanExecutionBlockType'],
                  name: pulumi.Input[_builtins.str],
                  description: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        :param pulumi.Input[Union['PlanExecutionBlockConfiguration0PropertiesArgs', 'PlanExecutionBlockConfiguration1PropertiesArgs', 'PlanExecutionBlockConfiguration2PropertiesArgs', 'PlanExecutionBlockConfiguration3PropertiesArgs', 'PlanExecutionBlockConfiguration4PropertiesArgs', 'PlanExecutionBlockConfiguration5PropertiesArgs', 'PlanExecutionBlockConfiguration6PropertiesArgs', 'PlanExecutionBlockConfiguration7PropertiesArgs', 'PlanExecutionBlockConfiguration8PropertiesArgs', 'PlanExecutionBlockConfiguration9PropertiesArgs', 'PlanExecutionBlockConfiguration10PropertiesArgs', 'PlanExecutionBlockConfiguration11PropertiesArgs', 'PlanExecutionBlockConfiguration12PropertiesArgs']] execution_block_configuration: The configuration for an execution block in a workflow.
+        :param pulumi.Input[Union['PlanExecutionBlockConfiguration0PropertiesArgs', 'PlanExecutionBlockConfiguration1PropertiesArgs', 'PlanExecutionBlockConfiguration2PropertiesArgs', 'PlanExecutionBlockConfiguration3PropertiesArgs', 'PlanExecutionBlockConfiguration4PropertiesArgs', 'PlanExecutionBlockConfiguration5PropertiesArgs', 'PlanExecutionBlockConfiguration6PropertiesArgs', 'PlanExecutionBlockConfiguration7PropertiesArgs', 'PlanExecutionBlockConfiguration8PropertiesArgs', 'PlanExecutionBlockConfiguration9PropertiesArgs', 'PlanExecutionBlockConfiguration10PropertiesArgs', 'PlanExecutionBlockConfiguration11PropertiesArgs', 'PlanExecutionBlockConfiguration12PropertiesArgs', 'PlanExecutionBlockConfiguration13PropertiesArgs']] execution_block_configuration: The configuration for an execution block in a workflow.
         :param pulumi.Input['PlanExecutionBlockType'] execution_block_type: The type of an execution block in a workflow.
         :param pulumi.Input[_builtins.str] name: The name of a step in a workflow.
         :param pulumi.Input[_builtins.str] description: The description of a step in a workflow.
@@ -1792,14 +1941,14 @@ class PlanStepArgs:
 
     @_builtins.property
     @pulumi.getter(name="executionBlockConfiguration")
-    def execution_block_configuration(self) -> pulumi.Input[Union['PlanExecutionBlockConfiguration0PropertiesArgs', 'PlanExecutionBlockConfiguration1PropertiesArgs', 'PlanExecutionBlockConfiguration2PropertiesArgs', 'PlanExecutionBlockConfiguration3PropertiesArgs', 'PlanExecutionBlockConfiguration4PropertiesArgs', 'PlanExecutionBlockConfiguration5PropertiesArgs', 'PlanExecutionBlockConfiguration6PropertiesArgs', 'PlanExecutionBlockConfiguration7PropertiesArgs', 'PlanExecutionBlockConfiguration8PropertiesArgs', 'PlanExecutionBlockConfiguration9PropertiesArgs', 'PlanExecutionBlockConfiguration10PropertiesArgs', 'PlanExecutionBlockConfiguration11PropertiesArgs', 'PlanExecutionBlockConfiguration12PropertiesArgs']]:
+    def execution_block_configuration(self) -> pulumi.Input[Union['PlanExecutionBlockConfiguration0PropertiesArgs', 'PlanExecutionBlockConfiguration1PropertiesArgs', 'PlanExecutionBlockConfiguration2PropertiesArgs', 'PlanExecutionBlockConfiguration3PropertiesArgs', 'PlanExecutionBlockConfiguration4PropertiesArgs', 'PlanExecutionBlockConfiguration5PropertiesArgs', 'PlanExecutionBlockConfiguration6PropertiesArgs', 'PlanExecutionBlockConfiguration7PropertiesArgs', 'PlanExecutionBlockConfiguration8PropertiesArgs', 'PlanExecutionBlockConfiguration9PropertiesArgs', 'PlanExecutionBlockConfiguration10PropertiesArgs', 'PlanExecutionBlockConfiguration11PropertiesArgs', 'PlanExecutionBlockConfiguration12PropertiesArgs', 'PlanExecutionBlockConfiguration13PropertiesArgs']]:
         """
         The configuration for an execution block in a workflow.
         """
         return pulumi.get(self, "execution_block_configuration")
 
     @execution_block_configuration.setter
-    def execution_block_configuration(self, value: pulumi.Input[Union['PlanExecutionBlockConfiguration0PropertiesArgs', 'PlanExecutionBlockConfiguration1PropertiesArgs', 'PlanExecutionBlockConfiguration2PropertiesArgs', 'PlanExecutionBlockConfiguration3PropertiesArgs', 'PlanExecutionBlockConfiguration4PropertiesArgs', 'PlanExecutionBlockConfiguration5PropertiesArgs', 'PlanExecutionBlockConfiguration6PropertiesArgs', 'PlanExecutionBlockConfiguration7PropertiesArgs', 'PlanExecutionBlockConfiguration8PropertiesArgs', 'PlanExecutionBlockConfiguration9PropertiesArgs', 'PlanExecutionBlockConfiguration10PropertiesArgs', 'PlanExecutionBlockConfiguration11PropertiesArgs', 'PlanExecutionBlockConfiguration12PropertiesArgs']]):
+    def execution_block_configuration(self, value: pulumi.Input[Union['PlanExecutionBlockConfiguration0PropertiesArgs', 'PlanExecutionBlockConfiguration1PropertiesArgs', 'PlanExecutionBlockConfiguration2PropertiesArgs', 'PlanExecutionBlockConfiguration3PropertiesArgs', 'PlanExecutionBlockConfiguration4PropertiesArgs', 'PlanExecutionBlockConfiguration5PropertiesArgs', 'PlanExecutionBlockConfiguration6PropertiesArgs', 'PlanExecutionBlockConfiguration7PropertiesArgs', 'PlanExecutionBlockConfiguration8PropertiesArgs', 'PlanExecutionBlockConfiguration9PropertiesArgs', 'PlanExecutionBlockConfiguration10PropertiesArgs', 'PlanExecutionBlockConfiguration11PropertiesArgs', 'PlanExecutionBlockConfiguration12PropertiesArgs', 'PlanExecutionBlockConfiguration13PropertiesArgs']]):
         pulumi.set(self, "execution_block_configuration", value)
 
     @_builtins.property

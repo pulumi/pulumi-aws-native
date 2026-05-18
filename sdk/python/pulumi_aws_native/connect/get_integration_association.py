@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .. import outputs as _root_outputs
 from ._enums import *
 
 __all__ = [
@@ -24,10 +25,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetIntegrationAssociationResult:
-    def __init__(__self__, integration_association_id=None):
+    def __init__(__self__, integration_association_id=None, tags=None):
         if integration_association_id and not isinstance(integration_association_id, str):
             raise TypeError("Expected argument 'integration_association_id' to be a str")
         pulumi.set(__self__, "integration_association_id", integration_association_id)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
     @pulumi.getter(name="integrationAssociationId")
@@ -37,6 +41,14 @@ class GetIntegrationAssociationResult:
         """
         return pulumi.get(self, "integration_association_id")
 
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        The tags used to organize, track, or control access for this resource.
+        """
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetIntegrationAssociationResult(GetIntegrationAssociationResult):
     # pylint: disable=using-constant-test
@@ -44,7 +56,8 @@ class AwaitableGetIntegrationAssociationResult(GetIntegrationAssociationResult):
         if False:
             yield self
         return GetIntegrationAssociationResult(
-            integration_association_id=self.integration_association_id)
+            integration_association_id=self.integration_association_id,
+            tags=self.tags)
 
 
 def get_integration_association(instance_id: Optional[_builtins.str] = None,
@@ -77,7 +90,8 @@ def get_integration_association(instance_id: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:connect:getIntegrationAssociation', __args__, opts=opts, typ=GetIntegrationAssociationResult).value
 
     return AwaitableGetIntegrationAssociationResult(
-        integration_association_id=pulumi.get(__ret__, 'integration_association_id'))
+        integration_association_id=pulumi.get(__ret__, 'integration_association_id'),
+        tags=pulumi.get(__ret__, 'tags'))
 def get_integration_association_output(instance_id: Optional[pulumi.Input[_builtins.str]] = None,
                                        integration_arn: Optional[pulumi.Input[_builtins.str]] = None,
                                        integration_type: Optional[pulumi.Input['IntegrationAssociationIntegrationType']] = None,
@@ -107,4 +121,5 @@ def get_integration_association_output(instance_id: Optional[pulumi.Input[_built
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:connect:getIntegrationAssociation', __args__, opts=opts, typ=GetIntegrationAssociationResult)
     return __ret__.apply(lambda __response__: GetIntegrationAssociationResult(
-        integration_association_id=pulumi.get(__response__, 'integration_association_id')))
+        integration_association_id=pulumi.get(__response__, 'integration_association_id'),
+        tags=pulumi.get(__response__, 'tags')))

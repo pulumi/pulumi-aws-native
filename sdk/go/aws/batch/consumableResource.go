@@ -53,7 +53,6 @@ func NewConsumableResource(ctx *pulumi.Context,
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"consumableResourceName",
 		"resourceType",
-		"tags.*",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)

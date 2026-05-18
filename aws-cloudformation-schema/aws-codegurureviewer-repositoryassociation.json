@@ -86,6 +86,7 @@
   "additionalProperties" : false,
   "required" : [ "Name", "Type" ],
   "readOnlyProperties" : [ "/properties/AssociationArn" ],
+  "writeOnlyProperties" : [ "/properties/Owner", "/properties/ConnectionArn" ],
   "createOnlyProperties" : [ "/properties/Name", "/properties/Type", "/properties/Tags", "/properties/BucketName", "/properties/Owner", "/properties/ConnectionArn" ],
   "primaryIdentifier" : [ "/properties/AssociationArn" ],
   "handlers" : {

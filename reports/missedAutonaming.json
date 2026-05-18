@@ -2919,6 +2919,13 @@
       "integrationType": {
         "$ref": "#/types/aws-native:connect:IntegrationAssociationIntegrationType",
         "description": "Specifies the integration type to be associated with the instance.\n\n*Allowed Values* : `LEX_BOT` | `LAMBDA_FUNCTION`"
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "The tags used to organize, track, or control access for this resource."
       }
     }
   },
@@ -8745,7 +8752,7 @@
       },
       "replicasPerNodeGroup": {
         "type": "integer",
-        "description": "An optional parameter that specifies the number of replica nodes in each node group (shard). Valid values are 0 to 5."
+        "description": "An optional parameter that specifies the number of replica nodes in each node group (shard). Valid values are 0 to 5.\n\n**Note:** Using ReplicasPerNodeGroup with NodeGroupConfiguration results in resource replacement. For online scaling, use ReplicasPerNodeGroup alone."
       },
       "replicationGroupDescription": {
         "type": "string",

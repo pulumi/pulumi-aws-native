@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.EntityResolution.Inputs
 
     public sealed class MatchingWorkflowRuleConditionPropertiesArgs : global::Pulumi.ResourceArgs
     {
+        [Input("matchingConfig")]
+        public Input<Inputs.MatchingWorkflowMatchingConfigArgs>? MatchingConfig { get; set; }
+
         [Input("rules", required: true)]
         private InputList<Inputs.MatchingWorkflowRuleConditionArgs>? _rules;
 

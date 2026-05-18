@@ -156,10 +156,12 @@ __all__ = [
     'RuntimeContainerConfiguration',
     'RuntimeCustomClaimValidationType',
     'RuntimeCustomJwtAuthorizerConfiguration',
+    'RuntimeEfsAccessPointConfiguration',
     'RuntimeFilesystemConfiguration',
     'RuntimeLifecycleConfiguration',
     'RuntimeNetworkConfiguration',
     'RuntimeRequestHeaderConfiguration',
+    'RuntimeS3FilesAccessPointConfiguration',
     'RuntimeS3Location',
     'RuntimeSessionStorageConfiguration',
     'RuntimeVpcConfig',
@@ -6331,6 +6333,50 @@ class RuntimeCustomJwtAuthorizerConfiguration(dict):
 
 
 @pulumi.output_type
+class RuntimeEfsAccessPointConfiguration(dict):
+    """
+    Configuration for EFS access point filesystem
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessPointArn":
+            suggest = "access_point_arn"
+        elif key == "mountPath":
+            suggest = "mount_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuntimeEfsAccessPointConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuntimeEfsAccessPointConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuntimeEfsAccessPointConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 access_point_arn: _builtins.str,
+                 mount_path: _builtins.str):
+        """
+        Configuration for EFS access point filesystem
+        """
+        pulumi.set(__self__, "access_point_arn", access_point_arn)
+        pulumi.set(__self__, "mount_path", mount_path)
+
+    @_builtins.property
+    @pulumi.getter(name="accessPointArn")
+    def access_point_arn(self) -> _builtins.str:
+        return pulumi.get(self, "access_point_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="mountPath")
+    def mount_path(self) -> _builtins.str:
+        return pulumi.get(self, "mount_path")
+
+
+@pulumi.output_type
 class RuntimeFilesystemConfiguration(dict):
     """
     Filesystem configuration for the runtime
@@ -6338,7 +6384,11 @@ class RuntimeFilesystemConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "sessionStorage":
+        if key == "efsAccessPoint":
+            suggest = "efs_access_point"
+        elif key == "s3FilesAccessPoint":
+            suggest = "s3_files_access_point"
+        elif key == "sessionStorage":
             suggest = "session_storage"
 
         if suggest:
@@ -6353,12 +6403,28 @@ class RuntimeFilesystemConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 efs_access_point: Optional['outputs.RuntimeEfsAccessPointConfiguration'] = None,
+                 s3_files_access_point: Optional['outputs.RuntimeS3FilesAccessPointConfiguration'] = None,
                  session_storage: Optional['outputs.RuntimeSessionStorageConfiguration'] = None):
         """
         Filesystem configuration for the runtime
         """
+        if efs_access_point is not None:
+            pulumi.set(__self__, "efs_access_point", efs_access_point)
+        if s3_files_access_point is not None:
+            pulumi.set(__self__, "s3_files_access_point", s3_files_access_point)
         if session_storage is not None:
             pulumi.set(__self__, "session_storage", session_storage)
+
+    @_builtins.property
+    @pulumi.getter(name="efsAccessPoint")
+    def efs_access_point(self) -> Optional['outputs.RuntimeEfsAccessPointConfiguration']:
+        return pulumi.get(self, "efs_access_point")
+
+    @_builtins.property
+    @pulumi.getter(name="s3FilesAccessPoint")
+    def s3_files_access_point(self) -> Optional['outputs.RuntimeS3FilesAccessPointConfiguration']:
+        return pulumi.get(self, "s3_files_access_point")
 
     @_builtins.property
     @pulumi.getter(name="sessionStorage")
@@ -6500,6 +6566,50 @@ class RuntimeRequestHeaderConfiguration(dict):
     @pulumi.getter(name="requestHeaderAllowlist")
     def request_header_allowlist(self) -> Optional[Sequence[_builtins.str]]:
         return pulumi.get(self, "request_header_allowlist")
+
+
+@pulumi.output_type
+class RuntimeS3FilesAccessPointConfiguration(dict):
+    """
+    Configuration for S3 Files access point filesystem
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessPointArn":
+            suggest = "access_point_arn"
+        elif key == "mountPath":
+            suggest = "mount_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuntimeS3FilesAccessPointConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuntimeS3FilesAccessPointConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuntimeS3FilesAccessPointConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 access_point_arn: _builtins.str,
+                 mount_path: _builtins.str):
+        """
+        Configuration for S3 Files access point filesystem
+        """
+        pulumi.set(__self__, "access_point_arn", access_point_arn)
+        pulumi.set(__self__, "mount_path", mount_path)
+
+    @_builtins.property
+    @pulumi.getter(name="accessPointArn")
+    def access_point_arn(self) -> _builtins.str:
+        return pulumi.get(self, "access_point_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="mountPath")
+    def mount_path(self) -> _builtins.str:
+        return pulumi.get(self, "mount_path")
 
 
 @pulumi.output_type

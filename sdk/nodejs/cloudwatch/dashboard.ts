@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -42,6 +45,10 @@ export class Dashboard extends pulumi.CustomResource {
      * The name of the dashboard. The name must be between 1 and 255 characters. If you do not specify a name, one will be generated automatically.
      */
     declare public readonly dashboardName: pulumi.Output<string | undefined>;
+    /**
+     * A list of key-value pairs to associate with the cloudwatch dashboard. You can associate up to 50 tags with a dashboard
+     */
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Dashboard resource with the given unique name, arguments, and options.
@@ -59,9 +66,11 @@ export class Dashboard extends pulumi.CustomResource {
             }
             resourceInputs["dashboardBody"] = args?.dashboardBody;
             resourceInputs["dashboardName"] = args?.dashboardName;
+            resourceInputs["tags"] = args?.tags;
         } else {
             resourceInputs["dashboardBody"] = undefined /*out*/;
             resourceInputs["dashboardName"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const replaceOnChanges = { replaceOnChanges: ["dashboardName"] };
@@ -82,4 +91,8 @@ export interface DashboardArgs {
      * The name of the dashboard. The name must be between 1 and 255 characters. If you do not specify a name, one will be generated automatically.
      */
     dashboardName?: pulumi.Input<string>;
+    /**
+     * A list of key-value pairs to associate with the cloudwatch dashboard. You can associate up to 50 tags with a dashboard
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

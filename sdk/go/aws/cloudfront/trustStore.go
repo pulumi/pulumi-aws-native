@@ -33,7 +33,8 @@ type TrustStore struct {
 	// The trust store's status.
 	Status TrustStoreStatusOutput `pulumi:"status"`
 	// A complex type that contains zero or more ``Tag`` elements.
-	Tags                             aws.TagArrayOutput   `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// A boolean. When true, performs real-time certificate revocation checks by querying the OCSP endpoint specified within the client certificate.
 	UseClientCertificateOcspEndpoint pulumi.BoolPtrOutput `pulumi:"useClientCertificateOcspEndpoint"`
 }
 
@@ -86,8 +87,9 @@ type trustStoreArgs struct {
 	// The trust store's name.
 	Name *string `pulumi:"name"`
 	// A complex type that contains zero or more ``Tag`` elements.
-	Tags                             []aws.Tag `pulumi:"tags"`
-	UseClientCertificateOcspEndpoint *bool     `pulumi:"useClientCertificateOcspEndpoint"`
+	Tags []aws.Tag `pulumi:"tags"`
+	// A boolean. When true, performs real-time certificate revocation checks by querying the OCSP endpoint specified within the client certificate.
+	UseClientCertificateOcspEndpoint *bool `pulumi:"useClientCertificateOcspEndpoint"`
 }
 
 // The set of arguments for constructing a TrustStore resource.
@@ -97,7 +99,8 @@ type TrustStoreArgs struct {
 	// The trust store's name.
 	Name pulumi.StringPtrInput
 	// A complex type that contains zero or more ``Tag`` elements.
-	Tags                             aws.TagArrayInput
+	Tags aws.TagArrayInput
+	// A boolean. When true, performs real-time certificate revocation checks by querying the OCSP endpoint specified within the client certificate.
 	UseClientCertificateOcspEndpoint pulumi.BoolPtrInput
 }
 
@@ -183,6 +186,7 @@ func (o TrustStoreOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *TrustStore) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// A boolean. When true, performs real-time certificate revocation checks by querying the OCSP endpoint specified within the client certificate.
 func (o TrustStoreOutput) UseClientCertificateOcspEndpoint() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TrustStore) pulumi.BoolPtrOutput { return v.UseClientCertificateOcspEndpoint }).(pulumi.BoolPtrOutput)
 }
