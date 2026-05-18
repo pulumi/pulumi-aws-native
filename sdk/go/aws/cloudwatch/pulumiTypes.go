@@ -1034,6 +1034,14 @@ type CompositeAlarmTag struct {
 	Value string `pulumi:"value"`
 }
 
+// Metadata that you can assign to a cloudwatch dashboard. Tags can help you organize and categorize your resources. You can also use them to scope user permissions, by granting a user permission to access or change only resources with certain tag values.
+type DashboardTag struct {
+	// A unique identifier for the tag. The combination of tag keys and values can help you organize and categorize your resources.
+	Key string `pulumi:"key"`
+	// The value for the specified tag key.
+	Value string `pulumi:"value"`
+}
+
 // This structure defines the metrics that will be streamed.
 type MetricStreamFilter struct {
 	// Only metrics with MetricNames matching these values will be streamed. Must be set together with Namespace.

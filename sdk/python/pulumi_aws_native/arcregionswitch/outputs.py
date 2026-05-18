@@ -30,11 +30,13 @@ __all__ = [
     'PlanEksCluster',
     'PlanEksResourceScalingConfiguration',
     'PlanEksResourceScalingUngraceful',
+    'PlanEventSourceMapping',
     'PlanExecutionApprovalConfiguration',
     'PlanExecutionBlockConfiguration0Properties',
     'PlanExecutionBlockConfiguration10Properties',
     'PlanExecutionBlockConfiguration11Properties',
     'PlanExecutionBlockConfiguration12Properties',
+    'PlanExecutionBlockConfiguration13Properties',
     'PlanExecutionBlockConfiguration1Properties',
     'PlanExecutionBlockConfiguration2Properties',
     'PlanExecutionBlockConfiguration3Properties',
@@ -48,6 +50,8 @@ __all__ = [
     'PlanGlobalAuroraUngraceful',
     'PlanHealthCheckState',
     'PlanKubernetesResourceType',
+    'PlanLambdaEventSourceMappingConfiguration',
+    'PlanLambdaEventSourceMappingUngraceful',
     'PlanLambdaUngraceful',
     'PlanLambdas',
     'PlanParallelExecutionBlockConfiguration',
@@ -763,6 +767,53 @@ class PlanEksResourceScalingUngraceful(dict):
 
 
 @pulumi.output_type
+class PlanEventSourceMapping(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "crossAccountRole":
+            suggest = "cross_account_role"
+        elif key == "externalId":
+            suggest = "external_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PlanEventSourceMapping. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PlanEventSourceMapping.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PlanEventSourceMapping.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 arn: _builtins.str,
+                 cross_account_role: Optional[_builtins.str] = None,
+                 external_id: Optional[_builtins.str] = None):
+        pulumi.set(__self__, "arn", arn)
+        if cross_account_role is not None:
+            pulumi.set(__self__, "cross_account_role", cross_account_role)
+        if external_id is not None:
+            pulumi.set(__self__, "external_id", external_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> _builtins.str:
+        return pulumi.get(self, "arn")
+
+    @_builtins.property
+    @pulumi.getter(name="crossAccountRole")
+    def cross_account_role(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "cross_account_role")
+
+    @_builtins.property
+    @pulumi.getter(name="externalId")
+    def external_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "external_id")
+
+
+@pulumi.output_type
 class PlanExecutionApprovalConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -915,6 +966,35 @@ class PlanExecutionBlockConfiguration12Properties(dict):
     @pulumi.getter(name="rdsCreateCrossRegionReadReplicaConfig")
     def rds_create_cross_region_read_replica_config(self) -> 'outputs.PlanRdsCreateCrossRegionReplicaConfiguration':
         return pulumi.get(self, "rds_create_cross_region_read_replica_config")
+
+
+@pulumi.output_type
+class PlanExecutionBlockConfiguration13Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lambdaEventSourceMappingConfig":
+            suggest = "lambda_event_source_mapping_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PlanExecutionBlockConfiguration13Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PlanExecutionBlockConfiguration13Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PlanExecutionBlockConfiguration13Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 lambda_event_source_mapping_config: 'outputs.PlanLambdaEventSourceMappingConfiguration'):
+        pulumi.set(__self__, "lambda_event_source_mapping_config", lambda_event_source_mapping_config)
+
+    @_builtins.property
+    @pulumi.getter(name="lambdaEventSourceMappingConfig")
+    def lambda_event_source_mapping_config(self) -> 'outputs.PlanLambdaEventSourceMappingConfiguration':
+        return pulumi.get(self, "lambda_event_source_mapping_config")
 
 
 @pulumi.output_type
@@ -1346,6 +1426,73 @@ class PlanKubernetesResourceType(dict):
     @pulumi.getter
     def kind(self) -> _builtins.str:
         return pulumi.get(self, "kind")
+
+
+@pulumi.output_type
+class PlanLambdaEventSourceMappingConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "regionEventSourceMappings":
+            suggest = "region_event_source_mappings"
+        elif key == "timeoutMinutes":
+            suggest = "timeout_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PlanLambdaEventSourceMappingConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PlanLambdaEventSourceMappingConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PlanLambdaEventSourceMappingConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 action: 'PlanLambdaEventSourceMappingConfigurationAction',
+                 region_event_source_mappings: Mapping[str, 'outputs.PlanEventSourceMapping'],
+                 timeout_minutes: Optional[_builtins.float] = None,
+                 ungraceful: Optional['outputs.PlanLambdaEventSourceMappingUngraceful'] = None):
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "region_event_source_mappings", region_event_source_mappings)
+        if timeout_minutes is not None:
+            pulumi.set(__self__, "timeout_minutes", timeout_minutes)
+        if ungraceful is not None:
+            pulumi.set(__self__, "ungraceful", ungraceful)
+
+    @_builtins.property
+    @pulumi.getter
+    def action(self) -> 'PlanLambdaEventSourceMappingConfigurationAction':
+        return pulumi.get(self, "action")
+
+    @_builtins.property
+    @pulumi.getter(name="regionEventSourceMappings")
+    def region_event_source_mappings(self) -> Mapping[str, 'outputs.PlanEventSourceMapping']:
+        return pulumi.get(self, "region_event_source_mappings")
+
+    @_builtins.property
+    @pulumi.getter(name="timeoutMinutes")
+    def timeout_minutes(self) -> Optional[_builtins.float]:
+        return pulumi.get(self, "timeout_minutes")
+
+    @_builtins.property
+    @pulumi.getter
+    def ungraceful(self) -> Optional['outputs.PlanLambdaEventSourceMappingUngraceful']:
+        return pulumi.get(self, "ungraceful")
+
+
+@pulumi.output_type
+class PlanLambdaEventSourceMappingUngraceful(dict):
+    def __init__(__self__, *,
+                 behavior: Optional['PlanLambdaEventSourceMappingUngracefulBehavior'] = None):
+        if behavior is not None:
+            pulumi.set(__self__, "behavior", behavior)
+
+    @_builtins.property
+    @pulumi.getter
+    def behavior(self) -> Optional['PlanLambdaEventSourceMappingUngracefulBehavior']:
+        return pulumi.get(self, "behavior")
 
 
 @pulumi.output_type
@@ -1894,7 +2041,7 @@ class PlanStep(dict):
                  name: _builtins.str,
                  description: Optional[_builtins.str] = None):
         """
-        :param Union['PlanExecutionBlockConfiguration0Properties', 'PlanExecutionBlockConfiguration1Properties', 'PlanExecutionBlockConfiguration2Properties', 'PlanExecutionBlockConfiguration3Properties', 'PlanExecutionBlockConfiguration4Properties', 'PlanExecutionBlockConfiguration5Properties', 'PlanExecutionBlockConfiguration6Properties', 'PlanExecutionBlockConfiguration7Properties', 'PlanExecutionBlockConfiguration8Properties', 'PlanExecutionBlockConfiguration9Properties', 'PlanExecutionBlockConfiguration10Properties', 'PlanExecutionBlockConfiguration11Properties', 'PlanExecutionBlockConfiguration12Properties'] execution_block_configuration: The configuration for an execution block in a workflow.
+        :param Union['PlanExecutionBlockConfiguration0Properties', 'PlanExecutionBlockConfiguration1Properties', 'PlanExecutionBlockConfiguration2Properties', 'PlanExecutionBlockConfiguration3Properties', 'PlanExecutionBlockConfiguration4Properties', 'PlanExecutionBlockConfiguration5Properties', 'PlanExecutionBlockConfiguration6Properties', 'PlanExecutionBlockConfiguration7Properties', 'PlanExecutionBlockConfiguration8Properties', 'PlanExecutionBlockConfiguration9Properties', 'PlanExecutionBlockConfiguration10Properties', 'PlanExecutionBlockConfiguration11Properties', 'PlanExecutionBlockConfiguration12Properties', 'PlanExecutionBlockConfiguration13Properties'] execution_block_configuration: The configuration for an execution block in a workflow.
         :param 'PlanExecutionBlockType' execution_block_type: The type of an execution block in a workflow.
         :param _builtins.str name: The name of a step in a workflow.
         :param _builtins.str description: The description of a step in a workflow.

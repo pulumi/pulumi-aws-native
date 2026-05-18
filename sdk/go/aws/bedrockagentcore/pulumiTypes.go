@@ -18481,9 +18481,162 @@ func (o RuntimeCustomJwtAuthorizerConfigurationPtrOutput) DiscoveryUrl() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
+// Configuration for EFS access point filesystem
+type RuntimeEfsAccessPointConfiguration struct {
+	AccessPointArn string `pulumi:"accessPointArn"`
+	MountPath      string `pulumi:"mountPath"`
+}
+
+// RuntimeEfsAccessPointConfigurationInput is an input type that accepts RuntimeEfsAccessPointConfigurationArgs and RuntimeEfsAccessPointConfigurationOutput values.
+// You can construct a concrete instance of `RuntimeEfsAccessPointConfigurationInput` via:
+//
+//	RuntimeEfsAccessPointConfigurationArgs{...}
+type RuntimeEfsAccessPointConfigurationInput interface {
+	pulumi.Input
+
+	ToRuntimeEfsAccessPointConfigurationOutput() RuntimeEfsAccessPointConfigurationOutput
+	ToRuntimeEfsAccessPointConfigurationOutputWithContext(context.Context) RuntimeEfsAccessPointConfigurationOutput
+}
+
+// Configuration for EFS access point filesystem
+type RuntimeEfsAccessPointConfigurationArgs struct {
+	AccessPointArn pulumi.StringInput `pulumi:"accessPointArn"`
+	MountPath      pulumi.StringInput `pulumi:"mountPath"`
+}
+
+func (RuntimeEfsAccessPointConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimeEfsAccessPointConfiguration)(nil)).Elem()
+}
+
+func (i RuntimeEfsAccessPointConfigurationArgs) ToRuntimeEfsAccessPointConfigurationOutput() RuntimeEfsAccessPointConfigurationOutput {
+	return i.ToRuntimeEfsAccessPointConfigurationOutputWithContext(context.Background())
+}
+
+func (i RuntimeEfsAccessPointConfigurationArgs) ToRuntimeEfsAccessPointConfigurationOutputWithContext(ctx context.Context) RuntimeEfsAccessPointConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuntimeEfsAccessPointConfigurationOutput)
+}
+
+func (i RuntimeEfsAccessPointConfigurationArgs) ToRuntimeEfsAccessPointConfigurationPtrOutput() RuntimeEfsAccessPointConfigurationPtrOutput {
+	return i.ToRuntimeEfsAccessPointConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i RuntimeEfsAccessPointConfigurationArgs) ToRuntimeEfsAccessPointConfigurationPtrOutputWithContext(ctx context.Context) RuntimeEfsAccessPointConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuntimeEfsAccessPointConfigurationOutput).ToRuntimeEfsAccessPointConfigurationPtrOutputWithContext(ctx)
+}
+
+// RuntimeEfsAccessPointConfigurationPtrInput is an input type that accepts RuntimeEfsAccessPointConfigurationArgs, RuntimeEfsAccessPointConfigurationPtr and RuntimeEfsAccessPointConfigurationPtrOutput values.
+// You can construct a concrete instance of `RuntimeEfsAccessPointConfigurationPtrInput` via:
+//
+//	        RuntimeEfsAccessPointConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuntimeEfsAccessPointConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToRuntimeEfsAccessPointConfigurationPtrOutput() RuntimeEfsAccessPointConfigurationPtrOutput
+	ToRuntimeEfsAccessPointConfigurationPtrOutputWithContext(context.Context) RuntimeEfsAccessPointConfigurationPtrOutput
+}
+
+type runtimeEfsAccessPointConfigurationPtrType RuntimeEfsAccessPointConfigurationArgs
+
+func RuntimeEfsAccessPointConfigurationPtr(v *RuntimeEfsAccessPointConfigurationArgs) RuntimeEfsAccessPointConfigurationPtrInput {
+	return (*runtimeEfsAccessPointConfigurationPtrType)(v)
+}
+
+func (*runtimeEfsAccessPointConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuntimeEfsAccessPointConfiguration)(nil)).Elem()
+}
+
+func (i *runtimeEfsAccessPointConfigurationPtrType) ToRuntimeEfsAccessPointConfigurationPtrOutput() RuntimeEfsAccessPointConfigurationPtrOutput {
+	return i.ToRuntimeEfsAccessPointConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *runtimeEfsAccessPointConfigurationPtrType) ToRuntimeEfsAccessPointConfigurationPtrOutputWithContext(ctx context.Context) RuntimeEfsAccessPointConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuntimeEfsAccessPointConfigurationPtrOutput)
+}
+
+// Configuration for EFS access point filesystem
+type RuntimeEfsAccessPointConfigurationOutput struct{ *pulumi.OutputState }
+
+func (RuntimeEfsAccessPointConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimeEfsAccessPointConfiguration)(nil)).Elem()
+}
+
+func (o RuntimeEfsAccessPointConfigurationOutput) ToRuntimeEfsAccessPointConfigurationOutput() RuntimeEfsAccessPointConfigurationOutput {
+	return o
+}
+
+func (o RuntimeEfsAccessPointConfigurationOutput) ToRuntimeEfsAccessPointConfigurationOutputWithContext(ctx context.Context) RuntimeEfsAccessPointConfigurationOutput {
+	return o
+}
+
+func (o RuntimeEfsAccessPointConfigurationOutput) ToRuntimeEfsAccessPointConfigurationPtrOutput() RuntimeEfsAccessPointConfigurationPtrOutput {
+	return o.ToRuntimeEfsAccessPointConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o RuntimeEfsAccessPointConfigurationOutput) ToRuntimeEfsAccessPointConfigurationPtrOutputWithContext(ctx context.Context) RuntimeEfsAccessPointConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuntimeEfsAccessPointConfiguration) *RuntimeEfsAccessPointConfiguration {
+		return &v
+	}).(RuntimeEfsAccessPointConfigurationPtrOutput)
+}
+
+func (o RuntimeEfsAccessPointConfigurationOutput) AccessPointArn() pulumi.StringOutput {
+	return o.ApplyT(func(v RuntimeEfsAccessPointConfiguration) string { return v.AccessPointArn }).(pulumi.StringOutput)
+}
+
+func (o RuntimeEfsAccessPointConfigurationOutput) MountPath() pulumi.StringOutput {
+	return o.ApplyT(func(v RuntimeEfsAccessPointConfiguration) string { return v.MountPath }).(pulumi.StringOutput)
+}
+
+type RuntimeEfsAccessPointConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (RuntimeEfsAccessPointConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuntimeEfsAccessPointConfiguration)(nil)).Elem()
+}
+
+func (o RuntimeEfsAccessPointConfigurationPtrOutput) ToRuntimeEfsAccessPointConfigurationPtrOutput() RuntimeEfsAccessPointConfigurationPtrOutput {
+	return o
+}
+
+func (o RuntimeEfsAccessPointConfigurationPtrOutput) ToRuntimeEfsAccessPointConfigurationPtrOutputWithContext(ctx context.Context) RuntimeEfsAccessPointConfigurationPtrOutput {
+	return o
+}
+
+func (o RuntimeEfsAccessPointConfigurationPtrOutput) Elem() RuntimeEfsAccessPointConfigurationOutput {
+	return o.ApplyT(func(v *RuntimeEfsAccessPointConfiguration) RuntimeEfsAccessPointConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret RuntimeEfsAccessPointConfiguration
+		return ret
+	}).(RuntimeEfsAccessPointConfigurationOutput)
+}
+
+func (o RuntimeEfsAccessPointConfigurationPtrOutput) AccessPointArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuntimeEfsAccessPointConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AccessPointArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RuntimeEfsAccessPointConfigurationPtrOutput) MountPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuntimeEfsAccessPointConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MountPath
+	}).(pulumi.StringPtrOutput)
+}
+
 // Filesystem configuration for the runtime
 type RuntimeFilesystemConfiguration struct {
-	SessionStorage *RuntimeSessionStorageConfiguration `pulumi:"sessionStorage"`
+	EfsAccessPoint     *RuntimeEfsAccessPointConfiguration     `pulumi:"efsAccessPoint"`
+	S3FilesAccessPoint *RuntimeS3FilesAccessPointConfiguration `pulumi:"s3FilesAccessPoint"`
+	SessionStorage     *RuntimeSessionStorageConfiguration     `pulumi:"sessionStorage"`
 }
 
 // RuntimeFilesystemConfigurationInput is an input type that accepts RuntimeFilesystemConfigurationArgs and RuntimeFilesystemConfigurationOutput values.
@@ -18499,7 +18652,9 @@ type RuntimeFilesystemConfigurationInput interface {
 
 // Filesystem configuration for the runtime
 type RuntimeFilesystemConfigurationArgs struct {
-	SessionStorage RuntimeSessionStorageConfigurationPtrInput `pulumi:"sessionStorage"`
+	EfsAccessPoint     RuntimeEfsAccessPointConfigurationPtrInput     `pulumi:"efsAccessPoint"`
+	S3FilesAccessPoint RuntimeS3FilesAccessPointConfigurationPtrInput `pulumi:"s3FilesAccessPoint"`
+	SessionStorage     RuntimeSessionStorageConfigurationPtrInput     `pulumi:"sessionStorage"`
 }
 
 func (RuntimeFilesystemConfigurationArgs) ElementType() reflect.Type {
@@ -18552,6 +18707,16 @@ func (o RuntimeFilesystemConfigurationOutput) ToRuntimeFilesystemConfigurationOu
 
 func (o RuntimeFilesystemConfigurationOutput) ToRuntimeFilesystemConfigurationOutputWithContext(ctx context.Context) RuntimeFilesystemConfigurationOutput {
 	return o
+}
+
+func (o RuntimeFilesystemConfigurationOutput) EfsAccessPoint() RuntimeEfsAccessPointConfigurationPtrOutput {
+	return o.ApplyT(func(v RuntimeFilesystemConfiguration) *RuntimeEfsAccessPointConfiguration { return v.EfsAccessPoint }).(RuntimeEfsAccessPointConfigurationPtrOutput)
+}
+
+func (o RuntimeFilesystemConfigurationOutput) S3FilesAccessPoint() RuntimeS3FilesAccessPointConfigurationPtrOutput {
+	return o.ApplyT(func(v RuntimeFilesystemConfiguration) *RuntimeS3FilesAccessPointConfiguration {
+		return v.S3FilesAccessPoint
+	}).(RuntimeS3FilesAccessPointConfigurationPtrOutput)
 }
 
 func (o RuntimeFilesystemConfigurationOutput) SessionStorage() RuntimeSessionStorageConfigurationPtrOutput {
@@ -18972,6 +19137,157 @@ func (o RuntimeRequestHeaderConfigurationPtrOutput) RequestHeaderAllowlist() pul
 		}
 		return v.RequestHeaderAllowlist
 	}).(pulumi.StringArrayOutput)
+}
+
+// Configuration for S3 Files access point filesystem
+type RuntimeS3FilesAccessPointConfiguration struct {
+	AccessPointArn string `pulumi:"accessPointArn"`
+	MountPath      string `pulumi:"mountPath"`
+}
+
+// RuntimeS3FilesAccessPointConfigurationInput is an input type that accepts RuntimeS3FilesAccessPointConfigurationArgs and RuntimeS3FilesAccessPointConfigurationOutput values.
+// You can construct a concrete instance of `RuntimeS3FilesAccessPointConfigurationInput` via:
+//
+//	RuntimeS3FilesAccessPointConfigurationArgs{...}
+type RuntimeS3FilesAccessPointConfigurationInput interface {
+	pulumi.Input
+
+	ToRuntimeS3FilesAccessPointConfigurationOutput() RuntimeS3FilesAccessPointConfigurationOutput
+	ToRuntimeS3FilesAccessPointConfigurationOutputWithContext(context.Context) RuntimeS3FilesAccessPointConfigurationOutput
+}
+
+// Configuration for S3 Files access point filesystem
+type RuntimeS3FilesAccessPointConfigurationArgs struct {
+	AccessPointArn pulumi.StringInput `pulumi:"accessPointArn"`
+	MountPath      pulumi.StringInput `pulumi:"mountPath"`
+}
+
+func (RuntimeS3FilesAccessPointConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimeS3FilesAccessPointConfiguration)(nil)).Elem()
+}
+
+func (i RuntimeS3FilesAccessPointConfigurationArgs) ToRuntimeS3FilesAccessPointConfigurationOutput() RuntimeS3FilesAccessPointConfigurationOutput {
+	return i.ToRuntimeS3FilesAccessPointConfigurationOutputWithContext(context.Background())
+}
+
+func (i RuntimeS3FilesAccessPointConfigurationArgs) ToRuntimeS3FilesAccessPointConfigurationOutputWithContext(ctx context.Context) RuntimeS3FilesAccessPointConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuntimeS3FilesAccessPointConfigurationOutput)
+}
+
+func (i RuntimeS3FilesAccessPointConfigurationArgs) ToRuntimeS3FilesAccessPointConfigurationPtrOutput() RuntimeS3FilesAccessPointConfigurationPtrOutput {
+	return i.ToRuntimeS3FilesAccessPointConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i RuntimeS3FilesAccessPointConfigurationArgs) ToRuntimeS3FilesAccessPointConfigurationPtrOutputWithContext(ctx context.Context) RuntimeS3FilesAccessPointConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuntimeS3FilesAccessPointConfigurationOutput).ToRuntimeS3FilesAccessPointConfigurationPtrOutputWithContext(ctx)
+}
+
+// RuntimeS3FilesAccessPointConfigurationPtrInput is an input type that accepts RuntimeS3FilesAccessPointConfigurationArgs, RuntimeS3FilesAccessPointConfigurationPtr and RuntimeS3FilesAccessPointConfigurationPtrOutput values.
+// You can construct a concrete instance of `RuntimeS3FilesAccessPointConfigurationPtrInput` via:
+//
+//	        RuntimeS3FilesAccessPointConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuntimeS3FilesAccessPointConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToRuntimeS3FilesAccessPointConfigurationPtrOutput() RuntimeS3FilesAccessPointConfigurationPtrOutput
+	ToRuntimeS3FilesAccessPointConfigurationPtrOutputWithContext(context.Context) RuntimeS3FilesAccessPointConfigurationPtrOutput
+}
+
+type runtimeS3FilesAccessPointConfigurationPtrType RuntimeS3FilesAccessPointConfigurationArgs
+
+func RuntimeS3FilesAccessPointConfigurationPtr(v *RuntimeS3FilesAccessPointConfigurationArgs) RuntimeS3FilesAccessPointConfigurationPtrInput {
+	return (*runtimeS3FilesAccessPointConfigurationPtrType)(v)
+}
+
+func (*runtimeS3FilesAccessPointConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuntimeS3FilesAccessPointConfiguration)(nil)).Elem()
+}
+
+func (i *runtimeS3FilesAccessPointConfigurationPtrType) ToRuntimeS3FilesAccessPointConfigurationPtrOutput() RuntimeS3FilesAccessPointConfigurationPtrOutput {
+	return i.ToRuntimeS3FilesAccessPointConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *runtimeS3FilesAccessPointConfigurationPtrType) ToRuntimeS3FilesAccessPointConfigurationPtrOutputWithContext(ctx context.Context) RuntimeS3FilesAccessPointConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuntimeS3FilesAccessPointConfigurationPtrOutput)
+}
+
+// Configuration for S3 Files access point filesystem
+type RuntimeS3FilesAccessPointConfigurationOutput struct{ *pulumi.OutputState }
+
+func (RuntimeS3FilesAccessPointConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimeS3FilesAccessPointConfiguration)(nil)).Elem()
+}
+
+func (o RuntimeS3FilesAccessPointConfigurationOutput) ToRuntimeS3FilesAccessPointConfigurationOutput() RuntimeS3FilesAccessPointConfigurationOutput {
+	return o
+}
+
+func (o RuntimeS3FilesAccessPointConfigurationOutput) ToRuntimeS3FilesAccessPointConfigurationOutputWithContext(ctx context.Context) RuntimeS3FilesAccessPointConfigurationOutput {
+	return o
+}
+
+func (o RuntimeS3FilesAccessPointConfigurationOutput) ToRuntimeS3FilesAccessPointConfigurationPtrOutput() RuntimeS3FilesAccessPointConfigurationPtrOutput {
+	return o.ToRuntimeS3FilesAccessPointConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o RuntimeS3FilesAccessPointConfigurationOutput) ToRuntimeS3FilesAccessPointConfigurationPtrOutputWithContext(ctx context.Context) RuntimeS3FilesAccessPointConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuntimeS3FilesAccessPointConfiguration) *RuntimeS3FilesAccessPointConfiguration {
+		return &v
+	}).(RuntimeS3FilesAccessPointConfigurationPtrOutput)
+}
+
+func (o RuntimeS3FilesAccessPointConfigurationOutput) AccessPointArn() pulumi.StringOutput {
+	return o.ApplyT(func(v RuntimeS3FilesAccessPointConfiguration) string { return v.AccessPointArn }).(pulumi.StringOutput)
+}
+
+func (o RuntimeS3FilesAccessPointConfigurationOutput) MountPath() pulumi.StringOutput {
+	return o.ApplyT(func(v RuntimeS3FilesAccessPointConfiguration) string { return v.MountPath }).(pulumi.StringOutput)
+}
+
+type RuntimeS3FilesAccessPointConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (RuntimeS3FilesAccessPointConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuntimeS3FilesAccessPointConfiguration)(nil)).Elem()
+}
+
+func (o RuntimeS3FilesAccessPointConfigurationPtrOutput) ToRuntimeS3FilesAccessPointConfigurationPtrOutput() RuntimeS3FilesAccessPointConfigurationPtrOutput {
+	return o
+}
+
+func (o RuntimeS3FilesAccessPointConfigurationPtrOutput) ToRuntimeS3FilesAccessPointConfigurationPtrOutputWithContext(ctx context.Context) RuntimeS3FilesAccessPointConfigurationPtrOutput {
+	return o
+}
+
+func (o RuntimeS3FilesAccessPointConfigurationPtrOutput) Elem() RuntimeS3FilesAccessPointConfigurationOutput {
+	return o.ApplyT(func(v *RuntimeS3FilesAccessPointConfiguration) RuntimeS3FilesAccessPointConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret RuntimeS3FilesAccessPointConfiguration
+		return ret
+	}).(RuntimeS3FilesAccessPointConfigurationOutput)
+}
+
+func (o RuntimeS3FilesAccessPointConfigurationPtrOutput) AccessPointArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuntimeS3FilesAccessPointConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AccessPointArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RuntimeS3FilesAccessPointConfigurationPtrOutput) MountPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuntimeS3FilesAccessPointConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MountPath
+	}).(pulumi.StringPtrOutput)
 }
 
 // S3 Location Configuration
@@ -19740,6 +20056,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeCustomClaimValidationTypeArrayInput)(nil)).Elem(), RuntimeCustomClaimValidationTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeCustomJwtAuthorizerConfigurationInput)(nil)).Elem(), RuntimeCustomJwtAuthorizerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeCustomJwtAuthorizerConfigurationPtrInput)(nil)).Elem(), RuntimeCustomJwtAuthorizerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeEfsAccessPointConfigurationInput)(nil)).Elem(), RuntimeEfsAccessPointConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeEfsAccessPointConfigurationPtrInput)(nil)).Elem(), RuntimeEfsAccessPointConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeFilesystemConfigurationInput)(nil)).Elem(), RuntimeFilesystemConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeFilesystemConfigurationArrayInput)(nil)).Elem(), RuntimeFilesystemConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeLifecycleConfigurationInput)(nil)).Elem(), RuntimeLifecycleConfigurationArgs{})
@@ -19747,6 +20065,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeNetworkConfigurationInput)(nil)).Elem(), RuntimeNetworkConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeRequestHeaderConfigurationInput)(nil)).Elem(), RuntimeRequestHeaderConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeRequestHeaderConfigurationPtrInput)(nil)).Elem(), RuntimeRequestHeaderConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeS3FilesAccessPointConfigurationInput)(nil)).Elem(), RuntimeS3FilesAccessPointConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeS3FilesAccessPointConfigurationPtrInput)(nil)).Elem(), RuntimeS3FilesAccessPointConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeS3LocationInput)(nil)).Elem(), RuntimeS3LocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeS3LocationPtrInput)(nil)).Elem(), RuntimeS3LocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeSessionStorageConfigurationInput)(nil)).Elem(), RuntimeSessionStorageConfigurationArgs{})
@@ -20021,6 +20341,8 @@ func init() {
 	pulumi.RegisterOutputType(RuntimeCustomClaimValidationTypeArrayOutput{})
 	pulumi.RegisterOutputType(RuntimeCustomJwtAuthorizerConfigurationOutput{})
 	pulumi.RegisterOutputType(RuntimeCustomJwtAuthorizerConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(RuntimeEfsAccessPointConfigurationOutput{})
+	pulumi.RegisterOutputType(RuntimeEfsAccessPointConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RuntimeFilesystemConfigurationOutput{})
 	pulumi.RegisterOutputType(RuntimeFilesystemConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(RuntimeLifecycleConfigurationOutput{})
@@ -20029,6 +20351,8 @@ func init() {
 	pulumi.RegisterOutputType(RuntimeNetworkConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RuntimeRequestHeaderConfigurationOutput{})
 	pulumi.RegisterOutputType(RuntimeRequestHeaderConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(RuntimeS3FilesAccessPointConfigurationOutput{})
+	pulumi.RegisterOutputType(RuntimeS3FilesAccessPointConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RuntimeS3LocationOutput{})
 	pulumi.RegisterOutputType(RuntimeS3LocationPtrOutput{})
 	pulumi.RegisterOutputType(RuntimeSessionStorageConfigurationOutput{})

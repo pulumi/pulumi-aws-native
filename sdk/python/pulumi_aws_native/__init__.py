@@ -69,6 +69,8 @@ if typing.TYPE_CHECKING:
     auditmanager = __auditmanager
     import pulumi_aws_native.autoscaling as __autoscaling
     autoscaling = __autoscaling
+    import pulumi_aws_native.awsexternalanthropic as __awsexternalanthropic
+    awsexternalanthropic = __awsexternalanthropic
     import pulumi_aws_native.b2bi as __b2bi
     b2bi = __b2bi
     import pulumi_aws_native.backup as __backup
@@ -553,6 +555,7 @@ else:
     athena = _utilities.lazy_import('pulumi_aws_native.athena')
     auditmanager = _utilities.lazy_import('pulumi_aws_native.auditmanager')
     autoscaling = _utilities.lazy_import('pulumi_aws_native.autoscaling')
+    awsexternalanthropic = _utilities.lazy_import('pulumi_aws_native.awsexternalanthropic')
     b2bi = _utilities.lazy_import('pulumi_aws_native.b2bi')
     backup = _utilities.lazy_import('pulumi_aws_native.backup')
     backupgateway = _utilities.lazy_import('pulumi_aws_native.backupgateway')
@@ -1058,6 +1061,14 @@ _utilities.register(
    "aws-native:autoscaling:ScalingPolicy": "ScalingPolicy",
    "aws-native:autoscaling:ScheduledAction": "ScheduledAction",
    "aws-native:autoscaling:WarmPool": "WarmPool"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "awsexternalanthropic",
+  "fqn": "pulumi_aws_native.awsexternalanthropic",
+  "classes": {
+   "aws-native:awsexternalanthropic:Workspace": "Workspace"
   }
  },
  {

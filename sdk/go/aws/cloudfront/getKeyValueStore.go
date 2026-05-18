@@ -31,13 +31,14 @@ type LookupKeyValueStoreArgs struct {
 type LookupKeyValueStoreResult struct {
 	// The Amazon Resource Name (ARN) of the key value store.
 	Arn *string `pulumi:"arn"`
-	// A comment for the key value store.
+	// A comment to describe the Key Value Store. Omitting ``Comment`` from the template during updates will clear the existing comment (set to empty string). To preserve an existing comment, you must explicitly include it in the template.
 	Comment *string `pulumi:"comment"`
 	// The unique Id for the key value store.
 	Id *string `pulumi:"id"`
 	// The current status of the key value store. For more information, see [Key value store statuses](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/kvs-with-functions-create.html#key-value-store-status) in the *.*
-	Status *string   `pulumi:"status"`
-	Tags   []aws.Tag `pulumi:"tags"`
+	Status *string `pulumi:"status"`
+	// A complex type that contains zero or more ``Tag`` elements.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupKeyValueStoreOutput(ctx *pulumi.Context, args LookupKeyValueStoreOutputArgs, opts ...pulumi.InvokeOption) LookupKeyValueStoreResultOutput {
@@ -77,7 +78,7 @@ func (o LookupKeyValueStoreResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupKeyValueStoreResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-// A comment for the key value store.
+// A comment to describe the Key Value Store. Omitting “Comment“ from the template during updates will clear the existing comment (set to empty string). To preserve an existing comment, you must explicitly include it in the template.
 func (o LookupKeyValueStoreResultOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupKeyValueStoreResult) *string { return v.Comment }).(pulumi.StringPtrOutput)
 }
@@ -92,6 +93,7 @@ func (o LookupKeyValueStoreResultOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupKeyValueStoreResult) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
+// A complex type that contains zero or more “Tag“ elements.
 func (o LookupKeyValueStoreResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupKeyValueStoreResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

@@ -1170,6 +1170,13 @@ namespace Pulumi.AwsNative.Connect
         public static IntegrationAssociationIntegrationType LambdaFunction { get; } = new IntegrationAssociationIntegrationType("LAMBDA_FUNCTION");
         public static IntegrationAssociationIntegrationType Application { get; } = new IntegrationAssociationIntegrationType("APPLICATION");
         public static IntegrationAssociationIntegrationType CasesDomain { get; } = new IntegrationAssociationIntegrationType("CASES_DOMAIN");
+        public static IntegrationAssociationIntegrationType WisdomAssistant { get; } = new IntegrationAssociationIntegrationType("WISDOM_ASSISTANT");
+        public static IntegrationAssociationIntegrationType WisdomKnowledgeBase { get; } = new IntegrationAssociationIntegrationType("WISDOM_KNOWLEDGE_BASE");
+        public static IntegrationAssociationIntegrationType WisdomQuickResponses { get; } = new IntegrationAssociationIntegrationType("WISDOM_QUICK_RESPONSES");
+        public static IntegrationAssociationIntegrationType FileScanner { get; } = new IntegrationAssociationIntegrationType("FILE_SCANNER");
+        public static IntegrationAssociationIntegrationType MessageProcessor { get; } = new IntegrationAssociationIntegrationType("MESSAGE_PROCESSOR");
+        public static IntegrationAssociationIntegrationType QMessageTemplates { get; } = new IntegrationAssociationIntegrationType("Q_MESSAGE_TEMPLATES");
+        public static IntegrationAssociationIntegrationType SesIdentity { get; } = new IntegrationAssociationIntegrationType("SES_IDENTITY");
 
         public static bool operator ==(IntegrationAssociationIntegrationType left, IntegrationAssociationIntegrationType right) => left.Equals(right);
         public static bool operator !=(IntegrationAssociationIntegrationType left, IntegrationAssociationIntegrationType right) => !left.Equals(right);

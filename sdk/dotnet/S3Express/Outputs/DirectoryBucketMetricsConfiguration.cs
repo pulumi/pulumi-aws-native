@@ -23,7 +23,7 @@ namespace Pulumi.AwsNative.S3Express.Outputs
         /// <summary>
         /// The ID used to identify the metrics configuration.
         /// </summary>
-        public readonly string? Id;
+        public readonly string Id;
         /// <summary>
         /// The prefix used when evaluating a metrics filter.
         /// </summary>
@@ -33,7 +33,7 @@ namespace Pulumi.AwsNative.S3Express.Outputs
         private DirectoryBucketMetricsConfiguration(
             string? accessPointArn,
 
-            string? id,
+            string id,
 
             string? prefix)
         {

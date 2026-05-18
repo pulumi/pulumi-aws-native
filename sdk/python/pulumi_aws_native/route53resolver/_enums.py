@@ -96,7 +96,7 @@ class FirewallRuleGroupFirewallRuleBlockResponse(_builtins.str, Enum):
 @pulumi.type_token("aws-native:route53resolver:FirewallRuleGroupFirewallRuleConfidenceThreshold")
 class FirewallRuleGroupFirewallRuleConfidenceThreshold(_builtins.str, Enum):
     """
-    FirewallDomainRedirectionAction
+    ConfidenceThreshold
     """
     LOW = "LOW"
     MEDIUM = "MEDIUM"
@@ -106,7 +106,7 @@ class FirewallRuleGroupFirewallRuleConfidenceThreshold(_builtins.str, Enum):
 @pulumi.type_token("aws-native:route53resolver:FirewallRuleGroupFirewallRuleDnsThreatProtection")
 class FirewallRuleGroupFirewallRuleDnsThreatProtection(_builtins.str, Enum):
     """
-    FirewallDomainRedirectionAction
+    DnsThreatProtection
     """
     DGA = "DGA"
     DNS_TUNNELING = "DNS_TUNNELING"

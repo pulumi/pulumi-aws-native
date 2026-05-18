@@ -120,7 +120,7 @@
       "default" : false
     },
     "ReplicasPerNodeGroup" : {
-      "description" : "An optional parameter that specifies the number of replica nodes in each node group (shard). Valid values are 0 to 5.",
+      "description" : "An optional parameter that specifies the number of replica nodes in each node group (shard). Valid values are 0 to 5.\n\n**Note:** Using ReplicasPerNodeGroup with NodeGroupConfiguration results in resource replacement. For online scaling, use ReplicasPerNodeGroup alone.",
       "type" : "integer"
     },
     "ReplicationGroupDescription" : {
@@ -361,11 +361,11 @@
   },
   "required" : [ "ReplicationGroupDescription" ],
   "deprecatedProperties" : [ "/properties/CacheSecurityGroupNames" ],
-  "createOnlyProperties" : [ "/properties/AtRestEncryptionEnabled", "/properties/CacheSubnetGroupName", "/properties/DataTieringEnabled", "/properties/GlobalReplicationGroupId", "/properties/KmsKeyId", "/properties/NetworkType", "/properties/Port", "/properties/PreferredCacheClusterAZs", "/properties/ReplicasPerNodeGroup", "/properties/ReplicationGroupId", "/properties/SnapshotArns", "/properties/SnapshotName" ],
+  "createOnlyProperties" : [ "/properties/AtRestEncryptionEnabled", "/properties/CacheSubnetGroupName", "/properties/DataTieringEnabled", "/properties/GlobalReplicationGroupId", "/properties/KmsKeyId", "/properties/NetworkType", "/properties/Port", "/properties/PreferredCacheClusterAZs", "/properties/ReplicationGroupId", "/properties/SnapshotArns", "/properties/SnapshotName" ],
   "conditionalCreateOnlyProperties" : [ "/properties/AuthToken", "/properties/NodeGroupConfiguration" ],
   "primaryIdentifier" : [ "/properties/ReplicationGroupId" ],
   "readOnlyProperties" : [ "/properties/ConfigurationEndPoint", "/properties/ConfigurationEndPoint/Address", "/properties/ConfigurationEndPoint/Port", "/properties/PrimaryEndPoint", "/properties/PrimaryEndPoint/Address", "/properties/PrimaryEndPoint/Port", "/properties/ReadEndPoint", "/properties/ReadEndPoint/Addresses", "/properties/ReadEndPoint/AddressesList", "/properties/ReadEndPoint/Ports", "/properties/ReadEndPoint/PortsList", "/properties/ReaderEndPoint", "/properties/ReaderEndPoint/Address", "/properties/ReaderEndPoint/Port" ],
-  "writeOnlyProperties" : [ "/properties/AuthToken", "/properties/CacheParameterGroupName", "/properties/CacheSecurityGroupNames", "/properties/CacheSubnetGroupName", "/properties/EngineVersion", "/properties/NotificationTopicArn", "/properties/PreferredMaintenanceWindow", "/properties/SecurityGroupIds", "/properties/SnapshotArns", "/properties/SnapshotName", "/properties/NodeGroupConfiguration", "/properties/NumNodeGroups", "/properties/ReplicasPerNodeGroup", "/properties/KmsKeyId", "/properties/PrimaryClusterId", "/properties/PreferredCacheClusterAZs" ],
+  "writeOnlyProperties" : [ "/properties/AuthToken", "/properties/CacheParameterGroupName", "/properties/CacheSecurityGroupNames", "/properties/CacheSubnetGroupName", "/properties/EngineVersion", "/properties/NotificationTopicArn", "/properties/PreferredMaintenanceWindow", "/properties/SecurityGroupIds", "/properties/SnapshotArns", "/properties/SnapshotName", "/properties/NodeGroupConfiguration", "/properties/NumNodeGroups", "/properties/KmsKeyId", "/properties/PrimaryClusterId", "/properties/PreferredCacheClusterAZs" ],
   "tagging" : {
     "taggable" : true,
     "tagOnCreate" : true,
@@ -383,7 +383,7 @@
       "permissions" : [ "elasticache:DescribeReplicationGroups", "elasticache:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "elasticache:ModifyReplicationGroup", "elasticache:ModifyReplicationGroupShardConfiguration", "elasticache:DescribeReplicationGroups", "elasticache:ListTagsForResource", "elasticache:AddTagsToResource", "elasticache:RemoveTagsFromResource", "elasticache:CreateCacheCluster", "elasticache:DeleteCacheCluster", "elasticache:DescribeCacheClusters", "logs:CreateLogStream", "logs:PutLogEvents", "logs:CreateLogDelivery", "logs:UpdateLogDelivery", "logs:DeleteLogDelivery", "logs:GetLogDelivery", "logs:ListLogDeliveries", "firehose:PutRecord", "firehose:PutRecordBatch", "s3:GetObject", "firehose:TagDeliveryStream", "kms:Decrypt", "kms:Encrypt", "kms:GenerateDataKey", "kms:CreateGrant", "kms:DescribeKey", "iam:CreateServiceLinkedRole" ],
+      "permissions" : [ "elasticache:ModifyReplicationGroup", "elasticache:ModifyReplicationGroupShardConfiguration", "elasticache:IncreaseReplicaCount", "elasticache:DecreaseReplicaCount", "elasticache:DescribeReplicationGroups", "elasticache:ListTagsForResource", "elasticache:AddTagsToResource", "elasticache:RemoveTagsFromResource", "elasticache:CreateCacheCluster", "elasticache:DeleteCacheCluster", "elasticache:DescribeCacheClusters", "logs:CreateLogStream", "logs:PutLogEvents", "logs:CreateLogDelivery", "logs:UpdateLogDelivery", "logs:DeleteLogDelivery", "logs:GetLogDelivery", "logs:ListLogDeliveries", "firehose:PutRecord", "firehose:PutRecordBatch", "s3:GetObject", "firehose:TagDeliveryStream", "kms:Decrypt", "kms:Encrypt", "kms:GenerateDataKey", "kms:CreateGrant", "kms:DescribeKey", "iam:CreateServiceLinkedRole" ],
       "timeoutInMinutes" : 1440
     },
     "delete" : {

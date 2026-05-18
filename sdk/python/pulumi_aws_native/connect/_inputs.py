@@ -1188,45 +1188,34 @@ class EvaluationFormMultiSelectQuestionAutomationArgsDict(TypedDict):
     """
     Automation configuration for multi-select questions.
     """
-    options: pulumi.Input[Sequence[pulumi.Input['EvaluationFormMultiSelectQuestionAutomationOptionArgsDict']]]
-    """
-    Automation options for the multi-select question.
-    """
     answer_source: NotRequired[pulumi.Input['EvaluationFormQuestionAutomationAnswerSourceArgsDict']]
     default_option_ref_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     """
     Reference IDs of default options.
     """
+    options: NotRequired[pulumi.Input[Sequence[pulumi.Input['EvaluationFormMultiSelectQuestionAutomationOptionArgsDict']]]]
+    """
+    Automation options for the multi-select question.
+    """
 
 @pulumi.input_type
 class EvaluationFormMultiSelectQuestionAutomationArgs:
     def __init__(__self__, *,
-                 options: pulumi.Input[Sequence[pulumi.Input['EvaluationFormMultiSelectQuestionAutomationOptionArgs']]],
                  answer_source: Optional[pulumi.Input['EvaluationFormQuestionAutomationAnswerSourceArgs']] = None,
-                 default_option_ref_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 default_option_ref_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 options: Optional[pulumi.Input[Sequence[pulumi.Input['EvaluationFormMultiSelectQuestionAutomationOptionArgs']]]] = None):
         """
         Automation configuration for multi-select questions.
 
-        :param pulumi.Input[Sequence[pulumi.Input['EvaluationFormMultiSelectQuestionAutomationOptionArgs']]] options: Automation options for the multi-select question.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] default_option_ref_ids: Reference IDs of default options.
+        :param pulumi.Input[Sequence[pulumi.Input['EvaluationFormMultiSelectQuestionAutomationOptionArgs']]] options: Automation options for the multi-select question.
         """
-        pulumi.set(__self__, "options", options)
         if answer_source is not None:
             pulumi.set(__self__, "answer_source", answer_source)
         if default_option_ref_ids is not None:
             pulumi.set(__self__, "default_option_ref_ids", default_option_ref_ids)
-
-    @_builtins.property
-    @pulumi.getter
-    def options(self) -> pulumi.Input[Sequence[pulumi.Input['EvaluationFormMultiSelectQuestionAutomationOptionArgs']]]:
-        """
-        Automation options for the multi-select question.
-        """
-        return pulumi.get(self, "options")
-
-    @options.setter
-    def options(self, value: pulumi.Input[Sequence[pulumi.Input['EvaluationFormMultiSelectQuestionAutomationOptionArgs']]]):
-        pulumi.set(self, "options", value)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
 
     @_builtins.property
     @pulumi.getter(name="answerSource")
@@ -1248,6 +1237,18 @@ class EvaluationFormMultiSelectQuestionAutomationArgs:
     @default_option_ref_ids.setter
     def default_option_ref_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "default_option_ref_ids", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EvaluationFormMultiSelectQuestionAutomationOptionArgs']]]]:
+        """
+        Automation options for the multi-select question.
+        """
+        return pulumi.get(self, "options")
+
+    @options.setter
+    def options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EvaluationFormMultiSelectQuestionAutomationOptionArgs']]]]):
+        pulumi.set(self, "options", value)
 
 
 class EvaluationFormMultiSelectQuestionOptionArgsDict(TypedDict):
@@ -2281,12 +2282,6 @@ class EvaluationFormSingleSelectQuestionAutomationArgsDict(TypedDict):
     """
     Information about the automation configuration in single select questions. Automation options are evaluated in order, and the first matched option is applied. If no automation option matches, and there is a default option, then the default option is applied.
     """
-    options: pulumi.Input[Sequence[pulumi.Input['EvaluationFormSingleSelectQuestionAutomationOptionArgsDict']]]
-    """
-    The automation options of the single select question.
-     *Minimum*: 1
-     *Maximum*: 20
-    """
     answer_source: NotRequired[pulumi.Input['EvaluationFormQuestionAutomationAnswerSourceArgsDict']]
     """
     Automation answer source.
@@ -2296,42 +2291,35 @@ class EvaluationFormSingleSelectQuestionAutomationArgsDict(TypedDict):
     The identifier of the default answer option, when none of the automation options match the criteria.
      *Length Constraints*: Minimum length of 1. Maximum length of 40.
     """
+    options: NotRequired[pulumi.Input[Sequence[pulumi.Input['EvaluationFormSingleSelectQuestionAutomationOptionArgsDict']]]]
+    """
+    The automation options of the single select question.
+     *Minimum*: 1
+     *Maximum*: 20
+    """
 
 @pulumi.input_type
 class EvaluationFormSingleSelectQuestionAutomationArgs:
     def __init__(__self__, *,
-                 options: pulumi.Input[Sequence[pulumi.Input['EvaluationFormSingleSelectQuestionAutomationOptionArgs']]],
                  answer_source: Optional[pulumi.Input['EvaluationFormQuestionAutomationAnswerSourceArgs']] = None,
-                 default_option_ref_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 default_option_ref_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 options: Optional[pulumi.Input[Sequence[pulumi.Input['EvaluationFormSingleSelectQuestionAutomationOptionArgs']]]] = None):
         """
         Information about the automation configuration in single select questions. Automation options are evaluated in order, and the first matched option is applied. If no automation option matches, and there is a default option, then the default option is applied.
 
-        :param pulumi.Input[Sequence[pulumi.Input['EvaluationFormSingleSelectQuestionAutomationOptionArgs']]] options: The automation options of the single select question.
-                *Minimum*: 1
-                *Maximum*: 20
         :param pulumi.Input['EvaluationFormQuestionAutomationAnswerSourceArgs'] answer_source: Automation answer source.
         :param pulumi.Input[_builtins.str] default_option_ref_id: The identifier of the default answer option, when none of the automation options match the criteria.
                 *Length Constraints*: Minimum length of 1. Maximum length of 40.
+        :param pulumi.Input[Sequence[pulumi.Input['EvaluationFormSingleSelectQuestionAutomationOptionArgs']]] options: The automation options of the single select question.
+                *Minimum*: 1
+                *Maximum*: 20
         """
-        pulumi.set(__self__, "options", options)
         if answer_source is not None:
             pulumi.set(__self__, "answer_source", answer_source)
         if default_option_ref_id is not None:
             pulumi.set(__self__, "default_option_ref_id", default_option_ref_id)
-
-    @_builtins.property
-    @pulumi.getter
-    def options(self) -> pulumi.Input[Sequence[pulumi.Input['EvaluationFormSingleSelectQuestionAutomationOptionArgs']]]:
-        """
-        The automation options of the single select question.
-         *Minimum*: 1
-         *Maximum*: 20
-        """
-        return pulumi.get(self, "options")
-
-    @options.setter
-    def options(self, value: pulumi.Input[Sequence[pulumi.Input['EvaluationFormSingleSelectQuestionAutomationOptionArgs']]]):
-        pulumi.set(self, "options", value)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
 
     @_builtins.property
     @pulumi.getter(name="answerSource")
@@ -2357,6 +2345,20 @@ class EvaluationFormSingleSelectQuestionAutomationArgs:
     @default_option_ref_id.setter
     def default_option_ref_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "default_option_ref_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EvaluationFormSingleSelectQuestionAutomationOptionArgs']]]]:
+        """
+        The automation options of the single select question.
+         *Minimum*: 1
+         *Maximum*: 20
+        """
+        return pulumi.get(self, "options")
+
+    @options.setter
+    def options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EvaluationFormSingleSelectQuestionAutomationOptionArgs']]]]):
+        pulumi.set(self, "options", value)
 
 
 class EvaluationFormSingleSelectQuestionOptionArgsDict(TypedDict):
@@ -4124,7 +4126,7 @@ class QuickConnectConfigArgsDict(TypedDict):
     """
     quick_connect_type: pulumi.Input['QuickConnectType']
     """
-    The type of quick connect. In the Amazon Connect console, when you create a quick connect, you are prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
+    The type of quick connect. In the Connect Customer console, when you create a quick connect, you are prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
     """
     phone_config: NotRequired[pulumi.Input['QuickConnectPhoneNumberQuickConnectConfigArgsDict']]
     """
@@ -4149,7 +4151,7 @@ class QuickConnectConfigArgs:
         """
         Configuration settings for the quick connect.
 
-        :param pulumi.Input['QuickConnectType'] quick_connect_type: The type of quick connect. In the Amazon Connect console, when you create a quick connect, you are prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
+        :param pulumi.Input['QuickConnectType'] quick_connect_type: The type of quick connect. In the Connect Customer console, when you create a quick connect, you are prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
         :param pulumi.Input['QuickConnectPhoneNumberQuickConnectConfigArgs'] phone_config: The phone configuration. This is required only if QuickConnectType is PHONE_NUMBER.
         :param pulumi.Input['QuickConnectQueueQuickConnectConfigArgs'] queue_config: The queue configuration. This is required only if QuickConnectType is QUEUE.
         :param pulumi.Input['QuickConnectUserQuickConnectConfigArgs'] user_config: The user configuration. This is required only if QuickConnectType is USER.
@@ -4166,7 +4168,7 @@ class QuickConnectConfigArgs:
     @pulumi.getter(name="quickConnectType")
     def quick_connect_type(self) -> pulumi.Input['QuickConnectType']:
         """
-        The type of quick connect. In the Amazon Connect console, when you create a quick connect, you are prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
+        The type of quick connect. In the Connect Customer console, when you create a quick connect, you are prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
         """
         return pulumi.get(self, "quick_connect_type")
 

@@ -100,19 +100,20 @@ namespace Pulumi.AwsNative.ArcRegionSwitch
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static PlanExecutionBlockType CustomActionLambda { get; } = new PlanExecutionBlockType("CustomActionLambda");
-        public static PlanExecutionBlockType ManualApproval { get; } = new PlanExecutionBlockType("ManualApproval");
-        public static PlanExecutionBlockType AuroraGlobalDatabase { get; } = new PlanExecutionBlockType("AuroraGlobalDatabase");
-        public static PlanExecutionBlockType Ec2AutoScaling { get; } = new PlanExecutionBlockType("EC2AutoScaling");
-        public static PlanExecutionBlockType ArcRoutingControl { get; } = new PlanExecutionBlockType("ARCRoutingControl");
         public static PlanExecutionBlockType ArcRegionSwitchPlan { get; } = new PlanExecutionBlockType("ARCRegionSwitchPlan");
-        public static PlanExecutionBlockType Parallel { get; } = new PlanExecutionBlockType("Parallel");
+        public static PlanExecutionBlockType ArcRoutingControl { get; } = new PlanExecutionBlockType("ARCRoutingControl");
+        public static PlanExecutionBlockType AuroraGlobalDatabase { get; } = new PlanExecutionBlockType("AuroraGlobalDatabase");
+        public static PlanExecutionBlockType CustomActionLambda { get; } = new PlanExecutionBlockType("CustomActionLambda");
+        public static PlanExecutionBlockType DocumentDb { get; } = new PlanExecutionBlockType("DocumentDb");
+        public static PlanExecutionBlockType Ec2AutoScaling { get; } = new PlanExecutionBlockType("EC2AutoScaling");
         public static PlanExecutionBlockType EcsServiceScaling { get; } = new PlanExecutionBlockType("ECSServiceScaling");
         public static PlanExecutionBlockType EksResourceScaling { get; } = new PlanExecutionBlockType("EKSResourceScaling");
-        public static PlanExecutionBlockType Route53HealthCheck { get; } = new PlanExecutionBlockType("Route53HealthCheck");
-        public static PlanExecutionBlockType DocumentDb { get; } = new PlanExecutionBlockType("DocumentDb");
-        public static PlanExecutionBlockType RdsPromoteReadReplica { get; } = new PlanExecutionBlockType("RdsPromoteReadReplica");
+        public static PlanExecutionBlockType LambdaEventSourceMapping { get; } = new PlanExecutionBlockType("LambdaEventSourceMapping");
+        public static PlanExecutionBlockType ManualApproval { get; } = new PlanExecutionBlockType("ManualApproval");
+        public static PlanExecutionBlockType Parallel { get; } = new PlanExecutionBlockType("Parallel");
         public static PlanExecutionBlockType RdsCreateCrossRegionReplica { get; } = new PlanExecutionBlockType("RdsCreateCrossRegionReplica");
+        public static PlanExecutionBlockType RdsPromoteReadReplica { get; } = new PlanExecutionBlockType("RdsPromoteReadReplica");
+        public static PlanExecutionBlockType Route53HealthCheck { get; } = new PlanExecutionBlockType("Route53HealthCheck");
 
         public static bool operator ==(PlanExecutionBlockType left, PlanExecutionBlockType right) => left.Equals(right);
         public static bool operator !=(PlanExecutionBlockType left, PlanExecutionBlockType right) => !left.Equals(right);
@@ -149,6 +150,61 @@ namespace Pulumi.AwsNative.ArcRegionSwitch
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PlanGlobalAuroraUngracefulBehavior other && Equals(other);
         public bool Equals(PlanGlobalAuroraUngracefulBehavior other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct PlanLambdaEventSourceMappingConfigurationAction : IEquatable<PlanLambdaEventSourceMappingConfigurationAction>
+    {
+        private readonly string _value;
+
+        private PlanLambdaEventSourceMappingConfigurationAction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PlanLambdaEventSourceMappingConfigurationAction Enable { get; } = new PlanLambdaEventSourceMappingConfigurationAction("enable");
+        public static PlanLambdaEventSourceMappingConfigurationAction Disable { get; } = new PlanLambdaEventSourceMappingConfigurationAction("disable");
+
+        public static bool operator ==(PlanLambdaEventSourceMappingConfigurationAction left, PlanLambdaEventSourceMappingConfigurationAction right) => left.Equals(right);
+        public static bool operator !=(PlanLambdaEventSourceMappingConfigurationAction left, PlanLambdaEventSourceMappingConfigurationAction right) => !left.Equals(right);
+
+        public static explicit operator string(PlanLambdaEventSourceMappingConfigurationAction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PlanLambdaEventSourceMappingConfigurationAction other && Equals(other);
+        public bool Equals(PlanLambdaEventSourceMappingConfigurationAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct PlanLambdaEventSourceMappingUngracefulBehavior : IEquatable<PlanLambdaEventSourceMappingUngracefulBehavior>
+    {
+        private readonly string _value;
+
+        private PlanLambdaEventSourceMappingUngracefulBehavior(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PlanLambdaEventSourceMappingUngracefulBehavior Skip { get; } = new PlanLambdaEventSourceMappingUngracefulBehavior("skip");
+
+        public static bool operator ==(PlanLambdaEventSourceMappingUngracefulBehavior left, PlanLambdaEventSourceMappingUngracefulBehavior right) => left.Equals(right);
+        public static bool operator !=(PlanLambdaEventSourceMappingUngracefulBehavior left, PlanLambdaEventSourceMappingUngracefulBehavior right) => !left.Equals(right);
+
+        public static explicit operator string(PlanLambdaEventSourceMappingUngracefulBehavior value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PlanLambdaEventSourceMappingUngracefulBehavior other && Equals(other);
+        public bool Equals(PlanLambdaEventSourceMappingUngracefulBehavior other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

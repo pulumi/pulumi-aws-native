@@ -5869,10 +5869,17 @@ func (in *instanceStorageConfigStorageTypePtr) ToInstanceStorageConfigStorageTyp
 type IntegrationAssociationIntegrationType string
 
 const (
-	IntegrationAssociationIntegrationTypeLexBot         = IntegrationAssociationIntegrationType("LEX_BOT")
-	IntegrationAssociationIntegrationTypeLambdaFunction = IntegrationAssociationIntegrationType("LAMBDA_FUNCTION")
-	IntegrationAssociationIntegrationTypeApplication    = IntegrationAssociationIntegrationType("APPLICATION")
-	IntegrationAssociationIntegrationTypeCasesDomain    = IntegrationAssociationIntegrationType("CASES_DOMAIN")
+	IntegrationAssociationIntegrationTypeLexBot               = IntegrationAssociationIntegrationType("LEX_BOT")
+	IntegrationAssociationIntegrationTypeLambdaFunction       = IntegrationAssociationIntegrationType("LAMBDA_FUNCTION")
+	IntegrationAssociationIntegrationTypeApplication          = IntegrationAssociationIntegrationType("APPLICATION")
+	IntegrationAssociationIntegrationTypeCasesDomain          = IntegrationAssociationIntegrationType("CASES_DOMAIN")
+	IntegrationAssociationIntegrationTypeWisdomAssistant      = IntegrationAssociationIntegrationType("WISDOM_ASSISTANT")
+	IntegrationAssociationIntegrationTypeWisdomKnowledgeBase  = IntegrationAssociationIntegrationType("WISDOM_KNOWLEDGE_BASE")
+	IntegrationAssociationIntegrationTypeWisdomQuickResponses = IntegrationAssociationIntegrationType("WISDOM_QUICK_RESPONSES")
+	IntegrationAssociationIntegrationTypeFileScanner          = IntegrationAssociationIntegrationType("FILE_SCANNER")
+	IntegrationAssociationIntegrationTypeMessageProcessor     = IntegrationAssociationIntegrationType("MESSAGE_PROCESSOR")
+	IntegrationAssociationIntegrationTypeQMessageTemplates    = IntegrationAssociationIntegrationType("Q_MESSAGE_TEMPLATES")
+	IntegrationAssociationIntegrationTypeSesIdentity          = IntegrationAssociationIntegrationType("SES_IDENTITY")
 )
 
 func (IntegrationAssociationIntegrationType) ElementType() reflect.Type {
@@ -6001,6 +6008,13 @@ func (o IntegrationAssociationIntegrationTypePtrOutput) ToStringPtrOutputWithCon
 //	IntegrationAssociationIntegrationTypeLambdaFunction
 //	IntegrationAssociationIntegrationTypeApplication
 //	IntegrationAssociationIntegrationTypeCasesDomain
+//	IntegrationAssociationIntegrationTypeWisdomAssistant
+//	IntegrationAssociationIntegrationTypeWisdomKnowledgeBase
+//	IntegrationAssociationIntegrationTypeWisdomQuickResponses
+//	IntegrationAssociationIntegrationTypeFileScanner
+//	IntegrationAssociationIntegrationTypeMessageProcessor
+//	IntegrationAssociationIntegrationTypeQMessageTemplates
+//	IntegrationAssociationIntegrationTypeSesIdentity
 type IntegrationAssociationIntegrationTypeInput interface {
 	pulumi.Input
 

@@ -12,6 +12,8 @@ __all__ = [
     'PlanDocumentDbUngracefulBehavior',
     'PlanExecutionBlockType',
     'PlanGlobalAuroraUngracefulBehavior',
+    'PlanLambdaEventSourceMappingConfigurationAction',
+    'PlanLambdaEventSourceMappingUngracefulBehavior',
     'PlanRecoveryApproach',
     'PlanRegionToRunIn',
     'PlanRoutingControlStateChange',
@@ -38,24 +40,36 @@ class PlanDocumentDbUngracefulBehavior(_builtins.str, Enum):
 
 @pulumi.type_token("aws-native:arcregionswitch:PlanExecutionBlockType")
 class PlanExecutionBlockType(_builtins.str, Enum):
-    CUSTOM_ACTION_LAMBDA = "CustomActionLambda"
-    MANUAL_APPROVAL = "ManualApproval"
-    AURORA_GLOBAL_DATABASE = "AuroraGlobalDatabase"
-    EC2_AUTO_SCALING = "EC2AutoScaling"
-    ARC_ROUTING_CONTROL = "ARCRoutingControl"
     ARC_REGION_SWITCH_PLAN = "ARCRegionSwitchPlan"
-    PARALLEL = "Parallel"
+    ARC_ROUTING_CONTROL = "ARCRoutingControl"
+    AURORA_GLOBAL_DATABASE = "AuroraGlobalDatabase"
+    CUSTOM_ACTION_LAMBDA = "CustomActionLambda"
+    DOCUMENT_DB = "DocumentDb"
+    EC2_AUTO_SCALING = "EC2AutoScaling"
     ECS_SERVICE_SCALING = "ECSServiceScaling"
     EKS_RESOURCE_SCALING = "EKSResourceScaling"
-    ROUTE53_HEALTH_CHECK = "Route53HealthCheck"
-    DOCUMENT_DB = "DocumentDb"
-    RDS_PROMOTE_READ_REPLICA = "RdsPromoteReadReplica"
+    LAMBDA_EVENT_SOURCE_MAPPING = "LambdaEventSourceMapping"
+    MANUAL_APPROVAL = "ManualApproval"
+    PARALLEL = "Parallel"
     RDS_CREATE_CROSS_REGION_REPLICA = "RdsCreateCrossRegionReplica"
+    RDS_PROMOTE_READ_REPLICA = "RdsPromoteReadReplica"
+    ROUTE53_HEALTH_CHECK = "Route53HealthCheck"
 
 
 @pulumi.type_token("aws-native:arcregionswitch:PlanGlobalAuroraUngracefulBehavior")
 class PlanGlobalAuroraUngracefulBehavior(_builtins.str, Enum):
     FAILOVER = "failover"
+
+
+@pulumi.type_token("aws-native:arcregionswitch:PlanLambdaEventSourceMappingConfigurationAction")
+class PlanLambdaEventSourceMappingConfigurationAction(_builtins.str, Enum):
+    ENABLE = "enable"
+    DISABLE = "disable"
+
+
+@pulumi.type_token("aws-native:arcregionswitch:PlanLambdaEventSourceMappingUngracefulBehavior")
+class PlanLambdaEventSourceMappingUngracefulBehavior(_builtins.str, Enum):
+    SKIP = "skip"
 
 
 @pulumi.type_token("aws-native:arcregionswitch:PlanRecoveryApproach")

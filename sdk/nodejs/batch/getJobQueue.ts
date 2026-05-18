@@ -55,6 +55,10 @@ export interface GetJobQueueResult {
      * The state of the job queue. If the job queue state is `ENABLED` , it is able to accept jobs. If the job queue state is `DISABLED` , new jobs can't be added to the queue, but jobs already in the queue can finish.
      */
     readonly state?: enums.batch.JobQueueState;
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Resource Type definition for AWS::Batch::JobQueue

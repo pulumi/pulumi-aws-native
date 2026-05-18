@@ -435,8 +435,7 @@
           "description" : "Automation answer source.",
           "$ref" : "#/definitions/EvaluationFormQuestionAutomationAnswerSource"
         }
-      },
-      "required" : [ "Options" ]
+      }
     },
     "EvaluationFormSingleSelectQuestionOption" : {
       "description" : "Information about the automation configuration in single select questions.",
@@ -588,8 +587,7 @@
           "description" : "",
           "$ref" : "#/definitions/EvaluationFormQuestionAutomationAnswerSource"
         }
-      },
-      "required" : [ "Options" ]
+      }
     },
     "EvaluationFormMultiSelectQuestionOption" : {
       "description" : "An option for a multi-select question in an evaluation form.",

@@ -497,22 +497,29 @@ class DirectoryBucketMetricsConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 id: _builtins.str,
                  access_point_arn: Optional[_builtins.str] = None,
-                 id: Optional[_builtins.str] = None,
                  prefix: Optional[_builtins.str] = None):
         """
         Specifies a metrics configuration for the CloudWatch request metrics from an Amazon S3 Express bucket.
 
-        :param _builtins.str access_point_arn: The access point ARN used when evaluating a metrics filter.
         :param _builtins.str id: The ID used to identify the metrics configuration.
+        :param _builtins.str access_point_arn: The access point ARN used when evaluating a metrics filter.
         :param _builtins.str prefix: The prefix used when evaluating a metrics filter.
         """
+        pulumi.set(__self__, "id", id)
         if access_point_arn is not None:
             pulumi.set(__self__, "access_point_arn", access_point_arn)
-        if id is not None:
-            pulumi.set(__self__, "id", id)
         if prefix is not None:
             pulumi.set(__self__, "prefix", prefix)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        The ID used to identify the metrics configuration.
+        """
+        return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter(name="accessPointArn")
@@ -521,14 +528,6 @@ class DirectoryBucketMetricsConfiguration(dict):
         The access point ARN used when evaluating a metrics filter.
         """
         return pulumi.get(self, "access_point_arn")
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> Optional[_builtins.str]:
-        """
-        The ID used to identify the metrics configuration.
-        """
-        return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter

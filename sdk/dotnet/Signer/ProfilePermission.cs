@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Signer
 {
     /// <summary>
-    /// An example resource schema demonstrating some basic constructs and validation rules.
+    /// Resource Type definition for AWS::Signer::ProfilePermission
     /// </summary>
     [AwsNativeResourceType("aws-native:signer:ProfilePermission")]
     public partial class ProfilePermission : global::Pulumi.CustomResource

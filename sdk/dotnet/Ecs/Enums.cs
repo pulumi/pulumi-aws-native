@@ -999,6 +999,7 @@ namespace Pulumi.AwsNative.Ecs
         public static ServiceDeploymentLifecycleHookLifecycleStagesItem PostScaleUp { get; } = new ServiceDeploymentLifecycleHookLifecycleStagesItem("POST_SCALE_UP");
         public static ServiceDeploymentLifecycleHookLifecycleStagesItem TestTrafficShift { get; } = new ServiceDeploymentLifecycleHookLifecycleStagesItem("TEST_TRAFFIC_SHIFT");
         public static ServiceDeploymentLifecycleHookLifecycleStagesItem PostTestTrafficShift { get; } = new ServiceDeploymentLifecycleHookLifecycleStagesItem("POST_TEST_TRAFFIC_SHIFT");
+        public static ServiceDeploymentLifecycleHookLifecycleStagesItem PreProductionTrafficShift { get; } = new ServiceDeploymentLifecycleHookLifecycleStagesItem("PRE_PRODUCTION_TRAFFIC_SHIFT");
         public static ServiceDeploymentLifecycleHookLifecycleStagesItem ProductionTrafficShift { get; } = new ServiceDeploymentLifecycleHookLifecycleStagesItem("PRODUCTION_TRAFFIC_SHIFT");
         public static ServiceDeploymentLifecycleHookLifecycleStagesItem PostProductionTrafficShift { get; } = new ServiceDeploymentLifecycleHookLifecycleStagesItem("POST_PRODUCTION_TRAFFIC_SHIFT");
 

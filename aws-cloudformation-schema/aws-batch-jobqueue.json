@@ -119,8 +119,8 @@
   "tagging" : {
     "taggable" : true,
     "tagOnCreate" : true,
-    "tagUpdatable" : false,
-    "cloudFormationSystemTags" : false,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : true,
     "tagProperty" : "/properties/Tags",
     "permissions" : [ "Batch:TagResource", "Batch:UntagResource" ]
   },
@@ -131,7 +131,7 @@
     "required" : [ "ServiceEnvironmentOrder" ]
   } ],
   "primaryIdentifier" : [ "/properties/JobQueueArn" ],
-  "createOnlyProperties" : [ "/properties/Tags", "/properties/JobQueueName", "/properties/JobQueueType" ],
+  "createOnlyProperties" : [ "/properties/JobQueueName", "/properties/JobQueueType" ],
   "readOnlyProperties" : [ "/properties/JobQueueArn" ],
   "handlers" : {
     "create" : {
@@ -141,7 +141,7 @@
       "permissions" : [ "Batch:DescribeJobQueues" ]
     },
     "update" : {
-      "permissions" : [ "Batch:DescribeJobQueues", "Batch:UpdateJobQueue", "Batch:TagResource", "Batch:UnTagResource" ]
+      "permissions" : [ "Batch:DescribeJobQueues", "Batch:UpdateJobQueue", "Batch:TagResource", "Batch:UntagResource" ]
     },
     "delete" : {
       "permissions" : [ "Batch:UpdateJobQueue", "Batch:DescribeJobQueues", "Batch:DeleteJobQueue" ]

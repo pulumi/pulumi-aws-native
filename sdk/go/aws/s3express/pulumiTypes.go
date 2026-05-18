@@ -1193,7 +1193,7 @@ type DirectoryBucketMetricsConfiguration struct {
 	// The access point ARN used when evaluating a metrics filter.
 	AccessPointArn *string `pulumi:"accessPointArn"`
 	// The ID used to identify the metrics configuration.
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 	// The prefix used when evaluating a metrics filter.
 	Prefix *string `pulumi:"prefix"`
 }
@@ -1214,7 +1214,7 @@ type DirectoryBucketMetricsConfigurationArgs struct {
 	// The access point ARN used when evaluating a metrics filter.
 	AccessPointArn pulumi.StringPtrInput `pulumi:"accessPointArn"`
 	// The ID used to identify the metrics configuration.
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 	// The prefix used when evaluating a metrics filter.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
 }
@@ -1277,8 +1277,8 @@ func (o DirectoryBucketMetricsConfigurationOutput) AccessPointArn() pulumi.Strin
 }
 
 // The ID used to identify the metrics configuration.
-func (o DirectoryBucketMetricsConfigurationOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DirectoryBucketMetricsConfiguration) *string { return v.Id }).(pulumi.StringPtrOutput)
+func (o DirectoryBucketMetricsConfigurationOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v DirectoryBucketMetricsConfiguration) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // The prefix used when evaluating a metrics filter.

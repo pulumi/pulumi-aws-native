@@ -8626,6 +8626,7 @@ namespace Pulumi.AwsNative.QuickSight
         public static DataSourceType Db2as400 { get; } = new DataSourceType("DB2_AS400");
         public static DataSourceType Exasol { get; } = new DataSourceType("EXASOL");
         public static DataSourceType File { get; } = new DataSourceType("FILE");
+        public static DataSourceType FullyManagedKnowledgeBase { get; } = new DataSourceType("FULLY_MANAGED_KNOWLEDGE_BASE");
         public static DataSourceType Github { get; } = new DataSourceType("GITHUB");
         public static DataSourceType InternationalDataCorporation { get; } = new DataSourceType("INTERNATIONAL_DATA_CORPORATION");
         public static DataSourceType Jira { get; } = new DataSourceType("JIRA");
@@ -8664,6 +8665,7 @@ namespace Pulumi.AwsNative.QuickSight
         public static DataSourceType OneDrive { get; } = new DataSourceType("ONE_DRIVE");
         public static DataSourceType WebCrawler { get; } = new DataSourceType("WEB_CRAWLER");
         public static DataSourceType Box { get; } = new DataSourceType("BOX");
+        public static DataSourceType Googlesheets { get; } = new DataSourceType("GOOGLESHEETS");
 
         public static bool operator ==(DataSourceType left, DataSourceType right) => left.Equals(right);
         public static bool operator !=(DataSourceType left, DataSourceType right) => !left.Equals(right);

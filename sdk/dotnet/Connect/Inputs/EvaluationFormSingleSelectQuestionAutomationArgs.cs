@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.Connect.Inputs
         [Input("defaultOptionRefId")]
         public Input<string>? DefaultOptionRefId { get; set; }
 
-        [Input("options", required: true)]
+        [Input("options")]
         private InputList<Inputs.EvaluationFormSingleSelectQuestionAutomationOptionArgs>? _options;
 
         /// <summary>

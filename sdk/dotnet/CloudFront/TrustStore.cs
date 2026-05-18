@@ -69,6 +69,9 @@ namespace Pulumi.AwsNative.CloudFront
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// A boolean. When true, performs real-time certificate revocation checks by querying the OCSP endpoint specified within the client certificate.
+        /// </summary>
         [Output("useClientCertificateOcspEndpoint")]
         public Output<bool?> UseClientCertificateOcspEndpoint { get; private set; } = null!;
 
@@ -145,6 +148,9 @@ namespace Pulumi.AwsNative.CloudFront
             set => _tags = value;
         }
 
+        /// <summary>
+        /// A boolean. When true, performs real-time certificate revocation checks by querying the OCSP endpoint specified within the client certificate.
+        /// </summary>
         [Input("useClientCertificateOcspEndpoint")]
         public Input<bool>? UseClientCertificateOcspEndpoint { get; set; }
 

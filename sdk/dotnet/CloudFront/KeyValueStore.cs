@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.CloudFront
         public Output<string> AwsId { get; private set; } = null!;
 
         /// <summary>
-        /// A comment for the key value store.
+        /// A comment to describe the Key Value Store. Omitting ``Comment`` from the template during updates will clear the existing comment (set to empty string). To preserve an existing comment, you must explicitly include it in the template.
         /// </summary>
         [Output("comment")]
         public Output<string?> Comment { get; private set; } = null!;
@@ -51,6 +51,9 @@ namespace Pulumi.AwsNative.CloudFront
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
+        /// <summary>
+        /// A complex type that contains zero or more ``Tag`` elements.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -104,7 +107,7 @@ namespace Pulumi.AwsNative.CloudFront
     public sealed class KeyValueStoreArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A comment for the key value store.
+        /// A comment to describe the Key Value Store. Omitting ``Comment`` from the template during updates will clear the existing comment (set to empty string). To preserve an existing comment, you must explicitly include it in the template.
         /// </summary>
         [Input("comment")]
         public Input<string>? Comment { get; set; }
@@ -123,6 +126,10 @@ namespace Pulumi.AwsNative.CloudFront
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// A complex type that contains zero or more ``Tag`` elements.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

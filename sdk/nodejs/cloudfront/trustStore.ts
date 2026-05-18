@@ -73,6 +73,9 @@ export class TrustStore extends pulumi.CustomResource {
      * A complex type that contains zero or more ``Tag`` elements.
      */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * A boolean. When true, performs real-time certificate revocation checks by querying the OCSP endpoint specified within the client certificate.
+     */
     declare public readonly useClientCertificateOcspEndpoint: pulumi.Output<boolean | undefined>;
 
     /**
@@ -131,5 +134,8 @@ export interface TrustStoreArgs {
      * A complex type that contains zero or more ``Tag`` elements.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * A boolean. When true, performs real-time certificate revocation checks by querying the OCSP endpoint specified within the client certificate.
+     */
     useClientCertificateOcspEndpoint?: pulumi.Input<boolean>;
 }

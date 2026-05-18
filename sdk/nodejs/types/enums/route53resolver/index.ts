@@ -76,7 +76,7 @@ export const FirewallRuleGroupFirewallRuleConfidenceThreshold = {
 } as const;
 
 /**
- * FirewallDomainRedirectionAction
+ * ConfidenceThreshold
  */
 export type FirewallRuleGroupFirewallRuleConfidenceThreshold = (typeof FirewallRuleGroupFirewallRuleConfidenceThreshold)[keyof typeof FirewallRuleGroupFirewallRuleConfidenceThreshold];
 
@@ -87,7 +87,7 @@ export const FirewallRuleGroupFirewallRuleDnsThreatProtection = {
 } as const;
 
 /**
- * FirewallDomainRedirectionAction
+ * DnsThreatProtection
  */
 export type FirewallRuleGroupFirewallRuleDnsThreatProtection = (typeof FirewallRuleGroupFirewallRuleDnsThreatProtection)[keyof typeof FirewallRuleGroupFirewallRuleDnsThreatProtection];
 

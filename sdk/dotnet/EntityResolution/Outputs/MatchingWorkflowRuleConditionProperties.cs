@@ -13,14 +13,19 @@ namespace Pulumi.AwsNative.EntityResolution.Outputs
     [OutputType]
     public sealed class MatchingWorkflowRuleConditionProperties
     {
+        public readonly Outputs.MatchingWorkflowMatchingConfig? MatchingConfig;
         /// <summary>
         /// A list of rule objects, each of which have fields `ruleName` and `condition` .
         /// </summary>
         public readonly ImmutableArray<Outputs.MatchingWorkflowRuleCondition> Rules;
 
         [OutputConstructor]
-        private MatchingWorkflowRuleConditionProperties(ImmutableArray<Outputs.MatchingWorkflowRuleCondition> rules)
+        private MatchingWorkflowRuleConditionProperties(
+            Outputs.MatchingWorkflowMatchingConfig? matchingConfig,
+
+            ImmutableArray<Outputs.MatchingWorkflowRuleCondition> rules)
         {
+            MatchingConfig = matchingConfig;
             Rules = rules;
         }
     }

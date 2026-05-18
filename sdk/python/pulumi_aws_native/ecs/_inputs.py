@@ -3992,7 +3992,6 @@ class DaemonTaskDefinitionLinuxParametersArgsDict(TypedDict):
     tmpfs: NotRequired[pulumi.Input[Sequence[pulumi.Input['DaemonTaskDefinitionTmpfsArgsDict']]]]
     """
     The container path, mount options, and size (in MiB) of the tmpfs mount. This parameter maps to the ``--tmpfs`` option to docker run.
-      If you're using tasks that use the Fargate launch type, the ``tmpfs`` parameter isn't supported.
     """
 
 @pulumi.input_type
@@ -4011,7 +4010,6 @@ class DaemonTaskDefinitionLinuxParametersArgs:
                  If you're using tasks that use the Fargate launch type, the ``devices`` parameter isn't supported.
         :param pulumi.Input[_builtins.bool] init_process_enabled: Run an ``init`` process inside the container that forwards signals and reaps processes. This parameter maps to the ``--init`` option to docker run. This parameter requires version 1.25 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version --format '{{.Server.APIVersion}}'``
         :param pulumi.Input[Sequence[pulumi.Input['DaemonTaskDefinitionTmpfsArgs']]] tmpfs: The container path, mount options, and size (in MiB) of the tmpfs mount. This parameter maps to the ``--tmpfs`` option to docker run.
-                 If you're using tasks that use the Fargate launch type, the ``tmpfs`` parameter isn't supported.
         """
         if capabilities is not None:
             pulumi.set(__self__, "capabilities", capabilities)
@@ -4065,7 +4063,6 @@ class DaemonTaskDefinitionLinuxParametersArgs:
     def tmpfs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DaemonTaskDefinitionTmpfsArgs']]]]:
         """
         The container path, mount options, and size (in MiB) of the tmpfs mount. This parameter maps to the ``--tmpfs`` option to docker run.
-          If you're using tasks that use the Fargate launch type, the ``tmpfs`` parameter isn't supported.
         """
         return pulumi.get(self, "tmpfs")
 
@@ -4670,7 +4667,7 @@ class DaemonTaskDefinitionUlimitArgs:
 
 class DaemonTaskDefinitionVolumeArgsDict(TypedDict):
     """
-    The data volume configuration for tasks launched using this task definition. Specifying a volume configuration in a task definition is optional. The volume configuration may contain multiple volumes but only one volume configured at launch is supported. Each volume defined in the volume configuration may only specify a ``name`` and one of either ``configuredAtLaunch``, ``dockerVolumeConfiguration``, ``efsVolumeConfiguration``, ``fsxWindowsFileServerVolumeConfiguration``, or ``host``. If an empty volume configuration is specified, by default Amazon ECS uses a host volume. For more information, see [Using data volumes in tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_data_volumes.html).
+    The data volume configuration for tasks launched using this task definition. Specifying a volume configuration in a task definition is optional. The volume configuration may contain multiple volumes but only one volume configured at launch is supported. Each volume defined in the volume configuration may only specify a ``name`` and one of either ``configuredAtLaunch``, ``dockerVolumeConfiguration``, ``efsVolumeConfiguration``, ``s3filesVolumeConfiguration``, ``fsxWindowsFileServerVolumeConfiguration``, or ``host``. If an empty volume configuration is specified, by default Amazon ECS uses a host volume. For more information, see [Using data volumes in tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_data_volumes.html).
     """
     host: NotRequired[pulumi.Input['DaemonTaskDefinitionHostVolumePropertiesArgsDict']]
     """
@@ -4683,6 +4680,7 @@ class DaemonTaskDefinitionVolumeArgsDict(TypedDict):
      When using a volume configured at launch, the ``name`` is required and must also be specified as the volume name in the ``ServiceVolumeConfiguration`` or ``TaskVolumeConfiguration`` parameter when creating your service or standalone task.
      For all other types of volumes, this name is referenced in the ``sourceVolume`` parameter of the ``mountPoints`` object in the container definition.
      When a volume is using the ``efsVolumeConfiguration``, the name is required.
+     When a volume is using the ``s3filesVolumeConfiguration``, the name is required.
     """
 
 @pulumi.input_type
@@ -4691,7 +4689,7 @@ class DaemonTaskDefinitionVolumeArgs:
                  host: Optional[pulumi.Input['DaemonTaskDefinitionHostVolumePropertiesArgs']] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        The data volume configuration for tasks launched using this task definition. Specifying a volume configuration in a task definition is optional. The volume configuration may contain multiple volumes but only one volume configured at launch is supported. Each volume defined in the volume configuration may only specify a ``name`` and one of either ``configuredAtLaunch``, ``dockerVolumeConfiguration``, ``efsVolumeConfiguration``, ``fsxWindowsFileServerVolumeConfiguration``, or ``host``. If an empty volume configuration is specified, by default Amazon ECS uses a host volume. For more information, see [Using data volumes in tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_data_volumes.html).
+        The data volume configuration for tasks launched using this task definition. Specifying a volume configuration in a task definition is optional. The volume configuration may contain multiple volumes but only one volume configured at launch is supported. Each volume defined in the volume configuration may only specify a ``name`` and one of either ``configuredAtLaunch``, ``dockerVolumeConfiguration``, ``efsVolumeConfiguration``, ``s3filesVolumeConfiguration``, ``fsxWindowsFileServerVolumeConfiguration``, or ``host``. If an empty volume configuration is specified, by default Amazon ECS uses a host volume. For more information, see [Using data volumes in tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_data_volumes.html).
 
         :param pulumi.Input['DaemonTaskDefinitionHostVolumePropertiesArgs'] host: This parameter is specified when you use bind mount host volumes. The contents of the ``host`` parameter determine whether your bind mount host volume persists on the host container instance and where it's stored. If the ``host`` parameter is empty, then the Docker daemon assigns a host path for your data volume. However, the data isn't guaranteed to persist after the containers that are associated with it stop running.
                 Windows containers can mount whole directories on the same drive as ``$env:ProgramData``. Windows containers can't mount directories on a different drive, and mount point can't be across drives. For example, you can mount ``C:\\my\\path:C:\\my\\path`` and ``D:\\:D:\\``, but not ``D:\\my\\path:C:\\my\\path`` or ``D:\\:C:\\my\\path``.
@@ -4699,6 +4697,7 @@ class DaemonTaskDefinitionVolumeArgs:
                 When using a volume configured at launch, the ``name`` is required and must also be specified as the volume name in the ``ServiceVolumeConfiguration`` or ``TaskVolumeConfiguration`` parameter when creating your service or standalone task.
                 For all other types of volumes, this name is referenced in the ``sourceVolume`` parameter of the ``mountPoints`` object in the container definition.
                 When a volume is using the ``efsVolumeConfiguration``, the name is required.
+                When a volume is using the ``s3filesVolumeConfiguration``, the name is required.
         """
         if host is not None:
             pulumi.set(__self__, "host", host)
@@ -4726,6 +4725,7 @@ class DaemonTaskDefinitionVolumeArgs:
          When using a volume configured at launch, the ``name`` is required and must also be specified as the volume name in the ``ServiceVolumeConfiguration`` or ``TaskVolumeConfiguration`` parameter when creating your service or standalone task.
          For all other types of volumes, this name is referenced in the ``sourceVolume`` parameter of the ``mountPoints`` object in the container definition.
          When a volume is using the ``efsVolumeConfiguration``, the name is required.
+         When a volume is using the ``s3filesVolumeConfiguration``, the name is required.
         """
         return pulumi.get(self, "name")
 

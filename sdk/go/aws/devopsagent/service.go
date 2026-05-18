@@ -47,7 +47,6 @@ func NewService(ctx *pulumi.Context,
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"kmsKeyArn",
-		"serviceDetails",
 		"serviceType",
 	})
 	opts = append(opts, replaceOnChanges)

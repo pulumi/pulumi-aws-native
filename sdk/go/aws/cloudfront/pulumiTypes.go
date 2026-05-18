@@ -6374,7 +6374,7 @@ type DistributionLegacyS3Origin struct {
 	// The domain name assigned to your CF distribution.
 	DnsName string `pulumi:"dnsName"`
 	// The CF origin access identity to associate with the distribution. Use an origin access identity to configure the distribution so that end users can only access objects in an S3 through CF.
-	//   This property is legacy. We recommend that you use [OriginAccessControl](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originaccesscontrol.html) instead.
+	//   This property is legacy. We recommend that you use [OriginAccessControl](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudfront-originaccesscontrol.html) instead.
 	OriginAccessIdentity *string `pulumi:"originAccessIdentity"`
 }
 
@@ -6396,7 +6396,7 @@ type DistributionLegacyS3OriginArgs struct {
 	// The domain name assigned to your CF distribution.
 	DnsName pulumi.StringInput `pulumi:"dnsName"`
 	// The CF origin access identity to associate with the distribution. Use an origin access identity to configure the distribution so that end users can only access objects in an S3 through CF.
-	//   This property is legacy. We recommend that you use [OriginAccessControl](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originaccesscontrol.html) instead.
+	//   This property is legacy. We recommend that you use [OriginAccessControl](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudfront-originaccesscontrol.html) instead.
 	OriginAccessIdentity pulumi.StringPtrInput `pulumi:"originAccessIdentity"`
 }
 
@@ -6487,7 +6487,7 @@ func (o DistributionLegacyS3OriginOutput) DnsName() pulumi.StringOutput {
 
 // The CF origin access identity to associate with the distribution. Use an origin access identity to configure the distribution so that end users can only access objects in an S3 through CF.
 //
-//	This property is legacy. We recommend that you use [OriginAccessControl](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originaccesscontrol.html) instead.
+//	This property is legacy. We recommend that you use [OriginAccessControl](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudfront-originaccesscontrol.html) instead.
 func (o DistributionLegacyS3OriginOutput) OriginAccessIdentity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionLegacyS3Origin) *string { return v.OriginAccessIdentity }).(pulumi.StringPtrOutput)
 }
@@ -6528,7 +6528,7 @@ func (o DistributionLegacyS3OriginPtrOutput) DnsName() pulumi.StringPtrOutput {
 
 // The CF origin access identity to associate with the distribution. Use an origin access identity to configure the distribution so that end users can only access objects in an S3 through CF.
 //
-//	This property is legacy. We recommend that you use [OriginAccessControl](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originaccesscontrol.html) instead.
+//	This property is legacy. We recommend that you use [OriginAccessControl](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudfront-originaccesscontrol.html) instead.
 func (o DistributionLegacyS3OriginPtrOutput) OriginAccessIdentity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionLegacyS3Origin) *string {
 		if v == nil {
@@ -11272,8 +11272,13 @@ func (o KeyValueStoreImportSourcePtrOutput) SourceType() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// A complex type that contains “Tag“ key and “Tag“ value.
 type KeyValueStoreTag struct {
-	Key   string `pulumi:"key"`
+	// A string that contains ``Tag`` key.
+	//  The string length should be between 1 and 128 characters. Valid characters include ``a-z``, ``A-Z``, ``0-9``, space, and the special characters ``_ - . : / = + @``.
+	Key string `pulumi:"key"`
+	// A string that contains an optional ``Tag`` value.
+	//  The string length should be between 0 and 256 characters. Valid characters include ``a-z``, ``A-Z``, ``0-9``, space, and the special characters ``_ - . : / = + @``.
 	Value string `pulumi:"value"`
 }
 

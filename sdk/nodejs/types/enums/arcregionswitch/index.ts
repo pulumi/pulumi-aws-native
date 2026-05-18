@@ -23,19 +23,20 @@ export const PlanDocumentDbUngracefulBehavior = {
 export type PlanDocumentDbUngracefulBehavior = (typeof PlanDocumentDbUngracefulBehavior)[keyof typeof PlanDocumentDbUngracefulBehavior];
 
 export const PlanExecutionBlockType = {
-    CustomActionLambda: "CustomActionLambda",
-    ManualApproval: "ManualApproval",
-    AuroraGlobalDatabase: "AuroraGlobalDatabase",
-    Ec2AutoScaling: "EC2AutoScaling",
-    ArcRoutingControl: "ARCRoutingControl",
     ArcRegionSwitchPlan: "ARCRegionSwitchPlan",
-    Parallel: "Parallel",
+    ArcRoutingControl: "ARCRoutingControl",
+    AuroraGlobalDatabase: "AuroraGlobalDatabase",
+    CustomActionLambda: "CustomActionLambda",
+    DocumentDb: "DocumentDb",
+    Ec2AutoScaling: "EC2AutoScaling",
     EcsServiceScaling: "ECSServiceScaling",
     EksResourceScaling: "EKSResourceScaling",
-    Route53HealthCheck: "Route53HealthCheck",
-    DocumentDb: "DocumentDb",
-    RdsPromoteReadReplica: "RdsPromoteReadReplica",
+    LambdaEventSourceMapping: "LambdaEventSourceMapping",
+    ManualApproval: "ManualApproval",
+    Parallel: "Parallel",
     RdsCreateCrossRegionReplica: "RdsCreateCrossRegionReplica",
+    RdsPromoteReadReplica: "RdsPromoteReadReplica",
+    Route53HealthCheck: "Route53HealthCheck",
 } as const;
 
 export type PlanExecutionBlockType = (typeof PlanExecutionBlockType)[keyof typeof PlanExecutionBlockType];
@@ -45,6 +46,19 @@ export const PlanGlobalAuroraUngracefulBehavior = {
 } as const;
 
 export type PlanGlobalAuroraUngracefulBehavior = (typeof PlanGlobalAuroraUngracefulBehavior)[keyof typeof PlanGlobalAuroraUngracefulBehavior];
+
+export const PlanLambdaEventSourceMappingConfigurationAction = {
+    Enable: "enable",
+    Disable: "disable",
+} as const;
+
+export type PlanLambdaEventSourceMappingConfigurationAction = (typeof PlanLambdaEventSourceMappingConfigurationAction)[keyof typeof PlanLambdaEventSourceMappingConfigurationAction];
+
+export const PlanLambdaEventSourceMappingUngracefulBehavior = {
+    Skip: "skip",
+} as const;
+
+export type PlanLambdaEventSourceMappingUngracefulBehavior = (typeof PlanLambdaEventSourceMappingUngracefulBehavior)[keyof typeof PlanLambdaEventSourceMappingUngracefulBehavior];
 
 export const PlanRecoveryApproach = {
     ActiveActive: "activeActive",

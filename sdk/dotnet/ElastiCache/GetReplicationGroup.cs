@@ -113,6 +113,12 @@ namespace Pulumi.AwsNative.ElastiCache
         /// </summary>
         public readonly Outputs.ReplicationGroupEndpoint? ReaderEndPoint;
         /// <summary>
+        /// An optional parameter that specifies the number of replica nodes in each node group (shard). Valid values are 0 to 5.
+        /// 
+        /// **Note:** Using ReplicasPerNodeGroup with NodeGroupConfiguration results in resource replacement. For online scaling, use ReplicasPerNodeGroup alone.
+        /// </summary>
+        public readonly int? ReplicasPerNodeGroup;
+        /// <summary>
         /// A user-created description for the replication group.
         /// </summary>
         public readonly string? ReplicationGroupDescription;
@@ -173,6 +179,8 @@ namespace Pulumi.AwsNative.ElastiCache
 
             Outputs.ReplicationGroupEndpoint? readerEndPoint,
 
+            int? replicasPerNodeGroup,
+
             string? replicationGroupDescription,
 
             int? snapshotRetentionLimit,
@@ -202,6 +210,7 @@ namespace Pulumi.AwsNative.ElastiCache
             PrimaryEndPoint = primaryEndPoint;
             ReadEndPoint = readEndPoint;
             ReaderEndPoint = readerEndPoint;
+            ReplicasPerNodeGroup = replicasPerNodeGroup;
             ReplicationGroupDescription = replicationGroupDescription;
             SnapshotRetentionLimit = snapshotRetentionLimit;
             SnapshotWindow = snapshotWindow;

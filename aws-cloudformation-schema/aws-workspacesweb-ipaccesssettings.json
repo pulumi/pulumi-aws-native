@@ -19,7 +19,6 @@
       "properties" : {
         "IpRange" : {
           "type" : "string",
-          "pattern" : "^\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}(?:/([0-9]|[12][0-9]|3[0-2])|)$",
           "description" : "A single IP address or an IP address range in CIDR notation"
         },
         "Description" : {
@@ -49,6 +48,10 @@
         }
       },
       "required" : [ "Key", "Value" ],
+      "additionalProperties" : false
+    },
+    "Unit" : {
+      "type" : "object",
       "additionalProperties" : false
     }
   },

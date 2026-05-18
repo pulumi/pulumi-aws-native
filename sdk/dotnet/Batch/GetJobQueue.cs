@@ -93,6 +93,10 @@ namespace Pulumi.AwsNative.Batch
         /// The state of the job queue. If the job queue state is `ENABLED` , it is able to accept jobs. If the job queue state is `DISABLED` , new jobs can't be added to the queue, but jobs already in the queue can finish.
         /// </summary>
         public readonly Pulumi.AwsNative.Batch.JobQueueState? State;
+        /// <summary>
+        /// A key-value pair to associate with a resource.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetJobQueueResult(
@@ -108,7 +112,9 @@ namespace Pulumi.AwsNative.Batch
 
             ImmutableArray<Outputs.JobQueueServiceEnvironmentOrder> serviceEnvironmentOrder,
 
-            Pulumi.AwsNative.Batch.JobQueueState? state)
+            Pulumi.AwsNative.Batch.JobQueueState? state,
+
+            ImmutableDictionary<string, string>? tags)
         {
             ComputeEnvironmentOrder = computeEnvironmentOrder;
             JobQueueArn = jobQueueArn;
@@ -117,6 +123,7 @@ namespace Pulumi.AwsNative.Batch
             SchedulingPolicyArn = schedulingPolicyArn;
             ServiceEnvironmentOrder = serviceEnvironmentOrder;
             State = state;
+            Tags = tags;
         }
     }
 }

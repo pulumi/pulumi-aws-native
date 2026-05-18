@@ -89,7 +89,6 @@ namespace Pulumi.AwsNative.DevOpsAgent
                 ReplaceOnChanges =
                 {
                     "kmsKeyArn",
-                    "serviceDetails",
                     "serviceType",
                 },
             };

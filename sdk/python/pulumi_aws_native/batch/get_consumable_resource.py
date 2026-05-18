@@ -23,7 +23,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetConsumableResourceResult:
-    def __init__(__self__, available_quantity=None, consumable_resource_arn=None, created_at=None, in_use_quantity=None, total_quantity=None):
+    def __init__(__self__, available_quantity=None, consumable_resource_arn=None, created_at=None, in_use_quantity=None, tags=None, total_quantity=None):
         if available_quantity and not isinstance(available_quantity, int):
             raise TypeError("Expected argument 'available_quantity' to be a int")
         pulumi.set(__self__, "available_quantity", available_quantity)
@@ -36,6 +36,9 @@ class GetConsumableResourceResult:
         if in_use_quantity and not isinstance(in_use_quantity, int):
             raise TypeError("Expected argument 'in_use_quantity' to be a int")
         pulumi.set(__self__, "in_use_quantity", in_use_quantity)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
         if total_quantity and not isinstance(total_quantity, int):
             raise TypeError("Expected argument 'total_quantity' to be a int")
         pulumi.set(__self__, "total_quantity", total_quantity)
@@ -73,6 +76,14 @@ class GetConsumableResourceResult:
         return pulumi.get(self, "in_use_quantity")
 
     @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        A key-value pair to associate with a resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @_builtins.property
     @pulumi.getter(name="totalQuantity")
     def total_quantity(self) -> Optional[_builtins.int]:
         """
@@ -91,6 +102,7 @@ class AwaitableGetConsumableResourceResult(GetConsumableResourceResult):
             consumable_resource_arn=self.consumable_resource_arn,
             created_at=self.created_at,
             in_use_quantity=self.in_use_quantity,
+            tags=self.tags,
             total_quantity=self.total_quantity)
 
 
@@ -112,6 +124,7 @@ def get_consumable_resource(consumable_resource_arn: Optional[_builtins.str] = N
         consumable_resource_arn=pulumi.get(__ret__, 'consumable_resource_arn'),
         created_at=pulumi.get(__ret__, 'created_at'),
         in_use_quantity=pulumi.get(__ret__, 'in_use_quantity'),
+        tags=pulumi.get(__ret__, 'tags'),
         total_quantity=pulumi.get(__ret__, 'total_quantity'))
 def get_consumable_resource_output(consumable_resource_arn: Optional[pulumi.Input[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConsumableResourceResult]:
@@ -130,4 +143,5 @@ def get_consumable_resource_output(consumable_resource_arn: Optional[pulumi.Inpu
         consumable_resource_arn=pulumi.get(__response__, 'consumable_resource_arn'),
         created_at=pulumi.get(__response__, 'created_at'),
         in_use_quantity=pulumi.get(__response__, 'in_use_quantity'),
+        tags=pulumi.get(__response__, 'tags'),
         total_quantity=pulumi.get(__response__, 'total_quantity')))

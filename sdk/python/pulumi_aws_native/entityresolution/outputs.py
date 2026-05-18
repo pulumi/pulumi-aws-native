@@ -34,6 +34,7 @@ __all__ = [
     'MatchingWorkflowIncrementalRunConfig',
     'MatchingWorkflowInputSource',
     'MatchingWorkflowIntermediateSourceConfiguration',
+    'MatchingWorkflowMatchingConfig',
     'MatchingWorkflowOutputAttribute',
     'MatchingWorkflowOutputSource',
     'MatchingWorkflowProviderProperties',
@@ -805,6 +806,9 @@ class IdNamespaceRule(dict):
 
 @pulumi.output_type
 class MatchingWorkflowCustomerProfilesIntegrationConfig(dict):
+    """
+    The Customer Profiles integration configuration for the output source
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -827,6 +831,9 @@ class MatchingWorkflowCustomerProfilesIntegrationConfig(dict):
     def __init__(__self__, *,
                  domain_arn: _builtins.str,
                  object_type_arn: _builtins.str):
+        """
+        The Customer Profiles integration configuration for the output source
+        """
         pulumi.set(__self__, "domain_arn", domain_arn)
         pulumi.set(__self__, "object_type_arn", object_type_arn)
 
@@ -975,6 +982,47 @@ class MatchingWorkflowIntermediateSourceConfiguration(dict):
         The s3 path that would be used to stage the intermediate data being generated during workflow execution.
         """
         return pulumi.get(self, "intermediate_s3_path")
+
+
+@pulumi.output_type
+class MatchingWorkflowMatchingConfig(dict):
+    """
+    Configuration for matching behavior within rule condition properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableTransitiveMatching":
+            suggest = "enable_transitive_matching"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MatchingWorkflowMatchingConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MatchingWorkflowMatchingConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MatchingWorkflowMatchingConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enable_transitive_matching: Optional[_builtins.bool] = None):
+        """
+        Configuration for matching behavior within rule condition properties
+
+        :param _builtins.bool enable_transitive_matching: Enables transitive matching to process records across all rule levels and connect unmatched records to existing match groups
+        """
+        if enable_transitive_matching is not None:
+            pulumi.set(__self__, "enable_transitive_matching", enable_transitive_matching)
+
+    @_builtins.property
+    @pulumi.getter(name="enableTransitiveMatching")
+    def enable_transitive_matching(self) -> Optional[_builtins.bool]:
+        """
+        Enables transitive matching to process records across all rule levels and connect unmatched records to existing match groups
+        """
+        return pulumi.get(self, "enable_transitive_matching")
 
 
 @pulumi.output_type
@@ -1435,12 +1483,32 @@ class MatchingWorkflowRuleCondition(dict):
 
 @pulumi.output_type
 class MatchingWorkflowRuleConditionProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchingConfig":
+            suggest = "matching_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MatchingWorkflowRuleConditionProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MatchingWorkflowRuleConditionProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MatchingWorkflowRuleConditionProperties.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 rules: Sequence['outputs.MatchingWorkflowRuleCondition']):
+                 rules: Sequence['outputs.MatchingWorkflowRuleCondition'],
+                 matching_config: Optional['outputs.MatchingWorkflowMatchingConfig'] = None):
         """
         :param Sequence['MatchingWorkflowRuleCondition'] rules: A list of rule objects, each of which have fields `ruleName` and `condition` .
         """
         pulumi.set(__self__, "rules", rules)
+        if matching_config is not None:
+            pulumi.set(__self__, "matching_config", matching_config)
 
     @_builtins.property
     @pulumi.getter
@@ -1449,6 +1517,11 @@ class MatchingWorkflowRuleConditionProperties(dict):
         A list of rule objects, each of which have fields `ruleName` and `condition` .
         """
         return pulumi.get(self, "rules")
+
+    @_builtins.property
+    @pulumi.getter(name="matchingConfig")
+    def matching_config(self) -> Optional['outputs.MatchingWorkflowMatchingConfig']:
+        return pulumi.get(self, "matching_config")
 
 
 @pulumi.output_type

@@ -561,13 +561,13 @@ class DirectoryBucketMetricsConfigurationArgsDict(TypedDict):
     """
     Specifies a metrics configuration for the CloudWatch request metrics from an Amazon S3 Express bucket.
     """
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID used to identify the metrics configuration.
+    """
     access_point_arn: NotRequired[pulumi.Input[_builtins.str]]
     """
     The access point ARN used when evaluating a metrics filter.
-    """
-    id: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The ID used to identify the metrics configuration.
     """
     prefix: NotRequired[pulumi.Input[_builtins.str]]
     """
@@ -577,22 +577,33 @@ class DirectoryBucketMetricsConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class DirectoryBucketMetricsConfigurationArgs:
     def __init__(__self__, *,
+                 id: pulumi.Input[_builtins.str],
                  access_point_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
                  prefix: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Specifies a metrics configuration for the CloudWatch request metrics from an Amazon S3 Express bucket.
 
-        :param pulumi.Input[_builtins.str] access_point_arn: The access point ARN used when evaluating a metrics filter.
         :param pulumi.Input[_builtins.str] id: The ID used to identify the metrics configuration.
+        :param pulumi.Input[_builtins.str] access_point_arn: The access point ARN used when evaluating a metrics filter.
         :param pulumi.Input[_builtins.str] prefix: The prefix used when evaluating a metrics filter.
         """
+        pulumi.set(__self__, "id", id)
         if access_point_arn is not None:
             pulumi.set(__self__, "access_point_arn", access_point_arn)
-        if id is not None:
-            pulumi.set(__self__, "id", id)
         if prefix is not None:
             pulumi.set(__self__, "prefix", prefix)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ID used to identify the metrics configuration.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter(name="accessPointArn")
@@ -605,18 +616,6 @@ class DirectoryBucketMetricsConfigurationArgs:
     @access_point_arn.setter
     def access_point_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "access_point_arn", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID used to identify the metrics configuration.
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter

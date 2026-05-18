@@ -12,6 +12,14 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DataSetSemanticModelConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("semanticMetadata")]
+        private InputList<Inputs.DataSetSemanticMetadataArgs>? _semanticMetadata;
+        public InputList<Inputs.DataSetSemanticMetadataArgs> SemanticMetadata
+        {
+            get => _semanticMetadata ?? (_semanticMetadata = new InputList<Inputs.DataSetSemanticMetadataArgs>());
+            set => _semanticMetadata = value;
+        }
+
         [Input("tableMap")]
         private InputMap<Inputs.DataSetSemanticTableArgs>? _tableMap;
 

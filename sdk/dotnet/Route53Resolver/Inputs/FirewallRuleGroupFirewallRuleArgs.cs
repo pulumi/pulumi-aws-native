@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.Route53Resolver.Inputs
 {
 
     /// <summary>
-    /// Firewall Rule associating the Rule Group to a Domain List
+    /// Firewall Rule associating the Rule Group to a Domain List or advanced rule type
     /// </summary>
     public sealed class FirewallRuleGroupFirewallRuleArgs : global::Pulumi.ResourceArgs
     {
@@ -46,13 +46,13 @@ namespace Pulumi.AwsNative.Route53Resolver.Inputs
         public Input<Pulumi.AwsNative.Route53Resolver.FirewallRuleGroupFirewallRuleBlockResponse>? BlockResponse { get; set; }
 
         /// <summary>
-        /// FirewallDomainRedirectionAction
+        /// ConfidenceThreshold
         /// </summary>
         [Input("confidenceThreshold")]
         public Input<Pulumi.AwsNative.Route53Resolver.FirewallRuleGroupFirewallRuleConfidenceThreshold>? ConfidenceThreshold { get; set; }
 
         /// <summary>
-        /// FirewallDomainRedirectionAction
+        /// DnsThreatProtection
         /// </summary>
         [Input("dnsThreatProtection")]
         public Input<Pulumi.AwsNative.Route53Resolver.FirewallRuleGroupFirewallRuleDnsThreatProtection>? DnsThreatProtection { get; set; }
@@ -68,6 +68,12 @@ namespace Pulumi.AwsNative.Route53Resolver.Inputs
         /// </summary>
         [Input("firewallDomainRedirectionAction")]
         public Input<Pulumi.AwsNative.Route53Resolver.FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction>? FirewallDomainRedirectionAction { get; set; }
+
+        /// <summary>
+        /// Advanced firewall rule type. Mutually exclusive with FirewallDomainListId and DnsThreatProtection/ConfidenceThreshold.
+        /// </summary>
+        [Input("firewallRuleType")]
+        public Input<Inputs.FirewallRuleGroupFirewallRuleTypeArgs>? FirewallRuleType { get; set; }
 
         /// <summary>
         /// ResourceId

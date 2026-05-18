@@ -11,6 +11,7 @@ AWS::APS::Workspace
 AWS::ARCRegionSwitch::Plan
 AWS::ARCZonalShift::AutoshiftObserverNotificationStatus
 AWS::ARCZonalShift::ZonalAutoshiftConfiguration
+AWS::AWSExternalAnthropic::Workspace
 AWS::AccessAnalyzer::Analyzer
 AWS::AmazonMQ::Broker
 AWS::AmazonMQ::Configuration

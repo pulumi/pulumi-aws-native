@@ -4986,6 +4986,7 @@ const (
 	ServiceDeploymentLifecycleHookLifecycleStagesItemPostScaleUp                = ServiceDeploymentLifecycleHookLifecycleStagesItem("POST_SCALE_UP")
 	ServiceDeploymentLifecycleHookLifecycleStagesItemTestTrafficShift           = ServiceDeploymentLifecycleHookLifecycleStagesItem("TEST_TRAFFIC_SHIFT")
 	ServiceDeploymentLifecycleHookLifecycleStagesItemPostTestTrafficShift       = ServiceDeploymentLifecycleHookLifecycleStagesItem("POST_TEST_TRAFFIC_SHIFT")
+	ServiceDeploymentLifecycleHookLifecycleStagesItemPreProductionTrafficShift  = ServiceDeploymentLifecycleHookLifecycleStagesItem("PRE_PRODUCTION_TRAFFIC_SHIFT")
 	ServiceDeploymentLifecycleHookLifecycleStagesItemProductionTrafficShift     = ServiceDeploymentLifecycleHookLifecycleStagesItem("PRODUCTION_TRAFFIC_SHIFT")
 	ServiceDeploymentLifecycleHookLifecycleStagesItemPostProductionTrafficShift = ServiceDeploymentLifecycleHookLifecycleStagesItem("POST_PRODUCTION_TRAFFIC_SHIFT")
 )
@@ -5117,6 +5118,7 @@ func (o ServiceDeploymentLifecycleHookLifecycleStagesItemPtrOutput) ToStringPtrO
 //	ServiceDeploymentLifecycleHookLifecycleStagesItemPostScaleUp
 //	ServiceDeploymentLifecycleHookLifecycleStagesItemTestTrafficShift
 //	ServiceDeploymentLifecycleHookLifecycleStagesItemPostTestTrafficShift
+//	ServiceDeploymentLifecycleHookLifecycleStagesItemPreProductionTrafficShift
 //	ServiceDeploymentLifecycleHookLifecycleStagesItemProductionTrafficShift
 //	ServiceDeploymentLifecycleHookLifecycleStagesItemPostProductionTrafficShift
 type ServiceDeploymentLifecycleHookLifecycleStagesItemInput interface {

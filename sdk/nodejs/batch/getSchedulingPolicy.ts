@@ -34,6 +34,10 @@ export interface GetSchedulingPolicyResult {
      */
     readonly fairsharePolicy?: outputs.batch.SchedulingPolicyFairsharePolicy;
     readonly quotaSharePolicy?: outputs.batch.SchedulingPolicyQuotaSharePolicy;
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Resource Type definition for AWS::Batch::SchedulingPolicy

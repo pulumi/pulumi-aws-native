@@ -44,6 +44,8 @@ type LookupJobQueueResult struct {
 	ServiceEnvironmentOrder []JobQueueServiceEnvironmentOrder `pulumi:"serviceEnvironmentOrder"`
 	// The state of the job queue. If the job queue state is `ENABLED` , it is able to accept jobs. If the job queue state is `DISABLED` , new jobs can't be added to the queue, but jobs already in the queue can finish.
 	State *JobQueueStateEnum `pulumi:"state"`
+	// A key-value pair to associate with a resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 func LookupJobQueueOutput(ctx *pulumi.Context, args LookupJobQueueOutputArgs, opts ...pulumi.InvokeOption) LookupJobQueueResultOutput {
@@ -113,6 +115,11 @@ func (o LookupJobQueueResultOutput) ServiceEnvironmentOrder() JobQueueServiceEnv
 // The state of the job queue. If the job queue state is `ENABLED` , it is able to accept jobs. If the job queue state is `DISABLED` , new jobs can't be added to the queue, but jobs already in the queue can finish.
 func (o LookupJobQueueResultOutput) State() JobQueueStateEnumPtrOutput {
 	return o.ApplyT(func(v LookupJobQueueResult) *JobQueueStateEnum { return v.State }).(JobQueueStateEnumPtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+func (o LookupJobQueueResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupJobQueueResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func init() {

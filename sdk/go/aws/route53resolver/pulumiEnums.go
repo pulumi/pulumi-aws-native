@@ -864,7 +864,7 @@ func (in *firewallRuleGroupFirewallRuleBlockResponsePtr) ToFirewallRuleGroupFire
 	return pulumi.ToOutputWithContext(ctx, in).(FirewallRuleGroupFirewallRuleBlockResponsePtrOutput)
 }
 
-// FirewallDomainRedirectionAction
+// ConfidenceThreshold
 type FirewallRuleGroupFirewallRuleConfidenceThreshold string
 
 const (
@@ -1032,7 +1032,7 @@ func (in *firewallRuleGroupFirewallRuleConfidenceThresholdPtr) ToFirewallRuleGro
 	return pulumi.ToOutputWithContext(ctx, in).(FirewallRuleGroupFirewallRuleConfidenceThresholdPtrOutput)
 }
 
-// FirewallDomainRedirectionAction
+// DnsThreatProtection
 type FirewallRuleGroupFirewallRuleDnsThreatProtection string
 
 const (

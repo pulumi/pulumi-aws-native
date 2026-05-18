@@ -53,7 +53,6 @@ func NewJobQueue(ctx *pulumi.Context,
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"jobQueueName",
 		"jobQueueType",
-		"tags.*",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)

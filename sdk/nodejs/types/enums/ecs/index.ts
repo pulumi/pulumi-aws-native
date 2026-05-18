@@ -355,6 +355,7 @@ export const ServiceDeploymentLifecycleHookLifecycleStagesItem = {
     PostScaleUp: "POST_SCALE_UP",
     TestTrafficShift: "TEST_TRAFFIC_SHIFT",
     PostTestTrafficShift: "POST_TEST_TRAFFIC_SHIFT",
+    PreProductionTrafficShift: "PRE_PRODUCTION_TRAFFIC_SHIFT",
     ProductionTrafficShift: "PRODUCTION_TRAFFIC_SHIFT",
     PostProductionTrafficShift: "POST_PRODUCTION_TRAFFIC_SHIFT",
 } as const;

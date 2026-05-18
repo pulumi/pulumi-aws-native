@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -30,6 +31,8 @@ type LookupDashboardArgs struct {
 type LookupDashboardResult struct {
 	// The detailed information about the dashboard in JSON format, including the widgets to include and their location on the dashboard
 	DashboardBody *string `pulumi:"dashboardBody"`
+	// A list of key-value pairs to associate with the cloudwatch dashboard. You can associate up to 50 tags with a dashboard
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupDashboardOutput(ctx *pulumi.Context, args LookupDashboardOutputArgs, opts ...pulumi.InvokeOption) LookupDashboardResultOutput {
@@ -67,6 +70,11 @@ func (o LookupDashboardResultOutput) ToLookupDashboardResultOutputWithContext(ct
 // The detailed information about the dashboard in JSON format, including the widgets to include and their location on the dashboard
 func (o LookupDashboardResultOutput) DashboardBody() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDashboardResult) *string { return v.DashboardBody }).(pulumi.StringPtrOutput)
+}
+
+// A list of key-value pairs to associate with the cloudwatch dashboard. You can associate up to 50 tags with a dashboard
+func (o LookupDashboardResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupDashboardResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

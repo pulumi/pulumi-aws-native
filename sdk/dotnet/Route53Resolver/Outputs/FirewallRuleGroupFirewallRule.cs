@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.Route53Resolver.Outputs
 {
 
     /// <summary>
-    /// Firewall Rule associating the Rule Group to a Domain List
+    /// Firewall Rule associating the Rule Group to a Domain List or advanced rule type
     /// </summary>
     [OutputType]
     public sealed class FirewallRuleGroupFirewallRule
@@ -37,11 +37,11 @@ namespace Pulumi.AwsNative.Route53Resolver.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.Route53Resolver.FirewallRuleGroupFirewallRuleBlockResponse? BlockResponse;
         /// <summary>
-        /// FirewallDomainRedirectionAction
+        /// ConfidenceThreshold
         /// </summary>
         public readonly Pulumi.AwsNative.Route53Resolver.FirewallRuleGroupFirewallRuleConfidenceThreshold? ConfidenceThreshold;
         /// <summary>
-        /// FirewallDomainRedirectionAction
+        /// DnsThreatProtection
         /// </summary>
         public readonly Pulumi.AwsNative.Route53Resolver.FirewallRuleGroupFirewallRuleDnsThreatProtection? DnsThreatProtection;
         /// <summary>
@@ -52,6 +52,10 @@ namespace Pulumi.AwsNative.Route53Resolver.Outputs
         /// FirewallDomainRedirectionAction
         /// </summary>
         public readonly Pulumi.AwsNative.Route53Resolver.FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction? FirewallDomainRedirectionAction;
+        /// <summary>
+        /// Advanced firewall rule type. Mutually exclusive with FirewallDomainListId and DnsThreatProtection/ConfidenceThreshold.
+        /// </summary>
+        public readonly Outputs.FirewallRuleGroupFirewallRuleType? FirewallRuleType;
         /// <summary>
         /// ResourceId
         /// </summary>
@@ -85,6 +89,8 @@ namespace Pulumi.AwsNative.Route53Resolver.Outputs
 
             Pulumi.AwsNative.Route53Resolver.FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction? firewallDomainRedirectionAction,
 
+            Outputs.FirewallRuleGroupFirewallRuleType? firewallRuleType,
+
             string? firewallThreatProtectionId,
 
             int priority,
@@ -100,6 +106,7 @@ namespace Pulumi.AwsNative.Route53Resolver.Outputs
             DnsThreatProtection = dnsThreatProtection;
             FirewallDomainListId = firewallDomainListId;
             FirewallDomainRedirectionAction = firewallDomainRedirectionAction;
+            FirewallRuleType = firewallRuleType;
             FirewallThreatProtectionId = firewallThreatProtectionId;
             Priority = priority;
             Qtype = qtype;

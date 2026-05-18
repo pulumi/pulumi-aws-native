@@ -93,6 +93,8 @@ class ReplicationGroupArgs:
         :param pulumi.Input[_builtins.str] preferred_maintenance_window: Specifies the weekly time range during which maintenance on the cluster is performed. It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window is a 60 minute period.
         :param pulumi.Input[_builtins.str] primary_cluster_id: The identifier of the cluster that serves as the primary for this replication group. This cluster must already exist and have a status of available.
         :param pulumi.Input[_builtins.int] replicas_per_node_group: An optional parameter that specifies the number of replica nodes in each node group (shard). Valid values are 0 to 5.
+               
+               **Note:** Using ReplicasPerNodeGroup with NodeGroupConfiguration results in resource replacement. For online scaling, use ReplicasPerNodeGroup alone.
         :param pulumi.Input[_builtins.str] replication_group_id: The replication group identifier. This parameter is stored as a lowercase string.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: One or more Amazon VPC security groups associated with this replication group.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] snapshot_arns: A list of Amazon Resource Names (ARN) that uniquely identify the Redis RDB snapshot files stored in Amazon S3.
@@ -512,6 +514,8 @@ class ReplicationGroupArgs:
     def replicas_per_node_group(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
         An optional parameter that specifies the number of replica nodes in each node group (shard). Valid values are 0 to 5.
+
+        **Note:** Using ReplicasPerNodeGroup with NodeGroupConfiguration results in resource replacement. For online scaling, use ReplicasPerNodeGroup alone.
         """
         return pulumi.get(self, "replicas_per_node_group")
 
@@ -731,6 +735,8 @@ class ReplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] preferred_maintenance_window: Specifies the weekly time range during which maintenance on the cluster is performed. It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window is a 60 minute period.
         :param pulumi.Input[_builtins.str] primary_cluster_id: The identifier of the cluster that serves as the primary for this replication group. This cluster must already exist and have a status of available.
         :param pulumi.Input[_builtins.int] replicas_per_node_group: An optional parameter that specifies the number of replica nodes in each node group (shard). Valid values are 0 to 5.
+               
+               **Note:** Using ReplicasPerNodeGroup with NodeGroupConfiguration results in resource replacement. For online scaling, use ReplicasPerNodeGroup alone.
         :param pulumi.Input[_builtins.str] replication_group_description: A user-created description for the replication group.
         :param pulumi.Input[_builtins.str] replication_group_id: The replication group identifier. This parameter is stored as a lowercase string.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: One or more Amazon VPC security groups associated with this replication group.
@@ -862,7 +868,7 @@ class ReplicationGroup(pulumi.CustomResource):
             __props__.__dict__["primary_end_point"] = None
             __props__.__dict__["read_end_point"] = None
             __props__.__dict__["reader_end_point"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["atRestEncryptionEnabled", "cacheSubnetGroupName", "dataTieringEnabled", "globalReplicationGroupId", "kmsKeyId", "networkType", "port", "preferredCacheClusterAzs[*]", "replicasPerNodeGroup", "replicationGroupId", "snapshotArns[*]", "snapshotName"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["atRestEncryptionEnabled", "cacheSubnetGroupName", "dataTieringEnabled", "globalReplicationGroupId", "kmsKeyId", "networkType", "port", "preferredCacheClusterAzs[*]", "replicationGroupId", "snapshotArns[*]", "snapshotName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ReplicationGroup, __self__).__init__(
             'aws-native:elasticache:ReplicationGroup',
@@ -1173,6 +1179,8 @@ class ReplicationGroup(pulumi.CustomResource):
     def replicas_per_node_group(self) -> pulumi.Output[Optional[_builtins.int]]:
         """
         An optional parameter that specifies the number of replica nodes in each node group (shard). Valid values are 0 to 5.
+
+        **Note:** Using ReplicasPerNodeGroup with NodeGroupConfiguration results in resource replacement. For online scaling, use ReplicasPerNodeGroup alone.
         """
         return pulumi.get(self, "replicas_per_node_group")
 

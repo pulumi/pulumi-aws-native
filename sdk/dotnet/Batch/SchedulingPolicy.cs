@@ -68,7 +68,6 @@ namespace Pulumi.AwsNative.Batch
                 ReplaceOnChanges =
                 {
                     "name",
-                    "tags.*",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
