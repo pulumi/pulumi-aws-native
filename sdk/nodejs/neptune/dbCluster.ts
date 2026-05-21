@@ -271,31 +271,31 @@ export interface DbClusterArgs {
     /**
      * Provides a list of the AWS Identity and Access Management (IAM) roles that are associated with the DB cluster. IAM roles that are associated with a DB cluster grant permission for the DB cluster to access other AWS services on your behalf.
      */
-    associatedRoles?: pulumi.Input<pulumi.Input<inputs.neptune.DbClusterDbClusterRoleArgs>[]>;
+    associatedRoles?: pulumi.Input<pulumi.Input<inputs.neptune.DbClusterDbClusterRoleArgs>[] | undefined>;
     /**
      * Provides the list of EC2 Availability Zones that instances in the DB cluster can be created in.
      */
-    availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
+    availabilityZones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the number of days for which automatic DB snapshots are retained.
      */
-    backupRetentionPeriod?: pulumi.Input<number>;
+    backupRetentionPeriod?: pulumi.Input<number | undefined>;
     /**
      * A value that indicates whether to copy all tags from the DB cluster to snapshots of the DB cluster. The default behaviour is not to copy them.
      */
-    copyTagsToSnapshot?: pulumi.Input<boolean>;
+    copyTagsToSnapshot?: pulumi.Input<boolean | undefined>;
     /**
      * The DB cluster identifier. Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster stored as a lowercase string.
      */
-    dbClusterIdentifier?: pulumi.Input<string>;
+    dbClusterIdentifier?: pulumi.Input<string | undefined>;
     /**
      * Provides the name of the DB cluster parameter group.
      */
-    dbClusterParameterGroupName?: pulumi.Input<string>;
+    dbClusterParameterGroupName?: pulumi.Input<string | undefined>;
     /**
      * The name of the DB parameter group to apply to all instances of the DB cluster. Used only in case of a major EngineVersion upgrade request.
      */
-    dbInstanceParameterGroupName?: pulumi.Input<string>;
+    dbInstanceParameterGroupName?: pulumi.Input<string | undefined>;
     /**
      * The port number on which the DB instances in the DB cluster accept connections. 
      *
@@ -303,39 +303,39 @@ export interface DbClusterArgs {
      *
      * Note: `Port` property will soon be deprecated from this resource. Please update existing templates to rename it with new property `DBPort` having same functionalities.
      */
-    dbPort?: pulumi.Input<number>;
+    dbPort?: pulumi.Input<number | undefined>;
     /**
      * Specifies information on the subnet group associated with the DB cluster, including the name, description, and subnets in the subnet group.
      */
-    dbSubnetGroupName?: pulumi.Input<string>;
+    dbSubnetGroupName?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether or not the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled.
      */
-    deletionProtection?: pulumi.Input<boolean>;
+    deletionProtection?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies a list of log types that are enabled for export to CloudWatch Logs.
      */
-    enableCloudwatchLogsExports?: pulumi.Input<pulumi.Input<string>[]>;
+    enableCloudwatchLogsExports?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Indicates the database engine version.
      */
-    engineVersion?: pulumi.Input<string>;
+    engineVersion?: pulumi.Input<string | undefined>;
     /**
      * True if mapping of Amazon Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.
      */
-    iamAuthEnabled?: pulumi.Input<boolean>;
+    iamAuthEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the AWS KMS key that is used to encrypt the database instances in the DB cluster, such as arn:aws:kms:us-east-1:012345678910:key/abcd1234-a123-456a-a12b-a123b4cd56ef. If you enable the StorageEncrypted property but don't specify this property, the default KMS key is used. If you specify this property, you must set the StorageEncrypted property to true.
      */
-    kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the BackupRetentionPeriod.
      */
-    preferredBackupWindow?: pulumi.Input<string>;
+    preferredBackupWindow?: pulumi.Input<string | undefined>;
     /**
      * Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
      */
-    preferredMaintenanceWindow?: pulumi.Input<string>;
+    preferredMaintenanceWindow?: pulumi.Input<string | undefined>;
     /**
      * Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
      *
@@ -343,7 +343,7 @@ export interface DbClusterArgs {
      *
      * If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
      */
-    restoreToTime?: pulumi.Input<string>;
+    restoreToTime?: pulumi.Input<string | undefined>;
     /**
      * Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
      *
@@ -351,11 +351,11 @@ export interface DbClusterArgs {
      *
      * If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
      */
-    restoreType?: pulumi.Input<string>;
+    restoreType?: pulumi.Input<string | undefined>;
     /**
      * Contains the scaling configuration used by the Neptune Serverless Instances within this DB cluster.
      */
-    serverlessScalingConfiguration?: pulumi.Input<inputs.neptune.DbClusterServerlessScalingConfigurationArgs>;
+    serverlessScalingConfiguration?: pulumi.Input<inputs.neptune.DbClusterServerlessScalingConfigurationArgs | undefined>;
     /**
      * Specifies the identifier for a DB cluster snapshot. Must match the identifier of an existing snapshot.
      *
@@ -363,7 +363,7 @@ export interface DbClusterArgs {
      *
      * However, if you don't specify the SnapshotIdentifier, an empty DB cluster is created, and the original DB cluster is deleted. If you specify a property that is different from the previous snapshot restore property, the DB cluster is restored from the snapshot specified by the SnapshotIdentifier, and the original DB cluster is deleted.
      */
-    snapshotIdentifier?: pulumi.Input<string>;
+    snapshotIdentifier?: pulumi.Input<string | undefined>;
     /**
      * Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
      *
@@ -371,7 +371,7 @@ export interface DbClusterArgs {
      *
      * If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
      */
-    sourceDbClusterIdentifier?: pulumi.Input<string>;
+    sourceDbClusterIdentifier?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether the DB cluster is encrypted.
      *
@@ -383,11 +383,11 @@ export interface DbClusterArgs {
      *
      * If you specify the DBSnapshotIdentifier and don't specify this property or disable it. The value is inherited from the snapshot, and the specified KmsKeyId property from the snapshot is used.
      */
-    storageEncrypted?: pulumi.Input<boolean>;
+    storageEncrypted?: pulumi.Input<boolean | undefined>;
     /**
      * The tags assigned to this cluster.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
      *
@@ -395,9 +395,9 @@ export interface DbClusterArgs {
      *
      * If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
      */
-    useLatestRestorableTime?: pulumi.Input<boolean>;
+    useLatestRestorableTime?: pulumi.Input<boolean | undefined>;
     /**
      * Provides a list of VPC security groups that the DB cluster belongs to.
      */
-    vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

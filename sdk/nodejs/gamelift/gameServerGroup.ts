@@ -153,23 +153,23 @@ export interface GameServerGroupArgs {
     /**
      * Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
      */
-    autoScalingPolicy?: pulumi.Input<inputs.gamelift.GameServerGroupAutoScalingPolicyArgs>;
+    autoScalingPolicy?: pulumi.Input<inputs.gamelift.GameServerGroupAutoScalingPolicyArgs | undefined>;
     /**
      * The fallback balancing method to use for the game server group when Spot Instances in a Region become unavailable or are not viable for game hosting.
      */
-    balancingStrategy?: pulumi.Input<enums.gamelift.GameServerGroupBalancingStrategy>;
+    balancingStrategy?: pulumi.Input<enums.gamelift.GameServerGroupBalancingStrategy | undefined>;
     /**
      * The type of delete to perform.
      */
-    deleteOption?: pulumi.Input<enums.gamelift.GameServerGroupDeleteOption>;
+    deleteOption?: pulumi.Input<enums.gamelift.GameServerGroupDeleteOption | undefined>;
     /**
      * An identifier for the new game server group.
      */
-    gameServerGroupName?: pulumi.Input<string>;
+    gameServerGroupName?: pulumi.Input<string | undefined>;
     /**
      * A flag that indicates whether instances in the game server group are protected from early termination.
      */
-    gameServerProtectionPolicy?: pulumi.Input<enums.gamelift.GameServerGroupGameServerProtectionPolicy>;
+    gameServerProtectionPolicy?: pulumi.Input<enums.gamelift.GameServerGroupGameServerProtectionPolicy | undefined>;
     /**
      * A set of EC2 instance types to use when creating instances in the group.
      */
@@ -177,15 +177,15 @@ export interface GameServerGroupArgs {
     /**
      * The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
      */
-    launchTemplate?: pulumi.Input<inputs.gamelift.GameServerGroupLaunchTemplateArgs>;
+    launchTemplate?: pulumi.Input<inputs.gamelift.GameServerGroupLaunchTemplateArgs | undefined>;
     /**
      * The maximum number of instances allowed in the EC2 Auto Scaling group. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
      */
-    maxSize?: pulumi.Input<number>;
+    maxSize?: pulumi.Input<number | undefined>;
     /**
      * The minimum number of instances allowed in the EC2 Auto Scaling group. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
      */
-    minSize?: pulumi.Input<number>;
+    minSize?: pulumi.Input<number | undefined>;
     /**
      * The Amazon Resource Name (ARN) for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
      */
@@ -193,9 +193,9 @@ export interface GameServerGroupArgs {
     /**
      * A list of labels to assign to the new game server group resource. Updating game server group tags with CloudFormation will not take effect. Please update this property using AWS GameLift APIs instead.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * A list of virtual private cloud (VPC) subnets to use with instances in the game server group. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
      */
-    vpcSubnets?: pulumi.Input<pulumi.Input<string>[]>;
+    vpcSubnets?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

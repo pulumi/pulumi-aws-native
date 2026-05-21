@@ -107,7 +107,7 @@ export interface DbSubnetGroupArgs {
      *
      * Example: mysubnetgroup
      */
-    dbSubnetGroupName?: pulumi.Input<string>;
+    dbSubnetGroupName?: pulumi.Input<string | undefined>;
     /**
      * The Amazon EC2 subnet IDs for the DB subnet group.
      */
@@ -115,5 +115,5 @@ export interface DbSubnetGroupArgs {
     /**
      * An optional array of key-value pairs to apply to this DB subnet group.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

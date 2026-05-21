@@ -129,29 +129,29 @@ export interface VerifiedAccessInstanceArgs {
     /**
      * Introduce CidrEndpointsCustomSubDomain property to represent the domain (say, ava.my-company.com)
      */
-    cidrEndpointsCustomSubDomain?: pulumi.Input<string>;
+    cidrEndpointsCustomSubDomain?: pulumi.Input<string | undefined>;
     /**
      * A description for the AWS Verified Access instance.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether FIPS is enabled
      */
-    fipsEnabled?: pulumi.Input<boolean>;
+    fipsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The configuration options for AWS Verified Access instances.
      */
-    loggingConfigurations?: pulumi.Input<inputs.ec2.VerifiedAccessInstanceVerifiedAccessLogsArgs>;
+    loggingConfigurations?: pulumi.Input<inputs.ec2.VerifiedAccessInstanceVerifiedAccessLogsArgs | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The IDs of the AWS Verified Access trust providers.
      */
-    verifiedAccessTrustProviderIds?: pulumi.Input<pulumi.Input<string>[]>;
+    verifiedAccessTrustProviderIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * AWS Verified Access trust providers.
      */
-    verifiedAccessTrustProviders?: pulumi.Input<pulumi.Input<inputs.ec2.VerifiedAccessInstanceVerifiedAccessTrustProviderArgs>[]>;
+    verifiedAccessTrustProviders?: pulumi.Input<pulumi.Input<inputs.ec2.VerifiedAccessInstanceVerifiedAccessTrustProviderArgs>[] | undefined>;
 }

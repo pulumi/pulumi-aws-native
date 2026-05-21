@@ -132,29 +132,29 @@ export interface IntegrationArgs {
     /**
      * A list of unique names for active event triggers associated with the integration.
      */
-    eventTriggerNames?: pulumi.Input<pulumi.Input<string>[]>;
+    eventTriggerNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The configuration that controls how Customer Profiles retrieves data from the source.
      */
-    flowDefinition?: pulumi.Input<inputs.customerprofiles.IntegrationFlowDefinitionArgs>;
+    flowDefinition?: pulumi.Input<inputs.customerprofiles.IntegrationFlowDefinitionArgs | undefined>;
     /**
      * The name of the ObjectType defined for the 3rd party data in Profile Service
      */
-    objectTypeName?: pulumi.Input<string>;
+    objectTypeName?: pulumi.Input<string | undefined>;
     /**
      * The mapping between 3rd party event types and ObjectType names
      */
-    objectTypeNames?: pulumi.Input<pulumi.Input<inputs.customerprofiles.IntegrationObjectTypeMappingArgs>[]>;
+    objectTypeNames?: pulumi.Input<pulumi.Input<inputs.customerprofiles.IntegrationObjectTypeMappingArgs>[] | undefined>;
     /**
      * Scope of the integration, such as 'PROFILE' or 'DOMAIN'
      */
-    scope?: pulumi.Input<enums.customerprofiles.IntegrationScope>;
+    scope?: pulumi.Input<enums.customerprofiles.IntegrationScope | undefined>;
     /**
      * The tags (keys and values) associated with the integration
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The URI of the S3 bucket or any other type of data source.
      */
-    uri?: pulumi.Input<string>;
+    uri?: pulumi.Input<string | undefined>;
 }

@@ -90,7 +90,7 @@ export interface UserPoolUiCustomizationAttachmentArgs {
     /**
      * A plaintext CSS file that contains the custom fields that you want to apply to your user pool or app client. To download a template, go to the Amazon Cognito console. Navigate to your user pool *App clients* tab, select *Login pages* , edit *Hosted UI (classic) style* , and select the link to `CSS template.css` .
      */
-    css?: pulumi.Input<string>;
+    css?: pulumi.Input<string | undefined>;
     /**
      * The ID of the user pool where you want to apply branding to the classic hosted UI.
      */

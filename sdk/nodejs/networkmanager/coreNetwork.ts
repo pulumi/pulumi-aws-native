@@ -142,7 +142,7 @@ export interface CoreNetworkArgs {
     /**
      * The description of core network
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The ID of the global network that your core network is a part of.
      */
@@ -152,9 +152,9 @@ export interface CoreNetworkArgs {
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::NetworkManager::CoreNetwork` for more information about the expected schema for this property.
      */
-    policyDocument?: any;
+    policyDocument?: any | undefined;
     /**
      * The tags for the global network.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

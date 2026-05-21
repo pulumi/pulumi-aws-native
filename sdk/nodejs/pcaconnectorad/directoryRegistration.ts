@@ -87,5 +87,5 @@ export interface DirectoryRegistrationArgs {
     /**
      * Metadata assigned to a directory registration consisting of a key-value pair.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

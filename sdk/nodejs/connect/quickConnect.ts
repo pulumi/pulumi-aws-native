@@ -111,7 +111,7 @@ export interface QuickConnectArgs {
     /**
      * The description of the quick connect.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The identifier of the Amazon Connect instance.
      */
@@ -119,7 +119,7 @@ export interface QuickConnectArgs {
     /**
      * The name of the quick connect.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Configuration settings for the quick connect.
      */
@@ -127,5 +127,5 @@ export interface QuickConnectArgs {
     /**
      * One or more tags.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

@@ -92,7 +92,7 @@ export interface SecurityControlArgs {
     /**
      * The most recent reason for updating the customizable properties of a security control. This differs from the UpdateReason field of the BatchUpdateStandardsControlAssociations API, which tracks the reason for updating the enablement status of a control. This field accepts alphanumeric characters in addition to white spaces, dashes, and underscores.
      */
-    lastUpdateReason?: pulumi.Input<string>;
+    lastUpdateReason?: pulumi.Input<string | undefined>;
     /**
      * An object that identifies the name of a control parameter, its current value, and whether it has been customized.
      */
@@ -100,9 +100,9 @@ export interface SecurityControlArgs {
     /**
      * The Amazon Resource Name (ARN) for a security control across standards, such as `arn:aws:securityhub:eu-central-1:123456789012:security-control/S3.1`. This parameter doesn't mention a specific standard.
      */
-    securityControlArn?: pulumi.Input<string>;
+    securityControlArn?: pulumi.Input<string | undefined>;
     /**
      * The unique identifier of a security control across standards. Values for this field typically consist of an AWS service name and a number, such as APIGateway.3.
      */
-    securityControlId?: pulumi.Input<string>;
+    securityControlId?: pulumi.Input<string | undefined>;
 }

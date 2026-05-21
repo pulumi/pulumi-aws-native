@@ -127,7 +127,7 @@ export interface SyncJobArgs {
     /**
      * A key-value pair to associate with a resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The ID of the workspace.
      */

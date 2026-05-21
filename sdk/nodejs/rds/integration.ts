@@ -133,23 +133,23 @@ export interface IntegrationArgs {
      * An optional set of non-secret key–value pairs that contains additional contextual information about the data. For more information, see [Encryption context](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context) in the *Key Management Service Developer Guide*.
      *  You can only include this parameter if you specify the ``KMSKeyId`` parameter.
      */
-    additionalEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    additionalEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Data filters for the integration. These filters determine which tables from the source database are sent to the target Amazon Redshift data warehouse.
      */
-    dataFilter?: pulumi.Input<string>;
+    dataFilter?: pulumi.Input<string | undefined>;
     /**
      * A description of the integration.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the integration.
      */
-    integrationName?: pulumi.Input<string>;
+    integrationName?: pulumi.Input<string | undefined>;
     /**
      * The AWS Key Management System (AWS KMS) key identifier for the key to use to encrypt the integration. If you don't specify an encryption key, RDS uses a default AWS owned key.
      */
-    kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the database to use as the source for replication.
      */
@@ -157,7 +157,7 @@ export interface IntegrationArgs {
     /**
      * A list of tags. For more information, see [Tagging Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html) in the *Amazon RDS User Guide.*.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The ARN of the Redshift data warehouse to use as the target for replication.
      */

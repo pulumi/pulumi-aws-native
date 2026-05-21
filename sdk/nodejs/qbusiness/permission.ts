@@ -109,7 +109,7 @@ export interface PermissionArgs {
      * The unique identifier of the Amazon Q Business application.
      */
     applicationId: pulumi.Input<string>;
-    conditions?: pulumi.Input<pulumi.Input<inputs.qbusiness.PermissionConditionArgs>[]>;
+    conditions?: pulumi.Input<pulumi.Input<inputs.qbusiness.PermissionConditionArgs>[] | undefined>;
     /**
      * Provides user and group information used for filtering documents to use for generating Amazon Q Business conversation responses.
      */

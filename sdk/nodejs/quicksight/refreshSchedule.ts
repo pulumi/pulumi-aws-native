@@ -89,13 +89,13 @@ export interface RefreshScheduleArgs {
     /**
      * The AWS account ID of the account that you are creating a schedule in.
      */
-    awsAccountId?: pulumi.Input<string>;
+    awsAccountId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the dataset that you are creating a refresh schedule for.
      */
-    dataSetId?: pulumi.Input<string>;
+    dataSetId?: pulumi.Input<string | undefined>;
     /**
      * The refresh schedule of a dataset.
      */
-    schedule?: pulumi.Input<inputs.quicksight.RefreshScheduleMapArgs>;
+    schedule?: pulumi.Input<inputs.quicksight.RefreshScheduleMapArgs | undefined>;
 }

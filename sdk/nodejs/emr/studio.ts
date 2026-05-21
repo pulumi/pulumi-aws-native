@@ -214,11 +214,11 @@ export interface StudioArgs {
     /**
      * A detailed description of the Studio.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The AWS KMS key identifier (ARN) used to encrypt AWS EMR Studio workspace and notebook files when backed up to AWS S3.
      */
-    encryptionKeyArn?: pulumi.Input<string>;
+    encryptionKeyArn?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Amazon EMR Studio Engine security group. The Engine security group allows inbound network traffic from the Workspace security group, and it must be in the same VPC specified by VpcId.
      */
@@ -226,23 +226,23 @@ export interface StudioArgs {
     /**
      * The ARN of the IAM Identity Center instance to create the Studio application.
      */
-    idcInstanceArn?: pulumi.Input<string>;
+    idcInstanceArn?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether IAM Identity Center user assignment is REQUIRED or OPTIONAL. If the value is set to REQUIRED, users must be explicitly assigned to the Studio application to access the Studio.
      */
-    idcUserAssignment?: pulumi.Input<enums.emr.StudioIdcUserAssignment>;
+    idcUserAssignment?: pulumi.Input<enums.emr.StudioIdcUserAssignment | undefined>;
     /**
      * Your identity provider's authentication endpoint. Amazon EMR Studio redirects federated users to this endpoint for authentication when logging in to a Studio with the Studio URL.
      */
-    idpAuthUrl?: pulumi.Input<string>;
+    idpAuthUrl?: pulumi.Input<string | undefined>;
     /**
      * The name of relay state parameter for external Identity Provider.
      */
-    idpRelayStateParameterName?: pulumi.Input<string>;
+    idpRelayStateParameterName?: pulumi.Input<string | undefined>;
     /**
      * A descriptive name for the Amazon EMR Studio.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The IAM role that will be assumed by the Amazon EMR Studio. The service role provides a way for Amazon EMR Studio to interoperate with other AWS services.
      */
@@ -254,15 +254,15 @@ export interface StudioArgs {
     /**
      * A list of tags to associate with the Studio. Tags are user-defined key-value pairs that consist of a required key string with a maximum of 128 characters, and an optional value string with a maximum of 256 characters.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * A Boolean indicating whether to enable Trusted identity propagation for the Studio. The default value is false.
      */
-    trustedIdentityPropagationEnabled?: pulumi.Input<boolean>;
+    trustedIdentityPropagationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The IAM user role that will be assumed by users and groups logged in to a Studio. The permissions attached to this IAM role can be scoped down for each user or group using session policies.
      */
-    userRole?: pulumi.Input<string>;
+    userRole?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the Studio.
      */

@@ -117,7 +117,7 @@ export interface MailManagerTrafficPolicyArgs {
     /**
      * The maximum message size in bytes of email which is allowed in by this traffic policy—anything larger will be blocked.
      */
-    maxMessageSizeBytes?: pulumi.Input<number>;
+    maxMessageSizeBytes?: pulumi.Input<number | undefined>;
     /**
      * Conditional statements for filtering email traffic.
      */
@@ -125,11 +125,11 @@ export interface MailManagerTrafficPolicyArgs {
     /**
      * The tags used to organize, track, or control access for the resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The name of the policy.
      *
      * The policy name cannot exceed 64 characters and can only include alphanumeric characters, dashes, and underscores.
      */
-    trafficPolicyName?: pulumi.Input<string>;
+    trafficPolicyName?: pulumi.Input<string | undefined>;
 }

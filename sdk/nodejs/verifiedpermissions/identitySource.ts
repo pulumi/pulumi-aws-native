@@ -132,5 +132,5 @@ export interface IdentitySourceArgs {
     /**
      * Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
      */
-    principalEntityType?: pulumi.Input<string>;
+    principalEntityType?: pulumi.Input<string | undefined>;
 }

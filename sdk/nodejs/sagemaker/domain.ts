@@ -185,11 +185,11 @@ export interface DomainArgs {
     /**
      * Specifies the VPC used for non-EFS traffic. The default value is PublicInternetOnly.
      */
-    appNetworkAccessType?: pulumi.Input<enums.sagemaker.DomainAppNetworkAccessType>;
+    appNetworkAccessType?: pulumi.Input<enums.sagemaker.DomainAppNetworkAccessType | undefined>;
     /**
      * The entity that creates and manages the required security groups for inter-app communication in VPCOnly mode. Required when CreateDomain.AppNetworkAccessType is VPCOnly and DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn is provided.
      */
-    appSecurityGroupManagement?: pulumi.Input<enums.sagemaker.DomainAppSecurityGroupManagement>;
+    appSecurityGroupManagement?: pulumi.Input<enums.sagemaker.DomainAppSecurityGroupManagement | undefined>;
     /**
      * The mode of authentication that members use to access the domain.
      */
@@ -197,7 +197,7 @@ export interface DomainArgs {
     /**
      * The default space settings.
      */
-    defaultSpaceSettings?: pulumi.Input<inputs.sagemaker.DomainDefaultSpaceSettingsArgs>;
+    defaultSpaceSettings?: pulumi.Input<inputs.sagemaker.DomainDefaultSpaceSettingsArgs | undefined>;
     /**
      * The default user settings.
      */
@@ -205,29 +205,29 @@ export interface DomainArgs {
     /**
      * A name for the domain.
      */
-    domainName?: pulumi.Input<string>;
+    domainName?: pulumi.Input<string | undefined>;
     /**
      * A collection of settings that apply to the `SageMaker Domain` . These settings are specified through the `CreateDomain` API call.
      */
-    domainSettings?: pulumi.Input<inputs.sagemaker.DomainSettingsArgs>;
+    domainSettings?: pulumi.Input<inputs.sagemaker.DomainSettingsArgs | undefined>;
     /**
      * SageMaker uses AWS KMS to encrypt the EFS volume attached to the domain with an AWS managed customer master key (CMK) by default.
      */
-    kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * The VPC subnets that Studio uses for communication.
      */
-    subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    subnetIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Indicates whether the tags added to Domain, User Profile and Space entity is propagated to all SageMaker resources.
      */
-    tagPropagation?: pulumi.Input<enums.sagemaker.DomainTagPropagation>;
+    tagPropagation?: pulumi.Input<enums.sagemaker.DomainTagPropagation | undefined>;
     /**
      * A list of tags to apply to the user profile.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
      */
-    vpcId?: pulumi.Input<string>;
+    vpcId?: pulumi.Input<string | undefined>;
 }

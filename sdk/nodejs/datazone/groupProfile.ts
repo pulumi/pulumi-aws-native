@@ -123,14 +123,14 @@ export interface GroupProfileArgs {
     /**
      * The ID of the group.
      */
-    groupIdentifier?: pulumi.Input<string>;
-    groupType?: pulumi.Input<enums.datazone.GroupProfileGroupType>;
+    groupIdentifier?: pulumi.Input<string | undefined>;
+    groupType?: pulumi.Input<enums.datazone.GroupProfileGroupType | undefined>;
     /**
      * The ARN of the role principal for the group profile.
      */
-    rolePrincipalArn?: pulumi.Input<string>;
+    rolePrincipalArn?: pulumi.Input<string | undefined>;
     /**
      * The status of a group profile.
      */
-    status?: pulumi.Input<enums.datazone.GroupProfileStatus>;
+    status?: pulumi.Input<enums.datazone.GroupProfileStatus | undefined>;
 }

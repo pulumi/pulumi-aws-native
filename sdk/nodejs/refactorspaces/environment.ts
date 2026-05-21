@@ -107,17 +107,17 @@ export interface EnvironmentArgs {
     /**
      * A description of the environment.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the environment.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The network fabric type of the environment.
      */
-    networkFabricType?: pulumi.Input<enums.refactorspaces.EnvironmentNetworkFabricType>;
+    networkFabricType?: pulumi.Input<enums.refactorspaces.EnvironmentNetworkFabricType | undefined>;
     /**
      * Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

@@ -249,29 +249,29 @@ export interface WorkGroupArgs {
     /**
      * The workgroup description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The workGroup name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The option to delete the workgroup and its contents even if the workgroup contains any named queries.
      */
-    recursiveDeleteOption?: pulumi.Input<boolean>;
+    recursiveDeleteOption?: pulumi.Input<boolean | undefined>;
     /**
      * The state of the workgroup: ENABLED or DISABLED.
      */
-    state?: pulumi.Input<enums.athena.WorkGroupState>;
+    state?: pulumi.Input<enums.athena.WorkGroupState | undefined>;
     /**
      * One or more tags, separated by commas, that you want to attach to the workgroup as you create it
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The workgroup configuration
      */
-    workGroupConfiguration?: pulumi.Input<inputs.athena.WorkGroupConfigurationArgs>;
+    workGroupConfiguration?: pulumi.Input<inputs.athena.WorkGroupConfigurationArgs | undefined>;
     /**
      * The workgroup configuration update object
      */
-    workGroupConfigurationUpdates?: pulumi.Input<inputs.athena.WorkGroupConfigurationUpdatesArgs>;
+    workGroupConfigurationUpdates?: pulumi.Input<inputs.athena.WorkGroupConfigurationUpdatesArgs | undefined>;
 }

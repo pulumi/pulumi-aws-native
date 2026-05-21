@@ -148,11 +148,11 @@ export interface ScheduleArgs {
     /**
      * The description of the schedule.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The date, in UTC, before which the schedule can invoke its target. Depending on the schedule's recurrence expression, invocations might stop on, or before, the EndDate you specify.
      */
-    endDate?: pulumi.Input<string>;
+    endDate?: pulumi.Input<string | undefined>;
     /**
      * Allows you to configure a time window during which EventBridge Scheduler invokes the schedule.
      */
@@ -160,15 +160,15 @@ export interface ScheduleArgs {
     /**
      * The name of the schedule group to associate with this schedule. If you omit this, the default schedule group is used.
      */
-    groupName?: pulumi.Input<string>;
+    groupName?: pulumi.Input<string | undefined>;
     /**
      * The ARN for a KMS Key that will be used to encrypt customer data.
      */
-    kmsKeyArn?: pulumi.Input<string>;
+    kmsKeyArn?: pulumi.Input<string | undefined>;
     /**
      * The name of the schedule.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The scheduling expression.
      */
@@ -176,17 +176,17 @@ export interface ScheduleArgs {
     /**
      * The timezone in which the scheduling expression is evaluated.
      */
-    scheduleExpressionTimezone?: pulumi.Input<string>;
+    scheduleExpressionTimezone?: pulumi.Input<string | undefined>;
     /**
      * The date, in UTC, after which the schedule can begin invoking its target. Depending on the schedule's recurrence expression, invocations might occur on, or after, the StartDate you specify.
      */
-    startDate?: pulumi.Input<string>;
+    startDate?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the schedule is enabled or disabled.
      *
      * *Allowed Values* : `ENABLED` | `DISABLED`
      */
-    state?: pulumi.Input<enums.scheduler.ScheduleState>;
+    state?: pulumi.Input<enums.scheduler.ScheduleState | undefined>;
     /**
      * The schedule's target details.
      */

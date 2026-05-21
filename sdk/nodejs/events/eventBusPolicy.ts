@@ -103,22 +103,22 @@ export interface EventBusPolicyArgs {
     /**
      * The action that you are enabling the other account to perform.
      */
-    action?: pulumi.Input<string>;
-    condition?: pulumi.Input<inputs.events.EventBusPolicyConditionArgs>;
+    action?: pulumi.Input<string | undefined>;
+    condition?: pulumi.Input<inputs.events.EventBusPolicyConditionArgs | undefined>;
     /**
      * The name of the event bus associated with the rule. If you omit this, the default event bus is used.
      */
-    eventBusName?: pulumi.Input<string>;
+    eventBusName?: pulumi.Input<string | undefined>;
     /**
      * The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify "*" to permit any account to put events to your default event bus.
      */
-    principal?: pulumi.Input<string>;
+    principal?: pulumi.Input<string | undefined>;
     /**
      * A JSON string that describes the permission policy statement. You can include a Policy parameter in the request instead of using the StatementId, Action, Principal, or Condition parameters.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::EventBusPolicy` for more information about the expected schema for this property.
      */
-    statement?: any;
+    statement?: any | undefined;
     /**
      * An identifier string for the external account that you are granting permissions to
      */

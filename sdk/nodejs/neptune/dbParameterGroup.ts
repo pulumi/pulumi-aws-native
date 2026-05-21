@@ -118,7 +118,7 @@ export interface DbParameterGroupArgs {
     /**
      * Provides the name of the DB parameter group.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The parameters to set for this DB parameter group.
      *
@@ -132,5 +132,5 @@ export interface DbParameterGroupArgs {
     /**
      * An optional array of key-value pairs to apply to this DB parameter group.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

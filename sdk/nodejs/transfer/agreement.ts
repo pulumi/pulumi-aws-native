@@ -159,19 +159,19 @@ export interface AgreementArgs {
     /**
      * Specifies the base directory for the agreement.
      */
-    baseDirectory?: pulumi.Input<string>;
+    baseDirectory?: pulumi.Input<string | undefined>;
     /**
      * Specifies a separate directory for each type of file to store for an AS2 message.
      */
-    customDirectories?: pulumi.Input<inputs.transfer.CustomDirectoriesPropertiesArgs>;
+    customDirectories?: pulumi.Input<inputs.transfer.CustomDirectoriesPropertiesArgs | undefined>;
     /**
      * A textual description for the agreement.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether to enforce an AS2 message is signed for this agreement.
      */
-    enforceMessageSigning?: pulumi.Input<enums.transfer.AgreementEnforceMessageSigning>;
+    enforceMessageSigning?: pulumi.Input<enums.transfer.AgreementEnforceMessageSigning | undefined>;
     /**
      * A unique identifier for the local profile.
      */
@@ -183,7 +183,7 @@ export interface AgreementArgs {
     /**
      * Specifies whether to preserve the filename received for this agreement.
      */
-    preserveFilename?: pulumi.Input<enums.transfer.AgreementPreserveFilename>;
+    preserveFilename?: pulumi.Input<enums.transfer.AgreementPreserveFilename | undefined>;
     /**
      * A unique identifier for the server.
      */
@@ -191,9 +191,9 @@ export interface AgreementArgs {
     /**
      * Specifies the status of the agreement.
      */
-    status?: pulumi.Input<enums.transfer.AgreementStatus>;
+    status?: pulumi.Input<enums.transfer.AgreementStatus | undefined>;
     /**
      * Key-value pairs that can be used to group and search for agreements. Tags are metadata attached to agreements for any purpose.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

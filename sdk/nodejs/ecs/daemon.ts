@@ -128,31 +128,31 @@ export interface DaemonArgs {
     /**
      * The Amazon Resource Names (ARNs) of the capacity providers associated with the daemon.
      */
-    capacityProviderArns?: pulumi.Input<pulumi.Input<string>[]>;
+    capacityProviderArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the cluster that the daemon is running in.
      */
-    clusterArn?: pulumi.Input<string>;
-    daemonName?: pulumi.Input<string>;
+    clusterArn?: pulumi.Input<string | undefined>;
+    daemonName?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the daemon task definition used by this revision.
      */
-    daemonTaskDefinitionArn?: pulumi.Input<string>;
+    daemonTaskDefinitionArn?: pulumi.Input<string | undefined>;
     /**
      * The deployment configuration used for this daemon deployment.
      */
-    deploymentConfiguration?: pulumi.Input<inputs.ecs.DaemonDeploymentConfigurationArgs>;
+    deploymentConfiguration?: pulumi.Input<inputs.ecs.DaemonDeploymentConfigurationArgs | undefined>;
     /**
      * Specifies whether Amazon ECS managed tags are turned on for the daemon tasks.
      */
-    enableEcsManagedTags?: pulumi.Input<boolean>;
+    enableEcsManagedTags?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies whether the execute command functionality is turned on for the daemon tasks.
      */
-    enableExecuteCommand?: pulumi.Input<boolean>;
+    enableExecuteCommand?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies whether tags are propagated from the daemon to the daemon tasks.
      */
-    propagateTags?: pulumi.Input<enums.ecs.DaemonPropagateTags>;
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    propagateTags?: pulumi.Input<enums.ecs.DaemonPropagateTags | undefined>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

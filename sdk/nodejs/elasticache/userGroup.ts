@@ -114,7 +114,7 @@ export interface UserGroupArgs {
     /**
      * An array of key-value pairs to apply to this user.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The ID of the user group.
      */

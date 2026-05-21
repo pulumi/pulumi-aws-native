@@ -132,11 +132,11 @@ export interface RestoreTestingSelectionArgs {
     /**
      * You can include specific ARNs, such as `ProtectedResourceArns: ["arn:aws:...", "arn:aws:..."]` or you can include a wildcard: `ProtectedResourceArns: ["*"]` , but not both.
      */
-    protectedResourceArns?: pulumi.Input<pulumi.Input<string>[]>;
+    protectedResourceArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * In a resource testing selection, this parameter filters by specific conditions such as `StringEquals` or `StringNotEquals` .
      */
-    protectedResourceConditions?: pulumi.Input<inputs.backup.RestoreTestingSelectionProtectedResourceConditionsArgs>;
+    protectedResourceConditions?: pulumi.Input<inputs.backup.RestoreTestingSelectionProtectedResourceConditionsArgs | undefined>;
     /**
      * The type of AWS resource included in a resource testing selection; for example, an Amazon EBS volume or an Amazon RDS database.
      */
@@ -146,7 +146,7 @@ export interface RestoreTestingSelectionArgs {
      *
      * See the complete list of [restore testing inferred metadata](https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-testing-inferred-metadata.html) .
      */
-    restoreMetadataOverrides?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    restoreMetadataOverrides?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Unique string that is the name of the restore testing plan.
      *
@@ -158,9 +158,9 @@ export interface RestoreTestingSelectionArgs {
      *
      * The name consists of only alphanumeric characters and underscores. Maximum length is 50.
      */
-    restoreTestingSelectionName?: pulumi.Input<string>;
+    restoreTestingSelectionName?: pulumi.Input<string | undefined>;
     /**
      * This is amount of hours (1 to 168) available to run a validation script on the data. The data will be deleted upon the completion of the validation script or the end of the specified retention period, whichever comes first.
      */
-    validationWindowHours?: pulumi.Input<number>;
+    validationWindowHours?: pulumi.Input<number | undefined>;
 }

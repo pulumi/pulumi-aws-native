@@ -104,7 +104,7 @@ export interface AccessPointArgs {
     /**
      * The name you want to assign to this Object lambda Access Point.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The Object lambda Access Point Configuration that configures transformations to be applied on the objects on specified S3 Actions
      */

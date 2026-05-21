@@ -135,7 +135,7 @@ export interface RoutingProfileArgs {
     /**
      * Whether agents with this routing profile will have their routing order calculated based on longest idle time or time since their last inbound contact.
      */
-    agentAvailabilityTimer?: pulumi.Input<enums.connect.RoutingProfileAgentAvailabilityTimer>;
+    agentAvailabilityTimer?: pulumi.Input<enums.connect.RoutingProfileAgentAvailabilityTimer | undefined>;
     /**
      * The identifier of the default outbound queue for this routing profile.
      */
@@ -151,7 +151,7 @@ export interface RoutingProfileArgs {
     /**
      * The manual assignment queues to associate with this routing profile.
      */
-    manualAssignmentQueueConfigs?: pulumi.Input<pulumi.Input<inputs.connect.RoutingProfileManualAssignmentQueueConfigArgs>[]>;
+    manualAssignmentQueueConfigs?: pulumi.Input<pulumi.Input<inputs.connect.RoutingProfileManualAssignmentQueueConfigArgs>[] | undefined>;
     /**
      * The channels agents can handle in the Contact Control Panel (CCP) for this routing profile.
      */
@@ -159,13 +159,13 @@ export interface RoutingProfileArgs {
     /**
      * The name of the routing profile.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The queues to associate with this routing profile.
      */
-    queueConfigs?: pulumi.Input<pulumi.Input<inputs.connect.RoutingProfileQueueConfigArgs>[]>;
+    queueConfigs?: pulumi.Input<pulumi.Input<inputs.connect.RoutingProfileQueueConfigArgs>[] | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

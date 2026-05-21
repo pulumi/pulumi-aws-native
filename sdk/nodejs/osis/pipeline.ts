@@ -161,15 +161,15 @@ export interface PipelineArgs {
     /**
      * Options that specify the configuration of a persistent buffer. To configure how OpenSearch Ingestion encrypts this data, set the `EncryptionAtRestOptions` . For more information, see [Persistent buffering](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/osis-features-overview.html#persistent-buffering) .
      */
-    bufferOptions?: pulumi.Input<inputs.osis.PipelineBufferOptionsArgs>;
+    bufferOptions?: pulumi.Input<inputs.osis.PipelineBufferOptionsArgs | undefined>;
     /**
      * Options to control how OpenSearch encrypts buffer data.
      */
-    encryptionAtRestOptions?: pulumi.Input<inputs.osis.PipelineEncryptionAtRestOptionsArgs>;
+    encryptionAtRestOptions?: pulumi.Input<inputs.osis.PipelineEncryptionAtRestOptionsArgs | undefined>;
     /**
      * Key-value pairs that represent log publishing settings.
      */
-    logPublishingOptions?: pulumi.Input<inputs.osis.PipelineLogPublishingOptionsArgs>;
+    logPublishingOptions?: pulumi.Input<inputs.osis.PipelineLogPublishingOptionsArgs | undefined>;
     /**
      * The maximum pipeline capacity, in Ingestion OpenSearch Compute Units (OCUs).
      */
@@ -185,18 +185,18 @@ export interface PipelineArgs {
     /**
      * Name of the OpenSearch Ingestion Service pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
      */
-    pipelineName?: pulumi.Input<string>;
+    pipelineName?: pulumi.Input<string | undefined>;
     /**
      * The Pipeline Role (ARN) for the pipeline.
      */
-    pipelineRoleArn?: pulumi.Input<string>;
-    resourcePolicy?: pulumi.Input<inputs.osis.PipelineResourcePolicyArgs>;
+    pipelineRoleArn?: pulumi.Input<string | undefined>;
+    resourcePolicy?: pulumi.Input<inputs.osis.PipelineResourcePolicyArgs | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * Options that specify the subnets and security groups for an OpenSearch Ingestion VPC endpoint.
      */
-    vpcOptions?: pulumi.Input<inputs.osis.PipelineVpcOptionsArgs>;
+    vpcOptions?: pulumi.Input<inputs.osis.PipelineVpcOptionsArgs | undefined>;
 }

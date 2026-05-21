@@ -180,7 +180,7 @@ export interface ScalingPolicyArgs {
      * The name of the scaling policy.
      *  Updates to the name of a target tracking scaling policy are not supported, unless you also update the metric used for scaling. To change only a target tracking scaling policy's name, first delete the policy by removing the existing ``AWS::ApplicationAutoScaling::ScalingPolicy`` resource from the template and updating the stack. Then, recreate the resource with the same settings and a different name.
      */
-    policyName?: pulumi.Input<string>;
+    policyName?: pulumi.Input<string | undefined>;
     /**
      * The scaling policy type.
      *  The following policy types are supported: 
@@ -192,7 +192,7 @@ export interface ScalingPolicyArgs {
     /**
      * The predictive scaling policy configuration.
      */
-    predictiveScalingPolicyConfiguration?: pulumi.Input<inputs.applicationautoscaling.ScalingPolicyPredictiveScalingPolicyConfigurationArgs>;
+    predictiveScalingPolicyConfiguration?: pulumi.Input<inputs.applicationautoscaling.ScalingPolicyPredictiveScalingPolicyConfigurationArgs | undefined>;
     /**
      * The identifier of the resource associated with the scaling policy. This string consists of the resource type and unique identifier.
      *   +  ECS service - The resource type is ``service`` and the unique identifier is the cluster name and service name. Example: ``service/my-cluster/my-service``.
@@ -216,7 +216,7 @@ export interface ScalingPolicyArgs {
      *   +  SageMaker inference component - The resource type is ``inference-component`` and the unique identifier is the resource ID. Example: ``inference-component/my-inference-component``.
      *   +  Pool of WorkSpaces - The resource type is ``workspacespool`` and the unique identifier is the pool ID. Example: ``workspacespool/wspool-123456``.
      */
-    resourceId?: pulumi.Input<string>;
+    resourceId?: pulumi.Input<string | undefined>;
     /**
      * The scalable dimension. This string consists of the service namespace, resource type, and scaling property.
      *   +  ``ecs:service:DesiredCount`` - The task count of an ECS service.
@@ -244,22 +244,22 @@ export interface ScalingPolicyArgs {
      *   +  ``sagemaker:inference-component:DesiredCopyCount`` - The number of copies across an endpoint for a SageMaker inference component.
      *   +  ``workspaces:workspacespool:DesiredUserSessions`` - The number of user sessions for the WorkSpaces in the pool.
      */
-    scalableDimension?: pulumi.Input<string>;
+    scalableDimension?: pulumi.Input<string | undefined>;
     /**
      * The CloudFormation-generated ID of an Application Auto Scaling scalable target. For more information about the ID, see the Return Value section of the ``AWS::ApplicationAutoScaling::ScalableTarget`` resource.
      *   You must specify either the ``ScalingTargetId`` property, or the ``ResourceId``, ``ScalableDimension``, and ``ServiceNamespace`` properties, but not both.
      */
-    scalingTargetId?: pulumi.Input<string>;
+    scalingTargetId?: pulumi.Input<string | undefined>;
     /**
      * The namespace of the AWS service that provides the resource, or a ``custom-resource``.
      */
-    serviceNamespace?: pulumi.Input<string>;
+    serviceNamespace?: pulumi.Input<string | undefined>;
     /**
      * A step scaling policy.
      */
-    stepScalingPolicyConfiguration?: pulumi.Input<inputs.applicationautoscaling.ScalingPolicyStepScalingPolicyConfigurationArgs>;
+    stepScalingPolicyConfiguration?: pulumi.Input<inputs.applicationautoscaling.ScalingPolicyStepScalingPolicyConfigurationArgs | undefined>;
     /**
      * A target tracking scaling policy.
      */
-    targetTrackingScalingPolicyConfiguration?: pulumi.Input<inputs.applicationautoscaling.ScalingPolicyTargetTrackingScalingPolicyConfigurationArgs>;
+    targetTrackingScalingPolicyConfiguration?: pulumi.Input<inputs.applicationautoscaling.ScalingPolicyTargetTrackingScalingPolicyConfigurationArgs | undefined>;
 }

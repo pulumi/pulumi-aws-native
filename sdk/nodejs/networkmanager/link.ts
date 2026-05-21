@@ -144,7 +144,7 @@ export interface LinkArgs {
     /**
      * The description of the link.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The ID of the global network.
      */
@@ -152,7 +152,7 @@ export interface LinkArgs {
     /**
      * The provider of the link.
      */
-    provider?: pulumi.Input<string>;
+    provider?: pulumi.Input<string | undefined>;
     /**
      * The ID of the site
      */
@@ -160,9 +160,9 @@ export interface LinkArgs {
     /**
      * The tags for the link.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The type of the link.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }

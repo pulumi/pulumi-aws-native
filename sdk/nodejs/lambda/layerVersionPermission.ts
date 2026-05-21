@@ -109,7 +109,7 @@ export interface LayerVersionPermissionArgs {
     /**
      * With the principal set to *, grant permission to all accounts in the specified organization.
      */
-    organizationId?: pulumi.Input<string>;
+    organizationId?: pulumi.Input<string | undefined>;
     /**
      * An account ID, or * to grant layer usage permission to all accounts in an organization, or all AWS accounts (if organizationId is not specified).
      */

@@ -131,11 +131,11 @@ export interface LandingZoneArgs {
     /**
      * The types of remediation actions configured for the landing zone, such as automatic drift correction or compliance enforcement.
      */
-    remediationTypes?: pulumi.Input<pulumi.Input<enums.controltower.LandingZoneRemediationTypesItem>[]>;
+    remediationTypes?: pulumi.Input<pulumi.Input<enums.controltower.LandingZoneRemediationTypesItem>[] | undefined>;
     /**
      * Tags to be applied to the landing zone.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The landing zone's current deployed version.
      */

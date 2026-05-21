@@ -109,27 +109,27 @@ export interface EnvironmentTemplateArgs {
     /**
      * <p>A description of the environment template.</p>
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * <p>The environment template name as displayed in the developer interface.</p>
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * <p>A customer provided encryption key that Proton uses to encrypt data.</p>
      */
-    encryptionKey?: pulumi.Input<string>;
+    encryptionKey?: pulumi.Input<string | undefined>;
     /**
      * The name of the environment template.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * When included, indicates that the environment template is for customer provisioned and managed infrastructure.
      */
-    provisioning?: pulumi.Input<enums.proton.EnvironmentTemplateProvisioning>;
+    provisioning?: pulumi.Input<enums.proton.EnvironmentTemplateProvisioning | undefined>;
     /**
      * <p>An optional list of metadata items that you can associate with the Proton environment template. A tag is a key-value pair.</p>
      *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
      *         <i>Proton User Guide</i>.</p>
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

@@ -96,9 +96,9 @@ export interface StorageLensGroupArgs {
     /**
      * This property contains the Storage Lens group name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A set of tags (key-value pairs) for this Amazon S3 Storage Lens Group.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

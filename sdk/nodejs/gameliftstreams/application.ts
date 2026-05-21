@@ -137,11 +137,11 @@ export interface ApplicationArgs {
     /**
      * An Amazon S3 URI to a bucket where you would like Amazon GameLift Streams to save application logs. Required if you specify one or more `ApplicationLogPaths` .
      */
-    applicationLogOutputUri?: pulumi.Input<string>;
+    applicationLogOutputUri?: pulumi.Input<string | undefined>;
     /**
      * Locations of log files that your content generates during a stream session. Enter path values that are relative to the `ApplicationSourceUri` location. You can specify up to 10 log paths. Amazon GameLift Streams uploads designated log files to the Amazon S3 bucket that you specify in `ApplicationLogOutputUri` at the end of a stream session. To retrieve stored log files, call [GetStreamSession](https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_GetStreamSession.html) and get the `LogFileLocationUri` .
      */
-    applicationLogPaths?: pulumi.Input<pulumi.Input<string>[]>;
+    applicationLogPaths?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The location of the content that you want to stream. Enter an Amazon S3 URI to a bucket that contains your game or other application. The location can have a multi-level prefix structure, but it must include all the files needed to run the content. Amazon GameLift Streams copies everything under the specified location.
      *
@@ -165,5 +165,5 @@ export interface ApplicationArgs {
     /**
      * A list of labels to assign to the new application resource. Tags are developer-defined key-value pairs. Tagging AWS resources is useful for resource management, access management and cost allocation. See [Tagging AWS Resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in the *AWS General Reference* .
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

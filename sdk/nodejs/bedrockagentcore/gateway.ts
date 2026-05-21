@@ -168,7 +168,7 @@ export class Gateway extends pulumi.CustomResource {
  * The set of arguments for constructing a Gateway resource.
  */
 export interface GatewayArgs {
-    authorizerConfiguration?: pulumi.Input<inputs.bedrockagentcore.GatewayAuthorizerConfigurationPropertiesArgs>;
+    authorizerConfiguration?: pulumi.Input<inputs.bedrockagentcore.GatewayAuthorizerConfigurationPropertiesArgs | undefined>;
     /**
      * The authorizer type for the gateway.
      */
@@ -176,25 +176,25 @@ export interface GatewayArgs {
     /**
      * The description for the gateway.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The exception level for the gateway.
      */
-    exceptionLevel?: pulumi.Input<enums.bedrockagentcore.GatewayExceptionLevel>;
-    interceptorConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrockagentcore.GatewayInterceptorConfigurationArgs>[]>;
+    exceptionLevel?: pulumi.Input<enums.bedrockagentcore.GatewayExceptionLevel | undefined>;
+    interceptorConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrockagentcore.GatewayInterceptorConfigurationArgs>[] | undefined>;
     /**
      * The KMS key ARN for the gateway.
      */
-    kmsKeyArn?: pulumi.Input<string>;
+    kmsKeyArn?: pulumi.Input<string | undefined>;
     /**
      * The name for the gateway.
      */
-    name?: pulumi.Input<string>;
-    policyEngineConfiguration?: pulumi.Input<inputs.bedrockagentcore.GatewayPolicyEngineConfigurationArgs>;
+    name?: pulumi.Input<string | undefined>;
+    policyEngineConfiguration?: pulumi.Input<inputs.bedrockagentcore.GatewayPolicyEngineConfigurationArgs | undefined>;
     /**
      * The protocol configuration for the gateway target.
      */
-    protocolConfiguration?: pulumi.Input<inputs.bedrockagentcore.GatewayProtocolConfigurationPropertiesArgs>;
+    protocolConfiguration?: pulumi.Input<inputs.bedrockagentcore.GatewayProtocolConfigurationPropertiesArgs | undefined>;
     /**
      * The protocol type for the gateway target.
      */
@@ -203,5 +203,5 @@ export interface GatewayArgs {
     /**
      * The tags for the gateway.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

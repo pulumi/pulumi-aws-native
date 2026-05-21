@@ -329,110 +329,110 @@ export interface AutoScalingGroupArgs {
      *  The name can contain any ASCII character 33 to 126 including most punctuation characters, digits, and upper and lowercased letters.
      *   You cannot use a colon (:) in the name.
      */
-    autoScalingGroupName?: pulumi.Input<string>;
+    autoScalingGroupName?: pulumi.Input<string | undefined>;
     /**
      * The EC2 instance capacity distribution across Availability Zones for the Auto Scaling group.
      */
-    availabilityZoneDistribution?: pulumi.Input<inputs.autoscaling.AutoScalingGroupAvailabilityZoneDistributionArgs>;
+    availabilityZoneDistribution?: pulumi.Input<inputs.autoscaling.AutoScalingGroupAvailabilityZoneDistributionArgs | undefined>;
     /**
      * The Availability Zone IDs where the Auto Scaling group can launch instances.
      */
-    availabilityZoneIds?: pulumi.Input<pulumi.Input<string>[]>;
+    availabilityZoneIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The Availability Zone impairment policy for the Auto Scaling group.
      */
-    availabilityZoneImpairmentPolicy?: pulumi.Input<inputs.autoscaling.AutoScalingGroupAvailabilityZoneImpairmentPolicyArgs>;
+    availabilityZoneImpairmentPolicy?: pulumi.Input<inputs.autoscaling.AutoScalingGroupAvailabilityZoneImpairmentPolicyArgs | undefined>;
     /**
      * A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the ``VPCZoneIdentifier`` property, or for attaching a network interface when an existing network interface ID is specified in a launch template.
      */
-    availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
+    availabilityZones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Indicates whether Capacity Rebalancing is enabled. Otherwise, Capacity Rebalancing is disabled. When you turn on Capacity Rebalancing, Amazon EC2 Auto Scaling attempts to launch a Spot Instance whenever Amazon EC2 notifies that a Spot Instance is at an elevated risk of interruption. After launching a new instance, it then terminates an old instance. For more information, see [Use Capacity Rebalancing to handle Amazon EC2 Spot Interruptions](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-capacity-rebalancing.html) in the in the *Amazon EC2 Auto Scaling User Guide*.
      */
-    capacityRebalance?: pulumi.Input<boolean>;
+    capacityRebalance?: pulumi.Input<boolean | undefined>;
     /**
      * The capacity reservation specification for the Auto Scaling group.
      */
-    capacityReservationSpecification?: pulumi.Input<inputs.autoscaling.AutoScalingGroupCapacityReservationSpecificationArgs>;
+    capacityReservationSpecification?: pulumi.Input<inputs.autoscaling.AutoScalingGroupCapacityReservationSpecificationArgs | undefined>;
     /**
      * Reserved.
      */
-    context?: pulumi.Input<string>;
+    context?: pulumi.Input<string | undefined>;
     /**
      * *Only needed if you use simple scaling policies.* 
      *  The amount of time, in seconds, between one scaling activity ending and another one starting due to simple scaling policies. For more information, see [Scaling cooldowns for Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-scaling-cooldowns.html) in the *Amazon EC2 Auto Scaling User Guide*.
      *  Default: ``300`` seconds
      */
-    cooldown?: pulumi.Input<string>;
+    cooldown?: pulumi.Input<string | undefined>;
     /**
      * The amount of time, in seconds, until a new instance is considered to have finished initializing and resource consumption to become stable after it enters the ``InService`` state. 
      *  During an instance refresh, Amazon EC2 Auto Scaling waits for the warm-up period after it replaces an instance before it moves on to replacing the next instance. Amazon EC2 Auto Scaling also waits for the warm-up period before aggregating the metrics for new instances with existing instances in the Amazon CloudWatch metrics that are used for scaling, resulting in more reliable usage data. For more information, see [Set the default instance warmup for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html) in the *Amazon EC2 Auto Scaling User Guide*.
      *   To manage various warm-up settings at the group level, we recommend that you set the default instance warmup, *even if it is set to 0 seconds*. To remove a value that you previously set, include the property but specify ``-1`` for the value. However, we strongly recommend keeping the default instance warmup enabled by specifying a value of ``0`` or other nominal value.
      *   Default: None
      */
-    defaultInstanceWarmup?: pulumi.Input<number>;
+    defaultInstanceWarmup?: pulumi.Input<number | undefined>;
     /**
      * The deletion protection setting for the Auto Scaling group.
      */
-    deletionProtection?: pulumi.Input<string>;
+    deletionProtection?: pulumi.Input<string | undefined>;
     /**
      * The desired capacity is the initial capacity of the Auto Scaling group at the time of its creation and the capacity it attempts to maintain. It can scale beyond this capacity if you configure automatic scaling.
      *  The number must be greater than or equal to the minimum size of the group and less than or equal to the maximum size of the group. If you do not specify a desired capacity when creating the stack, the default is the minimum size of the group.
      *  CloudFormation marks the Auto Scaling group as successful (by setting its status to CREATE_COMPLETE) when the desired capacity is reached. However, if a maximum Spot price is set in the launch template or launch configuration that you specified, then desired capacity is not used as a criteria for success. Whether your request is fulfilled depends on Spot Instance capacity and your maximum price.
      */
-    desiredCapacity?: pulumi.Input<string>;
+    desiredCapacity?: pulumi.Input<string | undefined>;
     /**
      * The unit of measurement for the value specified for desired capacity. Amazon EC2 Auto Scaling supports ``DesiredCapacityType`` for attribute-based instance type selection only. For more information, see [Create a mixed instances group using attribute-based instance type selection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-mixed-instances-group-attribute-based-instance-type-selection.html) in the *Amazon EC2 Auto Scaling User Guide*.
      *  By default, Amazon EC2 Auto Scaling specifies ``units``, which translates into number of instances.
      *  Valid values: ``units`` | ``vcpu`` | ``memory-mib``
      */
-    desiredCapacityType?: pulumi.Input<string>;
+    desiredCapacityType?: pulumi.Input<string | undefined>;
     /**
      * The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2 instance that has come into service and marking it unhealthy due to a failed health check. This is useful if your instances do not immediately pass their health checks after they enter the ``InService`` state. For more information, see [Set the health check grace period for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/health-check-grace-period.html) in the *Amazon EC2 Auto Scaling User Guide*.
      *  Default: ``0`` seconds
      */
-    healthCheckGracePeriod?: pulumi.Input<number>;
+    healthCheckGracePeriod?: pulumi.Input<number | undefined>;
     /**
      * A comma-separated value string of one or more health check types.
      *  The valid values are ``EC2``, ``EBS``, ``ELB``, and ``VPC_LATTICE``. ``EC2`` is the default health check and cannot be disabled. For more information, see [Health checks for instances in an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-health-checks.html) in the *Amazon EC2 Auto Scaling User Guide*.
      *  Only specify ``EC2`` if you must clear a value that was previously set.
      */
-    healthCheckType?: pulumi.Input<string>;
+    healthCheckType?: pulumi.Input<string | undefined>;
     /**
      * The ID of the instance used to base the launch configuration on. For more information, see [Create an Auto Scaling group using an EC2 instance](https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-from-instance.html) in the *Amazon EC2 Auto Scaling User Guide*.
      *  If you specify ``LaunchTemplate``, ``MixedInstancesPolicy``, or ``LaunchConfigurationName``, don't specify ``InstanceId``.
      */
-    instanceId?: pulumi.Input<string>;
+    instanceId?: pulumi.Input<string | undefined>;
     /**
      * The instance lifecycle policy for the Auto Scaling group.
      */
-    instanceLifecyclePolicy?: pulumi.Input<inputs.autoscaling.AutoScalingGroupInstanceLifecyclePolicyArgs>;
+    instanceLifecyclePolicy?: pulumi.Input<inputs.autoscaling.AutoScalingGroupInstanceLifecyclePolicyArgs | undefined>;
     /**
      * An instance maintenance policy. For more information, see [Set instance maintenance policy](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-maintenance-policy.html) in the *Amazon EC2 Auto Scaling User Guide*.
      */
-    instanceMaintenancePolicy?: pulumi.Input<inputs.autoscaling.AutoScalingGroupInstanceMaintenancePolicyArgs>;
+    instanceMaintenancePolicy?: pulumi.Input<inputs.autoscaling.AutoScalingGroupInstanceMaintenancePolicyArgs | undefined>;
     /**
      * The name of the launch configuration to use to launch instances.
      *  Required only if you don't specify ``LaunchTemplate``, ``MixedInstancesPolicy``, or ``InstanceId``.
      */
-    launchConfigurationName?: pulumi.Input<string>;
+    launchConfigurationName?: pulumi.Input<string | undefined>;
     /**
      * Information used to specify the launch template and version to use to launch instances. You can alternatively associate a launch template to the Auto Scaling group by specifying a ``MixedInstancesPolicy``. For more information about creating launch templates, see [Create a launch template for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-template.html) in the *Amazon EC2 Auto Scaling User Guide*.
      *  If you omit this property, you must specify ``MixedInstancesPolicy``, ``LaunchConfigurationName``, or ``InstanceId``.
      */
-    launchTemplate?: pulumi.Input<inputs.autoscaling.AutoScalingGroupLaunchTemplateSpecificationArgs>;
+    launchTemplate?: pulumi.Input<inputs.autoscaling.AutoScalingGroupLaunchTemplateSpecificationArgs | undefined>;
     /**
      * One or more lifecycle hooks to add to the Auto Scaling group before instances are launched.
      */
-    lifecycleHookSpecificationList?: pulumi.Input<pulumi.Input<inputs.autoscaling.AutoScalingGroupLifecycleHookSpecificationArgs>[]>;
+    lifecycleHookSpecificationList?: pulumi.Input<pulumi.Input<inputs.autoscaling.AutoScalingGroupLifecycleHookSpecificationArgs>[] | undefined>;
     /**
      * A list of Classic Load Balancers associated with this Auto Scaling group. For Application Load Balancers, Network Load Balancers, and Gateway Load Balancers, specify the ``TargetGroupARNs`` property instead.
      */
-    loadBalancerNames?: pulumi.Input<pulumi.Input<string>[]>;
+    loadBalancerNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The maximum amount of time, in seconds, that an instance can be in service. The default is null. If specified, the value must be either 0 or a number equal to or greater than 86,400 seconds (1 day). For more information, see [Replace Auto Scaling instances based on maximum instance lifetime](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-max-instance-lifetime.html) in the *Amazon EC2 Auto Scaling User Guide*.
      */
-    maxInstanceLifetime?: pulumi.Input<number>;
+    maxInstanceLifetime?: pulumi.Input<number | undefined>;
     /**
      * The maximum size of the group.
      *   With a mixed instances policy that uses instance weighting, Amazon EC2 Auto Scaling may need to go above ``MaxSize`` to meet your capacity requirements. In this event, Amazon EC2 Auto Scaling will never go above ``MaxSize`` by more than your largest instance weight (weights that define how many units each instance contributes to the desired capacity of the group).
@@ -441,7 +441,7 @@ export interface AutoScalingGroupArgs {
     /**
      * Enables the monitoring of group metrics of an Auto Scaling group. By default, these metrics are disabled.
      */
-    metricsCollection?: pulumi.Input<pulumi.Input<inputs.autoscaling.AutoScalingGroupMetricsCollectionArgs>[]>;
+    metricsCollection?: pulumi.Input<pulumi.Input<inputs.autoscaling.AutoScalingGroupMetricsCollectionArgs>[] | undefined>;
     /**
      * The minimum size of the group.
      */
@@ -451,48 +451,48 @@ export interface AutoScalingGroupArgs {
      *  The policy includes properties that not only define the distribution of On-Demand Instances and Spot Instances, the maximum price to pay for Spot Instances (optional), and how the Auto Scaling group allocates instance types to fulfill On-Demand and Spot capacities, but also the properties that specify the instance configuration information—the launch template and instance types. The policy can also include a weight for each instance type and different launch templates for individual instance types.
      *  For more information, see [Auto Scaling groups with multiple instance types and purchase options](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html) in the *Amazon EC2 Auto Scaling User Guide*.
      */
-    mixedInstancesPolicy?: pulumi.Input<inputs.autoscaling.AutoScalingGroupMixedInstancesPolicyArgs>;
+    mixedInstancesPolicy?: pulumi.Input<inputs.autoscaling.AutoScalingGroupMixedInstancesPolicyArgs | undefined>;
     /**
      * Indicates whether newly launched instances are protected from termination by Amazon EC2 Auto Scaling when scaling in. For more information about preventing instances from terminating on scale in, see [Use instance scale-in protection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html) in the *Amazon EC2 Auto Scaling User Guide*.
      */
-    newInstancesProtectedFromScaleIn?: pulumi.Input<boolean>;
-    notificationConfiguration?: pulumi.Input<inputs.autoscaling.AutoScalingGroupNotificationConfigurationArgs>;
+    newInstancesProtectedFromScaleIn?: pulumi.Input<boolean | undefined>;
+    notificationConfiguration?: pulumi.Input<inputs.autoscaling.AutoScalingGroupNotificationConfigurationArgs | undefined>;
     /**
      * Configures an Auto Scaling group to send notifications when specified events take place.
      */
-    notificationConfigurations?: pulumi.Input<pulumi.Input<inputs.autoscaling.AutoScalingGroupNotificationConfigurationArgs>[]>;
+    notificationConfigurations?: pulumi.Input<pulumi.Input<inputs.autoscaling.AutoScalingGroupNotificationConfigurationArgs>[] | undefined>;
     /**
      * The name of the placement group into which to launch your instances. For more information, see [Placement groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html) in the *Amazon EC2 User Guide*.
      *   A *cluster* placement group is a logical grouping of instances within a single Availability Zone. You cannot specify multiple Availability Zones and a cluster placement group.
      */
-    placementGroup?: pulumi.Input<string>;
+    placementGroup?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group uses to call other AWS service on your behalf. By default, Amazon EC2 Auto Scaling uses a service-linked role named ``AWSServiceRoleForAutoScaling``, which it creates if it does not exist. For more information, see [Service-linked roles](https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-service-linked-role.html) in the *Amazon EC2 Auto Scaling User Guide*.
      */
-    serviceLinkedRoleArn?: pulumi.Input<string>;
-    skipZonalShiftValidation?: pulumi.Input<boolean>;
+    serviceLinkedRoleArn?: pulumi.Input<string | undefined>;
+    skipZonalShiftValidation?: pulumi.Input<boolean | undefined>;
     /**
      * One or more tags. You can tag your Auto Scaling group and propagate the tags to the Amazon EC2 instances it launches. Tags are not propagated to Amazon EBS volumes. To add tags to Amazon EBS volumes, specify the tags in a launch template but use caution. If the launch template specifies an instance tag with a key that is also specified for the Auto Scaling group, Amazon EC2 Auto Scaling overrides the value of that instance tag with the value specified by the Auto Scaling group. For more information, see [Tag Auto Scaling groups and instances](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-tagging.html) in the *Amazon EC2 Auto Scaling User Guide*.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.autoscaling.AutoScalingGroupTagPropertyArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.autoscaling.AutoScalingGroupTagPropertyArgs>[] | undefined>;
     /**
      * The Amazon Resource Names (ARN) of the Elastic Load Balancing target groups to associate with the Auto Scaling group. Instances are registered as targets with the target groups. The target groups receive incoming traffic and route requests to one or more registered targets. For more information, see [Use Elastic Load Balancing to distribute traffic across the instances in your Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html) in the *Amazon EC2 Auto Scaling User Guide*.
      */
-    targetGroupArns?: pulumi.Input<pulumi.Input<string>[]>;
+    targetGroupArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A policy or a list of policies that are used to select the instance to terminate. These policies are executed in the order that you list them. For more information, see [Configure termination policies for Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-termination-policies.html) in the *Amazon EC2 Auto Scaling User Guide*.
      *  Valid values: ``Default`` | ``AllocationStrategy`` | ``ClosestToNextInstanceHour`` | ``NewestInstance`` | ``OldestInstance`` | ``OldestLaunchConfiguration`` | ``OldestLaunchTemplate`` | ``arn:aws:lambda:region:account-id:function:my-function:my-alias``
      */
-    terminationPolicies?: pulumi.Input<pulumi.Input<string>[]>;
+    terminationPolicies?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The traffic sources associated with this Auto Scaling group.
      */
-    trafficSources?: pulumi.Input<pulumi.Input<inputs.autoscaling.AutoScalingGroupTrafficSourceIdentifierArgs>[]>;
+    trafficSources?: pulumi.Input<pulumi.Input<inputs.autoscaling.AutoScalingGroupTrafficSourceIdentifierArgs>[] | undefined>;
     /**
      * A list of subnet IDs for a virtual private cloud (VPC) where instances in the Auto Scaling group can be created.
      *  If this resource specifies public subnets and is also in a VPC that is defined in the same stack template, you must use the [DependsOn attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) to declare a dependency on the [VPC-gateway attachment](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc-gateway-attachment.html).
      *   When you update ``VPCZoneIdentifier``, this retains the same Auto Scaling group and replaces old instances with new ones, according to the specified subnets. You can optionally specify how CloudFormation handles these updates by using an [UpdatePolicy attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html).
      *   Required to launch instances into a nondefault VPC. If you specify ``VPCZoneIdentifier`` with ``AvailabilityZones``, the subnets that you specify for this property must reside in those Availability Zones.
      */
-    vpcZoneIdentifier?: pulumi.Input<pulumi.Input<string>[]>;
+    vpcZoneIdentifier?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

@@ -96,15 +96,15 @@ export interface ResourceSetArgs {
     /**
      * A description of the resource set.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The descriptive name of the resource set. You can't change the name of a resource set after you create it.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Determines the resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
      */
     resourceTypeList: pulumi.Input<pulumi.Input<string>[]>;
-    resources?: pulumi.Input<pulumi.Input<string>[]>;
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    resources?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

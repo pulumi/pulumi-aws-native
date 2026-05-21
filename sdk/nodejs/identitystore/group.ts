@@ -92,7 +92,7 @@ export interface GroupArgs {
     /**
      * A string containing the description of the group.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A string containing the name of the group. This value is commonly displayed when the group is referenced.
      */

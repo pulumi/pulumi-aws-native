@@ -123,19 +123,19 @@ export interface BridgeArgs {
     /**
      * An egress bridge is a cloud-to-ground bridge. The content comes from an existing MediaConnect flow and is delivered to your premises.
      */
-    egressGatewayBridge?: pulumi.Input<inputs.mediaconnect.BridgeEgressGatewayBridgeArgs>;
+    egressGatewayBridge?: pulumi.Input<inputs.mediaconnect.BridgeEgressGatewayBridgeArgs | undefined>;
     /**
      * An ingress bridge is a ground-to-cloud bridge. The content originates at your premises and is delivered to the cloud.
      */
-    ingressGatewayBridge?: pulumi.Input<inputs.mediaconnect.BridgeIngressGatewayBridgeArgs>;
+    ingressGatewayBridge?: pulumi.Input<inputs.mediaconnect.BridgeIngressGatewayBridgeArgs | undefined>;
     /**
      * The name of the bridge.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The outputs on this bridge.
      */
-    outputs?: pulumi.Input<pulumi.Input<inputs.mediaconnect.BridgeOutputArgs>[]>;
+    outputs?: pulumi.Input<pulumi.Input<inputs.mediaconnect.BridgeOutputArgs>[] | undefined>;
     /**
      * The placement Amazon Resource Number (ARN) of the bridge.
      */
@@ -143,7 +143,7 @@ export interface BridgeArgs {
     /**
      * The settings for source failover.
      */
-    sourceFailoverConfig?: pulumi.Input<inputs.mediaconnect.BridgeFailoverConfigArgs>;
+    sourceFailoverConfig?: pulumi.Input<inputs.mediaconnect.BridgeFailoverConfigArgs | undefined>;
     /**
      * The sources on this bridge.
      */

@@ -155,7 +155,7 @@ export interface DataSourceArgs {
     /**
      * Configuration information for altering document metadata and content during the document ingestion process.
      */
-    customDocumentEnrichmentConfiguration?: pulumi.Input<inputs.kendra.DataSourceCustomDocumentEnrichmentConfigurationArgs>;
+    customDocumentEnrichmentConfiguration?: pulumi.Input<inputs.kendra.DataSourceCustomDocumentEnrichmentConfigurationArgs | undefined>;
     /**
      * Configuration information for an Amazon Kendra data source. The contents of the configuration depend on the type of data source. You can only specify one type of data source in the configuration.
      *
@@ -163,11 +163,11 @@ export interface DataSourceArgs {
      *
      * The `Configuration` parameter is required for all other data sources.
      */
-    dataSourceConfiguration?: pulumi.Input<inputs.kendra.DataSourceConfigurationArgs>;
+    dataSourceConfiguration?: pulumi.Input<inputs.kendra.DataSourceConfigurationArgs | undefined>;
     /**
      * A description for the data source connector.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The identifier of the index you want to use with the data source connector.
      */
@@ -175,11 +175,11 @@ export interface DataSourceArgs {
     /**
      * The code for a language. This shows a supported language for all documents in the data source. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html) .
      */
-    languageCode?: pulumi.Input<string>;
+    languageCode?: pulumi.Input<string | undefined>;
     /**
      * The name of the data source.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of a role with permission to access the data source.
      *
@@ -187,15 +187,15 @@ export interface DataSourceArgs {
      *
      * The `RoleArn` parameter is required for all other data sources.
      */
-    roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string | undefined>;
     /**
      * Sets the frequency that Amazon Kendra checks the documents in your data source and updates the index. If you don't set a schedule, Amazon Kendra doesn't periodically update the index.
      */
-    schedule?: pulumi.Input<string>;
+    schedule?: pulumi.Input<string | undefined>;
     /**
      * Tags for labeling the data source
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The type of the data source.
      */

@@ -169,7 +169,7 @@ export interface EnvironmentArgs {
     /**
      * The description of the environment.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The target platform for the runtime environment.
      */
@@ -177,13 +177,13 @@ export interface EnvironmentArgs {
     /**
      * The version of the runtime engine for the environment.
      */
-    engineVersion?: pulumi.Input<string>;
+    engineVersion?: pulumi.Input<string | undefined>;
     /**
      * > AWS Mainframe Modernization Service (Managed Runtime Environment experience) will no longer be open to new customers starting on November 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html) . 
      *
      * Defines the details of a high availability configuration.
      */
-    highAvailabilityConfig?: pulumi.Input<inputs.m2.EnvironmentHighAvailabilityConfigArgs>;
+    highAvailabilityConfig?: pulumi.Input<inputs.m2.EnvironmentHighAvailabilityConfigArgs | undefined>;
     /**
      * The type of instance underlying the environment.
      */
@@ -191,37 +191,37 @@ export interface EnvironmentArgs {
     /**
      * The ID or the Amazon Resource Name (ARN) of the customer managed KMS Key used for encrypting environment-related resources.
      */
-    kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * The name of the environment.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The network type supported by the runtime environment.
      */
-    networkType?: pulumi.Input<enums.m2.EnvironmentNetworkType>;
+    networkType?: pulumi.Input<enums.m2.EnvironmentNetworkType | undefined>;
     /**
      * Configures a desired maintenance window for the environment. If you do not provide a value, a random system-generated value will be assigned.
      */
-    preferredMaintenanceWindow?: pulumi.Input<string>;
+    preferredMaintenanceWindow?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the environment is publicly accessible.
      */
-    publiclyAccessible?: pulumi.Input<boolean>;
+    publiclyAccessible?: pulumi.Input<boolean | undefined>;
     /**
      * The list of security groups for the VPC associated with this environment.
      */
-    securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    securityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The storage configurations defined for the runtime environment.
      */
-    storageConfigurations?: pulumi.Input<pulumi.Input<inputs.m2.EnvironmentStorageConfigurationArgs>[]>;
+    storageConfigurations?: pulumi.Input<pulumi.Input<inputs.m2.EnvironmentStorageConfigurationArgs>[] | undefined>;
     /**
      * The unique identifiers of the subnets assigned to this runtime environment.
      */
-    subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    subnetIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Tags associated to this environment.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

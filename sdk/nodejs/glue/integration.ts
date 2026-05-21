@@ -143,27 +143,27 @@ export interface IntegrationArgs {
     /**
      * An optional set of non-secret key–value pairs that contains additional contextual information for encryption. This can only be provided if `KMSKeyId` is provided.
      */
-    additionalEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    additionalEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Selects source tables for the integration using Maxwell filter syntax.
      */
-    dataFilter?: pulumi.Input<string>;
+    dataFilter?: pulumi.Input<string | undefined>;
     /**
      * A description for the integration.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The structure used to define properties associated with the zero-ETL integration. For more information, see [IntegrationConfig structure.](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-integrations.html#aws-glue-api-integrations-IntegrationConfig)
      */
-    integrationConfig?: pulumi.Input<inputs.glue.IntegrationConfigArgs>;
+    integrationConfig?: pulumi.Input<inputs.glue.IntegrationConfigArgs | undefined>;
     /**
      * The name of the integration.
      */
-    integrationName?: pulumi.Input<string>;
+    integrationName?: pulumi.Input<string | undefined>;
     /**
      * An KMS key identifier for the key to use to encrypt the integration. If you don't specify an encryption key, the default AWS owned KMS key is used.
      */
-    kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the database to use as the source for replication
      */
@@ -171,7 +171,7 @@ export interface IntegrationArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the Glue data warehouse to use as the target for replication
      */

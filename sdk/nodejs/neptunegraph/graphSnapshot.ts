@@ -113,13 +113,13 @@ export interface GraphSnapshotArgs {
     /**
      * The unique identifier of the Neptune Analytics graph to create the snapshot from.
      */
-    graphIdentifier?: pulumi.Input<string>;
+    graphIdentifier?: pulumi.Input<string | undefined>;
     /**
      * The snapshot name.
      */
-    snapshotName?: pulumi.Input<string>;
+    snapshotName?: pulumi.Input<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

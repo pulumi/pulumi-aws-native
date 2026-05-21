@@ -152,11 +152,11 @@ export class ModelQualityJobDefinition extends pulumi.CustomResource {
  * The set of arguments for constructing a ModelQualityJobDefinition resource.
  */
 export interface ModelQualityJobDefinitionArgs {
-    endpointName?: pulumi.Input<string>;
+    endpointName?: pulumi.Input<string | undefined>;
     /**
      * The name of the monitoring job definition.
      */
-    jobDefinitionName?: pulumi.Input<string>;
+    jobDefinitionName?: pulumi.Input<string | undefined>;
     /**
      * Identifies the resources to deploy for a monitoring job.
      */
@@ -168,7 +168,7 @@ export interface ModelQualityJobDefinitionArgs {
     /**
      * Specifies the constraints and baselines for the monitoring job.
      */
-    modelQualityBaselineConfig?: pulumi.Input<inputs.sagemaker.ModelQualityJobDefinitionModelQualityBaselineConfigArgs>;
+    modelQualityBaselineConfig?: pulumi.Input<inputs.sagemaker.ModelQualityJobDefinitionModelQualityBaselineConfigArgs | undefined>;
     /**
      * A list of the inputs that are monitored. Currently endpoints are supported.
      */
@@ -180,7 +180,7 @@ export interface ModelQualityJobDefinitionArgs {
     /**
      * Specifies the network configuration for the monitoring job.
      */
-    networkConfig?: pulumi.Input<inputs.sagemaker.ModelQualityJobDefinitionNetworkConfigArgs>;
+    networkConfig?: pulumi.Input<inputs.sagemaker.ModelQualityJobDefinitionNetworkConfigArgs | undefined>;
     /**
      * The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
      */
@@ -188,9 +188,9 @@ export interface ModelQualityJobDefinitionArgs {
     /**
      * A time limit for how long the monitoring job is allowed to run before stopping.
      */
-    stoppingCondition?: pulumi.Input<inputs.sagemaker.ModelQualityJobDefinitionStoppingConditionArgs>;
+    stoppingCondition?: pulumi.Input<inputs.sagemaker.ModelQualityJobDefinitionStoppingConditionArgs | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[] | undefined>;
 }

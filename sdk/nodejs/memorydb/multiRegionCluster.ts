@@ -148,23 +148,23 @@ export interface MultiRegionClusterArgs {
     /**
      * Description of the multi region cluster.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The engine type used by the multi region cluster.
      */
-    engine?: pulumi.Input<string>;
+    engine?: pulumi.Input<string | undefined>;
     /**
      * The Redis engine version used by the multi region cluster.
      */
-    engineVersion?: pulumi.Input<string>;
+    engineVersion?: pulumi.Input<string | undefined>;
     /**
      * The name of the Multi Region cluster. This value must be unique as it also serves as the multi region cluster identifier.
      */
-    multiRegionClusterNameSuffix?: pulumi.Input<string>;
+    multiRegionClusterNameSuffix?: pulumi.Input<string | undefined>;
     /**
      * The name of the parameter group associated with the multi region cluster.
      */
-    multiRegionParameterGroupName?: pulumi.Input<string>;
+    multiRegionParameterGroupName?: pulumi.Input<string | undefined>;
     /**
      * The compute and memory capacity of the nodes in the multi region cluster.
      */
@@ -172,19 +172,19 @@ export interface MultiRegionClusterArgs {
     /**
      * The number of shards the multi region cluster will contain.
      */
-    numShards?: pulumi.Input<number>;
+    numShards?: pulumi.Input<number | undefined>;
     /**
      * An array of key-value pairs to apply to this multi region cluster.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * A flag that enables in-transit encryption when set to true.
      *
      * You cannot modify the value of TransitEncryptionEnabled after the cluster is created. To enable in-transit encryption on a cluster you must set TransitEncryptionEnabled to true when you create a cluster.
      */
-    tlsEnabled?: pulumi.Input<boolean>;
+    tlsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * An enum string value that determines the update strategy for scaling. Possible values are 'COORDINATED' and 'UNCOORDINATED'. Default is 'COORDINATED'.
      */
-    updateStrategy?: pulumi.Input<enums.memorydb.MultiRegionClusterUpdateStrategy>;
+    updateStrategy?: pulumi.Input<enums.memorydb.MultiRegionClusterUpdateStrategy | undefined>;
 }

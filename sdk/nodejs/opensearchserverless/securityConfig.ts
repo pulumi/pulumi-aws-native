@@ -147,25 +147,25 @@ export interface SecurityConfigArgs {
     /**
      * Security config description
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Describes IAM federation options in the form of a key-value map. Contains configuration details about how OpenSearch Serverless integrates with external identity providers through federation.
      */
-    iamFederationOptions?: pulumi.Input<inputs.opensearchserverless.SecurityConfigIamFederationConfigOptionsArgs>;
+    iamFederationOptions?: pulumi.Input<inputs.opensearchserverless.SecurityConfigIamFederationConfigOptionsArgs | undefined>;
     /**
      * Describes IAM Identity Center options in the form of a key-value map.
      */
-    iamIdentityCenterOptions?: pulumi.Input<inputs.opensearchserverless.SecurityConfigIamIdentityCenterConfigOptionsArgs>;
+    iamIdentityCenterOptions?: pulumi.Input<inputs.opensearchserverless.SecurityConfigIamIdentityCenterConfigOptionsArgs | undefined>;
     /**
      * The friendly name of the security config
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * SAML options for the security configuration in the form of a key-value map.
      */
-    samlOptions?: pulumi.Input<inputs.opensearchserverless.SecurityConfigSamlConfigOptionsArgs>;
+    samlOptions?: pulumi.Input<inputs.opensearchserverless.SecurityConfigSamlConfigOptionsArgs | undefined>;
     /**
      * The type of security configuration. Currently the only option is `saml` .
      */
-    type?: pulumi.Input<enums.opensearchserverless.SecurityConfigType>;
+    type?: pulumi.Input<enums.opensearchserverless.SecurityConfigType | undefined>;
 }

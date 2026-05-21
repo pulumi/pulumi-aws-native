@@ -109,13 +109,13 @@ export interface ClusterParameterGroupArgs {
     /**
      * The name of the cluster parameter group.
      */
-    parameterGroupName?: pulumi.Input<string>;
+    parameterGroupName?: pulumi.Input<string | undefined>;
     /**
      * An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
      */
-    parameters?: pulumi.Input<pulumi.Input<inputs.redshift.ClusterParameterGroupParameterArgs>[]>;
+    parameters?: pulumi.Input<pulumi.Input<inputs.redshift.ClusterParameterGroupParameterArgs>[] | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

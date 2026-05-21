@@ -281,15 +281,15 @@ export interface CapacityReservationArgs {
     /**
      * The Availability Zone in which to create the Capacity Reservation.
      */
-    availabilityZone?: pulumi.Input<string>;
+    availabilityZone?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Availability Zone in which the capacity is reserved.
      */
-    availabilityZoneId?: pulumi.Input<string>;
+    availabilityZoneId?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether the Capacity Reservation supports EBS-optimized instances. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS- optimized instance.
      */
-    ebsOptimized?: pulumi.Input<boolean>;
+    ebsOptimized?: pulumi.Input<boolean | undefined>;
     /**
      * The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. The Capacity Reservation's state changes to `expired` when it reaches its end date and time.
      *
@@ -299,18 +299,18 @@ export interface CapacityReservationArgs {
      *
      * If you are requesting a future-dated Capacity Reservation, you can't specify an end date and time that is within the commitment duration.
      */
-    endDate?: pulumi.Input<string>;
+    endDate?: pulumi.Input<string | undefined>;
     /**
      * Indicates the way in which the Capacity Reservation ends. A Capacity Reservation can have one of the following end types:
      *
      * - `unlimited` - The Capacity Reservation remains active until you explicitly cancel it. Do not provide an `EndDate` if the `EndDateType` is `unlimited` .
      * - `limited` - The Capacity Reservation expires automatically at a specified date and time. You must provide an `EndDate` value if the `EndDateType` value is `limited` .
      */
-    endDateType?: pulumi.Input<string>;
+    endDateType?: pulumi.Input<string | undefined>;
     /**
      * *Deprecated.*
      */
-    ephemeralStorage?: pulumi.Input<boolean>;
+    ephemeralStorage?: pulumi.Input<boolean | undefined>;
     /**
      * The number of instances for which to reserve capacity.
      *
@@ -329,7 +329,7 @@ export interface CapacityReservationArgs {
      *
      * Default: `open`
      */
-    instanceMatchCriteria?: pulumi.Input<string>;
+    instanceMatchCriteria?: pulumi.Input<string | undefined>;
     /**
      * The type of operating system for which to reserve capacity.
      */
@@ -347,28 +347,28 @@ export interface CapacityReservationArgs {
      *
      * The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
      */
-    outPostArn?: pulumi.Input<string>;
+    outPostArn?: pulumi.Input<string | undefined>;
     /**
      * > Not supported for future-dated Capacity Reservations. 
      *
      * The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation. For more information, see [Capacity Reservations for cluster placement groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-cpg.html) in the *Amazon EC2 User Guide* .
      */
-    placementGroupArn?: pulumi.Input<string>;
+    placementGroupArn?: pulumi.Input<string | undefined>;
     /**
      * The tags to apply to the Capacity Reservation during launch.
      */
-    tagSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.CapacityReservationTagSpecificationArgs>[]>;
+    tagSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.CapacityReservationTagSpecificationArgs>[] | undefined>;
     /**
      * Indicates the tenancy of the Capacity Reservation. A Capacity Reservation can have one of the following tenancy settings:
      *
      * - `default` - The Capacity Reservation is created on hardware that is shared with other AWS accounts .
      * - `dedicated` - The Capacity Reservation is created on single-tenant hardware that is dedicated to a single AWS account .
      */
-    tenancy?: pulumi.Input<string>;
+    tenancy?: pulumi.Input<string | undefined>;
     /**
      * The ID of the AWS account to which to assign billing of the unused capacity of the Capacity Reservation. A request will be sent to the specified account. That account must accept the request for the billing to be assigned to their account. For more information, see [Billing assignment for shared Amazon EC2 Capacity Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/assign-billing.html) .
      *
      * You can assign billing only for shared Capacity Reservations. To share a Capacity Reservation, you must add it to a resource share. For more information, see [AWS::RAM::ResourceShare](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-resourceshare.html) .
      */
-    unusedReservationBillingOwnerId?: pulumi.Input<string>;
+    unusedReservationBillingOwnerId?: pulumi.Input<string | undefined>;
 }

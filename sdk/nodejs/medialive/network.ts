@@ -115,13 +115,13 @@ export interface NetworkArgs {
     /**
      * The user-specified name of the Network to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The routes for the network
      */
-    routes?: pulumi.Input<pulumi.Input<inputs.medialive.NetworkRouteArgs>[]>;
+    routes?: pulumi.Input<pulumi.Input<inputs.medialive.NetworkRouteArgs>[] | undefined>;
     /**
      * A collection of key-value pairs.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

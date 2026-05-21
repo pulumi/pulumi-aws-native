@@ -79,7 +79,7 @@ export interface SecurityConfigurationArgs {
     /**
      * The name of the security configuration.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The security configuration details in JSON format.
      *

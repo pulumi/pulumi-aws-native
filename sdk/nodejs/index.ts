@@ -61,9 +61,6 @@ export const Provider: typeof import("./provider").Provider = null as any;
 utilities.lazyLoad(exports, ["Provider"], () => require("./provider"));
 
 
-// Export enums:
-export * from "./types/enums";
-
 // Export sub-modules:
 import * as accessanalyzer from "./accessanalyzer";
 import * as acmpca from "./acmpca";
@@ -185,6 +182,7 @@ import * as healthlake from "./healthlake";
 import * as iam from "./iam";
 import * as identitystore from "./identitystore";
 import * as imagebuilder from "./imagebuilder";
+import * as index from "./index";
 import * as inspector from "./inspector";
 import * as inspectorv2 from "./inspectorv2";
 import * as interconnect from "./interconnect";
@@ -442,6 +440,7 @@ export {
     iam,
     identitystore,
     imagebuilder,
+    index,
     inspector,
     inspectorv2,
     interconnect,

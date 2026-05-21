@@ -101,7 +101,7 @@ export interface ConnectorArgs {
     /**
      *  The name of the connector. The name is unique for each ConnectorRegistration in your AWS account.
      */
-    connectorLabel?: pulumi.Input<string>;
+    connectorLabel?: pulumi.Input<string | undefined>;
     /**
      * Contains information about the configuration of the connector being registered.
      */
@@ -113,5 +113,5 @@ export interface ConnectorArgs {
     /**
      * A description about the connector that's being registered.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
 }

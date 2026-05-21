@@ -185,47 +185,47 @@ export interface ApplicationArgs {
     /**
      * The CPU architecture of an application.
      */
-    architecture?: pulumi.Input<enums.emrserverless.ApplicationArchitecture>;
+    architecture?: pulumi.Input<enums.emrserverless.ApplicationArchitecture | undefined>;
     /**
      * Configuration for Auto Start of Application.
      */
-    autoStartConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationAutoStartConfigurationArgs>;
+    autoStartConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationAutoStartConfigurationArgs | undefined>;
     /**
      * Configuration for Auto Stop of Application.
      */
-    autoStopConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationAutoStopConfigurationArgs>;
+    autoStopConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationAutoStopConfigurationArgs | undefined>;
     /**
      * The IAM IdentityCenter configuration for trusted-identity-propagation on this application. Supported with release labels emr-7.8.0 and above.
      */
-    identityCenterConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationIdentityCenterConfigurationArgs>;
+    identityCenterConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationIdentityCenterConfigurationArgs | undefined>;
     /**
      * The image configuration applied to all worker types.
      */
-    imageConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationImageConfigurationInputArgs>;
+    imageConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationImageConfigurationInputArgs | undefined>;
     /**
      * Initial capacity initialized when an Application is started.
      */
-    initialCapacity?: pulumi.Input<pulumi.Input<inputs.emrserverless.ApplicationInitialCapacityConfigKeyValuePairArgs>[]>;
+    initialCapacity?: pulumi.Input<pulumi.Input<inputs.emrserverless.ApplicationInitialCapacityConfigKeyValuePairArgs>[] | undefined>;
     /**
      * The interactive configuration object that enables the interactive use cases for an application.
      */
-    interactiveConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationInteractiveConfigurationArgs>;
+    interactiveConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationInteractiveConfigurationArgs | undefined>;
     /**
      * Maximum allowed cumulative resources for an Application. No new resources will be created once the limit is hit.
      */
-    maximumCapacity?: pulumi.Input<inputs.emrserverless.ApplicationMaximumAllowedResourcesArgs>;
+    maximumCapacity?: pulumi.Input<inputs.emrserverless.ApplicationMaximumAllowedResourcesArgs | undefined>;
     /**
      * A configuration specification to be used when provisioning an application. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file.
      */
-    monitoringConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationMonitoringConfigurationArgs>;
+    monitoringConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationMonitoringConfigurationArgs | undefined>;
     /**
      * User friendly Application name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Network Configuration for customer VPC connectivity.
      */
-    networkConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationNetworkConfigurationArgs>;
+    networkConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationNetworkConfigurationArgs | undefined>;
     /**
      * EMR release label.
      */
@@ -233,15 +233,15 @@ export interface ApplicationArgs {
     /**
      * The [Configuration](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_Configuration.html) specifications of an application. Each configuration consists of a classification and properties. You use this parameter when creating or updating an application. To see the runtimeConfiguration object of an application, run the [GetApplication](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_GetApplication.html) API operation.
      */
-    runtimeConfiguration?: pulumi.Input<pulumi.Input<inputs.emrserverless.ApplicationConfigurationObjectArgs>[]>;
+    runtimeConfiguration?: pulumi.Input<pulumi.Input<inputs.emrserverless.ApplicationConfigurationObjectArgs>[] | undefined>;
     /**
      * The scheduler configuration for batch and streaming jobs running on this application. Supported with release labels emr-7.0.0 and above.
      */
-    schedulerConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationSchedulerConfigurationArgs>;
+    schedulerConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationSchedulerConfigurationArgs | undefined>;
     /**
      * Tag map with key and value
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The type of the application
      */
@@ -249,5 +249,5 @@ export interface ApplicationArgs {
     /**
      * The key-value pairs that specify worker type to WorkerTypeSpecificationInput. This parameter must contain all valid worker types for a Spark or Hive application. Valid worker types include Driver and Executor for Spark applications and HiveDriver and TezTask for Hive applications. You can either set image details in this parameter for each worker type, or in imageConfiguration for all worker types.
      */
-    workerTypeSpecifications?: pulumi.Input<{[key: string]: pulumi.Input<inputs.emrserverless.ApplicationWorkerTypeSpecificationInputArgs>}>;
+    workerTypeSpecifications?: pulumi.Input<{[key: string]: pulumi.Input<inputs.emrserverless.ApplicationWorkerTypeSpecificationInputArgs>} | undefined>;
 }

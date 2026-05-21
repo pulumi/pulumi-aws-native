@@ -139,27 +139,27 @@ export interface ServiceArgs {
      * - `NONE` : The resource does not use an IAM policy. This is the default.
      * - `AWS_IAM` : The resource uses an IAM policy. When this type is used, auth is enabled and an auth policy is required.
      */
-    authType?: pulumi.Input<enums.vpclattice.ServiceAuthType>;
+    authType?: pulumi.Input<enums.vpclattice.ServiceAuthType | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the certificate.
      */
-    certificateArn?: pulumi.Input<string>;
+    certificateArn?: pulumi.Input<string | undefined>;
     /**
      * The custom domain name of the service.
      */
-    customDomainName?: pulumi.Input<string>;
+    customDomainName?: pulumi.Input<string | undefined>;
     /**
      * Describes the DNS information of the service. This field is read-only.
      */
-    dnsEntry?: pulumi.Input<inputs.vpclattice.ServiceDnsEntryArgs>;
+    dnsEntry?: pulumi.Input<inputs.vpclattice.ServiceDnsEntryArgs | undefined>;
     /**
      * The name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
      *
      * If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The tags for the service.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

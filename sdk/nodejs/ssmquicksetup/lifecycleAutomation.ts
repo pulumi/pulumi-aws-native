@@ -113,5 +113,5 @@ export interface LifecycleAutomationArgs {
     /**
      * Tags applied to the underlying SSM Association created by this resource. Tags help identify and organize automation executions.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

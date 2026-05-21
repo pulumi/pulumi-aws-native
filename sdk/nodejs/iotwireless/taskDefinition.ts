@@ -118,21 +118,21 @@ export interface TaskDefinitionArgs {
     /**
      * The list of task definitions.
      */
-    loRaWanUpdateGatewayTaskEntry?: pulumi.Input<inputs.iotwireless.TaskDefinitionLoRaWanUpdateGatewayTaskEntryArgs>;
+    loRaWanUpdateGatewayTaskEntry?: pulumi.Input<inputs.iotwireless.TaskDefinitionLoRaWanUpdateGatewayTaskEntryArgs | undefined>;
     /**
      * The name of the new resource.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A list of key-value pairs that contain metadata for the destination.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * A filter to list only the wireless gateway task definitions that use this task definition type
      */
-    taskDefinitionType?: pulumi.Input<enums.iotwireless.TaskDefinitionType>;
+    taskDefinitionType?: pulumi.Input<enums.iotwireless.TaskDefinitionType | undefined>;
     /**
      * Information about the gateways to update.
      */
-    update?: pulumi.Input<inputs.iotwireless.TaskDefinitionUpdateWirelessGatewayTaskCreateArgs>;
+    update?: pulumi.Input<inputs.iotwireless.TaskDefinitionUpdateWirelessGatewayTaskCreateArgs | undefined>;
 }

@@ -137,7 +137,7 @@ export interface AppArgs {
     /**
      * Assessment execution schedule.
      */
-    appAssessmentSchedule?: pulumi.Input<enums.resiliencehub.AppAssessmentSchedule>;
+    appAssessmentSchedule?: pulumi.Input<enums.resiliencehub.AppAssessmentSchedule | undefined>;
     /**
      * A string containing full ResilienceHub app template body.
      */
@@ -145,23 +145,23 @@ export interface AppArgs {
     /**
      * App description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The list of events you would like to subscribe and get notification for.
      */
-    eventSubscriptions?: pulumi.Input<pulumi.Input<inputs.resiliencehub.AppEventSubscriptionArgs>[]>;
+    eventSubscriptions?: pulumi.Input<pulumi.Input<inputs.resiliencehub.AppEventSubscriptionArgs>[] | undefined>;
     /**
      * Name of the app.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Defines the roles and credentials that AWS Resilience Hub would use while creating the application, importing its resources, and running an assessment.
      */
-    permissionModel?: pulumi.Input<inputs.resiliencehub.AppPermissionModelArgs>;
+    permissionModel?: pulumi.Input<inputs.resiliencehub.AppPermissionModelArgs | undefined>;
     /**
      * Amazon Resource Name (ARN) of the Resiliency Policy.
      */
-    resiliencyPolicyArn?: pulumi.Input<string>;
+    resiliencyPolicyArn?: pulumi.Input<string | undefined>;
     /**
      * An array of ResourceMapping objects.
      */
@@ -169,5 +169,5 @@ export interface AppArgs {
     /**
      * Tags assigned to the resource. A tag is a label that you assign to an AWS resource. Each tag consists of a key/value pair.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

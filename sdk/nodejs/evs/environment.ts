@@ -233,21 +233,21 @@ export interface EnvironmentArgs {
     /**
      * The name of an EVS environment
      */
-    environmentName?: pulumi.Input<string>;
+    environmentName?: pulumi.Input<string | undefined>;
     /**
      * The initial hosts for environment only required upon creation. Modification after creation will have no effect
      */
-    hosts?: pulumi.Input<pulumi.Input<inputs.evs.EnvironmentHostInfoForCreateArgs>[]>;
+    hosts?: pulumi.Input<pulumi.Input<inputs.evs.EnvironmentHostInfoForCreateArgs>[] | undefined>;
     /**
      * The initial Vlan configuration only required upon creation. Modification after creation will have no effect
      */
-    initialVlans?: pulumi.Input<inputs.evs.InitialVlansPropertiesArgs>;
+    initialVlans?: pulumi.Input<inputs.evs.InitialVlansPropertiesArgs | undefined>;
     /**
      * The AWS KMS key ID that AWS Secrets Manager uses to encrypt secrets that are associated with the environment. These secrets contain the VCF credentials that are needed to install vCenter Server, NSX, and SDDC Manager.
      *
      * By default, Amazon EVS use the AWS Secrets Manager managed key `aws/secretsmanager` . You can also specify a customer managed key.
      */
-    kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * The license information for an EVS environment
      */
@@ -255,7 +255,7 @@ export interface EnvironmentArgs {
     /**
      * The security groups that allow traffic between the Amazon EVS control plane and your VPC for service access. If a security group is not specified, Amazon EVS uses the default security group in your account for service access.
      */
-    serviceAccessSecurityGroups?: pulumi.Input<inputs.evs.ServiceAccessSecurityGroupsPropertiesArgs>;
+    serviceAccessSecurityGroups?: pulumi.Input<inputs.evs.ServiceAccessSecurityGroupsPropertiesArgs | undefined>;
     /**
      * The subnet that is used to establish connectivity between the Amazon EVS control plane and VPC. Amazon EVS uses this subnet to perform validations and create the environment.
      */
@@ -267,7 +267,7 @@ export interface EnvironmentArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * Customer confirmation that the customer has purchased and will continue to maintain the required number of VCF software licenses to cover all physical processor cores in the Amazon EVS environment. Information about your VCF software in Amazon EVS will be shared with Broadcom to verify license compliance. Amazon EVS does not validate license keys. To validate license keys, visit the Broadcom support portal.
      */

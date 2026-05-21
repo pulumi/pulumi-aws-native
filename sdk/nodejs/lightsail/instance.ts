@@ -203,11 +203,11 @@ export interface InstanceArgs {
     /**
      * An array of objects representing the add-ons to enable for the new instance.
      */
-    addOns?: pulumi.Input<pulumi.Input<inputs.lightsail.InstanceAddOnArgs>[]>;
+    addOns?: pulumi.Input<pulumi.Input<inputs.lightsail.InstanceAddOnArgs>[] | undefined>;
     /**
      * The Availability Zone in which to create your instance. Use the following format: us-east-2a (case sensitive). Be sure to add the include Availability Zones parameter to your request.
      */
-    availabilityZone?: pulumi.Input<string>;
+    availabilityZone?: pulumi.Input<string | undefined>;
     /**
      * The ID for a virtual private server image (e.g., app_wordpress_4_4 or app_lamp_7_0 ). Use the get blueprints operation to return a list of available images (or blueprints ).
      */
@@ -221,37 +221,37 @@ export interface InstanceArgs {
      *
      * > The instance restarts when performing an attach disk or detach disk request. This resets the public IP address of your instance if a static IP isn't attached to it.
      */
-    hardware?: pulumi.Input<inputs.lightsail.InstanceHardwareArgs>;
+    hardware?: pulumi.Input<inputs.lightsail.InstanceHardwareArgs | undefined>;
     /**
      * The names to use for your new Lightsail instance.
      */
-    instanceName?: pulumi.Input<string>;
+    instanceName?: pulumi.Input<string | undefined>;
     /**
      * The name of your key pair.
      */
-    keyPairName?: pulumi.Input<string>;
+    keyPairName?: pulumi.Input<string | undefined>;
     /**
      * The location for the instance, such as the AWS Region and Availability Zone.
      *
      * > The `Location` property is read-only and should not be specified in a create instance or update instance request.
      */
-    location?: pulumi.Input<inputs.lightsail.InstanceLocationArgs>;
+    location?: pulumi.Input<inputs.lightsail.InstanceLocationArgs | undefined>;
     /**
      * The public ports and the monthly amount of data transfer allocated for the instance.
      */
-    networking?: pulumi.Input<inputs.lightsail.InstanceNetworkingArgs>;
+    networking?: pulumi.Input<inputs.lightsail.InstanceNetworkingArgs | undefined>;
     /**
      * The status code and the state (for example, `running` ) of the instance.
      *
      * > The `State` property is read-only and should not be specified in a create instance or update instance request.
      */
-    state?: pulumi.Input<inputs.lightsail.InstanceStateArgs>;
+    state?: pulumi.Input<inputs.lightsail.InstanceStateArgs | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * A launch script you can create that configures a server with additional user data. For example, you might want to run apt-get -y update.
      */
-    userData?: pulumi.Input<string>;
+    userData?: pulumi.Input<string | undefined>;
 }

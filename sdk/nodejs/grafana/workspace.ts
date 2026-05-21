@@ -242,39 +242,39 @@ export interface WorkspaceArgs {
     /**
      * A unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.
      */
-    clientToken?: pulumi.Input<string>;
+    clientToken?: pulumi.Input<string | undefined>;
     /**
      * List of data sources on the service managed IAM role.
      */
-    dataSources?: pulumi.Input<pulumi.Input<enums.grafana.WorkspaceDataSourceType>[]>;
+    dataSources?: pulumi.Input<pulumi.Input<enums.grafana.WorkspaceDataSourceType>[] | undefined>;
     /**
      * Description of a workspace.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The version of Grafana to support in your workspace.
      */
-    grafanaVersion?: pulumi.Input<string>;
+    grafanaVersion?: pulumi.Input<string | undefined>;
     /**
      * The user friendly name of a workspace.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The configuration settings for network access to your workspace.
      */
-    networkAccessControl?: pulumi.Input<inputs.grafana.WorkspaceNetworkAccessControlArgs>;
+    networkAccessControl?: pulumi.Input<inputs.grafana.WorkspaceNetworkAccessControlArgs | undefined>;
     /**
      * List of notification destinations on the customers service managed IAM role that the Grafana workspace can query.
      */
-    notificationDestinations?: pulumi.Input<pulumi.Input<enums.grafana.WorkspaceNotificationDestinationType>[]>;
+    notificationDestinations?: pulumi.Input<pulumi.Input<enums.grafana.WorkspaceNotificationDestinationType>[] | undefined>;
     /**
      * The name of an IAM role that already exists to use with AWS Organizations to access AWS data sources and notification channels in other accounts in an organization.
      */
-    organizationRoleName?: pulumi.Input<string>;
+    organizationRoleName?: pulumi.Input<string | undefined>;
     /**
      * List of Organizational Units containing AWS accounts the Grafana workspace can pull data from.
      */
-    organizationalUnits?: pulumi.Input<pulumi.Input<string>[]>;
+    organizationalUnits?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * If this is `SERVICE_MANAGED` , and the workplace was created through the Amazon Managed Grafana console, then Amazon Managed Grafana automatically creates the IAM roles and provisions the permissions that the workspace needs to use AWS data sources and notification channels.
      *
@@ -288,23 +288,23 @@ export interface WorkspaceArgs {
     /**
      * Allow workspace admins to install plugins
      */
-    pluginAdminEnabled?: pulumi.Input<boolean>;
+    pluginAdminEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * IAM Role that will be used to grant the Grafana workspace access to a customers AWS resources.
      */
-    roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string | undefined>;
     /**
      * If the workspace uses SAML, use this structure to map SAML assertion attributes to workspace user information and define which groups in the assertion attribute are to have the `Admin` and `Editor` roles in the workspace.
      */
-    samlConfiguration?: pulumi.Input<inputs.grafana.WorkspaceSamlConfigurationArgs>;
+    samlConfiguration?: pulumi.Input<inputs.grafana.WorkspaceSamlConfigurationArgs | undefined>;
     /**
      * The name of the AWS CloudFormation stack set to use to generate IAM roles to be used for this workspace.
      */
-    stackSetName?: pulumi.Input<string>;
+    stackSetName?: pulumi.Input<string | undefined>;
     /**
      * The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to.
      *
      * > Connecting to a private VPC is not yet available in the Asia Pacific (Seoul) Region (ap-northeast-2).
      */
-    vpcConfiguration?: pulumi.Input<inputs.grafana.WorkspaceVpcConfigurationArgs>;
+    vpcConfiguration?: pulumi.Input<inputs.grafana.WorkspaceVpcConfigurationArgs | undefined>;
 }

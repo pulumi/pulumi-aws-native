@@ -114,15 +114,15 @@ export interface ProtectionArgs {
      *
      * If you use CloudFormation to manage the web ACLs that you use with Shield Advanced automatic mitigation, see the additional guidance about web ACL management in the `AWS::WAFv2::WebACL` resource description.
      */
-    applicationLayerAutomaticResponseConfiguration?: pulumi.Input<inputs.shield.ProtectionApplicationLayerAutomaticResponseConfigurationArgs>;
+    applicationLayerAutomaticResponseConfiguration?: pulumi.Input<inputs.shield.ProtectionApplicationLayerAutomaticResponseConfigurationArgs | undefined>;
     /**
      * The Amazon Resource Names (ARNs) of the health check to associate with the protection.
      */
-    healthCheckArns?: pulumi.Input<pulumi.Input<string>[]>;
+    healthCheckArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Friendly name for the Protection.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ARN (Amazon Resource Name) of the resource to be protected.
      */
@@ -130,5 +130,5 @@ export interface ProtectionArgs {
     /**
      * One or more tag key-value pairs for the Protection object.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

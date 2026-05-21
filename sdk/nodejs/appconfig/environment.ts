@@ -114,21 +114,21 @@ export interface EnvironmentArgs {
     /**
      * On resource deletion this controls whether the Deletion Protection check should be applied, bypassed, or (the default) whether the behavior should be controlled by the account-level Deletion Protection setting. See https://docs.aws.amazon.com/appconfig/latest/userguide/deletion-protection.html
      */
-    deletionProtectionCheck?: pulumi.Input<enums.appconfig.EnvironmentDeletionProtectionCheck>;
+    deletionProtectionCheck?: pulumi.Input<enums.appconfig.EnvironmentDeletionProtectionCheck | undefined>;
     /**
      * A description of the environment.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Amazon CloudWatch alarms to monitor during the deployment process.
      */
-    monitors?: pulumi.Input<pulumi.Input<inputs.appconfig.EnvironmentMonitorArgs>[]>;
+    monitors?: pulumi.Input<pulumi.Input<inputs.appconfig.EnvironmentMonitorArgs>[] | undefined>;
     /**
      * A name for the environment.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Metadata to assign to the environment. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

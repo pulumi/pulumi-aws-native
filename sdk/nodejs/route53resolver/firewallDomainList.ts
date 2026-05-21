@@ -143,17 +143,17 @@ export interface FirewallDomainListArgs {
     /**
      * S3 URL to import domains from.
      */
-    domainFileUrl?: pulumi.Input<string>;
+    domainFileUrl?: pulumi.Input<string | undefined>;
     /**
      * A list of the domain lists that you have defined.
      */
-    domains?: pulumi.Input<pulumi.Input<string>[]>;
+    domains?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * FirewallDomainListName
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Tags
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

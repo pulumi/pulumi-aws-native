@@ -107,5 +107,5 @@ export interface SlackWorkspaceConfigurationArgs {
     /**
      * An identifier used to update an existing Slack workspace configuration in AWS CloudFormation.
      */
-    versionId?: pulumi.Input<string>;
+    versionId?: pulumi.Input<string | undefined>;
 }

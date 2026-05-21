@@ -208,7 +208,7 @@ export interface EndpointArgs {
     /**
      * A description for the endpoint.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The event buses being used by the endpoint.
      *
@@ -218,15 +218,15 @@ export interface EndpointArgs {
     /**
      * The name of the endpoint.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Whether event replication was enabled or disabled for this endpoint. The default state is `ENABLED` which means you must supply a `RoleArn` . If you don't have a `RoleArn` or you don't want event replication enabled, set the state to `DISABLED` .
      */
-    replicationConfig?: pulumi.Input<inputs.events.EndpointReplicationConfigArgs>;
+    replicationConfig?: pulumi.Input<inputs.events.EndpointReplicationConfigArgs | undefined>;
     /**
      * The ARN of the role used by event replication for the endpoint.
      */
-    roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string | undefined>;
     /**
      * The routing configuration of the endpoint.
      */

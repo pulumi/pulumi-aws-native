@@ -110,7 +110,7 @@ export interface LocationNfsArgs {
     /**
      * Specifies the options that DataSync can use to mount your NFS file server.
      */
-    mountOptions?: pulumi.Input<inputs.datasync.LocationNfsMountOptionsArgs>;
+    mountOptions?: pulumi.Input<inputs.datasync.LocationNfsMountOptionsArgs | undefined>;
     /**
      * Specifies the Amazon Resource Name (ARN) of the DataSync agent that can connect to your NFS file server.
      *
@@ -120,13 +120,13 @@ export interface LocationNfsArgs {
     /**
      * The name of the NFS server. This value is the IP address or DNS name of the NFS server.
      */
-    serverHostname?: pulumi.Input<string>;
+    serverHostname?: pulumi.Input<string | undefined>;
     /**
      * The subdirectory in the NFS file system that is used to read data from the NFS source location or write data to the NFS destination.
      */
-    subdirectory?: pulumi.Input<string>;
+    subdirectory?: pulumi.Input<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

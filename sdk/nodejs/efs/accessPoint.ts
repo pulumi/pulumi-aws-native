@@ -113,11 +113,11 @@ export interface AccessPointArgs {
      * An array of key-value pairs to apply to this resource.
      *  For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
      */
-    accessPointTags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    accessPointTags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The opaque string specified in the request to ensure idempotent creation.
      */
-    clientToken?: pulumi.Input<string>;
+    clientToken?: pulumi.Input<string | undefined>;
     /**
      * The ID of the EFS file system that the access point applies to. Accepts only the ID format for input when specifying a file system, for example ``fs-0123456789abcedf2``.
      */
@@ -125,9 +125,9 @@ export interface AccessPointArgs {
     /**
      * The full POSIX identity, including the user ID, group ID, and secondary group IDs on the access point that is used for all file operations by NFS clients using the access point.
      */
-    posixUser?: pulumi.Input<inputs.efs.AccessPointPosixUserArgs>;
+    posixUser?: pulumi.Input<inputs.efs.AccessPointPosixUserArgs | undefined>;
     /**
      * The directory on the EFS file system that the access point exposes as the root directory to NFS clients using the access point.
      */
-    rootDirectory?: pulumi.Input<inputs.efs.AccessPointRootDirectoryArgs>;
+    rootDirectory?: pulumi.Input<inputs.efs.AccessPointRootDirectoryArgs | undefined>;
 }

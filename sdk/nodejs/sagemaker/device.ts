@@ -86,7 +86,7 @@ export interface DeviceArgs {
     /**
      * The Edge Device you want to register against a device fleet
      */
-    device?: pulumi.Input<inputs.sagemaker.DeviceArgs>;
+    device?: pulumi.Input<inputs.sagemaker.DeviceArgs | undefined>;
     /**
      * The name of the edge device fleet
      */
@@ -94,5 +94,5 @@ export interface DeviceArgs {
     /**
      * Associate tags with the resource
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

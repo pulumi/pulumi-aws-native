@@ -96,7 +96,7 @@ export interface ApplicationVersionArgs {
     /**
      * A description of this application version.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The Amazon S3 bucket and key that identify the location of the source bundle for this version. 
      */

@@ -140,17 +140,17 @@ export interface ApplicationInferenceProfileArgs {
     /**
      * Description of the inference profile
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the inference profile.
      */
-    inferenceProfileName?: pulumi.Input<string>;
+    inferenceProfileName?: pulumi.Input<string | undefined>;
     /**
      * Contains configurations for the inference profile to copy as the resource.
      */
-    modelSource?: pulumi.Input<inputs.bedrock.ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgs>;
+    modelSource?: pulumi.Input<inputs.bedrock.ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgs | undefined>;
     /**
      * List of Tags
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

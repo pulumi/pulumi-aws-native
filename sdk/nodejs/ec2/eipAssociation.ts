@@ -97,19 +97,19 @@ export interface EipAssociationArgs {
     /**
      * The allocation ID. This is required.
      */
-    allocationId?: pulumi.Input<string>;
-    eip?: pulumi.Input<string>;
+    allocationId?: pulumi.Input<string | undefined>;
+    eip?: pulumi.Input<string | undefined>;
     /**
      * The ID of the instance. The instance must have exactly one attached network interface. You can specify either the instance ID or the network interface ID, but not both.
      */
-    instanceId?: pulumi.Input<string>;
+    instanceId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the network interface. If the instance has more than one network interface, you must specify a network interface ID.
      *  You can specify either the instance ID or the network interface ID, but not both.
      */
-    networkInterfaceId?: pulumi.Input<string>;
+    networkInterfaceId?: pulumi.Input<string | undefined>;
     /**
      * The primary or secondary private IP address to associate with the Elastic IP address. If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
      */
-    privateIpAddress?: pulumi.Input<string>;
+    privateIpAddress?: pulumi.Input<string | undefined>;
 }

@@ -83,13 +83,13 @@ export interface ApplicationArgs {
     /**
      * A name for the application. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the application name.
      */
-    applicationName?: pulumi.Input<string>;
+    applicationName?: pulumi.Input<string | undefined>;
     /**
      * The compute platform that CodeDeploy deploys the application to.
      */
-    computePlatform?: pulumi.Input<string>;
+    computePlatform?: pulumi.Input<string | undefined>;
     /**
      * The metadata that you apply to CodeDeploy applications to help you organize and categorize them. Each tag consists of a key and an optional value, both of which you define. 
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

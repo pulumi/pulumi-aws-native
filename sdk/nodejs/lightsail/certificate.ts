@@ -104,7 +104,7 @@ export interface CertificateArgs {
     /**
      * The name for the certificate.
      */
-    certificateName?: pulumi.Input<string>;
+    certificateName?: pulumi.Input<string | undefined>;
     /**
      * The domain name (e.g., example.com ) for the certificate.
      */
@@ -112,9 +112,9 @@ export interface CertificateArgs {
     /**
      * An array of strings that specify the alternate domains (e.g., example2.com) and subdomains (e.g., blog.example.com) for the certificate.
      */
-    subjectAlternativeNames?: pulumi.Input<pulumi.Input<string>[]>;
+    subjectAlternativeNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

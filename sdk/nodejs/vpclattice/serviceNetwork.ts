@@ -121,19 +121,19 @@ export interface ServiceNetworkArgs {
      * - `NONE` : The resource does not use an IAM policy. This is the default.
      * - `AWS_IAM` : The resource uses an IAM policy. When this type is used, auth is enabled and an auth policy is required.
      */
-    authType?: pulumi.Input<enums.vpclattice.ServiceNetworkAuthType>;
+    authType?: pulumi.Input<enums.vpclattice.ServiceNetworkAuthType | undefined>;
     /**
      * The name of the service network. The name must be unique to the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
      *
      * If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specify if the service network should be enabled for sharing.
      */
-    sharingConfig?: pulumi.Input<inputs.vpclattice.ServiceNetworkSharingConfigArgs>;
+    sharingConfig?: pulumi.Input<inputs.vpclattice.ServiceNetworkSharingConfigArgs | undefined>;
     /**
      * The tags for the service network.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

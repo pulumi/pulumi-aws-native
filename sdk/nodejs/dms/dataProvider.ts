@@ -120,15 +120,15 @@ export interface DataProviderArgs {
     /**
      * The property describes an identifier for the data provider. It is used for describing/deleting/modifying can be name/arn
      */
-    dataProviderIdentifier?: pulumi.Input<string>;
+    dataProviderIdentifier?: pulumi.Input<string | undefined>;
     /**
      * The property describes a name to identify the data provider.
      */
-    dataProviderName?: pulumi.Input<string>;
+    dataProviderName?: pulumi.Input<string | undefined>;
     /**
      * The optional description of the data provider.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The property describes a data engine for the data provider.
      */
@@ -136,13 +136,13 @@ export interface DataProviderArgs {
     /**
      * The property describes the exact settings which can be modified
      */
-    exactSettings?: pulumi.Input<boolean>;
+    exactSettings?: pulumi.Input<boolean | undefined>;
     /**
      * The property identifies the exact type of settings for the data provider.
      */
-    settings?: pulumi.Input<inputs.dms.SettingsPropertiesArgs>;
+    settings?: pulumi.Input<inputs.dms.SettingsPropertiesArgs | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

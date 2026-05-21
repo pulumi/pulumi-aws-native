@@ -278,11 +278,11 @@ export interface SimulationArgs {
     /**
      * The maximum running time of the simulation.
      */
-    maximumDuration?: pulumi.Input<string>;
+    maximumDuration?: pulumi.Input<string | undefined>;
     /**
      * The name of the simulation.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Role ARN.
      */
@@ -294,7 +294,7 @@ export interface SimulationArgs {
      *
      * If you provide a `SchemaS3Location` then you can't provide a `SnapshotS3Location` .
      */
-    schemaS3Location?: pulumi.Input<inputs.simspaceweaver.SimulationS3LocationArgs>;
+    schemaS3Location?: pulumi.Input<inputs.simspaceweaver.SimulationS3LocationArgs | undefined>;
     /**
      * The location of the snapshot in Amazon Simple Storage Service ( Amazon S3 ). For more information about Amazon S3 , see the [*Amazon Simple Storage Service User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) .
      *
@@ -302,5 +302,5 @@ export interface SimulationArgs {
      *
      * If you provide a `SnapshotS3Location` then you can't provide a `SchemaS3Location` .
      */
-    snapshotS3Location?: pulumi.Input<inputs.simspaceweaver.SimulationS3LocationArgs>;
+    snapshotS3Location?: pulumi.Input<inputs.simspaceweaver.SimulationS3LocationArgs | undefined>;
 }

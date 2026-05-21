@@ -204,5 +204,5 @@ export interface CustomResourceEmulatorArgs {
      * A stand-in value for the CloudFormation stack ID. This is required for CloudFormation interoperability.
      * If not provided, the Pulumi Stack ID is used.
      */
-    stackId?: pulumi.Input<string>;
+    stackId?: pulumi.Input<string | undefined>;
 }

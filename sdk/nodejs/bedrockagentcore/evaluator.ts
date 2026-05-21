@@ -137,7 +137,7 @@ export interface EvaluatorArgs {
     /**
      * The description of the evaluator.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The configuration for the evaluator.
      */
@@ -145,11 +145,11 @@ export interface EvaluatorArgs {
     /**
      * The name of the evaluator. Must be unique within your account.
      */
-    evaluatorName?: pulumi.Input<string>;
+    evaluatorName?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the KMS key used to encrypt evaluator data.
      */
-    kmsKeyArn?: pulumi.Input<string>;
+    kmsKeyArn?: pulumi.Input<string | undefined>;
     /**
      * The evaluation level that determines the scope of evaluation.
      */
@@ -157,5 +157,5 @@ export interface EvaluatorArgs {
     /**
      * A list of tags to assign to the evaluator.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

@@ -179,7 +179,7 @@ export interface ComputeNodeGroupArgs {
     /**
      * The ID of the Amazon Machine Image (AMI) that AWS PCS uses to launch instances. If not provided, AWS PCS uses the AMI ID specified in the custom launch template.
      */
-    amiId?: pulumi.Input<string>;
+    amiId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the cluster of the compute node group.
      */
@@ -199,11 +199,11 @@ export interface ComputeNodeGroupArgs {
     /**
      * The name that identifies the compute node group.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies how EC2 instances are purchased on your behalf. AWS PCS supports On-Demand, Spot and Capacity Block instances. For more information, see Instance purchasing options in the Amazon Elastic Compute Cloud User Guide. If you don't provide this option, it defaults to On-Demand.
      */
-    purchaseOption?: pulumi.Input<enums.pcs.ComputeNodeGroupPurchaseOption>;
+    purchaseOption?: pulumi.Input<enums.pcs.ComputeNodeGroupPurchaseOption | undefined>;
     /**
      * Specifies the boundaries of the compute node group auto scaling.
      */
@@ -211,11 +211,11 @@ export interface ComputeNodeGroupArgs {
     /**
      * Additional options related to the Slurm scheduler.
      */
-    slurmConfiguration?: pulumi.Input<inputs.pcs.SlurmConfigurationPropertiesArgs>;
+    slurmConfiguration?: pulumi.Input<inputs.pcs.SlurmConfigurationPropertiesArgs | undefined>;
     /**
      * Additional configuration when you specify SPOT as the purchase option.
      */
-    spotOptions?: pulumi.Input<inputs.pcs.SpotOptionsPropertiesArgs>;
+    spotOptions?: pulumi.Input<inputs.pcs.SpotOptionsPropertiesArgs | undefined>;
     /**
      * The list of subnet IDs where instances are provisioned by the compute node group. The subnets must be in the same VPC as the cluster.
      */
@@ -223,5 +223,5 @@ export interface ComputeNodeGroupArgs {
     /**
      * 1 or more tags added to the resource. Each tag consists of a tag key and tag value. The tag value is optional and can be an empty string.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

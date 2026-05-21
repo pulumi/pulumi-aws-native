@@ -108,9 +108,9 @@ export class MountTarget extends pulumi.CustomResource {
  */
 export interface MountTargetArgs {
     fileSystemId: pulumi.Input<string>;
-    ipAddressType?: pulumi.Input<enums.s3files.MountTargetIpAddressType>;
-    ipv4Address?: pulumi.Input<string>;
-    ipv6Address?: pulumi.Input<string>;
-    securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    ipAddressType?: pulumi.Input<enums.s3files.MountTargetIpAddressType | undefined>;
+    ipv4Address?: pulumi.Input<string | undefined>;
+    ipv6Address?: pulumi.Input<string | undefined>;
+    securityGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     subnetId: pulumi.Input<string>;
 }

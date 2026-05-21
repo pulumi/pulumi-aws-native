@@ -197,7 +197,7 @@ export interface StreamGroupArgs {
     /**
      * Object that identifies the Amazon GameLift Streams application to stream with this stream group.
      */
-    defaultApplication?: pulumi.Input<inputs.gameliftstreams.StreamGroupDefaultApplicationArgs>;
+    defaultApplication?: pulumi.Input<inputs.gameliftstreams.StreamGroupDefaultApplicationArgs | undefined>;
     /**
      * A descriptive label for the stream group.
      */
@@ -294,5 +294,5 @@ export interface StreamGroupArgs {
     /**
      * A list of labels to assign to the new stream group resource. Tags are developer-defined key-value pairs. Tagging AWS resources is useful for resource management, access management and cost allocation. See [Tagging AWS Resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in the *AWS General Reference* .
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

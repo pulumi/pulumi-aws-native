@@ -146,15 +146,15 @@ export interface EndpointArgs {
     /**
      * The type of access for the on-premise network connectivity for the Outpost endpoint. To access endpoint from an on-premises network, you must specify the access type and provide the customer owned Ipv4 pool.
      */
-    accessType?: pulumi.Input<enums.s3outposts.EndpointAccessType>;
+    accessType?: pulumi.Input<enums.s3outposts.EndpointAccessType | undefined>;
     /**
      * The ID of the customer-owned IPv4 pool for the Endpoint. IP addresses will be allocated from this pool for the endpoint.
      */
-    customerOwnedIpv4Pool?: pulumi.Input<string>;
+    customerOwnedIpv4Pool?: pulumi.Input<string | undefined>;
     /**
      * The failure reason, if any, for a create or delete endpoint operation.
      */
-    failedReason?: pulumi.Input<inputs.s3outposts.EndpointFailedReasonArgs>;
+    failedReason?: pulumi.Input<inputs.s3outposts.EndpointFailedReasonArgs | undefined>;
     /**
      * The id of the customer outpost on which the bucket resides.
      */

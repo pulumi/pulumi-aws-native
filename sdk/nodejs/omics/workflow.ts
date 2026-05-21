@@ -194,67 +194,67 @@ export class Workflow extends pulumi.CustomResource {
  * The set of arguments for constructing a Workflow resource.
  */
 export interface WorkflowArgs {
-    accelerators?: pulumi.Input<enums.omics.WorkflowAccelerators>;
+    accelerators?: pulumi.Input<enums.omics.WorkflowAccelerators | undefined>;
     /**
      * Use a container registry map to specify mappings between the ECR private repository and one or more upstream registries. For more information, see [Container images](https://docs.aws.amazon.com/omics/latest/dev/workflows-ecr.html) in the *AWS HealthOmics User Guide* .
      */
-    containerRegistryMap?: pulumi.Input<inputs.omics.WorkflowContainerRegistryMapArgs>;
-    containerRegistryMapUri?: pulumi.Input<string>;
+    containerRegistryMap?: pulumi.Input<inputs.omics.WorkflowContainerRegistryMapArgs | undefined>;
+    containerRegistryMapUri?: pulumi.Input<string | undefined>;
     /**
      * Contains information about a source code repository that hosts the workflow definition files.
      */
-    definitionRepository?: pulumi.Input<inputs.omics.WorkflowDefinitionRepositoryArgs>;
+    definitionRepository?: pulumi.Input<inputs.omics.WorkflowDefinitionRepositoryArgs | undefined>;
     /**
      * The URI of a definition for the workflow.
      */
-    definitionUri?: pulumi.Input<string>;
+    definitionUri?: pulumi.Input<string | undefined>;
     /**
      * The parameter's description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * An engine for the workflow.
      */
-    engine?: pulumi.Input<enums.omics.WorkflowEngine>;
+    engine?: pulumi.Input<enums.omics.WorkflowEngine | undefined>;
     /**
      * The path of the main definition file for the workflow.
      */
-    main?: pulumi.Input<string>;
+    main?: pulumi.Input<string | undefined>;
     /**
      * The workflow's name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The workflow's parameter template.
      */
-    parameterTemplate?: pulumi.Input<{[key: string]: pulumi.Input<inputs.omics.WorkflowParameterArgs>}>;
+    parameterTemplate?: pulumi.Input<{[key: string]: pulumi.Input<inputs.omics.WorkflowParameterArgs>} | undefined>;
     /**
      * Path to the primary workflow parameter template JSON file inside the repository
      */
-    parameterTemplatePath?: pulumi.Input<string>;
+    parameterTemplatePath?: pulumi.Input<string | undefined>;
     /**
      * The markdown content for the workflow's README file. This provides documentation and usage information for users of the workflow.
      */
-    readmeMarkdown?: pulumi.Input<string>;
+    readmeMarkdown?: pulumi.Input<string | undefined>;
     /**
      * The path to the workflow README markdown file within the repository. This file provides documentation and usage information for the workflow. If not specified, the README.md file from the root directory of the repository will be used.
      */
-    readmePath?: pulumi.Input<string>;
+    readmePath?: pulumi.Input<string | undefined>;
     /**
      * The S3 URI of the README file for the workflow. This file provides documentation and usage information for the workflow. The S3 URI must begin with s3://USER-OWNED-BUCKET/. The requester must have access to the S3 bucket and object. The max README content length is 500 KiB.
      */
-    readmeUri?: pulumi.Input<string>;
+    readmeUri?: pulumi.Input<string | undefined>;
     /**
      * The default static storage capacity (in gibibytes) for runs that use this workflow or workflow version. The `storageCapacity` can be overwritten at run time. The storage capacity is not required for runs with a `DYNAMIC` storage type.
      */
-    storageCapacity?: pulumi.Input<number>;
-    storageType?: pulumi.Input<enums.omics.WorkflowStorageType>;
+    storageCapacity?: pulumi.Input<number | undefined>;
+    storageType?: pulumi.Input<enums.omics.WorkflowStorageType | undefined>;
     /**
      * Tags for the workflow.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Optional workflow bucket owner ID to verify the workflow bucket
      */
-    workflowBucketOwnerId?: pulumi.Input<string>;
+    workflowBucketOwnerId?: pulumi.Input<string | undefined>;
 }

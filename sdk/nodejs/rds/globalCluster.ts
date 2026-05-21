@@ -118,35 +118,35 @@ export interface GlobalClusterArgs {
     /**
      * The deletion protection setting for the new global database. The global database can't be deleted when deletion protection is enabled.
      */
-    deletionProtection?: pulumi.Input<boolean>;
+    deletionProtection?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the database engine to be used for this DB cluster. Valid Values: aurora (for MySQL 5.6-compatible Aurora), aurora-mysql (for MySQL 5.7-compatible Aurora).
      * If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
      */
-    engine?: pulumi.Input<enums.rds.GlobalClusterEngine>;
+    engine?: pulumi.Input<enums.rds.GlobalClusterEngine | undefined>;
     /**
      * The life cycle type of the global cluster. You can use this setting to enroll your global cluster into Amazon RDS Extended Support.
      */
-    engineLifecycleSupport?: pulumi.Input<string>;
+    engineLifecycleSupport?: pulumi.Input<string | undefined>;
     /**
      * The version number of the database engine to use. If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
      */
-    engineVersion?: pulumi.Input<string>;
+    engineVersion?: pulumi.Input<string | undefined>;
     /**
      * The cluster identifier of the new global database cluster. This parameter is stored as a lowercase string.
      */
-    globalClusterIdentifier?: pulumi.Input<string>;
+    globalClusterIdentifier?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) to use as the primary cluster of the global database. This parameter is optional. This parameter is stored as a lowercase string.
      */
-    sourceDbClusterIdentifier?: pulumi.Input<string>;
+    sourceDbClusterIdentifier?: pulumi.Input<string | undefined>;
     /**
      *  The storage encryption setting for the new global database cluster.
      * If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
      */
-    storageEncrypted?: pulumi.Input<boolean>;
+    storageEncrypted?: pulumi.Input<boolean | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

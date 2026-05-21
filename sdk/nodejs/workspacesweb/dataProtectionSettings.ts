@@ -119,25 +119,25 @@ export interface DataProtectionSettingsArgs {
     /**
      * The additional encryption context of the data protection settings.
      */
-    additionalEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    additionalEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The customer managed key used to encrypt sensitive information in the data protection settings.
      */
-    customerManagedKey?: pulumi.Input<string>;
+    customerManagedKey?: pulumi.Input<string | undefined>;
     /**
      * The description of the data protection settings.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The display name of the data protection settings.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The inline redaction configuration for the data protection settings.
      */
-    inlineRedactionConfiguration?: pulumi.Input<inputs.workspacesweb.DataProtectionSettingsInlineRedactionConfigurationArgs>;
+    inlineRedactionConfiguration?: pulumi.Input<inputs.workspacesweb.DataProtectionSettingsInlineRedactionConfigurationArgs | undefined>;
     /**
      * The tags of the data protection settings.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

@@ -147,7 +147,7 @@ export interface PodIdentityAssociationArgs {
     /**
      * The Disable Session Tags of the pod identity association.
      */
-    disableSessionTags?: pulumi.Input<boolean>;
+    disableSessionTags?: pulumi.Input<boolean | undefined>;
     /**
      * The Kubernetes namespace that the pod identity association is created for.
      */
@@ -155,7 +155,7 @@ export interface PodIdentityAssociationArgs {
     /**
      * The policy of the pod identity association.
      */
-    policy?: pulumi.Input<string>;
+    policy?: pulumi.Input<string | undefined>;
     /**
      * The IAM role ARN that the pod identity association is created for.
      */
@@ -167,9 +167,9 @@ export interface PodIdentityAssociationArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The Target Role Arn of the pod identity association.
      */
-    targetRoleArn?: pulumi.Input<string>;
+    targetRoleArn?: pulumi.Input<string | undefined>;
 }

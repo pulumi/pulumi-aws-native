@@ -174,23 +174,23 @@ export interface UserArgs {
     /**
      * After Contact Work configurations of a user.
      */
-    afterContactWorkConfigs?: pulumi.Input<pulumi.Input<inputs.connect.UserAfterContactWorkConfigPerChannelArgs>[]>;
+    afterContactWorkConfigs?: pulumi.Input<pulumi.Input<inputs.connect.UserAfterContactWorkConfigPerChannelArgs>[] | undefined>;
     /**
      * Auto-accept configurations of a user.
      */
-    autoAcceptConfigs?: pulumi.Input<pulumi.Input<inputs.connect.UserAutoAcceptConfigArgs>[]>;
+    autoAcceptConfigs?: pulumi.Input<pulumi.Input<inputs.connect.UserAutoAcceptConfigArgs>[] | undefined>;
     /**
      * The identifier of the user account in the directory used for identity management.
      */
-    directoryUserId?: pulumi.Input<string>;
+    directoryUserId?: pulumi.Input<string | undefined>;
     /**
      * The identifier of the hierarchy group for the user.
      */
-    hierarchyGroupArn?: pulumi.Input<string>;
+    hierarchyGroupArn?: pulumi.Input<string | undefined>;
     /**
      * The information about the identity of the user.
      */
-    identityInfo?: pulumi.Input<inputs.connect.UserIdentityInfoArgs>;
+    identityInfo?: pulumi.Input<inputs.connect.UserIdentityInfoArgs | undefined>;
     /**
      * The identifier of the Amazon Connect instance.
      */
@@ -198,19 +198,19 @@ export interface UserArgs {
     /**
      * The password for the user account. A password is required if you are using Amazon Connect for identity management. Otherwise, it is an error to include a password.
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * Persistent Connection configurations of a user.
      */
-    persistentConnectionConfigs?: pulumi.Input<pulumi.Input<inputs.connect.UserPersistentConnectionConfigArgs>[]>;
+    persistentConnectionConfigs?: pulumi.Input<pulumi.Input<inputs.connect.UserPersistentConnectionConfigArgs>[] | undefined>;
     /**
      * The phone settings for the user.
      */
-    phoneConfig?: pulumi.Input<inputs.connect.UserPhoneConfigArgs>;
+    phoneConfig?: pulumi.Input<inputs.connect.UserPhoneConfigArgs | undefined>;
     /**
      * Phone Number configurations of a user.
      */
-    phoneNumberConfigs?: pulumi.Input<pulumi.Input<inputs.connect.UserPhoneNumberConfigArgs>[]>;
+    phoneNumberConfigs?: pulumi.Input<pulumi.Input<inputs.connect.UserPhoneNumberConfigArgs>[] | undefined>;
     /**
      * The identifier of the routing profile for the user.
      */
@@ -222,17 +222,17 @@ export interface UserArgs {
     /**
      * One or more tags.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * One or more predefined attributes assigned to a user, with a level that indicates how skilled they are.
      */
-    userProficiencies?: pulumi.Input<pulumi.Input<inputs.connect.UserProficiencyArgs>[]>;
+    userProficiencies?: pulumi.Input<pulumi.Input<inputs.connect.UserProficiencyArgs>[] | undefined>;
     /**
      * The user name for the account.
      */
-    username?: pulumi.Input<string>;
+    username?: pulumi.Input<string | undefined>;
     /**
      * Voice Enhancement configurations of a user.
      */
-    voiceEnhancementConfigs?: pulumi.Input<pulumi.Input<inputs.connect.UserVoiceEnhancementConfigArgs>[]>;
+    voiceEnhancementConfigs?: pulumi.Input<pulumi.Input<inputs.connect.UserVoiceEnhancementConfigArgs>[] | undefined>;
 }

@@ -137,31 +137,31 @@ export class Memory extends pulumi.CustomResource {
  * The set of arguments for constructing a Memory resource.
  */
 export interface MemoryArgs {
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The memory encryption key Amazon Resource Name (ARN).
      */
-    encryptionKeyArn?: pulumi.Input<string>;
+    encryptionKeyArn?: pulumi.Input<string | undefined>;
     /**
      * Duration in days until memory events expire
      */
     eventExpiryDuration: pulumi.Input<number>;
-    indexedKeys?: pulumi.Input<pulumi.Input<inputs.bedrockagentcore.MemoryIndexedKeyArgs>[]>;
+    indexedKeys?: pulumi.Input<pulumi.Input<inputs.bedrockagentcore.MemoryIndexedKeyArgs>[] | undefined>;
     /**
      * The memory role ARN.
      */
-    memoryExecutionRoleArn?: pulumi.Input<string>;
+    memoryExecutionRoleArn?: pulumi.Input<string | undefined>;
     /**
      * The memory strategies.
      */
-    memoryStrategies?: pulumi.Input<pulumi.Input<inputs.bedrockagentcore.MemoryStrategyArgs>[]>;
+    memoryStrategies?: pulumi.Input<pulumi.Input<inputs.bedrockagentcore.MemoryStrategyArgs>[] | undefined>;
     /**
      * The memory name.
      */
-    name?: pulumi.Input<string>;
-    streamDeliveryResources?: pulumi.Input<inputs.bedrockagentcore.MemoryStreamDeliveryResourcesArgs>;
+    name?: pulumi.Input<string | undefined>;
+    streamDeliveryResources?: pulumi.Input<inputs.bedrockagentcore.MemoryStreamDeliveryResourcesArgs | undefined>;
     /**
      * The tags for the resources.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

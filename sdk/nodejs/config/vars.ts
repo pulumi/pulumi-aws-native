@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-import {Region} from "..";
+import {Region} from "../index/region";
 
 declare var exports: any;
 const __config = new pulumi.Config("aws-native");

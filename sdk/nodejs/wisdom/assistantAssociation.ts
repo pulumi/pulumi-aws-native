@@ -128,5 +128,5 @@ export interface AssistantAssociationArgs {
     /**
      * The tags used to organize, track, or control access for this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[] | undefined>;
 }

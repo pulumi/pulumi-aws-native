@@ -126,7 +126,7 @@ export interface ApiDestinationArgs {
     /**
      * A description for the API destination to create.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The method to use for the request to the HTTP invocation endpoint.
      */
@@ -138,9 +138,9 @@ export interface ApiDestinationArgs {
     /**
      * The maximum number of requests per second to send to the HTTP invocation endpoint.
      */
-    invocationRateLimitPerSecond?: pulumi.Input<number>;
+    invocationRateLimitPerSecond?: pulumi.Input<number | undefined>;
     /**
      * Name of the apiDestination.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

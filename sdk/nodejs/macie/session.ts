@@ -93,9 +93,9 @@ export interface SessionArgs {
     /**
      * A enumeration value that specifies how frequently finding updates are published.
      */
-    findingPublishingFrequency?: pulumi.Input<enums.macie.SessionFindingPublishingFrequency>;
+    findingPublishingFrequency?: pulumi.Input<enums.macie.SessionFindingPublishingFrequency | undefined>;
     /**
      * A enumeration value that specifies the status of the Macie Session.
      */
-    status?: pulumi.Input<enums.macie.SessionStatus>;
+    status?: pulumi.Input<enums.macie.SessionStatus | undefined>;
 }

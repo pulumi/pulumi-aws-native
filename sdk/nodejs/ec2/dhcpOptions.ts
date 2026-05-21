@@ -113,29 +113,29 @@ export interface DhcpOptionsArgs {
     /**
      * This value is used to complete unqualified DNS hostnames.
      */
-    domainName?: pulumi.Input<string>;
+    domainName?: pulumi.Input<string | undefined>;
     /**
      * The IPv4 addresses of up to four domain name servers, or AmazonProvidedDNS.
      */
-    domainNameServers?: pulumi.Input<pulumi.Input<string>[]>;
+    domainNameServers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The preferred Lease Time for ipV6 address in seconds.
      */
-    ipv6AddressPreferredLeaseTime?: pulumi.Input<number>;
+    ipv6AddressPreferredLeaseTime?: pulumi.Input<number | undefined>;
     /**
      * The IPv4 addresses of up to four NetBIOS name servers.
      */
-    netbiosNameServers?: pulumi.Input<pulumi.Input<string>[]>;
+    netbiosNameServers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The NetBIOS node type (1, 2, 4, or 8).
      */
-    netbiosNodeType?: pulumi.Input<number>;
+    netbiosNodeType?: pulumi.Input<number | undefined>;
     /**
      * The IPv4 addresses of up to four Network Time Protocol (NTP) servers.
      */
-    ntpServers?: pulumi.Input<pulumi.Input<string>[]>;
+    ntpServers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Any tags assigned to the DHCP options set.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }
