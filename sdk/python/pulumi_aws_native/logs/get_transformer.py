@@ -63,7 +63,7 @@ def get_transformer(log_group_identifier: Optional[_builtins.str] = None,
 
     return AwaitableGetTransformerResult(
         transformer_config=pulumi.get(__ret__, 'transformer_config'))
-def get_transformer_output(log_group_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+def get_transformer_output(log_group_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTransformerResult]:
     """
     Specifies a transformer on the log group to transform logs into consistent structured and information rich format.

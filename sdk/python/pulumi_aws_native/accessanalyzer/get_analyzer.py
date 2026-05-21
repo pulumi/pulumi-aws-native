@@ -102,7 +102,7 @@ def get_analyzer(arn: Optional[_builtins.str] = None,
         archive_rules=pulumi.get(__ret__, 'archive_rules'),
         arn=pulumi.get(__ret__, 'arn'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_analyzer_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_analyzer_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAnalyzerResult]:
     """
     The AWS::AccessAnalyzer::Analyzer type specifies an analyzer of the user's account

@@ -22,18 +22,18 @@ __all__ = ['KeyArgs', 'Key']
 @pulumi.input_type
 class KeyArgs:
     def __init__(__self__, *,
-                 bypass_policy_lockout_safety_check: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_key_rotation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 bypass_policy_lockout_safety_check: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_key_rotation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  key_policy: Optional[Any] = None,
-                 key_spec: Optional[pulumi.Input['KeySpec']] = None,
-                 key_usage: Optional[pulumi.Input['KeyUsage']] = None,
-                 multi_region: Optional[pulumi.Input[_builtins.bool]] = None,
-                 origin: Optional[pulumi.Input['KeyOrigin']] = None,
-                 pending_window_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 rotation_period_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 key_spec: pulumi.Input[Optional['KeySpec']] = None,
+                 key_usage: pulumi.Input[Optional['KeyUsage']] = None,
+                 multi_region: pulumi.Input[Optional[_builtins.bool]] = None,
+                 origin: pulumi.Input[Optional['KeyOrigin']] = None,
+                 pending_window_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 rotation_period_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Key resource.
 
@@ -164,7 +164,7 @@ class KeyArgs:
 
     @_builtins.property
     @pulumi.getter(name="bypassPolicyLockoutSafetyCheck")
-    def bypass_policy_lockout_safety_check(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def bypass_policy_lockout_safety_check(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Skips ("bypasses") the key policy lockout safety check. The default value is false.
           Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately.
@@ -174,24 +174,24 @@ class KeyArgs:
         return pulumi.get(self, "bypass_policy_lockout_safety_check")
 
     @bypass_policy_lockout_safety_check.setter
-    def bypass_policy_lockout_safety_check(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def bypass_policy_lockout_safety_check(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "bypass_policy_lockout_safety_check", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the KMS key. Use a description that helps you to distinguish this KMS key from others in the account, such as its intended use.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="enableKeyRotation")
-    def enable_key_rotation(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_key_rotation(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables automatic rotation of the key material for the specified KMS key. By default, automatic key rotation is not enabled.
          KMS supports automatic rotation only for symmetric encryption KMS keys (``KeySpec`` = ``SYMMETRIC_DEFAULT``). For asymmetric KMS keys, HMAC KMS keys, and KMS keys with Origin ``EXTERNAL``, omit the ``EnableKeyRotation`` property or set it to ``false``.
@@ -201,12 +201,12 @@ class KeyArgs:
         return pulumi.get(self, "enable_key_rotation")
 
     @enable_key_rotation.setter
-    def enable_key_rotation(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_key_rotation(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_key_rotation", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the KMS key is enabled. Disabled KMS keys cannot be used in cryptographic operations.
          When ``Enabled`` is ``true``, the *key state* of the KMS key is ``Enabled``. When ``Enabled`` is ``false``, the key state of the KMS key is ``Disabled``. The default value is ``true``.
@@ -216,7 +216,7 @@ class KeyArgs:
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
@@ -247,7 +247,7 @@ class KeyArgs:
 
     @_builtins.property
     @pulumi.getter(name="keySpec")
-    def key_spec(self) -> Optional[pulumi.Input['KeySpec']]:
+    def key_spec(self) -> pulumi.Input[Optional['KeySpec']]:
         """
         Specifies the type of KMS key to create. The default value, ``SYMMETRIC_DEFAULT``, creates a KMS key with a 256-bit symmetric key for encryption and decryption. In China Regions, ``SYMMETRIC_DEFAULT`` creates a 128-bit symmetric key that uses SM4 encryption. You can't change the ``KeySpec`` value after the KMS key is created. For help choosing a key spec for your KMS key, see [Choosing a KMS key type](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html) in the *Developer Guide*.
          The ``KeySpec`` property determines the type of key material in the KMS key and the algorithms that the KMS key supports. To further restrict the algorithms that can be used with the KMS key, use a condition key in its key policy or IAM policy. For more information, see [condition keys](https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms) in the *Developer Guide*.
@@ -290,12 +290,12 @@ class KeyArgs:
         return pulumi.get(self, "key_spec")
 
     @key_spec.setter
-    def key_spec(self, value: Optional[pulumi.Input['KeySpec']]):
+    def key_spec(self, value: pulumi.Input[Optional['KeySpec']]):
         pulumi.set(self, "key_spec", value)
 
     @_builtins.property
     @pulumi.getter(name="keyUsage")
-    def key_usage(self) -> Optional[pulumi.Input['KeyUsage']]:
+    def key_usage(self) -> pulumi.Input[Optional['KeyUsage']]:
         """
         Determines the [cryptographic operations](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations) for which you can use the KMS key. The default value is ``ENCRYPT_DECRYPT``. This property is required for asymmetric KMS keys and HMAC KMS keys. You can't change the ``KeyUsage`` value after the KMS key is created.
           If you change the value of the ``KeyUsage`` property on an existing KMS key, the update request fails, regardless of the value of the [UpdateReplacePolicy attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatereplacepolicy.html). This prevents you from accidentally deleting a KMS key by changing an immutable property value.
@@ -311,12 +311,12 @@ class KeyArgs:
         return pulumi.get(self, "key_usage")
 
     @key_usage.setter
-    def key_usage(self, value: Optional[pulumi.Input['KeyUsage']]):
+    def key_usage(self, value: pulumi.Input[Optional['KeyUsage']]):
         pulumi.set(self, "key_usage", value)
 
     @_builtins.property
     @pulumi.getter(name="multiRegion")
-    def multi_region(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def multi_region(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Creates a multi-Region primary key that you can replicate in other AWS-Regions. You can't change the ``MultiRegion`` value after the KMS key is created.
          For a list of AWS-Regions in which multi-Region keys are supported, see [Multi-Region keys in](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html) in the **.
@@ -329,12 +329,12 @@ class KeyArgs:
         return pulumi.get(self, "multi_region")
 
     @multi_region.setter
-    def multi_region(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def multi_region(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "multi_region", value)
 
     @_builtins.property
     @pulumi.getter
-    def origin(self) -> Optional[pulumi.Input['KeyOrigin']]:
+    def origin(self) -> pulumi.Input[Optional['KeyOrigin']]:
         """
         The source of the key material for the KMS key. You cannot change the origin after you create the KMS key. The default is ``AWS_KMS``, which means that KMS creates the key material.
          To [create a KMS key with no key material](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-create-cmk.html) (for imported key material), set this value to ``EXTERNAL``. For more information about importing key material into KMS, see [Importing Key Material](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html) in the *Developer Guide*.
@@ -345,12 +345,12 @@ class KeyArgs:
         return pulumi.get(self, "origin")
 
     @origin.setter
-    def origin(self, value: Optional[pulumi.Input['KeyOrigin']]):
+    def origin(self, value: pulumi.Input[Optional['KeyOrigin']]):
         pulumi.set(self, "origin", value)
 
     @_builtins.property
     @pulumi.getter(name="pendingWindowInDays")
-    def pending_window_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def pending_window_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of days in the waiting period before KMS deletes a KMS key that has been removed from a CloudFormation stack. Enter a value between 7 and 30 days. The default value is 30 days.
          When you remove a KMS key from a CloudFormation stack, KMS schedules the KMS key for deletion and starts the mandatory waiting period. The ``PendingWindowInDays`` property determines the length of waiting period. During the waiting period, the key state of KMS key is ``Pending Deletion`` or ``Pending Replica Deletion``, which prevents the KMS key from being used in cryptographic operations. When the waiting period expires, KMS permanently deletes the KMS key.
@@ -361,12 +361,12 @@ class KeyArgs:
         return pulumi.get(self, "pending_window_in_days")
 
     @pending_window_in_days.setter
-    def pending_window_in_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def pending_window_in_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "pending_window_in_days", value)
 
     @_builtins.property
     @pulumi.getter(name="rotationPeriodInDays")
-    def rotation_period_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def rotation_period_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies a custom period of time between each rotation date. If no value is specified, the default value is 365 days.
          The rotation period defines the number of days after you enable automatic key rotation that KMS will rotate your key material, and the number of days between each automatic rotation thereafter.
@@ -376,12 +376,12 @@ class KeyArgs:
         return pulumi.get(self, "rotation_period_in_days")
 
     @rotation_period_in_days.setter
-    def rotation_period_in_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def rotation_period_in_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "rotation_period_in_days", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Assigns one or more tags to the replica key.
           Tagging or untagging a KMS key can allow or deny permission to the KMS key. For details, see [ABAC for](https://docs.aws.amazon.com/kms/latest/developerguide/abac.html) in the *Developer Guide*.
@@ -390,7 +390,7 @@ class KeyArgs:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -400,18 +400,18 @@ class Key(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bypass_policy_lockout_safety_check: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_key_rotation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 bypass_policy_lockout_safety_check: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_key_rotation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  key_policy: Optional[Any] = None,
-                 key_spec: Optional[pulumi.Input['KeySpec']] = None,
-                 key_usage: Optional[pulumi.Input['KeyUsage']] = None,
-                 multi_region: Optional[pulumi.Input[_builtins.bool]] = None,
-                 origin: Optional[pulumi.Input['KeyOrigin']] = None,
-                 pending_window_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 rotation_period_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 key_spec: pulumi.Input[Optional['KeySpec']] = None,
+                 key_usage: pulumi.Input[Optional['KeyUsage']] = None,
+                 multi_region: pulumi.Input[Optional[_builtins.bool]] = None,
+                 origin: pulumi.Input[Optional['KeyOrigin']] = None,
+                 pending_window_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 rotation_period_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         The ``AWS::KMS::Key`` resource specifies an [KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#kms_keys) in KMSlong. You can use this resource to create symmetric encryption KMS keys, asymmetric KMS keys for encryption or signing, and symmetric HMAC KMS keys. You can use ``AWS::KMS::Key`` to create [multi-Region primary keys](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html#mrk-primary-key) of all supported types. To replicate a multi-Region key, use the ``AWS::KMS::ReplicaKey`` resource.
@@ -562,18 +562,18 @@ class Key(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bypass_policy_lockout_safety_check: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_key_rotation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 bypass_policy_lockout_safety_check: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_key_rotation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  key_policy: Optional[Any] = None,
-                 key_spec: Optional[pulumi.Input['KeySpec']] = None,
-                 key_usage: Optional[pulumi.Input['KeyUsage']] = None,
-                 multi_region: Optional[pulumi.Input[_builtins.bool]] = None,
-                 origin: Optional[pulumi.Input['KeyOrigin']] = None,
-                 pending_window_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 rotation_period_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 key_spec: pulumi.Input[Optional['KeySpec']] = None,
+                 key_usage: pulumi.Input[Optional['KeyUsage']] = None,
+                 multi_region: pulumi.Input[Optional[_builtins.bool]] = None,
+                 origin: pulumi.Input[Optional['KeyOrigin']] = None,
+                 pending_window_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 rotation_period_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

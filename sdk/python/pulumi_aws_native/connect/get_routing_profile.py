@@ -181,7 +181,7 @@ def get_routing_profile(routing_profile_arn: Optional[_builtins.str] = None,
         queue_configs=pulumi.get(__ret__, 'queue_configs'),
         routing_profile_arn=pulumi.get(__ret__, 'routing_profile_arn'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_routing_profile_output(routing_profile_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_routing_profile_output(routing_profile_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRoutingProfileResult]:
     """
     Resource Type definition for AWS::Connect::RoutingProfile

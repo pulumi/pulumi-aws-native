@@ -127,7 +127,7 @@ def get_project(project_id: Optional[_builtins.str] = None,
         project_id=pulumi.get(__ret__, 'project_id'),
         project_name=pulumi.get(__ret__, 'project_name'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_project_output(project_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_project_output(project_id: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProjectResult]:
     """
     Resource schema for AWS::IoTSiteWise::Project

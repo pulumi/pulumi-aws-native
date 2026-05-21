@@ -128,7 +128,7 @@ def get_pipeline(pipeline_id: Optional[_builtins.str] = None,
         pipeline_id=pulumi.get(__ret__, 'pipeline_id'),
         pipeline_objects=pulumi.get(__ret__, 'pipeline_objects'),
         pipeline_tags=pulumi.get(__ret__, 'pipeline_tags'))
-def get_pipeline_output(pipeline_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_pipeline_output(pipeline_id: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPipelineResult]:
     """
     An example resource schema demonstrating some basic constructs and validation rules.

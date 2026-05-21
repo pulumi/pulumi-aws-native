@@ -23,8 +23,8 @@ class ConnectorArgs:
     def __init__(__self__, *,
                  connector_provisioning_config: pulumi.Input['ConnectorProvisioningConfigArgs'],
                  connector_provisioning_type: pulumi.Input[_builtins.str],
-                 connector_label: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None):
+                 connector_label: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Connector resource.
 
@@ -66,26 +66,26 @@ class ConnectorArgs:
 
     @_builtins.property
     @pulumi.getter(name="connectorLabel")
-    def connector_label(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connector_label(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
          The name of the connector. The name is unique for each ConnectorRegistration in your AWS account.
         """
         return pulumi.get(self, "connector_label")
 
     @connector_label.setter
-    def connector_label(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connector_label(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connector_label", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description about the connector that's being registered.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
 
@@ -95,10 +95,10 @@ class Connector(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connector_label: Optional[pulumi.Input[_builtins.str]] = None,
-                 connector_provisioning_config: Optional[pulumi.Input[Union['ConnectorProvisioningConfigArgs', 'ConnectorProvisioningConfigArgsDict']]] = None,
-                 connector_provisioning_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 connector_label: pulumi.Input[Optional[_builtins.str]] = None,
+                 connector_provisioning_config: pulumi.Input[Optional[Union['ConnectorProvisioningConfigArgs', 'ConnectorProvisioningConfigArgsDict']]] = None,
+                 connector_provisioning_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource schema for AWS::AppFlow::Connector
@@ -136,10 +136,10 @@ class Connector(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connector_label: Optional[pulumi.Input[_builtins.str]] = None,
-                 connector_provisioning_config: Optional[pulumi.Input[Union['ConnectorProvisioningConfigArgs', 'ConnectorProvisioningConfigArgsDict']]] = None,
-                 connector_provisioning_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 connector_label: pulumi.Input[Optional[_builtins.str]] = None,
+                 connector_provisioning_config: pulumi.Input[Optional[Union['ConnectorProvisioningConfigArgs', 'ConnectorProvisioningConfigArgsDict']]] = None,
+                 connector_provisioning_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

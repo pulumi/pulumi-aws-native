@@ -63,7 +63,7 @@ def get_alias(alias_name: Optional[_builtins.str] = None,
 
     return AwaitableGetAliasResult(
         key_arn=pulumi.get(__ret__, 'key_arn'))
-def get_alias_output(alias_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_alias_output(alias_name: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAliasResult]:
     """
     Definition of AWS::PaymentCryptography::Alias Resource Type

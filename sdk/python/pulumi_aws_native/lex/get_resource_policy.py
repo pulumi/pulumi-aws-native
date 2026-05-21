@@ -88,7 +88,7 @@ def get_resource_policy(id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         policy=pulumi.get(__ret__, 'policy'),
         revision_id=pulumi.get(__ret__, 'revision_id'))
-def get_resource_policy_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_resource_policy_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourcePolicyResult]:
     """
     Resource Type definition for a resource policy with specified policy statements that attaches to a Lex bot or bot alias.

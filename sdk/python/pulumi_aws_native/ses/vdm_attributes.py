@@ -21,8 +21,8 @@ __all__ = ['VdmAttributesArgs', 'VdmAttributes']
 @pulumi.input_type
 class VdmAttributesArgs:
     def __init__(__self__, *,
-                 dashboard_attributes: Optional[pulumi.Input['VdmAttributesDashboardAttributesArgs']] = None,
-                 guardian_attributes: Optional[pulumi.Input['VdmAttributesGuardianAttributesArgs']] = None):
+                 dashboard_attributes: pulumi.Input[Optional['VdmAttributesDashboardAttributesArgs']] = None,
+                 guardian_attributes: pulumi.Input[Optional['VdmAttributesGuardianAttributesArgs']] = None):
         """
         The set of arguments for constructing a VdmAttributes resource.
 
@@ -36,26 +36,26 @@ class VdmAttributesArgs:
 
     @_builtins.property
     @pulumi.getter(name="dashboardAttributes")
-    def dashboard_attributes(self) -> Optional[pulumi.Input['VdmAttributesDashboardAttributesArgs']]:
+    def dashboard_attributes(self) -> pulumi.Input[Optional['VdmAttributesDashboardAttributesArgs']]:
         """
         Specifies additional settings for your VDM configuration as applicable to the Dashboard.
         """
         return pulumi.get(self, "dashboard_attributes")
 
     @dashboard_attributes.setter
-    def dashboard_attributes(self, value: Optional[pulumi.Input['VdmAttributesDashboardAttributesArgs']]):
+    def dashboard_attributes(self, value: pulumi.Input[Optional['VdmAttributesDashboardAttributesArgs']]):
         pulumi.set(self, "dashboard_attributes", value)
 
     @_builtins.property
     @pulumi.getter(name="guardianAttributes")
-    def guardian_attributes(self) -> Optional[pulumi.Input['VdmAttributesGuardianAttributesArgs']]:
+    def guardian_attributes(self) -> pulumi.Input[Optional['VdmAttributesGuardianAttributesArgs']]:
         """
         Specifies additional settings for your VDM configuration as applicable to the Guardian.
         """
         return pulumi.get(self, "guardian_attributes")
 
     @guardian_attributes.setter
-    def guardian_attributes(self, value: Optional[pulumi.Input['VdmAttributesGuardianAttributesArgs']]):
+    def guardian_attributes(self, value: pulumi.Input[Optional['VdmAttributesGuardianAttributesArgs']]):
         pulumi.set(self, "guardian_attributes", value)
 
 
@@ -65,8 +65,8 @@ class VdmAttributes(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dashboard_attributes: Optional[pulumi.Input[Union['VdmAttributesDashboardAttributesArgs', 'VdmAttributesDashboardAttributesArgsDict']]] = None,
-                 guardian_attributes: Optional[pulumi.Input[Union['VdmAttributesGuardianAttributesArgs', 'VdmAttributesGuardianAttributesArgsDict']]] = None,
+                 dashboard_attributes: pulumi.Input[Optional[Union['VdmAttributesDashboardAttributesArgs', 'VdmAttributesDashboardAttributesArgsDict']]] = None,
+                 guardian_attributes: pulumi.Input[Optional[Union['VdmAttributesGuardianAttributesArgs', 'VdmAttributesGuardianAttributesArgsDict']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SES::VdmAttributes
@@ -102,8 +102,8 @@ class VdmAttributes(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dashboard_attributes: Optional[pulumi.Input[Union['VdmAttributesDashboardAttributesArgs', 'VdmAttributesDashboardAttributesArgsDict']]] = None,
-                 guardian_attributes: Optional[pulumi.Input[Union['VdmAttributesGuardianAttributesArgs', 'VdmAttributesGuardianAttributesArgsDict']]] = None,
+                 dashboard_attributes: pulumi.Input[Optional[Union['VdmAttributesDashboardAttributesArgs', 'VdmAttributesDashboardAttributesArgsDict']]] = None,
+                 guardian_attributes: pulumi.Input[Optional[Union['VdmAttributesGuardianAttributesArgs', 'VdmAttributesGuardianAttributesArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

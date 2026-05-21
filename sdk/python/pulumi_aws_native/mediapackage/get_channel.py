@@ -114,7 +114,7 @@ def get_channel(id: Optional[_builtins.str] = None,
         egress_access_logs=pulumi.get(__ret__, 'egress_access_logs'),
         hls_ingest=pulumi.get(__ret__, 'hls_ingest'),
         ingress_access_logs=pulumi.get(__ret__, 'ingress_access_logs'))
-def get_channel_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_channel_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetChannelResult]:
     """
     Resource schema for AWS::MediaPackage::Channel

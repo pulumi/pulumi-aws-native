@@ -49,7 +49,7 @@ class ResourceCollection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 resource_collection_filter: Optional[pulumi.Input[Union['ResourceCollectionFilterArgs', 'ResourceCollectionFilterArgsDict']]] = None,
+                 resource_collection_filter: pulumi.Input[Optional[Union['ResourceCollectionFilterArgs', 'ResourceCollectionFilterArgsDict']]] = None,
                  __props__=None):
         """
         This resource schema represents the ResourceCollection resource in the Amazon DevOps Guru.
@@ -204,7 +204,7 @@ class ResourceCollection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 resource_collection_filter: Optional[pulumi.Input[Union['ResourceCollectionFilterArgs', 'ResourceCollectionFilterArgsDict']]] = None,
+                 resource_collection_filter: pulumi.Input[Optional[Union['ResourceCollectionFilterArgs', 'ResourceCollectionFilterArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

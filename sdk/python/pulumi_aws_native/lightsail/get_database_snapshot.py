@@ -246,7 +246,7 @@ def get_database_snapshot(relational_database_snapshot_name: Optional[_builtins.
         state=pulumi.get(__ret__, 'state'),
         support_code=pulumi.get(__ret__, 'support_code'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_database_snapshot_output(relational_database_snapshot_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_database_snapshot_output(relational_database_snapshot_name: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatabaseSnapshotResult]:
     """
     Resource Type definition for AWS::Lightsail::DatabaseSnapshot

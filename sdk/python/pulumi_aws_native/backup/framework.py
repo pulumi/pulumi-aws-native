@@ -24,9 +24,9 @@ __all__ = ['FrameworkArgs', 'Framework']
 class FrameworkArgs:
     def __init__(__self__, *,
                  framework_controls: pulumi.Input[Sequence[pulumi.Input['FrameworkControlArgs']]],
-                 framework_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 framework_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 framework_tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 framework_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 framework_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 framework_tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Framework resource.
 
@@ -57,38 +57,38 @@ class FrameworkArgs:
 
     @_builtins.property
     @pulumi.getter(name="frameworkDescription")
-    def framework_description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def framework_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An optional description of the framework with a maximum 1,024 characters.
         """
         return pulumi.get(self, "framework_description")
 
     @framework_description.setter
-    def framework_description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def framework_description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "framework_description", value)
 
     @_builtins.property
     @pulumi.getter(name="frameworkName")
-    def framework_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def framework_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique name of a framework. This name is between 1 and 256 characters, starting with a letter, and consisting of letters (a-z, A-Z), numbers (0-9), and underscores (_).
         """
         return pulumi.get(self, "framework_name")
 
     @framework_name.setter
-    def framework_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def framework_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "framework_name", value)
 
     @_builtins.property
     @pulumi.getter(name="frameworkTags")
-    def framework_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def framework_tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
         """
         return pulumi.get(self, "framework_tags")
 
     @framework_tags.setter
-    def framework_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def framework_tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "framework_tags", value)
 
 
@@ -98,10 +98,10 @@ class Framework(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 framework_controls: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrameworkControlArgs', 'FrameworkControlArgsDict']]]]] = None,
-                 framework_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 framework_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 framework_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 framework_controls: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FrameworkControlArgs', 'FrameworkControlArgsDict']]]]] = None,
+                 framework_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 framework_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 framework_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Contains detailed information about a framework. Frameworks contain controls, which evaluate and report on your backup events and resources. Frameworks generate daily compliance results.
@@ -139,10 +139,10 @@ class Framework(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 framework_controls: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrameworkControlArgs', 'FrameworkControlArgsDict']]]]] = None,
-                 framework_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 framework_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 framework_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 framework_controls: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FrameworkControlArgs', 'FrameworkControlArgsDict']]]]] = None,
+                 framework_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 framework_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 framework_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

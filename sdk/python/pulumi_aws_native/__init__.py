@@ -6,7 +6,6 @@ import builtins as _builtins
 from . import _utilities
 import typing
 # Export this package's modules as members:
-from ._enums import *
 from .cidr import *
 from .extension_resource import *
 from .get_account_id import *
@@ -263,6 +262,8 @@ if typing.TYPE_CHECKING:
     identitystore = __identitystore
     import pulumi_aws_native.imagebuilder as __imagebuilder
     imagebuilder = __imagebuilder
+    import pulumi_aws_native.index as __index
+    index = __index
     import pulumi_aws_native.inspector as __inspector
     inspector = __inspector
     import pulumi_aws_native.inspectorv2 as __inspectorv2
@@ -652,6 +653,7 @@ else:
     iam = _utilities.lazy_import('pulumi_aws_native.iam')
     identitystore = _utilities.lazy_import('pulumi_aws_native.identitystore')
     imagebuilder = _utilities.lazy_import('pulumi_aws_native.imagebuilder')
+    index = _utilities.lazy_import('pulumi_aws_native.index')
     inspector = _utilities.lazy_import('pulumi_aws_native.inspector')
     inspectorv2 = _utilities.lazy_import('pulumi_aws_native.inspectorv2')
     interconnect = _utilities.lazy_import('pulumi_aws_native.interconnect')

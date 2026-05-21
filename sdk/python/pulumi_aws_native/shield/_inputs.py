@@ -34,11 +34,11 @@ class ProactiveEngagementEmergencyContactArgsDict(TypedDict):
     """
     The email address for the contact.
     """
-    contact_notes: NotRequired[pulumi.Input[_builtins.str]]
+    contact_notes: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Additional notes regarding the contact.
     """
-    phone_number: NotRequired[pulumi.Input[_builtins.str]]
+    phone_number: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The phone number for the contact
     """
@@ -47,8 +47,8 @@ class ProactiveEngagementEmergencyContactArgsDict(TypedDict):
 class ProactiveEngagementEmergencyContactArgs:
     def __init__(__self__, *,
                  email_address: pulumi.Input[_builtins.str],
-                 contact_notes: Optional[pulumi.Input[_builtins.str]] = None,
-                 phone_number: Optional[pulumi.Input[_builtins.str]] = None):
+                 contact_notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 phone_number: pulumi.Input[Optional[_builtins.str]] = None):
         """
         An emergency contact is used by Shield Response Team (SRT) to contact you for escalations to the SRT and to initiate proactive customer support. An emergency contact requires an email address.
 
@@ -76,26 +76,26 @@ class ProactiveEngagementEmergencyContactArgs:
 
     @_builtins.property
     @pulumi.getter(name="contactNotes")
-    def contact_notes(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def contact_notes(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Additional notes regarding the contact.
         """
         return pulumi.get(self, "contact_notes")
 
     @contact_notes.setter
-    def contact_notes(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def contact_notes(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "contact_notes", value)
 
     @_builtins.property
     @pulumi.getter(name="phoneNumber")
-    def phone_number(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def phone_number(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The phone number for the contact
         """
         return pulumi.get(self, "phone_number")
 
     @phone_number.setter
-    def phone_number(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def phone_number(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "phone_number", value)
 
 

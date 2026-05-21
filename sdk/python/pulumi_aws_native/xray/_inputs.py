@@ -28,11 +28,11 @@ __all__ = [
 ]
 
 class GroupInsightsConfigurationArgsDict(TypedDict):
-    insights_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    insights_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Set the InsightsEnabled value to true to enable insights or false to disable insights.
     """
-    notifications_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    notifications_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Set the NotificationsEnabled value to true to enable insights notifications. Notifications can only be enabled on a group with InsightsEnabled set to true.
     """
@@ -40,8 +40,8 @@ class GroupInsightsConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class GroupInsightsConfigurationArgs:
     def __init__(__self__, *,
-                 insights_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 notifications_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 insights_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 notifications_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.bool] insights_enabled: Set the InsightsEnabled value to true to enable insights or false to disable insights.
         :param pulumi.Input[_builtins.bool] notifications_enabled: Set the NotificationsEnabled value to true to enable insights notifications. Notifications can only be enabled on a group with InsightsEnabled set to true.
@@ -53,46 +53,46 @@ class GroupInsightsConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="insightsEnabled")
-    def insights_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def insights_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set the InsightsEnabled value to true to enable insights or false to disable insights.
         """
         return pulumi.get(self, "insights_enabled")
 
     @insights_enabled.setter
-    def insights_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def insights_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "insights_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationsEnabled")
-    def notifications_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def notifications_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set the NotificationsEnabled value to true to enable insights notifications. Notifications can only be enabled on a group with InsightsEnabled set to true.
         """
         return pulumi.get(self, "notifications_enabled")
 
     @notifications_enabled.setter
-    def notifications_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def notifications_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "notifications_enabled", value)
 
 
 class SamplingRuleRecordArgsDict(TypedDict):
-    created_at: NotRequired[pulumi.Input[_builtins.str]]
+    created_at: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     When the rule was created, in Unix time seconds.
     """
-    modified_at: NotRequired[pulumi.Input[_builtins.str]]
+    modified_at: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     When the rule was modified, in Unix time seconds.
     """
-    sampling_rule: NotRequired[pulumi.Input['SamplingRuleArgsDict']]
+    sampling_rule: NotRequired[pulumi.Input[Optional['SamplingRuleArgsDict']]]
 
 @pulumi.input_type
 class SamplingRuleRecordArgs:
     def __init__(__self__, *,
-                 created_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 modified_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 sampling_rule: Optional[pulumi.Input['SamplingRuleArgs']] = None):
+                 created_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 modified_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 sampling_rule: pulumi.Input[Optional['SamplingRuleArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] created_at: When the rule was created, in Unix time seconds.
         :param pulumi.Input[_builtins.str] modified_at: When the rule was modified, in Unix time seconds.
@@ -106,35 +106,35 @@ class SamplingRuleRecordArgs:
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         When the rule was created, in Unix time seconds.
         """
         return pulumi.get(self, "created_at")
 
     @created_at.setter
-    def created_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_at", value)
 
     @_builtins.property
     @pulumi.getter(name="modifiedAt")
-    def modified_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def modified_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         When the rule was modified, in Unix time seconds.
         """
         return pulumi.get(self, "modified_at")
 
     @modified_at.setter
-    def modified_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def modified_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "modified_at", value)
 
     @_builtins.property
     @pulumi.getter(name="samplingRule")
-    def sampling_rule(self) -> Optional[pulumi.Input['SamplingRuleArgs']]:
+    def sampling_rule(self) -> pulumi.Input[Optional['SamplingRuleArgs']]:
         return pulumi.get(self, "sampling_rule")
 
     @sampling_rule.setter
-    def sampling_rule(self, value: Optional[pulumi.Input['SamplingRuleArgs']]):
+    def sampling_rule(self, value: pulumi.Input[Optional['SamplingRuleArgs']]):
         pulumi.set(self, "sampling_rule", value)
 
 
@@ -186,46 +186,46 @@ class SamplingRuleSamplingRateBoostArgs:
 
 
 class SamplingRuleUpdateArgsDict(TypedDict):
-    attributes: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    attributes: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Matches attributes derived from the request.
     """
-    fixed_rate: NotRequired[pulumi.Input[_builtins.float]]
+    fixed_rate: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The percentage of matching requests to instrument, after the reservoir is exhausted.
     """
-    host: NotRequired[pulumi.Input[_builtins.str]]
+    host: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Matches the hostname from a request URL.
     """
-    http_method: NotRequired[pulumi.Input[_builtins.str]]
+    http_method: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Matches the HTTP method from a request URL.
     """
-    priority: NotRequired[pulumi.Input[_builtins.int]]
+    priority: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The priority of the sampling rule.
     """
-    reservoir_size: NotRequired[pulumi.Input[_builtins.int]]
+    reservoir_size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
     """
-    resource_arn: NotRequired[pulumi.Input[_builtins.str]]
+    resource_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Matches the ARN of the AWS resource on which the service runs.
     """
-    rule_arn: NotRequired[pulumi.Input[_builtins.str]]
-    rule_name: NotRequired[pulumi.Input[_builtins.str]]
-    sampling_rate_boost: NotRequired[pulumi.Input['SamplingRuleSamplingRateBoostArgsDict']]
-    service_name: NotRequired[pulumi.Input[_builtins.str]]
+    rule_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    rule_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    sampling_rate_boost: NotRequired[pulumi.Input[Optional['SamplingRuleSamplingRateBoostArgsDict']]]
+    service_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Matches the name that the service uses to identify itself in segments.
     """
-    service_type: NotRequired[pulumi.Input[_builtins.str]]
+    service_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Matches the origin that the service uses to identify its type in segments.
     """
-    url_path: NotRequired[pulumi.Input[_builtins.str]]
+    url_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Matches the path from a request URL.
     """
@@ -233,19 +233,19 @@ class SamplingRuleUpdateArgsDict(TypedDict):
 @pulumi.input_type
 class SamplingRuleUpdateArgs:
     def __init__(__self__, *,
-                 attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 fixed_rate: Optional[pulumi.Input[_builtins.float]] = None,
-                 host: Optional[pulumi.Input[_builtins.str]] = None,
-                 http_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 reservoir_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sampling_rate_boost: Optional[pulumi.Input['SamplingRuleSamplingRateBoostArgs']] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 url_path: Optional[pulumi.Input[_builtins.str]] = None):
+                 attributes: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 fixed_rate: pulumi.Input[Optional[_builtins.float]] = None,
+                 host: pulumi.Input[Optional[_builtins.str]] = None,
+                 http_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 reservoir_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sampling_rate_boost: pulumi.Input[Optional['SamplingRuleSamplingRateBoostArgs']] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 url_path: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] attributes: Matches attributes derived from the request.
         :param pulumi.Input[_builtins.float] fixed_rate: The percentage of matching requests to instrument, after the reservoir is exhausted.
@@ -287,149 +287,149 @@ class SamplingRuleUpdateArgs:
 
     @_builtins.property
     @pulumi.getter
-    def attributes(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def attributes(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Matches attributes derived from the request.
         """
         return pulumi.get(self, "attributes")
 
     @attributes.setter
-    def attributes(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def attributes(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "attributes", value)
 
     @_builtins.property
     @pulumi.getter(name="fixedRate")
-    def fixed_rate(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def fixed_rate(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The percentage of matching requests to instrument, after the reservoir is exhausted.
         """
         return pulumi.get(self, "fixed_rate")
 
     @fixed_rate.setter
-    def fixed_rate(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def fixed_rate(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "fixed_rate", value)
 
     @_builtins.property
     @pulumi.getter
-    def host(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Matches the hostname from a request URL.
         """
         return pulumi.get(self, "host")
 
     @host.setter
-    def host(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host", value)
 
     @_builtins.property
     @pulumi.getter(name="httpMethod")
-    def http_method(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def http_method(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Matches the HTTP method from a request URL.
         """
         return pulumi.get(self, "http_method")
 
     @http_method.setter
-    def http_method(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def http_method(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "http_method", value)
 
     @_builtins.property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def priority(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The priority of the sampling rule.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def priority(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "priority", value)
 
     @_builtins.property
     @pulumi.getter(name="reservoirSize")
-    def reservoir_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def reservoir_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
         """
         return pulumi.get(self, "reservoir_size")
 
     @reservoir_size.setter
-    def reservoir_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def reservoir_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "reservoir_size", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceArn")
-    def resource_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Matches the ARN of the AWS resource on which the service runs.
         """
         return pulumi.get(self, "resource_arn")
 
     @resource_arn.setter
-    def resource_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleArn")
-    def rule_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rule_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "rule_arn")
 
     @rule_arn.setter
-    def rule_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rule_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rule_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleName")
-    def rule_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "rule_name")
 
     @rule_name.setter
-    def rule_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rule_name", value)
 
     @_builtins.property
     @pulumi.getter(name="samplingRateBoost")
-    def sampling_rate_boost(self) -> Optional[pulumi.Input['SamplingRuleSamplingRateBoostArgs']]:
+    def sampling_rate_boost(self) -> pulumi.Input[Optional['SamplingRuleSamplingRateBoostArgs']]:
         return pulumi.get(self, "sampling_rate_boost")
 
     @sampling_rate_boost.setter
-    def sampling_rate_boost(self, value: Optional[pulumi.Input['SamplingRuleSamplingRateBoostArgs']]):
+    def sampling_rate_boost(self, value: pulumi.Input[Optional['SamplingRuleSamplingRateBoostArgs']]):
         pulumi.set(self, "sampling_rate_boost", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceName")
-    def service_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Matches the name that the service uses to identify itself in segments.
         """
         return pulumi.get(self, "service_name")
 
     @service_name.setter
-    def service_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_name", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceType")
-    def service_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Matches the origin that the service uses to identify its type in segments.
         """
         return pulumi.get(self, "service_type")
 
     @service_type.setter
-    def service_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_type", value)
 
     @_builtins.property
     @pulumi.getter(name="urlPath")
-    def url_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Matches the path from a request URL.
         """
         return pulumi.get(self, "url_path")
 
     @url_path.setter
-    def url_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url_path", value)
 
 
@@ -470,22 +470,22 @@ class SamplingRuleArgsDict(TypedDict):
     """
     Matches the path from a request URL.
     """
-    attributes: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    attributes: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Matches attributes derived from the request.
     """
-    rule_arn: NotRequired[pulumi.Input[_builtins.str]]
+    rule_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of the sampling rule. Specify a rule by either name or ARN, but not both.
 
     > Specifying a sampling rule by name is recommended, as specifying by ARN will be deprecated in future.
     """
-    rule_name: NotRequired[pulumi.Input[_builtins.str]]
+    rule_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the sampling rule. Specify a rule by either name or ARN, but not both.
     """
-    sampling_rate_boost: NotRequired[pulumi.Input['SamplingRuleSamplingRateBoostArgsDict']]
-    version: NotRequired[pulumi.Input[_builtins.int]]
+    sampling_rate_boost: NotRequired[pulumi.Input[Optional['SamplingRuleSamplingRateBoostArgsDict']]]
+    version: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The version of the sampling rule format (1)
     """
@@ -502,11 +502,11 @@ class SamplingRuleArgs:
                  service_name: pulumi.Input[_builtins.str],
                  service_type: pulumi.Input[_builtins.str],
                  url_path: pulumi.Input[_builtins.str],
-                 attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 rule_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sampling_rate_boost: Optional[pulumi.Input['SamplingRuleSamplingRateBoostArgs']] = None,
-                 version: Optional[pulumi.Input[_builtins.int]] = None):
+                 attributes: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 rule_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sampling_rate_boost: pulumi.Input[Optional['SamplingRuleSamplingRateBoostArgs']] = None,
+                 version: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.float] fixed_rate: The percentage of matching requests to instrument, after the reservoir is exhausted.
         :param pulumi.Input[_builtins.str] host: Matches the hostname from a request URL.
@@ -654,19 +654,19 @@ class SamplingRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def attributes(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def attributes(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Matches attributes derived from the request.
         """
         return pulumi.get(self, "attributes")
 
     @attributes.setter
-    def attributes(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def attributes(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "attributes", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleArn")
-    def rule_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rule_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the sampling rule. Specify a rule by either name or ARN, but not both.
 
@@ -675,40 +675,40 @@ class SamplingRuleArgs:
         return pulumi.get(self, "rule_arn")
 
     @rule_arn.setter
-    def rule_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rule_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rule_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleName")
-    def rule_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the sampling rule. Specify a rule by either name or ARN, but not both.
         """
         return pulumi.get(self, "rule_name")
 
     @rule_name.setter
-    def rule_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rule_name", value)
 
     @_builtins.property
     @pulumi.getter(name="samplingRateBoost")
-    def sampling_rate_boost(self) -> Optional[pulumi.Input['SamplingRuleSamplingRateBoostArgs']]:
+    def sampling_rate_boost(self) -> pulumi.Input[Optional['SamplingRuleSamplingRateBoostArgs']]:
         return pulumi.get(self, "sampling_rate_boost")
 
     @sampling_rate_boost.setter
-    def sampling_rate_boost(self, value: Optional[pulumi.Input['SamplingRuleSamplingRateBoostArgs']]):
+    def sampling_rate_boost(self, value: pulumi.Input[Optional['SamplingRuleSamplingRateBoostArgs']]):
         pulumi.set(self, "sampling_rate_boost", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The version of the sampling rule format (1)
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "version", value)
 
 

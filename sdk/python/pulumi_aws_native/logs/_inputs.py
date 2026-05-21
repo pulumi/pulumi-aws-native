@@ -97,7 +97,7 @@ __all__ = [
 ]
 
 class DeliveryDestinationDestinationPolicyArgsDict(TypedDict):
-    delivery_destination_name: NotRequired[pulumi.Input[_builtins.str]]
+    delivery_destination_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the delivery destination to assign this policy to
     """
@@ -109,7 +109,7 @@ class DeliveryDestinationDestinationPolicyArgsDict(TypedDict):
 @pulumi.input_type
 class DeliveryDestinationDestinationPolicyArgs:
     def __init__(__self__, *,
-                 delivery_destination_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 delivery_destination_name: pulumi.Input[Optional[_builtins.str]] = None,
                  delivery_destination_policy: Optional[Any] = None):
         """
         :param pulumi.Input[_builtins.str] delivery_destination_name: The name of the delivery destination to assign this policy to
@@ -122,14 +122,14 @@ class DeliveryDestinationDestinationPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="deliveryDestinationName")
-    def delivery_destination_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delivery_destination_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the delivery destination to assign this policy to
         """
         return pulumi.get(self, "delivery_destination_name")
 
     @delivery_destination_name.setter
-    def delivery_destination_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delivery_destination_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delivery_destination_name", value)
 
     @_builtins.property
@@ -156,15 +156,15 @@ class IntegrationOpenSearchResourceConfigArgsDict(TypedDict):
     """
     Specify the ARN of an IAM role that CloudWatch Logs will use to create the integration. This role must have the permissions necessary to access the OpenSearch Service collection to be able to create the dashboards. For more information about the permissions needed, see [Permissions that the integration needs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/OpenSearch-Dashboards-CreateRole.html) in the CloudWatch Logs User Guide.
     """
-    application_arn: NotRequired[pulumi.Input[_builtins.str]]
+    application_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     If you want to use an existing OpenSearch Service application for your integration with OpenSearch Service, specify it here. If you omit this, a new application will be created.
     """
-    kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    kms_key_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     To have the vended dashboard data encrypted with AWS  instead of the CloudWatch Logs default encryption method, specify the ARN of the AWS  key that you want to use.
     """
-    retention_days: NotRequired[pulumi.Input[_builtins.int]]
+    retention_days: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specify how many days that you want the data derived by OpenSearch Service to be retained in the index that the dashboard refers to. This also sets the maximum time period that you can choose when viewing data in the dashboard. Choosing a longer time frame will incur additional costs.
     """
@@ -174,9 +174,9 @@ class IntegrationOpenSearchResourceConfigArgs:
     def __init__(__self__, *,
                  dashboard_viewer_principals: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  data_source_role_arn: pulumi.Input[_builtins.str],
-                 application_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_days: Optional[pulumi.Input[_builtins.int]] = None):
+                 application_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_days: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dashboard_viewer_principals: Specify the ARNs of IAM roles and IAM users who you want to grant permission to for viewing the dashboards.
                
@@ -223,38 +223,38 @@ class IntegrationOpenSearchResourceConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="applicationArn")
-    def application_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If you want to use an existing OpenSearch Service application for your integration with OpenSearch Service, specify it here. If you omit this, a new application will be created.
         """
         return pulumi.get(self, "application_arn")
 
     @application_arn.setter
-    def application_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
-    def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         To have the vended dashboard data encrypted with AWS  instead of the CloudWatch Logs default encryption method, specify the ARN of the AWS  key that you want to use.
         """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
-    def kms_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionDays")
-    def retention_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retention_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specify how many days that you want the data derived by OpenSearch Service to be retained in the index that the dashboard refers to. This also sets the maximum time period that you can choose when viewing data in the dashboard. Choosing a longer time frame will incur additional costs.
         """
         return pulumi.get(self, "retention_days")
 
     @retention_days.setter
-    def retention_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retention_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retention_days", value)
 
 
@@ -339,18 +339,18 @@ class MetricFilterMetricTransformationArgsDict(TypedDict):
     """
     The value that is published to the CloudWatch metric. For example, if you're counting the occurrences of a particular term like ``Error``, specify 1 for the metric value. If you're counting the number of bytes transferred, reference the value that is in the log event by using $. followed by the name of the field that you specified in the filter pattern, such as ``$.size``.
     """
-    default_value: NotRequired[pulumi.Input[_builtins.float]]
+    default_value: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     (Optional) The value to emit when a filter pattern does not match a log event. This value can be null.
     """
-    dimensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['MetricFilterDimensionArgsDict']]]]
+    dimensions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['MetricFilterDimensionArgsDict']]]]]
     """
     The fields to use as dimensions for the metric. One metric filter can include as many as three dimensions.
       Metrics extracted from log events are charged as custom metrics. To prevent unexpected high charges, do not specify high-cardinality fields such as ``IPAddress`` or ``requestID`` as dimensions. Each different value found for a dimension is treated as a separate metric and accrues charges as a separate custom metric. 
      CloudWatch Logs disables a metric filter if it generates 1000 different name/value pairs for your specified dimensions within a certain amount of time. This helps to prevent accidental high charges.
      You can also set up a billing alarm to alert you if your charges are higher than expected. For more information, see [Creating a Billing Alarm to Monitor Your Estimated Charges](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/monitor_estimated_charges_with_cloudwatch.html).
     """
-    unit: NotRequired[pulumi.Input['MetricFilterMetricTransformationUnit']]
+    unit: NotRequired[pulumi.Input[Optional['MetricFilterMetricTransformationUnit']]]
     """
     The unit to assign to the metric. If you omit this, the unit is set as ``None``.
     """
@@ -361,9 +361,9 @@ class MetricFilterMetricTransformationArgs:
                  metric_name: pulumi.Input[_builtins.str],
                  metric_namespace: pulumi.Input[_builtins.str],
                  metric_value: pulumi.Input[_builtins.str],
-                 default_value: Optional[pulumi.Input[_builtins.float]] = None,
-                 dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['MetricFilterDimensionArgs']]]] = None,
-                 unit: Optional[pulumi.Input['MetricFilterMetricTransformationUnit']] = None):
+                 default_value: pulumi.Input[Optional[_builtins.float]] = None,
+                 dimensions: pulumi.Input[Optional[Sequence[pulumi.Input['MetricFilterDimensionArgs']]]] = None,
+                 unit: pulumi.Input[Optional['MetricFilterMetricTransformationUnit']] = None):
         """
         ``MetricTransformation`` is a property of the ``AWS::Logs::MetricFilter`` resource that describes how to transform log streams into a CloudWatch metric.
 
@@ -425,19 +425,19 @@ class MetricFilterMetricTransformationArgs:
 
     @_builtins.property
     @pulumi.getter(name="defaultValue")
-    def default_value(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def default_value(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         (Optional) The value to emit when a filter pattern does not match a log event. This value can be null.
         """
         return pulumi.get(self, "default_value")
 
     @default_value.setter
-    def default_value(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def default_value(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "default_value", value)
 
     @_builtins.property
     @pulumi.getter
-    def dimensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MetricFilterDimensionArgs']]]]:
+    def dimensions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MetricFilterDimensionArgs']]]]:
         """
         The fields to use as dimensions for the metric. One metric filter can include as many as three dimensions.
           Metrics extracted from log events are charged as custom metrics. To prevent unexpected high charges, do not specify high-cardinality fields such as ``IPAddress`` or ``requestID`` as dimensions. Each different value found for a dimension is treated as a separate metric and accrues charges as a separate custom metric. 
@@ -447,19 +447,19 @@ class MetricFilterMetricTransformationArgs:
         return pulumi.get(self, "dimensions")
 
     @dimensions.setter
-    def dimensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MetricFilterDimensionArgs']]]]):
+    def dimensions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MetricFilterDimensionArgs']]]]):
         pulumi.set(self, "dimensions", value)
 
     @_builtins.property
     @pulumi.getter
-    def unit(self) -> Optional[pulumi.Input['MetricFilterMetricTransformationUnit']]:
+    def unit(self) -> pulumi.Input[Optional['MetricFilterMetricTransformationUnit']]:
         """
         The unit to assign to the metric. If you omit this, the unit is set as ``None``.
         """
         return pulumi.get(self, "unit")
 
     @unit.setter
-    def unit(self, value: Optional[pulumi.Input['MetricFilterMetricTransformationUnit']]):
+    def unit(self, value: pulumi.Input[Optional['MetricFilterMetricTransformationUnit']]):
         pulumi.set(self, "unit", value)
 
 
@@ -471,11 +471,11 @@ class QueryDefinitionQueryParameterArgsDict(TypedDict):
     """
     The name of the query parameter. A query parameter name must start with a letter or underscore, and contain only letters, digits, and underscores.
     """
-    default_value: NotRequired[pulumi.Input[_builtins.str]]
+    default_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The default value to use for this query parameter if no value is supplied at execution time.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A description of the query parameter that explains its purpose or expected values.
     """
@@ -484,8 +484,8 @@ class QueryDefinitionQueryParameterArgsDict(TypedDict):
 class QueryDefinitionQueryParameterArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 default_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None):
+                 default_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None):
         """
         This structure defines a query parameter for a saved CloudWatch Logs Insights query definition. Query parameters are supported only for Logs Insights QL queries. They are placeholder variables that you can reference in a query string using the {{parameterName}} syntax. Each parameter can include a default value and a description.
 
@@ -513,26 +513,26 @@ class QueryDefinitionQueryParameterArgs:
 
     @_builtins.property
     @pulumi.getter(name="defaultValue")
-    def default_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The default value to use for this query parameter if no value is supplied at execution time.
         """
         return pulumi.get(self, "default_value")
 
     @default_value.setter
-    def default_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_value", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the query parameter that explains its purpose or expected values.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
 
@@ -540,7 +540,7 @@ class ResourceConfigPropertiesArgsDict(TypedDict):
     """
     OpenSearchResourceConfig for the given Integration
     """
-    open_search_resource_config: NotRequired[pulumi.Input['IntegrationOpenSearchResourceConfigArgsDict']]
+    open_search_resource_config: NotRequired[pulumi.Input[Optional['IntegrationOpenSearchResourceConfigArgsDict']]]
     """
     This structure contains configuration details about an integration between CloudWatch Logs and OpenSearch Service.
     """
@@ -548,7 +548,7 @@ class ResourceConfigPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class ResourceConfigPropertiesArgs:
     def __init__(__self__, *,
-                 open_search_resource_config: Optional[pulumi.Input['IntegrationOpenSearchResourceConfigArgs']] = None):
+                 open_search_resource_config: pulumi.Input[Optional['IntegrationOpenSearchResourceConfigArgs']] = None):
         """
         OpenSearchResourceConfig for the given Integration
 
@@ -559,34 +559,34 @@ class ResourceConfigPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="openSearchResourceConfig")
-    def open_search_resource_config(self) -> Optional[pulumi.Input['IntegrationOpenSearchResourceConfigArgs']]:
+    def open_search_resource_config(self) -> pulumi.Input[Optional['IntegrationOpenSearchResourceConfigArgs']]:
         """
         This structure contains configuration details about an integration between CloudWatch Logs and OpenSearch Service.
         """
         return pulumi.get(self, "open_search_resource_config")
 
     @open_search_resource_config.setter
-    def open_search_resource_config(self, value: Optional[pulumi.Input['IntegrationOpenSearchResourceConfigArgs']]):
+    def open_search_resource_config(self, value: pulumi.Input[Optional['IntegrationOpenSearchResourceConfigArgs']]):
         pulumi.set(self, "open_search_resource_config", value)
 
 
 class ScheduledQueryDestinationConfigurationArgsDict(TypedDict):
-    s3_configuration: NotRequired[pulumi.Input['ScheduledQueryS3ConfigurationArgsDict']]
+    s3_configuration: NotRequired[pulumi.Input[Optional['ScheduledQueryS3ConfigurationArgsDict']]]
 
 @pulumi.input_type
 class ScheduledQueryDestinationConfigurationArgs:
     def __init__(__self__, *,
-                 s3_configuration: Optional[pulumi.Input['ScheduledQueryS3ConfigurationArgs']] = None):
+                 s3_configuration: pulumi.Input[Optional['ScheduledQueryS3ConfigurationArgs']] = None):
         if s3_configuration is not None:
             pulumi.set(__self__, "s3_configuration", s3_configuration)
 
     @_builtins.property
     @pulumi.getter(name="s3Configuration")
-    def s3_configuration(self) -> Optional[pulumi.Input['ScheduledQueryS3ConfigurationArgs']]:
+    def s3_configuration(self) -> pulumi.Input[Optional['ScheduledQueryS3ConfigurationArgs']]:
         return pulumi.get(self, "s3_configuration")
 
     @s3_configuration.setter
-    def s3_configuration(self, value: Optional[pulumi.Input['ScheduledQueryS3ConfigurationArgs']]):
+    def s3_configuration(self, value: pulumi.Input[Optional['ScheduledQueryS3ConfigurationArgs']]):
         pulumi.set(self, "s3_configuration", value)
 
 
@@ -630,7 +630,7 @@ class TransformerAddKeyEntryArgsDict(TypedDict):
     """
     The value of the new entry to be added to the log event
     """
-    overwrite_if_exists: NotRequired[pulumi.Input[_builtins.bool]]
+    overwrite_if_exists: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether to overwrite the value if the key already exists in the log event. If you omit this, the default is `false` .
     """
@@ -640,7 +640,7 @@ class TransformerAddKeyEntryArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str],
-                 overwrite_if_exists: Optional[pulumi.Input[_builtins.bool]] = None):
+                 overwrite_if_exists: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] key: The key of the new entry to be added to the log event
         :param pulumi.Input[_builtins.str] value: The value of the new entry to be added to the log event
@@ -677,28 +677,28 @@ class TransformerAddKeyEntryArgs:
 
     @_builtins.property
     @pulumi.getter(name="overwriteIfExists")
-    def overwrite_if_exists(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def overwrite_if_exists(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether to overwrite the value if the key already exists in the log event. If you omit this, the default is `false` .
         """
         return pulumi.get(self, "overwrite_if_exists")
 
     @overwrite_if_exists.setter
-    def overwrite_if_exists(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def overwrite_if_exists(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "overwrite_if_exists", value)
 
 
 class TransformerCopyValueEntryArgsDict(TypedDict):
     source: pulumi.Input[_builtins.str]
     target: pulumi.Input[_builtins.str]
-    overwrite_if_exists: NotRequired[pulumi.Input[_builtins.bool]]
+    overwrite_if_exists: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
 
 @pulumi.input_type
 class TransformerCopyValueEntryArgs:
     def __init__(__self__, *,
                  source: pulumi.Input[_builtins.str],
                  target: pulumi.Input[_builtins.str],
-                 overwrite_if_exists: Optional[pulumi.Input[_builtins.bool]] = None):
+                 overwrite_if_exists: pulumi.Input[Optional[_builtins.bool]] = None):
         pulumi.set(__self__, "source", source)
         pulumi.set(__self__, "target", target)
         if overwrite_if_exists is not None:
@@ -724,25 +724,25 @@ class TransformerCopyValueEntryArgs:
 
     @_builtins.property
     @pulumi.getter(name="overwriteIfExists")
-    def overwrite_if_exists(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def overwrite_if_exists(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "overwrite_if_exists")
 
     @overwrite_if_exists.setter
-    def overwrite_if_exists(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def overwrite_if_exists(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "overwrite_if_exists", value)
 
 
 class TransformerMoveKeyEntryArgsDict(TypedDict):
     source: pulumi.Input[_builtins.str]
     target: pulumi.Input[_builtins.str]
-    overwrite_if_exists: NotRequired[pulumi.Input[_builtins.bool]]
+    overwrite_if_exists: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
 
 @pulumi.input_type
 class TransformerMoveKeyEntryArgs:
     def __init__(__self__, *,
                  source: pulumi.Input[_builtins.str],
                  target: pulumi.Input[_builtins.str],
-                 overwrite_if_exists: Optional[pulumi.Input[_builtins.bool]] = None):
+                 overwrite_if_exists: pulumi.Input[Optional[_builtins.bool]] = None):
         pulumi.set(__self__, "source", source)
         pulumi.set(__self__, "target", target)
         if overwrite_if_exists is not None:
@@ -768,16 +768,16 @@ class TransformerMoveKeyEntryArgs:
 
     @_builtins.property
     @pulumi.getter(name="overwriteIfExists")
-    def overwrite_if_exists(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def overwrite_if_exists(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "overwrite_if_exists")
 
     @overwrite_if_exists.setter
-    def overwrite_if_exists(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def overwrite_if_exists(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "overwrite_if_exists", value)
 
 
 class TransformerParseCloudfrontArgsDict(TypedDict):
-    source: NotRequired[pulumi.Input[_builtins.str]]
+    source: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Omit this parameter and the whole log message will be processed by this processor. No other value than `@message` is allowed for `source` .
     """
@@ -785,7 +785,7 @@ class TransformerParseCloudfrontArgsDict(TypedDict):
 @pulumi.input_type
 class TransformerParseCloudfrontArgs:
     def __init__(__self__, *,
-                 source: Optional[pulumi.Input[_builtins.str]] = None):
+                 source: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] source: Omit this parameter and the whole log message will be processed by this processor. No other value than `@message` is allowed for `source` .
         """
@@ -794,19 +794,19 @@ class TransformerParseCloudfrontArgs:
 
     @_builtins.property
     @pulumi.getter
-    def source(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Omit this parameter and the whole log message will be processed by this processor. No other value than `@message` is allowed for `source` .
         """
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source", value)
 
 
 class TransformerParsePostgresArgsDict(TypedDict):
-    source: NotRequired[pulumi.Input[_builtins.str]]
+    source: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Omit this parameter and the whole log message will be processed by this processor. No other value than `@message` is allowed for `source` .
     """
@@ -814,7 +814,7 @@ class TransformerParsePostgresArgsDict(TypedDict):
 @pulumi.input_type
 class TransformerParsePostgresArgs:
     def __init__(__self__, *,
-                 source: Optional[pulumi.Input[_builtins.str]] = None):
+                 source: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] source: Omit this parameter and the whole log message will be processed by this processor. No other value than `@message` is allowed for `source` .
         """
@@ -823,19 +823,19 @@ class TransformerParsePostgresArgs:
 
     @_builtins.property
     @pulumi.getter
-    def source(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Omit this parameter and the whole log message will be processed by this processor. No other value than `@message` is allowed for `source` .
         """
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source", value)
 
 
 class TransformerParseRoute53ArgsDict(TypedDict):
-    source: NotRequired[pulumi.Input[_builtins.str]]
+    source: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Omit this parameter and the whole log message will be processed by this processor. No other value than `@message` is allowed for `source` .
     """
@@ -843,7 +843,7 @@ class TransformerParseRoute53ArgsDict(TypedDict):
 @pulumi.input_type
 class TransformerParseRoute53Args:
     def __init__(__self__, *,
-                 source: Optional[pulumi.Input[_builtins.str]] = None):
+                 source: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] source: Omit this parameter and the whole log message will be processed by this processor. No other value than `@message` is allowed for `source` .
         """
@@ -852,14 +852,14 @@ class TransformerParseRoute53Args:
 
     @_builtins.property
     @pulumi.getter
-    def source(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Omit this parameter and the whole log message will be processed by this processor. No other value than `@message` is allowed for `source` .
         """
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source", value)
 
 
@@ -872,11 +872,11 @@ class TransformerParseToOcsfArgsDict(TypedDict):
     """
     Specify which version of the OCSF schema to use for the transformed log events.
     """
-    mapping_version: NotRequired[pulumi.Input[_builtins.str]]
+    mapping_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The version of the OCSF mapping to use for parsing log data.
     """
-    source: NotRequired[pulumi.Input[_builtins.str]]
+    source: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The path to the field in the log event that you want to parse. If you omit this value, the whole log message is parsed.
     """
@@ -886,8 +886,8 @@ class TransformerParseToOcsfArgs:
     def __init__(__self__, *,
                  event_source: pulumi.Input['TransformerEventSource'],
                  ocsf_version: pulumi.Input['TransformerOcsfVersion'],
-                 mapping_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 source: Optional[pulumi.Input[_builtins.str]] = None):
+                 mapping_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 source: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input['TransformerEventSource'] event_source: Specify the service or process that produces the log events that will be converted with this processor.
         :param pulumi.Input['TransformerOcsfVersion'] ocsf_version: Specify which version of the OCSF schema to use for the transformed log events.
@@ -927,31 +927,31 @@ class TransformerParseToOcsfArgs:
 
     @_builtins.property
     @pulumi.getter(name="mappingVersion")
-    def mapping_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mapping_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the OCSF mapping to use for parsing log data.
         """
         return pulumi.get(self, "mapping_version")
 
     @mapping_version.setter
-    def mapping_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mapping_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mapping_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def source(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The path to the field in the log event that you want to parse. If you omit this value, the whole log message is parsed.
         """
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source", value)
 
 
 class TransformerParseVpcArgsDict(TypedDict):
-    source: NotRequired[pulumi.Input[_builtins.str]]
+    source: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Omit this parameter and the whole log message will be processed by this processor. No other value than `@message` is allowed for `source` .
     """
@@ -959,7 +959,7 @@ class TransformerParseVpcArgsDict(TypedDict):
 @pulumi.input_type
 class TransformerParseVpcArgs:
     def __init__(__self__, *,
-                 source: Optional[pulumi.Input[_builtins.str]] = None):
+                 source: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] source: Omit this parameter and the whole log message will be processed by this processor. No other value than `@message` is allowed for `source` .
         """
@@ -968,19 +968,19 @@ class TransformerParseVpcArgs:
 
     @_builtins.property
     @pulumi.getter
-    def source(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Omit this parameter and the whole log message will be processed by this processor. No other value than `@message` is allowed for `source` .
         """
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source", value)
 
 
 class TransformerParseWafArgsDict(TypedDict):
-    source: NotRequired[pulumi.Input[_builtins.str]]
+    source: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Omit this parameter and the whole log message will be processed by this processor. No other value than `@message` is allowed for `source` .
     """
@@ -988,7 +988,7 @@ class TransformerParseWafArgsDict(TypedDict):
 @pulumi.input_type
 class TransformerParseWafArgs:
     def __init__(__self__, *,
-                 source: Optional[pulumi.Input[_builtins.str]] = None):
+                 source: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] source: Omit this parameter and the whole log message will be processed by this processor. No other value than `@message` is allowed for `source` .
         """
@@ -997,14 +997,14 @@ class TransformerParseWafArgs:
 
     @_builtins.property
     @pulumi.getter
-    def source(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Omit this parameter and the whole log message will be processed by this processor. No other value than `@message` is allowed for `source` .
         """
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source", value)
 
 
@@ -1062,18 +1062,18 @@ class TransformerProcessorCsvPropertiesArgsDict(TypedDict):
     """
     Use this parameter to include the [CSV](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-CSV) processor in your transformer.
     """
-    columns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    delimiter: NotRequired[pulumi.Input[_builtins.str]]
-    quote_character: NotRequired[pulumi.Input[_builtins.str]]
-    source: NotRequired[pulumi.Input[_builtins.str]]
+    columns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    delimiter: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    quote_character: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    source: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class TransformerProcessorCsvPropertiesArgs:
     def __init__(__self__, *,
-                 columns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 delimiter: Optional[pulumi.Input[_builtins.str]] = None,
-                 quote_character: Optional[pulumi.Input[_builtins.str]] = None,
-                 source: Optional[pulumi.Input[_builtins.str]] = None):
+                 columns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 delimiter: pulumi.Input[Optional[_builtins.str]] = None,
+                 quote_character: pulumi.Input[Optional[_builtins.str]] = None,
+                 source: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Use this parameter to include the [CSV](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-CSV) processor in your transformer.
         """
@@ -1088,38 +1088,38 @@ class TransformerProcessorCsvPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def columns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "columns")
 
     @columns.setter
-    def columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def columns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "columns", value)
 
     @_builtins.property
     @pulumi.getter
-    def delimiter(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delimiter(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "delimiter")
 
     @delimiter.setter
-    def delimiter(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delimiter(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delimiter", value)
 
     @_builtins.property
     @pulumi.getter(name="quoteCharacter")
-    def quote_character(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def quote_character(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "quote_character")
 
     @quote_character.setter
-    def quote_character(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def quote_character(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "quote_character", value)
 
     @_builtins.property
     @pulumi.getter
-    def source(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source", value)
 
 
@@ -1130,10 +1130,10 @@ class TransformerProcessorDateTimeConverterPropertiesArgsDict(TypedDict):
     match_patterns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
     source: pulumi.Input[_builtins.str]
     target: pulumi.Input[_builtins.str]
-    locale: NotRequired[pulumi.Input[_builtins.str]]
-    source_timezone: NotRequired[pulumi.Input[_builtins.str]]
-    target_format: NotRequired[pulumi.Input[_builtins.str]]
-    target_timezone: NotRequired[pulumi.Input[_builtins.str]]
+    locale: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    source_timezone: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    target_format: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    target_timezone: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class TransformerProcessorDateTimeConverterPropertiesArgs:
@@ -1141,10 +1141,10 @@ class TransformerProcessorDateTimeConverterPropertiesArgs:
                  match_patterns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  source: pulumi.Input[_builtins.str],
                  target: pulumi.Input[_builtins.str],
-                 locale: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_timezone: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_timezone: Optional[pulumi.Input[_builtins.str]] = None):
+                 locale: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_timezone: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_timezone: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Use this parameter to include the [datetimeConverter](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-datetimeConverter) processor in your transformer.
         """
@@ -1189,38 +1189,38 @@ class TransformerProcessorDateTimeConverterPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def locale(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def locale(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "locale")
 
     @locale.setter
-    def locale(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def locale(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "locale", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceTimezone")
-    def source_timezone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_timezone(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "source_timezone")
 
     @source_timezone.setter
-    def source_timezone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_timezone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_timezone", value)
 
     @_builtins.property
     @pulumi.getter(name="targetFormat")
-    def target_format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "target_format")
 
     @target_format.setter
-    def target_format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_format", value)
 
     @_builtins.property
     @pulumi.getter(name="targetTimezone")
-    def target_timezone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_timezone(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "target_timezone")
 
     @target_timezone.setter
-    def target_timezone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_timezone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_timezone", value)
 
 
@@ -1254,13 +1254,13 @@ class TransformerProcessorGrokPropertiesArgsDict(TypedDict):
     Use this parameter to include the [grok](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-grok) processor in your transformer.
     """
     match: pulumi.Input[_builtins.str]
-    source: NotRequired[pulumi.Input[_builtins.str]]
+    source: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class TransformerProcessorGrokPropertiesArgs:
     def __init__(__self__, *,
                  match: pulumi.Input[_builtins.str],
-                 source: Optional[pulumi.Input[_builtins.str]] = None):
+                 source: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Use this parameter to include the [grok](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-grok) processor in your transformer.
         """
@@ -1279,11 +1279,11 @@ class TransformerProcessorGrokPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def source(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source", value)
 
 
@@ -1293,20 +1293,20 @@ class TransformerProcessorListToMapPropertiesArgsDict(TypedDict):
     """
     key: pulumi.Input[_builtins.str]
     source: pulumi.Input[_builtins.str]
-    flatten: NotRequired[pulumi.Input[_builtins.bool]]
-    flattened_element: NotRequired[pulumi.Input['TransformerProcessorListToMapPropertiesFlattenedElement']]
-    target: NotRequired[pulumi.Input[_builtins.str]]
-    value_key: NotRequired[pulumi.Input[_builtins.str]]
+    flatten: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    flattened_element: NotRequired[pulumi.Input[Optional['TransformerProcessorListToMapPropertiesFlattenedElement']]]
+    target: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    value_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class TransformerProcessorListToMapPropertiesArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[_builtins.str],
                  source: pulumi.Input[_builtins.str],
-                 flatten: Optional[pulumi.Input[_builtins.bool]] = None,
-                 flattened_element: Optional[pulumi.Input['TransformerProcessorListToMapPropertiesFlattenedElement']] = None,
-                 target: Optional[pulumi.Input[_builtins.str]] = None,
-                 value_key: Optional[pulumi.Input[_builtins.str]] = None):
+                 flatten: pulumi.Input[Optional[_builtins.bool]] = None,
+                 flattened_element: pulumi.Input[Optional['TransformerProcessorListToMapPropertiesFlattenedElement']] = None,
+                 target: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_key: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Use this parameter to include the [listToMap](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-listToMap) processor in your transformer.
         """
@@ -1341,38 +1341,38 @@ class TransformerProcessorListToMapPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def flatten(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def flatten(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "flatten")
 
     @flatten.setter
-    def flatten(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def flatten(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "flatten", value)
 
     @_builtins.property
     @pulumi.getter(name="flattenedElement")
-    def flattened_element(self) -> Optional[pulumi.Input['TransformerProcessorListToMapPropertiesFlattenedElement']]:
+    def flattened_element(self) -> pulumi.Input[Optional['TransformerProcessorListToMapPropertiesFlattenedElement']]:
         return pulumi.get(self, "flattened_element")
 
     @flattened_element.setter
-    def flattened_element(self, value: Optional[pulumi.Input['TransformerProcessorListToMapPropertiesFlattenedElement']]):
+    def flattened_element(self, value: pulumi.Input[Optional['TransformerProcessorListToMapPropertiesFlattenedElement']]):
         pulumi.set(self, "flattened_element", value)
 
     @_builtins.property
     @pulumi.getter
-    def target(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "target")
 
     @target.setter
-    def target(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target", value)
 
     @_builtins.property
     @pulumi.getter(name="valueKey")
-    def value_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "value_key")
 
     @value_key.setter
-    def value_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value_key", value)
 
 
@@ -1430,14 +1430,14 @@ class TransformerProcessorParseJsonPropertiesArgsDict(TypedDict):
     """
     Use this parameter to include the [parseJSON](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-parseJSON) processor in your transformer.
     """
-    destination: NotRequired[pulumi.Input[_builtins.str]]
-    source: NotRequired[pulumi.Input[_builtins.str]]
+    destination: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    source: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class TransformerProcessorParseJsonPropertiesArgs:
     def __init__(__self__, *,
-                 destination: Optional[pulumi.Input[_builtins.str]] = None,
-                 source: Optional[pulumi.Input[_builtins.str]] = None):
+                 destination: pulumi.Input[Optional[_builtins.str]] = None,
+                 source: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Use this parameter to include the [parseJSON](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-parseJSON) processor in your transformer.
         """
@@ -1448,20 +1448,20 @@ class TransformerProcessorParseJsonPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def destination(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "destination")
 
     @destination.setter
-    def destination(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination", value)
 
     @_builtins.property
     @pulumi.getter
-    def source(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source", value)
 
 
@@ -1469,24 +1469,24 @@ class TransformerProcessorParseKeyValuePropertiesArgsDict(TypedDict):
     """
     Use this parameter to include the [parseKeyValue](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-parseKeyValue) processor in your transformer.
     """
-    destination: NotRequired[pulumi.Input[_builtins.str]]
-    field_delimiter: NotRequired[pulumi.Input[_builtins.str]]
-    key_prefix: NotRequired[pulumi.Input[_builtins.str]]
-    key_value_delimiter: NotRequired[pulumi.Input[_builtins.str]]
-    non_match_value: NotRequired[pulumi.Input[_builtins.str]]
-    overwrite_if_exists: NotRequired[pulumi.Input[_builtins.bool]]
-    source: NotRequired[pulumi.Input[_builtins.str]]
+    destination: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    field_delimiter: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    key_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    key_value_delimiter: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    non_match_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    overwrite_if_exists: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    source: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class TransformerProcessorParseKeyValuePropertiesArgs:
     def __init__(__self__, *,
-                 destination: Optional[pulumi.Input[_builtins.str]] = None,
-                 field_delimiter: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_value_delimiter: Optional[pulumi.Input[_builtins.str]] = None,
-                 non_match_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 overwrite_if_exists: Optional[pulumi.Input[_builtins.bool]] = None,
-                 source: Optional[pulumi.Input[_builtins.str]] = None):
+                 destination: pulumi.Input[Optional[_builtins.str]] = None,
+                 field_delimiter: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_value_delimiter: pulumi.Input[Optional[_builtins.str]] = None,
+                 non_match_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 overwrite_if_exists: pulumi.Input[Optional[_builtins.bool]] = None,
+                 source: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Use this parameter to include the [parseKeyValue](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-parseKeyValue) processor in your transformer.
         """
@@ -1507,65 +1507,65 @@ class TransformerProcessorParseKeyValuePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def destination(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "destination")
 
     @destination.setter
-    def destination(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination", value)
 
     @_builtins.property
     @pulumi.getter(name="fieldDelimiter")
-    def field_delimiter(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def field_delimiter(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "field_delimiter")
 
     @field_delimiter.setter
-    def field_delimiter(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def field_delimiter(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "field_delimiter", value)
 
     @_builtins.property
     @pulumi.getter(name="keyPrefix")
-    def key_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "key_prefix")
 
     @key_prefix.setter
-    def key_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="keyValueDelimiter")
-    def key_value_delimiter(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_value_delimiter(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "key_value_delimiter")
 
     @key_value_delimiter.setter
-    def key_value_delimiter(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_value_delimiter(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_value_delimiter", value)
 
     @_builtins.property
     @pulumi.getter(name="nonMatchValue")
-    def non_match_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def non_match_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "non_match_value")
 
     @non_match_value.setter
-    def non_match_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def non_match_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "non_match_value", value)
 
     @_builtins.property
     @pulumi.getter(name="overwriteIfExists")
-    def overwrite_if_exists(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def overwrite_if_exists(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "overwrite_if_exists")
 
     @overwrite_if_exists.setter
-    def overwrite_if_exists(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def overwrite_if_exists(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "overwrite_if_exists", value)
 
     @_builtins.property
     @pulumi.getter
-    def source(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source", value)
 
 
@@ -1723,105 +1723,105 @@ class TransformerProcessorArgsDict(TypedDict):
     """
     Individual processor configuration
     """
-    add_keys: NotRequired[pulumi.Input['TransformerProcessorAddKeysPropertiesArgsDict']]
+    add_keys: NotRequired[pulumi.Input[Optional['TransformerProcessorAddKeysPropertiesArgsDict']]]
     """
     Use this parameter to include the [addKeys](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-addKeys) processor in your transformer.
     """
-    copy_value: NotRequired[pulumi.Input['TransformerProcessorCopyValuePropertiesArgsDict']]
+    copy_value: NotRequired[pulumi.Input[Optional['TransformerProcessorCopyValuePropertiesArgsDict']]]
     """
     Use this parameter to include the [copyValue](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-copyValue) processor in your transformer.
     """
-    csv: NotRequired[pulumi.Input['TransformerProcessorCsvPropertiesArgsDict']]
+    csv: NotRequired[pulumi.Input[Optional['TransformerProcessorCsvPropertiesArgsDict']]]
     """
     Use this parameter to include the [CSV](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-CSV) processor in your transformer.
     """
-    date_time_converter: NotRequired[pulumi.Input['TransformerProcessorDateTimeConverterPropertiesArgsDict']]
+    date_time_converter: NotRequired[pulumi.Input[Optional['TransformerProcessorDateTimeConverterPropertiesArgsDict']]]
     """
     Use this parameter to include the [datetimeConverter](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-datetimeConverter) processor in your transformer.
     """
-    delete_keys: NotRequired[pulumi.Input['TransformerProcessorDeleteKeysPropertiesArgsDict']]
+    delete_keys: NotRequired[pulumi.Input[Optional['TransformerProcessorDeleteKeysPropertiesArgsDict']]]
     """
     Use this parameter to include the [deleteKeys](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-deleteKeys) processor in your transformer.
     """
-    grok: NotRequired[pulumi.Input['TransformerProcessorGrokPropertiesArgsDict']]
+    grok: NotRequired[pulumi.Input[Optional['TransformerProcessorGrokPropertiesArgsDict']]]
     """
     Use this parameter to include the [grok](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-grok) processor in your transformer.
     """
-    list_to_map: NotRequired[pulumi.Input['TransformerProcessorListToMapPropertiesArgsDict']]
+    list_to_map: NotRequired[pulumi.Input[Optional['TransformerProcessorListToMapPropertiesArgsDict']]]
     """
     Use this parameter to include the [listToMap](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-listToMap) processor in your transformer.
     """
-    lower_case_string: NotRequired[pulumi.Input['TransformerProcessorLowerCaseStringPropertiesArgsDict']]
+    lower_case_string: NotRequired[pulumi.Input[Optional['TransformerProcessorLowerCaseStringPropertiesArgsDict']]]
     """
     Use this parameter to include the [lowerCaseString](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-lowerCaseString) processor in your transformer.
     """
-    move_keys: NotRequired[pulumi.Input['TransformerProcessorMoveKeysPropertiesArgsDict']]
+    move_keys: NotRequired[pulumi.Input[Optional['TransformerProcessorMoveKeysPropertiesArgsDict']]]
     """
     Use this parameter to include the [moveKeys](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-moveKeys) processor in your transformer.
     """
-    parse_cloudfront: NotRequired[pulumi.Input['TransformerParseCloudfrontArgsDict']]
+    parse_cloudfront: NotRequired[pulumi.Input[Optional['TransformerParseCloudfrontArgsDict']]]
     """
     Use this parameter to include the [parseCloudfront](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-parseCloudfront) processor in your transformer.
 
     If you use this processor, it must be the first processor in your transformer.
     """
-    parse_json: NotRequired[pulumi.Input['TransformerProcessorParseJsonPropertiesArgsDict']]
+    parse_json: NotRequired[pulumi.Input[Optional['TransformerProcessorParseJsonPropertiesArgsDict']]]
     """
     Use this parameter to include the [parseJSON](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-parseJSON) processor in your transformer.
     """
-    parse_key_value: NotRequired[pulumi.Input['TransformerProcessorParseKeyValuePropertiesArgsDict']]
+    parse_key_value: NotRequired[pulumi.Input[Optional['TransformerProcessorParseKeyValuePropertiesArgsDict']]]
     """
     Use this parameter to include the [parseKeyValue](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-parseKeyValue) processor in your transformer.
     """
-    parse_postgres: NotRequired[pulumi.Input['TransformerParsePostgresArgsDict']]
+    parse_postgres: NotRequired[pulumi.Input[Optional['TransformerParsePostgresArgsDict']]]
     """
     Use this parameter to include the [parsePostGres](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-parsePostGres) processor in your transformer.
 
     If you use this processor, it must be the first processor in your transformer.
     """
-    parse_route53: NotRequired[pulumi.Input['TransformerParseRoute53ArgsDict']]
+    parse_route53: NotRequired[pulumi.Input[Optional['TransformerParseRoute53ArgsDict']]]
     """
     Use this parameter to include the [parseRoute53](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-parseRoute53) processor in your transformer.
 
     If you use this processor, it must be the first processor in your transformer.
     """
-    parse_to_ocsf: NotRequired[pulumi.Input['TransformerParseToOcsfArgsDict']]
+    parse_to_ocsf: NotRequired[pulumi.Input[Optional['TransformerParseToOcsfArgsDict']]]
     """
     Use this parameter to convert logs into Open Cybersecurity Schema (OCSF) format.
     """
-    parse_vpc: NotRequired[pulumi.Input['TransformerParseVpcArgsDict']]
+    parse_vpc: NotRequired[pulumi.Input[Optional['TransformerParseVpcArgsDict']]]
     """
     Use this parameter to include the [parseVPC](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-parseVPC) processor in your transformer.
 
     If you use this processor, it must be the first processor in your transformer.
     """
-    parse_waf: NotRequired[pulumi.Input['TransformerParseWafArgsDict']]
+    parse_waf: NotRequired[pulumi.Input[Optional['TransformerParseWafArgsDict']]]
     """
     Use this parameter to include the [parseWAF](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-parseWAF) processor in your transformer.
 
     If you use this processor, it must be the first processor in your transformer.
     """
-    rename_keys: NotRequired[pulumi.Input['TransformerProcessorRenameKeysPropertiesArgsDict']]
+    rename_keys: NotRequired[pulumi.Input[Optional['TransformerProcessorRenameKeysPropertiesArgsDict']]]
     """
     Use this parameter to include the [renameKeys](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-renameKeys) processor in your transformer.
     """
-    split_string: NotRequired[pulumi.Input['TransformerProcessorSplitStringPropertiesArgsDict']]
+    split_string: NotRequired[pulumi.Input[Optional['TransformerProcessorSplitStringPropertiesArgsDict']]]
     """
     Use this parameter to include the [splitString](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-splitString) processor in your transformer.
     """
-    substitute_string: NotRequired[pulumi.Input['TransformerProcessorSubstituteStringPropertiesArgsDict']]
+    substitute_string: NotRequired[pulumi.Input[Optional['TransformerProcessorSubstituteStringPropertiesArgsDict']]]
     """
     Use this parameter to include the [substituteString](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-substituteString) processor in your transformer.
     """
-    trim_string: NotRequired[pulumi.Input['TransformerProcessorTrimStringPropertiesArgsDict']]
+    trim_string: NotRequired[pulumi.Input[Optional['TransformerProcessorTrimStringPropertiesArgsDict']]]
     """
     Use this parameter to include the [trimString](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-trimString) processor in your transformer.
     """
-    type_converter: NotRequired[pulumi.Input['TransformerProcessorTypeConverterPropertiesArgsDict']]
+    type_converter: NotRequired[pulumi.Input[Optional['TransformerProcessorTypeConverterPropertiesArgsDict']]]
     """
     Use this parameter to include the [typeConverter](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-typeConverter) processor in your transformer.
     """
-    upper_case_string: NotRequired[pulumi.Input['TransformerProcessorUpperCaseStringPropertiesArgsDict']]
+    upper_case_string: NotRequired[pulumi.Input[Optional['TransformerProcessorUpperCaseStringPropertiesArgsDict']]]
     """
     Use this parameter to include the [upperCaseString](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-upperCaseString) processor in your transformer.
     """
@@ -1829,29 +1829,29 @@ class TransformerProcessorArgsDict(TypedDict):
 @pulumi.input_type
 class TransformerProcessorArgs:
     def __init__(__self__, *,
-                 add_keys: Optional[pulumi.Input['TransformerProcessorAddKeysPropertiesArgs']] = None,
-                 copy_value: Optional[pulumi.Input['TransformerProcessorCopyValuePropertiesArgs']] = None,
-                 csv: Optional[pulumi.Input['TransformerProcessorCsvPropertiesArgs']] = None,
-                 date_time_converter: Optional[pulumi.Input['TransformerProcessorDateTimeConverterPropertiesArgs']] = None,
-                 delete_keys: Optional[pulumi.Input['TransformerProcessorDeleteKeysPropertiesArgs']] = None,
-                 grok: Optional[pulumi.Input['TransformerProcessorGrokPropertiesArgs']] = None,
-                 list_to_map: Optional[pulumi.Input['TransformerProcessorListToMapPropertiesArgs']] = None,
-                 lower_case_string: Optional[pulumi.Input['TransformerProcessorLowerCaseStringPropertiesArgs']] = None,
-                 move_keys: Optional[pulumi.Input['TransformerProcessorMoveKeysPropertiesArgs']] = None,
-                 parse_cloudfront: Optional[pulumi.Input['TransformerParseCloudfrontArgs']] = None,
-                 parse_json: Optional[pulumi.Input['TransformerProcessorParseJsonPropertiesArgs']] = None,
-                 parse_key_value: Optional[pulumi.Input['TransformerProcessorParseKeyValuePropertiesArgs']] = None,
-                 parse_postgres: Optional[pulumi.Input['TransformerParsePostgresArgs']] = None,
-                 parse_route53: Optional[pulumi.Input['TransformerParseRoute53Args']] = None,
-                 parse_to_ocsf: Optional[pulumi.Input['TransformerParseToOcsfArgs']] = None,
-                 parse_vpc: Optional[pulumi.Input['TransformerParseVpcArgs']] = None,
-                 parse_waf: Optional[pulumi.Input['TransformerParseWafArgs']] = None,
-                 rename_keys: Optional[pulumi.Input['TransformerProcessorRenameKeysPropertiesArgs']] = None,
-                 split_string: Optional[pulumi.Input['TransformerProcessorSplitStringPropertiesArgs']] = None,
-                 substitute_string: Optional[pulumi.Input['TransformerProcessorSubstituteStringPropertiesArgs']] = None,
-                 trim_string: Optional[pulumi.Input['TransformerProcessorTrimStringPropertiesArgs']] = None,
-                 type_converter: Optional[pulumi.Input['TransformerProcessorTypeConverterPropertiesArgs']] = None,
-                 upper_case_string: Optional[pulumi.Input['TransformerProcessorUpperCaseStringPropertiesArgs']] = None):
+                 add_keys: pulumi.Input[Optional['TransformerProcessorAddKeysPropertiesArgs']] = None,
+                 copy_value: pulumi.Input[Optional['TransformerProcessorCopyValuePropertiesArgs']] = None,
+                 csv: pulumi.Input[Optional['TransformerProcessorCsvPropertiesArgs']] = None,
+                 date_time_converter: pulumi.Input[Optional['TransformerProcessorDateTimeConverterPropertiesArgs']] = None,
+                 delete_keys: pulumi.Input[Optional['TransformerProcessorDeleteKeysPropertiesArgs']] = None,
+                 grok: pulumi.Input[Optional['TransformerProcessorGrokPropertiesArgs']] = None,
+                 list_to_map: pulumi.Input[Optional['TransformerProcessorListToMapPropertiesArgs']] = None,
+                 lower_case_string: pulumi.Input[Optional['TransformerProcessorLowerCaseStringPropertiesArgs']] = None,
+                 move_keys: pulumi.Input[Optional['TransformerProcessorMoveKeysPropertiesArgs']] = None,
+                 parse_cloudfront: pulumi.Input[Optional['TransformerParseCloudfrontArgs']] = None,
+                 parse_json: pulumi.Input[Optional['TransformerProcessorParseJsonPropertiesArgs']] = None,
+                 parse_key_value: pulumi.Input[Optional['TransformerProcessorParseKeyValuePropertiesArgs']] = None,
+                 parse_postgres: pulumi.Input[Optional['TransformerParsePostgresArgs']] = None,
+                 parse_route53: pulumi.Input[Optional['TransformerParseRoute53Args']] = None,
+                 parse_to_ocsf: pulumi.Input[Optional['TransformerParseToOcsfArgs']] = None,
+                 parse_vpc: pulumi.Input[Optional['TransformerParseVpcArgs']] = None,
+                 parse_waf: pulumi.Input[Optional['TransformerParseWafArgs']] = None,
+                 rename_keys: pulumi.Input[Optional['TransformerProcessorRenameKeysPropertiesArgs']] = None,
+                 split_string: pulumi.Input[Optional['TransformerProcessorSplitStringPropertiesArgs']] = None,
+                 substitute_string: pulumi.Input[Optional['TransformerProcessorSubstituteStringPropertiesArgs']] = None,
+                 trim_string: pulumi.Input[Optional['TransformerProcessorTrimStringPropertiesArgs']] = None,
+                 type_converter: pulumi.Input[Optional['TransformerProcessorTypeConverterPropertiesArgs']] = None,
+                 upper_case_string: pulumi.Input[Optional['TransformerProcessorUpperCaseStringPropertiesArgs']] = None):
         """
         Individual processor configuration
 
@@ -1938,115 +1938,115 @@ class TransformerProcessorArgs:
 
     @_builtins.property
     @pulumi.getter(name="addKeys")
-    def add_keys(self) -> Optional[pulumi.Input['TransformerProcessorAddKeysPropertiesArgs']]:
+    def add_keys(self) -> pulumi.Input[Optional['TransformerProcessorAddKeysPropertiesArgs']]:
         """
         Use this parameter to include the [addKeys](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-addKeys) processor in your transformer.
         """
         return pulumi.get(self, "add_keys")
 
     @add_keys.setter
-    def add_keys(self, value: Optional[pulumi.Input['TransformerProcessorAddKeysPropertiesArgs']]):
+    def add_keys(self, value: pulumi.Input[Optional['TransformerProcessorAddKeysPropertiesArgs']]):
         pulumi.set(self, "add_keys", value)
 
     @_builtins.property
     @pulumi.getter(name="copyValue")
-    def copy_value(self) -> Optional[pulumi.Input['TransformerProcessorCopyValuePropertiesArgs']]:
+    def copy_value(self) -> pulumi.Input[Optional['TransformerProcessorCopyValuePropertiesArgs']]:
         """
         Use this parameter to include the [copyValue](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-copyValue) processor in your transformer.
         """
         return pulumi.get(self, "copy_value")
 
     @copy_value.setter
-    def copy_value(self, value: Optional[pulumi.Input['TransformerProcessorCopyValuePropertiesArgs']]):
+    def copy_value(self, value: pulumi.Input[Optional['TransformerProcessorCopyValuePropertiesArgs']]):
         pulumi.set(self, "copy_value", value)
 
     @_builtins.property
     @pulumi.getter
-    def csv(self) -> Optional[pulumi.Input['TransformerProcessorCsvPropertiesArgs']]:
+    def csv(self) -> pulumi.Input[Optional['TransformerProcessorCsvPropertiesArgs']]:
         """
         Use this parameter to include the [CSV](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-CSV) processor in your transformer.
         """
         return pulumi.get(self, "csv")
 
     @csv.setter
-    def csv(self, value: Optional[pulumi.Input['TransformerProcessorCsvPropertiesArgs']]):
+    def csv(self, value: pulumi.Input[Optional['TransformerProcessorCsvPropertiesArgs']]):
         pulumi.set(self, "csv", value)
 
     @_builtins.property
     @pulumi.getter(name="dateTimeConverter")
-    def date_time_converter(self) -> Optional[pulumi.Input['TransformerProcessorDateTimeConverterPropertiesArgs']]:
+    def date_time_converter(self) -> pulumi.Input[Optional['TransformerProcessorDateTimeConverterPropertiesArgs']]:
         """
         Use this parameter to include the [datetimeConverter](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-datetimeConverter) processor in your transformer.
         """
         return pulumi.get(self, "date_time_converter")
 
     @date_time_converter.setter
-    def date_time_converter(self, value: Optional[pulumi.Input['TransformerProcessorDateTimeConverterPropertiesArgs']]):
+    def date_time_converter(self, value: pulumi.Input[Optional['TransformerProcessorDateTimeConverterPropertiesArgs']]):
         pulumi.set(self, "date_time_converter", value)
 
     @_builtins.property
     @pulumi.getter(name="deleteKeys")
-    def delete_keys(self) -> Optional[pulumi.Input['TransformerProcessorDeleteKeysPropertiesArgs']]:
+    def delete_keys(self) -> pulumi.Input[Optional['TransformerProcessorDeleteKeysPropertiesArgs']]:
         """
         Use this parameter to include the [deleteKeys](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-deleteKeys) processor in your transformer.
         """
         return pulumi.get(self, "delete_keys")
 
     @delete_keys.setter
-    def delete_keys(self, value: Optional[pulumi.Input['TransformerProcessorDeleteKeysPropertiesArgs']]):
+    def delete_keys(self, value: pulumi.Input[Optional['TransformerProcessorDeleteKeysPropertiesArgs']]):
         pulumi.set(self, "delete_keys", value)
 
     @_builtins.property
     @pulumi.getter
-    def grok(self) -> Optional[pulumi.Input['TransformerProcessorGrokPropertiesArgs']]:
+    def grok(self) -> pulumi.Input[Optional['TransformerProcessorGrokPropertiesArgs']]:
         """
         Use this parameter to include the [grok](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-grok) processor in your transformer.
         """
         return pulumi.get(self, "grok")
 
     @grok.setter
-    def grok(self, value: Optional[pulumi.Input['TransformerProcessorGrokPropertiesArgs']]):
+    def grok(self, value: pulumi.Input[Optional['TransformerProcessorGrokPropertiesArgs']]):
         pulumi.set(self, "grok", value)
 
     @_builtins.property
     @pulumi.getter(name="listToMap")
-    def list_to_map(self) -> Optional[pulumi.Input['TransformerProcessorListToMapPropertiesArgs']]:
+    def list_to_map(self) -> pulumi.Input[Optional['TransformerProcessorListToMapPropertiesArgs']]:
         """
         Use this parameter to include the [listToMap](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-listToMap) processor in your transformer.
         """
         return pulumi.get(self, "list_to_map")
 
     @list_to_map.setter
-    def list_to_map(self, value: Optional[pulumi.Input['TransformerProcessorListToMapPropertiesArgs']]):
+    def list_to_map(self, value: pulumi.Input[Optional['TransformerProcessorListToMapPropertiesArgs']]):
         pulumi.set(self, "list_to_map", value)
 
     @_builtins.property
     @pulumi.getter(name="lowerCaseString")
-    def lower_case_string(self) -> Optional[pulumi.Input['TransformerProcessorLowerCaseStringPropertiesArgs']]:
+    def lower_case_string(self) -> pulumi.Input[Optional['TransformerProcessorLowerCaseStringPropertiesArgs']]:
         """
         Use this parameter to include the [lowerCaseString](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-lowerCaseString) processor in your transformer.
         """
         return pulumi.get(self, "lower_case_string")
 
     @lower_case_string.setter
-    def lower_case_string(self, value: Optional[pulumi.Input['TransformerProcessorLowerCaseStringPropertiesArgs']]):
+    def lower_case_string(self, value: pulumi.Input[Optional['TransformerProcessorLowerCaseStringPropertiesArgs']]):
         pulumi.set(self, "lower_case_string", value)
 
     @_builtins.property
     @pulumi.getter(name="moveKeys")
-    def move_keys(self) -> Optional[pulumi.Input['TransformerProcessorMoveKeysPropertiesArgs']]:
+    def move_keys(self) -> pulumi.Input[Optional['TransformerProcessorMoveKeysPropertiesArgs']]:
         """
         Use this parameter to include the [moveKeys](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-moveKeys) processor in your transformer.
         """
         return pulumi.get(self, "move_keys")
 
     @move_keys.setter
-    def move_keys(self, value: Optional[pulumi.Input['TransformerProcessorMoveKeysPropertiesArgs']]):
+    def move_keys(self, value: pulumi.Input[Optional['TransformerProcessorMoveKeysPropertiesArgs']]):
         pulumi.set(self, "move_keys", value)
 
     @_builtins.property
     @pulumi.getter(name="parseCloudfront")
-    def parse_cloudfront(self) -> Optional[pulumi.Input['TransformerParseCloudfrontArgs']]:
+    def parse_cloudfront(self) -> pulumi.Input[Optional['TransformerParseCloudfrontArgs']]:
         """
         Use this parameter to include the [parseCloudfront](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-parseCloudfront) processor in your transformer.
 
@@ -2055,36 +2055,36 @@ class TransformerProcessorArgs:
         return pulumi.get(self, "parse_cloudfront")
 
     @parse_cloudfront.setter
-    def parse_cloudfront(self, value: Optional[pulumi.Input['TransformerParseCloudfrontArgs']]):
+    def parse_cloudfront(self, value: pulumi.Input[Optional['TransformerParseCloudfrontArgs']]):
         pulumi.set(self, "parse_cloudfront", value)
 
     @_builtins.property
     @pulumi.getter(name="parseJson")
-    def parse_json(self) -> Optional[pulumi.Input['TransformerProcessorParseJsonPropertiesArgs']]:
+    def parse_json(self) -> pulumi.Input[Optional['TransformerProcessorParseJsonPropertiesArgs']]:
         """
         Use this parameter to include the [parseJSON](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-parseJSON) processor in your transformer.
         """
         return pulumi.get(self, "parse_json")
 
     @parse_json.setter
-    def parse_json(self, value: Optional[pulumi.Input['TransformerProcessorParseJsonPropertiesArgs']]):
+    def parse_json(self, value: pulumi.Input[Optional['TransformerProcessorParseJsonPropertiesArgs']]):
         pulumi.set(self, "parse_json", value)
 
     @_builtins.property
     @pulumi.getter(name="parseKeyValue")
-    def parse_key_value(self) -> Optional[pulumi.Input['TransformerProcessorParseKeyValuePropertiesArgs']]:
+    def parse_key_value(self) -> pulumi.Input[Optional['TransformerProcessorParseKeyValuePropertiesArgs']]:
         """
         Use this parameter to include the [parseKeyValue](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-parseKeyValue) processor in your transformer.
         """
         return pulumi.get(self, "parse_key_value")
 
     @parse_key_value.setter
-    def parse_key_value(self, value: Optional[pulumi.Input['TransformerProcessorParseKeyValuePropertiesArgs']]):
+    def parse_key_value(self, value: pulumi.Input[Optional['TransformerProcessorParseKeyValuePropertiesArgs']]):
         pulumi.set(self, "parse_key_value", value)
 
     @_builtins.property
     @pulumi.getter(name="parsePostgres")
-    def parse_postgres(self) -> Optional[pulumi.Input['TransformerParsePostgresArgs']]:
+    def parse_postgres(self) -> pulumi.Input[Optional['TransformerParsePostgresArgs']]:
         """
         Use this parameter to include the [parsePostGres](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-parsePostGres) processor in your transformer.
 
@@ -2093,12 +2093,12 @@ class TransformerProcessorArgs:
         return pulumi.get(self, "parse_postgres")
 
     @parse_postgres.setter
-    def parse_postgres(self, value: Optional[pulumi.Input['TransformerParsePostgresArgs']]):
+    def parse_postgres(self, value: pulumi.Input[Optional['TransformerParsePostgresArgs']]):
         pulumi.set(self, "parse_postgres", value)
 
     @_builtins.property
     @pulumi.getter(name="parseRoute53")
-    def parse_route53(self) -> Optional[pulumi.Input['TransformerParseRoute53Args']]:
+    def parse_route53(self) -> pulumi.Input[Optional['TransformerParseRoute53Args']]:
         """
         Use this parameter to include the [parseRoute53](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-parseRoute53) processor in your transformer.
 
@@ -2107,24 +2107,24 @@ class TransformerProcessorArgs:
         return pulumi.get(self, "parse_route53")
 
     @parse_route53.setter
-    def parse_route53(self, value: Optional[pulumi.Input['TransformerParseRoute53Args']]):
+    def parse_route53(self, value: pulumi.Input[Optional['TransformerParseRoute53Args']]):
         pulumi.set(self, "parse_route53", value)
 
     @_builtins.property
     @pulumi.getter(name="parseToOcsf")
-    def parse_to_ocsf(self) -> Optional[pulumi.Input['TransformerParseToOcsfArgs']]:
+    def parse_to_ocsf(self) -> pulumi.Input[Optional['TransformerParseToOcsfArgs']]:
         """
         Use this parameter to convert logs into Open Cybersecurity Schema (OCSF) format.
         """
         return pulumi.get(self, "parse_to_ocsf")
 
     @parse_to_ocsf.setter
-    def parse_to_ocsf(self, value: Optional[pulumi.Input['TransformerParseToOcsfArgs']]):
+    def parse_to_ocsf(self, value: pulumi.Input[Optional['TransformerParseToOcsfArgs']]):
         pulumi.set(self, "parse_to_ocsf", value)
 
     @_builtins.property
     @pulumi.getter(name="parseVpc")
-    def parse_vpc(self) -> Optional[pulumi.Input['TransformerParseVpcArgs']]:
+    def parse_vpc(self) -> pulumi.Input[Optional['TransformerParseVpcArgs']]:
         """
         Use this parameter to include the [parseVPC](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-parseVPC) processor in your transformer.
 
@@ -2133,12 +2133,12 @@ class TransformerProcessorArgs:
         return pulumi.get(self, "parse_vpc")
 
     @parse_vpc.setter
-    def parse_vpc(self, value: Optional[pulumi.Input['TransformerParseVpcArgs']]):
+    def parse_vpc(self, value: pulumi.Input[Optional['TransformerParseVpcArgs']]):
         pulumi.set(self, "parse_vpc", value)
 
     @_builtins.property
     @pulumi.getter(name="parseWaf")
-    def parse_waf(self) -> Optional[pulumi.Input['TransformerParseWafArgs']]:
+    def parse_waf(self) -> pulumi.Input[Optional['TransformerParseWafArgs']]:
         """
         Use this parameter to include the [parseWAF](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-parseWAF) processor in your transformer.
 
@@ -2147,93 +2147,93 @@ class TransformerProcessorArgs:
         return pulumi.get(self, "parse_waf")
 
     @parse_waf.setter
-    def parse_waf(self, value: Optional[pulumi.Input['TransformerParseWafArgs']]):
+    def parse_waf(self, value: pulumi.Input[Optional['TransformerParseWafArgs']]):
         pulumi.set(self, "parse_waf", value)
 
     @_builtins.property
     @pulumi.getter(name="renameKeys")
-    def rename_keys(self) -> Optional[pulumi.Input['TransformerProcessorRenameKeysPropertiesArgs']]:
+    def rename_keys(self) -> pulumi.Input[Optional['TransformerProcessorRenameKeysPropertiesArgs']]:
         """
         Use this parameter to include the [renameKeys](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-renameKeys) processor in your transformer.
         """
         return pulumi.get(self, "rename_keys")
 
     @rename_keys.setter
-    def rename_keys(self, value: Optional[pulumi.Input['TransformerProcessorRenameKeysPropertiesArgs']]):
+    def rename_keys(self, value: pulumi.Input[Optional['TransformerProcessorRenameKeysPropertiesArgs']]):
         pulumi.set(self, "rename_keys", value)
 
     @_builtins.property
     @pulumi.getter(name="splitString")
-    def split_string(self) -> Optional[pulumi.Input['TransformerProcessorSplitStringPropertiesArgs']]:
+    def split_string(self) -> pulumi.Input[Optional['TransformerProcessorSplitStringPropertiesArgs']]:
         """
         Use this parameter to include the [splitString](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-splitString) processor in your transformer.
         """
         return pulumi.get(self, "split_string")
 
     @split_string.setter
-    def split_string(self, value: Optional[pulumi.Input['TransformerProcessorSplitStringPropertiesArgs']]):
+    def split_string(self, value: pulumi.Input[Optional['TransformerProcessorSplitStringPropertiesArgs']]):
         pulumi.set(self, "split_string", value)
 
     @_builtins.property
     @pulumi.getter(name="substituteString")
-    def substitute_string(self) -> Optional[pulumi.Input['TransformerProcessorSubstituteStringPropertiesArgs']]:
+    def substitute_string(self) -> pulumi.Input[Optional['TransformerProcessorSubstituteStringPropertiesArgs']]:
         """
         Use this parameter to include the [substituteString](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-substituteString) processor in your transformer.
         """
         return pulumi.get(self, "substitute_string")
 
     @substitute_string.setter
-    def substitute_string(self, value: Optional[pulumi.Input['TransformerProcessorSubstituteStringPropertiesArgs']]):
+    def substitute_string(self, value: pulumi.Input[Optional['TransformerProcessorSubstituteStringPropertiesArgs']]):
         pulumi.set(self, "substitute_string", value)
 
     @_builtins.property
     @pulumi.getter(name="trimString")
-    def trim_string(self) -> Optional[pulumi.Input['TransformerProcessorTrimStringPropertiesArgs']]:
+    def trim_string(self) -> pulumi.Input[Optional['TransformerProcessorTrimStringPropertiesArgs']]:
         """
         Use this parameter to include the [trimString](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-trimString) processor in your transformer.
         """
         return pulumi.get(self, "trim_string")
 
     @trim_string.setter
-    def trim_string(self, value: Optional[pulumi.Input['TransformerProcessorTrimStringPropertiesArgs']]):
+    def trim_string(self, value: pulumi.Input[Optional['TransformerProcessorTrimStringPropertiesArgs']]):
         pulumi.set(self, "trim_string", value)
 
     @_builtins.property
     @pulumi.getter(name="typeConverter")
-    def type_converter(self) -> Optional[pulumi.Input['TransformerProcessorTypeConverterPropertiesArgs']]:
+    def type_converter(self) -> pulumi.Input[Optional['TransformerProcessorTypeConverterPropertiesArgs']]:
         """
         Use this parameter to include the [typeConverter](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-typeConverter) processor in your transformer.
         """
         return pulumi.get(self, "type_converter")
 
     @type_converter.setter
-    def type_converter(self, value: Optional[pulumi.Input['TransformerProcessorTypeConverterPropertiesArgs']]):
+    def type_converter(self, value: pulumi.Input[Optional['TransformerProcessorTypeConverterPropertiesArgs']]):
         pulumi.set(self, "type_converter", value)
 
     @_builtins.property
     @pulumi.getter(name="upperCaseString")
-    def upper_case_string(self) -> Optional[pulumi.Input['TransformerProcessorUpperCaseStringPropertiesArgs']]:
+    def upper_case_string(self) -> pulumi.Input[Optional['TransformerProcessorUpperCaseStringPropertiesArgs']]:
         """
         Use this parameter to include the [upperCaseString](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-upperCaseString) processor in your transformer.
         """
         return pulumi.get(self, "upper_case_string")
 
     @upper_case_string.setter
-    def upper_case_string(self, value: Optional[pulumi.Input['TransformerProcessorUpperCaseStringPropertiesArgs']]):
+    def upper_case_string(self, value: pulumi.Input[Optional['TransformerProcessorUpperCaseStringPropertiesArgs']]):
         pulumi.set(self, "upper_case_string", value)
 
 
 class TransformerRenameKeyEntryArgsDict(TypedDict):
     key: pulumi.Input[_builtins.str]
     rename_to: pulumi.Input[_builtins.str]
-    overwrite_if_exists: NotRequired[pulumi.Input[_builtins.bool]]
+    overwrite_if_exists: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
 
 @pulumi.input_type
 class TransformerRenameKeyEntryArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[_builtins.str],
                  rename_to: pulumi.Input[_builtins.str],
-                 overwrite_if_exists: Optional[pulumi.Input[_builtins.bool]] = None):
+                 overwrite_if_exists: pulumi.Input[Optional[_builtins.bool]] = None):
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "rename_to", rename_to)
         if overwrite_if_exists is not None:
@@ -2259,11 +2259,11 @@ class TransformerRenameKeyEntryArgs:
 
     @_builtins.property
     @pulumi.getter(name="overwriteIfExists")
-    def overwrite_if_exists(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def overwrite_if_exists(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "overwrite_if_exists")
 
     @overwrite_if_exists.setter
-    def overwrite_if_exists(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def overwrite_if_exists(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "overwrite_if_exists", value)
 
 

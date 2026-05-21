@@ -207,7 +207,7 @@ def get_wireless_device(id: Optional[_builtins.str] = None,
         thing_arn=pulumi.get(__ret__, 'thing_arn'),
         thing_name=pulumi.get(__ret__, 'thing_name'),
         type=pulumi.get(__ret__, 'type'))
-def get_wireless_device_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_wireless_device_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWirelessDeviceResult]:
     """
     Create and manage wireless gateways, including LoRa gateways.

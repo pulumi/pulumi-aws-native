@@ -97,7 +97,7 @@ def get_access_point(access_point_id: Optional[_builtins.str] = None,
         owner_id=pulumi.get(__ret__, 'owner_id'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_access_point_output(access_point_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_access_point_output(access_point_id: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccessPointResult]:
     """
     Resource Type definition for AWS::S3Files::AccessPoint

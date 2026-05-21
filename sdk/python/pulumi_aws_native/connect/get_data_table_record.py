@@ -74,9 +74,9 @@ def get_data_table_record(data_table_arn: Optional[_builtins.str] = None,
     return AwaitableGetDataTableRecordResult(
         data_table_record=pulumi.get(__ret__, 'data_table_record'),
         record_id=pulumi.get(__ret__, 'record_id'))
-def get_data_table_record_output(data_table_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                                 instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                                 record_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_data_table_record_output(data_table_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                                 instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                                 record_id: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataTableRecordResult]:
     """
     Resource Type definition for AWS::Connect::DataTableRecord

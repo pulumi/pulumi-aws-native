@@ -23,19 +23,19 @@ __all__ = [
 ]
 
 class ApplicationComponentInfoArgsDict(TypedDict):
-    component_type: NotRequired[pulumi.Input['ApplicationComponentInfoComponentType']]
+    component_type: NotRequired[pulumi.Input[Optional['ApplicationComponentInfoComponentType']]]
     """
     This string is the type of the component.
 
     Accepted value is `WD` .
     """
-    ec2_instance_id: NotRequired[pulumi.Input[_builtins.str]]
+    ec2_instance_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     This is the Amazon EC2 instance on which your SAP component is running.
 
     Accepted values are alphanumeric.
     """
-    sid: NotRequired[pulumi.Input[_builtins.str]]
+    sid: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     This string is the SAP System ID of the component.
 
@@ -45,9 +45,9 @@ class ApplicationComponentInfoArgsDict(TypedDict):
 @pulumi.input_type
 class ApplicationComponentInfoArgs:
     def __init__(__self__, *,
-                 component_type: Optional[pulumi.Input['ApplicationComponentInfoComponentType']] = None,
-                 ec2_instance_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 sid: Optional[pulumi.Input[_builtins.str]] = None):
+                 component_type: pulumi.Input[Optional['ApplicationComponentInfoComponentType']] = None,
+                 ec2_instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 sid: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input['ApplicationComponentInfoComponentType'] component_type: This string is the type of the component.
                
@@ -68,7 +68,7 @@ class ApplicationComponentInfoArgs:
 
     @_builtins.property
     @pulumi.getter(name="componentType")
-    def component_type(self) -> Optional[pulumi.Input['ApplicationComponentInfoComponentType']]:
+    def component_type(self) -> pulumi.Input[Optional['ApplicationComponentInfoComponentType']]:
         """
         This string is the type of the component.
 
@@ -77,12 +77,12 @@ class ApplicationComponentInfoArgs:
         return pulumi.get(self, "component_type")
 
     @component_type.setter
-    def component_type(self, value: Optional[pulumi.Input['ApplicationComponentInfoComponentType']]):
+    def component_type(self, value: pulumi.Input[Optional['ApplicationComponentInfoComponentType']]):
         pulumi.set(self, "component_type", value)
 
     @_builtins.property
     @pulumi.getter(name="ec2InstanceId")
-    def ec2_instance_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ec2_instance_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This is the Amazon EC2 instance on which your SAP component is running.
 
@@ -91,12 +91,12 @@ class ApplicationComponentInfoArgs:
         return pulumi.get(self, "ec2_instance_id")
 
     @ec2_instance_id.setter
-    def ec2_instance_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ec2_instance_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ec2_instance_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def sid(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sid(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This string is the SAP System ID of the component.
 
@@ -105,20 +105,20 @@ class ApplicationComponentInfoArgs:
         return pulumi.get(self, "sid")
 
     @sid.setter
-    def sid(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sid(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sid", value)
 
 
 class ApplicationCredentialArgsDict(TypedDict):
-    credential_type: NotRequired[pulumi.Input['ApplicationCredentialCredentialType']]
+    credential_type: NotRequired[pulumi.Input[Optional['ApplicationCredentialCredentialType']]]
     """
     The type of the application credentials.
     """
-    database_name: NotRequired[pulumi.Input[_builtins.str]]
+    database_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the SAP HANA database.
     """
-    secret_id: NotRequired[pulumi.Input[_builtins.str]]
+    secret_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The secret ID created in AWS Secrets Manager to store the credentials of the SAP application.
     """
@@ -126,9 +126,9 @@ class ApplicationCredentialArgsDict(TypedDict):
 @pulumi.input_type
 class ApplicationCredentialArgs:
     def __init__(__self__, *,
-                 credential_type: Optional[pulumi.Input['ApplicationCredentialCredentialType']] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 credential_type: pulumi.Input[Optional['ApplicationCredentialCredentialType']] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input['ApplicationCredentialCredentialType'] credential_type: The type of the application credentials.
         :param pulumi.Input[_builtins.str] database_name: The name of the SAP HANA database.
@@ -143,38 +143,38 @@ class ApplicationCredentialArgs:
 
     @_builtins.property
     @pulumi.getter(name="credentialType")
-    def credential_type(self) -> Optional[pulumi.Input['ApplicationCredentialCredentialType']]:
+    def credential_type(self) -> pulumi.Input[Optional['ApplicationCredentialCredentialType']]:
         """
         The type of the application credentials.
         """
         return pulumi.get(self, "credential_type")
 
     @credential_type.setter
-    def credential_type(self, value: Optional[pulumi.Input['ApplicationCredentialCredentialType']]):
+    def credential_type(self, value: pulumi.Input[Optional['ApplicationCredentialCredentialType']]):
         pulumi.set(self, "credential_type", value)
 
     @_builtins.property
     @pulumi.getter(name="databaseName")
-    def database_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the SAP HANA database.
         """
         return pulumi.get(self, "database_name")
 
     @database_name.setter
-    def database_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database_name", value)
 
     @_builtins.property
     @pulumi.getter(name="secretId")
-    def secret_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secret_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The secret ID created in AWS Secrets Manager to store the credentials of the SAP application.
         """
         return pulumi.get(self, "secret_id")
 
     @secret_id.setter
-    def secret_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secret_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secret_id", value)
 
 

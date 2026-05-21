@@ -105,7 +105,7 @@ class AccessPointPosixUserArgsDict(TypedDict):
     """
     The POSIX user ID used for all file system operations using this access point.
     """
-    secondary_gids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    secondary_gids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Secondary POSIX group IDs used for all file system operations using this access point.
     """
@@ -115,7 +115,7 @@ class AccessPointPosixUserArgs:
     def __init__(__self__, *,
                  gid: pulumi.Input[_builtins.str],
                  uid: pulumi.Input[_builtins.str],
-                 secondary_gids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 secondary_gids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] gid: The POSIX group ID used for all file system operations using this access point.
         :param pulumi.Input[_builtins.str] uid: The POSIX user ID used for all file system operations using this access point.
@@ -152,23 +152,23 @@ class AccessPointPosixUserArgs:
 
     @_builtins.property
     @pulumi.getter(name="secondaryGids")
-    def secondary_gids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def secondary_gids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Secondary POSIX group IDs used for all file system operations using this access point.
         """
         return pulumi.get(self, "secondary_gids")
 
     @secondary_gids.setter
-    def secondary_gids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def secondary_gids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "secondary_gids", value)
 
 
 class AccessPointRootDirectoryArgsDict(TypedDict):
-    creation_permissions: NotRequired[pulumi.Input['AccessPointCreationPermissionsArgsDict']]
+    creation_permissions: NotRequired[pulumi.Input[Optional['AccessPointCreationPermissionsArgsDict']]]
     """
     (Optional) Specifies the POSIX IDs and permissions to apply to the access point's RootDirectory. If the RootDirectory>Path specified does not exist, EFS creates the root directory using the CreationPermissions settings when a client connects to an access point. When specifying the CreationPermissions, you must provide values for all properties.   If you do not provide CreationPermissions and the specified RootDirectory>Path does not exist, attempts to mount the file system using the access point will fail. 
     """
-    path: NotRequired[pulumi.Input[_builtins.str]]
+    path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide the CreationPermissions.
     """
@@ -176,8 +176,8 @@ class AccessPointRootDirectoryArgsDict(TypedDict):
 @pulumi.input_type
 class AccessPointRootDirectoryArgs:
     def __init__(__self__, *,
-                 creation_permissions: Optional[pulumi.Input['AccessPointCreationPermissionsArgs']] = None,
-                 path: Optional[pulumi.Input[_builtins.str]] = None):
+                 creation_permissions: pulumi.Input[Optional['AccessPointCreationPermissionsArgs']] = None,
+                 path: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input['AccessPointCreationPermissionsArgs'] creation_permissions: (Optional) Specifies the POSIX IDs and permissions to apply to the access point's RootDirectory. If the RootDirectory>Path specified does not exist, EFS creates the root directory using the CreationPermissions settings when a client connects to an access point. When specifying the CreationPermissions, you must provide values for all properties.   If you do not provide CreationPermissions and the specified RootDirectory>Path does not exist, attempts to mount the file system using the access point will fail. 
         :param pulumi.Input[_builtins.str] path: Specifies the path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide the CreationPermissions.
@@ -189,26 +189,26 @@ class AccessPointRootDirectoryArgs:
 
     @_builtins.property
     @pulumi.getter(name="creationPermissions")
-    def creation_permissions(self) -> Optional[pulumi.Input['AccessPointCreationPermissionsArgs']]:
+    def creation_permissions(self) -> pulumi.Input[Optional['AccessPointCreationPermissionsArgs']]:
         """
         (Optional) Specifies the POSIX IDs and permissions to apply to the access point's RootDirectory. If the RootDirectory>Path specified does not exist, EFS creates the root directory using the CreationPermissions settings when a client connects to an access point. When specifying the CreationPermissions, you must provide values for all properties.   If you do not provide CreationPermissions and the specified RootDirectory>Path does not exist, attempts to mount the file system using the access point will fail. 
         """
         return pulumi.get(self, "creation_permissions")
 
     @creation_permissions.setter
-    def creation_permissions(self, value: Optional[pulumi.Input['AccessPointCreationPermissionsArgs']]):
+    def creation_permissions(self, value: pulumi.Input[Optional['AccessPointCreationPermissionsArgs']]):
         pulumi.set(self, "creation_permissions", value)
 
     @_builtins.property
     @pulumi.getter
-    def path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide the CreationPermissions.
         """
         return pulumi.get(self, "path")
 
     @path.setter
-    def path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "path", value)
 
 
@@ -277,14 +277,14 @@ class FileSystemImportDataRuleArgs:
 class FileSystemSynchronizationConfigurationArgsDict(TypedDict):
     expiration_data_rules: pulumi.Input[Sequence[pulumi.Input['FileSystemExpirationDataRuleArgsDict']]]
     import_data_rules: pulumi.Input[Sequence[pulumi.Input['FileSystemImportDataRuleArgsDict']]]
-    latest_version_number: NotRequired[pulumi.Input[_builtins.int]]
+    latest_version_number: NotRequired[pulumi.Input[Optional[_builtins.int]]]
 
 @pulumi.input_type
 class FileSystemSynchronizationConfigurationArgs:
     def __init__(__self__, *,
                  expiration_data_rules: pulumi.Input[Sequence[pulumi.Input['FileSystemExpirationDataRuleArgs']]],
                  import_data_rules: pulumi.Input[Sequence[pulumi.Input['FileSystemImportDataRuleArgs']]],
-                 latest_version_number: Optional[pulumi.Input[_builtins.int]] = None):
+                 latest_version_number: pulumi.Input[Optional[_builtins.int]] = None):
         pulumi.set(__self__, "expiration_data_rules", expiration_data_rules)
         pulumi.set(__self__, "import_data_rules", import_data_rules)
         if latest_version_number is not None:
@@ -310,11 +310,11 @@ class FileSystemSynchronizationConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="latestVersionNumber")
-    def latest_version_number(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def latest_version_number(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "latest_version_number")
 
     @latest_version_number.setter
-    def latest_version_number(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def latest_version_number(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "latest_version_number", value)
 
 

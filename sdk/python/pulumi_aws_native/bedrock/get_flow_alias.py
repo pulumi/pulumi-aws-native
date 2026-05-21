@@ -186,8 +186,8 @@ def get_flow_alias(arn: Optional[_builtins.str] = None,
         routing_configuration=pulumi.get(__ret__, 'routing_configuration'),
         tags=pulumi.get(__ret__, 'tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-def get_flow_alias_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
-                          flow_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_flow_alias_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
+                          flow_arn: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFlowAliasResult]:
     """
     Definition of AWS::Bedrock::FlowAlias Resource Type

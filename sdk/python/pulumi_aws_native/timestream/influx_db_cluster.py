@@ -24,24 +24,24 @@ __all__ = ['InfluxDbClusterArgs', 'InfluxDbCluster']
 @pulumi.input_type
 class InfluxDbClusterArgs:
     def __init__(__self__, *,
-                 allocated_storage: Optional[pulumi.Input[_builtins.int]] = None,
-                 bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                 db_instance_type: Optional[pulumi.Input['InfluxDbClusterDbInstanceType']] = None,
-                 db_parameter_group_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 db_storage_type: Optional[pulumi.Input['InfluxDbClusterDbStorageType']] = None,
-                 deployment_type: Optional[pulumi.Input['InfluxDbClusterDeploymentType']] = None,
-                 failover_mode: Optional[pulumi.Input['InfluxDbClusterFailoverMode']] = None,
-                 log_delivery_configuration: Optional[pulumi.Input['LogDeliveryConfigurationPropertiesArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_type: Optional[pulumi.Input['InfluxDbClusterNetworkType']] = None,
-                 organization: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 publicly_accessible: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 vpc_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 allocated_storage: pulumi.Input[Optional[_builtins.int]] = None,
+                 bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 db_instance_type: pulumi.Input[Optional['InfluxDbClusterDbInstanceType']] = None,
+                 db_parameter_group_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 db_storage_type: pulumi.Input[Optional['InfluxDbClusterDbStorageType']] = None,
+                 deployment_type: pulumi.Input[Optional['InfluxDbClusterDeploymentType']] = None,
+                 failover_mode: pulumi.Input[Optional['InfluxDbClusterFailoverMode']] = None,
+                 log_delivery_configuration: pulumi.Input[Optional['LogDeliveryConfigurationPropertiesArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_type: pulumi.Input[Optional['InfluxDbClusterNetworkType']] = None,
+                 organization: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 vpc_subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a InfluxDbCluster resource.
 
@@ -103,218 +103,218 @@ class InfluxDbClusterArgs:
 
     @_builtins.property
     @pulumi.getter(name="allocatedStorage")
-    def allocated_storage(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def allocated_storage(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The allocated storage for the InfluxDB cluster.
         """
         return pulumi.get(self, "allocated_storage")
 
     @allocated_storage.setter
-    def allocated_storage(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def allocated_storage(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "allocated_storage", value)
 
     @_builtins.property
     @pulumi.getter
-    def bucket(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bucket(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The bucket for the InfluxDB cluster.
         """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
-    def bucket(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bucket(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bucket", value)
 
     @_builtins.property
     @pulumi.getter(name="dbInstanceType")
-    def db_instance_type(self) -> Optional[pulumi.Input['InfluxDbClusterDbInstanceType']]:
+    def db_instance_type(self) -> pulumi.Input[Optional['InfluxDbClusterDbInstanceType']]:
         """
         The compute instance of the InfluxDB cluster.
         """
         return pulumi.get(self, "db_instance_type")
 
     @db_instance_type.setter
-    def db_instance_type(self, value: Optional[pulumi.Input['InfluxDbClusterDbInstanceType']]):
+    def db_instance_type(self, value: pulumi.Input[Optional['InfluxDbClusterDbInstanceType']]):
         pulumi.set(self, "db_instance_type", value)
 
     @_builtins.property
     @pulumi.getter(name="dbParameterGroupIdentifier")
-    def db_parameter_group_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def db_parameter_group_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of an existing InfluxDB parameter group.
         """
         return pulumi.get(self, "db_parameter_group_identifier")
 
     @db_parameter_group_identifier.setter
-    def db_parameter_group_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def db_parameter_group_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "db_parameter_group_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="dbStorageType")
-    def db_storage_type(self) -> Optional[pulumi.Input['InfluxDbClusterDbStorageType']]:
+    def db_storage_type(self) -> pulumi.Input[Optional['InfluxDbClusterDbStorageType']]:
         """
         The storage type of the InfluxDB cluster.
         """
         return pulumi.get(self, "db_storage_type")
 
     @db_storage_type.setter
-    def db_storage_type(self, value: Optional[pulumi.Input['InfluxDbClusterDbStorageType']]):
+    def db_storage_type(self, value: pulumi.Input[Optional['InfluxDbClusterDbStorageType']]):
         pulumi.set(self, "db_storage_type", value)
 
     @_builtins.property
     @pulumi.getter(name="deploymentType")
-    def deployment_type(self) -> Optional[pulumi.Input['InfluxDbClusterDeploymentType']]:
+    def deployment_type(self) -> pulumi.Input[Optional['InfluxDbClusterDeploymentType']]:
         """
         Deployment type of the InfluxDB cluster.
         """
         return pulumi.get(self, "deployment_type")
 
     @deployment_type.setter
-    def deployment_type(self, value: Optional[pulumi.Input['InfluxDbClusterDeploymentType']]):
+    def deployment_type(self, value: pulumi.Input[Optional['InfluxDbClusterDeploymentType']]):
         pulumi.set(self, "deployment_type", value)
 
     @_builtins.property
     @pulumi.getter(name="failoverMode")
-    def failover_mode(self) -> Optional[pulumi.Input['InfluxDbClusterFailoverMode']]:
+    def failover_mode(self) -> pulumi.Input[Optional['InfluxDbClusterFailoverMode']]:
         """
         Failover mode of the InfluxDB cluster.
         """
         return pulumi.get(self, "failover_mode")
 
     @failover_mode.setter
-    def failover_mode(self, value: Optional[pulumi.Input['InfluxDbClusterFailoverMode']]):
+    def failover_mode(self, value: pulumi.Input[Optional['InfluxDbClusterFailoverMode']]):
         pulumi.set(self, "failover_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="logDeliveryConfiguration")
-    def log_delivery_configuration(self) -> Optional[pulumi.Input['LogDeliveryConfigurationPropertiesArgs']]:
+    def log_delivery_configuration(self) -> pulumi.Input[Optional['LogDeliveryConfigurationPropertiesArgs']]:
         """
         Configuration for sending logs to customer account from the InfluxDB cluster.
         """
         return pulumi.get(self, "log_delivery_configuration")
 
     @log_delivery_configuration.setter
-    def log_delivery_configuration(self, value: Optional[pulumi.Input['LogDeliveryConfigurationPropertiesArgs']]):
+    def log_delivery_configuration(self, value: pulumi.Input[Optional['LogDeliveryConfigurationPropertiesArgs']]):
         pulumi.set(self, "log_delivery_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique name that is associated with the InfluxDB cluster.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkType")
-    def network_type(self) -> Optional[pulumi.Input['InfluxDbClusterNetworkType']]:
+    def network_type(self) -> pulumi.Input[Optional['InfluxDbClusterNetworkType']]:
         """
         Network type of the InfluxDB cluster.
         """
         return pulumi.get(self, "network_type")
 
     @network_type.setter
-    def network_type(self, value: Optional[pulumi.Input['InfluxDbClusterNetworkType']]):
+    def network_type(self, value: pulumi.Input[Optional['InfluxDbClusterNetworkType']]):
         pulumi.set(self, "network_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def organization(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def organization(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The organization for the InfluxDB cluster.
         """
         return pulumi.get(self, "organization")
 
     @organization.setter
-    def organization(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def organization(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "organization", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The password for the InfluxDB cluster.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The port number on which InfluxDB accepts connections.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port", value)
 
     @_builtins.property
     @pulumi.getter(name="publiclyAccessible")
-    def publicly_accessible(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def publicly_accessible(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Attach a public IP to the customer ENI.
         """
         return pulumi.get(self, "publicly_accessible")
 
     @publicly_accessible.setter
-    def publicly_accessible(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def publicly_accessible(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "publicly_accessible", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An arbitrary set of tags (key-value pairs) for this DB cluster.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The username for the InfluxDB cluster.
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcSecurityGroupIds")
-    def vpc_security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def vpc_security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of Amazon EC2 VPC security groups to associate with this InfluxDB cluster.
         """
         return pulumi.get(self, "vpc_security_group_ids")
 
     @vpc_security_group_ids.setter
-    def vpc_security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def vpc_security_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "vpc_security_group_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcSubnetIds")
-    def vpc_subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def vpc_subnet_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of EC2 subnet IDs for this InfluxDB cluster.
         """
         return pulumi.get(self, "vpc_subnet_ids")
 
     @vpc_subnet_ids.setter
-    def vpc_subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def vpc_subnet_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "vpc_subnet_ids", value)
 
 
@@ -324,24 +324,24 @@ class InfluxDbCluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allocated_storage: Optional[pulumi.Input[_builtins.int]] = None,
-                 bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                 db_instance_type: Optional[pulumi.Input['InfluxDbClusterDbInstanceType']] = None,
-                 db_parameter_group_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 db_storage_type: Optional[pulumi.Input['InfluxDbClusterDbStorageType']] = None,
-                 deployment_type: Optional[pulumi.Input['InfluxDbClusterDeploymentType']] = None,
-                 failover_mode: Optional[pulumi.Input['InfluxDbClusterFailoverMode']] = None,
-                 log_delivery_configuration: Optional[pulumi.Input[Union['LogDeliveryConfigurationPropertiesArgs', 'LogDeliveryConfigurationPropertiesArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_type: Optional[pulumi.Input['InfluxDbClusterNetworkType']] = None,
-                 organization: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 publicly_accessible: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 vpc_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allocated_storage: pulumi.Input[Optional[_builtins.int]] = None,
+                 bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 db_instance_type: pulumi.Input[Optional['InfluxDbClusterDbInstanceType']] = None,
+                 db_parameter_group_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 db_storage_type: pulumi.Input[Optional['InfluxDbClusterDbStorageType']] = None,
+                 deployment_type: pulumi.Input[Optional['InfluxDbClusterDeploymentType']] = None,
+                 failover_mode: pulumi.Input[Optional['InfluxDbClusterFailoverMode']] = None,
+                 log_delivery_configuration: pulumi.Input[Optional[Union['LogDeliveryConfigurationPropertiesArgs', 'LogDeliveryConfigurationPropertiesArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_type: pulumi.Input[Optional['InfluxDbClusterNetworkType']] = None,
+                 organization: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 vpc_subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         The AWS::Timestream::InfluxDBCluster resource creates an InfluxDB cluster.
@@ -393,24 +393,24 @@ class InfluxDbCluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allocated_storage: Optional[pulumi.Input[_builtins.int]] = None,
-                 bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                 db_instance_type: Optional[pulumi.Input['InfluxDbClusterDbInstanceType']] = None,
-                 db_parameter_group_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 db_storage_type: Optional[pulumi.Input['InfluxDbClusterDbStorageType']] = None,
-                 deployment_type: Optional[pulumi.Input['InfluxDbClusterDeploymentType']] = None,
-                 failover_mode: Optional[pulumi.Input['InfluxDbClusterFailoverMode']] = None,
-                 log_delivery_configuration: Optional[pulumi.Input[Union['LogDeliveryConfigurationPropertiesArgs', 'LogDeliveryConfigurationPropertiesArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_type: Optional[pulumi.Input['InfluxDbClusterNetworkType']] = None,
-                 organization: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 publicly_accessible: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 vpc_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allocated_storage: pulumi.Input[Optional[_builtins.int]] = None,
+                 bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 db_instance_type: pulumi.Input[Optional['InfluxDbClusterDbInstanceType']] = None,
+                 db_parameter_group_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 db_storage_type: pulumi.Input[Optional['InfluxDbClusterDbStorageType']] = None,
+                 deployment_type: pulumi.Input[Optional['InfluxDbClusterDeploymentType']] = None,
+                 failover_mode: pulumi.Input[Optional['InfluxDbClusterFailoverMode']] = None,
+                 log_delivery_configuration: pulumi.Input[Optional[Union['LogDeliveryConfigurationPropertiesArgs', 'LogDeliveryConfigurationPropertiesArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_type: pulumi.Input[Optional['InfluxDbClusterNetworkType']] = None,
+                 organization: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 vpc_subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

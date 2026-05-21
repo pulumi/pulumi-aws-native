@@ -170,7 +170,7 @@ def get_listener(listener_arn: Optional[_builtins.str] = None,
         port=pulumi.get(__ret__, 'port'),
         protocol=pulumi.get(__ret__, 'protocol'),
         ssl_policy=pulumi.get(__ret__, 'ssl_policy'))
-def get_listener_output(listener_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_listener_output(listener_arn: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetListenerResult]:
     """
     Specifies a listener for an Application Load Balancer, Network Load Balancer, or Gateway Load Balancer.

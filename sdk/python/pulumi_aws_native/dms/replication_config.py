@@ -31,9 +31,9 @@ class ReplicationConfigArgs:
                  table_mappings: Any,
                  target_endpoint_arn: pulumi.Input[_builtins.str],
                  replication_settings: Optional[Any] = None,
-                 resource_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  supplemental_settings: Optional[Any] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ReplicationConfig resource.
 
@@ -159,14 +159,14 @@ class ReplicationConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="resourceIdentifier")
-    def resource_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A unique value or name that you get set for a given resource that can be used to construct an Amazon Resource Name (ARN) for that resource
         """
         return pulumi.get(self, "resource_identifier")
 
     @resource_identifier.setter
-    def resource_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_identifier", value)
 
     @_builtins.property
@@ -185,14 +185,14 @@ class ReplicationConfigArgs:
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -202,16 +202,16 @@ class ReplicationConfig(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 compute_config: Optional[pulumi.Input[Union['ReplicationConfigComputeConfigArgs', 'ReplicationConfigComputeConfigArgsDict']]] = None,
-                 replication_config_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+                 compute_config: pulumi.Input[Optional[Union['ReplicationConfigComputeConfigArgs', 'ReplicationConfigComputeConfigArgsDict']]] = None,
+                 replication_config_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  replication_settings: Optional[Any] = None,
-                 replication_type: Optional[pulumi.Input['ReplicationConfigReplicationType']] = None,
-                 resource_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_endpoint_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 replication_type: pulumi.Input[Optional['ReplicationConfigReplicationType']] = None,
+                 resource_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_endpoint_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  supplemental_settings: Optional[Any] = None,
                  table_mappings: Optional[Any] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 target_endpoint_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 target_endpoint_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A replication configuration that you later provide to configure and start a AWS DMS Serverless replication
@@ -261,16 +261,16 @@ class ReplicationConfig(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 compute_config: Optional[pulumi.Input[Union['ReplicationConfigComputeConfigArgs', 'ReplicationConfigComputeConfigArgsDict']]] = None,
-                 replication_config_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+                 compute_config: pulumi.Input[Optional[Union['ReplicationConfigComputeConfigArgs', 'ReplicationConfigComputeConfigArgsDict']]] = None,
+                 replication_config_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  replication_settings: Optional[Any] = None,
-                 replication_type: Optional[pulumi.Input['ReplicationConfigReplicationType']] = None,
-                 resource_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_endpoint_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 replication_type: pulumi.Input[Optional['ReplicationConfigReplicationType']] = None,
+                 resource_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_endpoint_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  supplemental_settings: Optional[Any] = None,
                  table_mappings: Optional[Any] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 target_endpoint_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 target_endpoint_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

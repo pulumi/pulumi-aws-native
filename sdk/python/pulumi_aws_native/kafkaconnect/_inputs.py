@@ -134,7 +134,7 @@ class ConnectorAutoScalingArgsDict(TypedDict):
     """
     The sacle-out policy for the connector.
     """
-    max_autoscaling_task_count: NotRequired[pulumi.Input[_builtins.int]]
+    max_autoscaling_task_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum number of tasks allocated to the connector during autoscaling operations.
     """
@@ -147,7 +147,7 @@ class ConnectorAutoScalingArgs:
                  min_worker_count: pulumi.Input[_builtins.int],
                  scale_in_policy: pulumi.Input['ConnectorScaleInPolicyArgs'],
                  scale_out_policy: pulumi.Input['ConnectorScaleOutPolicyArgs'],
-                 max_autoscaling_task_count: Optional[pulumi.Input[_builtins.int]] = None):
+                 max_autoscaling_task_count: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Details about auto scaling of a connector.
 
@@ -228,14 +228,14 @@ class ConnectorAutoScalingArgs:
 
     @_builtins.property
     @pulumi.getter(name="maxAutoscalingTaskCount")
-    def max_autoscaling_task_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_autoscaling_task_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of tasks allocated to the connector during autoscaling operations.
         """
         return pulumi.get(self, "max_autoscaling_task_count")
 
     @max_autoscaling_task_count.setter
-    def max_autoscaling_task_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_autoscaling_task_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_autoscaling_task_count", value)
 
 
@@ -243,11 +243,11 @@ class ConnectorCapacityArgsDict(TypedDict):
     """
     Information about the capacity allocated to the connector.
     """
-    auto_scaling: NotRequired[pulumi.Input['ConnectorAutoScalingArgsDict']]
+    auto_scaling: NotRequired[pulumi.Input[Optional['ConnectorAutoScalingArgsDict']]]
     """
     Information about the auto scaling parameters for the connector.
     """
-    provisioned_capacity: NotRequired[pulumi.Input['ConnectorProvisionedCapacityArgsDict']]
+    provisioned_capacity: NotRequired[pulumi.Input[Optional['ConnectorProvisionedCapacityArgsDict']]]
     """
     Details about a fixed capacity allocated to a connector.
     """
@@ -255,8 +255,8 @@ class ConnectorCapacityArgsDict(TypedDict):
 @pulumi.input_type
 class ConnectorCapacityArgs:
     def __init__(__self__, *,
-                 auto_scaling: Optional[pulumi.Input['ConnectorAutoScalingArgs']] = None,
-                 provisioned_capacity: Optional[pulumi.Input['ConnectorProvisionedCapacityArgs']] = None):
+                 auto_scaling: pulumi.Input[Optional['ConnectorAutoScalingArgs']] = None,
+                 provisioned_capacity: pulumi.Input[Optional['ConnectorProvisionedCapacityArgs']] = None):
         """
         Information about the capacity allocated to the connector.
 
@@ -270,26 +270,26 @@ class ConnectorCapacityArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoScaling")
-    def auto_scaling(self) -> Optional[pulumi.Input['ConnectorAutoScalingArgs']]:
+    def auto_scaling(self) -> pulumi.Input[Optional['ConnectorAutoScalingArgs']]:
         """
         Information about the auto scaling parameters for the connector.
         """
         return pulumi.get(self, "auto_scaling")
 
     @auto_scaling.setter
-    def auto_scaling(self, value: Optional[pulumi.Input['ConnectorAutoScalingArgs']]):
+    def auto_scaling(self, value: pulumi.Input[Optional['ConnectorAutoScalingArgs']]):
         pulumi.set(self, "auto_scaling", value)
 
     @_builtins.property
     @pulumi.getter(name="provisionedCapacity")
-    def provisioned_capacity(self) -> Optional[pulumi.Input['ConnectorProvisionedCapacityArgs']]:
+    def provisioned_capacity(self) -> pulumi.Input[Optional['ConnectorProvisionedCapacityArgs']]:
         """
         Details about a fixed capacity allocated to a connector.
         """
         return pulumi.get(self, "provisioned_capacity")
 
     @provisioned_capacity.setter
-    def provisioned_capacity(self, value: Optional[pulumi.Input['ConnectorProvisionedCapacityArgs']]):
+    def provisioned_capacity(self, value: pulumi.Input[Optional['ConnectorProvisionedCapacityArgs']]):
         pulumi.set(self, "provisioned_capacity", value)
 
 
@@ -301,7 +301,7 @@ class ConnectorCloudWatchLogsLogDeliveryArgsDict(TypedDict):
     """
     Specifies whether the logs get sent to the specified CloudWatch Logs destination.
     """
-    log_group: NotRequired[pulumi.Input[_builtins.str]]
+    log_group: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The CloudWatch log group that is the destination for log delivery.
     """
@@ -310,7 +310,7 @@ class ConnectorCloudWatchLogsLogDeliveryArgsDict(TypedDict):
 class ConnectorCloudWatchLogsLogDeliveryArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[_builtins.bool],
-                 log_group: Optional[pulumi.Input[_builtins.str]] = None):
+                 log_group: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Details about delivering logs to Amazon CloudWatch Logs.
 
@@ -335,14 +335,14 @@ class ConnectorCloudWatchLogsLogDeliveryArgs:
 
     @_builtins.property
     @pulumi.getter(name="logGroup")
-    def log_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The CloudWatch log group that is the destination for log delivery.
         """
         return pulumi.get(self, "log_group")
 
     @log_group.setter
-    def log_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_group", value)
 
 
@@ -406,7 +406,7 @@ class ConnectorFirehoseLogDeliveryArgsDict(TypedDict):
     """
     Specifies whether the logs get sent to the specified Kinesis Data Firehose delivery stream.
     """
-    delivery_stream: NotRequired[pulumi.Input[_builtins.str]]
+    delivery_stream: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Kinesis Data Firehose delivery stream that is the destination for log delivery.
     """
@@ -415,7 +415,7 @@ class ConnectorFirehoseLogDeliveryArgsDict(TypedDict):
 class ConnectorFirehoseLogDeliveryArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[_builtins.bool],
-                 delivery_stream: Optional[pulumi.Input[_builtins.str]] = None):
+                 delivery_stream: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Details about delivering logs to Amazon Kinesis Data Firehose.
 
@@ -440,14 +440,14 @@ class ConnectorFirehoseLogDeliveryArgs:
 
     @_builtins.property
     @pulumi.getter(name="deliveryStream")
-    def delivery_stream(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delivery_stream(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Kinesis Data Firehose delivery stream that is the destination for log delivery.
         """
         return pulumi.get(self, "delivery_stream")
 
     @delivery_stream.setter
-    def delivery_stream(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delivery_stream(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delivery_stream", value)
 
 
@@ -676,11 +676,11 @@ class ConnectorS3LogDeliveryArgsDict(TypedDict):
     """
     Specifies whether the logs get sent to the specified Amazon S3 destination.
     """
-    bucket: NotRequired[pulumi.Input[_builtins.str]]
+    bucket: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the S3 bucket that is the destination for log delivery.
     """
-    prefix: NotRequired[pulumi.Input[_builtins.str]]
+    prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The S3 prefix that is the destination for log delivery.
     """
@@ -689,8 +689,8 @@ class ConnectorS3LogDeliveryArgsDict(TypedDict):
 class ConnectorS3LogDeliveryArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[_builtins.bool],
-                 bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                 prefix: Optional[pulumi.Input[_builtins.str]] = None):
+                 bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 prefix: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Details about delivering logs to Amazon S3.
 
@@ -718,26 +718,26 @@ class ConnectorS3LogDeliveryArgs:
 
     @_builtins.property
     @pulumi.getter
-    def bucket(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bucket(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the S3 bucket that is the destination for log delivery.
         """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
-    def bucket(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bucket(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bucket", value)
 
     @_builtins.property
     @pulumi.getter
-    def prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The S3 prefix that is the destination for log delivery.
         """
         return pulumi.get(self, "prefix")
 
     @prefix.setter
-    def prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "prefix", value)
 
 
@@ -915,15 +915,15 @@ class ConnectorWorkerLogDeliveryArgsDict(TypedDict):
     """
     Specifies where worker logs are delivered.
     """
-    cloud_watch_logs: NotRequired[pulumi.Input['ConnectorCloudWatchLogsLogDeliveryArgsDict']]
+    cloud_watch_logs: NotRequired[pulumi.Input[Optional['ConnectorCloudWatchLogsLogDeliveryArgsDict']]]
     """
     Details about delivering logs to Amazon CloudWatch Logs.
     """
-    firehose: NotRequired[pulumi.Input['ConnectorFirehoseLogDeliveryArgsDict']]
+    firehose: NotRequired[pulumi.Input[Optional['ConnectorFirehoseLogDeliveryArgsDict']]]
     """
     Details about delivering logs to Amazon Kinesis Data Firehose.
     """
-    s3: NotRequired[pulumi.Input['ConnectorS3LogDeliveryArgsDict']]
+    s3: NotRequired[pulumi.Input[Optional['ConnectorS3LogDeliveryArgsDict']]]
     """
     Details about delivering logs to Amazon S3.
     """
@@ -931,9 +931,9 @@ class ConnectorWorkerLogDeliveryArgsDict(TypedDict):
 @pulumi.input_type
 class ConnectorWorkerLogDeliveryArgs:
     def __init__(__self__, *,
-                 cloud_watch_logs: Optional[pulumi.Input['ConnectorCloudWatchLogsLogDeliveryArgs']] = None,
-                 firehose: Optional[pulumi.Input['ConnectorFirehoseLogDeliveryArgs']] = None,
-                 s3: Optional[pulumi.Input['ConnectorS3LogDeliveryArgs']] = None):
+                 cloud_watch_logs: pulumi.Input[Optional['ConnectorCloudWatchLogsLogDeliveryArgs']] = None,
+                 firehose: pulumi.Input[Optional['ConnectorFirehoseLogDeliveryArgs']] = None,
+                 s3: pulumi.Input[Optional['ConnectorS3LogDeliveryArgs']] = None):
         """
         Specifies where worker logs are delivered.
 
@@ -950,38 +950,38 @@ class ConnectorWorkerLogDeliveryArgs:
 
     @_builtins.property
     @pulumi.getter(name="cloudWatchLogs")
-    def cloud_watch_logs(self) -> Optional[pulumi.Input['ConnectorCloudWatchLogsLogDeliveryArgs']]:
+    def cloud_watch_logs(self) -> pulumi.Input[Optional['ConnectorCloudWatchLogsLogDeliveryArgs']]:
         """
         Details about delivering logs to Amazon CloudWatch Logs.
         """
         return pulumi.get(self, "cloud_watch_logs")
 
     @cloud_watch_logs.setter
-    def cloud_watch_logs(self, value: Optional[pulumi.Input['ConnectorCloudWatchLogsLogDeliveryArgs']]):
+    def cloud_watch_logs(self, value: pulumi.Input[Optional['ConnectorCloudWatchLogsLogDeliveryArgs']]):
         pulumi.set(self, "cloud_watch_logs", value)
 
     @_builtins.property
     @pulumi.getter
-    def firehose(self) -> Optional[pulumi.Input['ConnectorFirehoseLogDeliveryArgs']]:
+    def firehose(self) -> pulumi.Input[Optional['ConnectorFirehoseLogDeliveryArgs']]:
         """
         Details about delivering logs to Amazon Kinesis Data Firehose.
         """
         return pulumi.get(self, "firehose")
 
     @firehose.setter
-    def firehose(self, value: Optional[pulumi.Input['ConnectorFirehoseLogDeliveryArgs']]):
+    def firehose(self, value: pulumi.Input[Optional['ConnectorFirehoseLogDeliveryArgs']]):
         pulumi.set(self, "firehose", value)
 
     @_builtins.property
     @pulumi.getter
-    def s3(self) -> Optional[pulumi.Input['ConnectorS3LogDeliveryArgs']]:
+    def s3(self) -> pulumi.Input[Optional['ConnectorS3LogDeliveryArgs']]:
         """
         Details about delivering logs to Amazon S3.
         """
         return pulumi.get(self, "s3")
 
     @s3.setter
-    def s3(self, value: Optional[pulumi.Input['ConnectorS3LogDeliveryArgs']]):
+    def s3(self, value: pulumi.Input[Optional['ConnectorS3LogDeliveryArgs']]):
         pulumi.set(self, "s3", value)
 
 
@@ -1030,7 +1030,7 @@ class CustomPluginS3LocationArgsDict(TypedDict):
     """
     The file key for an object in an S3 bucket.
     """
-    object_version: NotRequired[pulumi.Input[_builtins.str]]
+    object_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The version of an object in an S3 bucket.
     """
@@ -1040,7 +1040,7 @@ class CustomPluginS3LocationArgs:
     def __init__(__self__, *,
                  bucket_arn: pulumi.Input[_builtins.str],
                  file_key: pulumi.Input[_builtins.str],
-                 object_version: Optional[pulumi.Input[_builtins.str]] = None):
+                 object_version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The S3 bucket Amazon Resource Name (ARN), file key, and object version of the plugin file stored in Amazon S3.
 
@@ -1079,14 +1079,14 @@ class CustomPluginS3LocationArgs:
 
     @_builtins.property
     @pulumi.getter(name="objectVersion")
-    def object_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def object_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of an object in an S3 bucket.
         """
         return pulumi.get(self, "object_version")
 
     @object_version.setter
-    def object_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def object_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "object_version", value)
 
 

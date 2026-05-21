@@ -191,7 +191,7 @@ def get_workspaces_pool(pool_id: Optional[_builtins.str] = None,
         running_mode=pulumi.get(__ret__, 'running_mode'),
         tags=pulumi.get(__ret__, 'tags'),
         timeout_settings=pulumi.get(__ret__, 'timeout_settings'))
-def get_workspaces_pool_output(pool_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_workspaces_pool_output(pool_id: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkspacesPoolResult]:
     """
     Resource Type definition for AWS::WorkSpaces::WorkspacesPool

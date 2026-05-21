@@ -89,7 +89,7 @@ def get_security_control(security_control_id: Optional[_builtins.str] = None,
         last_update_reason=pulumi.get(__ret__, 'last_update_reason'),
         parameters=pulumi.get(__ret__, 'parameters'),
         security_control_arn=pulumi.get(__ret__, 'security_control_arn'))
-def get_security_control_output(security_control_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_security_control_output(security_control_id: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityControlResult]:
     """
     A security control in Security Hub describes a security best practice related to a specific resource.

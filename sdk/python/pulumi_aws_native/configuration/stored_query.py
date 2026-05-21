@@ -22,9 +22,9 @@ __all__ = ['StoredQueryArgs', 'StoredQuery']
 class StoredQueryArgs:
     def __init__(__self__, *,
                  query_expression: pulumi.Input[_builtins.str],
-                 query_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 query_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a StoredQuery resource.
 
@@ -55,38 +55,38 @@ class StoredQueryArgs:
 
     @_builtins.property
     @pulumi.getter(name="queryDescription")
-    def query_description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def query_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A unique description for the query.
         """
         return pulumi.get(self, "query_description")
 
     @query_description.setter
-    def query_description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def query_description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "query_description", value)
 
     @_builtins.property
     @pulumi.getter(name="queryName")
-    def query_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def query_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the query.
         """
         return pulumi.get(self, "query_name")
 
     @query_name.setter
-    def query_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def query_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "query_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags for the stored query.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -96,10 +96,10 @@ class StoredQuery(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 query_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 query_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Config::StoredQuery
@@ -137,10 +137,10 @@ class StoredQuery(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 query_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 query_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

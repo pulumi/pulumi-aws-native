@@ -108,11 +108,11 @@ class IdMappingWorkflowIdMappingRuleBasedPropertiesArgsDict(TypedDict):
 
     If the value is set to `MANY_SOURCE_TO_ONE_TARGET` , multiple records in the source can be matched to one record in the target.
     """
-    rule_definition_type: NotRequired[pulumi.Input['IdMappingWorkflowIdMappingRuleBasedPropertiesRuleDefinitionType']]
+    rule_definition_type: NotRequired[pulumi.Input[Optional['IdMappingWorkflowIdMappingRuleBasedPropertiesRuleDefinitionType']]]
     """
     The set of rules you can use in an ID mapping workflow. The limitations specified for the source or target to define the match rules must be compatible.
     """
-    rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['IdMappingWorkflowRuleArgsDict']]]]
+    rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IdMappingWorkflowRuleArgsDict']]]]]
     """
     The rules that can be used for ID mapping.
     """
@@ -122,8 +122,8 @@ class IdMappingWorkflowIdMappingRuleBasedPropertiesArgs:
     def __init__(__self__, *,
                  attribute_matching_model: pulumi.Input['IdMappingWorkflowIdMappingRuleBasedPropertiesAttributeMatchingModel'],
                  record_matching_model: pulumi.Input['IdMappingWorkflowIdMappingRuleBasedPropertiesRecordMatchingModel'],
-                 rule_definition_type: Optional[pulumi.Input['IdMappingWorkflowIdMappingRuleBasedPropertiesRuleDefinitionType']] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['IdMappingWorkflowRuleArgs']]]] = None):
+                 rule_definition_type: pulumi.Input[Optional['IdMappingWorkflowIdMappingRuleBasedPropertiesRuleDefinitionType']] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input['IdMappingWorkflowRuleArgs']]]] = None):
         """
         :param pulumi.Input['IdMappingWorkflowIdMappingRuleBasedPropertiesAttributeMatchingModel'] attribute_matching_model: The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
                
@@ -179,40 +179,40 @@ class IdMappingWorkflowIdMappingRuleBasedPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="ruleDefinitionType")
-    def rule_definition_type(self) -> Optional[pulumi.Input['IdMappingWorkflowIdMappingRuleBasedPropertiesRuleDefinitionType']]:
+    def rule_definition_type(self) -> pulumi.Input[Optional['IdMappingWorkflowIdMappingRuleBasedPropertiesRuleDefinitionType']]:
         """
         The set of rules you can use in an ID mapping workflow. The limitations specified for the source or target to define the match rules must be compatible.
         """
         return pulumi.get(self, "rule_definition_type")
 
     @rule_definition_type.setter
-    def rule_definition_type(self, value: Optional[pulumi.Input['IdMappingWorkflowIdMappingRuleBasedPropertiesRuleDefinitionType']]):
+    def rule_definition_type(self, value: pulumi.Input[Optional['IdMappingWorkflowIdMappingRuleBasedPropertiesRuleDefinitionType']]):
         pulumi.set(self, "rule_definition_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IdMappingWorkflowRuleArgs']]]]:
+    def rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IdMappingWorkflowRuleArgs']]]]:
         """
         The rules that can be used for ID mapping.
         """
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IdMappingWorkflowRuleArgs']]]]):
+    def rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IdMappingWorkflowRuleArgs']]]]):
         pulumi.set(self, "rules", value)
 
 
 class IdMappingWorkflowIdMappingTechniquesArgsDict(TypedDict):
-    id_mapping_type: NotRequired[pulumi.Input['IdMappingWorkflowIdMappingTechniquesIdMappingType']]
+    id_mapping_type: NotRequired[pulumi.Input[Optional['IdMappingWorkflowIdMappingTechniquesIdMappingType']]]
     """
     The type of ID mapping.
     """
-    normalization_version: NotRequired[pulumi.Input[_builtins.str]]
-    provider_properties: NotRequired[pulumi.Input['IdMappingWorkflowProviderPropertiesArgsDict']]
+    normalization_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    provider_properties: NotRequired[pulumi.Input[Optional['IdMappingWorkflowProviderPropertiesArgsDict']]]
     """
     An object which defines any additional configurations required by the provider service.
     """
-    rule_based_properties: NotRequired[pulumi.Input['IdMappingWorkflowIdMappingRuleBasedPropertiesArgsDict']]
+    rule_based_properties: NotRequired[pulumi.Input[Optional['IdMappingWorkflowIdMappingRuleBasedPropertiesArgsDict']]]
     """
     An object which defines any additional configurations required by rule-based matching.
     """
@@ -220,10 +220,10 @@ class IdMappingWorkflowIdMappingTechniquesArgsDict(TypedDict):
 @pulumi.input_type
 class IdMappingWorkflowIdMappingTechniquesArgs:
     def __init__(__self__, *,
-                 id_mapping_type: Optional[pulumi.Input['IdMappingWorkflowIdMappingTechniquesIdMappingType']] = None,
-                 normalization_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 provider_properties: Optional[pulumi.Input['IdMappingWorkflowProviderPropertiesArgs']] = None,
-                 rule_based_properties: Optional[pulumi.Input['IdMappingWorkflowIdMappingRuleBasedPropertiesArgs']] = None):
+                 id_mapping_type: pulumi.Input[Optional['IdMappingWorkflowIdMappingTechniquesIdMappingType']] = None,
+                 normalization_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 provider_properties: pulumi.Input[Optional['IdMappingWorkflowProviderPropertiesArgs']] = None,
+                 rule_based_properties: pulumi.Input[Optional['IdMappingWorkflowIdMappingRuleBasedPropertiesArgs']] = None):
         """
         :param pulumi.Input['IdMappingWorkflowIdMappingTechniquesIdMappingType'] id_mapping_type: The type of ID mapping.
         :param pulumi.Input['IdMappingWorkflowProviderPropertiesArgs'] provider_properties: An object which defines any additional configurations required by the provider service.
@@ -240,47 +240,47 @@ class IdMappingWorkflowIdMappingTechniquesArgs:
 
     @_builtins.property
     @pulumi.getter(name="idMappingType")
-    def id_mapping_type(self) -> Optional[pulumi.Input['IdMappingWorkflowIdMappingTechniquesIdMappingType']]:
+    def id_mapping_type(self) -> pulumi.Input[Optional['IdMappingWorkflowIdMappingTechniquesIdMappingType']]:
         """
         The type of ID mapping.
         """
         return pulumi.get(self, "id_mapping_type")
 
     @id_mapping_type.setter
-    def id_mapping_type(self, value: Optional[pulumi.Input['IdMappingWorkflowIdMappingTechniquesIdMappingType']]):
+    def id_mapping_type(self, value: pulumi.Input[Optional['IdMappingWorkflowIdMappingTechniquesIdMappingType']]):
         pulumi.set(self, "id_mapping_type", value)
 
     @_builtins.property
     @pulumi.getter(name="normalizationVersion")
-    def normalization_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def normalization_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "normalization_version")
 
     @normalization_version.setter
-    def normalization_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def normalization_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "normalization_version", value)
 
     @_builtins.property
     @pulumi.getter(name="providerProperties")
-    def provider_properties(self) -> Optional[pulumi.Input['IdMappingWorkflowProviderPropertiesArgs']]:
+    def provider_properties(self) -> pulumi.Input[Optional['IdMappingWorkflowProviderPropertiesArgs']]:
         """
         An object which defines any additional configurations required by the provider service.
         """
         return pulumi.get(self, "provider_properties")
 
     @provider_properties.setter
-    def provider_properties(self, value: Optional[pulumi.Input['IdMappingWorkflowProviderPropertiesArgs']]):
+    def provider_properties(self, value: pulumi.Input[Optional['IdMappingWorkflowProviderPropertiesArgs']]):
         pulumi.set(self, "provider_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleBasedProperties")
-    def rule_based_properties(self) -> Optional[pulumi.Input['IdMappingWorkflowIdMappingRuleBasedPropertiesArgs']]:
+    def rule_based_properties(self) -> pulumi.Input[Optional['IdMappingWorkflowIdMappingRuleBasedPropertiesArgs']]:
         """
         An object which defines any additional configurations required by rule-based matching.
         """
         return pulumi.get(self, "rule_based_properties")
 
     @rule_based_properties.setter
-    def rule_based_properties(self, value: Optional[pulumi.Input['IdMappingWorkflowIdMappingRuleBasedPropertiesArgs']]):
+    def rule_based_properties(self, value: pulumi.Input[Optional['IdMappingWorkflowIdMappingRuleBasedPropertiesArgs']]):
         pulumi.set(self, "rule_based_properties", value)
 
 
@@ -289,11 +289,11 @@ class IdMappingWorkflowInputSourceArgsDict(TypedDict):
     """
     An Glue table ARN for the input source table, MatchingWorkflow arn or IdNamespace ARN
     """
-    schema_arn: NotRequired[pulumi.Input[_builtins.str]]
+    schema_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN (Amazon Resource Name) that AWS Entity Resolution generated for the `SchemaMapping` .
     """
-    type: NotRequired[pulumi.Input['IdMappingWorkflowInputSourceType']]
+    type: NotRequired[pulumi.Input[Optional['IdMappingWorkflowInputSourceType']]]
     """
     The type of ID namespace. There are two types: `SOURCE` and `TARGET` .
 
@@ -306,8 +306,8 @@ class IdMappingWorkflowInputSourceArgsDict(TypedDict):
 class IdMappingWorkflowInputSourceArgs:
     def __init__(__self__, *,
                  input_source_arn: pulumi.Input[_builtins.str],
-                 schema_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input['IdMappingWorkflowInputSourceType']] = None):
+                 schema_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional['IdMappingWorkflowInputSourceType']] = None):
         """
         :param pulumi.Input[_builtins.str] input_source_arn: An Glue table ARN for the input source table, MatchingWorkflow arn or IdNamespace ARN
         :param pulumi.Input[_builtins.str] schema_arn: The ARN (Amazon Resource Name) that AWS Entity Resolution generated for the `SchemaMapping` .
@@ -337,19 +337,19 @@ class IdMappingWorkflowInputSourceArgs:
 
     @_builtins.property
     @pulumi.getter(name="schemaArn")
-    def schema_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def schema_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN (Amazon Resource Name) that AWS Entity Resolution generated for the `SchemaMapping` .
         """
         return pulumi.get(self, "schema_arn")
 
     @schema_arn.setter
-    def schema_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def schema_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schema_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['IdMappingWorkflowInputSourceType']]:
+    def type(self) -> pulumi.Input[Optional['IdMappingWorkflowInputSourceType']]:
         """
         The type of ID namespace. There are two types: `SOURCE` and `TARGET` .
 
@@ -360,7 +360,7 @@ class IdMappingWorkflowInputSourceArgs:
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['IdMappingWorkflowInputSourceType']]):
+    def type(self, value: pulumi.Input[Optional['IdMappingWorkflowInputSourceType']]):
         pulumi.set(self, "type", value)
 
 
@@ -397,7 +397,7 @@ class IdMappingWorkflowOutputSourceArgsDict(TypedDict):
     """
     The S3 path to which Entity Resolution will write the output table
     """
-    kms_arn: NotRequired[pulumi.Input[_builtins.str]]
+    kms_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Customer AWS  ARN for encryption at rest. If not provided, system will use an AWS Entity Resolution managed KMS key.
     """
@@ -406,7 +406,7 @@ class IdMappingWorkflowOutputSourceArgsDict(TypedDict):
 class IdMappingWorkflowOutputSourceArgs:
     def __init__(__self__, *,
                  output_s3_path: pulumi.Input[_builtins.str],
-                 kms_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 kms_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] output_s3_path: The S3 path to which Entity Resolution will write the output table
         :param pulumi.Input[_builtins.str] kms_arn: Customer AWS  ARN for encryption at rest. If not provided, system will use an AWS Entity Resolution managed KMS key.
@@ -429,14 +429,14 @@ class IdMappingWorkflowOutputSourceArgs:
 
     @_builtins.property
     @pulumi.getter(name="kmsArn")
-    def kms_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Customer AWS  ARN for encryption at rest. If not provided, system will use an AWS Entity Resolution managed KMS key.
         """
         return pulumi.get(self, "kms_arn")
 
     @kms_arn.setter
-    def kms_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_arn", value)
 
 
@@ -445,11 +445,11 @@ class IdMappingWorkflowProviderPropertiesArgsDict(TypedDict):
     """
     Arn of the Provider Service being used.
     """
-    intermediate_source_configuration: NotRequired[pulumi.Input['IdMappingWorkflowIntermediateSourceConfigurationArgsDict']]
+    intermediate_source_configuration: NotRequired[pulumi.Input[Optional['IdMappingWorkflowIntermediateSourceConfigurationArgsDict']]]
     """
     The Amazon S3 location that temporarily stores your data while it processes. Your information won't be saved permanently.
     """
-    provider_configuration: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    provider_configuration: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Additional Provider configuration that would be required for the provider service. The Configuration must be in JSON string format
     """
@@ -458,8 +458,8 @@ class IdMappingWorkflowProviderPropertiesArgsDict(TypedDict):
 class IdMappingWorkflowProviderPropertiesArgs:
     def __init__(__self__, *,
                  provider_service_arn: pulumi.Input[_builtins.str],
-                 intermediate_source_configuration: Optional[pulumi.Input['IdMappingWorkflowIntermediateSourceConfigurationArgs']] = None,
-                 provider_configuration: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 intermediate_source_configuration: pulumi.Input[Optional['IdMappingWorkflowIntermediateSourceConfigurationArgs']] = None,
+                 provider_configuration: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] provider_service_arn: Arn of the Provider Service being used.
         :param pulumi.Input['IdMappingWorkflowIntermediateSourceConfigurationArgs'] intermediate_source_configuration: The Amazon S3 location that temporarily stores your data while it processes. Your information won't be saved permanently.
@@ -485,26 +485,26 @@ class IdMappingWorkflowProviderPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="intermediateSourceConfiguration")
-    def intermediate_source_configuration(self) -> Optional[pulumi.Input['IdMappingWorkflowIntermediateSourceConfigurationArgs']]:
+    def intermediate_source_configuration(self) -> pulumi.Input[Optional['IdMappingWorkflowIntermediateSourceConfigurationArgs']]:
         """
         The Amazon S3 location that temporarily stores your data while it processes. Your information won't be saved permanently.
         """
         return pulumi.get(self, "intermediate_source_configuration")
 
     @intermediate_source_configuration.setter
-    def intermediate_source_configuration(self, value: Optional[pulumi.Input['IdMappingWorkflowIntermediateSourceConfigurationArgs']]):
+    def intermediate_source_configuration(self, value: pulumi.Input[Optional['IdMappingWorkflowIntermediateSourceConfigurationArgs']]):
         pulumi.set(self, "intermediate_source_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="providerConfiguration")
-    def provider_configuration(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def provider_configuration(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Additional Provider configuration that would be required for the provider service. The Configuration must be in JSON string format
         """
         return pulumi.get(self, "provider_configuration")
 
     @provider_configuration.setter
-    def provider_configuration(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def provider_configuration(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "provider_configuration", value)
 
 
@@ -560,11 +560,11 @@ class IdNamespaceIdMappingWorkflowPropertiesArgsDict(TypedDict):
     """
     The type of ID mapping.
     """
-    provider_properties: NotRequired[pulumi.Input['IdNamespaceNamespaceProviderPropertiesArgsDict']]
+    provider_properties: NotRequired[pulumi.Input[Optional['IdNamespaceNamespaceProviderPropertiesArgsDict']]]
     """
     An object which defines any additional configurations required by the provider service.
     """
-    rule_based_properties: NotRequired[pulumi.Input['IdNamespaceNamespaceRuleBasedPropertiesArgsDict']]
+    rule_based_properties: NotRequired[pulumi.Input[Optional['IdNamespaceNamespaceRuleBasedPropertiesArgsDict']]]
     """
     An object which defines any additional configurations required by rule-based matching.
     """
@@ -573,8 +573,8 @@ class IdNamespaceIdMappingWorkflowPropertiesArgsDict(TypedDict):
 class IdNamespaceIdMappingWorkflowPropertiesArgs:
     def __init__(__self__, *,
                  id_mapping_type: pulumi.Input['IdNamespaceIdMappingWorkflowPropertiesIdMappingType'],
-                 provider_properties: Optional[pulumi.Input['IdNamespaceNamespaceProviderPropertiesArgs']] = None,
-                 rule_based_properties: Optional[pulumi.Input['IdNamespaceNamespaceRuleBasedPropertiesArgs']] = None):
+                 provider_properties: pulumi.Input[Optional['IdNamespaceNamespaceProviderPropertiesArgs']] = None,
+                 rule_based_properties: pulumi.Input[Optional['IdNamespaceNamespaceRuleBasedPropertiesArgs']] = None):
         """
         :param pulumi.Input['IdNamespaceIdMappingWorkflowPropertiesIdMappingType'] id_mapping_type: The type of ID mapping.
         :param pulumi.Input['IdNamespaceNamespaceProviderPropertiesArgs'] provider_properties: An object which defines any additional configurations required by the provider service.
@@ -600,26 +600,26 @@ class IdNamespaceIdMappingWorkflowPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="providerProperties")
-    def provider_properties(self) -> Optional[pulumi.Input['IdNamespaceNamespaceProviderPropertiesArgs']]:
+    def provider_properties(self) -> pulumi.Input[Optional['IdNamespaceNamespaceProviderPropertiesArgs']]:
         """
         An object which defines any additional configurations required by the provider service.
         """
         return pulumi.get(self, "provider_properties")
 
     @provider_properties.setter
-    def provider_properties(self, value: Optional[pulumi.Input['IdNamespaceNamespaceProviderPropertiesArgs']]):
+    def provider_properties(self, value: pulumi.Input[Optional['IdNamespaceNamespaceProviderPropertiesArgs']]):
         pulumi.set(self, "provider_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleBasedProperties")
-    def rule_based_properties(self) -> Optional[pulumi.Input['IdNamespaceNamespaceRuleBasedPropertiesArgs']]:
+    def rule_based_properties(self) -> pulumi.Input[Optional['IdNamespaceNamespaceRuleBasedPropertiesArgs']]:
         """
         An object which defines any additional configurations required by rule-based matching.
         """
         return pulumi.get(self, "rule_based_properties")
 
     @rule_based_properties.setter
-    def rule_based_properties(self, value: Optional[pulumi.Input['IdNamespaceNamespaceRuleBasedPropertiesArgs']]):
+    def rule_based_properties(self, value: pulumi.Input[Optional['IdNamespaceNamespaceRuleBasedPropertiesArgs']]):
         pulumi.set(self, "rule_based_properties", value)
 
 
@@ -628,7 +628,7 @@ class IdNamespaceInputSourceArgsDict(TypedDict):
     """
     An AWS Glue table Amazon Resource Name (ARN) or a matching workflow ARN for the input source table.
     """
-    schema_name: NotRequired[pulumi.Input[_builtins.str]]
+    schema_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the schema.
     """
@@ -637,7 +637,7 @@ class IdNamespaceInputSourceArgsDict(TypedDict):
 class IdNamespaceInputSourceArgs:
     def __init__(__self__, *,
                  input_source_arn: pulumi.Input[_builtins.str],
-                 schema_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 schema_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] input_source_arn: An AWS Glue table Amazon Resource Name (ARN) or a matching workflow ARN for the input source table.
         :param pulumi.Input[_builtins.str] schema_name: The name of the schema.
@@ -660,14 +660,14 @@ class IdNamespaceInputSourceArgs:
 
     @_builtins.property
     @pulumi.getter(name="schemaName")
-    def schema_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def schema_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the schema.
         """
         return pulumi.get(self, "schema_name")
 
     @schema_name.setter
-    def schema_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def schema_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schema_name", value)
 
 
@@ -676,7 +676,7 @@ class IdNamespaceNamespaceProviderPropertiesArgsDict(TypedDict):
     """
     The Amazon Resource Name (ARN) of the provider service.
     """
-    provider_configuration: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    provider_configuration: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Additional Provider configuration that would be required for the provider service. The Configuration must be in JSON string format.
     """
@@ -685,7 +685,7 @@ class IdNamespaceNamespaceProviderPropertiesArgsDict(TypedDict):
 class IdNamespaceNamespaceProviderPropertiesArgs:
     def __init__(__self__, *,
                  provider_service_arn: pulumi.Input[_builtins.str],
-                 provider_configuration: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 provider_configuration: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] provider_service_arn: The Amazon Resource Name (ARN) of the provider service.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] provider_configuration: Additional Provider configuration that would be required for the provider service. The Configuration must be in JSON string format.
@@ -708,19 +708,19 @@ class IdNamespaceNamespaceProviderPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="providerConfiguration")
-    def provider_configuration(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def provider_configuration(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Additional Provider configuration that would be required for the provider service. The Configuration must be in JSON string format.
         """
         return pulumi.get(self, "provider_configuration")
 
     @provider_configuration.setter
-    def provider_configuration(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def provider_configuration(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "provider_configuration", value)
 
 
 class IdNamespaceNamespaceRuleBasedPropertiesArgsDict(TypedDict):
-    attribute_matching_model: NotRequired[pulumi.Input['IdNamespaceNamespaceRuleBasedPropertiesAttributeMatchingModel']]
+    attribute_matching_model: NotRequired[pulumi.Input[Optional['IdNamespaceNamespaceRuleBasedPropertiesAttributeMatchingModel']]]
     """
     The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
 
@@ -728,7 +728,7 @@ class IdNamespaceNamespaceRuleBasedPropertiesArgsDict(TypedDict):
 
     If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A matches the value of `BusinessEmail` field of Profile B, the two profiles are matched on the `Email` attribute type.
     """
-    record_matching_models: NotRequired[pulumi.Input[Sequence[pulumi.Input['IdNamespaceRecordMatchingModel']]]]
+    record_matching_models: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IdNamespaceRecordMatchingModel']]]]]
     """
     The type of matching record that is allowed to be used in an ID mapping workflow.
 
@@ -736,11 +736,11 @@ class IdNamespaceNamespaceRuleBasedPropertiesArgsDict(TypedDict):
 
     If the value is set to `MANY_SOURCE_TO_ONE_TARGET` , all matching records in the source are matched to one record in the target.
     """
-    rule_definition_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['IdNamespaceRuleDefinitionType']]]]
+    rule_definition_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IdNamespaceRuleDefinitionType']]]]]
     """
     The sets of rules you can use in an ID mapping workflow. The limitations specified for the source and target must be compatible.
     """
-    rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['IdNamespaceRuleArgsDict']]]]
+    rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IdNamespaceRuleArgsDict']]]]]
     """
     The rules for the ID namespace.
     """
@@ -748,10 +748,10 @@ class IdNamespaceNamespaceRuleBasedPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class IdNamespaceNamespaceRuleBasedPropertiesArgs:
     def __init__(__self__, *,
-                 attribute_matching_model: Optional[pulumi.Input['IdNamespaceNamespaceRuleBasedPropertiesAttributeMatchingModel']] = None,
-                 record_matching_models: Optional[pulumi.Input[Sequence[pulumi.Input['IdNamespaceRecordMatchingModel']]]] = None,
-                 rule_definition_types: Optional[pulumi.Input[Sequence[pulumi.Input['IdNamespaceRuleDefinitionType']]]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['IdNamespaceRuleArgs']]]] = None):
+                 attribute_matching_model: pulumi.Input[Optional['IdNamespaceNamespaceRuleBasedPropertiesAttributeMatchingModel']] = None,
+                 record_matching_models: pulumi.Input[Optional[Sequence[pulumi.Input['IdNamespaceRecordMatchingModel']]]] = None,
+                 rule_definition_types: pulumi.Input[Optional[Sequence[pulumi.Input['IdNamespaceRuleDefinitionType']]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input['IdNamespaceRuleArgs']]]] = None):
         """
         :param pulumi.Input['IdNamespaceNamespaceRuleBasedPropertiesAttributeMatchingModel'] attribute_matching_model: The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
                
@@ -777,7 +777,7 @@ class IdNamespaceNamespaceRuleBasedPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="attributeMatchingModel")
-    def attribute_matching_model(self) -> Optional[pulumi.Input['IdNamespaceNamespaceRuleBasedPropertiesAttributeMatchingModel']]:
+    def attribute_matching_model(self) -> pulumi.Input[Optional['IdNamespaceNamespaceRuleBasedPropertiesAttributeMatchingModel']]:
         """
         The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
 
@@ -788,12 +788,12 @@ class IdNamespaceNamespaceRuleBasedPropertiesArgs:
         return pulumi.get(self, "attribute_matching_model")
 
     @attribute_matching_model.setter
-    def attribute_matching_model(self, value: Optional[pulumi.Input['IdNamespaceNamespaceRuleBasedPropertiesAttributeMatchingModel']]):
+    def attribute_matching_model(self, value: pulumi.Input[Optional['IdNamespaceNamespaceRuleBasedPropertiesAttributeMatchingModel']]):
         pulumi.set(self, "attribute_matching_model", value)
 
     @_builtins.property
     @pulumi.getter(name="recordMatchingModels")
-    def record_matching_models(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IdNamespaceRecordMatchingModel']]]]:
+    def record_matching_models(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IdNamespaceRecordMatchingModel']]]]:
         """
         The type of matching record that is allowed to be used in an ID mapping workflow.
 
@@ -804,31 +804,31 @@ class IdNamespaceNamespaceRuleBasedPropertiesArgs:
         return pulumi.get(self, "record_matching_models")
 
     @record_matching_models.setter
-    def record_matching_models(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IdNamespaceRecordMatchingModel']]]]):
+    def record_matching_models(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IdNamespaceRecordMatchingModel']]]]):
         pulumi.set(self, "record_matching_models", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleDefinitionTypes")
-    def rule_definition_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IdNamespaceRuleDefinitionType']]]]:
+    def rule_definition_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IdNamespaceRuleDefinitionType']]]]:
         """
         The sets of rules you can use in an ID mapping workflow. The limitations specified for the source and target must be compatible.
         """
         return pulumi.get(self, "rule_definition_types")
 
     @rule_definition_types.setter
-    def rule_definition_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IdNamespaceRuleDefinitionType']]]]):
+    def rule_definition_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IdNamespaceRuleDefinitionType']]]]):
         pulumi.set(self, "rule_definition_types", value)
 
     @_builtins.property
     @pulumi.getter
-    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IdNamespaceRuleArgs']]]]:
+    def rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IdNamespaceRuleArgs']]]]:
         """
         The rules for the ID namespace.
         """
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IdNamespaceRuleArgs']]]]):
+    def rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IdNamespaceRuleArgs']]]]):
         pulumi.set(self, "rules", value)
 
 
@@ -959,7 +959,7 @@ class MatchingWorkflowInputSourceArgsDict(TypedDict):
     """
     The name of the schema.
     """
-    apply_normalization: NotRequired[pulumi.Input[_builtins.bool]]
+    apply_normalization: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Normalizes the attributes defined in the schema in the input data. For example, if an attribute has an `AttributeType` of `PHONE_NUMBER` , and the data in the input table is in a format of 1234567890, AWS Entity Resolution will normalize this field in the output to (123)-456-7890.
     """
@@ -969,7 +969,7 @@ class MatchingWorkflowInputSourceArgs:
     def __init__(__self__, *,
                  input_source_arn: pulumi.Input[_builtins.str],
                  schema_arn: pulumi.Input[_builtins.str],
-                 apply_normalization: Optional[pulumi.Input[_builtins.bool]] = None):
+                 apply_normalization: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] input_source_arn: An Glue table ARN for the input source table
         :param pulumi.Input[_builtins.str] schema_arn: The name of the schema.
@@ -1006,14 +1006,14 @@ class MatchingWorkflowInputSourceArgs:
 
     @_builtins.property
     @pulumi.getter(name="applyNormalization")
-    def apply_normalization(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def apply_normalization(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Normalizes the attributes defined in the schema in the input data. For example, if an attribute has an `AttributeType` of `PHONE_NUMBER` , and the data in the input table is in a format of 1234567890, AWS Entity Resolution will normalize this field in the output to (123)-456-7890.
         """
         return pulumi.get(self, "apply_normalization")
 
     @apply_normalization.setter
-    def apply_normalization(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def apply_normalization(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "apply_normalization", value)
 
 
@@ -1049,7 +1049,7 @@ class MatchingWorkflowMatchingConfigArgsDict(TypedDict):
     """
     Configuration for matching behavior within rule condition properties
     """
-    enable_transitive_matching: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_transitive_matching: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Enables transitive matching to process records across all rule levels and connect unmatched records to existing match groups
     """
@@ -1057,7 +1057,7 @@ class MatchingWorkflowMatchingConfigArgsDict(TypedDict):
 @pulumi.input_type
 class MatchingWorkflowMatchingConfigArgs:
     def __init__(__self__, *,
-                 enable_transitive_matching: Optional[pulumi.Input[_builtins.bool]] = None):
+                 enable_transitive_matching: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Configuration for matching behavior within rule condition properties
 
@@ -1068,14 +1068,14 @@ class MatchingWorkflowMatchingConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="enableTransitiveMatching")
-    def enable_transitive_matching(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_transitive_matching(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables transitive matching to process records across all rule levels and connect unmatched records to existing match groups
         """
         return pulumi.get(self, "enable_transitive_matching")
 
     @enable_transitive_matching.setter
-    def enable_transitive_matching(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_transitive_matching(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_transitive_matching", value)
 
 
@@ -1084,7 +1084,7 @@ class MatchingWorkflowOutputAttributeArgsDict(TypedDict):
     """
     A name of a column to be written to the output. This must be an `InputField` name in the schema mapping.
     """
-    hashed: NotRequired[pulumi.Input[_builtins.bool]]
+    hashed: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Enables the ability to hash the column values in the output.
     """
@@ -1093,7 +1093,7 @@ class MatchingWorkflowOutputAttributeArgsDict(TypedDict):
 class MatchingWorkflowOutputAttributeArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 hashed: Optional[pulumi.Input[_builtins.bool]] = None):
+                 hashed: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] name: A name of a column to be written to the output. This must be an `InputField` name in the schema mapping.
         :param pulumi.Input[_builtins.bool] hashed: Enables the ability to hash the column values in the output.
@@ -1116,14 +1116,14 @@ class MatchingWorkflowOutputAttributeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def hashed(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def hashed(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables the ability to hash the column values in the output.
         """
         return pulumi.get(self, "hashed")
 
     @hashed.setter
-    def hashed(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def hashed(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "hashed", value)
 
 
@@ -1132,16 +1132,16 @@ class MatchingWorkflowOutputSourceArgsDict(TypedDict):
     """
     A list of `OutputAttribute` objects, each of which have the fields `Name` and `Hashed` . Each of these objects selects a column to be included in the output table, and whether the values of the column should be hashed.
     """
-    apply_normalization: NotRequired[pulumi.Input[_builtins.bool]]
+    apply_normalization: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Normalizes the attributes defined in the schema in the input data. For example, if an attribute has an `AttributeType` of `PHONE_NUMBER` , and the data in the input table is in a format of 1234567890, AWS Entity Resolution will normalize this field in the output to (123)-456-7890.
     """
-    customer_profiles_integration_config: NotRequired[pulumi.Input['MatchingWorkflowCustomerProfilesIntegrationConfigArgsDict']]
-    kms_arn: NotRequired[pulumi.Input[_builtins.str]]
+    customer_profiles_integration_config: NotRequired[pulumi.Input[Optional['MatchingWorkflowCustomerProfilesIntegrationConfigArgsDict']]]
+    kms_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Customer KMS ARN for encryption at rest. If not provided, system will use an AWS Entity Resolution managed KMS key.
     """
-    output_s3_path: NotRequired[pulumi.Input[_builtins.str]]
+    output_s3_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The S3 path to which Entity Resolution will write the output table
     """
@@ -1150,10 +1150,10 @@ class MatchingWorkflowOutputSourceArgsDict(TypedDict):
 class MatchingWorkflowOutputSourceArgs:
     def __init__(__self__, *,
                  output: pulumi.Input[Sequence[pulumi.Input['MatchingWorkflowOutputAttributeArgs']]],
-                 apply_normalization: Optional[pulumi.Input[_builtins.bool]] = None,
-                 customer_profiles_integration_config: Optional[pulumi.Input['MatchingWorkflowCustomerProfilesIntegrationConfigArgs']] = None,
-                 kms_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 output_s3_path: Optional[pulumi.Input[_builtins.str]] = None):
+                 apply_normalization: pulumi.Input[Optional[_builtins.bool]] = None,
+                 customer_profiles_integration_config: pulumi.Input[Optional['MatchingWorkflowCustomerProfilesIntegrationConfigArgs']] = None,
+                 kms_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 output_s3_path: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['MatchingWorkflowOutputAttributeArgs']]] output: A list of `OutputAttribute` objects, each of which have the fields `Name` and `Hashed` . Each of these objects selects a column to be included in the output table, and whether the values of the column should be hashed.
         :param pulumi.Input[_builtins.bool] apply_normalization: Normalizes the attributes defined in the schema in the input data. For example, if an attribute has an `AttributeType` of `PHONE_NUMBER` , and the data in the input table is in a format of 1234567890, AWS Entity Resolution will normalize this field in the output to (123)-456-7890.
@@ -1184,47 +1184,47 @@ class MatchingWorkflowOutputSourceArgs:
 
     @_builtins.property
     @pulumi.getter(name="applyNormalization")
-    def apply_normalization(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def apply_normalization(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Normalizes the attributes defined in the schema in the input data. For example, if an attribute has an `AttributeType` of `PHONE_NUMBER` , and the data in the input table is in a format of 1234567890, AWS Entity Resolution will normalize this field in the output to (123)-456-7890.
         """
         return pulumi.get(self, "apply_normalization")
 
     @apply_normalization.setter
-    def apply_normalization(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def apply_normalization(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "apply_normalization", value)
 
     @_builtins.property
     @pulumi.getter(name="customerProfilesIntegrationConfig")
-    def customer_profiles_integration_config(self) -> Optional[pulumi.Input['MatchingWorkflowCustomerProfilesIntegrationConfigArgs']]:
+    def customer_profiles_integration_config(self) -> pulumi.Input[Optional['MatchingWorkflowCustomerProfilesIntegrationConfigArgs']]:
         return pulumi.get(self, "customer_profiles_integration_config")
 
     @customer_profiles_integration_config.setter
-    def customer_profiles_integration_config(self, value: Optional[pulumi.Input['MatchingWorkflowCustomerProfilesIntegrationConfigArgs']]):
+    def customer_profiles_integration_config(self, value: pulumi.Input[Optional['MatchingWorkflowCustomerProfilesIntegrationConfigArgs']]):
         pulumi.set(self, "customer_profiles_integration_config", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsArn")
-    def kms_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Customer KMS ARN for encryption at rest. If not provided, system will use an AWS Entity Resolution managed KMS key.
         """
         return pulumi.get(self, "kms_arn")
 
     @kms_arn.setter
-    def kms_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="outputS3Path")
-    def output_s3_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def output_s3_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The S3 path to which Entity Resolution will write the output table
         """
         return pulumi.get(self, "output_s3_path")
 
     @output_s3_path.setter
-    def output_s3_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def output_s3_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "output_s3_path", value)
 
 
@@ -1233,11 +1233,11 @@ class MatchingWorkflowProviderPropertiesArgsDict(TypedDict):
     """
     Arn of the Provider service being used.
     """
-    intermediate_source_configuration: NotRequired[pulumi.Input['MatchingWorkflowIntermediateSourceConfigurationArgsDict']]
+    intermediate_source_configuration: NotRequired[pulumi.Input[Optional['MatchingWorkflowIntermediateSourceConfigurationArgsDict']]]
     """
     The Amazon S3 location that temporarily stores your data while it processes. Your information won't be saved permanently.
     """
-    provider_configuration: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    provider_configuration: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Additional Provider configuration that would be required for the provider service. The Configuration must be in JSON string format
     """
@@ -1246,8 +1246,8 @@ class MatchingWorkflowProviderPropertiesArgsDict(TypedDict):
 class MatchingWorkflowProviderPropertiesArgs:
     def __init__(__self__, *,
                  provider_service_arn: pulumi.Input[_builtins.str],
-                 intermediate_source_configuration: Optional[pulumi.Input['MatchingWorkflowIntermediateSourceConfigurationArgs']] = None,
-                 provider_configuration: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 intermediate_source_configuration: pulumi.Input[Optional['MatchingWorkflowIntermediateSourceConfigurationArgs']] = None,
+                 provider_configuration: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] provider_service_arn: Arn of the Provider service being used.
         :param pulumi.Input['MatchingWorkflowIntermediateSourceConfigurationArgs'] intermediate_source_configuration: The Amazon S3 location that temporarily stores your data while it processes. Your information won't be saved permanently.
@@ -1273,35 +1273,35 @@ class MatchingWorkflowProviderPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="intermediateSourceConfiguration")
-    def intermediate_source_configuration(self) -> Optional[pulumi.Input['MatchingWorkflowIntermediateSourceConfigurationArgs']]:
+    def intermediate_source_configuration(self) -> pulumi.Input[Optional['MatchingWorkflowIntermediateSourceConfigurationArgs']]:
         """
         The Amazon S3 location that temporarily stores your data while it processes. Your information won't be saved permanently.
         """
         return pulumi.get(self, "intermediate_source_configuration")
 
     @intermediate_source_configuration.setter
-    def intermediate_source_configuration(self, value: Optional[pulumi.Input['MatchingWorkflowIntermediateSourceConfigurationArgs']]):
+    def intermediate_source_configuration(self, value: pulumi.Input[Optional['MatchingWorkflowIntermediateSourceConfigurationArgs']]):
         pulumi.set(self, "intermediate_source_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="providerConfiguration")
-    def provider_configuration(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def provider_configuration(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Additional Provider configuration that would be required for the provider service. The Configuration must be in JSON string format
         """
         return pulumi.get(self, "provider_configuration")
 
     @provider_configuration.setter
-    def provider_configuration(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def provider_configuration(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "provider_configuration", value)
 
 
 class MatchingWorkflowResolutionTechniquesArgsDict(TypedDict):
-    provider_properties: NotRequired[pulumi.Input['MatchingWorkflowProviderPropertiesArgsDict']]
+    provider_properties: NotRequired[pulumi.Input[Optional['MatchingWorkflowProviderPropertiesArgsDict']]]
     """
     The properties of the provider service.
     """
-    resolution_type: NotRequired[pulumi.Input['MatchingWorkflowResolutionType']]
+    resolution_type: NotRequired[pulumi.Input[Optional['MatchingWorkflowResolutionType']]]
     """
     The type of matching workflow to create. Specify one of the following types:
 
@@ -1309,11 +1309,11 @@ class MatchingWorkflowResolutionTechniquesArgsDict(TypedDict):
     - `ML_MATCHING` : Match records using machine learning models
     - `PROVIDER` : Match records using a third-party matching provider
     """
-    rule_based_properties: NotRequired[pulumi.Input['MatchingWorkflowRuleBasedPropertiesArgsDict']]
+    rule_based_properties: NotRequired[pulumi.Input[Optional['MatchingWorkflowRuleBasedPropertiesArgsDict']]]
     """
     An object which defines the list of matching rules to run and has a field `rules` , which is a list of rule objects.
     """
-    rule_condition_properties: NotRequired[pulumi.Input['MatchingWorkflowRuleConditionPropertiesArgsDict']]
+    rule_condition_properties: NotRequired[pulumi.Input[Optional['MatchingWorkflowRuleConditionPropertiesArgsDict']]]
     """
     An object containing the `rules` for a matching workflow.
     """
@@ -1321,10 +1321,10 @@ class MatchingWorkflowResolutionTechniquesArgsDict(TypedDict):
 @pulumi.input_type
 class MatchingWorkflowResolutionTechniquesArgs:
     def __init__(__self__, *,
-                 provider_properties: Optional[pulumi.Input['MatchingWorkflowProviderPropertiesArgs']] = None,
-                 resolution_type: Optional[pulumi.Input['MatchingWorkflowResolutionType']] = None,
-                 rule_based_properties: Optional[pulumi.Input['MatchingWorkflowRuleBasedPropertiesArgs']] = None,
-                 rule_condition_properties: Optional[pulumi.Input['MatchingWorkflowRuleConditionPropertiesArgs']] = None):
+                 provider_properties: pulumi.Input[Optional['MatchingWorkflowProviderPropertiesArgs']] = None,
+                 resolution_type: pulumi.Input[Optional['MatchingWorkflowResolutionType']] = None,
+                 rule_based_properties: pulumi.Input[Optional['MatchingWorkflowRuleBasedPropertiesArgs']] = None,
+                 rule_condition_properties: pulumi.Input[Optional['MatchingWorkflowRuleConditionPropertiesArgs']] = None):
         """
         :param pulumi.Input['MatchingWorkflowProviderPropertiesArgs'] provider_properties: The properties of the provider service.
         :param pulumi.Input['MatchingWorkflowResolutionType'] resolution_type: The type of matching workflow to create. Specify one of the following types:
@@ -1346,19 +1346,19 @@ class MatchingWorkflowResolutionTechniquesArgs:
 
     @_builtins.property
     @pulumi.getter(name="providerProperties")
-    def provider_properties(self) -> Optional[pulumi.Input['MatchingWorkflowProviderPropertiesArgs']]:
+    def provider_properties(self) -> pulumi.Input[Optional['MatchingWorkflowProviderPropertiesArgs']]:
         """
         The properties of the provider service.
         """
         return pulumi.get(self, "provider_properties")
 
     @provider_properties.setter
-    def provider_properties(self, value: Optional[pulumi.Input['MatchingWorkflowProviderPropertiesArgs']]):
+    def provider_properties(self, value: pulumi.Input[Optional['MatchingWorkflowProviderPropertiesArgs']]):
         pulumi.set(self, "provider_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="resolutionType")
-    def resolution_type(self) -> Optional[pulumi.Input['MatchingWorkflowResolutionType']]:
+    def resolution_type(self) -> pulumi.Input[Optional['MatchingWorkflowResolutionType']]:
         """
         The type of matching workflow to create. Specify one of the following types:
 
@@ -1369,31 +1369,31 @@ class MatchingWorkflowResolutionTechniquesArgs:
         return pulumi.get(self, "resolution_type")
 
     @resolution_type.setter
-    def resolution_type(self, value: Optional[pulumi.Input['MatchingWorkflowResolutionType']]):
+    def resolution_type(self, value: pulumi.Input[Optional['MatchingWorkflowResolutionType']]):
         pulumi.set(self, "resolution_type", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleBasedProperties")
-    def rule_based_properties(self) -> Optional[pulumi.Input['MatchingWorkflowRuleBasedPropertiesArgs']]:
+    def rule_based_properties(self) -> pulumi.Input[Optional['MatchingWorkflowRuleBasedPropertiesArgs']]:
         """
         An object which defines the list of matching rules to run and has a field `rules` , which is a list of rule objects.
         """
         return pulumi.get(self, "rule_based_properties")
 
     @rule_based_properties.setter
-    def rule_based_properties(self, value: Optional[pulumi.Input['MatchingWorkflowRuleBasedPropertiesArgs']]):
+    def rule_based_properties(self, value: pulumi.Input[Optional['MatchingWorkflowRuleBasedPropertiesArgs']]):
         pulumi.set(self, "rule_based_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleConditionProperties")
-    def rule_condition_properties(self) -> Optional[pulumi.Input['MatchingWorkflowRuleConditionPropertiesArgs']]:
+    def rule_condition_properties(self) -> pulumi.Input[Optional['MatchingWorkflowRuleConditionPropertiesArgs']]:
         """
         An object containing the `rules` for a matching workflow.
         """
         return pulumi.get(self, "rule_condition_properties")
 
     @rule_condition_properties.setter
-    def rule_condition_properties(self, value: Optional[pulumi.Input['MatchingWorkflowRuleConditionPropertiesArgs']]):
+    def rule_condition_properties(self, value: pulumi.Input[Optional['MatchingWorkflowRuleConditionPropertiesArgs']]):
         pulumi.set(self, "rule_condition_properties", value)
 
 
@@ -1410,7 +1410,7 @@ class MatchingWorkflowRuleBasedPropertiesArgsDict(TypedDict):
     """
     A list of `Rule` objects, each of which have fields `RuleName` and `MatchingKeys` .
     """
-    match_purpose: NotRequired[pulumi.Input['MatchingWorkflowRuleBasedPropertiesMatchPurpose']]
+    match_purpose: NotRequired[pulumi.Input[Optional['MatchingWorkflowRuleBasedPropertiesMatchPurpose']]]
     """
     An indicator of whether to generate IDs and index the data or not.
 
@@ -1424,7 +1424,7 @@ class MatchingWorkflowRuleBasedPropertiesArgs:
     def __init__(__self__, *,
                  attribute_matching_model: pulumi.Input['MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel'],
                  rules: pulumi.Input[Sequence[pulumi.Input['MatchingWorkflowRuleArgs']]],
-                 match_purpose: Optional[pulumi.Input['MatchingWorkflowRuleBasedPropertiesMatchPurpose']] = None):
+                 match_purpose: pulumi.Input[Optional['MatchingWorkflowRuleBasedPropertiesMatchPurpose']] = None):
         """
         :param pulumi.Input['MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel'] attribute_matching_model: The comparison type. You can choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
                
@@ -1473,7 +1473,7 @@ class MatchingWorkflowRuleBasedPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="matchPurpose")
-    def match_purpose(self) -> Optional[pulumi.Input['MatchingWorkflowRuleBasedPropertiesMatchPurpose']]:
+    def match_purpose(self) -> pulumi.Input[Optional['MatchingWorkflowRuleBasedPropertiesMatchPurpose']]:
         """
         An indicator of whether to generate IDs and index the data or not.
 
@@ -1484,7 +1484,7 @@ class MatchingWorkflowRuleBasedPropertiesArgs:
         return pulumi.get(self, "match_purpose")
 
     @match_purpose.setter
-    def match_purpose(self, value: Optional[pulumi.Input['MatchingWorkflowRuleBasedPropertiesMatchPurpose']]):
+    def match_purpose(self, value: pulumi.Input[Optional['MatchingWorkflowRuleBasedPropertiesMatchPurpose']]):
         pulumi.set(self, "match_purpose", value)
 
 
@@ -1493,13 +1493,13 @@ class MatchingWorkflowRuleConditionPropertiesArgsDict(TypedDict):
     """
     A list of rule objects, each of which have fields `ruleName` and `condition` .
     """
-    matching_config: NotRequired[pulumi.Input['MatchingWorkflowMatchingConfigArgsDict']]
+    matching_config: NotRequired[pulumi.Input[Optional['MatchingWorkflowMatchingConfigArgsDict']]]
 
 @pulumi.input_type
 class MatchingWorkflowRuleConditionPropertiesArgs:
     def __init__(__self__, *,
                  rules: pulumi.Input[Sequence[pulumi.Input['MatchingWorkflowRuleConditionArgs']]],
-                 matching_config: Optional[pulumi.Input['MatchingWorkflowMatchingConfigArgs']] = None):
+                 matching_config: pulumi.Input[Optional['MatchingWorkflowMatchingConfigArgs']] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['MatchingWorkflowRuleConditionArgs']]] rules: A list of rule objects, each of which have fields `ruleName` and `condition` .
         """
@@ -1521,16 +1521,16 @@ class MatchingWorkflowRuleConditionPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="matchingConfig")
-    def matching_config(self) -> Optional[pulumi.Input['MatchingWorkflowMatchingConfigArgs']]:
+    def matching_config(self) -> pulumi.Input[Optional['MatchingWorkflowMatchingConfigArgs']]:
         return pulumi.get(self, "matching_config")
 
     @matching_config.setter
-    def matching_config(self, value: Optional[pulumi.Input['MatchingWorkflowMatchingConfigArgs']]):
+    def matching_config(self, value: pulumi.Input[Optional['MatchingWorkflowMatchingConfigArgs']]):
         pulumi.set(self, "matching_config", value)
 
 
 class MatchingWorkflowRuleConditionArgsDict(TypedDict):
-    condition: NotRequired[pulumi.Input[_builtins.str]]
+    condition: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A statement that specifies the conditions for a matching rule.
 
@@ -1542,7 +1542,7 @@ class MatchingWorkflowRuleConditionArgsDict(TypedDict):
 
     For example: `(Cosine(a, 10) AND Exact(b, true)) OR ExactManyToMany(c, d)`
     """
-    rule_name: NotRequired[pulumi.Input[_builtins.str]]
+    rule_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A name for the matching rule.
 
@@ -1552,8 +1552,8 @@ class MatchingWorkflowRuleConditionArgsDict(TypedDict):
 @pulumi.input_type
 class MatchingWorkflowRuleConditionArgs:
     def __init__(__self__, *,
-                 condition: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 condition: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] condition: A statement that specifies the conditions for a matching rule.
                
@@ -1575,7 +1575,7 @@ class MatchingWorkflowRuleConditionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def condition(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def condition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A statement that specifies the conditions for a matching rule.
 
@@ -1590,12 +1590,12 @@ class MatchingWorkflowRuleConditionArgs:
         return pulumi.get(self, "condition")
 
     @condition.setter
-    def condition(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def condition(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "condition", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleName")
-    def rule_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A name for the matching rule.
 
@@ -1604,7 +1604,7 @@ class MatchingWorkflowRuleConditionArgs:
         return pulumi.get(self, "rule_name")
 
     @rule_name.setter
-    def rule_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rule_name", value)
 
 
@@ -1658,10 +1658,10 @@ class MatchingWorkflowRuleArgs:
 class SchemaMappingSchemaInputAttributeArgsDict(TypedDict):
     field_name: pulumi.Input[_builtins.str]
     type: pulumi.Input['SchemaMappingSchemaAttributeType']
-    group_name: NotRequired[pulumi.Input[_builtins.str]]
-    hashed: NotRequired[pulumi.Input[_builtins.bool]]
-    match_key: NotRequired[pulumi.Input[_builtins.str]]
-    sub_type: NotRequired[pulumi.Input[_builtins.str]]
+    group_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    hashed: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    match_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    sub_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The subtype of the Attribute. Would be required only when type is PROVIDER_ID
     """
@@ -1671,10 +1671,10 @@ class SchemaMappingSchemaInputAttributeArgs:
     def __init__(__self__, *,
                  field_name: pulumi.Input[_builtins.str],
                  type: pulumi.Input['SchemaMappingSchemaAttributeType'],
-                 group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 hashed: Optional[pulumi.Input[_builtins.bool]] = None,
-                 match_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 sub_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 hashed: pulumi.Input[Optional[_builtins.bool]] = None,
+                 match_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 sub_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] sub_type: The subtype of the Attribute. Would be required only when type is PROVIDER_ID
         """
@@ -1709,41 +1709,41 @@ class SchemaMappingSchemaInputAttributeArgs:
 
     @_builtins.property
     @pulumi.getter(name="groupName")
-    def group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "group_name")
 
     @group_name.setter
-    def group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def hashed(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def hashed(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "hashed")
 
     @hashed.setter
-    def hashed(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def hashed(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "hashed", value)
 
     @_builtins.property
     @pulumi.getter(name="matchKey")
-    def match_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def match_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "match_key")
 
     @match_key.setter
-    def match_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def match_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "match_key", value)
 
     @_builtins.property
     @pulumi.getter(name="subType")
-    def sub_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sub_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The subtype of the Attribute. Would be required only when type is PROVIDER_ID
         """
         return pulumi.get(self, "sub_type")
 
     @sub_type.setter
-    def sub_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sub_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sub_type", value)
 
 

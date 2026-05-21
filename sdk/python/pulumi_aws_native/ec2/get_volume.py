@@ -321,7 +321,7 @@ def get_volume(volume_id: Optional[_builtins.str] = None,
         volume_id=pulumi.get(__ret__, 'volume_id'),
         volume_initialization_rate=pulumi.get(__ret__, 'volume_initialization_rate'),
         volume_type=pulumi.get(__ret__, 'volume_type'))
-def get_volume_output(volume_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_volume_output(volume_id: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVolumeResult]:
     """
     Specifies an Amazon Elastic Block Store (Amazon EBS) volume. You can create an empty volume, a volume from a snapshot, or a volume copy from an existing source volume.

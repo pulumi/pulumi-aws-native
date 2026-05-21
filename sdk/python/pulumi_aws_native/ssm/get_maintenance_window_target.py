@@ -130,8 +130,8 @@ def get_maintenance_window_target(window_id: Optional[_builtins.str] = None,
         resource_type=pulumi.get(__ret__, 'resource_type'),
         targets=pulumi.get(__ret__, 'targets'),
         window_target_id=pulumi.get(__ret__, 'window_target_id'))
-def get_maintenance_window_target_output(window_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                         window_target_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_maintenance_window_target_output(window_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                         window_target_id: pulumi.Input[Optional[_builtins.str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMaintenanceWindowTargetResult]:
     """
     Resource type definition for AWS::SSM::MaintenanceWindowTarget

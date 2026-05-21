@@ -142,7 +142,7 @@ def get_environment(environment_arn: Optional[_builtins.str] = None,
         instance_type=pulumi.get(__ret__, 'instance_type'),
         preferred_maintenance_window=pulumi.get(__ret__, 'preferred_maintenance_window'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_environment_output(environment_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_environment_output(environment_arn: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnvironmentResult]:
     """
     Represents a runtime environment that can run migrated mainframe applications.

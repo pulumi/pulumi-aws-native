@@ -101,7 +101,7 @@ def get_mail_manager_addon_instance(addon_instance_id: Optional[_builtins.str] =
         addon_instance_id=pulumi.get(__ret__, 'addon_instance_id'),
         addon_name=pulumi.get(__ret__, 'addon_name'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_mail_manager_addon_instance_output(addon_instance_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_mail_manager_addon_instance_output(addon_instance_id: pulumi.Input[Optional[_builtins.str]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMailManagerAddonInstanceResult]:
     """
     Definition of AWS::SES::MailManagerAddonInstance Resource Type

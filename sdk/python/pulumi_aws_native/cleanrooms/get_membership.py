@@ -205,7 +205,7 @@ def get_membership(membership_identifier: Optional[_builtins.str] = None,
         payment_configuration=pulumi.get(__ret__, 'payment_configuration'),
         query_log_status=pulumi.get(__ret__, 'query_log_status'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_membership_output(membership_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+def get_membership_output(membership_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMembershipResult]:
     """
     Represents an AWS account that is a part of a collaboration

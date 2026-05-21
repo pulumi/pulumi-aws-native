@@ -22,8 +22,8 @@ class MemberInvitationArgs:
                  graph_arn: pulumi.Input[_builtins.str],
                  member_email_address: pulumi.Input[_builtins.str],
                  member_id: pulumi.Input[_builtins.str],
-                 disable_email_notification: Optional[pulumi.Input[_builtins.bool]] = None,
-                 message: Optional[pulumi.Input[_builtins.str]] = None):
+                 disable_email_notification: pulumi.Input[Optional[_builtins.bool]] = None,
+                 message: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a MemberInvitation resource.
 
@@ -79,26 +79,26 @@ class MemberInvitationArgs:
 
     @_builtins.property
     @pulumi.getter(name="disableEmailNotification")
-    def disable_email_notification(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_email_notification(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set to true, invitation emails are not sent to the member accounts. Member accounts must still accept the invitation before they are added to the behavior graph. Updating this field has no effect.
         """
         return pulumi.get(self, "disable_email_notification")
 
     @disable_email_notification.setter
-    def disable_email_notification(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_email_notification(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_email_notification", value)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A message to be included in the email invitation sent to the invited account. Updating this field has no effect.
         """
         return pulumi.get(self, "message")
 
     @message.setter
-    def message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "message", value)
 
 
@@ -108,11 +108,11 @@ class MemberInvitation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 disable_email_notification: Optional[pulumi.Input[_builtins.bool]] = None,
-                 graph_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 member_email_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 member_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 message: Optional[pulumi.Input[_builtins.str]] = None,
+                 disable_email_notification: pulumi.Input[Optional[_builtins.bool]] = None,
+                 graph_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 member_email_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 member_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 message: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource schema for AWS::Detective::MemberInvitation
@@ -151,11 +151,11 @@ class MemberInvitation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 disable_email_notification: Optional[pulumi.Input[_builtins.bool]] = None,
-                 graph_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 member_email_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 member_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 message: Optional[pulumi.Input[_builtins.str]] = None,
+                 disable_email_notification: pulumi.Input[Optional[_builtins.bool]] = None,
+                 graph_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 member_email_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 member_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 message: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

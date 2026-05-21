@@ -55,7 +55,7 @@ def get_ssm_parameter_string(name: Optional[_builtins.str] = None,
 
     return AwaitableGetSsmParameterStringResult(
         value=pulumi.get(__ret__, 'value'))
-def get_ssm_parameter_string_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_ssm_parameter_string_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSsmParameterStringResult]:
     """
     Use this data source to access information about an existing resource.

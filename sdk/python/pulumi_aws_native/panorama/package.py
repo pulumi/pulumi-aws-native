@@ -23,9 +23,9 @@ __all__ = ['PackageArgs', 'Package']
 @pulumi.input_type
 class PackageArgs:
     def __init__(__self__, *,
-                 package_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_location: Optional[pulumi.Input['PackageStorageLocationArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 package_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_location: pulumi.Input[Optional['PackageStorageLocationArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Package resource.
 
@@ -42,38 +42,38 @@ class PackageArgs:
 
     @_builtins.property
     @pulumi.getter(name="packageName")
-    def package_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def package_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A name for the package.
         """
         return pulumi.get(self, "package_name")
 
     @package_name.setter
-    def package_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def package_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "package_name", value)
 
     @_builtins.property
     @pulumi.getter(name="storageLocation")
-    def storage_location(self) -> Optional[pulumi.Input['PackageStorageLocationArgs']]:
+    def storage_location(self) -> pulumi.Input[Optional['PackageStorageLocationArgs']]:
         """
         A storage location.
         """
         return pulumi.get(self, "storage_location")
 
     @storage_location.setter
-    def storage_location(self, value: Optional[pulumi.Input['PackageStorageLocationArgs']]):
+    def storage_location(self, value: pulumi.Input[Optional['PackageStorageLocationArgs']]):
         pulumi.set(self, "storage_location", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Tags for the package.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -83,9 +83,9 @@ class Package(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 package_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_location: Optional[pulumi.Input[Union['PackageStorageLocationArgs', 'PackageStorageLocationArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 package_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_location: pulumi.Input[Optional[Union['PackageStorageLocationArgs', 'PackageStorageLocationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Creates a package and storage location in an Amazon S3 access point.
@@ -122,9 +122,9 @@ class Package(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 package_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_location: Optional[pulumi.Input[Union['PackageStorageLocationArgs', 'PackageStorageLocationArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 package_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_location: pulumi.Input[Optional[Union['PackageStorageLocationArgs', 'PackageStorageLocationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -25,15 +25,15 @@ __all__ = ['ProfileArgs', 'Profile']
 class ProfileArgs:
     def __init__(__self__, *,
                  role_arns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 accept_role_session_name: Optional[pulumi.Input[_builtins.bool]] = None,
-                 attribute_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['ProfileAttributeMappingArgs']]]] = None,
-                 duration_seconds: Optional[pulumi.Input[_builtins.float]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 managed_policy_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 require_instance_properties: Optional[pulumi.Input[_builtins.bool]] = None,
-                 session_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 accept_role_session_name: pulumi.Input[Optional[_builtins.bool]] = None,
+                 attribute_mappings: pulumi.Input[Optional[Sequence[pulumi.Input['ProfileAttributeMappingArgs']]]] = None,
+                 duration_seconds: pulumi.Input[Optional[_builtins.float]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 managed_policy_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 require_instance_properties: pulumi.Input[Optional[_builtins.bool]] = None,
+                 session_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Profile resource.
 
@@ -82,110 +82,110 @@ class ProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="acceptRoleSessionName")
-    def accept_role_session_name(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def accept_role_session_name(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Used to determine if a custom role session name will be accepted in a temporary credential request.
         """
         return pulumi.get(self, "accept_role_session_name")
 
     @accept_role_session_name.setter
-    def accept_role_session_name(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def accept_role_session_name(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "accept_role_session_name", value)
 
     @_builtins.property
     @pulumi.getter(name="attributeMappings")
-    def attribute_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProfileAttributeMappingArgs']]]]:
+    def attribute_mappings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ProfileAttributeMappingArgs']]]]:
         """
         A mapping applied to the authenticating end-entity certificate.
         """
         return pulumi.get(self, "attribute_mappings")
 
     @attribute_mappings.setter
-    def attribute_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProfileAttributeMappingArgs']]]]):
+    def attribute_mappings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ProfileAttributeMappingArgs']]]]):
         pulumi.set(self, "attribute_mappings", value)
 
     @_builtins.property
     @pulumi.getter(name="durationSeconds")
-    def duration_seconds(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def duration_seconds(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The number of seconds vended session credentials will be valid for
         """
         return pulumi.get(self, "duration_seconds")
 
     @duration_seconds.setter
-    def duration_seconds(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def duration_seconds(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "duration_seconds", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The enabled status of the resource.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="managedPolicyArns")
-    def managed_policy_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def managed_policy_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of managed policy ARNs. Managed policies identified by this list will be applied to the vended session credentials.
         """
         return pulumi.get(self, "managed_policy_arns")
 
     @managed_policy_arns.setter
-    def managed_policy_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def managed_policy_arns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "managed_policy_arns", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The customer specified name of the resource.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="requireInstanceProperties")
-    def require_instance_properties(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def require_instance_properties(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether instance properties are required in CreateSession requests with this profile.
         """
         return pulumi.get(self, "require_instance_properties")
 
     @require_instance_properties.setter
-    def require_instance_properties(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def require_instance_properties(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "require_instance_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="sessionPolicy")
-    def session_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def session_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A session policy that will applied to the trust boundary of the vended session credentials.
         """
         return pulumi.get(self, "session_policy")
 
     @session_policy.setter
-    def session_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def session_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "session_policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A list of Tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -195,16 +195,16 @@ class Profile(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 accept_role_session_name: Optional[pulumi.Input[_builtins.bool]] = None,
-                 attribute_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProfileAttributeMappingArgs', 'ProfileAttributeMappingArgsDict']]]]] = None,
-                 duration_seconds: Optional[pulumi.Input[_builtins.float]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 managed_policy_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 require_instance_properties: Optional[pulumi.Input[_builtins.bool]] = None,
-                 role_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 session_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 accept_role_session_name: pulumi.Input[Optional[_builtins.bool]] = None,
+                 attribute_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProfileAttributeMappingArgs', 'ProfileAttributeMappingArgsDict']]]]] = None,
+                 duration_seconds: pulumi.Input[Optional[_builtins.float]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 managed_policy_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 require_instance_properties: pulumi.Input[Optional[_builtins.bool]] = None,
+                 role_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 session_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::RolesAnywhere::Profile Resource Type
@@ -248,16 +248,16 @@ class Profile(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 accept_role_session_name: Optional[pulumi.Input[_builtins.bool]] = None,
-                 attribute_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProfileAttributeMappingArgs', 'ProfileAttributeMappingArgsDict']]]]] = None,
-                 duration_seconds: Optional[pulumi.Input[_builtins.float]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 managed_policy_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 require_instance_properties: Optional[pulumi.Input[_builtins.bool]] = None,
-                 role_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 session_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 accept_role_session_name: pulumi.Input[Optional[_builtins.bool]] = None,
+                 attribute_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProfileAttributeMappingArgs', 'ProfileAttributeMappingArgsDict']]]]] = None,
+                 duration_seconds: pulumi.Input[Optional[_builtins.float]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 managed_policy_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 require_instance_properties: pulumi.Input[Optional[_builtins.bool]] = None,
+                 role_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 session_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

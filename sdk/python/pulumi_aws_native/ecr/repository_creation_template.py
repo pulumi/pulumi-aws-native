@@ -24,14 +24,14 @@ class RepositoryCreationTemplateArgs:
     def __init__(__self__, *,
                  applied_for: pulumi.Input[Sequence[pulumi.Input['RepositoryCreationTemplateAppliedForItem']]],
                  prefix: pulumi.Input[_builtins.str],
-                 custom_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_configuration: Optional[pulumi.Input['RepositoryCreationTemplateEncryptionConfigurationArgs']] = None,
-                 image_tag_mutability: Optional[pulumi.Input['RepositoryCreationTemplateImageTagMutability']] = None,
-                 image_tag_mutability_exclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgs']]]] = None,
-                 lifecycle_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryCreationTemplateTagArgs']]]] = None):
+                 custom_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_configuration: pulumi.Input[Optional['RepositoryCreationTemplateEncryptionConfigurationArgs']] = None,
+                 image_tag_mutability: pulumi.Input[Optional['RepositoryCreationTemplateImageTagMutability']] = None,
+                 image_tag_mutability_exclusion_filters: pulumi.Input[Optional[Sequence[pulumi.Input['RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgs']]]] = None,
+                 lifecycle_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_tags: pulumi.Input[Optional[Sequence[pulumi.Input['RepositoryCreationTemplateTagArgs']]]] = None):
         """
         The set of arguments for constructing a RepositoryCreationTemplate resource.
 
@@ -91,98 +91,98 @@ class RepositoryCreationTemplateArgs:
 
     @_builtins.property
     @pulumi.getter(name="customRoleArn")
-    def custom_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the role to be assumed by Amazon ECR. Amazon ECR will assume your supplied role when the customRoleArn is specified. When this field isn't specified, Amazon ECR will use the service-linked role for the repository creation template.
         """
         return pulumi.get(self, "custom_role_arn")
 
     @custom_role_arn.setter
-    def custom_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_role_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description associated with the repository creation template.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionConfiguration")
-    def encryption_configuration(self) -> Optional[pulumi.Input['RepositoryCreationTemplateEncryptionConfigurationArgs']]:
+    def encryption_configuration(self) -> pulumi.Input[Optional['RepositoryCreationTemplateEncryptionConfigurationArgs']]:
         """
         The encryption configuration associated with the repository creation template.
         """
         return pulumi.get(self, "encryption_configuration")
 
     @encryption_configuration.setter
-    def encryption_configuration(self, value: Optional[pulumi.Input['RepositoryCreationTemplateEncryptionConfigurationArgs']]):
+    def encryption_configuration(self, value: pulumi.Input[Optional['RepositoryCreationTemplateEncryptionConfigurationArgs']]):
         pulumi.set(self, "encryption_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="imageTagMutability")
-    def image_tag_mutability(self) -> Optional[pulumi.Input['RepositoryCreationTemplateImageTagMutability']]:
+    def image_tag_mutability(self) -> pulumi.Input[Optional['RepositoryCreationTemplateImageTagMutability']]:
         """
         The tag mutability setting for the repository. If this parameter is omitted, the default setting of ``MUTABLE`` will be used which will allow image tags to be overwritten. If ``IMMUTABLE`` is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
         """
         return pulumi.get(self, "image_tag_mutability")
 
     @image_tag_mutability.setter
-    def image_tag_mutability(self, value: Optional[pulumi.Input['RepositoryCreationTemplateImageTagMutability']]):
+    def image_tag_mutability(self, value: pulumi.Input[Optional['RepositoryCreationTemplateImageTagMutability']]):
         pulumi.set(self, "image_tag_mutability", value)
 
     @_builtins.property
     @pulumi.getter(name="imageTagMutabilityExclusionFilters")
-    def image_tag_mutability_exclusion_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgs']]]]:
+    def image_tag_mutability_exclusion_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgs']]]]:
         """
         A list of filters that specify which image tags are excluded from the repository creation template's image tag mutability setting.
         """
         return pulumi.get(self, "image_tag_mutability_exclusion_filters")
 
     @image_tag_mutability_exclusion_filters.setter
-    def image_tag_mutability_exclusion_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgs']]]]):
+    def image_tag_mutability_exclusion_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgs']]]]):
         pulumi.set(self, "image_tag_mutability_exclusion_filters", value)
 
     @_builtins.property
     @pulumi.getter(name="lifecyclePolicy")
-    def lifecycle_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def lifecycle_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The lifecycle policy to use for repositories created using the template.
         """
         return pulumi.get(self, "lifecycle_policy")
 
     @lifecycle_policy.setter
-    def lifecycle_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def lifecycle_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "lifecycle_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="repositoryPolicy")
-    def repository_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def repository_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The repository policy to apply to repositories created using the template. A repository policy is a permissions policy associated with a repository to control access permissions.
         """
         return pulumi.get(self, "repository_policy")
 
     @repository_policy.setter
-    def repository_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def repository_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repository_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceTags")
-    def resource_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryCreationTemplateTagArgs']]]]:
+    def resource_tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RepositoryCreationTemplateTagArgs']]]]:
         """
         The metadata to apply to the repository to help you categorize and organize. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
         """
         return pulumi.get(self, "resource_tags")
 
     @resource_tags.setter
-    def resource_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryCreationTemplateTagArgs']]]]):
+    def resource_tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RepositoryCreationTemplateTagArgs']]]]):
         pulumi.set(self, "resource_tags", value)
 
 
@@ -192,16 +192,16 @@ class RepositoryCreationTemplate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 applied_for: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryCreationTemplateAppliedForItem']]]] = None,
-                 custom_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_configuration: Optional[pulumi.Input[Union['RepositoryCreationTemplateEncryptionConfigurationArgs', 'RepositoryCreationTemplateEncryptionConfigurationArgsDict']]] = None,
-                 image_tag_mutability: Optional[pulumi.Input['RepositoryCreationTemplateImageTagMutability']] = None,
-                 image_tag_mutability_exclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgs', 'RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgsDict']]]]] = None,
-                 lifecycle_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RepositoryCreationTemplateTagArgs', 'RepositoryCreationTemplateTagArgsDict']]]]] = None,
+                 applied_for: pulumi.Input[Optional[Sequence[pulumi.Input['RepositoryCreationTemplateAppliedForItem']]]] = None,
+                 custom_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_configuration: pulumi.Input[Optional[Union['RepositoryCreationTemplateEncryptionConfigurationArgs', 'RepositoryCreationTemplateEncryptionConfigurationArgsDict']]] = None,
+                 image_tag_mutability: pulumi.Input[Optional['RepositoryCreationTemplateImageTagMutability']] = None,
+                 image_tag_mutability_exclusion_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgs', 'RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgsDict']]]]] = None,
+                 lifecycle_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RepositoryCreationTemplateTagArgs', 'RepositoryCreationTemplateTagArgsDict']]]]] = None,
                  __props__=None):
         """
         The details of the repository creation template associated with the request.
@@ -245,16 +245,16 @@ class RepositoryCreationTemplate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 applied_for: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryCreationTemplateAppliedForItem']]]] = None,
-                 custom_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_configuration: Optional[pulumi.Input[Union['RepositoryCreationTemplateEncryptionConfigurationArgs', 'RepositoryCreationTemplateEncryptionConfigurationArgsDict']]] = None,
-                 image_tag_mutability: Optional[pulumi.Input['RepositoryCreationTemplateImageTagMutability']] = None,
-                 image_tag_mutability_exclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgs', 'RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgsDict']]]]] = None,
-                 lifecycle_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RepositoryCreationTemplateTagArgs', 'RepositoryCreationTemplateTagArgsDict']]]]] = None,
+                 applied_for: pulumi.Input[Optional[Sequence[pulumi.Input['RepositoryCreationTemplateAppliedForItem']]]] = None,
+                 custom_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_configuration: pulumi.Input[Optional[Union['RepositoryCreationTemplateEncryptionConfigurationArgs', 'RepositoryCreationTemplateEncryptionConfigurationArgsDict']]] = None,
+                 image_tag_mutability: pulumi.Input[Optional['RepositoryCreationTemplateImageTagMutability']] = None,
+                 image_tag_mutability_exclusion_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgs', 'RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgsDict']]]]] = None,
+                 lifecycle_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RepositoryCreationTemplateTagArgs', 'RepositoryCreationTemplateTagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

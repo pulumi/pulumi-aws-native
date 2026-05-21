@@ -46,11 +46,11 @@ class CollectionEncryptionConfigArgsDict(TypedDict):
     """
     Encryption settings for the collection
     """
-    aws_owned_key: NotRequired[pulumi.Input[_builtins.bool]]
+    aws_owned_key: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether to use an AWS owned key for encryption.
     """
-    kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    kms_key_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Key Management Service key used to encrypt the collection.
     """
@@ -58,8 +58,8 @@ class CollectionEncryptionConfigArgsDict(TypedDict):
 @pulumi.input_type
 class CollectionEncryptionConfigArgs:
     def __init__(__self__, *,
-                 aws_owned_key: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 aws_owned_key: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Encryption settings for the collection
 
@@ -73,43 +73,43 @@ class CollectionEncryptionConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsOwnedKey")
-    def aws_owned_key(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def aws_owned_key(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether to use an AWS owned key for encryption.
         """
         return pulumi.get(self, "aws_owned_key")
 
     @aws_owned_key.setter
-    def aws_owned_key(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def aws_owned_key(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "aws_owned_key", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
-    def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Key Management Service key used to encrypt the collection.
         """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
-    def kms_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_arn", value)
 
 
 class CollectionGroupCapacityLimitsArgsDict(TypedDict):
-    max_indexing_capacity_in_ocu: NotRequired[pulumi.Input[_builtins.float]]
+    max_indexing_capacity_in_ocu: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The maximum indexing capacity for collections in the group.
     """
-    max_search_capacity_in_ocu: NotRequired[pulumi.Input[_builtins.float]]
+    max_search_capacity_in_ocu: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The maximum search capacity for collections in the group.
     """
-    min_indexing_capacity_in_ocu: NotRequired[pulumi.Input[_builtins.float]]
+    min_indexing_capacity_in_ocu: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The minimum indexing capacity for collections in the group.
     """
-    min_search_capacity_in_ocu: NotRequired[pulumi.Input[_builtins.float]]
+    min_search_capacity_in_ocu: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The minimum search capacity for collections in the group.
     """
@@ -117,10 +117,10 @@ class CollectionGroupCapacityLimitsArgsDict(TypedDict):
 @pulumi.input_type
 class CollectionGroupCapacityLimitsArgs:
     def __init__(__self__, *,
-                 max_indexing_capacity_in_ocu: Optional[pulumi.Input[_builtins.float]] = None,
-                 max_search_capacity_in_ocu: Optional[pulumi.Input[_builtins.float]] = None,
-                 min_indexing_capacity_in_ocu: Optional[pulumi.Input[_builtins.float]] = None,
-                 min_search_capacity_in_ocu: Optional[pulumi.Input[_builtins.float]] = None):
+                 max_indexing_capacity_in_ocu: pulumi.Input[Optional[_builtins.float]] = None,
+                 max_search_capacity_in_ocu: pulumi.Input[Optional[_builtins.float]] = None,
+                 min_indexing_capacity_in_ocu: pulumi.Input[Optional[_builtins.float]] = None,
+                 min_search_capacity_in_ocu: pulumi.Input[Optional[_builtins.float]] = None):
         """
         :param pulumi.Input[_builtins.float] max_indexing_capacity_in_ocu: The maximum indexing capacity for collections in the group.
         :param pulumi.Input[_builtins.float] max_search_capacity_in_ocu: The maximum search capacity for collections in the group.
@@ -138,50 +138,50 @@ class CollectionGroupCapacityLimitsArgs:
 
     @_builtins.property
     @pulumi.getter(name="maxIndexingCapacityInOcu")
-    def max_indexing_capacity_in_ocu(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def max_indexing_capacity_in_ocu(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The maximum indexing capacity for collections in the group.
         """
         return pulumi.get(self, "max_indexing_capacity_in_ocu")
 
     @max_indexing_capacity_in_ocu.setter
-    def max_indexing_capacity_in_ocu(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def max_indexing_capacity_in_ocu(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "max_indexing_capacity_in_ocu", value)
 
     @_builtins.property
     @pulumi.getter(name="maxSearchCapacityInOcu")
-    def max_search_capacity_in_ocu(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def max_search_capacity_in_ocu(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The maximum search capacity for collections in the group.
         """
         return pulumi.get(self, "max_search_capacity_in_ocu")
 
     @max_search_capacity_in_ocu.setter
-    def max_search_capacity_in_ocu(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def max_search_capacity_in_ocu(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "max_search_capacity_in_ocu", value)
 
     @_builtins.property
     @pulumi.getter(name="minIndexingCapacityInOcu")
-    def min_indexing_capacity_in_ocu(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def min_indexing_capacity_in_ocu(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The minimum indexing capacity for collections in the group.
         """
         return pulumi.get(self, "min_indexing_capacity_in_ocu")
 
     @min_indexing_capacity_in_ocu.setter
-    def min_indexing_capacity_in_ocu(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def min_indexing_capacity_in_ocu(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "min_indexing_capacity_in_ocu", value)
 
     @_builtins.property
     @pulumi.getter(name="minSearchCapacityInOcu")
-    def min_search_capacity_in_ocu(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def min_search_capacity_in_ocu(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The minimum search capacity for collections in the group.
         """
         return pulumi.get(self, "min_search_capacity_in_ocu")
 
     @min_search_capacity_in_ocu.setter
-    def min_search_capacity_in_ocu(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def min_search_capacity_in_ocu(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "min_search_capacity_in_ocu", value)
 
 
@@ -189,12 +189,12 @@ class CollectionVectorOptionsArgsDict(TypedDict):
     """
     Vector search configuration options for the collection
     """
-    serverless_vector_acceleration: NotRequired[pulumi.Input['CollectionServerlessVectorAcceleration']]
+    serverless_vector_acceleration: NotRequired[pulumi.Input[Optional['CollectionServerlessVectorAcceleration']]]
 
 @pulumi.input_type
 class CollectionVectorOptionsArgs:
     def __init__(__self__, *,
-                 serverless_vector_acceleration: Optional[pulumi.Input['CollectionServerlessVectorAcceleration']] = None):
+                 serverless_vector_acceleration: pulumi.Input[Optional['CollectionServerlessVectorAcceleration']] = None):
         """
         Vector search configuration options for the collection
         """
@@ -203,11 +203,11 @@ class CollectionVectorOptionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="serverlessVectorAcceleration")
-    def serverless_vector_acceleration(self) -> Optional[pulumi.Input['CollectionServerlessVectorAcceleration']]:
+    def serverless_vector_acceleration(self) -> pulumi.Input[Optional['CollectionServerlessVectorAcceleration']]:
         return pulumi.get(self, "serverless_vector_acceleration")
 
     @serverless_vector_acceleration.setter
-    def serverless_vector_acceleration(self, value: Optional[pulumi.Input['CollectionServerlessVectorAcceleration']]):
+    def serverless_vector_acceleration(self, value: pulumi.Input[Optional['CollectionServerlessVectorAcceleration']]):
         pulumi.set(self, "serverless_vector_acceleration", value)
 
 
@@ -215,11 +215,11 @@ class IndexPropertyMappingMethodPropertiesParametersPropertiesArgsDict(TypedDict
     """
     Additional parameters for the k-NN algorithm
     """
-    ef_construction: NotRequired[pulumi.Input[_builtins.int]]
+    ef_construction: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The size of the dynamic list used during k-NN graph creation
     """
-    m: NotRequired[pulumi.Input[_builtins.int]]
+    m: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Number of neighbors to consider during k-NN search
     """
@@ -227,8 +227,8 @@ class IndexPropertyMappingMethodPropertiesParametersPropertiesArgsDict(TypedDict
 @pulumi.input_type
 class IndexPropertyMappingMethodPropertiesParametersPropertiesArgs:
     def __init__(__self__, *,
-                 ef_construction: Optional[pulumi.Input[_builtins.int]] = None,
-                 m: Optional[pulumi.Input[_builtins.int]] = None):
+                 ef_construction: pulumi.Input[Optional[_builtins.int]] = None,
+                 m: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Additional parameters for the k-NN algorithm
 
@@ -242,26 +242,26 @@ class IndexPropertyMappingMethodPropertiesParametersPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="efConstruction")
-    def ef_construction(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ef_construction(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The size of the dynamic list used during k-NN graph creation
         """
         return pulumi.get(self, "ef_construction")
 
     @ef_construction.setter
-    def ef_construction(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ef_construction(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ef_construction", value)
 
     @_builtins.property
     @pulumi.getter
-    def m(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def m(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of neighbors to consider during k-NN search
         """
         return pulumi.get(self, "m")
 
     @m.setter
-    def m(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def m(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "m", value)
 
 
@@ -273,15 +273,15 @@ class IndexPropertyMappingMethodPropertiesArgsDict(TypedDict):
     """
     The algorithm name for k-NN search
     """
-    engine: NotRequired[pulumi.Input['IndexPropertyMappingMethodPropertiesEngine']]
+    engine: NotRequired[pulumi.Input[Optional['IndexPropertyMappingMethodPropertiesEngine']]]
     """
     The k-NN search engine to use
     """
-    parameters: NotRequired[pulumi.Input['IndexPropertyMappingMethodPropertiesParametersPropertiesArgsDict']]
+    parameters: NotRequired[pulumi.Input[Optional['IndexPropertyMappingMethodPropertiesParametersPropertiesArgsDict']]]
     """
     Additional parameters for the k-NN algorithm
     """
-    space_type: NotRequired[pulumi.Input['IndexPropertyMappingMethodPropertiesSpaceType']]
+    space_type: NotRequired[pulumi.Input[Optional['IndexPropertyMappingMethodPropertiesSpaceType']]]
     """
     The distance function used for k-NN search
     """
@@ -290,9 +290,9 @@ class IndexPropertyMappingMethodPropertiesArgsDict(TypedDict):
 class IndexPropertyMappingMethodPropertiesArgs:
     def __init__(__self__, *,
                  name: pulumi.Input['IndexPropertyMappingMethodPropertiesName'],
-                 engine: Optional[pulumi.Input['IndexPropertyMappingMethodPropertiesEngine']] = None,
-                 parameters: Optional[pulumi.Input['IndexPropertyMappingMethodPropertiesParametersPropertiesArgs']] = None,
-                 space_type: Optional[pulumi.Input['IndexPropertyMappingMethodPropertiesSpaceType']] = None):
+                 engine: pulumi.Input[Optional['IndexPropertyMappingMethodPropertiesEngine']] = None,
+                 parameters: pulumi.Input[Optional['IndexPropertyMappingMethodPropertiesParametersPropertiesArgs']] = None,
+                 space_type: pulumi.Input[Optional['IndexPropertyMappingMethodPropertiesSpaceType']] = None):
         """
         Configuration for k-NN search method
 
@@ -323,38 +323,38 @@ class IndexPropertyMappingMethodPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def engine(self) -> Optional[pulumi.Input['IndexPropertyMappingMethodPropertiesEngine']]:
+    def engine(self) -> pulumi.Input[Optional['IndexPropertyMappingMethodPropertiesEngine']]:
         """
         The k-NN search engine to use
         """
         return pulumi.get(self, "engine")
 
     @engine.setter
-    def engine(self, value: Optional[pulumi.Input['IndexPropertyMappingMethodPropertiesEngine']]):
+    def engine(self, value: pulumi.Input[Optional['IndexPropertyMappingMethodPropertiesEngine']]):
         pulumi.set(self, "engine", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input['IndexPropertyMappingMethodPropertiesParametersPropertiesArgs']]:
+    def parameters(self) -> pulumi.Input[Optional['IndexPropertyMappingMethodPropertiesParametersPropertiesArgs']]:
         """
         Additional parameters for the k-NN algorithm
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input['IndexPropertyMappingMethodPropertiesParametersPropertiesArgs']]):
+    def parameters(self, value: pulumi.Input[Optional['IndexPropertyMappingMethodPropertiesParametersPropertiesArgs']]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="spaceType")
-    def space_type(self) -> Optional[pulumi.Input['IndexPropertyMappingMethodPropertiesSpaceType']]:
+    def space_type(self) -> pulumi.Input[Optional['IndexPropertyMappingMethodPropertiesSpaceType']]:
         """
         The distance function used for k-NN search
         """
         return pulumi.get(self, "space_type")
 
     @space_type.setter
-    def space_type(self, value: Optional[pulumi.Input['IndexPropertyMappingMethodPropertiesSpaceType']]):
+    def space_type(self, value: pulumi.Input[Optional['IndexPropertyMappingMethodPropertiesSpaceType']]):
         pulumi.set(self, "space_type", value)
 
 
@@ -363,23 +363,23 @@ class IndexPropertyMappingArgsDict(TypedDict):
     """
     The field data type. Must be a valid OpenSearch field type.
     """
-    dimension: NotRequired[pulumi.Input[_builtins.int]]
+    dimension: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Dimension size for vector fields, defines the number of dimensions in the vector
     """
-    index: NotRequired[pulumi.Input[_builtins.bool]]
+    index: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether a field should be indexed
     """
-    method: NotRequired[pulumi.Input['IndexPropertyMappingMethodPropertiesArgsDict']]
+    method: NotRequired[pulumi.Input[Optional['IndexPropertyMappingMethodPropertiesArgsDict']]]
     """
     Configuration for k-NN search method
     """
-    properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['IndexPropertyMappingArgsDict']]]]
+    properties: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input['IndexPropertyMappingArgsDict']]]]]
     """
     Nested fields within an object or nested field type
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Default value for the field when not specified in a document
     """
@@ -388,11 +388,11 @@ class IndexPropertyMappingArgsDict(TypedDict):
 class IndexPropertyMappingArgs:
     def __init__(__self__, *,
                  type: pulumi.Input['IndexPropertyMappingType'],
-                 dimension: Optional[pulumi.Input[_builtins.int]] = None,
-                 index: Optional[pulumi.Input[_builtins.bool]] = None,
-                 method: Optional[pulumi.Input['IndexPropertyMappingMethodPropertiesArgs']] = None,
-                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input['IndexPropertyMappingArgs']]]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 dimension: pulumi.Input[Optional[_builtins.int]] = None,
+                 index: pulumi.Input[Optional[_builtins.bool]] = None,
+                 method: pulumi.Input[Optional['IndexPropertyMappingMethodPropertiesArgs']] = None,
+                 properties: pulumi.Input[Optional[Mapping[str, pulumi.Input['IndexPropertyMappingArgs']]]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input['IndexPropertyMappingType'] type: The field data type. Must be a valid OpenSearch field type.
         :param pulumi.Input[_builtins.int] dimension: Dimension size for vector fields, defines the number of dimensions in the vector
@@ -427,62 +427,62 @@ class IndexPropertyMappingArgs:
 
     @_builtins.property
     @pulumi.getter
-    def dimension(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def dimension(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Dimension size for vector fields, defines the number of dimensions in the vector
         """
         return pulumi.get(self, "dimension")
 
     @dimension.setter
-    def dimension(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def dimension(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "dimension", value)
 
     @_builtins.property
     @pulumi.getter
-    def index(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def index(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether a field should be indexed
         """
         return pulumi.get(self, "index")
 
     @index.setter
-    def index(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def index(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "index", value)
 
     @_builtins.property
     @pulumi.getter
-    def method(self) -> Optional[pulumi.Input['IndexPropertyMappingMethodPropertiesArgs']]:
+    def method(self) -> pulumi.Input[Optional['IndexPropertyMappingMethodPropertiesArgs']]:
         """
         Configuration for k-NN search method
         """
         return pulumi.get(self, "method")
 
     @method.setter
-    def method(self, value: Optional[pulumi.Input['IndexPropertyMappingMethodPropertiesArgs']]):
+    def method(self, value: pulumi.Input[Optional['IndexPropertyMappingMethodPropertiesArgs']]):
         pulumi.set(self, "method", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['IndexPropertyMappingArgs']]]]:
+    def properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['IndexPropertyMappingArgs']]]]:
         """
         Nested fields within an object or nested field type
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['IndexPropertyMappingArgs']]]]):
+    def properties(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['IndexPropertyMappingArgs']]]]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Default value for the field when not specified in a document
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
@@ -490,15 +490,15 @@ class IndexSettingsIndexPropertiesArgsDict(TypedDict):
     """
     Index settings.
     """
-    knn: NotRequired[pulumi.Input[_builtins.bool]]
+    knn: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Enable/disable k-nearest neighbor search capability
     """
-    knn_algo_param_ef_search: NotRequired[pulumi.Input[_builtins.int]]
+    knn_algo_param_ef_search: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Size of the dynamic list for the nearest neighbors
     """
-    refresh_interval: NotRequired[pulumi.Input[_builtins.str]]
+    refresh_interval: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     How often to perform refresh operation (e.g. '1s', '5s')
     """
@@ -506,9 +506,9 @@ class IndexSettingsIndexPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class IndexSettingsIndexPropertiesArgs:
     def __init__(__self__, *,
-                 knn: Optional[pulumi.Input[_builtins.bool]] = None,
-                 knn_algo_param_ef_search: Optional[pulumi.Input[_builtins.int]] = None,
-                 refresh_interval: Optional[pulumi.Input[_builtins.str]] = None):
+                 knn: pulumi.Input[Optional[_builtins.bool]] = None,
+                 knn_algo_param_ef_search: pulumi.Input[Optional[_builtins.int]] = None,
+                 refresh_interval: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Index settings.
 
@@ -525,43 +525,43 @@ class IndexSettingsIndexPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def knn(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def knn(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable/disable k-nearest neighbor search capability
         """
         return pulumi.get(self, "knn")
 
     @knn.setter
-    def knn(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def knn(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "knn", value)
 
     @_builtins.property
     @pulumi.getter(name="knnAlgoParamEfSearch")
-    def knn_algo_param_ef_search(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def knn_algo_param_ef_search(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Size of the dynamic list for the nearest neighbors
         """
         return pulumi.get(self, "knn_algo_param_ef_search")
 
     @knn_algo_param_ef_search.setter
-    def knn_algo_param_ef_search(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def knn_algo_param_ef_search(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "knn_algo_param_ef_search", value)
 
     @_builtins.property
     @pulumi.getter(name="refreshInterval")
-    def refresh_interval(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def refresh_interval(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         How often to perform refresh operation (e.g. '1s', '5s')
         """
         return pulumi.get(self, "refresh_interval")
 
     @refresh_interval.setter
-    def refresh_interval(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def refresh_interval(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "refresh_interval", value)
 
 
 class IndexSettingsArgsDict(TypedDict):
-    index: NotRequired[pulumi.Input['IndexSettingsIndexPropertiesArgsDict']]
+    index: NotRequired[pulumi.Input[Optional['IndexSettingsIndexPropertiesArgsDict']]]
     """
     Index settings.
     """
@@ -569,7 +569,7 @@ class IndexSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class IndexSettingsArgs:
     def __init__(__self__, *,
-                 index: Optional[pulumi.Input['IndexSettingsIndexPropertiesArgs']] = None):
+                 index: pulumi.Input[Optional['IndexSettingsIndexPropertiesArgs']] = None):
         """
         :param pulumi.Input['IndexSettingsIndexPropertiesArgs'] index: Index settings.
         """
@@ -578,14 +578,14 @@ class IndexSettingsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def index(self) -> Optional[pulumi.Input['IndexSettingsIndexPropertiesArgs']]:
+    def index(self) -> pulumi.Input[Optional['IndexSettingsIndexPropertiesArgs']]:
         """
         Index settings.
         """
         return pulumi.get(self, "index")
 
     @index.setter
-    def index(self, value: Optional[pulumi.Input['IndexSettingsIndexPropertiesArgs']]):
+    def index(self, value: pulumi.Input[Optional['IndexSettingsIndexPropertiesArgs']]):
         pulumi.set(self, "index", value)
 
 
@@ -593,7 +593,7 @@ class MappingsPropertiesArgsDict(TypedDict):
     """
     Index Mappings
     """
-    properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['IndexPropertyMappingArgsDict']]]]
+    properties: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input['IndexPropertyMappingArgsDict']]]]]
     """
     Defines the fields within the mapping, including their types and configurations
     """
@@ -601,7 +601,7 @@ class MappingsPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class MappingsPropertiesArgs:
     def __init__(__self__, *,
-                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input['IndexPropertyMappingArgs']]]] = None):
+                 properties: pulumi.Input[Optional[Mapping[str, pulumi.Input['IndexPropertyMappingArgs']]]] = None):
         """
         Index Mappings
 
@@ -612,14 +612,14 @@ class MappingsPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['IndexPropertyMappingArgs']]]]:
+    def properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['IndexPropertyMappingArgs']]]]:
         """
         Defines the fields within the mapping, including their types and configurations
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['IndexPropertyMappingArgs']]]]):
+    def properties(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['IndexPropertyMappingArgs']]]]):
         pulumi.set(self, "properties", value)
 
 
@@ -627,11 +627,11 @@ class SecurityConfigIamFederationConfigOptionsArgsDict(TypedDict):
     """
     Describe IAM federation options in form of key value map
     """
-    group_attribute: NotRequired[pulumi.Input[_builtins.str]]
+    group_attribute: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Group attribute for this IAM federation integration
     """
-    user_attribute: NotRequired[pulumi.Input[_builtins.str]]
+    user_attribute: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     User attribute for this IAM federation integration
     """
@@ -639,8 +639,8 @@ class SecurityConfigIamFederationConfigOptionsArgsDict(TypedDict):
 @pulumi.input_type
 class SecurityConfigIamFederationConfigOptionsArgs:
     def __init__(__self__, *,
-                 group_attribute: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_attribute: Optional[pulumi.Input[_builtins.str]] = None):
+                 group_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_attribute: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Describe IAM federation options in form of key value map
 
@@ -654,26 +654,26 @@ class SecurityConfigIamFederationConfigOptionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="groupAttribute")
-    def group_attribute(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def group_attribute(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Group attribute for this IAM federation integration
         """
         return pulumi.get(self, "group_attribute")
 
     @group_attribute.setter
-    def group_attribute(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def group_attribute(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "group_attribute", value)
 
     @_builtins.property
     @pulumi.getter(name="userAttribute")
-    def user_attribute(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_attribute(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User attribute for this IAM federation integration
         """
         return pulumi.get(self, "user_attribute")
 
     @user_attribute.setter
-    def user_attribute(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_attribute(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_attribute", value)
 
 
@@ -685,23 +685,23 @@ class SecurityConfigIamIdentityCenterConfigOptionsArgsDict(TypedDict):
     """
     The ARN of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
     """
-    application_arn: NotRequired[pulumi.Input[_builtins.str]]
+    application_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of the IAM Identity Center application used to integrate with OpenSearch Serverless.
     """
-    application_description: NotRequired[pulumi.Input[_builtins.str]]
+    application_description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The description of the IAM Identity Center application used to integrate with OpenSearch Serverless
     """
-    application_name: NotRequired[pulumi.Input[_builtins.str]]
+    application_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the IAM Identity Center application used to integrate with OpenSearch Serverless
     """
-    group_attribute: NotRequired[pulumi.Input[_builtins.str]]
+    group_attribute: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The group attribute for this IAM Identity Center integration. Defaults to `GroupId` .
     """
-    user_attribute: NotRequired[pulumi.Input[_builtins.str]]
+    user_attribute: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The user attribute for this IAM Identity Center integration. Defaults to `UserId`
     """
@@ -710,11 +710,11 @@ class SecurityConfigIamIdentityCenterConfigOptionsArgsDict(TypedDict):
 class SecurityConfigIamIdentityCenterConfigOptionsArgs:
     def __init__(__self__, *,
                  instance_arn: pulumi.Input[_builtins.str],
-                 application_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 application_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 application_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_attribute: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_attribute: Optional[pulumi.Input[_builtins.str]] = None):
+                 application_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 application_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 application_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_attribute: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Describes IAM Identity Center options for an OpenSearch Serverless security configuration in the form of a key-value map
 
@@ -751,62 +751,62 @@ class SecurityConfigIamIdentityCenterConfigOptionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="applicationArn")
-    def application_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the IAM Identity Center application used to integrate with OpenSearch Serverless.
         """
         return pulumi.get(self, "application_arn")
 
     @application_arn.setter
-    def application_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="applicationDescription")
-    def application_description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the IAM Identity Center application used to integrate with OpenSearch Serverless
         """
         return pulumi.get(self, "application_description")
 
     @application_description.setter
-    def application_description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_description", value)
 
     @_builtins.property
     @pulumi.getter(name="applicationName")
-    def application_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the IAM Identity Center application used to integrate with OpenSearch Serverless
         """
         return pulumi.get(self, "application_name")
 
     @application_name.setter
-    def application_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_name", value)
 
     @_builtins.property
     @pulumi.getter(name="groupAttribute")
-    def group_attribute(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def group_attribute(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The group attribute for this IAM Identity Center integration. Defaults to `GroupId` .
         """
         return pulumi.get(self, "group_attribute")
 
     @group_attribute.setter
-    def group_attribute(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def group_attribute(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "group_attribute", value)
 
     @_builtins.property
     @pulumi.getter(name="userAttribute")
-    def user_attribute(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_attribute(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The user attribute for this IAM Identity Center integration. Defaults to `UserId`
         """
         return pulumi.get(self, "user_attribute")
 
     @user_attribute.setter
-    def user_attribute(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_attribute(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_attribute", value)
 
 
@@ -818,19 +818,19 @@ class SecurityConfigSamlConfigOptionsArgsDict(TypedDict):
     """
     The XML saml provider metadata document that you want to use
     """
-    group_attribute: NotRequired[pulumi.Input[_builtins.str]]
+    group_attribute: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Group attribute for this saml integration
     """
-    open_search_serverless_entity_id: NotRequired[pulumi.Input[_builtins.str]]
+    open_search_serverless_entity_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Custom entity id attribute to override default entity id for this saml integration
     """
-    session_timeout: NotRequired[pulumi.Input[_builtins.int]]
+    session_timeout: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Defines the session timeout in minutes
     """
-    user_attribute: NotRequired[pulumi.Input[_builtins.str]]
+    user_attribute: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Custom attribute for this saml integration
     """
@@ -839,10 +839,10 @@ class SecurityConfigSamlConfigOptionsArgsDict(TypedDict):
 class SecurityConfigSamlConfigOptionsArgs:
     def __init__(__self__, *,
                  metadata: pulumi.Input[_builtins.str],
-                 group_attribute: Optional[pulumi.Input[_builtins.str]] = None,
-                 open_search_serverless_entity_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 session_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 user_attribute: Optional[pulumi.Input[_builtins.str]] = None):
+                 group_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+                 open_search_serverless_entity_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 session_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 user_attribute: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Describes saml options in form of key value map
 
@@ -876,50 +876,50 @@ class SecurityConfigSamlConfigOptionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="groupAttribute")
-    def group_attribute(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def group_attribute(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Group attribute for this saml integration
         """
         return pulumi.get(self, "group_attribute")
 
     @group_attribute.setter
-    def group_attribute(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def group_attribute(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "group_attribute", value)
 
     @_builtins.property
     @pulumi.getter(name="openSearchServerlessEntityId")
-    def open_search_serverless_entity_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def open_search_serverless_entity_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Custom entity id attribute to override default entity id for this saml integration
         """
         return pulumi.get(self, "open_search_serverless_entity_id")
 
     @open_search_serverless_entity_id.setter
-    def open_search_serverless_entity_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def open_search_serverless_entity_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "open_search_serverless_entity_id", value)
 
     @_builtins.property
     @pulumi.getter(name="sessionTimeout")
-    def session_timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def session_timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Defines the session timeout in minutes
         """
         return pulumi.get(self, "session_timeout")
 
     @session_timeout.setter
-    def session_timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def session_timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "session_timeout", value)
 
     @_builtins.property
     @pulumi.getter(name="userAttribute")
-    def user_attribute(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_attribute(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Custom attribute for this saml integration
         """
         return pulumi.get(self, "user_attribute")
 
     @user_attribute.setter
-    def user_attribute(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_attribute(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_attribute", value)
 
 

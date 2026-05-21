@@ -26,12 +26,12 @@ class FlywheelArgs:
     def __init__(__self__, *,
                  data_access_role_arn: pulumi.Input[_builtins.str],
                  data_lake_s3_uri: pulumi.Input[_builtins.str],
-                 active_model_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_security_config: Optional[pulumi.Input['FlywheelDataSecurityConfigArgs']] = None,
-                 flywheel_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 model_type: Optional[pulumi.Input['FlywheelModelType']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 task_config: Optional[pulumi.Input['FlywheelTaskConfigArgs']] = None):
+                 active_model_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_security_config: pulumi.Input[Optional['FlywheelDataSecurityConfigArgs']] = None,
+                 flywheel_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 model_type: pulumi.Input[Optional['FlywheelModelType']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 task_config: pulumi.Input[Optional['FlywheelTaskConfigArgs']] = None):
         """
         The set of arguments for constructing a Flywheel resource.
 
@@ -85,74 +85,74 @@ class FlywheelArgs:
 
     @_builtins.property
     @pulumi.getter(name="activeModelArn")
-    def active_model_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def active_model_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Number (ARN) of the active model version.
         """
         return pulumi.get(self, "active_model_arn")
 
     @active_model_arn.setter
-    def active_model_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def active_model_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "active_model_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="dataSecurityConfig")
-    def data_security_config(self) -> Optional[pulumi.Input['FlywheelDataSecurityConfigArgs']]:
+    def data_security_config(self) -> pulumi.Input[Optional['FlywheelDataSecurityConfigArgs']]:
         """
         Data security configuration.
         """
         return pulumi.get(self, "data_security_config")
 
     @data_security_config.setter
-    def data_security_config(self, value: Optional[pulumi.Input['FlywheelDataSecurityConfigArgs']]):
+    def data_security_config(self, value: pulumi.Input[Optional['FlywheelDataSecurityConfigArgs']]):
         pulumi.set(self, "data_security_config", value)
 
     @_builtins.property
     @pulumi.getter(name="flywheelName")
-    def flywheel_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def flywheel_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name for the flywheel.
         """
         return pulumi.get(self, "flywheel_name")
 
     @flywheel_name.setter
-    def flywheel_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def flywheel_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "flywheel_name", value)
 
     @_builtins.property
     @pulumi.getter(name="modelType")
-    def model_type(self) -> Optional[pulumi.Input['FlywheelModelType']]:
+    def model_type(self) -> pulumi.Input[Optional['FlywheelModelType']]:
         """
         Model type of the flywheel's model.
         """
         return pulumi.get(self, "model_type")
 
     @model_type.setter
-    def model_type(self, value: Optional[pulumi.Input['FlywheelModelType']]):
+    def model_type(self, value: pulumi.Input[Optional['FlywheelModelType']]):
         pulumi.set(self, "model_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Tags associated with the endpoint being created. A tag is a key-value pair that adds metadata to the endpoint. For example, a tag with "Sales" as the key might be added to an endpoint to indicate its use by the sales department.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="taskConfig")
-    def task_config(self) -> Optional[pulumi.Input['FlywheelTaskConfigArgs']]:
+    def task_config(self) -> pulumi.Input[Optional['FlywheelTaskConfigArgs']]:
         """
         Configuration about the model associated with a flywheel.
         """
         return pulumi.get(self, "task_config")
 
     @task_config.setter
-    def task_config(self, value: Optional[pulumi.Input['FlywheelTaskConfigArgs']]):
+    def task_config(self, value: pulumi.Input[Optional['FlywheelTaskConfigArgs']]):
         pulumi.set(self, "task_config", value)
 
 
@@ -162,14 +162,14 @@ class Flywheel(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 active_model_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_access_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_lake_s3_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_security_config: Optional[pulumi.Input[Union['FlywheelDataSecurityConfigArgs', 'FlywheelDataSecurityConfigArgsDict']]] = None,
-                 flywheel_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 model_type: Optional[pulumi.Input['FlywheelModelType']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 task_config: Optional[pulumi.Input[Union['FlywheelTaskConfigArgs', 'FlywheelTaskConfigArgsDict']]] = None,
+                 active_model_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_lake_s3_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_security_config: pulumi.Input[Optional[Union['FlywheelDataSecurityConfigArgs', 'FlywheelDataSecurityConfigArgsDict']]] = None,
+                 flywheel_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 model_type: pulumi.Input[Optional['FlywheelModelType']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 task_config: pulumi.Input[Optional[Union['FlywheelTaskConfigArgs', 'FlywheelTaskConfigArgsDict']]] = None,
                  __props__=None):
         """
         The AWS::Comprehend::Flywheel resource creates an Amazon Comprehend Flywheel that enables customer to train their model.
@@ -211,14 +211,14 @@ class Flywheel(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 active_model_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_access_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_lake_s3_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_security_config: Optional[pulumi.Input[Union['FlywheelDataSecurityConfigArgs', 'FlywheelDataSecurityConfigArgsDict']]] = None,
-                 flywheel_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 model_type: Optional[pulumi.Input['FlywheelModelType']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 task_config: Optional[pulumi.Input[Union['FlywheelTaskConfigArgs', 'FlywheelTaskConfigArgsDict']]] = None,
+                 active_model_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_lake_s3_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_security_config: pulumi.Input[Optional[Union['FlywheelDataSecurityConfigArgs', 'FlywheelDataSecurityConfigArgsDict']]] = None,
+                 flywheel_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 model_type: pulumi.Input[Optional['FlywheelModelType']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 task_config: pulumi.Input[Optional[Union['FlywheelTaskConfigArgs', 'FlywheelTaskConfigArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

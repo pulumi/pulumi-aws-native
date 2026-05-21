@@ -137,7 +137,7 @@ def get_access_token(access_token_id: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'),
         value=pulumi.get(__ret__, 'value'))
-def get_access_token_output(access_token_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_access_token_output(access_token_id: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccessTokenResult]:
     """
     Resource schema for AWS::Route53GlobalResolver::AccessToken

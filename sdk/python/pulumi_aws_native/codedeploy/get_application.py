@@ -62,7 +62,7 @@ def get_application(application_name: Optional[_builtins.str] = None,
 
     return AwaitableGetApplicationResult(
         tags=pulumi.get(__ret__, 'tags'))
-def get_application_output(application_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_application_output(application_name: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationResult]:
     """
     The AWS::CodeDeploy::Application resource creates an AWS CodeDeploy application

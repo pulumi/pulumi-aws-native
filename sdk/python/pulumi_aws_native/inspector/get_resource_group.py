@@ -61,7 +61,7 @@ def get_resource_group(arn: Optional[_builtins.str] = None,
 
     return AwaitableGetResourceGroupResult(
         arn=pulumi.get(__ret__, 'arn'))
-def get_resource_group_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_resource_group_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourceGroupResult]:
     """
     Resource Type definition for AWS::Inspector::ResourceGroup

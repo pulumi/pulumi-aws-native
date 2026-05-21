@@ -21,11 +21,11 @@ __all__ = ['ExtensionAssociationArgs', 'ExtensionAssociation']
 @pulumi.input_type
 class ExtensionAssociationArgs:
     def __init__(__self__, *,
-                 extension_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 extension_version_number: Optional[pulumi.Input[_builtins.int]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 resource_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 extension_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 extension_version_number: pulumi.Input[Optional[_builtins.int]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 resource_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ExtensionAssociation resource.
 
@@ -48,62 +48,62 @@ class ExtensionAssociationArgs:
 
     @_builtins.property
     @pulumi.getter(name="extensionIdentifier")
-    def extension_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def extension_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name, the ID, or the Amazon Resource Name (ARN) of the extension.
         """
         return pulumi.get(self, "extension_identifier")
 
     @extension_identifier.setter
-    def extension_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def extension_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "extension_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="extensionVersionNumber")
-    def extension_version_number(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def extension_version_number(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The version number of the extension. If not specified, AWS AppConfig uses the maximum version of the extension.
         """
         return pulumi.get(self, "extension_version_number")
 
     @extension_version_number.setter
-    def extension_version_number(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def extension_version_number(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "extension_version_number", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The parameter names and values defined in the extensions. Extension parameters marked `Required` must be entered for this field.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceIdentifier")
-    def resource_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of an application, configuration profile, or environment.
         """
         return pulumi.get(self, "resource_identifier")
 
     @resource_identifier.setter
-    def resource_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_identifier", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -113,11 +113,11 @@ class ExtensionAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 extension_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 extension_version_number: Optional[pulumi.Input[_builtins.int]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 resource_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 extension_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 extension_version_number: pulumi.Input[Optional[_builtins.int]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 resource_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         An example resource schema demonstrating some basic constructs and validation rules.
@@ -156,11 +156,11 @@ class ExtensionAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 extension_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 extension_version_number: Optional[pulumi.Input[_builtins.int]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 resource_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 extension_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 extension_version_number: pulumi.Input[Optional[_builtins.int]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 resource_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

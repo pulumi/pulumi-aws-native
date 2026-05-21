@@ -136,7 +136,7 @@ def get_table_bucket(table_bucket_arn: Optional[_builtins.str] = None,
         table_bucket_arn=pulumi.get(__ret__, 'table_bucket_arn'),
         tags=pulumi.get(__ret__, 'tags'),
         unreferenced_file_removal=pulumi.get(__ret__, 'unreferenced_file_removal'))
-def get_table_bucket_output(table_bucket_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_table_bucket_output(table_bucket_arn: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTableBucketResult]:
     """
     Creates an Amazon S3 Tables table bucket in the same AWS Region where you create the AWS CloudFormation stack.

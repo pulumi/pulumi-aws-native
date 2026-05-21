@@ -74,7 +74,7 @@ def get_connector(connector_arn: Optional[_builtins.str] = None,
     return AwaitableGetConnectorResult(
         connector_arn=pulumi.get(__ret__, 'connector_arn'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_connector_output(connector_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_connector_output(connector_arn: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectorResult]:
     """
     Represents a Connector that connects AWS PrivateCA and your directory

@@ -42,13 +42,13 @@ class LoadBalancerAccessLoggingPolicyArgsDict(TypedDict):
     """
     The name of the Amazon S3 bucket where the access logs are stored.
     """
-    emit_interval: NotRequired[pulumi.Input[_builtins.int]]
+    emit_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The interval for publishing the access logs. You can specify an interval of either 5 minutes or 60 minutes.
 
     Default: 60 minutes
     """
-    s3_bucket_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    s3_bucket_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The logical hierarchy you created for your Amazon S3 bucket, for example `my-bucket-prefix/prod` . If the prefix is not provided, the log is placed at the root level of the bucket.
     """
@@ -58,8 +58,8 @@ class LoadBalancerAccessLoggingPolicyArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[_builtins.bool],
                  s3_bucket_name: pulumi.Input[_builtins.str],
-                 emit_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 s3_bucket_prefix: Optional[pulumi.Input[_builtins.str]] = None):
+                 emit_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 s3_bucket_prefix: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether access logs are enabled for the load balancer.
         :param pulumi.Input[_builtins.str] s3_bucket_name: The name of the Amazon S3 bucket where the access logs are stored.
@@ -101,7 +101,7 @@ class LoadBalancerAccessLoggingPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="emitInterval")
-    def emit_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def emit_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The interval for publishing the access logs. You can specify an interval of either 5 minutes or 60 minutes.
 
@@ -110,19 +110,19 @@ class LoadBalancerAccessLoggingPolicyArgs:
         return pulumi.get(self, "emit_interval")
 
     @emit_interval.setter
-    def emit_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def emit_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "emit_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="s3BucketPrefix")
-    def s3_bucket_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def s3_bucket_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The logical hierarchy you created for your Amazon S3 bucket, for example `my-bucket-prefix/prod` . If the prefix is not provided, the log is placed at the root level of the bucket.
         """
         return pulumi.get(self, "s3_bucket_prefix")
 
     @s3_bucket_prefix.setter
-    def s3_bucket_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def s3_bucket_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "s3_bucket_prefix", value)
 
 
@@ -178,7 +178,7 @@ class LoadBalancerConnectionDrainingPolicyArgsDict(TypedDict):
     """
     Specifies whether connection draining is enabled for the load balancer.
     """
-    timeout: NotRequired[pulumi.Input[_builtins.int]]
+    timeout: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum time, in seconds, to keep the existing connections open before deregistering the instances.
     """
@@ -187,7 +187,7 @@ class LoadBalancerConnectionDrainingPolicyArgsDict(TypedDict):
 class LoadBalancerConnectionDrainingPolicyArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[_builtins.bool],
-                 timeout: Optional[pulumi.Input[_builtins.int]] = None):
+                 timeout: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether connection draining is enabled for the load balancer.
         :param pulumi.Input[_builtins.int] timeout: The maximum time, in seconds, to keep the existing connections open before deregistering the instances.
@@ -210,14 +210,14 @@ class LoadBalancerConnectionDrainingPolicyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum time, in seconds, to keep the existing connections open before deregistering the instances.
         """
         return pulumi.get(self, "timeout")
 
     @timeout.setter
-    def timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "timeout", value)
 
 
@@ -384,11 +384,11 @@ class LoadBalancerHealthCheckArgs:
 
 
 class LoadBalancerLbCookieStickinessPolicyArgsDict(TypedDict):
-    cookie_expiration_period: NotRequired[pulumi.Input[_builtins.str]]
+    cookie_expiration_period: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The time period, in seconds, after which the cookie should be considered stale. If this parameter is not specified, the stickiness session lasts for the duration of the browser session.
     """
-    policy_name: NotRequired[pulumi.Input[_builtins.str]]
+    policy_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the policy. This name must be unique within the set of policies for this load balancer.
     """
@@ -396,8 +396,8 @@ class LoadBalancerLbCookieStickinessPolicyArgsDict(TypedDict):
 @pulumi.input_type
 class LoadBalancerLbCookieStickinessPolicyArgs:
     def __init__(__self__, *,
-                 cookie_expiration_period: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 cookie_expiration_period: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] cookie_expiration_period: The time period, in seconds, after which the cookie should be considered stale. If this parameter is not specified, the stickiness session lasts for the duration of the browser session.
         :param pulumi.Input[_builtins.str] policy_name: The name of the policy. This name must be unique within the set of policies for this load balancer.
@@ -409,26 +409,26 @@ class LoadBalancerLbCookieStickinessPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="cookieExpirationPeriod")
-    def cookie_expiration_period(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cookie_expiration_period(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The time period, in seconds, after which the cookie should be considered stale. If this parameter is not specified, the stickiness session lasts for the duration of the browser session.
         """
         return pulumi.get(self, "cookie_expiration_period")
 
     @cookie_expiration_period.setter
-    def cookie_expiration_period(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cookie_expiration_period(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cookie_expiration_period", value)
 
     @_builtins.property
     @pulumi.getter(name="policyName")
-    def policy_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the policy. This name must be unique within the set of policies for this load balancer.
         """
         return pulumi.get(self, "policy_name")
 
     @policy_name.setter
-    def policy_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_name", value)
 
 
@@ -445,7 +445,7 @@ class LoadBalancerListenersArgsDict(TypedDict):
     """
     The load balancer transport protocol to use for routing: HTTP, HTTPS, TCP, or SSL.
     """
-    instance_protocol: NotRequired[pulumi.Input[_builtins.str]]
+    instance_protocol: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The protocol to use for routing traffic to instances: HTTP, HTTPS, TCP, or SSL.
 
@@ -455,11 +455,11 @@ class LoadBalancerListenersArgsDict(TypedDict):
 
     If there is another listener with the same `InstancePort` whose `InstanceProtocol` is HTTP or TCP, the listener's `InstanceProtocol` must be HTTP or TCP.
     """
-    policy_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    policy_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The names of the policies to associate with the listener.
     """
-    ssl_certificate_id: NotRequired[pulumi.Input[_builtins.str]]
+    ssl_certificate_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon Resource Name (ARN) of the server certificate.
     """
@@ -470,9 +470,9 @@ class LoadBalancerListenersArgs:
                  instance_port: pulumi.Input[_builtins.str],
                  load_balancer_port: pulumi.Input[_builtins.str],
                  protocol: pulumi.Input[_builtins.str],
-                 instance_protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ssl_certificate_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 instance_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ssl_certificate_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] instance_port: The port on which the instance is listening.
         :param pulumi.Input[_builtins.str] load_balancer_port: The port on which the load balancer is listening. On EC2-VPC, you can specify any port from the range 1-65535. On EC2-Classic, you can specify any port from the following list: 25, 80, 443, 465, 587, 1024-65535.
@@ -535,7 +535,7 @@ class LoadBalancerListenersArgs:
 
     @_builtins.property
     @pulumi.getter(name="instanceProtocol")
-    def instance_protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def instance_protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The protocol to use for routing traffic to instances: HTTP, HTTPS, TCP, or SSL.
 
@@ -548,31 +548,31 @@ class LoadBalancerListenersArgs:
         return pulumi.get(self, "instance_protocol")
 
     @instance_protocol.setter
-    def instance_protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def instance_protocol(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "instance_protocol", value)
 
     @_builtins.property
     @pulumi.getter(name="policyNames")
-    def policy_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def policy_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The names of the policies to associate with the listener.
         """
         return pulumi.get(self, "policy_names")
 
     @policy_names.setter
-    def policy_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def policy_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "policy_names", value)
 
     @_builtins.property
     @pulumi.getter(name="sslCertificateId")
-    def ssl_certificate_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ssl_certificate_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the server certificate.
         """
         return pulumi.get(self, "ssl_certificate_id")
 
     @ssl_certificate_id.setter
-    def ssl_certificate_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ssl_certificate_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ssl_certificate_id", value)
 
 
@@ -589,11 +589,11 @@ class LoadBalancerPoliciesArgsDict(TypedDict):
     """
     The name of the policy type.
     """
-    instance_ports: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    instance_ports: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The instance ports for the policy. Required only for some policy types.
     """
-    load_balancer_ports: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    load_balancer_ports: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The load balancer ports for the policy. Required only for some policy types.
     """
@@ -604,8 +604,8 @@ class LoadBalancerPoliciesArgs:
                  attributes: pulumi.Input[Sequence[Any]],
                  policy_name: pulumi.Input[_builtins.str],
                  policy_type: pulumi.Input[_builtins.str],
-                 instance_ports: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 load_balancer_ports: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 instance_ports: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 load_balancer_ports: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[Any]] attributes: The policy attributes.
         :param pulumi.Input[_builtins.str] policy_name: The name of the policy.
@@ -659,26 +659,26 @@ class LoadBalancerPoliciesArgs:
 
     @_builtins.property
     @pulumi.getter(name="instancePorts")
-    def instance_ports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def instance_ports(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The instance ports for the policy. Required only for some policy types.
         """
         return pulumi.get(self, "instance_ports")
 
     @instance_ports.setter
-    def instance_ports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def instance_ports(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "instance_ports", value)
 
     @_builtins.property
     @pulumi.getter(name="loadBalancerPorts")
-    def load_balancer_ports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def load_balancer_ports(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The load balancer ports for the policy. Required only for some policy types.
         """
         return pulumi.get(self, "load_balancer_ports")
 
     @load_balancer_ports.setter
-    def load_balancer_ports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def load_balancer_ports(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "load_balancer_ports", value)
 
 

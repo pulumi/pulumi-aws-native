@@ -179,7 +179,7 @@ def get_microsoft_teams_channel_configuration(arn: Optional[_builtins.str] = Non
         teams_channel_id=pulumi.get(__ret__, 'teams_channel_id'),
         teams_channel_name=pulumi.get(__ret__, 'teams_channel_name'),
         user_role_required=pulumi.get(__ret__, 'user_role_required'))
-def get_microsoft_teams_channel_configuration_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_microsoft_teams_channel_configuration_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMicrosoftTeamsChannelConfigurationResult]:
     """
     Resource schema for AWS::Chatbot::MicrosoftTeamsChannelConfiguration.

@@ -207,7 +207,7 @@ def get_service_network_service_association(arn: Optional[_builtins.str] = None,
         service_network_name=pulumi.get(__ret__, 'service_network_name'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_service_network_service_association_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_service_network_service_association_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceNetworkServiceAssociationResult]:
     """
     Associates a service with a service network.

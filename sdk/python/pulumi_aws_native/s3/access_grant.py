@@ -27,10 +27,10 @@ class AccessGrantArgs:
                  access_grants_location_id: pulumi.Input[_builtins.str],
                  grantee: pulumi.Input['AccessGrantGranteeArgs'],
                  permission: pulumi.Input['AccessGrantPermission'],
-                 access_grants_location_configuration: Optional[pulumi.Input['AccessGrantsLocationConfigurationArgs']] = None,
-                 application_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_prefix_type: Optional[pulumi.Input['AccessGrantS3PrefixType']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
+                 access_grants_location_configuration: pulumi.Input[Optional['AccessGrantsLocationConfigurationArgs']] = None,
+                 application_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_prefix_type: pulumi.Input[Optional['AccessGrantS3PrefixType']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a AccessGrant resource.
 
@@ -92,50 +92,50 @@ class AccessGrantArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessGrantsLocationConfiguration")
-    def access_grants_location_configuration(self) -> Optional[pulumi.Input['AccessGrantsLocationConfigurationArgs']]:
+    def access_grants_location_configuration(self) -> pulumi.Input[Optional['AccessGrantsLocationConfigurationArgs']]:
         """
         The configuration options of the grant location, which is the S3 path to the data to which you are granting access.
         """
         return pulumi.get(self, "access_grants_location_configuration")
 
     @access_grants_location_configuration.setter
-    def access_grants_location_configuration(self, value: Optional[pulumi.Input['AccessGrantsLocationConfigurationArgs']]):
+    def access_grants_location_configuration(self, value: pulumi.Input[Optional['AccessGrantsLocationConfigurationArgs']]):
         pulumi.set(self, "access_grants_location_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="applicationArn")
-    def application_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the application grantees will use to access the location
         """
         return pulumi.get(self, "application_arn")
 
     @application_arn.setter
-    def application_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="s3PrefixType")
-    def s3_prefix_type(self) -> Optional[pulumi.Input['AccessGrantS3PrefixType']]:
+    def s3_prefix_type(self) -> pulumi.Input[Optional['AccessGrantS3PrefixType']]:
         """
         The type of S3SubPrefix.
         """
         return pulumi.get(self, "s3_prefix_type")
 
     @s3_prefix_type.setter
-    def s3_prefix_type(self, value: Optional[pulumi.Input['AccessGrantS3PrefixType']]):
+    def s3_prefix_type(self, value: pulumi.Input[Optional['AccessGrantS3PrefixType']]):
         pulumi.set(self, "s3_prefix_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
         """
         The AWS resource tags that you are adding to the access grant. Each tag is a label consisting of a user-defined key and value. Tags can help you manage, identify, organize, search for, and filter resources.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -145,13 +145,13 @@ class AccessGrant(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_grants_location_configuration: Optional[pulumi.Input[Union['AccessGrantsLocationConfigurationArgs', 'AccessGrantsLocationConfigurationArgsDict']]] = None,
-                 access_grants_location_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 application_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 grantee: Optional[pulumi.Input[Union['AccessGrantGranteeArgs', 'AccessGrantGranteeArgsDict']]] = None,
-                 permission: Optional[pulumi.Input['AccessGrantPermission']] = None,
-                 s3_prefix_type: Optional[pulumi.Input['AccessGrantS3PrefixType']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 access_grants_location_configuration: pulumi.Input[Optional[Union['AccessGrantsLocationConfigurationArgs', 'AccessGrantsLocationConfigurationArgsDict']]] = None,
+                 access_grants_location_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 application_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 grantee: pulumi.Input[Optional[Union['AccessGrantGranteeArgs', 'AccessGrantGranteeArgsDict']]] = None,
+                 permission: pulumi.Input[Optional['AccessGrantPermission']] = None,
+                 s3_prefix_type: pulumi.Input[Optional['AccessGrantS3PrefixType']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  __props__=None):
         """
         The AWS::S3::AccessGrant resource is an Amazon S3 resource type representing permissions to a specific S3 bucket or prefix hosted in an S3 Access Grants instance.
@@ -192,13 +192,13 @@ class AccessGrant(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_grants_location_configuration: Optional[pulumi.Input[Union['AccessGrantsLocationConfigurationArgs', 'AccessGrantsLocationConfigurationArgsDict']]] = None,
-                 access_grants_location_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 application_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 grantee: Optional[pulumi.Input[Union['AccessGrantGranteeArgs', 'AccessGrantGranteeArgsDict']]] = None,
-                 permission: Optional[pulumi.Input['AccessGrantPermission']] = None,
-                 s3_prefix_type: Optional[pulumi.Input['AccessGrantS3PrefixType']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 access_grants_location_configuration: pulumi.Input[Optional[Union['AccessGrantsLocationConfigurationArgs', 'AccessGrantsLocationConfigurationArgsDict']]] = None,
+                 access_grants_location_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 application_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 grantee: pulumi.Input[Optional[Union['AccessGrantGranteeArgs', 'AccessGrantGranteeArgsDict']]] = None,
+                 permission: pulumi.Input[Optional['AccessGrantPermission']] = None,
+                 s3_prefix_type: pulumi.Input[Optional['AccessGrantS3PrefixType']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

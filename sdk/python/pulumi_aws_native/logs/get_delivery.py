@@ -157,7 +157,7 @@ def get_delivery(delivery_id: Optional[_builtins.str] = None,
         s3_enable_hive_compatible_path=pulumi.get(__ret__, 's3_enable_hive_compatible_path'),
         s3_suffix_path=pulumi.get(__ret__, 's3_suffix_path'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_delivery_output(delivery_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_delivery_output(delivery_id: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDeliveryResult]:
     """
     This structure contains information about one delivery in your account.

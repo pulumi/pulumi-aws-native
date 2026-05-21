@@ -125,8 +125,8 @@ def get_filter(detector_id: Optional[_builtins.str] = None,
         finding_criteria=pulumi.get(__ret__, 'finding_criteria'),
         rank=pulumi.get(__ret__, 'rank'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_filter_output(detector_id: Optional[pulumi.Input[_builtins.str]] = None,
-                      name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_filter_output(detector_id: pulumi.Input[Optional[_builtins.str]] = None,
+                      name: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFilterResult]:
     """
     Resource Type definition for AWS::GuardDuty::Filter

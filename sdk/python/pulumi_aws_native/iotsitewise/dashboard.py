@@ -23,9 +23,9 @@ class DashboardArgs:
     def __init__(__self__, *,
                  dashboard_definition: pulumi.Input[_builtins.str],
                  dashboard_description: pulumi.Input[_builtins.str],
-                 dashboard_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 dashboard_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Dashboard resource.
 
@@ -70,38 +70,38 @@ class DashboardArgs:
 
     @_builtins.property
     @pulumi.getter(name="dashboardName")
-    def dashboard_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dashboard_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A friendly name for the dashboard.
         """
         return pulumi.get(self, "dashboard_name")
 
     @dashboard_name.setter
-    def dashboard_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dashboard_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dashboard_name", value)
 
     @_builtins.property
     @pulumi.getter(name="projectId")
-    def project_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the project in which to create the dashboard.
         """
         return pulumi.get(self, "project_id")
 
     @project_id.setter
-    def project_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A list of key-value pairs that contain metadata for the dashboard.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -111,11 +111,11 @@ class Dashboard(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dashboard_definition: Optional[pulumi.Input[_builtins.str]] = None,
-                 dashboard_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 dashboard_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 dashboard_definition: pulumi.Input[Optional[_builtins.str]] = None,
+                 dashboard_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 dashboard_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::IoTSiteWise::Dashboard
@@ -154,11 +154,11 @@ class Dashboard(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dashboard_definition: Optional[pulumi.Input[_builtins.str]] = None,
-                 dashboard_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 dashboard_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 dashboard_definition: pulumi.Input[Optional[_builtins.str]] = None,
+                 dashboard_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 dashboard_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

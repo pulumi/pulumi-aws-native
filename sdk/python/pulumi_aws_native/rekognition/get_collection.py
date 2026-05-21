@@ -75,7 +75,7 @@ def get_collection(collection_id: Optional[_builtins.str] = None,
     return AwaitableGetCollectionResult(
         arn=pulumi.get(__ret__, 'arn'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_collection_output(collection_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_collection_output(collection_id: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCollectionResult]:
     """
     The AWS::Rekognition::Collection type creates an Amazon Rekognition Collection. A collection is a logical grouping of information about detected faces which can later be referenced for searches on the group

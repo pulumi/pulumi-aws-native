@@ -27,12 +27,12 @@ class WorkspacesPoolArgs:
                  bundle_id: pulumi.Input[_builtins.str],
                  capacity: pulumi.Input['WorkspacesPoolCapacityArgs'],
                  directory_id: pulumi.Input[_builtins.str],
-                 application_settings: Optional[pulumi.Input['WorkspacesPoolApplicationSettingsArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 running_mode: Optional[pulumi.Input['WorkspacesPoolRunningMode']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 timeout_settings: Optional[pulumi.Input['WorkspacesPoolTimeoutSettingsArgs']] = None):
+                 application_settings: pulumi.Input[Optional['WorkspacesPoolApplicationSettingsArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 running_mode: pulumi.Input[Optional['WorkspacesPoolRunningMode']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 timeout_settings: pulumi.Input[Optional['WorkspacesPoolTimeoutSettingsArgs']] = None):
         """
         The set of arguments for constructing a WorkspacesPool resource.
 
@@ -99,71 +99,71 @@ class WorkspacesPoolArgs:
 
     @_builtins.property
     @pulumi.getter(name="applicationSettings")
-    def application_settings(self) -> Optional[pulumi.Input['WorkspacesPoolApplicationSettingsArgs']]:
+    def application_settings(self) -> pulumi.Input[Optional['WorkspacesPoolApplicationSettingsArgs']]:
         """
         The persistent application settings for users of the pool.
         """
         return pulumi.get(self, "application_settings")
 
     @application_settings.setter
-    def application_settings(self, value: Optional[pulumi.Input['WorkspacesPoolApplicationSettingsArgs']]):
+    def application_settings(self, value: pulumi.Input[Optional['WorkspacesPoolApplicationSettingsArgs']]):
         pulumi.set(self, "application_settings", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the pool.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="poolName")
-    def pool_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pool_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the pool.
         """
         return pulumi.get(self, "pool_name")
 
     @pool_name.setter
-    def pool_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pool_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pool_name", value)
 
     @_builtins.property
     @pulumi.getter(name="runningMode")
-    def running_mode(self) -> Optional[pulumi.Input['WorkspacesPoolRunningMode']]:
+    def running_mode(self) -> pulumi.Input[Optional['WorkspacesPoolRunningMode']]:
         """
         The running mode of the pool.
         """
         return pulumi.get(self, "running_mode")
 
     @running_mode.setter
-    def running_mode(self, value: Optional[pulumi.Input['WorkspacesPoolRunningMode']]):
+    def running_mode(self, value: pulumi.Input[Optional['WorkspacesPoolRunningMode']]):
         pulumi.set(self, "running_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="timeoutSettings")
-    def timeout_settings(self) -> Optional[pulumi.Input['WorkspacesPoolTimeoutSettingsArgs']]:
+    def timeout_settings(self) -> pulumi.Input[Optional['WorkspacesPoolTimeoutSettingsArgs']]:
         """
         The amount of time that a pool session remains active after users disconnect. If they try to reconnect to the pool session after a disconnection or network interruption within this time interval, they are connected to their previous session. Otherwise, they are connected to a new session with a new pool instance.
         """
         return pulumi.get(self, "timeout_settings")
 
     @timeout_settings.setter
-    def timeout_settings(self, value: Optional[pulumi.Input['WorkspacesPoolTimeoutSettingsArgs']]):
+    def timeout_settings(self, value: pulumi.Input[Optional['WorkspacesPoolTimeoutSettingsArgs']]):
         pulumi.set(self, "timeout_settings", value)
 
 
@@ -173,15 +173,15 @@ class WorkspacesPool(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_settings: Optional[pulumi.Input[Union['WorkspacesPoolApplicationSettingsArgs', 'WorkspacesPoolApplicationSettingsArgsDict']]] = None,
-                 bundle_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 capacity: Optional[pulumi.Input[Union['WorkspacesPoolCapacityArgs', 'WorkspacesPoolCapacityArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 directory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 running_mode: Optional[pulumi.Input['WorkspacesPoolRunningMode']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 timeout_settings: Optional[pulumi.Input[Union['WorkspacesPoolTimeoutSettingsArgs', 'WorkspacesPoolTimeoutSettingsArgsDict']]] = None,
+                 application_settings: pulumi.Input[Optional[Union['WorkspacesPoolApplicationSettingsArgs', 'WorkspacesPoolApplicationSettingsArgsDict']]] = None,
+                 bundle_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 capacity: pulumi.Input[Optional[Union['WorkspacesPoolCapacityArgs', 'WorkspacesPoolCapacityArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 directory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 running_mode: pulumi.Input[Optional['WorkspacesPoolRunningMode']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 timeout_settings: pulumi.Input[Optional[Union['WorkspacesPoolTimeoutSettingsArgs', 'WorkspacesPoolTimeoutSettingsArgsDict']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::WorkSpaces::WorkspacesPool
@@ -223,15 +223,15 @@ class WorkspacesPool(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_settings: Optional[pulumi.Input[Union['WorkspacesPoolApplicationSettingsArgs', 'WorkspacesPoolApplicationSettingsArgsDict']]] = None,
-                 bundle_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 capacity: Optional[pulumi.Input[Union['WorkspacesPoolCapacityArgs', 'WorkspacesPoolCapacityArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 directory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 running_mode: Optional[pulumi.Input['WorkspacesPoolRunningMode']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 timeout_settings: Optional[pulumi.Input[Union['WorkspacesPoolTimeoutSettingsArgs', 'WorkspacesPoolTimeoutSettingsArgsDict']]] = None,
+                 application_settings: pulumi.Input[Optional[Union['WorkspacesPoolApplicationSettingsArgs', 'WorkspacesPoolApplicationSettingsArgsDict']]] = None,
+                 bundle_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 capacity: pulumi.Input[Optional[Union['WorkspacesPoolCapacityArgs', 'WorkspacesPoolCapacityArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 directory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 running_mode: pulumi.Input[Optional['WorkspacesPoolRunningMode']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 timeout_settings: pulumi.Input[Optional[Union['WorkspacesPoolTimeoutSettingsArgs', 'WorkspacesPoolTimeoutSettingsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

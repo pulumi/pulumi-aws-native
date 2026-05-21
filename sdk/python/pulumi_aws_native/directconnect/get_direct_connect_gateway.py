@@ -101,7 +101,7 @@ def get_direct_connect_gateway(direct_connect_gateway_arn: Optional[_builtins.st
         direct_connect_gateway_id=pulumi.get(__ret__, 'direct_connect_gateway_id'),
         direct_connect_gateway_name=pulumi.get(__ret__, 'direct_connect_gateway_name'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_direct_connect_gateway_output(direct_connect_gateway_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_direct_connect_gateway_output(direct_connect_gateway_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDirectConnectGatewayResult]:
     """
     Resource Type definition for AWS::DirectConnect::DirectConnectGateway

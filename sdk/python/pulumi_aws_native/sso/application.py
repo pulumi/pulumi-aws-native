@@ -26,11 +26,11 @@ class ApplicationArgs:
     def __init__(__self__, *,
                  application_provider_arn: pulumi.Input[_builtins.str],
                  instance_arn: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 portal_options: Optional[pulumi.Input['ApplicationPortalOptionsConfigurationArgs']] = None,
-                 status: Optional[pulumi.Input['ApplicationStatus']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 portal_options: pulumi.Input[Optional['ApplicationPortalOptionsConfigurationArgs']] = None,
+                 status: pulumi.Input[Optional['ApplicationStatus']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Application resource.
 
@@ -81,62 +81,62 @@ class ApplicationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description information for the Identity Center (SSO) Application
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name you want to assign to this Identity Center (SSO) Application
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="portalOptions")
-    def portal_options(self) -> Optional[pulumi.Input['ApplicationPortalOptionsConfigurationArgs']]:
+    def portal_options(self) -> pulumi.Input[Optional['ApplicationPortalOptionsConfigurationArgs']]:
         """
         A structure that describes the options for the portal associated with an application
         """
         return pulumi.get(self, "portal_options")
 
     @portal_options.setter
-    def portal_options(self, value: Optional[pulumi.Input['ApplicationPortalOptionsConfigurationArgs']]):
+    def portal_options(self, value: pulumi.Input[Optional['ApplicationPortalOptionsConfigurationArgs']]):
         pulumi.set(self, "portal_options", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input['ApplicationStatus']]:
+    def status(self) -> pulumi.Input[Optional['ApplicationStatus']]:
         """
         Specifies whether the application is enabled or disabled
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input['ApplicationStatus']]):
+    def status(self, value: pulumi.Input[Optional['ApplicationStatus']]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Specifies tags to be attached to the application
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -146,13 +146,13 @@ class Application(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_provider_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 portal_options: Optional[pulumi.Input[Union['ApplicationPortalOptionsConfigurationArgs', 'ApplicationPortalOptionsConfigurationArgsDict']]] = None,
-                 status: Optional[pulumi.Input['ApplicationStatus']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 application_provider_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 portal_options: pulumi.Input[Optional[Union['ApplicationPortalOptionsConfigurationArgs', 'ApplicationPortalOptionsConfigurationArgsDict']]] = None,
+                 status: pulumi.Input[Optional['ApplicationStatus']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for Identity Center (SSO) Application
@@ -193,13 +193,13 @@ class Application(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_provider_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 portal_options: Optional[pulumi.Input[Union['ApplicationPortalOptionsConfigurationArgs', 'ApplicationPortalOptionsConfigurationArgsDict']]] = None,
-                 status: Optional[pulumi.Input['ApplicationStatus']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 application_provider_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 portal_options: pulumi.Input[Optional[Union['ApplicationPortalOptionsConfigurationArgs', 'ApplicationPortalOptionsConfigurationArgsDict']]] = None,
+                 status: pulumi.Input[Optional['ApplicationStatus']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -23,7 +23,7 @@ class KeySigningKeyArgs:
                  hosted_zone_id: pulumi.Input[_builtins.str],
                  key_management_service_arn: pulumi.Input[_builtins.str],
                  status: pulumi.Input['KeySigningKeyStatus'],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a KeySigningKey resource.
 
@@ -76,14 +76,14 @@ class KeySigningKeyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An alphanumeric string used to identify a key signing key (KSK). Name must be unique for each key signing key in the same hosted zone.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -93,10 +93,10 @@ class KeySigningKey(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 hosted_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_management_service_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input['KeySigningKeyStatus']] = None,
+                 hosted_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_management_service_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional['KeySigningKeyStatus']] = None,
                  __props__=None):
         """
         Represents a key signing key (KSK) associated with a hosted zone. You can only have two KSKs per hosted zone.
@@ -134,10 +134,10 @@ class KeySigningKey(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 hosted_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_management_service_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input['KeySigningKeyStatus']] = None,
+                 hosted_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_management_service_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional['KeySigningKeyStatus']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

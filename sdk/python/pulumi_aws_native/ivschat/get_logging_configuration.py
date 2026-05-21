@@ -129,7 +129,7 @@ def get_logging_configuration(arn: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_logging_configuration_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_logging_configuration_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLoggingConfigurationResult]:
     """
     Resource type definition for AWS::IVSChat::LoggingConfiguration.

@@ -22,14 +22,14 @@ __all__ = ['ScalingPolicyArgs', 'ScalingPolicy']
 class ScalingPolicyArgs:
     def __init__(__self__, *,
                  policy_type: pulumi.Input[_builtins.str],
-                 policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 predictive_scaling_policy_configuration: Optional[pulumi.Input['ScalingPolicyPredictiveScalingPolicyConfigurationArgs']] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 scalable_dimension: Optional[pulumi.Input[_builtins.str]] = None,
-                 scaling_target_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 step_scaling_policy_configuration: Optional[pulumi.Input['ScalingPolicyStepScalingPolicyConfigurationArgs']] = None,
-                 target_tracking_scaling_policy_configuration: Optional[pulumi.Input['ScalingPolicyTargetTrackingScalingPolicyConfigurationArgs']] = None):
+                 policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 predictive_scaling_policy_configuration: pulumi.Input[Optional['ScalingPolicyPredictiveScalingPolicyConfigurationArgs']] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 scalable_dimension: pulumi.Input[Optional[_builtins.str]] = None,
+                 scaling_target_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 step_scaling_policy_configuration: pulumi.Input[Optional['ScalingPolicyStepScalingPolicyConfigurationArgs']] = None,
+                 target_tracking_scaling_policy_configuration: pulumi.Input[Optional['ScalingPolicyTargetTrackingScalingPolicyConfigurationArgs']] = None):
         """
         The set of arguments for constructing a ScalingPolicy resource.
 
@@ -129,7 +129,7 @@ class ScalingPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="policyName")
-    def policy_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the scaling policy.
          Updates to the name of a target tracking scaling policy are not supported, unless you also update the metric used for scaling. To change only a target tracking scaling policy's name, first delete the policy by removing the existing ``AWS::ApplicationAutoScaling::ScalingPolicy`` resource from the template and updating the stack. Then, recreate the resource with the same settings and a different name.
@@ -137,24 +137,24 @@ class ScalingPolicyArgs:
         return pulumi.get(self, "policy_name")
 
     @policy_name.setter
-    def policy_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_name", value)
 
     @_builtins.property
     @pulumi.getter(name="predictiveScalingPolicyConfiguration")
-    def predictive_scaling_policy_configuration(self) -> Optional[pulumi.Input['ScalingPolicyPredictiveScalingPolicyConfigurationArgs']]:
+    def predictive_scaling_policy_configuration(self) -> pulumi.Input[Optional['ScalingPolicyPredictiveScalingPolicyConfigurationArgs']]:
         """
         The predictive scaling policy configuration.
         """
         return pulumi.get(self, "predictive_scaling_policy_configuration")
 
     @predictive_scaling_policy_configuration.setter
-    def predictive_scaling_policy_configuration(self, value: Optional[pulumi.Input['ScalingPolicyPredictiveScalingPolicyConfigurationArgs']]):
+    def predictive_scaling_policy_configuration(self, value: pulumi.Input[Optional['ScalingPolicyPredictiveScalingPolicyConfigurationArgs']]):
         pulumi.set(self, "predictive_scaling_policy_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier of the resource associated with the scaling policy. This string consists of the resource type and unique identifier.
           +  ECS service - The resource type is ``service`` and the unique identifier is the cluster name and service name. Example: ``service/my-cluster/my-service``.
@@ -181,12 +181,12 @@ class ScalingPolicyArgs:
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
-    def resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="scalableDimension")
-    def scalable_dimension(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scalable_dimension(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The scalable dimension. This string consists of the service namespace, resource type, and scaling property.
           +  ``ecs:service:DesiredCount`` - The task count of an ECS service.
@@ -217,12 +217,12 @@ class ScalingPolicyArgs:
         return pulumi.get(self, "scalable_dimension")
 
     @scalable_dimension.setter
-    def scalable_dimension(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scalable_dimension(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scalable_dimension", value)
 
     @_builtins.property
     @pulumi.getter(name="scalingTargetId")
-    def scaling_target_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scaling_target_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The CloudFormation-generated ID of an Application Auto Scaling scalable target. For more information about the ID, see the Return Value section of the ``AWS::ApplicationAutoScaling::ScalableTarget`` resource.
           You must specify either the ``ScalingTargetId`` property, or the ``ResourceId``, ``ScalableDimension``, and ``ServiceNamespace`` properties, but not both.
@@ -230,43 +230,43 @@ class ScalingPolicyArgs:
         return pulumi.get(self, "scaling_target_id")
 
     @scaling_target_id.setter
-    def scaling_target_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scaling_target_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scaling_target_id", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceNamespace")
-    def service_namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_namespace(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The namespace of the AWS service that provides the resource, or a ``custom-resource``.
         """
         return pulumi.get(self, "service_namespace")
 
     @service_namespace.setter
-    def service_namespace(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_namespace(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_namespace", value)
 
     @_builtins.property
     @pulumi.getter(name="stepScalingPolicyConfiguration")
-    def step_scaling_policy_configuration(self) -> Optional[pulumi.Input['ScalingPolicyStepScalingPolicyConfigurationArgs']]:
+    def step_scaling_policy_configuration(self) -> pulumi.Input[Optional['ScalingPolicyStepScalingPolicyConfigurationArgs']]:
         """
         A step scaling policy.
         """
         return pulumi.get(self, "step_scaling_policy_configuration")
 
     @step_scaling_policy_configuration.setter
-    def step_scaling_policy_configuration(self, value: Optional[pulumi.Input['ScalingPolicyStepScalingPolicyConfigurationArgs']]):
+    def step_scaling_policy_configuration(self, value: pulumi.Input[Optional['ScalingPolicyStepScalingPolicyConfigurationArgs']]):
         pulumi.set(self, "step_scaling_policy_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="targetTrackingScalingPolicyConfiguration")
-    def target_tracking_scaling_policy_configuration(self) -> Optional[pulumi.Input['ScalingPolicyTargetTrackingScalingPolicyConfigurationArgs']]:
+    def target_tracking_scaling_policy_configuration(self) -> pulumi.Input[Optional['ScalingPolicyTargetTrackingScalingPolicyConfigurationArgs']]:
         """
         A target tracking scaling policy.
         """
         return pulumi.get(self, "target_tracking_scaling_policy_configuration")
 
     @target_tracking_scaling_policy_configuration.setter
-    def target_tracking_scaling_policy_configuration(self, value: Optional[pulumi.Input['ScalingPolicyTargetTrackingScalingPolicyConfigurationArgs']]):
+    def target_tracking_scaling_policy_configuration(self, value: pulumi.Input[Optional['ScalingPolicyTargetTrackingScalingPolicyConfigurationArgs']]):
         pulumi.set(self, "target_tracking_scaling_policy_configuration", value)
 
 
@@ -276,15 +276,15 @@ class ScalingPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 predictive_scaling_policy_configuration: Optional[pulumi.Input[Union['ScalingPolicyPredictiveScalingPolicyConfigurationArgs', 'ScalingPolicyPredictiveScalingPolicyConfigurationArgsDict']]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 scalable_dimension: Optional[pulumi.Input[_builtins.str]] = None,
-                 scaling_target_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 step_scaling_policy_configuration: Optional[pulumi.Input[Union['ScalingPolicyStepScalingPolicyConfigurationArgs', 'ScalingPolicyStepScalingPolicyConfigurationArgsDict']]] = None,
-                 target_tracking_scaling_policy_configuration: Optional[pulumi.Input[Union['ScalingPolicyTargetTrackingScalingPolicyConfigurationArgs', 'ScalingPolicyTargetTrackingScalingPolicyConfigurationArgsDict']]] = None,
+                 policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 predictive_scaling_policy_configuration: pulumi.Input[Optional[Union['ScalingPolicyPredictiveScalingPolicyConfigurationArgs', 'ScalingPolicyPredictiveScalingPolicyConfigurationArgsDict']]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 scalable_dimension: pulumi.Input[Optional[_builtins.str]] = None,
+                 scaling_target_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 step_scaling_policy_configuration: pulumi.Input[Optional[Union['ScalingPolicyStepScalingPolicyConfigurationArgs', 'ScalingPolicyStepScalingPolicyConfigurationArgsDict']]] = None,
+                 target_tracking_scaling_policy_configuration: pulumi.Input[Optional[Union['ScalingPolicyTargetTrackingScalingPolicyConfigurationArgs', 'ScalingPolicyTargetTrackingScalingPolicyConfigurationArgsDict']]] = None,
                  __props__=None):
         """
         The ``AWS::ApplicationAutoScaling::ScalingPolicy`` resource defines a scaling policy that Application Auto Scaling uses to adjust the capacity of a scalable target.
@@ -379,15 +379,15 @@ class ScalingPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 predictive_scaling_policy_configuration: Optional[pulumi.Input[Union['ScalingPolicyPredictiveScalingPolicyConfigurationArgs', 'ScalingPolicyPredictiveScalingPolicyConfigurationArgsDict']]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 scalable_dimension: Optional[pulumi.Input[_builtins.str]] = None,
-                 scaling_target_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 step_scaling_policy_configuration: Optional[pulumi.Input[Union['ScalingPolicyStepScalingPolicyConfigurationArgs', 'ScalingPolicyStepScalingPolicyConfigurationArgsDict']]] = None,
-                 target_tracking_scaling_policy_configuration: Optional[pulumi.Input[Union['ScalingPolicyTargetTrackingScalingPolicyConfigurationArgs', 'ScalingPolicyTargetTrackingScalingPolicyConfigurationArgsDict']]] = None,
+                 policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 predictive_scaling_policy_configuration: pulumi.Input[Optional[Union['ScalingPolicyPredictiveScalingPolicyConfigurationArgs', 'ScalingPolicyPredictiveScalingPolicyConfigurationArgsDict']]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 scalable_dimension: pulumi.Input[Optional[_builtins.str]] = None,
+                 scaling_target_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 step_scaling_policy_configuration: pulumi.Input[Optional[Union['ScalingPolicyStepScalingPolicyConfigurationArgs', 'ScalingPolicyStepScalingPolicyConfigurationArgsDict']]] = None,
+                 target_tracking_scaling_policy_configuration: pulumi.Input[Optional[Union['ScalingPolicyTargetTrackingScalingPolicyConfigurationArgs', 'ScalingPolicyTargetTrackingScalingPolicyConfigurationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

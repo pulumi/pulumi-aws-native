@@ -23,9 +23,9 @@ class HostedConfigurationVersionArgs:
                  configuration_profile_id: pulumi.Input[_builtins.str],
                  content: pulumi.Input[_builtins.str],
                  content_type: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 latest_version_number: Optional[pulumi.Input[_builtins.int]] = None,
-                 version_label: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 latest_version_number: pulumi.Input[Optional[_builtins.int]] = None,
+                 version_label: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a HostedConfigurationVersion resource.
 
@@ -98,38 +98,38 @@ class HostedConfigurationVersionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the hosted configuration version.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="latestVersionNumber")
-    def latest_version_number(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def latest_version_number(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         An optional locking token used to prevent race conditions from overwriting configuration updates when creating a new version. To ensure your data is not overwritten when creating multiple hosted configuration versions in rapid succession, specify the version number of the latest hosted configuration version.
         """
         return pulumi.get(self, "latest_version_number")
 
     @latest_version_number.setter
-    def latest_version_number(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def latest_version_number(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "latest_version_number", value)
 
     @_builtins.property
     @pulumi.getter(name="versionLabel")
-    def version_label(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version_label(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A user-defined label for an AWS AppConfig hosted configuration version.
         """
         return pulumi.get(self, "version_label")
 
     @version_label.setter
-    def version_label(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version_label(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version_label", value)
 
 
@@ -139,13 +139,13 @@ class HostedConfigurationVersion(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 configuration_profile_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 content: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 latest_version_number: Optional[pulumi.Input[_builtins.int]] = None,
-                 version_label: Optional[pulumi.Input[_builtins.str]] = None,
+                 application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 content: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 latest_version_number: pulumi.Input[Optional[_builtins.int]] = None,
+                 version_label: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::AppConfig::HostedConfigurationVersion
@@ -186,13 +186,13 @@ class HostedConfigurationVersion(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 configuration_profile_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 content: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 latest_version_number: Optional[pulumi.Input[_builtins.int]] = None,
-                 version_label: Optional[pulumi.Input[_builtins.str]] = None,
+                 application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 content: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 latest_version_number: pulumi.Input[Optional[_builtins.int]] = None,
+                 version_label: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

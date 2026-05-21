@@ -22,16 +22,16 @@ __all__ = ['LogGroupArgs', 'LogGroup']
 @pulumi.input_type
 class LogGroupArgs:
     def __init__(__self__, *,
-                 bearer_token_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 bearer_token_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  data_protection_policy: Optional[Any] = None,
-                 deletion_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 field_index_policies: Optional[pulumi.Input[Sequence[Any]]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_group_class: Optional[pulumi.Input['LogGroupClass']] = None,
-                 log_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 deletion_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 field_index_policies: pulumi.Input[Optional[Sequence[Any]]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_group_class: pulumi.Input[Optional['LogGroupClass']] = None,
+                 log_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_policy_document: Optional[Any] = None,
-                 retention_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a LogGroup resource.
 
@@ -84,14 +84,14 @@ class LogGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="bearerTokenAuthenticationEnabled")
-    def bearer_token_authentication_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def bearer_token_authentication_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether bearer token authentication is enabled for this log group. When enabled, bearer token authentication is allowed on operations until it is explicitly disabled.
         """
         return pulumi.get(self, "bearer_token_authentication_enabled")
 
     @bearer_token_authentication_enabled.setter
-    def bearer_token_authentication_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def bearer_token_authentication_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "bearer_token_authentication_enabled", value)
 
     @_builtins.property
@@ -110,19 +110,19 @@ class LogGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="deletionProtectionEnabled")
-    def deletion_protection_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def deletion_protection_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether deletion protection is enabled for this log group. When enabled, deletion protection blocks all deletion operations until it is explicitly disabled.
         """
         return pulumi.get(self, "deletion_protection_enabled")
 
     @deletion_protection_enabled.setter
-    def deletion_protection_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def deletion_protection_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "deletion_protection_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="fieldIndexPolicies")
-    def field_index_policies(self) -> Optional[pulumi.Input[Sequence[Any]]]:
+    def field_index_policies(self) -> pulumi.Input[Optional[Sequence[Any]]]:
         """
         Creates or updates a *field index policy* for the specified log group. Only log groups in the Standard log class support field index policies. For more information about log classes, see [Log classes](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch_Logs_Log_Classes.html).
          You can use field index policies to create *field indexes* on fields found in log events in the log group. Creating field indexes lowers the costs for CWL Insights queries that reference those field indexes, because these queries attempt to skip the processing of log events that are known to not match the indexed field. Good fields to index are fields that you often need to query for and fields that have high cardinality of values Common examples of indexes include request ID, session ID, userID, and instance IDs. For more information, see [Create field indexes to improve query performance and reduce costs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatchLogs-Field-Indexing.html).
@@ -131,12 +131,12 @@ class LogGroupArgs:
         return pulumi.get(self, "field_index_policies")
 
     @field_index_policies.setter
-    def field_index_policies(self, value: Optional[pulumi.Input[Sequence[Any]]]):
+    def field_index_policies(self, value: pulumi.Input[Optional[Sequence[Any]]]):
         pulumi.set(self, "field_index_policies", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the KMS key to use when encrypting log data.
          To associate an KMS key with the log group, specify the ARN of that KMS key here. If you do so, ingested data is encrypted using this key. This association is stored as long as the data encrypted with the KMS key is still within CWL. This enables CWL to decrypt this data whenever it is requested.
@@ -146,12 +146,12 @@ class LogGroupArgs:
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="logGroupClass")
-    def log_group_class(self) -> Optional[pulumi.Input['LogGroupClass']]:
+    def log_group_class(self) -> pulumi.Input[Optional['LogGroupClass']]:
         """
         Specifies the log group class for this log group. There are two classes:
           +  The ``Standard`` log class supports all CWL features.
@@ -162,19 +162,19 @@ class LogGroupArgs:
         return pulumi.get(self, "log_group_class")
 
     @log_group_class.setter
-    def log_group_class(self, value: Optional[pulumi.Input['LogGroupClass']]):
+    def log_group_class(self, value: pulumi.Input[Optional['LogGroupClass']]):
         pulumi.set(self, "log_group_class", value)
 
     @_builtins.property
     @pulumi.getter(name="logGroupName")
-    def log_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the log group. If you don't specify a name, CFNlong generates a unique ID for the log group.
         """
         return pulumi.get(self, "log_group_name")
 
     @log_group_name.setter
-    def log_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_group_name", value)
 
     @_builtins.property
@@ -193,7 +193,7 @@ class LogGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="retentionInDays")
-    def retention_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retention_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1096, 1827, 2192, 2557, 2922, 3288, and 3653.
          To set a log group so that its log events do not expire, do not specify this property.
@@ -201,12 +201,12 @@ class LogGroupArgs:
         return pulumi.get(self, "retention_in_days")
 
     @retention_in_days.setter
-    def retention_in_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retention_in_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retention_in_days", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to the log group.
          For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
@@ -214,7 +214,7 @@ class LogGroupArgs:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -224,16 +224,16 @@ class LogGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bearer_token_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 bearer_token_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  data_protection_policy: Optional[Any] = None,
-                 deletion_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 field_index_policies: Optional[pulumi.Input[Sequence[Any]]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_group_class: Optional[pulumi.Input['LogGroupClass']] = None,
-                 log_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 deletion_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 field_index_policies: pulumi.Input[Optional[Sequence[Any]]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_group_class: pulumi.Input[Optional['LogGroupClass']] = None,
+                 log_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_policy_document: Optional[Any] = None,
-                 retention_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         The ``AWS::Logs::LogGroup`` resource specifies a log group. A log group defines common properties for log streams, such as their retention and access control rules. Each log stream must belong to one log group.
@@ -300,16 +300,16 @@ class LogGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bearer_token_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 bearer_token_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  data_protection_policy: Optional[Any] = None,
-                 deletion_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 field_index_policies: Optional[pulumi.Input[Sequence[Any]]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_group_class: Optional[pulumi.Input['LogGroupClass']] = None,
-                 log_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 deletion_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 field_index_policies: pulumi.Input[Optional[Sequence[Any]]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_group_class: pulumi.Input[Optional['LogGroupClass']] = None,
+                 log_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_policy_document: Optional[Any] = None,
-                 retention_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

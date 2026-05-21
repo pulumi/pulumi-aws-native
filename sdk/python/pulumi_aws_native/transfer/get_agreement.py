@@ -210,8 +210,8 @@ def get_agreement(agreement_id: Optional[_builtins.str] = None,
         preserve_filename=pulumi.get(__ret__, 'preserve_filename'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_agreement_output(agreement_id: Optional[pulumi.Input[_builtins.str]] = None,
-                         server_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_agreement_output(agreement_id: pulumi.Input[Optional[_builtins.str]] = None,
+                         server_id: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAgreementResult]:
     """
     Resource Type definition for AWS::Transfer::Agreement

@@ -24,12 +24,12 @@ __all__ = ['ConfiguredModelAlgorithmArgs', 'ConfiguredModelAlgorithm']
 class ConfiguredModelAlgorithmArgs:
     def __init__(__self__, *,
                  role_arn: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 inference_container_config: Optional[pulumi.Input['ConfiguredModelAlgorithmInferenceContainerConfigArgs']] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 training_container_config: Optional[pulumi.Input['ConfiguredModelAlgorithmContainerConfigArgs']] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 inference_container_config: pulumi.Input[Optional['ConfiguredModelAlgorithmInferenceContainerConfigArgs']] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 training_container_config: pulumi.Input[Optional['ConfiguredModelAlgorithmContainerConfigArgs']] = None):
         """
         The set of arguments for constructing a ConfiguredModelAlgorithm resource.
 
@@ -60,59 +60,59 @@ class ConfiguredModelAlgorithmArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="inferenceContainerConfig")
-    def inference_container_config(self) -> Optional[pulumi.Input['ConfiguredModelAlgorithmInferenceContainerConfigArgs']]:
+    def inference_container_config(self) -> pulumi.Input[Optional['ConfiguredModelAlgorithmInferenceContainerConfigArgs']]:
         return pulumi.get(self, "inference_container_config")
 
     @inference_container_config.setter
-    def inference_container_config(self, value: Optional[pulumi.Input['ConfiguredModelAlgorithmInferenceContainerConfigArgs']]):
+    def inference_container_config(self, value: pulumi.Input[Optional['ConfiguredModelAlgorithmInferenceContainerConfigArgs']]):
         pulumi.set(self, "inference_container_config", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
-    def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
-    def kms_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An arbitrary set of tags (key-value pairs) for this cleanrooms-ml configured model algorithm.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="trainingContainerConfig")
-    def training_container_config(self) -> Optional[pulumi.Input['ConfiguredModelAlgorithmContainerConfigArgs']]:
+    def training_container_config(self) -> pulumi.Input[Optional['ConfiguredModelAlgorithmContainerConfigArgs']]:
         return pulumi.get(self, "training_container_config")
 
     @training_container_config.setter
-    def training_container_config(self, value: Optional[pulumi.Input['ConfiguredModelAlgorithmContainerConfigArgs']]):
+    def training_container_config(self, value: pulumi.Input[Optional['ConfiguredModelAlgorithmContainerConfigArgs']]):
         pulumi.set(self, "training_container_config", value)
 
 
@@ -122,13 +122,13 @@ class ConfiguredModelAlgorithm(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 inference_container_config: Optional[pulumi.Input[Union['ConfiguredModelAlgorithmInferenceContainerConfigArgs', 'ConfiguredModelAlgorithmInferenceContainerConfigArgsDict']]] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 training_container_config: Optional[pulumi.Input[Union['ConfiguredModelAlgorithmContainerConfigArgs', 'ConfiguredModelAlgorithmContainerConfigArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 inference_container_config: pulumi.Input[Optional[Union['ConfiguredModelAlgorithmInferenceContainerConfigArgs', 'ConfiguredModelAlgorithmInferenceContainerConfigArgsDict']]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 training_container_config: pulumi.Input[Optional[Union['ConfiguredModelAlgorithmContainerConfigArgs', 'ConfiguredModelAlgorithmContainerConfigArgsDict']]] = None,
                  __props__=None):
         """
         Definition of AWS::CleanRoomsML::ConfiguredModelAlgorithm Resource Type
@@ -163,13 +163,13 @@ class ConfiguredModelAlgorithm(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 inference_container_config: Optional[pulumi.Input[Union['ConfiguredModelAlgorithmInferenceContainerConfigArgs', 'ConfiguredModelAlgorithmInferenceContainerConfigArgsDict']]] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 training_container_config: Optional[pulumi.Input[Union['ConfiguredModelAlgorithmContainerConfigArgs', 'ConfiguredModelAlgorithmContainerConfigArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 inference_container_config: pulumi.Input[Optional[Union['ConfiguredModelAlgorithmInferenceContainerConfigArgs', 'ConfiguredModelAlgorithmInferenceContainerConfigArgsDict']]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 training_container_config: pulumi.Input[Optional[Union['ConfiguredModelAlgorithmContainerConfigArgs', 'ConfiguredModelAlgorithmContainerConfigArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

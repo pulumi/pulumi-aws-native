@@ -24,14 +24,14 @@ __all__ = ['ServiceLevelObjectiveArgs', 'ServiceLevelObjective']
 @pulumi.input_type
 class ServiceLevelObjectiveArgs:
     def __init__(__self__, *,
-                 burn_rate_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveBurnRateConfigurationArgs']]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 exclusion_windows: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveExclusionWindowArgs']]]] = None,
-                 goal: Optional[pulumi.Input['ServiceLevelObjectiveGoalArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_based_sli: Optional[pulumi.Input['ServiceLevelObjectiveRequestBasedSliArgs']] = None,
-                 sli: Optional[pulumi.Input['ServiceLevelObjectiveSliArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 burn_rate_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceLevelObjectiveBurnRateConfigurationArgs']]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 exclusion_windows: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceLevelObjectiveExclusionWindowArgs']]]] = None,
+                 goal: pulumi.Input[Optional['ServiceLevelObjectiveGoalArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_based_sli: pulumi.Input[Optional['ServiceLevelObjectiveRequestBasedSliArgs']] = None,
+                 sli: pulumi.Input[Optional['ServiceLevelObjectiveSliArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ServiceLevelObjective resource.
 
@@ -65,91 +65,91 @@ class ServiceLevelObjectiveArgs:
 
     @_builtins.property
     @pulumi.getter(name="burnRateConfigurations")
-    def burn_rate_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveBurnRateConfigurationArgs']]]]:
+    def burn_rate_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServiceLevelObjectiveBurnRateConfigurationArgs']]]]:
         """
         Each object in this array defines the length of the look-back window used to calculate one burn rate metric for this SLO. The burn rate measures how fast the service is consuming the error budget, relative to the attainment goal of the SLO.
         """
         return pulumi.get(self, "burn_rate_configurations")
 
     @burn_rate_configurations.setter
-    def burn_rate_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveBurnRateConfigurationArgs']]]]):
+    def burn_rate_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceLevelObjectiveBurnRateConfigurationArgs']]]]):
         pulumi.set(self, "burn_rate_configurations", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An optional description for this SLO. Default is 'No description'
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="exclusionWindows")
-    def exclusion_windows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveExclusionWindowArgs']]]]:
+    def exclusion_windows(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServiceLevelObjectiveExclusionWindowArgs']]]]:
         """
         The time window to be excluded from the SLO performance metrics.
         """
         return pulumi.get(self, "exclusion_windows")
 
     @exclusion_windows.setter
-    def exclusion_windows(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveExclusionWindowArgs']]]]):
+    def exclusion_windows(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceLevelObjectiveExclusionWindowArgs']]]]):
         pulumi.set(self, "exclusion_windows", value)
 
     @_builtins.property
     @pulumi.getter
-    def goal(self) -> Optional[pulumi.Input['ServiceLevelObjectiveGoalArgs']]:
+    def goal(self) -> pulumi.Input[Optional['ServiceLevelObjectiveGoalArgs']]:
         """
         This structure contains the attributes that determine the goal of an SLO. This includes the time period for evaluation and the attainment threshold.
         """
         return pulumi.get(self, "goal")
 
     @goal.setter
-    def goal(self, value: Optional[pulumi.Input['ServiceLevelObjectiveGoalArgs']]):
+    def goal(self, value: pulumi.Input[Optional['ServiceLevelObjectiveGoalArgs']]):
         pulumi.set(self, "goal", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of this SLO.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="requestBasedSli")
-    def request_based_sli(self) -> Optional[pulumi.Input['ServiceLevelObjectiveRequestBasedSliArgs']]:
+    def request_based_sli(self) -> pulumi.Input[Optional['ServiceLevelObjectiveRequestBasedSliArgs']]:
         """
         A structure containing information about the performance metric that this SLO monitors, if this is a request-based SLO.
         """
         return pulumi.get(self, "request_based_sli")
 
     @request_based_sli.setter
-    def request_based_sli(self, value: Optional[pulumi.Input['ServiceLevelObjectiveRequestBasedSliArgs']]):
+    def request_based_sli(self, value: pulumi.Input[Optional['ServiceLevelObjectiveRequestBasedSliArgs']]):
         pulumi.set(self, "request_based_sli", value)
 
     @_builtins.property
     @pulumi.getter
-    def sli(self) -> Optional[pulumi.Input['ServiceLevelObjectiveSliArgs']]:
+    def sli(self) -> pulumi.Input[Optional['ServiceLevelObjectiveSliArgs']]:
         """
         A structure containing information about the performance metric that this SLO monitors, if this is a period-based SLO.
         """
         return pulumi.get(self, "sli")
 
     @sli.setter
-    def sli(self, value: Optional[pulumi.Input['ServiceLevelObjectiveSliArgs']]):
+    def sli(self, value: pulumi.Input[Optional['ServiceLevelObjectiveSliArgs']]):
         pulumi.set(self, "sli", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A list of key-value pairs to associate with the SLO. You can associate as many as 50 tags with an SLO. To be able to associate tags with the SLO when you create the SLO, you must have the cloudwatch:TagResource permission.
 
@@ -158,7 +158,7 @@ class ServiceLevelObjectiveArgs:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -168,14 +168,14 @@ class ServiceLevelObjective(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 burn_rate_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceLevelObjectiveBurnRateConfigurationArgs', 'ServiceLevelObjectiveBurnRateConfigurationArgsDict']]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 exclusion_windows: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceLevelObjectiveExclusionWindowArgs', 'ServiceLevelObjectiveExclusionWindowArgsDict']]]]] = None,
-                 goal: Optional[pulumi.Input[Union['ServiceLevelObjectiveGoalArgs', 'ServiceLevelObjectiveGoalArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_based_sli: Optional[pulumi.Input[Union['ServiceLevelObjectiveRequestBasedSliArgs', 'ServiceLevelObjectiveRequestBasedSliArgsDict']]] = None,
-                 sli: Optional[pulumi.Input[Union['ServiceLevelObjectiveSliArgs', 'ServiceLevelObjectiveSliArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 burn_rate_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceLevelObjectiveBurnRateConfigurationArgs', 'ServiceLevelObjectiveBurnRateConfigurationArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 exclusion_windows: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceLevelObjectiveExclusionWindowArgs', 'ServiceLevelObjectiveExclusionWindowArgsDict']]]]] = None,
+                 goal: pulumi.Input[Optional[Union['ServiceLevelObjectiveGoalArgs', 'ServiceLevelObjectiveGoalArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_based_sli: pulumi.Input[Optional[Union['ServiceLevelObjectiveRequestBasedSliArgs', 'ServiceLevelObjectiveRequestBasedSliArgsDict']]] = None,
+                 sli: pulumi.Input[Optional[Union['ServiceLevelObjectiveSliArgs', 'ServiceLevelObjectiveSliArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::ApplicationSignals::ServiceLevelObjective
@@ -219,14 +219,14 @@ class ServiceLevelObjective(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 burn_rate_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceLevelObjectiveBurnRateConfigurationArgs', 'ServiceLevelObjectiveBurnRateConfigurationArgsDict']]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 exclusion_windows: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceLevelObjectiveExclusionWindowArgs', 'ServiceLevelObjectiveExclusionWindowArgsDict']]]]] = None,
-                 goal: Optional[pulumi.Input[Union['ServiceLevelObjectiveGoalArgs', 'ServiceLevelObjectiveGoalArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_based_sli: Optional[pulumi.Input[Union['ServiceLevelObjectiveRequestBasedSliArgs', 'ServiceLevelObjectiveRequestBasedSliArgsDict']]] = None,
-                 sli: Optional[pulumi.Input[Union['ServiceLevelObjectiveSliArgs', 'ServiceLevelObjectiveSliArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 burn_rate_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceLevelObjectiveBurnRateConfigurationArgs', 'ServiceLevelObjectiveBurnRateConfigurationArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 exclusion_windows: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceLevelObjectiveExclusionWindowArgs', 'ServiceLevelObjectiveExclusionWindowArgsDict']]]]] = None,
+                 goal: pulumi.Input[Optional[Union['ServiceLevelObjectiveGoalArgs', 'ServiceLevelObjectiveGoalArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_based_sli: pulumi.Input[Optional[Union['ServiceLevelObjectiveRequestBasedSliArgs', 'ServiceLevelObjectiveRequestBasedSliArgsDict']]] = None,
+                 sli: pulumi.Input[Optional[Union['ServiceLevelObjectiveSliArgs', 'ServiceLevelObjectiveSliArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

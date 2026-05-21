@@ -131,8 +131,8 @@ def get_publishing_destination(detector_id: Optional[_builtins.str] = None,
         publishing_failure_start_timestamp=pulumi.get(__ret__, 'publishing_failure_start_timestamp'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_publishing_destination_output(detector_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                      id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_publishing_destination_output(detector_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                      id: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPublishingDestinationResult]:
     """
     Resource Type definition for AWS::GuardDuty::PublishingDestination.

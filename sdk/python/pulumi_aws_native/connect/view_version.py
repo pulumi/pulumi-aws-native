@@ -20,8 +20,8 @@ __all__ = ['ViewVersionArgs', 'ViewVersion']
 class ViewVersionArgs:
     def __init__(__self__, *,
                  view_arn: pulumi.Input[_builtins.str],
-                 version_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 view_content_sha256: Optional[pulumi.Input[_builtins.str]] = None):
+                 version_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 view_content_sha256: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ViewVersion resource.
 
@@ -49,26 +49,26 @@ class ViewVersionArgs:
 
     @_builtins.property
     @pulumi.getter(name="versionDescription")
-    def version_description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description for the view version.
         """
         return pulumi.get(self, "version_description")
 
     @version_description.setter
-    def version_description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version_description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version_description", value)
 
     @_builtins.property
     @pulumi.getter(name="viewContentSha256")
-    def view_content_sha256(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def view_content_sha256(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The view content hash to be checked.
         """
         return pulumi.get(self, "view_content_sha256")
 
     @view_content_sha256.setter
-    def view_content_sha256(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def view_content_sha256(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "view_content_sha256", value)
 
 
@@ -78,9 +78,9 @@ class ViewVersion(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 version_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 view_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 view_content_sha256: Optional[pulumi.Input[_builtins.str]] = None,
+                 version_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 view_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 view_content_sha256: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Connect::ViewVersion
@@ -117,9 +117,9 @@ class ViewVersion(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 version_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 view_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 view_content_sha256: Optional[pulumi.Input[_builtins.str]] = None,
+                 version_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 view_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 view_content_sha256: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -86,7 +86,7 @@ class AccessPolicyIamRoleArgsDict(TypedDict):
     """
     Contains information for an IAM role identity in an access policy.
     """
-    arn: NotRequired[pulumi.Input[_builtins.str]]
+    arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of the IAM role.
     """
@@ -94,7 +94,7 @@ class AccessPolicyIamRoleArgsDict(TypedDict):
 @pulumi.input_type
 class AccessPolicyIamRoleArgs:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Contains information for an IAM role identity in an access policy.
 
@@ -105,14 +105,14 @@ class AccessPolicyIamRoleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the IAM role.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
 
@@ -120,7 +120,7 @@ class AccessPolicyIamUserArgsDict(TypedDict):
     """
     Contains information for an IAM user identity in an access policy.
     """
-    arn: NotRequired[pulumi.Input[_builtins.str]]
+    arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of the IAM user.
     """
@@ -128,7 +128,7 @@ class AccessPolicyIamUserArgsDict(TypedDict):
 @pulumi.input_type
 class AccessPolicyIamUserArgs:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Contains information for an IAM user identity in an access policy.
 
@@ -139,14 +139,14 @@ class AccessPolicyIamUserArgs:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the IAM user.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
 
@@ -154,15 +154,15 @@ class AccessPolicyIdentityArgsDict(TypedDict):
     """
     The identity for this access policy. Choose either an SSO user or group or an IAM user or role.
     """
-    iam_role: NotRequired[pulumi.Input['AccessPolicyIamRoleArgsDict']]
+    iam_role: NotRequired[pulumi.Input[Optional['AccessPolicyIamRoleArgsDict']]]
     """
     An IAM role identity.
     """
-    iam_user: NotRequired[pulumi.Input['AccessPolicyIamUserArgsDict']]
+    iam_user: NotRequired[pulumi.Input[Optional['AccessPolicyIamUserArgsDict']]]
     """
     An IAM user identity.
     """
-    user: NotRequired[pulumi.Input['AccessPolicyUserArgsDict']]
+    user: NotRequired[pulumi.Input[Optional['AccessPolicyUserArgsDict']]]
     """
     An IAM Identity Center user identity.
     """
@@ -170,9 +170,9 @@ class AccessPolicyIdentityArgsDict(TypedDict):
 @pulumi.input_type
 class AccessPolicyIdentityArgs:
     def __init__(__self__, *,
-                 iam_role: Optional[pulumi.Input['AccessPolicyIamRoleArgs']] = None,
-                 iam_user: Optional[pulumi.Input['AccessPolicyIamUserArgs']] = None,
-                 user: Optional[pulumi.Input['AccessPolicyUserArgs']] = None):
+                 iam_role: pulumi.Input[Optional['AccessPolicyIamRoleArgs']] = None,
+                 iam_user: pulumi.Input[Optional['AccessPolicyIamUserArgs']] = None,
+                 user: pulumi.Input[Optional['AccessPolicyUserArgs']] = None):
         """
         The identity for this access policy. Choose either an SSO user or group or an IAM user or role.
 
@@ -189,38 +189,38 @@ class AccessPolicyIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="iamRole")
-    def iam_role(self) -> Optional[pulumi.Input['AccessPolicyIamRoleArgs']]:
+    def iam_role(self) -> pulumi.Input[Optional['AccessPolicyIamRoleArgs']]:
         """
         An IAM role identity.
         """
         return pulumi.get(self, "iam_role")
 
     @iam_role.setter
-    def iam_role(self, value: Optional[pulumi.Input['AccessPolicyIamRoleArgs']]):
+    def iam_role(self, value: pulumi.Input[Optional['AccessPolicyIamRoleArgs']]):
         pulumi.set(self, "iam_role", value)
 
     @_builtins.property
     @pulumi.getter(name="iamUser")
-    def iam_user(self) -> Optional[pulumi.Input['AccessPolicyIamUserArgs']]:
+    def iam_user(self) -> pulumi.Input[Optional['AccessPolicyIamUserArgs']]:
         """
         An IAM user identity.
         """
         return pulumi.get(self, "iam_user")
 
     @iam_user.setter
-    def iam_user(self, value: Optional[pulumi.Input['AccessPolicyIamUserArgs']]):
+    def iam_user(self, value: pulumi.Input[Optional['AccessPolicyIamUserArgs']]):
         pulumi.set(self, "iam_user", value)
 
     @_builtins.property
     @pulumi.getter
-    def user(self) -> Optional[pulumi.Input['AccessPolicyUserArgs']]:
+    def user(self) -> pulumi.Input[Optional['AccessPolicyUserArgs']]:
         """
         An IAM Identity Center user identity.
         """
         return pulumi.get(self, "user")
 
     @user.setter
-    def user(self, value: Optional[pulumi.Input['AccessPolicyUserArgs']]):
+    def user(self, value: pulumi.Input[Optional['AccessPolicyUserArgs']]):
         pulumi.set(self, "user", value)
 
 
@@ -228,7 +228,7 @@ class AccessPolicyPortalArgsDict(TypedDict):
     """
     A portal resource.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the portal.
     """
@@ -236,7 +236,7 @@ class AccessPolicyPortalArgsDict(TypedDict):
 @pulumi.input_type
 class AccessPolicyPortalArgs:
     def __init__(__self__, *,
-                 id: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         A portal resource.
 
@@ -247,14 +247,14 @@ class AccessPolicyPortalArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the portal.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
 
@@ -262,7 +262,7 @@ class AccessPolicyProjectArgsDict(TypedDict):
     """
     A project resource.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the project.
     """
@@ -270,7 +270,7 @@ class AccessPolicyProjectArgsDict(TypedDict):
 @pulumi.input_type
 class AccessPolicyProjectArgs:
     def __init__(__self__, *,
-                 id: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         A project resource.
 
@@ -281,14 +281,14 @@ class AccessPolicyProjectArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the project.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
 
@@ -296,11 +296,11 @@ class AccessPolicyResourceArgsDict(TypedDict):
     """
     The AWS IoT SiteWise Monitor resource for this access policy. Choose either portal or project but not both.
     """
-    portal: NotRequired[pulumi.Input['AccessPolicyPortalArgsDict']]
+    portal: NotRequired[pulumi.Input[Optional['AccessPolicyPortalArgsDict']]]
     """
     Identifies an AWS IoT SiteWise Monitor portal.
     """
-    project: NotRequired[pulumi.Input['AccessPolicyProjectArgsDict']]
+    project: NotRequired[pulumi.Input[Optional['AccessPolicyProjectArgsDict']]]
     """
     Identifies a specific AWS IoT SiteWise Monitor project.
     """
@@ -308,8 +308,8 @@ class AccessPolicyResourceArgsDict(TypedDict):
 @pulumi.input_type
 class AccessPolicyResourceArgs:
     def __init__(__self__, *,
-                 portal: Optional[pulumi.Input['AccessPolicyPortalArgs']] = None,
-                 project: Optional[pulumi.Input['AccessPolicyProjectArgs']] = None):
+                 portal: pulumi.Input[Optional['AccessPolicyPortalArgs']] = None,
+                 project: pulumi.Input[Optional['AccessPolicyProjectArgs']] = None):
         """
         The AWS IoT SiteWise Monitor resource for this access policy. Choose either portal or project but not both.
 
@@ -323,26 +323,26 @@ class AccessPolicyResourceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def portal(self) -> Optional[pulumi.Input['AccessPolicyPortalArgs']]:
+    def portal(self) -> pulumi.Input[Optional['AccessPolicyPortalArgs']]:
         """
         Identifies an AWS IoT SiteWise Monitor portal.
         """
         return pulumi.get(self, "portal")
 
     @portal.setter
-    def portal(self, value: Optional[pulumi.Input['AccessPolicyPortalArgs']]):
+    def portal(self, value: pulumi.Input[Optional['AccessPolicyPortalArgs']]):
         pulumi.set(self, "portal", value)
 
     @_builtins.property
     @pulumi.getter
-    def project(self) -> Optional[pulumi.Input['AccessPolicyProjectArgs']]:
+    def project(self) -> pulumi.Input[Optional['AccessPolicyProjectArgs']]:
         """
         Identifies a specific AWS IoT SiteWise Monitor project.
         """
         return pulumi.get(self, "project")
 
     @project.setter
-    def project(self, value: Optional[pulumi.Input['AccessPolicyProjectArgs']]):
+    def project(self, value: pulumi.Input[Optional['AccessPolicyProjectArgs']]):
         pulumi.set(self, "project", value)
 
 
@@ -350,7 +350,7 @@ class AccessPolicyUserArgsDict(TypedDict):
     """
     Contains information for a user identity in an access policy.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The AWS SSO ID of the user.
     """
@@ -358,7 +358,7 @@ class AccessPolicyUserArgsDict(TypedDict):
 @pulumi.input_type
 class AccessPolicyUserArgs:
     def __init__(__self__, *,
-                 id: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Contains information for a user identity in an access policy.
 
@@ -369,14 +369,14 @@ class AccessPolicyUserArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS SSO ID of the user.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
 
@@ -384,11 +384,11 @@ class AlarmsPropertiesArgsDict(TypedDict):
     """
     Contains the configuration information of an alarm created in an AWS IoT SiteWise Monitor portal. You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range.
     """
-    alarm_role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    alarm_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of the IAM role that allows the alarm to perform actions and access AWS resources and services, such as AWS IoT Events.
     """
-    notification_lambda_arn: NotRequired[pulumi.Input[_builtins.str]]
+    notification_lambda_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of the AWS Lambda function that manages alarm notifications. For more information, see Managing alarm notifications in the AWS IoT Events Developer Guide.
     """
@@ -396,8 +396,8 @@ class AlarmsPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class AlarmsPropertiesArgs:
     def __init__(__self__, *,
-                 alarm_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_lambda_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 alarm_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_lambda_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Contains the configuration information of an alarm created in an AWS IoT SiteWise Monitor portal. You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range.
 
@@ -411,26 +411,26 @@ class AlarmsPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="alarmRoleArn")
-    def alarm_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def alarm_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the IAM role that allows the alarm to perform actions and access AWS resources and services, such as AWS IoT Events.
         """
         return pulumi.get(self, "alarm_role_arn")
 
     @alarm_role_arn.setter
-    def alarm_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def alarm_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "alarm_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationLambdaArn")
-    def notification_lambda_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def notification_lambda_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the AWS Lambda function that manages alarm notifications. For more information, see Managing alarm notifications in the AWS IoT Events Developer Guide.
         """
         return pulumi.get(self, "notification_lambda_arn")
 
     @notification_lambda_arn.setter
-    def notification_lambda_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def notification_lambda_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "notification_lambda_arn", value)
 
 
@@ -442,15 +442,15 @@ class AssetHierarchyArgsDict(TypedDict):
     """
     The ID of the child asset to be associated.
     """
-    external_id: NotRequired[pulumi.Input[_builtins.str]]
+    external_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     String-friendly customer provided external ID
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Customer provided actual UUID for property
     """
-    logical_id: NotRequired[pulumi.Input[_builtins.str]]
+    logical_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The LogicalID of a hierarchy in the parent asset's model.
     """
@@ -459,9 +459,9 @@ class AssetHierarchyArgsDict(TypedDict):
 class AssetHierarchyArgs:
     def __init__(__self__, *,
                  child_asset_id: pulumi.Input[_builtins.str],
-                 external_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 logical_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 external_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 logical_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         A hierarchy specifies allowed parent/child asset relationships.
 
@@ -492,43 +492,43 @@ class AssetHierarchyArgs:
 
     @_builtins.property
     @pulumi.getter(name="externalId")
-    def external_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def external_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         String-friendly customer provided external ID
         """
         return pulumi.get(self, "external_id")
 
     @external_id.setter
-    def external_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def external_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "external_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Customer provided actual UUID for property
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter(name="logicalId")
-    def logical_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def logical_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The LogicalID of a hierarchy in the parent asset's model.
         """
         return pulumi.get(self, "logical_id")
 
     @logical_id.setter
-    def logical_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def logical_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "logical_id", value)
 
 
 class AssetModelAttributeArgsDict(TypedDict):
-    default_value: NotRequired[pulumi.Input[_builtins.str]]
+    default_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The default value of the asset model property attribute. All assets that you create from the asset model contain this attribute value. You can update an attribute's value after you create an asset. For more information, see [Updating attribute values](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/update-attribute-values.html) in the *AWS IoT SiteWise User Guide* .
     """
@@ -536,7 +536,7 @@ class AssetModelAttributeArgsDict(TypedDict):
 @pulumi.input_type
 class AssetModelAttributeArgs:
     def __init__(__self__, *,
-                 default_value: Optional[pulumi.Input[_builtins.str]] = None):
+                 default_value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] default_value: The default value of the asset model property attribute. All assets that you create from the asset model contain this attribute value. You can update an attribute's value after you create an asset. For more information, see [Updating attribute values](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/update-attribute-values.html) in the *AWS IoT SiteWise User Guide* .
         """
@@ -545,14 +545,14 @@ class AssetModelAttributeArgs:
 
     @_builtins.property
     @pulumi.getter(name="defaultValue")
-    def default_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The default value of the asset model property attribute. All assets that you create from the asset model contain this attribute value. You can update an attribute's value after you create an asset. For more information, see [Updating attribute values](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/update-attribute-values.html) in the *AWS IoT SiteWise User Guide* .
         """
         return pulumi.get(self, "default_value")
 
     @default_value.setter
-    def default_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_value", value)
 
 
@@ -568,31 +568,31 @@ class AssetModelCompositeModelArgsDict(TypedDict):
     """
     The type of the composite model. For alarm composite models, this type is AWS/ALARM
     """
-    composed_asset_model_id: NotRequired[pulumi.Input[_builtins.str]]
+    composed_asset_model_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The component model ID for which the composite model is composed of
     """
-    composite_model_properties: NotRequired[pulumi.Input[Sequence[pulumi.Input['AssetModelPropertyArgsDict']]]]
+    composite_model_properties: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AssetModelPropertyArgsDict']]]]]
     """
     The property definitions of the asset model. You can specify up to 200 properties per asset model.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A description for the asset composite model.
     """
-    external_id: NotRequired[pulumi.Input[_builtins.str]]
+    external_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The External ID of the composite model
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Actual ID of the composite model
     """
-    parent_asset_model_composite_model_external_id: NotRequired[pulumi.Input[_builtins.str]]
+    parent_asset_model_composite_model_external_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The parent composite model External ID
     """
-    path: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    path: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The path of the composite model. This is only for derived composite models
     """
@@ -602,13 +602,13 @@ class AssetModelCompositeModelArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
-                 composed_asset_model_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 composite_model_properties: Optional[pulumi.Input[Sequence[pulumi.Input['AssetModelPropertyArgs']]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_asset_model_composite_model_external_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 path: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 composed_asset_model_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 composite_model_properties: pulumi.Input[Optional[Sequence[pulumi.Input['AssetModelPropertyArgs']]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_asset_model_composite_model_external_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 path: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Contains a composite model definition in an asset model. This composite model definition is applied to all assets created from the asset model.
 
@@ -665,86 +665,86 @@ class AssetModelCompositeModelArgs:
 
     @_builtins.property
     @pulumi.getter(name="composedAssetModelId")
-    def composed_asset_model_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def composed_asset_model_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The component model ID for which the composite model is composed of
         """
         return pulumi.get(self, "composed_asset_model_id")
 
     @composed_asset_model_id.setter
-    def composed_asset_model_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def composed_asset_model_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "composed_asset_model_id", value)
 
     @_builtins.property
     @pulumi.getter(name="compositeModelProperties")
-    def composite_model_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssetModelPropertyArgs']]]]:
+    def composite_model_properties(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AssetModelPropertyArgs']]]]:
         """
         The property definitions of the asset model. You can specify up to 200 properties per asset model.
         """
         return pulumi.get(self, "composite_model_properties")
 
     @composite_model_properties.setter
-    def composite_model_properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AssetModelPropertyArgs']]]]):
+    def composite_model_properties(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AssetModelPropertyArgs']]]]):
         pulumi.set(self, "composite_model_properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description for the asset composite model.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="externalId")
-    def external_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def external_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The External ID of the composite model
         """
         return pulumi.get(self, "external_id")
 
     @external_id.setter
-    def external_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def external_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "external_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Actual ID of the composite model
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter(name="parentAssetModelCompositeModelExternalId")
-    def parent_asset_model_composite_model_external_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parent_asset_model_composite_model_external_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The parent composite model External ID
         """
         return pulumi.get(self, "parent_asset_model_composite_model_external_id")
 
     @parent_asset_model_composite_model_external_id.setter
-    def parent_asset_model_composite_model_external_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parent_asset_model_composite_model_external_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parent_asset_model_composite_model_external_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def path(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def path(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The path of the composite model. This is only for derived composite models
         """
         return pulumi.get(self, "path")
 
     @path.setter
-    def path(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def path(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "path", value)
 
 
@@ -756,11 +756,11 @@ class AssetModelEnforcedAssetModelInterfacePropertyMappingArgsDict(TypedDict):
     """
     The external ID of the enforced interface property
     """
-    asset_model_property_external_id: NotRequired[pulumi.Input[_builtins.str]]
+    asset_model_property_external_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The external ID of the enforced asset model property
     """
-    asset_model_property_logical_id: NotRequired[pulumi.Input[_builtins.str]]
+    asset_model_property_logical_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The logical ID of the enforced asset model property
     """
@@ -769,8 +769,8 @@ class AssetModelEnforcedAssetModelInterfacePropertyMappingArgsDict(TypedDict):
 class AssetModelEnforcedAssetModelInterfacePropertyMappingArgs:
     def __init__(__self__, *,
                  interface_asset_model_property_external_id: pulumi.Input[_builtins.str],
-                 asset_model_property_external_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 asset_model_property_logical_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 asset_model_property_external_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 asset_model_property_logical_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Contains information about enforced interface property and asset model property
 
@@ -798,26 +798,26 @@ class AssetModelEnforcedAssetModelInterfacePropertyMappingArgs:
 
     @_builtins.property
     @pulumi.getter(name="assetModelPropertyExternalId")
-    def asset_model_property_external_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def asset_model_property_external_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The external ID of the enforced asset model property
         """
         return pulumi.get(self, "asset_model_property_external_id")
 
     @asset_model_property_external_id.setter
-    def asset_model_property_external_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def asset_model_property_external_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "asset_model_property_external_id", value)
 
     @_builtins.property
     @pulumi.getter(name="assetModelPropertyLogicalId")
-    def asset_model_property_logical_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def asset_model_property_logical_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The logical ID of the enforced asset model property
         """
         return pulumi.get(self, "asset_model_property_logical_id")
 
     @asset_model_property_logical_id.setter
-    def asset_model_property_logical_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def asset_model_property_logical_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "asset_model_property_logical_id", value)
 
 
@@ -825,11 +825,11 @@ class AssetModelEnforcedAssetModelInterfaceRelationshipArgsDict(TypedDict):
     """
     Contains information about enforced interface hierarchy and asset model hierarchy
     """
-    interface_asset_model_id: NotRequired[pulumi.Input[_builtins.str]]
+    interface_asset_model_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the interface that is enforced to the asset model
     """
-    property_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['AssetModelEnforcedAssetModelInterfacePropertyMappingArgsDict']]]]
+    property_mappings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AssetModelEnforcedAssetModelInterfacePropertyMappingArgsDict']]]]]
     """
     Contains information about enforced interface property and asset model property
     """
@@ -837,8 +837,8 @@ class AssetModelEnforcedAssetModelInterfaceRelationshipArgsDict(TypedDict):
 @pulumi.input_type
 class AssetModelEnforcedAssetModelInterfaceRelationshipArgs:
     def __init__(__self__, *,
-                 interface_asset_model_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 property_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['AssetModelEnforcedAssetModelInterfacePropertyMappingArgs']]]] = None):
+                 interface_asset_model_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 property_mappings: pulumi.Input[Optional[Sequence[pulumi.Input['AssetModelEnforcedAssetModelInterfacePropertyMappingArgs']]]] = None):
         """
         Contains information about enforced interface hierarchy and asset model hierarchy
 
@@ -852,26 +852,26 @@ class AssetModelEnforcedAssetModelInterfaceRelationshipArgs:
 
     @_builtins.property
     @pulumi.getter(name="interfaceAssetModelId")
-    def interface_asset_model_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def interface_asset_model_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the interface that is enforced to the asset model
         """
         return pulumi.get(self, "interface_asset_model_id")
 
     @interface_asset_model_id.setter
-    def interface_asset_model_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def interface_asset_model_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "interface_asset_model_id", value)
 
     @_builtins.property
     @pulumi.getter(name="propertyMappings")
-    def property_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssetModelEnforcedAssetModelInterfacePropertyMappingArgs']]]]:
+    def property_mappings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AssetModelEnforcedAssetModelInterfacePropertyMappingArgs']]]]:
         """
         Contains information about enforced interface property and asset model property
         """
         return pulumi.get(self, "property_mappings")
 
     @property_mappings.setter
-    def property_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AssetModelEnforcedAssetModelInterfacePropertyMappingArgs']]]]):
+    def property_mappings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AssetModelEnforcedAssetModelInterfacePropertyMappingArgs']]]]):
         pulumi.set(self, "property_mappings", value)
 
 
@@ -934,15 +934,15 @@ class AssetModelHierarchyArgsDict(TypedDict):
     """
     The name of the asset model hierarchy.
     """
-    external_id: NotRequired[pulumi.Input[_builtins.str]]
+    external_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Customer provided external ID for hierarchy
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Customer provided actual ID for hierarchy
     """
-    logical_id: NotRequired[pulumi.Input[_builtins.str]]
+    logical_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Customer provided logical ID for hierarchy.
     """
@@ -952,9 +952,9 @@ class AssetModelHierarchyArgs:
     def __init__(__self__, *,
                  child_asset_model_id: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
-                 external_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 logical_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 external_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 logical_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Contains information about an asset model hierarchy.
 
@@ -999,38 +999,38 @@ class AssetModelHierarchyArgs:
 
     @_builtins.property
     @pulumi.getter(name="externalId")
-    def external_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def external_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Customer provided external ID for hierarchy
         """
         return pulumi.get(self, "external_id")
 
     @external_id.setter
-    def external_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def external_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "external_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Customer provided actual ID for hierarchy
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter(name="logicalId")
-    def logical_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def logical_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Customer provided logical ID for hierarchy.
         """
         return pulumi.get(self, "logical_id")
 
     @logical_id.setter
-    def logical_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def logical_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "logical_id", value)
 
 
@@ -1038,7 +1038,7 @@ class AssetModelMetricWindowArgsDict(TypedDict):
     """
     Contains a time interval window used for data aggregate computations (for example, average, sum, count, and so on).
     """
-    tumbling: NotRequired[pulumi.Input['AssetModelTumblingWindowArgsDict']]
+    tumbling: NotRequired[pulumi.Input[Optional['AssetModelTumblingWindowArgsDict']]]
     """
     The tumbling time interval window.
     """
@@ -1046,7 +1046,7 @@ class AssetModelMetricWindowArgsDict(TypedDict):
 @pulumi.input_type
 class AssetModelMetricWindowArgs:
     def __init__(__self__, *,
-                 tumbling: Optional[pulumi.Input['AssetModelTumblingWindowArgs']] = None):
+                 tumbling: pulumi.Input[Optional['AssetModelTumblingWindowArgs']] = None):
         """
         Contains a time interval window used for data aggregate computations (for example, average, sum, count, and so on).
 
@@ -1057,14 +1057,14 @@ class AssetModelMetricWindowArgs:
 
     @_builtins.property
     @pulumi.getter
-    def tumbling(self) -> Optional[pulumi.Input['AssetModelTumblingWindowArgs']]:
+    def tumbling(self) -> pulumi.Input[Optional['AssetModelTumblingWindowArgs']]:
         """
         The tumbling time interval window.
         """
         return pulumi.get(self, "tumbling")
 
     @tumbling.setter
-    def tumbling(self, value: Optional[pulumi.Input['AssetModelTumblingWindowArgs']]):
+    def tumbling(self, value: pulumi.Input[Optional['AssetModelTumblingWindowArgs']]):
         pulumi.set(self, "tumbling", value)
 
 
@@ -1175,15 +1175,15 @@ class AssetModelPropertyTypeArgsDict(TypedDict):
     """
     The type of property type, which can be one of `Attribute` , `Measurement` , `Metric` , or `Transform` .
     """
-    attribute: NotRequired[pulumi.Input['AssetModelAttributeArgsDict']]
+    attribute: NotRequired[pulumi.Input[Optional['AssetModelAttributeArgsDict']]]
     """
     Specifies an asset attribute property. An attribute generally contains static information, such as the serial number of an [IIoT](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/Internet_of_things#Industrial_applications) wind turbine.
     """
-    metric: NotRequired[pulumi.Input['AssetModelMetricArgsDict']]
+    metric: NotRequired[pulumi.Input[Optional['AssetModelMetricArgsDict']]]
     """
     Specifies an asset metric property. A metric contains a mathematical expression that uses aggregate functions to process all input data points over a time interval and output a single data point, such as to calculate the average hourly temperature.
     """
-    transform: NotRequired[pulumi.Input['AssetModelTransformArgsDict']]
+    transform: NotRequired[pulumi.Input[Optional['AssetModelTransformArgsDict']]]
     """
     Specifies an asset transform property. A transform contains a mathematical expression that maps a property's data points from one form to another, such as a unit conversion from Celsius to Fahrenheit.
     """
@@ -1192,9 +1192,9 @@ class AssetModelPropertyTypeArgsDict(TypedDict):
 class AssetModelPropertyTypeArgs:
     def __init__(__self__, *,
                  type_name: pulumi.Input['AssetModelTypeName'],
-                 attribute: Optional[pulumi.Input['AssetModelAttributeArgs']] = None,
-                 metric: Optional[pulumi.Input['AssetModelMetricArgs']] = None,
-                 transform: Optional[pulumi.Input['AssetModelTransformArgs']] = None):
+                 attribute: pulumi.Input[Optional['AssetModelAttributeArgs']] = None,
+                 metric: pulumi.Input[Optional['AssetModelMetricArgs']] = None,
+                 transform: pulumi.Input[Optional['AssetModelTransformArgs']] = None):
         """
         Contains a property type, which can be one of attribute, measurement, metric, or transform.
 
@@ -1225,38 +1225,38 @@ class AssetModelPropertyTypeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def attribute(self) -> Optional[pulumi.Input['AssetModelAttributeArgs']]:
+    def attribute(self) -> pulumi.Input[Optional['AssetModelAttributeArgs']]:
         """
         Specifies an asset attribute property. An attribute generally contains static information, such as the serial number of an [IIoT](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/Internet_of_things#Industrial_applications) wind turbine.
         """
         return pulumi.get(self, "attribute")
 
     @attribute.setter
-    def attribute(self, value: Optional[pulumi.Input['AssetModelAttributeArgs']]):
+    def attribute(self, value: pulumi.Input[Optional['AssetModelAttributeArgs']]):
         pulumi.set(self, "attribute", value)
 
     @_builtins.property
     @pulumi.getter
-    def metric(self) -> Optional[pulumi.Input['AssetModelMetricArgs']]:
+    def metric(self) -> pulumi.Input[Optional['AssetModelMetricArgs']]:
         """
         Specifies an asset metric property. A metric contains a mathematical expression that uses aggregate functions to process all input data points over a time interval and output a single data point, such as to calculate the average hourly temperature.
         """
         return pulumi.get(self, "metric")
 
     @metric.setter
-    def metric(self, value: Optional[pulumi.Input['AssetModelMetricArgs']]):
+    def metric(self, value: pulumi.Input[Optional['AssetModelMetricArgs']]):
         pulumi.set(self, "metric", value)
 
     @_builtins.property
     @pulumi.getter
-    def transform(self) -> Optional[pulumi.Input['AssetModelTransformArgs']]:
+    def transform(self) -> pulumi.Input[Optional['AssetModelTransformArgs']]:
         """
         Specifies an asset transform property. A transform contains a mathematical expression that maps a property's data points from one form to another, such as a unit conversion from Celsius to Fahrenheit.
         """
         return pulumi.get(self, "transform")
 
     @transform.setter
-    def transform(self, value: Optional[pulumi.Input['AssetModelTransformArgs']]):
+    def transform(self, value: pulumi.Input[Optional['AssetModelTransformArgs']]):
         pulumi.set(self, "transform", value)
 
 
@@ -1276,23 +1276,23 @@ class AssetModelPropertyArgsDict(TypedDict):
     """
     The property type
     """
-    data_type_spec: NotRequired[pulumi.Input['AssetModelDataTypeSpec']]
+    data_type_spec: NotRequired[pulumi.Input[Optional['AssetModelDataTypeSpec']]]
     """
     The data type of the structure for this property.
     """
-    external_id: NotRequired[pulumi.Input[_builtins.str]]
+    external_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The External ID of the Asset Model Property
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Asset Model Property
     """
-    logical_id: NotRequired[pulumi.Input[_builtins.str]]
+    logical_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Customer provided Logical ID for property.
     """
-    unit: NotRequired[pulumi.Input[_builtins.str]]
+    unit: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The unit of the asset model property, such as Newtons or RPM.
     """
@@ -1303,11 +1303,11 @@ class AssetModelPropertyArgs:
                  data_type: pulumi.Input['AssetModelDataType'],
                  name: pulumi.Input[_builtins.str],
                  type: pulumi.Input['AssetModelPropertyTypeArgs'],
-                 data_type_spec: Optional[pulumi.Input['AssetModelDataTypeSpec']] = None,
-                 external_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 logical_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 unit: Optional[pulumi.Input[_builtins.str]] = None):
+                 data_type_spec: pulumi.Input[Optional['AssetModelDataTypeSpec']] = None,
+                 external_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 logical_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 unit: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Contains information about an asset model property.
 
@@ -1372,62 +1372,62 @@ class AssetModelPropertyArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataTypeSpec")
-    def data_type_spec(self) -> Optional[pulumi.Input['AssetModelDataTypeSpec']]:
+    def data_type_spec(self) -> pulumi.Input[Optional['AssetModelDataTypeSpec']]:
         """
         The data type of the structure for this property.
         """
         return pulumi.get(self, "data_type_spec")
 
     @data_type_spec.setter
-    def data_type_spec(self, value: Optional[pulumi.Input['AssetModelDataTypeSpec']]):
+    def data_type_spec(self, value: pulumi.Input[Optional['AssetModelDataTypeSpec']]):
         pulumi.set(self, "data_type_spec", value)
 
     @_builtins.property
     @pulumi.getter(name="externalId")
-    def external_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def external_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The External ID of the Asset Model Property
         """
         return pulumi.get(self, "external_id")
 
     @external_id.setter
-    def external_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def external_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "external_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Asset Model Property
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter(name="logicalId")
-    def logical_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def logical_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Customer provided Logical ID for property.
         """
         return pulumi.get(self, "logical_id")
 
     @logical_id.setter
-    def logical_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def logical_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "logical_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def unit(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def unit(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unit of the asset model property, such as Newtons or RPM.
         """
         return pulumi.get(self, "unit")
 
     @unit.setter
-    def unit(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def unit(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "unit", value)
 
 
@@ -1490,7 +1490,7 @@ class AssetModelTumblingWindowArgsDict(TypedDict):
 
     When AWS IoT SiteWise aggregates data points for metric computations, the start of each interval is exclusive and the end of each interval is inclusive. AWS IoT SiteWise places the computed data point at the end of the interval.
     """
-    offset: NotRequired[pulumi.Input[_builtins.str]]
+    offset: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The offset for the tumbling window. The `offset` parameter accepts the following:
 
@@ -1521,7 +1521,7 @@ class AssetModelTumblingWindowArgsDict(TypedDict):
 class AssetModelTumblingWindowArgs:
     def __init__(__self__, *,
                  interval: pulumi.Input[_builtins.str],
-                 offset: Optional[pulumi.Input[_builtins.str]] = None):
+                 offset: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Contains a tumbling window, which is a repeating fixed-sized, non-overlapping, and contiguous time interval. This window is used in metric and aggregation computations.
 
@@ -1576,7 +1576,7 @@ class AssetModelTumblingWindowArgs:
 
     @_builtins.property
     @pulumi.getter
-    def offset(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def offset(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The offset for the tumbling window. The `offset` parameter accepts the following:
 
@@ -1605,38 +1605,38 @@ class AssetModelTumblingWindowArgs:
         return pulumi.get(self, "offset")
 
     @offset.setter
-    def offset(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def offset(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "offset", value)
 
 
 class AssetModelVariableValueArgsDict(TypedDict):
-    hierarchy_external_id: NotRequired[pulumi.Input[_builtins.str]]
+    hierarchy_external_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The External ID of the hierarchy that is trying to be referenced
     """
-    hierarchy_id: NotRequired[pulumi.Input[_builtins.str]]
+    hierarchy_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the hierarchy that is trying to be referenced
     """
-    hierarchy_logical_id: NotRequired[pulumi.Input[_builtins.str]]
+    hierarchy_logical_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The `LogicalID` of the hierarchy to query for the `PropertyLogicalID` .
 
     You use a `hierarchyLogicalID` instead of a model ID because you can have several hierarchies using the same model and therefore the same property. For example, you might have separately grouped assets that come from the same asset model. For more information, see [Defining relationships between asset models (hierarchies)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-hierarchies.html) in the *AWS IoT SiteWise User Guide* .
     """
-    property_external_id: NotRequired[pulumi.Input[_builtins.str]]
+    property_external_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The External ID of the property that is trying to be referenced
     """
-    property_id: NotRequired[pulumi.Input[_builtins.str]]
+    property_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the property that is trying to be referenced
     """
-    property_logical_id: NotRequired[pulumi.Input[_builtins.str]]
+    property_logical_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The `LogicalID` of the property that is being referenced.
     """
-    property_path: NotRequired[pulumi.Input[Sequence[pulumi.Input['AssetModelPropertyPathDefinitionArgsDict']]]]
+    property_path: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AssetModelPropertyPathDefinitionArgsDict']]]]]
     """
     The path of the property that is trying to be referenced
     """
@@ -1644,13 +1644,13 @@ class AssetModelVariableValueArgsDict(TypedDict):
 @pulumi.input_type
 class AssetModelVariableValueArgs:
     def __init__(__self__, *,
-                 hierarchy_external_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 hierarchy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 hierarchy_logical_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 property_external_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 property_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 property_logical_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 property_path: Optional[pulumi.Input[Sequence[pulumi.Input['AssetModelPropertyPathDefinitionArgs']]]] = None):
+                 hierarchy_external_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 hierarchy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 hierarchy_logical_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 property_external_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 property_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 property_logical_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 property_path: pulumi.Input[Optional[Sequence[pulumi.Input['AssetModelPropertyPathDefinitionArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] hierarchy_external_id: The External ID of the hierarchy that is trying to be referenced
         :param pulumi.Input[_builtins.str] hierarchy_id: The ID of the hierarchy that is trying to be referenced
@@ -1679,31 +1679,31 @@ class AssetModelVariableValueArgs:
 
     @_builtins.property
     @pulumi.getter(name="hierarchyExternalId")
-    def hierarchy_external_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hierarchy_external_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The External ID of the hierarchy that is trying to be referenced
         """
         return pulumi.get(self, "hierarchy_external_id")
 
     @hierarchy_external_id.setter
-    def hierarchy_external_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hierarchy_external_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hierarchy_external_id", value)
 
     @_builtins.property
     @pulumi.getter(name="hierarchyId")
-    def hierarchy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hierarchy_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the hierarchy that is trying to be referenced
         """
         return pulumi.get(self, "hierarchy_id")
 
     @hierarchy_id.setter
-    def hierarchy_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hierarchy_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hierarchy_id", value)
 
     @_builtins.property
     @pulumi.getter(name="hierarchyLogicalId")
-    def hierarchy_logical_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hierarchy_logical_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The `LogicalID` of the hierarchy to query for the `PropertyLogicalID` .
 
@@ -1712,55 +1712,55 @@ class AssetModelVariableValueArgs:
         return pulumi.get(self, "hierarchy_logical_id")
 
     @hierarchy_logical_id.setter
-    def hierarchy_logical_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hierarchy_logical_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hierarchy_logical_id", value)
 
     @_builtins.property
     @pulumi.getter(name="propertyExternalId")
-    def property_external_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def property_external_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The External ID of the property that is trying to be referenced
         """
         return pulumi.get(self, "property_external_id")
 
     @property_external_id.setter
-    def property_external_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def property_external_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "property_external_id", value)
 
     @_builtins.property
     @pulumi.getter(name="propertyId")
-    def property_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def property_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the property that is trying to be referenced
         """
         return pulumi.get(self, "property_id")
 
     @property_id.setter
-    def property_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def property_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "property_id", value)
 
     @_builtins.property
     @pulumi.getter(name="propertyLogicalId")
-    def property_logical_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def property_logical_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The `LogicalID` of the property that is being referenced.
         """
         return pulumi.get(self, "property_logical_id")
 
     @property_logical_id.setter
-    def property_logical_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def property_logical_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "property_logical_id", value)
 
     @_builtins.property
     @pulumi.getter(name="propertyPath")
-    def property_path(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssetModelPropertyPathDefinitionArgs']]]]:
+    def property_path(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AssetModelPropertyPathDefinitionArgs']]]]:
         """
         The path of the property that is trying to be referenced
         """
         return pulumi.get(self, "property_path")
 
     @property_path.setter
-    def property_path(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AssetModelPropertyPathDefinitionArgs']]]]):
+    def property_path(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AssetModelPropertyPathDefinitionArgs']]]]):
         pulumi.set(self, "property_path", value)
 
 
@@ -1768,27 +1768,27 @@ class AssetPropertyArgsDict(TypedDict):
     """
     The asset property's definition, alias, unit, and notification state.
     """
-    alias: NotRequired[pulumi.Input[_builtins.str]]
+    alias: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The property alias that identifies the property.
     """
-    external_id: NotRequired[pulumi.Input[_builtins.str]]
+    external_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     String-friendly customer provided external ID
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Customer provided actual UUID for property
     """
-    logical_id: NotRequired[pulumi.Input[_builtins.str]]
+    logical_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Customer provided ID for property.
     """
-    notification_state: NotRequired[pulumi.Input['AssetPropertyNotificationState']]
+    notification_state: NotRequired[pulumi.Input[Optional['AssetPropertyNotificationState']]]
     """
     The MQTT notification state (ENABLED or DISABLED) for this asset property.
     """
-    unit: NotRequired[pulumi.Input[_builtins.str]]
+    unit: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The unit of measure (such as Newtons or RPM) of the asset property. If you don't specify a value for this parameter, the service uses the value of the assetModelProperty in the asset model.
     """
@@ -1796,12 +1796,12 @@ class AssetPropertyArgsDict(TypedDict):
 @pulumi.input_type
 class AssetPropertyArgs:
     def __init__(__self__, *,
-                 alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 logical_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_state: Optional[pulumi.Input['AssetPropertyNotificationState']] = None,
-                 unit: Optional[pulumi.Input[_builtins.str]] = None):
+                 alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 logical_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_state: pulumi.Input[Optional['AssetPropertyNotificationState']] = None,
+                 unit: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The asset property's definition, alias, unit, and notification state.
 
@@ -1827,74 +1827,74 @@ class AssetPropertyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def alias(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def alias(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The property alias that identifies the property.
         """
         return pulumi.get(self, "alias")
 
     @alias.setter
-    def alias(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def alias(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "alias", value)
 
     @_builtins.property
     @pulumi.getter(name="externalId")
-    def external_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def external_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         String-friendly customer provided external ID
         """
         return pulumi.get(self, "external_id")
 
     @external_id.setter
-    def external_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def external_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "external_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Customer provided actual UUID for property
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter(name="logicalId")
-    def logical_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def logical_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Customer provided ID for property.
         """
         return pulumi.get(self, "logical_id")
 
     @logical_id.setter
-    def logical_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def logical_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "logical_id", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationState")
-    def notification_state(self) -> Optional[pulumi.Input['AssetPropertyNotificationState']]:
+    def notification_state(self) -> pulumi.Input[Optional['AssetPropertyNotificationState']]:
         """
         The MQTT notification state (ENABLED or DISABLED) for this asset property.
         """
         return pulumi.get(self, "notification_state")
 
     @notification_state.setter
-    def notification_state(self, value: Optional[pulumi.Input['AssetPropertyNotificationState']]):
+    def notification_state(self, value: pulumi.Input[Optional['AssetPropertyNotificationState']]):
         pulumi.set(self, "notification_state", value)
 
     @_builtins.property
     @pulumi.getter
-    def unit(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def unit(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unit of measure (such as Newtons or RPM) of the asset property. If you don't specify a value for this parameter, the service uses the value of the assetModelProperty in the asset model.
         """
         return pulumi.get(self, "unit")
 
     @unit.setter
-    def unit(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def unit(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "unit", value)
 
 
@@ -1946,7 +1946,7 @@ class DatasetKendraSourceDetailArgs:
 
 
 class DatasetSourceDetailArgsDict(TypedDict):
-    kendra: NotRequired[pulumi.Input['DatasetKendraSourceDetailArgsDict']]
+    kendra: NotRequired[pulumi.Input[Optional['DatasetKendraSourceDetailArgsDict']]]
     """
     Contains details about the Kendra dataset source.
     """
@@ -1954,7 +1954,7 @@ class DatasetSourceDetailArgsDict(TypedDict):
 @pulumi.input_type
 class DatasetSourceDetailArgs:
     def __init__(__self__, *,
-                 kendra: Optional[pulumi.Input['DatasetKendraSourceDetailArgs']] = None):
+                 kendra: pulumi.Input[Optional['DatasetKendraSourceDetailArgs']] = None):
         """
         :param pulumi.Input['DatasetKendraSourceDetailArgs'] kendra: Contains details about the Kendra dataset source.
         """
@@ -1963,14 +1963,14 @@ class DatasetSourceDetailArgs:
 
     @_builtins.property
     @pulumi.getter
-    def kendra(self) -> Optional[pulumi.Input['DatasetKendraSourceDetailArgs']]:
+    def kendra(self) -> pulumi.Input[Optional['DatasetKendraSourceDetailArgs']]:
         """
         Contains details about the Kendra dataset source.
         """
         return pulumi.get(self, "kendra")
 
     @kendra.setter
-    def kendra(self, value: Optional[pulumi.Input['DatasetKendraSourceDetailArgs']]):
+    def kendra(self, value: pulumi.Input[Optional['DatasetKendraSourceDetailArgs']]):
         pulumi.set(self, "kendra", value)
 
 
@@ -1983,7 +1983,7 @@ class DatasetSourceArgsDict(TypedDict):
     """
     The type of data source for the dataset.
     """
-    source_detail: NotRequired[pulumi.Input['DatasetSourceDetailArgsDict']]
+    source_detail: NotRequired[pulumi.Input[Optional['DatasetSourceDetailArgsDict']]]
     """
     The details of the dataset source associated with the dataset.
     """
@@ -1993,7 +1993,7 @@ class DatasetSourceArgs:
     def __init__(__self__, *,
                  source_format: pulumi.Input['DatasetSourceSourceFormat'],
                  source_type: pulumi.Input['DatasetSourceSourceType'],
-                 source_detail: Optional[pulumi.Input['DatasetSourceDetailArgs']] = None):
+                 source_detail: pulumi.Input[Optional['DatasetSourceDetailArgs']] = None):
         """
         :param pulumi.Input['DatasetSourceSourceFormat'] source_format: The format of the dataset source associated with the dataset.
         :param pulumi.Input['DatasetSourceSourceType'] source_type: The type of data source for the dataset.
@@ -2030,14 +2030,14 @@ class DatasetSourceArgs:
 
     @_builtins.property
     @pulumi.getter(name="sourceDetail")
-    def source_detail(self) -> Optional[pulumi.Input['DatasetSourceDetailArgs']]:
+    def source_detail(self) -> pulumi.Input[Optional['DatasetSourceDetailArgs']]:
         """
         The details of the dataset source associated with the dataset.
         """
         return pulumi.get(self, "source_detail")
 
     @source_detail.setter
-    def source_detail(self, value: Optional[pulumi.Input['DatasetSourceDetailArgs']]):
+    def source_detail(self, value: pulumi.Input[Optional['DatasetSourceDetailArgs']]):
         pulumi.set(self, "source_detail", value)
 
 
@@ -2049,7 +2049,7 @@ class GatewayCapabilitySummaryArgsDict(TypedDict):
     """
     The namespace of the capability configuration. For example, if you configure OPC UA sources for an MQTT-enabled gateway, your OPC-UA capability configuration has the namespace `iotsitewise:opcuacollector:3` .
     """
-    capability_configuration: NotRequired[pulumi.Input[_builtins.str]]
+    capability_configuration: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The JSON document that defines the configuration for the gateway capability. For more information, see [Configuring data sources (CLI)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/configure-sources.html#configure-source-cli) in the *AWS IoT SiteWise User Guide* .
     """
@@ -2058,7 +2058,7 @@ class GatewayCapabilitySummaryArgsDict(TypedDict):
 class GatewayCapabilitySummaryArgs:
     def __init__(__self__, *,
                  capability_namespace: pulumi.Input[_builtins.str],
-                 capability_configuration: Optional[pulumi.Input[_builtins.str]] = None):
+                 capability_configuration: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Contains a summary of a gateway capability configuration.
 
@@ -2083,14 +2083,14 @@ class GatewayCapabilitySummaryArgs:
 
     @_builtins.property
     @pulumi.getter(name="capabilityConfiguration")
-    def capability_configuration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def capability_configuration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The JSON document that defines the configuration for the gateway capability. For more information, see [Configuring data sources (CLI)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/configure-sources.html#configure-source-cli) in the *AWS IoT SiteWise User Guide* .
         """
         return pulumi.get(self, "capability_configuration")
 
     @capability_configuration.setter
-    def capability_configuration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def capability_configuration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "capability_configuration", value)
 
 
@@ -2102,7 +2102,7 @@ class GatewayGreengrassV2ArgsDict(TypedDict):
     """
     The name of the CoreDevice in GreenGrass V2.
     """
-    core_device_operating_system: NotRequired[pulumi.Input['GatewayGreengrassV2CoreDeviceOperatingSystem']]
+    core_device_operating_system: NotRequired[pulumi.Input[Optional['GatewayGreengrassV2CoreDeviceOperatingSystem']]]
     """
     The operating system of the core device in AWS IoT Greengrass V2.
     """
@@ -2111,7 +2111,7 @@ class GatewayGreengrassV2ArgsDict(TypedDict):
 class GatewayGreengrassV2Args:
     def __init__(__self__, *,
                  core_device_thing_name: pulumi.Input[_builtins.str],
-                 core_device_operating_system: Optional[pulumi.Input['GatewayGreengrassV2CoreDeviceOperatingSystem']] = None):
+                 core_device_operating_system: pulumi.Input[Optional['GatewayGreengrassV2CoreDeviceOperatingSystem']] = None):
         """
         Contains the CoreDeviceThingName of AWS IoT Greengrass Group V2 that the gateway runs on.
 
@@ -2136,14 +2136,14 @@ class GatewayGreengrassV2Args:
 
     @_builtins.property
     @pulumi.getter(name="coreDeviceOperatingSystem")
-    def core_device_operating_system(self) -> Optional[pulumi.Input['GatewayGreengrassV2CoreDeviceOperatingSystem']]:
+    def core_device_operating_system(self) -> pulumi.Input[Optional['GatewayGreengrassV2CoreDeviceOperatingSystem']]:
         """
         The operating system of the core device in AWS IoT Greengrass V2.
         """
         return pulumi.get(self, "core_device_operating_system")
 
     @core_device_operating_system.setter
-    def core_device_operating_system(self, value: Optional[pulumi.Input['GatewayGreengrassV2CoreDeviceOperatingSystem']]):
+    def core_device_operating_system(self, value: pulumi.Input[Optional['GatewayGreengrassV2CoreDeviceOperatingSystem']]):
         pulumi.set(self, "core_device_operating_system", value)
 
 
@@ -2151,11 +2151,11 @@ class GatewayPlatformArgsDict(TypedDict):
     """
     Contains a gateway's platform information.
     """
-    greengrass_v2: NotRequired[pulumi.Input['GatewayGreengrassV2ArgsDict']]
+    greengrass_v2: NotRequired[pulumi.Input[Optional['GatewayGreengrassV2ArgsDict']]]
     """
     A gateway that runs on AWS IoT Greengrass V2.
     """
-    siemens_ie: NotRequired[pulumi.Input['GatewaySiemensIeArgsDict']]
+    siemens_ie: NotRequired[pulumi.Input[Optional['GatewaySiemensIeArgsDict']]]
     """
     A gateway that runs on Siemens Industrial Edge.
     """
@@ -2163,8 +2163,8 @@ class GatewayPlatformArgsDict(TypedDict):
 @pulumi.input_type
 class GatewayPlatformArgs:
     def __init__(__self__, *,
-                 greengrass_v2: Optional[pulumi.Input['GatewayGreengrassV2Args']] = None,
-                 siemens_ie: Optional[pulumi.Input['GatewaySiemensIeArgs']] = None):
+                 greengrass_v2: pulumi.Input[Optional['GatewayGreengrassV2Args']] = None,
+                 siemens_ie: pulumi.Input[Optional['GatewaySiemensIeArgs']] = None):
         """
         Contains a gateway's platform information.
 
@@ -2178,26 +2178,26 @@ class GatewayPlatformArgs:
 
     @_builtins.property
     @pulumi.getter(name="greengrassV2")
-    def greengrass_v2(self) -> Optional[pulumi.Input['GatewayGreengrassV2Args']]:
+    def greengrass_v2(self) -> pulumi.Input[Optional['GatewayGreengrassV2Args']]:
         """
         A gateway that runs on AWS IoT Greengrass V2.
         """
         return pulumi.get(self, "greengrass_v2")
 
     @greengrass_v2.setter
-    def greengrass_v2(self, value: Optional[pulumi.Input['GatewayGreengrassV2Args']]):
+    def greengrass_v2(self, value: pulumi.Input[Optional['GatewayGreengrassV2Args']]):
         pulumi.set(self, "greengrass_v2", value)
 
     @_builtins.property
     @pulumi.getter(name="siemensIe")
-    def siemens_ie(self) -> Optional[pulumi.Input['GatewaySiemensIeArgs']]:
+    def siemens_ie(self) -> pulumi.Input[Optional['GatewaySiemensIeArgs']]:
         """
         A gateway that runs on Siemens Industrial Edge.
         """
         return pulumi.get(self, "siemens_ie")
 
     @siemens_ie.setter
-    def siemens_ie(self, value: Optional[pulumi.Input['GatewaySiemensIeArgs']]):
+    def siemens_ie(self, value: pulumi.Input[Optional['GatewaySiemensIeArgs']]):
         pulumi.set(self, "siemens_ie", value)
 
 

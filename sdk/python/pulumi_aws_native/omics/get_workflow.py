@@ -173,7 +173,7 @@ def get_workflow(id: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         uuid=pulumi.get(__ret__, 'uuid'))
-def get_workflow_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_workflow_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkflowResult]:
     """
     Definition of AWS::Omics::Workflow Resource Type

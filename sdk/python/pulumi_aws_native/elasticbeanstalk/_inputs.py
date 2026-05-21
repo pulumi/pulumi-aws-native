@@ -36,15 +36,15 @@ __all__ = [
 ]
 
 class ApplicationMaxAgeRuleArgsDict(TypedDict):
-    delete_source_from_s3: NotRequired[pulumi.Input[_builtins.bool]]
+    delete_source_from_s3: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Set to true to delete a version's source bundle from Amazon S3 when Elastic Beanstalk deletes the application version.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specify true to apply the rule, or false to disable it.
     """
-    max_age_in_days: NotRequired[pulumi.Input[_builtins.int]]
+    max_age_in_days: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specify the number of days to retain an application versions.
     """
@@ -52,9 +52,9 @@ class ApplicationMaxAgeRuleArgsDict(TypedDict):
 @pulumi.input_type
 class ApplicationMaxAgeRuleArgs:
     def __init__(__self__, *,
-                 delete_source_from_s3: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 max_age_in_days: Optional[pulumi.Input[_builtins.int]] = None):
+                 delete_source_from_s3: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 max_age_in_days: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.bool] delete_source_from_s3: Set to true to delete a version's source bundle from Amazon S3 when Elastic Beanstalk deletes the application version.
         :param pulumi.Input[_builtins.bool] enabled: Specify true to apply the rule, or false to disable it.
@@ -69,51 +69,51 @@ class ApplicationMaxAgeRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="deleteSourceFromS3")
-    def delete_source_from_s3(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def delete_source_from_s3(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to true to delete a version's source bundle from Amazon S3 when Elastic Beanstalk deletes the application version.
         """
         return pulumi.get(self, "delete_source_from_s3")
 
     @delete_source_from_s3.setter
-    def delete_source_from_s3(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def delete_source_from_s3(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "delete_source_from_s3", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specify true to apply the rule, or false to disable it.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="maxAgeInDays")
-    def max_age_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_age_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specify the number of days to retain an application versions.
         """
         return pulumi.get(self, "max_age_in_days")
 
     @max_age_in_days.setter
-    def max_age_in_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_age_in_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_age_in_days", value)
 
 
 class ApplicationMaxCountRuleArgsDict(TypedDict):
-    delete_source_from_s3: NotRequired[pulumi.Input[_builtins.bool]]
+    delete_source_from_s3: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Set to true to delete a version's source bundle from Amazon S3 when Elastic Beanstalk deletes the application version.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specify true to apply the rule, or false to disable it.
     """
-    max_count: NotRequired[pulumi.Input[_builtins.int]]
+    max_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specify the maximum number of application versions to retain.
     """
@@ -121,9 +121,9 @@ class ApplicationMaxCountRuleArgsDict(TypedDict):
 @pulumi.input_type
 class ApplicationMaxCountRuleArgs:
     def __init__(__self__, *,
-                 delete_source_from_s3: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 max_count: Optional[pulumi.Input[_builtins.int]] = None):
+                 delete_source_from_s3: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 max_count: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.bool] delete_source_from_s3: Set to true to delete a version's source bundle from Amazon S3 when Elastic Beanstalk deletes the application version.
         :param pulumi.Input[_builtins.bool] enabled: Specify true to apply the rule, or false to disable it.
@@ -138,47 +138,47 @@ class ApplicationMaxCountRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="deleteSourceFromS3")
-    def delete_source_from_s3(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def delete_source_from_s3(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to true to delete a version's source bundle from Amazon S3 when Elastic Beanstalk deletes the application version.
         """
         return pulumi.get(self, "delete_source_from_s3")
 
     @delete_source_from_s3.setter
-    def delete_source_from_s3(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def delete_source_from_s3(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "delete_source_from_s3", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specify true to apply the rule, or false to disable it.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="maxCount")
-    def max_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specify the maximum number of application versions to retain.
         """
         return pulumi.get(self, "max_count")
 
     @max_count.setter
-    def max_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_count", value)
 
 
 class ApplicationResourceLifecycleConfigArgsDict(TypedDict):
-    service_role: NotRequired[pulumi.Input[_builtins.str]]
+    service_role: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of an IAM service role that Elastic Beanstalk has permission to assume. The ServiceRole property is required the first time that you provide a ResourceLifecycleConfig for the application. After you provide it once, Elastic Beanstalk persists the Service Role with the application, and you don't need to specify it again. You can, however, specify it in subsequent updates to change the Service Role to another value.
     """
-    version_lifecycle_config: NotRequired[pulumi.Input['ApplicationVersionLifecycleConfigArgsDict']]
+    version_lifecycle_config: NotRequired[pulumi.Input[Optional['ApplicationVersionLifecycleConfigArgsDict']]]
     """
     Defines lifecycle settings for application versions.
     """
@@ -186,8 +186,8 @@ class ApplicationResourceLifecycleConfigArgsDict(TypedDict):
 @pulumi.input_type
 class ApplicationResourceLifecycleConfigArgs:
     def __init__(__self__, *,
-                 service_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 version_lifecycle_config: Optional[pulumi.Input['ApplicationVersionLifecycleConfigArgs']] = None):
+                 service_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_lifecycle_config: pulumi.Input[Optional['ApplicationVersionLifecycleConfigArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] service_role: The ARN of an IAM service role that Elastic Beanstalk has permission to assume. The ServiceRole property is required the first time that you provide a ResourceLifecycleConfig for the application. After you provide it once, Elastic Beanstalk persists the Service Role with the application, and you don't need to specify it again. You can, however, specify it in subsequent updates to change the Service Role to another value.
         :param pulumi.Input['ApplicationVersionLifecycleConfigArgs'] version_lifecycle_config: Defines lifecycle settings for application versions.
@@ -199,35 +199,35 @@ class ApplicationResourceLifecycleConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="serviceRole")
-    def service_role(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of an IAM service role that Elastic Beanstalk has permission to assume. The ServiceRole property is required the first time that you provide a ResourceLifecycleConfig for the application. After you provide it once, Elastic Beanstalk persists the Service Role with the application, and you don't need to specify it again. You can, however, specify it in subsequent updates to change the Service Role to another value.
         """
         return pulumi.get(self, "service_role")
 
     @service_role.setter
-    def service_role(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_role(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_role", value)
 
     @_builtins.property
     @pulumi.getter(name="versionLifecycleConfig")
-    def version_lifecycle_config(self) -> Optional[pulumi.Input['ApplicationVersionLifecycleConfigArgs']]:
+    def version_lifecycle_config(self) -> pulumi.Input[Optional['ApplicationVersionLifecycleConfigArgs']]:
         """
         Defines lifecycle settings for application versions.
         """
         return pulumi.get(self, "version_lifecycle_config")
 
     @version_lifecycle_config.setter
-    def version_lifecycle_config(self, value: Optional[pulumi.Input['ApplicationVersionLifecycleConfigArgs']]):
+    def version_lifecycle_config(self, value: pulumi.Input[Optional['ApplicationVersionLifecycleConfigArgs']]):
         pulumi.set(self, "version_lifecycle_config", value)
 
 
 class ApplicationVersionLifecycleConfigArgsDict(TypedDict):
-    max_age_rule: NotRequired[pulumi.Input['ApplicationMaxAgeRuleArgsDict']]
+    max_age_rule: NotRequired[pulumi.Input[Optional['ApplicationMaxAgeRuleArgsDict']]]
     """
     Specify a max age rule to restrict the length of time that application versions are retained for an application.
     """
-    max_count_rule: NotRequired[pulumi.Input['ApplicationMaxCountRuleArgsDict']]
+    max_count_rule: NotRequired[pulumi.Input[Optional['ApplicationMaxCountRuleArgsDict']]]
     """
     Specify a max count rule to restrict the number of application versions that are retained for an application.
     """
@@ -235,8 +235,8 @@ class ApplicationVersionLifecycleConfigArgsDict(TypedDict):
 @pulumi.input_type
 class ApplicationVersionLifecycleConfigArgs:
     def __init__(__self__, *,
-                 max_age_rule: Optional[pulumi.Input['ApplicationMaxAgeRuleArgs']] = None,
-                 max_count_rule: Optional[pulumi.Input['ApplicationMaxCountRuleArgs']] = None):
+                 max_age_rule: pulumi.Input[Optional['ApplicationMaxAgeRuleArgs']] = None,
+                 max_count_rule: pulumi.Input[Optional['ApplicationMaxCountRuleArgs']] = None):
         """
         :param pulumi.Input['ApplicationMaxAgeRuleArgs'] max_age_rule: Specify a max age rule to restrict the length of time that application versions are retained for an application.
         :param pulumi.Input['ApplicationMaxCountRuleArgs'] max_count_rule: Specify a max count rule to restrict the number of application versions that are retained for an application.
@@ -248,26 +248,26 @@ class ApplicationVersionLifecycleConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="maxAgeRule")
-    def max_age_rule(self) -> Optional[pulumi.Input['ApplicationMaxAgeRuleArgs']]:
+    def max_age_rule(self) -> pulumi.Input[Optional['ApplicationMaxAgeRuleArgs']]:
         """
         Specify a max age rule to restrict the length of time that application versions are retained for an application.
         """
         return pulumi.get(self, "max_age_rule")
 
     @max_age_rule.setter
-    def max_age_rule(self, value: Optional[pulumi.Input['ApplicationMaxAgeRuleArgs']]):
+    def max_age_rule(self, value: pulumi.Input[Optional['ApplicationMaxAgeRuleArgs']]):
         pulumi.set(self, "max_age_rule", value)
 
     @_builtins.property
     @pulumi.getter(name="maxCountRule")
-    def max_count_rule(self) -> Optional[pulumi.Input['ApplicationMaxCountRuleArgs']]:
+    def max_count_rule(self) -> pulumi.Input[Optional['ApplicationMaxCountRuleArgs']]:
         """
         Specify a max count rule to restrict the number of application versions that are retained for an application.
         """
         return pulumi.get(self, "max_count_rule")
 
     @max_count_rule.setter
-    def max_count_rule(self, value: Optional[pulumi.Input['ApplicationMaxCountRuleArgs']]):
+    def max_count_rule(self, value: pulumi.Input[Optional['ApplicationMaxCountRuleArgs']]):
         pulumi.set(self, "max_count_rule", value)
 
 
@@ -327,11 +327,11 @@ class ConfigurationTemplateConfigurationOptionSettingArgsDict(TypedDict):
     """
     The name of the configuration option.
     """
-    resource_name: NotRequired[pulumi.Input[_builtins.str]]
+    resource_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A unique resource name for the option setting. Use it for a time–based scaling configuration option. 
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The current value for the configuration option.
     """
@@ -341,8 +341,8 @@ class ConfigurationTemplateConfigurationOptionSettingArgs:
     def __init__(__self__, *,
                  namespace: pulumi.Input[_builtins.str],
                  option_name: pulumi.Input[_builtins.str],
-                 resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] namespace: A unique namespace that identifies the option's associated AWS resource.
         :param pulumi.Input[_builtins.str] option_name: The name of the configuration option.
@@ -382,26 +382,26 @@ class ConfigurationTemplateConfigurationOptionSettingArgs:
 
     @_builtins.property
     @pulumi.getter(name="resourceName")
-    def resource_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A unique resource name for the option setting. Use it for a time–based scaling configuration option. 
         """
         return pulumi.get(self, "resource_name")
 
     @resource_name.setter
-    def resource_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The current value for the configuration option.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
@@ -461,11 +461,11 @@ class EnvironmentOptionSettingArgsDict(TypedDict):
     """
     The name of the configuration option.
     """
-    resource_name: NotRequired[pulumi.Input[_builtins.str]]
+    resource_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A unique resource name for the option setting. Use it for a time–based scaling configuration option.
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The current value for the configuration option.
     """
@@ -475,8 +475,8 @@ class EnvironmentOptionSettingArgs:
     def __init__(__self__, *,
                  namespace: pulumi.Input[_builtins.str],
                  option_name: pulumi.Input[_builtins.str],
-                 resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] namespace: A unique namespace that identifies the option's associated AWS resource.
         :param pulumi.Input[_builtins.str] option_name: The name of the configuration option.
@@ -516,39 +516,39 @@ class EnvironmentOptionSettingArgs:
 
     @_builtins.property
     @pulumi.getter(name="resourceName")
-    def resource_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A unique resource name for the option setting. Use it for a time–based scaling configuration option.
         """
         return pulumi.get(self, "resource_name")
 
     @resource_name.setter
-    def resource_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The current value for the configuration option.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
 class EnvironmentTierArgsDict(TypedDict):
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of this environment tier.
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The type of this environment tier.
     """
-    version: NotRequired[pulumi.Input[_builtins.str]]
+    version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The version of this environment tier. When you don't set a value to it, Elastic Beanstalk uses the latest compatible worker tier version.
     """
@@ -556,9 +556,9 @@ class EnvironmentTierArgsDict(TypedDict):
 @pulumi.input_type
 class EnvironmentTierArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of this environment tier.
         :param pulumi.Input[_builtins.str] type: The type of this environment tier.
@@ -573,38 +573,38 @@ class EnvironmentTierArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of this environment tier.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of this environment tier.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of this environment tier. When you don't set a value to it, Elastic Beanstalk uses the latest compatible worker tier version.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 

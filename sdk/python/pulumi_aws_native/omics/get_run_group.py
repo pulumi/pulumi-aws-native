@@ -165,7 +165,7 @@ def get_run_group(id: Optional[_builtins.str] = None,
         max_runs=pulumi.get(__ret__, 'max_runs'),
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_run_group_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_run_group_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRunGroupResult]:
     """
     Definition of AWS::Omics::RunGroup Resource Type

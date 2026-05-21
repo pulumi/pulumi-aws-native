@@ -60,7 +60,7 @@ class GuardHookS3LocationArgsDict(TypedDict):
     """
     S3 uri of Guard files.
     """
-    version_id: NotRequired[pulumi.Input[_builtins.str]]
+    version_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     S3 object version
     """
@@ -69,7 +69,7 @@ class GuardHookS3LocationArgsDict(TypedDict):
 class GuardHookS3LocationArgs:
     def __init__(__self__, *,
                  uri: pulumi.Input[_builtins.str],
-                 version_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 version_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         S3 Source Location for the Guard files.
 
@@ -94,23 +94,23 @@ class GuardHookS3LocationArgs:
 
     @_builtins.property
     @pulumi.getter(name="versionId")
-    def version_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         S3 object version
         """
         return pulumi.get(self, "version_id")
 
     @version_id.setter
-    def version_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version_id", value)
 
 
 class HookVersionLoggingConfigArgsDict(TypedDict):
-    log_group_name: NotRequired[pulumi.Input[_builtins.str]]
+    log_group_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon CloudWatch log group to which CloudFormation sends error logging information when invoking the type's handlers.
     """
-    log_role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    log_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of the role that CloudFormation should assume when sending log entries to CloudWatch logs.
     """
@@ -118,8 +118,8 @@ class HookVersionLoggingConfigArgsDict(TypedDict):
 @pulumi.input_type
 class HookVersionLoggingConfigArgs:
     def __init__(__self__, *,
-                 log_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_role_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 log_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_role_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] log_group_name: The Amazon CloudWatch log group to which CloudFormation sends error logging information when invoking the type's handlers.
         :param pulumi.Input[_builtins.str] log_role_arn: The ARN of the role that CloudFormation should assume when sending log entries to CloudWatch logs.
@@ -131,26 +131,26 @@ class HookVersionLoggingConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="logGroupName")
-    def log_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon CloudWatch log group to which CloudFormation sends error logging information when invoking the type's handlers.
         """
         return pulumi.get(self, "log_group_name")
 
     @log_group_name.setter
-    def log_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="logRoleArn")
-    def log_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the role that CloudFormation should assume when sending log entries to CloudWatch logs.
         """
         return pulumi.get(self, "log_role_arn")
 
     @log_role_arn.setter
-    def log_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_role_arn", value)
 
 
@@ -207,7 +207,7 @@ class ManagedExecutionPropertiesArgsDict(TypedDict):
     """
     Describes whether StackSets performs non-conflicting operations concurrently and queues conflicting operations.
     """
-    active: NotRequired[pulumi.Input[_builtins.bool]]
+    active: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     When `true` , CloudFormation performs non-conflicting operations concurrently and queues conflicting operations. After conflicting operations finish, CloudFormation starts queued operations in request order.
 
@@ -221,7 +221,7 @@ class ManagedExecutionPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class ManagedExecutionPropertiesArgs:
     def __init__(__self__, *,
-                 active: Optional[pulumi.Input[_builtins.bool]] = None):
+                 active: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Describes whether StackSets performs non-conflicting operations concurrently and queues conflicting operations.
 
@@ -238,7 +238,7 @@ class ManagedExecutionPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def active(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def active(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When `true` , CloudFormation performs non-conflicting operations concurrently and queues conflicting operations. After conflicting operations finish, CloudFormation starts queued operations in request order.
 
@@ -251,7 +251,7 @@ class ManagedExecutionPropertiesArgs:
         return pulumi.get(self, "active")
 
     @active.setter
-    def active(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def active(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "active", value)
 
 
@@ -259,7 +259,7 @@ class OptionsPropertiesArgsDict(TypedDict):
     """
     Specifies the S3 location of your input parameters.
     """
-    input_params: NotRequired[pulumi.Input[Union['GuardHookS3LocationArgsDict', Sequence[pulumi.Input['GuardHookS3LocationArgsDict']]]]]
+    input_params: NotRequired[pulumi.Input[Optional[Union['GuardHookS3LocationArgsDict', Sequence[pulumi.Input['GuardHookS3LocationArgsDict']]]]]]
     """
     Specifies the S3 location where your input parameters are located.
     """
@@ -267,7 +267,7 @@ class OptionsPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class OptionsPropertiesArgs:
     def __init__(__self__, *,
-                 input_params: Optional[pulumi.Input[Union['GuardHookS3LocationArgs', Sequence[pulumi.Input['GuardHookS3LocationArgs']]]]] = None):
+                 input_params: pulumi.Input[Optional[Union['GuardHookS3LocationArgs', Sequence[pulumi.Input['GuardHookS3LocationArgs']]]]] = None):
         """
         Specifies the S3 location of your input parameters.
 
@@ -278,23 +278,23 @@ class OptionsPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="inputParams")
-    def input_params(self) -> Optional[pulumi.Input[Union['GuardHookS3LocationArgs', Sequence[pulumi.Input['GuardHookS3LocationArgs']]]]]:
+    def input_params(self) -> pulumi.Input[Optional[Union['GuardHookS3LocationArgs', Sequence[pulumi.Input['GuardHookS3LocationArgs']]]]]:
         """
         Specifies the S3 location where your input parameters are located.
         """
         return pulumi.get(self, "input_params")
 
     @input_params.setter
-    def input_params(self, value: Optional[pulumi.Input[Union['GuardHookS3LocationArgs', Sequence[pulumi.Input['GuardHookS3LocationArgs']]]]]):
+    def input_params(self, value: pulumi.Input[Optional[Union['GuardHookS3LocationArgs', Sequence[pulumi.Input['GuardHookS3LocationArgs']]]]]):
         pulumi.set(self, "input_params", value)
 
 
 class ResourceVersionLoggingConfigArgsDict(TypedDict):
-    log_group_name: NotRequired[pulumi.Input[_builtins.str]]
+    log_group_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon CloudWatch log group to which CloudFormation sends error logging information when invoking the type's handlers.
     """
-    log_role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    log_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of the role that CloudFormation should assume when sending log entries to CloudWatch logs.
     """
@@ -302,8 +302,8 @@ class ResourceVersionLoggingConfigArgsDict(TypedDict):
 @pulumi.input_type
 class ResourceVersionLoggingConfigArgs:
     def __init__(__self__, *,
-                 log_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_role_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 log_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_role_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] log_group_name: The Amazon CloudWatch log group to which CloudFormation sends error logging information when invoking the type's handlers.
         :param pulumi.Input[_builtins.str] log_role_arn: The ARN of the role that CloudFormation should assume when sending log entries to CloudWatch logs.
@@ -315,26 +315,26 @@ class ResourceVersionLoggingConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="logGroupName")
-    def log_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon CloudWatch log group to which CloudFormation sends error logging information when invoking the type's handlers.
         """
         return pulumi.get(self, "log_group_name")
 
     @log_group_name.setter
-    def log_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="logRoleArn")
-    def log_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the role that CloudFormation should assume when sending log entries to CloudWatch logs.
         """
         return pulumi.get(self, "log_role_arn")
 
     @log_role_arn.setter
-    def log_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_role_arn", value)
 
 
@@ -342,11 +342,11 @@ class StackFiltersPropertiesStackNamesPropertiesArgsDict(TypedDict):
     """
     List of stack names as filters
     """
-    exclude: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    exclude: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of stack names that the hook is going to be excluded from
     """
-    include: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    include: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of stack names that the hook is going to target
     """
@@ -354,8 +354,8 @@ class StackFiltersPropertiesStackNamesPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class StackFiltersPropertiesStackNamesPropertiesArgs:
     def __init__(__self__, *,
-                 exclude: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 include: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 exclude: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 include: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         List of stack names as filters
 
@@ -369,26 +369,26 @@ class StackFiltersPropertiesStackNamesPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def exclude(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def exclude(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of stack names that the hook is going to be excluded from
         """
         return pulumi.get(self, "exclude")
 
     @exclude.setter
-    def exclude(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def exclude(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "exclude", value)
 
     @_builtins.property
     @pulumi.getter
-    def include(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def include(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of stack names that the hook is going to target
         """
         return pulumi.get(self, "include")
 
     @include.setter
-    def include(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def include(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "include", value)
 
 
@@ -396,11 +396,11 @@ class StackFiltersPropertiesStackRolesPropertiesArgsDict(TypedDict):
     """
     List of stack roles that are performing the stack operations.
     """
-    exclude: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    exclude: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of stack roles that the hook is going to be excluded from
     """
-    include: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    include: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of stack roles that the hook is going to target
     """
@@ -408,8 +408,8 @@ class StackFiltersPropertiesStackRolesPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class StackFiltersPropertiesStackRolesPropertiesArgs:
     def __init__(__self__, *,
-                 exclude: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 include: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 exclude: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 include: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         List of stack roles that are performing the stack operations.
 
@@ -423,26 +423,26 @@ class StackFiltersPropertiesStackRolesPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def exclude(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def exclude(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of stack roles that the hook is going to be excluded from
         """
         return pulumi.get(self, "exclude")
 
     @exclude.setter
-    def exclude(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def exclude(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "exclude", value)
 
     @_builtins.property
     @pulumi.getter
-    def include(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def include(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of stack roles that the hook is going to target
         """
         return pulumi.get(self, "include")
 
     @include.setter
-    def include(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def include(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "include", value)
 
 
@@ -454,11 +454,11 @@ class StackFiltersPropertiesArgsDict(TypedDict):
     """
     Attribute to specify the filtering behavior. ANY will make the Hook pass if one filter matches. ALL will make the Hook pass if all filters match
     """
-    stack_names: NotRequired[pulumi.Input['StackFiltersPropertiesStackNamesPropertiesArgsDict']]
+    stack_names: NotRequired[pulumi.Input[Optional['StackFiltersPropertiesStackNamesPropertiesArgsDict']]]
     """
     List of stack names as filters
     """
-    stack_roles: NotRequired[pulumi.Input['StackFiltersPropertiesStackRolesPropertiesArgsDict']]
+    stack_roles: NotRequired[pulumi.Input[Optional['StackFiltersPropertiesStackRolesPropertiesArgsDict']]]
     """
     List of stack roles that are performing the stack operations.
     """
@@ -467,8 +467,8 @@ class StackFiltersPropertiesArgsDict(TypedDict):
 class StackFiltersPropertiesArgs:
     def __init__(__self__, *,
                  filtering_criteria: pulumi.Input['LambdaHookStackFiltersPropertiesFilteringCriteria'],
-                 stack_names: Optional[pulumi.Input['StackFiltersPropertiesStackNamesPropertiesArgs']] = None,
-                 stack_roles: Optional[pulumi.Input['StackFiltersPropertiesStackRolesPropertiesArgs']] = None):
+                 stack_names: pulumi.Input[Optional['StackFiltersPropertiesStackNamesPropertiesArgs']] = None,
+                 stack_roles: pulumi.Input[Optional['StackFiltersPropertiesStackRolesPropertiesArgs']] = None):
         """
         Filters to allow hooks to target specific stack attributes
 
@@ -496,39 +496,39 @@ class StackFiltersPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="stackNames")
-    def stack_names(self) -> Optional[pulumi.Input['StackFiltersPropertiesStackNamesPropertiesArgs']]:
+    def stack_names(self) -> pulumi.Input[Optional['StackFiltersPropertiesStackNamesPropertiesArgs']]:
         """
         List of stack names as filters
         """
         return pulumi.get(self, "stack_names")
 
     @stack_names.setter
-    def stack_names(self, value: Optional[pulumi.Input['StackFiltersPropertiesStackNamesPropertiesArgs']]):
+    def stack_names(self, value: pulumi.Input[Optional['StackFiltersPropertiesStackNamesPropertiesArgs']]):
         pulumi.set(self, "stack_names", value)
 
     @_builtins.property
     @pulumi.getter(name="stackRoles")
-    def stack_roles(self) -> Optional[pulumi.Input['StackFiltersPropertiesStackRolesPropertiesArgs']]:
+    def stack_roles(self) -> pulumi.Input[Optional['StackFiltersPropertiesStackRolesPropertiesArgs']]:
         """
         List of stack roles that are performing the stack operations.
         """
         return pulumi.get(self, "stack_roles")
 
     @stack_roles.setter
-    def stack_roles(self, value: Optional[pulumi.Input['StackFiltersPropertiesStackRolesPropertiesArgs']]):
+    def stack_roles(self, value: pulumi.Input[Optional['StackFiltersPropertiesStackRolesPropertiesArgs']]):
         pulumi.set(self, "stack_roles", value)
 
 
 class StackSetAutoDeploymentArgsDict(TypedDict):
-    depends_on: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    depends_on: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of StackSet ARNs that this StackSet depends on for auto-deployment operations. When auto-deployment is triggered, operations will be sequenced to ensure all dependencies complete successfully before this StackSet's operation begins.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     If set to true, StackSets automatically deploys additional stack instances to AWS Organizations accounts that are added to a target organization or organizational unit (OU) in the specified Regions. If an account is removed from a target organization or OU, StackSets deletes stack instances from the account in the specified Regions.
     """
-    retain_stacks_on_account_removal: NotRequired[pulumi.Input[_builtins.bool]]
+    retain_stacks_on_account_removal: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     If set to true, stack resources are retained when an account is removed from a target organization or OU. If set to false, stack resources are deleted. Specify only if Enabled is set to True.
     """
@@ -536,9 +536,9 @@ class StackSetAutoDeploymentArgsDict(TypedDict):
 @pulumi.input_type
 class StackSetAutoDeploymentArgs:
     def __init__(__self__, *,
-                 depends_on: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 retain_stacks_on_account_removal: Optional[pulumi.Input[_builtins.bool]] = None):
+                 depends_on: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 retain_stacks_on_account_removal: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] depends_on: A list of StackSet ARNs that this StackSet depends on for auto-deployment operations. When auto-deployment is triggered, operations will be sequenced to ensure all dependencies complete successfully before this StackSet's operation begins.
         :param pulumi.Input[_builtins.bool] enabled: If set to true, StackSets automatically deploys additional stack instances to AWS Organizations accounts that are added to a target organization or organizational unit (OU) in the specified Regions. If an account is removed from a target organization or OU, StackSets deletes stack instances from the account in the specified Regions.
@@ -553,38 +553,38 @@ class StackSetAutoDeploymentArgs:
 
     @_builtins.property
     @pulumi.getter(name="dependsOn")
-    def depends_on(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def depends_on(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of StackSet ARNs that this StackSet depends on for auto-deployment operations. When auto-deployment is triggered, operations will be sequenced to ensure all dependencies complete successfully before this StackSet's operation begins.
         """
         return pulumi.get(self, "depends_on")
 
     @depends_on.setter
-    def depends_on(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def depends_on(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "depends_on", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If set to true, StackSets automatically deploys additional stack instances to AWS Organizations accounts that are added to a target organization or organizational unit (OU) in the specified Regions. If an account is removed from a target organization or OU, StackSets deletes stack instances from the account in the specified Regions.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="retainStacksOnAccountRemoval")
-    def retain_stacks_on_account_removal(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def retain_stacks_on_account_removal(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If set to true, stack resources are retained when an account is removed from a target organization or OU. If set to false, stack resources are deleted. Specify only if Enabled is set to True.
         """
         return pulumi.get(self, "retain_stacks_on_account_removal")
 
     @retain_stacks_on_account_removal.setter
-    def retain_stacks_on_account_removal(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def retain_stacks_on_account_removal(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "retain_stacks_on_account_removal", value)
 
 
@@ -592,19 +592,19 @@ class StackSetDeploymentTargetsArgsDict(TypedDict):
     """
      The AWS OrganizationalUnitIds or Accounts for which to create stack instances in the specified Regions.
     """
-    account_filter_type: NotRequired[pulumi.Input['StackSetDeploymentTargetsAccountFilterType']]
+    account_filter_type: NotRequired[pulumi.Input[Optional['StackSetDeploymentTargetsAccountFilterType']]]
     """
     The filter type you want to apply on organizational units and accounts.
     """
-    accounts: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    accounts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     AWS accounts that you want to create stack instances in the specified Region(s) for.
     """
-    accounts_url: NotRequired[pulumi.Input[_builtins.str]]
+    accounts_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Returns the value of the AccountsUrl property.
     """
-    organizational_unit_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    organizational_unit_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The organization root ID or organizational unit (OU) IDs to which StackSets deploys.
     """
@@ -612,10 +612,10 @@ class StackSetDeploymentTargetsArgsDict(TypedDict):
 @pulumi.input_type
 class StackSetDeploymentTargetsArgs:
     def __init__(__self__, *,
-                 account_filter_type: Optional[pulumi.Input['StackSetDeploymentTargetsAccountFilterType']] = None,
-                 accounts: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 accounts_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 organizational_unit_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 account_filter_type: pulumi.Input[Optional['StackSetDeploymentTargetsAccountFilterType']] = None,
+                 accounts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 accounts_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 organizational_unit_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
          The AWS OrganizationalUnitIds or Accounts for which to create stack instances in the specified Regions.
 
@@ -635,50 +635,50 @@ class StackSetDeploymentTargetsArgs:
 
     @_builtins.property
     @pulumi.getter(name="accountFilterType")
-    def account_filter_type(self) -> Optional[pulumi.Input['StackSetDeploymentTargetsAccountFilterType']]:
+    def account_filter_type(self) -> pulumi.Input[Optional['StackSetDeploymentTargetsAccountFilterType']]:
         """
         The filter type you want to apply on organizational units and accounts.
         """
         return pulumi.get(self, "account_filter_type")
 
     @account_filter_type.setter
-    def account_filter_type(self, value: Optional[pulumi.Input['StackSetDeploymentTargetsAccountFilterType']]):
+    def account_filter_type(self, value: pulumi.Input[Optional['StackSetDeploymentTargetsAccountFilterType']]):
         pulumi.set(self, "account_filter_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def accounts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         AWS accounts that you want to create stack instances in the specified Region(s) for.
         """
         return pulumi.get(self, "accounts")
 
     @accounts.setter
-    def accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def accounts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "accounts", value)
 
     @_builtins.property
     @pulumi.getter(name="accountsUrl")
-    def accounts_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def accounts_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Returns the value of the AccountsUrl property.
         """
         return pulumi.get(self, "accounts_url")
 
     @accounts_url.setter
-    def accounts_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def accounts_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "accounts_url", value)
 
     @_builtins.property
     @pulumi.getter(name="organizationalUnitIds")
-    def organizational_unit_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def organizational_unit_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The organization root ID or organizational unit (OU) IDs to which StackSets deploys.
         """
         return pulumi.get(self, "organizational_unit_ids")
 
     @organizational_unit_ids.setter
-    def organizational_unit_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def organizational_unit_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "organizational_unit_ids", value)
 
 
@@ -686,7 +686,7 @@ class StackSetOperationPreferencesArgsDict(TypedDict):
     """
     The user-specified preferences for how AWS CloudFormation performs a stack set operation.
     """
-    concurrency_mode: NotRequired[pulumi.Input['StackSetConcurrencyMode']]
+    concurrency_mode: NotRequired[pulumi.Input[Optional['StackSetConcurrencyMode']]]
     """
     Specifies how the concurrency level behaves during the operation execution.
 
@@ -695,13 +695,13 @@ class StackSetOperationPreferencesArgsDict(TypedDict):
     If failure tolerance or Maximum concurrent accounts are set to percentages, the behavior is similar.
     - `SOFT_FAILURE_TOLERANCE` : This option decouples `FailureToleranceCount` from the actual concurrency. This allows StackSet operations to run at the concurrency level set by the `MaxConcurrentCount` value, or `MaxConcurrentPercentage` , regardless of the number of failures.
     """
-    failure_tolerance_count: NotRequired[pulumi.Input[_builtins.int]]
+    failure_tolerance_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The number of accounts per Region this operation can fail in before CloudFormation stops the operation in that Region. If the operation is stopped in a Region, CloudFormation doesn't attempt the operation in any subsequent Regions.
 
     Conditional: You must specify either `FailureToleranceCount` or `FailureTolerancePercentage` (but not both).
     """
-    failure_tolerance_percentage: NotRequired[pulumi.Input[_builtins.int]]
+    failure_tolerance_percentage: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The percentage of accounts per Region this stack operation can fail in before CloudFormation stops the operation in that Region. If the operation is stopped in a Region, CloudFormation doesn't attempt the operation in any subsequent Regions.
 
@@ -709,7 +709,7 @@ class StackSetOperationPreferencesArgsDict(TypedDict):
 
     Conditional: You must specify either `FailureToleranceCount` or `FailureTolerancePercentage` , but not both.
     """
-    max_concurrent_count: NotRequired[pulumi.Input[_builtins.int]]
+    max_concurrent_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum number of accounts in which to perform this operation at one time. This is dependent on the value of `FailureToleranceCount` . `MaxConcurrentCount` is at most one more than the `FailureToleranceCount` .
 
@@ -717,7 +717,7 @@ class StackSetOperationPreferencesArgsDict(TypedDict):
 
     Conditional: You must specify either `MaxConcurrentCount` or `MaxConcurrentPercentage` , but not both.
     """
-    max_concurrent_percentage: NotRequired[pulumi.Input[_builtins.int]]
+    max_concurrent_percentage: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum percentage of accounts in which to perform this operation at one time.
 
@@ -727,11 +727,11 @@ class StackSetOperationPreferencesArgsDict(TypedDict):
 
     Conditional: You must specify either `MaxConcurrentCount` or `MaxConcurrentPercentage` , but not both.
     """
-    region_concurrency_type: NotRequired[pulumi.Input['StackSetRegionConcurrencyType']]
+    region_concurrency_type: NotRequired[pulumi.Input[Optional['StackSetRegionConcurrencyType']]]
     """
     The concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time.
     """
-    region_order: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    region_order: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The order of the Regions where you want to perform the stack operation.
     """
@@ -739,13 +739,13 @@ class StackSetOperationPreferencesArgsDict(TypedDict):
 @pulumi.input_type
 class StackSetOperationPreferencesArgs:
     def __init__(__self__, *,
-                 concurrency_mode: Optional[pulumi.Input['StackSetConcurrencyMode']] = None,
-                 failure_tolerance_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 failure_tolerance_percentage: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_concurrent_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_concurrent_percentage: Optional[pulumi.Input[_builtins.int]] = None,
-                 region_concurrency_type: Optional[pulumi.Input['StackSetRegionConcurrencyType']] = None,
-                 region_order: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 concurrency_mode: pulumi.Input[Optional['StackSetConcurrencyMode']] = None,
+                 failure_tolerance_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 failure_tolerance_percentage: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_concurrent_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_concurrent_percentage: pulumi.Input[Optional[_builtins.int]] = None,
+                 region_concurrency_type: pulumi.Input[Optional['StackSetRegionConcurrencyType']] = None,
+                 region_order: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The user-specified preferences for how AWS CloudFormation performs a stack set operation.
 
@@ -795,7 +795,7 @@ class StackSetOperationPreferencesArgs:
 
     @_builtins.property
     @pulumi.getter(name="concurrencyMode")
-    def concurrency_mode(self) -> Optional[pulumi.Input['StackSetConcurrencyMode']]:
+    def concurrency_mode(self) -> pulumi.Input[Optional['StackSetConcurrencyMode']]:
         """
         Specifies how the concurrency level behaves during the operation execution.
 
@@ -807,12 +807,12 @@ class StackSetOperationPreferencesArgs:
         return pulumi.get(self, "concurrency_mode")
 
     @concurrency_mode.setter
-    def concurrency_mode(self, value: Optional[pulumi.Input['StackSetConcurrencyMode']]):
+    def concurrency_mode(self, value: pulumi.Input[Optional['StackSetConcurrencyMode']]):
         pulumi.set(self, "concurrency_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="failureToleranceCount")
-    def failure_tolerance_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def failure_tolerance_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of accounts per Region this operation can fail in before CloudFormation stops the operation in that Region. If the operation is stopped in a Region, CloudFormation doesn't attempt the operation in any subsequent Regions.
 
@@ -821,12 +821,12 @@ class StackSetOperationPreferencesArgs:
         return pulumi.get(self, "failure_tolerance_count")
 
     @failure_tolerance_count.setter
-    def failure_tolerance_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def failure_tolerance_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "failure_tolerance_count", value)
 
     @_builtins.property
     @pulumi.getter(name="failureTolerancePercentage")
-    def failure_tolerance_percentage(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def failure_tolerance_percentage(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The percentage of accounts per Region this stack operation can fail in before CloudFormation stops the operation in that Region. If the operation is stopped in a Region, CloudFormation doesn't attempt the operation in any subsequent Regions.
 
@@ -837,12 +837,12 @@ class StackSetOperationPreferencesArgs:
         return pulumi.get(self, "failure_tolerance_percentage")
 
     @failure_tolerance_percentage.setter
-    def failure_tolerance_percentage(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def failure_tolerance_percentage(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "failure_tolerance_percentage", value)
 
     @_builtins.property
     @pulumi.getter(name="maxConcurrentCount")
-    def max_concurrent_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_concurrent_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of accounts in which to perform this operation at one time. This is dependent on the value of `FailureToleranceCount` . `MaxConcurrentCount` is at most one more than the `FailureToleranceCount` .
 
@@ -853,12 +853,12 @@ class StackSetOperationPreferencesArgs:
         return pulumi.get(self, "max_concurrent_count")
 
     @max_concurrent_count.setter
-    def max_concurrent_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_concurrent_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_concurrent_count", value)
 
     @_builtins.property
     @pulumi.getter(name="maxConcurrentPercentage")
-    def max_concurrent_percentage(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_concurrent_percentage(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum percentage of accounts in which to perform this operation at one time.
 
@@ -871,31 +871,31 @@ class StackSetOperationPreferencesArgs:
         return pulumi.get(self, "max_concurrent_percentage")
 
     @max_concurrent_percentage.setter
-    def max_concurrent_percentage(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_concurrent_percentage(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_concurrent_percentage", value)
 
     @_builtins.property
     @pulumi.getter(name="regionConcurrencyType")
-    def region_concurrency_type(self) -> Optional[pulumi.Input['StackSetRegionConcurrencyType']]:
+    def region_concurrency_type(self) -> pulumi.Input[Optional['StackSetRegionConcurrencyType']]:
         """
         The concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time.
         """
         return pulumi.get(self, "region_concurrency_type")
 
     @region_concurrency_type.setter
-    def region_concurrency_type(self, value: Optional[pulumi.Input['StackSetRegionConcurrencyType']]):
+    def region_concurrency_type(self, value: pulumi.Input[Optional['StackSetRegionConcurrencyType']]):
         pulumi.set(self, "region_concurrency_type", value)
 
     @_builtins.property
     @pulumi.getter(name="regionOrder")
-    def region_order(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def region_order(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The order of the Regions where you want to perform the stack operation.
         """
         return pulumi.get(self, "region_order")
 
     @region_order.setter
-    def region_order(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def region_order(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "region_order", value)
 
 
@@ -958,7 +958,7 @@ class StackSetStackInstancesArgsDict(TypedDict):
     """
     The names of one or more Regions where you want to create stack instances using the specified AWS account(s).
     """
-    parameter_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['StackSetParameterArgsDict']]]]
+    parameter_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StackSetParameterArgsDict']]]]]
     """
     A list of stack set parameters whose values you want to override in the selected stack instances.
     """
@@ -968,7 +968,7 @@ class StackSetStackInstancesArgs:
     def __init__(__self__, *,
                  deployment_targets: pulumi.Input['StackSetDeploymentTargetsArgs'],
                  regions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 parameter_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['StackSetParameterArgs']]]] = None):
+                 parameter_overrides: pulumi.Input[Optional[Sequence[pulumi.Input['StackSetParameterArgs']]]] = None):
         """
         Stack instances in some specific accounts and Regions.
 
@@ -1007,14 +1007,14 @@ class StackSetStackInstancesArgs:
 
     @_builtins.property
     @pulumi.getter(name="parameterOverrides")
-    def parameter_overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StackSetParameterArgs']]]]:
+    def parameter_overrides(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['StackSetParameterArgs']]]]:
         """
         A list of stack set parameters whose values you want to override in the selected stack instances.
         """
         return pulumi.get(self, "parameter_overrides")
 
     @parameter_overrides.setter
-    def parameter_overrides(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StackSetParameterArgs']]]]):
+    def parameter_overrides(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['StackSetParameterArgs']]]]):
         pulumi.set(self, "parameter_overrides", value)
 
 
@@ -1022,15 +1022,15 @@ class TargetFilters0PropertiesArgsDict(TypedDict):
     """
     Attribute to specify which targets should invoke the hook
     """
-    actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['LambdaHookAction']]]]
+    actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LambdaHookAction']]]]]
     """
     List of actions that the hook is going to target
     """
-    invocation_points: NotRequired[pulumi.Input[Sequence[pulumi.Input['LambdaHookInvocationPoint']]]]
+    invocation_points: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LambdaHookInvocationPoint']]]]]
     """
     List of invocation points that the hook is going to target
     """
-    target_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    target_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of type names that the hook is going to target
     """
@@ -1038,9 +1038,9 @@ class TargetFilters0PropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class TargetFilters0PropertiesArgs:
     def __init__(__self__, *,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input['LambdaHookAction']]]] = None,
-                 invocation_points: Optional[pulumi.Input[Sequence[pulumi.Input['LambdaHookInvocationPoint']]]] = None,
-                 target_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input['LambdaHookAction']]]] = None,
+                 invocation_points: pulumi.Input[Optional[Sequence[pulumi.Input['LambdaHookInvocationPoint']]]] = None,
+                 target_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Attribute to specify which targets should invoke the hook
 
@@ -1057,38 +1057,38 @@ class TargetFilters0PropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LambdaHookAction']]]]:
+    def actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LambdaHookAction']]]]:
         """
         List of actions that the hook is going to target
         """
         return pulumi.get(self, "actions")
 
     @actions.setter
-    def actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LambdaHookAction']]]]):
+    def actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LambdaHookAction']]]]):
         pulumi.set(self, "actions", value)
 
     @_builtins.property
     @pulumi.getter(name="invocationPoints")
-    def invocation_points(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LambdaHookInvocationPoint']]]]:
+    def invocation_points(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LambdaHookInvocationPoint']]]]:
         """
         List of invocation points that the hook is going to target
         """
         return pulumi.get(self, "invocation_points")
 
     @invocation_points.setter
-    def invocation_points(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LambdaHookInvocationPoint']]]]):
+    def invocation_points(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LambdaHookInvocationPoint']]]]):
         pulumi.set(self, "invocation_points", value)
 
     @_builtins.property
     @pulumi.getter(name="targetNames")
-    def target_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def target_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of type names that the hook is going to target
         """
         return pulumi.get(self, "target_names")
 
     @target_names.setter
-    def target_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def target_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "target_names", value)
 
 
@@ -1126,11 +1126,11 @@ class TargetFilters1PropertiesArgs:
 
 
 class TypeActivationLoggingConfigArgsDict(TypedDict):
-    log_group_name: NotRequired[pulumi.Input[_builtins.str]]
+    log_group_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon CloudWatch log group to which CloudFormation sends error logging information when invoking the type's handlers.
     """
-    log_role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    log_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of the role that CloudFormation should assume when sending log entries to CloudWatch logs.
     """
@@ -1138,8 +1138,8 @@ class TypeActivationLoggingConfigArgsDict(TypedDict):
 @pulumi.input_type
 class TypeActivationLoggingConfigArgs:
     def __init__(__self__, *,
-                 log_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_role_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 log_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_role_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] log_group_name: The Amazon CloudWatch log group to which CloudFormation sends error logging information when invoking the type's handlers.
         :param pulumi.Input[_builtins.str] log_role_arn: The ARN of the role that CloudFormation should assume when sending log entries to CloudWatch logs.
@@ -1151,26 +1151,26 @@ class TypeActivationLoggingConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="logGroupName")
-    def log_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon CloudWatch log group to which CloudFormation sends error logging information when invoking the type's handlers.
         """
         return pulumi.get(self, "log_group_name")
 
     @log_group_name.setter
-    def log_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="logRoleArn")
-    def log_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the role that CloudFormation should assume when sending log entries to CloudWatch logs.
         """
         return pulumi.get(self, "log_role_arn")
 
     @log_role_arn.setter
-    def log_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_role_arn", value)
 
 

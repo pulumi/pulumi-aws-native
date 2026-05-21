@@ -75,7 +75,7 @@ def get_preferences(account_id: Optional[_builtins.str] = None,
     return AwaitableGetPreferencesResult(
         account_id=pulumi.get(__ret__, 'account_id'),
         connection_recording_preferences=pulumi.get(__ret__, 'connection_recording_preferences'))
-def get_preferences_output(account_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_preferences_output(account_id: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPreferencesResult]:
     """
     Definition of AWS::SSMGuiConnect::Preferences Resource Type

@@ -30,19 +30,19 @@ class CrossAccountAttachmentResourceArgsDict(TypedDict):
     """
     ARN of resource to share.
     """
-    cidr: NotRequired[pulumi.Input[_builtins.str]]
+    cidr: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     An IP address range, in CIDR format, that is specified as resource. The address must be provisioned and advertised in AWS Global Accelerator by following the bring your own IP address (BYOIP) process for Global Accelerator
 
     For more information, see [Bring your own IP addresses (BYOIP)](https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html) in the AWS Global Accelerator Developer Guide.
     """
-    endpoint_id: NotRequired[pulumi.Input[_builtins.str]]
+    endpoint_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The endpoint ID for the endpoint that is specified as a AWS resource.
 
     An endpoint ID for the cross-account feature is the ARN of an AWS resource, such as a Network Load Balancer, that Global Accelerator supports as an endpoint for an accelerator.
     """
-    region: NotRequired[pulumi.Input[_builtins.str]]
+    region: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The AWS Region where a shared endpoint resource is located.
     """
@@ -50,9 +50,9 @@ class CrossAccountAttachmentResourceArgsDict(TypedDict):
 @pulumi.input_type
 class CrossAccountAttachmentResourceArgs:
     def __init__(__self__, *,
-                 cidr: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 cidr: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         ARN of resource to share.
 
@@ -73,7 +73,7 @@ class CrossAccountAttachmentResourceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def cidr(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cidr(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An IP address range, in CIDR format, that is specified as resource. The address must be provisioned and advertised in AWS Global Accelerator by following the bring your own IP address (BYOIP) process for Global Accelerator
 
@@ -82,12 +82,12 @@ class CrossAccountAttachmentResourceArgs:
         return pulumi.get(self, "cidr")
 
     @cidr.setter
-    def cidr(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cidr(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cidr", value)
 
     @_builtins.property
     @pulumi.getter(name="endpointId")
-    def endpoint_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The endpoint ID for the endpoint that is specified as a AWS resource.
 
@@ -96,19 +96,19 @@ class CrossAccountAttachmentResourceArgs:
         return pulumi.get(self, "endpoint_id")
 
     @endpoint_id.setter
-    def endpoint_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS Region where a shared endpoint resource is located.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
@@ -120,15 +120,15 @@ class EndpointGroupEndpointConfigurationArgsDict(TypedDict):
     """
     Id of the endpoint. For Network/Application Load Balancer this value is the ARN.  For EIP, this value is the allocation ID.  For EC2 instances, this is the EC2 instance ID
     """
-    attachment_arn: NotRequired[pulumi.Input[_builtins.str]]
+    attachment_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Attachment ARN that provides access control to the cross account endpoint. Not required for resources hosted in the same account as the endpoint group.
     """
-    client_ip_preservation_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    client_ip_preservation_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     true if client ip should be preserved
     """
-    weight: NotRequired[pulumi.Input[_builtins.int]]
+    weight: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The weight for the endpoint.
     """
@@ -137,9 +137,9 @@ class EndpointGroupEndpointConfigurationArgsDict(TypedDict):
 class EndpointGroupEndpointConfigurationArgs:
     def __init__(__self__, *,
                  endpoint_id: pulumi.Input[_builtins.str],
-                 attachment_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_ip_preservation_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 weight: Optional[pulumi.Input[_builtins.int]] = None):
+                 attachment_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_ip_preservation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 weight: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The configuration for a given endpoint
 
@@ -170,38 +170,38 @@ class EndpointGroupEndpointConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="attachmentArn")
-    def attachment_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def attachment_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Attachment ARN that provides access control to the cross account endpoint. Not required for resources hosted in the same account as the endpoint group.
         """
         return pulumi.get(self, "attachment_arn")
 
     @attachment_arn.setter
-    def attachment_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def attachment_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "attachment_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="clientIpPreservationEnabled")
-    def client_ip_preservation_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def client_ip_preservation_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         true if client ip should be preserved
         """
         return pulumi.get(self, "client_ip_preservation_enabled")
 
     @client_ip_preservation_enabled.setter
-    def client_ip_preservation_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def client_ip_preservation_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "client_ip_preservation_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def weight(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def weight(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The weight for the endpoint.
         """
         return pulumi.get(self, "weight")
 
     @weight.setter
-    def weight(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def weight(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "weight", value)
 
 

@@ -168,7 +168,7 @@ def get_rule(arn: Optional[_builtins.str] = None,
         retention_period=pulumi.get(__ret__, 'retention_period'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_rule_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_rule_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRuleResult]:
     """
     Resource Type definition for AWS::Rbin::Rule

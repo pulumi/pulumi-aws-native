@@ -101,7 +101,7 @@ def get_environment(environment_identifier: Optional[_builtins.str] = None,
         environment_identifier=pulumi.get(__ret__, 'environment_identifier'),
         tags=pulumi.get(__ret__, 'tags'),
         transit_gateway_id=pulumi.get(__ret__, 'transit_gateway_id'))
-def get_environment_output(environment_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+def get_environment_output(environment_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnvironmentResult]:
     """
     Definition of AWS::RefactorSpaces::Environment Resource Type

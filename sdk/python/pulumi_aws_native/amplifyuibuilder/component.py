@@ -22,20 +22,20 @@ __all__ = ['ComponentArgs', 'Component']
 @pulumi.input_type
 class ComponentArgs:
     def __init__(__self__, *,
-                 app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 binding_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input['ComponentBindingPropertiesValueArgs']]]] = None,
-                 children: Optional[pulumi.Input[Sequence[pulumi.Input['ComponentChildArgs']]]] = None,
-                 collection_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input['ComponentDataConfigurationArgs']]]] = None,
-                 component_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 events: Optional[pulumi.Input[Mapping[str, pulumi.Input['ComponentEventArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 overrides: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input['ComponentPropertyArgs']]]] = None,
-                 schema_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 variants: Optional[pulumi.Input[Sequence[pulumi.Input['ComponentVariantArgs']]]] = None):
+                 app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 binding_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input['ComponentBindingPropertiesValueArgs']]]] = None,
+                 children: pulumi.Input[Optional[Sequence[pulumi.Input['ComponentChildArgs']]]] = None,
+                 collection_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input['ComponentDataConfigurationArgs']]]] = None,
+                 component_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 events: pulumi.Input[Optional[Mapping[str, pulumi.Input['ComponentEventArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 overrides: pulumi.Input[Optional[Mapping[str, Any]]] = None,
+                 properties: pulumi.Input[Optional[Mapping[str, pulumi.Input['ComponentPropertyArgs']]]] = None,
+                 schema_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 variants: pulumi.Input[Optional[Sequence[pulumi.Input['ComponentVariantArgs']]]] = None):
         """
         The set of arguments for constructing a Component resource.
 
@@ -85,170 +85,170 @@ class ComponentArgs:
 
     @_builtins.property
     @pulumi.getter(name="appId")
-    def app_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique ID of the Amplify app associated with the component.
         """
         return pulumi.get(self, "app_id")
 
     @app_id.setter
-    def app_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_id", value)
 
     @_builtins.property
     @pulumi.getter(name="bindingProperties")
-    def binding_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ComponentBindingPropertiesValueArgs']]]]:
+    def binding_properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['ComponentBindingPropertiesValueArgs']]]]:
         """
         The information to connect a component's properties to data at runtime. You can't specify `tags` as a valid property for `bindingProperties` .
         """
         return pulumi.get(self, "binding_properties")
 
     @binding_properties.setter
-    def binding_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ComponentBindingPropertiesValueArgs']]]]):
+    def binding_properties(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['ComponentBindingPropertiesValueArgs']]]]):
         pulumi.set(self, "binding_properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def children(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ComponentChildArgs']]]]:
+    def children(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ComponentChildArgs']]]]:
         """
         A list of the component's `ComponentChild` instances.
         """
         return pulumi.get(self, "children")
 
     @children.setter
-    def children(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ComponentChildArgs']]]]):
+    def children(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ComponentChildArgs']]]]):
         pulumi.set(self, "children", value)
 
     @_builtins.property
     @pulumi.getter(name="collectionProperties")
-    def collection_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ComponentDataConfigurationArgs']]]]:
+    def collection_properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['ComponentDataConfigurationArgs']]]]:
         """
         The data binding configuration for the component's properties. Use this for a collection component. You can't specify `tags` as a valid property for `collectionProperties` .
         """
         return pulumi.get(self, "collection_properties")
 
     @collection_properties.setter
-    def collection_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ComponentDataConfigurationArgs']]]]):
+    def collection_properties(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['ComponentDataConfigurationArgs']]]]):
         pulumi.set(self, "collection_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="componentType")
-    def component_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def component_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of the component. This can be an Amplify custom UI component or another custom component.
         """
         return pulumi.get(self, "component_type")
 
     @component_type.setter
-    def component_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def component_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "component_type", value)
 
     @_builtins.property
     @pulumi.getter(name="environmentName")
-    def environment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def environment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the backend environment that is a part of the Amplify app.
         """
         return pulumi.get(self, "environment_name")
 
     @environment_name.setter
-    def environment_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def environment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "environment_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def events(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ComponentEventArgs']]]]:
+    def events(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['ComponentEventArgs']]]]:
         """
         Describes the events that can be raised on the component. Use for the workflow feature in Amplify Studio that allows you to bind events and actions to components.
         """
         return pulumi.get(self, "events")
 
     @events.setter
-    def events(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ComponentEventArgs']]]]):
+    def events(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['ComponentEventArgs']]]]):
         pulumi.set(self, "events", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the component.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def overrides(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def overrides(self) -> pulumi.Input[Optional[Mapping[str, Any]]]:
         """
         Describes the component's properties that can be overriden in a customized instance of the component. You can't specify `tags` as a valid property for `overrides` .
         """
         return pulumi.get(self, "overrides")
 
     @overrides.setter
-    def overrides(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def overrides(self, value: pulumi.Input[Optional[Mapping[str, Any]]]):
         pulumi.set(self, "overrides", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ComponentPropertyArgs']]]]:
+    def properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['ComponentPropertyArgs']]]]:
         """
         Describes the component's properties. You can't specify `tags` as a valid property for `properties` .
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ComponentPropertyArgs']]]]):
+    def properties(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['ComponentPropertyArgs']]]]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaVersion")
-    def schema_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def schema_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The schema version of the component when it was imported.
         """
         return pulumi.get(self, "schema_version")
 
     @schema_version.setter
-    def schema_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def schema_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schema_version", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceId")
-    def source_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique ID of the component in its original source system, such as Figma.
         """
         return pulumi.get(self, "source_id")
 
     @source_id.setter
-    def source_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         One or more key-value pairs to use when tagging the component.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def variants(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ComponentVariantArgs']]]]:
+    def variants(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ComponentVariantArgs']]]]:
         """
         A list of the component's variants. A variant is a unique style configuration of a main component.
         """
         return pulumi.get(self, "variants")
 
     @variants.setter
-    def variants(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ComponentVariantArgs']]]]):
+    def variants(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ComponentVariantArgs']]]]):
         pulumi.set(self, "variants", value)
 
 
@@ -258,20 +258,20 @@ class Component(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 binding_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['ComponentBindingPropertiesValueArgs', 'ComponentBindingPropertiesValueArgsDict']]]]] = None,
-                 children: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ComponentChildArgs', 'ComponentChildArgsDict']]]]] = None,
-                 collection_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['ComponentDataConfigurationArgs', 'ComponentDataConfigurationArgsDict']]]]] = None,
-                 component_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 events: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['ComponentEventArgs', 'ComponentEventArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 overrides: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['ComponentPropertyArgs', 'ComponentPropertyArgsDict']]]]] = None,
-                 schema_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 variants: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ComponentVariantArgs', 'ComponentVariantArgsDict']]]]] = None,
+                 app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 binding_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['ComponentBindingPropertiesValueArgs', 'ComponentBindingPropertiesValueArgsDict']]]]] = None,
+                 children: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ComponentChildArgs', 'ComponentChildArgsDict']]]]] = None,
+                 collection_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['ComponentDataConfigurationArgs', 'ComponentDataConfigurationArgsDict']]]]] = None,
+                 component_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 events: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['ComponentEventArgs', 'ComponentEventArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 overrides: pulumi.Input[Optional[Mapping[str, Any]]] = None,
+                 properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['ComponentPropertyArgs', 'ComponentPropertyArgsDict']]]]] = None,
+                 schema_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 variants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ComponentVariantArgs', 'ComponentVariantArgsDict']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::AmplifyUIBuilder::Component Resource Type
@@ -319,20 +319,20 @@ class Component(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 binding_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['ComponentBindingPropertiesValueArgs', 'ComponentBindingPropertiesValueArgsDict']]]]] = None,
-                 children: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ComponentChildArgs', 'ComponentChildArgsDict']]]]] = None,
-                 collection_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['ComponentDataConfigurationArgs', 'ComponentDataConfigurationArgsDict']]]]] = None,
-                 component_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 events: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['ComponentEventArgs', 'ComponentEventArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 overrides: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['ComponentPropertyArgs', 'ComponentPropertyArgsDict']]]]] = None,
-                 schema_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 variants: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ComponentVariantArgs', 'ComponentVariantArgsDict']]]]] = None,
+                 app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 binding_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['ComponentBindingPropertiesValueArgs', 'ComponentBindingPropertiesValueArgsDict']]]]] = None,
+                 children: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ComponentChildArgs', 'ComponentChildArgsDict']]]]] = None,
+                 collection_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['ComponentDataConfigurationArgs', 'ComponentDataConfigurationArgsDict']]]]] = None,
+                 component_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 events: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['ComponentEventArgs', 'ComponentEventArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 overrides: pulumi.Input[Optional[Mapping[str, Any]]] = None,
+                 properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['ComponentPropertyArgs', 'ComponentPropertyArgsDict']]]]] = None,
+                 schema_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 variants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ComponentVariantArgs', 'ComponentVariantArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

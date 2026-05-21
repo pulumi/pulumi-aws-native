@@ -116,7 +116,7 @@ def get_location_f_sx_ontap(location_arn: Optional[_builtins.str] = None,
         location_uri=pulumi.get(__ret__, 'location_uri'),
         protocol=pulumi.get(__ret__, 'protocol'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_location_f_sx_ontap_output(location_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_location_f_sx_ontap_output(location_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocationFSxOntapResult]:
     """
     Resource Type definition for AWS::DataSync::LocationFSxONTAP.

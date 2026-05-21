@@ -237,7 +237,7 @@ def get_location_hdfs(location_arn: Optional[_builtins.str] = None,
         replication_factor=pulumi.get(__ret__, 'replication_factor'),
         simple_user=pulumi.get(__ret__, 'simple_user'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_location_hdfs_output(location_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_location_hdfs_output(location_arn: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocationHdfsResult]:
     """
     Resource Type definition for AWS::DataSync::LocationHDFS.

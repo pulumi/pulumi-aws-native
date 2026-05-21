@@ -25,10 +25,10 @@ __all__ = ['ProtectionArgs', 'Protection']
 class ProtectionArgs:
     def __init__(__self__, *,
                  resource_arn: pulumi.Input[_builtins.str],
-                 application_layer_automatic_response_configuration: Optional[pulumi.Input['ProtectionApplicationLayerAutomaticResponseConfigurationArgs']] = None,
-                 health_check_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 application_layer_automatic_response_configuration: pulumi.Input[Optional['ProtectionApplicationLayerAutomaticResponseConfigurationArgs']] = None,
+                 health_check_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Protection resource.
 
@@ -64,7 +64,7 @@ class ProtectionArgs:
 
     @_builtins.property
     @pulumi.getter(name="applicationLayerAutomaticResponseConfiguration")
-    def application_layer_automatic_response_configuration(self) -> Optional[pulumi.Input['ProtectionApplicationLayerAutomaticResponseConfigurationArgs']]:
+    def application_layer_automatic_response_configuration(self) -> pulumi.Input[Optional['ProtectionApplicationLayerAutomaticResponseConfigurationArgs']]:
         """
         The automatic application layer DDoS mitigation settings for the protection. This configuration determines whether Shield Advanced automatically manages rules in the web ACL in order to respond to application layer events that Shield Advanced determines to be DDoS attacks.
 
@@ -73,43 +73,43 @@ class ProtectionArgs:
         return pulumi.get(self, "application_layer_automatic_response_configuration")
 
     @application_layer_automatic_response_configuration.setter
-    def application_layer_automatic_response_configuration(self, value: Optional[pulumi.Input['ProtectionApplicationLayerAutomaticResponseConfigurationArgs']]):
+    def application_layer_automatic_response_configuration(self, value: pulumi.Input[Optional['ProtectionApplicationLayerAutomaticResponseConfigurationArgs']]):
         pulumi.set(self, "application_layer_automatic_response_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="healthCheckArns")
-    def health_check_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def health_check_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The Amazon Resource Names (ARNs) of the health check to associate with the protection.
         """
         return pulumi.get(self, "health_check_arns")
 
     @health_check_arns.setter
-    def health_check_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def health_check_arns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "health_check_arns", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Friendly name for the Protection.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         One or more tag key-value pairs for the Protection object.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -119,11 +119,11 @@ class Protection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_layer_automatic_response_configuration: Optional[pulumi.Input[Union['ProtectionApplicationLayerAutomaticResponseConfigurationArgs', 'ProtectionApplicationLayerAutomaticResponseConfigurationArgsDict']]] = None,
-                 health_check_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 application_layer_automatic_response_configuration: pulumi.Input[Optional[Union['ProtectionApplicationLayerAutomaticResponseConfigurationArgs', 'ProtectionApplicationLayerAutomaticResponseConfigurationArgsDict']]] = None,
+                 health_check_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Enables AWS Shield Advanced for a specific AWS resource. The resource can be an Amazon CloudFront distribution, Amazon Route 53 hosted zone, AWS Global Accelerator standard accelerator, Elastic IP Address, Application Load Balancer, or a Classic Load Balancer. You can protect Amazon EC2 instances and Network Load Balancers by association with protected Amazon EC2 Elastic IP addresses.
@@ -164,11 +164,11 @@ class Protection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_layer_automatic_response_configuration: Optional[pulumi.Input[Union['ProtectionApplicationLayerAutomaticResponseConfigurationArgs', 'ProtectionApplicationLayerAutomaticResponseConfigurationArgsDict']]] = None,
-                 health_check_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 application_layer_automatic_response_configuration: pulumi.Input[Optional[Union['ProtectionApplicationLayerAutomaticResponseConfigurationArgs', 'ProtectionApplicationLayerAutomaticResponseConfigurationArgsDict']]] = None,
+                 health_check_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

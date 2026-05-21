@@ -23,15 +23,15 @@ class TransitGatewayMeteringPolicyEntryArgs:
                  metered_account: pulumi.Input['TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerType'],
                  policy_rule_number: pulumi.Input[_builtins.int],
                  transit_gateway_metering_policy_id: pulumi.Input[_builtins.str],
-                 destination_cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_port_range: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_transit_gateway_attachment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_transit_gateway_attachment_type: Optional[pulumi.Input['TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType']] = None,
-                 protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_port_range: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_transit_gateway_attachment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_transit_gateway_attachment_type: Optional[pulumi.Input['TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType']] = None):
+                 destination_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_port_range: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_transit_gateway_attachment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_transit_gateway_attachment_type: pulumi.Input[Optional['TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType']] = None,
+                 protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_port_range: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_transit_gateway_attachment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_transit_gateway_attachment_type: pulumi.Input[Optional['TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType']] = None):
         """
         The set of arguments for constructing a TransitGatewayMeteringPolicyEntry resource.
 
@@ -108,110 +108,110 @@ class TransitGatewayMeteringPolicyEntryArgs:
 
     @_builtins.property
     @pulumi.getter(name="destinationCidrBlock")
-    def destination_cidr_block(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination_cidr_block(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The list of IP addresses of the instances receiving traffic from the transit gateway
         """
         return pulumi.get(self, "destination_cidr_block")
 
     @destination_cidr_block.setter
-    def destination_cidr_block(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination_cidr_block(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination_cidr_block", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationPortRange")
-    def destination_port_range(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination_port_range(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The list of ports on destination instances receiving traffic from the transit gateway
         """
         return pulumi.get(self, "destination_port_range")
 
     @destination_port_range.setter
-    def destination_port_range(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination_port_range(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination_port_range", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationTransitGatewayAttachmentId")
-    def destination_transit_gateway_attachment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination_transit_gateway_attachment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the source attachment through which traffic leaves a transit gateway
         """
         return pulumi.get(self, "destination_transit_gateway_attachment_id")
 
     @destination_transit_gateway_attachment_id.setter
-    def destination_transit_gateway_attachment_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination_transit_gateway_attachment_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination_transit_gateway_attachment_id", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationTransitGatewayAttachmentType")
-    def destination_transit_gateway_attachment_type(self) -> Optional[pulumi.Input['TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType']]:
+    def destination_transit_gateway_attachment_type(self) -> pulumi.Input[Optional['TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType']]:
         """
         The type of the attachment through which traffic leaves a transit gateway
         """
         return pulumi.get(self, "destination_transit_gateway_attachment_type")
 
     @destination_transit_gateway_attachment_type.setter
-    def destination_transit_gateway_attachment_type(self, value: Optional[pulumi.Input['TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType']]):
+    def destination_transit_gateway_attachment_type(self, value: pulumi.Input[Optional['TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType']]):
         pulumi.set(self, "destination_transit_gateway_attachment_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The protocol of the traffic
         """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
-    def protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def protocol(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "protocol", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceCidrBlock")
-    def source_cidr_block(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_cidr_block(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The list of IP addresses of the instances sending traffic to the transit gateway for which the metering policy entry is applicable
         """
         return pulumi.get(self, "source_cidr_block")
 
     @source_cidr_block.setter
-    def source_cidr_block(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_cidr_block(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_cidr_block", value)
 
     @_builtins.property
     @pulumi.getter(name="sourcePortRange")
-    def source_port_range(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_port_range(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The list of ports on source instances sending traffic to the transit gateway
         """
         return pulumi.get(self, "source_port_range")
 
     @source_port_range.setter
-    def source_port_range(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_port_range(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_port_range", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceTransitGatewayAttachmentId")
-    def source_transit_gateway_attachment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_transit_gateway_attachment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the source attachment through which traffic enters a transit gateway
         """
         return pulumi.get(self, "source_transit_gateway_attachment_id")
 
     @source_transit_gateway_attachment_id.setter
-    def source_transit_gateway_attachment_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_transit_gateway_attachment_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_transit_gateway_attachment_id", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceTransitGatewayAttachmentType")
-    def source_transit_gateway_attachment_type(self) -> Optional[pulumi.Input['TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType']]:
+    def source_transit_gateway_attachment_type(self) -> pulumi.Input[Optional['TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType']]:
         """
         The type of the attachment through which traffic enters a  transit gateway
         """
         return pulumi.get(self, "source_transit_gateway_attachment_type")
 
     @source_transit_gateway_attachment_type.setter
-    def source_transit_gateway_attachment_type(self, value: Optional[pulumi.Input['TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType']]):
+    def source_transit_gateway_attachment_type(self, value: pulumi.Input[Optional['TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType']]):
         pulumi.set(self, "source_transit_gateway_attachment_type", value)
 
 
@@ -221,18 +221,18 @@ class TransitGatewayMeteringPolicyEntry(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destination_cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_port_range: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_transit_gateway_attachment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_transit_gateway_attachment_type: Optional[pulumi.Input['TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType']] = None,
-                 metered_account: Optional[pulumi.Input['TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerType']] = None,
-                 policy_rule_number: Optional[pulumi.Input[_builtins.int]] = None,
-                 protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_port_range: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_transit_gateway_attachment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_transit_gateway_attachment_type: Optional[pulumi.Input['TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType']] = None,
-                 transit_gateway_metering_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 destination_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_port_range: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_transit_gateway_attachment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_transit_gateway_attachment_type: pulumi.Input[Optional['TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType']] = None,
+                 metered_account: pulumi.Input[Optional['TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerType']] = None,
+                 policy_rule_number: pulumi.Input[Optional[_builtins.int]] = None,
+                 protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_port_range: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_transit_gateway_attachment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_transit_gateway_attachment_type: pulumi.Input[Optional['TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType']] = None,
+                 transit_gateway_metering_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         AWS::EC2::TransitGatewayMeteringPolicyEntry Resource Definition
@@ -278,18 +278,18 @@ class TransitGatewayMeteringPolicyEntry(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destination_cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_port_range: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_transit_gateway_attachment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_transit_gateway_attachment_type: Optional[pulumi.Input['TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType']] = None,
-                 metered_account: Optional[pulumi.Input['TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerType']] = None,
-                 policy_rule_number: Optional[pulumi.Input[_builtins.int]] = None,
-                 protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_port_range: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_transit_gateway_attachment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_transit_gateway_attachment_type: Optional[pulumi.Input['TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType']] = None,
-                 transit_gateway_metering_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 destination_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_port_range: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_transit_gateway_attachment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_transit_gateway_attachment_type: pulumi.Input[Optional['TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType']] = None,
+                 metered_account: pulumi.Input[Optional['TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerType']] = None,
+                 policy_rule_number: pulumi.Input[Optional[_builtins.int]] = None,
+                 protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_port_range: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_transit_gateway_attachment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_transit_gateway_attachment_type: pulumi.Input[Optional['TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType']] = None,
+                 transit_gateway_metering_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

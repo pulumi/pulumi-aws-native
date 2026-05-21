@@ -179,7 +179,7 @@ def get_log_anomaly_detector(anomaly_detector_arn: Optional[_builtins.str] = Non
         kms_key_id=pulumi.get(__ret__, 'kms_key_id'),
         last_modified_time_stamp=pulumi.get(__ret__, 'last_modified_time_stamp'),
         log_group_arn_list=pulumi.get(__ret__, 'log_group_arn_list'))
-def get_log_anomaly_detector_output(anomaly_detector_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_log_anomaly_detector_output(anomaly_detector_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLogAnomalyDetectorResult]:
     """
     The AWS::Logs::LogAnomalyDetector resource specifies a CloudWatch Logs LogAnomalyDetector.

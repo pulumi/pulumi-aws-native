@@ -127,7 +127,7 @@ def get_stream_group(arn: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         location_configurations=pulumi.get(__ret__, 'location_configurations'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_stream_group_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_stream_group_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStreamGroupResult]:
     """
     Definition of AWS::GameLiftStreams::StreamGroup Resource Type

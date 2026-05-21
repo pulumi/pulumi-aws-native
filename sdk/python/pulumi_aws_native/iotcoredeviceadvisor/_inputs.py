@@ -35,15 +35,15 @@ class SuiteDefinitionConfigurationPropertiesArgsDict(TypedDict):
 
     For a qualification suite, the minimum length is 0, and the maximum is 2048. For a non-qualification suite, the minimum length is 1, and the maximum is 2048.
     """
-    devices: NotRequired[pulumi.Input[Sequence[pulumi.Input['SuiteDefinitionDeviceUnderTestArgsDict']]]]
+    devices: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SuiteDefinitionDeviceUnderTestArgsDict']]]]]
     """
     Gets the devices configured.
     """
-    intended_for_qualification: NotRequired[pulumi.Input[_builtins.bool]]
+    intended_for_qualification: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Gets the tests intended for qualification in a suite.
     """
-    suite_definition_name: NotRequired[pulumi.Input[_builtins.str]]
+    suite_definition_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Gets the suite definition name. This is a required parameter.
     """
@@ -53,9 +53,9 @@ class SuiteDefinitionConfigurationPropertiesArgs:
     def __init__(__self__, *,
                  device_permission_role_arn: pulumi.Input[_builtins.str],
                  root_group: pulumi.Input[_builtins.str],
-                 devices: Optional[pulumi.Input[Sequence[pulumi.Input['SuiteDefinitionDeviceUnderTestArgs']]]] = None,
-                 intended_for_qualification: Optional[pulumi.Input[_builtins.bool]] = None,
-                 suite_definition_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 devices: pulumi.Input[Optional[Sequence[pulumi.Input['SuiteDefinitionDeviceUnderTestArgs']]]] = None,
+                 intended_for_qualification: pulumi.Input[Optional[_builtins.bool]] = None,
+                 suite_definition_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Gets the suite definition configuration.
 
@@ -104,50 +104,50 @@ class SuiteDefinitionConfigurationPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def devices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SuiteDefinitionDeviceUnderTestArgs']]]]:
+    def devices(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SuiteDefinitionDeviceUnderTestArgs']]]]:
         """
         Gets the devices configured.
         """
         return pulumi.get(self, "devices")
 
     @devices.setter
-    def devices(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SuiteDefinitionDeviceUnderTestArgs']]]]):
+    def devices(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SuiteDefinitionDeviceUnderTestArgs']]]]):
         pulumi.set(self, "devices", value)
 
     @_builtins.property
     @pulumi.getter(name="intendedForQualification")
-    def intended_for_qualification(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def intended_for_qualification(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Gets the tests intended for qualification in a suite.
         """
         return pulumi.get(self, "intended_for_qualification")
 
     @intended_for_qualification.setter
-    def intended_for_qualification(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def intended_for_qualification(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "intended_for_qualification", value)
 
     @_builtins.property
     @pulumi.getter(name="suiteDefinitionName")
-    def suite_definition_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def suite_definition_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets the suite definition name. This is a required parameter.
         """
         return pulumi.get(self, "suite_definition_name")
 
     @suite_definition_name.setter
-    def suite_definition_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def suite_definition_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "suite_definition_name", value)
 
 
 class SuiteDefinitionDeviceUnderTestArgsDict(TypedDict):
-    certificate_arn: NotRequired[pulumi.Input[_builtins.str]]
-    thing_arn: NotRequired[pulumi.Input[_builtins.str]]
+    certificate_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    thing_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class SuiteDefinitionDeviceUnderTestArgs:
     def __init__(__self__, *,
-                 certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 thing_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 thing_arn: pulumi.Input[Optional[_builtins.str]] = None):
         if certificate_arn is not None:
             pulumi.set(__self__, "certificate_arn", certificate_arn)
         if thing_arn is not None:
@@ -155,20 +155,20 @@ class SuiteDefinitionDeviceUnderTestArgs:
 
     @_builtins.property
     @pulumi.getter(name="certificateArn")
-    def certificate_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "certificate_arn")
 
     @certificate_arn.setter
-    def certificate_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="thingArn")
-    def thing_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def thing_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "thing_arn")
 
     @thing_arn.setter
-    def thing_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def thing_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "thing_arn", value)
 
 

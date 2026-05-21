@@ -99,14 +99,14 @@ class AnomalyDetectorConfigurationArgs:
 
 
 class AnomalyDetectorIgnoreNearExpectedArgsDict(TypedDict):
-    amount: NotRequired[pulumi.Input[_builtins.float]]
-    ratio: NotRequired[pulumi.Input[_builtins.float]]
+    amount: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    ratio: NotRequired[pulumi.Input[Optional[_builtins.float]]]
 
 @pulumi.input_type
 class AnomalyDetectorIgnoreNearExpectedArgs:
     def __init__(__self__, *,
-                 amount: Optional[pulumi.Input[_builtins.float]] = None,
-                 ratio: Optional[pulumi.Input[_builtins.float]] = None):
+                 amount: pulumi.Input[Optional[_builtins.float]] = None,
+                 ratio: pulumi.Input[Optional[_builtins.float]] = None):
         if amount is not None:
             pulumi.set(__self__, "amount", amount)
         if ratio is not None:
@@ -114,20 +114,20 @@ class AnomalyDetectorIgnoreNearExpectedArgs:
 
     @_builtins.property
     @pulumi.getter
-    def amount(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def amount(self) -> pulumi.Input[Optional[_builtins.float]]:
         return pulumi.get(self, "amount")
 
     @amount.setter
-    def amount(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def amount(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "amount", value)
 
     @_builtins.property
     @pulumi.getter
-    def ratio(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def ratio(self) -> pulumi.Input[Optional[_builtins.float]]:
         return pulumi.get(self, "ratio")
 
     @ratio.setter
-    def ratio(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def ratio(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "ratio", value)
 
 
@@ -184,14 +184,14 @@ class AnomalyDetectorLabelArgs:
 
 
 class AnomalyDetectorMissingDataActionArgsDict(TypedDict):
-    mark_as_anomaly: NotRequired[pulumi.Input[_builtins.bool]]
-    skip: NotRequired[pulumi.Input[_builtins.bool]]
+    mark_as_anomaly: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    skip: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
 
 @pulumi.input_type
 class AnomalyDetectorMissingDataActionArgs:
     def __init__(__self__, *,
-                 mark_as_anomaly: Optional[pulumi.Input[_builtins.bool]] = None,
-                 skip: Optional[pulumi.Input[_builtins.bool]] = None):
+                 mark_as_anomaly: pulumi.Input[Optional[_builtins.bool]] = None,
+                 skip: pulumi.Input[Optional[_builtins.bool]] = None):
         if mark_as_anomaly is not None:
             pulumi.set(__self__, "mark_as_anomaly", mark_as_anomaly)
         if skip is not None:
@@ -199,20 +199,20 @@ class AnomalyDetectorMissingDataActionArgs:
 
     @_builtins.property
     @pulumi.getter(name="markAsAnomaly")
-    def mark_as_anomaly(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def mark_as_anomaly(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "mark_as_anomaly")
 
     @mark_as_anomaly.setter
-    def mark_as_anomaly(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def mark_as_anomaly(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "mark_as_anomaly", value)
 
     @_builtins.property
     @pulumi.getter
-    def skip(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "skip")
 
     @skip.setter
-    def skip(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip", value)
 
 
@@ -225,19 +225,19 @@ class AnomalyDetectorRandomCutForestConfigurationArgsDict(TypedDict):
     > 
     > *Supported PromQL aggregation operators* : `avg` , `count` , `group` , `max` , `min` , `quantile` , `stddev` , `stdvar` , and `sum` .
     """
-    ignore_near_expected_from_above: NotRequired[pulumi.Input['AnomalyDetectorIgnoreNearExpectedArgsDict']]
+    ignore_near_expected_from_above: NotRequired[pulumi.Input[Optional['AnomalyDetectorIgnoreNearExpectedArgsDict']]]
     """
     Configuration for ignoring values that are near expected values from above during anomaly detection.
     """
-    ignore_near_expected_from_below: NotRequired[pulumi.Input['AnomalyDetectorIgnoreNearExpectedArgsDict']]
+    ignore_near_expected_from_below: NotRequired[pulumi.Input[Optional['AnomalyDetectorIgnoreNearExpectedArgsDict']]]
     """
     Configuration for ignoring values that are near expected values from below during anomaly detection.
     """
-    sample_size: NotRequired[pulumi.Input[_builtins.int]]
+    sample_size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The number of data points sampled from the input stream for the Random Cut Forest algorithm. The default number is 256 consecutive data points.
     """
-    shingle_size: NotRequired[pulumi.Input[_builtins.int]]
+    shingle_size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The number of consecutive data points used to create a shingle for the Random Cut Forest algorithm. The default number is 8 consecutive data points.
     """
@@ -246,10 +246,10 @@ class AnomalyDetectorRandomCutForestConfigurationArgsDict(TypedDict):
 class AnomalyDetectorRandomCutForestConfigurationArgs:
     def __init__(__self__, *,
                  query: pulumi.Input[_builtins.str],
-                 ignore_near_expected_from_above: Optional[pulumi.Input['AnomalyDetectorIgnoreNearExpectedArgs']] = None,
-                 ignore_near_expected_from_below: Optional[pulumi.Input['AnomalyDetectorIgnoreNearExpectedArgs']] = None,
-                 sample_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 shingle_size: Optional[pulumi.Input[_builtins.int]] = None):
+                 ignore_near_expected_from_above: pulumi.Input[Optional['AnomalyDetectorIgnoreNearExpectedArgs']] = None,
+                 ignore_near_expected_from_below: pulumi.Input[Optional['AnomalyDetectorIgnoreNearExpectedArgs']] = None,
+                 sample_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 shingle_size: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] query: The Prometheus query used to retrieve the time-series data for anomaly detection.
                
@@ -289,50 +289,50 @@ class AnomalyDetectorRandomCutForestConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="ignoreNearExpectedFromAbove")
-    def ignore_near_expected_from_above(self) -> Optional[pulumi.Input['AnomalyDetectorIgnoreNearExpectedArgs']]:
+    def ignore_near_expected_from_above(self) -> pulumi.Input[Optional['AnomalyDetectorIgnoreNearExpectedArgs']]:
         """
         Configuration for ignoring values that are near expected values from above during anomaly detection.
         """
         return pulumi.get(self, "ignore_near_expected_from_above")
 
     @ignore_near_expected_from_above.setter
-    def ignore_near_expected_from_above(self, value: Optional[pulumi.Input['AnomalyDetectorIgnoreNearExpectedArgs']]):
+    def ignore_near_expected_from_above(self, value: pulumi.Input[Optional['AnomalyDetectorIgnoreNearExpectedArgs']]):
         pulumi.set(self, "ignore_near_expected_from_above", value)
 
     @_builtins.property
     @pulumi.getter(name="ignoreNearExpectedFromBelow")
-    def ignore_near_expected_from_below(self) -> Optional[pulumi.Input['AnomalyDetectorIgnoreNearExpectedArgs']]:
+    def ignore_near_expected_from_below(self) -> pulumi.Input[Optional['AnomalyDetectorIgnoreNearExpectedArgs']]:
         """
         Configuration for ignoring values that are near expected values from below during anomaly detection.
         """
         return pulumi.get(self, "ignore_near_expected_from_below")
 
     @ignore_near_expected_from_below.setter
-    def ignore_near_expected_from_below(self, value: Optional[pulumi.Input['AnomalyDetectorIgnoreNearExpectedArgs']]):
+    def ignore_near_expected_from_below(self, value: pulumi.Input[Optional['AnomalyDetectorIgnoreNearExpectedArgs']]):
         pulumi.set(self, "ignore_near_expected_from_below", value)
 
     @_builtins.property
     @pulumi.getter(name="sampleSize")
-    def sample_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def sample_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of data points sampled from the input stream for the Random Cut Forest algorithm. The default number is 256 consecutive data points.
         """
         return pulumi.get(self, "sample_size")
 
     @sample_size.setter
-    def sample_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def sample_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "sample_size", value)
 
     @_builtins.property
     @pulumi.getter(name="shingleSize")
-    def shingle_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def shingle_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of consecutive data points used to create a shingle for the Random Cut Forest algorithm. The default number is 8 consecutive data points.
         """
         return pulumi.get(self, "shingle_size")
 
     @shingle_size.setter
-    def shingle_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def shingle_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "shingle_size", value)
 
 
@@ -340,7 +340,7 @@ class ScraperCloudWatchLogDestinationArgsDict(TypedDict):
     """
     Represents a cloudwatch logs destination for scraper logging
     """
-    log_group_arn: NotRequired[pulumi.Input[_builtins.str]]
+    log_group_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ARN of the CloudWatch log group
     """
@@ -348,7 +348,7 @@ class ScraperCloudWatchLogDestinationArgsDict(TypedDict):
 @pulumi.input_type
 class ScraperCloudWatchLogDestinationArgs:
     def __init__(__self__, *,
-                 log_group_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 log_group_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Represents a cloudwatch logs destination for scraper logging
 
@@ -359,19 +359,19 @@ class ScraperCloudWatchLogDestinationArgs:
 
     @_builtins.property
     @pulumi.getter(name="logGroupArn")
-    def log_group_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_group_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the CloudWatch log group
         """
         return pulumi.get(self, "log_group_arn")
 
     @log_group_arn.setter
-    def log_group_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_group_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_group_arn", value)
 
 
 class ScraperComponentConfigArgsDict(TypedDict):
-    options: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    options: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Configuration options for the scraper component.
     """
@@ -379,7 +379,7 @@ class ScraperComponentConfigArgsDict(TypedDict):
 @pulumi.input_type
 class ScraperComponentConfigArgs:
     def __init__(__self__, *,
-                 options: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 options: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] options: Configuration options for the scraper component.
         """
@@ -388,14 +388,14 @@ class ScraperComponentConfigArgs:
 
     @_builtins.property
     @pulumi.getter
-    def options(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def options(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Configuration options for the scraper component.
         """
         return pulumi.get(self, "options")
 
     @options.setter
-    def options(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def options(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "options", value)
 
 
@@ -404,7 +404,7 @@ class ScraperComponentArgsDict(TypedDict):
     """
     The type of the scraper component.
     """
-    config: NotRequired[pulumi.Input['ScraperComponentConfigArgsDict']]
+    config: NotRequired[pulumi.Input[Optional['ScraperComponentConfigArgsDict']]]
     """
     The configuration settings for the scraper component.
     """
@@ -413,7 +413,7 @@ class ScraperComponentArgsDict(TypedDict):
 class ScraperComponentArgs:
     def __init__(__self__, *,
                  type: pulumi.Input['ScraperComponentType'],
-                 config: Optional[pulumi.Input['ScraperComponentConfigArgs']] = None):
+                 config: pulumi.Input[Optional['ScraperComponentConfigArgs']] = None):
         """
         :param pulumi.Input['ScraperComponentType'] type: The type of the scraper component.
         :param pulumi.Input['ScraperComponentConfigArgs'] config: The configuration settings for the scraper component.
@@ -436,14 +436,14 @@ class ScraperComponentArgs:
 
     @_builtins.property
     @pulumi.getter
-    def config(self) -> Optional[pulumi.Input['ScraperComponentConfigArgs']]:
+    def config(self) -> pulumi.Input[Optional['ScraperComponentConfigArgs']]:
         """
         The configuration settings for the scraper component.
         """
         return pulumi.get(self, "config")
 
     @config.setter
-    def config(self, value: Optional[pulumi.Input['ScraperComponentConfigArgs']]):
+    def config(self, value: pulumi.Input[Optional['ScraperComponentConfigArgs']]):
         pulumi.set(self, "config", value)
 
 
@@ -484,7 +484,7 @@ class ScraperDestinationArgsDict(TypedDict):
     """
     Scraper metrics destination
     """
-    amp_configuration: NotRequired[pulumi.Input['ScraperDestinationAmpConfigurationPropertiesArgsDict']]
+    amp_configuration: NotRequired[pulumi.Input[Optional['ScraperDestinationAmpConfigurationPropertiesArgsDict']]]
     """
     Configuration for Amazon Managed Prometheus metrics destination
     """
@@ -492,7 +492,7 @@ class ScraperDestinationArgsDict(TypedDict):
 @pulumi.input_type
 class ScraperDestinationArgs:
     def __init__(__self__, *,
-                 amp_configuration: Optional[pulumi.Input['ScraperDestinationAmpConfigurationPropertiesArgs']] = None):
+                 amp_configuration: pulumi.Input[Optional['ScraperDestinationAmpConfigurationPropertiesArgs']] = None):
         """
         Scraper metrics destination
 
@@ -503,14 +503,14 @@ class ScraperDestinationArgs:
 
     @_builtins.property
     @pulumi.getter(name="ampConfiguration")
-    def amp_configuration(self) -> Optional[pulumi.Input['ScraperDestinationAmpConfigurationPropertiesArgs']]:
+    def amp_configuration(self) -> pulumi.Input[Optional['ScraperDestinationAmpConfigurationPropertiesArgs']]:
         """
         Configuration for Amazon Managed Prometheus metrics destination
         """
         return pulumi.get(self, "amp_configuration")
 
     @amp_configuration.setter
-    def amp_configuration(self, value: Optional[pulumi.Input['ScraperDestinationAmpConfigurationPropertiesArgs']]):
+    def amp_configuration(self, value: pulumi.Input[Optional['ScraperDestinationAmpConfigurationPropertiesArgs']]):
         pulumi.set(self, "amp_configuration", value)
 
 
@@ -555,7 +555,7 @@ class ScraperLoggingDestinationArgsDict(TypedDict):
     """
     Destination for scraper logging
     """
-    cloud_watch_logs: NotRequired[pulumi.Input['ScraperCloudWatchLogDestinationArgsDict']]
+    cloud_watch_logs: NotRequired[pulumi.Input[Optional['ScraperCloudWatchLogDestinationArgsDict']]]
     """
     The CloudWatch Logs configuration for the scraper logging destination.
     """
@@ -563,7 +563,7 @@ class ScraperLoggingDestinationArgsDict(TypedDict):
 @pulumi.input_type
 class ScraperLoggingDestinationArgs:
     def __init__(__self__, *,
-                 cloud_watch_logs: Optional[pulumi.Input['ScraperCloudWatchLogDestinationArgs']] = None):
+                 cloud_watch_logs: pulumi.Input[Optional['ScraperCloudWatchLogDestinationArgs']] = None):
         """
         Destination for scraper logging
 
@@ -574,14 +574,14 @@ class ScraperLoggingDestinationArgs:
 
     @_builtins.property
     @pulumi.getter(name="cloudWatchLogs")
-    def cloud_watch_logs(self) -> Optional[pulumi.Input['ScraperCloudWatchLogDestinationArgs']]:
+    def cloud_watch_logs(self) -> pulumi.Input[Optional['ScraperCloudWatchLogDestinationArgs']]:
         """
         The CloudWatch Logs configuration for the scraper logging destination.
         """
         return pulumi.get(self, "cloud_watch_logs")
 
     @cloud_watch_logs.setter
-    def cloud_watch_logs(self, value: Optional[pulumi.Input['ScraperCloudWatchLogDestinationArgs']]):
+    def cloud_watch_logs(self, value: pulumi.Input[Optional['ScraperCloudWatchLogDestinationArgs']]):
         pulumi.set(self, "cloud_watch_logs", value)
 
 
@@ -589,11 +589,11 @@ class ScraperRoleConfigurationArgsDict(TypedDict):
     """
     Role configuration
     """
-    source_role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    source_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     IAM Role in source account
     """
-    target_role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    target_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     IAM Role in the target account
     """
@@ -601,8 +601,8 @@ class ScraperRoleConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class ScraperRoleConfigurationArgs:
     def __init__(__self__, *,
-                 source_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_role_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 source_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_role_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Role configuration
 
@@ -616,26 +616,26 @@ class ScraperRoleConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="sourceRoleArn")
-    def source_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IAM Role in source account
         """
         return pulumi.get(self, "source_role_arn")
 
     @source_role_arn.setter
-    def source_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="targetRoleArn")
-    def target_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IAM Role in the target account
         """
         return pulumi.get(self, "target_role_arn")
 
     @target_role_arn.setter
-    def target_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_role_arn", value)
 
 
@@ -643,7 +643,7 @@ class ScraperScrapeConfigurationArgsDict(TypedDict):
     """
     Scraper configuration
     """
-    configuration_blob: NotRequired[pulumi.Input[_builtins.str]]
+    configuration_blob: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Prometheus compatible scrape configuration in base64 encoded blob format
     """
@@ -651,7 +651,7 @@ class ScraperScrapeConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class ScraperScrapeConfigurationArgs:
     def __init__(__self__, *,
-                 configuration_blob: Optional[pulumi.Input[_builtins.str]] = None):
+                 configuration_blob: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Scraper configuration
 
@@ -662,14 +662,14 @@ class ScraperScrapeConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="configurationBlob")
-    def configuration_blob(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def configuration_blob(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Prometheus compatible scrape configuration in base64 encoded blob format
         """
         return pulumi.get(self, "configuration_blob")
 
     @configuration_blob.setter
-    def configuration_blob(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def configuration_blob(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "configuration_blob", value)
 
 
@@ -685,7 +685,7 @@ class ScraperSourceEksConfigurationPropertiesArgsDict(TypedDict):
     """
     List of subnet IDs
     """
-    security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    security_group_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of security group IDs
     """
@@ -695,7 +695,7 @@ class ScraperSourceEksConfigurationPropertiesArgs:
     def __init__(__self__, *,
                  cluster_arn: pulumi.Input[_builtins.str],
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Configuration for EKS metrics source
 
@@ -734,14 +734,14 @@ class ScraperSourceEksConfigurationPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of security group IDs
         """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
-    def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def security_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "security_group_ids", value)
 
 
@@ -801,11 +801,11 @@ class ScraperSourceArgsDict(TypedDict):
     """
     Scraper metrics source
     """
-    eks_configuration: NotRequired[pulumi.Input['ScraperSourceEksConfigurationPropertiesArgsDict']]
+    eks_configuration: NotRequired[pulumi.Input[Optional['ScraperSourceEksConfigurationPropertiesArgsDict']]]
     """
     Configuration for EKS metrics source
     """
-    vpc_configuration: NotRequired[pulumi.Input['ScraperSourceVpcConfigurationPropertiesArgsDict']]
+    vpc_configuration: NotRequired[pulumi.Input[Optional['ScraperSourceVpcConfigurationPropertiesArgsDict']]]
     """
     Configuration for VPC metrics source
     """
@@ -813,8 +813,8 @@ class ScraperSourceArgsDict(TypedDict):
 @pulumi.input_type
 class ScraperSourceArgs:
     def __init__(__self__, *,
-                 eks_configuration: Optional[pulumi.Input['ScraperSourceEksConfigurationPropertiesArgs']] = None,
-                 vpc_configuration: Optional[pulumi.Input['ScraperSourceVpcConfigurationPropertiesArgs']] = None):
+                 eks_configuration: pulumi.Input[Optional['ScraperSourceEksConfigurationPropertiesArgs']] = None,
+                 vpc_configuration: pulumi.Input[Optional['ScraperSourceVpcConfigurationPropertiesArgs']] = None):
         """
         Scraper metrics source
 
@@ -828,26 +828,26 @@ class ScraperSourceArgs:
 
     @_builtins.property
     @pulumi.getter(name="eksConfiguration")
-    def eks_configuration(self) -> Optional[pulumi.Input['ScraperSourceEksConfigurationPropertiesArgs']]:
+    def eks_configuration(self) -> pulumi.Input[Optional['ScraperSourceEksConfigurationPropertiesArgs']]:
         """
         Configuration for EKS metrics source
         """
         return pulumi.get(self, "eks_configuration")
 
     @eks_configuration.setter
-    def eks_configuration(self, value: Optional[pulumi.Input['ScraperSourceEksConfigurationPropertiesArgs']]):
+    def eks_configuration(self, value: pulumi.Input[Optional['ScraperSourceEksConfigurationPropertiesArgs']]):
         pulumi.set(self, "eks_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcConfiguration")
-    def vpc_configuration(self) -> Optional[pulumi.Input['ScraperSourceVpcConfigurationPropertiesArgs']]:
+    def vpc_configuration(self) -> pulumi.Input[Optional['ScraperSourceVpcConfigurationPropertiesArgs']]:
         """
         Configuration for VPC metrics source
         """
         return pulumi.get(self, "vpc_configuration")
 
     @vpc_configuration.setter
-    def vpc_configuration(self, value: Optional[pulumi.Input['ScraperSourceVpcConfigurationPropertiesArgs']]):
+    def vpc_configuration(self, value: pulumi.Input[Optional['ScraperSourceVpcConfigurationPropertiesArgs']]):
         pulumi.set(self, "vpc_configuration", value)
 
 
@@ -888,11 +888,11 @@ class WorkspaceConfigurationArgsDict(TypedDict):
     """
     Workspace configuration
     """
-    limits_per_label_sets: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkspaceLimitsPerLabelSetArgsDict']]]]
+    limits_per_label_sets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WorkspaceLimitsPerLabelSetArgsDict']]]]]
     """
     An array of label set and associated limits
     """
-    retention_period_in_days: NotRequired[pulumi.Input[_builtins.int]]
+    retention_period_in_days: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     How many days that metrics are retained in the workspace
     """
@@ -900,8 +900,8 @@ class WorkspaceConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class WorkspaceConfigurationArgs:
     def __init__(__self__, *,
-                 limits_per_label_sets: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceLimitsPerLabelSetArgs']]]] = None,
-                 retention_period_in_days: Optional[pulumi.Input[_builtins.int]] = None):
+                 limits_per_label_sets: pulumi.Input[Optional[Sequence[pulumi.Input['WorkspaceLimitsPerLabelSetArgs']]]] = None,
+                 retention_period_in_days: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Workspace configuration
 
@@ -915,26 +915,26 @@ class WorkspaceConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="limitsPerLabelSets")
-    def limits_per_label_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceLimitsPerLabelSetArgs']]]]:
+    def limits_per_label_sets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WorkspaceLimitsPerLabelSetArgs']]]]:
         """
         An array of label set and associated limits
         """
         return pulumi.get(self, "limits_per_label_sets")
 
     @limits_per_label_sets.setter
-    def limits_per_label_sets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceLimitsPerLabelSetArgs']]]]):
+    def limits_per_label_sets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WorkspaceLimitsPerLabelSetArgs']]]]):
         pulumi.set(self, "limits_per_label_sets", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionPeriodInDays")
-    def retention_period_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retention_period_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         How many days that metrics are retained in the workspace
         """
         return pulumi.get(self, "retention_period_in_days")
 
     @retention_period_in_days.setter
-    def retention_period_in_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retention_period_in_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retention_period_in_days", value)
 
 
@@ -994,7 +994,7 @@ class WorkspaceLimitsPerLabelSetEntryArgsDict(TypedDict):
     """
     Limits that can be applied to a label set
     """
-    max_series: NotRequired[pulumi.Input[_builtins.int]]
+    max_series: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum number of active series that can be ingested for this label set
     """
@@ -1002,7 +1002,7 @@ class WorkspaceLimitsPerLabelSetEntryArgsDict(TypedDict):
 @pulumi.input_type
 class WorkspaceLimitsPerLabelSetEntryArgs:
     def __init__(__self__, *,
-                 max_series: Optional[pulumi.Input[_builtins.int]] = None):
+                 max_series: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Limits that can be applied to a label set
 
@@ -1013,14 +1013,14 @@ class WorkspaceLimitsPerLabelSetEntryArgs:
 
     @_builtins.property
     @pulumi.getter(name="maxSeries")
-    def max_series(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_series(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of active series that can be ingested for this label set
         """
         return pulumi.get(self, "max_series")
 
     @max_series.setter
-    def max_series(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_series(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_series", value)
 
 
@@ -1080,7 +1080,7 @@ class WorkspaceLoggingConfigurationArgsDict(TypedDict):
     """
     Logging configuration
     """
-    log_group_arn: NotRequired[pulumi.Input[_builtins.str]]
+    log_group_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     CloudWatch log group ARN
     """
@@ -1088,7 +1088,7 @@ class WorkspaceLoggingConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class WorkspaceLoggingConfigurationArgs:
     def __init__(__self__, *,
-                 log_group_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 log_group_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Logging configuration
 
@@ -1099,14 +1099,14 @@ class WorkspaceLoggingConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="logGroupArn")
-    def log_group_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_group_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         CloudWatch log group ARN
         """
         return pulumi.get(self, "log_group_arn")
 
     @log_group_arn.setter
-    def log_group_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_group_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_group_arn", value)
 
 

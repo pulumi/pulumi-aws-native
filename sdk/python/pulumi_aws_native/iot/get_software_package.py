@@ -88,7 +88,7 @@ def get_software_package(package_name: Optional[_builtins.str] = None,
         description=pulumi.get(__ret__, 'description'),
         package_arn=pulumi.get(__ret__, 'package_arn'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_software_package_output(package_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_software_package_output(package_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSoftwarePackageResult]:
     """
     resource definition

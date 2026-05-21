@@ -92,8 +92,8 @@ def get_index(collection_endpoint: Optional[_builtins.str] = None,
         mappings=pulumi.get(__ret__, 'mappings'),
         settings=pulumi.get(__ret__, 'settings'),
         uuid=pulumi.get(__ret__, 'uuid'))
-def get_index_output(collection_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                     index_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_index_output(collection_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                     index_name: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIndexResult]:
     """
     An OpenSearch Serverless index resource

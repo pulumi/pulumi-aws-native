@@ -259,7 +259,7 @@ def get_user(user_arn: Optional[_builtins.str] = None,
         user_proficiencies=pulumi.get(__ret__, 'user_proficiencies'),
         username=pulumi.get(__ret__, 'username'),
         voice_enhancement_configs=pulumi.get(__ret__, 'voice_enhancement_configs'))
-def get_user_output(user_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_user_output(user_arn: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserResult]:
     """
     Resource Type definition for AWS::Connect::User

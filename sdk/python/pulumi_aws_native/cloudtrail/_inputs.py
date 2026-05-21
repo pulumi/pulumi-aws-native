@@ -154,15 +154,15 @@ class DashboardRefreshScheduleArgsDict(TypedDict):
     """
     Configures the automatic refresh schedule for the dashboard. Includes the frequency unit (DAYS or HOURS) and value, as well as the status (ENABLED or DISABLED) of the refresh schedule.
     """
-    frequency: NotRequired[pulumi.Input['DashboardRefreshScheduleFrequencyPropertiesArgsDict']]
+    frequency: NotRequired[pulumi.Input[Optional['DashboardRefreshScheduleFrequencyPropertiesArgsDict']]]
     """
     The frequency at which you want the dashboard refreshed.
     """
-    status: NotRequired[pulumi.Input['DashboardRefreshScheduleStatus']]
+    status: NotRequired[pulumi.Input[Optional['DashboardRefreshScheduleStatus']]]
     """
     The status of the schedule. Supported values are ENABLED and DISABLED.
     """
-    time_of_day: NotRequired[pulumi.Input[_builtins.str]]
+    time_of_day: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     StartTime of the automatic schedule refresh.
     """
@@ -170,9 +170,9 @@ class DashboardRefreshScheduleArgsDict(TypedDict):
 @pulumi.input_type
 class DashboardRefreshScheduleArgs:
     def __init__(__self__, *,
-                 frequency: Optional[pulumi.Input['DashboardRefreshScheduleFrequencyPropertiesArgs']] = None,
-                 status: Optional[pulumi.Input['DashboardRefreshScheduleStatus']] = None,
-                 time_of_day: Optional[pulumi.Input[_builtins.str]] = None):
+                 frequency: pulumi.Input[Optional['DashboardRefreshScheduleFrequencyPropertiesArgs']] = None,
+                 status: pulumi.Input[Optional['DashboardRefreshScheduleStatus']] = None,
+                 time_of_day: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Configures the automatic refresh schedule for the dashboard. Includes the frequency unit (DAYS or HOURS) and value, as well as the status (ENABLED or DISABLED) of the refresh schedule.
 
@@ -189,38 +189,38 @@ class DashboardRefreshScheduleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def frequency(self) -> Optional[pulumi.Input['DashboardRefreshScheduleFrequencyPropertiesArgs']]:
+    def frequency(self) -> pulumi.Input[Optional['DashboardRefreshScheduleFrequencyPropertiesArgs']]:
         """
         The frequency at which you want the dashboard refreshed.
         """
         return pulumi.get(self, "frequency")
 
     @frequency.setter
-    def frequency(self, value: Optional[pulumi.Input['DashboardRefreshScheduleFrequencyPropertiesArgs']]):
+    def frequency(self, value: pulumi.Input[Optional['DashboardRefreshScheduleFrequencyPropertiesArgs']]):
         pulumi.set(self, "frequency", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input['DashboardRefreshScheduleStatus']]:
+    def status(self) -> pulumi.Input[Optional['DashboardRefreshScheduleStatus']]:
         """
         The status of the schedule. Supported values are ENABLED and DISABLED.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input['DashboardRefreshScheduleStatus']]):
+    def status(self, value: pulumi.Input[Optional['DashboardRefreshScheduleStatus']]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="timeOfDay")
-    def time_of_day(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def time_of_day(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         StartTime of the automatic schedule refresh.
         """
         return pulumi.get(self, "time_of_day")
 
     @time_of_day.setter
-    def time_of_day(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def time_of_day(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time_of_day", value)
 
 
@@ -232,11 +232,11 @@ class DashboardWidgetArgsDict(TypedDict):
     """
     The SQL query statement on one or more event data stores.
     """
-    query_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    query_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The placeholder keys in the QueryStatement. For example: $StartTime$, $EndTime$, $Period$.
     """
-    view_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    view_properties: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     The view properties of the widget.
     """
@@ -245,8 +245,8 @@ class DashboardWidgetArgsDict(TypedDict):
 class DashboardWidgetArgs:
     def __init__(__self__, *,
                  query_statement: pulumi.Input[_builtins.str],
-                 query_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 view_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 query_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 view_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The dashboard widget
 
@@ -274,26 +274,26 @@ class DashboardWidgetArgs:
 
     @_builtins.property
     @pulumi.getter(name="queryParameters")
-    def query_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def query_parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The placeholder keys in the QueryStatement. For example: $StartTime$, $EndTime$, $Period$.
         """
         return pulumi.get(self, "query_parameters")
 
     @query_parameters.setter
-    def query_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def query_parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "query_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="viewProperties")
-    def view_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def view_properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The view properties of the widget.
         """
         return pulumi.get(self, "view_properties")
 
     @view_properties.setter
-    def view_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def view_properties(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "view_properties", value)
 
 
@@ -305,7 +305,7 @@ class EventDataStoreAdvancedEventSelectorArgsDict(TypedDict):
     """
     Contains all selector statements in an advanced event selector.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     An optional, descriptive name for an advanced event selector, such as "Log data events for only two S3 buckets".
     """
@@ -314,7 +314,7 @@ class EventDataStoreAdvancedEventSelectorArgsDict(TypedDict):
 class EventDataStoreAdvancedEventSelectorArgs:
     def __init__(__self__, *,
                  field_selectors: pulumi.Input[Sequence[pulumi.Input['EventDataStoreAdvancedFieldSelectorArgs']]],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Advanced event selectors let you create fine-grained selectors for the following AWS CloudTrail event record ﬁelds. They help you control costs by logging only those events that are important to you.
 
@@ -339,14 +339,14 @@ class EventDataStoreAdvancedEventSelectorArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An optional, descriptive name for an advanced event selector, such as "Log data events for only two S3 buckets".
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -358,27 +358,27 @@ class EventDataStoreAdvancedFieldSelectorArgsDict(TypedDict):
     """
     A field in an event record on which to filter events to be logged. Supported fields include readOnly, eventCategory, eventSource (for management events), eventName, resources.type, and resources.ARN.
     """
-    ends_with: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    ends_with: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     An operator that includes events that match the last few characters of the event record field specified as the value of Field.
     """
-    equals: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    equals: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     An operator that includes events that match the exact value of the event record field specified as the value of Field. This is the only valid operator that you can use with the readOnly, eventCategory, and resources.type fields.
     """
-    not_ends_with: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    not_ends_with: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     An operator that excludes events that match the last few characters of the event record field specified as the value of Field.
     """
-    not_equals: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    not_equals: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     An operator that excludes events that match the exact value of the event record field specified as the value of Field.
     """
-    not_starts_with: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    not_starts_with: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     An operator that excludes events that match the first few characters of the event record field specified as the value of Field.
     """
-    starts_with: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    starts_with: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     An operator that includes events that match the first few characters of the event record field specified as the value of Field.
     """
@@ -387,12 +387,12 @@ class EventDataStoreAdvancedFieldSelectorArgsDict(TypedDict):
 class EventDataStoreAdvancedFieldSelectorArgs:
     def __init__(__self__, *,
                  field: pulumi.Input[_builtins.str],
-                 ends_with: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 equals: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 not_ends_with: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 not_equals: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 not_starts_with: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 starts_with: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 ends_with: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 equals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 not_ends_with: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 not_equals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 not_starts_with: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 starts_with: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         A single selector statement in an advanced event selector.
 
@@ -432,74 +432,74 @@ class EventDataStoreAdvancedFieldSelectorArgs:
 
     @_builtins.property
     @pulumi.getter(name="endsWith")
-    def ends_with(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ends_with(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         An operator that includes events that match the last few characters of the event record field specified as the value of Field.
         """
         return pulumi.get(self, "ends_with")
 
     @ends_with.setter
-    def ends_with(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ends_with(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ends_with", value)
 
     @_builtins.property
     @pulumi.getter
-    def equals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def equals(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         An operator that includes events that match the exact value of the event record field specified as the value of Field. This is the only valid operator that you can use with the readOnly, eventCategory, and resources.type fields.
         """
         return pulumi.get(self, "equals")
 
     @equals.setter
-    def equals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def equals(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "equals", value)
 
     @_builtins.property
     @pulumi.getter(name="notEndsWith")
-    def not_ends_with(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def not_ends_with(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         An operator that excludes events that match the last few characters of the event record field specified as the value of Field.
         """
         return pulumi.get(self, "not_ends_with")
 
     @not_ends_with.setter
-    def not_ends_with(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def not_ends_with(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "not_ends_with", value)
 
     @_builtins.property
     @pulumi.getter(name="notEquals")
-    def not_equals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def not_equals(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         An operator that excludes events that match the exact value of the event record field specified as the value of Field.
         """
         return pulumi.get(self, "not_equals")
 
     @not_equals.setter
-    def not_equals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def not_equals(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "not_equals", value)
 
     @_builtins.property
     @pulumi.getter(name="notStartsWith")
-    def not_starts_with(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def not_starts_with(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         An operator that excludes events that match the first few characters of the event record field specified as the value of Field.
         """
         return pulumi.get(self, "not_starts_with")
 
     @not_starts_with.setter
-    def not_starts_with(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def not_starts_with(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "not_starts_with", value)
 
     @_builtins.property
     @pulumi.getter(name="startsWith")
-    def starts_with(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def starts_with(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         An operator that includes events that match the first few characters of the event record field specified as the value of Field.
         """
         return pulumi.get(self, "starts_with")
 
     @starts_with.setter
-    def starts_with(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def starts_with(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "starts_with", value)
 
 
@@ -559,7 +559,7 @@ class EventDataStoreInsightSelectorArgsDict(TypedDict):
     """
     A string that contains Insights types that are logged on an event data store.
     """
-    insight_type: NotRequired[pulumi.Input[_builtins.str]]
+    insight_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The type of Insights to log on an event data store.
     """
@@ -567,7 +567,7 @@ class EventDataStoreInsightSelectorArgsDict(TypedDict):
 @pulumi.input_type
 class EventDataStoreInsightSelectorArgs:
     def __init__(__self__, *,
-                 insight_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 insight_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         A string that contains Insights types that are logged on an event data store.
 
@@ -578,14 +578,14 @@ class EventDataStoreInsightSelectorArgs:
 
     @_builtins.property
     @pulumi.getter(name="insightType")
-    def insight_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def insight_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of Insights to log on an event data store.
         """
         return pulumi.get(self, "insight_type")
 
     @insight_type.setter
-    def insight_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def insight_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "insight_type", value)
 
 
@@ -597,7 +597,7 @@ class TrailAdvancedEventSelectorArgsDict(TypedDict):
     """
     Contains all selector statements in an advanced event selector.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     An optional, descriptive name for an advanced event selector, such as "Log data events for only two S3 buckets".
     """
@@ -606,7 +606,7 @@ class TrailAdvancedEventSelectorArgsDict(TypedDict):
 class TrailAdvancedEventSelectorArgs:
     def __init__(__self__, *,
                  field_selectors: pulumi.Input[Sequence[pulumi.Input['TrailAdvancedFieldSelectorArgs']]],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Advanced event selectors let you create fine-grained selectors for the following AWS CloudTrail event record fields. They help you control costs by logging only those events that are important to you.
 
@@ -631,14 +631,14 @@ class TrailAdvancedEventSelectorArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An optional, descriptive name for an advanced event selector, such as "Log data events for only two S3 buckets".
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -650,27 +650,27 @@ class TrailAdvancedFieldSelectorArgsDict(TypedDict):
     """
     A field in an event record on which to filter events to be logged. Supported fields include readOnly, eventCategory, eventSource (for management events), eventName, resources.type, and resources.ARN.
     """
-    ends_with: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    ends_with: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     An operator that includes events that match the last few characters of the event record field specified as the value of Field.
     """
-    equals: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    equals: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     An operator that includes events that match the exact value of the event record field specified as the value of Field. This is the only valid operator that you can use with the readOnly, eventCategory, and resources.type fields.
     """
-    not_ends_with: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    not_ends_with: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     An operator that excludes events that match the last few characters of the event record field specified as the value of Field.
     """
-    not_equals: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    not_equals: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     An operator that excludes events that match the exact value of the event record field specified as the value of Field.
     """
-    not_starts_with: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    not_starts_with: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     An operator that excludes events that match the first few characters of the event record field specified as the value of Field.
     """
-    starts_with: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    starts_with: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     An operator that includes events that match the first few characters of the event record field specified as the value of Field.
     """
@@ -679,12 +679,12 @@ class TrailAdvancedFieldSelectorArgsDict(TypedDict):
 class TrailAdvancedFieldSelectorArgs:
     def __init__(__self__, *,
                  field: pulumi.Input[_builtins.str],
-                 ends_with: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 equals: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 not_ends_with: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 not_equals: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 not_starts_with: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 starts_with: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 ends_with: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 equals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 not_ends_with: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 not_equals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 not_starts_with: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 starts_with: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         A single selector statement in an advanced event selector.
 
@@ -724,74 +724,74 @@ class TrailAdvancedFieldSelectorArgs:
 
     @_builtins.property
     @pulumi.getter(name="endsWith")
-    def ends_with(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ends_with(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         An operator that includes events that match the last few characters of the event record field specified as the value of Field.
         """
         return pulumi.get(self, "ends_with")
 
     @ends_with.setter
-    def ends_with(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ends_with(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ends_with", value)
 
     @_builtins.property
     @pulumi.getter
-    def equals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def equals(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         An operator that includes events that match the exact value of the event record field specified as the value of Field. This is the only valid operator that you can use with the readOnly, eventCategory, and resources.type fields.
         """
         return pulumi.get(self, "equals")
 
     @equals.setter
-    def equals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def equals(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "equals", value)
 
     @_builtins.property
     @pulumi.getter(name="notEndsWith")
-    def not_ends_with(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def not_ends_with(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         An operator that excludes events that match the last few characters of the event record field specified as the value of Field.
         """
         return pulumi.get(self, "not_ends_with")
 
     @not_ends_with.setter
-    def not_ends_with(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def not_ends_with(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "not_ends_with", value)
 
     @_builtins.property
     @pulumi.getter(name="notEquals")
-    def not_equals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def not_equals(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         An operator that excludes events that match the exact value of the event record field specified as the value of Field.
         """
         return pulumi.get(self, "not_equals")
 
     @not_equals.setter
-    def not_equals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def not_equals(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "not_equals", value)
 
     @_builtins.property
     @pulumi.getter(name="notStartsWith")
-    def not_starts_with(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def not_starts_with(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         An operator that excludes events that match the first few characters of the event record field specified as the value of Field.
         """
         return pulumi.get(self, "not_starts_with")
 
     @not_starts_with.setter
-    def not_starts_with(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def not_starts_with(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "not_starts_with", value)
 
     @_builtins.property
     @pulumi.getter(name="startsWith")
-    def starts_with(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def starts_with(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         An operator that includes events that match the first few characters of the event record field specified as the value of Field.
         """
         return pulumi.get(self, "starts_with")
 
     @starts_with.setter
-    def starts_with(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def starts_with(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "starts_with", value)
 
 
@@ -855,7 +855,7 @@ class TrailDataResourceArgsDict(TypedDict):
     """
     The resource type in which you want to log data events. You can specify AWS::S3::Object or AWS::Lambda::Function resources.
     """
-    values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     An array of Amazon Resource Name (ARN) strings or partial ARN strings for the specified objects.
     """
@@ -864,7 +864,7 @@ class TrailDataResourceArgsDict(TypedDict):
 class TrailDataResourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         CloudTrail supports data event logging for Amazon S3 objects and AWS Lambda functions. You can specify up to 250 resources for an individual event selector, but the total number of data resources cannot exceed 250 across all event selectors in a trail. This limit does not apply if you configure resource logging for all data events.
 
@@ -889,14 +889,14 @@ class TrailDataResourceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         An array of Amazon Resource Name (ARN) strings or partial ARN strings for the specified objects.
         """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "values", value)
 
 
@@ -904,7 +904,7 @@ class TrailEventSelectorArgsDict(TypedDict):
     """
     The type of email sending events to publish to the event destination.
     """
-    data_resources: NotRequired[pulumi.Input[Sequence[pulumi.Input['TrailDataResourceArgsDict']]]]
+    data_resources: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TrailDataResourceArgsDict']]]]]
     """
     CloudTrail supports data event logging for Amazon S3 objects in standard S3 buckets, AWS Lambda functions, and Amazon DynamoDB tables with basic event selectors. You can specify up to 250 resources for an individual event selector, but the total number of data resources cannot exceed 250 across all event selectors in a trail. This limit does not apply if you configure resource logging for all data events.
 
@@ -912,15 +912,15 @@ class TrailEventSelectorArgsDict(TypedDict):
 
     > To log data events for all other resource types including objects stored in [directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-overview.html) , you must use [AdvancedEventSelectors](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedEventSelector.html) . You must also use `AdvancedEventSelectors` if you want to filter on the `eventName` field.
     """
-    exclude_management_event_sources: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    exclude_management_event_sources: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     An optional list of service event sources from which you do not want management events to be logged on your trail. In this release, the list can be empty (disables the filter), or it can filter out AWS Key Management Service events by containing "kms.amazonaws.com". By default, ExcludeManagementEventSources is empty, and AWS KMS events are included in events that are logged to your trail.
     """
-    include_management_events: NotRequired[pulumi.Input[_builtins.bool]]
+    include_management_events: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specify if you want your event selector to include management events for your trail.
     """
-    read_write_type: NotRequired[pulumi.Input['TrailEventSelectorReadWriteType']]
+    read_write_type: NotRequired[pulumi.Input[Optional['TrailEventSelectorReadWriteType']]]
     """
     Specify if you want your trail to log read-only events, write-only events, or all. For example, the EC2 GetConsoleOutput is a read-only API operation and RunInstances is a write-only API operation.
     """
@@ -928,10 +928,10 @@ class TrailEventSelectorArgsDict(TypedDict):
 @pulumi.input_type
 class TrailEventSelectorArgs:
     def __init__(__self__, *,
-                 data_resources: Optional[pulumi.Input[Sequence[pulumi.Input['TrailDataResourceArgs']]]] = None,
-                 exclude_management_event_sources: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 include_management_events: Optional[pulumi.Input[_builtins.bool]] = None,
-                 read_write_type: Optional[pulumi.Input['TrailEventSelectorReadWriteType']] = None):
+                 data_resources: pulumi.Input[Optional[Sequence[pulumi.Input['TrailDataResourceArgs']]]] = None,
+                 exclude_management_event_sources: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 include_management_events: pulumi.Input[Optional[_builtins.bool]] = None,
+                 read_write_type: pulumi.Input[Optional['TrailEventSelectorReadWriteType']] = None):
         """
         The type of email sending events to publish to the event destination.
 
@@ -955,7 +955,7 @@ class TrailEventSelectorArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataResources")
-    def data_resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TrailDataResourceArgs']]]]:
+    def data_resources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TrailDataResourceArgs']]]]:
         """
         CloudTrail supports data event logging for Amazon S3 objects in standard S3 buckets, AWS Lambda functions, and Amazon DynamoDB tables with basic event selectors. You can specify up to 250 resources for an individual event selector, but the total number of data resources cannot exceed 250 across all event selectors in a trail. This limit does not apply if you configure resource logging for all data events.
 
@@ -966,43 +966,43 @@ class TrailEventSelectorArgs:
         return pulumi.get(self, "data_resources")
 
     @data_resources.setter
-    def data_resources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TrailDataResourceArgs']]]]):
+    def data_resources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TrailDataResourceArgs']]]]):
         pulumi.set(self, "data_resources", value)
 
     @_builtins.property
     @pulumi.getter(name="excludeManagementEventSources")
-    def exclude_management_event_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def exclude_management_event_sources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         An optional list of service event sources from which you do not want management events to be logged on your trail. In this release, the list can be empty (disables the filter), or it can filter out AWS Key Management Service events by containing "kms.amazonaws.com". By default, ExcludeManagementEventSources is empty, and AWS KMS events are included in events that are logged to your trail.
         """
         return pulumi.get(self, "exclude_management_event_sources")
 
     @exclude_management_event_sources.setter
-    def exclude_management_event_sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def exclude_management_event_sources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "exclude_management_event_sources", value)
 
     @_builtins.property
     @pulumi.getter(name="includeManagementEvents")
-    def include_management_events(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_management_events(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specify if you want your event selector to include management events for your trail.
         """
         return pulumi.get(self, "include_management_events")
 
     @include_management_events.setter
-    def include_management_events(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_management_events(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_management_events", value)
 
     @_builtins.property
     @pulumi.getter(name="readWriteType")
-    def read_write_type(self) -> Optional[pulumi.Input['TrailEventSelectorReadWriteType']]:
+    def read_write_type(self) -> pulumi.Input[Optional['TrailEventSelectorReadWriteType']]:
         """
         Specify if you want your trail to log read-only events, write-only events, or all. For example, the EC2 GetConsoleOutput is a read-only API operation and RunInstances is a write-only API operation.
         """
         return pulumi.get(self, "read_write_type")
 
     @read_write_type.setter
-    def read_write_type(self, value: Optional[pulumi.Input['TrailEventSelectorReadWriteType']]):
+    def read_write_type(self, value: pulumi.Input[Optional['TrailEventSelectorReadWriteType']]):
         pulumi.set(self, "read_write_type", value)
 
 
@@ -1010,11 +1010,11 @@ class TrailInsightSelectorArgsDict(TypedDict):
     """
     A string that contains insight types that are logged on a trail.
     """
-    event_categories: NotRequired[pulumi.Input[Sequence[pulumi.Input['TrailSourceEventCategory']]]]
+    event_categories: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TrailSourceEventCategory']]]]]
     """
     The categories of events for which to log insights. By default, insights are logged for management events only.
     """
-    insight_type: NotRequired[pulumi.Input[_builtins.str]]
+    insight_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The type of insight to log on a trail.
     """
@@ -1022,8 +1022,8 @@ class TrailInsightSelectorArgsDict(TypedDict):
 @pulumi.input_type
 class TrailInsightSelectorArgs:
     def __init__(__self__, *,
-                 event_categories: Optional[pulumi.Input[Sequence[pulumi.Input['TrailSourceEventCategory']]]] = None,
-                 insight_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 event_categories: pulumi.Input[Optional[Sequence[pulumi.Input['TrailSourceEventCategory']]]] = None,
+                 insight_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         A string that contains insight types that are logged on a trail.
 
@@ -1037,26 +1037,26 @@ class TrailInsightSelectorArgs:
 
     @_builtins.property
     @pulumi.getter(name="eventCategories")
-    def event_categories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TrailSourceEventCategory']]]]:
+    def event_categories(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TrailSourceEventCategory']]]]:
         """
         The categories of events for which to log insights. By default, insights are logged for management events only.
         """
         return pulumi.get(self, "event_categories")
 
     @event_categories.setter
-    def event_categories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TrailSourceEventCategory']]]]):
+    def event_categories(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TrailSourceEventCategory']]]]):
         pulumi.set(self, "event_categories", value)
 
     @_builtins.property
     @pulumi.getter(name="insightType")
-    def insight_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def insight_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of insight to log on a trail.
         """
         return pulumi.get(self, "insight_type")
 
     @insight_type.setter
-    def insight_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def insight_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "insight_type", value)
 
 

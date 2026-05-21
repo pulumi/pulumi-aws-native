@@ -171,7 +171,7 @@ def get_application_inference_profile(inference_profile_identifier: Optional[_bu
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-def get_application_inference_profile_output(inference_profile_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+def get_application_inference_profile_output(inference_profile_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationInferenceProfileResult]:
     """
     Definition of AWS::Bedrock::ApplicationInferenceProfile Resource Type

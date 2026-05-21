@@ -64,8 +64,8 @@ class SubscriberNotification(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 notification_configuration: Optional[pulumi.Input[Union['SubscriberNotificationNotificationConfigurationArgs', 'SubscriberNotificationNotificationConfigurationArgsDict']]] = None,
-                 subscriber_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 notification_configuration: pulumi.Input[Optional[Union['SubscriberNotificationNotificationConfigurationArgs', 'SubscriberNotificationNotificationConfigurationArgsDict']]] = None,
+                 subscriber_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SecurityLake::SubscriberNotification
@@ -101,8 +101,8 @@ class SubscriberNotification(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 notification_configuration: Optional[pulumi.Input[Union['SubscriberNotificationNotificationConfigurationArgs', 'SubscriberNotificationNotificationConfigurationArgsDict']]] = None,
-                 subscriber_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 notification_configuration: pulumi.Input[Optional[Union['SubscriberNotificationNotificationConfigurationArgs', 'SubscriberNotificationNotificationConfigurationArgsDict']]] = None,
+                 subscriber_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

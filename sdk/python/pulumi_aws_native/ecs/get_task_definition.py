@@ -87,7 +87,7 @@ def get_task_definition(task_definition_arn: Optional[_builtins.str] = None,
     return AwaitableGetTaskDefinitionResult(
         tags=pulumi.get(__ret__, 'tags'),
         task_definition_arn=pulumi.get(__ret__, 'task_definition_arn'))
-def get_task_definition_output(task_definition_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_task_definition_output(task_definition_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTaskDefinitionResult]:
     """
     Registers a new task definition from the supplied ``family`` and ``containerDefinitions``. Optionally, you can add data volumes to your containers with the ``volumes`` parameter. For more information about task definition parameters and defaults, see [Amazon ECS Task Definitions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html) in the *Amazon Elastic Container Service Developer Guide*.

@@ -33,7 +33,7 @@ class CustomActionAttachmentCriteriaArgsDict(TypedDict):
     """
     The name of the variable to operate on.
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A value that is compared with the actual value of the variable based on the behavior of the operator.
     """
@@ -43,7 +43,7 @@ class CustomActionAttachmentCriteriaArgs:
     def __init__(__self__, *,
                  operator: pulumi.Input['CustomActionAttachmentCriteriaOperator'],
                  variable_name: pulumi.Input[_builtins.str],
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input['CustomActionAttachmentCriteriaOperator'] operator: The operation to perform on the named variable.
         :param pulumi.Input[_builtins.str] variable_name: The name of the variable to operate on.
@@ -80,31 +80,31 @@ class CustomActionAttachmentCriteriaArgs:
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A value that is compared with the actual value of the variable based on the behavior of the operator.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
 class CustomActionAttachmentArgsDict(TypedDict):
-    button_text: NotRequired[pulumi.Input[_builtins.str]]
+    button_text: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The text of the button that appears on the notification.
     """
-    criteria: NotRequired[pulumi.Input[Sequence[pulumi.Input['CustomActionAttachmentCriteriaArgsDict']]]]
+    criteria: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CustomActionAttachmentCriteriaArgsDict']]]]]
     """
     The criteria for when a button should be shown based on values in the notification.
     """
-    notification_type: NotRequired[pulumi.Input[_builtins.str]]
+    notification_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The type of notification that the custom action should be attached to.
     """
-    variables: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    variables: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     The variables to extract from the notification.
     """
@@ -112,10 +112,10 @@ class CustomActionAttachmentArgsDict(TypedDict):
 @pulumi.input_type
 class CustomActionAttachmentArgs:
     def __init__(__self__, *,
-                 button_text: Optional[pulumi.Input[_builtins.str]] = None,
-                 criteria: Optional[pulumi.Input[Sequence[pulumi.Input['CustomActionAttachmentCriteriaArgs']]]] = None,
-                 notification_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 button_text: pulumi.Input[Optional[_builtins.str]] = None,
+                 criteria: pulumi.Input[Optional[Sequence[pulumi.Input['CustomActionAttachmentCriteriaArgs']]]] = None,
+                 notification_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 variables: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] button_text: The text of the button that appears on the notification.
         :param pulumi.Input[Sequence[pulumi.Input['CustomActionAttachmentCriteriaArgs']]] criteria: The criteria for when a button should be shown based on values in the notification.
@@ -133,50 +133,50 @@ class CustomActionAttachmentArgs:
 
     @_builtins.property
     @pulumi.getter(name="buttonText")
-    def button_text(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def button_text(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The text of the button that appears on the notification.
         """
         return pulumi.get(self, "button_text")
 
     @button_text.setter
-    def button_text(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def button_text(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "button_text", value)
 
     @_builtins.property
     @pulumi.getter
-    def criteria(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomActionAttachmentCriteriaArgs']]]]:
+    def criteria(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CustomActionAttachmentCriteriaArgs']]]]:
         """
         The criteria for when a button should be shown based on values in the notification.
         """
         return pulumi.get(self, "criteria")
 
     @criteria.setter
-    def criteria(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomActionAttachmentCriteriaArgs']]]]):
+    def criteria(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CustomActionAttachmentCriteriaArgs']]]]):
         pulumi.set(self, "criteria", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationType")
-    def notification_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def notification_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of notification that the custom action should be attached to.
         """
         return pulumi.get(self, "notification_type")
 
     @notification_type.setter
-    def notification_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def notification_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "notification_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def variables(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def variables(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The variables to extract from the notification.
         """
         return pulumi.get(self, "variables")
 
     @variables.setter
-    def variables(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def variables(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "variables", value)
 
 

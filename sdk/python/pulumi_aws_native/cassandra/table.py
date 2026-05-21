@@ -26,19 +26,19 @@ class TableArgs:
     def __init__(__self__, *,
                  keyspace_name: pulumi.Input[_builtins.str],
                  partition_key_columns: pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]],
-                 auto_scaling_specifications: Optional[pulumi.Input['TableAutoScalingSpecificationArgs']] = None,
-                 billing_mode: Optional[pulumi.Input['TableBillingModeArgs']] = None,
-                 cdc_specification: Optional[pulumi.Input['TableCdcSpecificationArgs']] = None,
-                 client_side_timestamps_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 clustering_key_columns: Optional[pulumi.Input[Sequence[pulumi.Input['TableClusteringKeyColumnArgs']]]] = None,
-                 default_time_to_live: Optional[pulumi.Input[_builtins.int]] = None,
-                 encryption_specification: Optional[pulumi.Input['TableEncryptionSpecificationArgs']] = None,
-                 point_in_time_recovery_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 regular_columns: Optional[pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]]] = None,
-                 replica_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['TableReplicaSpecificationArgs']]]] = None,
-                 table_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 warm_throughput: Optional[pulumi.Input['TableWarmThroughputArgs']] = None):
+                 auto_scaling_specifications: pulumi.Input[Optional['TableAutoScalingSpecificationArgs']] = None,
+                 billing_mode: pulumi.Input[Optional['TableBillingModeArgs']] = None,
+                 cdc_specification: pulumi.Input[Optional['TableCdcSpecificationArgs']] = None,
+                 client_side_timestamps_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 clustering_key_columns: pulumi.Input[Optional[Sequence[pulumi.Input['TableClusteringKeyColumnArgs']]]] = None,
+                 default_time_to_live: pulumi.Input[Optional[_builtins.int]] = None,
+                 encryption_specification: pulumi.Input[Optional['TableEncryptionSpecificationArgs']] = None,
+                 point_in_time_recovery_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 regular_columns: pulumi.Input[Optional[Sequence[pulumi.Input['TableColumnArgs']]]] = None,
+                 replica_specifications: pulumi.Input[Optional[Sequence[pulumi.Input['TableReplicaSpecificationArgs']]]] = None,
+                 table_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 warm_throughput: pulumi.Input[Optional['TableWarmThroughputArgs']] = None):
         """
         The set of arguments for constructing a Table resource.
 
@@ -130,19 +130,19 @@ class TableArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoScalingSpecifications")
-    def auto_scaling_specifications(self) -> Optional[pulumi.Input['TableAutoScalingSpecificationArgs']]:
+    def auto_scaling_specifications(self) -> pulumi.Input[Optional['TableAutoScalingSpecificationArgs']]:
         """
         The optional auto scaling capacity settings for a table in provisioned capacity mode.
         """
         return pulumi.get(self, "auto_scaling_specifications")
 
     @auto_scaling_specifications.setter
-    def auto_scaling_specifications(self, value: Optional[pulumi.Input['TableAutoScalingSpecificationArgs']]):
+    def auto_scaling_specifications(self, value: pulumi.Input[Optional['TableAutoScalingSpecificationArgs']]):
         pulumi.set(self, "auto_scaling_specifications", value)
 
     @_builtins.property
     @pulumi.getter(name="billingMode")
-    def billing_mode(self) -> Optional[pulumi.Input['TableBillingModeArgs']]:
+    def billing_mode(self) -> pulumi.Input[Optional['TableBillingModeArgs']]:
         """
         The billing mode for the table, which determines how you'll be charged for reads and writes:
 
@@ -154,60 +154,60 @@ class TableArgs:
         return pulumi.get(self, "billing_mode")
 
     @billing_mode.setter
-    def billing_mode(self, value: Optional[pulumi.Input['TableBillingModeArgs']]):
+    def billing_mode(self, value: pulumi.Input[Optional['TableBillingModeArgs']]):
         pulumi.set(self, "billing_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="cdcSpecification")
-    def cdc_specification(self) -> Optional[pulumi.Input['TableCdcSpecificationArgs']]:
+    def cdc_specification(self) -> pulumi.Input[Optional['TableCdcSpecificationArgs']]:
         """
         The settings for the CDC stream of a table. For more information about CDC streams, see [Working with change data capture (CDC) streams in Amazon Keyspaces](https://docs.aws.amazon.com/keyspaces/latest/devguide/cdc.html) in the *Amazon Keyspaces Developer Guide* .
         """
         return pulumi.get(self, "cdc_specification")
 
     @cdc_specification.setter
-    def cdc_specification(self, value: Optional[pulumi.Input['TableCdcSpecificationArgs']]):
+    def cdc_specification(self, value: pulumi.Input[Optional['TableCdcSpecificationArgs']]):
         pulumi.set(self, "cdc_specification", value)
 
     @_builtins.property
     @pulumi.getter(name="clientSideTimestampsEnabled")
-    def client_side_timestamps_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def client_side_timestamps_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether client side timestamps are enabled (true) or disabled (false) on the table. False by default, once it is enabled it cannot be disabled again.
         """
         return pulumi.get(self, "client_side_timestamps_enabled")
 
     @client_side_timestamps_enabled.setter
-    def client_side_timestamps_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def client_side_timestamps_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "client_side_timestamps_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="clusteringKeyColumns")
-    def clustering_key_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableClusteringKeyColumnArgs']]]]:
+    def clustering_key_columns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TableClusteringKeyColumnArgs']]]]:
         """
         Clustering key columns of the table
         """
         return pulumi.get(self, "clustering_key_columns")
 
     @clustering_key_columns.setter
-    def clustering_key_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TableClusteringKeyColumnArgs']]]]):
+    def clustering_key_columns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TableClusteringKeyColumnArgs']]]]):
         pulumi.set(self, "clustering_key_columns", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultTimeToLive")
-    def default_time_to_live(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def default_time_to_live(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Default TTL (Time To Live) in seconds, where zero is disabled. If the value is greater than zero, TTL is enabled for the entire table and an expiration timestamp is added to each column.
         """
         return pulumi.get(self, "default_time_to_live")
 
     @default_time_to_live.setter
-    def default_time_to_live(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def default_time_to_live(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "default_time_to_live", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionSpecification")
-    def encryption_specification(self) -> Optional[pulumi.Input['TableEncryptionSpecificationArgs']]:
+    def encryption_specification(self) -> pulumi.Input[Optional['TableEncryptionSpecificationArgs']]:
         """
         The encryption at rest options for the table.
 
@@ -221,36 +221,36 @@ class TableArgs:
         return pulumi.get(self, "encryption_specification")
 
     @encryption_specification.setter
-    def encryption_specification(self, value: Optional[pulumi.Input['TableEncryptionSpecificationArgs']]):
+    def encryption_specification(self, value: pulumi.Input[Optional['TableEncryptionSpecificationArgs']]):
         pulumi.set(self, "encryption_specification", value)
 
     @_builtins.property
     @pulumi.getter(name="pointInTimeRecoveryEnabled")
-    def point_in_time_recovery_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def point_in_time_recovery_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether point in time recovery is enabled (true) or disabled (false) on the table
         """
         return pulumi.get(self, "point_in_time_recovery_enabled")
 
     @point_in_time_recovery_enabled.setter
-    def point_in_time_recovery_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def point_in_time_recovery_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "point_in_time_recovery_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="regularColumns")
-    def regular_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]]]:
+    def regular_columns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TableColumnArgs']]]]:
         """
         Non-key columns of the table
         """
         return pulumi.get(self, "regular_columns")
 
     @regular_columns.setter
-    def regular_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]]]):
+    def regular_columns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TableColumnArgs']]]]):
         pulumi.set(self, "regular_columns", value)
 
     @_builtins.property
     @pulumi.getter(name="replicaSpecifications")
-    def replica_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableReplicaSpecificationArgs']]]]:
+    def replica_specifications(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TableReplicaSpecificationArgs']]]]:
         """
         The AWS Region specific settings of a multi-Region table.
 
@@ -263,40 +263,40 @@ class TableArgs:
         return pulumi.get(self, "replica_specifications")
 
     @replica_specifications.setter
-    def replica_specifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TableReplicaSpecificationArgs']]]]):
+    def replica_specifications(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TableReplicaSpecificationArgs']]]]):
         pulumi.set(self, "replica_specifications", value)
 
     @_builtins.property
     @pulumi.getter(name="tableName")
-    def table_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def table_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name for Cassandra table
         """
         return pulumi.get(self, "table_name")
 
     @table_name.setter
-    def table_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def table_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "table_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="warmThroughput")
-    def warm_throughput(self) -> Optional[pulumi.Input['TableWarmThroughputArgs']]:
+    def warm_throughput(self) -> pulumi.Input[Optional['TableWarmThroughputArgs']]:
         return pulumi.get(self, "warm_throughput")
 
     @warm_throughput.setter
-    def warm_throughput(self, value: Optional[pulumi.Input['TableWarmThroughputArgs']]):
+    def warm_throughput(self, value: pulumi.Input[Optional['TableWarmThroughputArgs']]):
         pulumi.set(self, "warm_throughput", value)
 
 
@@ -306,21 +306,21 @@ class Table(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_scaling_specifications: Optional[pulumi.Input[Union['TableAutoScalingSpecificationArgs', 'TableAutoScalingSpecificationArgsDict']]] = None,
-                 billing_mode: Optional[pulumi.Input[Union['TableBillingModeArgs', 'TableBillingModeArgsDict']]] = None,
-                 cdc_specification: Optional[pulumi.Input[Union['TableCdcSpecificationArgs', 'TableCdcSpecificationArgsDict']]] = None,
-                 client_side_timestamps_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 clustering_key_columns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableClusteringKeyColumnArgs', 'TableClusteringKeyColumnArgsDict']]]]] = None,
-                 default_time_to_live: Optional[pulumi.Input[_builtins.int]] = None,
-                 encryption_specification: Optional[pulumi.Input[Union['TableEncryptionSpecificationArgs', 'TableEncryptionSpecificationArgsDict']]] = None,
-                 keyspace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition_key_columns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableColumnArgs', 'TableColumnArgsDict']]]]] = None,
-                 point_in_time_recovery_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 regular_columns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableColumnArgs', 'TableColumnArgsDict']]]]] = None,
-                 replica_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableReplicaSpecificationArgs', 'TableReplicaSpecificationArgsDict']]]]] = None,
-                 table_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 warm_throughput: Optional[pulumi.Input[Union['TableWarmThroughputArgs', 'TableWarmThroughputArgsDict']]] = None,
+                 auto_scaling_specifications: pulumi.Input[Optional[Union['TableAutoScalingSpecificationArgs', 'TableAutoScalingSpecificationArgsDict']]] = None,
+                 billing_mode: pulumi.Input[Optional[Union['TableBillingModeArgs', 'TableBillingModeArgsDict']]] = None,
+                 cdc_specification: pulumi.Input[Optional[Union['TableCdcSpecificationArgs', 'TableCdcSpecificationArgsDict']]] = None,
+                 client_side_timestamps_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 clustering_key_columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TableClusteringKeyColumnArgs', 'TableClusteringKeyColumnArgsDict']]]]] = None,
+                 default_time_to_live: pulumi.Input[Optional[_builtins.int]] = None,
+                 encryption_specification: pulumi.Input[Optional[Union['TableEncryptionSpecificationArgs', 'TableEncryptionSpecificationArgsDict']]] = None,
+                 keyspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition_key_columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TableColumnArgs', 'TableColumnArgsDict']]]]] = None,
+                 point_in_time_recovery_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 regular_columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TableColumnArgs', 'TableColumnArgsDict']]]]] = None,
+                 replica_specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TableReplicaSpecificationArgs', 'TableReplicaSpecificationArgsDict']]]]] = None,
+                 table_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 warm_throughput: pulumi.Input[Optional[Union['TableWarmThroughputArgs', 'TableWarmThroughputArgsDict']]] = None,
                  __props__=None):
         """
         Resource schema for AWS::Cassandra::Table
@@ -1318,21 +1318,21 @@ class Table(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_scaling_specifications: Optional[pulumi.Input[Union['TableAutoScalingSpecificationArgs', 'TableAutoScalingSpecificationArgsDict']]] = None,
-                 billing_mode: Optional[pulumi.Input[Union['TableBillingModeArgs', 'TableBillingModeArgsDict']]] = None,
-                 cdc_specification: Optional[pulumi.Input[Union['TableCdcSpecificationArgs', 'TableCdcSpecificationArgsDict']]] = None,
-                 client_side_timestamps_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 clustering_key_columns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableClusteringKeyColumnArgs', 'TableClusteringKeyColumnArgsDict']]]]] = None,
-                 default_time_to_live: Optional[pulumi.Input[_builtins.int]] = None,
-                 encryption_specification: Optional[pulumi.Input[Union['TableEncryptionSpecificationArgs', 'TableEncryptionSpecificationArgsDict']]] = None,
-                 keyspace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition_key_columns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableColumnArgs', 'TableColumnArgsDict']]]]] = None,
-                 point_in_time_recovery_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 regular_columns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableColumnArgs', 'TableColumnArgsDict']]]]] = None,
-                 replica_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableReplicaSpecificationArgs', 'TableReplicaSpecificationArgsDict']]]]] = None,
-                 table_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 warm_throughput: Optional[pulumi.Input[Union['TableWarmThroughputArgs', 'TableWarmThroughputArgsDict']]] = None,
+                 auto_scaling_specifications: pulumi.Input[Optional[Union['TableAutoScalingSpecificationArgs', 'TableAutoScalingSpecificationArgsDict']]] = None,
+                 billing_mode: pulumi.Input[Optional[Union['TableBillingModeArgs', 'TableBillingModeArgsDict']]] = None,
+                 cdc_specification: pulumi.Input[Optional[Union['TableCdcSpecificationArgs', 'TableCdcSpecificationArgsDict']]] = None,
+                 client_side_timestamps_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 clustering_key_columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TableClusteringKeyColumnArgs', 'TableClusteringKeyColumnArgsDict']]]]] = None,
+                 default_time_to_live: pulumi.Input[Optional[_builtins.int]] = None,
+                 encryption_specification: pulumi.Input[Optional[Union['TableEncryptionSpecificationArgs', 'TableEncryptionSpecificationArgsDict']]] = None,
+                 keyspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition_key_columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TableColumnArgs', 'TableColumnArgsDict']]]]] = None,
+                 point_in_time_recovery_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 regular_columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TableColumnArgs', 'TableColumnArgsDict']]]]] = None,
+                 replica_specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TableReplicaSpecificationArgs', 'TableReplicaSpecificationArgsDict']]]]] = None,
+                 table_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 warm_throughput: pulumi.Input[Optional[Union['TableWarmThroughputArgs', 'TableWarmThroughputArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

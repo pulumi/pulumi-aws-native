@@ -23,9 +23,9 @@ class UserProfileArgs:
     def __init__(__self__, *,
                  domain_identifier: pulumi.Input[_builtins.str],
                  user_identifier: pulumi.Input[_builtins.str],
-                 session_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input['UserProfileStatus']] = None,
-                 user_type: Optional[pulumi.Input['UserProfileUserType']] = None):
+                 session_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional['UserProfileStatus']] = None,
+                 user_type: pulumi.Input[Optional['UserProfileUserType']] = None):
         """
         The set of arguments for constructing a UserProfile resource.
 
@@ -70,38 +70,38 @@ class UserProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="sessionName")
-    def session_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def session_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The session name of the user profile.
         """
         return pulumi.get(self, "session_name")
 
     @session_name.setter
-    def session_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def session_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "session_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input['UserProfileStatus']]:
+    def status(self) -> pulumi.Input[Optional['UserProfileStatus']]:
         """
         The status of the user profile.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input['UserProfileStatus']]):
+    def status(self, value: pulumi.Input[Optional['UserProfileStatus']]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="userType")
-    def user_type(self) -> Optional[pulumi.Input['UserProfileUserType']]:
+    def user_type(self) -> pulumi.Input[Optional['UserProfileUserType']]:
         """
         The user type of the user for which the user profile is created.
         """
         return pulumi.get(self, "user_type")
 
     @user_type.setter
-    def user_type(self, value: Optional[pulumi.Input['UserProfileUserType']]):
+    def user_type(self, value: pulumi.Input[Optional['UserProfileUserType']]):
         pulumi.set(self, "user_type", value)
 
 
@@ -111,11 +111,11 @@ class UserProfile(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 domain_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 session_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input['UserProfileStatus']] = None,
-                 user_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_type: Optional[pulumi.Input['UserProfileUserType']] = None,
+                 domain_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 session_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional['UserProfileStatus']] = None,
+                 user_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_type: pulumi.Input[Optional['UserProfileUserType']] = None,
                  __props__=None):
         """
         A user profile represents Amazon DataZone users. Amazon DataZone supports both IAM roles and SSO identities to interact with the Amazon DataZone Management Console and the data portal for different purposes. Domain administrators use IAM roles to perform the initial administrative domain-related work in the Amazon DataZone Management Console, including creating new Amazon DataZone domains, configuring metadata form types, and implementing policies. Data workers use their SSO corporate identities via Identity Center to log into the Amazon DataZone Data Portal and access projects where they have memberships.
@@ -154,11 +154,11 @@ class UserProfile(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 domain_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 session_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input['UserProfileStatus']] = None,
-                 user_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_type: Optional[pulumi.Input['UserProfileUserType']] = None,
+                 domain_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 session_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional['UserProfileStatus']] = None,
+                 user_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_type: pulumi.Input[Optional['UserProfileUserType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

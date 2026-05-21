@@ -23,12 +23,12 @@ __all__ = ['DeliveryDestinationArgs', 'DeliveryDestination']
 @pulumi.input_type
 class DeliveryDestinationArgs:
     def __init__(__self__, *,
-                 delivery_destination_policy: Optional[pulumi.Input['DeliveryDestinationDestinationPolicyArgs']] = None,
-                 delivery_destination_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_resource_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 output_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 delivery_destination_policy: pulumi.Input[Optional['DeliveryDestinationDestinationPolicyArgs']] = None,
+                 delivery_destination_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_resource_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 output_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DeliveryDestination resource.
 
@@ -58,7 +58,7 @@ class DeliveryDestinationArgs:
 
     @_builtins.property
     @pulumi.getter(name="deliveryDestinationPolicy")
-    def delivery_destination_policy(self) -> Optional[pulumi.Input['DeliveryDestinationDestinationPolicyArgs']]:
+    def delivery_destination_policy(self) -> pulumi.Input[Optional['DeliveryDestinationDestinationPolicyArgs']]:
         """
         IAM policy that grants permissions to CloudWatch Logs to deliver logs cross-account to a specified destination in this account.
 
@@ -69,67 +69,67 @@ class DeliveryDestinationArgs:
         return pulumi.get(self, "delivery_destination_policy")
 
     @delivery_destination_policy.setter
-    def delivery_destination_policy(self, value: Optional[pulumi.Input['DeliveryDestinationDestinationPolicyArgs']]):
+    def delivery_destination_policy(self, value: pulumi.Input[Optional['DeliveryDestinationDestinationPolicyArgs']]):
         pulumi.set(self, "delivery_destination_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="deliveryDestinationType")
-    def delivery_destination_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delivery_destination_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Displays whether this delivery destination is CloudWatch Logs, Amazon S3, Kinesis Data Firehose, or XRay.
         """
         return pulumi.get(self, "delivery_destination_type")
 
     @delivery_destination_type.setter
-    def delivery_destination_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delivery_destination_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delivery_destination_type", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationResourceArn")
-    def destination_resource_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination_resource_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the Amazon Web Services destination that this delivery destination represents. That Amazon Web Services destination can be a log group in CloudWatch Logs, an Amazon S3 bucket, or a delivery stream in Firehose.
         """
         return pulumi.get(self, "destination_resource_arn")
 
     @destination_resource_arn.setter
-    def destination_resource_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination_resource_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination_resource_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of this delivery destination.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="outputFormat")
-    def output_format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def output_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The format of the logs that are sent to this delivery destination.
         """
         return pulumi.get(self, "output_format")
 
     @output_format.setter
-    def output_format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def output_format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "output_format", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags that have been assigned to this delivery destination.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -139,12 +139,12 @@ class DeliveryDestination(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 delivery_destination_policy: Optional[pulumi.Input[Union['DeliveryDestinationDestinationPolicyArgs', 'DeliveryDestinationDestinationPolicyArgsDict']]] = None,
-                 delivery_destination_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_resource_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 output_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 delivery_destination_policy: pulumi.Input[Optional[Union['DeliveryDestinationDestinationPolicyArgs', 'DeliveryDestinationDestinationPolicyArgsDict']]] = None,
+                 delivery_destination_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_resource_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 output_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         This structure contains information about one delivery destination in your account.
@@ -192,12 +192,12 @@ class DeliveryDestination(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 delivery_destination_policy: Optional[pulumi.Input[Union['DeliveryDestinationDestinationPolicyArgs', 'DeliveryDestinationDestinationPolicyArgsDict']]] = None,
-                 delivery_destination_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_resource_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 output_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 delivery_destination_policy: pulumi.Input[Optional[Union['DeliveryDestinationDestinationPolicyArgs', 'DeliveryDestinationDestinationPolicyArgsDict']]] = None,
+                 delivery_destination_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_resource_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 output_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

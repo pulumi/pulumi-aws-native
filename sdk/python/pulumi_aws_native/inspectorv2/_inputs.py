@@ -158,18 +158,18 @@ class CisScanConfigurationScheduleArgsDict(TypedDict):
     """
     Choose a Schedule cadence
     """
-    daily: NotRequired[pulumi.Input['CisScanConfigurationDailyScheduleArgsDict']]
-    monthly: NotRequired[pulumi.Input['CisScanConfigurationMonthlyScheduleArgsDict']]
-    one_time: NotRequired[pulumi.Input['CisScanConfigurationOneTimeScheduleArgsDict']]
-    weekly: NotRequired[pulumi.Input['CisScanConfigurationWeeklyScheduleArgsDict']]
+    daily: NotRequired[pulumi.Input[Optional['CisScanConfigurationDailyScheduleArgsDict']]]
+    monthly: NotRequired[pulumi.Input[Optional['CisScanConfigurationMonthlyScheduleArgsDict']]]
+    one_time: NotRequired[pulumi.Input[Optional['CisScanConfigurationOneTimeScheduleArgsDict']]]
+    weekly: NotRequired[pulumi.Input[Optional['CisScanConfigurationWeeklyScheduleArgsDict']]]
 
 @pulumi.input_type
 class CisScanConfigurationScheduleArgs:
     def __init__(__self__, *,
-                 daily: Optional[pulumi.Input['CisScanConfigurationDailyScheduleArgs']] = None,
-                 monthly: Optional[pulumi.Input['CisScanConfigurationMonthlyScheduleArgs']] = None,
-                 one_time: Optional[pulumi.Input['CisScanConfigurationOneTimeScheduleArgs']] = None,
-                 weekly: Optional[pulumi.Input['CisScanConfigurationWeeklyScheduleArgs']] = None):
+                 daily: pulumi.Input[Optional['CisScanConfigurationDailyScheduleArgs']] = None,
+                 monthly: pulumi.Input[Optional['CisScanConfigurationMonthlyScheduleArgs']] = None,
+                 one_time: pulumi.Input[Optional['CisScanConfigurationOneTimeScheduleArgs']] = None,
+                 weekly: pulumi.Input[Optional['CisScanConfigurationWeeklyScheduleArgs']] = None):
         """
         Choose a Schedule cadence
         """
@@ -184,38 +184,38 @@ class CisScanConfigurationScheduleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def daily(self) -> Optional[pulumi.Input['CisScanConfigurationDailyScheduleArgs']]:
+    def daily(self) -> pulumi.Input[Optional['CisScanConfigurationDailyScheduleArgs']]:
         return pulumi.get(self, "daily")
 
     @daily.setter
-    def daily(self, value: Optional[pulumi.Input['CisScanConfigurationDailyScheduleArgs']]):
+    def daily(self, value: pulumi.Input[Optional['CisScanConfigurationDailyScheduleArgs']]):
         pulumi.set(self, "daily", value)
 
     @_builtins.property
     @pulumi.getter
-    def monthly(self) -> Optional[pulumi.Input['CisScanConfigurationMonthlyScheduleArgs']]:
+    def monthly(self) -> pulumi.Input[Optional['CisScanConfigurationMonthlyScheduleArgs']]:
         return pulumi.get(self, "monthly")
 
     @monthly.setter
-    def monthly(self, value: Optional[pulumi.Input['CisScanConfigurationMonthlyScheduleArgs']]):
+    def monthly(self, value: pulumi.Input[Optional['CisScanConfigurationMonthlyScheduleArgs']]):
         pulumi.set(self, "monthly", value)
 
     @_builtins.property
     @pulumi.getter(name="oneTime")
-    def one_time(self) -> Optional[pulumi.Input['CisScanConfigurationOneTimeScheduleArgs']]:
+    def one_time(self) -> pulumi.Input[Optional['CisScanConfigurationOneTimeScheduleArgs']]:
         return pulumi.get(self, "one_time")
 
     @one_time.setter
-    def one_time(self, value: Optional[pulumi.Input['CisScanConfigurationOneTimeScheduleArgs']]):
+    def one_time(self, value: pulumi.Input[Optional['CisScanConfigurationOneTimeScheduleArgs']]):
         pulumi.set(self, "one_time", value)
 
     @_builtins.property
     @pulumi.getter
-    def weekly(self) -> Optional[pulumi.Input['CisScanConfigurationWeeklyScheduleArgs']]:
+    def weekly(self) -> pulumi.Input[Optional['CisScanConfigurationWeeklyScheduleArgs']]:
         return pulumi.get(self, "weekly")
 
     @weekly.setter
-    def weekly(self, value: Optional[pulumi.Input['CisScanConfigurationWeeklyScheduleArgs']]):
+    def weekly(self, value: pulumi.Input[Optional['CisScanConfigurationWeeklyScheduleArgs']]):
         pulumi.set(self, "weekly", value)
 
 
@@ -357,11 +357,11 @@ class CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailArgs:
 
 
 class CodeSecurityIntegrationUpdateDetailsArgsDict(TypedDict):
-    github: NotRequired[pulumi.Input['CodeSecurityIntegrationUpdateGitHubIntegrationDetailArgsDict']]
+    github: NotRequired[pulumi.Input[Optional['CodeSecurityIntegrationUpdateGitHubIntegrationDetailArgsDict']]]
     """
     Details specific to updating an integration with GitHub.
     """
-    gitlab_self_managed: NotRequired[pulumi.Input['CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailArgsDict']]
+    gitlab_self_managed: NotRequired[pulumi.Input[Optional['CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailArgsDict']]]
     """
     Details specific to updating an integration with a self-managed GitLab instance.
     """
@@ -369,8 +369,8 @@ class CodeSecurityIntegrationUpdateDetailsArgsDict(TypedDict):
 @pulumi.input_type
 class CodeSecurityIntegrationUpdateDetailsArgs:
     def __init__(__self__, *,
-                 github: Optional[pulumi.Input['CodeSecurityIntegrationUpdateGitHubIntegrationDetailArgs']] = None,
-                 gitlab_self_managed: Optional[pulumi.Input['CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailArgs']] = None):
+                 github: pulumi.Input[Optional['CodeSecurityIntegrationUpdateGitHubIntegrationDetailArgs']] = None,
+                 gitlab_self_managed: pulumi.Input[Optional['CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailArgs']] = None):
         """
         :param pulumi.Input['CodeSecurityIntegrationUpdateGitHubIntegrationDetailArgs'] github: Details specific to updating an integration with GitHub.
         :param pulumi.Input['CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailArgs'] gitlab_self_managed: Details specific to updating an integration with a self-managed GitLab instance.
@@ -382,26 +382,26 @@ class CodeSecurityIntegrationUpdateDetailsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def github(self) -> Optional[pulumi.Input['CodeSecurityIntegrationUpdateGitHubIntegrationDetailArgs']]:
+    def github(self) -> pulumi.Input[Optional['CodeSecurityIntegrationUpdateGitHubIntegrationDetailArgs']]:
         """
         Details specific to updating an integration with GitHub.
         """
         return pulumi.get(self, "github")
 
     @github.setter
-    def github(self, value: Optional[pulumi.Input['CodeSecurityIntegrationUpdateGitHubIntegrationDetailArgs']]):
+    def github(self, value: pulumi.Input[Optional['CodeSecurityIntegrationUpdateGitHubIntegrationDetailArgs']]):
         pulumi.set(self, "github", value)
 
     @_builtins.property
     @pulumi.getter(name="gitlabSelfManaged")
-    def gitlab_self_managed(self) -> Optional[pulumi.Input['CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailArgs']]:
+    def gitlab_self_managed(self) -> pulumi.Input[Optional['CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailArgs']]:
         """
         Details specific to updating an integration with a self-managed GitLab instance.
         """
         return pulumi.get(self, "gitlab_self_managed")
 
     @gitlab_self_managed.setter
-    def gitlab_self_managed(self, value: Optional[pulumi.Input['CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailArgs']]):
+    def gitlab_self_managed(self, value: pulumi.Input[Optional['CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailArgs']]):
         pulumi.set(self, "gitlab_self_managed", value)
 
 
@@ -509,13 +509,13 @@ class CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationArgs:
 
 
 class CodeSecurityScanConfigurationPeriodicScanConfigurationArgsDict(TypedDict):
-    frequency: NotRequired[pulumi.Input['CodeSecurityScanConfigurationPeriodicScanFrequency']]
+    frequency: NotRequired[pulumi.Input[Optional['CodeSecurityScanConfigurationPeriodicScanFrequency']]]
     """
     The frequency at which periodic scans are performed (such as weekly or monthly).
 
     If you don't provide the `frequencyExpression` Amazon Inspector chooses day for the scan to run. If you provide the `frequencyExpression` , the schedule must match the specified `frequency` .
     """
-    frequency_expression: NotRequired[pulumi.Input[_builtins.str]]
+    frequency_expression: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The schedule expression for periodic scans, in cron format.
     """
@@ -523,8 +523,8 @@ class CodeSecurityScanConfigurationPeriodicScanConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class CodeSecurityScanConfigurationPeriodicScanConfigurationArgs:
     def __init__(__self__, *,
-                 frequency: Optional[pulumi.Input['CodeSecurityScanConfigurationPeriodicScanFrequency']] = None,
-                 frequency_expression: Optional[pulumi.Input[_builtins.str]] = None):
+                 frequency: pulumi.Input[Optional['CodeSecurityScanConfigurationPeriodicScanFrequency']] = None,
+                 frequency_expression: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input['CodeSecurityScanConfigurationPeriodicScanFrequency'] frequency: The frequency at which periodic scans are performed (such as weekly or monthly).
                
@@ -538,7 +538,7 @@ class CodeSecurityScanConfigurationPeriodicScanConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def frequency(self) -> Optional[pulumi.Input['CodeSecurityScanConfigurationPeriodicScanFrequency']]:
+    def frequency(self) -> pulumi.Input[Optional['CodeSecurityScanConfigurationPeriodicScanFrequency']]:
         """
         The frequency at which periodic scans are performed (such as weekly or monthly).
 
@@ -547,24 +547,24 @@ class CodeSecurityScanConfigurationPeriodicScanConfigurationArgs:
         return pulumi.get(self, "frequency")
 
     @frequency.setter
-    def frequency(self, value: Optional[pulumi.Input['CodeSecurityScanConfigurationPeriodicScanFrequency']]):
+    def frequency(self, value: pulumi.Input[Optional['CodeSecurityScanConfigurationPeriodicScanFrequency']]):
         pulumi.set(self, "frequency", value)
 
     @_builtins.property
     @pulumi.getter(name="frequencyExpression")
-    def frequency_expression(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def frequency_expression(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The schedule expression for periodic scans, in cron format.
         """
         return pulumi.get(self, "frequency_expression")
 
     @frequency_expression.setter
-    def frequency_expression(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def frequency_expression(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "frequency_expression", value)
 
 
 class CodeSecurityScanConfigurationScopeSettingsArgsDict(TypedDict):
-    project_selection_scope: NotRequired[pulumi.Input['CodeSecurityScanConfigurationProjectSelectionScope']]
+    project_selection_scope: NotRequired[pulumi.Input[Optional['CodeSecurityScanConfigurationProjectSelectionScope']]]
     """
     The scope of projects to be selected for scanning within the integrated repositories.
     """
@@ -572,7 +572,7 @@ class CodeSecurityScanConfigurationScopeSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class CodeSecurityScanConfigurationScopeSettingsArgs:
     def __init__(__self__, *,
-                 project_selection_scope: Optional[pulumi.Input['CodeSecurityScanConfigurationProjectSelectionScope']] = None):
+                 project_selection_scope: pulumi.Input[Optional['CodeSecurityScanConfigurationProjectSelectionScope']] = None):
         """
         :param pulumi.Input['CodeSecurityScanConfigurationProjectSelectionScope'] project_selection_scope: The scope of projects to be selected for scanning within the integrated repositories.
         """
@@ -581,14 +581,14 @@ class CodeSecurityScanConfigurationScopeSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="projectSelectionScope")
-    def project_selection_scope(self) -> Optional[pulumi.Input['CodeSecurityScanConfigurationProjectSelectionScope']]:
+    def project_selection_scope(self) -> pulumi.Input[Optional['CodeSecurityScanConfigurationProjectSelectionScope']]:
         """
         The scope of projects to be selected for scanning within the integrated repositories.
         """
         return pulumi.get(self, "project_selection_scope")
 
     @project_selection_scope.setter
-    def project_selection_scope(self, value: Optional[pulumi.Input['CodeSecurityScanConfigurationProjectSelectionScope']]):
+    def project_selection_scope(self, value: pulumi.Input[Optional['CodeSecurityScanConfigurationProjectSelectionScope']]):
         pulumi.set(self, "project_selection_scope", value)
 
 
@@ -597,11 +597,11 @@ class CodeSecurityScanConfigurationArgsDict(TypedDict):
     """
     The categories of security rules to be applied during the scan.
     """
-    continuous_integration_scan_configuration: NotRequired[pulumi.Input['CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationArgsDict']]
+    continuous_integration_scan_configuration: NotRequired[pulumi.Input[Optional['CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationArgsDict']]]
     """
     Configuration settings for continuous integration scans that run automatically when code changes are made.
     """
-    periodic_scan_configuration: NotRequired[pulumi.Input['CodeSecurityScanConfigurationPeriodicScanConfigurationArgsDict']]
+    periodic_scan_configuration: NotRequired[pulumi.Input[Optional['CodeSecurityScanConfigurationPeriodicScanConfigurationArgsDict']]]
     """
     Configuration settings for periodic scans that run on a scheduled basis.
     """
@@ -610,8 +610,8 @@ class CodeSecurityScanConfigurationArgsDict(TypedDict):
 class CodeSecurityScanConfigurationArgs:
     def __init__(__self__, *,
                  rule_set_categories: pulumi.Input[Sequence[pulumi.Input['CodeSecurityScanConfigurationRuleSetCategory']]],
-                 continuous_integration_scan_configuration: Optional[pulumi.Input['CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationArgs']] = None,
-                 periodic_scan_configuration: Optional[pulumi.Input['CodeSecurityScanConfigurationPeriodicScanConfigurationArgs']] = None):
+                 continuous_integration_scan_configuration: pulumi.Input[Optional['CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationArgs']] = None,
+                 periodic_scan_configuration: pulumi.Input[Optional['CodeSecurityScanConfigurationPeriodicScanConfigurationArgs']] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['CodeSecurityScanConfigurationRuleSetCategory']]] rule_set_categories: The categories of security rules to be applied during the scan.
         :param pulumi.Input['CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationArgs'] continuous_integration_scan_configuration: Configuration settings for continuous integration scans that run automatically when code changes are made.
@@ -637,162 +637,162 @@ class CodeSecurityScanConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="continuousIntegrationScanConfiguration")
-    def continuous_integration_scan_configuration(self) -> Optional[pulumi.Input['CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationArgs']]:
+    def continuous_integration_scan_configuration(self) -> pulumi.Input[Optional['CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationArgs']]:
         """
         Configuration settings for continuous integration scans that run automatically when code changes are made.
         """
         return pulumi.get(self, "continuous_integration_scan_configuration")
 
     @continuous_integration_scan_configuration.setter
-    def continuous_integration_scan_configuration(self, value: Optional[pulumi.Input['CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationArgs']]):
+    def continuous_integration_scan_configuration(self, value: pulumi.Input[Optional['CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationArgs']]):
         pulumi.set(self, "continuous_integration_scan_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="periodicScanConfiguration")
-    def periodic_scan_configuration(self) -> Optional[pulumi.Input['CodeSecurityScanConfigurationPeriodicScanConfigurationArgs']]:
+    def periodic_scan_configuration(self) -> pulumi.Input[Optional['CodeSecurityScanConfigurationPeriodicScanConfigurationArgs']]:
         """
         Configuration settings for periodic scans that run on a scheduled basis.
         """
         return pulumi.get(self, "periodic_scan_configuration")
 
     @periodic_scan_configuration.setter
-    def periodic_scan_configuration(self, value: Optional[pulumi.Input['CodeSecurityScanConfigurationPeriodicScanConfigurationArgs']]):
+    def periodic_scan_configuration(self, value: pulumi.Input[Optional['CodeSecurityScanConfigurationPeriodicScanConfigurationArgs']]):
         pulumi.set(self, "periodic_scan_configuration", value)
 
 
 class FilterCriteriaArgsDict(TypedDict):
-    aws_account_id: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
+    aws_account_id: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]]
     """
     Details of the AWS account IDs used to filter findings.
     """
-    code_vulnerability_detector_name: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
-    code_vulnerability_detector_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
-    code_vulnerability_file_path: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
-    component_id: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
+    code_vulnerability_detector_name: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]]
+    code_vulnerability_detector_tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]]
+    code_vulnerability_file_path: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]]
+    component_id: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]]
     """
     Details of the component IDs used to filter findings.
     """
-    component_type: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
+    component_type: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]]
     """
     Details of the component types used to filter findings.
     """
-    ec2_instance_image_id: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
+    ec2_instance_image_id: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]]
     """
     Details of the Amazon EC2 instance image IDs used to filter findings.
     """
-    ec2_instance_subnet_id: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
+    ec2_instance_subnet_id: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]]
     """
     Details of the Amazon EC2 instance subnet IDs used to filter findings.
     """
-    ec2_instance_vpc_id: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
+    ec2_instance_vpc_id: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]]
     """
     Details of the Amazon EC2 instance VPC IDs used to filter findings.
     """
-    ecr_image_architecture: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
+    ecr_image_architecture: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]]
     """
     Details of the Amazon ECR image architecture types used to filter findings.
     """
-    ecr_image_hash: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
+    ecr_image_hash: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]]
     """
     Details of the Amazon ECR image hashes used to filter findings.
     """
-    ecr_image_pushed_at: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterDateFilterArgsDict']]]]
+    ecr_image_pushed_at: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterDateFilterArgsDict']]]]]
     """
     Details on the Amazon ECR image push date and time used to filter findings.
     """
-    ecr_image_registry: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
+    ecr_image_registry: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]]
     """
     Details on the Amazon ECR registry used to filter findings.
     """
-    ecr_image_repository_name: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
+    ecr_image_repository_name: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]]
     """
     Details on the name of the Amazon ECR repository used to filter findings.
     """
-    ecr_image_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
+    ecr_image_tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]]
     """
     The tags attached to the Amazon ECR container image.
     """
-    epss_score: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterNumberFilterArgsDict']]]]
-    exploit_available: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
-    finding_arn: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
+    epss_score: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterNumberFilterArgsDict']]]]]
+    exploit_available: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]]
+    finding_arn: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]]
     """
     Details on the finding ARNs used to filter findings.
     """
-    finding_status: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
+    finding_status: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]]
     """
     Details on the finding status types used to filter findings.
     """
-    finding_type: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
+    finding_type: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]]
     """
     Details on the finding types used to filter findings.
     """
-    first_observed_at: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterDateFilterArgsDict']]]]
+    first_observed_at: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterDateFilterArgsDict']]]]]
     """
     Details on the date and time a finding was first seen used to filter findings.
     """
-    fix_available: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
-    inspector_score: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterNumberFilterArgsDict']]]]
+    fix_available: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]]
+    inspector_score: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterNumberFilterArgsDict']]]]]
     """
     The Amazon Inspector score to filter on.
     """
-    lambda_function_execution_role_arn: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
-    lambda_function_last_modified_at: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterDateFilterArgsDict']]]]
-    lambda_function_layers: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
-    lambda_function_name: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
-    lambda_function_runtime: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
-    last_observed_at: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterDateFilterArgsDict']]]]
+    lambda_function_execution_role_arn: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]]
+    lambda_function_last_modified_at: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterDateFilterArgsDict']]]]]
+    lambda_function_layers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]]
+    lambda_function_name: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]]
+    lambda_function_runtime: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]]
+    last_observed_at: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterDateFilterArgsDict']]]]]
     """
     Details on the date and time a finding was last seen used to filter findings.
     """
-    network_protocol: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
+    network_protocol: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]]
     """
     Details on network protocol used to filter findings.
     """
-    port_range: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterPortRangeFilterArgsDict']]]]
+    port_range: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterPortRangeFilterArgsDict']]]]]
     """
     Details on the port ranges used to filter findings.
     """
-    related_vulnerabilities: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
+    related_vulnerabilities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]]
     """
     Details on the related vulnerabilities used to filter findings.
     """
-    resource_id: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
+    resource_id: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]]
     """
     Details on the resource IDs used to filter findings.
     """
-    resource_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterMapFilterArgsDict']]]]
+    resource_tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterMapFilterArgsDict']]]]]
     """
     Details on the resource tags used to filter findings.
     """
-    resource_type: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
+    resource_type: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]]
     """
     Details on the resource types used to filter findings.
     """
-    severity: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
+    severity: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]]
     """
     Details on the severity used to filter findings.
     """
-    title: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
+    title: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]]
     """
     Details on the finding title used to filter findings.
     """
-    updated_at: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterDateFilterArgsDict']]]]
+    updated_at: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterDateFilterArgsDict']]]]]
     """
     Details on the date and time a finding was last updated at used to filter findings.
     """
-    vendor_severity: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
+    vendor_severity: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]]
     """
     Details on the vendor severity used to filter findings.
     """
-    vulnerability_id: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
+    vulnerability_id: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]]
     """
     Details on the vulnerability ID used to filter findings.
     """
-    vulnerability_source: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
+    vulnerability_source: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]]
     """
     Details on the vulnerability score to filter findings by.
     """
-    vulnerable_packages: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterPackageFilterArgsDict']]]]
+    vulnerable_packages: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterPackageFilterArgsDict']]]]]
     """
     Details on the vulnerable packages used to filter findings.
     """
@@ -800,48 +800,48 @@ class FilterCriteriaArgsDict(TypedDict):
 @pulumi.input_type
 class FilterCriteriaArgs:
     def __init__(__self__, *,
-                 aws_account_id: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
-                 code_vulnerability_detector_name: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
-                 code_vulnerability_detector_tags: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
-                 code_vulnerability_file_path: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
-                 component_id: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
-                 component_type: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
-                 ec2_instance_image_id: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
-                 ec2_instance_subnet_id: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
-                 ec2_instance_vpc_id: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
-                 ecr_image_architecture: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
-                 ecr_image_hash: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
-                 ecr_image_pushed_at: Optional[pulumi.Input[Sequence[pulumi.Input['FilterDateFilterArgs']]]] = None,
-                 ecr_image_registry: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
-                 ecr_image_repository_name: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
-                 ecr_image_tags: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
-                 epss_score: Optional[pulumi.Input[Sequence[pulumi.Input['FilterNumberFilterArgs']]]] = None,
-                 exploit_available: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
-                 finding_arn: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
-                 finding_status: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
-                 finding_type: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
-                 first_observed_at: Optional[pulumi.Input[Sequence[pulumi.Input['FilterDateFilterArgs']]]] = None,
-                 fix_available: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
-                 inspector_score: Optional[pulumi.Input[Sequence[pulumi.Input['FilterNumberFilterArgs']]]] = None,
-                 lambda_function_execution_role_arn: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
-                 lambda_function_last_modified_at: Optional[pulumi.Input[Sequence[pulumi.Input['FilterDateFilterArgs']]]] = None,
-                 lambda_function_layers: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
-                 lambda_function_name: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
-                 lambda_function_runtime: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
-                 last_observed_at: Optional[pulumi.Input[Sequence[pulumi.Input['FilterDateFilterArgs']]]] = None,
-                 network_protocol: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
-                 port_range: Optional[pulumi.Input[Sequence[pulumi.Input['FilterPortRangeFilterArgs']]]] = None,
-                 related_vulnerabilities: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
-                 resource_id: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
-                 resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input['FilterMapFilterArgs']]]] = None,
-                 resource_type: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
-                 severity: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
-                 title: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
-                 updated_at: Optional[pulumi.Input[Sequence[pulumi.Input['FilterDateFilterArgs']]]] = None,
-                 vendor_severity: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
-                 vulnerability_id: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
-                 vulnerability_source: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
-                 vulnerable_packages: Optional[pulumi.Input[Sequence[pulumi.Input['FilterPackageFilterArgs']]]] = None):
+                 aws_account_id: pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
+                 code_vulnerability_detector_name: pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
+                 code_vulnerability_detector_tags: pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
+                 code_vulnerability_file_path: pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
+                 component_id: pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
+                 component_type: pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
+                 ec2_instance_image_id: pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
+                 ec2_instance_subnet_id: pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
+                 ec2_instance_vpc_id: pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
+                 ecr_image_architecture: pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
+                 ecr_image_hash: pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
+                 ecr_image_pushed_at: pulumi.Input[Optional[Sequence[pulumi.Input['FilterDateFilterArgs']]]] = None,
+                 ecr_image_registry: pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
+                 ecr_image_repository_name: pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
+                 ecr_image_tags: pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
+                 epss_score: pulumi.Input[Optional[Sequence[pulumi.Input['FilterNumberFilterArgs']]]] = None,
+                 exploit_available: pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
+                 finding_arn: pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
+                 finding_status: pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
+                 finding_type: pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
+                 first_observed_at: pulumi.Input[Optional[Sequence[pulumi.Input['FilterDateFilterArgs']]]] = None,
+                 fix_available: pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
+                 inspector_score: pulumi.Input[Optional[Sequence[pulumi.Input['FilterNumberFilterArgs']]]] = None,
+                 lambda_function_execution_role_arn: pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
+                 lambda_function_last_modified_at: pulumi.Input[Optional[Sequence[pulumi.Input['FilterDateFilterArgs']]]] = None,
+                 lambda_function_layers: pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
+                 lambda_function_name: pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
+                 lambda_function_runtime: pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
+                 last_observed_at: pulumi.Input[Optional[Sequence[pulumi.Input['FilterDateFilterArgs']]]] = None,
+                 network_protocol: pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
+                 port_range: pulumi.Input[Optional[Sequence[pulumi.Input['FilterPortRangeFilterArgs']]]] = None,
+                 related_vulnerabilities: pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
+                 resource_id: pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
+                 resource_tags: pulumi.Input[Optional[Sequence[pulumi.Input['FilterMapFilterArgs']]]] = None,
+                 resource_type: pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
+                 severity: pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
+                 title: pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
+                 updated_at: pulumi.Input[Optional[Sequence[pulumi.Input['FilterDateFilterArgs']]]] = None,
+                 vendor_severity: pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
+                 vulnerability_id: pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
+                 vulnerability_source: pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
+                 vulnerable_packages: pulumi.Input[Optional[Sequence[pulumi.Input['FilterPackageFilterArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]] aws_account_id: Details of the AWS account IDs used to filter findings.
         :param pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]] component_id: Details of the component IDs used to filter findings.
@@ -962,485 +962,485 @@ class FilterCriteriaArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
-    def aws_account_id(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]:
+    def aws_account_id(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]]:
         """
         Details of the AWS account IDs used to filter findings.
         """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
-    def aws_account_id(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
+    def aws_account_id(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
         pulumi.set(self, "aws_account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="codeVulnerabilityDetectorName")
-    def code_vulnerability_detector_name(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]:
+    def code_vulnerability_detector_name(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]]:
         return pulumi.get(self, "code_vulnerability_detector_name")
 
     @code_vulnerability_detector_name.setter
-    def code_vulnerability_detector_name(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
+    def code_vulnerability_detector_name(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
         pulumi.set(self, "code_vulnerability_detector_name", value)
 
     @_builtins.property
     @pulumi.getter(name="codeVulnerabilityDetectorTags")
-    def code_vulnerability_detector_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]:
+    def code_vulnerability_detector_tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]]:
         return pulumi.get(self, "code_vulnerability_detector_tags")
 
     @code_vulnerability_detector_tags.setter
-    def code_vulnerability_detector_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
+    def code_vulnerability_detector_tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
         pulumi.set(self, "code_vulnerability_detector_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="codeVulnerabilityFilePath")
-    def code_vulnerability_file_path(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]:
+    def code_vulnerability_file_path(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]]:
         return pulumi.get(self, "code_vulnerability_file_path")
 
     @code_vulnerability_file_path.setter
-    def code_vulnerability_file_path(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
+    def code_vulnerability_file_path(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
         pulumi.set(self, "code_vulnerability_file_path", value)
 
     @_builtins.property
     @pulumi.getter(name="componentId")
-    def component_id(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]:
+    def component_id(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]]:
         """
         Details of the component IDs used to filter findings.
         """
         return pulumi.get(self, "component_id")
 
     @component_id.setter
-    def component_id(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
+    def component_id(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
         pulumi.set(self, "component_id", value)
 
     @_builtins.property
     @pulumi.getter(name="componentType")
-    def component_type(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]:
+    def component_type(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]]:
         """
         Details of the component types used to filter findings.
         """
         return pulumi.get(self, "component_type")
 
     @component_type.setter
-    def component_type(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
+    def component_type(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
         pulumi.set(self, "component_type", value)
 
     @_builtins.property
     @pulumi.getter(name="ec2InstanceImageId")
-    def ec2_instance_image_id(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]:
+    def ec2_instance_image_id(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]]:
         """
         Details of the Amazon EC2 instance image IDs used to filter findings.
         """
         return pulumi.get(self, "ec2_instance_image_id")
 
     @ec2_instance_image_id.setter
-    def ec2_instance_image_id(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
+    def ec2_instance_image_id(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
         pulumi.set(self, "ec2_instance_image_id", value)
 
     @_builtins.property
     @pulumi.getter(name="ec2InstanceSubnetId")
-    def ec2_instance_subnet_id(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]:
+    def ec2_instance_subnet_id(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]]:
         """
         Details of the Amazon EC2 instance subnet IDs used to filter findings.
         """
         return pulumi.get(self, "ec2_instance_subnet_id")
 
     @ec2_instance_subnet_id.setter
-    def ec2_instance_subnet_id(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
+    def ec2_instance_subnet_id(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
         pulumi.set(self, "ec2_instance_subnet_id", value)
 
     @_builtins.property
     @pulumi.getter(name="ec2InstanceVpcId")
-    def ec2_instance_vpc_id(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]:
+    def ec2_instance_vpc_id(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]]:
         """
         Details of the Amazon EC2 instance VPC IDs used to filter findings.
         """
         return pulumi.get(self, "ec2_instance_vpc_id")
 
     @ec2_instance_vpc_id.setter
-    def ec2_instance_vpc_id(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
+    def ec2_instance_vpc_id(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
         pulumi.set(self, "ec2_instance_vpc_id", value)
 
     @_builtins.property
     @pulumi.getter(name="ecrImageArchitecture")
-    def ecr_image_architecture(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]:
+    def ecr_image_architecture(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]]:
         """
         Details of the Amazon ECR image architecture types used to filter findings.
         """
         return pulumi.get(self, "ecr_image_architecture")
 
     @ecr_image_architecture.setter
-    def ecr_image_architecture(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
+    def ecr_image_architecture(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
         pulumi.set(self, "ecr_image_architecture", value)
 
     @_builtins.property
     @pulumi.getter(name="ecrImageHash")
-    def ecr_image_hash(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]:
+    def ecr_image_hash(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]]:
         """
         Details of the Amazon ECR image hashes used to filter findings.
         """
         return pulumi.get(self, "ecr_image_hash")
 
     @ecr_image_hash.setter
-    def ecr_image_hash(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
+    def ecr_image_hash(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
         pulumi.set(self, "ecr_image_hash", value)
 
     @_builtins.property
     @pulumi.getter(name="ecrImagePushedAt")
-    def ecr_image_pushed_at(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterDateFilterArgs']]]]:
+    def ecr_image_pushed_at(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FilterDateFilterArgs']]]]:
         """
         Details on the Amazon ECR image push date and time used to filter findings.
         """
         return pulumi.get(self, "ecr_image_pushed_at")
 
     @ecr_image_pushed_at.setter
-    def ecr_image_pushed_at(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilterDateFilterArgs']]]]):
+    def ecr_image_pushed_at(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FilterDateFilterArgs']]]]):
         pulumi.set(self, "ecr_image_pushed_at", value)
 
     @_builtins.property
     @pulumi.getter(name="ecrImageRegistry")
-    def ecr_image_registry(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]:
+    def ecr_image_registry(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]]:
         """
         Details on the Amazon ECR registry used to filter findings.
         """
         return pulumi.get(self, "ecr_image_registry")
 
     @ecr_image_registry.setter
-    def ecr_image_registry(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
+    def ecr_image_registry(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
         pulumi.set(self, "ecr_image_registry", value)
 
     @_builtins.property
     @pulumi.getter(name="ecrImageRepositoryName")
-    def ecr_image_repository_name(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]:
+    def ecr_image_repository_name(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]]:
         """
         Details on the name of the Amazon ECR repository used to filter findings.
         """
         return pulumi.get(self, "ecr_image_repository_name")
 
     @ecr_image_repository_name.setter
-    def ecr_image_repository_name(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
+    def ecr_image_repository_name(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
         pulumi.set(self, "ecr_image_repository_name", value)
 
     @_builtins.property
     @pulumi.getter(name="ecrImageTags")
-    def ecr_image_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]:
+    def ecr_image_tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]]:
         """
         The tags attached to the Amazon ECR container image.
         """
         return pulumi.get(self, "ecr_image_tags")
 
     @ecr_image_tags.setter
-    def ecr_image_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
+    def ecr_image_tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
         pulumi.set(self, "ecr_image_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="epssScore")
-    def epss_score(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterNumberFilterArgs']]]]:
+    def epss_score(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FilterNumberFilterArgs']]]]:
         return pulumi.get(self, "epss_score")
 
     @epss_score.setter
-    def epss_score(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilterNumberFilterArgs']]]]):
+    def epss_score(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FilterNumberFilterArgs']]]]):
         pulumi.set(self, "epss_score", value)
 
     @_builtins.property
     @pulumi.getter(name="exploitAvailable")
-    def exploit_available(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]:
+    def exploit_available(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]]:
         return pulumi.get(self, "exploit_available")
 
     @exploit_available.setter
-    def exploit_available(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
+    def exploit_available(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
         pulumi.set(self, "exploit_available", value)
 
     @_builtins.property
     @pulumi.getter(name="findingArn")
-    def finding_arn(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]:
+    def finding_arn(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]]:
         """
         Details on the finding ARNs used to filter findings.
         """
         return pulumi.get(self, "finding_arn")
 
     @finding_arn.setter
-    def finding_arn(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
+    def finding_arn(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
         pulumi.set(self, "finding_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="findingStatus")
-    def finding_status(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]:
+    def finding_status(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]]:
         """
         Details on the finding status types used to filter findings.
         """
         return pulumi.get(self, "finding_status")
 
     @finding_status.setter
-    def finding_status(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
+    def finding_status(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
         pulumi.set(self, "finding_status", value)
 
     @_builtins.property
     @pulumi.getter(name="findingType")
-    def finding_type(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]:
+    def finding_type(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]]:
         """
         Details on the finding types used to filter findings.
         """
         return pulumi.get(self, "finding_type")
 
     @finding_type.setter
-    def finding_type(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
+    def finding_type(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
         pulumi.set(self, "finding_type", value)
 
     @_builtins.property
     @pulumi.getter(name="firstObservedAt")
-    def first_observed_at(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterDateFilterArgs']]]]:
+    def first_observed_at(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FilterDateFilterArgs']]]]:
         """
         Details on the date and time a finding was first seen used to filter findings.
         """
         return pulumi.get(self, "first_observed_at")
 
     @first_observed_at.setter
-    def first_observed_at(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilterDateFilterArgs']]]]):
+    def first_observed_at(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FilterDateFilterArgs']]]]):
         pulumi.set(self, "first_observed_at", value)
 
     @_builtins.property
     @pulumi.getter(name="fixAvailable")
-    def fix_available(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]:
+    def fix_available(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]]:
         return pulumi.get(self, "fix_available")
 
     @fix_available.setter
-    def fix_available(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
+    def fix_available(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
         pulumi.set(self, "fix_available", value)
 
     @_builtins.property
     @pulumi.getter(name="inspectorScore")
-    def inspector_score(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterNumberFilterArgs']]]]:
+    def inspector_score(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FilterNumberFilterArgs']]]]:
         """
         The Amazon Inspector score to filter on.
         """
         return pulumi.get(self, "inspector_score")
 
     @inspector_score.setter
-    def inspector_score(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilterNumberFilterArgs']]]]):
+    def inspector_score(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FilterNumberFilterArgs']]]]):
         pulumi.set(self, "inspector_score", value)
 
     @_builtins.property
     @pulumi.getter(name="lambdaFunctionExecutionRoleArn")
-    def lambda_function_execution_role_arn(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]:
+    def lambda_function_execution_role_arn(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]]:
         return pulumi.get(self, "lambda_function_execution_role_arn")
 
     @lambda_function_execution_role_arn.setter
-    def lambda_function_execution_role_arn(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
+    def lambda_function_execution_role_arn(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
         pulumi.set(self, "lambda_function_execution_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="lambdaFunctionLastModifiedAt")
-    def lambda_function_last_modified_at(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterDateFilterArgs']]]]:
+    def lambda_function_last_modified_at(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FilterDateFilterArgs']]]]:
         return pulumi.get(self, "lambda_function_last_modified_at")
 
     @lambda_function_last_modified_at.setter
-    def lambda_function_last_modified_at(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilterDateFilterArgs']]]]):
+    def lambda_function_last_modified_at(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FilterDateFilterArgs']]]]):
         pulumi.set(self, "lambda_function_last_modified_at", value)
 
     @_builtins.property
     @pulumi.getter(name="lambdaFunctionLayers")
-    def lambda_function_layers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]:
+    def lambda_function_layers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]]:
         return pulumi.get(self, "lambda_function_layers")
 
     @lambda_function_layers.setter
-    def lambda_function_layers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
+    def lambda_function_layers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
         pulumi.set(self, "lambda_function_layers", value)
 
     @_builtins.property
     @pulumi.getter(name="lambdaFunctionName")
-    def lambda_function_name(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]:
+    def lambda_function_name(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]]:
         return pulumi.get(self, "lambda_function_name")
 
     @lambda_function_name.setter
-    def lambda_function_name(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
+    def lambda_function_name(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
         pulumi.set(self, "lambda_function_name", value)
 
     @_builtins.property
     @pulumi.getter(name="lambdaFunctionRuntime")
-    def lambda_function_runtime(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]:
+    def lambda_function_runtime(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]]:
         return pulumi.get(self, "lambda_function_runtime")
 
     @lambda_function_runtime.setter
-    def lambda_function_runtime(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
+    def lambda_function_runtime(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
         pulumi.set(self, "lambda_function_runtime", value)
 
     @_builtins.property
     @pulumi.getter(name="lastObservedAt")
-    def last_observed_at(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterDateFilterArgs']]]]:
+    def last_observed_at(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FilterDateFilterArgs']]]]:
         """
         Details on the date and time a finding was last seen used to filter findings.
         """
         return pulumi.get(self, "last_observed_at")
 
     @last_observed_at.setter
-    def last_observed_at(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilterDateFilterArgs']]]]):
+    def last_observed_at(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FilterDateFilterArgs']]]]):
         pulumi.set(self, "last_observed_at", value)
 
     @_builtins.property
     @pulumi.getter(name="networkProtocol")
-    def network_protocol(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]:
+    def network_protocol(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]]:
         """
         Details on network protocol used to filter findings.
         """
         return pulumi.get(self, "network_protocol")
 
     @network_protocol.setter
-    def network_protocol(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
+    def network_protocol(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
         pulumi.set(self, "network_protocol", value)
 
     @_builtins.property
     @pulumi.getter(name="portRange")
-    def port_range(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterPortRangeFilterArgs']]]]:
+    def port_range(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FilterPortRangeFilterArgs']]]]:
         """
         Details on the port ranges used to filter findings.
         """
         return pulumi.get(self, "port_range")
 
     @port_range.setter
-    def port_range(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilterPortRangeFilterArgs']]]]):
+    def port_range(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FilterPortRangeFilterArgs']]]]):
         pulumi.set(self, "port_range", value)
 
     @_builtins.property
     @pulumi.getter(name="relatedVulnerabilities")
-    def related_vulnerabilities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]:
+    def related_vulnerabilities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]]:
         """
         Details on the related vulnerabilities used to filter findings.
         """
         return pulumi.get(self, "related_vulnerabilities")
 
     @related_vulnerabilities.setter
-    def related_vulnerabilities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
+    def related_vulnerabilities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
         pulumi.set(self, "related_vulnerabilities", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]:
+    def resource_id(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]]:
         """
         Details on the resource IDs used to filter findings.
         """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
-    def resource_id(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
+    def resource_id(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
         pulumi.set(self, "resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceTags")
-    def resource_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterMapFilterArgs']]]]:
+    def resource_tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FilterMapFilterArgs']]]]:
         """
         Details on the resource tags used to filter findings.
         """
         return pulumi.get(self, "resource_tags")
 
     @resource_tags.setter
-    def resource_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilterMapFilterArgs']]]]):
+    def resource_tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FilterMapFilterArgs']]]]):
         pulumi.set(self, "resource_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceType")
-    def resource_type(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]:
+    def resource_type(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]]:
         """
         Details on the resource types used to filter findings.
         """
         return pulumi.get(self, "resource_type")
 
     @resource_type.setter
-    def resource_type(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
+    def resource_type(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
         pulumi.set(self, "resource_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def severity(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]:
+    def severity(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]]:
         """
         Details on the severity used to filter findings.
         """
         return pulumi.get(self, "severity")
 
     @severity.setter
-    def severity(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
+    def severity(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
         pulumi.set(self, "severity", value)
 
     @_builtins.property
     @pulumi.getter
-    def title(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]:
+    def title(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]]:
         """
         Details on the finding title used to filter findings.
         """
         return pulumi.get(self, "title")
 
     @title.setter
-    def title(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
+    def title(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
         pulumi.set(self, "title", value)
 
     @_builtins.property
     @pulumi.getter(name="updatedAt")
-    def updated_at(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterDateFilterArgs']]]]:
+    def updated_at(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FilterDateFilterArgs']]]]:
         """
         Details on the date and time a finding was last updated at used to filter findings.
         """
         return pulumi.get(self, "updated_at")
 
     @updated_at.setter
-    def updated_at(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilterDateFilterArgs']]]]):
+    def updated_at(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FilterDateFilterArgs']]]]):
         pulumi.set(self, "updated_at", value)
 
     @_builtins.property
     @pulumi.getter(name="vendorSeverity")
-    def vendor_severity(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]:
+    def vendor_severity(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]]:
         """
         Details on the vendor severity used to filter findings.
         """
         return pulumi.get(self, "vendor_severity")
 
     @vendor_severity.setter
-    def vendor_severity(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
+    def vendor_severity(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
         pulumi.set(self, "vendor_severity", value)
 
     @_builtins.property
     @pulumi.getter(name="vulnerabilityId")
-    def vulnerability_id(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]:
+    def vulnerability_id(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]]:
         """
         Details on the vulnerability ID used to filter findings.
         """
         return pulumi.get(self, "vulnerability_id")
 
     @vulnerability_id.setter
-    def vulnerability_id(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
+    def vulnerability_id(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
         pulumi.set(self, "vulnerability_id", value)
 
     @_builtins.property
     @pulumi.getter(name="vulnerabilitySource")
-    def vulnerability_source(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]:
+    def vulnerability_source(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]]:
         """
         Details on the vulnerability score to filter findings by.
         """
         return pulumi.get(self, "vulnerability_source")
 
     @vulnerability_source.setter
-    def vulnerability_source(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
+    def vulnerability_source(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
         pulumi.set(self, "vulnerability_source", value)
 
     @_builtins.property
     @pulumi.getter(name="vulnerablePackages")
-    def vulnerable_packages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterPackageFilterArgs']]]]:
+    def vulnerable_packages(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FilterPackageFilterArgs']]]]:
         """
         Details on the vulnerable packages used to filter findings.
         """
         return pulumi.get(self, "vulnerable_packages")
 
     @vulnerable_packages.setter
-    def vulnerable_packages(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilterPackageFilterArgs']]]]):
+    def vulnerable_packages(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FilterPackageFilterArgs']]]]):
         pulumi.set(self, "vulnerable_packages", value)
 
 
 class FilterDateFilterArgsDict(TypedDict):
-    end_inclusive: NotRequired[pulumi.Input[_builtins.int]]
-    start_inclusive: NotRequired[pulumi.Input[_builtins.int]]
+    end_inclusive: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    start_inclusive: NotRequired[pulumi.Input[Optional[_builtins.int]]]
 
 @pulumi.input_type
 class FilterDateFilterArgs:
     def __init__(__self__, *,
-                 end_inclusive: Optional[pulumi.Input[_builtins.int]] = None,
-                 start_inclusive: Optional[pulumi.Input[_builtins.int]] = None):
+                 end_inclusive: pulumi.Input[Optional[_builtins.int]] = None,
+                 start_inclusive: pulumi.Input[Optional[_builtins.int]] = None):
         if end_inclusive is not None:
             pulumi.set(__self__, "end_inclusive", end_inclusive)
         if start_inclusive is not None:
@@ -1448,34 +1448,34 @@ class FilterDateFilterArgs:
 
     @_builtins.property
     @pulumi.getter(name="endInclusive")
-    def end_inclusive(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def end_inclusive(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "end_inclusive")
 
     @end_inclusive.setter
-    def end_inclusive(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def end_inclusive(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "end_inclusive", value)
 
     @_builtins.property
     @pulumi.getter(name="startInclusive")
-    def start_inclusive(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def start_inclusive(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "start_inclusive")
 
     @start_inclusive.setter
-    def start_inclusive(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def start_inclusive(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "start_inclusive", value)
 
 
 class FilterMapFilterArgsDict(TypedDict):
     comparison: pulumi.Input['FilterMapComparison']
-    key: NotRequired[pulumi.Input[_builtins.str]]
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class FilterMapFilterArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input['FilterMapComparison'],
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         pulumi.set(__self__, "comparison", comparison)
         if key is not None:
             pulumi.set(__self__, "key", key)
@@ -1493,32 +1493,32 @@ class FilterMapFilterArgs:
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
 class FilterNumberFilterArgsDict(TypedDict):
-    lower_inclusive: NotRequired[pulumi.Input[_builtins.float]]
-    upper_inclusive: NotRequired[pulumi.Input[_builtins.float]]
+    lower_inclusive: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    upper_inclusive: NotRequired[pulumi.Input[Optional[_builtins.float]]]
 
 @pulumi.input_type
 class FilterNumberFilterArgs:
     def __init__(__self__, *,
-                 lower_inclusive: Optional[pulumi.Input[_builtins.float]] = None,
-                 upper_inclusive: Optional[pulumi.Input[_builtins.float]] = None):
+                 lower_inclusive: pulumi.Input[Optional[_builtins.float]] = None,
+                 upper_inclusive: pulumi.Input[Optional[_builtins.float]] = None):
         if lower_inclusive is not None:
             pulumi.set(__self__, "lower_inclusive", lower_inclusive)
         if upper_inclusive is not None:
@@ -1526,44 +1526,44 @@ class FilterNumberFilterArgs:
 
     @_builtins.property
     @pulumi.getter(name="lowerInclusive")
-    def lower_inclusive(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def lower_inclusive(self) -> pulumi.Input[Optional[_builtins.float]]:
         return pulumi.get(self, "lower_inclusive")
 
     @lower_inclusive.setter
-    def lower_inclusive(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def lower_inclusive(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "lower_inclusive", value)
 
     @_builtins.property
     @pulumi.getter(name="upperInclusive")
-    def upper_inclusive(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def upper_inclusive(self) -> pulumi.Input[Optional[_builtins.float]]:
         return pulumi.get(self, "upper_inclusive")
 
     @upper_inclusive.setter
-    def upper_inclusive(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def upper_inclusive(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "upper_inclusive", value)
 
 
 class FilterPackageFilterArgsDict(TypedDict):
-    architecture: NotRequired[pulumi.Input['FilterStringFilterArgsDict']]
-    epoch: NotRequired[pulumi.Input['FilterNumberFilterArgsDict']]
-    file_path: NotRequired[pulumi.Input['FilterStringFilterArgsDict']]
-    name: NotRequired[pulumi.Input['FilterStringFilterArgsDict']]
-    release: NotRequired[pulumi.Input['FilterStringFilterArgsDict']]
-    source_lambda_layer_arn: NotRequired[pulumi.Input['FilterStringFilterArgsDict']]
-    source_layer_hash: NotRequired[pulumi.Input['FilterStringFilterArgsDict']]
-    version: NotRequired[pulumi.Input['FilterStringFilterArgsDict']]
+    architecture: NotRequired[pulumi.Input[Optional['FilterStringFilterArgsDict']]]
+    epoch: NotRequired[pulumi.Input[Optional['FilterNumberFilterArgsDict']]]
+    file_path: NotRequired[pulumi.Input[Optional['FilterStringFilterArgsDict']]]
+    name: NotRequired[pulumi.Input[Optional['FilterStringFilterArgsDict']]]
+    release: NotRequired[pulumi.Input[Optional['FilterStringFilterArgsDict']]]
+    source_lambda_layer_arn: NotRequired[pulumi.Input[Optional['FilterStringFilterArgsDict']]]
+    source_layer_hash: NotRequired[pulumi.Input[Optional['FilterStringFilterArgsDict']]]
+    version: NotRequired[pulumi.Input[Optional['FilterStringFilterArgsDict']]]
 
 @pulumi.input_type
 class FilterPackageFilterArgs:
     def __init__(__self__, *,
-                 architecture: Optional[pulumi.Input['FilterStringFilterArgs']] = None,
-                 epoch: Optional[pulumi.Input['FilterNumberFilterArgs']] = None,
-                 file_path: Optional[pulumi.Input['FilterStringFilterArgs']] = None,
-                 name: Optional[pulumi.Input['FilterStringFilterArgs']] = None,
-                 release: Optional[pulumi.Input['FilterStringFilterArgs']] = None,
-                 source_lambda_layer_arn: Optional[pulumi.Input['FilterStringFilterArgs']] = None,
-                 source_layer_hash: Optional[pulumi.Input['FilterStringFilterArgs']] = None,
-                 version: Optional[pulumi.Input['FilterStringFilterArgs']] = None):
+                 architecture: pulumi.Input[Optional['FilterStringFilterArgs']] = None,
+                 epoch: pulumi.Input[Optional['FilterNumberFilterArgs']] = None,
+                 file_path: pulumi.Input[Optional['FilterStringFilterArgs']] = None,
+                 name: pulumi.Input[Optional['FilterStringFilterArgs']] = None,
+                 release: pulumi.Input[Optional['FilterStringFilterArgs']] = None,
+                 source_lambda_layer_arn: pulumi.Input[Optional['FilterStringFilterArgs']] = None,
+                 source_layer_hash: pulumi.Input[Optional['FilterStringFilterArgs']] = None,
+                 version: pulumi.Input[Optional['FilterStringFilterArgs']] = None):
         if architecture is not None:
             pulumi.set(__self__, "architecture", architecture)
         if epoch is not None:
@@ -1583,86 +1583,86 @@ class FilterPackageFilterArgs:
 
     @_builtins.property
     @pulumi.getter
-    def architecture(self) -> Optional[pulumi.Input['FilterStringFilterArgs']]:
+    def architecture(self) -> pulumi.Input[Optional['FilterStringFilterArgs']]:
         return pulumi.get(self, "architecture")
 
     @architecture.setter
-    def architecture(self, value: Optional[pulumi.Input['FilterStringFilterArgs']]):
+    def architecture(self, value: pulumi.Input[Optional['FilterStringFilterArgs']]):
         pulumi.set(self, "architecture", value)
 
     @_builtins.property
     @pulumi.getter
-    def epoch(self) -> Optional[pulumi.Input['FilterNumberFilterArgs']]:
+    def epoch(self) -> pulumi.Input[Optional['FilterNumberFilterArgs']]:
         return pulumi.get(self, "epoch")
 
     @epoch.setter
-    def epoch(self, value: Optional[pulumi.Input['FilterNumberFilterArgs']]):
+    def epoch(self, value: pulumi.Input[Optional['FilterNumberFilterArgs']]):
         pulumi.set(self, "epoch", value)
 
     @_builtins.property
     @pulumi.getter(name="filePath")
-    def file_path(self) -> Optional[pulumi.Input['FilterStringFilterArgs']]:
+    def file_path(self) -> pulumi.Input[Optional['FilterStringFilterArgs']]:
         return pulumi.get(self, "file_path")
 
     @file_path.setter
-    def file_path(self, value: Optional[pulumi.Input['FilterStringFilterArgs']]):
+    def file_path(self, value: pulumi.Input[Optional['FilterStringFilterArgs']]):
         pulumi.set(self, "file_path", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input['FilterStringFilterArgs']]:
+    def name(self) -> pulumi.Input[Optional['FilterStringFilterArgs']]:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input['FilterStringFilterArgs']]):
+    def name(self, value: pulumi.Input[Optional['FilterStringFilterArgs']]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def release(self) -> Optional[pulumi.Input['FilterStringFilterArgs']]:
+    def release(self) -> pulumi.Input[Optional['FilterStringFilterArgs']]:
         return pulumi.get(self, "release")
 
     @release.setter
-    def release(self, value: Optional[pulumi.Input['FilterStringFilterArgs']]):
+    def release(self, value: pulumi.Input[Optional['FilterStringFilterArgs']]):
         pulumi.set(self, "release", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceLambdaLayerArn")
-    def source_lambda_layer_arn(self) -> Optional[pulumi.Input['FilterStringFilterArgs']]:
+    def source_lambda_layer_arn(self) -> pulumi.Input[Optional['FilterStringFilterArgs']]:
         return pulumi.get(self, "source_lambda_layer_arn")
 
     @source_lambda_layer_arn.setter
-    def source_lambda_layer_arn(self, value: Optional[pulumi.Input['FilterStringFilterArgs']]):
+    def source_lambda_layer_arn(self, value: pulumi.Input[Optional['FilterStringFilterArgs']]):
         pulumi.set(self, "source_lambda_layer_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceLayerHash")
-    def source_layer_hash(self) -> Optional[pulumi.Input['FilterStringFilterArgs']]:
+    def source_layer_hash(self) -> pulumi.Input[Optional['FilterStringFilterArgs']]:
         return pulumi.get(self, "source_layer_hash")
 
     @source_layer_hash.setter
-    def source_layer_hash(self, value: Optional[pulumi.Input['FilterStringFilterArgs']]):
+    def source_layer_hash(self, value: pulumi.Input[Optional['FilterStringFilterArgs']]):
         pulumi.set(self, "source_layer_hash", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input['FilterStringFilterArgs']]:
+    def version(self) -> pulumi.Input[Optional['FilterStringFilterArgs']]:
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input['FilterStringFilterArgs']]):
+    def version(self, value: pulumi.Input[Optional['FilterStringFilterArgs']]):
         pulumi.set(self, "version", value)
 
 
 class FilterPortRangeFilterArgsDict(TypedDict):
-    begin_inclusive: NotRequired[pulumi.Input[_builtins.int]]
-    end_inclusive: NotRequired[pulumi.Input[_builtins.int]]
+    begin_inclusive: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    end_inclusive: NotRequired[pulumi.Input[Optional[_builtins.int]]]
 
 @pulumi.input_type
 class FilterPortRangeFilterArgs:
     def __init__(__self__, *,
-                 begin_inclusive: Optional[pulumi.Input[_builtins.int]] = None,
-                 end_inclusive: Optional[pulumi.Input[_builtins.int]] = None):
+                 begin_inclusive: pulumi.Input[Optional[_builtins.int]] = None,
+                 end_inclusive: pulumi.Input[Optional[_builtins.int]] = None):
         if begin_inclusive is not None:
             pulumi.set(__self__, "begin_inclusive", begin_inclusive)
         if end_inclusive is not None:
@@ -1670,20 +1670,20 @@ class FilterPortRangeFilterArgs:
 
     @_builtins.property
     @pulumi.getter(name="beginInclusive")
-    def begin_inclusive(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def begin_inclusive(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "begin_inclusive")
 
     @begin_inclusive.setter
-    def begin_inclusive(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def begin_inclusive(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "begin_inclusive", value)
 
     @_builtins.property
     @pulumi.getter(name="endInclusive")
-    def end_inclusive(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def end_inclusive(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "end_inclusive")
 
     @end_inclusive.setter
-    def end_inclusive(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def end_inclusive(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "end_inclusive", value)
 
 

@@ -88,7 +88,7 @@ def get_workflow(workflow_id: Optional[_builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         tags=pulumi.get(__ret__, 'tags'),
         workflow_id=pulumi.get(__ret__, 'workflow_id'))
-def get_workflow_output(workflow_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_workflow_output(workflow_id: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkflowResult]:
     """
     Resource Type definition for AWS::Transfer::Workflow

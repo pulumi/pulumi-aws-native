@@ -120,17 +120,17 @@ __all__ = [
 
 class PlanArcRoutingControlConfigurationArgsDict(TypedDict):
     region_and_routing_controls: pulumi.Input[Mapping[str, Any]]
-    cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
-    external_id: NotRequired[pulumi.Input[_builtins.str]]
-    timeout_minutes: NotRequired[pulumi.Input[_builtins.float]]
+    cross_account_role: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    external_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    timeout_minutes: NotRequired[pulumi.Input[Optional[_builtins.float]]]
 
 @pulumi.input_type
 class PlanArcRoutingControlConfigurationArgs:
     def __init__(__self__, *,
                  region_and_routing_controls: pulumi.Input[Mapping[str, Any]],
-                 cross_account_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeout_minutes: Optional[pulumi.Input[_builtins.float]] = None):
+                 cross_account_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeout_minutes: pulumi.Input[Optional[_builtins.float]] = None):
         pulumi.set(__self__, "region_and_routing_controls", region_and_routing_controls)
         if cross_account_role is not None:
             pulumi.set(__self__, "cross_account_role", cross_account_role)
@@ -150,43 +150,43 @@ class PlanArcRoutingControlConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="crossAccountRole")
-    def cross_account_role(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cross_account_role(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "cross_account_role")
 
     @cross_account_role.setter
-    def cross_account_role(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cross_account_role(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cross_account_role", value)
 
     @_builtins.property
     @pulumi.getter(name="externalId")
-    def external_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def external_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "external_id")
 
     @external_id.setter
-    def external_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def external_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "external_id", value)
 
     @_builtins.property
     @pulumi.getter(name="timeoutMinutes")
-    def timeout_minutes(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def timeout_minutes(self) -> pulumi.Input[Optional[_builtins.float]]:
         return pulumi.get(self, "timeout_minutes")
 
     @timeout_minutes.setter
-    def timeout_minutes(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def timeout_minutes(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "timeout_minutes", value)
 
 
 class PlanAsgArgsDict(TypedDict):
-    arn: NotRequired[pulumi.Input[_builtins.str]]
-    cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
-    external_id: NotRequired[pulumi.Input[_builtins.str]]
+    arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    cross_account_role: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    external_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class PlanAsgArgs:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 cross_account_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 cross_account_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_id: pulumi.Input[Optional[_builtins.str]] = None):
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
         if cross_account_role is not None:
@@ -196,29 +196,29 @@ class PlanAsgArgs:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="crossAccountRole")
-    def cross_account_role(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cross_account_role(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "cross_account_role")
 
     @cross_account_role.setter
-    def cross_account_role(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cross_account_role(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cross_account_role", value)
 
     @_builtins.property
     @pulumi.getter(name="externalId")
-    def external_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def external_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "external_id")
 
     @external_id.setter
-    def external_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def external_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "external_id", value)
 
 
@@ -231,11 +231,11 @@ class PlanAssociatedAlarmArgsDict(TypedDict):
     """
     The resource identifier for alarms that you associate with a plan.
     """
-    cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
+    cross_account_role: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The cross account role for the configuration.
     """
-    external_id: NotRequired[pulumi.Input[_builtins.str]]
+    external_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The external ID (secret key) for the configuration.
     """
@@ -245,8 +245,8 @@ class PlanAssociatedAlarmArgs:
     def __init__(__self__, *,
                  alarm_type: pulumi.Input['PlanAlarmType'],
                  resource_identifier: pulumi.Input[_builtins.str],
-                 cross_account_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 cross_account_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input['PlanAlarmType'] alarm_type: The alarm type for an associated alarm. An associated CloudWatch alarm can be an application health alarm or a trigger alarm.
         :param pulumi.Input[_builtins.str] resource_identifier: The resource identifier for alarms that you associate with a plan.
@@ -286,26 +286,26 @@ class PlanAssociatedAlarmArgs:
 
     @_builtins.property
     @pulumi.getter(name="crossAccountRole")
-    def cross_account_role(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cross_account_role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The cross account role for the configuration.
         """
         return pulumi.get(self, "cross_account_role")
 
     @cross_account_role.setter
-    def cross_account_role(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cross_account_role(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cross_account_role", value)
 
     @_builtins.property
     @pulumi.getter(name="externalId")
-    def external_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def external_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The external ID (secret key) for the configuration.
         """
         return pulumi.get(self, "external_id")
 
     @external_id.setter
-    def external_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def external_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "external_id", value)
 
 
@@ -313,8 +313,8 @@ class PlanCustomActionLambdaConfigurationArgsDict(TypedDict):
     lambdas: pulumi.Input[Sequence[pulumi.Input['PlanLambdasArgsDict']]]
     region_to_run: pulumi.Input['PlanRegionToRunIn']
     retry_interval_minutes: pulumi.Input[_builtins.float]
-    timeout_minutes: NotRequired[pulumi.Input[_builtins.float]]
-    ungraceful: NotRequired[pulumi.Input['PlanLambdaUngracefulArgsDict']]
+    timeout_minutes: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    ungraceful: NotRequired[pulumi.Input[Optional['PlanLambdaUngracefulArgsDict']]]
 
 @pulumi.input_type
 class PlanCustomActionLambdaConfigurationArgs:
@@ -322,8 +322,8 @@ class PlanCustomActionLambdaConfigurationArgs:
                  lambdas: pulumi.Input[Sequence[pulumi.Input['PlanLambdasArgs']]],
                  region_to_run: pulumi.Input['PlanRegionToRunIn'],
                  retry_interval_minutes: pulumi.Input[_builtins.float],
-                 timeout_minutes: Optional[pulumi.Input[_builtins.float]] = None,
-                 ungraceful: Optional[pulumi.Input['PlanLambdaUngracefulArgs']] = None):
+                 timeout_minutes: pulumi.Input[Optional[_builtins.float]] = None,
+                 ungraceful: pulumi.Input[Optional['PlanLambdaUngracefulArgs']] = None):
         pulumi.set(__self__, "lambdas", lambdas)
         pulumi.set(__self__, "region_to_run", region_to_run)
         pulumi.set(__self__, "retry_interval_minutes", retry_interval_minutes)
@@ -361,20 +361,20 @@ class PlanCustomActionLambdaConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="timeoutMinutes")
-    def timeout_minutes(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def timeout_minutes(self) -> pulumi.Input[Optional[_builtins.float]]:
         return pulumi.get(self, "timeout_minutes")
 
     @timeout_minutes.setter
-    def timeout_minutes(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def timeout_minutes(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "timeout_minutes", value)
 
     @_builtins.property
     @pulumi.getter
-    def ungraceful(self) -> Optional[pulumi.Input['PlanLambdaUngracefulArgs']]:
+    def ungraceful(self) -> pulumi.Input[Optional['PlanLambdaUngracefulArgs']]:
         return pulumi.get(self, "ungraceful")
 
     @ungraceful.setter
-    def ungraceful(self, value: Optional[pulumi.Input['PlanLambdaUngracefulArgs']]):
+    def ungraceful(self, value: pulumi.Input[Optional['PlanLambdaUngracefulArgs']]):
         pulumi.set(self, "ungraceful", value)
 
 
@@ -382,10 +382,10 @@ class PlanDocumentDbConfigurationArgsDict(TypedDict):
     behavior: Any
     database_cluster_arns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
     global_cluster_identifier: pulumi.Input[_builtins.str]
-    cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
-    external_id: NotRequired[pulumi.Input[_builtins.str]]
-    timeout_minutes: NotRequired[pulumi.Input[_builtins.float]]
-    ungraceful: NotRequired[pulumi.Input['PlanDocumentDbUngracefulArgsDict']]
+    cross_account_role: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    external_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    timeout_minutes: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    ungraceful: NotRequired[pulumi.Input[Optional['PlanDocumentDbUngracefulArgsDict']]]
 
 @pulumi.input_type
 class PlanDocumentDbConfigurationArgs:
@@ -393,10 +393,10 @@ class PlanDocumentDbConfigurationArgs:
                  behavior: Any,
                  database_cluster_arns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  global_cluster_identifier: pulumi.Input[_builtins.str],
-                 cross_account_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeout_minutes: Optional[pulumi.Input[_builtins.float]] = None,
-                 ungraceful: Optional[pulumi.Input['PlanDocumentDbUngracefulArgs']] = None):
+                 cross_account_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeout_minutes: pulumi.Input[Optional[_builtins.float]] = None,
+                 ungraceful: pulumi.Input[Optional['PlanDocumentDbUngracefulArgs']] = None):
         pulumi.set(__self__, "behavior", behavior)
         pulumi.set(__self__, "database_cluster_arns", database_cluster_arns)
         pulumi.set(__self__, "global_cluster_identifier", global_cluster_identifier)
@@ -438,76 +438,76 @@ class PlanDocumentDbConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="crossAccountRole")
-    def cross_account_role(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cross_account_role(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "cross_account_role")
 
     @cross_account_role.setter
-    def cross_account_role(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cross_account_role(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cross_account_role", value)
 
     @_builtins.property
     @pulumi.getter(name="externalId")
-    def external_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def external_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "external_id")
 
     @external_id.setter
-    def external_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def external_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "external_id", value)
 
     @_builtins.property
     @pulumi.getter(name="timeoutMinutes")
-    def timeout_minutes(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def timeout_minutes(self) -> pulumi.Input[Optional[_builtins.float]]:
         return pulumi.get(self, "timeout_minutes")
 
     @timeout_minutes.setter
-    def timeout_minutes(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def timeout_minutes(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "timeout_minutes", value)
 
     @_builtins.property
     @pulumi.getter
-    def ungraceful(self) -> Optional[pulumi.Input['PlanDocumentDbUngracefulArgs']]:
+    def ungraceful(self) -> pulumi.Input[Optional['PlanDocumentDbUngracefulArgs']]:
         return pulumi.get(self, "ungraceful")
 
     @ungraceful.setter
-    def ungraceful(self, value: Optional[pulumi.Input['PlanDocumentDbUngracefulArgs']]):
+    def ungraceful(self, value: pulumi.Input[Optional['PlanDocumentDbUngracefulArgs']]):
         pulumi.set(self, "ungraceful", value)
 
 
 class PlanDocumentDbUngracefulArgsDict(TypedDict):
-    ungraceful: NotRequired[pulumi.Input['PlanDocumentDbUngracefulBehavior']]
+    ungraceful: NotRequired[pulumi.Input[Optional['PlanDocumentDbUngracefulBehavior']]]
 
 @pulumi.input_type
 class PlanDocumentDbUngracefulArgs:
     def __init__(__self__, *,
-                 ungraceful: Optional[pulumi.Input['PlanDocumentDbUngracefulBehavior']] = None):
+                 ungraceful: pulumi.Input[Optional['PlanDocumentDbUngracefulBehavior']] = None):
         if ungraceful is not None:
             pulumi.set(__self__, "ungraceful", ungraceful)
 
     @_builtins.property
     @pulumi.getter
-    def ungraceful(self) -> Optional[pulumi.Input['PlanDocumentDbUngracefulBehavior']]:
+    def ungraceful(self) -> pulumi.Input[Optional['PlanDocumentDbUngracefulBehavior']]:
         return pulumi.get(self, "ungraceful")
 
     @ungraceful.setter
-    def ungraceful(self, value: Optional[pulumi.Input['PlanDocumentDbUngracefulBehavior']]):
+    def ungraceful(self, value: pulumi.Input[Optional['PlanDocumentDbUngracefulBehavior']]):
         pulumi.set(self, "ungraceful", value)
 
 
 class PlanEc2AsgCapacityIncreaseConfigurationArgsDict(TypedDict):
     asgs: pulumi.Input[Sequence[pulumi.Input['PlanAsgArgsDict']]]
     capacity_monitoring_approach: NotRequired[Any]
-    target_percent: NotRequired[pulumi.Input[_builtins.float]]
-    timeout_minutes: NotRequired[pulumi.Input[_builtins.float]]
-    ungraceful: NotRequired[pulumi.Input['PlanEc2UngracefulArgsDict']]
+    target_percent: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    timeout_minutes: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    ungraceful: NotRequired[pulumi.Input[Optional['PlanEc2UngracefulArgsDict']]]
 
 @pulumi.input_type
 class PlanEc2AsgCapacityIncreaseConfigurationArgs:
     def __init__(__self__, *,
                  asgs: pulumi.Input[Sequence[pulumi.Input['PlanAsgArgs']]],
                  capacity_monitoring_approach: Optional[Any] = None,
-                 target_percent: Optional[pulumi.Input[_builtins.float]] = None,
-                 timeout_minutes: Optional[pulumi.Input[_builtins.float]] = None,
-                 ungraceful: Optional[pulumi.Input['PlanEc2UngracefulArgs']] = None):
+                 target_percent: pulumi.Input[Optional[_builtins.float]] = None,
+                 timeout_minutes: pulumi.Input[Optional[_builtins.float]] = None,
+                 ungraceful: pulumi.Input[Optional['PlanEc2UngracefulArgs']] = None):
         pulumi.set(__self__, "asgs", asgs)
         if capacity_monitoring_approach is not None:
             pulumi.set(__self__, "capacity_monitoring_approach", capacity_monitoring_approach)
@@ -538,29 +538,29 @@ class PlanEc2AsgCapacityIncreaseConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="targetPercent")
-    def target_percent(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def target_percent(self) -> pulumi.Input[Optional[_builtins.float]]:
         return pulumi.get(self, "target_percent")
 
     @target_percent.setter
-    def target_percent(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def target_percent(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "target_percent", value)
 
     @_builtins.property
     @pulumi.getter(name="timeoutMinutes")
-    def timeout_minutes(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def timeout_minutes(self) -> pulumi.Input[Optional[_builtins.float]]:
         return pulumi.get(self, "timeout_minutes")
 
     @timeout_minutes.setter
-    def timeout_minutes(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def timeout_minutes(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "timeout_minutes", value)
 
     @_builtins.property
     @pulumi.getter
-    def ungraceful(self) -> Optional[pulumi.Input['PlanEc2UngracefulArgs']]:
+    def ungraceful(self) -> pulumi.Input[Optional['PlanEc2UngracefulArgs']]:
         return pulumi.get(self, "ungraceful")
 
     @ungraceful.setter
-    def ungraceful(self, value: Optional[pulumi.Input['PlanEc2UngracefulArgs']]):
+    def ungraceful(self, value: pulumi.Input[Optional['PlanEc2UngracefulArgs']]):
         pulumi.set(self, "ungraceful", value)
 
 
@@ -586,18 +586,18 @@ class PlanEc2UngracefulArgs:
 class PlanEcsCapacityIncreaseConfigurationArgsDict(TypedDict):
     services: pulumi.Input[Sequence[pulumi.Input['PlanServiceArgsDict']]]
     capacity_monitoring_approach: NotRequired[Any]
-    target_percent: NotRequired[pulumi.Input[_builtins.float]]
-    timeout_minutes: NotRequired[pulumi.Input[_builtins.float]]
-    ungraceful: NotRequired[pulumi.Input['PlanEcsUngracefulArgsDict']]
+    target_percent: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    timeout_minutes: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    ungraceful: NotRequired[pulumi.Input[Optional['PlanEcsUngracefulArgsDict']]]
 
 @pulumi.input_type
 class PlanEcsCapacityIncreaseConfigurationArgs:
     def __init__(__self__, *,
                  services: pulumi.Input[Sequence[pulumi.Input['PlanServiceArgs']]],
                  capacity_monitoring_approach: Optional[Any] = None,
-                 target_percent: Optional[pulumi.Input[_builtins.float]] = None,
-                 timeout_minutes: Optional[pulumi.Input[_builtins.float]] = None,
-                 ungraceful: Optional[pulumi.Input['PlanEcsUngracefulArgs']] = None):
+                 target_percent: pulumi.Input[Optional[_builtins.float]] = None,
+                 timeout_minutes: pulumi.Input[Optional[_builtins.float]] = None,
+                 ungraceful: pulumi.Input[Optional['PlanEcsUngracefulArgs']] = None):
         pulumi.set(__self__, "services", services)
         if capacity_monitoring_approach is not None:
             pulumi.set(__self__, "capacity_monitoring_approach", capacity_monitoring_approach)
@@ -628,29 +628,29 @@ class PlanEcsCapacityIncreaseConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="targetPercent")
-    def target_percent(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def target_percent(self) -> pulumi.Input[Optional[_builtins.float]]:
         return pulumi.get(self, "target_percent")
 
     @target_percent.setter
-    def target_percent(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def target_percent(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "target_percent", value)
 
     @_builtins.property
     @pulumi.getter(name="timeoutMinutes")
-    def timeout_minutes(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def timeout_minutes(self) -> pulumi.Input[Optional[_builtins.float]]:
         return pulumi.get(self, "timeout_minutes")
 
     @timeout_minutes.setter
-    def timeout_minutes(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def timeout_minutes(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "timeout_minutes", value)
 
     @_builtins.property
     @pulumi.getter
-    def ungraceful(self) -> Optional[pulumi.Input['PlanEcsUngracefulArgs']]:
+    def ungraceful(self) -> pulumi.Input[Optional['PlanEcsUngracefulArgs']]:
         return pulumi.get(self, "ungraceful")
 
     @ungraceful.setter
-    def ungraceful(self, value: Optional[pulumi.Input['PlanEcsUngracefulArgs']]):
+    def ungraceful(self, value: pulumi.Input[Optional['PlanEcsUngracefulArgs']]):
         pulumi.set(self, "ungraceful", value)
 
 
@@ -675,15 +675,15 @@ class PlanEcsUngracefulArgs:
 
 class PlanEksClusterArgsDict(TypedDict):
     cluster_arn: pulumi.Input[_builtins.str]
-    cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
-    external_id: NotRequired[pulumi.Input[_builtins.str]]
+    cross_account_role: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    external_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class PlanEksClusterArgs:
     def __init__(__self__, *,
                  cluster_arn: pulumi.Input[_builtins.str],
-                 cross_account_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 cross_account_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_id: pulumi.Input[Optional[_builtins.str]] = None):
         pulumi.set(__self__, "cluster_arn", cluster_arn)
         if cross_account_role is not None:
             pulumi.set(__self__, "cross_account_role", cross_account_role)
@@ -701,42 +701,42 @@ class PlanEksClusterArgs:
 
     @_builtins.property
     @pulumi.getter(name="crossAccountRole")
-    def cross_account_role(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cross_account_role(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "cross_account_role")
 
     @cross_account_role.setter
-    def cross_account_role(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cross_account_role(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cross_account_role", value)
 
     @_builtins.property
     @pulumi.getter(name="externalId")
-    def external_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def external_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "external_id")
 
     @external_id.setter
-    def external_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def external_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "external_id", value)
 
 
 class PlanEksResourceScalingConfigurationArgsDict(TypedDict):
     kubernetes_resource_type: pulumi.Input['PlanKubernetesResourceTypeArgsDict']
     capacity_monitoring_approach: NotRequired[Any]
-    eks_clusters: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanEksClusterArgsDict']]]]
-    scaling_resources: NotRequired[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]
-    target_percent: NotRequired[pulumi.Input[_builtins.float]]
-    timeout_minutes: NotRequired[pulumi.Input[_builtins.float]]
-    ungraceful: NotRequired[pulumi.Input['PlanEksResourceScalingUngracefulArgsDict']]
+    eks_clusters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanEksClusterArgsDict']]]]]
+    scaling_resources: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[Mapping[str, Any]]]]]]
+    target_percent: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    timeout_minutes: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    ungraceful: NotRequired[pulumi.Input[Optional['PlanEksResourceScalingUngracefulArgsDict']]]
 
 @pulumi.input_type
 class PlanEksResourceScalingConfigurationArgs:
     def __init__(__self__, *,
                  kubernetes_resource_type: pulumi.Input['PlanKubernetesResourceTypeArgs'],
                  capacity_monitoring_approach: Optional[Any] = None,
-                 eks_clusters: Optional[pulumi.Input[Sequence[pulumi.Input['PlanEksClusterArgs']]]] = None,
-                 scaling_resources: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
-                 target_percent: Optional[pulumi.Input[_builtins.float]] = None,
-                 timeout_minutes: Optional[pulumi.Input[_builtins.float]] = None,
-                 ungraceful: Optional[pulumi.Input['PlanEksResourceScalingUngracefulArgs']] = None):
+                 eks_clusters: pulumi.Input[Optional[Sequence[pulumi.Input['PlanEksClusterArgs']]]] = None,
+                 scaling_resources: pulumi.Input[Optional[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 target_percent: pulumi.Input[Optional[_builtins.float]] = None,
+                 timeout_minutes: pulumi.Input[Optional[_builtins.float]] = None,
+                 ungraceful: pulumi.Input[Optional['PlanEksResourceScalingUngracefulArgs']] = None):
         pulumi.set(__self__, "kubernetes_resource_type", kubernetes_resource_type)
         if capacity_monitoring_approach is not None:
             pulumi.set(__self__, "capacity_monitoring_approach", capacity_monitoring_approach)
@@ -771,47 +771,47 @@ class PlanEksResourceScalingConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="eksClusters")
-    def eks_clusters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PlanEksClusterArgs']]]]:
+    def eks_clusters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PlanEksClusterArgs']]]]:
         return pulumi.get(self, "eks_clusters")
 
     @eks_clusters.setter
-    def eks_clusters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PlanEksClusterArgs']]]]):
+    def eks_clusters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PlanEksClusterArgs']]]]):
         pulumi.set(self, "eks_clusters", value)
 
     @_builtins.property
     @pulumi.getter(name="scalingResources")
-    def scaling_resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def scaling_resources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         return pulumi.get(self, "scaling_resources")
 
     @scaling_resources.setter
-    def scaling_resources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def scaling_resources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "scaling_resources", value)
 
     @_builtins.property
     @pulumi.getter(name="targetPercent")
-    def target_percent(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def target_percent(self) -> pulumi.Input[Optional[_builtins.float]]:
         return pulumi.get(self, "target_percent")
 
     @target_percent.setter
-    def target_percent(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def target_percent(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "target_percent", value)
 
     @_builtins.property
     @pulumi.getter(name="timeoutMinutes")
-    def timeout_minutes(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def timeout_minutes(self) -> pulumi.Input[Optional[_builtins.float]]:
         return pulumi.get(self, "timeout_minutes")
 
     @timeout_minutes.setter
-    def timeout_minutes(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def timeout_minutes(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "timeout_minutes", value)
 
     @_builtins.property
     @pulumi.getter
-    def ungraceful(self) -> Optional[pulumi.Input['PlanEksResourceScalingUngracefulArgs']]:
+    def ungraceful(self) -> pulumi.Input[Optional['PlanEksResourceScalingUngracefulArgs']]:
         return pulumi.get(self, "ungraceful")
 
     @ungraceful.setter
-    def ungraceful(self, value: Optional[pulumi.Input['PlanEksResourceScalingUngracefulArgs']]):
+    def ungraceful(self, value: pulumi.Input[Optional['PlanEksResourceScalingUngracefulArgs']]):
         pulumi.set(self, "ungraceful", value)
 
 
@@ -836,15 +836,15 @@ class PlanEksResourceScalingUngracefulArgs:
 
 class PlanEventSourceMappingArgsDict(TypedDict):
     arn: pulumi.Input[_builtins.str]
-    cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
-    external_id: NotRequired[pulumi.Input[_builtins.str]]
+    cross_account_role: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    external_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class PlanEventSourceMappingArgs:
     def __init__(__self__, *,
                  arn: pulumi.Input[_builtins.str],
-                 cross_account_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 cross_account_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_id: pulumi.Input[Optional[_builtins.str]] = None):
         pulumi.set(__self__, "arn", arn)
         if cross_account_role is not None:
             pulumi.set(__self__, "cross_account_role", cross_account_role)
@@ -862,32 +862,32 @@ class PlanEventSourceMappingArgs:
 
     @_builtins.property
     @pulumi.getter(name="crossAccountRole")
-    def cross_account_role(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cross_account_role(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "cross_account_role")
 
     @cross_account_role.setter
-    def cross_account_role(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cross_account_role(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cross_account_role", value)
 
     @_builtins.property
     @pulumi.getter(name="externalId")
-    def external_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def external_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "external_id")
 
     @external_id.setter
-    def external_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def external_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "external_id", value)
 
 
 class PlanExecutionApprovalConfigurationArgsDict(TypedDict):
     approval_role: pulumi.Input[_builtins.str]
-    timeout_minutes: NotRequired[pulumi.Input[_builtins.float]]
+    timeout_minutes: NotRequired[pulumi.Input[Optional[_builtins.float]]]
 
 @pulumi.input_type
 class PlanExecutionApprovalConfigurationArgs:
     def __init__(__self__, *,
                  approval_role: pulumi.Input[_builtins.str],
-                 timeout_minutes: Optional[pulumi.Input[_builtins.float]] = None):
+                 timeout_minutes: pulumi.Input[Optional[_builtins.float]] = None):
         pulumi.set(__self__, "approval_role", approval_role)
         if timeout_minutes is not None:
             pulumi.set(__self__, "timeout_minutes", timeout_minutes)
@@ -903,11 +903,11 @@ class PlanExecutionApprovalConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="timeoutMinutes")
-    def timeout_minutes(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def timeout_minutes(self) -> pulumi.Input[Optional[_builtins.float]]:
         return pulumi.get(self, "timeout_minutes")
 
     @timeout_minutes.setter
-    def timeout_minutes(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def timeout_minutes(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "timeout_minutes", value)
 
 
@@ -1181,10 +1181,10 @@ class PlanGlobalAuroraConfigurationArgsDict(TypedDict):
     behavior: Any
     database_cluster_arns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
     global_cluster_identifier: pulumi.Input[_builtins.str]
-    cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
-    external_id: NotRequired[pulumi.Input[_builtins.str]]
-    timeout_minutes: NotRequired[pulumi.Input[_builtins.float]]
-    ungraceful: NotRequired[pulumi.Input['PlanGlobalAuroraUngracefulArgsDict']]
+    cross_account_role: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    external_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    timeout_minutes: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    ungraceful: NotRequired[pulumi.Input[Optional['PlanGlobalAuroraUngracefulArgsDict']]]
 
 @pulumi.input_type
 class PlanGlobalAuroraConfigurationArgs:
@@ -1192,10 +1192,10 @@ class PlanGlobalAuroraConfigurationArgs:
                  behavior: Any,
                  database_cluster_arns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  global_cluster_identifier: pulumi.Input[_builtins.str],
-                 cross_account_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeout_minutes: Optional[pulumi.Input[_builtins.float]] = None,
-                 ungraceful: Optional[pulumi.Input['PlanGlobalAuroraUngracefulArgs']] = None):
+                 cross_account_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeout_minutes: pulumi.Input[Optional[_builtins.float]] = None,
+                 ungraceful: pulumi.Input[Optional['PlanGlobalAuroraUngracefulArgs']] = None):
         pulumi.set(__self__, "behavior", behavior)
         pulumi.set(__self__, "database_cluster_arns", database_cluster_arns)
         pulumi.set(__self__, "global_cluster_identifier", global_cluster_identifier)
@@ -1237,58 +1237,58 @@ class PlanGlobalAuroraConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="crossAccountRole")
-    def cross_account_role(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cross_account_role(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "cross_account_role")
 
     @cross_account_role.setter
-    def cross_account_role(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cross_account_role(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cross_account_role", value)
 
     @_builtins.property
     @pulumi.getter(name="externalId")
-    def external_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def external_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "external_id")
 
     @external_id.setter
-    def external_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def external_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "external_id", value)
 
     @_builtins.property
     @pulumi.getter(name="timeoutMinutes")
-    def timeout_minutes(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def timeout_minutes(self) -> pulumi.Input[Optional[_builtins.float]]:
         return pulumi.get(self, "timeout_minutes")
 
     @timeout_minutes.setter
-    def timeout_minutes(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def timeout_minutes(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "timeout_minutes", value)
 
     @_builtins.property
     @pulumi.getter
-    def ungraceful(self) -> Optional[pulumi.Input['PlanGlobalAuroraUngracefulArgs']]:
+    def ungraceful(self) -> pulumi.Input[Optional['PlanGlobalAuroraUngracefulArgs']]:
         return pulumi.get(self, "ungraceful")
 
     @ungraceful.setter
-    def ungraceful(self, value: Optional[pulumi.Input['PlanGlobalAuroraUngracefulArgs']]):
+    def ungraceful(self, value: pulumi.Input[Optional['PlanGlobalAuroraUngracefulArgs']]):
         pulumi.set(self, "ungraceful", value)
 
 
 class PlanGlobalAuroraUngracefulArgsDict(TypedDict):
-    ungraceful: NotRequired[pulumi.Input['PlanGlobalAuroraUngracefulBehavior']]
+    ungraceful: NotRequired[pulumi.Input[Optional['PlanGlobalAuroraUngracefulBehavior']]]
 
 @pulumi.input_type
 class PlanGlobalAuroraUngracefulArgs:
     def __init__(__self__, *,
-                 ungraceful: Optional[pulumi.Input['PlanGlobalAuroraUngracefulBehavior']] = None):
+                 ungraceful: pulumi.Input[Optional['PlanGlobalAuroraUngracefulBehavior']] = None):
         if ungraceful is not None:
             pulumi.set(__self__, "ungraceful", ungraceful)
 
     @_builtins.property
     @pulumi.getter
-    def ungraceful(self) -> Optional[pulumi.Input['PlanGlobalAuroraUngracefulBehavior']]:
+    def ungraceful(self) -> pulumi.Input[Optional['PlanGlobalAuroraUngracefulBehavior']]:
         return pulumi.get(self, "ungraceful")
 
     @ungraceful.setter
-    def ungraceful(self, value: Optional[pulumi.Input['PlanGlobalAuroraUngracefulBehavior']]):
+    def ungraceful(self, value: pulumi.Input[Optional['PlanGlobalAuroraUngracefulBehavior']]):
         pulumi.set(self, "ungraceful", value)
 
 
@@ -1326,16 +1326,16 @@ class PlanKubernetesResourceTypeArgs:
 class PlanLambdaEventSourceMappingConfigurationArgsDict(TypedDict):
     action: pulumi.Input['PlanLambdaEventSourceMappingConfigurationAction']
     region_event_source_mappings: pulumi.Input[Mapping[str, pulumi.Input['PlanEventSourceMappingArgsDict']]]
-    timeout_minutes: NotRequired[pulumi.Input[_builtins.float]]
-    ungraceful: NotRequired[pulumi.Input['PlanLambdaEventSourceMappingUngracefulArgsDict']]
+    timeout_minutes: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    ungraceful: NotRequired[pulumi.Input[Optional['PlanLambdaEventSourceMappingUngracefulArgsDict']]]
 
 @pulumi.input_type
 class PlanLambdaEventSourceMappingConfigurationArgs:
     def __init__(__self__, *,
                  action: pulumi.Input['PlanLambdaEventSourceMappingConfigurationAction'],
                  region_event_source_mappings: pulumi.Input[Mapping[str, pulumi.Input['PlanEventSourceMappingArgs']]],
-                 timeout_minutes: Optional[pulumi.Input[_builtins.float]] = None,
-                 ungraceful: Optional[pulumi.Input['PlanLambdaEventSourceMappingUngracefulArgs']] = None):
+                 timeout_minutes: pulumi.Input[Optional[_builtins.float]] = None,
+                 ungraceful: pulumi.Input[Optional['PlanLambdaEventSourceMappingUngracefulArgs']] = None):
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "region_event_source_mappings", region_event_source_mappings)
         if timeout_minutes is not None:
@@ -1363,40 +1363,40 @@ class PlanLambdaEventSourceMappingConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="timeoutMinutes")
-    def timeout_minutes(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def timeout_minutes(self) -> pulumi.Input[Optional[_builtins.float]]:
         return pulumi.get(self, "timeout_minutes")
 
     @timeout_minutes.setter
-    def timeout_minutes(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def timeout_minutes(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "timeout_minutes", value)
 
     @_builtins.property
     @pulumi.getter
-    def ungraceful(self) -> Optional[pulumi.Input['PlanLambdaEventSourceMappingUngracefulArgs']]:
+    def ungraceful(self) -> pulumi.Input[Optional['PlanLambdaEventSourceMappingUngracefulArgs']]:
         return pulumi.get(self, "ungraceful")
 
     @ungraceful.setter
-    def ungraceful(self, value: Optional[pulumi.Input['PlanLambdaEventSourceMappingUngracefulArgs']]):
+    def ungraceful(self, value: pulumi.Input[Optional['PlanLambdaEventSourceMappingUngracefulArgs']]):
         pulumi.set(self, "ungraceful", value)
 
 
 class PlanLambdaEventSourceMappingUngracefulArgsDict(TypedDict):
-    behavior: NotRequired[pulumi.Input['PlanLambdaEventSourceMappingUngracefulBehavior']]
+    behavior: NotRequired[pulumi.Input[Optional['PlanLambdaEventSourceMappingUngracefulBehavior']]]
 
 @pulumi.input_type
 class PlanLambdaEventSourceMappingUngracefulArgs:
     def __init__(__self__, *,
-                 behavior: Optional[pulumi.Input['PlanLambdaEventSourceMappingUngracefulBehavior']] = None):
+                 behavior: pulumi.Input[Optional['PlanLambdaEventSourceMappingUngracefulBehavior']] = None):
         if behavior is not None:
             pulumi.set(__self__, "behavior", behavior)
 
     @_builtins.property
     @pulumi.getter
-    def behavior(self) -> Optional[pulumi.Input['PlanLambdaEventSourceMappingUngracefulBehavior']]:
+    def behavior(self) -> pulumi.Input[Optional['PlanLambdaEventSourceMappingUngracefulBehavior']]:
         return pulumi.get(self, "behavior")
 
     @behavior.setter
-    def behavior(self, value: Optional[pulumi.Input['PlanLambdaEventSourceMappingUngracefulBehavior']]):
+    def behavior(self, value: pulumi.Input[Optional['PlanLambdaEventSourceMappingUngracefulBehavior']]):
         pulumi.set(self, "behavior", value)
 
 
@@ -1421,16 +1421,16 @@ class PlanLambdaUngracefulArgs:
 
 
 class PlanLambdasArgsDict(TypedDict):
-    arn: NotRequired[pulumi.Input[_builtins.str]]
-    cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
-    external_id: NotRequired[pulumi.Input[_builtins.str]]
+    arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    cross_account_role: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    external_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class PlanLambdasArgs:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 cross_account_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 cross_account_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_id: pulumi.Input[Optional[_builtins.str]] = None):
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
         if cross_account_role is not None:
@@ -1440,29 +1440,29 @@ class PlanLambdasArgs:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="crossAccountRole")
-    def cross_account_role(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cross_account_role(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "cross_account_role")
 
     @cross_account_role.setter
-    def cross_account_role(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cross_account_role(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cross_account_role", value)
 
     @_builtins.property
     @pulumi.getter(name="externalId")
-    def external_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def external_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "external_id")
 
     @external_id.setter
-    def external_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def external_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "external_id", value)
 
 
@@ -1487,17 +1487,17 @@ class PlanParallelExecutionBlockConfigurationArgs:
 
 class PlanRdsCreateCrossRegionReplicaConfigurationArgsDict(TypedDict):
     db_instance_arn_map: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]
-    cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
-    external_id: NotRequired[pulumi.Input[_builtins.str]]
-    timeout_minutes: NotRequired[pulumi.Input[_builtins.float]]
+    cross_account_role: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    external_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    timeout_minutes: NotRequired[pulumi.Input[Optional[_builtins.float]]]
 
 @pulumi.input_type
 class PlanRdsCreateCrossRegionReplicaConfigurationArgs:
     def __init__(__self__, *,
                  db_instance_arn_map: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]],
-                 cross_account_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeout_minutes: Optional[pulumi.Input[_builtins.float]] = None):
+                 cross_account_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeout_minutes: pulumi.Input[Optional[_builtins.float]] = None):
         pulumi.set(__self__, "db_instance_arn_map", db_instance_arn_map)
         if cross_account_role is not None:
             pulumi.set(__self__, "cross_account_role", cross_account_role)
@@ -1517,45 +1517,45 @@ class PlanRdsCreateCrossRegionReplicaConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="crossAccountRole")
-    def cross_account_role(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cross_account_role(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "cross_account_role")
 
     @cross_account_role.setter
-    def cross_account_role(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cross_account_role(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cross_account_role", value)
 
     @_builtins.property
     @pulumi.getter(name="externalId")
-    def external_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def external_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "external_id")
 
     @external_id.setter
-    def external_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def external_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "external_id", value)
 
     @_builtins.property
     @pulumi.getter(name="timeoutMinutes")
-    def timeout_minutes(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def timeout_minutes(self) -> pulumi.Input[Optional[_builtins.float]]:
         return pulumi.get(self, "timeout_minutes")
 
     @timeout_minutes.setter
-    def timeout_minutes(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def timeout_minutes(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "timeout_minutes", value)
 
 
 class PlanRdsPromoteReadReplicaConfigurationArgsDict(TypedDict):
     db_instance_arn_map: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]
-    cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
-    external_id: NotRequired[pulumi.Input[_builtins.str]]
-    timeout_minutes: NotRequired[pulumi.Input[_builtins.float]]
+    cross_account_role: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    external_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    timeout_minutes: NotRequired[pulumi.Input[Optional[_builtins.float]]]
 
 @pulumi.input_type
 class PlanRdsPromoteReadReplicaConfigurationArgs:
     def __init__(__self__, *,
                  db_instance_arn_map: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]],
-                 cross_account_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeout_minutes: Optional[pulumi.Input[_builtins.float]] = None):
+                 cross_account_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeout_minutes: pulumi.Input[Optional[_builtins.float]] = None):
         pulumi.set(__self__, "db_instance_arn_map", db_instance_arn_map)
         if cross_account_role is not None:
             pulumi.set(__self__, "cross_account_role", cross_account_role)
@@ -1575,43 +1575,43 @@ class PlanRdsPromoteReadReplicaConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="crossAccountRole")
-    def cross_account_role(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cross_account_role(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "cross_account_role")
 
     @cross_account_role.setter
-    def cross_account_role(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cross_account_role(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cross_account_role", value)
 
     @_builtins.property
     @pulumi.getter(name="externalId")
-    def external_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def external_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "external_id")
 
     @external_id.setter
-    def external_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def external_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "external_id", value)
 
     @_builtins.property
     @pulumi.getter(name="timeoutMinutes")
-    def timeout_minutes(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def timeout_minutes(self) -> pulumi.Input[Optional[_builtins.float]]:
         return pulumi.get(self, "timeout_minutes")
 
     @timeout_minutes.setter
-    def timeout_minutes(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def timeout_minutes(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "timeout_minutes", value)
 
 
 class PlanRegionSwitchPlanConfigurationArgsDict(TypedDict):
     arn: pulumi.Input[_builtins.str]
-    cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
-    external_id: NotRequired[pulumi.Input[_builtins.str]]
+    cross_account_role: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    external_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class PlanRegionSwitchPlanConfigurationArgs:
     def __init__(__self__, *,
                  arn: pulumi.Input[_builtins.str],
-                 cross_account_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 cross_account_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_id: pulumi.Input[Optional[_builtins.str]] = None):
         pulumi.set(__self__, "arn", arn)
         if cross_account_role is not None:
             pulumi.set(__self__, "cross_account_role", cross_account_role)
@@ -1629,25 +1629,25 @@ class PlanRegionSwitchPlanConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="crossAccountRole")
-    def cross_account_role(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cross_account_role(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "cross_account_role")
 
     @cross_account_role.setter
-    def cross_account_role(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cross_account_role(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cross_account_role", value)
 
     @_builtins.property
     @pulumi.getter(name="externalId")
-    def external_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def external_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "external_id")
 
     @external_id.setter
-    def external_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def external_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "external_id", value)
 
 
 class PlanReportConfigurationArgsDict(TypedDict):
-    report_output: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanReportOutputConfigurationPropertiesArgsDict']]]]
+    report_output: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanReportOutputConfigurationPropertiesArgsDict']]]]]
     """
     The output configuration for the report.
     """
@@ -1655,7 +1655,7 @@ class PlanReportConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class PlanReportConfigurationArgs:
     def __init__(__self__, *,
-                 report_output: Optional[pulumi.Input[Sequence[pulumi.Input['PlanReportOutputConfigurationPropertiesArgs']]]] = None):
+                 report_output: pulumi.Input[Optional[Sequence[pulumi.Input['PlanReportOutputConfigurationPropertiesArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['PlanReportOutputConfigurationPropertiesArgs']]] report_output: The output configuration for the report.
         """
@@ -1664,14 +1664,14 @@ class PlanReportConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="reportOutput")
-    def report_output(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PlanReportOutputConfigurationPropertiesArgs']]]]:
+    def report_output(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PlanReportOutputConfigurationPropertiesArgs']]]]:
         """
         The output configuration for the report.
         """
         return pulumi.get(self, "report_output")
 
     @report_output.setter
-    def report_output(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PlanReportOutputConfigurationPropertiesArgs']]]]):
+    def report_output(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PlanReportOutputConfigurationPropertiesArgs']]]]):
         pulumi.set(self, "report_output", value)
 
 
@@ -1697,20 +1697,20 @@ class PlanReportOutputConfigurationPropertiesArgs:
 class PlanRoute53HealthCheckConfigurationArgsDict(TypedDict):
     hosted_zone_id: pulumi.Input[_builtins.str]
     record_name: pulumi.Input[_builtins.str]
-    cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
-    external_id: NotRequired[pulumi.Input[_builtins.str]]
-    record_sets: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanRoute53ResourceRecordSetArgsDict']]]]
-    timeout_minutes: NotRequired[pulumi.Input[_builtins.float]]
+    cross_account_role: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    external_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    record_sets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanRoute53ResourceRecordSetArgsDict']]]]]
+    timeout_minutes: NotRequired[pulumi.Input[Optional[_builtins.float]]]
 
 @pulumi.input_type
 class PlanRoute53HealthCheckConfigurationArgs:
     def __init__(__self__, *,
                  hosted_zone_id: pulumi.Input[_builtins.str],
                  record_name: pulumi.Input[_builtins.str],
-                 cross_account_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 record_sets: Optional[pulumi.Input[Sequence[pulumi.Input['PlanRoute53ResourceRecordSetArgs']]]] = None,
-                 timeout_minutes: Optional[pulumi.Input[_builtins.float]] = None):
+                 cross_account_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 record_sets: pulumi.Input[Optional[Sequence[pulumi.Input['PlanRoute53ResourceRecordSetArgs']]]] = None,
+                 timeout_minutes: pulumi.Input[Optional[_builtins.float]] = None):
         pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
         pulumi.set(__self__, "record_name", record_name)
         if cross_account_role is not None:
@@ -1742,50 +1742,50 @@ class PlanRoute53HealthCheckConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="crossAccountRole")
-    def cross_account_role(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cross_account_role(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "cross_account_role")
 
     @cross_account_role.setter
-    def cross_account_role(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cross_account_role(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cross_account_role", value)
 
     @_builtins.property
     @pulumi.getter(name="externalId")
-    def external_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def external_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "external_id")
 
     @external_id.setter
-    def external_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def external_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "external_id", value)
 
     @_builtins.property
     @pulumi.getter(name="recordSets")
-    def record_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PlanRoute53ResourceRecordSetArgs']]]]:
+    def record_sets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PlanRoute53ResourceRecordSetArgs']]]]:
         return pulumi.get(self, "record_sets")
 
     @record_sets.setter
-    def record_sets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PlanRoute53ResourceRecordSetArgs']]]]):
+    def record_sets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PlanRoute53ResourceRecordSetArgs']]]]):
         pulumi.set(self, "record_sets", value)
 
     @_builtins.property
     @pulumi.getter(name="timeoutMinutes")
-    def timeout_minutes(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def timeout_minutes(self) -> pulumi.Input[Optional[_builtins.float]]:
         return pulumi.get(self, "timeout_minutes")
 
     @timeout_minutes.setter
-    def timeout_minutes(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def timeout_minutes(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "timeout_minutes", value)
 
 
 class PlanRoute53ResourceRecordSetArgsDict(TypedDict):
-    record_set_identifier: NotRequired[pulumi.Input[_builtins.str]]
-    region: NotRequired[pulumi.Input[_builtins.str]]
+    record_set_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    region: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class PlanRoute53ResourceRecordSetArgs:
     def __init__(__self__, *,
-                 record_set_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 record_set_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         if record_set_identifier is not None:
             pulumi.set(__self__, "record_set_identifier", record_set_identifier)
         if region is not None:
@@ -1793,32 +1793,32 @@ class PlanRoute53ResourceRecordSetArgs:
 
     @_builtins.property
     @pulumi.getter(name="recordSetIdentifier")
-    def record_set_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def record_set_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "record_set_identifier")
 
     @record_set_identifier.setter
-    def record_set_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def record_set_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "record_set_identifier", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 class PlanS3ReportOutputConfigurationArgsDict(TypedDict):
-    bucket_owner: NotRequired[pulumi.Input[_builtins.str]]
-    bucket_path: NotRequired[pulumi.Input[_builtins.str]]
+    bucket_owner: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    bucket_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class PlanS3ReportOutputConfigurationArgs:
     def __init__(__self__, *,
-                 bucket_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 bucket_path: Optional[pulumi.Input[_builtins.str]] = None):
+                 bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 bucket_path: pulumi.Input[Optional[_builtins.str]] = None):
         if bucket_owner is not None:
             pulumi.set(__self__, "bucket_owner", bucket_owner)
         if bucket_path is not None:
@@ -1826,36 +1826,36 @@ class PlanS3ReportOutputConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="bucketOwner")
-    def bucket_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bucket_owner(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "bucket_owner")
 
     @bucket_owner.setter
-    def bucket_owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bucket_owner(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bucket_owner", value)
 
     @_builtins.property
     @pulumi.getter(name="bucketPath")
-    def bucket_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bucket_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "bucket_path")
 
     @bucket_path.setter
-    def bucket_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bucket_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bucket_path", value)
 
 
 class PlanServiceArgsDict(TypedDict):
-    cluster_arn: NotRequired[pulumi.Input[_builtins.str]]
-    cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
-    external_id: NotRequired[pulumi.Input[_builtins.str]]
-    service_arn: NotRequired[pulumi.Input[_builtins.str]]
+    cluster_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    cross_account_role: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    external_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    service_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class PlanServiceArgs:
     def __init__(__self__, *,
-                 cluster_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 cross_account_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 cluster_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 cross_account_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_arn: pulumi.Input[Optional[_builtins.str]] = None):
         if cluster_arn is not None:
             pulumi.set(__self__, "cluster_arn", cluster_arn)
         if cross_account_role is not None:
@@ -1867,38 +1867,38 @@ class PlanServiceArgs:
 
     @_builtins.property
     @pulumi.getter(name="clusterArn")
-    def cluster_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cluster_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "cluster_arn")
 
     @cluster_arn.setter
-    def cluster_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cluster_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cluster_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="crossAccountRole")
-    def cross_account_role(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cross_account_role(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "cross_account_role")
 
     @cross_account_role.setter
-    def cross_account_role(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cross_account_role(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cross_account_role", value)
 
     @_builtins.property
     @pulumi.getter(name="externalId")
-    def external_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def external_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "external_id")
 
     @external_id.setter
-    def external_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def external_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "external_id", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceArn")
-    def service_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "service_arn")
 
     @service_arn.setter
-    def service_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_arn", value)
 
 
@@ -1915,7 +1915,7 @@ class PlanStepArgsDict(TypedDict):
     """
     The name of a step in a workflow.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The description of a step in a workflow.
     """
@@ -1926,7 +1926,7 @@ class PlanStepArgs:
                  execution_block_configuration: pulumi.Input[Union['PlanExecutionBlockConfiguration0PropertiesArgs', 'PlanExecutionBlockConfiguration1PropertiesArgs', 'PlanExecutionBlockConfiguration2PropertiesArgs', 'PlanExecutionBlockConfiguration3PropertiesArgs', 'PlanExecutionBlockConfiguration4PropertiesArgs', 'PlanExecutionBlockConfiguration5PropertiesArgs', 'PlanExecutionBlockConfiguration6PropertiesArgs', 'PlanExecutionBlockConfiguration7PropertiesArgs', 'PlanExecutionBlockConfiguration8PropertiesArgs', 'PlanExecutionBlockConfiguration9PropertiesArgs', 'PlanExecutionBlockConfiguration10PropertiesArgs', 'PlanExecutionBlockConfiguration11PropertiesArgs', 'PlanExecutionBlockConfiguration12PropertiesArgs', 'PlanExecutionBlockConfiguration13PropertiesArgs']],
                  execution_block_type: pulumi.Input['PlanExecutionBlockType'],
                  name: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Union['PlanExecutionBlockConfiguration0PropertiesArgs', 'PlanExecutionBlockConfiguration1PropertiesArgs', 'PlanExecutionBlockConfiguration2PropertiesArgs', 'PlanExecutionBlockConfiguration3PropertiesArgs', 'PlanExecutionBlockConfiguration4PropertiesArgs', 'PlanExecutionBlockConfiguration5PropertiesArgs', 'PlanExecutionBlockConfiguration6PropertiesArgs', 'PlanExecutionBlockConfiguration7PropertiesArgs', 'PlanExecutionBlockConfiguration8PropertiesArgs', 'PlanExecutionBlockConfiguration9PropertiesArgs', 'PlanExecutionBlockConfiguration10PropertiesArgs', 'PlanExecutionBlockConfiguration11PropertiesArgs', 'PlanExecutionBlockConfiguration12PropertiesArgs', 'PlanExecutionBlockConfiguration13PropertiesArgs']] execution_block_configuration: The configuration for an execution block in a workflow.
         :param pulumi.Input['PlanExecutionBlockType'] execution_block_type: The type of an execution block in a workflow.
@@ -1977,14 +1977,14 @@ class PlanStepArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of a step in a workflow.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
 
@@ -2052,7 +2052,7 @@ class PlanTriggerArgsDict(TypedDict):
     """
     The AWS Region for a trigger.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The description for a trigger.
     """
@@ -2064,7 +2064,7 @@ class PlanTriggerArgs:
                  conditions: pulumi.Input[Sequence[pulumi.Input['PlanTriggerConditionArgs']]],
                  min_delay_minutes_between_executions: pulumi.Input[_builtins.float],
                  target_region: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input['PlanWorkflowTargetAction'] action: The action to perform when the trigger fires. Valid values include ACTIVATE and DEACTIVATE.
         :param pulumi.Input[Sequence[pulumi.Input['PlanTriggerConditionArgs']]] conditions: The conditions that must be met for the trigger to fire.
@@ -2129,14 +2129,14 @@ class PlanTriggerArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description for a trigger.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
 
@@ -2145,15 +2145,15 @@ class PlanWorkflowArgsDict(TypedDict):
     """
     The action that the workflow performs. Valid values include ACTIVATE and DEACTIVATE.
     """
-    steps: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanStepArgsDict']]]]
+    steps: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanStepArgsDict']]]]]
     """
     The steps that make up the workflow.
     """
-    workflow_description: NotRequired[pulumi.Input[_builtins.str]]
+    workflow_description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The description of the workflow.
     """
-    workflow_target_region: NotRequired[pulumi.Input[_builtins.str]]
+    workflow_target_region: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The AWS Region that the workflow targets.
     """
@@ -2162,9 +2162,9 @@ class PlanWorkflowArgsDict(TypedDict):
 class PlanWorkflowArgs:
     def __init__(__self__, *,
                  workflow_target_action: pulumi.Input['PlanWorkflowTargetAction'],
-                 steps: Optional[pulumi.Input[Sequence[pulumi.Input['PlanStepArgs']]]] = None,
-                 workflow_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 workflow_target_region: Optional[pulumi.Input[_builtins.str]] = None):
+                 steps: pulumi.Input[Optional[Sequence[pulumi.Input['PlanStepArgs']]]] = None,
+                 workflow_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 workflow_target_region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input['PlanWorkflowTargetAction'] workflow_target_action: The action that the workflow performs. Valid values include ACTIVATE and DEACTIVATE.
         :param pulumi.Input[Sequence[pulumi.Input['PlanStepArgs']]] steps: The steps that make up the workflow.
@@ -2193,38 +2193,38 @@ class PlanWorkflowArgs:
 
     @_builtins.property
     @pulumi.getter
-    def steps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PlanStepArgs']]]]:
+    def steps(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PlanStepArgs']]]]:
         """
         The steps that make up the workflow.
         """
         return pulumi.get(self, "steps")
 
     @steps.setter
-    def steps(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PlanStepArgs']]]]):
+    def steps(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PlanStepArgs']]]]):
         pulumi.set(self, "steps", value)
 
     @_builtins.property
     @pulumi.getter(name="workflowDescription")
-    def workflow_description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workflow_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the workflow.
         """
         return pulumi.get(self, "workflow_description")
 
     @workflow_description.setter
-    def workflow_description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workflow_description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workflow_description", value)
 
     @_builtins.property
     @pulumi.getter(name="workflowTargetRegion")
-    def workflow_target_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workflow_target_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS Region that the workflow targets.
         """
         return pulumi.get(self, "workflow_target_region")
 
     @workflow_target_region.setter
-    def workflow_target_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workflow_target_region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workflow_target_region", value)
 
 

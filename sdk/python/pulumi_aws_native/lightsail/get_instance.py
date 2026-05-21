@@ -265,7 +265,7 @@ def get_instance(instance_name: Optional[_builtins.str] = None,
         support_code=pulumi.get(__ret__, 'support_code'),
         tags=pulumi.get(__ret__, 'tags'),
         user_name=pulumi.get(__ret__, 'user_name'))
-def get_instance_output(instance_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_instance_output(instance_name: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstanceResult]:
     """
     Resource Type definition for AWS::Lightsail::Instance

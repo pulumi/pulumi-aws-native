@@ -286,7 +286,7 @@ def get_gateway(gateway_identifier: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'),
         workload_identity_details=pulumi.get(__ret__, 'workload_identity_details'))
-def get_gateway_output(gateway_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+def get_gateway_output(gateway_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGatewayResult]:
     """
     Definition of AWS::BedrockAgentCore::Gateway Resource Type

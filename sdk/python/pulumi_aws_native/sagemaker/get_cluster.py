@@ -211,7 +211,7 @@ def get_cluster(cluster_arn: Optional[_builtins.str] = None,
         restricted_instance_groups=pulumi.get(__ret__, 'restricted_instance_groups'),
         tags=pulumi.get(__ret__, 'tags'),
         tiered_storage_config=pulumi.get(__ret__, 'tiered_storage_config'))
-def get_cluster_output(cluster_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_cluster_output(cluster_arn: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterResult]:
     """
     Resource Type definition for AWS::SageMaker::Cluster

@@ -271,7 +271,7 @@ def get_verified_access_endpoint(verified_access_endpoint_id: Optional[_builtins
         verified_access_endpoint_id=pulumi.get(__ret__, 'verified_access_endpoint_id'),
         verified_access_group_id=pulumi.get(__ret__, 'verified_access_group_id'),
         verified_access_instance_id=pulumi.get(__ret__, 'verified_access_instance_id'))
-def get_verified_access_endpoint_output(verified_access_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_verified_access_endpoint_output(verified_access_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVerifiedAccessEndpointResult]:
     """
     The AWS::EC2::VerifiedAccessEndpoint resource creates an AWS EC2 Verified Access Endpoint.

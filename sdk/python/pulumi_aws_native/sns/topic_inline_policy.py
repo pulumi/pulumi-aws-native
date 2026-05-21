@@ -66,7 +66,7 @@ class TopicInlinePolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  policy_document: Optional[Any] = None,
-                 topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Schema for AWS::SNS::TopicInlinePolicy
@@ -105,7 +105,7 @@ class TopicInlinePolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  policy_document: Optional[Any] = None,
-                 topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

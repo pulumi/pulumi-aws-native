@@ -27,9 +27,9 @@ class ApplicationArgs:
                  environment_identifier: pulumi.Input[_builtins.str],
                  proxy_type: pulumi.Input['ApplicationProxyType'],
                  vpc_id: pulumi.Input[_builtins.str],
-                 api_gateway_proxy: Optional[pulumi.Input['ApplicationApiGatewayProxyInputArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 api_gateway_proxy: pulumi.Input[Optional['ApplicationApiGatewayProxyInputArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Application resource.
 
@@ -88,38 +88,38 @@ class ApplicationArgs:
 
     @_builtins.property
     @pulumi.getter(name="apiGatewayProxy")
-    def api_gateway_proxy(self) -> Optional[pulumi.Input['ApplicationApiGatewayProxyInputArgs']]:
+    def api_gateway_proxy(self) -> pulumi.Input[Optional['ApplicationApiGatewayProxyInputArgs']]:
         """
         The endpoint URL of the Amazon API Gateway proxy.
         """
         return pulumi.get(self, "api_gateway_proxy")
 
     @api_gateway_proxy.setter
-    def api_gateway_proxy(self, value: Optional[pulumi.Input['ApplicationApiGatewayProxyInputArgs']]):
+    def api_gateway_proxy(self, value: pulumi.Input[Optional['ApplicationApiGatewayProxyInputArgs']]):
         pulumi.set(self, "api_gateway_proxy", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the application.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -129,12 +129,12 @@ class Application(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_gateway_proxy: Optional[pulumi.Input[Union['ApplicationApiGatewayProxyInputArgs', 'ApplicationApiGatewayProxyInputArgsDict']]] = None,
-                 environment_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 proxy_type: Optional[pulumi.Input['ApplicationProxyType']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_gateway_proxy: pulumi.Input[Optional[Union['ApplicationApiGatewayProxyInputArgs', 'ApplicationApiGatewayProxyInputArgsDict']]] = None,
+                 environment_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 proxy_type: pulumi.Input[Optional['ApplicationProxyType']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Definition of AWS::RefactorSpaces::Application Resource Type
@@ -174,12 +174,12 @@ class Application(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_gateway_proxy: Optional[pulumi.Input[Union['ApplicationApiGatewayProxyInputArgs', 'ApplicationApiGatewayProxyInputArgsDict']]] = None,
-                 environment_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 proxy_type: Optional[pulumi.Input['ApplicationProxyType']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_gateway_proxy: pulumi.Input[Optional[Union['ApplicationApiGatewayProxyInputArgs', 'ApplicationApiGatewayProxyInputArgsDict']]] = None,
+                 environment_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 proxy_type: pulumi.Input[Optional['ApplicationProxyType']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

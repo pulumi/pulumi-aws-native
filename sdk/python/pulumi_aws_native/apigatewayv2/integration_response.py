@@ -22,10 +22,10 @@ class IntegrationResponseArgs:
                  api_id: pulumi.Input[_builtins.str],
                  integration_id: pulumi.Input[_builtins.str],
                  integration_response_key: pulumi.Input[_builtins.str],
-                 content_handling_strategy: Optional[pulumi.Input[_builtins.str]] = None,
+                 content_handling_strategy: pulumi.Input[Optional[_builtins.str]] = None,
                  response_parameters: Optional[Any] = None,
                  response_templates: Optional[Any] = None,
-                 template_selection_expression: Optional[pulumi.Input[_builtins.str]] = None):
+                 template_selection_expression: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a IntegrationResponse resource.
 
@@ -94,7 +94,7 @@ class IntegrationResponseArgs:
 
     @_builtins.property
     @pulumi.getter(name="contentHandlingStrategy")
-    def content_handling_strategy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content_handling_strategy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Supported only for WebSocket APIs. Specifies how to handle response payload content type conversions. Supported values are ``CONVERT_TO_BINARY`` and ``CONVERT_TO_TEXT``, with the following behaviors:
           ``CONVERT_TO_BINARY``: Converts a response payload from a Base64-encoded string to the corresponding binary blob.
@@ -104,7 +104,7 @@ class IntegrationResponseArgs:
         return pulumi.get(self, "content_handling_strategy")
 
     @content_handling_strategy.setter
-    def content_handling_strategy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content_handling_strategy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content_handling_strategy", value)
 
     @_builtins.property
@@ -137,14 +137,14 @@ class IntegrationResponseArgs:
 
     @_builtins.property
     @pulumi.getter(name="templateSelectionExpression")
-    def template_selection_expression(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def template_selection_expression(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The template selection expression for the integration response. Supported only for WebSocket APIs.
         """
         return pulumi.get(self, "template_selection_expression")
 
     @template_selection_expression.setter
-    def template_selection_expression(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def template_selection_expression(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "template_selection_expression", value)
 
 
@@ -154,13 +154,13 @@ class IntegrationResponse(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_handling_strategy: Optional[pulumi.Input[_builtins.str]] = None,
-                 integration_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 integration_response_key: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_handling_strategy: pulumi.Input[Optional[_builtins.str]] = None,
+                 integration_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 integration_response_key: pulumi.Input[Optional[_builtins.str]] = None,
                  response_parameters: Optional[Any] = None,
                  response_templates: Optional[Any] = None,
-                 template_selection_expression: Optional[pulumi.Input[_builtins.str]] = None,
+                 template_selection_expression: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The ``AWS::ApiGatewayV2::IntegrationResponse`` resource updates an integration response for an WebSocket API. For more information, see [Set up WebSocket API Integration Responses in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-integration-responses.html) in the *API Gateway Developer Guide*.
@@ -208,13 +208,13 @@ class IntegrationResponse(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_handling_strategy: Optional[pulumi.Input[_builtins.str]] = None,
-                 integration_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 integration_response_key: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_handling_strategy: pulumi.Input[Optional[_builtins.str]] = None,
+                 integration_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 integration_response_key: pulumi.Input[Optional[_builtins.str]] = None,
                  response_parameters: Optional[Any] = None,
                  response_templates: Optional[Any] = None,
-                 template_selection_expression: Optional[pulumi.Input[_builtins.str]] = None,
+                 template_selection_expression: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

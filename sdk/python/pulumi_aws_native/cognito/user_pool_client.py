@@ -23,28 +23,28 @@ __all__ = ['UserPoolClientArgs', 'UserPoolClient']
 class UserPoolClientArgs:
     def __init__(__self__, *,
                  user_pool_id: pulumi.Input[_builtins.str],
-                 access_token_validity: Optional[pulumi.Input[_builtins.int]] = None,
-                 allowed_o_auth_flows: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 allowed_o_auth_flows_user_pool_client: Optional[pulumi.Input[_builtins.bool]] = None,
-                 allowed_o_auth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 analytics_configuration: Optional[pulumi.Input['UserPoolClientAnalyticsConfigurationArgs']] = None,
-                 auth_session_validity: Optional[pulumi.Input[_builtins.int]] = None,
-                 callback_urls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 client_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_redirect_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_propagate_additional_user_context_data: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_token_revocation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 explicit_auth_flows: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 generate_secret: Optional[pulumi.Input[_builtins.bool]] = None,
-                 id_token_validity: Optional[pulumi.Input[_builtins.int]] = None,
-                 logout_urls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 prevent_user_existence_errors: Optional[pulumi.Input[_builtins.str]] = None,
-                 read_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 refresh_token_rotation: Optional[pulumi.Input['UserPoolClientRefreshTokenRotationArgs']] = None,
-                 refresh_token_validity: Optional[pulumi.Input[_builtins.int]] = None,
-                 supported_identity_providers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 token_validity_units: Optional[pulumi.Input['UserPoolClientTokenValidityUnitsArgs']] = None,
-                 write_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 access_token_validity: pulumi.Input[Optional[_builtins.int]] = None,
+                 allowed_o_auth_flows: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allowed_o_auth_flows_user_pool_client: pulumi.Input[Optional[_builtins.bool]] = None,
+                 allowed_o_auth_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 analytics_configuration: pulumi.Input[Optional['UserPoolClientAnalyticsConfigurationArgs']] = None,
+                 auth_session_validity: pulumi.Input[Optional[_builtins.int]] = None,
+                 callback_urls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 client_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_redirect_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_propagate_additional_user_context_data: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_token_revocation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 explicit_auth_flows: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 generate_secret: pulumi.Input[Optional[_builtins.bool]] = None,
+                 id_token_validity: pulumi.Input[Optional[_builtins.int]] = None,
+                 logout_urls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 prevent_user_existence_errors: pulumi.Input[Optional[_builtins.str]] = None,
+                 read_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 refresh_token_rotation: pulumi.Input[Optional['UserPoolClientRefreshTokenRotationArgs']] = None,
+                 refresh_token_validity: pulumi.Input[Optional[_builtins.int]] = None,
+                 supported_identity_providers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 token_validity_units: pulumi.Input[Optional['UserPoolClientTokenValidityUnitsArgs']] = None,
+                 write_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a UserPoolClient resource.
 
@@ -215,7 +215,7 @@ class UserPoolClientArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessTokenValidity")
-    def access_token_validity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def access_token_validity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The access token time limit. After this limit expires, your user can't use their access token. To specify the time unit for `AccessTokenValidity` as `seconds` , `minutes` , `hours` , or `days` , set a `TokenValidityUnits` value in your API request.
 
@@ -230,12 +230,12 @@ class UserPoolClientArgs:
         return pulumi.get(self, "access_token_validity")
 
     @access_token_validity.setter
-    def access_token_validity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def access_token_validity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "access_token_validity", value)
 
     @_builtins.property
     @pulumi.getter(name="allowedOAuthFlows")
-    def allowed_o_auth_flows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_o_auth_flows(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The OAuth grant types that you want your app client to generate for clients in managed login authentication. To create an app client that generates client credentials grants, you must add `client_credentials` as the only allowed OAuth flow.
 
@@ -246,12 +246,12 @@ class UserPoolClientArgs:
         return pulumi.get(self, "allowed_o_auth_flows")
 
     @allowed_o_auth_flows.setter
-    def allowed_o_auth_flows(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_o_auth_flows(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_o_auth_flows", value)
 
     @_builtins.property
     @pulumi.getter(name="allowedOAuthFlowsUserPoolClient")
-    def allowed_o_auth_flows_user_pool_client(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allowed_o_auth_flows_user_pool_client(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to `true` to use OAuth 2.0 authorization server features in your app client.
 
@@ -267,24 +267,24 @@ class UserPoolClientArgs:
         return pulumi.get(self, "allowed_o_auth_flows_user_pool_client")
 
     @allowed_o_auth_flows_user_pool_client.setter
-    def allowed_o_auth_flows_user_pool_client(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allowed_o_auth_flows_user_pool_client(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allowed_o_auth_flows_user_pool_client", value)
 
     @_builtins.property
     @pulumi.getter(name="allowedOAuthScopes")
-    def allowed_o_auth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_o_auth_scopes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The OAuth, OpenID Connect (OIDC), and custom scopes that you want to permit your app client to authorize access with. Scopes govern access control to user pool self-service API operations, user data from the `userInfo` endpoint, and third-party APIs. Scope values include `phone` , `email` , `openid` , and `profile` . The `aws.cognito.signin.user.admin` scope authorizes user self-service operations. Custom scopes with resource servers authorize access to external APIs.
         """
         return pulumi.get(self, "allowed_o_auth_scopes")
 
     @allowed_o_auth_scopes.setter
-    def allowed_o_auth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_o_auth_scopes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_o_auth_scopes", value)
 
     @_builtins.property
     @pulumi.getter(name="analyticsConfiguration")
-    def analytics_configuration(self) -> Optional[pulumi.Input['UserPoolClientAnalyticsConfigurationArgs']]:
+    def analytics_configuration(self) -> pulumi.Input[Optional['UserPoolClientAnalyticsConfigurationArgs']]:
         """
         The user pool analytics configuration for collecting metrics and sending them to your Amazon Pinpoint campaign.
 
@@ -293,24 +293,24 @@ class UserPoolClientArgs:
         return pulumi.get(self, "analytics_configuration")
 
     @analytics_configuration.setter
-    def analytics_configuration(self, value: Optional[pulumi.Input['UserPoolClientAnalyticsConfigurationArgs']]):
+    def analytics_configuration(self, value: pulumi.Input[Optional['UserPoolClientAnalyticsConfigurationArgs']]):
         pulumi.set(self, "analytics_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="authSessionValidity")
-    def auth_session_validity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def auth_session_validity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Amazon Cognito creates a session token for each API request in an authentication flow. `AuthSessionValidity` is the duration, in minutes, of that session token. Your user pool native user must respond to each authentication challenge before the session expires.
         """
         return pulumi.get(self, "auth_session_validity")
 
     @auth_session_validity.setter
-    def auth_session_validity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def auth_session_validity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "auth_session_validity", value)
 
     @_builtins.property
     @pulumi.getter(name="callbackUrls")
-    def callback_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def callback_urls(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of allowed redirect, or callback, URLs for managed login authentication. These URLs are the paths where you want to send your users' browsers after they complete authentication with managed login or a third-party IdP. Typically, callback URLs are the home of an application that uses OAuth or OIDC libraries to process authentication outcomes.
 
@@ -329,48 +329,48 @@ class UserPoolClientArgs:
         return pulumi.get(self, "callback_urls")
 
     @callback_urls.setter
-    def callback_urls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def callback_urls(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "callback_urls", value)
 
     @_builtins.property
     @pulumi.getter(name="clientName")
-    def client_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A friendly name for the app client that you want to create.
         """
         return pulumi.get(self, "client_name")
 
     @client_name.setter
-    def client_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_name", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultRedirectUri")
-    def default_redirect_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_redirect_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The default redirect URI. In app clients with one assigned IdP, replaces `redirect_uri` in authentication requests. Must be in the `CallbackURLs` list.
         """
         return pulumi.get(self, "default_redirect_uri")
 
     @default_redirect_uri.setter
-    def default_redirect_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_redirect_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_redirect_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="enablePropagateAdditionalUserContextData")
-    def enable_propagate_additional_user_context_data(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_propagate_additional_user_context_data(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When `true` , your application can include additional `UserContextData` in authentication requests. This data includes the IP address, and contributes to analysis by threat protection features. For more information about propagation of user context data, see [Adding session data to API requests](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-adaptive-authentication.html#user-pool-settings-adaptive-authentication-device-fingerprint) . If you don’t include this parameter, you can't send the source IP address to Amazon Cognito threat protection features. You can only activate `EnablePropagateAdditionalUserContextData` in an app client that has a client secret.
         """
         return pulumi.get(self, "enable_propagate_additional_user_context_data")
 
     @enable_propagate_additional_user_context_data.setter
-    def enable_propagate_additional_user_context_data(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_propagate_additional_user_context_data(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_propagate_additional_user_context_data", value)
 
     @_builtins.property
     @pulumi.getter(name="enableTokenRevocation")
-    def enable_token_revocation(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_token_revocation(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Activates or deactivates token revocation.
 
@@ -379,12 +379,12 @@ class UserPoolClientArgs:
         return pulumi.get(self, "enable_token_revocation")
 
     @enable_token_revocation.setter
-    def enable_token_revocation(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_token_revocation(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_token_revocation", value)
 
     @_builtins.property
     @pulumi.getter(name="explicitAuthFlows")
-    def explicit_auth_flows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def explicit_auth_flows(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The [authentication flows](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-authentication-flow-methods.html) that you want your user pool client to support. For each app client in your user pool, you can sign in your users with any combination of one or more flows, including with a user name and Secure Remote Password (SRP), a user name and password, or a custom authentication process that you define with Lambda functions.
 
@@ -407,24 +407,24 @@ class UserPoolClientArgs:
         return pulumi.get(self, "explicit_auth_flows")
 
     @explicit_auth_flows.setter
-    def explicit_auth_flows(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def explicit_auth_flows(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "explicit_auth_flows", value)
 
     @_builtins.property
     @pulumi.getter(name="generateSecret")
-    def generate_secret(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def generate_secret(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When `true` , generates a client secret for the app client. Client secrets are used with server-side and machine-to-machine applications. Client secrets are automatically generated; you can't specify a secret value. For more information, see [App client types](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-client-apps.html#user-pool-settings-client-app-client-types) .
         """
         return pulumi.get(self, "generate_secret")
 
     @generate_secret.setter
-    def generate_secret(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def generate_secret(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "generate_secret", value)
 
     @_builtins.property
     @pulumi.getter(name="idTokenValidity")
-    def id_token_validity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def id_token_validity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The ID token time limit. After this limit expires, your user can't use their ID token. To specify the time unit for `IdTokenValidity` as `seconds` , `minutes` , `hours` , or `days` , set a `TokenValidityUnits` value in your API request.
 
@@ -438,24 +438,24 @@ class UserPoolClientArgs:
         return pulumi.get(self, "id_token_validity")
 
     @id_token_validity.setter
-    def id_token_validity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def id_token_validity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "id_token_validity", value)
 
     @_builtins.property
     @pulumi.getter(name="logoutUrls")
-    def logout_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def logout_urls(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of allowed logout URLs for managed login authentication. When you pass `logout_uri` and `client_id` parameters to `/logout` , Amazon Cognito signs out your user and redirects them to the logout URL. This parameter describes the URLs that you want to be the permitted targets of `logout_uri` . A typical use of these URLs is when a user selects "Sign out" and you redirect them to your public homepage. For more information, see [Logout endpoint](https://docs.aws.amazon.com/cognito/latest/developerguide/logout-endpoint.html) .
         """
         return pulumi.get(self, "logout_urls")
 
     @logout_urls.setter
-    def logout_urls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def logout_urls(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "logout_urls", value)
 
     @_builtins.property
     @pulumi.getter(name="preventUserExistenceErrors")
-    def prevent_user_existence_errors(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def prevent_user_existence_errors(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Errors and responses that you want Amazon Cognito APIs to return during authentication, account confirmation, and password recovery when the user doesn't exist in the user pool. When set to `ENABLED` and the user doesn't exist, authentication returns an error indicating either the username or password was incorrect. Account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to `LEGACY` , those APIs return a `UserNotFoundException` exception if the user doesn't exist in the user pool.
 
@@ -469,12 +469,12 @@ class UserPoolClientArgs:
         return pulumi.get(self, "prevent_user_existence_errors")
 
     @prevent_user_existence_errors.setter
-    def prevent_user_existence_errors(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def prevent_user_existence_errors(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "prevent_user_existence_errors", value)
 
     @_builtins.property
     @pulumi.getter(name="readAttributes")
-    def read_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def read_attributes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of user attributes that you want your app client to have read access to. After your user authenticates in your app, their access token authorizes them to read their own attribute value for any attribute in this list. An example of this kind of activity is when your user selects a link to view their profile information.
 
@@ -483,24 +483,24 @@ class UserPoolClientArgs:
         return pulumi.get(self, "read_attributes")
 
     @read_attributes.setter
-    def read_attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def read_attributes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "read_attributes", value)
 
     @_builtins.property
     @pulumi.getter(name="refreshTokenRotation")
-    def refresh_token_rotation(self) -> Optional[pulumi.Input['UserPoolClientRefreshTokenRotationArgs']]:
+    def refresh_token_rotation(self) -> pulumi.Input[Optional['UserPoolClientRefreshTokenRotationArgs']]:
         """
         The configuration of your app client for refresh token rotation. When enabled, your app client issues new ID, access, and refresh tokens when users renew their sessions with refresh tokens. When disabled, token refresh issues only ID and access tokens.
         """
         return pulumi.get(self, "refresh_token_rotation")
 
     @refresh_token_rotation.setter
-    def refresh_token_rotation(self, value: Optional[pulumi.Input['UserPoolClientRefreshTokenRotationArgs']]):
+    def refresh_token_rotation(self, value: pulumi.Input[Optional['UserPoolClientRefreshTokenRotationArgs']]):
         pulumi.set(self, "refresh_token_rotation", value)
 
     @_builtins.property
     @pulumi.getter(name="refreshTokenValidity")
-    def refresh_token_validity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def refresh_token_validity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The refresh token time limit. After this limit expires, your user can't use their refresh token. To specify the time unit for `RefreshTokenValidity` as `seconds` , `minutes` , `hours` , or `days` , set a `TokenValidityUnits` value in your API request.
 
@@ -515,12 +515,12 @@ class UserPoolClientArgs:
         return pulumi.get(self, "refresh_token_validity")
 
     @refresh_token_validity.setter
-    def refresh_token_validity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def refresh_token_validity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "refresh_token_validity", value)
 
     @_builtins.property
     @pulumi.getter(name="supportedIdentityProviders")
-    def supported_identity_providers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def supported_identity_providers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of provider names for the identity providers (IdPs) that are supported on this client. The following are supported: `COGNITO` , `Facebook` , `Google` , `SignInWithApple` , and `LoginWithAmazon` . You can also specify the names that you configured for the SAML and OIDC IdPs in your user pool, for example `MySAMLIdP` or `MyOIDCIdP` .
 
@@ -529,24 +529,24 @@ class UserPoolClientArgs:
         return pulumi.get(self, "supported_identity_providers")
 
     @supported_identity_providers.setter
-    def supported_identity_providers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def supported_identity_providers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "supported_identity_providers", value)
 
     @_builtins.property
     @pulumi.getter(name="tokenValidityUnits")
-    def token_validity_units(self) -> Optional[pulumi.Input['UserPoolClientTokenValidityUnitsArgs']]:
+    def token_validity_units(self) -> pulumi.Input[Optional['UserPoolClientTokenValidityUnitsArgs']]:
         """
         The units that validity times are represented in. The default unit for refresh tokens is days, and the default for ID and access tokens are hours.
         """
         return pulumi.get(self, "token_validity_units")
 
     @token_validity_units.setter
-    def token_validity_units(self, value: Optional[pulumi.Input['UserPoolClientTokenValidityUnitsArgs']]):
+    def token_validity_units(self, value: pulumi.Input[Optional['UserPoolClientTokenValidityUnitsArgs']]):
         pulumi.set(self, "token_validity_units", value)
 
     @_builtins.property
     @pulumi.getter(name="writeAttributes")
-    def write_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def write_attributes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of user attributes that you want your app client to have write access to. After your user authenticates in your app, their access token authorizes them to set or modify their own attribute value for any attribute in this list.
 
@@ -557,7 +557,7 @@ class UserPoolClientArgs:
         return pulumi.get(self, "write_attributes")
 
     @write_attributes.setter
-    def write_attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def write_attributes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "write_attributes", value)
 
 
@@ -567,29 +567,29 @@ class UserPoolClient(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_token_validity: Optional[pulumi.Input[_builtins.int]] = None,
-                 allowed_o_auth_flows: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 allowed_o_auth_flows_user_pool_client: Optional[pulumi.Input[_builtins.bool]] = None,
-                 allowed_o_auth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 analytics_configuration: Optional[pulumi.Input[Union['UserPoolClientAnalyticsConfigurationArgs', 'UserPoolClientAnalyticsConfigurationArgsDict']]] = None,
-                 auth_session_validity: Optional[pulumi.Input[_builtins.int]] = None,
-                 callback_urls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 client_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_redirect_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_propagate_additional_user_context_data: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_token_revocation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 explicit_auth_flows: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 generate_secret: Optional[pulumi.Input[_builtins.bool]] = None,
-                 id_token_validity: Optional[pulumi.Input[_builtins.int]] = None,
-                 logout_urls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 prevent_user_existence_errors: Optional[pulumi.Input[_builtins.str]] = None,
-                 read_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 refresh_token_rotation: Optional[pulumi.Input[Union['UserPoolClientRefreshTokenRotationArgs', 'UserPoolClientRefreshTokenRotationArgsDict']]] = None,
-                 refresh_token_validity: Optional[pulumi.Input[_builtins.int]] = None,
-                 supported_identity_providers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 token_validity_units: Optional[pulumi.Input[Union['UserPoolClientTokenValidityUnitsArgs', 'UserPoolClientTokenValidityUnitsArgsDict']]] = None,
-                 user_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 write_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 access_token_validity: pulumi.Input[Optional[_builtins.int]] = None,
+                 allowed_o_auth_flows: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allowed_o_auth_flows_user_pool_client: pulumi.Input[Optional[_builtins.bool]] = None,
+                 allowed_o_auth_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 analytics_configuration: pulumi.Input[Optional[Union['UserPoolClientAnalyticsConfigurationArgs', 'UserPoolClientAnalyticsConfigurationArgsDict']]] = None,
+                 auth_session_validity: pulumi.Input[Optional[_builtins.int]] = None,
+                 callback_urls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 client_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_redirect_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_propagate_additional_user_context_data: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_token_revocation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 explicit_auth_flows: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 generate_secret: pulumi.Input[Optional[_builtins.bool]] = None,
+                 id_token_validity: pulumi.Input[Optional[_builtins.int]] = None,
+                 logout_urls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 prevent_user_existence_errors: pulumi.Input[Optional[_builtins.str]] = None,
+                 read_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 refresh_token_rotation: pulumi.Input[Optional[Union['UserPoolClientRefreshTokenRotationArgs', 'UserPoolClientRefreshTokenRotationArgsDict']]] = None,
+                 refresh_token_validity: pulumi.Input[Optional[_builtins.int]] = None,
+                 supported_identity_providers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 token_validity_units: pulumi.Input[Optional[Union['UserPoolClientTokenValidityUnitsArgs', 'UserPoolClientTokenValidityUnitsArgsDict']]] = None,
+                 user_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 write_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Cognito::UserPoolClient
@@ -729,29 +729,29 @@ class UserPoolClient(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_token_validity: Optional[pulumi.Input[_builtins.int]] = None,
-                 allowed_o_auth_flows: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 allowed_o_auth_flows_user_pool_client: Optional[pulumi.Input[_builtins.bool]] = None,
-                 allowed_o_auth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 analytics_configuration: Optional[pulumi.Input[Union['UserPoolClientAnalyticsConfigurationArgs', 'UserPoolClientAnalyticsConfigurationArgsDict']]] = None,
-                 auth_session_validity: Optional[pulumi.Input[_builtins.int]] = None,
-                 callback_urls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 client_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_redirect_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_propagate_additional_user_context_data: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_token_revocation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 explicit_auth_flows: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 generate_secret: Optional[pulumi.Input[_builtins.bool]] = None,
-                 id_token_validity: Optional[pulumi.Input[_builtins.int]] = None,
-                 logout_urls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 prevent_user_existence_errors: Optional[pulumi.Input[_builtins.str]] = None,
-                 read_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 refresh_token_rotation: Optional[pulumi.Input[Union['UserPoolClientRefreshTokenRotationArgs', 'UserPoolClientRefreshTokenRotationArgsDict']]] = None,
-                 refresh_token_validity: Optional[pulumi.Input[_builtins.int]] = None,
-                 supported_identity_providers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 token_validity_units: Optional[pulumi.Input[Union['UserPoolClientTokenValidityUnitsArgs', 'UserPoolClientTokenValidityUnitsArgsDict']]] = None,
-                 user_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 write_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 access_token_validity: pulumi.Input[Optional[_builtins.int]] = None,
+                 allowed_o_auth_flows: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allowed_o_auth_flows_user_pool_client: pulumi.Input[Optional[_builtins.bool]] = None,
+                 allowed_o_auth_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 analytics_configuration: pulumi.Input[Optional[Union['UserPoolClientAnalyticsConfigurationArgs', 'UserPoolClientAnalyticsConfigurationArgsDict']]] = None,
+                 auth_session_validity: pulumi.Input[Optional[_builtins.int]] = None,
+                 callback_urls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 client_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_redirect_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_propagate_additional_user_context_data: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_token_revocation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 explicit_auth_flows: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 generate_secret: pulumi.Input[Optional[_builtins.bool]] = None,
+                 id_token_validity: pulumi.Input[Optional[_builtins.int]] = None,
+                 logout_urls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 prevent_user_existence_errors: pulumi.Input[Optional[_builtins.str]] = None,
+                 read_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 refresh_token_rotation: pulumi.Input[Optional[Union['UserPoolClientRefreshTokenRotationArgs', 'UserPoolClientRefreshTokenRotationArgsDict']]] = None,
+                 refresh_token_validity: pulumi.Input[Optional[_builtins.int]] = None,
+                 supported_identity_providers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 token_validity_units: pulumi.Input[Optional[Union['UserPoolClientTokenValidityUnitsArgs', 'UserPoolClientTokenValidityUnitsArgsDict']]] = None,
+                 user_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 write_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

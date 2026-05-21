@@ -25,9 +25,9 @@ __all__ = ['TlsInspectionConfigurationArgs', 'TlsInspectionConfiguration']
 class TlsInspectionConfigurationArgs:
     def __init__(__self__, *,
                  tls_inspection_configuration: pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationArgs'],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 tls_inspection_configuration_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 tls_inspection_configuration_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a TlsInspectionConfiguration resource.
 
@@ -58,38 +58,38 @@ class TlsInspectionConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the TLS inspection configuration.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The key:value pairs to associate with the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tlsInspectionConfigurationName")
-    def tls_inspection_configuration_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tls_inspection_configuration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The descriptive name of the TLS inspection configuration. You can't change the name of a TLS inspection configuration after you create it.
         """
         return pulumi.get(self, "tls_inspection_configuration_name")
 
     @tls_inspection_configuration_name.setter
-    def tls_inspection_configuration_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tls_inspection_configuration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tls_inspection_configuration_name", value)
 
 
@@ -99,10 +99,10 @@ class TlsInspectionConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 tls_inspection_configuration: Optional[pulumi.Input[Union['TlsInspectionConfigurationTlsInspectionConfigurationArgs', 'TlsInspectionConfigurationTlsInspectionConfigurationArgsDict']]] = None,
-                 tls_inspection_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tls_inspection_configuration: pulumi.Input[Optional[Union['TlsInspectionConfigurationTlsInspectionConfigurationArgs', 'TlsInspectionConfigurationTlsInspectionConfigurationArgsDict']]] = None,
+                 tls_inspection_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource type definition for AWS::NetworkFirewall::TLSInspectionConfiguration
@@ -140,10 +140,10 @@ class TlsInspectionConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 tls_inspection_configuration: Optional[pulumi.Input[Union['TlsInspectionConfigurationTlsInspectionConfigurationArgs', 'TlsInspectionConfigurationTlsInspectionConfigurationArgsDict']]] = None,
-                 tls_inspection_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tls_inspection_configuration: pulumi.Input[Optional[Union['TlsInspectionConfigurationTlsInspectionConfigurationArgs', 'TlsInspectionConfigurationTlsInspectionConfigurationArgsDict']]] = None,
+                 tls_inspection_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

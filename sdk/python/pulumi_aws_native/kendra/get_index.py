@@ -189,7 +189,7 @@ def get_index(id: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         user_context_policy=pulumi.get(__ret__, 'user_context_policy'),
         user_token_configurations=pulumi.get(__ret__, 'user_token_configurations'))
-def get_index_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_index_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIndexResult]:
     """
     A Kendra index

@@ -126,7 +126,7 @@ def get_mount_target(mount_target_id: Optional[_builtins.str] = None,
         status=pulumi.get(__ret__, 'status'),
         status_message=pulumi.get(__ret__, 'status_message'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
-def get_mount_target_output(mount_target_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_mount_target_output(mount_target_id: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMountTargetResult]:
     """
     Resource Type definition for AWS::S3Files::MountTarget

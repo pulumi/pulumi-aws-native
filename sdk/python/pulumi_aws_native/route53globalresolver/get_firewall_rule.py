@@ -196,7 +196,7 @@ def get_firewall_rule(firewall_rule_id: Optional[_builtins.str] = None,
         query_type=pulumi.get(__ret__, 'query_type'),
         status=pulumi.get(__ret__, 'status'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-def get_firewall_rule_output(firewall_rule_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_firewall_rule_output(firewall_rule_id: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFirewallRuleResult]:
     """
     Resource schema for AWS::Route53GlobalResolver::FirewallRule

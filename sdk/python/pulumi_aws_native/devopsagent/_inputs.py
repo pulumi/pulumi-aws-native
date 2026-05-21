@@ -32,15 +32,15 @@ __all__ = [
 
 class AgentSpaceIamAuthConfigurationArgsDict(TypedDict):
     operator_app_role_arn: pulumi.Input[_builtins.str]
-    created_at: NotRequired[pulumi.Input[_builtins.str]]
-    updated_at: NotRequired[pulumi.Input[_builtins.str]]
+    created_at: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    updated_at: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class AgentSpaceIamAuthConfigurationArgs:
     def __init__(__self__, *,
                  operator_app_role_arn: pulumi.Input[_builtins.str],
-                 created_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 updated_at: Optional[pulumi.Input[_builtins.str]] = None):
+                 created_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 updated_at: pulumi.Input[Optional[_builtins.str]] = None):
         pulumi.set(__self__, "operator_app_role_arn", operator_app_role_arn)
         if created_at is not None:
             pulumi.set(__self__, "created_at", created_at)
@@ -58,38 +58,38 @@ class AgentSpaceIamAuthConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "created_at")
 
     @created_at.setter
-    def created_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_at", value)
 
     @_builtins.property
     @pulumi.getter(name="updatedAt")
-    def updated_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def updated_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "updated_at")
 
     @updated_at.setter
-    def updated_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def updated_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "updated_at", value)
 
 
 class AgentSpaceIdcAuthConfigurationArgsDict(TypedDict):
     idc_instance_arn: pulumi.Input[_builtins.str]
     operator_app_role_arn: pulumi.Input[_builtins.str]
-    created_at: NotRequired[pulumi.Input[_builtins.str]]
-    idc_application_arn: NotRequired[pulumi.Input[_builtins.str]]
-    updated_at: NotRequired[pulumi.Input[_builtins.str]]
+    created_at: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    idc_application_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    updated_at: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class AgentSpaceIdcAuthConfigurationArgs:
     def __init__(__self__, *,
                  idc_instance_arn: pulumi.Input[_builtins.str],
                  operator_app_role_arn: pulumi.Input[_builtins.str],
-                 created_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 idc_application_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 updated_at: Optional[pulumi.Input[_builtins.str]] = None):
+                 created_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 idc_application_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 updated_at: pulumi.Input[Optional[_builtins.str]] = None):
         pulumi.set(__self__, "idc_instance_arn", idc_instance_arn)
         pulumi.set(__self__, "operator_app_role_arn", operator_app_role_arn)
         if created_at is not None:
@@ -119,41 +119,41 @@ class AgentSpaceIdcAuthConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "created_at")
 
     @created_at.setter
-    def created_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_at", value)
 
     @_builtins.property
     @pulumi.getter(name="idcApplicationArn")
-    def idc_application_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def idc_application_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "idc_application_arn")
 
     @idc_application_arn.setter
-    def idc_application_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def idc_application_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "idc_application_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="updatedAt")
-    def updated_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def updated_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "updated_at")
 
     @updated_at.setter
-    def updated_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def updated_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "updated_at", value)
 
 
 class AgentSpaceOperatorAppArgsDict(TypedDict):
-    iam: NotRequired[pulumi.Input['AgentSpaceIamAuthConfigurationArgsDict']]
-    idc: NotRequired[pulumi.Input['AgentSpaceIdcAuthConfigurationArgsDict']]
+    iam: NotRequired[pulumi.Input[Optional['AgentSpaceIamAuthConfigurationArgsDict']]]
+    idc: NotRequired[pulumi.Input[Optional['AgentSpaceIdcAuthConfigurationArgsDict']]]
 
 @pulumi.input_type
 class AgentSpaceOperatorAppArgs:
     def __init__(__self__, *,
-                 iam: Optional[pulumi.Input['AgentSpaceIamAuthConfigurationArgs']] = None,
-                 idc: Optional[pulumi.Input['AgentSpaceIdcAuthConfigurationArgs']] = None):
+                 iam: pulumi.Input[Optional['AgentSpaceIamAuthConfigurationArgs']] = None,
+                 idc: pulumi.Input[Optional['AgentSpaceIdcAuthConfigurationArgs']] = None):
         if iam is not None:
             pulumi.set(__self__, "iam", iam)
         if idc is not None:
@@ -161,20 +161,20 @@ class AgentSpaceOperatorAppArgs:
 
     @_builtins.property
     @pulumi.getter
-    def iam(self) -> Optional[pulumi.Input['AgentSpaceIamAuthConfigurationArgs']]:
+    def iam(self) -> pulumi.Input[Optional['AgentSpaceIamAuthConfigurationArgs']]:
         return pulumi.get(self, "iam")
 
     @iam.setter
-    def iam(self, value: Optional[pulumi.Input['AgentSpaceIamAuthConfigurationArgs']]):
+    def iam(self, value: pulumi.Input[Optional['AgentSpaceIamAuthConfigurationArgs']]):
         pulumi.set(self, "iam", value)
 
     @_builtins.property
     @pulumi.getter
-    def idc(self) -> Optional[pulumi.Input['AgentSpaceIdcAuthConfigurationArgs']]:
+    def idc(self) -> pulumi.Input[Optional['AgentSpaceIdcAuthConfigurationArgs']]:
         return pulumi.get(self, "idc")
 
     @idc.setter
-    def idc(self, value: Optional[pulumi.Input['AgentSpaceIdcAuthConfigurationArgs']]):
+    def idc(self, value: pulumi.Input[Optional['AgentSpaceIdcAuthConfigurationArgs']]):
         pulumi.set(self, "idc", value)
 
 

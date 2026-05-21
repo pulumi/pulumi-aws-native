@@ -24,10 +24,10 @@ __all__ = ['AnalyzerArgs', 'Analyzer']
 class AnalyzerArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 analyzer_configuration: Optional[pulumi.Input['AnalyzerConfigurationPropertiesArgs']] = None,
-                 analyzer_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 archive_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AnalyzerArchiveRuleArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 analyzer_configuration: pulumi.Input[Optional['AnalyzerConfigurationPropertiesArgs']] = None,
+                 analyzer_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 archive_rules: pulumi.Input[Optional[Sequence[pulumi.Input['AnalyzerArchiveRuleArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Analyzer resource.
 
@@ -61,50 +61,50 @@ class AnalyzerArgs:
 
     @_builtins.property
     @pulumi.getter(name="analyzerConfiguration")
-    def analyzer_configuration(self) -> Optional[pulumi.Input['AnalyzerConfigurationPropertiesArgs']]:
+    def analyzer_configuration(self) -> pulumi.Input[Optional['AnalyzerConfigurationPropertiesArgs']]:
         """
         The configuration for the analyzer
         """
         return pulumi.get(self, "analyzer_configuration")
 
     @analyzer_configuration.setter
-    def analyzer_configuration(self, value: Optional[pulumi.Input['AnalyzerConfigurationPropertiesArgs']]):
+    def analyzer_configuration(self, value: pulumi.Input[Optional['AnalyzerConfigurationPropertiesArgs']]):
         pulumi.set(self, "analyzer_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="analyzerName")
-    def analyzer_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def analyzer_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Analyzer name
         """
         return pulumi.get(self, "analyzer_name")
 
     @analyzer_name.setter
-    def analyzer_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def analyzer_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "analyzer_name", value)
 
     @_builtins.property
     @pulumi.getter(name="archiveRules")
-    def archive_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnalyzerArchiveRuleArgs']]]]:
+    def archive_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AnalyzerArchiveRuleArgs']]]]:
         """
         Specifies the archive rules to add for the analyzer. Archive rules automatically archive findings that meet the criteria you define for the rule.
         """
         return pulumi.get(self, "archive_rules")
 
     @archive_rules.setter
-    def archive_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AnalyzerArchiveRuleArgs']]]]):
+    def archive_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AnalyzerArchiveRuleArgs']]]]):
         pulumi.set(self, "archive_rules", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -114,11 +114,11 @@ class Analyzer(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 analyzer_configuration: Optional[pulumi.Input[Union['AnalyzerConfigurationPropertiesArgs', 'AnalyzerConfigurationPropertiesArgsDict']]] = None,
-                 analyzer_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 archive_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AnalyzerArchiveRuleArgs', 'AnalyzerArchiveRuleArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 analyzer_configuration: pulumi.Input[Optional[Union['AnalyzerConfigurationPropertiesArgs', 'AnalyzerConfigurationPropertiesArgsDict']]] = None,
+                 analyzer_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 archive_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AnalyzerArchiveRuleArgs', 'AnalyzerArchiveRuleArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The AWS::AccessAnalyzer::Analyzer type specifies an analyzer of the user's account
@@ -229,11 +229,11 @@ class Analyzer(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 analyzer_configuration: Optional[pulumi.Input[Union['AnalyzerConfigurationPropertiesArgs', 'AnalyzerConfigurationPropertiesArgsDict']]] = None,
-                 analyzer_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 archive_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AnalyzerArchiveRuleArgs', 'AnalyzerArchiveRuleArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 analyzer_configuration: pulumi.Input[Optional[Union['AnalyzerConfigurationPropertiesArgs', 'AnalyzerConfigurationPropertiesArgsDict']]] = None,
+                 analyzer_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 archive_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AnalyzerArchiveRuleArgs', 'AnalyzerArchiveRuleArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

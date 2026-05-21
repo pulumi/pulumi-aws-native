@@ -24,11 +24,11 @@ __all__ = ['ChannelArgs', 'Channel']
 class ChannelArgs:
     def __init__(__self__, *,
                  aws_id: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 egress_access_logs: Optional[pulumi.Input['ChannelLogConfigurationArgs']] = None,
-                 hls_ingest: Optional[pulumi.Input['ChannelHlsIngestArgs']] = None,
-                 ingress_access_logs: Optional[pulumi.Input['ChannelLogConfigurationArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 egress_access_logs: pulumi.Input[Optional['ChannelLogConfigurationArgs']] = None,
+                 hls_ingest: pulumi.Input[Optional['ChannelHlsIngestArgs']] = None,
+                 ingress_access_logs: pulumi.Input[Optional['ChannelLogConfigurationArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a Channel resource.
 
@@ -65,62 +65,62 @@ class ChannelArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A short text description of the Channel.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="egressAccessLogs")
-    def egress_access_logs(self) -> Optional[pulumi.Input['ChannelLogConfigurationArgs']]:
+    def egress_access_logs(self) -> pulumi.Input[Optional['ChannelLogConfigurationArgs']]:
         """
         The configuration parameters for egress access logging.
         """
         return pulumi.get(self, "egress_access_logs")
 
     @egress_access_logs.setter
-    def egress_access_logs(self, value: Optional[pulumi.Input['ChannelLogConfigurationArgs']]):
+    def egress_access_logs(self, value: pulumi.Input[Optional['ChannelLogConfigurationArgs']]):
         pulumi.set(self, "egress_access_logs", value)
 
     @_builtins.property
     @pulumi.getter(name="hlsIngest")
-    def hls_ingest(self) -> Optional[pulumi.Input['ChannelHlsIngestArgs']]:
+    def hls_ingest(self) -> pulumi.Input[Optional['ChannelHlsIngestArgs']]:
         """
         An HTTP Live Streaming (HLS) ingest resource configuration.
         """
         return pulumi.get(self, "hls_ingest")
 
     @hls_ingest.setter
-    def hls_ingest(self, value: Optional[pulumi.Input['ChannelHlsIngestArgs']]):
+    def hls_ingest(self, value: pulumi.Input[Optional['ChannelHlsIngestArgs']]):
         pulumi.set(self, "hls_ingest", value)
 
     @_builtins.property
     @pulumi.getter(name="ingressAccessLogs")
-    def ingress_access_logs(self) -> Optional[pulumi.Input['ChannelLogConfigurationArgs']]:
+    def ingress_access_logs(self) -> pulumi.Input[Optional['ChannelLogConfigurationArgs']]:
         """
         The configuration parameters for egress access logging.
         """
         return pulumi.get(self, "ingress_access_logs")
 
     @ingress_access_logs.setter
-    def ingress_access_logs(self, value: Optional[pulumi.Input['ChannelLogConfigurationArgs']]):
+    def ingress_access_logs(self, value: pulumi.Input[Optional['ChannelLogConfigurationArgs']]):
         pulumi.set(self, "ingress_access_logs", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
         """
         A collection of tags associated with a resource
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -130,12 +130,12 @@ class Channel(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 egress_access_logs: Optional[pulumi.Input[Union['ChannelLogConfigurationArgs', 'ChannelLogConfigurationArgsDict']]] = None,
-                 hls_ingest: Optional[pulumi.Input[Union['ChannelHlsIngestArgs', 'ChannelHlsIngestArgsDict']]] = None,
-                 ingress_access_logs: Optional[pulumi.Input[Union['ChannelLogConfigurationArgs', 'ChannelLogConfigurationArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 aws_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 egress_access_logs: pulumi.Input[Optional[Union['ChannelLogConfigurationArgs', 'ChannelLogConfigurationArgsDict']]] = None,
+                 hls_ingest: pulumi.Input[Optional[Union['ChannelHlsIngestArgs', 'ChannelHlsIngestArgsDict']]] = None,
+                 ingress_access_logs: pulumi.Input[Optional[Union['ChannelLogConfigurationArgs', 'ChannelLogConfigurationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::MediaPackage::Channel
@@ -175,12 +175,12 @@ class Channel(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 egress_access_logs: Optional[pulumi.Input[Union['ChannelLogConfigurationArgs', 'ChannelLogConfigurationArgsDict']]] = None,
-                 hls_ingest: Optional[pulumi.Input[Union['ChannelHlsIngestArgs', 'ChannelHlsIngestArgsDict']]] = None,
-                 ingress_access_logs: Optional[pulumi.Input[Union['ChannelLogConfigurationArgs', 'ChannelLogConfigurationArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 aws_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 egress_access_logs: pulumi.Input[Optional[Union['ChannelLogConfigurationArgs', 'ChannelLogConfigurationArgsDict']]] = None,
+                 hls_ingest: pulumi.Input[Optional[Union['ChannelHlsIngestArgs', 'ChannelHlsIngestArgsDict']]] = None,
+                 ingress_access_logs: pulumi.Input[Optional[Union['ChannelLogConfigurationArgs', 'ChannelLogConfigurationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

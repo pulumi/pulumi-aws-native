@@ -128,7 +128,7 @@ def get_license_endpoint(arn: Optional[_builtins.str] = None,
         status=pulumi.get(__ret__, 'status'),
         status_message=pulumi.get(__ret__, 'status_message'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_license_endpoint_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_license_endpoint_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLicenseEndpointResult]:
     """
     Resource Type definition for AWS::Deadline::LicenseEndpoint

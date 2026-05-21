@@ -115,7 +115,7 @@ def get_link(arn: Optional[_builtins.str] = None,
         link_configuration=pulumi.get(__ret__, 'link_configuration'),
         resource_types=pulumi.get(__ret__, 'resource_types'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_link_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_link_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLinkResult]:
     """
     Definition of AWS::Oam::Link Resource Type

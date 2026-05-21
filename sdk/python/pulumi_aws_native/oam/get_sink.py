@@ -89,7 +89,7 @@ def get_sink(arn: Optional[_builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         policy=pulumi.get(__ret__, 'policy'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_sink_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_sink_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSinkResult]:
     """
     Resource Type definition for AWS::Oam::Sink

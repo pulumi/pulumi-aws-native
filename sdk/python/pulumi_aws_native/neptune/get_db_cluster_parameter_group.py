@@ -77,7 +77,7 @@ def get_db_cluster_parameter_group(name: Optional[_builtins.str] = None,
     return AwaitableGetDbClusterParameterGroupResult(
         parameters=pulumi.get(__ret__, 'parameters'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_db_cluster_parameter_group_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_db_cluster_parameter_group_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDbClusterParameterGroupResult]:
     """
     The AWS::Neptune::DBClusterParameterGroup resource creates a new Amazon Neptune DB cluster parameter group

@@ -88,7 +88,7 @@ def get_group(name: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         resource_arns=pulumi.get(__ret__, 'resource_arns'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_group_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_group_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGroupResult]:
     """
     Resource Type definition for AWS::Synthetics::Group

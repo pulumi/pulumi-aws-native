@@ -24,22 +24,22 @@ __all__ = ['NamespaceArgs', 'Namespace']
 @pulumi.input_type
 class NamespaceArgs:
     def __init__(__self__, *,
-                 admin_password_secret_kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 admin_user_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 admin_username: Optional[pulumi.Input[_builtins.str]] = None,
-                 db_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_iam_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 final_snapshot_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 final_snapshot_retention_period: Optional[pulumi.Input[_builtins.int]] = None,
-                 iam_roles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_exports: Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceLogExport']]]] = None,
-                 manage_admin_password: Optional[pulumi.Input[_builtins.bool]] = None,
-                 namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 admin_password_secret_kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 admin_user_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 admin_username: pulumi.Input[Optional[_builtins.str]] = None,
+                 db_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 final_snapshot_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 final_snapshot_retention_period: pulumi.Input[Optional[_builtins.int]] = None,
+                 iam_roles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_exports: pulumi.Input[Optional[Sequence[pulumi.Input['NamespaceLogExport']]]] = None,
+                 manage_admin_password: pulumi.Input[Optional[_builtins.bool]] = None,
+                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  namespace_resource_policy: Optional[Any] = None,
-                 redshift_idc_application_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 snapshot_copy_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceSnapshotCopyConfigurationArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 redshift_idc_application_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 snapshot_copy_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['NamespaceSnapshotCopyConfigurationArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Namespace resource.
 
@@ -97,146 +97,146 @@ class NamespaceArgs:
 
     @_builtins.property
     @pulumi.getter(name="adminPasswordSecretKmsKeyId")
-    def admin_password_secret_kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def admin_password_secret_kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the AWS Key Management Service (KMS) key used to encrypt and store the namespace's admin credentials secret. You can only use this parameter if manageAdminPassword is true.
         """
         return pulumi.get(self, "admin_password_secret_kms_key_id")
 
     @admin_password_secret_kms_key_id.setter
-    def admin_password_secret_kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def admin_password_secret_kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "admin_password_secret_kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="adminUserPassword")
-    def admin_user_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def admin_user_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The password associated with the admin user for the namespace that is being created. Password must be at least 8 characters in length, should be any printable ASCII character. Must contain at least one lowercase letter, one uppercase letter and one decimal digit. You can't use adminUserPassword if manageAdminPassword is true.
         """
         return pulumi.get(self, "admin_user_password")
 
     @admin_user_password.setter
-    def admin_user_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def admin_user_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "admin_user_password", value)
 
     @_builtins.property
     @pulumi.getter(name="adminUsername")
-    def admin_username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def admin_username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The user name associated with the admin user for the namespace that is being created. Only alphanumeric characters and underscores are allowed. It should start with an alphabet.
         """
         return pulumi.get(self, "admin_username")
 
     @admin_username.setter
-    def admin_username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def admin_username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "admin_username", value)
 
     @_builtins.property
     @pulumi.getter(name="dbName")
-    def db_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def db_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The database name associated for the namespace that is being created. Only alphanumeric characters and underscores are allowed. It should start with an alphabet.
         """
         return pulumi.get(self, "db_name")
 
     @db_name.setter
-    def db_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def db_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "db_name", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultIamRoleArn")
-    def default_iam_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_iam_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The default IAM role ARN for the namespace that is being created.
         """
         return pulumi.get(self, "default_iam_role_arn")
 
     @default_iam_role_arn.setter
-    def default_iam_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_iam_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_iam_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="finalSnapshotName")
-    def final_snapshot_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def final_snapshot_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the namespace the source snapshot was created from. Please specify the name if needed before deleting namespace
         """
         return pulumi.get(self, "final_snapshot_name")
 
     @final_snapshot_name.setter
-    def final_snapshot_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def final_snapshot_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "final_snapshot_name", value)
 
     @_builtins.property
     @pulumi.getter(name="finalSnapshotRetentionPeriod")
-    def final_snapshot_retention_period(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def final_snapshot_retention_period(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of days to retain automated snapshot in the destination region after they are copied from the source region. If the value is -1, the manual snapshot is retained indefinitely. The value must be either -1 or an integer between 1 and 3,653.
         """
         return pulumi.get(self, "final_snapshot_retention_period")
 
     @final_snapshot_retention_period.setter
-    def final_snapshot_retention_period(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def final_snapshot_retention_period(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "final_snapshot_retention_period", value)
 
     @_builtins.property
     @pulumi.getter(name="iamRoles")
-    def iam_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def iam_roles(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of AWS Identity and Access Management (IAM) roles that can be used by the namespace to access other AWS services. You must supply the IAM roles in their Amazon Resource Name (ARN) format. The Default role limit for each request is 10.
         """
         return pulumi.get(self, "iam_roles")
 
     @iam_roles.setter
-    def iam_roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def iam_roles(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "iam_roles", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS Key Management Service (KMS) key ID of the encryption key that you want to use to encrypt data in the namespace.
         """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="logExports")
-    def log_exports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceLogExport']]]]:
+    def log_exports(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NamespaceLogExport']]]]:
         """
         The collection of log types to be exported provided by the customer. Should only be one of the three supported log types: userlog, useractivitylog and connectionlog
         """
         return pulumi.get(self, "log_exports")
 
     @log_exports.setter
-    def log_exports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceLogExport']]]]):
+    def log_exports(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NamespaceLogExport']]]]):
         pulumi.set(self, "log_exports", value)
 
     @_builtins.property
     @pulumi.getter(name="manageAdminPassword")
-    def manage_admin_password(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def manage_admin_password(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, Amazon Redshift uses AWS Secrets Manager to manage the namespace's admin credentials. You can't use adminUserPassword if manageAdminPassword is true. If manageAdminPassword is false or not set, Amazon Redshift uses adminUserPassword for the admin user account's password.
         """
         return pulumi.get(self, "manage_admin_password")
 
     @manage_admin_password.setter
-    def manage_admin_password(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def manage_admin_password(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "manage_admin_password", value)
 
     @_builtins.property
     @pulumi.getter(name="namespaceName")
-    def namespace_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def namespace_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A unique identifier for the namespace. You use this identifier to refer to the namespace for any subsequent namespace operations such as deleting or modifying. All alphabetical characters must be lower case. Namespace name should be unique for all namespaces within an AWS account.
         """
         return pulumi.get(self, "namespace_name")
 
     @namespace_name.setter
-    def namespace_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def namespace_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "namespace_name", value)
 
     @_builtins.property
@@ -255,38 +255,38 @@ class NamespaceArgs:
 
     @_builtins.property
     @pulumi.getter(name="redshiftIdcApplicationArn")
-    def redshift_idc_application_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def redshift_idc_application_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN for the Redshift application that integrates with IAM Identity Center.
         """
         return pulumi.get(self, "redshift_idc_application_arn")
 
     @redshift_idc_application_arn.setter
-    def redshift_idc_application_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def redshift_idc_application_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "redshift_idc_application_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="snapshotCopyConfigurations")
-    def snapshot_copy_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceSnapshotCopyConfigurationArgs']]]]:
+    def snapshot_copy_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NamespaceSnapshotCopyConfigurationArgs']]]]:
         """
         The snapshot copy configurations for the namespace.
         """
         return pulumi.get(self, "snapshot_copy_configurations")
 
     @snapshot_copy_configurations.setter
-    def snapshot_copy_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceSnapshotCopyConfigurationArgs']]]]):
+    def snapshot_copy_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NamespaceSnapshotCopyConfigurationArgs']]]]):
         pulumi.set(self, "snapshot_copy_configurations", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The list of tags for the namespace.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -296,22 +296,22 @@ class Namespace(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 admin_password_secret_kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 admin_user_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 admin_username: Optional[pulumi.Input[_builtins.str]] = None,
-                 db_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_iam_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 final_snapshot_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 final_snapshot_retention_period: Optional[pulumi.Input[_builtins.int]] = None,
-                 iam_roles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_exports: Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceLogExport']]]] = None,
-                 manage_admin_password: Optional[pulumi.Input[_builtins.bool]] = None,
-                 namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 admin_password_secret_kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 admin_user_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 admin_username: pulumi.Input[Optional[_builtins.str]] = None,
+                 db_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 final_snapshot_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 final_snapshot_retention_period: pulumi.Input[Optional[_builtins.int]] = None,
+                 iam_roles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_exports: pulumi.Input[Optional[Sequence[pulumi.Input['NamespaceLogExport']]]] = None,
+                 manage_admin_password: pulumi.Input[Optional[_builtins.bool]] = None,
+                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  namespace_resource_policy: Optional[Any] = None,
-                 redshift_idc_application_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 snapshot_copy_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NamespaceSnapshotCopyConfigurationArgs', 'NamespaceSnapshotCopyConfigurationArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 redshift_idc_application_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 snapshot_copy_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NamespaceSnapshotCopyConfigurationArgs', 'NamespaceSnapshotCopyConfigurationArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::RedshiftServerless::Namespace Resource Type
@@ -363,22 +363,22 @@ class Namespace(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 admin_password_secret_kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 admin_user_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 admin_username: Optional[pulumi.Input[_builtins.str]] = None,
-                 db_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_iam_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 final_snapshot_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 final_snapshot_retention_period: Optional[pulumi.Input[_builtins.int]] = None,
-                 iam_roles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_exports: Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceLogExport']]]] = None,
-                 manage_admin_password: Optional[pulumi.Input[_builtins.bool]] = None,
-                 namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 admin_password_secret_kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 admin_user_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 admin_username: pulumi.Input[Optional[_builtins.str]] = None,
+                 db_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 final_snapshot_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 final_snapshot_retention_period: pulumi.Input[Optional[_builtins.int]] = None,
+                 iam_roles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_exports: pulumi.Input[Optional[Sequence[pulumi.Input['NamespaceLogExport']]]] = None,
+                 manage_admin_password: pulumi.Input[Optional[_builtins.bool]] = None,
+                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  namespace_resource_policy: Optional[Any] = None,
-                 redshift_idc_application_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 snapshot_copy_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NamespaceSnapshotCopyConfigurationArgs', 'NamespaceSnapshotCopyConfigurationArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 redshift_idc_application_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 snapshot_copy_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NamespaceSnapshotCopyConfigurationArgs', 'NamespaceSnapshotCopyConfigurationArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

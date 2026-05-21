@@ -66,11 +66,11 @@ class ApiKeyStageKeyArgsDict(TypedDict):
     """
     ``StageKey`` is a property of the [AWS::ApiGateway::ApiKey](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html) resource that specifies the stage to associate with the API key. This association allows only clients with the key to make requests to methods in that stage.
     """
-    rest_api_id: NotRequired[pulumi.Input[_builtins.str]]
+    rest_api_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The string identifier of the associated RestApi.
     """
-    stage_name: NotRequired[pulumi.Input[_builtins.str]]
+    stage_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The stage name associated with the stage key.
     """
@@ -78,8 +78,8 @@ class ApiKeyStageKeyArgsDict(TypedDict):
 @pulumi.input_type
 class ApiKeyStageKeyArgs:
     def __init__(__self__, *,
-                 rest_api_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 stage_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 rest_api_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 stage_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         ``StageKey`` is a property of the [AWS::ApiGateway::ApiKey](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html) resource that specifies the stage to associate with the API key. This association allows only clients with the key to make requests to methods in that stage.
 
@@ -93,26 +93,26 @@ class ApiKeyStageKeyArgs:
 
     @_builtins.property
     @pulumi.getter(name="restApiId")
-    def rest_api_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rest_api_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The string identifier of the associated RestApi.
         """
         return pulumi.get(self, "rest_api_id")
 
     @rest_api_id.setter
-    def rest_api_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rest_api_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rest_api_id", value)
 
     @_builtins.property
     @pulumi.getter(name="stageName")
-    def stage_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def stage_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The stage name associated with the stage key.
         """
         return pulumi.get(self, "stage_name")
 
     @stage_name.setter
-    def stage_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def stage_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "stage_name", value)
 
 
@@ -121,11 +121,11 @@ class DeploymentAccessLogSettingArgsDict(TypedDict):
     The ``AccessLogSetting`` property type specifies settings for logging access in this stage.
      ``AccessLogSetting`` is a property of the [StageDescription](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html) property type.
     """
-    destination_arn: NotRequired[pulumi.Input[_builtins.str]]
+    destination_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with `amazon-apigateway-` .
     """
-    format: NotRequired[pulumi.Input[_builtins.str]]
+    format: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A single line format of the access logs of data, as specified by selected $context variables. The format must include at least `$context.requestId` .
     """
@@ -133,8 +133,8 @@ class DeploymentAccessLogSettingArgsDict(TypedDict):
 @pulumi.input_type
 class DeploymentAccessLogSettingArgs:
     def __init__(__self__, *,
-                 destination_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 format: Optional[pulumi.Input[_builtins.str]] = None):
+                 destination_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 format: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The ``AccessLogSetting`` property type specifies settings for logging access in this stage.
          ``AccessLogSetting`` is a property of the [StageDescription](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html) property type.
@@ -149,26 +149,26 @@ class DeploymentAccessLogSettingArgs:
 
     @_builtins.property
     @pulumi.getter(name="destinationArn")
-    def destination_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with `amazon-apigateway-` .
         """
         return pulumi.get(self, "destination_arn")
 
     @destination_arn.setter
-    def destination_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A single line format of the access logs of data, as specified by selected $context variables. The format must include at least `$context.requestId` .
         """
         return pulumi.get(self, "format")
 
     @format.setter
-    def format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "format", value)
 
 
@@ -176,15 +176,15 @@ class DeploymentCanarySettingsArgsDict(TypedDict):
     """
     The ``DeploymentCanarySettings`` property type specifies settings for the canary deployment.
     """
-    percent_traffic: NotRequired[pulumi.Input[_builtins.float]]
+    percent_traffic: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The percentage (0.0-100.0) of traffic routed to the canary deployment.
     """
-    stage_variable_overrides: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    stage_variable_overrides: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     A stage variable overrides used for the canary release deployment. They can override existing stage variables or add new stage variables for the canary release deployment. These stage variables are represented as a string-to-string map between stage variable names and their values.
     """
-    use_stage_cache: NotRequired[pulumi.Input[_builtins.bool]]
+    use_stage_cache: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     A Boolean flag to indicate whether the canary release deployment uses the stage cache or not.
     """
@@ -192,9 +192,9 @@ class DeploymentCanarySettingsArgsDict(TypedDict):
 @pulumi.input_type
 class DeploymentCanarySettingsArgs:
     def __init__(__self__, *,
-                 percent_traffic: Optional[pulumi.Input[_builtins.float]] = None,
-                 stage_variable_overrides: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 use_stage_cache: Optional[pulumi.Input[_builtins.bool]] = None):
+                 percent_traffic: pulumi.Input[Optional[_builtins.float]] = None,
+                 stage_variable_overrides: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 use_stage_cache: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The ``DeploymentCanarySettings`` property type specifies settings for the canary deployment.
 
@@ -211,38 +211,38 @@ class DeploymentCanarySettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="percentTraffic")
-    def percent_traffic(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def percent_traffic(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The percentage (0.0-100.0) of traffic routed to the canary deployment.
         """
         return pulumi.get(self, "percent_traffic")
 
     @percent_traffic.setter
-    def percent_traffic(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def percent_traffic(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "percent_traffic", value)
 
     @_builtins.property
     @pulumi.getter(name="stageVariableOverrides")
-    def stage_variable_overrides(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def stage_variable_overrides(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A stage variable overrides used for the canary release deployment. They can override existing stage variables or add new stage variables for the canary release deployment. These stage variables are represented as a string-to-string map between stage variable names and their values.
         """
         return pulumi.get(self, "stage_variable_overrides")
 
     @stage_variable_overrides.setter
-    def stage_variable_overrides(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def stage_variable_overrides(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "stage_variable_overrides", value)
 
     @_builtins.property
     @pulumi.getter(name="useStageCache")
-    def use_stage_cache(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_stage_cache(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A Boolean flag to indicate whether the canary release deployment uses the stage cache or not.
         """
         return pulumi.get(self, "use_stage_cache")
 
     @use_stage_cache.setter
-    def use_stage_cache(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_stage_cache(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_stage_cache", value)
 
 
@@ -251,15 +251,15 @@ class DeploymentCanarySettingArgsDict(TypedDict):
     The ``CanarySetting`` property type specifies settings for the canary deployment in this stage.
      ``CanarySetting`` is a property of the [StageDescription](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html) property type.
     """
-    percent_traffic: NotRequired[pulumi.Input[_builtins.float]]
+    percent_traffic: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The percent (0-100) of traffic diverted to a canary deployment.
     """
-    stage_variable_overrides: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    stage_variable_overrides: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary. These stage variables are represented as a string-to-string map between stage variable names and their values.
     """
-    use_stage_cache: NotRequired[pulumi.Input[_builtins.bool]]
+    use_stage_cache: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     A Boolean flag to indicate whether the canary deployment uses the stage cache or not.
     """
@@ -267,9 +267,9 @@ class DeploymentCanarySettingArgsDict(TypedDict):
 @pulumi.input_type
 class DeploymentCanarySettingArgs:
     def __init__(__self__, *,
-                 percent_traffic: Optional[pulumi.Input[_builtins.float]] = None,
-                 stage_variable_overrides: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 use_stage_cache: Optional[pulumi.Input[_builtins.bool]] = None):
+                 percent_traffic: pulumi.Input[Optional[_builtins.float]] = None,
+                 stage_variable_overrides: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 use_stage_cache: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The ``CanarySetting`` property type specifies settings for the canary deployment in this stage.
          ``CanarySetting`` is a property of the [StageDescription](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html) property type.
@@ -287,38 +287,38 @@ class DeploymentCanarySettingArgs:
 
     @_builtins.property
     @pulumi.getter(name="percentTraffic")
-    def percent_traffic(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def percent_traffic(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The percent (0-100) of traffic diverted to a canary deployment.
         """
         return pulumi.get(self, "percent_traffic")
 
     @percent_traffic.setter
-    def percent_traffic(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def percent_traffic(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "percent_traffic", value)
 
     @_builtins.property
     @pulumi.getter(name="stageVariableOverrides")
-    def stage_variable_overrides(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def stage_variable_overrides(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary. These stage variables are represented as a string-to-string map between stage variable names and their values.
         """
         return pulumi.get(self, "stage_variable_overrides")
 
     @stage_variable_overrides.setter
-    def stage_variable_overrides(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def stage_variable_overrides(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "stage_variable_overrides", value)
 
     @_builtins.property
     @pulumi.getter(name="useStageCache")
-    def use_stage_cache(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_stage_cache(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A Boolean flag to indicate whether the canary deployment uses the stage cache or not.
         """
         return pulumi.get(self, "use_stage_cache")
 
     @use_stage_cache.setter
-    def use_stage_cache(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_stage_cache(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_stage_cache", value)
 
 
@@ -327,43 +327,43 @@ class DeploymentMethodSettingArgsDict(TypedDict):
     The ``MethodSetting`` property type configures settings for all methods in a stage.
      The ``MethodSettings`` property of the [Amazon API Gateway Deployment StageDescription](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html) property type contains a list of ``MethodSetting`` property types.
     """
-    cache_data_encrypted: NotRequired[pulumi.Input[_builtins.bool]]
+    cache_data_encrypted: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether the cached responses are encrypted.
     """
-    cache_ttl_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    cache_ttl_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the time to live (TTL), in seconds, for cached responses. The higher the TTL, the longer the response will be cached.
     """
-    caching_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    caching_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached.
     """
-    data_trace_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    data_trace_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether data trace logging is enabled for this method, which affects the log entries pushed to Amazon CloudWatch Logs. This can be useful to troubleshoot APIs, but can result in logging sensitive data. We recommend that you don't enable this option for production APIs.
     """
-    http_method: NotRequired[pulumi.Input[_builtins.str]]
+    http_method: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The HTTP method.
     """
-    logging_level: NotRequired[pulumi.Input[_builtins.str]]
+    logging_level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the logging level for this method, which affects the log entries pushed to Amazon CloudWatch Logs. Valid values are `OFF` , `ERROR` , and `INFO` . Choose `ERROR` to write only error-level entries to CloudWatch Logs, or choose `INFO` to include all `ERROR` events as well as extra informational events.
     """
-    metrics_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    metrics_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether Amazon CloudWatch metrics are enabled for this method.
     """
-    resource_path: NotRequired[pulumi.Input[_builtins.str]]
+    resource_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The resource path for this method. Forward slashes (``/``) are encoded as ``~1`` and the initial slash must include a forward slash. For example, the path value ``/resource/subresource`` must be encoded as ``/~1resource~1subresource``. To specify the root path, use only a slash (``/``).
     """
-    throttling_burst_limit: NotRequired[pulumi.Input[_builtins.int]]
+    throttling_burst_limit: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the throttling burst limit.
     """
-    throttling_rate_limit: NotRequired[pulumi.Input[_builtins.float]]
+    throttling_rate_limit: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Specifies the throttling rate limit.
     """
@@ -371,16 +371,16 @@ class DeploymentMethodSettingArgsDict(TypedDict):
 @pulumi.input_type
 class DeploymentMethodSettingArgs:
     def __init__(__self__, *,
-                 cache_data_encrypted: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cache_ttl_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 caching_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 data_trace_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 http_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 logging_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 metrics_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 throttling_burst_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 throttling_rate_limit: Optional[pulumi.Input[_builtins.float]] = None):
+                 cache_data_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cache_ttl_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 caching_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 data_trace_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 http_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 logging_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 metrics_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 throttling_burst_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 throttling_rate_limit: pulumi.Input[Optional[_builtins.float]] = None):
         """
         The ``MethodSetting`` property type configures settings for all methods in a stage.
          The ``MethodSettings`` property of the [Amazon API Gateway Deployment StageDescription](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html) property type contains a list of ``MethodSetting`` property types.
@@ -419,122 +419,122 @@ class DeploymentMethodSettingArgs:
 
     @_builtins.property
     @pulumi.getter(name="cacheDataEncrypted")
-    def cache_data_encrypted(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def cache_data_encrypted(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the cached responses are encrypted.
         """
         return pulumi.get(self, "cache_data_encrypted")
 
     @cache_data_encrypted.setter
-    def cache_data_encrypted(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def cache_data_encrypted(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "cache_data_encrypted", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheTtlInSeconds")
-    def cache_ttl_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def cache_ttl_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the time to live (TTL), in seconds, for cached responses. The higher the TTL, the longer the response will be cached.
         """
         return pulumi.get(self, "cache_ttl_in_seconds")
 
     @cache_ttl_in_seconds.setter
-    def cache_ttl_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def cache_ttl_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "cache_ttl_in_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="cachingEnabled")
-    def caching_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def caching_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached.
         """
         return pulumi.get(self, "caching_enabled")
 
     @caching_enabled.setter
-    def caching_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def caching_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "caching_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="dataTraceEnabled")
-    def data_trace_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def data_trace_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether data trace logging is enabled for this method, which affects the log entries pushed to Amazon CloudWatch Logs. This can be useful to troubleshoot APIs, but can result in logging sensitive data. We recommend that you don't enable this option for production APIs.
         """
         return pulumi.get(self, "data_trace_enabled")
 
     @data_trace_enabled.setter
-    def data_trace_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def data_trace_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "data_trace_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="httpMethod")
-    def http_method(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def http_method(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The HTTP method.
         """
         return pulumi.get(self, "http_method")
 
     @http_method.setter
-    def http_method(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def http_method(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "http_method", value)
 
     @_builtins.property
     @pulumi.getter(name="loggingLevel")
-    def logging_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def logging_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the logging level for this method, which affects the log entries pushed to Amazon CloudWatch Logs. Valid values are `OFF` , `ERROR` , and `INFO` . Choose `ERROR` to write only error-level entries to CloudWatch Logs, or choose `INFO` to include all `ERROR` events as well as extra informational events.
         """
         return pulumi.get(self, "logging_level")
 
     @logging_level.setter
-    def logging_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def logging_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "logging_level", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsEnabled")
-    def metrics_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def metrics_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether Amazon CloudWatch metrics are enabled for this method.
         """
         return pulumi.get(self, "metrics_enabled")
 
     @metrics_enabled.setter
-    def metrics_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def metrics_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "metrics_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="resourcePath")
-    def resource_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource path for this method. Forward slashes (``/``) are encoded as ``~1`` and the initial slash must include a forward slash. For example, the path value ``/resource/subresource`` must be encoded as ``/~1resource~1subresource``. To specify the root path, use only a slash (``/``).
         """
         return pulumi.get(self, "resource_path")
 
     @resource_path.setter
-    def resource_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_path", value)
 
     @_builtins.property
     @pulumi.getter(name="throttlingBurstLimit")
-    def throttling_burst_limit(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def throttling_burst_limit(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the throttling burst limit.
         """
         return pulumi.get(self, "throttling_burst_limit")
 
     @throttling_burst_limit.setter
-    def throttling_burst_limit(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def throttling_burst_limit(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "throttling_burst_limit", value)
 
     @_builtins.property
     @pulumi.getter(name="throttlingRateLimit")
-    def throttling_rate_limit(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def throttling_rate_limit(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Specifies the throttling rate limit.
         """
         return pulumi.get(self, "throttling_rate_limit")
 
     @throttling_rate_limit.setter
-    def throttling_rate_limit(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def throttling_rate_limit(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "throttling_rate_limit", value)
 
 
@@ -542,80 +542,80 @@ class DeploymentStageDescriptionArgsDict(TypedDict):
     """
     ``StageDescription`` is a property of the [AWS::ApiGateway::Deployment](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-deployment.html) resource that configures a deployment stage.
     """
-    access_log_setting: NotRequired[pulumi.Input['DeploymentAccessLogSettingArgsDict']]
+    access_log_setting: NotRequired[pulumi.Input[Optional['DeploymentAccessLogSettingArgsDict']]]
     """
     Specifies settings for logging access in this stage.
     """
-    cache_cluster_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    cache_cluster_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether a cache cluster is enabled for the stage. To activate a method-level cache, set `CachingEnabled` to `true` for a method.
     """
-    cache_cluster_size: NotRequired[pulumi.Input[_builtins.str]]
+    cache_cluster_size: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The size of the stage's cache cluster. For more information, see [cacheClusterSize](https://docs.aws.amazon.com/apigateway/latest/api/API_CreateStage.html#apigw-CreateStage-request-cacheClusterSize) in the *API Gateway API Reference*.
     """
-    cache_data_encrypted: NotRequired[pulumi.Input[_builtins.bool]]
+    cache_data_encrypted: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether the cached responses are encrypted.
     """
-    cache_ttl_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    cache_ttl_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The time-to-live (TTL) period, in seconds, that specifies how long API Gateway caches responses.
     """
-    caching_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    caching_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether responses are cached and returned for requests. You must enable a cache cluster on the stage to cache responses. For more information, see [Enable API Gateway Caching in a Stage to Enhance API Performance](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html) in the *API Gateway Developer Guide*.
     """
-    canary_setting: NotRequired[pulumi.Input['DeploymentCanarySettingArgsDict']]
+    canary_setting: NotRequired[pulumi.Input[Optional['DeploymentCanarySettingArgsDict']]]
     """
     Specifies settings for the canary deployment in this stage.
     """
-    client_certificate_id: NotRequired[pulumi.Input[_builtins.str]]
+    client_certificate_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The identifier of the client certificate that API Gateway uses to call your integration endpoints in the stage.
     """
-    data_trace_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    data_trace_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether data trace logging is enabled for methods in the stage. API Gateway pushes these logs to Amazon CloudWatch Logs.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A description of the purpose of the stage.
     """
-    documentation_version: NotRequired[pulumi.Input[_builtins.str]]
+    documentation_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The version identifier of the API documentation snapshot.
     """
-    logging_level: NotRequired[pulumi.Input[_builtins.str]]
+    logging_level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The logging level for this method. For valid values, see the ``loggingLevel`` property of the [MethodSetting](https://docs.aws.amazon.com/apigateway/latest/api/API_MethodSetting.html) resource in the *Amazon API Gateway API Reference*.
     """
-    method_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['DeploymentMethodSettingArgsDict']]]]
+    method_settings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentMethodSettingArgsDict']]]]]
     """
     Configures settings for all of the stage's methods.
     """
-    metrics_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    metrics_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether Amazon CloudWatch metrics are enabled for methods in the stage.
     """
-    tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['DeploymentTagArgsDict']]]]
+    tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentTagArgsDict']]]]]
     """
     An array of arbitrary tags (key-value pairs) to associate with the stage.
     """
-    throttling_burst_limit: NotRequired[pulumi.Input[_builtins.int]]
+    throttling_burst_limit: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The target request burst rate limit. This allows more requests through for a period of time than the target rate limit. For more information, see [Manage API Request Throttling](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-request-throttling.html) in the *API Gateway Developer Guide*.
     """
-    throttling_rate_limit: NotRequired[pulumi.Input[_builtins.float]]
+    throttling_rate_limit: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The target request steady-state rate limit. For more information, see [Manage API Request Throttling](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-request-throttling.html) in the *API Gateway Developer Guide*.
     """
-    tracing_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    tracing_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether active tracing with X-ray is enabled for this stage.
      For more information, see [Trace API Gateway API Execution with X-Ray](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-xray.html) in the *API Gateway Developer Guide*.
     """
-    variables: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    variables: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     A map that defines the stage variables. Variable names must consist of alphanumeric characters, and the values must match the following regular expression: ``[A-Za-z0-9-._~:/?#&=,]+``.
     """
@@ -623,25 +623,25 @@ class DeploymentStageDescriptionArgsDict(TypedDict):
 @pulumi.input_type
 class DeploymentStageDescriptionArgs:
     def __init__(__self__, *,
-                 access_log_setting: Optional[pulumi.Input['DeploymentAccessLogSettingArgs']] = None,
-                 cache_cluster_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cache_cluster_size: Optional[pulumi.Input[_builtins.str]] = None,
-                 cache_data_encrypted: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cache_ttl_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 caching_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 canary_setting: Optional[pulumi.Input['DeploymentCanarySettingArgs']] = None,
-                 client_certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_trace_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 documentation_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 logging_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 method_settings: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentMethodSettingArgs']]]] = None,
-                 metrics_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentTagArgs']]]] = None,
-                 throttling_burst_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 throttling_rate_limit: Optional[pulumi.Input[_builtins.float]] = None,
-                 tracing_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 access_log_setting: pulumi.Input[Optional['DeploymentAccessLogSettingArgs']] = None,
+                 cache_cluster_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cache_cluster_size: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_data_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cache_ttl_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 caching_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 canary_setting: pulumi.Input[Optional['DeploymentCanarySettingArgs']] = None,
+                 client_certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_trace_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 documentation_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 logging_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 method_settings: pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentMethodSettingArgs']]]] = None,
+                 metrics_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentTagArgs']]]] = None,
+                 throttling_burst_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 throttling_rate_limit: pulumi.Input[Optional[_builtins.float]] = None,
+                 tracing_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 variables: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         ``StageDescription`` is a property of the [AWS::ApiGateway::Deployment](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-deployment.html) resource that configures a deployment stage.
 
@@ -707,211 +707,211 @@ class DeploymentStageDescriptionArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessLogSetting")
-    def access_log_setting(self) -> Optional[pulumi.Input['DeploymentAccessLogSettingArgs']]:
+    def access_log_setting(self) -> pulumi.Input[Optional['DeploymentAccessLogSettingArgs']]:
         """
         Specifies settings for logging access in this stage.
         """
         return pulumi.get(self, "access_log_setting")
 
     @access_log_setting.setter
-    def access_log_setting(self, value: Optional[pulumi.Input['DeploymentAccessLogSettingArgs']]):
+    def access_log_setting(self, value: pulumi.Input[Optional['DeploymentAccessLogSettingArgs']]):
         pulumi.set(self, "access_log_setting", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheClusterEnabled")
-    def cache_cluster_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def cache_cluster_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether a cache cluster is enabled for the stage. To activate a method-level cache, set `CachingEnabled` to `true` for a method.
         """
         return pulumi.get(self, "cache_cluster_enabled")
 
     @cache_cluster_enabled.setter
-    def cache_cluster_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def cache_cluster_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "cache_cluster_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheClusterSize")
-    def cache_cluster_size(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cache_cluster_size(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The size of the stage's cache cluster. For more information, see [cacheClusterSize](https://docs.aws.amazon.com/apigateway/latest/api/API_CreateStage.html#apigw-CreateStage-request-cacheClusterSize) in the *API Gateway API Reference*.
         """
         return pulumi.get(self, "cache_cluster_size")
 
     @cache_cluster_size.setter
-    def cache_cluster_size(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cache_cluster_size(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cache_cluster_size", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheDataEncrypted")
-    def cache_data_encrypted(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def cache_data_encrypted(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the cached responses are encrypted.
         """
         return pulumi.get(self, "cache_data_encrypted")
 
     @cache_data_encrypted.setter
-    def cache_data_encrypted(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def cache_data_encrypted(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "cache_data_encrypted", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheTtlInSeconds")
-    def cache_ttl_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def cache_ttl_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The time-to-live (TTL) period, in seconds, that specifies how long API Gateway caches responses.
         """
         return pulumi.get(self, "cache_ttl_in_seconds")
 
     @cache_ttl_in_seconds.setter
-    def cache_ttl_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def cache_ttl_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "cache_ttl_in_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="cachingEnabled")
-    def caching_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def caching_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether responses are cached and returned for requests. You must enable a cache cluster on the stage to cache responses. For more information, see [Enable API Gateway Caching in a Stage to Enhance API Performance](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html) in the *API Gateway Developer Guide*.
         """
         return pulumi.get(self, "caching_enabled")
 
     @caching_enabled.setter
-    def caching_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def caching_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "caching_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="canarySetting")
-    def canary_setting(self) -> Optional[pulumi.Input['DeploymentCanarySettingArgs']]:
+    def canary_setting(self) -> pulumi.Input[Optional['DeploymentCanarySettingArgs']]:
         """
         Specifies settings for the canary deployment in this stage.
         """
         return pulumi.get(self, "canary_setting")
 
     @canary_setting.setter
-    def canary_setting(self, value: Optional[pulumi.Input['DeploymentCanarySettingArgs']]):
+    def canary_setting(self, value: pulumi.Input[Optional['DeploymentCanarySettingArgs']]):
         pulumi.set(self, "canary_setting", value)
 
     @_builtins.property
     @pulumi.getter(name="clientCertificateId")
-    def client_certificate_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_certificate_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier of the client certificate that API Gateway uses to call your integration endpoints in the stage.
         """
         return pulumi.get(self, "client_certificate_id")
 
     @client_certificate_id.setter
-    def client_certificate_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_certificate_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_certificate_id", value)
 
     @_builtins.property
     @pulumi.getter(name="dataTraceEnabled")
-    def data_trace_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def data_trace_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether data trace logging is enabled for methods in the stage. API Gateway pushes these logs to Amazon CloudWatch Logs.
         """
         return pulumi.get(self, "data_trace_enabled")
 
     @data_trace_enabled.setter
-    def data_trace_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def data_trace_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "data_trace_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the purpose of the stage.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="documentationVersion")
-    def documentation_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def documentation_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version identifier of the API documentation snapshot.
         """
         return pulumi.get(self, "documentation_version")
 
     @documentation_version.setter
-    def documentation_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def documentation_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "documentation_version", value)
 
     @_builtins.property
     @pulumi.getter(name="loggingLevel")
-    def logging_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def logging_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The logging level for this method. For valid values, see the ``loggingLevel`` property of the [MethodSetting](https://docs.aws.amazon.com/apigateway/latest/api/API_MethodSetting.html) resource in the *Amazon API Gateway API Reference*.
         """
         return pulumi.get(self, "logging_level")
 
     @logging_level.setter
-    def logging_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def logging_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "logging_level", value)
 
     @_builtins.property
     @pulumi.getter(name="methodSettings")
-    def method_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentMethodSettingArgs']]]]:
+    def method_settings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentMethodSettingArgs']]]]:
         """
         Configures settings for all of the stage's methods.
         """
         return pulumi.get(self, "method_settings")
 
     @method_settings.setter
-    def method_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentMethodSettingArgs']]]]):
+    def method_settings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentMethodSettingArgs']]]]):
         pulumi.set(self, "method_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsEnabled")
-    def metrics_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def metrics_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether Amazon CloudWatch metrics are enabled for methods in the stage.
         """
         return pulumi.get(self, "metrics_enabled")
 
     @metrics_enabled.setter
-    def metrics_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def metrics_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "metrics_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentTagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentTagArgs']]]]:
         """
         An array of arbitrary tags (key-value pairs) to associate with the stage.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentTagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="throttlingBurstLimit")
-    def throttling_burst_limit(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def throttling_burst_limit(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The target request burst rate limit. This allows more requests through for a period of time than the target rate limit. For more information, see [Manage API Request Throttling](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-request-throttling.html) in the *API Gateway Developer Guide*.
         """
         return pulumi.get(self, "throttling_burst_limit")
 
     @throttling_burst_limit.setter
-    def throttling_burst_limit(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def throttling_burst_limit(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "throttling_burst_limit", value)
 
     @_builtins.property
     @pulumi.getter(name="throttlingRateLimit")
-    def throttling_rate_limit(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def throttling_rate_limit(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The target request steady-state rate limit. For more information, see [Manage API Request Throttling](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-request-throttling.html) in the *API Gateway Developer Guide*.
         """
         return pulumi.get(self, "throttling_rate_limit")
 
     @throttling_rate_limit.setter
-    def throttling_rate_limit(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def throttling_rate_limit(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "throttling_rate_limit", value)
 
     @_builtins.property
     @pulumi.getter(name="tracingEnabled")
-    def tracing_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def tracing_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether active tracing with X-ray is enabled for this stage.
          For more information, see [Trace API Gateway API Execution with X-Ray](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-xray.html) in the *API Gateway Developer Guide*.
@@ -919,19 +919,19 @@ class DeploymentStageDescriptionArgs:
         return pulumi.get(self, "tracing_enabled")
 
     @tracing_enabled.setter
-    def tracing_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def tracing_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "tracing_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def variables(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def variables(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map that defines the stage variables. Variable names must consist of alphanumeric characters, and the values must match the following regular expression: ``[A-Za-z0-9-._~:/?#&=,]+``.
         """
         return pulumi.get(self, "variables")
 
     @variables.setter
-    def variables(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def variables(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "variables", value)
 
 
@@ -994,23 +994,23 @@ class DocumentationPartLocationArgsDict(TypedDict):
     The ``Location`` property specifies the location of the Amazon API Gateway API entity that the documentation applies to. ``Location`` is a property of the [AWS::ApiGateway::DocumentationPart](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationpart.html) resource.
       For more information about each property, including constraints and valid values, see [DocumentationPart](https://docs.aws.amazon.com/apigateway/latest/api/API_DocumentationPartLocation.html) in the *Amazon API Gateway REST API Reference*.
     """
-    method: NotRequired[pulumi.Input[_builtins.str]]
+    method: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The HTTP verb of a method. It is a valid field for the API entity types of `METHOD` , `PATH_PARAMETER` , `QUERY_PARAMETER` , `REQUEST_HEADER` , `REQUEST_BODY` , `RESPONSE` , `RESPONSE_HEADER` , and `RESPONSE_BODY` . The default value is `*` for any method. When an applicable child entity inherits the content of an entity of the same type with more general specifications of the other `location` attributes, the child entity's `method` attribute must match that of the parent entity exactly.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the targeted API entity. It is a valid and required field for the API entity types of `AUTHORIZER` , `MODEL` , `PATH_PARAMETER` , `QUERY_PARAMETER` , `REQUEST_HEADER` , `REQUEST_BODY` and `RESPONSE_HEADER` . It is an invalid field for any other entity type.
     """
-    path: NotRequired[pulumi.Input[_builtins.str]]
+    path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The URL path of the target. It is a valid field for the API entity types of `RESOURCE` , `METHOD` , `PATH_PARAMETER` , `QUERY_PARAMETER` , `REQUEST_HEADER` , `REQUEST_BODY` , `RESPONSE` , `RESPONSE_HEADER` , and `RESPONSE_BODY` . The default value is `/` for the root resource. When an applicable child entity inherits the content of another entity of the same type with more general specifications of the other `location` attributes, the child entity's `path` attribute must match that of the parent entity as a prefix.
     """
-    status_code: NotRequired[pulumi.Input[_builtins.str]]
+    status_code: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The HTTP status code of a response. It is a valid field for the API entity types of `RESPONSE` , `RESPONSE_HEADER` , and `RESPONSE_BODY` . The default value is `*` for any status code. When an applicable child entity inherits the content of an entity of the same type with more general specifications of the other `location` attributes, the child entity's `statusCode` attribute must match that of the parent entity exactly.
     """
-    type: NotRequired[pulumi.Input['DocumentationPartLocationType']]
+    type: NotRequired[pulumi.Input[Optional['DocumentationPartLocationType']]]
     """
     The type of API entity to which the documentation content applies. Valid values are `API` , `AUTHORIZER` , `MODEL` , `RESOURCE` , `METHOD` , `PATH_PARAMETER` , `QUERY_PARAMETER` , `REQUEST_HEADER` , `REQUEST_BODY` , `RESPONSE` , `RESPONSE_HEADER` , and `RESPONSE_BODY` . Content inheritance does not apply to any entity of the `API` , `AUTHORIZER` , `METHOD` , `MODEL` , `REQUEST_BODY` , or `RESOURCE` type.
     """
@@ -1018,11 +1018,11 @@ class DocumentationPartLocationArgsDict(TypedDict):
 @pulumi.input_type
 class DocumentationPartLocationArgs:
     def __init__(__self__, *,
-                 method: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 path: Optional[pulumi.Input[_builtins.str]] = None,
-                 status_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input['DocumentationPartLocationType']] = None):
+                 method: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 path: pulumi.Input[Optional[_builtins.str]] = None,
+                 status_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional['DocumentationPartLocationType']] = None):
         """
         The ``Location`` property specifies the location of the Amazon API Gateway API entity that the documentation applies to. ``Location`` is a property of the [AWS::ApiGateway::DocumentationPart](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationpart.html) resource.
           For more information about each property, including constraints and valid values, see [DocumentationPart](https://docs.aws.amazon.com/apigateway/latest/api/API_DocumentationPartLocation.html) in the *Amazon API Gateway REST API Reference*.
@@ -1046,62 +1046,62 @@ class DocumentationPartLocationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def method(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def method(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The HTTP verb of a method. It is a valid field for the API entity types of `METHOD` , `PATH_PARAMETER` , `QUERY_PARAMETER` , `REQUEST_HEADER` , `REQUEST_BODY` , `RESPONSE` , `RESPONSE_HEADER` , and `RESPONSE_BODY` . The default value is `*` for any method. When an applicable child entity inherits the content of an entity of the same type with more general specifications of the other `location` attributes, the child entity's `method` attribute must match that of the parent entity exactly.
         """
         return pulumi.get(self, "method")
 
     @method.setter
-    def method(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def method(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "method", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the targeted API entity. It is a valid and required field for the API entity types of `AUTHORIZER` , `MODEL` , `PATH_PARAMETER` , `QUERY_PARAMETER` , `REQUEST_HEADER` , `REQUEST_BODY` and `RESPONSE_HEADER` . It is an invalid field for any other entity type.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL path of the target. It is a valid field for the API entity types of `RESOURCE` , `METHOD` , `PATH_PARAMETER` , `QUERY_PARAMETER` , `REQUEST_HEADER` , `REQUEST_BODY` , `RESPONSE` , `RESPONSE_HEADER` , and `RESPONSE_BODY` . The default value is `/` for the root resource. When an applicable child entity inherits the content of another entity of the same type with more general specifications of the other `location` attributes, the child entity's `path` attribute must match that of the parent entity as a prefix.
         """
         return pulumi.get(self, "path")
 
     @path.setter
-    def path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "path", value)
 
     @_builtins.property
     @pulumi.getter(name="statusCode")
-    def status_code(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status_code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The HTTP status code of a response. It is a valid field for the API entity types of `RESPONSE` , `RESPONSE_HEADER` , and `RESPONSE_BODY` . The default value is `*` for any status code. When an applicable child entity inherits the content of an entity of the same type with more general specifications of the other `location` attributes, the child entity's `statusCode` attribute must match that of the parent entity exactly.
         """
         return pulumi.get(self, "status_code")
 
     @status_code.setter
-    def status_code(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status_code(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status_code", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['DocumentationPartLocationType']]:
+    def type(self) -> pulumi.Input[Optional['DocumentationPartLocationType']]:
         """
         The type of API entity to which the documentation content applies. Valid values are `API` , `AUTHORIZER` , `MODEL` , `RESOURCE` , `METHOD` , `PATH_PARAMETER` , `QUERY_PARAMETER` , `REQUEST_HEADER` , `REQUEST_BODY` , `RESPONSE` , `RESPONSE_HEADER` , and `RESPONSE_BODY` . Content inheritance does not apply to any entity of the `API` , `AUTHORIZER` , `METHOD` , `MODEL` , `REQUEST_BODY` , or `RESOURCE` type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['DocumentationPartLocationType']]):
+    def type(self, value: pulumi.Input[Optional['DocumentationPartLocationType']]):
         pulumi.set(self, "type", value)
 
 
@@ -1110,11 +1110,11 @@ class DomainNameEndpointConfigurationArgsDict(TypedDict):
     The ``EndpointConfiguration`` property type specifies the endpoint types and IP address types of an Amazon API Gateway domain name.
      ``EndpointConfiguration`` is a property of the [AWS::ApiGateway::DomainName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html) resource.
     """
-    ip_address_type: NotRequired[pulumi.Input[_builtins.str]]
+    ip_address_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The IP address types that can invoke this DomainName. Use `ipv4` to allow only IPv4 addresses to invoke this DomainName, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke this DomainName. For the `PRIVATE` endpoint type, only `dualstack` is supported.
     """
-    types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of endpoint types of an API (RestApi) or its custom domain name (DomainName). For an edge-optimized API and its custom domain name, the endpoint type is `"EDGE"` . For a regional API and its custom domain name, the endpoint type is `REGIONAL` . For a private API, the endpoint type is `PRIVATE` .
     """
@@ -1122,8 +1122,8 @@ class DomainNameEndpointConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class DomainNameEndpointConfigurationArgs:
     def __init__(__self__, *,
-                 ip_address_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 ip_address_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The ``EndpointConfiguration`` property type specifies the endpoint types and IP address types of an Amazon API Gateway domain name.
          ``EndpointConfiguration`` is a property of the [AWS::ApiGateway::DomainName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html) resource.
@@ -1138,35 +1138,35 @@ class DomainNameEndpointConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="ipAddressType")
-    def ip_address_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip_address_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IP address types that can invoke this DomainName. Use `ipv4` to allow only IPv4 addresses to invoke this DomainName, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke this DomainName. For the `PRIVATE` endpoint type, only `dualstack` is supported.
         """
         return pulumi.get(self, "ip_address_type")
 
     @ip_address_type.setter
-    def ip_address_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip_address_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip_address_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of endpoint types of an API (RestApi) or its custom domain name (DomainName). For an edge-optimized API and its custom domain name, the endpoint type is `"EDGE"` . For a regional API and its custom domain name, the endpoint type is `REGIONAL` . For a private API, the endpoint type is `PRIVATE` .
         """
         return pulumi.get(self, "types")
 
     @types.setter
-    def types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "types", value)
 
 
 class DomainNameMutualTlsAuthenticationArgsDict(TypedDict):
-    truststore_uri: NotRequired[pulumi.Input[_builtins.str]]
+    truststore_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     An Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example `s3://bucket-name/key-name` . The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version. To update the truststore, you must have permissions to access the S3 object.
     """
-    truststore_version: NotRequired[pulumi.Input[_builtins.str]]
+    truststore_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The version of the S3 object that contains your truststore. To specify a version, you must have versioning enabled for the S3 bucket.
     """
@@ -1174,8 +1174,8 @@ class DomainNameMutualTlsAuthenticationArgsDict(TypedDict):
 @pulumi.input_type
 class DomainNameMutualTlsAuthenticationArgs:
     def __init__(__self__, *,
-                 truststore_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 truststore_version: Optional[pulumi.Input[_builtins.str]] = None):
+                 truststore_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 truststore_version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] truststore_uri: An Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example `s3://bucket-name/key-name` . The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version. To update the truststore, you must have permissions to access the S3 object.
         :param pulumi.Input[_builtins.str] truststore_version: The version of the S3 object that contains your truststore. To specify a version, you must have versioning enabled for the S3 bucket.
@@ -1187,35 +1187,35 @@ class DomainNameMutualTlsAuthenticationArgs:
 
     @_builtins.property
     @pulumi.getter(name="truststoreUri")
-    def truststore_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def truststore_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example `s3://bucket-name/key-name` . The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version. To update the truststore, you must have permissions to access the S3 object.
         """
         return pulumi.get(self, "truststore_uri")
 
     @truststore_uri.setter
-    def truststore_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def truststore_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "truststore_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="truststoreVersion")
-    def truststore_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def truststore_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the S3 object that contains your truststore. To specify a version, you must have versioning enabled for the S3 bucket.
         """
         return pulumi.get(self, "truststore_version")
 
     @truststore_version.setter
-    def truststore_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def truststore_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "truststore_version", value)
 
 
 class DomainNameV2EndpointConfigurationArgsDict(TypedDict):
-    ip_address_type: NotRequired[pulumi.Input[_builtins.str]]
+    ip_address_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The IP address types that can invoke an API (RestApi) or a DomainName. Use `ipv4` to allow only IPv4 addresses to invoke an API or DomainName, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke an API or a DomainName. For the `PRIVATE` endpoint type, only `dualstack` is supported.
     """
-    types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of endpoint types of an API (RestApi) or its custom domain name (DomainName). For an edge-optimized API and its custom domain name, the endpoint type is `"EDGE"` . For a regional API and its custom domain name, the endpoint type is `REGIONAL` . For a private API, the endpoint type is `PRIVATE` .
     """
@@ -1223,8 +1223,8 @@ class DomainNameV2EndpointConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class DomainNameV2EndpointConfigurationArgs:
     def __init__(__self__, *,
-                 ip_address_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 ip_address_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] ip_address_type: The IP address types that can invoke an API (RestApi) or a DomainName. Use `ipv4` to allow only IPv4 addresses to invoke an API or DomainName, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke an API or a DomainName. For the `PRIVATE` endpoint type, only `dualstack` is supported.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] types: A list of endpoint types of an API (RestApi) or its custom domain name (DomainName). For an edge-optimized API and its custom domain name, the endpoint type is `"EDGE"` . For a regional API and its custom domain name, the endpoint type is `REGIONAL` . For a private API, the endpoint type is `PRIVATE` .
@@ -1236,26 +1236,26 @@ class DomainNameV2EndpointConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="ipAddressType")
-    def ip_address_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip_address_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IP address types that can invoke an API (RestApi) or a DomainName. Use `ipv4` to allow only IPv4 addresses to invoke an API or DomainName, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke an API or a DomainName. For the `PRIVATE` endpoint type, only `dualstack` is supported.
         """
         return pulumi.get(self, "ip_address_type")
 
     @ip_address_type.setter
-    def ip_address_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip_address_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip_address_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of endpoint types of an API (RestApi) or its custom domain name (DomainName). For an edge-optimized API and its custom domain name, the endpoint type is `"EDGE"` . For a regional API and its custom domain name, the endpoint type is `REGIONAL` . For a private API, the endpoint type is `PRIVATE` .
         """
         return pulumi.get(self, "types")
 
     @types.setter
-    def types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "types", value)
 
 
@@ -1267,21 +1267,21 @@ class MethodIntegrationResponseArgsDict(TypedDict):
     """
     Specifies the status code that is used to map the integration response to an existing MethodResponse.
     """
-    content_handling: NotRequired[pulumi.Input['MethodIntegrationResponseContentHandling']]
+    content_handling: NotRequired[pulumi.Input[Optional['MethodIntegrationResponseContentHandling']]]
     """
     Specifies how to handle response payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT` , with the following behaviors:
 
     If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
     """
-    response_parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    response_parameters: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     A key-value map specifying response parameters that are passed to the method response from the back end. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of `method.response.header.{name}` , where `name` is a valid and unique header name. The mapped non-static value must match the pattern of `integration.response.header.{name}` or `integration.response.body.{JSON-expression}` , where `name` is a valid and unique response header name and `JSON-expression` is a valid JSON expression without the `$` prefix.
     """
-    response_templates: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    response_templates: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Specifies the templates used to transform the integration response body. Response templates are represented as a key/value map, with a content-type as the key and a template as the value.
     """
-    selection_pattern: NotRequired[pulumi.Input[_builtins.str]]
+    selection_pattern: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the regular expression (regex) pattern used to choose an integration response based on the response from the back end. For example, if the success response returns nothing and the error response returns some string, you could use the `.+` regex to match error response. However, make sure that the error response does not contain any newline ( `\\n` ) character in such cases. If the back end is an AWS Lambda function, the AWS Lambda function error header is matched. For all other HTTP and AWS back ends, the HTTP status code is matched.
     """
@@ -1290,10 +1290,10 @@ class MethodIntegrationResponseArgsDict(TypedDict):
 class MethodIntegrationResponseArgs:
     def __init__(__self__, *,
                  status_code: pulumi.Input[_builtins.str],
-                 content_handling: Optional[pulumi.Input['MethodIntegrationResponseContentHandling']] = None,
-                 response_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 response_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 selection_pattern: Optional[pulumi.Input[_builtins.str]] = None):
+                 content_handling: pulumi.Input[Optional['MethodIntegrationResponseContentHandling']] = None,
+                 response_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 response_templates: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 selection_pattern: pulumi.Input[Optional[_builtins.str]] = None):
         """
         ``IntegrationResponse`` is a property of the [Amazon API Gateway Method Integration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html) property type that specifies the response that API Gateway sends after a method's backend finishes processing a request.
 
@@ -1329,7 +1329,7 @@ class MethodIntegrationResponseArgs:
 
     @_builtins.property
     @pulumi.getter(name="contentHandling")
-    def content_handling(self) -> Optional[pulumi.Input['MethodIntegrationResponseContentHandling']]:
+    def content_handling(self) -> pulumi.Input[Optional['MethodIntegrationResponseContentHandling']]:
         """
         Specifies how to handle response payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT` , with the following behaviors:
 
@@ -1338,43 +1338,43 @@ class MethodIntegrationResponseArgs:
         return pulumi.get(self, "content_handling")
 
     @content_handling.setter
-    def content_handling(self, value: Optional[pulumi.Input['MethodIntegrationResponseContentHandling']]):
+    def content_handling(self, value: pulumi.Input[Optional['MethodIntegrationResponseContentHandling']]):
         pulumi.set(self, "content_handling", value)
 
     @_builtins.property
     @pulumi.getter(name="responseParameters")
-    def response_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def response_parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A key-value map specifying response parameters that are passed to the method response from the back end. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of `method.response.header.{name}` , where `name` is a valid and unique header name. The mapped non-static value must match the pattern of `integration.response.header.{name}` or `integration.response.body.{JSON-expression}` , where `name` is a valid and unique response header name and `JSON-expression` is a valid JSON expression without the `$` prefix.
         """
         return pulumi.get(self, "response_parameters")
 
     @response_parameters.setter
-    def response_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def response_parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "response_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="responseTemplates")
-    def response_templates(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def response_templates(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Specifies the templates used to transform the integration response body. Response templates are represented as a key/value map, with a content-type as the key and a template as the value.
         """
         return pulumi.get(self, "response_templates")
 
     @response_templates.setter
-    def response_templates(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def response_templates(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "response_templates", value)
 
     @_builtins.property
     @pulumi.getter(name="selectionPattern")
-    def selection_pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def selection_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the regular expression (regex) pattern used to choose an integration response based on the response from the back end. For example, if the success response returns nothing and the error response returns some string, you could use the `.+` regex to match error response. However, make sure that the error response does not contain any newline ( `\\n` ) character in such cases. If the back end is an AWS Lambda function, the AWS Lambda function error header is matched. For all other HTTP and AWS back ends, the HTTP status code is matched.
         """
         return pulumi.get(self, "selection_pattern")
 
     @selection_pattern.setter
-    def selection_pattern(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def selection_pattern(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "selection_pattern", value)
 
 
@@ -1388,65 +1388,65 @@ class MethodIntegrationArgsDict(TypedDict):
 
     For the HTTP and HTTP proxy integrations, each integration can specify a protocol ( `http/https` ), port and path. Standard 80 and 443 ports are supported as well as custom ports above 1024. An HTTP or HTTP proxy integration with a `connectionType` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
     """
-    cache_key_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    cache_key_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of request parameters whose values API Gateway caches. To be valid values for `cacheKeyParameters` , these parameters must also be specified for Method `requestParameters` .
     """
-    cache_namespace: NotRequired[pulumi.Input[_builtins.str]]
+    cache_namespace: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies a group of related cached parameters. By default, API Gateway uses the resource ID as the `cacheNamespace` . You can specify the same `cacheNamespace` across resources to return the same cached data for requests to different resources.
     """
-    connection_id: NotRequired[pulumi.Input[_builtins.str]]
+    connection_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the VpcLink used for the integration when `connectionType=VPC_LINK` and undefined, otherwise.
     """
-    connection_type: NotRequired[pulumi.Input['MethodIntegrationConnectionType']]
+    connection_type: NotRequired[pulumi.Input[Optional['MethodIntegrationConnectionType']]]
     """
     The type of the network connection to the integration endpoint. The valid value is `INTERNET` for connections through the public routable internet or `VPC_LINK` for private connections between API Gateway and a network load balancer in a VPC. The default value is `INTERNET` .
     """
-    content_handling: NotRequired[pulumi.Input['MethodIntegrationContentHandling']]
+    content_handling: NotRequired[pulumi.Input[Optional['MethodIntegrationContentHandling']]]
     """
     Specifies how to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT` , with the following behaviors:
 
     If this property is not defined, the request payload will be passed through from the method request to integration request without modification, provided that the `passthroughBehavior` is configured to support payload pass-through.
     """
-    credentials: NotRequired[pulumi.Input[_builtins.str]]
+    credentials: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify the string `arn:aws:iam::\\*:user/\\*` . To use resource-based permissions on supported AWS services, specify null.
     """
-    integration_http_method: NotRequired[pulumi.Input[_builtins.str]]
+    integration_http_method: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the integration's HTTP method type. For the Type property, if you specify `MOCK` , this property is optional. For Lambda integrations, you must set the integration method to `POST` . For all other types, you must specify this property.
     """
-    integration_responses: NotRequired[pulumi.Input[Sequence[pulumi.Input['MethodIntegrationResponseArgsDict']]]]
+    integration_responses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['MethodIntegrationResponseArgsDict']]]]]
     """
     Specifies the integration's responses.
     """
-    integration_target: NotRequired[pulumi.Input[_builtins.str]]
+    integration_target: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ALB or NLB listener to send the request to. Only supported for private integrations that use VPC links V2.
     """
-    passthrough_behavior: NotRequired[pulumi.Input['MethodIntegrationPassthroughBehavior']]
+    passthrough_behavior: NotRequired[pulumi.Input[Optional['MethodIntegrationPassthroughBehavior']]]
     """
     Specifies how the method request body of an unmapped content type will be passed through the integration request to the back end without transformation. A content type is unmapped if no mapping template is defined in the integration or the content type does not match any of the mapped content types, as specified in `requestTemplates` . The valid value is one of the following: `WHEN_NO_MATCH` : passes the method request body through the integration request to the back end without transformation when the method request content type does not match any content type associated with the mapping templates defined in the integration request. `WHEN_NO_TEMPLATES` : passes the method request body through the integration request to the back end without transformation when no mapping template is defined in the integration request. If a template is defined when this option is selected, the method request of an unmapped content-type will be rejected with an HTTP 415 Unsupported Media Type response. `NEVER` : rejects the method request with an HTTP 415 Unsupported Media Type response when either the method request content type does not match any content type associated with the mapping templates defined in the integration request or no mapping template is defined in the integration request.
     """
-    request_parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    request_parameters: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     A key-value map specifying request parameters that are passed from the method request to the back end. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the back end. The method request parameter value must match the pattern of `method.request.{location}.{name}` , where `location` is `querystring` , `path` , or `header` and `name` must be a valid and unique method request parameter name.
     """
-    request_templates: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    request_templates: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Represents a map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. The content type value is the key in this map, and the template (as a String) is the value.
     """
-    response_transfer_mode: NotRequired[pulumi.Input['MethodIntegrationResponseTransferMode']]
+    response_transfer_mode: NotRequired[pulumi.Input[Optional['MethodIntegrationResponseTransferMode']]]
     """
     The response transfer mode of the integration. Use `STREAM` to have API Gateway stream response your back to you or use `BUFFERED` to have API Gateway wait to receive the complete response before beginning transmission.
     """
-    timeout_in_millis: NotRequired[pulumi.Input[_builtins.int]]
+    timeout_in_millis: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds. You can increase the default value to longer than 29 seconds for Regional or private APIs only.
     """
-    uri: NotRequired[pulumi.Input[_builtins.str]]
+    uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies Uniform Resource Identifier (URI) of the integration endpoint.
 
@@ -1457,21 +1457,21 @@ class MethodIntegrationArgsDict(TypedDict):
 class MethodIntegrationArgs:
     def __init__(__self__, *,
                  type: pulumi.Input['MethodIntegrationType'],
-                 cache_key_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 cache_namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_type: Optional[pulumi.Input['MethodIntegrationConnectionType']] = None,
-                 content_handling: Optional[pulumi.Input['MethodIntegrationContentHandling']] = None,
-                 credentials: Optional[pulumi.Input[_builtins.str]] = None,
-                 integration_http_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 integration_responses: Optional[pulumi.Input[Sequence[pulumi.Input['MethodIntegrationResponseArgs']]]] = None,
-                 integration_target: Optional[pulumi.Input[_builtins.str]] = None,
-                 passthrough_behavior: Optional[pulumi.Input['MethodIntegrationPassthroughBehavior']] = None,
-                 request_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 request_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 response_transfer_mode: Optional[pulumi.Input['MethodIntegrationResponseTransferMode']] = None,
-                 timeout_in_millis: Optional[pulumi.Input[_builtins.int]] = None,
-                 uri: Optional[pulumi.Input[_builtins.str]] = None):
+                 cache_key_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cache_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_type: pulumi.Input[Optional['MethodIntegrationConnectionType']] = None,
+                 content_handling: pulumi.Input[Optional['MethodIntegrationContentHandling']] = None,
+                 credentials: pulumi.Input[Optional[_builtins.str]] = None,
+                 integration_http_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 integration_responses: pulumi.Input[Optional[Sequence[pulumi.Input['MethodIntegrationResponseArgs']]]] = None,
+                 integration_target: pulumi.Input[Optional[_builtins.str]] = None,
+                 passthrough_behavior: pulumi.Input[Optional['MethodIntegrationPassthroughBehavior']] = None,
+                 request_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 request_templates: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 response_transfer_mode: pulumi.Input[Optional['MethodIntegrationResponseTransferMode']] = None,
+                 timeout_in_millis: pulumi.Input[Optional[_builtins.int]] = None,
+                 uri: pulumi.Input[Optional[_builtins.str]] = None):
         """
         ``Integration`` is a property of the [AWS::ApiGateway::Method](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html) resource that specifies information about the target backend that a method calls.
 
@@ -1546,55 +1546,55 @@ class MethodIntegrationArgs:
 
     @_builtins.property
     @pulumi.getter(name="cacheKeyParameters")
-    def cache_key_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def cache_key_parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of request parameters whose values API Gateway caches. To be valid values for `cacheKeyParameters` , these parameters must also be specified for Method `requestParameters` .
         """
         return pulumi.get(self, "cache_key_parameters")
 
     @cache_key_parameters.setter
-    def cache_key_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def cache_key_parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "cache_key_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheNamespace")
-    def cache_namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cache_namespace(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a group of related cached parameters. By default, API Gateway uses the resource ID as the `cacheNamespace` . You can specify the same `cacheNamespace` across resources to return the same cached data for requests to different resources.
         """
         return pulumi.get(self, "cache_namespace")
 
     @cache_namespace.setter
-    def cache_namespace(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cache_namespace(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cache_namespace", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionId")
-    def connection_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connection_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the VpcLink used for the integration when `connectionType=VPC_LINK` and undefined, otherwise.
         """
         return pulumi.get(self, "connection_id")
 
     @connection_id.setter
-    def connection_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connection_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connection_id", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionType")
-    def connection_type(self) -> Optional[pulumi.Input['MethodIntegrationConnectionType']]:
+    def connection_type(self) -> pulumi.Input[Optional['MethodIntegrationConnectionType']]:
         """
         The type of the network connection to the integration endpoint. The valid value is `INTERNET` for connections through the public routable internet or `VPC_LINK` for private connections between API Gateway and a network load balancer in a VPC. The default value is `INTERNET` .
         """
         return pulumi.get(self, "connection_type")
 
     @connection_type.setter
-    def connection_type(self, value: Optional[pulumi.Input['MethodIntegrationConnectionType']]):
+    def connection_type(self, value: pulumi.Input[Optional['MethodIntegrationConnectionType']]):
         pulumi.set(self, "connection_type", value)
 
     @_builtins.property
     @pulumi.getter(name="contentHandling")
-    def content_handling(self) -> Optional[pulumi.Input['MethodIntegrationContentHandling']]:
+    def content_handling(self) -> pulumi.Input[Optional['MethodIntegrationContentHandling']]:
         """
         Specifies how to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT` , with the following behaviors:
 
@@ -1603,120 +1603,120 @@ class MethodIntegrationArgs:
         return pulumi.get(self, "content_handling")
 
     @content_handling.setter
-    def content_handling(self, value: Optional[pulumi.Input['MethodIntegrationContentHandling']]):
+    def content_handling(self, value: pulumi.Input[Optional['MethodIntegrationContentHandling']]):
         pulumi.set(self, "content_handling", value)
 
     @_builtins.property
     @pulumi.getter
-    def credentials(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def credentials(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify the string `arn:aws:iam::\\*:user/\\*` . To use resource-based permissions on supported AWS services, specify null.
         """
         return pulumi.get(self, "credentials")
 
     @credentials.setter
-    def credentials(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def credentials(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "credentials", value)
 
     @_builtins.property
     @pulumi.getter(name="integrationHttpMethod")
-    def integration_http_method(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def integration_http_method(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the integration's HTTP method type. For the Type property, if you specify `MOCK` , this property is optional. For Lambda integrations, you must set the integration method to `POST` . For all other types, you must specify this property.
         """
         return pulumi.get(self, "integration_http_method")
 
     @integration_http_method.setter
-    def integration_http_method(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def integration_http_method(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "integration_http_method", value)
 
     @_builtins.property
     @pulumi.getter(name="integrationResponses")
-    def integration_responses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MethodIntegrationResponseArgs']]]]:
+    def integration_responses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MethodIntegrationResponseArgs']]]]:
         """
         Specifies the integration's responses.
         """
         return pulumi.get(self, "integration_responses")
 
     @integration_responses.setter
-    def integration_responses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MethodIntegrationResponseArgs']]]]):
+    def integration_responses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MethodIntegrationResponseArgs']]]]):
         pulumi.set(self, "integration_responses", value)
 
     @_builtins.property
     @pulumi.getter(name="integrationTarget")
-    def integration_target(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def integration_target(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ALB or NLB listener to send the request to. Only supported for private integrations that use VPC links V2.
         """
         return pulumi.get(self, "integration_target")
 
     @integration_target.setter
-    def integration_target(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def integration_target(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "integration_target", value)
 
     @_builtins.property
     @pulumi.getter(name="passthroughBehavior")
-    def passthrough_behavior(self) -> Optional[pulumi.Input['MethodIntegrationPassthroughBehavior']]:
+    def passthrough_behavior(self) -> pulumi.Input[Optional['MethodIntegrationPassthroughBehavior']]:
         """
         Specifies how the method request body of an unmapped content type will be passed through the integration request to the back end without transformation. A content type is unmapped if no mapping template is defined in the integration or the content type does not match any of the mapped content types, as specified in `requestTemplates` . The valid value is one of the following: `WHEN_NO_MATCH` : passes the method request body through the integration request to the back end without transformation when the method request content type does not match any content type associated with the mapping templates defined in the integration request. `WHEN_NO_TEMPLATES` : passes the method request body through the integration request to the back end without transformation when no mapping template is defined in the integration request. If a template is defined when this option is selected, the method request of an unmapped content-type will be rejected with an HTTP 415 Unsupported Media Type response. `NEVER` : rejects the method request with an HTTP 415 Unsupported Media Type response when either the method request content type does not match any content type associated with the mapping templates defined in the integration request or no mapping template is defined in the integration request.
         """
         return pulumi.get(self, "passthrough_behavior")
 
     @passthrough_behavior.setter
-    def passthrough_behavior(self, value: Optional[pulumi.Input['MethodIntegrationPassthroughBehavior']]):
+    def passthrough_behavior(self, value: pulumi.Input[Optional['MethodIntegrationPassthroughBehavior']]):
         pulumi.set(self, "passthrough_behavior", value)
 
     @_builtins.property
     @pulumi.getter(name="requestParameters")
-    def request_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def request_parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A key-value map specifying request parameters that are passed from the method request to the back end. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the back end. The method request parameter value must match the pattern of `method.request.{location}.{name}` , where `location` is `querystring` , `path` , or `header` and `name` must be a valid and unique method request parameter name.
         """
         return pulumi.get(self, "request_parameters")
 
     @request_parameters.setter
-    def request_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def request_parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "request_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="requestTemplates")
-    def request_templates(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def request_templates(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Represents a map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. The content type value is the key in this map, and the template (as a String) is the value.
         """
         return pulumi.get(self, "request_templates")
 
     @request_templates.setter
-    def request_templates(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def request_templates(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "request_templates", value)
 
     @_builtins.property
     @pulumi.getter(name="responseTransferMode")
-    def response_transfer_mode(self) -> Optional[pulumi.Input['MethodIntegrationResponseTransferMode']]:
+    def response_transfer_mode(self) -> pulumi.Input[Optional['MethodIntegrationResponseTransferMode']]:
         """
         The response transfer mode of the integration. Use `STREAM` to have API Gateway stream response your back to you or use `BUFFERED` to have API Gateway wait to receive the complete response before beginning transmission.
         """
         return pulumi.get(self, "response_transfer_mode")
 
     @response_transfer_mode.setter
-    def response_transfer_mode(self, value: Optional[pulumi.Input['MethodIntegrationResponseTransferMode']]):
+    def response_transfer_mode(self, value: pulumi.Input[Optional['MethodIntegrationResponseTransferMode']]):
         pulumi.set(self, "response_transfer_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="timeoutInMillis")
-    def timeout_in_millis(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def timeout_in_millis(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds. You can increase the default value to longer than 29 seconds for Regional or private APIs only.
         """
         return pulumi.get(self, "timeout_in_millis")
 
     @timeout_in_millis.setter
-    def timeout_in_millis(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def timeout_in_millis(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "timeout_in_millis", value)
 
     @_builtins.property
     @pulumi.getter
-    def uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies Uniform Resource Identifier (URI) of the integration endpoint.
 
@@ -1725,7 +1725,7 @@ class MethodIntegrationArgs:
         return pulumi.get(self, "uri")
 
     @uri.setter
-    def uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "uri", value)
 
 
@@ -1734,11 +1734,11 @@ class MethodResponseArgsDict(TypedDict):
     """
     The method response's status code.
     """
-    response_models: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    response_models: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Specifies the Model resources used for the response's content-type. Response models are represented as a key/value map, with a content-type as the key and a Model name as the value.
     """
-    response_parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[Union[_builtins.bool, _builtins.str]]]]]
+    response_parameters: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[Union[_builtins.bool, _builtins.str]]]]]]
     """
     A key-value map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header and the value specifies whether the associated method response header is required or not. The expression of the key must match the pattern `method.response.header.{name}` , where `name` is a valid and unique header name. API Gateway passes certain integration response data to the method response headers specified here according to the mapping you prescribe in the API's IntegrationResponse. The integration response data that can be mapped include an integration response header expressed in `integration.response.header.{name}` , a static value enclosed within a pair of single quotes (e.g., `'application/json'` ), or a JSON expression from the back-end response payload in the form of `integration.response.body.{JSON-expression}` , where `JSON-expression` is a valid JSON expression without the `$` prefix.)
     """
@@ -1747,8 +1747,8 @@ class MethodResponseArgsDict(TypedDict):
 class MethodResponseArgs:
     def __init__(__self__, *,
                  status_code: pulumi.Input[_builtins.str],
-                 response_models: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 response_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union[_builtins.bool, _builtins.str]]]]] = None):
+                 response_models: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 response_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union[_builtins.bool, _builtins.str]]]]] = None):
         """
         :param pulumi.Input[_builtins.str] status_code: The method response's status code.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] response_models: Specifies the Model resources used for the response's content-type. Response models are represented as a key/value map, with a content-type as the key and a Model name as the value.
@@ -1774,26 +1774,26 @@ class MethodResponseArgs:
 
     @_builtins.property
     @pulumi.getter(name="responseModels")
-    def response_models(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def response_models(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Specifies the Model resources used for the response's content-type. Response models are represented as a key/value map, with a content-type as the key and a Model name as the value.
         """
         return pulumi.get(self, "response_models")
 
     @response_models.setter
-    def response_models(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def response_models(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "response_models", value)
 
     @_builtins.property
     @pulumi.getter(name="responseParameters")
-    def response_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[Union[_builtins.bool, _builtins.str]]]]]:
+    def response_parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[Union[_builtins.bool, _builtins.str]]]]]:
         """
         A key-value map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header and the value specifies whether the associated method response header is required or not. The expression of the key must match the pattern `method.response.header.{name}` , where `name` is a valid and unique header name. API Gateway passes certain integration response data to the method response headers specified here according to the mapping you prescribe in the API's IntegrationResponse. The integration response data that can be mapped include an integration response header expressed in `integration.response.header.{name}` , a static value enclosed within a pair of single quotes (e.g., `'application/json'` ), or a JSON expression from the back-end response payload in the form of `integration.response.body.{JSON-expression}` , where `JSON-expression` is a valid JSON expression without the `$` prefix.)
         """
         return pulumi.get(self, "response_parameters")
 
     @response_parameters.setter
-    def response_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union[_builtins.bool, _builtins.str]]]]]):
+    def response_parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union[_builtins.bool, _builtins.str]]]]]):
         pulumi.set(self, "response_parameters", value)
 
 
@@ -1802,15 +1802,15 @@ class RestApiEndpointConfigurationArgsDict(TypedDict):
     The ``EndpointConfiguration`` property type specifies the endpoint types and IP address types of a REST API.
      ``EndpointConfiguration`` is a property of the [AWS::ApiGateway::RestApi](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html) resource.
     """
-    ip_address_type: NotRequired[pulumi.Input[_builtins.str]]
+    ip_address_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The IP address types that can invoke an API (RestApi). Use `ipv4` to allow only IPv4 addresses to invoke an API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke an API. For the `PRIVATE` endpoint type, only `dualstack` is supported.
     """
-    types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of endpoint types of an API (RestApi) or its custom domain name (DomainName). For an edge-optimized API and its custom domain name, the endpoint type is `"EDGE"` . For a regional API and its custom domain name, the endpoint type is `REGIONAL` . For a private API, the endpoint type is `PRIVATE` .
     """
-    vpc_endpoint_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    vpc_endpoint_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of VpcEndpointIds of an API (RestApi) against which to create Route53 ALIASes. It is only supported for `PRIVATE` endpoint type.
     """
@@ -1818,9 +1818,9 @@ class RestApiEndpointConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class RestApiEndpointConfigurationArgs:
     def __init__(__self__, *,
-                 ip_address_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 vpc_endpoint_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 ip_address_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 vpc_endpoint_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The ``EndpointConfiguration`` property type specifies the endpoint types and IP address types of a REST API.
          ``EndpointConfiguration`` is a property of the [AWS::ApiGateway::RestApi](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html) resource.
@@ -1838,38 +1838,38 @@ class RestApiEndpointConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="ipAddressType")
-    def ip_address_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip_address_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IP address types that can invoke an API (RestApi). Use `ipv4` to allow only IPv4 addresses to invoke an API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke an API. For the `PRIVATE` endpoint type, only `dualstack` is supported.
         """
         return pulumi.get(self, "ip_address_type")
 
     @ip_address_type.setter
-    def ip_address_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip_address_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip_address_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of endpoint types of an API (RestApi) or its custom domain name (DomainName). For an edge-optimized API and its custom domain name, the endpoint type is `"EDGE"` . For a regional API and its custom domain name, the endpoint type is `REGIONAL` . For a private API, the endpoint type is `PRIVATE` .
         """
         return pulumi.get(self, "types")
 
     @types.setter
-    def types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "types", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcEndpointIds")
-    def vpc_endpoint_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def vpc_endpoint_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of VpcEndpointIds of an API (RestApi) against which to create Route53 ALIASes. It is only supported for `PRIVATE` endpoint type.
         """
         return pulumi.get(self, "vpc_endpoint_ids")
 
     @vpc_endpoint_ids.setter
-    def vpc_endpoint_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def vpc_endpoint_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "vpc_endpoint_ids", value)
 
 
@@ -1878,19 +1878,19 @@ class RestApiS3LocationArgsDict(TypedDict):
     ``S3Location`` is a property of the [AWS::ApiGateway::RestApi](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html) resource that specifies the Amazon S3 location of a OpenAPI (formerly Swagger) file that defines a set of RESTful APIs in JSON or YAML.
       On January 1, 2016, the Swagger Specification was donated to the [OpenAPI initiative](https://docs.aws.amazon.com/https://www.openapis.org/), becoming the foundation of the OpenAPI Specification.
     """
-    bucket: NotRequired[pulumi.Input[_builtins.str]]
+    bucket: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the S3 bucket where the OpenAPI file is stored.
     """
-    e_tag: NotRequired[pulumi.Input[_builtins.str]]
+    e_tag: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon S3 ETag (a file checksum) of the OpenAPI file. If you don't specify a value, API Gateway skips ETag validation of your OpenAPI file.
     """
-    key: NotRequired[pulumi.Input[_builtins.str]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The file name of the OpenAPI file (Amazon S3 object name).
     """
-    version: NotRequired[pulumi.Input[_builtins.str]]
+    version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     For versioning-enabled buckets, a specific version of the OpenAPI file.
     """
@@ -1898,10 +1898,10 @@ class RestApiS3LocationArgsDict(TypedDict):
 @pulumi.input_type
 class RestApiS3LocationArgs:
     def __init__(__self__, *,
-                 bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                 e_tag: Optional[pulumi.Input[_builtins.str]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 e_tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         ``S3Location`` is a property of the [AWS::ApiGateway::RestApi](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html) resource that specifies the Amazon S3 location of a OpenAPI (formerly Swagger) file that defines a set of RESTful APIs in JSON or YAML.
           On January 1, 2016, the Swagger Specification was donated to the [OpenAPI initiative](https://docs.aws.amazon.com/https://www.openapis.org/), becoming the foundation of the OpenAPI Specification.
@@ -1922,50 +1922,50 @@ class RestApiS3LocationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def bucket(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bucket(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the S3 bucket where the OpenAPI file is stored.
         """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
-    def bucket(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bucket(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bucket", value)
 
     @_builtins.property
     @pulumi.getter(name="eTag")
-    def e_tag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def e_tag(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon S3 ETag (a file checksum) of the OpenAPI file. If you don't specify a value, API Gateway skips ETag validation of your OpenAPI file.
         """
         return pulumi.get(self, "e_tag")
 
     @e_tag.setter
-    def e_tag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def e_tag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "e_tag", value)
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The file name of the OpenAPI file (Amazon S3 object name).
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         For versioning-enabled buckets, a specific version of the OpenAPI file.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
@@ -1974,11 +1974,11 @@ class StageAccessLogSettingArgsDict(TypedDict):
     The ``AccessLogSetting`` property type specifies settings for logging access in this stage.
      ``AccessLogSetting`` is a property of the [AWS::ApiGateway::Stage](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html) resource.
     """
-    destination_arn: NotRequired[pulumi.Input[_builtins.str]]
+    destination_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with ``amazon-apigateway-``. This parameter is required to enable access logging.
     """
-    format: NotRequired[pulumi.Input[_builtins.str]]
+    format: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A single line format of the access logs of data, as specified by selected [$context variables](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html#context-variable-reference). The format must include at least ``$context.requestId``. This parameter is required to enable access logging.
     """
@@ -1986,8 +1986,8 @@ class StageAccessLogSettingArgsDict(TypedDict):
 @pulumi.input_type
 class StageAccessLogSettingArgs:
     def __init__(__self__, *,
-                 destination_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 format: Optional[pulumi.Input[_builtins.str]] = None):
+                 destination_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 format: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The ``AccessLogSetting`` property type specifies settings for logging access in this stage.
          ``AccessLogSetting`` is a property of the [AWS::ApiGateway::Stage](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html) resource.
@@ -2002,43 +2002,43 @@ class StageAccessLogSettingArgs:
 
     @_builtins.property
     @pulumi.getter(name="destinationArn")
-    def destination_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with ``amazon-apigateway-``. This parameter is required to enable access logging.
         """
         return pulumi.get(self, "destination_arn")
 
     @destination_arn.setter
-    def destination_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A single line format of the access logs of data, as specified by selected [$context variables](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html#context-variable-reference). The format must include at least ``$context.requestId``. This parameter is required to enable access logging.
         """
         return pulumi.get(self, "format")
 
     @format.setter
-    def format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "format", value)
 
 
 class StageCanarySettingArgsDict(TypedDict):
-    deployment_id: NotRequired[pulumi.Input[_builtins.str]]
+    deployment_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the canary deployment.
     """
-    percent_traffic: NotRequired[pulumi.Input[_builtins.float]]
+    percent_traffic: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The percent (0-100) of traffic diverted to a canary deployment.
     """
-    stage_variable_overrides: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    stage_variable_overrides: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary. These stage variables are represented as a string-to-string map between stage variable names and their values.
     """
-    use_stage_cache: NotRequired[pulumi.Input[_builtins.bool]]
+    use_stage_cache: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     A Boolean flag to indicate whether the canary deployment uses the stage cache or not.
     """
@@ -2046,10 +2046,10 @@ class StageCanarySettingArgsDict(TypedDict):
 @pulumi.input_type
 class StageCanarySettingArgs:
     def __init__(__self__, *,
-                 deployment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 percent_traffic: Optional[pulumi.Input[_builtins.float]] = None,
-                 stage_variable_overrides: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 use_stage_cache: Optional[pulumi.Input[_builtins.bool]] = None):
+                 deployment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 percent_traffic: pulumi.Input[Optional[_builtins.float]] = None,
+                 stage_variable_overrides: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 use_stage_cache: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] deployment_id: The ID of the canary deployment.
         :param pulumi.Input[_builtins.float] percent_traffic: The percent (0-100) of traffic diverted to a canary deployment.
@@ -2067,50 +2067,50 @@ class StageCanarySettingArgs:
 
     @_builtins.property
     @pulumi.getter(name="deploymentId")
-    def deployment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def deployment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the canary deployment.
         """
         return pulumi.get(self, "deployment_id")
 
     @deployment_id.setter
-    def deployment_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def deployment_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "deployment_id", value)
 
     @_builtins.property
     @pulumi.getter(name="percentTraffic")
-    def percent_traffic(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def percent_traffic(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The percent (0-100) of traffic diverted to a canary deployment.
         """
         return pulumi.get(self, "percent_traffic")
 
     @percent_traffic.setter
-    def percent_traffic(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def percent_traffic(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "percent_traffic", value)
 
     @_builtins.property
     @pulumi.getter(name="stageVariableOverrides")
-    def stage_variable_overrides(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def stage_variable_overrides(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary. These stage variables are represented as a string-to-string map between stage variable names and their values.
         """
         return pulumi.get(self, "stage_variable_overrides")
 
     @stage_variable_overrides.setter
-    def stage_variable_overrides(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def stage_variable_overrides(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "stage_variable_overrides", value)
 
     @_builtins.property
     @pulumi.getter(name="useStageCache")
-    def use_stage_cache(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_stage_cache(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A Boolean flag to indicate whether the canary deployment uses the stage cache or not.
         """
         return pulumi.get(self, "use_stage_cache")
 
     @use_stage_cache.setter
-    def use_stage_cache(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_stage_cache(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_stage_cache", value)
 
 
@@ -2119,43 +2119,43 @@ class StageMethodSettingArgsDict(TypedDict):
     The ``MethodSetting`` property type configures settings for all methods in a stage.
      The ``MethodSettings`` property of the ``AWS::ApiGateway::Stage`` resource contains a list of ``MethodSetting`` property types.
     """
-    cache_data_encrypted: NotRequired[pulumi.Input[_builtins.bool]]
+    cache_data_encrypted: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether the cached responses are encrypted.
     """
-    cache_ttl_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    cache_ttl_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the time to live (TTL), in seconds, for cached responses. The higher the TTL, the longer the response will be cached.
     """
-    caching_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    caching_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached.
     """
-    data_trace_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    data_trace_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether data trace logging is enabled for this method, which affects the log entries pushed to Amazon CloudWatch Logs. This can be useful to troubleshoot APIs, but can result in logging sensitive data. We recommend that you don't enable this option for production APIs.
     """
-    http_method: NotRequired[pulumi.Input[_builtins.str]]
+    http_method: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The HTTP method. To apply settings to multiple resources and methods, specify an asterisk (``*``) for the ``HttpMethod`` and ``/*`` for the ``ResourcePath``. This parameter is required when you specify a ``MethodSetting``.
     """
-    logging_level: NotRequired[pulumi.Input[_builtins.str]]
+    logging_level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the logging level for this method, which affects the log entries pushed to Amazon CloudWatch Logs. Valid values are `OFF` , `ERROR` , and `INFO` . Choose `ERROR` to write only error-level entries to CloudWatch Logs, or choose `INFO` to include all `ERROR` events as well as extra informational events.
     """
-    metrics_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    metrics_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether Amazon CloudWatch metrics are enabled for this method.
     """
-    resource_path: NotRequired[pulumi.Input[_builtins.str]]
+    resource_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The resource path for this method. Forward slashes (``/``) are encoded as ``~1`` and the initial slash must include a forward slash. For example, the path value ``/resource/subresource`` must be encoded as ``/~1resource~1subresource``. To specify the root path, use only a slash (``/``). To apply settings to multiple resources and methods, specify an asterisk (``*``) for the ``HttpMethod`` and ``/*`` for the ``ResourcePath``. This parameter is required when you specify a ``MethodSetting``.
     """
-    throttling_burst_limit: NotRequired[pulumi.Input[_builtins.int]]
+    throttling_burst_limit: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the throttling burst limit.
     """
-    throttling_rate_limit: NotRequired[pulumi.Input[_builtins.float]]
+    throttling_rate_limit: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Specifies the throttling rate limit.
     """
@@ -2163,16 +2163,16 @@ class StageMethodSettingArgsDict(TypedDict):
 @pulumi.input_type
 class StageMethodSettingArgs:
     def __init__(__self__, *,
-                 cache_data_encrypted: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cache_ttl_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 caching_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 data_trace_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 http_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 logging_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 metrics_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 throttling_burst_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 throttling_rate_limit: Optional[pulumi.Input[_builtins.float]] = None):
+                 cache_data_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cache_ttl_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 caching_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 data_trace_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 http_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 logging_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 metrics_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 throttling_burst_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 throttling_rate_limit: pulumi.Input[Optional[_builtins.float]] = None):
         """
         The ``MethodSetting`` property type configures settings for all methods in a stage.
          The ``MethodSettings`` property of the ``AWS::ApiGateway::Stage`` resource contains a list of ``MethodSetting`` property types.
@@ -2211,135 +2211,135 @@ class StageMethodSettingArgs:
 
     @_builtins.property
     @pulumi.getter(name="cacheDataEncrypted")
-    def cache_data_encrypted(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def cache_data_encrypted(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the cached responses are encrypted.
         """
         return pulumi.get(self, "cache_data_encrypted")
 
     @cache_data_encrypted.setter
-    def cache_data_encrypted(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def cache_data_encrypted(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "cache_data_encrypted", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheTtlInSeconds")
-    def cache_ttl_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def cache_ttl_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the time to live (TTL), in seconds, for cached responses. The higher the TTL, the longer the response will be cached.
         """
         return pulumi.get(self, "cache_ttl_in_seconds")
 
     @cache_ttl_in_seconds.setter
-    def cache_ttl_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def cache_ttl_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "cache_ttl_in_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="cachingEnabled")
-    def caching_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def caching_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached.
         """
         return pulumi.get(self, "caching_enabled")
 
     @caching_enabled.setter
-    def caching_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def caching_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "caching_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="dataTraceEnabled")
-    def data_trace_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def data_trace_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether data trace logging is enabled for this method, which affects the log entries pushed to Amazon CloudWatch Logs. This can be useful to troubleshoot APIs, but can result in logging sensitive data. We recommend that you don't enable this option for production APIs.
         """
         return pulumi.get(self, "data_trace_enabled")
 
     @data_trace_enabled.setter
-    def data_trace_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def data_trace_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "data_trace_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="httpMethod")
-    def http_method(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def http_method(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The HTTP method. To apply settings to multiple resources and methods, specify an asterisk (``*``) for the ``HttpMethod`` and ``/*`` for the ``ResourcePath``. This parameter is required when you specify a ``MethodSetting``.
         """
         return pulumi.get(self, "http_method")
 
     @http_method.setter
-    def http_method(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def http_method(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "http_method", value)
 
     @_builtins.property
     @pulumi.getter(name="loggingLevel")
-    def logging_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def logging_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the logging level for this method, which affects the log entries pushed to Amazon CloudWatch Logs. Valid values are `OFF` , `ERROR` , and `INFO` . Choose `ERROR` to write only error-level entries to CloudWatch Logs, or choose `INFO` to include all `ERROR` events as well as extra informational events.
         """
         return pulumi.get(self, "logging_level")
 
     @logging_level.setter
-    def logging_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def logging_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "logging_level", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsEnabled")
-    def metrics_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def metrics_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether Amazon CloudWatch metrics are enabled for this method.
         """
         return pulumi.get(self, "metrics_enabled")
 
     @metrics_enabled.setter
-    def metrics_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def metrics_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "metrics_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="resourcePath")
-    def resource_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource path for this method. Forward slashes (``/``) are encoded as ``~1`` and the initial slash must include a forward slash. For example, the path value ``/resource/subresource`` must be encoded as ``/~1resource~1subresource``. To specify the root path, use only a slash (``/``). To apply settings to multiple resources and methods, specify an asterisk (``*``) for the ``HttpMethod`` and ``/*`` for the ``ResourcePath``. This parameter is required when you specify a ``MethodSetting``.
         """
         return pulumi.get(self, "resource_path")
 
     @resource_path.setter
-    def resource_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_path", value)
 
     @_builtins.property
     @pulumi.getter(name="throttlingBurstLimit")
-    def throttling_burst_limit(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def throttling_burst_limit(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the throttling burst limit.
         """
         return pulumi.get(self, "throttling_burst_limit")
 
     @throttling_burst_limit.setter
-    def throttling_burst_limit(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def throttling_burst_limit(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "throttling_burst_limit", value)
 
     @_builtins.property
     @pulumi.getter(name="throttlingRateLimit")
-    def throttling_rate_limit(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def throttling_rate_limit(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Specifies the throttling rate limit.
         """
         return pulumi.get(self, "throttling_rate_limit")
 
     @throttling_rate_limit.setter
-    def throttling_rate_limit(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def throttling_rate_limit(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "throttling_rate_limit", value)
 
 
 class UsagePlanApiStageArgsDict(TypedDict):
-    api_id: NotRequired[pulumi.Input[_builtins.str]]
+    api_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     API Id of the associated API stage in a usage plan.
     """
-    stage: NotRequired[pulumi.Input[_builtins.str]]
+    stage: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     API stage name of the associated API stage in a usage plan.
     """
-    throttle: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['UsagePlanThrottleSettingsArgsDict']]]]
+    throttle: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input['UsagePlanThrottleSettingsArgsDict']]]]]
     """
     Map containing method level throttling information for API stage in a usage plan.
     """
@@ -2347,9 +2347,9 @@ class UsagePlanApiStageArgsDict(TypedDict):
 @pulumi.input_type
 class UsagePlanApiStageArgs:
     def __init__(__self__, *,
-                 api_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 stage: Optional[pulumi.Input[_builtins.str]] = None,
-                 throttle: Optional[pulumi.Input[Mapping[str, pulumi.Input['UsagePlanThrottleSettingsArgs']]]] = None):
+                 api_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 stage: pulumi.Input[Optional[_builtins.str]] = None,
+                 throttle: pulumi.Input[Optional[Mapping[str, pulumi.Input['UsagePlanThrottleSettingsArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] api_id: API Id of the associated API stage in a usage plan.
         :param pulumi.Input[_builtins.str] stage: API stage name of the associated API stage in a usage plan.
@@ -2364,38 +2364,38 @@ class UsagePlanApiStageArgs:
 
     @_builtins.property
     @pulumi.getter(name="apiId")
-    def api_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         API Id of the associated API stage in a usage plan.
         """
         return pulumi.get(self, "api_id")
 
     @api_id.setter
-    def api_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def stage(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def stage(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         API stage name of the associated API stage in a usage plan.
         """
         return pulumi.get(self, "stage")
 
     @stage.setter
-    def stage(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def stage(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "stage", value)
 
     @_builtins.property
     @pulumi.getter
-    def throttle(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['UsagePlanThrottleSettingsArgs']]]]:
+    def throttle(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['UsagePlanThrottleSettingsArgs']]]]:
         """
         Map containing method level throttling information for API stage in a usage plan.
         """
         return pulumi.get(self, "throttle")
 
     @throttle.setter
-    def throttle(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['UsagePlanThrottleSettingsArgs']]]]):
+    def throttle(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['UsagePlanThrottleSettingsArgs']]]]):
         pulumi.set(self, "throttle", value)
 
 
@@ -2404,15 +2404,15 @@ class UsagePlanQuotaSettingsArgsDict(TypedDict):
     ``QuotaSettings`` is a property of the [AWS::ApiGateway::UsagePlan](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html) resource that specifies a target for the maximum number of requests users can make to your REST APIs.
      In some cases clients can exceed the targets that you set. Don’t rely on usage plans to control costs. Consider using [](https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-managing-costs.html) to monitor costs and [](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) to manage API requests.
     """
-    limit: NotRequired[pulumi.Input[_builtins.int]]
+    limit: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The target maximum number of requests that can be made in a given time period.
     """
-    offset: NotRequired[pulumi.Input[_builtins.int]]
+    offset: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The number of requests subtracted from the given limit in the initial time period.
     """
-    period: NotRequired[pulumi.Input[_builtins.str]]
+    period: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH".
     """
@@ -2420,9 +2420,9 @@ class UsagePlanQuotaSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class UsagePlanQuotaSettingsArgs:
     def __init__(__self__, *,
-                 limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 offset: Optional[pulumi.Input[_builtins.int]] = None,
-                 period: Optional[pulumi.Input[_builtins.str]] = None):
+                 limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 offset: pulumi.Input[Optional[_builtins.int]] = None,
+                 period: pulumi.Input[Optional[_builtins.str]] = None):
         """
         ``QuotaSettings`` is a property of the [AWS::ApiGateway::UsagePlan](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html) resource that specifies a target for the maximum number of requests users can make to your REST APIs.
          In some cases clients can exceed the targets that you set. Don’t rely on usage plans to control costs. Consider using [](https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-managing-costs.html) to monitor costs and [](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) to manage API requests.
@@ -2440,38 +2440,38 @@ class UsagePlanQuotaSettingsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def limit(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def limit(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The target maximum number of requests that can be made in a given time period.
         """
         return pulumi.get(self, "limit")
 
     @limit.setter
-    def limit(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def limit(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "limit", value)
 
     @_builtins.property
     @pulumi.getter
-    def offset(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def offset(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of requests subtracted from the given limit in the initial time period.
         """
         return pulumi.get(self, "offset")
 
     @offset.setter
-    def offset(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def offset(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "offset", value)
 
     @_builtins.property
     @pulumi.getter
-    def period(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def period(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH".
         """
         return pulumi.get(self, "period")
 
     @period.setter
-    def period(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def period(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "period", value)
 
 
@@ -2479,14 +2479,14 @@ class UsagePlanThrottleSettingsArgsDict(TypedDict):
     """
     ``ThrottleSettings`` is a property of the [AWS::ApiGateway::UsagePlan](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html) resource that specifies the overall request rate (average requests per second) and burst capacity when users call your REST APIs.
     """
-    burst_limit: NotRequired[pulumi.Input[_builtins.int]]
-    rate_limit: NotRequired[pulumi.Input[_builtins.float]]
+    burst_limit: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    rate_limit: NotRequired[pulumi.Input[Optional[_builtins.float]]]
 
 @pulumi.input_type
 class UsagePlanThrottleSettingsArgs:
     def __init__(__self__, *,
-                 burst_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 rate_limit: Optional[pulumi.Input[_builtins.float]] = None):
+                 burst_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 rate_limit: pulumi.Input[Optional[_builtins.float]] = None):
         """
         ``ThrottleSettings`` is a property of the [AWS::ApiGateway::UsagePlan](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html) resource that specifies the overall request rate (average requests per second) and burst capacity when users call your REST APIs.
         """
@@ -2497,20 +2497,20 @@ class UsagePlanThrottleSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="burstLimit")
-    def burst_limit(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def burst_limit(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "burst_limit")
 
     @burst_limit.setter
-    def burst_limit(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def burst_limit(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "burst_limit", value)
 
     @_builtins.property
     @pulumi.getter(name="rateLimit")
-    def rate_limit(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def rate_limit(self) -> pulumi.Input[Optional[_builtins.float]]:
         return pulumi.get(self, "rate_limit")
 
     @rate_limit.setter
-    def rate_limit(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def rate_limit(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "rate_limit", value)
 
 

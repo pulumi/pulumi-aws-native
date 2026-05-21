@@ -27,15 +27,15 @@ class ExpressGatewayServiceArgs:
                  execution_role_arn: pulumi.Input[_builtins.str],
                  infrastructure_role_arn: pulumi.Input[_builtins.str],
                  primary_container: pulumi.Input['ExpressGatewayServiceExpressGatewayContainerArgs'],
-                 cluster: Optional[pulumi.Input[_builtins.str]] = None,
-                 cpu: Optional[pulumi.Input[_builtins.str]] = None,
-                 health_check_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 memory: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_configuration: Optional[pulumi.Input['ExpressGatewayServiceNetworkConfigurationArgs']] = None,
-                 scaling_target: Optional[pulumi.Input['ExpressGatewayServiceExpressGatewayScalingTargetArgs']] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None,
-                 task_role_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 cluster: pulumi.Input[Optional[_builtins.str]] = None,
+                 cpu: pulumi.Input[Optional[_builtins.str]] = None,
+                 health_check_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 memory: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_configuration: pulumi.Input[Optional['ExpressGatewayServiceNetworkConfigurationArgs']] = None,
+                 scaling_target: pulumi.Input[Optional['ExpressGatewayServiceExpressGatewayScalingTargetArgs']] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None,
+                 task_role_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ExpressGatewayService resource.
 
@@ -112,110 +112,110 @@ class ExpressGatewayServiceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def cluster(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cluster(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The short name or full ARN of the cluster that hosts the Express service.
         """
         return pulumi.get(self, "cluster")
 
     @cluster.setter
-    def cluster(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cluster(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cluster", value)
 
     @_builtins.property
     @pulumi.getter
-    def cpu(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cpu(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The CPU allocation for tasks in this service revision.
         """
         return pulumi.get(self, "cpu")
 
     @cpu.setter
-    def cpu(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cpu(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cpu", value)
 
     @_builtins.property
     @pulumi.getter(name="healthCheckPath")
-    def health_check_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def health_check_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The health check path for this service revision.
         """
         return pulumi.get(self, "health_check_path")
 
     @health_check_path.setter
-    def health_check_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def health_check_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "health_check_path", value)
 
     @_builtins.property
     @pulumi.getter
-    def memory(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def memory(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The memory allocation for tasks in this service revision.
         """
         return pulumi.get(self, "memory")
 
     @memory.setter
-    def memory(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def memory(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "memory", value)
 
     @_builtins.property
     @pulumi.getter(name="networkConfiguration")
-    def network_configuration(self) -> Optional[pulumi.Input['ExpressGatewayServiceNetworkConfigurationArgs']]:
+    def network_configuration(self) -> pulumi.Input[Optional['ExpressGatewayServiceNetworkConfigurationArgs']]:
         """
         The network configuration for tasks in this service revision.
         """
         return pulumi.get(self, "network_configuration")
 
     @network_configuration.setter
-    def network_configuration(self, value: Optional[pulumi.Input['ExpressGatewayServiceNetworkConfigurationArgs']]):
+    def network_configuration(self, value: pulumi.Input[Optional['ExpressGatewayServiceNetworkConfigurationArgs']]):
         pulumi.set(self, "network_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="scalingTarget")
-    def scaling_target(self) -> Optional[pulumi.Input['ExpressGatewayServiceExpressGatewayScalingTargetArgs']]:
+    def scaling_target(self) -> pulumi.Input[Optional['ExpressGatewayServiceExpressGatewayScalingTargetArgs']]:
         """
         The auto-scaling configuration for this service revision.
         """
         return pulumi.get(self, "scaling_target")
 
     @scaling_target.setter
-    def scaling_target(self, value: Optional[pulumi.Input['ExpressGatewayServiceExpressGatewayScalingTargetArgs']]):
+    def scaling_target(self, value: pulumi.Input[Optional['ExpressGatewayServiceExpressGatewayScalingTargetArgs']]):
         pulumi.set(self, "scaling_target", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceName")
-    def service_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Express service.
         """
         return pulumi.get(self, "service_name")
 
     @service_name.setter
-    def service_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
         """
         The metadata applied to the Express service.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="taskRoleArn")
-    def task_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def task_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the task role for the service revision.
         """
         return pulumi.get(self, "task_role_arn")
 
     @task_role_arn.setter
-    def task_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def task_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "task_role_arn", value)
 
 
@@ -225,18 +225,18 @@ class ExpressGatewayService(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster: Optional[pulumi.Input[_builtins.str]] = None,
-                 cpu: Optional[pulumi.Input[_builtins.str]] = None,
-                 execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 health_check_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 infrastructure_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 memory: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_configuration: Optional[pulumi.Input[Union['ExpressGatewayServiceNetworkConfigurationArgs', 'ExpressGatewayServiceNetworkConfigurationArgsDict']]] = None,
-                 primary_container: Optional[pulumi.Input[Union['ExpressGatewayServiceExpressGatewayContainerArgs', 'ExpressGatewayServiceExpressGatewayContainerArgsDict']]] = None,
-                 scaling_target: Optional[pulumi.Input[Union['ExpressGatewayServiceExpressGatewayScalingTargetArgs', 'ExpressGatewayServiceExpressGatewayScalingTargetArgsDict']]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
-                 task_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 cluster: pulumi.Input[Optional[_builtins.str]] = None,
+                 cpu: pulumi.Input[Optional[_builtins.str]] = None,
+                 execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 health_check_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 infrastructure_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 memory: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_configuration: pulumi.Input[Optional[Union['ExpressGatewayServiceNetworkConfigurationArgs', 'ExpressGatewayServiceNetworkConfigurationArgsDict']]] = None,
+                 primary_container: pulumi.Input[Optional[Union['ExpressGatewayServiceExpressGatewayContainerArgs', 'ExpressGatewayServiceExpressGatewayContainerArgsDict']]] = None,
+                 scaling_target: pulumi.Input[Optional[Union['ExpressGatewayServiceExpressGatewayScalingTargetArgs', 'ExpressGatewayServiceExpressGatewayScalingTargetArgsDict']]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 task_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::ECS::ExpressGatewayService
@@ -282,18 +282,18 @@ class ExpressGatewayService(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster: Optional[pulumi.Input[_builtins.str]] = None,
-                 cpu: Optional[pulumi.Input[_builtins.str]] = None,
-                 execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 health_check_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 infrastructure_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 memory: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_configuration: Optional[pulumi.Input[Union['ExpressGatewayServiceNetworkConfigurationArgs', 'ExpressGatewayServiceNetworkConfigurationArgsDict']]] = None,
-                 primary_container: Optional[pulumi.Input[Union['ExpressGatewayServiceExpressGatewayContainerArgs', 'ExpressGatewayServiceExpressGatewayContainerArgsDict']]] = None,
-                 scaling_target: Optional[pulumi.Input[Union['ExpressGatewayServiceExpressGatewayScalingTargetArgs', 'ExpressGatewayServiceExpressGatewayScalingTargetArgsDict']]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
-                 task_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 cluster: pulumi.Input[Optional[_builtins.str]] = None,
+                 cpu: pulumi.Input[Optional[_builtins.str]] = None,
+                 execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 health_check_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 infrastructure_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 memory: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_configuration: pulumi.Input[Optional[Union['ExpressGatewayServiceNetworkConfigurationArgs', 'ExpressGatewayServiceNetworkConfigurationArgsDict']]] = None,
+                 primary_container: pulumi.Input[Optional[Union['ExpressGatewayServiceExpressGatewayContainerArgs', 'ExpressGatewayServiceExpressGatewayContainerArgsDict']]] = None,
+                 scaling_target: pulumi.Input[Optional[Union['ExpressGatewayServiceExpressGatewayScalingTargetArgs', 'ExpressGatewayServiceExpressGatewayScalingTargetArgsDict']]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 task_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

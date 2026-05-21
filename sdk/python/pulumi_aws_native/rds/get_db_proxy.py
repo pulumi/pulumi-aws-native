@@ -194,7 +194,7 @@ def get_db_proxy(db_proxy_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'),
         vpc_security_group_ids=pulumi.get(__ret__, 'vpc_security_group_ids'))
-def get_db_proxy_output(db_proxy_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_db_proxy_output(db_proxy_name: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDbProxyResult]:
     """
     Resource schema for AWS::RDS::DBProxy

@@ -220,7 +220,7 @@ def get_channel(arn: Optional[_builtins.str] = None,
         recording_configuration_arn=pulumi.get(__ret__, 'recording_configuration_arn'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_channel_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_channel_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetChannelResult]:
     """
     Resource Type definition for AWS::IVS::Channel

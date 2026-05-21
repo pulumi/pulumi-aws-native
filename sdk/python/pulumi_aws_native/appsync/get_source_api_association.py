@@ -193,7 +193,7 @@ def get_source_api_association(association_arn: Optional[_builtins.str] = None,
         source_api_association_status=pulumi.get(__ret__, 'source_api_association_status'),
         source_api_association_status_detail=pulumi.get(__ret__, 'source_api_association_status_detail'),
         source_api_id=pulumi.get(__ret__, 'source_api_id'))
-def get_source_api_association_output(association_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_source_api_association_output(association_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSourceApiAssociationResult]:
     """
     Resource Type definition for AWS::AppSync::SourceApiAssociation

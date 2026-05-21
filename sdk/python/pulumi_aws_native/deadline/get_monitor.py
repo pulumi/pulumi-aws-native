@@ -155,7 +155,7 @@ def get_monitor(arn: Optional[_builtins.str] = None,
         subdomain=pulumi.get(__ret__, 'subdomain'),
         tags=pulumi.get(__ret__, 'tags'),
         url=pulumi.get(__ret__, 'url'))
-def get_monitor_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_monitor_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMonitorResult]:
     """
     Resource Type definition for AWS::Deadline::Monitor

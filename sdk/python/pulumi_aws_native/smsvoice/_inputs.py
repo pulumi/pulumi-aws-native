@@ -103,15 +103,15 @@ class ConfigurationSetEventDestinationArgsDict(TypedDict):
     """
     An array of event types that determine which events to log. If 'ALL' is used, then AWS End User Messaging SMS and Voice logs every event type.
     """
-    cloud_watch_logs_destination: NotRequired[pulumi.Input['ConfigurationSetCloudWatchLogsDestinationArgsDict']]
+    cloud_watch_logs_destination: NotRequired[pulumi.Input[Optional['ConfigurationSetCloudWatchLogsDestinationArgsDict']]]
     """
     An object that contains IamRoleArn and LogGroupArn associated with an Amazon CloudWatch event destination.
     """
-    kinesis_firehose_destination: NotRequired[pulumi.Input['ConfigurationSetKinesisFirehoseDestinationArgsDict']]
+    kinesis_firehose_destination: NotRequired[pulumi.Input[Optional['ConfigurationSetKinesisFirehoseDestinationArgsDict']]]
     """
     An object that contains IamRoleArn and DeliveryStreamArn associated with an Amazon Kinesis Firehose event destination.
     """
-    sns_destination: NotRequired[pulumi.Input['ConfigurationSetSnsDestinationArgsDict']]
+    sns_destination: NotRequired[pulumi.Input[Optional['ConfigurationSetSnsDestinationArgsDict']]]
     """
     An object that contains SNS TopicArn event destination.
     """
@@ -122,9 +122,9 @@ class ConfigurationSetEventDestinationArgs:
                  enabled: pulumi.Input[_builtins.bool],
                  event_destination_name: pulumi.Input[_builtins.str],
                  matching_event_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 cloud_watch_logs_destination: Optional[pulumi.Input['ConfigurationSetCloudWatchLogsDestinationArgs']] = None,
-                 kinesis_firehose_destination: Optional[pulumi.Input['ConfigurationSetKinesisFirehoseDestinationArgs']] = None,
-                 sns_destination: Optional[pulumi.Input['ConfigurationSetSnsDestinationArgs']] = None):
+                 cloud_watch_logs_destination: pulumi.Input[Optional['ConfigurationSetCloudWatchLogsDestinationArgs']] = None,
+                 kinesis_firehose_destination: pulumi.Input[Optional['ConfigurationSetKinesisFirehoseDestinationArgs']] = None,
+                 sns_destination: pulumi.Input[Optional['ConfigurationSetSnsDestinationArgs']] = None):
         """
         An event destination is a location where you send message events. The event options are Amazon CloudWatch, Amazon Data Firehose, or Amazon SNS. For example, when a message is delivered successfully, you can send information about that event to an event destination, or send notifications to endpoints that are subscribed to an Amazon SNS topic.
 
@@ -183,38 +183,38 @@ class ConfigurationSetEventDestinationArgs:
 
     @_builtins.property
     @pulumi.getter(name="cloudWatchLogsDestination")
-    def cloud_watch_logs_destination(self) -> Optional[pulumi.Input['ConfigurationSetCloudWatchLogsDestinationArgs']]:
+    def cloud_watch_logs_destination(self) -> pulumi.Input[Optional['ConfigurationSetCloudWatchLogsDestinationArgs']]:
         """
         An object that contains IamRoleArn and LogGroupArn associated with an Amazon CloudWatch event destination.
         """
         return pulumi.get(self, "cloud_watch_logs_destination")
 
     @cloud_watch_logs_destination.setter
-    def cloud_watch_logs_destination(self, value: Optional[pulumi.Input['ConfigurationSetCloudWatchLogsDestinationArgs']]):
+    def cloud_watch_logs_destination(self, value: pulumi.Input[Optional['ConfigurationSetCloudWatchLogsDestinationArgs']]):
         pulumi.set(self, "cloud_watch_logs_destination", value)
 
     @_builtins.property
     @pulumi.getter(name="kinesisFirehoseDestination")
-    def kinesis_firehose_destination(self) -> Optional[pulumi.Input['ConfigurationSetKinesisFirehoseDestinationArgs']]:
+    def kinesis_firehose_destination(self) -> pulumi.Input[Optional['ConfigurationSetKinesisFirehoseDestinationArgs']]:
         """
         An object that contains IamRoleArn and DeliveryStreamArn associated with an Amazon Kinesis Firehose event destination.
         """
         return pulumi.get(self, "kinesis_firehose_destination")
 
     @kinesis_firehose_destination.setter
-    def kinesis_firehose_destination(self, value: Optional[pulumi.Input['ConfigurationSetKinesisFirehoseDestinationArgs']]):
+    def kinesis_firehose_destination(self, value: pulumi.Input[Optional['ConfigurationSetKinesisFirehoseDestinationArgs']]):
         pulumi.set(self, "kinesis_firehose_destination", value)
 
     @_builtins.property
     @pulumi.getter(name="snsDestination")
-    def sns_destination(self) -> Optional[pulumi.Input['ConfigurationSetSnsDestinationArgs']]:
+    def sns_destination(self) -> pulumi.Input[Optional['ConfigurationSetSnsDestinationArgs']]:
         """
         An object that contains SNS TopicArn event destination.
         """
         return pulumi.get(self, "sns_destination")
 
     @sns_destination.setter
-    def sns_destination(self, value: Optional[pulumi.Input['ConfigurationSetSnsDestinationArgs']]):
+    def sns_destination(self, value: pulumi.Input[Optional['ConfigurationSetSnsDestinationArgs']]):
         pulumi.set(self, "sns_destination", value)
 
 
@@ -521,15 +521,15 @@ class PoolOptionalKeywordArgs:
 
 
 class ProtectConfigurationCountryRuleSetArgsDict(TypedDict):
-    mms: NotRequired[pulumi.Input[Sequence[pulumi.Input['ProtectConfigurationCountryRuleArgsDict']]]]
+    mms: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ProtectConfigurationCountryRuleArgsDict']]]]]
     """
     The set of `CountryRule` s to control which destination countries End User Messaging  can send your MMS messages to.
     """
-    sms: NotRequired[pulumi.Input[Sequence[pulumi.Input['ProtectConfigurationCountryRuleArgsDict']]]]
+    sms: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ProtectConfigurationCountryRuleArgsDict']]]]]
     """
     The set of `CountryRule` s to control which destination countries End User Messaging  can send your SMS messages to.
     """
-    voice: NotRequired[pulumi.Input[Sequence[pulumi.Input['ProtectConfigurationCountryRuleArgsDict']]]]
+    voice: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ProtectConfigurationCountryRuleArgsDict']]]]]
     """
     The set of `CountryRule` s to control which destination countries End User Messaging  can send your VOICE messages to.
     """
@@ -537,9 +537,9 @@ class ProtectConfigurationCountryRuleSetArgsDict(TypedDict):
 @pulumi.input_type
 class ProtectConfigurationCountryRuleSetArgs:
     def __init__(__self__, *,
-                 mms: Optional[pulumi.Input[Sequence[pulumi.Input['ProtectConfigurationCountryRuleArgs']]]] = None,
-                 sms: Optional[pulumi.Input[Sequence[pulumi.Input['ProtectConfigurationCountryRuleArgs']]]] = None,
-                 voice: Optional[pulumi.Input[Sequence[pulumi.Input['ProtectConfigurationCountryRuleArgs']]]] = None):
+                 mms: pulumi.Input[Optional[Sequence[pulumi.Input['ProtectConfigurationCountryRuleArgs']]]] = None,
+                 sms: pulumi.Input[Optional[Sequence[pulumi.Input['ProtectConfigurationCountryRuleArgs']]]] = None,
+                 voice: pulumi.Input[Optional[Sequence[pulumi.Input['ProtectConfigurationCountryRuleArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['ProtectConfigurationCountryRuleArgs']]] mms: The set of `CountryRule` s to control which destination countries End User Messaging  can send your MMS messages to.
         :param pulumi.Input[Sequence[pulumi.Input['ProtectConfigurationCountryRuleArgs']]] sms: The set of `CountryRule` s to control which destination countries End User Messaging  can send your SMS messages to.
@@ -554,38 +554,38 @@ class ProtectConfigurationCountryRuleSetArgs:
 
     @_builtins.property
     @pulumi.getter
-    def mms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProtectConfigurationCountryRuleArgs']]]]:
+    def mms(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ProtectConfigurationCountryRuleArgs']]]]:
         """
         The set of `CountryRule` s to control which destination countries End User Messaging  can send your MMS messages to.
         """
         return pulumi.get(self, "mms")
 
     @mms.setter
-    def mms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProtectConfigurationCountryRuleArgs']]]]):
+    def mms(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ProtectConfigurationCountryRuleArgs']]]]):
         pulumi.set(self, "mms", value)
 
     @_builtins.property
     @pulumi.getter
-    def sms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProtectConfigurationCountryRuleArgs']]]]:
+    def sms(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ProtectConfigurationCountryRuleArgs']]]]:
         """
         The set of `CountryRule` s to control which destination countries End User Messaging  can send your SMS messages to.
         """
         return pulumi.get(self, "sms")
 
     @sms.setter
-    def sms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProtectConfigurationCountryRuleArgs']]]]):
+    def sms(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ProtectConfigurationCountryRuleArgs']]]]):
         pulumi.set(self, "sms", value)
 
     @_builtins.property
     @pulumi.getter
-    def voice(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProtectConfigurationCountryRuleArgs']]]]:
+    def voice(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ProtectConfigurationCountryRuleArgs']]]]:
         """
         The set of `CountryRule` s to control which destination countries End User Messaging  can send your VOICE messages to.
         """
         return pulumi.get(self, "voice")
 
     @voice.setter
-    def voice(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProtectConfigurationCountryRuleArgs']]]]):
+    def voice(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ProtectConfigurationCountryRuleArgs']]]]):
         pulumi.set(self, "voice", value)
 
 
@@ -644,11 +644,11 @@ class TwoWayPropertiesArgsDict(TypedDict):
     """
     By default this is set to false. When set to true you can receive incoming text messages from your end recipients.
     """
-    channel_arn: NotRequired[pulumi.Input[_builtins.str]]
+    channel_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon Resource Name (ARN) of the two way channel.
     """
-    channel_role: NotRequired[pulumi.Input[_builtins.str]]
+    channel_role: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     An optional IAM Role Arn for a service to assume, to be able to post inbound SMS messages.
     """
@@ -657,8 +657,8 @@ class TwoWayPropertiesArgsDict(TypedDict):
 class TwoWayPropertiesArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[_builtins.bool],
-                 channel_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 channel_role: Optional[pulumi.Input[_builtins.str]] = None):
+                 channel_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 channel_role: pulumi.Input[Optional[_builtins.str]] = None):
         """
         When you set up two-way SMS, you can receive incoming messages from your customers. When one of your customers sends a message to your phone number, the message body is sent to an Amazon SNS topic or Amazon Connect for processing.
 
@@ -686,26 +686,26 @@ class TwoWayPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="channelArn")
-    def channel_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def channel_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the two way channel.
         """
         return pulumi.get(self, "channel_arn")
 
     @channel_arn.setter
-    def channel_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def channel_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "channel_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="channelRole")
-    def channel_role(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def channel_role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An optional IAM Role Arn for a service to assume, to be able to post inbound SMS messages.
         """
         return pulumi.get(self, "channel_role")
 
     @channel_role.setter
-    def channel_role(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def channel_role(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "channel_role", value)
 
 

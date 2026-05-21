@@ -23,9 +23,9 @@ class ApiDestinationArgs:
                  connection_arn: pulumi.Input[_builtins.str],
                  http_method: pulumi.Input['ApiDestinationHttpMethod'],
                  invocation_endpoint: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 invocation_rate_limit_per_second: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 invocation_rate_limit_per_second: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ApiDestination resource.
 
@@ -84,38 +84,38 @@ class ApiDestinationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description for the API destination to create.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="invocationRateLimitPerSecond")
-    def invocation_rate_limit_per_second(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def invocation_rate_limit_per_second(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of requests per second to send to the HTTP invocation endpoint.
         """
         return pulumi.get(self, "invocation_rate_limit_per_second")
 
     @invocation_rate_limit_per_second.setter
-    def invocation_rate_limit_per_second(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def invocation_rate_limit_per_second(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "invocation_rate_limit_per_second", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the apiDestination.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -125,12 +125,12 @@ class ApiDestination(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connection_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 http_method: Optional[pulumi.Input['ApiDestinationHttpMethod']] = None,
-                 invocation_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 invocation_rate_limit_per_second: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 connection_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 http_method: pulumi.Input[Optional['ApiDestinationHttpMethod']] = None,
+                 invocation_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 invocation_rate_limit_per_second: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Events::ApiDestination.
@@ -170,12 +170,12 @@ class ApiDestination(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connection_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 http_method: Optional[pulumi.Input['ApiDestinationHttpMethod']] = None,
-                 invocation_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 invocation_rate_limit_per_second: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 connection_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 http_method: pulumi.Input[Optional['ApiDestinationHttpMethod']] = None,
+                 invocation_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 invocation_rate_limit_per_second: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

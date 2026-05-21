@@ -27,10 +27,10 @@ class StorageSystemArgs:
                  agent_arns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  server_configuration: pulumi.Input['StorageSystemServerConfigurationArgs'],
                  system_type: pulumi.Input['StorageSystemSystemType'],
-                 cloud_watch_log_group_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_credentials: Optional[pulumi.Input['StorageSystemServerCredentialsArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 cloud_watch_log_group_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_credentials: pulumi.Input[Optional['StorageSystemServerCredentialsArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a StorageSystem resource.
 
@@ -87,47 +87,47 @@ class StorageSystemArgs:
 
     @_builtins.property
     @pulumi.getter(name="cloudWatchLogGroupArn")
-    def cloud_watch_log_group_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cloud_watch_log_group_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the Amazon CloudWatch log group used to monitor and log discovery job events.
         """
         return pulumi.get(self, "cloud_watch_log_group_arn")
 
     @cloud_watch_log_group_arn.setter
-    def cloud_watch_log_group_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cloud_watch_log_group_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cloud_watch_log_group_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A familiar name for the on-premises storage system.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="serverCredentials")
-    def server_credentials(self) -> Optional[pulumi.Input['StorageSystemServerCredentialsArgs']]:
+    def server_credentials(self) -> pulumi.Input[Optional['StorageSystemServerCredentialsArgs']]:
         return pulumi.get(self, "server_credentials")
 
     @server_credentials.setter
-    def server_credentials(self, value: Optional[pulumi.Input['StorageSystemServerCredentialsArgs']]):
+    def server_credentials(self, value: pulumi.Input[Optional['StorageSystemServerCredentialsArgs']]):
         pulumi.set(self, "server_credentials", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -137,13 +137,13 @@ class StorageSystem(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 cloud_watch_log_group_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_configuration: Optional[pulumi.Input[Union['StorageSystemServerConfigurationArgs', 'StorageSystemServerConfigurationArgsDict']]] = None,
-                 server_credentials: Optional[pulumi.Input[Union['StorageSystemServerCredentialsArgs', 'StorageSystemServerCredentialsArgsDict']]] = None,
-                 system_type: Optional[pulumi.Input['StorageSystemSystemType']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 agent_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cloud_watch_log_group_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_configuration: pulumi.Input[Optional[Union['StorageSystemServerConfigurationArgs', 'StorageSystemServerConfigurationArgsDict']]] = None,
+                 server_credentials: pulumi.Input[Optional[Union['StorageSystemServerCredentialsArgs', 'StorageSystemServerCredentialsArgsDict']]] = None,
+                 system_type: pulumi.Input[Optional['StorageSystemSystemType']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::DataSync::StorageSystem.
@@ -182,13 +182,13 @@ class StorageSystem(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 cloud_watch_log_group_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_configuration: Optional[pulumi.Input[Union['StorageSystemServerConfigurationArgs', 'StorageSystemServerConfigurationArgsDict']]] = None,
-                 server_credentials: Optional[pulumi.Input[Union['StorageSystemServerCredentialsArgs', 'StorageSystemServerCredentialsArgsDict']]] = None,
-                 system_type: Optional[pulumi.Input['StorageSystemSystemType']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 agent_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cloud_watch_log_group_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_configuration: pulumi.Input[Optional[Union['StorageSystemServerConfigurationArgs', 'StorageSystemServerConfigurationArgsDict']]] = None,
+                 server_credentials: pulumi.Input[Optional[Union['StorageSystemServerCredentialsArgs', 'StorageSystemServerCredentialsArgsDict']]] = None,
+                 system_type: pulumi.Input[Optional['StorageSystemSystemType']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

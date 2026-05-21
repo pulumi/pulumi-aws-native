@@ -118,7 +118,7 @@ def get_location_nfs(location_arn: Optional[_builtins.str] = None,
         mount_options=pulumi.get(__ret__, 'mount_options'),
         on_prem_config=pulumi.get(__ret__, 'on_prem_config'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_location_nfs_output(location_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_location_nfs_output(location_arn: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocationNfsResult]:
     """
     Resource schema for AWS::DataSync::LocationNFS

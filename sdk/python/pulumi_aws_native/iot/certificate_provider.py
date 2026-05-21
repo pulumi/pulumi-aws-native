@@ -24,8 +24,8 @@ class CertificateProviderArgs:
     def __init__(__self__, *,
                  account_default_for_operations: pulumi.Input[Sequence[pulumi.Input['CertificateProviderOperation']]],
                  lambda_function_arn: pulumi.Input[_builtins.str],
-                 certificate_provider_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 certificate_provider_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a CertificateProvider resource.
 
@@ -67,26 +67,26 @@ class CertificateProviderArgs:
 
     @_builtins.property
     @pulumi.getter(name="certificateProviderName")
-    def certificate_provider_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_provider_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the certificate provider.
         """
         return pulumi.get(self, "certificate_provider_name")
 
     @certificate_provider_name.setter
-    def certificate_provider_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_provider_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_provider_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -96,10 +96,10 @@ class CertificateProvider(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_default_for_operations: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateProviderOperation']]]] = None,
-                 certificate_provider_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 lambda_function_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 account_default_for_operations: pulumi.Input[Optional[Sequence[pulumi.Input['CertificateProviderOperation']]]] = None,
+                 certificate_provider_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 lambda_function_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Use the AWS::IoT::CertificateProvider resource to declare an AWS IoT Certificate Provider.
@@ -137,10 +137,10 @@ class CertificateProvider(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_default_for_operations: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateProviderOperation']]]] = None,
-                 certificate_provider_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 lambda_function_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 account_default_for_operations: pulumi.Input[Optional[Sequence[pulumi.Input['CertificateProviderOperation']]]] = None,
+                 certificate_provider_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 lambda_function_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

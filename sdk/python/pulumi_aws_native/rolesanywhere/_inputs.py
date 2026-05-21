@@ -114,13 +114,13 @@ class TrustAnchorNotificationSettingArgsDict(TypedDict):
     """
     The event to which this notification setting is applied.
     """
-    channel: NotRequired[pulumi.Input['TrustAnchorNotificationChannel']]
+    channel: NotRequired[pulumi.Input[Optional['TrustAnchorNotificationChannel']]]
     """
     The specified channel of notification. IAM Roles Anywhere uses CloudWatch metrics, EventBridge, and Health Dashboard to notify for an event.
 
     > In the absence of a specific channel, IAM Roles Anywhere applies this setting to 'ALL' channels.
     """
-    threshold: NotRequired[pulumi.Input[_builtins.float]]
+    threshold: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The number of days before a notification event. This value is required for a notification setting that is enabled.
     """
@@ -130,8 +130,8 @@ class TrustAnchorNotificationSettingArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[_builtins.bool],
                  event: pulumi.Input['TrustAnchorNotificationEvent'],
-                 channel: Optional[pulumi.Input['TrustAnchorNotificationChannel']] = None,
-                 threshold: Optional[pulumi.Input[_builtins.float]] = None):
+                 channel: pulumi.Input[Optional['TrustAnchorNotificationChannel']] = None,
+                 threshold: pulumi.Input[Optional[_builtins.float]] = None):
         """
         :param pulumi.Input[_builtins.bool] enabled: Indicates whether the notification setting is enabled.
         :param pulumi.Input['TrustAnchorNotificationEvent'] event: The event to which this notification setting is applied.
@@ -173,7 +173,7 @@ class TrustAnchorNotificationSettingArgs:
 
     @_builtins.property
     @pulumi.getter
-    def channel(self) -> Optional[pulumi.Input['TrustAnchorNotificationChannel']]:
+    def channel(self) -> pulumi.Input[Optional['TrustAnchorNotificationChannel']]:
         """
         The specified channel of notification. IAM Roles Anywhere uses CloudWatch metrics, EventBridge, and Health Dashboard to notify for an event.
 
@@ -182,19 +182,19 @@ class TrustAnchorNotificationSettingArgs:
         return pulumi.get(self, "channel")
 
     @channel.setter
-    def channel(self, value: Optional[pulumi.Input['TrustAnchorNotificationChannel']]):
+    def channel(self, value: pulumi.Input[Optional['TrustAnchorNotificationChannel']]):
         pulumi.set(self, "channel", value)
 
     @_builtins.property
     @pulumi.getter
-    def threshold(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def threshold(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The number of days before a notification event. This value is required for a notification setting that is enabled.
         """
         return pulumi.get(self, "threshold")
 
     @threshold.setter
-    def threshold(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def threshold(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "threshold", value)
 
 

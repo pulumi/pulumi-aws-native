@@ -21,11 +21,11 @@ __all__ = ['TrustStoreArgs', 'TrustStore']
 @pulumi.input_type
 class TrustStoreArgs:
     def __init__(__self__, *,
-                 ca_certificates_bundle_s3_bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                 ca_certificates_bundle_s3_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 ca_certificates_bundle_s3_object_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 ca_certificates_bundle_s3_bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 ca_certificates_bundle_s3_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 ca_certificates_bundle_s3_object_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a TrustStore resource.
 
@@ -48,62 +48,62 @@ class TrustStoreArgs:
 
     @_builtins.property
     @pulumi.getter(name="caCertificatesBundleS3Bucket")
-    def ca_certificates_bundle_s3_bucket(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ca_certificates_bundle_s3_bucket(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the S3 bucket to fetch the CA certificate bundle from.
         """
         return pulumi.get(self, "ca_certificates_bundle_s3_bucket")
 
     @ca_certificates_bundle_s3_bucket.setter
-    def ca_certificates_bundle_s3_bucket(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ca_certificates_bundle_s3_bucket(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ca_certificates_bundle_s3_bucket", value)
 
     @_builtins.property
     @pulumi.getter(name="caCertificatesBundleS3Key")
-    def ca_certificates_bundle_s3_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ca_certificates_bundle_s3_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the S3 object to fetch the CA certificate bundle from.
         """
         return pulumi.get(self, "ca_certificates_bundle_s3_key")
 
     @ca_certificates_bundle_s3_key.setter
-    def ca_certificates_bundle_s3_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ca_certificates_bundle_s3_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ca_certificates_bundle_s3_key", value)
 
     @_builtins.property
     @pulumi.getter(name="caCertificatesBundleS3ObjectVersion")
-    def ca_certificates_bundle_s3_object_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ca_certificates_bundle_s3_object_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the S3 bucket that contains the CA certificate bundle.
         """
         return pulumi.get(self, "ca_certificates_bundle_s3_object_version")
 
     @ca_certificates_bundle_s3_object_version.setter
-    def ca_certificates_bundle_s3_object_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ca_certificates_bundle_s3_object_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ca_certificates_bundle_s3_object_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the trust store.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags to assign to the trust store.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -113,11 +113,11 @@ class TrustStore(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 ca_certificates_bundle_s3_bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                 ca_certificates_bundle_s3_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 ca_certificates_bundle_s3_object_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 ca_certificates_bundle_s3_bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 ca_certificates_bundle_s3_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 ca_certificates_bundle_s3_object_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::ElasticLoadBalancingV2::TrustStore
@@ -156,11 +156,11 @@ class TrustStore(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 ca_certificates_bundle_s3_bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                 ca_certificates_bundle_s3_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 ca_certificates_bundle_s3_object_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 ca_certificates_bundle_s3_bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 ca_certificates_bundle_s3_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 ca_certificates_bundle_s3_object_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

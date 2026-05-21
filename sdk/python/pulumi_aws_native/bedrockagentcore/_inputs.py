@@ -362,13 +362,13 @@ class BrowserCustomBrowserNetworkConfigurationArgsDict(TypedDict):
     """
     The network mode.
     """
-    vpc_config: NotRequired[pulumi.Input['BrowserCustomVpcConfigArgsDict']]
+    vpc_config: NotRequired[pulumi.Input[Optional['BrowserCustomVpcConfigArgsDict']]]
 
 @pulumi.input_type
 class BrowserCustomBrowserNetworkConfigurationArgs:
     def __init__(__self__, *,
                  network_mode: pulumi.Input['BrowserCustomBrowserNetworkMode'],
-                 vpc_config: Optional[pulumi.Input['BrowserCustomVpcConfigArgs']] = None):
+                 vpc_config: pulumi.Input[Optional['BrowserCustomVpcConfigArgs']] = None):
         """
         Network configuration for browser
 
@@ -392,11 +392,11 @@ class BrowserCustomBrowserNetworkConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="vpcConfig")
-    def vpc_config(self) -> Optional[pulumi.Input['BrowserCustomVpcConfigArgs']]:
+    def vpc_config(self) -> pulumi.Input[Optional['BrowserCustomVpcConfigArgs']]:
         return pulumi.get(self, "vpc_config")
 
     @vpc_config.setter
-    def vpc_config(self, value: Optional[pulumi.Input['BrowserCustomVpcConfigArgs']]):
+    def vpc_config(self, value: pulumi.Input[Optional['BrowserCustomVpcConfigArgs']]):
         pulumi.set(self, "vpc_config", value)
 
 
@@ -404,12 +404,12 @@ class BrowserCustomBrowserSigningArgsDict(TypedDict):
     """
     Browser signing configuration
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
 
 @pulumi.input_type
 class BrowserCustomBrowserSigningArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Browser signing configuration
         """
@@ -418,11 +418,11 @@ class BrowserCustomBrowserSigningArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
 
@@ -496,11 +496,11 @@ class BrowserCustomRecordingConfigArgsDict(TypedDict):
     """
     Recording configuration for browser
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     The recording configuration for a browser. This structure defines how browser sessions are recorded.
     """
-    s3_location: NotRequired[pulumi.Input['BrowserCustomS3LocationArgsDict']]
+    s3_location: NotRequired[pulumi.Input[Optional['BrowserCustomS3LocationArgsDict']]]
     """
     The S3 location.
     """
@@ -508,8 +508,8 @@ class BrowserCustomRecordingConfigArgsDict(TypedDict):
 @pulumi.input_type
 class BrowserCustomRecordingConfigArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 s3_location: Optional[pulumi.Input['BrowserCustomS3LocationArgs']] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 s3_location: pulumi.Input[Optional['BrowserCustomS3LocationArgs']] = None):
         """
         Recording configuration for browser
 
@@ -523,26 +523,26 @@ class BrowserCustomRecordingConfigArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The recording configuration for a browser. This structure defines how browser sessions are recorded.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="s3Location")
-    def s3_location(self) -> Optional[pulumi.Input['BrowserCustomS3LocationArgs']]:
+    def s3_location(self) -> pulumi.Input[Optional['BrowserCustomS3LocationArgs']]:
         """
         The S3 location.
         """
         return pulumi.get(self, "s3_location")
 
     @s3_location.setter
-    def s3_location(self, value: Optional[pulumi.Input['BrowserCustomS3LocationArgs']]):
+    def s3_location(self, value: pulumi.Input[Optional['BrowserCustomS3LocationArgs']]):
         pulumi.set(self, "s3_location", value)
 
 
@@ -694,13 +694,13 @@ class CodeInterpreterCustomCodeInterpreterNetworkConfigurationArgsDict(TypedDict
     """
     The network mode.
     """
-    vpc_config: NotRequired[pulumi.Input['CodeInterpreterCustomVpcConfigArgsDict']]
+    vpc_config: NotRequired[pulumi.Input[Optional['CodeInterpreterCustomVpcConfigArgsDict']]]
 
 @pulumi.input_type
 class CodeInterpreterCustomCodeInterpreterNetworkConfigurationArgs:
     def __init__(__self__, *,
                  network_mode: pulumi.Input['CodeInterpreterCustomCodeInterpreterNetworkMode'],
-                 vpc_config: Optional[pulumi.Input['CodeInterpreterCustomVpcConfigArgs']] = None):
+                 vpc_config: pulumi.Input[Optional['CodeInterpreterCustomVpcConfigArgs']] = None):
         """
         Network configuration for code interpreter
 
@@ -724,11 +724,11 @@ class CodeInterpreterCustomCodeInterpreterNetworkConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="vpcConfig")
-    def vpc_config(self) -> Optional[pulumi.Input['CodeInterpreterCustomVpcConfigArgs']]:
+    def vpc_config(self) -> pulumi.Input[Optional['CodeInterpreterCustomVpcConfigArgs']]:
         return pulumi.get(self, "vpc_config")
 
     @vpc_config.setter
-    def vpc_config(self, value: Optional[pulumi.Input['CodeInterpreterCustomVpcConfigArgs']]):
+    def vpc_config(self, value: pulumi.Input[Optional['CodeInterpreterCustomVpcConfigArgs']]):
         pulumi.set(self, "vpc_config", value)
 
 
@@ -781,14 +781,14 @@ class EvaluatorBedrockEvaluatorModelConfigArgsDict(TypedDict):
     """
     Additional model-specific request fields.
     """
-    inference_config: NotRequired[pulumi.Input['EvaluatorInferenceConfigurationArgsDict']]
+    inference_config: NotRequired[pulumi.Input[Optional['EvaluatorInferenceConfigurationArgsDict']]]
 
 @pulumi.input_type
 class EvaluatorBedrockEvaluatorModelConfigArgs:
     def __init__(__self__, *,
                  model_id: pulumi.Input[_builtins.str],
                  additional_model_request_fields: Optional[Any] = None,
-                 inference_config: Optional[pulumi.Input['EvaluatorInferenceConfigurationArgs']] = None):
+                 inference_config: pulumi.Input[Optional['EvaluatorInferenceConfigurationArgs']] = None):
         """
         The configuration for using Amazon Bedrock models in evaluator assessments.
 
@@ -827,11 +827,11 @@ class EvaluatorBedrockEvaluatorModelConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="inferenceConfig")
-    def inference_config(self) -> Optional[pulumi.Input['EvaluatorInferenceConfigurationArgs']]:
+    def inference_config(self) -> pulumi.Input[Optional['EvaluatorInferenceConfigurationArgs']]:
         return pulumi.get(self, "inference_config")
 
     @inference_config.setter
-    def inference_config(self, value: Optional[pulumi.Input['EvaluatorInferenceConfigurationArgs']]):
+    def inference_config(self, value: pulumi.Input[Optional['EvaluatorInferenceConfigurationArgs']]):
         pulumi.set(self, "inference_config", value)
 
 
@@ -916,14 +916,14 @@ class EvaluatorConfigArgsDict(TypedDict):
     """
     The configuration that defines how an evaluator assesses agent performance.
     """
-    code_based: NotRequired[pulumi.Input['EvaluatorCodeBasedEvaluatorConfigArgsDict']]
-    llm_as_a_judge: NotRequired[pulumi.Input['EvaluatorLlmAsAJudgeEvaluatorConfigArgsDict']]
+    code_based: NotRequired[pulumi.Input[Optional['EvaluatorCodeBasedEvaluatorConfigArgsDict']]]
+    llm_as_a_judge: NotRequired[pulumi.Input[Optional['EvaluatorLlmAsAJudgeEvaluatorConfigArgsDict']]]
 
 @pulumi.input_type
 class EvaluatorConfigArgs:
     def __init__(__self__, *,
-                 code_based: Optional[pulumi.Input['EvaluatorCodeBasedEvaluatorConfigArgs']] = None,
-                 llm_as_a_judge: Optional[pulumi.Input['EvaluatorLlmAsAJudgeEvaluatorConfigArgs']] = None):
+                 code_based: pulumi.Input[Optional['EvaluatorCodeBasedEvaluatorConfigArgs']] = None,
+                 llm_as_a_judge: pulumi.Input[Optional['EvaluatorLlmAsAJudgeEvaluatorConfigArgs']] = None):
         """
         The configuration that defines how an evaluator assesses agent performance.
         """
@@ -934,20 +934,20 @@ class EvaluatorConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="codeBased")
-    def code_based(self) -> Optional[pulumi.Input['EvaluatorCodeBasedEvaluatorConfigArgs']]:
+    def code_based(self) -> pulumi.Input[Optional['EvaluatorCodeBasedEvaluatorConfigArgs']]:
         return pulumi.get(self, "code_based")
 
     @code_based.setter
-    def code_based(self, value: Optional[pulumi.Input['EvaluatorCodeBasedEvaluatorConfigArgs']]):
+    def code_based(self, value: pulumi.Input[Optional['EvaluatorCodeBasedEvaluatorConfigArgs']]):
         pulumi.set(self, "code_based", value)
 
     @_builtins.property
     @pulumi.getter(name="llmAsAJudge")
-    def llm_as_a_judge(self) -> Optional[pulumi.Input['EvaluatorLlmAsAJudgeEvaluatorConfigArgs']]:
+    def llm_as_a_judge(self) -> pulumi.Input[Optional['EvaluatorLlmAsAJudgeEvaluatorConfigArgs']]:
         return pulumi.get(self, "llm_as_a_judge")
 
     @llm_as_a_judge.setter
-    def llm_as_a_judge(self, value: Optional[pulumi.Input['EvaluatorLlmAsAJudgeEvaluatorConfigArgs']]):
+    def llm_as_a_judge(self, value: pulumi.Input[Optional['EvaluatorLlmAsAJudgeEvaluatorConfigArgs']]):
         pulumi.set(self, "llm_as_a_judge", value)
 
 
@@ -955,15 +955,15 @@ class EvaluatorInferenceConfigurationArgsDict(TypedDict):
     """
     The inference configuration parameters that control model behavior during evaluation.
     """
-    max_tokens: NotRequired[pulumi.Input[_builtins.int]]
+    max_tokens: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum number of tokens to generate in the model response.
     """
-    temperature: NotRequired[pulumi.Input[_builtins.float]]
+    temperature: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The temperature value that controls randomness in the model's responses.
     """
-    top_p: NotRequired[pulumi.Input[_builtins.float]]
+    top_p: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The top-p sampling parameter that controls the diversity of the model's responses.
     """
@@ -971,9 +971,9 @@ class EvaluatorInferenceConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class EvaluatorInferenceConfigurationArgs:
     def __init__(__self__, *,
-                 max_tokens: Optional[pulumi.Input[_builtins.int]] = None,
-                 temperature: Optional[pulumi.Input[_builtins.float]] = None,
-                 top_p: Optional[pulumi.Input[_builtins.float]] = None):
+                 max_tokens: pulumi.Input[Optional[_builtins.int]] = None,
+                 temperature: pulumi.Input[Optional[_builtins.float]] = None,
+                 top_p: pulumi.Input[Optional[_builtins.float]] = None):
         """
         The inference configuration parameters that control model behavior during evaluation.
 
@@ -990,38 +990,38 @@ class EvaluatorInferenceConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="maxTokens")
-    def max_tokens(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_tokens(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of tokens to generate in the model response.
         """
         return pulumi.get(self, "max_tokens")
 
     @max_tokens.setter
-    def max_tokens(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_tokens(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_tokens", value)
 
     @_builtins.property
     @pulumi.getter
-    def temperature(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def temperature(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The temperature value that controls randomness in the model's responses.
         """
         return pulumi.get(self, "temperature")
 
     @temperature.setter
-    def temperature(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def temperature(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "temperature", value)
 
     @_builtins.property
     @pulumi.getter(name="topP")
-    def top_p(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def top_p(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The top-p sampling parameter that controls the diversity of the model's responses.
         """
         return pulumi.get(self, "top_p")
 
     @top_p.setter
-    def top_p(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def top_p(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "top_p", value)
 
 
@@ -1033,7 +1033,7 @@ class EvaluatorLambdaEvaluatorConfigArgsDict(TypedDict):
     """
     The ARN of the Lambda function used for evaluation.
     """
-    lambda_timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    lambda_timeout_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The timeout in seconds for the Lambda function invocation.
     """
@@ -1042,7 +1042,7 @@ class EvaluatorLambdaEvaluatorConfigArgsDict(TypedDict):
 class EvaluatorLambdaEvaluatorConfigArgs:
     def __init__(__self__, *,
                  lambda_arn: pulumi.Input[_builtins.str],
-                 lambda_timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None):
+                 lambda_timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The Lambda function configuration for code-based evaluation.
 
@@ -1067,14 +1067,14 @@ class EvaluatorLambdaEvaluatorConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="lambdaTimeoutInSeconds")
-    def lambda_timeout_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def lambda_timeout_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The timeout in seconds for the Lambda function invocation.
         """
         return pulumi.get(self, "lambda_timeout_in_seconds")
 
     @lambda_timeout_in_seconds.setter
-    def lambda_timeout_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def lambda_timeout_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "lambda_timeout_in_seconds", value)
 
 
@@ -1235,14 +1235,14 @@ class EvaluatorRatingScaleArgsDict(TypedDict):
     """
     The rating scale that defines how evaluators should score agent performance.
     """
-    categorical: NotRequired[pulumi.Input[Sequence[pulumi.Input['EvaluatorCategoricalScaleDefinitionArgsDict']]]]
-    numerical: NotRequired[pulumi.Input[Sequence[pulumi.Input['EvaluatorNumericalScaleDefinitionArgsDict']]]]
+    categorical: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EvaluatorCategoricalScaleDefinitionArgsDict']]]]]
+    numerical: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EvaluatorNumericalScaleDefinitionArgsDict']]]]]
 
 @pulumi.input_type
 class EvaluatorRatingScaleArgs:
     def __init__(__self__, *,
-                 categorical: Optional[pulumi.Input[Sequence[pulumi.Input['EvaluatorCategoricalScaleDefinitionArgs']]]] = None,
-                 numerical: Optional[pulumi.Input[Sequence[pulumi.Input['EvaluatorNumericalScaleDefinitionArgs']]]] = None):
+                 categorical: pulumi.Input[Optional[Sequence[pulumi.Input['EvaluatorCategoricalScaleDefinitionArgs']]]] = None,
+                 numerical: pulumi.Input[Optional[Sequence[pulumi.Input['EvaluatorNumericalScaleDefinitionArgs']]]] = None):
         """
         The rating scale that defines how evaluators should score agent performance.
         """
@@ -1253,20 +1253,20 @@ class EvaluatorRatingScaleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def categorical(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EvaluatorCategoricalScaleDefinitionArgs']]]]:
+    def categorical(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EvaluatorCategoricalScaleDefinitionArgs']]]]:
         return pulumi.get(self, "categorical")
 
     @categorical.setter
-    def categorical(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EvaluatorCategoricalScaleDefinitionArgs']]]]):
+    def categorical(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EvaluatorCategoricalScaleDefinitionArgs']]]]):
         pulumi.set(self, "categorical", value)
 
     @_builtins.property
     @pulumi.getter
-    def numerical(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EvaluatorNumericalScaleDefinitionArgs']]]]:
+    def numerical(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EvaluatorNumericalScaleDefinitionArgs']]]]:
         return pulumi.get(self, "numerical")
 
     @numerical.setter
-    def numerical(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EvaluatorNumericalScaleDefinitionArgs']]]]):
+    def numerical(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EvaluatorNumericalScaleDefinitionArgs']]]]):
         pulumi.set(self, "numerical", value)
 
 
@@ -1330,14 +1330,14 @@ class GatewayClaimMatchValueTypeArgsDict(TypedDict):
     """
     The value or values in the custom claim to match for
     """
-    match_value_string: NotRequired[pulumi.Input[_builtins.str]]
-    match_value_string_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    match_value_string: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    match_value_string_list: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
 
 @pulumi.input_type
 class GatewayClaimMatchValueTypeArgs:
     def __init__(__self__, *,
-                 match_value_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 match_value_string_list: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 match_value_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 match_value_string_list: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The value or values in the custom claim to match for
         """
@@ -1348,20 +1348,20 @@ class GatewayClaimMatchValueTypeArgs:
 
     @_builtins.property
     @pulumi.getter(name="matchValueString")
-    def match_value_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def match_value_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "match_value_string")
 
     @match_value_string.setter
-    def match_value_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def match_value_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "match_value_string", value)
 
     @_builtins.property
     @pulumi.getter(name="matchValueStringList")
-    def match_value_string_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def match_value_string_list(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "match_value_string_list")
 
     @match_value_string_list.setter
-    def match_value_string_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def match_value_string_list(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "match_value_string_list", value)
 
 
@@ -1416,19 +1416,19 @@ class GatewayCustomClaimValidationTypeArgs:
 
 class GatewayCustomJwtAuthorizerConfigurationArgsDict(TypedDict):
     discovery_url: pulumi.Input[_builtins.str]
-    allowed_audience: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    allowed_clients: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    allowed_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    custom_claims: NotRequired[pulumi.Input[Sequence[pulumi.Input['GatewayCustomClaimValidationTypeArgsDict']]]]
+    allowed_audience: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    allowed_clients: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    allowed_scopes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    custom_claims: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['GatewayCustomClaimValidationTypeArgsDict']]]]]
 
 @pulumi.input_type
 class GatewayCustomJwtAuthorizerConfigurationArgs:
     def __init__(__self__, *,
                  discovery_url: pulumi.Input[_builtins.str],
-                 allowed_audience: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 allowed_clients: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 allowed_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 custom_claims: Optional[pulumi.Input[Sequence[pulumi.Input['GatewayCustomClaimValidationTypeArgs']]]] = None):
+                 allowed_audience: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allowed_clients: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allowed_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 custom_claims: pulumi.Input[Optional[Sequence[pulumi.Input['GatewayCustomClaimValidationTypeArgs']]]] = None):
         pulumi.set(__self__, "discovery_url", discovery_url)
         if allowed_audience is not None:
             pulumi.set(__self__, "allowed_audience", allowed_audience)
@@ -1450,52 +1450,52 @@ class GatewayCustomJwtAuthorizerConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowedAudience")
-    def allowed_audience(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_audience(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "allowed_audience")
 
     @allowed_audience.setter
-    def allowed_audience(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_audience(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_audience", value)
 
     @_builtins.property
     @pulumi.getter(name="allowedClients")
-    def allowed_clients(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_clients(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "allowed_clients")
 
     @allowed_clients.setter
-    def allowed_clients(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_clients(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_clients", value)
 
     @_builtins.property
     @pulumi.getter(name="allowedScopes")
-    def allowed_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_scopes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "allowed_scopes")
 
     @allowed_scopes.setter
-    def allowed_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_scopes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_scopes", value)
 
     @_builtins.property
     @pulumi.getter(name="customClaims")
-    def custom_claims(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GatewayCustomClaimValidationTypeArgs']]]]:
+    def custom_claims(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['GatewayCustomClaimValidationTypeArgs']]]]:
         return pulumi.get(self, "custom_claims")
 
     @custom_claims.setter
-    def custom_claims(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GatewayCustomClaimValidationTypeArgs']]]]):
+    def custom_claims(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['GatewayCustomClaimValidationTypeArgs']]]]):
         pulumi.set(self, "custom_claims", value)
 
 
 class GatewayInterceptorConfigurationArgsDict(TypedDict):
     interception_points: pulumi.Input[Sequence[pulumi.Input['GatewayInterceptionPoint']]]
     interceptor: pulumi.Input['InterceptorConfigurationPropertiesArgsDict']
-    input_configuration: NotRequired[pulumi.Input['GatewayInterceptorInputConfigurationArgsDict']]
+    input_configuration: NotRequired[pulumi.Input[Optional['GatewayInterceptorInputConfigurationArgsDict']]]
 
 @pulumi.input_type
 class GatewayInterceptorConfigurationArgs:
     def __init__(__self__, *,
                  interception_points: pulumi.Input[Sequence[pulumi.Input['GatewayInterceptionPoint']]],
                  interceptor: pulumi.Input['InterceptorConfigurationPropertiesArgs'],
-                 input_configuration: Optional[pulumi.Input['GatewayInterceptorInputConfigurationArgs']] = None):
+                 input_configuration: pulumi.Input[Optional['GatewayInterceptorInputConfigurationArgs']] = None):
         pulumi.set(__self__, "interception_points", interception_points)
         pulumi.set(__self__, "interceptor", interceptor)
         if input_configuration is not None:
@@ -1521,11 +1521,11 @@ class GatewayInterceptorConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="inputConfiguration")
-    def input_configuration(self) -> Optional[pulumi.Input['GatewayInterceptorInputConfigurationArgs']]:
+    def input_configuration(self) -> pulumi.Input[Optional['GatewayInterceptorInputConfigurationArgs']]:
         return pulumi.get(self, "input_configuration")
 
     @input_configuration.setter
-    def input_configuration(self, value: Optional[pulumi.Input['GatewayInterceptorInputConfigurationArgs']]):
+    def input_configuration(self, value: pulumi.Input[Optional['GatewayInterceptorInputConfigurationArgs']]):
         pulumi.set(self, "input_configuration", value)
 
 
@@ -1568,16 +1568,16 @@ class GatewayLambdaInterceptorConfigurationArgs:
 
 
 class GatewayMcpGatewayConfigurationArgsDict(TypedDict):
-    instructions: NotRequired[pulumi.Input[_builtins.str]]
-    search_type: NotRequired[pulumi.Input['GatewaySearchType']]
-    supported_versions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    instructions: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    search_type: NotRequired[pulumi.Input[Optional['GatewaySearchType']]]
+    supported_versions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
 
 @pulumi.input_type
 class GatewayMcpGatewayConfigurationArgs:
     def __init__(__self__, *,
-                 instructions: Optional[pulumi.Input[_builtins.str]] = None,
-                 search_type: Optional[pulumi.Input['GatewaySearchType']] = None,
-                 supported_versions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 instructions: pulumi.Input[Optional[_builtins.str]] = None,
+                 search_type: pulumi.Input[Optional['GatewaySearchType']] = None,
+                 supported_versions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         if instructions is not None:
             pulumi.set(__self__, "instructions", instructions)
         if search_type is not None:
@@ -1587,29 +1587,29 @@ class GatewayMcpGatewayConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def instructions(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def instructions(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "instructions")
 
     @instructions.setter
-    def instructions(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def instructions(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "instructions", value)
 
     @_builtins.property
     @pulumi.getter(name="searchType")
-    def search_type(self) -> Optional[pulumi.Input['GatewaySearchType']]:
+    def search_type(self) -> pulumi.Input[Optional['GatewaySearchType']]:
         return pulumi.get(self, "search_type")
 
     @search_type.setter
-    def search_type(self, value: Optional[pulumi.Input['GatewaySearchType']]):
+    def search_type(self, value: pulumi.Input[Optional['GatewaySearchType']]):
         pulumi.set(self, "search_type", value)
 
     @_builtins.property
     @pulumi.getter(name="supportedVersions")
-    def supported_versions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def supported_versions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "supported_versions")
 
     @supported_versions.setter
-    def supported_versions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def supported_versions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "supported_versions", value)
 
 
@@ -1722,13 +1722,13 @@ class GatewayTargetApiGatewayTargetConfigurationArgs:
 
 class GatewayTargetApiGatewayToolConfigurationArgsDict(TypedDict):
     tool_filters: pulumi.Input[Sequence[pulumi.Input['GatewayTargetApiGatewayToolFilterArgsDict']]]
-    tool_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['GatewayTargetApiGatewayToolOverrideArgsDict']]]]
+    tool_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['GatewayTargetApiGatewayToolOverrideArgsDict']]]]]
 
 @pulumi.input_type
 class GatewayTargetApiGatewayToolConfigurationArgs:
     def __init__(__self__, *,
                  tool_filters: pulumi.Input[Sequence[pulumi.Input['GatewayTargetApiGatewayToolFilterArgs']]],
-                 tool_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['GatewayTargetApiGatewayToolOverrideArgs']]]] = None):
+                 tool_overrides: pulumi.Input[Optional[Sequence[pulumi.Input['GatewayTargetApiGatewayToolOverrideArgs']]]] = None):
         pulumi.set(__self__, "tool_filters", tool_filters)
         if tool_overrides is not None:
             pulumi.set(__self__, "tool_overrides", tool_overrides)
@@ -1744,11 +1744,11 @@ class GatewayTargetApiGatewayToolConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="toolOverrides")
-    def tool_overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GatewayTargetApiGatewayToolOverrideArgs']]]]:
+    def tool_overrides(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['GatewayTargetApiGatewayToolOverrideArgs']]]]:
         return pulumi.get(self, "tool_overrides")
 
     @tool_overrides.setter
-    def tool_overrides(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GatewayTargetApiGatewayToolOverrideArgs']]]]):
+    def tool_overrides(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['GatewayTargetApiGatewayToolOverrideArgs']]]]):
         pulumi.set(self, "tool_overrides", value)
 
 
@@ -1787,7 +1787,7 @@ class GatewayTargetApiGatewayToolOverrideArgsDict(TypedDict):
     method: pulumi.Input['GatewayTargetRestApiMethod']
     name: pulumi.Input[_builtins.str]
     path: pulumi.Input[_builtins.str]
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class GatewayTargetApiGatewayToolOverrideArgs:
@@ -1795,7 +1795,7 @@ class GatewayTargetApiGatewayToolOverrideArgs:
                  method: pulumi.Input['GatewayTargetRestApiMethod'],
                  name: pulumi.Input[_builtins.str],
                  path: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None):
         pulumi.set(__self__, "method", method)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "path", path)
@@ -1831,27 +1831,27 @@ class GatewayTargetApiGatewayToolOverrideArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
 
 class GatewayTargetApiKeyCredentialProviderArgsDict(TypedDict):
     provider_arn: pulumi.Input[_builtins.str]
-    credential_location: NotRequired[pulumi.Input['GatewayTargetApiKeyCredentialLocation']]
-    credential_parameter_name: NotRequired[pulumi.Input[_builtins.str]]
-    credential_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    credential_location: NotRequired[pulumi.Input[Optional['GatewayTargetApiKeyCredentialLocation']]]
+    credential_parameter_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    credential_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class GatewayTargetApiKeyCredentialProviderArgs:
     def __init__(__self__, *,
                  provider_arn: pulumi.Input[_builtins.str],
-                 credential_location: Optional[pulumi.Input['GatewayTargetApiKeyCredentialLocation']] = None,
-                 credential_parameter_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 credential_prefix: Optional[pulumi.Input[_builtins.str]] = None):
+                 credential_location: pulumi.Input[Optional['GatewayTargetApiKeyCredentialLocation']] = None,
+                 credential_parameter_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 credential_prefix: pulumi.Input[Optional[_builtins.str]] = None):
         pulumi.set(__self__, "provider_arn", provider_arn)
         if credential_location is not None:
             pulumi.set(__self__, "credential_location", credential_location)
@@ -1871,29 +1871,29 @@ class GatewayTargetApiKeyCredentialProviderArgs:
 
     @_builtins.property
     @pulumi.getter(name="credentialLocation")
-    def credential_location(self) -> Optional[pulumi.Input['GatewayTargetApiKeyCredentialLocation']]:
+    def credential_location(self) -> pulumi.Input[Optional['GatewayTargetApiKeyCredentialLocation']]:
         return pulumi.get(self, "credential_location")
 
     @credential_location.setter
-    def credential_location(self, value: Optional[pulumi.Input['GatewayTargetApiKeyCredentialLocation']]):
+    def credential_location(self, value: pulumi.Input[Optional['GatewayTargetApiKeyCredentialLocation']]):
         pulumi.set(self, "credential_location", value)
 
     @_builtins.property
     @pulumi.getter(name="credentialParameterName")
-    def credential_parameter_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def credential_parameter_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "credential_parameter_name")
 
     @credential_parameter_name.setter
-    def credential_parameter_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def credential_parameter_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "credential_parameter_name", value)
 
     @_builtins.property
     @pulumi.getter(name="credentialPrefix")
-    def credential_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def credential_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "credential_prefix")
 
     @credential_prefix.setter
-    def credential_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def credential_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "credential_prefix", value)
 
 
@@ -1997,7 +1997,7 @@ class GatewayTargetCredentialProviderConfigurationArgsDict(TypedDict):
     """
     The credential provider type for the gateway target.
     """
-    credential_provider: NotRequired[pulumi.Input[Union['GatewayTargetCredentialProvider0PropertiesArgsDict', 'GatewayTargetCredentialProvider1PropertiesArgsDict', 'GatewayTargetCredentialProvider2PropertiesArgsDict']]]
+    credential_provider: NotRequired[pulumi.Input[Optional[Union['GatewayTargetCredentialProvider0PropertiesArgsDict', 'GatewayTargetCredentialProvider1PropertiesArgsDict', 'GatewayTargetCredentialProvider2PropertiesArgsDict']]]]
     """
     The credential provider for the gateway target.
     """
@@ -2006,7 +2006,7 @@ class GatewayTargetCredentialProviderConfigurationArgsDict(TypedDict):
 class GatewayTargetCredentialProviderConfigurationArgs:
     def __init__(__self__, *,
                  credential_provider_type: pulumi.Input['GatewayTargetCredentialProviderType'],
-                 credential_provider: Optional[pulumi.Input[Union['GatewayTargetCredentialProvider0PropertiesArgs', 'GatewayTargetCredentialProvider1PropertiesArgs', 'GatewayTargetCredentialProvider2PropertiesArgs']]] = None):
+                 credential_provider: pulumi.Input[Optional[Union['GatewayTargetCredentialProvider0PropertiesArgs', 'GatewayTargetCredentialProvider1PropertiesArgs', 'GatewayTargetCredentialProvider2PropertiesArgs']]] = None):
         """
         :param pulumi.Input['GatewayTargetCredentialProviderType'] credential_provider_type: The credential provider type for the gateway target.
         :param pulumi.Input[Union['GatewayTargetCredentialProvider0PropertiesArgs', 'GatewayTargetCredentialProvider1PropertiesArgs', 'GatewayTargetCredentialProvider2PropertiesArgs']] credential_provider: The credential provider for the gateway target.
@@ -2029,26 +2029,26 @@ class GatewayTargetCredentialProviderConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="credentialProvider")
-    def credential_provider(self) -> Optional[pulumi.Input[Union['GatewayTargetCredentialProvider0PropertiesArgs', 'GatewayTargetCredentialProvider1PropertiesArgs', 'GatewayTargetCredentialProvider2PropertiesArgs']]]:
+    def credential_provider(self) -> pulumi.Input[Optional[Union['GatewayTargetCredentialProvider0PropertiesArgs', 'GatewayTargetCredentialProvider1PropertiesArgs', 'GatewayTargetCredentialProvider2PropertiesArgs']]]:
         """
         The credential provider for the gateway target.
         """
         return pulumi.get(self, "credential_provider")
 
     @credential_provider.setter
-    def credential_provider(self, value: Optional[pulumi.Input[Union['GatewayTargetCredentialProvider0PropertiesArgs', 'GatewayTargetCredentialProvider1PropertiesArgs', 'GatewayTargetCredentialProvider2PropertiesArgs']]]):
+    def credential_provider(self, value: pulumi.Input[Optional[Union['GatewayTargetCredentialProvider0PropertiesArgs', 'GatewayTargetCredentialProvider1PropertiesArgs', 'GatewayTargetCredentialProvider2PropertiesArgs']]]):
         pulumi.set(self, "credential_provider", value)
 
 
 class GatewayTargetIamCredentialProviderArgsDict(TypedDict):
     service: pulumi.Input[_builtins.str]
-    region: NotRequired[pulumi.Input[_builtins.str]]
+    region: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class GatewayTargetIamCredentialProviderArgs:
     def __init__(__self__, *,
                  service: pulumi.Input[_builtins.str],
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         pulumi.set(__self__, "service", service)
         if region is not None:
             pulumi.set(__self__, "region", region)
@@ -2064,11 +2064,11 @@ class GatewayTargetIamCredentialProviderArgs:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
@@ -2105,13 +2105,13 @@ class GatewayTargetMcpLambdaTargetConfigurationArgs:
 
 class GatewayTargetMcpServerTargetConfigurationArgsDict(TypedDict):
     endpoint: pulumi.Input[_builtins.str]
-    listing_mode: NotRequired[pulumi.Input['GatewayTargetMcpServerListingMode']]
+    listing_mode: NotRequired[pulumi.Input[Optional['GatewayTargetMcpServerListingMode']]]
 
 @pulumi.input_type
 class GatewayTargetMcpServerTargetConfigurationArgs:
     def __init__(__self__, *,
                  endpoint: pulumi.Input[_builtins.str],
-                 listing_mode: Optional[pulumi.Input['GatewayTargetMcpServerListingMode']] = None):
+                 listing_mode: pulumi.Input[Optional['GatewayTargetMcpServerListingMode']] = None):
         pulumi.set(__self__, "endpoint", endpoint)
         if listing_mode is not None:
             pulumi.set(__self__, "listing_mode", listing_mode)
@@ -2127,11 +2127,11 @@ class GatewayTargetMcpServerTargetConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="listingMode")
-    def listing_mode(self) -> Optional[pulumi.Input['GatewayTargetMcpServerListingMode']]:
+    def listing_mode(self) -> pulumi.Input[Optional['GatewayTargetMcpServerListingMode']]:
         return pulumi.get(self, "listing_mode")
 
     @listing_mode.setter
-    def listing_mode(self, value: Optional[pulumi.Input['GatewayTargetMcpServerListingMode']]):
+    def listing_mode(self, value: pulumi.Input[Optional['GatewayTargetMcpServerListingMode']]):
         pulumi.set(self, "listing_mode", value)
 
 
@@ -2231,16 +2231,16 @@ class GatewayTargetMcpTargetConfiguration4PropertiesArgs:
 
 
 class GatewayTargetMetadataConfigurationArgsDict(TypedDict):
-    allowed_query_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    allowed_request_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    allowed_response_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    allowed_query_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    allowed_request_headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    allowed_response_headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
 
 @pulumi.input_type
 class GatewayTargetMetadataConfigurationArgs:
     def __init__(__self__, *,
-                 allowed_query_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 allowed_request_headers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 allowed_response_headers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 allowed_query_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allowed_request_headers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allowed_response_headers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         if allowed_query_parameters is not None:
             pulumi.set(__self__, "allowed_query_parameters", allowed_query_parameters)
         if allowed_request_headers is not None:
@@ -2250,50 +2250,50 @@ class GatewayTargetMetadataConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowedQueryParameters")
-    def allowed_query_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_query_parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "allowed_query_parameters")
 
     @allowed_query_parameters.setter
-    def allowed_query_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_query_parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_query_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="allowedRequestHeaders")
-    def allowed_request_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_request_headers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "allowed_request_headers")
 
     @allowed_request_headers.setter
-    def allowed_request_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_request_headers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_request_headers", value)
 
     @_builtins.property
     @pulumi.getter(name="allowedResponseHeaders")
-    def allowed_response_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_response_headers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "allowed_response_headers")
 
     @allowed_response_headers.setter
-    def allowed_response_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_response_headers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_response_headers", value)
 
 
 class GatewayTargetOAuthCredentialProviderArgsDict(TypedDict):
     provider_arn: pulumi.Input[_builtins.str]
     scopes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-    custom_parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-    default_return_url: NotRequired[pulumi.Input[_builtins.str]]
+    custom_parameters: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
+    default_return_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Return URL for OAuth callback.
     """
-    grant_type: NotRequired[pulumi.Input['GatewayTargetOAuthGrantType']]
+    grant_type: NotRequired[pulumi.Input[Optional['GatewayTargetOAuthGrantType']]]
 
 @pulumi.input_type
 class GatewayTargetOAuthCredentialProviderArgs:
     def __init__(__self__, *,
                  provider_arn: pulumi.Input[_builtins.str],
                  scopes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 custom_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 default_return_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 grant_type: Optional[pulumi.Input['GatewayTargetOAuthGrantType']] = None):
+                 custom_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 default_return_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 grant_type: pulumi.Input[Optional['GatewayTargetOAuthGrantType']] = None):
         """
         :param pulumi.Input[_builtins.str] default_return_url: Return URL for OAuth callback.
         """
@@ -2326,44 +2326,44 @@ class GatewayTargetOAuthCredentialProviderArgs:
 
     @_builtins.property
     @pulumi.getter(name="customParameters")
-    def custom_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def custom_parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "custom_parameters")
 
     @custom_parameters.setter
-    def custom_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def custom_parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "custom_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultReturnUrl")
-    def default_return_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_return_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Return URL for OAuth callback.
         """
         return pulumi.get(self, "default_return_url")
 
     @default_return_url.setter
-    def default_return_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_return_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_return_url", value)
 
     @_builtins.property
     @pulumi.getter(name="grantType")
-    def grant_type(self) -> Optional[pulumi.Input['GatewayTargetOAuthGrantType']]:
+    def grant_type(self) -> pulumi.Input[Optional['GatewayTargetOAuthGrantType']]:
         return pulumi.get(self, "grant_type")
 
     @grant_type.setter
-    def grant_type(self, value: Optional[pulumi.Input['GatewayTargetOAuthGrantType']]):
+    def grant_type(self, value: pulumi.Input[Optional['GatewayTargetOAuthGrantType']]):
         pulumi.set(self, "grant_type", value)
 
 
 class GatewayTargetS3ConfigurationArgsDict(TypedDict):
-    bucket_owner_account_id: NotRequired[pulumi.Input[_builtins.str]]
-    uri: NotRequired[pulumi.Input[_builtins.str]]
+    bucket_owner_account_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class GatewayTargetS3ConfigurationArgs:
     def __init__(__self__, *,
-                 bucket_owner_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 uri: Optional[pulumi.Input[_builtins.str]] = None):
+                 bucket_owner_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 uri: pulumi.Input[Optional[_builtins.str]] = None):
         if bucket_owner_account_id is not None:
             pulumi.set(__self__, "bucket_owner_account_id", bucket_owner_account_id)
         if uri is not None:
@@ -2371,38 +2371,38 @@ class GatewayTargetS3ConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="bucketOwnerAccountId")
-    def bucket_owner_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bucket_owner_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "bucket_owner_account_id")
 
     @bucket_owner_account_id.setter
-    def bucket_owner_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bucket_owner_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bucket_owner_account_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "uri")
 
     @uri.setter
-    def uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "uri", value)
 
 
 class GatewayTargetSchemaDefinitionArgsDict(TypedDict):
     type: pulumi.Input['GatewayTargetSchemaType']
-    description: NotRequired[pulumi.Input[_builtins.str]]
-    items: NotRequired[pulumi.Input['GatewayTargetSchemaDefinitionArgsDict']]
-    properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['GatewayTargetSchemaDefinitionArgsDict']]]]
-    required: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    items: NotRequired[pulumi.Input[Optional['GatewayTargetSchemaDefinitionArgsDict']]]
+    properties: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input['GatewayTargetSchemaDefinitionArgsDict']]]]]
+    required: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
 
 @pulumi.input_type
 class GatewayTargetSchemaDefinitionArgs:
     def __init__(__self__, *,
                  type: pulumi.Input['GatewayTargetSchemaType'],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 items: Optional[pulumi.Input['GatewayTargetSchemaDefinitionArgs']] = None,
-                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input['GatewayTargetSchemaDefinitionArgs']]]] = None,
-                 required: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 items: pulumi.Input[Optional['GatewayTargetSchemaDefinitionArgs']] = None,
+                 properties: pulumi.Input[Optional[Mapping[str, pulumi.Input['GatewayTargetSchemaDefinitionArgs']]]] = None,
+                 required: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         pulumi.set(__self__, "type", type)
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -2424,38 +2424,38 @@ class GatewayTargetSchemaDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def items(self) -> Optional[pulumi.Input['GatewayTargetSchemaDefinitionArgs']]:
+    def items(self) -> pulumi.Input[Optional['GatewayTargetSchemaDefinitionArgs']]:
         return pulumi.get(self, "items")
 
     @items.setter
-    def items(self, value: Optional[pulumi.Input['GatewayTargetSchemaDefinitionArgs']]):
+    def items(self, value: pulumi.Input[Optional['GatewayTargetSchemaDefinitionArgs']]):
         pulumi.set(self, "items", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['GatewayTargetSchemaDefinitionArgs']]]]:
+    def properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['GatewayTargetSchemaDefinitionArgs']]]]:
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['GatewayTargetSchemaDefinitionArgs']]]]):
+    def properties(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['GatewayTargetSchemaDefinitionArgs']]]]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def required(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def required(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "required")
 
     @required.setter
-    def required(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def required(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "required", value)
 
 
@@ -2482,7 +2482,7 @@ class GatewayTargetToolDefinitionArgsDict(TypedDict):
     description: pulumi.Input[_builtins.str]
     input_schema: pulumi.Input['GatewayTargetSchemaDefinitionArgsDict']
     name: pulumi.Input[_builtins.str]
-    output_schema: NotRequired[pulumi.Input['GatewayTargetSchemaDefinitionArgsDict']]
+    output_schema: NotRequired[pulumi.Input[Optional['GatewayTargetSchemaDefinitionArgsDict']]]
 
 @pulumi.input_type
 class GatewayTargetToolDefinitionArgs:
@@ -2490,7 +2490,7 @@ class GatewayTargetToolDefinitionArgs:
                  description: pulumi.Input[_builtins.str],
                  input_schema: pulumi.Input['GatewayTargetSchemaDefinitionArgs'],
                  name: pulumi.Input[_builtins.str],
-                 output_schema: Optional[pulumi.Input['GatewayTargetSchemaDefinitionArgs']] = None):
+                 output_schema: pulumi.Input[Optional['GatewayTargetSchemaDefinitionArgs']] = None):
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "input_schema", input_schema)
         pulumi.set(__self__, "name", name)
@@ -2526,11 +2526,11 @@ class GatewayTargetToolDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter(name="outputSchema")
-    def output_schema(self) -> Optional[pulumi.Input['GatewayTargetSchemaDefinitionArgs']]:
+    def output_schema(self) -> pulumi.Input[Optional['GatewayTargetSchemaDefinitionArgs']]:
         return pulumi.get(self, "output_schema")
 
     @output_schema.setter
-    def output_schema(self, value: Optional[pulumi.Input['GatewayTargetSchemaDefinitionArgs']]):
+    def output_schema(self, value: pulumi.Input[Optional['GatewayTargetSchemaDefinitionArgs']]):
         pulumi.set(self, "output_schema", value)
 
 
@@ -2596,7 +2596,7 @@ class MemoryContentConfigurationArgsDict(TypedDict):
     """
     The type of content to deliver
     """
-    level: NotRequired[pulumi.Input['MemoryContentConfigurationLevel']]
+    level: NotRequired[pulumi.Input[Optional['MemoryContentConfigurationLevel']]]
     """
     The level of content detail to deliver
     """
@@ -2605,7 +2605,7 @@ class MemoryContentConfigurationArgsDict(TypedDict):
 class MemoryContentConfigurationArgs:
     def __init__(__self__, *,
                  type: pulumi.Input['MemoryContentConfigurationType'],
-                 level: Optional[pulumi.Input['MemoryContentConfigurationLevel']] = None):
+                 level: pulumi.Input[Optional['MemoryContentConfigurationLevel']] = None):
         """
         :param pulumi.Input['MemoryContentConfigurationType'] type: The type of content to deliver
         :param pulumi.Input['MemoryContentConfigurationLevel'] level: The level of content detail to deliver
@@ -2628,32 +2628,32 @@ class MemoryContentConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def level(self) -> Optional[pulumi.Input['MemoryContentConfigurationLevel']]:
+    def level(self) -> pulumi.Input[Optional['MemoryContentConfigurationLevel']]:
         """
         The level of content detail to deliver
         """
         return pulumi.get(self, "level")
 
     @level.setter
-    def level(self, value: Optional[pulumi.Input['MemoryContentConfigurationLevel']]):
+    def level(self, value: pulumi.Input[Optional['MemoryContentConfigurationLevel']]):
         pulumi.set(self, "level", value)
 
 
 class MemoryCustomConfigurationInputArgsDict(TypedDict):
-    episodic_override: NotRequired[pulumi.Input['MemoryEpisodicOverrideArgsDict']]
-    self_managed_configuration: NotRequired[pulumi.Input['MemorySelfManagedConfigurationArgsDict']]
-    semantic_override: NotRequired[pulumi.Input['MemorySemanticOverrideArgsDict']]
-    summary_override: NotRequired[pulumi.Input['MemorySummaryOverrideArgsDict']]
-    user_preference_override: NotRequired[pulumi.Input['MemoryUserPreferenceOverrideArgsDict']]
+    episodic_override: NotRequired[pulumi.Input[Optional['MemoryEpisodicOverrideArgsDict']]]
+    self_managed_configuration: NotRequired[pulumi.Input[Optional['MemorySelfManagedConfigurationArgsDict']]]
+    semantic_override: NotRequired[pulumi.Input[Optional['MemorySemanticOverrideArgsDict']]]
+    summary_override: NotRequired[pulumi.Input[Optional['MemorySummaryOverrideArgsDict']]]
+    user_preference_override: NotRequired[pulumi.Input[Optional['MemoryUserPreferenceOverrideArgsDict']]]
 
 @pulumi.input_type
 class MemoryCustomConfigurationInputArgs:
     def __init__(__self__, *,
-                 episodic_override: Optional[pulumi.Input['MemoryEpisodicOverrideArgs']] = None,
-                 self_managed_configuration: Optional[pulumi.Input['MemorySelfManagedConfigurationArgs']] = None,
-                 semantic_override: Optional[pulumi.Input['MemorySemanticOverrideArgs']] = None,
-                 summary_override: Optional[pulumi.Input['MemorySummaryOverrideArgs']] = None,
-                 user_preference_override: Optional[pulumi.Input['MemoryUserPreferenceOverrideArgs']] = None):
+                 episodic_override: pulumi.Input[Optional['MemoryEpisodicOverrideArgs']] = None,
+                 self_managed_configuration: pulumi.Input[Optional['MemorySelfManagedConfigurationArgs']] = None,
+                 semantic_override: pulumi.Input[Optional['MemorySemanticOverrideArgs']] = None,
+                 summary_override: pulumi.Input[Optional['MemorySummaryOverrideArgs']] = None,
+                 user_preference_override: pulumi.Input[Optional['MemoryUserPreferenceOverrideArgs']] = None):
         if episodic_override is not None:
             pulumi.set(__self__, "episodic_override", episodic_override)
         if self_managed_configuration is not None:
@@ -2667,74 +2667,74 @@ class MemoryCustomConfigurationInputArgs:
 
     @_builtins.property
     @pulumi.getter(name="episodicOverride")
-    def episodic_override(self) -> Optional[pulumi.Input['MemoryEpisodicOverrideArgs']]:
+    def episodic_override(self) -> pulumi.Input[Optional['MemoryEpisodicOverrideArgs']]:
         return pulumi.get(self, "episodic_override")
 
     @episodic_override.setter
-    def episodic_override(self, value: Optional[pulumi.Input['MemoryEpisodicOverrideArgs']]):
+    def episodic_override(self, value: pulumi.Input[Optional['MemoryEpisodicOverrideArgs']]):
         pulumi.set(self, "episodic_override", value)
 
     @_builtins.property
     @pulumi.getter(name="selfManagedConfiguration")
-    def self_managed_configuration(self) -> Optional[pulumi.Input['MemorySelfManagedConfigurationArgs']]:
+    def self_managed_configuration(self) -> pulumi.Input[Optional['MemorySelfManagedConfigurationArgs']]:
         return pulumi.get(self, "self_managed_configuration")
 
     @self_managed_configuration.setter
-    def self_managed_configuration(self, value: Optional[pulumi.Input['MemorySelfManagedConfigurationArgs']]):
+    def self_managed_configuration(self, value: pulumi.Input[Optional['MemorySelfManagedConfigurationArgs']]):
         pulumi.set(self, "self_managed_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="semanticOverride")
-    def semantic_override(self) -> Optional[pulumi.Input['MemorySemanticOverrideArgs']]:
+    def semantic_override(self) -> pulumi.Input[Optional['MemorySemanticOverrideArgs']]:
         return pulumi.get(self, "semantic_override")
 
     @semantic_override.setter
-    def semantic_override(self, value: Optional[pulumi.Input['MemorySemanticOverrideArgs']]):
+    def semantic_override(self, value: pulumi.Input[Optional['MemorySemanticOverrideArgs']]):
         pulumi.set(self, "semantic_override", value)
 
     @_builtins.property
     @pulumi.getter(name="summaryOverride")
-    def summary_override(self) -> Optional[pulumi.Input['MemorySummaryOverrideArgs']]:
+    def summary_override(self) -> pulumi.Input[Optional['MemorySummaryOverrideArgs']]:
         return pulumi.get(self, "summary_override")
 
     @summary_override.setter
-    def summary_override(self, value: Optional[pulumi.Input['MemorySummaryOverrideArgs']]):
+    def summary_override(self, value: pulumi.Input[Optional['MemorySummaryOverrideArgs']]):
         pulumi.set(self, "summary_override", value)
 
     @_builtins.property
     @pulumi.getter(name="userPreferenceOverride")
-    def user_preference_override(self) -> Optional[pulumi.Input['MemoryUserPreferenceOverrideArgs']]:
+    def user_preference_override(self) -> pulumi.Input[Optional['MemoryUserPreferenceOverrideArgs']]:
         return pulumi.get(self, "user_preference_override")
 
     @user_preference_override.setter
-    def user_preference_override(self, value: Optional[pulumi.Input['MemoryUserPreferenceOverrideArgs']]):
+    def user_preference_override(self, value: pulumi.Input[Optional['MemoryUserPreferenceOverrideArgs']]):
         pulumi.set(self, "user_preference_override", value)
 
 
 class MemoryCustomMemoryStrategyArgsDict(TypedDict):
     name: pulumi.Input[_builtins.str]
-    configuration: NotRequired[pulumi.Input['MemoryCustomConfigurationInputArgsDict']]
-    created_at: NotRequired[pulumi.Input[_builtins.str]]
+    configuration: NotRequired[pulumi.Input[Optional['MemoryCustomConfigurationInputArgsDict']]]
+    created_at: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Creation timestamp of the memory strategy
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
-    memory_record_schema: NotRequired[pulumi.Input['MemoryRecordSchemaArgsDict']]
-    namespace_templates: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    namespaces: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    status: NotRequired[pulumi.Input['MemoryCustomMemoryStrategyStatus']]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    memory_record_schema: NotRequired[pulumi.Input[Optional['MemoryRecordSchemaArgsDict']]]
+    namespace_templates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    namespaces: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    status: NotRequired[pulumi.Input[Optional['MemoryCustomMemoryStrategyStatus']]]
     """
     Status of the memory strategy
     """
-    strategy_id: NotRequired[pulumi.Input[_builtins.str]]
+    strategy_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Unique identifier for the memory strategy
     """
-    type: NotRequired[pulumi.Input['MemoryCustomMemoryStrategyType']]
+    type: NotRequired[pulumi.Input[Optional['MemoryCustomMemoryStrategyType']]]
     """
     Type of memory strategy
     """
-    updated_at: NotRequired[pulumi.Input[_builtins.str]]
+    updated_at: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Last update timestamp of the memory strategy
     """
@@ -2743,16 +2743,16 @@ class MemoryCustomMemoryStrategyArgsDict(TypedDict):
 class MemoryCustomMemoryStrategyArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 configuration: Optional[pulumi.Input['MemoryCustomConfigurationInputArgs']] = None,
-                 created_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 memory_record_schema: Optional[pulumi.Input['MemoryRecordSchemaArgs']] = None,
-                 namespace_templates: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 namespaces: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 status: Optional[pulumi.Input['MemoryCustomMemoryStrategyStatus']] = None,
-                 strategy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input['MemoryCustomMemoryStrategyType']] = None,
-                 updated_at: Optional[pulumi.Input[_builtins.str]] = None):
+                 configuration: pulumi.Input[Optional['MemoryCustomConfigurationInputArgs']] = None,
+                 created_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 memory_record_schema: pulumi.Input[Optional['MemoryRecordSchemaArgs']] = None,
+                 namespace_templates: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 namespaces: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 status: pulumi.Input[Optional['MemoryCustomMemoryStrategyStatus']] = None,
+                 strategy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional['MemoryCustomMemoryStrategyType']] = None,
+                 updated_at: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] created_at: Creation timestamp of the memory strategy
         :param pulumi.Input['MemoryCustomMemoryStrategyStatus'] status: Status of the memory strategy
@@ -2793,134 +2793,134 @@ class MemoryCustomMemoryStrategyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def configuration(self) -> Optional[pulumi.Input['MemoryCustomConfigurationInputArgs']]:
+    def configuration(self) -> pulumi.Input[Optional['MemoryCustomConfigurationInputArgs']]:
         return pulumi.get(self, "configuration")
 
     @configuration.setter
-    def configuration(self, value: Optional[pulumi.Input['MemoryCustomConfigurationInputArgs']]):
+    def configuration(self, value: pulumi.Input[Optional['MemoryCustomConfigurationInputArgs']]):
         pulumi.set(self, "configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Creation timestamp of the memory strategy
         """
         return pulumi.get(self, "created_at")
 
     @created_at.setter
-    def created_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_at", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="memoryRecordSchema")
-    def memory_record_schema(self) -> Optional[pulumi.Input['MemoryRecordSchemaArgs']]:
+    def memory_record_schema(self) -> pulumi.Input[Optional['MemoryRecordSchemaArgs']]:
         return pulumi.get(self, "memory_record_schema")
 
     @memory_record_schema.setter
-    def memory_record_schema(self, value: Optional[pulumi.Input['MemoryRecordSchemaArgs']]):
+    def memory_record_schema(self, value: pulumi.Input[Optional['MemoryRecordSchemaArgs']]):
         pulumi.set(self, "memory_record_schema", value)
 
     @_builtins.property
     @pulumi.getter(name="namespaceTemplates")
-    def namespace_templates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def namespace_templates(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "namespace_templates")
 
     @namespace_templates.setter
-    def namespace_templates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def namespace_templates(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "namespace_templates", value)
 
     @_builtins.property
     @pulumi.getter
-    def namespaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def namespaces(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "namespaces")
 
     @namespaces.setter
-    def namespaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def namespaces(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "namespaces", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input['MemoryCustomMemoryStrategyStatus']]:
+    def status(self) -> pulumi.Input[Optional['MemoryCustomMemoryStrategyStatus']]:
         """
         Status of the memory strategy
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input['MemoryCustomMemoryStrategyStatus']]):
+    def status(self, value: pulumi.Input[Optional['MemoryCustomMemoryStrategyStatus']]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="strategyId")
-    def strategy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def strategy_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unique identifier for the memory strategy
         """
         return pulumi.get(self, "strategy_id")
 
     @strategy_id.setter
-    def strategy_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def strategy_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "strategy_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['MemoryCustomMemoryStrategyType']]:
+    def type(self) -> pulumi.Input[Optional['MemoryCustomMemoryStrategyType']]:
         """
         Type of memory strategy
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['MemoryCustomMemoryStrategyType']]):
+    def type(self, value: pulumi.Input[Optional['MemoryCustomMemoryStrategyType']]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter(name="updatedAt")
-    def updated_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def updated_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Last update timestamp of the memory strategy
         """
         return pulumi.get(self, "updated_at")
 
     @updated_at.setter
-    def updated_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def updated_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "updated_at", value)
 
 
 class MemoryEpisodicMemoryStrategyArgsDict(TypedDict):
     name: pulumi.Input[_builtins.str]
-    created_at: NotRequired[pulumi.Input[_builtins.str]]
+    created_at: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Creation timestamp of the memory strategy
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
-    memory_record_schema: NotRequired[pulumi.Input['MemoryRecordSchemaArgsDict']]
-    namespace_templates: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    namespaces: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    reflection_configuration: NotRequired[pulumi.Input['MemoryEpisodicReflectionConfigurationInputArgsDict']]
-    status: NotRequired[pulumi.Input['MemoryEpisodicMemoryStrategyStatus']]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    memory_record_schema: NotRequired[pulumi.Input[Optional['MemoryRecordSchemaArgsDict']]]
+    namespace_templates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    namespaces: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    reflection_configuration: NotRequired[pulumi.Input[Optional['MemoryEpisodicReflectionConfigurationInputArgsDict']]]
+    status: NotRequired[pulumi.Input[Optional['MemoryEpisodicMemoryStrategyStatus']]]
     """
     Status of the memory strategy
     """
-    strategy_id: NotRequired[pulumi.Input[_builtins.str]]
+    strategy_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Unique identifier for the memory strategy
     """
-    type: NotRequired[pulumi.Input['MemoryEpisodicMemoryStrategyType']]
+    type: NotRequired[pulumi.Input[Optional['MemoryEpisodicMemoryStrategyType']]]
     """
     Type of memory strategy
     """
-    updated_at: NotRequired[pulumi.Input[_builtins.str]]
+    updated_at: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Last update timestamp of the memory strategy
     """
@@ -2929,16 +2929,16 @@ class MemoryEpisodicMemoryStrategyArgsDict(TypedDict):
 class MemoryEpisodicMemoryStrategyArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 created_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 memory_record_schema: Optional[pulumi.Input['MemoryRecordSchemaArgs']] = None,
-                 namespace_templates: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 namespaces: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 reflection_configuration: Optional[pulumi.Input['MemoryEpisodicReflectionConfigurationInputArgs']] = None,
-                 status: Optional[pulumi.Input['MemoryEpisodicMemoryStrategyStatus']] = None,
-                 strategy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input['MemoryEpisodicMemoryStrategyType']] = None,
-                 updated_at: Optional[pulumi.Input[_builtins.str]] = None):
+                 created_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 memory_record_schema: pulumi.Input[Optional['MemoryRecordSchemaArgs']] = None,
+                 namespace_templates: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 namespaces: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 reflection_configuration: pulumi.Input[Optional['MemoryEpisodicReflectionConfigurationInputArgs']] = None,
+                 status: pulumi.Input[Optional['MemoryEpisodicMemoryStrategyStatus']] = None,
+                 strategy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional['MemoryEpisodicMemoryStrategyType']] = None,
+                 updated_at: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] created_at: Creation timestamp of the memory strategy
         :param pulumi.Input['MemoryEpisodicMemoryStrategyStatus'] status: Status of the memory strategy
@@ -2979,107 +2979,107 @@ class MemoryEpisodicMemoryStrategyArgs:
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Creation timestamp of the memory strategy
         """
         return pulumi.get(self, "created_at")
 
     @created_at.setter
-    def created_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_at", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="memoryRecordSchema")
-    def memory_record_schema(self) -> Optional[pulumi.Input['MemoryRecordSchemaArgs']]:
+    def memory_record_schema(self) -> pulumi.Input[Optional['MemoryRecordSchemaArgs']]:
         return pulumi.get(self, "memory_record_schema")
 
     @memory_record_schema.setter
-    def memory_record_schema(self, value: Optional[pulumi.Input['MemoryRecordSchemaArgs']]):
+    def memory_record_schema(self, value: pulumi.Input[Optional['MemoryRecordSchemaArgs']]):
         pulumi.set(self, "memory_record_schema", value)
 
     @_builtins.property
     @pulumi.getter(name="namespaceTemplates")
-    def namespace_templates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def namespace_templates(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "namespace_templates")
 
     @namespace_templates.setter
-    def namespace_templates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def namespace_templates(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "namespace_templates", value)
 
     @_builtins.property
     @pulumi.getter
-    def namespaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def namespaces(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "namespaces")
 
     @namespaces.setter
-    def namespaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def namespaces(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "namespaces", value)
 
     @_builtins.property
     @pulumi.getter(name="reflectionConfiguration")
-    def reflection_configuration(self) -> Optional[pulumi.Input['MemoryEpisodicReflectionConfigurationInputArgs']]:
+    def reflection_configuration(self) -> pulumi.Input[Optional['MemoryEpisodicReflectionConfigurationInputArgs']]:
         return pulumi.get(self, "reflection_configuration")
 
     @reflection_configuration.setter
-    def reflection_configuration(self, value: Optional[pulumi.Input['MemoryEpisodicReflectionConfigurationInputArgs']]):
+    def reflection_configuration(self, value: pulumi.Input[Optional['MemoryEpisodicReflectionConfigurationInputArgs']]):
         pulumi.set(self, "reflection_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input['MemoryEpisodicMemoryStrategyStatus']]:
+    def status(self) -> pulumi.Input[Optional['MemoryEpisodicMemoryStrategyStatus']]:
         """
         Status of the memory strategy
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input['MemoryEpisodicMemoryStrategyStatus']]):
+    def status(self, value: pulumi.Input[Optional['MemoryEpisodicMemoryStrategyStatus']]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="strategyId")
-    def strategy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def strategy_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unique identifier for the memory strategy
         """
         return pulumi.get(self, "strategy_id")
 
     @strategy_id.setter
-    def strategy_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def strategy_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "strategy_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['MemoryEpisodicMemoryStrategyType']]:
+    def type(self) -> pulumi.Input[Optional['MemoryEpisodicMemoryStrategyType']]:
         """
         Type of memory strategy
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['MemoryEpisodicMemoryStrategyType']]):
+    def type(self, value: pulumi.Input[Optional['MemoryEpisodicMemoryStrategyType']]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter(name="updatedAt")
-    def updated_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def updated_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Last update timestamp of the memory strategy
         """
         return pulumi.get(self, "updated_at")
 
     @updated_at.setter
-    def updated_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def updated_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "updated_at", value)
 
 
@@ -3148,18 +3148,18 @@ class MemoryEpisodicOverrideExtractionConfigurationInputArgs:
 class MemoryEpisodicOverrideReflectionConfigurationInputArgsDict(TypedDict):
     append_to_prompt: pulumi.Input[_builtins.str]
     model_id: pulumi.Input[_builtins.str]
-    memory_record_schema: NotRequired[pulumi.Input['MemoryRecordSchemaArgsDict']]
-    namespace_templates: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    namespaces: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    memory_record_schema: NotRequired[pulumi.Input[Optional['MemoryRecordSchemaArgsDict']]]
+    namespace_templates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    namespaces: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
 
 @pulumi.input_type
 class MemoryEpisodicOverrideReflectionConfigurationInputArgs:
     def __init__(__self__, *,
                  append_to_prompt: pulumi.Input[_builtins.str],
                  model_id: pulumi.Input[_builtins.str],
-                 memory_record_schema: Optional[pulumi.Input['MemoryRecordSchemaArgs']] = None,
-                 namespace_templates: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 namespaces: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 memory_record_schema: pulumi.Input[Optional['MemoryRecordSchemaArgs']] = None,
+                 namespace_templates: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 namespaces: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         pulumi.set(__self__, "append_to_prompt", append_to_prompt)
         pulumi.set(__self__, "model_id", model_id)
         if memory_record_schema is not None:
@@ -3189,43 +3189,43 @@ class MemoryEpisodicOverrideReflectionConfigurationInputArgs:
 
     @_builtins.property
     @pulumi.getter(name="memoryRecordSchema")
-    def memory_record_schema(self) -> Optional[pulumi.Input['MemoryRecordSchemaArgs']]:
+    def memory_record_schema(self) -> pulumi.Input[Optional['MemoryRecordSchemaArgs']]:
         return pulumi.get(self, "memory_record_schema")
 
     @memory_record_schema.setter
-    def memory_record_schema(self, value: Optional[pulumi.Input['MemoryRecordSchemaArgs']]):
+    def memory_record_schema(self, value: pulumi.Input[Optional['MemoryRecordSchemaArgs']]):
         pulumi.set(self, "memory_record_schema", value)
 
     @_builtins.property
     @pulumi.getter(name="namespaceTemplates")
-    def namespace_templates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def namespace_templates(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "namespace_templates")
 
     @namespace_templates.setter
-    def namespace_templates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def namespace_templates(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "namespace_templates", value)
 
     @_builtins.property
     @pulumi.getter
-    def namespaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def namespaces(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "namespaces")
 
     @namespaces.setter
-    def namespaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def namespaces(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "namespaces", value)
 
 
 class MemoryEpisodicOverrideArgsDict(TypedDict):
-    consolidation: NotRequired[pulumi.Input['MemoryEpisodicOverrideConsolidationConfigurationInputArgsDict']]
-    extraction: NotRequired[pulumi.Input['MemoryEpisodicOverrideExtractionConfigurationInputArgsDict']]
-    reflection: NotRequired[pulumi.Input['MemoryEpisodicOverrideReflectionConfigurationInputArgsDict']]
+    consolidation: NotRequired[pulumi.Input[Optional['MemoryEpisodicOverrideConsolidationConfigurationInputArgsDict']]]
+    extraction: NotRequired[pulumi.Input[Optional['MemoryEpisodicOverrideExtractionConfigurationInputArgsDict']]]
+    reflection: NotRequired[pulumi.Input[Optional['MemoryEpisodicOverrideReflectionConfigurationInputArgsDict']]]
 
 @pulumi.input_type
 class MemoryEpisodicOverrideArgs:
     def __init__(__self__, *,
-                 consolidation: Optional[pulumi.Input['MemoryEpisodicOverrideConsolidationConfigurationInputArgs']] = None,
-                 extraction: Optional[pulumi.Input['MemoryEpisodicOverrideExtractionConfigurationInputArgs']] = None,
-                 reflection: Optional[pulumi.Input['MemoryEpisodicOverrideReflectionConfigurationInputArgs']] = None):
+                 consolidation: pulumi.Input[Optional['MemoryEpisodicOverrideConsolidationConfigurationInputArgs']] = None,
+                 extraction: pulumi.Input[Optional['MemoryEpisodicOverrideExtractionConfigurationInputArgs']] = None,
+                 reflection: pulumi.Input[Optional['MemoryEpisodicOverrideReflectionConfigurationInputArgs']] = None):
         if consolidation is not None:
             pulumi.set(__self__, "consolidation", consolidation)
         if extraction is not None:
@@ -3235,43 +3235,43 @@ class MemoryEpisodicOverrideArgs:
 
     @_builtins.property
     @pulumi.getter
-    def consolidation(self) -> Optional[pulumi.Input['MemoryEpisodicOverrideConsolidationConfigurationInputArgs']]:
+    def consolidation(self) -> pulumi.Input[Optional['MemoryEpisodicOverrideConsolidationConfigurationInputArgs']]:
         return pulumi.get(self, "consolidation")
 
     @consolidation.setter
-    def consolidation(self, value: Optional[pulumi.Input['MemoryEpisodicOverrideConsolidationConfigurationInputArgs']]):
+    def consolidation(self, value: pulumi.Input[Optional['MemoryEpisodicOverrideConsolidationConfigurationInputArgs']]):
         pulumi.set(self, "consolidation", value)
 
     @_builtins.property
     @pulumi.getter
-    def extraction(self) -> Optional[pulumi.Input['MemoryEpisodicOverrideExtractionConfigurationInputArgs']]:
+    def extraction(self) -> pulumi.Input[Optional['MemoryEpisodicOverrideExtractionConfigurationInputArgs']]:
         return pulumi.get(self, "extraction")
 
     @extraction.setter
-    def extraction(self, value: Optional[pulumi.Input['MemoryEpisodicOverrideExtractionConfigurationInputArgs']]):
+    def extraction(self, value: pulumi.Input[Optional['MemoryEpisodicOverrideExtractionConfigurationInputArgs']]):
         pulumi.set(self, "extraction", value)
 
     @_builtins.property
     @pulumi.getter
-    def reflection(self) -> Optional[pulumi.Input['MemoryEpisodicOverrideReflectionConfigurationInputArgs']]:
+    def reflection(self) -> pulumi.Input[Optional['MemoryEpisodicOverrideReflectionConfigurationInputArgs']]:
         return pulumi.get(self, "reflection")
 
     @reflection.setter
-    def reflection(self, value: Optional[pulumi.Input['MemoryEpisodicOverrideReflectionConfigurationInputArgs']]):
+    def reflection(self, value: pulumi.Input[Optional['MemoryEpisodicOverrideReflectionConfigurationInputArgs']]):
         pulumi.set(self, "reflection", value)
 
 
 class MemoryEpisodicReflectionConfigurationInputArgsDict(TypedDict):
-    memory_record_schema: NotRequired[pulumi.Input['MemoryRecordSchemaArgsDict']]
-    namespace_templates: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    namespaces: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    memory_record_schema: NotRequired[pulumi.Input[Optional['MemoryRecordSchemaArgsDict']]]
+    namespace_templates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    namespaces: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
 
 @pulumi.input_type
 class MemoryEpisodicReflectionConfigurationInputArgs:
     def __init__(__self__, *,
-                 memory_record_schema: Optional[pulumi.Input['MemoryRecordSchemaArgs']] = None,
-                 namespace_templates: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 namespaces: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 memory_record_schema: pulumi.Input[Optional['MemoryRecordSchemaArgs']] = None,
+                 namespace_templates: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 namespaces: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         if memory_record_schema is not None:
             pulumi.set(__self__, "memory_record_schema", memory_record_schema)
         if namespace_templates is not None:
@@ -3281,49 +3281,49 @@ class MemoryEpisodicReflectionConfigurationInputArgs:
 
     @_builtins.property
     @pulumi.getter(name="memoryRecordSchema")
-    def memory_record_schema(self) -> Optional[pulumi.Input['MemoryRecordSchemaArgs']]:
+    def memory_record_schema(self) -> pulumi.Input[Optional['MemoryRecordSchemaArgs']]:
         return pulumi.get(self, "memory_record_schema")
 
     @memory_record_schema.setter
-    def memory_record_schema(self, value: Optional[pulumi.Input['MemoryRecordSchemaArgs']]):
+    def memory_record_schema(self, value: pulumi.Input[Optional['MemoryRecordSchemaArgs']]):
         pulumi.set(self, "memory_record_schema", value)
 
     @_builtins.property
     @pulumi.getter(name="namespaceTemplates")
-    def namespace_templates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def namespace_templates(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "namespace_templates")
 
     @namespace_templates.setter
-    def namespace_templates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def namespace_templates(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "namespace_templates", value)
 
     @_builtins.property
     @pulumi.getter
-    def namespaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def namespaces(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "namespaces")
 
     @namespaces.setter
-    def namespaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def namespaces(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "namespaces", value)
 
 
 class MemoryExtractionConfigArgsDict(TypedDict):
-    llm_extraction_config: NotRequired[pulumi.Input['MemoryLlmExtractionConfigArgsDict']]
+    llm_extraction_config: NotRequired[pulumi.Input[Optional['MemoryLlmExtractionConfigArgsDict']]]
 
 @pulumi.input_type
 class MemoryExtractionConfigArgs:
     def __init__(__self__, *,
-                 llm_extraction_config: Optional[pulumi.Input['MemoryLlmExtractionConfigArgs']] = None):
+                 llm_extraction_config: pulumi.Input[Optional['MemoryLlmExtractionConfigArgs']] = None):
         if llm_extraction_config is not None:
             pulumi.set(__self__, "llm_extraction_config", llm_extraction_config)
 
     @_builtins.property
     @pulumi.getter(name="llmExtractionConfig")
-    def llm_extraction_config(self) -> Optional[pulumi.Input['MemoryLlmExtractionConfigArgs']]:
+    def llm_extraction_config(self) -> pulumi.Input[Optional['MemoryLlmExtractionConfigArgs']]:
         return pulumi.get(self, "llm_extraction_config")
 
     @llm_extraction_config.setter
-    def llm_extraction_config(self, value: Optional[pulumi.Input['MemoryLlmExtractionConfigArgs']]):
+    def llm_extraction_config(self, value: pulumi.Input[Optional['MemoryLlmExtractionConfigArgs']]):
         pulumi.set(self, "llm_extraction_config", value)
 
 
@@ -3359,14 +3359,14 @@ class MemoryIndexedKeyArgs:
 
 
 class MemoryInvocationConfigurationInputArgsDict(TypedDict):
-    payload_delivery_bucket_name: NotRequired[pulumi.Input[_builtins.str]]
-    topic_arn: NotRequired[pulumi.Input[_builtins.str]]
+    payload_delivery_bucket_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    topic_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class MemoryInvocationConfigurationInputArgs:
     def __init__(__self__, *,
-                 payload_delivery_bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 topic_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 payload_delivery_bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 topic_arn: pulumi.Input[Optional[_builtins.str]] = None):
         if payload_delivery_bucket_name is not None:
             pulumi.set(__self__, "payload_delivery_bucket_name", payload_delivery_bucket_name)
         if topic_arn is not None:
@@ -3374,20 +3374,20 @@ class MemoryInvocationConfigurationInputArgs:
 
     @_builtins.property
     @pulumi.getter(name="payloadDeliveryBucketName")
-    def payload_delivery_bucket_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def payload_delivery_bucket_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "payload_delivery_bucket_name")
 
     @payload_delivery_bucket_name.setter
-    def payload_delivery_bucket_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def payload_delivery_bucket_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "payload_delivery_bucket_name", value)
 
     @_builtins.property
     @pulumi.getter(name="topicArn")
-    def topic_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def topic_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "topic_arn")
 
     @topic_arn.setter
-    def topic_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def topic_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "topic_arn", value)
 
 
@@ -3424,15 +3424,15 @@ class MemoryKinesisResourceArgs:
 
 class MemoryLlmExtractionConfigArgsDict(TypedDict):
     definition: pulumi.Input[_builtins.str]
-    llm_extraction_instruction: NotRequired[pulumi.Input[_builtins.str]]
-    validation: NotRequired[pulumi.Input['MemoryValidationArgsDict']]
+    llm_extraction_instruction: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    validation: NotRequired[pulumi.Input[Optional['MemoryValidationArgsDict']]]
 
 @pulumi.input_type
 class MemoryLlmExtractionConfigArgs:
     def __init__(__self__, *,
                  definition: pulumi.Input[_builtins.str],
-                 llm_extraction_instruction: Optional[pulumi.Input[_builtins.str]] = None,
-                 validation: Optional[pulumi.Input['MemoryValidationArgs']] = None):
+                 llm_extraction_instruction: pulumi.Input[Optional[_builtins.str]] = None,
+                 validation: pulumi.Input[Optional['MemoryValidationArgs']] = None):
         pulumi.set(__self__, "definition", definition)
         if llm_extraction_instruction is not None:
             pulumi.set(__self__, "llm_extraction_instruction", llm_extraction_instruction)
@@ -3450,54 +3450,54 @@ class MemoryLlmExtractionConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="llmExtractionInstruction")
-    def llm_extraction_instruction(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def llm_extraction_instruction(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "llm_extraction_instruction")
 
     @llm_extraction_instruction.setter
-    def llm_extraction_instruction(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def llm_extraction_instruction(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "llm_extraction_instruction", value)
 
     @_builtins.property
     @pulumi.getter
-    def validation(self) -> Optional[pulumi.Input['MemoryValidationArgs']]:
+    def validation(self) -> pulumi.Input[Optional['MemoryValidationArgs']]:
         return pulumi.get(self, "validation")
 
     @validation.setter
-    def validation(self, value: Optional[pulumi.Input['MemoryValidationArgs']]):
+    def validation(self, value: pulumi.Input[Optional['MemoryValidationArgs']]):
         pulumi.set(self, "validation", value)
 
 
 class MemoryMessageBasedTriggerInputArgsDict(TypedDict):
-    message_count: NotRequired[pulumi.Input[_builtins.int]]
+    message_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
 
 @pulumi.input_type
 class MemoryMessageBasedTriggerInputArgs:
     def __init__(__self__, *,
-                 message_count: Optional[pulumi.Input[_builtins.int]] = None):
+                 message_count: pulumi.Input[Optional[_builtins.int]] = None):
         if message_count is not None:
             pulumi.set(__self__, "message_count", message_count)
 
     @_builtins.property
     @pulumi.getter(name="messageCount")
-    def message_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def message_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "message_count")
 
     @message_count.setter
-    def message_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def message_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "message_count", value)
 
 
 class MemoryMetadataSchemaEntryArgsDict(TypedDict):
     key: pulumi.Input[_builtins.str]
-    extraction_config: NotRequired[pulumi.Input['MemoryExtractionConfigArgsDict']]
-    type: NotRequired[pulumi.Input['MemoryMetadataValueType']]
+    extraction_config: NotRequired[pulumi.Input[Optional['MemoryExtractionConfigArgsDict']]]
+    type: NotRequired[pulumi.Input[Optional['MemoryMetadataValueType']]]
 
 @pulumi.input_type
 class MemoryMetadataSchemaEntryArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[_builtins.str],
-                 extraction_config: Optional[pulumi.Input['MemoryExtractionConfigArgs']] = None,
-                 type: Optional[pulumi.Input['MemoryMetadataValueType']] = None):
+                 extraction_config: pulumi.Input[Optional['MemoryExtractionConfigArgs']] = None,
+                 type: pulumi.Input[Optional['MemoryMetadataValueType']] = None):
         pulumi.set(__self__, "key", key)
         if extraction_config is not None:
             pulumi.set(__self__, "extraction_config", extraction_config)
@@ -3515,32 +3515,32 @@ class MemoryMetadataSchemaEntryArgs:
 
     @_builtins.property
     @pulumi.getter(name="extractionConfig")
-    def extraction_config(self) -> Optional[pulumi.Input['MemoryExtractionConfigArgs']]:
+    def extraction_config(self) -> pulumi.Input[Optional['MemoryExtractionConfigArgs']]:
         return pulumi.get(self, "extraction_config")
 
     @extraction_config.setter
-    def extraction_config(self, value: Optional[pulumi.Input['MemoryExtractionConfigArgs']]):
+    def extraction_config(self, value: pulumi.Input[Optional['MemoryExtractionConfigArgs']]):
         pulumi.set(self, "extraction_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['MemoryMetadataValueType']]:
+    def type(self) -> pulumi.Input[Optional['MemoryMetadataValueType']]:
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['MemoryMetadataValueType']]):
+    def type(self, value: pulumi.Input[Optional['MemoryMetadataValueType']]):
         pulumi.set(self, "type", value)
 
 
 class MemoryNumberValidationArgsDict(TypedDict):
-    max_value: NotRequired[pulumi.Input[_builtins.float]]
-    min_value: NotRequired[pulumi.Input[_builtins.float]]
+    max_value: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    min_value: NotRequired[pulumi.Input[Optional[_builtins.float]]]
 
 @pulumi.input_type
 class MemoryNumberValidationArgs:
     def __init__(__self__, *,
-                 max_value: Optional[pulumi.Input[_builtins.float]] = None,
-                 min_value: Optional[pulumi.Input[_builtins.float]] = None):
+                 max_value: pulumi.Input[Optional[_builtins.float]] = None,
+                 min_value: pulumi.Input[Optional[_builtins.float]] = None):
         if max_value is not None:
             pulumi.set(__self__, "max_value", max_value)
         if min_value is not None:
@@ -3548,54 +3548,54 @@ class MemoryNumberValidationArgs:
 
     @_builtins.property
     @pulumi.getter(name="maxValue")
-    def max_value(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def max_value(self) -> pulumi.Input[Optional[_builtins.float]]:
         return pulumi.get(self, "max_value")
 
     @max_value.setter
-    def max_value(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def max_value(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "max_value", value)
 
     @_builtins.property
     @pulumi.getter(name="minValue")
-    def min_value(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def min_value(self) -> pulumi.Input[Optional[_builtins.float]]:
         return pulumi.get(self, "min_value")
 
     @min_value.setter
-    def min_value(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def min_value(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "min_value", value)
 
 
 class MemoryRecordSchemaArgsDict(TypedDict):
-    metadata_schema: NotRequired[pulumi.Input[Sequence[pulumi.Input['MemoryMetadataSchemaEntryArgsDict']]]]
+    metadata_schema: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['MemoryMetadataSchemaEntryArgsDict']]]]]
 
 @pulumi.input_type
 class MemoryRecordSchemaArgs:
     def __init__(__self__, *,
-                 metadata_schema: Optional[pulumi.Input[Sequence[pulumi.Input['MemoryMetadataSchemaEntryArgs']]]] = None):
+                 metadata_schema: pulumi.Input[Optional[Sequence[pulumi.Input['MemoryMetadataSchemaEntryArgs']]]] = None):
         if metadata_schema is not None:
             pulumi.set(__self__, "metadata_schema", metadata_schema)
 
     @_builtins.property
     @pulumi.getter(name="metadataSchema")
-    def metadata_schema(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MemoryMetadataSchemaEntryArgs']]]]:
+    def metadata_schema(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MemoryMetadataSchemaEntryArgs']]]]:
         return pulumi.get(self, "metadata_schema")
 
     @metadata_schema.setter
-    def metadata_schema(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MemoryMetadataSchemaEntryArgs']]]]):
+    def metadata_schema(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MemoryMetadataSchemaEntryArgs']]]]):
         pulumi.set(self, "metadata_schema", value)
 
 
 class MemorySelfManagedConfigurationArgsDict(TypedDict):
-    historical_context_window_size: NotRequired[pulumi.Input[_builtins.int]]
-    invocation_configuration: NotRequired[pulumi.Input['MemoryInvocationConfigurationInputArgsDict']]
-    trigger_conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['MemoryTriggerConditionInputArgsDict']]]]
+    historical_context_window_size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    invocation_configuration: NotRequired[pulumi.Input[Optional['MemoryInvocationConfigurationInputArgsDict']]]
+    trigger_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['MemoryTriggerConditionInputArgsDict']]]]]
 
 @pulumi.input_type
 class MemorySelfManagedConfigurationArgs:
     def __init__(__self__, *,
-                 historical_context_window_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 invocation_configuration: Optional[pulumi.Input['MemoryInvocationConfigurationInputArgs']] = None,
-                 trigger_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['MemoryTriggerConditionInputArgs']]]] = None):
+                 historical_context_window_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 invocation_configuration: pulumi.Input[Optional['MemoryInvocationConfigurationInputArgs']] = None,
+                 trigger_conditions: pulumi.Input[Optional[Sequence[pulumi.Input['MemoryTriggerConditionInputArgs']]]] = None):
         if historical_context_window_size is not None:
             pulumi.set(__self__, "historical_context_window_size", historical_context_window_size)
         if invocation_configuration is not None:
@@ -3605,55 +3605,55 @@ class MemorySelfManagedConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="historicalContextWindowSize")
-    def historical_context_window_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def historical_context_window_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "historical_context_window_size")
 
     @historical_context_window_size.setter
-    def historical_context_window_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def historical_context_window_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "historical_context_window_size", value)
 
     @_builtins.property
     @pulumi.getter(name="invocationConfiguration")
-    def invocation_configuration(self) -> Optional[pulumi.Input['MemoryInvocationConfigurationInputArgs']]:
+    def invocation_configuration(self) -> pulumi.Input[Optional['MemoryInvocationConfigurationInputArgs']]:
         return pulumi.get(self, "invocation_configuration")
 
     @invocation_configuration.setter
-    def invocation_configuration(self, value: Optional[pulumi.Input['MemoryInvocationConfigurationInputArgs']]):
+    def invocation_configuration(self, value: pulumi.Input[Optional['MemoryInvocationConfigurationInputArgs']]):
         pulumi.set(self, "invocation_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="triggerConditions")
-    def trigger_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MemoryTriggerConditionInputArgs']]]]:
+    def trigger_conditions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MemoryTriggerConditionInputArgs']]]]:
         return pulumi.get(self, "trigger_conditions")
 
     @trigger_conditions.setter
-    def trigger_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MemoryTriggerConditionInputArgs']]]]):
+    def trigger_conditions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MemoryTriggerConditionInputArgs']]]]):
         pulumi.set(self, "trigger_conditions", value)
 
 
 class MemorySemanticMemoryStrategyArgsDict(TypedDict):
     name: pulumi.Input[_builtins.str]
-    created_at: NotRequired[pulumi.Input[_builtins.str]]
+    created_at: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Creation timestamp of the memory strategy
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
-    memory_record_schema: NotRequired[pulumi.Input['MemoryRecordSchemaArgsDict']]
-    namespace_templates: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    namespaces: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    status: NotRequired[pulumi.Input['MemorySemanticMemoryStrategyStatus']]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    memory_record_schema: NotRequired[pulumi.Input[Optional['MemoryRecordSchemaArgsDict']]]
+    namespace_templates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    namespaces: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    status: NotRequired[pulumi.Input[Optional['MemorySemanticMemoryStrategyStatus']]]
     """
     Status of the memory strategy
     """
-    strategy_id: NotRequired[pulumi.Input[_builtins.str]]
+    strategy_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Unique identifier for the memory strategy
     """
-    type: NotRequired[pulumi.Input['MemorySemanticMemoryStrategyType']]
+    type: NotRequired[pulumi.Input[Optional['MemorySemanticMemoryStrategyType']]]
     """
     Type of memory strategy
     """
-    updated_at: NotRequired[pulumi.Input[_builtins.str]]
+    updated_at: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Last update timestamp of the memory strategy
     """
@@ -3662,15 +3662,15 @@ class MemorySemanticMemoryStrategyArgsDict(TypedDict):
 class MemorySemanticMemoryStrategyArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 created_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 memory_record_schema: Optional[pulumi.Input['MemoryRecordSchemaArgs']] = None,
-                 namespace_templates: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 namespaces: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 status: Optional[pulumi.Input['MemorySemanticMemoryStrategyStatus']] = None,
-                 strategy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input['MemorySemanticMemoryStrategyType']] = None,
-                 updated_at: Optional[pulumi.Input[_builtins.str]] = None):
+                 created_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 memory_record_schema: pulumi.Input[Optional['MemoryRecordSchemaArgs']] = None,
+                 namespace_templates: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 namespaces: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 status: pulumi.Input[Optional['MemorySemanticMemoryStrategyStatus']] = None,
+                 strategy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional['MemorySemanticMemoryStrategyType']] = None,
+                 updated_at: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] created_at: Creation timestamp of the memory strategy
         :param pulumi.Input['MemorySemanticMemoryStrategyStatus'] status: Status of the memory strategy
@@ -3709,98 +3709,98 @@ class MemorySemanticMemoryStrategyArgs:
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Creation timestamp of the memory strategy
         """
         return pulumi.get(self, "created_at")
 
     @created_at.setter
-    def created_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_at", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="memoryRecordSchema")
-    def memory_record_schema(self) -> Optional[pulumi.Input['MemoryRecordSchemaArgs']]:
+    def memory_record_schema(self) -> pulumi.Input[Optional['MemoryRecordSchemaArgs']]:
         return pulumi.get(self, "memory_record_schema")
 
     @memory_record_schema.setter
-    def memory_record_schema(self, value: Optional[pulumi.Input['MemoryRecordSchemaArgs']]):
+    def memory_record_schema(self, value: pulumi.Input[Optional['MemoryRecordSchemaArgs']]):
         pulumi.set(self, "memory_record_schema", value)
 
     @_builtins.property
     @pulumi.getter(name="namespaceTemplates")
-    def namespace_templates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def namespace_templates(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "namespace_templates")
 
     @namespace_templates.setter
-    def namespace_templates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def namespace_templates(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "namespace_templates", value)
 
     @_builtins.property
     @pulumi.getter
-    def namespaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def namespaces(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "namespaces")
 
     @namespaces.setter
-    def namespaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def namespaces(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "namespaces", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input['MemorySemanticMemoryStrategyStatus']]:
+    def status(self) -> pulumi.Input[Optional['MemorySemanticMemoryStrategyStatus']]:
         """
         Status of the memory strategy
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input['MemorySemanticMemoryStrategyStatus']]):
+    def status(self, value: pulumi.Input[Optional['MemorySemanticMemoryStrategyStatus']]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="strategyId")
-    def strategy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def strategy_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unique identifier for the memory strategy
         """
         return pulumi.get(self, "strategy_id")
 
     @strategy_id.setter
-    def strategy_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def strategy_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "strategy_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['MemorySemanticMemoryStrategyType']]:
+    def type(self) -> pulumi.Input[Optional['MemorySemanticMemoryStrategyType']]:
         """
         Type of memory strategy
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['MemorySemanticMemoryStrategyType']]):
+    def type(self, value: pulumi.Input[Optional['MemorySemanticMemoryStrategyType']]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter(name="updatedAt")
-    def updated_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def updated_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Last update timestamp of the memory strategy
         """
         return pulumi.get(self, "updated_at")
 
     @updated_at.setter
-    def updated_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def updated_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "updated_at", value)
 
 
@@ -3867,14 +3867,14 @@ class MemorySemanticOverrideExtractionConfigurationInputArgs:
 
 
 class MemorySemanticOverrideArgsDict(TypedDict):
-    consolidation: NotRequired[pulumi.Input['MemorySemanticOverrideConsolidationConfigurationInputArgsDict']]
-    extraction: NotRequired[pulumi.Input['MemorySemanticOverrideExtractionConfigurationInputArgsDict']]
+    consolidation: NotRequired[pulumi.Input[Optional['MemorySemanticOverrideConsolidationConfigurationInputArgsDict']]]
+    extraction: NotRequired[pulumi.Input[Optional['MemorySemanticOverrideExtractionConfigurationInputArgsDict']]]
 
 @pulumi.input_type
 class MemorySemanticOverrideArgs:
     def __init__(__self__, *,
-                 consolidation: Optional[pulumi.Input['MemorySemanticOverrideConsolidationConfigurationInputArgs']] = None,
-                 extraction: Optional[pulumi.Input['MemorySemanticOverrideExtractionConfigurationInputArgs']] = None):
+                 consolidation: pulumi.Input[Optional['MemorySemanticOverrideConsolidationConfigurationInputArgs']] = None,
+                 extraction: pulumi.Input[Optional['MemorySemanticOverrideExtractionConfigurationInputArgs']] = None):
         if consolidation is not None:
             pulumi.set(__self__, "consolidation", consolidation)
         if extraction is not None:
@@ -3882,38 +3882,38 @@ class MemorySemanticOverrideArgs:
 
     @_builtins.property
     @pulumi.getter
-    def consolidation(self) -> Optional[pulumi.Input['MemorySemanticOverrideConsolidationConfigurationInputArgs']]:
+    def consolidation(self) -> pulumi.Input[Optional['MemorySemanticOverrideConsolidationConfigurationInputArgs']]:
         return pulumi.get(self, "consolidation")
 
     @consolidation.setter
-    def consolidation(self, value: Optional[pulumi.Input['MemorySemanticOverrideConsolidationConfigurationInputArgs']]):
+    def consolidation(self, value: pulumi.Input[Optional['MemorySemanticOverrideConsolidationConfigurationInputArgs']]):
         pulumi.set(self, "consolidation", value)
 
     @_builtins.property
     @pulumi.getter
-    def extraction(self) -> Optional[pulumi.Input['MemorySemanticOverrideExtractionConfigurationInputArgs']]:
+    def extraction(self) -> pulumi.Input[Optional['MemorySemanticOverrideExtractionConfigurationInputArgs']]:
         return pulumi.get(self, "extraction")
 
     @extraction.setter
-    def extraction(self, value: Optional[pulumi.Input['MemorySemanticOverrideExtractionConfigurationInputArgs']]):
+    def extraction(self, value: pulumi.Input[Optional['MemorySemanticOverrideExtractionConfigurationInputArgs']]):
         pulumi.set(self, "extraction", value)
 
 
 class MemoryStrategyArgsDict(TypedDict):
-    custom_memory_strategy: NotRequired[pulumi.Input['MemoryCustomMemoryStrategyArgsDict']]
-    episodic_memory_strategy: NotRequired[pulumi.Input['MemoryEpisodicMemoryStrategyArgsDict']]
-    semantic_memory_strategy: NotRequired[pulumi.Input['MemorySemanticMemoryStrategyArgsDict']]
-    summary_memory_strategy: NotRequired[pulumi.Input['MemorySummaryMemoryStrategyArgsDict']]
-    user_preference_memory_strategy: NotRequired[pulumi.Input['MemoryUserPreferenceMemoryStrategyArgsDict']]
+    custom_memory_strategy: NotRequired[pulumi.Input[Optional['MemoryCustomMemoryStrategyArgsDict']]]
+    episodic_memory_strategy: NotRequired[pulumi.Input[Optional['MemoryEpisodicMemoryStrategyArgsDict']]]
+    semantic_memory_strategy: NotRequired[pulumi.Input[Optional['MemorySemanticMemoryStrategyArgsDict']]]
+    summary_memory_strategy: NotRequired[pulumi.Input[Optional['MemorySummaryMemoryStrategyArgsDict']]]
+    user_preference_memory_strategy: NotRequired[pulumi.Input[Optional['MemoryUserPreferenceMemoryStrategyArgsDict']]]
 
 @pulumi.input_type
 class MemoryStrategyArgs:
     def __init__(__self__, *,
-                 custom_memory_strategy: Optional[pulumi.Input['MemoryCustomMemoryStrategyArgs']] = None,
-                 episodic_memory_strategy: Optional[pulumi.Input['MemoryEpisodicMemoryStrategyArgs']] = None,
-                 semantic_memory_strategy: Optional[pulumi.Input['MemorySemanticMemoryStrategyArgs']] = None,
-                 summary_memory_strategy: Optional[pulumi.Input['MemorySummaryMemoryStrategyArgs']] = None,
-                 user_preference_memory_strategy: Optional[pulumi.Input['MemoryUserPreferenceMemoryStrategyArgs']] = None):
+                 custom_memory_strategy: pulumi.Input[Optional['MemoryCustomMemoryStrategyArgs']] = None,
+                 episodic_memory_strategy: pulumi.Input[Optional['MemoryEpisodicMemoryStrategyArgs']] = None,
+                 semantic_memory_strategy: pulumi.Input[Optional['MemorySemanticMemoryStrategyArgs']] = None,
+                 summary_memory_strategy: pulumi.Input[Optional['MemorySummaryMemoryStrategyArgs']] = None,
+                 user_preference_memory_strategy: pulumi.Input[Optional['MemoryUserPreferenceMemoryStrategyArgs']] = None):
         if custom_memory_strategy is not None:
             pulumi.set(__self__, "custom_memory_strategy", custom_memory_strategy)
         if episodic_memory_strategy is not None:
@@ -3927,47 +3927,47 @@ class MemoryStrategyArgs:
 
     @_builtins.property
     @pulumi.getter(name="customMemoryStrategy")
-    def custom_memory_strategy(self) -> Optional[pulumi.Input['MemoryCustomMemoryStrategyArgs']]:
+    def custom_memory_strategy(self) -> pulumi.Input[Optional['MemoryCustomMemoryStrategyArgs']]:
         return pulumi.get(self, "custom_memory_strategy")
 
     @custom_memory_strategy.setter
-    def custom_memory_strategy(self, value: Optional[pulumi.Input['MemoryCustomMemoryStrategyArgs']]):
+    def custom_memory_strategy(self, value: pulumi.Input[Optional['MemoryCustomMemoryStrategyArgs']]):
         pulumi.set(self, "custom_memory_strategy", value)
 
     @_builtins.property
     @pulumi.getter(name="episodicMemoryStrategy")
-    def episodic_memory_strategy(self) -> Optional[pulumi.Input['MemoryEpisodicMemoryStrategyArgs']]:
+    def episodic_memory_strategy(self) -> pulumi.Input[Optional['MemoryEpisodicMemoryStrategyArgs']]:
         return pulumi.get(self, "episodic_memory_strategy")
 
     @episodic_memory_strategy.setter
-    def episodic_memory_strategy(self, value: Optional[pulumi.Input['MemoryEpisodicMemoryStrategyArgs']]):
+    def episodic_memory_strategy(self, value: pulumi.Input[Optional['MemoryEpisodicMemoryStrategyArgs']]):
         pulumi.set(self, "episodic_memory_strategy", value)
 
     @_builtins.property
     @pulumi.getter(name="semanticMemoryStrategy")
-    def semantic_memory_strategy(self) -> Optional[pulumi.Input['MemorySemanticMemoryStrategyArgs']]:
+    def semantic_memory_strategy(self) -> pulumi.Input[Optional['MemorySemanticMemoryStrategyArgs']]:
         return pulumi.get(self, "semantic_memory_strategy")
 
     @semantic_memory_strategy.setter
-    def semantic_memory_strategy(self, value: Optional[pulumi.Input['MemorySemanticMemoryStrategyArgs']]):
+    def semantic_memory_strategy(self, value: pulumi.Input[Optional['MemorySemanticMemoryStrategyArgs']]):
         pulumi.set(self, "semantic_memory_strategy", value)
 
     @_builtins.property
     @pulumi.getter(name="summaryMemoryStrategy")
-    def summary_memory_strategy(self) -> Optional[pulumi.Input['MemorySummaryMemoryStrategyArgs']]:
+    def summary_memory_strategy(self) -> pulumi.Input[Optional['MemorySummaryMemoryStrategyArgs']]:
         return pulumi.get(self, "summary_memory_strategy")
 
     @summary_memory_strategy.setter
-    def summary_memory_strategy(self, value: Optional[pulumi.Input['MemorySummaryMemoryStrategyArgs']]):
+    def summary_memory_strategy(self, value: pulumi.Input[Optional['MemorySummaryMemoryStrategyArgs']]):
         pulumi.set(self, "summary_memory_strategy", value)
 
     @_builtins.property
     @pulumi.getter(name="userPreferenceMemoryStrategy")
-    def user_preference_memory_strategy(self) -> Optional[pulumi.Input['MemoryUserPreferenceMemoryStrategyArgs']]:
+    def user_preference_memory_strategy(self) -> pulumi.Input[Optional['MemoryUserPreferenceMemoryStrategyArgs']]:
         return pulumi.get(self, "user_preference_memory_strategy")
 
     @user_preference_memory_strategy.setter
-    def user_preference_memory_strategy(self, value: Optional[pulumi.Input['MemoryUserPreferenceMemoryStrategyArgs']]):
+    def user_preference_memory_strategy(self, value: pulumi.Input[Optional['MemoryUserPreferenceMemoryStrategyArgs']]):
         pulumi.set(self, "user_preference_memory_strategy", value)
 
 
@@ -3991,34 +3991,34 @@ class MemoryStreamDeliveryResourcesArgs:
 
 
 class MemoryStreamDeliveryResourceArgsDict(TypedDict):
-    kinesis: NotRequired[pulumi.Input['MemoryKinesisResourceArgsDict']]
+    kinesis: NotRequired[pulumi.Input[Optional['MemoryKinesisResourceArgsDict']]]
 
 @pulumi.input_type
 class MemoryStreamDeliveryResourceArgs:
     def __init__(__self__, *,
-                 kinesis: Optional[pulumi.Input['MemoryKinesisResourceArgs']] = None):
+                 kinesis: pulumi.Input[Optional['MemoryKinesisResourceArgs']] = None):
         if kinesis is not None:
             pulumi.set(__self__, "kinesis", kinesis)
 
     @_builtins.property
     @pulumi.getter
-    def kinesis(self) -> Optional[pulumi.Input['MemoryKinesisResourceArgs']]:
+    def kinesis(self) -> pulumi.Input[Optional['MemoryKinesisResourceArgs']]:
         return pulumi.get(self, "kinesis")
 
     @kinesis.setter
-    def kinesis(self, value: Optional[pulumi.Input['MemoryKinesisResourceArgs']]):
+    def kinesis(self, value: pulumi.Input[Optional['MemoryKinesisResourceArgs']]):
         pulumi.set(self, "kinesis", value)
 
 
 class MemoryStringListValidationArgsDict(TypedDict):
-    allowed_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    max_items: NotRequired[pulumi.Input[_builtins.int]]
+    allowed_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    max_items: NotRequired[pulumi.Input[Optional[_builtins.int]]]
 
 @pulumi.input_type
 class MemoryStringListValidationArgs:
     def __init__(__self__, *,
-                 allowed_values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 max_items: Optional[pulumi.Input[_builtins.int]] = None):
+                 allowed_values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 max_items: pulumi.Input[Optional[_builtins.int]] = None):
         if allowed_values is not None:
             pulumi.set(__self__, "allowed_values", allowed_values)
         if max_items is not None:
@@ -4026,20 +4026,20 @@ class MemoryStringListValidationArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowedValues")
-    def allowed_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "allowed_values")
 
     @allowed_values.setter
-    def allowed_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_values", value)
 
     @_builtins.property
     @pulumi.getter(name="maxItems")
-    def max_items(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_items(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "max_items")
 
     @max_items.setter
-    def max_items(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_items(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_items", value)
 
 
@@ -4064,27 +4064,27 @@ class MemoryStringValidationArgs:
 
 class MemorySummaryMemoryStrategyArgsDict(TypedDict):
     name: pulumi.Input[_builtins.str]
-    created_at: NotRequired[pulumi.Input[_builtins.str]]
+    created_at: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Creation timestamp of the memory strategy
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
-    memory_record_schema: NotRequired[pulumi.Input['MemoryRecordSchemaArgsDict']]
-    namespace_templates: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    namespaces: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    status: NotRequired[pulumi.Input['MemorySummaryMemoryStrategyStatus']]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    memory_record_schema: NotRequired[pulumi.Input[Optional['MemoryRecordSchemaArgsDict']]]
+    namespace_templates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    namespaces: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    status: NotRequired[pulumi.Input[Optional['MemorySummaryMemoryStrategyStatus']]]
     """
     Status of the memory strategy
     """
-    strategy_id: NotRequired[pulumi.Input[_builtins.str]]
+    strategy_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Unique identifier for the memory strategy
     """
-    type: NotRequired[pulumi.Input['MemorySummaryMemoryStrategyType']]
+    type: NotRequired[pulumi.Input[Optional['MemorySummaryMemoryStrategyType']]]
     """
     Type of memory strategy
     """
-    updated_at: NotRequired[pulumi.Input[_builtins.str]]
+    updated_at: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Last update timestamp of the memory strategy
     """
@@ -4093,15 +4093,15 @@ class MemorySummaryMemoryStrategyArgsDict(TypedDict):
 class MemorySummaryMemoryStrategyArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 created_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 memory_record_schema: Optional[pulumi.Input['MemoryRecordSchemaArgs']] = None,
-                 namespace_templates: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 namespaces: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 status: Optional[pulumi.Input['MemorySummaryMemoryStrategyStatus']] = None,
-                 strategy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input['MemorySummaryMemoryStrategyType']] = None,
-                 updated_at: Optional[pulumi.Input[_builtins.str]] = None):
+                 created_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 memory_record_schema: pulumi.Input[Optional['MemoryRecordSchemaArgs']] = None,
+                 namespace_templates: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 namespaces: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 status: pulumi.Input[Optional['MemorySummaryMemoryStrategyStatus']] = None,
+                 strategy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional['MemorySummaryMemoryStrategyType']] = None,
+                 updated_at: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] created_at: Creation timestamp of the memory strategy
         :param pulumi.Input['MemorySummaryMemoryStrategyStatus'] status: Status of the memory strategy
@@ -4140,98 +4140,98 @@ class MemorySummaryMemoryStrategyArgs:
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Creation timestamp of the memory strategy
         """
         return pulumi.get(self, "created_at")
 
     @created_at.setter
-    def created_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_at", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="memoryRecordSchema")
-    def memory_record_schema(self) -> Optional[pulumi.Input['MemoryRecordSchemaArgs']]:
+    def memory_record_schema(self) -> pulumi.Input[Optional['MemoryRecordSchemaArgs']]:
         return pulumi.get(self, "memory_record_schema")
 
     @memory_record_schema.setter
-    def memory_record_schema(self, value: Optional[pulumi.Input['MemoryRecordSchemaArgs']]):
+    def memory_record_schema(self, value: pulumi.Input[Optional['MemoryRecordSchemaArgs']]):
         pulumi.set(self, "memory_record_schema", value)
 
     @_builtins.property
     @pulumi.getter(name="namespaceTemplates")
-    def namespace_templates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def namespace_templates(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "namespace_templates")
 
     @namespace_templates.setter
-    def namespace_templates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def namespace_templates(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "namespace_templates", value)
 
     @_builtins.property
     @pulumi.getter
-    def namespaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def namespaces(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "namespaces")
 
     @namespaces.setter
-    def namespaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def namespaces(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "namespaces", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input['MemorySummaryMemoryStrategyStatus']]:
+    def status(self) -> pulumi.Input[Optional['MemorySummaryMemoryStrategyStatus']]:
         """
         Status of the memory strategy
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input['MemorySummaryMemoryStrategyStatus']]):
+    def status(self, value: pulumi.Input[Optional['MemorySummaryMemoryStrategyStatus']]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="strategyId")
-    def strategy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def strategy_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unique identifier for the memory strategy
         """
         return pulumi.get(self, "strategy_id")
 
     @strategy_id.setter
-    def strategy_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def strategy_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "strategy_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['MemorySummaryMemoryStrategyType']]:
+    def type(self) -> pulumi.Input[Optional['MemorySummaryMemoryStrategyType']]:
         """
         Type of memory strategy
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['MemorySummaryMemoryStrategyType']]):
+    def type(self, value: pulumi.Input[Optional['MemorySummaryMemoryStrategyType']]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter(name="updatedAt")
-    def updated_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def updated_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Last update timestamp of the memory strategy
         """
         return pulumi.get(self, "updated_at")
 
     @updated_at.setter
-    def updated_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def updated_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "updated_at", value)
 
 
@@ -4267,76 +4267,76 @@ class MemorySummaryOverrideConsolidationConfigurationInputArgs:
 
 
 class MemorySummaryOverrideArgsDict(TypedDict):
-    consolidation: NotRequired[pulumi.Input['MemorySummaryOverrideConsolidationConfigurationInputArgsDict']]
+    consolidation: NotRequired[pulumi.Input[Optional['MemorySummaryOverrideConsolidationConfigurationInputArgsDict']]]
 
 @pulumi.input_type
 class MemorySummaryOverrideArgs:
     def __init__(__self__, *,
-                 consolidation: Optional[pulumi.Input['MemorySummaryOverrideConsolidationConfigurationInputArgs']] = None):
+                 consolidation: pulumi.Input[Optional['MemorySummaryOverrideConsolidationConfigurationInputArgs']] = None):
         if consolidation is not None:
             pulumi.set(__self__, "consolidation", consolidation)
 
     @_builtins.property
     @pulumi.getter
-    def consolidation(self) -> Optional[pulumi.Input['MemorySummaryOverrideConsolidationConfigurationInputArgs']]:
+    def consolidation(self) -> pulumi.Input[Optional['MemorySummaryOverrideConsolidationConfigurationInputArgs']]:
         return pulumi.get(self, "consolidation")
 
     @consolidation.setter
-    def consolidation(self, value: Optional[pulumi.Input['MemorySummaryOverrideConsolidationConfigurationInputArgs']]):
+    def consolidation(self, value: pulumi.Input[Optional['MemorySummaryOverrideConsolidationConfigurationInputArgs']]):
         pulumi.set(self, "consolidation", value)
 
 
 class MemoryTimeBasedTriggerInputArgsDict(TypedDict):
-    idle_session_timeout: NotRequired[pulumi.Input[_builtins.int]]
+    idle_session_timeout: NotRequired[pulumi.Input[Optional[_builtins.int]]]
 
 @pulumi.input_type
 class MemoryTimeBasedTriggerInputArgs:
     def __init__(__self__, *,
-                 idle_session_timeout: Optional[pulumi.Input[_builtins.int]] = None):
+                 idle_session_timeout: pulumi.Input[Optional[_builtins.int]] = None):
         if idle_session_timeout is not None:
             pulumi.set(__self__, "idle_session_timeout", idle_session_timeout)
 
     @_builtins.property
     @pulumi.getter(name="idleSessionTimeout")
-    def idle_session_timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def idle_session_timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "idle_session_timeout")
 
     @idle_session_timeout.setter
-    def idle_session_timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def idle_session_timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "idle_session_timeout", value)
 
 
 class MemoryTokenBasedTriggerInputArgsDict(TypedDict):
-    token_count: NotRequired[pulumi.Input[_builtins.int]]
+    token_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
 
 @pulumi.input_type
 class MemoryTokenBasedTriggerInputArgs:
     def __init__(__self__, *,
-                 token_count: Optional[pulumi.Input[_builtins.int]] = None):
+                 token_count: pulumi.Input[Optional[_builtins.int]] = None):
         if token_count is not None:
             pulumi.set(__self__, "token_count", token_count)
 
     @_builtins.property
     @pulumi.getter(name="tokenCount")
-    def token_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def token_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "token_count")
 
     @token_count.setter
-    def token_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def token_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "token_count", value)
 
 
 class MemoryTriggerConditionInputArgsDict(TypedDict):
-    message_based_trigger: NotRequired[pulumi.Input['MemoryMessageBasedTriggerInputArgsDict']]
-    time_based_trigger: NotRequired[pulumi.Input['MemoryTimeBasedTriggerInputArgsDict']]
-    token_based_trigger: NotRequired[pulumi.Input['MemoryTokenBasedTriggerInputArgsDict']]
+    message_based_trigger: NotRequired[pulumi.Input[Optional['MemoryMessageBasedTriggerInputArgsDict']]]
+    time_based_trigger: NotRequired[pulumi.Input[Optional['MemoryTimeBasedTriggerInputArgsDict']]]
+    token_based_trigger: NotRequired[pulumi.Input[Optional['MemoryTokenBasedTriggerInputArgsDict']]]
 
 @pulumi.input_type
 class MemoryTriggerConditionInputArgs:
     def __init__(__self__, *,
-                 message_based_trigger: Optional[pulumi.Input['MemoryMessageBasedTriggerInputArgs']] = None,
-                 time_based_trigger: Optional[pulumi.Input['MemoryTimeBasedTriggerInputArgs']] = None,
-                 token_based_trigger: Optional[pulumi.Input['MemoryTokenBasedTriggerInputArgs']] = None):
+                 message_based_trigger: pulumi.Input[Optional['MemoryMessageBasedTriggerInputArgs']] = None,
+                 time_based_trigger: pulumi.Input[Optional['MemoryTimeBasedTriggerInputArgs']] = None,
+                 token_based_trigger: pulumi.Input[Optional['MemoryTokenBasedTriggerInputArgs']] = None):
         if message_based_trigger is not None:
             pulumi.set(__self__, "message_based_trigger", message_based_trigger)
         if time_based_trigger is not None:
@@ -4346,55 +4346,55 @@ class MemoryTriggerConditionInputArgs:
 
     @_builtins.property
     @pulumi.getter(name="messageBasedTrigger")
-    def message_based_trigger(self) -> Optional[pulumi.Input['MemoryMessageBasedTriggerInputArgs']]:
+    def message_based_trigger(self) -> pulumi.Input[Optional['MemoryMessageBasedTriggerInputArgs']]:
         return pulumi.get(self, "message_based_trigger")
 
     @message_based_trigger.setter
-    def message_based_trigger(self, value: Optional[pulumi.Input['MemoryMessageBasedTriggerInputArgs']]):
+    def message_based_trigger(self, value: pulumi.Input[Optional['MemoryMessageBasedTriggerInputArgs']]):
         pulumi.set(self, "message_based_trigger", value)
 
     @_builtins.property
     @pulumi.getter(name="timeBasedTrigger")
-    def time_based_trigger(self) -> Optional[pulumi.Input['MemoryTimeBasedTriggerInputArgs']]:
+    def time_based_trigger(self) -> pulumi.Input[Optional['MemoryTimeBasedTriggerInputArgs']]:
         return pulumi.get(self, "time_based_trigger")
 
     @time_based_trigger.setter
-    def time_based_trigger(self, value: Optional[pulumi.Input['MemoryTimeBasedTriggerInputArgs']]):
+    def time_based_trigger(self, value: pulumi.Input[Optional['MemoryTimeBasedTriggerInputArgs']]):
         pulumi.set(self, "time_based_trigger", value)
 
     @_builtins.property
     @pulumi.getter(name="tokenBasedTrigger")
-    def token_based_trigger(self) -> Optional[pulumi.Input['MemoryTokenBasedTriggerInputArgs']]:
+    def token_based_trigger(self) -> pulumi.Input[Optional['MemoryTokenBasedTriggerInputArgs']]:
         return pulumi.get(self, "token_based_trigger")
 
     @token_based_trigger.setter
-    def token_based_trigger(self, value: Optional[pulumi.Input['MemoryTokenBasedTriggerInputArgs']]):
+    def token_based_trigger(self, value: pulumi.Input[Optional['MemoryTokenBasedTriggerInputArgs']]):
         pulumi.set(self, "token_based_trigger", value)
 
 
 class MemoryUserPreferenceMemoryStrategyArgsDict(TypedDict):
     name: pulumi.Input[_builtins.str]
-    created_at: NotRequired[pulumi.Input[_builtins.str]]
+    created_at: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Creation timestamp of the memory strategy
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
-    memory_record_schema: NotRequired[pulumi.Input['MemoryRecordSchemaArgsDict']]
-    namespace_templates: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    namespaces: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    status: NotRequired[pulumi.Input['MemoryUserPreferenceMemoryStrategyStatus']]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    memory_record_schema: NotRequired[pulumi.Input[Optional['MemoryRecordSchemaArgsDict']]]
+    namespace_templates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    namespaces: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    status: NotRequired[pulumi.Input[Optional['MemoryUserPreferenceMemoryStrategyStatus']]]
     """
     Status of the memory strategy
     """
-    strategy_id: NotRequired[pulumi.Input[_builtins.str]]
+    strategy_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Unique identifier for the memory strategy
     """
-    type: NotRequired[pulumi.Input['MemoryUserPreferenceMemoryStrategyType']]
+    type: NotRequired[pulumi.Input[Optional['MemoryUserPreferenceMemoryStrategyType']]]
     """
     Type of memory strategy
     """
-    updated_at: NotRequired[pulumi.Input[_builtins.str]]
+    updated_at: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Last update timestamp of the memory strategy
     """
@@ -4403,15 +4403,15 @@ class MemoryUserPreferenceMemoryStrategyArgsDict(TypedDict):
 class MemoryUserPreferenceMemoryStrategyArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 created_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 memory_record_schema: Optional[pulumi.Input['MemoryRecordSchemaArgs']] = None,
-                 namespace_templates: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 namespaces: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 status: Optional[pulumi.Input['MemoryUserPreferenceMemoryStrategyStatus']] = None,
-                 strategy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input['MemoryUserPreferenceMemoryStrategyType']] = None,
-                 updated_at: Optional[pulumi.Input[_builtins.str]] = None):
+                 created_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 memory_record_schema: pulumi.Input[Optional['MemoryRecordSchemaArgs']] = None,
+                 namespace_templates: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 namespaces: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 status: pulumi.Input[Optional['MemoryUserPreferenceMemoryStrategyStatus']] = None,
+                 strategy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional['MemoryUserPreferenceMemoryStrategyType']] = None,
+                 updated_at: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] created_at: Creation timestamp of the memory strategy
         :param pulumi.Input['MemoryUserPreferenceMemoryStrategyStatus'] status: Status of the memory strategy
@@ -4450,98 +4450,98 @@ class MemoryUserPreferenceMemoryStrategyArgs:
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Creation timestamp of the memory strategy
         """
         return pulumi.get(self, "created_at")
 
     @created_at.setter
-    def created_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_at", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="memoryRecordSchema")
-    def memory_record_schema(self) -> Optional[pulumi.Input['MemoryRecordSchemaArgs']]:
+    def memory_record_schema(self) -> pulumi.Input[Optional['MemoryRecordSchemaArgs']]:
         return pulumi.get(self, "memory_record_schema")
 
     @memory_record_schema.setter
-    def memory_record_schema(self, value: Optional[pulumi.Input['MemoryRecordSchemaArgs']]):
+    def memory_record_schema(self, value: pulumi.Input[Optional['MemoryRecordSchemaArgs']]):
         pulumi.set(self, "memory_record_schema", value)
 
     @_builtins.property
     @pulumi.getter(name="namespaceTemplates")
-    def namespace_templates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def namespace_templates(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "namespace_templates")
 
     @namespace_templates.setter
-    def namespace_templates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def namespace_templates(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "namespace_templates", value)
 
     @_builtins.property
     @pulumi.getter
-    def namespaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def namespaces(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "namespaces")
 
     @namespaces.setter
-    def namespaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def namespaces(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "namespaces", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input['MemoryUserPreferenceMemoryStrategyStatus']]:
+    def status(self) -> pulumi.Input[Optional['MemoryUserPreferenceMemoryStrategyStatus']]:
         """
         Status of the memory strategy
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input['MemoryUserPreferenceMemoryStrategyStatus']]):
+    def status(self, value: pulumi.Input[Optional['MemoryUserPreferenceMemoryStrategyStatus']]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="strategyId")
-    def strategy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def strategy_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unique identifier for the memory strategy
         """
         return pulumi.get(self, "strategy_id")
 
     @strategy_id.setter
-    def strategy_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def strategy_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "strategy_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['MemoryUserPreferenceMemoryStrategyType']]:
+    def type(self) -> pulumi.Input[Optional['MemoryUserPreferenceMemoryStrategyType']]:
         """
         Type of memory strategy
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['MemoryUserPreferenceMemoryStrategyType']]):
+    def type(self, value: pulumi.Input[Optional['MemoryUserPreferenceMemoryStrategyType']]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter(name="updatedAt")
-    def updated_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def updated_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Last update timestamp of the memory strategy
         """
         return pulumi.get(self, "updated_at")
 
     @updated_at.setter
-    def updated_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def updated_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "updated_at", value)
 
 
@@ -4608,14 +4608,14 @@ class MemoryUserPreferenceOverrideExtractionConfigurationInputArgs:
 
 
 class MemoryUserPreferenceOverrideArgsDict(TypedDict):
-    consolidation: NotRequired[pulumi.Input['MemoryUserPreferenceOverrideConsolidationConfigurationInputArgsDict']]
-    extraction: NotRequired[pulumi.Input['MemoryUserPreferenceOverrideExtractionConfigurationInputArgsDict']]
+    consolidation: NotRequired[pulumi.Input[Optional['MemoryUserPreferenceOverrideConsolidationConfigurationInputArgsDict']]]
+    extraction: NotRequired[pulumi.Input[Optional['MemoryUserPreferenceOverrideExtractionConfigurationInputArgsDict']]]
 
 @pulumi.input_type
 class MemoryUserPreferenceOverrideArgs:
     def __init__(__self__, *,
-                 consolidation: Optional[pulumi.Input['MemoryUserPreferenceOverrideConsolidationConfigurationInputArgs']] = None,
-                 extraction: Optional[pulumi.Input['MemoryUserPreferenceOverrideExtractionConfigurationInputArgs']] = None):
+                 consolidation: pulumi.Input[Optional['MemoryUserPreferenceOverrideConsolidationConfigurationInputArgs']] = None,
+                 extraction: pulumi.Input[Optional['MemoryUserPreferenceOverrideExtractionConfigurationInputArgs']] = None):
         if consolidation is not None:
             pulumi.set(__self__, "consolidation", consolidation)
         if extraction is not None:
@@ -4623,34 +4623,34 @@ class MemoryUserPreferenceOverrideArgs:
 
     @_builtins.property
     @pulumi.getter
-    def consolidation(self) -> Optional[pulumi.Input['MemoryUserPreferenceOverrideConsolidationConfigurationInputArgs']]:
+    def consolidation(self) -> pulumi.Input[Optional['MemoryUserPreferenceOverrideConsolidationConfigurationInputArgs']]:
         return pulumi.get(self, "consolidation")
 
     @consolidation.setter
-    def consolidation(self, value: Optional[pulumi.Input['MemoryUserPreferenceOverrideConsolidationConfigurationInputArgs']]):
+    def consolidation(self, value: pulumi.Input[Optional['MemoryUserPreferenceOverrideConsolidationConfigurationInputArgs']]):
         pulumi.set(self, "consolidation", value)
 
     @_builtins.property
     @pulumi.getter
-    def extraction(self) -> Optional[pulumi.Input['MemoryUserPreferenceOverrideExtractionConfigurationInputArgs']]:
+    def extraction(self) -> pulumi.Input[Optional['MemoryUserPreferenceOverrideExtractionConfigurationInputArgs']]:
         return pulumi.get(self, "extraction")
 
     @extraction.setter
-    def extraction(self, value: Optional[pulumi.Input['MemoryUserPreferenceOverrideExtractionConfigurationInputArgs']]):
+    def extraction(self, value: pulumi.Input[Optional['MemoryUserPreferenceOverrideExtractionConfigurationInputArgs']]):
         pulumi.set(self, "extraction", value)
 
 
 class MemoryValidationArgsDict(TypedDict):
-    number_validation: NotRequired[pulumi.Input['MemoryNumberValidationArgsDict']]
-    string_list_validation: NotRequired[pulumi.Input['MemoryStringListValidationArgsDict']]
-    string_validation: NotRequired[pulumi.Input['MemoryStringValidationArgsDict']]
+    number_validation: NotRequired[pulumi.Input[Optional['MemoryNumberValidationArgsDict']]]
+    string_list_validation: NotRequired[pulumi.Input[Optional['MemoryStringListValidationArgsDict']]]
+    string_validation: NotRequired[pulumi.Input[Optional['MemoryStringValidationArgsDict']]]
 
 @pulumi.input_type
 class MemoryValidationArgs:
     def __init__(__self__, *,
-                 number_validation: Optional[pulumi.Input['MemoryNumberValidationArgs']] = None,
-                 string_list_validation: Optional[pulumi.Input['MemoryStringListValidationArgs']] = None,
-                 string_validation: Optional[pulumi.Input['MemoryStringValidationArgs']] = None):
+                 number_validation: pulumi.Input[Optional['MemoryNumberValidationArgs']] = None,
+                 string_list_validation: pulumi.Input[Optional['MemoryStringListValidationArgs']] = None,
+                 string_validation: pulumi.Input[Optional['MemoryStringValidationArgs']] = None):
         if number_validation is not None:
             pulumi.set(__self__, "number_validation", number_validation)
         if string_list_validation is not None:
@@ -4660,29 +4660,29 @@ class MemoryValidationArgs:
 
     @_builtins.property
     @pulumi.getter(name="numberValidation")
-    def number_validation(self) -> Optional[pulumi.Input['MemoryNumberValidationArgs']]:
+    def number_validation(self) -> pulumi.Input[Optional['MemoryNumberValidationArgs']]:
         return pulumi.get(self, "number_validation")
 
     @number_validation.setter
-    def number_validation(self, value: Optional[pulumi.Input['MemoryNumberValidationArgs']]):
+    def number_validation(self, value: pulumi.Input[Optional['MemoryNumberValidationArgs']]):
         pulumi.set(self, "number_validation", value)
 
     @_builtins.property
     @pulumi.getter(name="stringListValidation")
-    def string_list_validation(self) -> Optional[pulumi.Input['MemoryStringListValidationArgs']]:
+    def string_list_validation(self) -> pulumi.Input[Optional['MemoryStringListValidationArgs']]:
         return pulumi.get(self, "string_list_validation")
 
     @string_list_validation.setter
-    def string_list_validation(self, value: Optional[pulumi.Input['MemoryStringListValidationArgs']]):
+    def string_list_validation(self, value: pulumi.Input[Optional['MemoryStringListValidationArgs']]):
         pulumi.set(self, "string_list_validation", value)
 
     @_builtins.property
     @pulumi.getter(name="stringValidation")
-    def string_validation(self) -> Optional[pulumi.Input['MemoryStringValidationArgs']]:
+    def string_validation(self) -> pulumi.Input[Optional['MemoryStringValidationArgs']]:
         return pulumi.get(self, "string_validation")
 
     @string_validation.setter
-    def string_validation(self, value: Optional[pulumi.Input['MemoryStringValidationArgs']]):
+    def string_validation(self, value: pulumi.Input[Optional['MemoryStringValidationArgs']]):
         pulumi.set(self, "string_validation", value)
 
 
@@ -4728,23 +4728,23 @@ class OAuth2CredentialProviderCustomOauth2ProviderConfigInputArgsDict(TypedDict)
     Input configuration for a custom OAuth2 provider
     """
     oauth_discovery: pulumi.Input['OAuth2CredentialProviderOauth2DiscoveryArgsDict']
-    client_id: NotRequired[pulumi.Input[_builtins.str]]
+    client_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The client ID for the custom OAuth2 provider
     """
-    client_secret: NotRequired[pulumi.Input[_builtins.str]]
+    client_secret: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The client secret for the custom OAuth2 provider
     """
-    on_behalf_of_token_exchange_config: NotRequired[pulumi.Input['OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigArgsDict']]
+    on_behalf_of_token_exchange_config: NotRequired[pulumi.Input[Optional['OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigArgsDict']]]
 
 @pulumi.input_type
 class OAuth2CredentialProviderCustomOauth2ProviderConfigInputArgs:
     def __init__(__self__, *,
                  oauth_discovery: pulumi.Input['OAuth2CredentialProviderOauth2DiscoveryArgs'],
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 on_behalf_of_token_exchange_config: Optional[pulumi.Input['OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigArgs']] = None):
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 on_behalf_of_token_exchange_config: pulumi.Input[Optional['OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigArgs']] = None):
         """
         Input configuration for a custom OAuth2 provider
 
@@ -4770,35 +4770,35 @@ class OAuth2CredentialProviderCustomOauth2ProviderConfigInputArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The client ID for the custom OAuth2 provider
         """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
-    def client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_id", value)
 
     @_builtins.property
     @pulumi.getter(name="clientSecret")
-    def client_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_secret(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The client secret for the custom OAuth2 provider
         """
         return pulumi.get(self, "client_secret")
 
     @client_secret.setter
-    def client_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_secret(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_secret", value)
 
     @_builtins.property
     @pulumi.getter(name="onBehalfOfTokenExchangeConfig")
-    def on_behalf_of_token_exchange_config(self) -> Optional[pulumi.Input['OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigArgs']]:
+    def on_behalf_of_token_exchange_config(self) -> pulumi.Input[Optional['OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigArgs']]:
         return pulumi.get(self, "on_behalf_of_token_exchange_config")
 
     @on_behalf_of_token_exchange_config.setter
-    def on_behalf_of_token_exchange_config(self, value: Optional[pulumi.Input['OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigArgs']]):
+    def on_behalf_of_token_exchange_config(self, value: pulumi.Input[Optional['OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigArgs']]):
         pulumi.set(self, "on_behalf_of_token_exchange_config", value)
 
 
@@ -4882,15 +4882,15 @@ class OAuth2CredentialProviderIncludedOauth2ProviderConfigInputArgsDict(TypedDic
     """
     client_id: pulumi.Input[_builtins.str]
     client_secret: pulumi.Input[_builtins.str]
-    authorization_endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    authorization_endpoint: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     OAuth2 authorization endpoint for your isolated OAuth2 application tenant
     """
-    issuer: NotRequired[pulumi.Input[_builtins.str]]
+    issuer: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Token issuer of your isolated OAuth2 application tenant
     """
-    token_endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    token_endpoint: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     OAuth2 token endpoint for your isolated OAuth2 application tenant
     """
@@ -4900,9 +4900,9 @@ class OAuth2CredentialProviderIncludedOauth2ProviderConfigInputArgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[_builtins.str],
                  client_secret: pulumi.Input[_builtins.str],
-                 authorization_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 issuer: Optional[pulumi.Input[_builtins.str]] = None,
-                 token_endpoint: Optional[pulumi.Input[_builtins.str]] = None):
+                 authorization_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 issuer: pulumi.Input[Optional[_builtins.str]] = None,
+                 token_endpoint: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input configuration for a supported non-custom OAuth2 provider
 
@@ -4939,38 +4939,38 @@ class OAuth2CredentialProviderIncludedOauth2ProviderConfigInputArgs:
 
     @_builtins.property
     @pulumi.getter(name="authorizationEndpoint")
-    def authorization_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authorization_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         OAuth2 authorization endpoint for your isolated OAuth2 application tenant
         """
         return pulumi.get(self, "authorization_endpoint")
 
     @authorization_endpoint.setter
-    def authorization_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authorization_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authorization_endpoint", value)
 
     @_builtins.property
     @pulumi.getter
-    def issuer(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def issuer(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Token issuer of your isolated OAuth2 application tenant
         """
         return pulumi.get(self, "issuer")
 
     @issuer.setter
-    def issuer(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def issuer(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "issuer", value)
 
     @_builtins.property
     @pulumi.getter(name="tokenEndpoint")
-    def token_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def token_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         OAuth2 token endpoint for your isolated OAuth2 application tenant
         """
         return pulumi.get(self, "token_endpoint")
 
     @token_endpoint.setter
-    def token_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def token_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "token_endpoint", value)
 
 
@@ -5017,7 +5017,7 @@ class OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputArgsDict(TypedDi
     """
     client_id: pulumi.Input[_builtins.str]
     client_secret: pulumi.Input[_builtins.str]
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Microsoft Entra ID tenant ID
     """
@@ -5027,7 +5027,7 @@ class OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputArgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[_builtins.str],
                  client_secret: pulumi.Input[_builtins.str],
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input configuration for a Microsoft OAuth2 provider
 
@@ -5058,14 +5058,14 @@ class OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputArgs:
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Microsoft Entra ID tenant ID
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
@@ -5085,7 +5085,7 @@ class OAuth2CredentialProviderOauth2AuthorizationServerMetadataArgsDict(TypedDic
     """
     The token endpoint URL
     """
-    response_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    response_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The supported response types
     """
@@ -5096,7 +5096,7 @@ class OAuth2CredentialProviderOauth2AuthorizationServerMetadataArgs:
                  authorization_endpoint: pulumi.Input[_builtins.str],
                  issuer: pulumi.Input[_builtins.str],
                  token_endpoint: pulumi.Input[_builtins.str],
-                 response_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 response_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Authorization server metadata for the OAuth2 provider
 
@@ -5149,14 +5149,14 @@ class OAuth2CredentialProviderOauth2AuthorizationServerMetadataArgs:
 
     @_builtins.property
     @pulumi.getter(name="responseTypes")
-    def response_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def response_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The supported response types
         """
         return pulumi.get(self, "response_types")
 
     @response_types.setter
-    def response_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def response_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "response_types", value)
 
 
@@ -5164,8 +5164,8 @@ class OAuth2CredentialProviderOauth2DiscoveryArgsDict(TypedDict):
     """
     Discovery information for an OAuth2 provider
     """
-    authorization_server_metadata: NotRequired[pulumi.Input['OAuth2CredentialProviderOauth2AuthorizationServerMetadataArgsDict']]
-    discovery_url: NotRequired[pulumi.Input[_builtins.str]]
+    authorization_server_metadata: NotRequired[pulumi.Input[Optional['OAuth2CredentialProviderOauth2AuthorizationServerMetadataArgsDict']]]
+    discovery_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The discovery URL for the OAuth2 provider
     """
@@ -5173,8 +5173,8 @@ class OAuth2CredentialProviderOauth2DiscoveryArgsDict(TypedDict):
 @pulumi.input_type
 class OAuth2CredentialProviderOauth2DiscoveryArgs:
     def __init__(__self__, *,
-                 authorization_server_metadata: Optional[pulumi.Input['OAuth2CredentialProviderOauth2AuthorizationServerMetadataArgs']] = None,
-                 discovery_url: Optional[pulumi.Input[_builtins.str]] = None):
+                 authorization_server_metadata: pulumi.Input[Optional['OAuth2CredentialProviderOauth2AuthorizationServerMetadataArgs']] = None,
+                 discovery_url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Discovery information for an OAuth2 provider
 
@@ -5187,23 +5187,23 @@ class OAuth2CredentialProviderOauth2DiscoveryArgs:
 
     @_builtins.property
     @pulumi.getter(name="authorizationServerMetadata")
-    def authorization_server_metadata(self) -> Optional[pulumi.Input['OAuth2CredentialProviderOauth2AuthorizationServerMetadataArgs']]:
+    def authorization_server_metadata(self) -> pulumi.Input[Optional['OAuth2CredentialProviderOauth2AuthorizationServerMetadataArgs']]:
         return pulumi.get(self, "authorization_server_metadata")
 
     @authorization_server_metadata.setter
-    def authorization_server_metadata(self, value: Optional[pulumi.Input['OAuth2CredentialProviderOauth2AuthorizationServerMetadataArgs']]):
+    def authorization_server_metadata(self, value: pulumi.Input[Optional['OAuth2CredentialProviderOauth2AuthorizationServerMetadataArgs']]):
         pulumi.set(self, "authorization_server_metadata", value)
 
     @_builtins.property
     @pulumi.getter(name="discoveryUrl")
-    def discovery_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def discovery_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The discovery URL for the OAuth2 provider
         """
         return pulumi.get(self, "discovery_url")
 
     @discovery_url.setter
-    def discovery_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def discovery_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "discovery_url", value)
 
 
@@ -5211,28 +5211,28 @@ class OAuth2CredentialProviderOauth2ProviderConfigInputArgsDict(TypedDict):
     """
     Input configuration for an OAuth2 provider
     """
-    atlassian_oauth2_provider_config: NotRequired[pulumi.Input['OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputArgsDict']]
-    custom_oauth2_provider_config: NotRequired[pulumi.Input['OAuth2CredentialProviderCustomOauth2ProviderConfigInputArgsDict']]
-    github_oauth2_provider_config: NotRequired[pulumi.Input['OAuth2CredentialProviderGithubOauth2ProviderConfigInputArgsDict']]
-    google_oauth2_provider_config: NotRequired[pulumi.Input['OAuth2CredentialProviderGoogleOauth2ProviderConfigInputArgsDict']]
-    included_oauth2_provider_config: NotRequired[pulumi.Input['OAuth2CredentialProviderIncludedOauth2ProviderConfigInputArgsDict']]
-    linkedin_oauth2_provider_config: NotRequired[pulumi.Input['OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputArgsDict']]
-    microsoft_oauth2_provider_config: NotRequired[pulumi.Input['OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputArgsDict']]
-    salesforce_oauth2_provider_config: NotRequired[pulumi.Input['OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputArgsDict']]
-    slack_oauth2_provider_config: NotRequired[pulumi.Input['OAuth2CredentialProviderSlackOauth2ProviderConfigInputArgsDict']]
+    atlassian_oauth2_provider_config: NotRequired[pulumi.Input[Optional['OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputArgsDict']]]
+    custom_oauth2_provider_config: NotRequired[pulumi.Input[Optional['OAuth2CredentialProviderCustomOauth2ProviderConfigInputArgsDict']]]
+    github_oauth2_provider_config: NotRequired[pulumi.Input[Optional['OAuth2CredentialProviderGithubOauth2ProviderConfigInputArgsDict']]]
+    google_oauth2_provider_config: NotRequired[pulumi.Input[Optional['OAuth2CredentialProviderGoogleOauth2ProviderConfigInputArgsDict']]]
+    included_oauth2_provider_config: NotRequired[pulumi.Input[Optional['OAuth2CredentialProviderIncludedOauth2ProviderConfigInputArgsDict']]]
+    linkedin_oauth2_provider_config: NotRequired[pulumi.Input[Optional['OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputArgsDict']]]
+    microsoft_oauth2_provider_config: NotRequired[pulumi.Input[Optional['OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputArgsDict']]]
+    salesforce_oauth2_provider_config: NotRequired[pulumi.Input[Optional['OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputArgsDict']]]
+    slack_oauth2_provider_config: NotRequired[pulumi.Input[Optional['OAuth2CredentialProviderSlackOauth2ProviderConfigInputArgsDict']]]
 
 @pulumi.input_type
 class OAuth2CredentialProviderOauth2ProviderConfigInputArgs:
     def __init__(__self__, *,
-                 atlassian_oauth2_provider_config: Optional[pulumi.Input['OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputArgs']] = None,
-                 custom_oauth2_provider_config: Optional[pulumi.Input['OAuth2CredentialProviderCustomOauth2ProviderConfigInputArgs']] = None,
-                 github_oauth2_provider_config: Optional[pulumi.Input['OAuth2CredentialProviderGithubOauth2ProviderConfigInputArgs']] = None,
-                 google_oauth2_provider_config: Optional[pulumi.Input['OAuth2CredentialProviderGoogleOauth2ProviderConfigInputArgs']] = None,
-                 included_oauth2_provider_config: Optional[pulumi.Input['OAuth2CredentialProviderIncludedOauth2ProviderConfigInputArgs']] = None,
-                 linkedin_oauth2_provider_config: Optional[pulumi.Input['OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputArgs']] = None,
-                 microsoft_oauth2_provider_config: Optional[pulumi.Input['OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputArgs']] = None,
-                 salesforce_oauth2_provider_config: Optional[pulumi.Input['OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputArgs']] = None,
-                 slack_oauth2_provider_config: Optional[pulumi.Input['OAuth2CredentialProviderSlackOauth2ProviderConfigInputArgs']] = None):
+                 atlassian_oauth2_provider_config: pulumi.Input[Optional['OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputArgs']] = None,
+                 custom_oauth2_provider_config: pulumi.Input[Optional['OAuth2CredentialProviderCustomOauth2ProviderConfigInputArgs']] = None,
+                 github_oauth2_provider_config: pulumi.Input[Optional['OAuth2CredentialProviderGithubOauth2ProviderConfigInputArgs']] = None,
+                 google_oauth2_provider_config: pulumi.Input[Optional['OAuth2CredentialProviderGoogleOauth2ProviderConfigInputArgs']] = None,
+                 included_oauth2_provider_config: pulumi.Input[Optional['OAuth2CredentialProviderIncludedOauth2ProviderConfigInputArgs']] = None,
+                 linkedin_oauth2_provider_config: pulumi.Input[Optional['OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputArgs']] = None,
+                 microsoft_oauth2_provider_config: pulumi.Input[Optional['OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputArgs']] = None,
+                 salesforce_oauth2_provider_config: pulumi.Input[Optional['OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputArgs']] = None,
+                 slack_oauth2_provider_config: pulumi.Input[Optional['OAuth2CredentialProviderSlackOauth2ProviderConfigInputArgs']] = None):
         """
         Input configuration for an OAuth2 provider
         """
@@ -5257,83 +5257,83 @@ class OAuth2CredentialProviderOauth2ProviderConfigInputArgs:
 
     @_builtins.property
     @pulumi.getter(name="atlassianOauth2ProviderConfig")
-    def atlassian_oauth2_provider_config(self) -> Optional[pulumi.Input['OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputArgs']]:
+    def atlassian_oauth2_provider_config(self) -> pulumi.Input[Optional['OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputArgs']]:
         return pulumi.get(self, "atlassian_oauth2_provider_config")
 
     @atlassian_oauth2_provider_config.setter
-    def atlassian_oauth2_provider_config(self, value: Optional[pulumi.Input['OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputArgs']]):
+    def atlassian_oauth2_provider_config(self, value: pulumi.Input[Optional['OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputArgs']]):
         pulumi.set(self, "atlassian_oauth2_provider_config", value)
 
     @_builtins.property
     @pulumi.getter(name="customOauth2ProviderConfig")
-    def custom_oauth2_provider_config(self) -> Optional[pulumi.Input['OAuth2CredentialProviderCustomOauth2ProviderConfigInputArgs']]:
+    def custom_oauth2_provider_config(self) -> pulumi.Input[Optional['OAuth2CredentialProviderCustomOauth2ProviderConfigInputArgs']]:
         return pulumi.get(self, "custom_oauth2_provider_config")
 
     @custom_oauth2_provider_config.setter
-    def custom_oauth2_provider_config(self, value: Optional[pulumi.Input['OAuth2CredentialProviderCustomOauth2ProviderConfigInputArgs']]):
+    def custom_oauth2_provider_config(self, value: pulumi.Input[Optional['OAuth2CredentialProviderCustomOauth2ProviderConfigInputArgs']]):
         pulumi.set(self, "custom_oauth2_provider_config", value)
 
     @_builtins.property
     @pulumi.getter(name="githubOauth2ProviderConfig")
-    def github_oauth2_provider_config(self) -> Optional[pulumi.Input['OAuth2CredentialProviderGithubOauth2ProviderConfigInputArgs']]:
+    def github_oauth2_provider_config(self) -> pulumi.Input[Optional['OAuth2CredentialProviderGithubOauth2ProviderConfigInputArgs']]:
         return pulumi.get(self, "github_oauth2_provider_config")
 
     @github_oauth2_provider_config.setter
-    def github_oauth2_provider_config(self, value: Optional[pulumi.Input['OAuth2CredentialProviderGithubOauth2ProviderConfigInputArgs']]):
+    def github_oauth2_provider_config(self, value: pulumi.Input[Optional['OAuth2CredentialProviderGithubOauth2ProviderConfigInputArgs']]):
         pulumi.set(self, "github_oauth2_provider_config", value)
 
     @_builtins.property
     @pulumi.getter(name="googleOauth2ProviderConfig")
-    def google_oauth2_provider_config(self) -> Optional[pulumi.Input['OAuth2CredentialProviderGoogleOauth2ProviderConfigInputArgs']]:
+    def google_oauth2_provider_config(self) -> pulumi.Input[Optional['OAuth2CredentialProviderGoogleOauth2ProviderConfigInputArgs']]:
         return pulumi.get(self, "google_oauth2_provider_config")
 
     @google_oauth2_provider_config.setter
-    def google_oauth2_provider_config(self, value: Optional[pulumi.Input['OAuth2CredentialProviderGoogleOauth2ProviderConfigInputArgs']]):
+    def google_oauth2_provider_config(self, value: pulumi.Input[Optional['OAuth2CredentialProviderGoogleOauth2ProviderConfigInputArgs']]):
         pulumi.set(self, "google_oauth2_provider_config", value)
 
     @_builtins.property
     @pulumi.getter(name="includedOauth2ProviderConfig")
-    def included_oauth2_provider_config(self) -> Optional[pulumi.Input['OAuth2CredentialProviderIncludedOauth2ProviderConfigInputArgs']]:
+    def included_oauth2_provider_config(self) -> pulumi.Input[Optional['OAuth2CredentialProviderIncludedOauth2ProviderConfigInputArgs']]:
         return pulumi.get(self, "included_oauth2_provider_config")
 
     @included_oauth2_provider_config.setter
-    def included_oauth2_provider_config(self, value: Optional[pulumi.Input['OAuth2CredentialProviderIncludedOauth2ProviderConfigInputArgs']]):
+    def included_oauth2_provider_config(self, value: pulumi.Input[Optional['OAuth2CredentialProviderIncludedOauth2ProviderConfigInputArgs']]):
         pulumi.set(self, "included_oauth2_provider_config", value)
 
     @_builtins.property
     @pulumi.getter(name="linkedinOauth2ProviderConfig")
-    def linkedin_oauth2_provider_config(self) -> Optional[pulumi.Input['OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputArgs']]:
+    def linkedin_oauth2_provider_config(self) -> pulumi.Input[Optional['OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputArgs']]:
         return pulumi.get(self, "linkedin_oauth2_provider_config")
 
     @linkedin_oauth2_provider_config.setter
-    def linkedin_oauth2_provider_config(self, value: Optional[pulumi.Input['OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputArgs']]):
+    def linkedin_oauth2_provider_config(self, value: pulumi.Input[Optional['OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputArgs']]):
         pulumi.set(self, "linkedin_oauth2_provider_config", value)
 
     @_builtins.property
     @pulumi.getter(name="microsoftOauth2ProviderConfig")
-    def microsoft_oauth2_provider_config(self) -> Optional[pulumi.Input['OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputArgs']]:
+    def microsoft_oauth2_provider_config(self) -> pulumi.Input[Optional['OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputArgs']]:
         return pulumi.get(self, "microsoft_oauth2_provider_config")
 
     @microsoft_oauth2_provider_config.setter
-    def microsoft_oauth2_provider_config(self, value: Optional[pulumi.Input['OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputArgs']]):
+    def microsoft_oauth2_provider_config(self, value: pulumi.Input[Optional['OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputArgs']]):
         pulumi.set(self, "microsoft_oauth2_provider_config", value)
 
     @_builtins.property
     @pulumi.getter(name="salesforceOauth2ProviderConfig")
-    def salesforce_oauth2_provider_config(self) -> Optional[pulumi.Input['OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputArgs']]:
+    def salesforce_oauth2_provider_config(self) -> pulumi.Input[Optional['OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputArgs']]:
         return pulumi.get(self, "salesforce_oauth2_provider_config")
 
     @salesforce_oauth2_provider_config.setter
-    def salesforce_oauth2_provider_config(self, value: Optional[pulumi.Input['OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputArgs']]):
+    def salesforce_oauth2_provider_config(self, value: pulumi.Input[Optional['OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputArgs']]):
         pulumi.set(self, "salesforce_oauth2_provider_config", value)
 
     @_builtins.property
     @pulumi.getter(name="slackOauth2ProviderConfig")
-    def slack_oauth2_provider_config(self) -> Optional[pulumi.Input['OAuth2CredentialProviderSlackOauth2ProviderConfigInputArgs']]:
+    def slack_oauth2_provider_config(self) -> pulumi.Input[Optional['OAuth2CredentialProviderSlackOauth2ProviderConfigInputArgs']]:
         return pulumi.get(self, "slack_oauth2_provider_config")
 
     @slack_oauth2_provider_config.setter
-    def slack_oauth2_provider_config(self, value: Optional[pulumi.Input['OAuth2CredentialProviderSlackOauth2ProviderConfigInputArgs']]):
+    def slack_oauth2_provider_config(self, value: pulumi.Input[Optional['OAuth2CredentialProviderSlackOauth2ProviderConfigInputArgs']]):
         pulumi.set(self, "slack_oauth2_provider_config", value)
 
 
@@ -5345,13 +5345,13 @@ class OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigArgsDict(TypedDict):
     """
     The grant type for on-behalf-of token exchange
     """
-    token_exchange_grant_type_config: NotRequired[pulumi.Input['OAuth2CredentialProviderTokenExchangeGrantTypeConfigArgsDict']]
+    token_exchange_grant_type_config: NotRequired[pulumi.Input[Optional['OAuth2CredentialProviderTokenExchangeGrantTypeConfigArgsDict']]]
 
 @pulumi.input_type
 class OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigArgs:
     def __init__(__self__, *,
                  grant_type: pulumi.Input['OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantType'],
-                 token_exchange_grant_type_config: Optional[pulumi.Input['OAuth2CredentialProviderTokenExchangeGrantTypeConfigArgs']] = None):
+                 token_exchange_grant_type_config: pulumi.Input[Optional['OAuth2CredentialProviderTokenExchangeGrantTypeConfigArgs']] = None):
         """
         Configuration for on-behalf-of token exchange
 
@@ -5375,11 +5375,11 @@ class OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="tokenExchangeGrantTypeConfig")
-    def token_exchange_grant_type_config(self) -> Optional[pulumi.Input['OAuth2CredentialProviderTokenExchangeGrantTypeConfigArgs']]:
+    def token_exchange_grant_type_config(self) -> pulumi.Input[Optional['OAuth2CredentialProviderTokenExchangeGrantTypeConfigArgs']]:
         return pulumi.get(self, "token_exchange_grant_type_config")
 
     @token_exchange_grant_type_config.setter
-    def token_exchange_grant_type_config(self, value: Optional[pulumi.Input['OAuth2CredentialProviderTokenExchangeGrantTypeConfigArgs']]):
+    def token_exchange_grant_type_config(self, value: pulumi.Input[Optional['OAuth2CredentialProviderTokenExchangeGrantTypeConfigArgs']]):
         pulumi.set(self, "token_exchange_grant_type_config", value)
 
 
@@ -5465,7 +5465,7 @@ class OAuth2CredentialProviderTokenExchangeGrantTypeConfigArgsDict(TypedDict):
     """
     The actor token content type
     """
-    actor_token_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    actor_token_scopes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The actor token scopes. Only valid when ActorTokenContent is M2M.
     """
@@ -5474,7 +5474,7 @@ class OAuth2CredentialProviderTokenExchangeGrantTypeConfigArgsDict(TypedDict):
 class OAuth2CredentialProviderTokenExchangeGrantTypeConfigArgs:
     def __init__(__self__, *,
                  actor_token_content: pulumi.Input['OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContent'],
-                 actor_token_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 actor_token_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Configuration for RFC 8693 Token Exchange
 
@@ -5499,14 +5499,14 @@ class OAuth2CredentialProviderTokenExchangeGrantTypeConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="actorTokenScopes")
-    def actor_token_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def actor_token_scopes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The actor token scopes. Only valid when ActorTokenContent is M2M.
         """
         return pulumi.get(self, "actor_token_scopes")
 
     @actor_token_scopes.setter
-    def actor_token_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def actor_token_scopes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "actor_token_scopes", value)
 
 
@@ -5624,15 +5624,15 @@ class OnlineEvaluationConfigFilterValueArgsDict(TypedDict):
     """
     The value used in filter comparisons.
     """
-    boolean_value: NotRequired[pulumi.Input[_builtins.bool]]
+    boolean_value: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     The boolean value for true/false filtering conditions.
     """
-    double_value: NotRequired[pulumi.Input[_builtins.float]]
+    double_value: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The numeric value for numerical filtering.
     """
-    string_value: NotRequired[pulumi.Input[_builtins.str]]
+    string_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The string value for text-based filtering.
     """
@@ -5640,9 +5640,9 @@ class OnlineEvaluationConfigFilterValueArgsDict(TypedDict):
 @pulumi.input_type
 class OnlineEvaluationConfigFilterValueArgs:
     def __init__(__self__, *,
-                 boolean_value: Optional[pulumi.Input[_builtins.bool]] = None,
-                 double_value: Optional[pulumi.Input[_builtins.float]] = None,
-                 string_value: Optional[pulumi.Input[_builtins.str]] = None):
+                 boolean_value: pulumi.Input[Optional[_builtins.bool]] = None,
+                 double_value: pulumi.Input[Optional[_builtins.float]] = None,
+                 string_value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The value used in filter comparisons.
 
@@ -5659,38 +5659,38 @@ class OnlineEvaluationConfigFilterValueArgs:
 
     @_builtins.property
     @pulumi.getter(name="booleanValue")
-    def boolean_value(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def boolean_value(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The boolean value for true/false filtering conditions.
         """
         return pulumi.get(self, "boolean_value")
 
     @boolean_value.setter
-    def boolean_value(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def boolean_value(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "boolean_value", value)
 
     @_builtins.property
     @pulumi.getter(name="doubleValue")
-    def double_value(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def double_value(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The numeric value for numerical filtering.
         """
         return pulumi.get(self, "double_value")
 
     @double_value.setter
-    def double_value(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def double_value(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "double_value", value)
 
     @_builtins.property
     @pulumi.getter(name="stringValue")
-    def string_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def string_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The string value for text-based filtering.
         """
         return pulumi.get(self, "string_value")
 
     @string_value.setter
-    def string_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def string_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "string_value", value)
 
 
@@ -5763,18 +5763,18 @@ class OnlineEvaluationConfigRuleArgsDict(TypedDict):
     The evaluation rule that defines sampling configuration, filtering criteria, and session detection settings.
     """
     sampling_config: pulumi.Input['OnlineEvaluationConfigSamplingConfigArgsDict']
-    filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['OnlineEvaluationConfigFilterArgsDict']]]]
+    filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OnlineEvaluationConfigFilterArgsDict']]]]]
     """
     The list of filters that determine which agent traces should be included in the evaluation.
     """
-    session_config: NotRequired[pulumi.Input['OnlineEvaluationConfigSessionConfigArgsDict']]
+    session_config: NotRequired[pulumi.Input[Optional['OnlineEvaluationConfigSessionConfigArgsDict']]]
 
 @pulumi.input_type
 class OnlineEvaluationConfigRuleArgs:
     def __init__(__self__, *,
                  sampling_config: pulumi.Input['OnlineEvaluationConfigSamplingConfigArgs'],
-                 filters: Optional[pulumi.Input[Sequence[pulumi.Input['OnlineEvaluationConfigFilterArgs']]]] = None,
-                 session_config: Optional[pulumi.Input['OnlineEvaluationConfigSessionConfigArgs']] = None):
+                 filters: pulumi.Input[Optional[Sequence[pulumi.Input['OnlineEvaluationConfigFilterArgs']]]] = None,
+                 session_config: pulumi.Input[Optional['OnlineEvaluationConfigSessionConfigArgs']] = None):
         """
         The evaluation rule that defines sampling configuration, filtering criteria, and session detection settings.
 
@@ -5797,23 +5797,23 @@ class OnlineEvaluationConfigRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OnlineEvaluationConfigFilterArgs']]]]:
+    def filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['OnlineEvaluationConfigFilterArgs']]]]:
         """
         The list of filters that determine which agent traces should be included in the evaluation.
         """
         return pulumi.get(self, "filters")
 
     @filters.setter
-    def filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OnlineEvaluationConfigFilterArgs']]]]):
+    def filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['OnlineEvaluationConfigFilterArgs']]]]):
         pulumi.set(self, "filters", value)
 
     @_builtins.property
     @pulumi.getter(name="sessionConfig")
-    def session_config(self) -> Optional[pulumi.Input['OnlineEvaluationConfigSessionConfigArgs']]:
+    def session_config(self) -> pulumi.Input[Optional['OnlineEvaluationConfigSessionConfigArgs']]:
         return pulumi.get(self, "session_config")
 
     @session_config.setter
-    def session_config(self, value: Optional[pulumi.Input['OnlineEvaluationConfigSessionConfigArgs']]):
+    def session_config(self, value: pulumi.Input[Optional['OnlineEvaluationConfigSessionConfigArgs']]):
         pulumi.set(self, "session_config", value)
 
 
@@ -5942,8 +5942,8 @@ class PolicyDefinitionArgs:
 
 
 class RuntimeAgentRuntimeArtifactArgsDict(TypedDict):
-    code_configuration: NotRequired[pulumi.Input['RuntimeCodeConfigurationArgsDict']]
-    container_configuration: NotRequired[pulumi.Input['RuntimeContainerConfigurationArgsDict']]
+    code_configuration: NotRequired[pulumi.Input[Optional['RuntimeCodeConfigurationArgsDict']]]
+    container_configuration: NotRequired[pulumi.Input[Optional['RuntimeContainerConfigurationArgsDict']]]
     """
     Representation of a container configuration.
     """
@@ -5951,8 +5951,8 @@ class RuntimeAgentRuntimeArtifactArgsDict(TypedDict):
 @pulumi.input_type
 class RuntimeAgentRuntimeArtifactArgs:
     def __init__(__self__, *,
-                 code_configuration: Optional[pulumi.Input['RuntimeCodeConfigurationArgs']] = None,
-                 container_configuration: Optional[pulumi.Input['RuntimeContainerConfigurationArgs']] = None):
+                 code_configuration: pulumi.Input[Optional['RuntimeCodeConfigurationArgs']] = None,
+                 container_configuration: pulumi.Input[Optional['RuntimeContainerConfigurationArgs']] = None):
         """
         :param pulumi.Input['RuntimeContainerConfigurationArgs'] container_configuration: Representation of a container configuration.
         """
@@ -5963,23 +5963,23 @@ class RuntimeAgentRuntimeArtifactArgs:
 
     @_builtins.property
     @pulumi.getter(name="codeConfiguration")
-    def code_configuration(self) -> Optional[pulumi.Input['RuntimeCodeConfigurationArgs']]:
+    def code_configuration(self) -> pulumi.Input[Optional['RuntimeCodeConfigurationArgs']]:
         return pulumi.get(self, "code_configuration")
 
     @code_configuration.setter
-    def code_configuration(self, value: Optional[pulumi.Input['RuntimeCodeConfigurationArgs']]):
+    def code_configuration(self, value: pulumi.Input[Optional['RuntimeCodeConfigurationArgs']]):
         pulumi.set(self, "code_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="containerConfiguration")
-    def container_configuration(self) -> Optional[pulumi.Input['RuntimeContainerConfigurationArgs']]:
+    def container_configuration(self) -> pulumi.Input[Optional['RuntimeContainerConfigurationArgs']]:
         """
         Representation of a container configuration.
         """
         return pulumi.get(self, "container_configuration")
 
     @container_configuration.setter
-    def container_configuration(self, value: Optional[pulumi.Input['RuntimeContainerConfigurationArgs']]):
+    def container_configuration(self, value: pulumi.Input[Optional['RuntimeContainerConfigurationArgs']]):
         pulumi.set(self, "container_configuration", value)
 
 
@@ -5987,7 +5987,7 @@ class RuntimeAuthorizerConfigurationArgsDict(TypedDict):
     """
     Configuration for the authorizer
     """
-    custom_jwt_authorizer: NotRequired[pulumi.Input['RuntimeCustomJwtAuthorizerConfigurationArgsDict']]
+    custom_jwt_authorizer: NotRequired[pulumi.Input[Optional['RuntimeCustomJwtAuthorizerConfigurationArgsDict']]]
     """
     Represents inbound authorization configuration options used to authenticate incoming requests.
     """
@@ -5995,7 +5995,7 @@ class RuntimeAuthorizerConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class RuntimeAuthorizerConfigurationArgs:
     def __init__(__self__, *,
-                 custom_jwt_authorizer: Optional[pulumi.Input['RuntimeCustomJwtAuthorizerConfigurationArgs']] = None):
+                 custom_jwt_authorizer: pulumi.Input[Optional['RuntimeCustomJwtAuthorizerConfigurationArgs']] = None):
         """
         Configuration for the authorizer
 
@@ -6006,14 +6006,14 @@ class RuntimeAuthorizerConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="customJwtAuthorizer")
-    def custom_jwt_authorizer(self) -> Optional[pulumi.Input['RuntimeCustomJwtAuthorizerConfigurationArgs']]:
+    def custom_jwt_authorizer(self) -> pulumi.Input[Optional['RuntimeCustomJwtAuthorizerConfigurationArgs']]:
         """
         Represents inbound authorization configuration options used to authenticate incoming requests.
         """
         return pulumi.get(self, "custom_jwt_authorizer")
 
     @custom_jwt_authorizer.setter
-    def custom_jwt_authorizer(self, value: Optional[pulumi.Input['RuntimeCustomJwtAuthorizerConfigurationArgs']]):
+    def custom_jwt_authorizer(self, value: pulumi.Input[Optional['RuntimeCustomJwtAuthorizerConfigurationArgs']]):
         pulumi.set(self, "custom_jwt_authorizer", value)
 
 
@@ -6058,14 +6058,14 @@ class RuntimeClaimMatchValueTypeArgsDict(TypedDict):
     """
     The value or values in the custom claim to match for
     """
-    match_value_string: NotRequired[pulumi.Input[_builtins.str]]
-    match_value_string_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    match_value_string: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    match_value_string_list: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
 
 @pulumi.input_type
 class RuntimeClaimMatchValueTypeArgs:
     def __init__(__self__, *,
-                 match_value_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 match_value_string_list: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 match_value_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 match_value_string_list: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The value or values in the custom claim to match for
         """
@@ -6076,20 +6076,20 @@ class RuntimeClaimMatchValueTypeArgs:
 
     @_builtins.property
     @pulumi.getter(name="matchValueString")
-    def match_value_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def match_value_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "match_value_string")
 
     @match_value_string.setter
-    def match_value_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def match_value_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "match_value_string", value)
 
     @_builtins.property
     @pulumi.getter(name="matchValueStringList")
-    def match_value_string_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def match_value_string_list(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "match_value_string_list")
 
     @match_value_string_list.setter
-    def match_value_string_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def match_value_string_list(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "match_value_string_list", value)
 
 
@@ -6146,12 +6146,12 @@ class RuntimeCodeArgsDict(TypedDict):
     """
     Object represents source code from zip file
     """
-    s3: NotRequired[pulumi.Input['RuntimeS3LocationArgsDict']]
+    s3: NotRequired[pulumi.Input[Optional['RuntimeS3LocationArgsDict']]]
 
 @pulumi.input_type
 class RuntimeCodeArgs:
     def __init__(__self__, *,
-                 s3: Optional[pulumi.Input['RuntimeS3LocationArgs']] = None):
+                 s3: pulumi.Input[Optional['RuntimeS3LocationArgs']] = None):
         """
         Object represents source code from zip file
         """
@@ -6160,11 +6160,11 @@ class RuntimeCodeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def s3(self) -> Optional[pulumi.Input['RuntimeS3LocationArgs']]:
+    def s3(self) -> pulumi.Input[Optional['RuntimeS3LocationArgs']]:
         return pulumi.get(self, "s3")
 
     @s3.setter
-    def s3(self, value: Optional[pulumi.Input['RuntimeS3LocationArgs']]):
+    def s3(self, value: pulumi.Input[Optional['RuntimeS3LocationArgs']]):
         pulumi.set(self, "s3", value)
 
 
@@ -6253,25 +6253,25 @@ class RuntimeCustomJwtAuthorizerConfigurationArgsDict(TypedDict):
     """
     The configuration authorization.
     """
-    allowed_audience: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    allowed_audience: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Represents inbound authorization configuration options used to authenticate incoming requests.
     """
-    allowed_clients: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    allowed_clients: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Represents individual client IDs that are validated in the incoming JWT token validation process.
     """
-    allowed_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    custom_claims: NotRequired[pulumi.Input[Sequence[pulumi.Input['RuntimeCustomClaimValidationTypeArgsDict']]]]
+    allowed_scopes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    custom_claims: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RuntimeCustomClaimValidationTypeArgsDict']]]]]
 
 @pulumi.input_type
 class RuntimeCustomJwtAuthorizerConfigurationArgs:
     def __init__(__self__, *,
                  discovery_url: pulumi.Input[_builtins.str],
-                 allowed_audience: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 allowed_clients: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 allowed_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 custom_claims: Optional[pulumi.Input[Sequence[pulumi.Input['RuntimeCustomClaimValidationTypeArgs']]]] = None):
+                 allowed_audience: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allowed_clients: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allowed_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 custom_claims: pulumi.Input[Optional[Sequence[pulumi.Input['RuntimeCustomClaimValidationTypeArgs']]]] = None):
         """
         Configuration for custom JWT authorizer
 
@@ -6303,44 +6303,44 @@ class RuntimeCustomJwtAuthorizerConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowedAudience")
-    def allowed_audience(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_audience(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Represents inbound authorization configuration options used to authenticate incoming requests.
         """
         return pulumi.get(self, "allowed_audience")
 
     @allowed_audience.setter
-    def allowed_audience(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_audience(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_audience", value)
 
     @_builtins.property
     @pulumi.getter(name="allowedClients")
-    def allowed_clients(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_clients(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Represents individual client IDs that are validated in the incoming JWT token validation process.
         """
         return pulumi.get(self, "allowed_clients")
 
     @allowed_clients.setter
-    def allowed_clients(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_clients(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_clients", value)
 
     @_builtins.property
     @pulumi.getter(name="allowedScopes")
-    def allowed_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_scopes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "allowed_scopes")
 
     @allowed_scopes.setter
-    def allowed_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_scopes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_scopes", value)
 
     @_builtins.property
     @pulumi.getter(name="customClaims")
-    def custom_claims(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuntimeCustomClaimValidationTypeArgs']]]]:
+    def custom_claims(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RuntimeCustomClaimValidationTypeArgs']]]]:
         return pulumi.get(self, "custom_claims")
 
     @custom_claims.setter
-    def custom_claims(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuntimeCustomClaimValidationTypeArgs']]]]):
+    def custom_claims(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RuntimeCustomClaimValidationTypeArgs']]]]):
         pulumi.set(self, "custom_claims", value)
 
 
@@ -6385,16 +6385,16 @@ class RuntimeFilesystemConfigurationArgsDict(TypedDict):
     """
     Filesystem configuration for the runtime
     """
-    efs_access_point: NotRequired[pulumi.Input['RuntimeEfsAccessPointConfigurationArgsDict']]
-    s3_files_access_point: NotRequired[pulumi.Input['RuntimeS3FilesAccessPointConfigurationArgsDict']]
-    session_storage: NotRequired[pulumi.Input['RuntimeSessionStorageConfigurationArgsDict']]
+    efs_access_point: NotRequired[pulumi.Input[Optional['RuntimeEfsAccessPointConfigurationArgsDict']]]
+    s3_files_access_point: NotRequired[pulumi.Input[Optional['RuntimeS3FilesAccessPointConfigurationArgsDict']]]
+    session_storage: NotRequired[pulumi.Input[Optional['RuntimeSessionStorageConfigurationArgsDict']]]
 
 @pulumi.input_type
 class RuntimeFilesystemConfigurationArgs:
     def __init__(__self__, *,
-                 efs_access_point: Optional[pulumi.Input['RuntimeEfsAccessPointConfigurationArgs']] = None,
-                 s3_files_access_point: Optional[pulumi.Input['RuntimeS3FilesAccessPointConfigurationArgs']] = None,
-                 session_storage: Optional[pulumi.Input['RuntimeSessionStorageConfigurationArgs']] = None):
+                 efs_access_point: pulumi.Input[Optional['RuntimeEfsAccessPointConfigurationArgs']] = None,
+                 s3_files_access_point: pulumi.Input[Optional['RuntimeS3FilesAccessPointConfigurationArgs']] = None,
+                 session_storage: pulumi.Input[Optional['RuntimeSessionStorageConfigurationArgs']] = None):
         """
         Filesystem configuration for the runtime
         """
@@ -6407,29 +6407,29 @@ class RuntimeFilesystemConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="efsAccessPoint")
-    def efs_access_point(self) -> Optional[pulumi.Input['RuntimeEfsAccessPointConfigurationArgs']]:
+    def efs_access_point(self) -> pulumi.Input[Optional['RuntimeEfsAccessPointConfigurationArgs']]:
         return pulumi.get(self, "efs_access_point")
 
     @efs_access_point.setter
-    def efs_access_point(self, value: Optional[pulumi.Input['RuntimeEfsAccessPointConfigurationArgs']]):
+    def efs_access_point(self, value: pulumi.Input[Optional['RuntimeEfsAccessPointConfigurationArgs']]):
         pulumi.set(self, "efs_access_point", value)
 
     @_builtins.property
     @pulumi.getter(name="s3FilesAccessPoint")
-    def s3_files_access_point(self) -> Optional[pulumi.Input['RuntimeS3FilesAccessPointConfigurationArgs']]:
+    def s3_files_access_point(self) -> pulumi.Input[Optional['RuntimeS3FilesAccessPointConfigurationArgs']]:
         return pulumi.get(self, "s3_files_access_point")
 
     @s3_files_access_point.setter
-    def s3_files_access_point(self, value: Optional[pulumi.Input['RuntimeS3FilesAccessPointConfigurationArgs']]):
+    def s3_files_access_point(self, value: pulumi.Input[Optional['RuntimeS3FilesAccessPointConfigurationArgs']]):
         pulumi.set(self, "s3_files_access_point", value)
 
     @_builtins.property
     @pulumi.getter(name="sessionStorage")
-    def session_storage(self) -> Optional[pulumi.Input['RuntimeSessionStorageConfigurationArgs']]:
+    def session_storage(self) -> pulumi.Input[Optional['RuntimeSessionStorageConfigurationArgs']]:
         return pulumi.get(self, "session_storage")
 
     @session_storage.setter
-    def session_storage(self, value: Optional[pulumi.Input['RuntimeSessionStorageConfigurationArgs']]):
+    def session_storage(self, value: pulumi.Input[Optional['RuntimeSessionStorageConfigurationArgs']]):
         pulumi.set(self, "session_storage", value)
 
 
@@ -6437,11 +6437,11 @@ class RuntimeLifecycleConfigurationArgsDict(TypedDict):
     """
     Configuration for managing the lifecycle of runtime sessions and resources
     """
-    idle_runtime_session_timeout: NotRequired[pulumi.Input[_builtins.int]]
+    idle_runtime_session_timeout: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Timeout in seconds for idle runtime sessions
     """
-    max_lifetime: NotRequired[pulumi.Input[_builtins.int]]
+    max_lifetime: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Maximum lifetime in seconds for runtime sessions
     """
@@ -6449,8 +6449,8 @@ class RuntimeLifecycleConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class RuntimeLifecycleConfigurationArgs:
     def __init__(__self__, *,
-                 idle_runtime_session_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_lifetime: Optional[pulumi.Input[_builtins.int]] = None):
+                 idle_runtime_session_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_lifetime: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Configuration for managing the lifecycle of runtime sessions and resources
 
@@ -6464,26 +6464,26 @@ class RuntimeLifecycleConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="idleRuntimeSessionTimeout")
-    def idle_runtime_session_timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def idle_runtime_session_timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Timeout in seconds for idle runtime sessions
         """
         return pulumi.get(self, "idle_runtime_session_timeout")
 
     @idle_runtime_session_timeout.setter
-    def idle_runtime_session_timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def idle_runtime_session_timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "idle_runtime_session_timeout", value)
 
     @_builtins.property
     @pulumi.getter(name="maxLifetime")
-    def max_lifetime(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_lifetime(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum lifetime in seconds for runtime sessions
         """
         return pulumi.get(self, "max_lifetime")
 
     @max_lifetime.setter
-    def max_lifetime(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_lifetime(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_lifetime", value)
 
 
@@ -6492,13 +6492,13 @@ class RuntimeNetworkConfigurationArgsDict(TypedDict):
     """
     The network mode.
     """
-    network_mode_config: NotRequired[pulumi.Input['RuntimeVpcConfigArgsDict']]
+    network_mode_config: NotRequired[pulumi.Input[Optional['RuntimeVpcConfigArgsDict']]]
 
 @pulumi.input_type
 class RuntimeNetworkConfigurationArgs:
     def __init__(__self__, *,
                  network_mode: pulumi.Input['RuntimeNetworkMode'],
-                 network_mode_config: Optional[pulumi.Input['RuntimeVpcConfigArgs']] = None):
+                 network_mode_config: pulumi.Input[Optional['RuntimeVpcConfigArgs']] = None):
         """
         :param pulumi.Input['RuntimeNetworkMode'] network_mode: The network mode.
         """
@@ -6520,11 +6520,11 @@ class RuntimeNetworkConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="networkModeConfig")
-    def network_mode_config(self) -> Optional[pulumi.Input['RuntimeVpcConfigArgs']]:
+    def network_mode_config(self) -> pulumi.Input[Optional['RuntimeVpcConfigArgs']]:
         return pulumi.get(self, "network_mode_config")
 
     @network_mode_config.setter
-    def network_mode_config(self, value: Optional[pulumi.Input['RuntimeVpcConfigArgs']]):
+    def network_mode_config(self, value: pulumi.Input[Optional['RuntimeVpcConfigArgs']]):
         pulumi.set(self, "network_mode_config", value)
 
 
@@ -6532,12 +6532,12 @@ class RuntimeRequestHeaderConfigurationArgsDict(TypedDict):
     """
     Configuration for HTTP request headers
     """
-    request_header_allowlist: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    request_header_allowlist: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
 
 @pulumi.input_type
 class RuntimeRequestHeaderConfigurationArgs:
     def __init__(__self__, *,
-                 request_header_allowlist: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 request_header_allowlist: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Configuration for HTTP request headers
         """
@@ -6546,11 +6546,11 @@ class RuntimeRequestHeaderConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="requestHeaderAllowlist")
-    def request_header_allowlist(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def request_header_allowlist(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "request_header_allowlist")
 
     @request_header_allowlist.setter
-    def request_header_allowlist(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def request_header_allowlist(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "request_header_allowlist", value)
 
 
@@ -6603,7 +6603,7 @@ class RuntimeS3LocationArgsDict(TypedDict):
     """
     S3 object key prefix
     """
-    version_id: NotRequired[pulumi.Input[_builtins.str]]
+    version_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     S3 object version ID
     """
@@ -6613,7 +6613,7 @@ class RuntimeS3LocationArgs:
     def __init__(__self__, *,
                  bucket: pulumi.Input[_builtins.str],
                  prefix: pulumi.Input[_builtins.str],
-                 version_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 version_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         S3 Location Configuration
 
@@ -6652,14 +6652,14 @@ class RuntimeS3LocationArgs:
 
     @_builtins.property
     @pulumi.getter(name="versionId")
-    def version_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         S3 object version ID
         """
         return pulumi.get(self, "version_id")
 
     @version_id.setter
-    def version_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version_id", value)
 
 

@@ -95,7 +95,7 @@ class AnnotationStoreSseConfigArgsDict(TypedDict):
     """
     The encryption type.
     """
-    key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    key_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     An encryption key ARN.
     """
@@ -104,7 +104,7 @@ class AnnotationStoreSseConfigArgsDict(TypedDict):
 class AnnotationStoreSseConfigArgs:
     def __init__(__self__, *,
                  type: pulumi.Input['AnnotationStoreEncryptionType'],
-                 key_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 key_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input['AnnotationStoreEncryptionType'] type: The encryption type.
         :param pulumi.Input[_builtins.str] key_arn: An encryption key ARN.
@@ -127,14 +127,14 @@ class AnnotationStoreSseConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="keyArn")
-    def key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An encryption key ARN.
         """
         return pulumi.get(self, "key_arn")
 
     @key_arn.setter
-    def key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_arn", value)
 
 
@@ -158,16 +158,16 @@ class AnnotationStoreStoreOptionsPropertiesArgs:
 
 
 class AnnotationStoreTsvStoreOptionsArgsDict(TypedDict):
-    annotation_type: NotRequired[pulumi.Input['AnnotationStoreAnnotationType']]
-    format_to_header: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-    schema: NotRequired[pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input['AnnotationStoreSchemaValueType']]]]]]
+    annotation_type: NotRequired[pulumi.Input[Optional['AnnotationStoreAnnotationType']]]
+    format_to_header: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
+    schema: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[Mapping[str, pulumi.Input['AnnotationStoreSchemaValueType']]]]]]]
 
 @pulumi.input_type
 class AnnotationStoreTsvStoreOptionsArgs:
     def __init__(__self__, *,
-                 annotation_type: Optional[pulumi.Input['AnnotationStoreAnnotationType']] = None,
-                 format_to_header: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 schema: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input['AnnotationStoreSchemaValueType']]]]]] = None):
+                 annotation_type: pulumi.Input[Optional['AnnotationStoreAnnotationType']] = None,
+                 format_to_header: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 schema: pulumi.Input[Optional[Sequence[pulumi.Input[Mapping[str, pulumi.Input['AnnotationStoreSchemaValueType']]]]]] = None):
         if annotation_type is not None:
             pulumi.set(__self__, "annotation_type", annotation_type)
         if format_to_header is not None:
@@ -177,61 +177,61 @@ class AnnotationStoreTsvStoreOptionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="annotationType")
-    def annotation_type(self) -> Optional[pulumi.Input['AnnotationStoreAnnotationType']]:
+    def annotation_type(self) -> pulumi.Input[Optional['AnnotationStoreAnnotationType']]:
         return pulumi.get(self, "annotation_type")
 
     @annotation_type.setter
-    def annotation_type(self, value: Optional[pulumi.Input['AnnotationStoreAnnotationType']]):
+    def annotation_type(self, value: pulumi.Input[Optional['AnnotationStoreAnnotationType']]):
         pulumi.set(self, "annotation_type", value)
 
     @_builtins.property
     @pulumi.getter(name="formatToHeader")
-    def format_to_header(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def format_to_header(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "format_to_header")
 
     @format_to_header.setter
-    def format_to_header(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def format_to_header(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "format_to_header", value)
 
     @_builtins.property
     @pulumi.getter
-    def schema(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input['AnnotationStoreSchemaValueType']]]]]]:
+    def schema(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Mapping[str, pulumi.Input['AnnotationStoreSchemaValueType']]]]]]:
         return pulumi.get(self, "schema")
 
     @schema.setter
-    def schema(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input['AnnotationStoreSchemaValueType']]]]]]):
+    def schema(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Mapping[str, pulumi.Input['AnnotationStoreSchemaValueType']]]]]]):
         pulumi.set(self, "schema", value)
 
 
 class ConfigurationRunConfigurationsArgsDict(TypedDict):
-    vpc_config: NotRequired[pulumi.Input['ConfigurationVpcConfigArgsDict']]
+    vpc_config: NotRequired[pulumi.Input[Optional['ConfigurationVpcConfigArgsDict']]]
 
 @pulumi.input_type
 class ConfigurationRunConfigurationsArgs:
     def __init__(__self__, *,
-                 vpc_config: Optional[pulumi.Input['ConfigurationVpcConfigArgs']] = None):
+                 vpc_config: pulumi.Input[Optional['ConfigurationVpcConfigArgs']] = None):
         if vpc_config is not None:
             pulumi.set(__self__, "vpc_config", vpc_config)
 
     @_builtins.property
     @pulumi.getter(name="vpcConfig")
-    def vpc_config(self) -> Optional[pulumi.Input['ConfigurationVpcConfigArgs']]:
+    def vpc_config(self) -> pulumi.Input[Optional['ConfigurationVpcConfigArgs']]:
         return pulumi.get(self, "vpc_config")
 
     @vpc_config.setter
-    def vpc_config(self, value: Optional[pulumi.Input['ConfigurationVpcConfigArgs']]):
+    def vpc_config(self, value: pulumi.Input[Optional['ConfigurationVpcConfigArgs']]):
         pulumi.set(self, "vpc_config", value)
 
 
 class ConfigurationVpcConfigArgsDict(TypedDict):
-    security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    security_group_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    subnet_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
 
 @pulumi.input_type
 class ConfigurationVpcConfigArgs:
     def __init__(__self__, *,
-                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
         if subnet_ids is not None:
@@ -239,20 +239,20 @@ class ConfigurationVpcConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
-    def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def security_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "security_group_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def subnet_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
-    def subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def subnet_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "subnet_ids", value)
 
 
@@ -264,7 +264,7 @@ class ReferenceStoreSseConfigArgsDict(TypedDict):
     """
     The encryption type.
     """
-    key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    key_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     An encryption key ARN.
     """
@@ -273,7 +273,7 @@ class ReferenceStoreSseConfigArgsDict(TypedDict):
 class ReferenceStoreSseConfigArgs:
     def __init__(__self__, *,
                  type: pulumi.Input['ReferenceStoreEncryptionType'],
-                 key_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 key_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Server-side encryption (SSE) settings for a store.
 
@@ -298,14 +298,14 @@ class ReferenceStoreSseConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="keyArn")
-    def key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An encryption key ARN.
         """
         return pulumi.get(self, "key_arn")
 
     @key_arn.setter
-    def key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_arn", value)
 
 
@@ -317,7 +317,7 @@ class SequenceStoreSseConfigArgsDict(TypedDict):
     """
     The encryption type.
     """
-    key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    key_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     An encryption key ARN.
     """
@@ -326,7 +326,7 @@ class SequenceStoreSseConfigArgsDict(TypedDict):
 class SequenceStoreSseConfigArgs:
     def __init__(__self__, *,
                  type: pulumi.Input['SequenceStoreEncryptionType'],
-                 key_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 key_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Server-side encryption (SSE) settings for a store.
 
@@ -351,14 +351,14 @@ class SequenceStoreSseConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="keyArn")
-    def key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An encryption key ARN.
         """
         return pulumi.get(self, "key_arn")
 
     @key_arn.setter
-    def key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_arn", value)
 
 
@@ -395,7 +395,7 @@ class VariantStoreSseConfigArgsDict(TypedDict):
     """
     The encryption type.
     """
-    key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    key_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     An encryption key ARN.
     """
@@ -404,7 +404,7 @@ class VariantStoreSseConfigArgsDict(TypedDict):
 class VariantStoreSseConfigArgs:
     def __init__(__self__, *,
                  type: pulumi.Input['VariantStoreEncryptionType'],
-                 key_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 key_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input['VariantStoreEncryptionType'] type: The encryption type.
         :param pulumi.Input[_builtins.str] key_arn: An encryption key ARN.
@@ -427,23 +427,23 @@ class VariantStoreSseConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="keyArn")
-    def key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An encryption key ARN.
         """
         return pulumi.get(self, "key_arn")
 
     @key_arn.setter
-    def key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_arn", value)
 
 
 class WorkflowContainerRegistryMapArgsDict(TypedDict):
-    image_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkflowImageMappingArgsDict']]]]
+    image_mappings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WorkflowImageMappingArgsDict']]]]]
     """
     Image mappings specify path mappings between the ECR private repository and their corresponding external repositories.
     """
-    registry_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkflowRegistryMappingArgsDict']]]]
+    registry_mappings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WorkflowRegistryMappingArgsDict']]]]]
     """
     Mapping that provides the ECR repository path where upstream container images are pulled and synchronized.
     """
@@ -451,8 +451,8 @@ class WorkflowContainerRegistryMapArgsDict(TypedDict):
 @pulumi.input_type
 class WorkflowContainerRegistryMapArgs:
     def __init__(__self__, *,
-                 image_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowImageMappingArgs']]]] = None,
-                 registry_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowRegistryMappingArgs']]]] = None):
+                 image_mappings: pulumi.Input[Optional[Sequence[pulumi.Input['WorkflowImageMappingArgs']]]] = None,
+                 registry_mappings: pulumi.Input[Optional[Sequence[pulumi.Input['WorkflowRegistryMappingArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['WorkflowImageMappingArgs']]] image_mappings: Image mappings specify path mappings between the ECR private repository and their corresponding external repositories.
         :param pulumi.Input[Sequence[pulumi.Input['WorkflowRegistryMappingArgs']]] registry_mappings: Mapping that provides the ECR repository path where upstream container images are pulled and synchronized.
@@ -464,43 +464,43 @@ class WorkflowContainerRegistryMapArgs:
 
     @_builtins.property
     @pulumi.getter(name="imageMappings")
-    def image_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowImageMappingArgs']]]]:
+    def image_mappings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WorkflowImageMappingArgs']]]]:
         """
         Image mappings specify path mappings between the ECR private repository and their corresponding external repositories.
         """
         return pulumi.get(self, "image_mappings")
 
     @image_mappings.setter
-    def image_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowImageMappingArgs']]]]):
+    def image_mappings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WorkflowImageMappingArgs']]]]):
         pulumi.set(self, "image_mappings", value)
 
     @_builtins.property
     @pulumi.getter(name="registryMappings")
-    def registry_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowRegistryMappingArgs']]]]:
+    def registry_mappings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WorkflowRegistryMappingArgs']]]]:
         """
         Mapping that provides the ECR repository path where upstream container images are pulled and synchronized.
         """
         return pulumi.get(self, "registry_mappings")
 
     @registry_mappings.setter
-    def registry_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowRegistryMappingArgs']]]]):
+    def registry_mappings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WorkflowRegistryMappingArgs']]]]):
         pulumi.set(self, "registry_mappings", value)
 
 
 class WorkflowDefinitionRepositoryArgsDict(TypedDict):
-    connection_arn: NotRequired[pulumi.Input[_builtins.str]]
+    connection_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon Resource Name (ARN) of the connection to the source code repository.
     """
-    exclude_file_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    exclude_file_patterns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of file patterns to exclude when retrieving the workflow definition from the repository.
     """
-    full_repository_id: NotRequired[pulumi.Input[_builtins.str]]
+    full_repository_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The full repository identifier, including the repository owner and name. For example, 'repository-owner/repository-name'.
     """
-    source_reference: NotRequired[pulumi.Input['WorkflowSourceReferenceArgsDict']]
+    source_reference: NotRequired[pulumi.Input[Optional['WorkflowSourceReferenceArgsDict']]]
     """
     The source reference for the repository, such as a branch name, tag, or commit ID.
     """
@@ -508,10 +508,10 @@ class WorkflowDefinitionRepositoryArgsDict(TypedDict):
 @pulumi.input_type
 class WorkflowDefinitionRepositoryArgs:
     def __init__(__self__, *,
-                 connection_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 exclude_file_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 full_repository_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_reference: Optional[pulumi.Input['WorkflowSourceReferenceArgs']] = None):
+                 connection_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 exclude_file_patterns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 full_repository_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_reference: pulumi.Input[Optional['WorkflowSourceReferenceArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] connection_arn: The Amazon Resource Name (ARN) of the connection to the source code repository.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] exclude_file_patterns: A list of file patterns to exclude when retrieving the workflow definition from the repository.
@@ -529,59 +529,59 @@ class WorkflowDefinitionRepositoryArgs:
 
     @_builtins.property
     @pulumi.getter(name="connectionArn")
-    def connection_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connection_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the connection to the source code repository.
         """
         return pulumi.get(self, "connection_arn")
 
     @connection_arn.setter
-    def connection_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connection_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connection_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="excludeFilePatterns")
-    def exclude_file_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def exclude_file_patterns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of file patterns to exclude when retrieving the workflow definition from the repository.
         """
         return pulumi.get(self, "exclude_file_patterns")
 
     @exclude_file_patterns.setter
-    def exclude_file_patterns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def exclude_file_patterns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "exclude_file_patterns", value)
 
     @_builtins.property
     @pulumi.getter(name="fullRepositoryId")
-    def full_repository_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def full_repository_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The full repository identifier, including the repository owner and name. For example, 'repository-owner/repository-name'.
         """
         return pulumi.get(self, "full_repository_id")
 
     @full_repository_id.setter
-    def full_repository_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def full_repository_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "full_repository_id", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceReference")
-    def source_reference(self) -> Optional[pulumi.Input['WorkflowSourceReferenceArgs']]:
+    def source_reference(self) -> pulumi.Input[Optional['WorkflowSourceReferenceArgs']]:
         """
         The source reference for the repository, such as a branch name, tag, or commit ID.
         """
         return pulumi.get(self, "source_reference")
 
     @source_reference.setter
-    def source_reference(self, value: Optional[pulumi.Input['WorkflowSourceReferenceArgs']]):
+    def source_reference(self, value: pulumi.Input[Optional['WorkflowSourceReferenceArgs']]):
         pulumi.set(self, "source_reference", value)
 
 
 class WorkflowImageMappingArgsDict(TypedDict):
-    destination_image: NotRequired[pulumi.Input[_builtins.str]]
+    destination_image: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the URI of the corresponding image in the private ECR registry.
     """
-    source_image: NotRequired[pulumi.Input[_builtins.str]]
+    source_image: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the URI of the source image in the upstream registry.
     """
@@ -589,8 +589,8 @@ class WorkflowImageMappingArgsDict(TypedDict):
 @pulumi.input_type
 class WorkflowImageMappingArgs:
     def __init__(__self__, *,
-                 destination_image: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_image: Optional[pulumi.Input[_builtins.str]] = None):
+                 destination_image: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_image: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] destination_image: Specifies the URI of the corresponding image in the private ECR registry.
         :param pulumi.Input[_builtins.str] source_image: Specifies the URI of the source image in the upstream registry.
@@ -602,35 +602,35 @@ class WorkflowImageMappingArgs:
 
     @_builtins.property
     @pulumi.getter(name="destinationImage")
-    def destination_image(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination_image(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the URI of the corresponding image in the private ECR registry.
         """
         return pulumi.get(self, "destination_image")
 
     @destination_image.setter
-    def destination_image(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination_image(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination_image", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceImage")
-    def source_image(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_image(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the URI of the source image in the upstream registry.
         """
         return pulumi.get(self, "source_image")
 
     @source_image.setter
-    def source_image(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_image(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_image", value)
 
 
 class WorkflowParameterArgsDict(TypedDict):
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The parameter's description.
     """
-    optional: NotRequired[pulumi.Input[_builtins.bool]]
+    optional: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether the parameter is optional.
     """
@@ -638,8 +638,8 @@ class WorkflowParameterArgsDict(TypedDict):
 @pulumi.input_type
 class WorkflowParameterArgs:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 optional: Optional[pulumi.Input[_builtins.bool]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 optional: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] description: The parameter's description.
         :param pulumi.Input[_builtins.bool] optional: Whether the parameter is optional.
@@ -651,43 +651,43 @@ class WorkflowParameterArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The parameter's description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def optional(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def optional(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the parameter is optional.
         """
         return pulumi.get(self, "optional")
 
     @optional.setter
-    def optional(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def optional(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "optional", value)
 
 
 class WorkflowRegistryMappingArgsDict(TypedDict):
-    ecr_account_id: NotRequired[pulumi.Input[_builtins.str]]
+    ecr_account_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Account ID of the account that owns the upstream container image.
     """
-    ecr_repository_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    ecr_repository_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The repository prefix to use in the ECR private repository.
     """
-    upstream_registry_url: NotRequired[pulumi.Input[_builtins.str]]
+    upstream_registry_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The URI of the upstream registry.
     """
-    upstream_repository_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    upstream_repository_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The repository prefix of the corresponding repository in the upstream registry.
     """
@@ -695,10 +695,10 @@ class WorkflowRegistryMappingArgsDict(TypedDict):
 @pulumi.input_type
 class WorkflowRegistryMappingArgs:
     def __init__(__self__, *,
-                 ecr_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ecr_repository_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 upstream_registry_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 upstream_repository_prefix: Optional[pulumi.Input[_builtins.str]] = None):
+                 ecr_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ecr_repository_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 upstream_registry_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 upstream_repository_prefix: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] ecr_account_id: Account ID of the account that owns the upstream container image.
         :param pulumi.Input[_builtins.str] ecr_repository_prefix: The repository prefix to use in the ECR private repository.
@@ -716,59 +716,59 @@ class WorkflowRegistryMappingArgs:
 
     @_builtins.property
     @pulumi.getter(name="ecrAccountId")
-    def ecr_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ecr_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Account ID of the account that owns the upstream container image.
         """
         return pulumi.get(self, "ecr_account_id")
 
     @ecr_account_id.setter
-    def ecr_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ecr_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ecr_account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="ecrRepositoryPrefix")
-    def ecr_repository_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ecr_repository_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The repository prefix to use in the ECR private repository.
         """
         return pulumi.get(self, "ecr_repository_prefix")
 
     @ecr_repository_prefix.setter
-    def ecr_repository_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ecr_repository_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ecr_repository_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="upstreamRegistryUrl")
-    def upstream_registry_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def upstream_registry_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URI of the upstream registry.
         """
         return pulumi.get(self, "upstream_registry_url")
 
     @upstream_registry_url.setter
-    def upstream_registry_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def upstream_registry_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "upstream_registry_url", value)
 
     @_builtins.property
     @pulumi.getter(name="upstreamRepositoryPrefix")
-    def upstream_repository_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def upstream_repository_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The repository prefix of the corresponding repository in the upstream registry.
         """
         return pulumi.get(self, "upstream_repository_prefix")
 
     @upstream_repository_prefix.setter
-    def upstream_repository_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def upstream_repository_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "upstream_repository_prefix", value)
 
 
 class WorkflowSourceReferenceArgsDict(TypedDict):
-    type: NotRequired[pulumi.Input['WorkflowSourceReferencetype']]
+    type: NotRequired[pulumi.Input[Optional['WorkflowSourceReferencetype']]]
     """
     The type of source reference, such as branch, tag, or commit.
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The value of the source reference, such as the branch name, tag name, or commit ID.
     """
@@ -776,8 +776,8 @@ class WorkflowSourceReferenceArgsDict(TypedDict):
 @pulumi.input_type
 class WorkflowSourceReferenceArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input['WorkflowSourceReferencetype']] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 type: pulumi.Input[Optional['WorkflowSourceReferencetype']] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input['WorkflowSourceReferencetype'] type: The type of source reference, such as branch, tag, or commit.
         :param pulumi.Input[_builtins.str] value: The value of the source reference, such as the branch name, tag name, or commit ID.
@@ -789,35 +789,35 @@ class WorkflowSourceReferenceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['WorkflowSourceReferencetype']]:
+    def type(self) -> pulumi.Input[Optional['WorkflowSourceReferencetype']]:
         """
         The type of source reference, such as branch, tag, or commit.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['WorkflowSourceReferencetype']]):
+    def type(self, value: pulumi.Input[Optional['WorkflowSourceReferencetype']]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value of the source reference, such as the branch name, tag name, or commit ID.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
 class WorkflowVersionContainerRegistryMapArgsDict(TypedDict):
-    image_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkflowVersionImageMappingArgsDict']]]]
+    image_mappings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WorkflowVersionImageMappingArgsDict']]]]]
     """
     Image mappings specify path mappings between the ECR private repository and their corresponding external repositories.
     """
-    registry_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkflowVersionRegistryMappingArgsDict']]]]
+    registry_mappings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WorkflowVersionRegistryMappingArgsDict']]]]]
     """
     Mapping that provides the ECR repository path where upstream container images are pulled and synchronized.
     """
@@ -825,8 +825,8 @@ class WorkflowVersionContainerRegistryMapArgsDict(TypedDict):
 @pulumi.input_type
 class WorkflowVersionContainerRegistryMapArgs:
     def __init__(__self__, *,
-                 image_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowVersionImageMappingArgs']]]] = None,
-                 registry_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowVersionRegistryMappingArgs']]]] = None):
+                 image_mappings: pulumi.Input[Optional[Sequence[pulumi.Input['WorkflowVersionImageMappingArgs']]]] = None,
+                 registry_mappings: pulumi.Input[Optional[Sequence[pulumi.Input['WorkflowVersionRegistryMappingArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['WorkflowVersionImageMappingArgs']]] image_mappings: Image mappings specify path mappings between the ECR private repository and their corresponding external repositories.
         :param pulumi.Input[Sequence[pulumi.Input['WorkflowVersionRegistryMappingArgs']]] registry_mappings: Mapping that provides the ECR repository path where upstream container images are pulled and synchronized.
@@ -838,43 +838,43 @@ class WorkflowVersionContainerRegistryMapArgs:
 
     @_builtins.property
     @pulumi.getter(name="imageMappings")
-    def image_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowVersionImageMappingArgs']]]]:
+    def image_mappings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WorkflowVersionImageMappingArgs']]]]:
         """
         Image mappings specify path mappings between the ECR private repository and their corresponding external repositories.
         """
         return pulumi.get(self, "image_mappings")
 
     @image_mappings.setter
-    def image_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowVersionImageMappingArgs']]]]):
+    def image_mappings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WorkflowVersionImageMappingArgs']]]]):
         pulumi.set(self, "image_mappings", value)
 
     @_builtins.property
     @pulumi.getter(name="registryMappings")
-    def registry_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowVersionRegistryMappingArgs']]]]:
+    def registry_mappings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WorkflowVersionRegistryMappingArgs']]]]:
         """
         Mapping that provides the ECR repository path where upstream container images are pulled and synchronized.
         """
         return pulumi.get(self, "registry_mappings")
 
     @registry_mappings.setter
-    def registry_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowVersionRegistryMappingArgs']]]]):
+    def registry_mappings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WorkflowVersionRegistryMappingArgs']]]]):
         pulumi.set(self, "registry_mappings", value)
 
 
 class WorkflowVersionDefinitionRepositoryArgsDict(TypedDict):
-    connection_arn: NotRequired[pulumi.Input[_builtins.str]]
+    connection_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon Resource Name (ARN) of the connection to the source code repository.
     """
-    exclude_file_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    exclude_file_patterns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of file patterns to exclude when retrieving the workflow definition from the repository.
     """
-    full_repository_id: NotRequired[pulumi.Input[_builtins.str]]
+    full_repository_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The full repository identifier, including the repository owner and name. For example, 'repository-owner/repository-name'.
     """
-    source_reference: NotRequired[pulumi.Input['WorkflowVersionSourceReferenceArgsDict']]
+    source_reference: NotRequired[pulumi.Input[Optional['WorkflowVersionSourceReferenceArgsDict']]]
     """
     The source reference for the repository, such as a branch name, tag, or commit ID.
     """
@@ -882,10 +882,10 @@ class WorkflowVersionDefinitionRepositoryArgsDict(TypedDict):
 @pulumi.input_type
 class WorkflowVersionDefinitionRepositoryArgs:
     def __init__(__self__, *,
-                 connection_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 exclude_file_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 full_repository_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_reference: Optional[pulumi.Input['WorkflowVersionSourceReferenceArgs']] = None):
+                 connection_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 exclude_file_patterns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 full_repository_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_reference: pulumi.Input[Optional['WorkflowVersionSourceReferenceArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] connection_arn: The Amazon Resource Name (ARN) of the connection to the source code repository.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] exclude_file_patterns: A list of file patterns to exclude when retrieving the workflow definition from the repository.
@@ -903,59 +903,59 @@ class WorkflowVersionDefinitionRepositoryArgs:
 
     @_builtins.property
     @pulumi.getter(name="connectionArn")
-    def connection_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connection_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the connection to the source code repository.
         """
         return pulumi.get(self, "connection_arn")
 
     @connection_arn.setter
-    def connection_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connection_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connection_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="excludeFilePatterns")
-    def exclude_file_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def exclude_file_patterns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of file patterns to exclude when retrieving the workflow definition from the repository.
         """
         return pulumi.get(self, "exclude_file_patterns")
 
     @exclude_file_patterns.setter
-    def exclude_file_patterns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def exclude_file_patterns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "exclude_file_patterns", value)
 
     @_builtins.property
     @pulumi.getter(name="fullRepositoryId")
-    def full_repository_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def full_repository_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The full repository identifier, including the repository owner and name. For example, 'repository-owner/repository-name'.
         """
         return pulumi.get(self, "full_repository_id")
 
     @full_repository_id.setter
-    def full_repository_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def full_repository_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "full_repository_id", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceReference")
-    def source_reference(self) -> Optional[pulumi.Input['WorkflowVersionSourceReferenceArgs']]:
+    def source_reference(self) -> pulumi.Input[Optional['WorkflowVersionSourceReferenceArgs']]:
         """
         The source reference for the repository, such as a branch name, tag, or commit ID.
         """
         return pulumi.get(self, "source_reference")
 
     @source_reference.setter
-    def source_reference(self, value: Optional[pulumi.Input['WorkflowVersionSourceReferenceArgs']]):
+    def source_reference(self, value: pulumi.Input[Optional['WorkflowVersionSourceReferenceArgs']]):
         pulumi.set(self, "source_reference", value)
 
 
 class WorkflowVersionImageMappingArgsDict(TypedDict):
-    destination_image: NotRequired[pulumi.Input[_builtins.str]]
+    destination_image: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the URI of the corresponding image in the private ECR registry.
     """
-    source_image: NotRequired[pulumi.Input[_builtins.str]]
+    source_image: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the URI of the source image in the upstream registry.
     """
@@ -963,8 +963,8 @@ class WorkflowVersionImageMappingArgsDict(TypedDict):
 @pulumi.input_type
 class WorkflowVersionImageMappingArgs:
     def __init__(__self__, *,
-                 destination_image: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_image: Optional[pulumi.Input[_builtins.str]] = None):
+                 destination_image: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_image: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] destination_image: Specifies the URI of the corresponding image in the private ECR registry.
         :param pulumi.Input[_builtins.str] source_image: Specifies the URI of the source image in the upstream registry.
@@ -976,43 +976,43 @@ class WorkflowVersionImageMappingArgs:
 
     @_builtins.property
     @pulumi.getter(name="destinationImage")
-    def destination_image(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination_image(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the URI of the corresponding image in the private ECR registry.
         """
         return pulumi.get(self, "destination_image")
 
     @destination_image.setter
-    def destination_image(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination_image(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination_image", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceImage")
-    def source_image(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_image(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the URI of the source image in the upstream registry.
         """
         return pulumi.get(self, "source_image")
 
     @source_image.setter
-    def source_image(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_image(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_image", value)
 
 
 class WorkflowVersionRegistryMappingArgsDict(TypedDict):
-    ecr_account_id: NotRequired[pulumi.Input[_builtins.str]]
+    ecr_account_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Account ID of the account that owns the upstream container image.
     """
-    ecr_repository_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    ecr_repository_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The repository prefix to use in the ECR private repository.
     """
-    upstream_registry_url: NotRequired[pulumi.Input[_builtins.str]]
+    upstream_registry_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The URI of the upstream registry.
     """
-    upstream_repository_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    upstream_repository_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The repository prefix of the corresponding repository in the upstream registry.
     """
@@ -1020,10 +1020,10 @@ class WorkflowVersionRegistryMappingArgsDict(TypedDict):
 @pulumi.input_type
 class WorkflowVersionRegistryMappingArgs:
     def __init__(__self__, *,
-                 ecr_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ecr_repository_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 upstream_registry_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 upstream_repository_prefix: Optional[pulumi.Input[_builtins.str]] = None):
+                 ecr_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ecr_repository_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 upstream_registry_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 upstream_repository_prefix: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] ecr_account_id: Account ID of the account that owns the upstream container image.
         :param pulumi.Input[_builtins.str] ecr_repository_prefix: The repository prefix to use in the ECR private repository.
@@ -1041,59 +1041,59 @@ class WorkflowVersionRegistryMappingArgs:
 
     @_builtins.property
     @pulumi.getter(name="ecrAccountId")
-    def ecr_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ecr_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Account ID of the account that owns the upstream container image.
         """
         return pulumi.get(self, "ecr_account_id")
 
     @ecr_account_id.setter
-    def ecr_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ecr_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ecr_account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="ecrRepositoryPrefix")
-    def ecr_repository_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ecr_repository_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The repository prefix to use in the ECR private repository.
         """
         return pulumi.get(self, "ecr_repository_prefix")
 
     @ecr_repository_prefix.setter
-    def ecr_repository_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ecr_repository_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ecr_repository_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="upstreamRegistryUrl")
-    def upstream_registry_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def upstream_registry_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URI of the upstream registry.
         """
         return pulumi.get(self, "upstream_registry_url")
 
     @upstream_registry_url.setter
-    def upstream_registry_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def upstream_registry_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "upstream_registry_url", value)
 
     @_builtins.property
     @pulumi.getter(name="upstreamRepositoryPrefix")
-    def upstream_repository_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def upstream_repository_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The repository prefix of the corresponding repository in the upstream registry.
         """
         return pulumi.get(self, "upstream_repository_prefix")
 
     @upstream_repository_prefix.setter
-    def upstream_repository_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def upstream_repository_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "upstream_repository_prefix", value)
 
 
 class WorkflowVersionSourceReferenceArgsDict(TypedDict):
-    type: NotRequired[pulumi.Input['WorkflowVersionSourceReferencetype']]
+    type: NotRequired[pulumi.Input[Optional['WorkflowVersionSourceReferencetype']]]
     """
     The type of source reference, such as branch, tag, or commit.
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The value of the source reference, such as the branch name, tag name, or commit ID.
     """
@@ -1101,8 +1101,8 @@ class WorkflowVersionSourceReferenceArgsDict(TypedDict):
 @pulumi.input_type
 class WorkflowVersionSourceReferenceArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input['WorkflowVersionSourceReferencetype']] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 type: pulumi.Input[Optional['WorkflowVersionSourceReferencetype']] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input['WorkflowVersionSourceReferencetype'] type: The type of source reference, such as branch, tag, or commit.
         :param pulumi.Input[_builtins.str] value: The value of the source reference, such as the branch name, tag name, or commit ID.
@@ -1114,35 +1114,35 @@ class WorkflowVersionSourceReferenceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['WorkflowVersionSourceReferencetype']]:
+    def type(self) -> pulumi.Input[Optional['WorkflowVersionSourceReferencetype']]:
         """
         The type of source reference, such as branch, tag, or commit.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['WorkflowVersionSourceReferencetype']]):
+    def type(self, value: pulumi.Input[Optional['WorkflowVersionSourceReferencetype']]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value of the source reference, such as the branch name, tag name, or commit ID.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
 class WorkflowVersionWorkflowParameterArgsDict(TypedDict):
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The parameter's description.
     """
-    optional: NotRequired[pulumi.Input[_builtins.bool]]
+    optional: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether the parameter is optional.
     """
@@ -1150,8 +1150,8 @@ class WorkflowVersionWorkflowParameterArgsDict(TypedDict):
 @pulumi.input_type
 class WorkflowVersionWorkflowParameterArgs:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 optional: Optional[pulumi.Input[_builtins.bool]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 optional: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] description: The parameter's description.
         :param pulumi.Input[_builtins.bool] optional: Whether the parameter is optional.
@@ -1163,26 +1163,26 @@ class WorkflowVersionWorkflowParameterArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The parameter's description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def optional(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def optional(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the parameter is optional.
         """
         return pulumi.get(self, "optional")
 
     @optional.setter
-    def optional(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def optional(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "optional", value)
 
 

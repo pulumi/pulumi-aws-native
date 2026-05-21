@@ -24,13 +24,13 @@ __all__ = ['GraphArgs', 'Graph']
 class GraphArgs:
     def __init__(__self__, *,
                  provisioned_memory: pulumi.Input[_builtins.int],
-                 deletion_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 graph_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_connectivity: Optional[pulumi.Input[_builtins.bool]] = None,
-                 replica_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 vector_search_configuration: Optional[pulumi.Input['GraphVectorSearchConfigurationArgs']] = None):
+                 deletion_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 graph_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_connectivity: pulumi.Input[Optional[_builtins.bool]] = None,
+                 replica_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 vector_search_configuration: pulumi.Input[Optional['GraphVectorSearchConfigurationArgs']] = None):
         """
         The set of arguments for constructing a Graph resource.
 
@@ -89,7 +89,7 @@ class GraphArgs:
 
     @_builtins.property
     @pulumi.getter(name="deletionProtection")
-    def deletion_protection(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def deletion_protection(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Value that indicates whether the Graph has deletion protection enabled. The graph can't be deleted when deletion protection is enabled.
 
@@ -98,12 +98,12 @@ class GraphArgs:
         return pulumi.get(self, "deletion_protection")
 
     @deletion_protection.setter
-    def deletion_protection(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def deletion_protection(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "deletion_protection", value)
 
     @_builtins.property
     @pulumi.getter(name="graphName")
-    def graph_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def graph_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Contains a user-supplied name for the Graph. 
 
@@ -114,24 +114,24 @@ class GraphArgs:
         return pulumi.get(self, "graph_name")
 
     @graph_name.setter
-    def graph_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def graph_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "graph_name", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyIdentifier")
-    def kms_key_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the KMS key used to encrypt data in the Neptune Analytics graph. If not specified, the graph is encrypted with an AWS managed key.
         """
         return pulumi.get(self, "kms_key_identifier")
 
     @kms_key_identifier.setter
-    def kms_key_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="publicConnectivity")
-    def public_connectivity(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def public_connectivity(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the Graph can be reached over the internet. Access to all graphs requires IAM authentication.
 
@@ -144,12 +144,12 @@ class GraphArgs:
         return pulumi.get(self, "public_connectivity")
 
     @public_connectivity.setter
-    def public_connectivity(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def public_connectivity(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "public_connectivity", value)
 
     @_builtins.property
     @pulumi.getter(name="replicaCount")
-    def replica_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def replica_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of replicas you want when finished. All replicas will be provisioned in different availability zones.
 
@@ -160,31 +160,31 @@ class GraphArgs:
         return pulumi.get(self, "replica_count")
 
     @replica_count.setter
-    def replica_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def replica_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "replica_count", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags associated with this graph.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="vectorSearchConfiguration")
-    def vector_search_configuration(self) -> Optional[pulumi.Input['GraphVectorSearchConfigurationArgs']]:
+    def vector_search_configuration(self) -> pulumi.Input[Optional['GraphVectorSearchConfigurationArgs']]:
         """
         Vector Search Configuration
         """
         return pulumi.get(self, "vector_search_configuration")
 
     @vector_search_configuration.setter
-    def vector_search_configuration(self, value: Optional[pulumi.Input['GraphVectorSearchConfigurationArgs']]):
+    def vector_search_configuration(self, value: pulumi.Input[Optional['GraphVectorSearchConfigurationArgs']]):
         pulumi.set(self, "vector_search_configuration", value)
 
 
@@ -194,14 +194,14 @@ class Graph(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 deletion_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 graph_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 provisioned_memory: Optional[pulumi.Input[_builtins.int]] = None,
-                 public_connectivity: Optional[pulumi.Input[_builtins.bool]] = None,
-                 replica_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 vector_search_configuration: Optional[pulumi.Input[Union['GraphVectorSearchConfigurationArgs', 'GraphVectorSearchConfigurationArgsDict']]] = None,
+                 deletion_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 graph_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 provisioned_memory: pulumi.Input[Optional[_builtins.int]] = None,
+                 public_connectivity: pulumi.Input[Optional[_builtins.bool]] = None,
+                 replica_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 vector_search_configuration: pulumi.Input[Optional[Union['GraphVectorSearchConfigurationArgs', 'GraphVectorSearchConfigurationArgsDict']]] = None,
                  __props__=None):
         """
         The AWS::NeptuneGraph::Graph resource creates an Amazon NeptuneGraph Graph.
@@ -259,14 +259,14 @@ class Graph(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 deletion_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 graph_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 provisioned_memory: Optional[pulumi.Input[_builtins.int]] = None,
-                 public_connectivity: Optional[pulumi.Input[_builtins.bool]] = None,
-                 replica_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 vector_search_configuration: Optional[pulumi.Input[Union['GraphVectorSearchConfigurationArgs', 'GraphVectorSearchConfigurationArgsDict']]] = None,
+                 deletion_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 graph_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 provisioned_memory: pulumi.Input[Optional[_builtins.int]] = None,
+                 public_connectivity: pulumi.Input[Optional[_builtins.bool]] = None,
+                 replica_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 vector_search_configuration: pulumi.Input[Optional[Union['GraphVectorSearchConfigurationArgs', 'GraphVectorSearchConfigurationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

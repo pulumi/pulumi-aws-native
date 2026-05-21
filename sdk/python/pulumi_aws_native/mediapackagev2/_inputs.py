@@ -74,11 +74,11 @@ class ChannelInputSwitchConfigurationArgsDict(TypedDict):
     """
     <p>The configuration for input switching based on the media quality confidence score (MQCS) as provided from AWS Elemental MediaLive.</p>
     """
-    mqcs_input_switching: NotRequired[pulumi.Input[_builtins.bool]]
+    mqcs_input_switching: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     <p>When true, AWS Elemental MediaPackage performs input switching based on the MQCS. Default is true. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
     """
-    preferred_input: NotRequired[pulumi.Input[_builtins.int]]
+    preferred_input: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     For CMAF inputs, indicates which input MediaPackage should prefer when both inputs have equal MQCS scores. Select `1` to prefer the first ingest endpoint, or `2` to prefer the second ingest endpoint. If you don't specify a preferred input, MediaPackage uses its default switching behavior when MQCS scores are equal.
     """
@@ -86,8 +86,8 @@ class ChannelInputSwitchConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class ChannelInputSwitchConfigurationArgs:
     def __init__(__self__, *,
-                 mqcs_input_switching: Optional[pulumi.Input[_builtins.bool]] = None,
-                 preferred_input: Optional[pulumi.Input[_builtins.int]] = None):
+                 mqcs_input_switching: pulumi.Input[Optional[_builtins.bool]] = None,
+                 preferred_input: pulumi.Input[Optional[_builtins.int]] = None):
         """
         <p>The configuration for input switching based on the media quality confidence score (MQCS) as provided from AWS Elemental MediaLive.</p>
 
@@ -101,26 +101,26 @@ class ChannelInputSwitchConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="mqcsInputSwitching")
-    def mqcs_input_switching(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def mqcs_input_switching(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         <p>When true, AWS Elemental MediaPackage performs input switching based on the MQCS. Default is true. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
         """
         return pulumi.get(self, "mqcs_input_switching")
 
     @mqcs_input_switching.setter
-    def mqcs_input_switching(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def mqcs_input_switching(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "mqcs_input_switching", value)
 
     @_builtins.property
     @pulumi.getter(name="preferredInput")
-    def preferred_input(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def preferred_input(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         For CMAF inputs, indicates which input MediaPackage should prefer when both inputs have equal MQCS scores. Select `1` to prefer the first ingest endpoint, or `2` to prefer the second ingest endpoint. If you don't specify a preferred input, MediaPackage uses its default switching behavior when MQCS scores are equal.
         """
         return pulumi.get(self, "preferred_input")
 
     @preferred_input.setter
-    def preferred_input(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def preferred_input(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "preferred_input", value)
 
 
@@ -128,7 +128,7 @@ class ChannelOutputHeaderConfigurationArgsDict(TypedDict):
     """
     <p>The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN.</p>
     """
-    publish_mqcs: NotRequired[pulumi.Input[_builtins.bool]]
+    publish_mqcs: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     <p>When true, AWS Elemental MediaPackage includes the MQCS in responses to the CDN. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
     """
@@ -136,7 +136,7 @@ class ChannelOutputHeaderConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class ChannelOutputHeaderConfigurationArgs:
     def __init__(__self__, *,
-                 publish_mqcs: Optional[pulumi.Input[_builtins.bool]] = None):
+                 publish_mqcs: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         <p>The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN.</p>
 
@@ -147,14 +147,14 @@ class ChannelOutputHeaderConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="publishMqcs")
-    def publish_mqcs(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def publish_mqcs(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         <p>When true, AWS Elemental MediaPackage includes the MQCS in responses to the CDN. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
         """
         return pulumi.get(self, "publish_mqcs")
 
     @publish_mqcs.setter
-    def publish_mqcs(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def publish_mqcs(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "publish_mqcs", value)
 
 
@@ -166,15 +166,15 @@ class OriginEndpointDashBaseUrlArgsDict(TypedDict):
     """
     <p>A source location for segments.</p>
     """
-    dvb_priority: NotRequired[pulumi.Input[_builtins.int]]
+    dvb_priority: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     <p>For use with DVB-DASH profiles only. The priority of this location for servings segments. The lower the number, the higher the priority.</p>
     """
-    dvb_weight: NotRequired[pulumi.Input[_builtins.int]]
+    dvb_weight: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     <p>For use with DVB-DASH profiles only. The weighting for source locations that have the same priority. </p>
     """
-    service_location: NotRequired[pulumi.Input[_builtins.str]]
+    service_location: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     <p>The name of the source location.</p>
     """
@@ -183,9 +183,9 @@ class OriginEndpointDashBaseUrlArgsDict(TypedDict):
 class OriginEndpointDashBaseUrlArgs:
     def __init__(__self__, *,
                  url: pulumi.Input[_builtins.str],
-                 dvb_priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 dvb_weight: Optional[pulumi.Input[_builtins.int]] = None,
-                 service_location: Optional[pulumi.Input[_builtins.str]] = None):
+                 dvb_priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 dvb_weight: pulumi.Input[Optional[_builtins.int]] = None,
+                 service_location: pulumi.Input[Optional[_builtins.str]] = None):
         """
         <p>The base URLs to use for retrieving segments. You can specify multiple locations and indicate the priority and weight for when each should be used, for use in mutli-CDN workflows.</p>
 
@@ -216,38 +216,38 @@ class OriginEndpointDashBaseUrlArgs:
 
     @_builtins.property
     @pulumi.getter(name="dvbPriority")
-    def dvb_priority(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def dvb_priority(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         <p>For use with DVB-DASH profiles only. The priority of this location for servings segments. The lower the number, the higher the priority.</p>
         """
         return pulumi.get(self, "dvb_priority")
 
     @dvb_priority.setter
-    def dvb_priority(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def dvb_priority(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "dvb_priority", value)
 
     @_builtins.property
     @pulumi.getter(name="dvbWeight")
-    def dvb_weight(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def dvb_weight(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         <p>For use with DVB-DASH profiles only. The weighting for source locations that have the same priority. </p>
         """
         return pulumi.get(self, "dvb_weight")
 
     @dvb_weight.setter
-    def dvb_weight(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def dvb_weight(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "dvb_weight", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceLocation")
-    def service_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         <p>The name of the source location.</p>
         """
         return pulumi.get(self, "service_location")
 
     @service_location.setter
-    def service_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_location", value)
 
 
@@ -255,15 +255,15 @@ class OriginEndpointDashDvbFontDownloadArgsDict(TypedDict):
     """
     <p>For use with DVB-DASH profiles only. The settings for font downloads that you want Elemental MediaPackage to pass through to the manifest.</p>
     """
-    font_family: NotRequired[pulumi.Input[_builtins.str]]
+    font_family: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     <p>The <code>fontFamily</code> name for subtitles, as described in <a href="https://tech.ebu.ch/publications/tech3380">EBU-TT-D Subtitling Distribution Format</a>. </p>
     """
-    mime_type: NotRequired[pulumi.Input[_builtins.str]]
+    mime_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     <p>The <code>mimeType</code> of the resource that's at the font download URL.</p> <p>For information about font MIME types, see the <a href="https://dvb.org/wp-content/uploads/2021/06/A168r4_MPEG-DASH-Profile-for-Transport-of-ISO-BMFF-Based-DVB-Services_Draft-ts_103-285-v140_November_2021.pdf">MPEG-DASH Profile for Transport of ISO BMFF Based DVB Services over IP Based Networks</a> document. </p>
     """
-    url: NotRequired[pulumi.Input[_builtins.str]]
+    url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     <p>The URL for downloading fonts for subtitles.</p>
     """
@@ -271,9 +271,9 @@ class OriginEndpointDashDvbFontDownloadArgsDict(TypedDict):
 @pulumi.input_type
 class OriginEndpointDashDvbFontDownloadArgs:
     def __init__(__self__, *,
-                 font_family: Optional[pulumi.Input[_builtins.str]] = None,
-                 mime_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None):
+                 font_family: pulumi.Input[Optional[_builtins.str]] = None,
+                 mime_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         <p>For use with DVB-DASH profiles only. The settings for font downloads that you want Elemental MediaPackage to pass through to the manifest.</p>
 
@@ -290,38 +290,38 @@ class OriginEndpointDashDvbFontDownloadArgs:
 
     @_builtins.property
     @pulumi.getter(name="fontFamily")
-    def font_family(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def font_family(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         <p>The <code>fontFamily</code> name for subtitles, as described in <a href="https://tech.ebu.ch/publications/tech3380">EBU-TT-D Subtitling Distribution Format</a>. </p>
         """
         return pulumi.get(self, "font_family")
 
     @font_family.setter
-    def font_family(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def font_family(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "font_family", value)
 
     @_builtins.property
     @pulumi.getter(name="mimeType")
-    def mime_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mime_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         <p>The <code>mimeType</code> of the resource that's at the font download URL.</p> <p>For information about font MIME types, see the <a href="https://dvb.org/wp-content/uploads/2021/06/A168r4_MPEG-DASH-Profile-for-Transport-of-ISO-BMFF-Based-DVB-Services_Draft-ts_103-285-v140_November_2021.pdf">MPEG-DASH Profile for Transport of ISO BMFF Based DVB Services over IP Based Networks</a> document. </p>
         """
         return pulumi.get(self, "mime_type")
 
     @mime_type.setter
-    def mime_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mime_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mime_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         <p>The URL for downloading fonts for subtitles.</p>
         """
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url", value)
 
 
@@ -333,7 +333,7 @@ class OriginEndpointDashDvbMetricsReportingArgsDict(TypedDict):
     """
     <p>The URL where playback devices send error reports.</p>
     """
-    probability: NotRequired[pulumi.Input[_builtins.int]]
+    probability: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     <p>The number of playback devices per 1000 that will send error reports to the reporting URL. This represents the probability that a playback device will be a reporting player for this session.</p>
     """
@@ -342,7 +342,7 @@ class OriginEndpointDashDvbMetricsReportingArgsDict(TypedDict):
 class OriginEndpointDashDvbMetricsReportingArgs:
     def __init__(__self__, *,
                  reporting_url: pulumi.Input[_builtins.str],
-                 probability: Optional[pulumi.Input[_builtins.int]] = None):
+                 probability: pulumi.Input[Optional[_builtins.int]] = None):
         """
         <p>For use with DVB-DASH profiles only. The settings for error reporting from the playback device that you want Elemental MediaPackage to pass through to the manifest.</p>
 
@@ -367,14 +367,14 @@ class OriginEndpointDashDvbMetricsReportingArgs:
 
     @_builtins.property
     @pulumi.getter
-    def probability(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def probability(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         <p>The number of playback devices per 1000 that will send error reports to the reporting URL. This represents the probability that a playback device will be a reporting player for this session.</p>
         """
         return pulumi.get(self, "probability")
 
     @probability.setter
-    def probability(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def probability(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "probability", value)
 
 
@@ -382,11 +382,11 @@ class OriginEndpointDashDvbSettingsArgsDict(TypedDict):
     """
     <p>For endpoints that use the DVB-DASH profile only. The font download and error reporting information that you want MediaPackage to pass through to the manifest.</p>
     """
-    error_metrics: NotRequired[pulumi.Input[Sequence[pulumi.Input['OriginEndpointDashDvbMetricsReportingArgsDict']]]]
+    error_metrics: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OriginEndpointDashDvbMetricsReportingArgsDict']]]]]
     """
     <p>Playback device error reporting settings.</p>
     """
-    font_download: NotRequired[pulumi.Input['OriginEndpointDashDvbFontDownloadArgsDict']]
+    font_download: NotRequired[pulumi.Input[Optional['OriginEndpointDashDvbFontDownloadArgsDict']]]
     """
     Subtitle font settings.
     """
@@ -394,8 +394,8 @@ class OriginEndpointDashDvbSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class OriginEndpointDashDvbSettingsArgs:
     def __init__(__self__, *,
-                 error_metrics: Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointDashDvbMetricsReportingArgs']]]] = None,
-                 font_download: Optional[pulumi.Input['OriginEndpointDashDvbFontDownloadArgs']] = None):
+                 error_metrics: pulumi.Input[Optional[Sequence[pulumi.Input['OriginEndpointDashDvbMetricsReportingArgs']]]] = None,
+                 font_download: pulumi.Input[Optional['OriginEndpointDashDvbFontDownloadArgs']] = None):
         """
         <p>For endpoints that use the DVB-DASH profile only. The font download and error reporting information that you want MediaPackage to pass through to the manifest.</p>
 
@@ -409,26 +409,26 @@ class OriginEndpointDashDvbSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="errorMetrics")
-    def error_metrics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointDashDvbMetricsReportingArgs']]]]:
+    def error_metrics(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['OriginEndpointDashDvbMetricsReportingArgs']]]]:
         """
         <p>Playback device error reporting settings.</p>
         """
         return pulumi.get(self, "error_metrics")
 
     @error_metrics.setter
-    def error_metrics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointDashDvbMetricsReportingArgs']]]]):
+    def error_metrics(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['OriginEndpointDashDvbMetricsReportingArgs']]]]):
         pulumi.set(self, "error_metrics", value)
 
     @_builtins.property
     @pulumi.getter(name="fontDownload")
-    def font_download(self) -> Optional[pulumi.Input['OriginEndpointDashDvbFontDownloadArgs']]:
+    def font_download(self) -> pulumi.Input[Optional['OriginEndpointDashDvbFontDownloadArgs']]:
         """
         Subtitle font settings.
         """
         return pulumi.get(self, "font_download")
 
     @font_download.setter
-    def font_download(self, value: Optional[pulumi.Input['OriginEndpointDashDvbFontDownloadArgs']]):
+    def font_download(self, value: pulumi.Input[Optional['OriginEndpointDashDvbFontDownloadArgs']]):
         pulumi.set(self, "font_download", value)
 
 
@@ -440,57 +440,57 @@ class OriginEndpointDashManifestConfigurationArgsDict(TypedDict):
     """
     <p>A short string that's appended to the endpoint URL. The manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default manifest name, index. </p>
     """
-    base_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input['OriginEndpointDashBaseUrlArgsDict']]]]
+    base_urls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OriginEndpointDashBaseUrlArgsDict']]]]]
     """
     <p>The base URL to use for retrieving segments.</p>
     """
-    compactness: NotRequired[pulumi.Input['OriginEndpointDashCompactness']]
+    compactness: NotRequired[pulumi.Input[Optional['OriginEndpointDashCompactness']]]
     """
     The layout of the DASH manifest that MediaPackage produces. `STANDARD` indicates a default manifest, which is compacted. `NONE` indicates a full manifest.
 
     For information about compactness, see [DASH manifest compactness](https://docs.aws.amazon.com/mediapackage/latest/userguide/compacted.html) in the *AWS Elemental MediaPackage v2 User Guide* .
     """
-    drm_signaling: NotRequired[pulumi.Input['OriginEndpointDashDrmSignaling']]
+    drm_signaling: NotRequired[pulumi.Input[Optional['OriginEndpointDashDrmSignaling']]]
     """
     Determines how the DASH manifest signals the DRM content.
     """
-    dvb_settings: NotRequired[pulumi.Input['OriginEndpointDashDvbSettingsArgsDict']]
+    dvb_settings: NotRequired[pulumi.Input[Optional['OriginEndpointDashDvbSettingsArgsDict']]]
     """
     For endpoints that use the DVB-DASH profile only. The font download and error reporting information that you want MediaPackage to pass through to the manifest.
     """
-    filter_configuration: NotRequired[pulumi.Input['OriginEndpointFilterConfigurationArgsDict']]
+    filter_configuration: NotRequired[pulumi.Input[Optional['OriginEndpointFilterConfigurationArgsDict']]]
     """
     Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest.
     """
-    manifest_window_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    manifest_window_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     <p>The total duration (in seconds) of the manifest's content.</p>
     """
-    min_buffer_time_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    min_buffer_time_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     <p>Minimum amount of content (in seconds) that a player must keep available in the buffer.</p>
     """
-    min_update_period_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    min_update_period_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     <p>Minimum amount of time (in seconds) that the player should wait before requesting updates to the manifest.</p>
     """
-    period_triggers: NotRequired[pulumi.Input[Sequence[pulumi.Input['OriginEndpointDashPeriodTrigger']]]]
+    period_triggers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OriginEndpointDashPeriodTrigger']]]]]
     """
     <p>A list of triggers that controls when AWS Elemental MediaPackage separates the MPEG-DASH manifest into multiple periods. Leave this value empty to indicate that the manifest is contained all in one period. For more information about periods in the DASH manifest, see <a href="https://docs.aws.amazon.com/mediapackage/latest/userguide/multi-period.html">Multi-period DASH in AWS Elemental MediaPackage</a>.</p>
     """
-    profiles: NotRequired[pulumi.Input[Sequence[pulumi.Input['OriginEndpointDashProfile']]]]
+    profiles: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OriginEndpointDashProfile']]]]]
     """
     <p>The profile that the output is compliant with.</p>
     """
-    program_information: NotRequired[pulumi.Input['OriginEndpointDashProgramInformationArgsDict']]
+    program_information: NotRequired[pulumi.Input[Optional['OriginEndpointDashProgramInformationArgsDict']]]
     """
     Details about the content that you want MediaPackage to pass through in the manifest to the playback device.
     """
-    scte_dash: NotRequired[pulumi.Input['OriginEndpointScteDashArgsDict']]
+    scte_dash: NotRequired[pulumi.Input[Optional['OriginEndpointScteDashArgsDict']]]
     """
     The SCTE configuration.
     """
-    segment_template_format: NotRequired[pulumi.Input['OriginEndpointDashSegmentTemplateFormat']]
+    segment_template_format: NotRequired[pulumi.Input[Optional['OriginEndpointDashSegmentTemplateFormat']]]
     """
     Determines the type of variable used in the `media` URL of the `SegmentTemplate` tag in the manifest. Also specifies if segment timeline information is included in `SegmentTimeline` or `SegmentTemplate` .
 
@@ -498,15 +498,15 @@ class OriginEndpointDashManifestConfigurationArgsDict(TypedDict):
 
     - `NUMBER_WITH_TIMELINE` - The `$Number$` variable is used in the `media` URL. The value of this variable is the sequential number of the segment. A full `SegmentTimeline` object is presented in each `SegmentTemplate` .
     """
-    subtitle_configuration: NotRequired[pulumi.Input['OriginEndpointDashSubtitleConfigurationArgsDict']]
+    subtitle_configuration: NotRequired[pulumi.Input[Optional['OriginEndpointDashSubtitleConfigurationArgsDict']]]
     """
     The configuration for DASH subtitles.
     """
-    suggested_presentation_delay_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    suggested_presentation_delay_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     <p>The amount of time (in seconds) that the player should be from the end of the manifest.</p>
     """
-    utc_timing: NotRequired[pulumi.Input['OriginEndpointDashUtcTimingArgsDict']]
+    utc_timing: NotRequired[pulumi.Input[Optional['OriginEndpointDashUtcTimingArgsDict']]]
     """
     Determines the type of UTC timing included in the DASH Media Presentation Description (MPD).
     """
@@ -515,22 +515,22 @@ class OriginEndpointDashManifestConfigurationArgsDict(TypedDict):
 class OriginEndpointDashManifestConfigurationArgs:
     def __init__(__self__, *,
                  manifest_name: pulumi.Input[_builtins.str],
-                 base_urls: Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointDashBaseUrlArgs']]]] = None,
-                 compactness: Optional[pulumi.Input['OriginEndpointDashCompactness']] = None,
-                 drm_signaling: Optional[pulumi.Input['OriginEndpointDashDrmSignaling']] = None,
-                 dvb_settings: Optional[pulumi.Input['OriginEndpointDashDvbSettingsArgs']] = None,
-                 filter_configuration: Optional[pulumi.Input['OriginEndpointFilterConfigurationArgs']] = None,
-                 manifest_window_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_buffer_time_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_update_period_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 period_triggers: Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointDashPeriodTrigger']]]] = None,
-                 profiles: Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointDashProfile']]]] = None,
-                 program_information: Optional[pulumi.Input['OriginEndpointDashProgramInformationArgs']] = None,
-                 scte_dash: Optional[pulumi.Input['OriginEndpointScteDashArgs']] = None,
-                 segment_template_format: Optional[pulumi.Input['OriginEndpointDashSegmentTemplateFormat']] = None,
-                 subtitle_configuration: Optional[pulumi.Input['OriginEndpointDashSubtitleConfigurationArgs']] = None,
-                 suggested_presentation_delay_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 utc_timing: Optional[pulumi.Input['OriginEndpointDashUtcTimingArgs']] = None):
+                 base_urls: pulumi.Input[Optional[Sequence[pulumi.Input['OriginEndpointDashBaseUrlArgs']]]] = None,
+                 compactness: pulumi.Input[Optional['OriginEndpointDashCompactness']] = None,
+                 drm_signaling: pulumi.Input[Optional['OriginEndpointDashDrmSignaling']] = None,
+                 dvb_settings: pulumi.Input[Optional['OriginEndpointDashDvbSettingsArgs']] = None,
+                 filter_configuration: pulumi.Input[Optional['OriginEndpointFilterConfigurationArgs']] = None,
+                 manifest_window_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_buffer_time_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_update_period_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 period_triggers: pulumi.Input[Optional[Sequence[pulumi.Input['OriginEndpointDashPeriodTrigger']]]] = None,
+                 profiles: pulumi.Input[Optional[Sequence[pulumi.Input['OriginEndpointDashProfile']]]] = None,
+                 program_information: pulumi.Input[Optional['OriginEndpointDashProgramInformationArgs']] = None,
+                 scte_dash: pulumi.Input[Optional['OriginEndpointScteDashArgs']] = None,
+                 segment_template_format: pulumi.Input[Optional['OriginEndpointDashSegmentTemplateFormat']] = None,
+                 subtitle_configuration: pulumi.Input[Optional['OriginEndpointDashSubtitleConfigurationArgs']] = None,
+                 suggested_presentation_delay_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 utc_timing: pulumi.Input[Optional['OriginEndpointDashUtcTimingArgs']] = None):
         """
         <p>Retrieve the DASH manifest configuration.</p>
 
@@ -606,19 +606,19 @@ class OriginEndpointDashManifestConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="baseUrls")
-    def base_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointDashBaseUrlArgs']]]]:
+    def base_urls(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['OriginEndpointDashBaseUrlArgs']]]]:
         """
         <p>The base URL to use for retrieving segments.</p>
         """
         return pulumi.get(self, "base_urls")
 
     @base_urls.setter
-    def base_urls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointDashBaseUrlArgs']]]]):
+    def base_urls(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['OriginEndpointDashBaseUrlArgs']]]]):
         pulumi.set(self, "base_urls", value)
 
     @_builtins.property
     @pulumi.getter
-    def compactness(self) -> Optional[pulumi.Input['OriginEndpointDashCompactness']]:
+    def compactness(self) -> pulumi.Input[Optional['OriginEndpointDashCompactness']]:
         """
         The layout of the DASH manifest that MediaPackage produces. `STANDARD` indicates a default manifest, which is compacted. `NONE` indicates a full manifest.
 
@@ -627,132 +627,132 @@ class OriginEndpointDashManifestConfigurationArgs:
         return pulumi.get(self, "compactness")
 
     @compactness.setter
-    def compactness(self, value: Optional[pulumi.Input['OriginEndpointDashCompactness']]):
+    def compactness(self, value: pulumi.Input[Optional['OriginEndpointDashCompactness']]):
         pulumi.set(self, "compactness", value)
 
     @_builtins.property
     @pulumi.getter(name="drmSignaling")
-    def drm_signaling(self) -> Optional[pulumi.Input['OriginEndpointDashDrmSignaling']]:
+    def drm_signaling(self) -> pulumi.Input[Optional['OriginEndpointDashDrmSignaling']]:
         """
         Determines how the DASH manifest signals the DRM content.
         """
         return pulumi.get(self, "drm_signaling")
 
     @drm_signaling.setter
-    def drm_signaling(self, value: Optional[pulumi.Input['OriginEndpointDashDrmSignaling']]):
+    def drm_signaling(self, value: pulumi.Input[Optional['OriginEndpointDashDrmSignaling']]):
         pulumi.set(self, "drm_signaling", value)
 
     @_builtins.property
     @pulumi.getter(name="dvbSettings")
-    def dvb_settings(self) -> Optional[pulumi.Input['OriginEndpointDashDvbSettingsArgs']]:
+    def dvb_settings(self) -> pulumi.Input[Optional['OriginEndpointDashDvbSettingsArgs']]:
         """
         For endpoints that use the DVB-DASH profile only. The font download and error reporting information that you want MediaPackage to pass through to the manifest.
         """
         return pulumi.get(self, "dvb_settings")
 
     @dvb_settings.setter
-    def dvb_settings(self, value: Optional[pulumi.Input['OriginEndpointDashDvbSettingsArgs']]):
+    def dvb_settings(self, value: pulumi.Input[Optional['OriginEndpointDashDvbSettingsArgs']]):
         pulumi.set(self, "dvb_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="filterConfiguration")
-    def filter_configuration(self) -> Optional[pulumi.Input['OriginEndpointFilterConfigurationArgs']]:
+    def filter_configuration(self) -> pulumi.Input[Optional['OriginEndpointFilterConfigurationArgs']]:
         """
         Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest.
         """
         return pulumi.get(self, "filter_configuration")
 
     @filter_configuration.setter
-    def filter_configuration(self, value: Optional[pulumi.Input['OriginEndpointFilterConfigurationArgs']]):
+    def filter_configuration(self, value: pulumi.Input[Optional['OriginEndpointFilterConfigurationArgs']]):
         pulumi.set(self, "filter_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="manifestWindowSeconds")
-    def manifest_window_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def manifest_window_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         <p>The total duration (in seconds) of the manifest's content.</p>
         """
         return pulumi.get(self, "manifest_window_seconds")
 
     @manifest_window_seconds.setter
-    def manifest_window_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def manifest_window_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "manifest_window_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="minBufferTimeSeconds")
-    def min_buffer_time_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_buffer_time_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         <p>Minimum amount of content (in seconds) that a player must keep available in the buffer.</p>
         """
         return pulumi.get(self, "min_buffer_time_seconds")
 
     @min_buffer_time_seconds.setter
-    def min_buffer_time_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_buffer_time_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_buffer_time_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="minUpdatePeriodSeconds")
-    def min_update_period_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_update_period_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         <p>Minimum amount of time (in seconds) that the player should wait before requesting updates to the manifest.</p>
         """
         return pulumi.get(self, "min_update_period_seconds")
 
     @min_update_period_seconds.setter
-    def min_update_period_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_update_period_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_update_period_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="periodTriggers")
-    def period_triggers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointDashPeriodTrigger']]]]:
+    def period_triggers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['OriginEndpointDashPeriodTrigger']]]]:
         """
         <p>A list of triggers that controls when AWS Elemental MediaPackage separates the MPEG-DASH manifest into multiple periods. Leave this value empty to indicate that the manifest is contained all in one period. For more information about periods in the DASH manifest, see <a href="https://docs.aws.amazon.com/mediapackage/latest/userguide/multi-period.html">Multi-period DASH in AWS Elemental MediaPackage</a>.</p>
         """
         return pulumi.get(self, "period_triggers")
 
     @period_triggers.setter
-    def period_triggers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointDashPeriodTrigger']]]]):
+    def period_triggers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['OriginEndpointDashPeriodTrigger']]]]):
         pulumi.set(self, "period_triggers", value)
 
     @_builtins.property
     @pulumi.getter
-    def profiles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointDashProfile']]]]:
+    def profiles(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['OriginEndpointDashProfile']]]]:
         """
         <p>The profile that the output is compliant with.</p>
         """
         return pulumi.get(self, "profiles")
 
     @profiles.setter
-    def profiles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointDashProfile']]]]):
+    def profiles(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['OriginEndpointDashProfile']]]]):
         pulumi.set(self, "profiles", value)
 
     @_builtins.property
     @pulumi.getter(name="programInformation")
-    def program_information(self) -> Optional[pulumi.Input['OriginEndpointDashProgramInformationArgs']]:
+    def program_information(self) -> pulumi.Input[Optional['OriginEndpointDashProgramInformationArgs']]:
         """
         Details about the content that you want MediaPackage to pass through in the manifest to the playback device.
         """
         return pulumi.get(self, "program_information")
 
     @program_information.setter
-    def program_information(self, value: Optional[pulumi.Input['OriginEndpointDashProgramInformationArgs']]):
+    def program_information(self, value: pulumi.Input[Optional['OriginEndpointDashProgramInformationArgs']]):
         pulumi.set(self, "program_information", value)
 
     @_builtins.property
     @pulumi.getter(name="scteDash")
-    def scte_dash(self) -> Optional[pulumi.Input['OriginEndpointScteDashArgs']]:
+    def scte_dash(self) -> pulumi.Input[Optional['OriginEndpointScteDashArgs']]:
         """
         The SCTE configuration.
         """
         return pulumi.get(self, "scte_dash")
 
     @scte_dash.setter
-    def scte_dash(self, value: Optional[pulumi.Input['OriginEndpointScteDashArgs']]):
+    def scte_dash(self, value: pulumi.Input[Optional['OriginEndpointScteDashArgs']]):
         pulumi.set(self, "scte_dash", value)
 
     @_builtins.property
     @pulumi.getter(name="segmentTemplateFormat")
-    def segment_template_format(self) -> Optional[pulumi.Input['OriginEndpointDashSegmentTemplateFormat']]:
+    def segment_template_format(self) -> pulumi.Input[Optional['OriginEndpointDashSegmentTemplateFormat']]:
         """
         Determines the type of variable used in the `media` URL of the `SegmentTemplate` tag in the manifest. Also specifies if segment timeline information is included in `SegmentTimeline` or `SegmentTemplate` .
 
@@ -763,43 +763,43 @@ class OriginEndpointDashManifestConfigurationArgs:
         return pulumi.get(self, "segment_template_format")
 
     @segment_template_format.setter
-    def segment_template_format(self, value: Optional[pulumi.Input['OriginEndpointDashSegmentTemplateFormat']]):
+    def segment_template_format(self, value: pulumi.Input[Optional['OriginEndpointDashSegmentTemplateFormat']]):
         pulumi.set(self, "segment_template_format", value)
 
     @_builtins.property
     @pulumi.getter(name="subtitleConfiguration")
-    def subtitle_configuration(self) -> Optional[pulumi.Input['OriginEndpointDashSubtitleConfigurationArgs']]:
+    def subtitle_configuration(self) -> pulumi.Input[Optional['OriginEndpointDashSubtitleConfigurationArgs']]:
         """
         The configuration for DASH subtitles.
         """
         return pulumi.get(self, "subtitle_configuration")
 
     @subtitle_configuration.setter
-    def subtitle_configuration(self, value: Optional[pulumi.Input['OriginEndpointDashSubtitleConfigurationArgs']]):
+    def subtitle_configuration(self, value: pulumi.Input[Optional['OriginEndpointDashSubtitleConfigurationArgs']]):
         pulumi.set(self, "subtitle_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="suggestedPresentationDelaySeconds")
-    def suggested_presentation_delay_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def suggested_presentation_delay_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         <p>The amount of time (in seconds) that the player should be from the end of the manifest.</p>
         """
         return pulumi.get(self, "suggested_presentation_delay_seconds")
 
     @suggested_presentation_delay_seconds.setter
-    def suggested_presentation_delay_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def suggested_presentation_delay_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "suggested_presentation_delay_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="utcTiming")
-    def utc_timing(self) -> Optional[pulumi.Input['OriginEndpointDashUtcTimingArgs']]:
+    def utc_timing(self) -> pulumi.Input[Optional['OriginEndpointDashUtcTimingArgs']]:
         """
         Determines the type of UTC timing included in the DASH Media Presentation Description (MPD).
         """
         return pulumi.get(self, "utc_timing")
 
     @utc_timing.setter
-    def utc_timing(self, value: Optional[pulumi.Input['OriginEndpointDashUtcTimingArgs']]):
+    def utc_timing(self, value: pulumi.Input[Optional['OriginEndpointDashUtcTimingArgs']]):
         pulumi.set(self, "utc_timing", value)
 
 
@@ -807,23 +807,23 @@ class OriginEndpointDashProgramInformationArgsDict(TypedDict):
     """
     <p>Details about the content that you want MediaPackage to pass through in the manifest to the playback device.</p>
     """
-    copyright: NotRequired[pulumi.Input[_builtins.str]]
+    copyright: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     <p>A copyright statement about the content.</p>
     """
-    language_code: NotRequired[pulumi.Input[_builtins.str]]
+    language_code: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     <p>The language code for this manifest.</p>
     """
-    more_information_url: NotRequired[pulumi.Input[_builtins.str]]
+    more_information_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     <p>An absolute URL that contains more information about this content.</p>
     """
-    source: NotRequired[pulumi.Input[_builtins.str]]
+    source: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     <p>Information about the content provider.</p>
     """
-    title: NotRequired[pulumi.Input[_builtins.str]]
+    title: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     <p>The title for the manifest.</p>
     """
@@ -831,11 +831,11 @@ class OriginEndpointDashProgramInformationArgsDict(TypedDict):
 @pulumi.input_type
 class OriginEndpointDashProgramInformationArgs:
     def __init__(__self__, *,
-                 copyright: Optional[pulumi.Input[_builtins.str]] = None,
-                 language_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 more_information_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 source: Optional[pulumi.Input[_builtins.str]] = None,
-                 title: Optional[pulumi.Input[_builtins.str]] = None):
+                 copyright: pulumi.Input[Optional[_builtins.str]] = None,
+                 language_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 more_information_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 source: pulumi.Input[Optional[_builtins.str]] = None,
+                 title: pulumi.Input[Optional[_builtins.str]] = None):
         """
         <p>Details about the content that you want MediaPackage to pass through in the manifest to the playback device.</p>
 
@@ -858,62 +858,62 @@ class OriginEndpointDashProgramInformationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def copyright(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def copyright(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         <p>A copyright statement about the content.</p>
         """
         return pulumi.get(self, "copyright")
 
     @copyright.setter
-    def copyright(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def copyright(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "copyright", value)
 
     @_builtins.property
     @pulumi.getter(name="languageCode")
-    def language_code(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def language_code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         <p>The language code for this manifest.</p>
         """
         return pulumi.get(self, "language_code")
 
     @language_code.setter
-    def language_code(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def language_code(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "language_code", value)
 
     @_builtins.property
     @pulumi.getter(name="moreInformationUrl")
-    def more_information_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def more_information_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         <p>An absolute URL that contains more information about this content.</p>
         """
         return pulumi.get(self, "more_information_url")
 
     @more_information_url.setter
-    def more_information_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def more_information_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "more_information_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def source(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         <p>Information about the content provider.</p>
         """
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source", value)
 
     @_builtins.property
     @pulumi.getter
-    def title(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def title(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         <p>The title for the manifest.</p>
         """
         return pulumi.get(self, "title")
 
     @title.setter
-    def title(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def title(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "title", value)
 
 
@@ -921,7 +921,7 @@ class OriginEndpointDashSubtitleConfigurationArgsDict(TypedDict):
     """
     <p>The configuration for DASH subtitles.</p>
     """
-    ttml_configuration: NotRequired[pulumi.Input['OriginEndpointDashTtmlConfigurationArgsDict']]
+    ttml_configuration: NotRequired[pulumi.Input[Optional['OriginEndpointDashTtmlConfigurationArgsDict']]]
     """
     Settings for TTML subtitles.
     """
@@ -929,7 +929,7 @@ class OriginEndpointDashSubtitleConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class OriginEndpointDashSubtitleConfigurationArgs:
     def __init__(__self__, *,
-                 ttml_configuration: Optional[pulumi.Input['OriginEndpointDashTtmlConfigurationArgs']] = None):
+                 ttml_configuration: pulumi.Input[Optional['OriginEndpointDashTtmlConfigurationArgs']] = None):
         """
         <p>The configuration for DASH subtitles.</p>
 
@@ -940,14 +940,14 @@ class OriginEndpointDashSubtitleConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="ttmlConfiguration")
-    def ttml_configuration(self) -> Optional[pulumi.Input['OriginEndpointDashTtmlConfigurationArgs']]:
+    def ttml_configuration(self) -> pulumi.Input[Optional['OriginEndpointDashTtmlConfigurationArgs']]:
         """
         Settings for TTML subtitles.
         """
         return pulumi.get(self, "ttml_configuration")
 
     @ttml_configuration.setter
-    def ttml_configuration(self, value: Optional[pulumi.Input['OriginEndpointDashTtmlConfigurationArgs']]):
+    def ttml_configuration(self, value: pulumi.Input[Optional['OriginEndpointDashTtmlConfigurationArgs']]):
         pulumi.set(self, "ttml_configuration", value)
 
 
@@ -988,11 +988,11 @@ class OriginEndpointDashUtcTimingArgsDict(TypedDict):
     """
     <p>Determines the type of UTC timing included in the DASH Media Presentation Description (MPD).</p>
     """
-    timing_mode: NotRequired[pulumi.Input['OriginEndpointDashUtcTimingMode']]
+    timing_mode: NotRequired[pulumi.Input[Optional['OriginEndpointDashUtcTimingMode']]]
     """
     The UTC timing mode.
     """
-    timing_source: NotRequired[pulumi.Input[_builtins.str]]
+    timing_source: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     <p>The the method that the player uses to synchronize to coordinated universal time (UTC) wall clock time.</p>
     """
@@ -1000,8 +1000,8 @@ class OriginEndpointDashUtcTimingArgsDict(TypedDict):
 @pulumi.input_type
 class OriginEndpointDashUtcTimingArgs:
     def __init__(__self__, *,
-                 timing_mode: Optional[pulumi.Input['OriginEndpointDashUtcTimingMode']] = None,
-                 timing_source: Optional[pulumi.Input[_builtins.str]] = None):
+                 timing_mode: pulumi.Input[Optional['OriginEndpointDashUtcTimingMode']] = None,
+                 timing_source: pulumi.Input[Optional[_builtins.str]] = None):
         """
         <p>Determines the type of UTC timing included in the DASH Media Presentation Description (MPD).</p>
 
@@ -1015,26 +1015,26 @@ class OriginEndpointDashUtcTimingArgs:
 
     @_builtins.property
     @pulumi.getter(name="timingMode")
-    def timing_mode(self) -> Optional[pulumi.Input['OriginEndpointDashUtcTimingMode']]:
+    def timing_mode(self) -> pulumi.Input[Optional['OriginEndpointDashUtcTimingMode']]:
         """
         The UTC timing mode.
         """
         return pulumi.get(self, "timing_mode")
 
     @timing_mode.setter
-    def timing_mode(self, value: Optional[pulumi.Input['OriginEndpointDashUtcTimingMode']]):
+    def timing_mode(self, value: pulumi.Input[Optional['OriginEndpointDashUtcTimingMode']]):
         pulumi.set(self, "timing_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="timingSource")
-    def timing_source(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def timing_source(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         <p>The the method that the player uses to synchronize to coordinated universal time (UTC) wall clock time.</p>
         """
         return pulumi.get(self, "timing_source")
 
     @timing_source.setter
-    def timing_source(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def timing_source(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "timing_source", value)
 
 
@@ -1163,15 +1163,15 @@ class OriginEndpointEncryptionMethodArgsDict(TypedDict):
     """
     <p>The encryption type.</p>
     """
-    cmaf_encryption_method: NotRequired[pulumi.Input['OriginEndpointCmafEncryptionMethod']]
+    cmaf_encryption_method: NotRequired[pulumi.Input[Optional['OriginEndpointCmafEncryptionMethod']]]
     """
     The encryption method to use.
     """
-    ism_encryption_method: NotRequired[pulumi.Input['OriginEndpointIsmEncryptionMethod']]
+    ism_encryption_method: NotRequired[pulumi.Input[Optional['OriginEndpointIsmEncryptionMethod']]]
     """
     The encryption method used for Microsoft Smooth Streaming (MSS) content. This specifies how the MSS segments are encrypted to protect the content during delivery to client players.
     """
-    ts_encryption_method: NotRequired[pulumi.Input['OriginEndpointTsEncryptionMethod']]
+    ts_encryption_method: NotRequired[pulumi.Input[Optional['OriginEndpointTsEncryptionMethod']]]
     """
     The encryption method to use.
     """
@@ -1179,9 +1179,9 @@ class OriginEndpointEncryptionMethodArgsDict(TypedDict):
 @pulumi.input_type
 class OriginEndpointEncryptionMethodArgs:
     def __init__(__self__, *,
-                 cmaf_encryption_method: Optional[pulumi.Input['OriginEndpointCmafEncryptionMethod']] = None,
-                 ism_encryption_method: Optional[pulumi.Input['OriginEndpointIsmEncryptionMethod']] = None,
-                 ts_encryption_method: Optional[pulumi.Input['OriginEndpointTsEncryptionMethod']] = None):
+                 cmaf_encryption_method: pulumi.Input[Optional['OriginEndpointCmafEncryptionMethod']] = None,
+                 ism_encryption_method: pulumi.Input[Optional['OriginEndpointIsmEncryptionMethod']] = None,
+                 ts_encryption_method: pulumi.Input[Optional['OriginEndpointTsEncryptionMethod']] = None):
         """
         <p>The encryption type.</p>
 
@@ -1198,38 +1198,38 @@ class OriginEndpointEncryptionMethodArgs:
 
     @_builtins.property
     @pulumi.getter(name="cmafEncryptionMethod")
-    def cmaf_encryption_method(self) -> Optional[pulumi.Input['OriginEndpointCmafEncryptionMethod']]:
+    def cmaf_encryption_method(self) -> pulumi.Input[Optional['OriginEndpointCmafEncryptionMethod']]:
         """
         The encryption method to use.
         """
         return pulumi.get(self, "cmaf_encryption_method")
 
     @cmaf_encryption_method.setter
-    def cmaf_encryption_method(self, value: Optional[pulumi.Input['OriginEndpointCmafEncryptionMethod']]):
+    def cmaf_encryption_method(self, value: pulumi.Input[Optional['OriginEndpointCmafEncryptionMethod']]):
         pulumi.set(self, "cmaf_encryption_method", value)
 
     @_builtins.property
     @pulumi.getter(name="ismEncryptionMethod")
-    def ism_encryption_method(self) -> Optional[pulumi.Input['OriginEndpointIsmEncryptionMethod']]:
+    def ism_encryption_method(self) -> pulumi.Input[Optional['OriginEndpointIsmEncryptionMethod']]:
         """
         The encryption method used for Microsoft Smooth Streaming (MSS) content. This specifies how the MSS segments are encrypted to protect the content during delivery to client players.
         """
         return pulumi.get(self, "ism_encryption_method")
 
     @ism_encryption_method.setter
-    def ism_encryption_method(self, value: Optional[pulumi.Input['OriginEndpointIsmEncryptionMethod']]):
+    def ism_encryption_method(self, value: pulumi.Input[Optional['OriginEndpointIsmEncryptionMethod']]):
         pulumi.set(self, "ism_encryption_method", value)
 
     @_builtins.property
     @pulumi.getter(name="tsEncryptionMethod")
-    def ts_encryption_method(self) -> Optional[pulumi.Input['OriginEndpointTsEncryptionMethod']]:
+    def ts_encryption_method(self) -> pulumi.Input[Optional['OriginEndpointTsEncryptionMethod']]:
         """
         The encryption method to use.
         """
         return pulumi.get(self, "ts_encryption_method")
 
     @ts_encryption_method.setter
-    def ts_encryption_method(self, value: Optional[pulumi.Input['OriginEndpointTsEncryptionMethod']]):
+    def ts_encryption_method(self, value: pulumi.Input[Optional['OriginEndpointTsEncryptionMethod']]):
         pulumi.set(self, "ts_encryption_method", value)
 
 
@@ -1245,15 +1245,15 @@ class OriginEndpointEncryptionArgsDict(TypedDict):
     """
     The SPEKE key provider to use for encryption.
     """
-    cmaf_exclude_segment_drm_metadata: NotRequired[pulumi.Input[_builtins.bool]]
+    cmaf_exclude_segment_drm_metadata: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     <p>Excludes SEIG and SGPD boxes from segment metadata in CMAF containers.</p> <p>When set to <code>true</code>, MediaPackage omits these DRM metadata boxes from CMAF segments, which can improve compatibility with certain devices and players that don't support these boxes.</p> <p>Important considerations:</p> <ul> <li> <p>This setting only affects CMAF container formats</p> </li> <li> <p>Key rotation can still be handled through media playlist signaling</p> </li> <li> <p>PSSH and TENC boxes remain unaffected</p> </li> <li> <p>Default behavior is preserved when this setting is disabled</p> </li> </ul> <p>Valid values: <code>true</code> | <code>false</code> </p> <p>Default: <code>false</code> </p>
     """
-    constant_initialization_vector: NotRequired[pulumi.Input[_builtins.str]]
+    constant_initialization_vector: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     <p>A 128-bit, 16-byte hex value represented by a 32-character string, used in conjunction with the key for encrypting content. If you don't specify a value, then MediaPackage creates the constant initialization vector (IV).</p>
     """
-    key_rotation_interval_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    key_rotation_interval_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     <p>The frequency (in seconds) of key changes for live workflows, in which content is streamed real time. The service retrieves content keys before the live content begins streaming, and then retrieves them as needed over the lifetime of the workflow. By default, key rotation is set to 300 seconds (5 minutes), the minimum rotation interval, which is equivalent to setting it to 300. If you don't enter an interval, content keys aren't rotated.</p> <p>The following example setting causes the service to rotate keys every thirty minutes: <code>1800</code> </p>
     """
@@ -1263,9 +1263,9 @@ class OriginEndpointEncryptionArgs:
     def __init__(__self__, *,
                  encryption_method: pulumi.Input['OriginEndpointEncryptionMethodArgs'],
                  speke_key_provider: pulumi.Input['OriginEndpointSpekeKeyProviderArgs'],
-                 cmaf_exclude_segment_drm_metadata: Optional[pulumi.Input[_builtins.bool]] = None,
-                 constant_initialization_vector: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_rotation_interval_seconds: Optional[pulumi.Input[_builtins.int]] = None):
+                 cmaf_exclude_segment_drm_metadata: pulumi.Input[Optional[_builtins.bool]] = None,
+                 constant_initialization_vector: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_rotation_interval_seconds: pulumi.Input[Optional[_builtins.int]] = None):
         """
         <p>The parameters for encrypting content.</p>
 
@@ -1310,38 +1310,38 @@ class OriginEndpointEncryptionArgs:
 
     @_builtins.property
     @pulumi.getter(name="cmafExcludeSegmentDrmMetadata")
-    def cmaf_exclude_segment_drm_metadata(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def cmaf_exclude_segment_drm_metadata(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         <p>Excludes SEIG and SGPD boxes from segment metadata in CMAF containers.</p> <p>When set to <code>true</code>, MediaPackage omits these DRM metadata boxes from CMAF segments, which can improve compatibility with certain devices and players that don't support these boxes.</p> <p>Important considerations:</p> <ul> <li> <p>This setting only affects CMAF container formats</p> </li> <li> <p>Key rotation can still be handled through media playlist signaling</p> </li> <li> <p>PSSH and TENC boxes remain unaffected</p> </li> <li> <p>Default behavior is preserved when this setting is disabled</p> </li> </ul> <p>Valid values: <code>true</code> | <code>false</code> </p> <p>Default: <code>false</code> </p>
         """
         return pulumi.get(self, "cmaf_exclude_segment_drm_metadata")
 
     @cmaf_exclude_segment_drm_metadata.setter
-    def cmaf_exclude_segment_drm_metadata(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def cmaf_exclude_segment_drm_metadata(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "cmaf_exclude_segment_drm_metadata", value)
 
     @_builtins.property
     @pulumi.getter(name="constantInitializationVector")
-    def constant_initialization_vector(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def constant_initialization_vector(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         <p>A 128-bit, 16-byte hex value represented by a 32-character string, used in conjunction with the key for encrypting content. If you don't specify a value, then MediaPackage creates the constant initialization vector (IV).</p>
         """
         return pulumi.get(self, "constant_initialization_vector")
 
     @constant_initialization_vector.setter
-    def constant_initialization_vector(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def constant_initialization_vector(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "constant_initialization_vector", value)
 
     @_builtins.property
     @pulumi.getter(name="keyRotationIntervalSeconds")
-    def key_rotation_interval_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def key_rotation_interval_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         <p>The frequency (in seconds) of key changes for live workflows, in which content is streamed real time. The service retrieves content keys before the live content begins streaming, and then retrieves them as needed over the lifetime of the workflow. By default, key rotation is set to 300 seconds (5 minutes), the minimum rotation interval, which is equivalent to setting it to 300. If you don't enter an interval, content keys aren't rotated.</p> <p>The following example setting causes the service to rotate keys every thirty minutes: <code>1800</code> </p>
         """
         return pulumi.get(self, "key_rotation_interval_seconds")
 
     @key_rotation_interval_seconds.setter
-    def key_rotation_interval_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def key_rotation_interval_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "key_rotation_interval_seconds", value)
 
 
@@ -1349,27 +1349,27 @@ class OriginEndpointFilterConfigurationArgsDict(TypedDict):
     """
     <p>Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest. </p>
     """
-    clip_start_time: NotRequired[pulumi.Input[_builtins.str]]
+    clip_start_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     <p>Optionally specify the clip start time for all of your manifest egress requests. When you include clip start time, note that you cannot use clip start time query parameters for this manifest's endpoint URL.</p>
     """
-    drm_settings: NotRequired[pulumi.Input[_builtins.str]]
+    drm_settings: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     <p>Optionally specify one or more DRM settings for all of your manifest egress requests. When you include a DRM setting, note that you cannot use an identical DRM setting query parameter for this manifest's endpoint URL.</p>
     """
-    end: NotRequired[pulumi.Input[_builtins.str]]
+    end: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     <p>Optionally specify the end time for all of your manifest egress requests. When you include end time, note that you cannot use end time query parameters for this manifest's endpoint URL.</p>
     """
-    manifest_filter: NotRequired[pulumi.Input[_builtins.str]]
+    manifest_filter: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     <p>Optionally specify one or more manifest filters for all of your manifest egress requests. When you include a manifest filter, note that you cannot use an identical manifest filter query parameter for this manifest's endpoint URL.</p>
     """
-    start: NotRequired[pulumi.Input[_builtins.str]]
+    start: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     <p>Optionally specify the start time for all of your manifest egress requests. When you include start time, note that you cannot use start time query parameters for this manifest's endpoint URL.</p>
     """
-    time_delay_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    time_delay_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     <p>Optionally specify the time delay for all of your manifest egress requests. Enter a value that is smaller than your endpoint's startover window. When you include time delay, note that you cannot use time delay query parameters for this manifest's endpoint URL.</p>
     """
@@ -1377,12 +1377,12 @@ class OriginEndpointFilterConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class OriginEndpointFilterConfigurationArgs:
     def __init__(__self__, *,
-                 clip_start_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 drm_settings: Optional[pulumi.Input[_builtins.str]] = None,
-                 end: Optional[pulumi.Input[_builtins.str]] = None,
-                 manifest_filter: Optional[pulumi.Input[_builtins.str]] = None,
-                 start: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_delay_seconds: Optional[pulumi.Input[_builtins.int]] = None):
+                 clip_start_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 drm_settings: pulumi.Input[Optional[_builtins.str]] = None,
+                 end: pulumi.Input[Optional[_builtins.str]] = None,
+                 manifest_filter: pulumi.Input[Optional[_builtins.str]] = None,
+                 start: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_delay_seconds: pulumi.Input[Optional[_builtins.int]] = None):
         """
         <p>Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest. </p>
 
@@ -1408,74 +1408,74 @@ class OriginEndpointFilterConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="clipStartTime")
-    def clip_start_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def clip_start_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         <p>Optionally specify the clip start time for all of your manifest egress requests. When you include clip start time, note that you cannot use clip start time query parameters for this manifest's endpoint URL.</p>
         """
         return pulumi.get(self, "clip_start_time")
 
     @clip_start_time.setter
-    def clip_start_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def clip_start_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "clip_start_time", value)
 
     @_builtins.property
     @pulumi.getter(name="drmSettings")
-    def drm_settings(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def drm_settings(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         <p>Optionally specify one or more DRM settings for all of your manifest egress requests. When you include a DRM setting, note that you cannot use an identical DRM setting query parameter for this manifest's endpoint URL.</p>
         """
         return pulumi.get(self, "drm_settings")
 
     @drm_settings.setter
-    def drm_settings(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def drm_settings(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "drm_settings", value)
 
     @_builtins.property
     @pulumi.getter
-    def end(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         <p>Optionally specify the end time for all of your manifest egress requests. When you include end time, note that you cannot use end time query parameters for this manifest's endpoint URL.</p>
         """
         return pulumi.get(self, "end")
 
     @end.setter
-    def end(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end", value)
 
     @_builtins.property
     @pulumi.getter(name="manifestFilter")
-    def manifest_filter(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def manifest_filter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         <p>Optionally specify one or more manifest filters for all of your manifest egress requests. When you include a manifest filter, note that you cannot use an identical manifest filter query parameter for this manifest's endpoint URL.</p>
         """
         return pulumi.get(self, "manifest_filter")
 
     @manifest_filter.setter
-    def manifest_filter(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def manifest_filter(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "manifest_filter", value)
 
     @_builtins.property
     @pulumi.getter
-    def start(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         <p>Optionally specify the start time for all of your manifest egress requests. When you include start time, note that you cannot use start time query parameters for this manifest's endpoint URL.</p>
         """
         return pulumi.get(self, "start")
 
     @start.setter
-    def start(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start", value)
 
     @_builtins.property
     @pulumi.getter(name="timeDelaySeconds")
-    def time_delay_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def time_delay_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         <p>Optionally specify the time delay for all of your manifest egress requests. Enter a value that is smaller than your endpoint's startover window. When you include time delay, note that you cannot use time delay query parameters for this manifest's endpoint URL.</p>
         """
         return pulumi.get(self, "time_delay_seconds")
 
     @time_delay_seconds.setter
-    def time_delay_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def time_delay_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "time_delay_seconds", value)
 
 
@@ -1483,7 +1483,7 @@ class OriginEndpointForceEndpointErrorConfigurationArgsDict(TypedDict):
     """
     <p>The failover settings for the endpoint.</p>
     """
-    endpoint_error_conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['OriginEndpointEndpointErrorCondition']]]]
+    endpoint_error_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OriginEndpointEndpointErrorCondition']]]]]
     """
     <p>The failover conditions for the endpoint. The options are:</p> <ul> <li> <p> <code>STALE_MANIFEST</code> - The manifest stalled and there are no new segments or parts.</p> </li> <li> <p> <code>INCOMPLETE_MANIFEST</code> - There is a gap in the manifest.</p> </li> <li> <p> <code>MISSING_DRM_KEY</code> - Key rotation is enabled but we're unable to fetch the key for the current key period.</p> </li> <li> <p> <code>SLATE_INPUT</code> - The segments which contain slate content are considered to be missing content.</p> </li> </ul>
     """
@@ -1491,7 +1491,7 @@ class OriginEndpointForceEndpointErrorConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class OriginEndpointForceEndpointErrorConfigurationArgs:
     def __init__(__self__, *,
-                 endpoint_error_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointEndpointErrorCondition']]]] = None):
+                 endpoint_error_conditions: pulumi.Input[Optional[Sequence[pulumi.Input['OriginEndpointEndpointErrorCondition']]]] = None):
         """
         <p>The failover settings for the endpoint.</p>
 
@@ -1502,14 +1502,14 @@ class OriginEndpointForceEndpointErrorConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="endpointErrorConditions")
-    def endpoint_error_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointEndpointErrorCondition']]]]:
+    def endpoint_error_conditions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['OriginEndpointEndpointErrorCondition']]]]:
         """
         <p>The failover conditions for the endpoint. The options are:</p> <ul> <li> <p> <code>STALE_MANIFEST</code> - The manifest stalled and there are no new segments or parts.</p> </li> <li> <p> <code>INCOMPLETE_MANIFEST</code> - There is a gap in the manifest.</p> </li> <li> <p> <code>MISSING_DRM_KEY</code> - Key rotation is enabled but we're unable to fetch the key for the current key period.</p> </li> <li> <p> <code>SLATE_INPUT</code> - The segments which contain slate content are considered to be missing content.</p> </li> </ul>
         """
         return pulumi.get(self, "endpoint_error_conditions")
 
     @endpoint_error_conditions.setter
-    def endpoint_error_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointEndpointErrorCondition']]]]):
+    def endpoint_error_conditions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['OriginEndpointEndpointErrorCondition']]]]):
         pulumi.set(self, "endpoint_error_conditions", value)
 
 
@@ -1521,35 +1521,35 @@ class OriginEndpointHlsManifestConfigurationArgsDict(TypedDict):
     """
     <p>A short short string that's appended to the endpoint URL. The manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default manifest name, index. MediaPackage automatically inserts the format extension, such as .m3u8. You can't use the same manifest name if you use HLS manifest and low-latency HLS manifest. The manifestName on the HLSManifest object overrides the manifestName you provided on the originEndpoint object.</p>
     """
-    child_manifest_name: NotRequired[pulumi.Input[_builtins.str]]
+    child_manifest_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     <p>A short string that's appended to the endpoint URL. The child manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default child manifest name, index_1. The manifestName on the HLSManifest object overrides the manifestName you provided on the originEndpoint object.</p>
     """
-    filter_configuration: NotRequired[pulumi.Input['OriginEndpointFilterConfigurationArgsDict']]
+    filter_configuration: NotRequired[pulumi.Input[Optional['OriginEndpointFilterConfigurationArgsDict']]]
     """
     Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest.
     """
-    manifest_window_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    manifest_window_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     <p>The total duration (in seconds) of the manifest's content.</p>
     """
-    program_date_time_interval_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    program_date_time_interval_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     <p>Inserts EXT-X-PROGRAM-DATE-TIME tags in the output manifest at the interval that you specify. If you don't enter an interval, EXT-X-PROGRAM-DATE-TIME tags aren't included in the manifest. The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player.</p> <p>Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.</p>
     """
-    scte_hls: NotRequired[pulumi.Input['OriginEndpointScteHlsArgsDict']]
+    scte_hls: NotRequired[pulumi.Input[Optional['OriginEndpointScteHlsArgsDict']]]
     """
     THE SCTE-35 HLS configuration associated with the HLS manifest configuration.
     """
-    start_tag: NotRequired[pulumi.Input['OriginEndpointStartTagArgsDict']]
+    start_tag: NotRequired[pulumi.Input[Optional['OriginEndpointStartTagArgsDict']]]
     """
     To insert an EXT-X-START tag in your HLS playlist, specify a StartTag configuration object with a valid TimeOffset. When you do, you can also optionally specify whether to include a PRECISE value in the EXT-X-START tag.
     """
-    url: NotRequired[pulumi.Input[_builtins.str]]
+    url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     <p>The egress domain URL for stream delivery from MediaPackage.</p>
     """
-    url_encode_child_manifest: NotRequired[pulumi.Input[_builtins.bool]]
+    url_encode_child_manifest: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     <p>When enabled, MediaPackage URL-encodes the query string for API requests for HLS child manifests to comply with Amazon Web Services Signature Version 4 (SigV4) signature signing protocol. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html">Amazon Web Services Signature Version 4 for API requests</a> in <i>Identity and Access Management User Guide</i>.</p>
     """
@@ -1558,14 +1558,14 @@ class OriginEndpointHlsManifestConfigurationArgsDict(TypedDict):
 class OriginEndpointHlsManifestConfigurationArgs:
     def __init__(__self__, *,
                  manifest_name: pulumi.Input[_builtins.str],
-                 child_manifest_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 filter_configuration: Optional[pulumi.Input['OriginEndpointFilterConfigurationArgs']] = None,
-                 manifest_window_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 program_date_time_interval_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 scte_hls: Optional[pulumi.Input['OriginEndpointScteHlsArgs']] = None,
-                 start_tag: Optional[pulumi.Input['OriginEndpointStartTagArgs']] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None,
-                 url_encode_child_manifest: Optional[pulumi.Input[_builtins.bool]] = None):
+                 child_manifest_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 filter_configuration: pulumi.Input[Optional['OriginEndpointFilterConfigurationArgs']] = None,
+                 manifest_window_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 program_date_time_interval_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 scte_hls: pulumi.Input[Optional['OriginEndpointScteHlsArgs']] = None,
+                 start_tag: pulumi.Input[Optional['OriginEndpointStartTagArgs']] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None,
+                 url_encode_child_manifest: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         <p>Retrieve the HTTP live streaming (HLS) manifest configuration.</p>
 
@@ -1611,98 +1611,98 @@ class OriginEndpointHlsManifestConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="childManifestName")
-    def child_manifest_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def child_manifest_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         <p>A short string that's appended to the endpoint URL. The child manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default child manifest name, index_1. The manifestName on the HLSManifest object overrides the manifestName you provided on the originEndpoint object.</p>
         """
         return pulumi.get(self, "child_manifest_name")
 
     @child_manifest_name.setter
-    def child_manifest_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def child_manifest_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "child_manifest_name", value)
 
     @_builtins.property
     @pulumi.getter(name="filterConfiguration")
-    def filter_configuration(self) -> Optional[pulumi.Input['OriginEndpointFilterConfigurationArgs']]:
+    def filter_configuration(self) -> pulumi.Input[Optional['OriginEndpointFilterConfigurationArgs']]:
         """
         Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest.
         """
         return pulumi.get(self, "filter_configuration")
 
     @filter_configuration.setter
-    def filter_configuration(self, value: Optional[pulumi.Input['OriginEndpointFilterConfigurationArgs']]):
+    def filter_configuration(self, value: pulumi.Input[Optional['OriginEndpointFilterConfigurationArgs']]):
         pulumi.set(self, "filter_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="manifestWindowSeconds")
-    def manifest_window_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def manifest_window_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         <p>The total duration (in seconds) of the manifest's content.</p>
         """
         return pulumi.get(self, "manifest_window_seconds")
 
     @manifest_window_seconds.setter
-    def manifest_window_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def manifest_window_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "manifest_window_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="programDateTimeIntervalSeconds")
-    def program_date_time_interval_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def program_date_time_interval_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         <p>Inserts EXT-X-PROGRAM-DATE-TIME tags in the output manifest at the interval that you specify. If you don't enter an interval, EXT-X-PROGRAM-DATE-TIME tags aren't included in the manifest. The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player.</p> <p>Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.</p>
         """
         return pulumi.get(self, "program_date_time_interval_seconds")
 
     @program_date_time_interval_seconds.setter
-    def program_date_time_interval_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def program_date_time_interval_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "program_date_time_interval_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="scteHls")
-    def scte_hls(self) -> Optional[pulumi.Input['OriginEndpointScteHlsArgs']]:
+    def scte_hls(self) -> pulumi.Input[Optional['OriginEndpointScteHlsArgs']]:
         """
         THE SCTE-35 HLS configuration associated with the HLS manifest configuration.
         """
         return pulumi.get(self, "scte_hls")
 
     @scte_hls.setter
-    def scte_hls(self, value: Optional[pulumi.Input['OriginEndpointScteHlsArgs']]):
+    def scte_hls(self, value: pulumi.Input[Optional['OriginEndpointScteHlsArgs']]):
         pulumi.set(self, "scte_hls", value)
 
     @_builtins.property
     @pulumi.getter(name="startTag")
-    def start_tag(self) -> Optional[pulumi.Input['OriginEndpointStartTagArgs']]:
+    def start_tag(self) -> pulumi.Input[Optional['OriginEndpointStartTagArgs']]:
         """
         To insert an EXT-X-START tag in your HLS playlist, specify a StartTag configuration object with a valid TimeOffset. When you do, you can also optionally specify whether to include a PRECISE value in the EXT-X-START tag.
         """
         return pulumi.get(self, "start_tag")
 
     @start_tag.setter
-    def start_tag(self, value: Optional[pulumi.Input['OriginEndpointStartTagArgs']]):
+    def start_tag(self, value: pulumi.Input[Optional['OriginEndpointStartTagArgs']]):
         pulumi.set(self, "start_tag", value)
 
     @_builtins.property
     @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         <p>The egress domain URL for stream delivery from MediaPackage.</p>
         """
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url", value)
 
     @_builtins.property
     @pulumi.getter(name="urlEncodeChildManifest")
-    def url_encode_child_manifest(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def url_encode_child_manifest(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         <p>When enabled, MediaPackage URL-encodes the query string for API requests for HLS child manifests to comply with Amazon Web Services Signature Version 4 (SigV4) signature signing protocol. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html">Amazon Web Services Signature Version 4 for API requests</a> in <i>Identity and Access Management User Guide</i>.</p>
         """
         return pulumi.get(self, "url_encode_child_manifest")
 
     @url_encode_child_manifest.setter
-    def url_encode_child_manifest(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def url_encode_child_manifest(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "url_encode_child_manifest", value)
 
 
@@ -1714,35 +1714,35 @@ class OriginEndpointLowLatencyHlsManifestConfigurationArgsDict(TypedDict):
     """
     <p>A short short string that's appended to the endpoint URL. The manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default manifest name, index. MediaPackage automatically inserts the format extension, such as .m3u8. You can't use the same manifest name if you use HLS manifest and low-latency HLS manifest. The manifestName on the HLSManifest object overrides the manifestName you provided on the originEndpoint object.</p>
     """
-    child_manifest_name: NotRequired[pulumi.Input[_builtins.str]]
+    child_manifest_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     <p>A short string that's appended to the endpoint URL. The child manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default child manifest name, index_1. The manifestName on the HLSManifest object overrides the manifestName you provided on the originEndpoint object.</p>
     """
-    filter_configuration: NotRequired[pulumi.Input['OriginEndpointFilterConfigurationArgsDict']]
+    filter_configuration: NotRequired[pulumi.Input[Optional['OriginEndpointFilterConfigurationArgsDict']]]
     """
     Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest.
     """
-    manifest_window_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    manifest_window_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     <p>The total duration (in seconds) of the manifest's content.</p>
     """
-    program_date_time_interval_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    program_date_time_interval_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     <p>Inserts EXT-X-PROGRAM-DATE-TIME tags in the output manifest at the interval that you specify. If you don't enter an interval, EXT-X-PROGRAM-DATE-TIME tags aren't included in the manifest. The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player.</p> <p>Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.</p>
     """
-    scte_hls: NotRequired[pulumi.Input['OriginEndpointScteHlsArgsDict']]
+    scte_hls: NotRequired[pulumi.Input[Optional['OriginEndpointScteHlsArgsDict']]]
     """
     The SCTE-35 HLS configuration associated with the low-latency HLS (LL-HLS) manifest configuration of the origin endpoint.
     """
-    start_tag: NotRequired[pulumi.Input['OriginEndpointStartTagArgsDict']]
+    start_tag: NotRequired[pulumi.Input[Optional['OriginEndpointStartTagArgsDict']]]
     """
     To insert an EXT-X-START tag in your HLS playlist, specify a StartTag configuration object with a valid TimeOffset. When you do, you can also optionally specify whether to include a PRECISE value in the EXT-X-START tag.
     """
-    url: NotRequired[pulumi.Input[_builtins.str]]
+    url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     <p>The egress domain URL for stream delivery from MediaPackage.</p>
     """
-    url_encode_child_manifest: NotRequired[pulumi.Input[_builtins.bool]]
+    url_encode_child_manifest: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     <p>When enabled, MediaPackage URL-encodes the query string for API requests for LL-HLS child manifests to comply with Amazon Web Services Signature Version 4 (SigV4) signature signing protocol. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html">Amazon Web Services Signature Version 4 for API requests</a> in <i>Identity and Access Management User Guide</i>.</p>
     """
@@ -1751,14 +1751,14 @@ class OriginEndpointLowLatencyHlsManifestConfigurationArgsDict(TypedDict):
 class OriginEndpointLowLatencyHlsManifestConfigurationArgs:
     def __init__(__self__, *,
                  manifest_name: pulumi.Input[_builtins.str],
-                 child_manifest_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 filter_configuration: Optional[pulumi.Input['OriginEndpointFilterConfigurationArgs']] = None,
-                 manifest_window_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 program_date_time_interval_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 scte_hls: Optional[pulumi.Input['OriginEndpointScteHlsArgs']] = None,
-                 start_tag: Optional[pulumi.Input['OriginEndpointStartTagArgs']] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None,
-                 url_encode_child_manifest: Optional[pulumi.Input[_builtins.bool]] = None):
+                 child_manifest_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 filter_configuration: pulumi.Input[Optional['OriginEndpointFilterConfigurationArgs']] = None,
+                 manifest_window_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 program_date_time_interval_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 scte_hls: pulumi.Input[Optional['OriginEndpointScteHlsArgs']] = None,
+                 start_tag: pulumi.Input[Optional['OriginEndpointStartTagArgs']] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None,
+                 url_encode_child_manifest: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         <p>Retrieve the low-latency HTTP live streaming (HLS) manifest configuration.</p>
 
@@ -1804,98 +1804,98 @@ class OriginEndpointLowLatencyHlsManifestConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="childManifestName")
-    def child_manifest_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def child_manifest_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         <p>A short string that's appended to the endpoint URL. The child manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default child manifest name, index_1. The manifestName on the HLSManifest object overrides the manifestName you provided on the originEndpoint object.</p>
         """
         return pulumi.get(self, "child_manifest_name")
 
     @child_manifest_name.setter
-    def child_manifest_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def child_manifest_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "child_manifest_name", value)
 
     @_builtins.property
     @pulumi.getter(name="filterConfiguration")
-    def filter_configuration(self) -> Optional[pulumi.Input['OriginEndpointFilterConfigurationArgs']]:
+    def filter_configuration(self) -> pulumi.Input[Optional['OriginEndpointFilterConfigurationArgs']]:
         """
         Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest.
         """
         return pulumi.get(self, "filter_configuration")
 
     @filter_configuration.setter
-    def filter_configuration(self, value: Optional[pulumi.Input['OriginEndpointFilterConfigurationArgs']]):
+    def filter_configuration(self, value: pulumi.Input[Optional['OriginEndpointFilterConfigurationArgs']]):
         pulumi.set(self, "filter_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="manifestWindowSeconds")
-    def manifest_window_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def manifest_window_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         <p>The total duration (in seconds) of the manifest's content.</p>
         """
         return pulumi.get(self, "manifest_window_seconds")
 
     @manifest_window_seconds.setter
-    def manifest_window_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def manifest_window_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "manifest_window_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="programDateTimeIntervalSeconds")
-    def program_date_time_interval_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def program_date_time_interval_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         <p>Inserts EXT-X-PROGRAM-DATE-TIME tags in the output manifest at the interval that you specify. If you don't enter an interval, EXT-X-PROGRAM-DATE-TIME tags aren't included in the manifest. The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player.</p> <p>Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.</p>
         """
         return pulumi.get(self, "program_date_time_interval_seconds")
 
     @program_date_time_interval_seconds.setter
-    def program_date_time_interval_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def program_date_time_interval_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "program_date_time_interval_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="scteHls")
-    def scte_hls(self) -> Optional[pulumi.Input['OriginEndpointScteHlsArgs']]:
+    def scte_hls(self) -> pulumi.Input[Optional['OriginEndpointScteHlsArgs']]:
         """
         The SCTE-35 HLS configuration associated with the low-latency HLS (LL-HLS) manifest configuration of the origin endpoint.
         """
         return pulumi.get(self, "scte_hls")
 
     @scte_hls.setter
-    def scte_hls(self, value: Optional[pulumi.Input['OriginEndpointScteHlsArgs']]):
+    def scte_hls(self, value: pulumi.Input[Optional['OriginEndpointScteHlsArgs']]):
         pulumi.set(self, "scte_hls", value)
 
     @_builtins.property
     @pulumi.getter(name="startTag")
-    def start_tag(self) -> Optional[pulumi.Input['OriginEndpointStartTagArgs']]:
+    def start_tag(self) -> pulumi.Input[Optional['OriginEndpointStartTagArgs']]:
         """
         To insert an EXT-X-START tag in your HLS playlist, specify a StartTag configuration object with a valid TimeOffset. When you do, you can also optionally specify whether to include a PRECISE value in the EXT-X-START tag.
         """
         return pulumi.get(self, "start_tag")
 
     @start_tag.setter
-    def start_tag(self, value: Optional[pulumi.Input['OriginEndpointStartTagArgs']]):
+    def start_tag(self, value: pulumi.Input[Optional['OriginEndpointStartTagArgs']]):
         pulumi.set(self, "start_tag", value)
 
     @_builtins.property
     @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         <p>The egress domain URL for stream delivery from MediaPackage.</p>
         """
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url", value)
 
     @_builtins.property
     @pulumi.getter(name="urlEncodeChildManifest")
-    def url_encode_child_manifest(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def url_encode_child_manifest(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         <p>When enabled, MediaPackage URL-encodes the query string for API requests for LL-HLS child manifests to comply with Amazon Web Services Signature Version 4 (SigV4) signature signing protocol. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html">Amazon Web Services Signature Version 4 for API requests</a> in <i>Identity and Access Management User Guide</i>.</p>
         """
         return pulumi.get(self, "url_encode_child_manifest")
 
     @url_encode_child_manifest.setter
-    def url_encode_child_manifest(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def url_encode_child_manifest(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "url_encode_child_manifest", value)
 
 
@@ -1907,9 +1907,9 @@ class OriginEndpointMssManifestConfigurationArgsDict(TypedDict):
     """
     <p>The name of the MSS manifest. This name is appended to the origin endpoint URL to create the unique path for accessing this specific MSS manifest.</p>
     """
-    filter_configuration: NotRequired[pulumi.Input['OriginEndpointFilterConfigurationArgsDict']]
-    manifest_layout: NotRequired[pulumi.Input['OriginEndpointMssManifestLayout']]
-    manifest_window_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    filter_configuration: NotRequired[pulumi.Input[Optional['OriginEndpointFilterConfigurationArgsDict']]]
+    manifest_layout: NotRequired[pulumi.Input[Optional['OriginEndpointMssManifestLayout']]]
+    manifest_window_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     <p>The duration (in seconds) of the manifest window. This represents the total amount of content available in the manifest at any given time.</p>
     """
@@ -1918,9 +1918,9 @@ class OriginEndpointMssManifestConfigurationArgsDict(TypedDict):
 class OriginEndpointMssManifestConfigurationArgs:
     def __init__(__self__, *,
                  manifest_name: pulumi.Input[_builtins.str],
-                 filter_configuration: Optional[pulumi.Input['OriginEndpointFilterConfigurationArgs']] = None,
-                 manifest_layout: Optional[pulumi.Input['OriginEndpointMssManifestLayout']] = None,
-                 manifest_window_seconds: Optional[pulumi.Input[_builtins.int]] = None):
+                 filter_configuration: pulumi.Input[Optional['OriginEndpointFilterConfigurationArgs']] = None,
+                 manifest_layout: pulumi.Input[Optional['OriginEndpointMssManifestLayout']] = None,
+                 manifest_window_seconds: pulumi.Input[Optional[_builtins.int]] = None):
         """
         <p>Configuration details for a Microsoft Smooth Streaming (MSS) manifest associated with an origin endpoint. This includes all the settings and properties that define how the MSS content is packaged and delivered.</p>
 
@@ -1949,32 +1949,32 @@ class OriginEndpointMssManifestConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="filterConfiguration")
-    def filter_configuration(self) -> Optional[pulumi.Input['OriginEndpointFilterConfigurationArgs']]:
+    def filter_configuration(self) -> pulumi.Input[Optional['OriginEndpointFilterConfigurationArgs']]:
         return pulumi.get(self, "filter_configuration")
 
     @filter_configuration.setter
-    def filter_configuration(self, value: Optional[pulumi.Input['OriginEndpointFilterConfigurationArgs']]):
+    def filter_configuration(self, value: pulumi.Input[Optional['OriginEndpointFilterConfigurationArgs']]):
         pulumi.set(self, "filter_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="manifestLayout")
-    def manifest_layout(self) -> Optional[pulumi.Input['OriginEndpointMssManifestLayout']]:
+    def manifest_layout(self) -> pulumi.Input[Optional['OriginEndpointMssManifestLayout']]:
         return pulumi.get(self, "manifest_layout")
 
     @manifest_layout.setter
-    def manifest_layout(self, value: Optional[pulumi.Input['OriginEndpointMssManifestLayout']]):
+    def manifest_layout(self, value: pulumi.Input[Optional['OriginEndpointMssManifestLayout']]):
         pulumi.set(self, "manifest_layout", value)
 
     @_builtins.property
     @pulumi.getter(name="manifestWindowSeconds")
-    def manifest_window_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def manifest_window_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         <p>The duration (in seconds) of the manifest window. This represents the total amount of content available in the manifest at any given time.</p>
         """
         return pulumi.get(self, "manifest_window_seconds")
 
     @manifest_window_seconds.setter
-    def manifest_window_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def manifest_window_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "manifest_window_seconds", value)
 
 
@@ -2029,7 +2029,7 @@ class OriginEndpointScteDashArgsDict(TypedDict):
     """
     <p>The SCTE configuration.</p>
     """
-    ad_marker_dash: NotRequired[pulumi.Input['OriginEndpointAdMarkerDash']]
+    ad_marker_dash: NotRequired[pulumi.Input[Optional['OriginEndpointAdMarkerDash']]]
     """
     Choose how ad markers are included in the packaged content. If you include ad markers in the content stream in your upstream encoders, then you need to inform MediaPackage what to do with the ad markers in the output.
 
@@ -2042,7 +2042,7 @@ class OriginEndpointScteDashArgsDict(TypedDict):
 @pulumi.input_type
 class OriginEndpointScteDashArgs:
     def __init__(__self__, *,
-                 ad_marker_dash: Optional[pulumi.Input['OriginEndpointAdMarkerDash']] = None):
+                 ad_marker_dash: pulumi.Input[Optional['OriginEndpointAdMarkerDash']] = None):
         """
         <p>The SCTE configuration.</p>
 
@@ -2058,7 +2058,7 @@ class OriginEndpointScteDashArgs:
 
     @_builtins.property
     @pulumi.getter(name="adMarkerDash")
-    def ad_marker_dash(self) -> Optional[pulumi.Input['OriginEndpointAdMarkerDash']]:
+    def ad_marker_dash(self) -> pulumi.Input[Optional['OriginEndpointAdMarkerDash']]:
         """
         Choose how ad markers are included in the packaged content. If you include ad markers in the content stream in your upstream encoders, then you need to inform MediaPackage what to do with the ad markers in the output.
 
@@ -2070,7 +2070,7 @@ class OriginEndpointScteDashArgs:
         return pulumi.get(self, "ad_marker_dash")
 
     @ad_marker_dash.setter
-    def ad_marker_dash(self, value: Optional[pulumi.Input['OriginEndpointAdMarkerDash']]):
+    def ad_marker_dash(self, value: pulumi.Input[Optional['OriginEndpointAdMarkerDash']]):
         pulumi.set(self, "ad_marker_dash", value)
 
 
@@ -2078,7 +2078,7 @@ class OriginEndpointScteHlsArgsDict(TypedDict):
     """
     <p>The SCTE configuration.</p>
     """
-    ad_marker_hls: NotRequired[pulumi.Input['OriginEndpointAdMarkerHls']]
+    ad_marker_hls: NotRequired[pulumi.Input[Optional['OriginEndpointAdMarkerHls']]]
     """
     The SCTE-35 HLS ad-marker configuration.
     """
@@ -2086,7 +2086,7 @@ class OriginEndpointScteHlsArgsDict(TypedDict):
 @pulumi.input_type
 class OriginEndpointScteHlsArgs:
     def __init__(__self__, *,
-                 ad_marker_hls: Optional[pulumi.Input['OriginEndpointAdMarkerHls']] = None):
+                 ad_marker_hls: pulumi.Input[Optional['OriginEndpointAdMarkerHls']] = None):
         """
         <p>The SCTE configuration.</p>
 
@@ -2097,14 +2097,14 @@ class OriginEndpointScteHlsArgs:
 
     @_builtins.property
     @pulumi.getter(name="adMarkerHls")
-    def ad_marker_hls(self) -> Optional[pulumi.Input['OriginEndpointAdMarkerHls']]:
+    def ad_marker_hls(self) -> pulumi.Input[Optional['OriginEndpointAdMarkerHls']]:
         """
         The SCTE-35 HLS ad-marker configuration.
         """
         return pulumi.get(self, "ad_marker_hls")
 
     @ad_marker_hls.setter
-    def ad_marker_hls(self, value: Optional[pulumi.Input['OriginEndpointAdMarkerHls']]):
+    def ad_marker_hls(self, value: pulumi.Input[Optional['OriginEndpointAdMarkerHls']]):
         pulumi.set(self, "ad_marker_hls", value)
 
 
@@ -2112,11 +2112,11 @@ class OriginEndpointScteArgsDict(TypedDict):
     """
     <p>The SCTE configuration.</p>
     """
-    scte_filter: NotRequired[pulumi.Input[Sequence[pulumi.Input['OriginEndpointScteFilter']]]]
+    scte_filter: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OriginEndpointScteFilter']]]]]
     """
     <p>The SCTE-35 message types that you want to be treated as ad markers in the output.</p>
     """
-    scte_in_segments: NotRequired[pulumi.Input['OriginEndpointScteInSegments']]
+    scte_in_segments: NotRequired[pulumi.Input[Optional['OriginEndpointScteInSegments']]]
     """
     Controls whether SCTE-35 messages are included in segment files.
 
@@ -2129,8 +2129,8 @@ class OriginEndpointScteArgsDict(TypedDict):
 @pulumi.input_type
 class OriginEndpointScteArgs:
     def __init__(__self__, *,
-                 scte_filter: Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointScteFilter']]]] = None,
-                 scte_in_segments: Optional[pulumi.Input['OriginEndpointScteInSegments']] = None):
+                 scte_filter: pulumi.Input[Optional[Sequence[pulumi.Input['OriginEndpointScteFilter']]]] = None,
+                 scte_in_segments: pulumi.Input[Optional['OriginEndpointScteInSegments']] = None):
         """
         <p>The SCTE configuration.</p>
 
@@ -2149,19 +2149,19 @@ class OriginEndpointScteArgs:
 
     @_builtins.property
     @pulumi.getter(name="scteFilter")
-    def scte_filter(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointScteFilter']]]]:
+    def scte_filter(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['OriginEndpointScteFilter']]]]:
         """
         <p>The SCTE-35 message types that you want to be treated as ad markers in the output.</p>
         """
         return pulumi.get(self, "scte_filter")
 
     @scte_filter.setter
-    def scte_filter(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointScteFilter']]]]):
+    def scte_filter(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['OriginEndpointScteFilter']]]]):
         pulumi.set(self, "scte_filter", value)
 
     @_builtins.property
     @pulumi.getter(name="scteInSegments")
-    def scte_in_segments(self) -> Optional[pulumi.Input['OriginEndpointScteInSegments']]:
+    def scte_in_segments(self) -> pulumi.Input[Optional['OriginEndpointScteInSegments']]:
         """
         Controls whether SCTE-35 messages are included in segment files.
 
@@ -2173,7 +2173,7 @@ class OriginEndpointScteArgs:
         return pulumi.get(self, "scte_in_segments")
 
     @scte_in_segments.setter
-    def scte_in_segments(self, value: Optional[pulumi.Input['OriginEndpointScteInSegments']]):
+    def scte_in_segments(self, value: pulumi.Input[Optional['OriginEndpointScteInSegments']]):
         pulumi.set(self, "scte_in_segments", value)
 
 
@@ -2181,31 +2181,31 @@ class OriginEndpointSegmentArgsDict(TypedDict):
     """
     <p>The segment configuration, including the segment name, duration, and other configuration values.</p>
     """
-    encryption: NotRequired[pulumi.Input['OriginEndpointEncryptionArgsDict']]
+    encryption: NotRequired[pulumi.Input[Optional['OriginEndpointEncryptionArgsDict']]]
     """
     Whether to use encryption for the segment.
     """
-    include_iframe_only_streams: NotRequired[pulumi.Input[_builtins.bool]]
+    include_iframe_only_streams: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     <p>When selected, the stream set includes an additional I-frame only stream, along with the other tracks. If false, this extra stream is not included. MediaPackage generates an I-frame only stream from the first rendition in the manifest. The service inserts EXT-I-FRAMES-ONLY tags in the output manifest, and then generates and includes an I-frames only playlist in the stream. This playlist permits player functionality like fast forward and rewind.</p>
     """
-    scte: NotRequired[pulumi.Input['OriginEndpointScteArgsDict']]
+    scte: NotRequired[pulumi.Input[Optional['OriginEndpointScteArgsDict']]]
     """
     The SCTE-35 configuration associated with the segment.
     """
-    segment_duration_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    segment_duration_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     <p>The duration (in seconds) of each segment. Enter a value equal to, or a multiple of, the input segment duration. If the value that you enter is different from the input segment duration, MediaPackage rounds segments to the nearest multiple of the input segment duration.</p>
     """
-    segment_name: NotRequired[pulumi.Input[_builtins.str]]
+    segment_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     <p>The name that describes the segment. The name is the base name of the segment used in all content manifests inside of the endpoint. You can't use spaces in the name.</p>
     """
-    ts_include_dvb_subtitles: NotRequired[pulumi.Input[_builtins.bool]]
+    ts_include_dvb_subtitles: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     <p>By default, MediaPackage excludes all digital video broadcasting (DVB) subtitles from the output. When selected, MediaPackage passes through DVB subtitles into the output.</p>
     """
-    ts_use_audio_rendition_group: NotRequired[pulumi.Input[_builtins.bool]]
+    ts_use_audio_rendition_group: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     <p>When selected, MediaPackage bundles all audio tracks in a rendition group. All other tracks in the stream can be used with any audio rendition from the group.</p>
     """
@@ -2213,13 +2213,13 @@ class OriginEndpointSegmentArgsDict(TypedDict):
 @pulumi.input_type
 class OriginEndpointSegmentArgs:
     def __init__(__self__, *,
-                 encryption: Optional[pulumi.Input['OriginEndpointEncryptionArgs']] = None,
-                 include_iframe_only_streams: Optional[pulumi.Input[_builtins.bool]] = None,
-                 scte: Optional[pulumi.Input['OriginEndpointScteArgs']] = None,
-                 segment_duration_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 segment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ts_include_dvb_subtitles: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ts_use_audio_rendition_group: Optional[pulumi.Input[_builtins.bool]] = None):
+                 encryption: pulumi.Input[Optional['OriginEndpointEncryptionArgs']] = None,
+                 include_iframe_only_streams: pulumi.Input[Optional[_builtins.bool]] = None,
+                 scte: pulumi.Input[Optional['OriginEndpointScteArgs']] = None,
+                 segment_duration_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 segment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ts_include_dvb_subtitles: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ts_use_audio_rendition_group: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         <p>The segment configuration, including the segment name, duration, and other configuration values.</p>
 
@@ -2248,86 +2248,86 @@ class OriginEndpointSegmentArgs:
 
     @_builtins.property
     @pulumi.getter
-    def encryption(self) -> Optional[pulumi.Input['OriginEndpointEncryptionArgs']]:
+    def encryption(self) -> pulumi.Input[Optional['OriginEndpointEncryptionArgs']]:
         """
         Whether to use encryption for the segment.
         """
         return pulumi.get(self, "encryption")
 
     @encryption.setter
-    def encryption(self, value: Optional[pulumi.Input['OriginEndpointEncryptionArgs']]):
+    def encryption(self, value: pulumi.Input[Optional['OriginEndpointEncryptionArgs']]):
         pulumi.set(self, "encryption", value)
 
     @_builtins.property
     @pulumi.getter(name="includeIframeOnlyStreams")
-    def include_iframe_only_streams(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_iframe_only_streams(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         <p>When selected, the stream set includes an additional I-frame only stream, along with the other tracks. If false, this extra stream is not included. MediaPackage generates an I-frame only stream from the first rendition in the manifest. The service inserts EXT-I-FRAMES-ONLY tags in the output manifest, and then generates and includes an I-frames only playlist in the stream. This playlist permits player functionality like fast forward and rewind.</p>
         """
         return pulumi.get(self, "include_iframe_only_streams")
 
     @include_iframe_only_streams.setter
-    def include_iframe_only_streams(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_iframe_only_streams(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_iframe_only_streams", value)
 
     @_builtins.property
     @pulumi.getter
-    def scte(self) -> Optional[pulumi.Input['OriginEndpointScteArgs']]:
+    def scte(self) -> pulumi.Input[Optional['OriginEndpointScteArgs']]:
         """
         The SCTE-35 configuration associated with the segment.
         """
         return pulumi.get(self, "scte")
 
     @scte.setter
-    def scte(self, value: Optional[pulumi.Input['OriginEndpointScteArgs']]):
+    def scte(self, value: pulumi.Input[Optional['OriginEndpointScteArgs']]):
         pulumi.set(self, "scte", value)
 
     @_builtins.property
     @pulumi.getter(name="segmentDurationSeconds")
-    def segment_duration_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def segment_duration_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         <p>The duration (in seconds) of each segment. Enter a value equal to, or a multiple of, the input segment duration. If the value that you enter is different from the input segment duration, MediaPackage rounds segments to the nearest multiple of the input segment duration.</p>
         """
         return pulumi.get(self, "segment_duration_seconds")
 
     @segment_duration_seconds.setter
-    def segment_duration_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def segment_duration_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "segment_duration_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="segmentName")
-    def segment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def segment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         <p>The name that describes the segment. The name is the base name of the segment used in all content manifests inside of the endpoint. You can't use spaces in the name.</p>
         """
         return pulumi.get(self, "segment_name")
 
     @segment_name.setter
-    def segment_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def segment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "segment_name", value)
 
     @_builtins.property
     @pulumi.getter(name="tsIncludeDvbSubtitles")
-    def ts_include_dvb_subtitles(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ts_include_dvb_subtitles(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         <p>By default, MediaPackage excludes all digital video broadcasting (DVB) subtitles from the output. When selected, MediaPackage passes through DVB subtitles into the output.</p>
         """
         return pulumi.get(self, "ts_include_dvb_subtitles")
 
     @ts_include_dvb_subtitles.setter
-    def ts_include_dvb_subtitles(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ts_include_dvb_subtitles(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ts_include_dvb_subtitles", value)
 
     @_builtins.property
     @pulumi.getter(name="tsUseAudioRenditionGroup")
-    def ts_use_audio_rendition_group(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ts_use_audio_rendition_group(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         <p>When selected, MediaPackage bundles all audio tracks in a rendition group. All other tracks in the stream can be used with any audio rendition from the group.</p>
         """
         return pulumi.get(self, "ts_use_audio_rendition_group")
 
     @ts_use_audio_rendition_group.setter
-    def ts_use_audio_rendition_group(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ts_use_audio_rendition_group(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ts_use_audio_rendition_group", value)
 
 
@@ -2355,7 +2355,7 @@ class OriginEndpointSpekeKeyProviderArgsDict(TypedDict):
     """
     <p>The URL of the API Gateway proxy that you set up to talk to your key server. The API Gateway proxy must reside in the same AWS Region as MediaPackage and must start with https://.</p> <p>The following example shows a URL: <code>https://1wm2dx1f33.execute-api.us-west-2.amazonaws.com/SpekeSample/copyProtection</code> </p>
     """
-    certificate_arn: NotRequired[pulumi.Input[_builtins.str]]
+    certificate_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     <p>The ARN for the certificate that you imported to AWS Certificate Manager to add content key encryption to this endpoint. For this feature to work, your DRM key provider must support content key encryption.</p>
     """
@@ -2368,7 +2368,7 @@ class OriginEndpointSpekeKeyProviderArgs:
                  resource_id: pulumi.Input[_builtins.str],
                  role_arn: pulumi.Input[_builtins.str],
                  url: pulumi.Input[_builtins.str],
-                 certificate_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 certificate_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         <p>The parameters for the SPEKE key provider.</p>
 
@@ -2449,14 +2449,14 @@ class OriginEndpointSpekeKeyProviderArgs:
 
     @_builtins.property
     @pulumi.getter(name="certificateArn")
-    def certificate_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         <p>The ARN for the certificate that you imported to AWS Certificate Manager to add content key encryption to this endpoint. For this feature to work, your DRM key provider must support content key encryption.</p>
         """
         return pulumi.get(self, "certificate_arn")
 
     @certificate_arn.setter
-    def certificate_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_arn", value)
 
 
@@ -2468,7 +2468,7 @@ class OriginEndpointStartTagArgsDict(TypedDict):
     """
     <p>Specify the value for TIME-OFFSET within your EXT-X-START tag. Enter a signed floating point value which, if positive, must be less than the configured manifest duration minus three times the configured segment target duration. If negative, the absolute value must be larger than three times the configured segment target duration, and the absolute value must be smaller than the configured manifest duration.</p>
     """
-    precise: NotRequired[pulumi.Input[_builtins.bool]]
+    precise: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     <p>Specify the value for PRECISE within your EXT-X-START tag. Leave blank, or choose false, to use the default value NO. Choose yes to use the value YES.</p>
     """
@@ -2477,7 +2477,7 @@ class OriginEndpointStartTagArgsDict(TypedDict):
 class OriginEndpointStartTagArgs:
     def __init__(__self__, *,
                  time_offset: pulumi.Input[_builtins.float],
-                 precise: Optional[pulumi.Input[_builtins.bool]] = None):
+                 precise: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         <p>To insert an EXT-X-START tag in your HLS playlist, specify a StartTag configuration object with a valid TimeOffset. When you do, you can also optionally specify whether to include a PRECISE value in the EXT-X-START tag.</p>
 
@@ -2502,14 +2502,14 @@ class OriginEndpointStartTagArgs:
 
     @_builtins.property
     @pulumi.getter
-    def precise(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def precise(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         <p>Specify the value for PRECISE within your EXT-X-START tag. Leave blank, or choose false, to use the default value NO. Choose yes to use the value YES.</p>
         """
         return pulumi.get(self, "precise")
 
     @precise.setter
-    def precise(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def precise(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "precise", value)
 
 

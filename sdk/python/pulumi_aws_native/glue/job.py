@@ -24,27 +24,27 @@ class JobArgs:
     def __init__(__self__, *,
                  command: pulumi.Input['JobCommandArgs'],
                  role: pulumi.Input[_builtins.str],
-                 allocated_capacity: Optional[pulumi.Input[_builtins.float]] = None,
-                 connections: Optional[pulumi.Input['JobConnectionsListArgs']] = None,
+                 allocated_capacity: pulumi.Input[Optional[_builtins.float]] = None,
+                 connections: pulumi.Input[Optional['JobConnectionsListArgs']] = None,
                  default_arguments: Optional[Any] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 execution_class: Optional[pulumi.Input[_builtins.str]] = None,
-                 execution_property: Optional[pulumi.Input['JobExecutionPropertyArgs']] = None,
-                 glue_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 job_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 job_run_queuing_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 log_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 maintenance_window: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_capacity: Optional[pulumi.Input[_builtins.float]] = None,
-                 max_retries: Optional[pulumi.Input[_builtins.float]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 execution_class: pulumi.Input[Optional[_builtins.str]] = None,
+                 execution_property: pulumi.Input[Optional['JobExecutionPropertyArgs']] = None,
+                 glue_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 job_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 job_run_queuing_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 log_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_capacity: pulumi.Input[Optional[_builtins.float]] = None,
+                 max_retries: pulumi.Input[Optional[_builtins.float]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  non_overridable_arguments: Optional[Any] = None,
-                 notification_property: Optional[pulumi.Input['JobNotificationPropertyArgs']] = None,
-                 number_of_workers: Optional[pulumi.Input[_builtins.int]] = None,
-                 security_configuration: Optional[pulumi.Input[_builtins.str]] = None,
+                 notification_property: pulumi.Input[Optional['JobNotificationPropertyArgs']] = None,
+                 number_of_workers: pulumi.Input[Optional[_builtins.int]] = None,
+                 security_configuration: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: Optional[Any] = None,
-                 timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 worker_type: Optional[pulumi.Input['JobWorkerType']] = None):
+                 timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 worker_type: pulumi.Input[Optional['JobWorkerType']] = None):
         """
         The set of arguments for constructing a Job resource.
 
@@ -149,26 +149,26 @@ class JobArgs:
 
     @_builtins.property
     @pulumi.getter(name="allocatedCapacity")
-    def allocated_capacity(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def allocated_capacity(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The number of capacity units that are allocated to this job.
         """
         return pulumi.get(self, "allocated_capacity")
 
     @allocated_capacity.setter
-    def allocated_capacity(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def allocated_capacity(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "allocated_capacity", value)
 
     @_builtins.property
     @pulumi.getter
-    def connections(self) -> Optional[pulumi.Input['JobConnectionsListArgs']]:
+    def connections(self) -> pulumi.Input[Optional['JobConnectionsListArgs']]:
         """
         Specifies the connections used by a job
         """
         return pulumi.get(self, "connections")
 
     @connections.setter
-    def connections(self, value: Optional[pulumi.Input['JobConnectionsListArgs']]):
+    def connections(self, value: pulumi.Input[Optional['JobConnectionsListArgs']]):
         pulumi.set(self, "connections", value)
 
     @_builtins.property
@@ -187,134 +187,134 @@ class JobArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the job.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="executionClass")
-    def execution_class(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def execution_class(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates whether the job is run with a standard or flexible execution class.
         """
         return pulumi.get(self, "execution_class")
 
     @execution_class.setter
-    def execution_class(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def execution_class(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "execution_class", value)
 
     @_builtins.property
     @pulumi.getter(name="executionProperty")
-    def execution_property(self) -> Optional[pulumi.Input['JobExecutionPropertyArgs']]:
+    def execution_property(self) -> pulumi.Input[Optional['JobExecutionPropertyArgs']]:
         """
         The maximum number of concurrent runs that are allowed for this job.
         """
         return pulumi.get(self, "execution_property")
 
     @execution_property.setter
-    def execution_property(self, value: Optional[pulumi.Input['JobExecutionPropertyArgs']]):
+    def execution_property(self, value: pulumi.Input[Optional['JobExecutionPropertyArgs']]):
         pulumi.set(self, "execution_property", value)
 
     @_builtins.property
     @pulumi.getter(name="glueVersion")
-    def glue_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def glue_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Glue version determines the versions of Apache Spark and Python that AWS Glue supports.
         """
         return pulumi.get(self, "glue_version")
 
     @glue_version.setter
-    def glue_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def glue_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "glue_version", value)
 
     @_builtins.property
     @pulumi.getter(name="jobMode")
-    def job_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def job_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Property description not available.
         """
         return pulumi.get(self, "job_mode")
 
     @job_mode.setter
-    def job_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def job_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "job_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="jobRunQueuingEnabled")
-    def job_run_queuing_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def job_run_queuing_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Property description not available.
         """
         return pulumi.get(self, "job_run_queuing_enabled")
 
     @job_run_queuing_enabled.setter
-    def job_run_queuing_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def job_run_queuing_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "job_run_queuing_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="logUri")
-    def log_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This field is reserved for future use.
         """
         return pulumi.get(self, "log_uri")
 
     @log_uri.setter
-    def log_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="maintenanceWindow")
-    def maintenance_window(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def maintenance_window(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Property description not available.
         """
         return pulumi.get(self, "maintenance_window")
 
     @maintenance_window.setter
-    def maintenance_window(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def maintenance_window(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "maintenance_window", value)
 
     @_builtins.property
     @pulumi.getter(name="maxCapacity")
-    def max_capacity(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def max_capacity(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The number of AWS Glue data processing units (DPUs) that can be allocated when this job runs.
         """
         return pulumi.get(self, "max_capacity")
 
     @max_capacity.setter
-    def max_capacity(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def max_capacity(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "max_capacity", value)
 
     @_builtins.property
     @pulumi.getter(name="maxRetries")
-    def max_retries(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def max_retries(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The maximum number of times to retry this job after a JobRun fails
         """
         return pulumi.get(self, "max_retries")
 
     @max_retries.setter
-    def max_retries(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def max_retries(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "max_retries", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name you assign to the job definition
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
@@ -333,38 +333,38 @@ class JobArgs:
 
     @_builtins.property
     @pulumi.getter(name="notificationProperty")
-    def notification_property(self) -> Optional[pulumi.Input['JobNotificationPropertyArgs']]:
+    def notification_property(self) -> pulumi.Input[Optional['JobNotificationPropertyArgs']]:
         """
         Specifies configuration properties of a notification.
         """
         return pulumi.get(self, "notification_property")
 
     @notification_property.setter
-    def notification_property(self, value: Optional[pulumi.Input['JobNotificationPropertyArgs']]):
+    def notification_property(self, value: pulumi.Input[Optional['JobNotificationPropertyArgs']]):
         pulumi.set(self, "notification_property", value)
 
     @_builtins.property
     @pulumi.getter(name="numberOfWorkers")
-    def number_of_workers(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def number_of_workers(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of workers of a defined workerType that are allocated when a job runs.
         """
         return pulumi.get(self, "number_of_workers")
 
     @number_of_workers.setter
-    def number_of_workers(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def number_of_workers(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "number_of_workers", value)
 
     @_builtins.property
     @pulumi.getter(name="securityConfiguration")
-    def security_configuration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def security_configuration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the SecurityConfiguration structure to be used with this job.
         """
         return pulumi.get(self, "security_configuration")
 
     @security_configuration.setter
-    def security_configuration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def security_configuration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "security_configuration", value)
 
     @_builtins.property
@@ -383,26 +383,26 @@ class JobArgs:
 
     @_builtins.property
     @pulumi.getter
-    def timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum time that a job run can consume resources before it is terminated and enters TIMEOUT status.
         """
         return pulumi.get(self, "timeout")
 
     @timeout.setter
-    def timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "timeout", value)
 
     @_builtins.property
     @pulumi.getter(name="workerType")
-    def worker_type(self) -> Optional[pulumi.Input['JobWorkerType']]:
+    def worker_type(self) -> pulumi.Input[Optional['JobWorkerType']]:
         """
         TThe type of predefined worker that is allocated when a job runs.
         """
         return pulumi.get(self, "worker_type")
 
     @worker_type.setter
-    def worker_type(self, value: Optional[pulumi.Input['JobWorkerType']]):
+    def worker_type(self, value: pulumi.Input[Optional['JobWorkerType']]):
         pulumi.set(self, "worker_type", value)
 
 
@@ -412,29 +412,29 @@ class Job(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allocated_capacity: Optional[pulumi.Input[_builtins.float]] = None,
-                 command: Optional[pulumi.Input[Union['JobCommandArgs', 'JobCommandArgsDict']]] = None,
-                 connections: Optional[pulumi.Input[Union['JobConnectionsListArgs', 'JobConnectionsListArgsDict']]] = None,
+                 allocated_capacity: pulumi.Input[Optional[_builtins.float]] = None,
+                 command: pulumi.Input[Optional[Union['JobCommandArgs', 'JobCommandArgsDict']]] = None,
+                 connections: pulumi.Input[Optional[Union['JobConnectionsListArgs', 'JobConnectionsListArgsDict']]] = None,
                  default_arguments: Optional[Any] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 execution_class: Optional[pulumi.Input[_builtins.str]] = None,
-                 execution_property: Optional[pulumi.Input[Union['JobExecutionPropertyArgs', 'JobExecutionPropertyArgsDict']]] = None,
-                 glue_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 job_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 job_run_queuing_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 log_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 maintenance_window: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_capacity: Optional[pulumi.Input[_builtins.float]] = None,
-                 max_retries: Optional[pulumi.Input[_builtins.float]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 execution_class: pulumi.Input[Optional[_builtins.str]] = None,
+                 execution_property: pulumi.Input[Optional[Union['JobExecutionPropertyArgs', 'JobExecutionPropertyArgsDict']]] = None,
+                 glue_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 job_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 job_run_queuing_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 log_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_capacity: pulumi.Input[Optional[_builtins.float]] = None,
+                 max_retries: pulumi.Input[Optional[_builtins.float]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  non_overridable_arguments: Optional[Any] = None,
-                 notification_property: Optional[pulumi.Input[Union['JobNotificationPropertyArgs', 'JobNotificationPropertyArgsDict']]] = None,
-                 number_of_workers: Optional[pulumi.Input[_builtins.int]] = None,
-                 role: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_configuration: Optional[pulumi.Input[_builtins.str]] = None,
+                 notification_property: pulumi.Input[Optional[Union['JobNotificationPropertyArgs', 'JobNotificationPropertyArgsDict']]] = None,
+                 number_of_workers: pulumi.Input[Optional[_builtins.int]] = None,
+                 role: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_configuration: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: Optional[Any] = None,
-                 timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 worker_type: Optional[pulumi.Input['JobWorkerType']] = None,
+                 timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 worker_type: pulumi.Input[Optional['JobWorkerType']] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Glue::Job
@@ -497,29 +497,29 @@ class Job(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allocated_capacity: Optional[pulumi.Input[_builtins.float]] = None,
-                 command: Optional[pulumi.Input[Union['JobCommandArgs', 'JobCommandArgsDict']]] = None,
-                 connections: Optional[pulumi.Input[Union['JobConnectionsListArgs', 'JobConnectionsListArgsDict']]] = None,
+                 allocated_capacity: pulumi.Input[Optional[_builtins.float]] = None,
+                 command: pulumi.Input[Optional[Union['JobCommandArgs', 'JobCommandArgsDict']]] = None,
+                 connections: pulumi.Input[Optional[Union['JobConnectionsListArgs', 'JobConnectionsListArgsDict']]] = None,
                  default_arguments: Optional[Any] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 execution_class: Optional[pulumi.Input[_builtins.str]] = None,
-                 execution_property: Optional[pulumi.Input[Union['JobExecutionPropertyArgs', 'JobExecutionPropertyArgsDict']]] = None,
-                 glue_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 job_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 job_run_queuing_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 log_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 maintenance_window: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_capacity: Optional[pulumi.Input[_builtins.float]] = None,
-                 max_retries: Optional[pulumi.Input[_builtins.float]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 execution_class: pulumi.Input[Optional[_builtins.str]] = None,
+                 execution_property: pulumi.Input[Optional[Union['JobExecutionPropertyArgs', 'JobExecutionPropertyArgsDict']]] = None,
+                 glue_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 job_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 job_run_queuing_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 log_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_capacity: pulumi.Input[Optional[_builtins.float]] = None,
+                 max_retries: pulumi.Input[Optional[_builtins.float]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  non_overridable_arguments: Optional[Any] = None,
-                 notification_property: Optional[pulumi.Input[Union['JobNotificationPropertyArgs', 'JobNotificationPropertyArgsDict']]] = None,
-                 number_of_workers: Optional[pulumi.Input[_builtins.int]] = None,
-                 role: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_configuration: Optional[pulumi.Input[_builtins.str]] = None,
+                 notification_property: pulumi.Input[Optional[Union['JobNotificationPropertyArgs', 'JobNotificationPropertyArgsDict']]] = None,
+                 number_of_workers: pulumi.Input[Optional[_builtins.int]] = None,
+                 role: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_configuration: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: Optional[Any] = None,
-                 timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 worker_type: Optional[pulumi.Input['JobWorkerType']] = None,
+                 timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 worker_type: pulumi.Input[Optional['JobWorkerType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

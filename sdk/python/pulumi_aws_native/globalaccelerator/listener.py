@@ -25,7 +25,7 @@ class ListenerArgs:
                  accelerator_arn: pulumi.Input[_builtins.str],
                  port_ranges: pulumi.Input[Sequence[pulumi.Input['ListenerPortRangeArgs']]],
                  protocol: pulumi.Input['ListenerProtocol'],
-                 client_affinity: Optional[pulumi.Input['ListenerClientAffinity']] = None):
+                 client_affinity: pulumi.Input[Optional['ListenerClientAffinity']] = None):
         """
         The set of arguments for constructing a Listener resource.
 
@@ -78,14 +78,14 @@ class ListenerArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientAffinity")
-    def client_affinity(self) -> Optional[pulumi.Input['ListenerClientAffinity']]:
+    def client_affinity(self) -> pulumi.Input[Optional['ListenerClientAffinity']]:
         """
         Client affinity lets you direct all requests from a user to the same endpoint.
         """
         return pulumi.get(self, "client_affinity")
 
     @client_affinity.setter
-    def client_affinity(self, value: Optional[pulumi.Input['ListenerClientAffinity']]):
+    def client_affinity(self, value: pulumi.Input[Optional['ListenerClientAffinity']]):
         pulumi.set(self, "client_affinity", value)
 
 
@@ -95,10 +95,10 @@ class Listener(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 accelerator_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_affinity: Optional[pulumi.Input['ListenerClientAffinity']] = None,
-                 port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ListenerPortRangeArgs', 'ListenerPortRangeArgsDict']]]]] = None,
-                 protocol: Optional[pulumi.Input['ListenerProtocol']] = None,
+                 accelerator_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_affinity: pulumi.Input[Optional['ListenerClientAffinity']] = None,
+                 port_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ListenerPortRangeArgs', 'ListenerPortRangeArgsDict']]]]] = None,
+                 protocol: pulumi.Input[Optional['ListenerProtocol']] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::GlobalAccelerator::Listener
@@ -136,10 +136,10 @@ class Listener(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 accelerator_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_affinity: Optional[pulumi.Input['ListenerClientAffinity']] = None,
-                 port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ListenerPortRangeArgs', 'ListenerPortRangeArgsDict']]]]] = None,
-                 protocol: Optional[pulumi.Input['ListenerProtocol']] = None,
+                 accelerator_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_affinity: pulumi.Input[Optional['ListenerClientAffinity']] = None,
+                 port_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ListenerPortRangeArgs', 'ListenerPortRangeArgsDict']]]]] = None,
+                 protocol: pulumi.Input[Optional['ListenerProtocol']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

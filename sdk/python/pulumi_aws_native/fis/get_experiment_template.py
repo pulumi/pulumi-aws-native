@@ -180,7 +180,7 @@ def get_experiment_template(id: Optional[_builtins.str] = None,
         stop_conditions=pulumi.get(__ret__, 'stop_conditions'),
         tags=pulumi.get(__ret__, 'tags'),
         targets=pulumi.get(__ret__, 'targets'))
-def get_experiment_template_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_experiment_template_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExperimentTemplateResult]:
     """
     Resource schema for AWS::FIS::ExperimentTemplate

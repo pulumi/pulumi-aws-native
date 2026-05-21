@@ -1259,7 +1259,7 @@ def get_db_instance(db_instance_identifier: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         tde_credential_arn=pulumi.get(__ret__, 'tde_credential_arn'),
         vpc_security_groups=pulumi.get(__ret__, 'vpc_security_groups'))
-def get_db_instance_output(db_instance_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+def get_db_instance_output(db_instance_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDbInstanceResult]:
     """
     The ``AWS::RDS::DBInstance`` resource creates an Amazon DB instance. The new DB instance can be an RDS DB instance, or it can be a DB instance in an Aurora DB cluster.

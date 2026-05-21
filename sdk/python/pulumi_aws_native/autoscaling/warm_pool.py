@@ -22,10 +22,10 @@ __all__ = ['WarmPoolArgs', 'WarmPool']
 class WarmPoolArgs:
     def __init__(__self__, *,
                  auto_scaling_group_name: pulumi.Input[_builtins.str],
-                 instance_reuse_policy: Optional[pulumi.Input['WarmPoolInstanceReusePolicyArgs']] = None,
-                 max_group_prepared_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 pool_state: Optional[pulumi.Input[_builtins.str]] = None):
+                 instance_reuse_policy: pulumi.Input[Optional['WarmPoolInstanceReusePolicyArgs']] = None,
+                 max_group_prepared_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 pool_state: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a WarmPool resource.
 
@@ -65,19 +65,19 @@ class WarmPoolArgs:
 
     @_builtins.property
     @pulumi.getter(name="instanceReusePolicy")
-    def instance_reuse_policy(self) -> Optional[pulumi.Input['WarmPoolInstanceReusePolicyArgs']]:
+    def instance_reuse_policy(self) -> pulumi.Input[Optional['WarmPoolInstanceReusePolicyArgs']]:
         """
         Indicates whether instances in the Auto Scaling group can be returned to the warm pool on scale in. The default is to terminate instances in the Auto Scaling group when the group scales in.
         """
         return pulumi.get(self, "instance_reuse_policy")
 
     @instance_reuse_policy.setter
-    def instance_reuse_policy(self, value: Optional[pulumi.Input['WarmPoolInstanceReusePolicyArgs']]):
+    def instance_reuse_policy(self, value: pulumi.Input[Optional['WarmPoolInstanceReusePolicyArgs']]):
         pulumi.set(self, "instance_reuse_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="maxGroupPreparedCapacity")
-    def max_group_prepared_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_group_prepared_capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the maximum number of instances that are allowed to be in the warm pool or in any state except `Terminated` for the Auto Scaling group. This is an optional property. Specify it only if you do not want the warm pool size to be determined by the difference between the group's maximum capacity and its desired capacity.
 
@@ -90,31 +90,31 @@ class WarmPoolArgs:
         return pulumi.get(self, "max_group_prepared_capacity")
 
     @max_group_prepared_capacity.setter
-    def max_group_prepared_capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_group_prepared_capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_group_prepared_capacity", value)
 
     @_builtins.property
     @pulumi.getter(name="minSize")
-    def min_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
         """
         return pulumi.get(self, "min_size")
 
     @min_size.setter
-    def min_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_size", value)
 
     @_builtins.property
     @pulumi.getter(name="poolState")
-    def pool_state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pool_state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Sets the instance state to transition to after the lifecycle actions are complete. Default is `Stopped` .
         """
         return pulumi.get(self, "pool_state")
 
     @pool_state.setter
-    def pool_state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pool_state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pool_state", value)
 
 
@@ -124,11 +124,11 @@ class WarmPool(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_scaling_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_reuse_policy: Optional[pulumi.Input[Union['WarmPoolInstanceReusePolicyArgs', 'WarmPoolInstanceReusePolicyArgsDict']]] = None,
-                 max_group_prepared_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 pool_state: Optional[pulumi.Input[_builtins.str]] = None,
+                 auto_scaling_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_reuse_policy: pulumi.Input[Optional[Union['WarmPoolInstanceReusePolicyArgs', 'WarmPoolInstanceReusePolicyArgsDict']]] = None,
+                 max_group_prepared_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 pool_state: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource schema for AWS::AutoScaling::WarmPool.
@@ -173,11 +173,11 @@ class WarmPool(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_scaling_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_reuse_policy: Optional[pulumi.Input[Union['WarmPoolInstanceReusePolicyArgs', 'WarmPoolInstanceReusePolicyArgsDict']]] = None,
-                 max_group_prepared_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 pool_state: Optional[pulumi.Input[_builtins.str]] = None,
+                 auto_scaling_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_reuse_policy: pulumi.Input[Optional[Union['WarmPoolInstanceReusePolicyArgs', 'WarmPoolInstanceReusePolicyArgsDict']]] = None,
+                 max_group_prepared_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 pool_state: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

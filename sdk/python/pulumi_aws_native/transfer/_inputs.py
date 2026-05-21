@@ -82,47 +82,47 @@ class As2ConfigPropertiesArgsDict(TypedDict):
     """
     Configuration for an AS2 connector.
     """
-    async_mdn_config: NotRequired[pulumi.Input['ConnectorAsyncMdnConfigArgsDict']]
+    async_mdn_config: NotRequired[pulumi.Input[Optional['ConnectorAsyncMdnConfigArgsDict']]]
     """
     Configuration for an AS2 connector with ASYNC MDN Response
     """
-    basic_auth_secret_id: NotRequired[pulumi.Input[_builtins.str]]
+    basic_auth_secret_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ARN or name of the secret in AWS Secrets Manager which contains the credentials for Basic authentication. If empty, Basic authentication is disabled for the AS2 connector
     """
-    compression: NotRequired[pulumi.Input['ConnectorAs2ConfigPropertiesCompression']]
+    compression: NotRequired[pulumi.Input[Optional['ConnectorAs2ConfigPropertiesCompression']]]
     """
     Compression setting for this AS2 connector configuration.
     """
-    encryption_algorithm: NotRequired[pulumi.Input['ConnectorAs2ConfigPropertiesEncryptionAlgorithm']]
+    encryption_algorithm: NotRequired[pulumi.Input[Optional['ConnectorAs2ConfigPropertiesEncryptionAlgorithm']]]
     """
     Encryption algorithm for this AS2 connector configuration.
     """
-    local_profile_id: NotRequired[pulumi.Input[_builtins.str]]
+    local_profile_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A unique identifier for the local profile.
     """
-    mdn_response: NotRequired[pulumi.Input['ConnectorAs2ConfigPropertiesMdnResponse']]
+    mdn_response: NotRequired[pulumi.Input[Optional['ConnectorAs2ConfigPropertiesMdnResponse']]]
     """
     MDN Response setting for this AS2 connector configuration.
     """
-    mdn_signing_algorithm: NotRequired[pulumi.Input['ConnectorAs2ConfigPropertiesMdnSigningAlgorithm']]
+    mdn_signing_algorithm: NotRequired[pulumi.Input[Optional['ConnectorAs2ConfigPropertiesMdnSigningAlgorithm']]]
     """
     MDN Signing algorithm for this AS2 connector configuration.
     """
-    message_subject: NotRequired[pulumi.Input[_builtins.str]]
+    message_subject: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The message subject for this AS2 connector configuration.
     """
-    partner_profile_id: NotRequired[pulumi.Input[_builtins.str]]
+    partner_profile_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A unique identifier for the partner profile.
     """
-    preserve_content_type: NotRequired[pulumi.Input['ConnectorAs2ConfigPropertiesPreserveContentType']]
+    preserve_content_type: NotRequired[pulumi.Input[Optional['ConnectorAs2ConfigPropertiesPreserveContentType']]]
     """
     Specifies whether to use the AWS S3 object content-type as the content-type for the AS2 message.
     """
-    signing_algorithm: NotRequired[pulumi.Input['ConnectorAs2ConfigPropertiesSigningAlgorithm']]
+    signing_algorithm: NotRequired[pulumi.Input[Optional['ConnectorAs2ConfigPropertiesSigningAlgorithm']]]
     """
     Signing algorithm for this AS2 connector configuration.
     """
@@ -130,17 +130,17 @@ class As2ConfigPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class As2ConfigPropertiesArgs:
     def __init__(__self__, *,
-                 async_mdn_config: Optional[pulumi.Input['ConnectorAsyncMdnConfigArgs']] = None,
-                 basic_auth_secret_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 compression: Optional[pulumi.Input['ConnectorAs2ConfigPropertiesCompression']] = None,
-                 encryption_algorithm: Optional[pulumi.Input['ConnectorAs2ConfigPropertiesEncryptionAlgorithm']] = None,
-                 local_profile_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 mdn_response: Optional[pulumi.Input['ConnectorAs2ConfigPropertiesMdnResponse']] = None,
-                 mdn_signing_algorithm: Optional[pulumi.Input['ConnectorAs2ConfigPropertiesMdnSigningAlgorithm']] = None,
-                 message_subject: Optional[pulumi.Input[_builtins.str]] = None,
-                 partner_profile_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 preserve_content_type: Optional[pulumi.Input['ConnectorAs2ConfigPropertiesPreserveContentType']] = None,
-                 signing_algorithm: Optional[pulumi.Input['ConnectorAs2ConfigPropertiesSigningAlgorithm']] = None):
+                 async_mdn_config: pulumi.Input[Optional['ConnectorAsyncMdnConfigArgs']] = None,
+                 basic_auth_secret_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 compression: pulumi.Input[Optional['ConnectorAs2ConfigPropertiesCompression']] = None,
+                 encryption_algorithm: pulumi.Input[Optional['ConnectorAs2ConfigPropertiesEncryptionAlgorithm']] = None,
+                 local_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 mdn_response: pulumi.Input[Optional['ConnectorAs2ConfigPropertiesMdnResponse']] = None,
+                 mdn_signing_algorithm: pulumi.Input[Optional['ConnectorAs2ConfigPropertiesMdnSigningAlgorithm']] = None,
+                 message_subject: pulumi.Input[Optional[_builtins.str]] = None,
+                 partner_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 preserve_content_type: pulumi.Input[Optional['ConnectorAs2ConfigPropertiesPreserveContentType']] = None,
+                 signing_algorithm: pulumi.Input[Optional['ConnectorAs2ConfigPropertiesSigningAlgorithm']] = None):
         """
         Configuration for an AS2 connector.
 
@@ -181,134 +181,134 @@ class As2ConfigPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="asyncMdnConfig")
-    def async_mdn_config(self) -> Optional[pulumi.Input['ConnectorAsyncMdnConfigArgs']]:
+    def async_mdn_config(self) -> pulumi.Input[Optional['ConnectorAsyncMdnConfigArgs']]:
         """
         Configuration for an AS2 connector with ASYNC MDN Response
         """
         return pulumi.get(self, "async_mdn_config")
 
     @async_mdn_config.setter
-    def async_mdn_config(self, value: Optional[pulumi.Input['ConnectorAsyncMdnConfigArgs']]):
+    def async_mdn_config(self, value: pulumi.Input[Optional['ConnectorAsyncMdnConfigArgs']]):
         pulumi.set(self, "async_mdn_config", value)
 
     @_builtins.property
     @pulumi.getter(name="basicAuthSecretId")
-    def basic_auth_secret_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def basic_auth_secret_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN or name of the secret in AWS Secrets Manager which contains the credentials for Basic authentication. If empty, Basic authentication is disabled for the AS2 connector
         """
         return pulumi.get(self, "basic_auth_secret_id")
 
     @basic_auth_secret_id.setter
-    def basic_auth_secret_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def basic_auth_secret_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "basic_auth_secret_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def compression(self) -> Optional[pulumi.Input['ConnectorAs2ConfigPropertiesCompression']]:
+    def compression(self) -> pulumi.Input[Optional['ConnectorAs2ConfigPropertiesCompression']]:
         """
         Compression setting for this AS2 connector configuration.
         """
         return pulumi.get(self, "compression")
 
     @compression.setter
-    def compression(self, value: Optional[pulumi.Input['ConnectorAs2ConfigPropertiesCompression']]):
+    def compression(self, value: pulumi.Input[Optional['ConnectorAs2ConfigPropertiesCompression']]):
         pulumi.set(self, "compression", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionAlgorithm")
-    def encryption_algorithm(self) -> Optional[pulumi.Input['ConnectorAs2ConfigPropertiesEncryptionAlgorithm']]:
+    def encryption_algorithm(self) -> pulumi.Input[Optional['ConnectorAs2ConfigPropertiesEncryptionAlgorithm']]:
         """
         Encryption algorithm for this AS2 connector configuration.
         """
         return pulumi.get(self, "encryption_algorithm")
 
     @encryption_algorithm.setter
-    def encryption_algorithm(self, value: Optional[pulumi.Input['ConnectorAs2ConfigPropertiesEncryptionAlgorithm']]):
+    def encryption_algorithm(self, value: pulumi.Input[Optional['ConnectorAs2ConfigPropertiesEncryptionAlgorithm']]):
         pulumi.set(self, "encryption_algorithm", value)
 
     @_builtins.property
     @pulumi.getter(name="localProfileId")
-    def local_profile_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def local_profile_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A unique identifier for the local profile.
         """
         return pulumi.get(self, "local_profile_id")
 
     @local_profile_id.setter
-    def local_profile_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def local_profile_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "local_profile_id", value)
 
     @_builtins.property
     @pulumi.getter(name="mdnResponse")
-    def mdn_response(self) -> Optional[pulumi.Input['ConnectorAs2ConfigPropertiesMdnResponse']]:
+    def mdn_response(self) -> pulumi.Input[Optional['ConnectorAs2ConfigPropertiesMdnResponse']]:
         """
         MDN Response setting for this AS2 connector configuration.
         """
         return pulumi.get(self, "mdn_response")
 
     @mdn_response.setter
-    def mdn_response(self, value: Optional[pulumi.Input['ConnectorAs2ConfigPropertiesMdnResponse']]):
+    def mdn_response(self, value: pulumi.Input[Optional['ConnectorAs2ConfigPropertiesMdnResponse']]):
         pulumi.set(self, "mdn_response", value)
 
     @_builtins.property
     @pulumi.getter(name="mdnSigningAlgorithm")
-    def mdn_signing_algorithm(self) -> Optional[pulumi.Input['ConnectorAs2ConfigPropertiesMdnSigningAlgorithm']]:
+    def mdn_signing_algorithm(self) -> pulumi.Input[Optional['ConnectorAs2ConfigPropertiesMdnSigningAlgorithm']]:
         """
         MDN Signing algorithm for this AS2 connector configuration.
         """
         return pulumi.get(self, "mdn_signing_algorithm")
 
     @mdn_signing_algorithm.setter
-    def mdn_signing_algorithm(self, value: Optional[pulumi.Input['ConnectorAs2ConfigPropertiesMdnSigningAlgorithm']]):
+    def mdn_signing_algorithm(self, value: pulumi.Input[Optional['ConnectorAs2ConfigPropertiesMdnSigningAlgorithm']]):
         pulumi.set(self, "mdn_signing_algorithm", value)
 
     @_builtins.property
     @pulumi.getter(name="messageSubject")
-    def message_subject(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def message_subject(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The message subject for this AS2 connector configuration.
         """
         return pulumi.get(self, "message_subject")
 
     @message_subject.setter
-    def message_subject(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def message_subject(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "message_subject", value)
 
     @_builtins.property
     @pulumi.getter(name="partnerProfileId")
-    def partner_profile_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def partner_profile_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A unique identifier for the partner profile.
         """
         return pulumi.get(self, "partner_profile_id")
 
     @partner_profile_id.setter
-    def partner_profile_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def partner_profile_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "partner_profile_id", value)
 
     @_builtins.property
     @pulumi.getter(name="preserveContentType")
-    def preserve_content_type(self) -> Optional[pulumi.Input['ConnectorAs2ConfigPropertiesPreserveContentType']]:
+    def preserve_content_type(self) -> pulumi.Input[Optional['ConnectorAs2ConfigPropertiesPreserveContentType']]:
         """
         Specifies whether to use the AWS S3 object content-type as the content-type for the AS2 message.
         """
         return pulumi.get(self, "preserve_content_type")
 
     @preserve_content_type.setter
-    def preserve_content_type(self, value: Optional[pulumi.Input['ConnectorAs2ConfigPropertiesPreserveContentType']]):
+    def preserve_content_type(self, value: pulumi.Input[Optional['ConnectorAs2ConfigPropertiesPreserveContentType']]):
         pulumi.set(self, "preserve_content_type", value)
 
     @_builtins.property
     @pulumi.getter(name="signingAlgorithm")
-    def signing_algorithm(self) -> Optional[pulumi.Input['ConnectorAs2ConfigPropertiesSigningAlgorithm']]:
+    def signing_algorithm(self) -> pulumi.Input[Optional['ConnectorAs2ConfigPropertiesSigningAlgorithm']]:
         """
         Signing algorithm for this AS2 connector configuration.
         """
         return pulumi.get(self, "signing_algorithm")
 
     @signing_algorithm.setter
-    def signing_algorithm(self, value: Optional[pulumi.Input['ConnectorAs2ConfigPropertiesSigningAlgorithm']]):
+    def signing_algorithm(self, value: pulumi.Input[Optional['ConnectorAs2ConfigPropertiesSigningAlgorithm']]):
         pulumi.set(self, "signing_algorithm", value)
 
 
@@ -385,7 +385,7 @@ class ConnectorVpcLatticeEgressConfigArgsDict(TypedDict):
     """
     ARN of the VPC Lattice resource configuration
     """
-    port_number: NotRequired[pulumi.Input[_builtins.int]]
+    port_number: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Port to connect to on the target VPC Lattice resource
     """
@@ -394,7 +394,7 @@ class ConnectorVpcLatticeEgressConfigArgsDict(TypedDict):
 class ConnectorVpcLatticeEgressConfigArgs:
     def __init__(__self__, *,
                  resource_configuration_arn: pulumi.Input[_builtins.str],
-                 port_number: Optional[pulumi.Input[_builtins.int]] = None):
+                 port_number: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] resource_configuration_arn: ARN of the VPC Lattice resource configuration
         :param pulumi.Input[_builtins.int] port_number: Port to connect to on the target VPC Lattice resource
@@ -417,14 +417,14 @@ class ConnectorVpcLatticeEgressConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="portNumber")
-    def port_number(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port_number(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Port to connect to on the target VPC Lattice resource
         """
         return pulumi.get(self, "port_number")
 
     @port_number.setter
-    def port_number(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port_number(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port_number", value)
 
 
@@ -538,7 +538,7 @@ class CustomDirectoriesPropertiesArgs:
 
 
 class ServerEndpointDetailsArgsDict(TypedDict):
-    address_allocation_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    address_allocation_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of address allocation IDs that are required to attach an Elastic IP address to your server's endpoint.
 
@@ -556,7 +556,7 @@ class ServerEndpointDetailsArgsDict(TypedDict):
     > - Call the `UpdateServer` API to set or change this parameter.
     > - You can't set address allocation IDs for servers that have an `IpAddressType` set to `DUALSTACK` You can only set this property if `IpAddressType` is set to `IPV4` .
     """
-    security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    security_group_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of security groups IDs that are available to attach to your server's endpoint.
 
@@ -566,19 +566,19 @@ class ServerEndpointDetailsArgsDict(TypedDict):
     > 
     > You can edit the `SecurityGroupIds` property in the [UpdateServer](https://docs.aws.amazon.com/transfer/latest/userguide/API_UpdateServer.html) API only if you are changing the `EndpointType` from `PUBLIC` or `VPC_ENDPOINT` to `VPC` . To change security groups associated with your server's VPC endpoint after creation, use the Amazon EC2 [ModifyVpcEndpoint](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyVpcEndpoint.html) API.
     """
-    subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    subnet_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of subnet IDs that are required to host your server endpoint in your VPC.
 
     > This property can only be set when `EndpointType` is set to `VPC` .
     """
-    vpc_endpoint_id: NotRequired[pulumi.Input[_builtins.str]]
+    vpc_endpoint_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the VPC endpoint.
 
     > This property can only be set when `EndpointType` is set to `VPC_ENDPOINT` .
     """
-    vpc_id: NotRequired[pulumi.Input[_builtins.str]]
+    vpc_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The VPC ID of the virtual private cloud in which the server's endpoint will be hosted.
 
@@ -588,11 +588,11 @@ class ServerEndpointDetailsArgsDict(TypedDict):
 @pulumi.input_type
 class ServerEndpointDetailsArgs:
     def __init__(__self__, *,
-                 address_allocation_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 vpc_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 address_allocation_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 vpc_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] address_allocation_ids: A list of address allocation IDs that are required to attach an Elastic IP address to your server's endpoint.
                
@@ -639,7 +639,7 @@ class ServerEndpointDetailsArgs:
 
     @_builtins.property
     @pulumi.getter(name="addressAllocationIds")
-    def address_allocation_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def address_allocation_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of address allocation IDs that are required to attach an Elastic IP address to your server's endpoint.
 
@@ -660,12 +660,12 @@ class ServerEndpointDetailsArgs:
         return pulumi.get(self, "address_allocation_ids")
 
     @address_allocation_ids.setter
-    def address_allocation_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def address_allocation_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "address_allocation_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of security groups IDs that are available to attach to your server's endpoint.
 
@@ -678,12 +678,12 @@ class ServerEndpointDetailsArgs:
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
-    def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def security_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "security_group_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def subnet_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of subnet IDs that are required to host your server endpoint in your VPC.
 
@@ -692,12 +692,12 @@ class ServerEndpointDetailsArgs:
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
-    def subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def subnet_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "subnet_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcEndpointId")
-    def vpc_endpoint_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vpc_endpoint_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the VPC endpoint.
 
@@ -706,12 +706,12 @@ class ServerEndpointDetailsArgs:
         return pulumi.get(self, "vpc_endpoint_id")
 
     @vpc_endpoint_id.setter
-    def vpc_endpoint_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vpc_endpoint_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpc_endpoint_id", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vpc_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The VPC ID of the virtual private cloud in which the server's endpoint will be hosted.
 
@@ -720,24 +720,24 @@ class ServerEndpointDetailsArgs:
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
-    def vpc_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vpc_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpc_id", value)
 
 
 class ServerIdentityProviderDetailsArgsDict(TypedDict):
-    directory_id: NotRequired[pulumi.Input[_builtins.str]]
+    directory_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The identifier of the AWS Directory Service directory that you want to use as your identity provider.
     """
-    function: NotRequired[pulumi.Input[_builtins.str]]
+    function: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN for a Lambda function to use for the Identity provider.
     """
-    invocation_role: NotRequired[pulumi.Input[_builtins.str]]
+    invocation_role: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     This parameter is only applicable if your `IdentityProviderType` is `API_GATEWAY` . Provides the type of `InvocationRole` used to authenticate the user account.
     """
-    sftp_authentication_methods: NotRequired[pulumi.Input['ServerSftpAuthenticationMethods']]
+    sftp_authentication_methods: NotRequired[pulumi.Input[Optional['ServerSftpAuthenticationMethods']]]
     """
     For SFTP-enabled servers, and for custom identity providers *only* , you can specify whether to authenticate using a password, SSH key pair, or both.
 
@@ -746,7 +746,7 @@ class ServerIdentityProviderDetailsArgsDict(TypedDict):
     - `PUBLIC_KEY_OR_PASSWORD` - users can authenticate with either their password or their key. This is the default value.
     - `PUBLIC_KEY_AND_PASSWORD` - users must provide both their private key and their password to connect. The server checks the key first, and then if the key is valid, the system prompts for a password. If the private key provided does not match the public key that is stored, authentication fails.
     """
-    url: NotRequired[pulumi.Input[_builtins.str]]
+    url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Provides the location of the service endpoint used to authenticate users.
     """
@@ -754,11 +754,11 @@ class ServerIdentityProviderDetailsArgsDict(TypedDict):
 @pulumi.input_type
 class ServerIdentityProviderDetailsArgs:
     def __init__(__self__, *,
-                 directory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 function: Optional[pulumi.Input[_builtins.str]] = None,
-                 invocation_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 sftp_authentication_methods: Optional[pulumi.Input['ServerSftpAuthenticationMethods']] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None):
+                 directory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 function: pulumi.Input[Optional[_builtins.str]] = None,
+                 invocation_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 sftp_authentication_methods: pulumi.Input[Optional['ServerSftpAuthenticationMethods']] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] directory_id: The identifier of the AWS Directory Service directory that you want to use as your identity provider.
         :param pulumi.Input[_builtins.str] function: The ARN for a Lambda function to use for the Identity provider.
@@ -784,43 +784,43 @@ class ServerIdentityProviderDetailsArgs:
 
     @_builtins.property
     @pulumi.getter(name="directoryId")
-    def directory_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def directory_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier of the AWS Directory Service directory that you want to use as your identity provider.
         """
         return pulumi.get(self, "directory_id")
 
     @directory_id.setter
-    def directory_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def directory_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "directory_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def function(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def function(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN for a Lambda function to use for the Identity provider.
         """
         return pulumi.get(self, "function")
 
     @function.setter
-    def function(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def function(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "function", value)
 
     @_builtins.property
     @pulumi.getter(name="invocationRole")
-    def invocation_role(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def invocation_role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This parameter is only applicable if your `IdentityProviderType` is `API_GATEWAY` . Provides the type of `InvocationRole` used to authenticate the user account.
         """
         return pulumi.get(self, "invocation_role")
 
     @invocation_role.setter
-    def invocation_role(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def invocation_role(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "invocation_role", value)
 
     @_builtins.property
     @pulumi.getter(name="sftpAuthenticationMethods")
-    def sftp_authentication_methods(self) -> Optional[pulumi.Input['ServerSftpAuthenticationMethods']]:
+    def sftp_authentication_methods(self) -> pulumi.Input[Optional['ServerSftpAuthenticationMethods']]:
         """
         For SFTP-enabled servers, and for custom identity providers *only* , you can specify whether to authenticate using a password, SSH key pair, or both.
 
@@ -832,28 +832,28 @@ class ServerIdentityProviderDetailsArgs:
         return pulumi.get(self, "sftp_authentication_methods")
 
     @sftp_authentication_methods.setter
-    def sftp_authentication_methods(self, value: Optional[pulumi.Input['ServerSftpAuthenticationMethods']]):
+    def sftp_authentication_methods(self, value: pulumi.Input[Optional['ServerSftpAuthenticationMethods']]):
         pulumi.set(self, "sftp_authentication_methods", value)
 
     @_builtins.property
     @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Provides the location of the service endpoint used to authenticate users.
         """
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url", value)
 
 
 class ServerProtocolDetailsArgsDict(TypedDict):
-    as2_transports: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServerAs2Transport']]]]
+    as2_transports: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServerAs2Transport']]]]]
     """
     List of `As2Transport` objects.
     """
-    passive_ip: NotRequired[pulumi.Input[_builtins.str]]
+    passive_ip: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Indicates passive mode, for FTP and FTPS protocols. Enter a single IPv4 address, such as the public IP address of a firewall, router, or load balancer. For example:
 
@@ -869,7 +869,7 @@ class ServerProtocolDetailsArgsDict(TypedDict):
 
     The `AUTO` and `0.0.0.0` are special values for the `PassiveIp` parameter. The value `PassiveIp=AUTO` is assigned by default to FTP and FTPS type servers. In this case, the server automatically responds with one of the endpoint IPs within the PASV response. `PassiveIp=0.0.0.0` has a more unique application for its usage. For example, if you have a High Availability (HA) Network Load Balancer (NLB) environment, where you have 3 subnets, you can only specify a single IP address using the `PassiveIp` parameter. This reduces the effectiveness of having High Availability. In this case, you can specify `PassiveIp=0.0.0.0` . This tells the client to use the same IP address as the Control connection and utilize all AZs for their connections. Note, however, that not all FTP clients support the `PassiveIp=0.0.0.0` response. FileZilla and WinSCP do support it. If you are using other clients, check to see if your client supports the `PassiveIp=0.0.0.0` response.
     """
-    set_stat_option: NotRequired[pulumi.Input['ServerSetStatOption']]
+    set_stat_option: NotRequired[pulumi.Input[Optional['ServerSetStatOption']]]
     """
     Use the `SetStatOption` to ignore the error that is generated when the client attempts to use `SETSTAT` on a file you are uploading to an S3 bucket.
 
@@ -879,7 +879,7 @@ class ServerProtocolDetailsArgsDict(TypedDict):
 
     > If you want to preserve the original timestamp for your file, and modify other file attributes using `SETSTAT` , you can use Amazon EFS as backend storage with Transfer Family.
     """
-    tls_session_resumption_mode: NotRequired[pulumi.Input['ServerTlsSessionResumptionMode']]
+    tls_session_resumption_mode: NotRequired[pulumi.Input[Optional['ServerTlsSessionResumptionMode']]]
     """
     A property used with Transfer Family servers that use the FTPS protocol. TLS Session Resumption provides a mechanism to resume or share a negotiated secret key between the control and data connection for an FTPS session. `TlsSessionResumptionMode` determines whether or not the server resumes recent, negotiated sessions through a unique session ID. This property is available during `CreateServer` and `UpdateServer` calls. If a `TlsSessionResumptionMode` value is not specified during `CreateServer` , it is set to `ENFORCED` by default.
 
@@ -893,10 +893,10 @@ class ServerProtocolDetailsArgsDict(TypedDict):
 @pulumi.input_type
 class ServerProtocolDetailsArgs:
     def __init__(__self__, *,
-                 as2_transports: Optional[pulumi.Input[Sequence[pulumi.Input['ServerAs2Transport']]]] = None,
-                 passive_ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 set_stat_option: Optional[pulumi.Input['ServerSetStatOption']] = None,
-                 tls_session_resumption_mode: Optional[pulumi.Input['ServerTlsSessionResumptionMode']] = None):
+                 as2_transports: pulumi.Input[Optional[Sequence[pulumi.Input['ServerAs2Transport']]]] = None,
+                 passive_ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 set_stat_option: pulumi.Input[Optional['ServerSetStatOption']] = None,
+                 tls_session_resumption_mode: pulumi.Input[Optional['ServerTlsSessionResumptionMode']] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['ServerAs2Transport']]] as2_transports: List of `As2Transport` objects.
         :param pulumi.Input[_builtins.str] passive_ip: Indicates passive mode, for FTP and FTPS protocols. Enter a single IPv4 address, such as the public IP address of a firewall, router, or load balancer. For example:
@@ -938,19 +938,19 @@ class ServerProtocolDetailsArgs:
 
     @_builtins.property
     @pulumi.getter(name="as2Transports")
-    def as2_transports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServerAs2Transport']]]]:
+    def as2_transports(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServerAs2Transport']]]]:
         """
         List of `As2Transport` objects.
         """
         return pulumi.get(self, "as2_transports")
 
     @as2_transports.setter
-    def as2_transports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServerAs2Transport']]]]):
+    def as2_transports(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServerAs2Transport']]]]):
         pulumi.set(self, "as2_transports", value)
 
     @_builtins.property
     @pulumi.getter(name="passiveIp")
-    def passive_ip(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def passive_ip(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates passive mode, for FTP and FTPS protocols. Enter a single IPv4 address, such as the public IP address of a firewall, router, or load balancer. For example:
 
@@ -969,12 +969,12 @@ class ServerProtocolDetailsArgs:
         return pulumi.get(self, "passive_ip")
 
     @passive_ip.setter
-    def passive_ip(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def passive_ip(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "passive_ip", value)
 
     @_builtins.property
     @pulumi.getter(name="setStatOption")
-    def set_stat_option(self) -> Optional[pulumi.Input['ServerSetStatOption']]:
+    def set_stat_option(self) -> pulumi.Input[Optional['ServerSetStatOption']]:
         """
         Use the `SetStatOption` to ignore the error that is generated when the client attempts to use `SETSTAT` on a file you are uploading to an S3 bucket.
 
@@ -987,12 +987,12 @@ class ServerProtocolDetailsArgs:
         return pulumi.get(self, "set_stat_option")
 
     @set_stat_option.setter
-    def set_stat_option(self, value: Optional[pulumi.Input['ServerSetStatOption']]):
+    def set_stat_option(self, value: pulumi.Input[Optional['ServerSetStatOption']]):
         pulumi.set(self, "set_stat_option", value)
 
     @_builtins.property
     @pulumi.getter(name="tlsSessionResumptionMode")
-    def tls_session_resumption_mode(self) -> Optional[pulumi.Input['ServerTlsSessionResumptionMode']]:
+    def tls_session_resumption_mode(self) -> pulumi.Input[Optional['ServerTlsSessionResumptionMode']]:
         """
         A property used with Transfer Family servers that use the FTPS protocol. TLS Session Resumption provides a mechanism to resume or share a negotiated secret key between the control and data connection for an FTPS session. `TlsSessionResumptionMode` determines whether or not the server resumes recent, negotiated sessions through a unique session ID. This property is available during `CreateServer` and `UpdateServer` calls. If a `TlsSessionResumptionMode` value is not specified during `CreateServer` , it is set to `ENFORCED` by default.
 
@@ -1005,12 +1005,12 @@ class ServerProtocolDetailsArgs:
         return pulumi.get(self, "tls_session_resumption_mode")
 
     @tls_session_resumption_mode.setter
-    def tls_session_resumption_mode(self, value: Optional[pulumi.Input['ServerTlsSessionResumptionMode']]):
+    def tls_session_resumption_mode(self, value: pulumi.Input[Optional['ServerTlsSessionResumptionMode']]):
         pulumi.set(self, "tls_session_resumption_mode", value)
 
 
 class ServerS3StorageOptionsArgsDict(TypedDict):
-    directory_listing_optimization: NotRequired[pulumi.Input['ServerDirectoryListingOptimization']]
+    directory_listing_optimization: NotRequired[pulumi.Input[Optional['ServerDirectoryListingOptimization']]]
     """
     Specifies whether or not performance for your Amazon S3 directories is optimized.
 
@@ -1023,7 +1023,7 @@ class ServerS3StorageOptionsArgsDict(TypedDict):
 @pulumi.input_type
 class ServerS3StorageOptionsArgs:
     def __init__(__self__, *,
-                 directory_listing_optimization: Optional[pulumi.Input['ServerDirectoryListingOptimization']] = None):
+                 directory_listing_optimization: pulumi.Input[Optional['ServerDirectoryListingOptimization']] = None):
         """
         :param pulumi.Input['ServerDirectoryListingOptimization'] directory_listing_optimization: Specifies whether or not performance for your Amazon S3 directories is optimized.
                
@@ -1037,7 +1037,7 @@ class ServerS3StorageOptionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="directoryListingOptimization")
-    def directory_listing_optimization(self) -> Optional[pulumi.Input['ServerDirectoryListingOptimization']]:
+    def directory_listing_optimization(self) -> pulumi.Input[Optional['ServerDirectoryListingOptimization']]:
         """
         Specifies whether or not performance for your Amazon S3 directories is optimized.
 
@@ -1049,12 +1049,12 @@ class ServerS3StorageOptionsArgs:
         return pulumi.get(self, "directory_listing_optimization")
 
     @directory_listing_optimization.setter
-    def directory_listing_optimization(self, value: Optional[pulumi.Input['ServerDirectoryListingOptimization']]):
+    def directory_listing_optimization(self, value: pulumi.Input[Optional['ServerDirectoryListingOptimization']]):
         pulumi.set(self, "directory_listing_optimization", value)
 
 
 class ServerWorkflowDetailsArgsDict(TypedDict):
-    on_partial_upload: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServerWorkflowDetailArgsDict']]]]
+    on_partial_upload: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServerWorkflowDetailArgsDict']]]]]
     """
     A trigger that starts a workflow if a file is only partially uploaded. You can attach a workflow to a server that executes whenever there is a partial upload.
 
@@ -1062,7 +1062,7 @@ class ServerWorkflowDetailsArgsDict(TypedDict):
 
     > `OnPartialUpload` can contain a maximum of one `WorkflowDetail` object.
     """
-    on_upload: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServerWorkflowDetailArgsDict']]]]
+    on_upload: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServerWorkflowDetailArgsDict']]]]]
     """
     A trigger that starts a workflow: the workflow begins to execute after a file is uploaded.
 
@@ -1076,8 +1076,8 @@ class ServerWorkflowDetailsArgsDict(TypedDict):
 @pulumi.input_type
 class ServerWorkflowDetailsArgs:
     def __init__(__self__, *,
-                 on_partial_upload: Optional[pulumi.Input[Sequence[pulumi.Input['ServerWorkflowDetailArgs']]]] = None,
-                 on_upload: Optional[pulumi.Input[Sequence[pulumi.Input['ServerWorkflowDetailArgs']]]] = None):
+                 on_partial_upload: pulumi.Input[Optional[Sequence[pulumi.Input['ServerWorkflowDetailArgs']]]] = None,
+                 on_upload: pulumi.Input[Optional[Sequence[pulumi.Input['ServerWorkflowDetailArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['ServerWorkflowDetailArgs']]] on_partial_upload: A trigger that starts a workflow if a file is only partially uploaded. You can attach a workflow to a server that executes whenever there is a partial upload.
                
@@ -1099,7 +1099,7 @@ class ServerWorkflowDetailsArgs:
 
     @_builtins.property
     @pulumi.getter(name="onPartialUpload")
-    def on_partial_upload(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServerWorkflowDetailArgs']]]]:
+    def on_partial_upload(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServerWorkflowDetailArgs']]]]:
         """
         A trigger that starts a workflow if a file is only partially uploaded. You can attach a workflow to a server that executes whenever there is a partial upload.
 
@@ -1110,12 +1110,12 @@ class ServerWorkflowDetailsArgs:
         return pulumi.get(self, "on_partial_upload")
 
     @on_partial_upload.setter
-    def on_partial_upload(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServerWorkflowDetailArgs']]]]):
+    def on_partial_upload(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServerWorkflowDetailArgs']]]]):
         pulumi.set(self, "on_partial_upload", value)
 
     @_builtins.property
     @pulumi.getter(name="onUpload")
-    def on_upload(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServerWorkflowDetailArgs']]]]:
+    def on_upload(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServerWorkflowDetailArgs']]]]:
         """
         A trigger that starts a workflow: the workflow begins to execute after a file is uploaded.
 
@@ -1128,7 +1128,7 @@ class ServerWorkflowDetailsArgs:
         return pulumi.get(self, "on_upload")
 
     @on_upload.setter
-    def on_upload(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServerWorkflowDetailArgs']]]]):
+    def on_upload(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServerWorkflowDetailArgs']]]]):
         pulumi.set(self, "on_upload", value)
 
 
@@ -1183,15 +1183,15 @@ class SftpConfigPropertiesArgsDict(TypedDict):
     """
     Configuration for an SFTP connector.
     """
-    max_concurrent_connections: NotRequired[pulumi.Input[_builtins.int]]
+    max_concurrent_connections: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the number of active connections that your connector can establish with the remote server at the same time.
     """
-    trusted_host_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    trusted_host_keys: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of public host keys, for the external server to which you are connecting.
     """
-    user_secret_id: NotRequired[pulumi.Input[_builtins.str]]
+    user_secret_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ARN or name of the secret in AWS Secrets Manager which contains the SFTP user's private keys or passwords.
     """
@@ -1199,9 +1199,9 @@ class SftpConfigPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class SftpConfigPropertiesArgs:
     def __init__(__self__, *,
-                 max_concurrent_connections: Optional[pulumi.Input[_builtins.int]] = None,
-                 trusted_host_keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 user_secret_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 max_concurrent_connections: pulumi.Input[Optional[_builtins.int]] = None,
+                 trusted_host_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 user_secret_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Configuration for an SFTP connector.
 
@@ -1218,38 +1218,38 @@ class SftpConfigPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="maxConcurrentConnections")
-    def max_concurrent_connections(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_concurrent_connections(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of active connections that your connector can establish with the remote server at the same time.
         """
         return pulumi.get(self, "max_concurrent_connections")
 
     @max_concurrent_connections.setter
-    def max_concurrent_connections(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_concurrent_connections(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_concurrent_connections", value)
 
     @_builtins.property
     @pulumi.getter(name="trustedHostKeys")
-    def trusted_host_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def trusted_host_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of public host keys, for the external server to which you are connecting.
         """
         return pulumi.get(self, "trusted_host_keys")
 
     @trusted_host_keys.setter
-    def trusted_host_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def trusted_host_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "trusted_host_keys", value)
 
     @_builtins.property
     @pulumi.getter(name="userSecretId")
-    def user_secret_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_secret_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN or name of the secret in AWS Secrets Manager which contains the SFTP user's private keys or passwords.
         """
         return pulumi.get(self, "user_secret_id")
 
     @user_secret_id.setter
-    def user_secret_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_secret_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_secret_id", value)
 
 
@@ -1262,7 +1262,7 @@ class UserHomeDirectoryMapEntryArgsDict(TypedDict):
     """
     Represents the map target that is used in a `HomeDirectoryMapEntry` .
     """
-    type: NotRequired[pulumi.Input['UserMapType']]
+    type: NotRequired[pulumi.Input[Optional['UserMapType']]]
     """
     Specifies the type of mapping. Set the type to `FILE` if you want the mapping to point to a file, or `DIRECTORY` for the directory to point to a directory.
 
@@ -1274,7 +1274,7 @@ class UserHomeDirectoryMapEntryArgs:
     def __init__(__self__, *,
                  entry: pulumi.Input[_builtins.str],
                  target: pulumi.Input[_builtins.str],
-                 type: Optional[pulumi.Input['UserMapType']] = None):
+                 type: pulumi.Input[Optional['UserMapType']] = None):
         """
         :param pulumi.Input[_builtins.str] entry: Represents an entry for `HomeDirectoryMappings` .
         :param pulumi.Input[_builtins.str] target: Represents the map target that is used in a `HomeDirectoryMapEntry` .
@@ -1313,7 +1313,7 @@ class UserHomeDirectoryMapEntryArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['UserMapType']]:
+    def type(self) -> pulumi.Input[Optional['UserMapType']]:
         """
         Specifies the type of mapping. Set the type to `FILE` if you want the mapping to point to a file, or `DIRECTORY` for the directory to point to a directory.
 
@@ -1322,7 +1322,7 @@ class UserHomeDirectoryMapEntryArgs:
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['UserMapType']]):
+    def type(self, value: pulumi.Input[Optional['UserMapType']]):
         pulumi.set(self, "type", value)
 
 
@@ -1335,7 +1335,7 @@ class UserPosixProfileArgsDict(TypedDict):
     """
     The POSIX user ID used for all EFS operations by this user.
     """
-    secondary_gids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.float]]]]
+    secondary_gids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.float]]]]]
     """
     The secondary POSIX group IDs used for all EFS operations by this user.
     """
@@ -1345,7 +1345,7 @@ class UserPosixProfileArgs:
     def __init__(__self__, *,
                  gid: pulumi.Input[_builtins.float],
                  uid: pulumi.Input[_builtins.float],
-                 secondary_gids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.float]]]] = None):
+                 secondary_gids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.float]]]] = None):
         """
         :param pulumi.Input[_builtins.float] gid: The POSIX group ID used for all EFS operations by this user.
         :param pulumi.Input[_builtins.float] uid: The POSIX user ID used for all EFS operations by this user.
@@ -1382,27 +1382,27 @@ class UserPosixProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="secondaryGids")
-    def secondary_gids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.float]]]]:
+    def secondary_gids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.float]]]]:
         """
         The secondary POSIX group IDs used for all EFS operations by this user.
         """
         return pulumi.get(self, "secondary_gids")
 
     @secondary_gids.setter
-    def secondary_gids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.float]]]]):
+    def secondary_gids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.float]]]]):
         pulumi.set(self, "secondary_gids", value)
 
 
 class WebAppCustomizationArgsDict(TypedDict):
-    favicon_file: NotRequired[pulumi.Input[_builtins.str]]
+    favicon_file: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies a favicon to display in the browser tab.
     """
-    logo_file: NotRequired[pulumi.Input[_builtins.str]]
+    logo_file: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies a logo to display on the web app.
     """
-    title: NotRequired[pulumi.Input[_builtins.str]]
+    title: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies a title to display on the web app.
     """
@@ -1410,9 +1410,9 @@ class WebAppCustomizationArgsDict(TypedDict):
 @pulumi.input_type
 class WebAppCustomizationArgs:
     def __init__(__self__, *,
-                 favicon_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 logo_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 title: Optional[pulumi.Input[_builtins.str]] = None):
+                 favicon_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 logo_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 title: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] favicon_file: Specifies a favicon to display in the browser tab.
         :param pulumi.Input[_builtins.str] logo_file: Specifies a logo to display on the web app.
@@ -1427,58 +1427,58 @@ class WebAppCustomizationArgs:
 
     @_builtins.property
     @pulumi.getter(name="faviconFile")
-    def favicon_file(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def favicon_file(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a favicon to display in the browser tab.
         """
         return pulumi.get(self, "favicon_file")
 
     @favicon_file.setter
-    def favicon_file(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def favicon_file(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "favicon_file", value)
 
     @_builtins.property
     @pulumi.getter(name="logoFile")
-    def logo_file(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def logo_file(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a logo to display on the web app.
         """
         return pulumi.get(self, "logo_file")
 
     @logo_file.setter
-    def logo_file(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def logo_file(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "logo_file", value)
 
     @_builtins.property
     @pulumi.getter
-    def title(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def title(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a title to display on the web app.
         """
         return pulumi.get(self, "title")
 
     @title.setter
-    def title(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def title(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "title", value)
 
 
 class WebAppEndpointDetailsArgsDict(TypedDict):
-    vpc: NotRequired[pulumi.Input['WebAppVpcArgsDict']]
+    vpc: NotRequired[pulumi.Input[Optional['WebAppVpcArgsDict']]]
 
 @pulumi.input_type
 class WebAppEndpointDetailsArgs:
     def __init__(__self__, *,
-                 vpc: Optional[pulumi.Input['WebAppVpcArgs']] = None):
+                 vpc: pulumi.Input[Optional['WebAppVpcArgs']] = None):
         if vpc is not None:
             pulumi.set(__self__, "vpc", vpc)
 
     @_builtins.property
     @pulumi.getter
-    def vpc(self) -> Optional[pulumi.Input['WebAppVpcArgs']]:
+    def vpc(self) -> pulumi.Input[Optional['WebAppVpcArgs']]:
         return pulumi.get(self, "vpc")
 
     @vpc.setter
-    def vpc(self, value: Optional[pulumi.Input['WebAppVpcArgs']]):
+    def vpc(self, value: pulumi.Input[Optional['WebAppVpcArgs']]):
         pulumi.set(self, "vpc", value)
 
 
@@ -1486,15 +1486,15 @@ class WebAppIdentityProviderDetailsArgsDict(TypedDict):
     """
     You can provide a structure that contains the details for the identity provider to use with your web app.
     """
-    application_arn: NotRequired[pulumi.Input[_builtins.str]]
+    application_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon Resource Name (ARN) for the IAM Identity Center application: this value is set automatically when you create your web app.
     """
-    instance_arn: NotRequired[pulumi.Input[_builtins.str]]
+    instance_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon Resource Name (ARN) for the IAM Identity Center used for the web app.
     """
-    role: NotRequired[pulumi.Input[_builtins.str]]
+    role: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The IAM role in IAM Identity Center used for the web app.
     """
@@ -1502,9 +1502,9 @@ class WebAppIdentityProviderDetailsArgsDict(TypedDict):
 @pulumi.input_type
 class WebAppIdentityProviderDetailsArgs:
     def __init__(__self__, *,
-                 application_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 role: Optional[pulumi.Input[_builtins.str]] = None):
+                 application_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 role: pulumi.Input[Optional[_builtins.str]] = None):
         """
         You can provide a structure that contains the details for the identity provider to use with your web app.
 
@@ -1521,38 +1521,38 @@ class WebAppIdentityProviderDetailsArgs:
 
     @_builtins.property
     @pulumi.getter(name="applicationArn")
-    def application_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) for the IAM Identity Center application: this value is set automatically when you create your web app.
         """
         return pulumi.get(self, "application_arn")
 
     @application_arn.setter
-    def application_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceArn")
-    def instance_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def instance_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) for the IAM Identity Center used for the web app.
         """
         return pulumi.get(self, "instance_arn")
 
     @instance_arn.setter
-    def instance_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def instance_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "instance_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def role(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IAM role in IAM Identity Center used for the web app.
         """
         return pulumi.get(self, "role")
 
     @role.setter
-    def role(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role", value)
 
 
@@ -1585,16 +1585,16 @@ class WebAppVpcArgsDict(TypedDict):
     """
     You can provide a structure that contains the details for the VPC endpoint to use with your web app.
     """
-    security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    vpc_id: NotRequired[pulumi.Input[_builtins.str]]
+    security_group_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    subnet_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    vpc_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class WebAppVpcArgs:
     def __init__(__self__, *,
-                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 vpc_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         You can provide a structure that contains the details for the VPC endpoint to use with your web app.
         """
@@ -1607,29 +1607,29 @@ class WebAppVpcArgs:
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
-    def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def security_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "security_group_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def subnet_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
-    def subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def subnet_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "subnet_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vpc_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
-    def vpc_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vpc_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpc_id", value)
 
 
@@ -1637,11 +1637,11 @@ class WorkflowEfsInputFileLocationArgsDict(TypedDict):
     """
     Specifies the details for an EFS file.
     """
-    file_system_id: NotRequired[pulumi.Input[_builtins.str]]
+    file_system_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the EFS filesystem that contains the file.
     """
-    path: NotRequired[pulumi.Input[_builtins.str]]
+    path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name assigned to the file when it was created in EFS. You use the object path to retrieve the object.
     """
@@ -1649,8 +1649,8 @@ class WorkflowEfsInputFileLocationArgsDict(TypedDict):
 @pulumi.input_type
 class WorkflowEfsInputFileLocationArgs:
     def __init__(__self__, *,
-                 file_system_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 path: Optional[pulumi.Input[_builtins.str]] = None):
+                 file_system_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 path: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Specifies the details for an EFS file.
 
@@ -1664,26 +1664,26 @@ class WorkflowEfsInputFileLocationArgs:
 
     @_builtins.property
     @pulumi.getter(name="fileSystemId")
-    def file_system_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def file_system_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the EFS filesystem that contains the file.
         """
         return pulumi.get(self, "file_system_id")
 
     @file_system_id.setter
-    def file_system_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def file_system_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "file_system_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name assigned to the file when it was created in EFS. You use the object path to retrieve the object.
         """
         return pulumi.get(self, "path")
 
     @path.setter
-    def path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "path", value)
 
 
@@ -1691,14 +1691,14 @@ class WorkflowInputFileLocationArgsDict(TypedDict):
     """
     Specifies the location for the file being decrypted. Only applicable for the Decrypt type of workflow steps.
     """
-    efs_file_location: NotRequired[pulumi.Input['WorkflowEfsInputFileLocationArgsDict']]
-    s3_file_location: NotRequired[pulumi.Input['WorkflowS3InputFileLocationArgsDict']]
+    efs_file_location: NotRequired[pulumi.Input[Optional['WorkflowEfsInputFileLocationArgsDict']]]
+    s3_file_location: NotRequired[pulumi.Input[Optional['WorkflowS3InputFileLocationArgsDict']]]
 
 @pulumi.input_type
 class WorkflowInputFileLocationArgs:
     def __init__(__self__, *,
-                 efs_file_location: Optional[pulumi.Input['WorkflowEfsInputFileLocationArgs']] = None,
-                 s3_file_location: Optional[pulumi.Input['WorkflowS3InputFileLocationArgs']] = None):
+                 efs_file_location: pulumi.Input[Optional['WorkflowEfsInputFileLocationArgs']] = None,
+                 s3_file_location: pulumi.Input[Optional['WorkflowS3InputFileLocationArgs']] = None):
         """
         Specifies the location for the file being decrypted. Only applicable for the Decrypt type of workflow steps.
         """
@@ -1709,20 +1709,20 @@ class WorkflowInputFileLocationArgs:
 
     @_builtins.property
     @pulumi.getter(name="efsFileLocation")
-    def efs_file_location(self) -> Optional[pulumi.Input['WorkflowEfsInputFileLocationArgs']]:
+    def efs_file_location(self) -> pulumi.Input[Optional['WorkflowEfsInputFileLocationArgs']]:
         return pulumi.get(self, "efs_file_location")
 
     @efs_file_location.setter
-    def efs_file_location(self, value: Optional[pulumi.Input['WorkflowEfsInputFileLocationArgs']]):
+    def efs_file_location(self, value: pulumi.Input[Optional['WorkflowEfsInputFileLocationArgs']]):
         pulumi.set(self, "efs_file_location", value)
 
     @_builtins.property
     @pulumi.getter(name="s3FileLocation")
-    def s3_file_location(self) -> Optional[pulumi.Input['WorkflowS3InputFileLocationArgs']]:
+    def s3_file_location(self) -> pulumi.Input[Optional['WorkflowS3InputFileLocationArgs']]:
         return pulumi.get(self, "s3_file_location")
 
     @s3_file_location.setter
-    def s3_file_location(self, value: Optional[pulumi.Input['WorkflowS3InputFileLocationArgs']]):
+    def s3_file_location(self, value: pulumi.Input[Optional['WorkflowS3InputFileLocationArgs']]):
         pulumi.set(self, "s3_file_location", value)
 
 
@@ -1730,7 +1730,7 @@ class WorkflowS3FileLocationArgsDict(TypedDict):
     """
     Specifies the location for the file being copied. Only applicable for the Copy type of workflow steps.
     """
-    s3_file_location: NotRequired[pulumi.Input['WorkflowS3InputFileLocationArgsDict']]
+    s3_file_location: NotRequired[pulumi.Input[Optional['WorkflowS3InputFileLocationArgsDict']]]
     """
     Specifies the details for the file location for the file that's being used in the workflow. Only applicable if you are using Amazon S3 storage.
     """
@@ -1738,7 +1738,7 @@ class WorkflowS3FileLocationArgsDict(TypedDict):
 @pulumi.input_type
 class WorkflowS3FileLocationArgs:
     def __init__(__self__, *,
-                 s3_file_location: Optional[pulumi.Input['WorkflowS3InputFileLocationArgs']] = None):
+                 s3_file_location: pulumi.Input[Optional['WorkflowS3InputFileLocationArgs']] = None):
         """
         Specifies the location for the file being copied. Only applicable for the Copy type of workflow steps.
 
@@ -1749,14 +1749,14 @@ class WorkflowS3FileLocationArgs:
 
     @_builtins.property
     @pulumi.getter(name="s3FileLocation")
-    def s3_file_location(self) -> Optional[pulumi.Input['WorkflowS3InputFileLocationArgs']]:
+    def s3_file_location(self) -> pulumi.Input[Optional['WorkflowS3InputFileLocationArgs']]:
         """
         Specifies the details for the file location for the file that's being used in the workflow. Only applicable if you are using Amazon S3 storage.
         """
         return pulumi.get(self, "s3_file_location")
 
     @s3_file_location.setter
-    def s3_file_location(self, value: Optional[pulumi.Input['WorkflowS3InputFileLocationArgs']]):
+    def s3_file_location(self, value: pulumi.Input[Optional['WorkflowS3InputFileLocationArgs']]):
         pulumi.set(self, "s3_file_location", value)
 
 
@@ -1764,11 +1764,11 @@ class WorkflowS3InputFileLocationArgsDict(TypedDict):
     """
     Specifies the details for a S3 file.
     """
-    bucket: NotRequired[pulumi.Input[_builtins.str]]
+    bucket: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the S3 bucket that contains the file.
     """
-    key: NotRequired[pulumi.Input[_builtins.str]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
     """
@@ -1776,8 +1776,8 @@ class WorkflowS3InputFileLocationArgsDict(TypedDict):
 @pulumi.input_type
 class WorkflowS3InputFileLocationArgs:
     def __init__(__self__, *,
-                 bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None):
+                 bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Specifies the details for a S3 file.
 
@@ -1791,26 +1791,26 @@ class WorkflowS3InputFileLocationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def bucket(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bucket(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the S3 bucket that contains the file.
         """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
-    def bucket(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bucket(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bucket", value)
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
 
@@ -1870,16 +1870,16 @@ class WorkflowStepCopyStepDetailsPropertiesArgsDict(TypedDict):
     """
     Details for a step that performs a file copy.
     """
-    destination_file_location: NotRequired[pulumi.Input['WorkflowS3FileLocationArgsDict']]
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    destination_file_location: NotRequired[pulumi.Input[Optional['WorkflowS3FileLocationArgsDict']]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the step, used as an identifier.
     """
-    overwrite_existing: NotRequired[pulumi.Input['WorkflowStepCopyStepDetailsPropertiesOverwriteExisting']]
+    overwrite_existing: NotRequired[pulumi.Input[Optional['WorkflowStepCopyStepDetailsPropertiesOverwriteExisting']]]
     """
     A flag that indicates whether or not to overwrite an existing file of the same name. The default is FALSE.
     """
-    source_file_location: NotRequired[pulumi.Input[_builtins.str]]
+    source_file_location: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies which file to use as input to the workflow step.
     """
@@ -1887,10 +1887,10 @@ class WorkflowStepCopyStepDetailsPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class WorkflowStepCopyStepDetailsPropertiesArgs:
     def __init__(__self__, *,
-                 destination_file_location: Optional[pulumi.Input['WorkflowS3FileLocationArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 overwrite_existing: Optional[pulumi.Input['WorkflowStepCopyStepDetailsPropertiesOverwriteExisting']] = None,
-                 source_file_location: Optional[pulumi.Input[_builtins.str]] = None):
+                 destination_file_location: pulumi.Input[Optional['WorkflowS3FileLocationArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 overwrite_existing: pulumi.Input[Optional['WorkflowStepCopyStepDetailsPropertiesOverwriteExisting']] = None,
+                 source_file_location: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Details for a step that performs a file copy.
 
@@ -1909,47 +1909,47 @@ class WorkflowStepCopyStepDetailsPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="destinationFileLocation")
-    def destination_file_location(self) -> Optional[pulumi.Input['WorkflowS3FileLocationArgs']]:
+    def destination_file_location(self) -> pulumi.Input[Optional['WorkflowS3FileLocationArgs']]:
         return pulumi.get(self, "destination_file_location")
 
     @destination_file_location.setter
-    def destination_file_location(self, value: Optional[pulumi.Input['WorkflowS3FileLocationArgs']]):
+    def destination_file_location(self, value: pulumi.Input[Optional['WorkflowS3FileLocationArgs']]):
         pulumi.set(self, "destination_file_location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the step, used as an identifier.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="overwriteExisting")
-    def overwrite_existing(self) -> Optional[pulumi.Input['WorkflowStepCopyStepDetailsPropertiesOverwriteExisting']]:
+    def overwrite_existing(self) -> pulumi.Input[Optional['WorkflowStepCopyStepDetailsPropertiesOverwriteExisting']]:
         """
         A flag that indicates whether or not to overwrite an existing file of the same name. The default is FALSE.
         """
         return pulumi.get(self, "overwrite_existing")
 
     @overwrite_existing.setter
-    def overwrite_existing(self, value: Optional[pulumi.Input['WorkflowStepCopyStepDetailsPropertiesOverwriteExisting']]):
+    def overwrite_existing(self, value: pulumi.Input[Optional['WorkflowStepCopyStepDetailsPropertiesOverwriteExisting']]):
         pulumi.set(self, "overwrite_existing", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceFileLocation")
-    def source_file_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_file_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies which file to use as input to the workflow step.
         """
         return pulumi.get(self, "source_file_location")
 
     @source_file_location.setter
-    def source_file_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_file_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_file_location", value)
 
 
@@ -1957,19 +1957,19 @@ class WorkflowStepCustomStepDetailsPropertiesArgsDict(TypedDict):
     """
     Details for a step that invokes a lambda function.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the step, used as an identifier.
     """
-    source_file_location: NotRequired[pulumi.Input[_builtins.str]]
+    source_file_location: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies which file to use as input to the workflow step.
     """
-    target: NotRequired[pulumi.Input[_builtins.str]]
+    target: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN for the lambda function that is being called.
     """
-    timeout_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    timeout_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Timeout, in seconds, for the step.
     """
@@ -1977,10 +1977,10 @@ class WorkflowStepCustomStepDetailsPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class WorkflowStepCustomStepDetailsPropertiesArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_file_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 target: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_file_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 target: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Details for a step that invokes a lambda function.
 
@@ -2000,50 +2000,50 @@ class WorkflowStepCustomStepDetailsPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the step, used as an identifier.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceFileLocation")
-    def source_file_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_file_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies which file to use as input to the workflow step.
         """
         return pulumi.get(self, "source_file_location")
 
     @source_file_location.setter
-    def source_file_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_file_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_file_location", value)
 
     @_builtins.property
     @pulumi.getter
-    def target(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN for the lambda function that is being called.
         """
         return pulumi.get(self, "target")
 
     @target.setter
-    def target(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target", value)
 
     @_builtins.property
     @pulumi.getter(name="timeoutSeconds")
-    def timeout_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def timeout_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Timeout, in seconds, for the step.
         """
         return pulumi.get(self, "timeout_seconds")
 
     @timeout_seconds.setter
-    def timeout_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def timeout_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "timeout_seconds", value)
 
 
@@ -2056,15 +2056,15 @@ class WorkflowStepDecryptStepDetailsPropertiesArgsDict(TypedDict):
     """
     Specifies which encryption method to use.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the step, used as an identifier.
     """
-    overwrite_existing: NotRequired[pulumi.Input['WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting']]
+    overwrite_existing: NotRequired[pulumi.Input[Optional['WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting']]]
     """
     A flag that indicates whether or not to overwrite an existing file of the same name. The default is FALSE.
     """
-    source_file_location: NotRequired[pulumi.Input[_builtins.str]]
+    source_file_location: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies which file to use as input to the workflow step.
     """
@@ -2074,9 +2074,9 @@ class WorkflowStepDecryptStepDetailsPropertiesArgs:
     def __init__(__self__, *,
                  destination_file_location: pulumi.Input['WorkflowInputFileLocationArgs'],
                  type: pulumi.Input['WorkflowStepDecryptStepDetailsPropertiesType'],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 overwrite_existing: Optional[pulumi.Input['WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting']] = None,
-                 source_file_location: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 overwrite_existing: pulumi.Input[Optional['WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting']] = None,
+                 source_file_location: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Details for a step that performs a file decryption.
 
@@ -2117,38 +2117,38 @@ class WorkflowStepDecryptStepDetailsPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the step, used as an identifier.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="overwriteExisting")
-    def overwrite_existing(self) -> Optional[pulumi.Input['WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting']]:
+    def overwrite_existing(self) -> pulumi.Input[Optional['WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting']]:
         """
         A flag that indicates whether or not to overwrite an existing file of the same name. The default is FALSE.
         """
         return pulumi.get(self, "overwrite_existing")
 
     @overwrite_existing.setter
-    def overwrite_existing(self, value: Optional[pulumi.Input['WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting']]):
+    def overwrite_existing(self, value: pulumi.Input[Optional['WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting']]):
         pulumi.set(self, "overwrite_existing", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceFileLocation")
-    def source_file_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_file_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies which file to use as input to the workflow step.
         """
         return pulumi.get(self, "source_file_location")
 
     @source_file_location.setter
-    def source_file_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_file_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_file_location", value)
 
 
@@ -2156,11 +2156,11 @@ class WorkflowStepDeleteStepDetailsPropertiesArgsDict(TypedDict):
     """
     Details for a step that deletes the file.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the step, used as an identifier.
     """
-    source_file_location: NotRequired[pulumi.Input[_builtins.str]]
+    source_file_location: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies which file to use as input to the workflow step.
     """
@@ -2168,8 +2168,8 @@ class WorkflowStepDeleteStepDetailsPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class WorkflowStepDeleteStepDetailsPropertiesArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_file_location: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_file_location: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Details for a step that deletes the file.
 
@@ -2183,26 +2183,26 @@ class WorkflowStepDeleteStepDetailsPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the step, used as an identifier.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceFileLocation")
-    def source_file_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_file_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies which file to use as input to the workflow step.
         """
         return pulumi.get(self, "source_file_location")
 
     @source_file_location.setter
-    def source_file_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_file_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_file_location", value)
 
 
@@ -2210,15 +2210,15 @@ class WorkflowStepTagStepDetailsPropertiesArgsDict(TypedDict):
     """
     Details for a step that creates one or more tags.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the step, used as an identifier.
     """
-    source_file_location: NotRequired[pulumi.Input[_builtins.str]]
+    source_file_location: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies which file to use as input to the workflow step.
     """
-    tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkflowS3TagArgsDict']]]]
+    tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WorkflowS3TagArgsDict']]]]]
     """
     Array that contains from 1 to 10 key/value pairs.
     """
@@ -2226,9 +2226,9 @@ class WorkflowStepTagStepDetailsPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class WorkflowStepTagStepDetailsPropertiesArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_file_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowS3TagArgs']]]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_file_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['WorkflowS3TagArgs']]]] = None):
         """
         Details for a step that creates one or more tags.
 
@@ -2245,38 +2245,38 @@ class WorkflowStepTagStepDetailsPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the step, used as an identifier.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceFileLocation")
-    def source_file_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_file_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies which file to use as input to the workflow step.
         """
         return pulumi.get(self, "source_file_location")
 
     @source_file_location.setter
-    def source_file_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_file_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_file_location", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowS3TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WorkflowS3TagArgs']]]]:
         """
         Array that contains from 1 to 10 key/value pairs.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowS3TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WorkflowS3TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -2284,37 +2284,37 @@ class WorkflowStepArgsDict(TypedDict):
     """
     The basic building block of a workflow.
     """
-    copy_step_details: NotRequired[pulumi.Input['WorkflowStepCopyStepDetailsPropertiesArgsDict']]
+    copy_step_details: NotRequired[pulumi.Input[Optional['WorkflowStepCopyStepDetailsPropertiesArgsDict']]]
     """
     Details for a step that performs a file copy.
     """
-    custom_step_details: NotRequired[pulumi.Input['WorkflowStepCustomStepDetailsPropertiesArgsDict']]
+    custom_step_details: NotRequired[pulumi.Input[Optional['WorkflowStepCustomStepDetailsPropertiesArgsDict']]]
     """
     Details for a step that invokes a lambda function.
     """
-    decrypt_step_details: NotRequired[pulumi.Input['WorkflowStepDecryptStepDetailsPropertiesArgsDict']]
+    decrypt_step_details: NotRequired[pulumi.Input[Optional['WorkflowStepDecryptStepDetailsPropertiesArgsDict']]]
     """
     Details for a step that performs a file decryption.
     """
-    delete_step_details: NotRequired[pulumi.Input['WorkflowStepDeleteStepDetailsPropertiesArgsDict']]
+    delete_step_details: NotRequired[pulumi.Input[Optional['WorkflowStepDeleteStepDetailsPropertiesArgsDict']]]
     """
     Details for a step that deletes the file.
     """
-    tag_step_details: NotRequired[pulumi.Input['WorkflowStepTagStepDetailsPropertiesArgsDict']]
+    tag_step_details: NotRequired[pulumi.Input[Optional['WorkflowStepTagStepDetailsPropertiesArgsDict']]]
     """
     Details for a step that creates one or more tags.
     """
-    type: NotRequired[pulumi.Input['WorkflowStepType']]
+    type: NotRequired[pulumi.Input[Optional['WorkflowStepType']]]
 
 @pulumi.input_type
 class WorkflowStepArgs:
     def __init__(__self__, *,
-                 copy_step_details: Optional[pulumi.Input['WorkflowStepCopyStepDetailsPropertiesArgs']] = None,
-                 custom_step_details: Optional[pulumi.Input['WorkflowStepCustomStepDetailsPropertiesArgs']] = None,
-                 decrypt_step_details: Optional[pulumi.Input['WorkflowStepDecryptStepDetailsPropertiesArgs']] = None,
-                 delete_step_details: Optional[pulumi.Input['WorkflowStepDeleteStepDetailsPropertiesArgs']] = None,
-                 tag_step_details: Optional[pulumi.Input['WorkflowStepTagStepDetailsPropertiesArgs']] = None,
-                 type: Optional[pulumi.Input['WorkflowStepType']] = None):
+                 copy_step_details: pulumi.Input[Optional['WorkflowStepCopyStepDetailsPropertiesArgs']] = None,
+                 custom_step_details: pulumi.Input[Optional['WorkflowStepCustomStepDetailsPropertiesArgs']] = None,
+                 decrypt_step_details: pulumi.Input[Optional['WorkflowStepDecryptStepDetailsPropertiesArgs']] = None,
+                 delete_step_details: pulumi.Input[Optional['WorkflowStepDeleteStepDetailsPropertiesArgs']] = None,
+                 tag_step_details: pulumi.Input[Optional['WorkflowStepTagStepDetailsPropertiesArgs']] = None,
+                 type: pulumi.Input[Optional['WorkflowStepType']] = None):
         """
         The basic building block of a workflow.
 
@@ -2339,71 +2339,71 @@ class WorkflowStepArgs:
 
     @_builtins.property
     @pulumi.getter(name="copyStepDetails")
-    def copy_step_details(self) -> Optional[pulumi.Input['WorkflowStepCopyStepDetailsPropertiesArgs']]:
+    def copy_step_details(self) -> pulumi.Input[Optional['WorkflowStepCopyStepDetailsPropertiesArgs']]:
         """
         Details for a step that performs a file copy.
         """
         return pulumi.get(self, "copy_step_details")
 
     @copy_step_details.setter
-    def copy_step_details(self, value: Optional[pulumi.Input['WorkflowStepCopyStepDetailsPropertiesArgs']]):
+    def copy_step_details(self, value: pulumi.Input[Optional['WorkflowStepCopyStepDetailsPropertiesArgs']]):
         pulumi.set(self, "copy_step_details", value)
 
     @_builtins.property
     @pulumi.getter(name="customStepDetails")
-    def custom_step_details(self) -> Optional[pulumi.Input['WorkflowStepCustomStepDetailsPropertiesArgs']]:
+    def custom_step_details(self) -> pulumi.Input[Optional['WorkflowStepCustomStepDetailsPropertiesArgs']]:
         """
         Details for a step that invokes a lambda function.
         """
         return pulumi.get(self, "custom_step_details")
 
     @custom_step_details.setter
-    def custom_step_details(self, value: Optional[pulumi.Input['WorkflowStepCustomStepDetailsPropertiesArgs']]):
+    def custom_step_details(self, value: pulumi.Input[Optional['WorkflowStepCustomStepDetailsPropertiesArgs']]):
         pulumi.set(self, "custom_step_details", value)
 
     @_builtins.property
     @pulumi.getter(name="decryptStepDetails")
-    def decrypt_step_details(self) -> Optional[pulumi.Input['WorkflowStepDecryptStepDetailsPropertiesArgs']]:
+    def decrypt_step_details(self) -> pulumi.Input[Optional['WorkflowStepDecryptStepDetailsPropertiesArgs']]:
         """
         Details for a step that performs a file decryption.
         """
         return pulumi.get(self, "decrypt_step_details")
 
     @decrypt_step_details.setter
-    def decrypt_step_details(self, value: Optional[pulumi.Input['WorkflowStepDecryptStepDetailsPropertiesArgs']]):
+    def decrypt_step_details(self, value: pulumi.Input[Optional['WorkflowStepDecryptStepDetailsPropertiesArgs']]):
         pulumi.set(self, "decrypt_step_details", value)
 
     @_builtins.property
     @pulumi.getter(name="deleteStepDetails")
-    def delete_step_details(self) -> Optional[pulumi.Input['WorkflowStepDeleteStepDetailsPropertiesArgs']]:
+    def delete_step_details(self) -> pulumi.Input[Optional['WorkflowStepDeleteStepDetailsPropertiesArgs']]:
         """
         Details for a step that deletes the file.
         """
         return pulumi.get(self, "delete_step_details")
 
     @delete_step_details.setter
-    def delete_step_details(self, value: Optional[pulumi.Input['WorkflowStepDeleteStepDetailsPropertiesArgs']]):
+    def delete_step_details(self, value: pulumi.Input[Optional['WorkflowStepDeleteStepDetailsPropertiesArgs']]):
         pulumi.set(self, "delete_step_details", value)
 
     @_builtins.property
     @pulumi.getter(name="tagStepDetails")
-    def tag_step_details(self) -> Optional[pulumi.Input['WorkflowStepTagStepDetailsPropertiesArgs']]:
+    def tag_step_details(self) -> pulumi.Input[Optional['WorkflowStepTagStepDetailsPropertiesArgs']]:
         """
         Details for a step that creates one or more tags.
         """
         return pulumi.get(self, "tag_step_details")
 
     @tag_step_details.setter
-    def tag_step_details(self, value: Optional[pulumi.Input['WorkflowStepTagStepDetailsPropertiesArgs']]):
+    def tag_step_details(self, value: pulumi.Input[Optional['WorkflowStepTagStepDetailsPropertiesArgs']]):
         pulumi.set(self, "tag_step_details", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['WorkflowStepType']]:
+    def type(self) -> pulumi.Input[Optional['WorkflowStepType']]:
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['WorkflowStepType']]):
+    def type(self, value: pulumi.Input[Optional['WorkflowStepType']]):
         pulumi.set(self, "type", value)
 
 

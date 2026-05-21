@@ -153,7 +153,7 @@ def get_multi_region_cluster(multi_region_cluster_name: Optional[_builtins.str] 
         num_shards=pulumi.get(__ret__, 'num_shards'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_multi_region_cluster_output(multi_region_cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_multi_region_cluster_output(multi_region_cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMultiRegionClusterResult]:
     """
     The AWS::MemoryDB::Multi Region Cluster resource creates an Amazon MemoryDB Multi Region Cluster.

@@ -78,9 +78,9 @@ def get_custom_action_type(category: Optional[_builtins.str] = None,
     return AwaitableGetCustomActionTypeResult(
         id=pulumi.get(__ret__, 'id'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_custom_action_type_output(category: Optional[pulumi.Input[_builtins.str]] = None,
-                                  provider: Optional[pulumi.Input[_builtins.str]] = None,
-                                  version: Optional[pulumi.Input[_builtins.str]] = None,
+def get_custom_action_type_output(category: pulumi.Input[Optional[_builtins.str]] = None,
+                                  provider: pulumi.Input[Optional[_builtins.str]] = None,
+                                  version: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCustomActionTypeResult]:
     """
     The AWS::CodePipeline::CustomActionType resource creates a custom action for activities that aren't included in the CodePipeline default actions, such as running an internally developed build process or a test suite. You can use these custom actions in the stage of a pipeline.

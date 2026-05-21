@@ -199,9 +199,9 @@ def get_form(app_id: Optional[_builtins.str] = None,
         sectional_elements=pulumi.get(__ret__, 'sectional_elements'),
         style=pulumi.get(__ret__, 'style'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_form_output(app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                    environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                    id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_form_output(app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                    environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                    id: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFormResult]:
     """
     Definition of AWS::AmplifyUIBuilder::Form Resource Type

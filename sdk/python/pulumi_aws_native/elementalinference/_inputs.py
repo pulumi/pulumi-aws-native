@@ -29,22 +29,22 @@ __all__ = [
 ]
 
 class FeedClippingConfigArgsDict(TypedDict):
-    callback_metadata: NotRequired[pulumi.Input[_builtins.str]]
+    callback_metadata: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class FeedClippingConfigArgs:
     def __init__(__self__, *,
-                 callback_metadata: Optional[pulumi.Input[_builtins.str]] = None):
+                 callback_metadata: pulumi.Input[Optional[_builtins.str]] = None):
         if callback_metadata is not None:
             pulumi.set(__self__, "callback_metadata", callback_metadata)
 
     @_builtins.property
     @pulumi.getter(name="callbackMetadata")
-    def callback_metadata(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def callback_metadata(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "callback_metadata")
 
     @callback_metadata.setter
-    def callback_metadata(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def callback_metadata(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "callback_metadata", value)
 
 
@@ -61,7 +61,7 @@ class FeedGetOutputArgsDict(TypedDict):
     name: pulumi.Input[_builtins.str]
     output_config: pulumi.Input[Union['FeedOutputConfig0PropertiesArgsDict', 'FeedOutputConfig1PropertiesArgsDict']]
     status: pulumi.Input['FeedOutputStatus']
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class FeedGetOutputArgs:
@@ -69,7 +69,7 @@ class FeedGetOutputArgs:
                  name: pulumi.Input[_builtins.str],
                  output_config: pulumi.Input[Union['FeedOutputConfig0PropertiesArgs', 'FeedOutputConfig1PropertiesArgs']],
                  status: pulumi.Input['FeedOutputStatus'],
-                 description: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None):
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "output_config", output_config)
         pulumi.set(__self__, "status", status)
@@ -105,11 +105,11 @@ class FeedGetOutputArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
 

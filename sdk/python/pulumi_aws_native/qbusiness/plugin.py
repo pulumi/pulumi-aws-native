@@ -27,11 +27,11 @@ class PluginArgs:
                  auth_configuration: pulumi.Input[Union['PluginAuthConfiguration0PropertiesArgs', 'PluginAuthConfiguration1PropertiesArgs', 'PluginAuthConfiguration2PropertiesArgs']],
                  display_name: pulumi.Input[_builtins.str],
                  type: pulumi.Input['PluginType'],
-                 application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_plugin_configuration: Optional[pulumi.Input['PluginCustomPluginConfigurationArgs']] = None,
-                 server_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input['PluginState']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_plugin_configuration: pulumi.Input[Optional['PluginCustomPluginConfigurationArgs']] = None,
+                 server_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional['PluginState']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Plugin resource.
 
@@ -96,62 +96,62 @@ class PluginArgs:
 
     @_builtins.property
     @pulumi.getter(name="applicationId")
-    def application_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier of the application that will contain the plugin.
         """
         return pulumi.get(self, "application_id")
 
     @application_id.setter
-    def application_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_id", value)
 
     @_builtins.property
     @pulumi.getter(name="customPluginConfiguration")
-    def custom_plugin_configuration(self) -> Optional[pulumi.Input['PluginCustomPluginConfigurationArgs']]:
+    def custom_plugin_configuration(self) -> pulumi.Input[Optional['PluginCustomPluginConfigurationArgs']]:
         """
         Configuration information required to create a custom plugin.
         """
         return pulumi.get(self, "custom_plugin_configuration")
 
     @custom_plugin_configuration.setter
-    def custom_plugin_configuration(self, value: Optional[pulumi.Input['PluginCustomPluginConfigurationArgs']]):
+    def custom_plugin_configuration(self, value: pulumi.Input[Optional['PluginCustomPluginConfigurationArgs']]):
         pulumi.set(self, "custom_plugin_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="serverUrl")
-    def server_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def server_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The plugin server URL used for configuration.
         """
         return pulumi.get(self, "server_url")
 
     @server_url.setter
-    def server_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def server_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "server_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input['PluginState']]:
+    def state(self) -> pulumi.Input[Optional['PluginState']]:
         """
         The current status of the plugin.
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input['PluginState']]):
+    def state(self, value: pulumi.Input[Optional['PluginState']]):
         pulumi.set(self, "state", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A list of key-value pairs that identify or categorize the data source connector. You can also use tags to help control access to the data source connector. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -161,14 +161,14 @@ class Plugin(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 auth_configuration: Optional[pulumi.Input[Union[Union['PluginAuthConfiguration0PropertiesArgs', 'PluginAuthConfiguration0PropertiesArgsDict'], Union['PluginAuthConfiguration1PropertiesArgs', 'PluginAuthConfiguration1PropertiesArgsDict'], Union['PluginAuthConfiguration2PropertiesArgs', 'PluginAuthConfiguration2PropertiesArgsDict']]]] = None,
-                 custom_plugin_configuration: Optional[pulumi.Input[Union['PluginCustomPluginConfigurationArgs', 'PluginCustomPluginConfigurationArgsDict']]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input['PluginState']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 type: Optional[pulumi.Input['PluginType']] = None,
+                 application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 auth_configuration: pulumi.Input[Optional[Union[Union['PluginAuthConfiguration0PropertiesArgs', 'PluginAuthConfiguration0PropertiesArgsDict'], Union['PluginAuthConfiguration1PropertiesArgs', 'PluginAuthConfiguration1PropertiesArgsDict'], Union['PluginAuthConfiguration2PropertiesArgs', 'PluginAuthConfiguration2PropertiesArgsDict']]]] = None,
+                 custom_plugin_configuration: pulumi.Input[Optional[Union['PluginCustomPluginConfigurationArgs', 'PluginCustomPluginConfigurationArgsDict']]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional['PluginState']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 type: pulumi.Input[Optional['PluginType']] = None,
                  __props__=None):
         """
         Definition of AWS::QBusiness::Plugin Resource Type
@@ -210,14 +210,14 @@ class Plugin(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 auth_configuration: Optional[pulumi.Input[Union[Union['PluginAuthConfiguration0PropertiesArgs', 'PluginAuthConfiguration0PropertiesArgsDict'], Union['PluginAuthConfiguration1PropertiesArgs', 'PluginAuthConfiguration1PropertiesArgsDict'], Union['PluginAuthConfiguration2PropertiesArgs', 'PluginAuthConfiguration2PropertiesArgsDict']]]] = None,
-                 custom_plugin_configuration: Optional[pulumi.Input[Union['PluginCustomPluginConfigurationArgs', 'PluginCustomPluginConfigurationArgsDict']]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input['PluginState']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 type: Optional[pulumi.Input['PluginType']] = None,
+                 application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 auth_configuration: pulumi.Input[Optional[Union[Union['PluginAuthConfiguration0PropertiesArgs', 'PluginAuthConfiguration0PropertiesArgsDict'], Union['PluginAuthConfiguration1PropertiesArgs', 'PluginAuthConfiguration1PropertiesArgsDict'], Union['PluginAuthConfiguration2PropertiesArgs', 'PluginAuthConfiguration2PropertiesArgsDict']]]] = None,
+                 custom_plugin_configuration: pulumi.Input[Optional[Union['PluginCustomPluginConfigurationArgs', 'PluginCustomPluginConfigurationArgsDict']]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional['PluginState']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 type: pulumi.Input[Optional['PluginType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
