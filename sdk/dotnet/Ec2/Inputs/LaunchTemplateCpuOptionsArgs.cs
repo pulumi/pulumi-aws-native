@@ -29,6 +29,12 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         public Input<int>? CoreCount { get; set; }
 
         /// <summary>
+        /// Indicates whether the instance is enabled for nested virtualization.
+        /// </summary>
+        [Input("nestedVirtualization")]
+        public Input<Pulumi.AwsNative.Ec2.LaunchTemplateCpuOptionsNestedVirtualization>? NestedVirtualization { get; set; }
+
+        /// <summary>
         /// The number of threads per CPU core. To disable multithreading for the instance, specify a value of ``1``. Otherwise, specify the default value of ``2``.
         /// </summary>
         [Input("threadsPerCore")]

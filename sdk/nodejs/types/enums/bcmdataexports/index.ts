@@ -31,6 +31,8 @@ export type ExportOverwriteOption = (typeof ExportOverwriteOption)[keyof typeof 
 
 export const ExportS3OutputType = {
     Custom: "CUSTOM",
+    Athena: "ATHENA",
+    Redshift: "REDSHIFT",
 } as const;
 
 export type ExportS3OutputType = (typeof ExportS3OutputType)[keyof typeof ExportS3OutputType];

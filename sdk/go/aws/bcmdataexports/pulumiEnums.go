@@ -671,7 +671,9 @@ func (in *exportOverwriteOptionPtr) ToExportOverwriteOptionPtrOutputWithContext(
 type ExportS3OutputType string
 
 const (
-	ExportS3OutputTypeCustom = ExportS3OutputType("CUSTOM")
+	ExportS3OutputTypeCustom   = ExportS3OutputType("CUSTOM")
+	ExportS3OutputTypeAthena   = ExportS3OutputType("ATHENA")
+	ExportS3OutputTypeRedshift = ExportS3OutputType("REDSHIFT")
 )
 
 func (ExportS3OutputType) ElementType() reflect.Type {
@@ -797,6 +799,8 @@ func (o ExportS3OutputTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 // A concrete instance of `ExportS3OutputTypeInput` can be one of the following:
 //
 //	ExportS3OutputTypeCustom
+//	ExportS3OutputTypeAthena
+//	ExportS3OutputTypeRedshift
 type ExportS3OutputTypeInput interface {
 	pulumi.Input
 

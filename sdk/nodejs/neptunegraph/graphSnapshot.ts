@@ -48,7 +48,7 @@ export class GraphSnapshot extends pulumi.CustomResource {
     /**
      * The unique identifier of the Neptune Analytics graph to create the snapshot from.
      */
-    declare public readonly graphIdentifier: pulumi.Output<string | undefined>;
+    declare public readonly graphIdentifier: pulumi.Output<string>;
     /**
      * The ID of the KMS key used to encrypt and decrypt the snapshot.
      */
@@ -77,10 +77,13 @@ export class GraphSnapshot extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: GraphSnapshotArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: GraphSnapshotArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.graphIdentifier === undefined && !opts.urn) {
+                throw new Error("Missing required property 'graphIdentifier'");
+            }
             resourceInputs["graphIdentifier"] = args?.graphIdentifier;
             resourceInputs["snapshotName"] = args?.snapshotName;
             resourceInputs["tags"] = args?.tags;
@@ -113,7 +116,7 @@ export interface GraphSnapshotArgs {
     /**
      * The unique identifier of the Neptune Analytics graph to create the snapshot from.
      */
-    graphIdentifier?: pulumi.Input<string>;
+    graphIdentifier: pulumi.Input<string>;
     /**
      * The snapshot name.
      */

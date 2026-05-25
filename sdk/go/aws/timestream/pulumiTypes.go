@@ -21,12 +21,330 @@ type DatabaseTag struct {
 	Value *string `pulumi:"value"`
 }
 
+// The maintenance schedule for the InfluxDB cluster.
+type InfluxDbClusterMaintenanceSchedule struct {
+	// The preferred maintenance window in format ddd:HH:MM-ddd:HH:MM.
+	PreferredMaintenanceWindow string `pulumi:"preferredMaintenanceWindow"`
+	// The IANA timezone identifier for the maintenance schedule.
+	Timezone string `pulumi:"timezone"`
+}
+
+// InfluxDbClusterMaintenanceScheduleInput is an input type that accepts InfluxDbClusterMaintenanceScheduleArgs and InfluxDbClusterMaintenanceScheduleOutput values.
+// You can construct a concrete instance of `InfluxDbClusterMaintenanceScheduleInput` via:
+//
+//	InfluxDbClusterMaintenanceScheduleArgs{...}
+type InfluxDbClusterMaintenanceScheduleInput interface {
+	pulumi.Input
+
+	ToInfluxDbClusterMaintenanceScheduleOutput() InfluxDbClusterMaintenanceScheduleOutput
+	ToInfluxDbClusterMaintenanceScheduleOutputWithContext(context.Context) InfluxDbClusterMaintenanceScheduleOutput
+}
+
+// The maintenance schedule for the InfluxDB cluster.
+type InfluxDbClusterMaintenanceScheduleArgs struct {
+	// The preferred maintenance window in format ddd:HH:MM-ddd:HH:MM.
+	PreferredMaintenanceWindow pulumi.StringInput `pulumi:"preferredMaintenanceWindow"`
+	// The IANA timezone identifier for the maintenance schedule.
+	Timezone pulumi.StringInput `pulumi:"timezone"`
+}
+
+func (InfluxDbClusterMaintenanceScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InfluxDbClusterMaintenanceSchedule)(nil)).Elem()
+}
+
+func (i InfluxDbClusterMaintenanceScheduleArgs) ToInfluxDbClusterMaintenanceScheduleOutput() InfluxDbClusterMaintenanceScheduleOutput {
+	return i.ToInfluxDbClusterMaintenanceScheduleOutputWithContext(context.Background())
+}
+
+func (i InfluxDbClusterMaintenanceScheduleArgs) ToInfluxDbClusterMaintenanceScheduleOutputWithContext(ctx context.Context) InfluxDbClusterMaintenanceScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InfluxDbClusterMaintenanceScheduleOutput)
+}
+
+func (i InfluxDbClusterMaintenanceScheduleArgs) ToInfluxDbClusterMaintenanceSchedulePtrOutput() InfluxDbClusterMaintenanceSchedulePtrOutput {
+	return i.ToInfluxDbClusterMaintenanceSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i InfluxDbClusterMaintenanceScheduleArgs) ToInfluxDbClusterMaintenanceSchedulePtrOutputWithContext(ctx context.Context) InfluxDbClusterMaintenanceSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InfluxDbClusterMaintenanceScheduleOutput).ToInfluxDbClusterMaintenanceSchedulePtrOutputWithContext(ctx)
+}
+
+// InfluxDbClusterMaintenanceSchedulePtrInput is an input type that accepts InfluxDbClusterMaintenanceScheduleArgs, InfluxDbClusterMaintenanceSchedulePtr and InfluxDbClusterMaintenanceSchedulePtrOutput values.
+// You can construct a concrete instance of `InfluxDbClusterMaintenanceSchedulePtrInput` via:
+//
+//	        InfluxDbClusterMaintenanceScheduleArgs{...}
+//
+//	or:
+//
+//	        nil
+type InfluxDbClusterMaintenanceSchedulePtrInput interface {
+	pulumi.Input
+
+	ToInfluxDbClusterMaintenanceSchedulePtrOutput() InfluxDbClusterMaintenanceSchedulePtrOutput
+	ToInfluxDbClusterMaintenanceSchedulePtrOutputWithContext(context.Context) InfluxDbClusterMaintenanceSchedulePtrOutput
+}
+
+type influxDbClusterMaintenanceSchedulePtrType InfluxDbClusterMaintenanceScheduleArgs
+
+func InfluxDbClusterMaintenanceSchedulePtr(v *InfluxDbClusterMaintenanceScheduleArgs) InfluxDbClusterMaintenanceSchedulePtrInput {
+	return (*influxDbClusterMaintenanceSchedulePtrType)(v)
+}
+
+func (*influxDbClusterMaintenanceSchedulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InfluxDbClusterMaintenanceSchedule)(nil)).Elem()
+}
+
+func (i *influxDbClusterMaintenanceSchedulePtrType) ToInfluxDbClusterMaintenanceSchedulePtrOutput() InfluxDbClusterMaintenanceSchedulePtrOutput {
+	return i.ToInfluxDbClusterMaintenanceSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i *influxDbClusterMaintenanceSchedulePtrType) ToInfluxDbClusterMaintenanceSchedulePtrOutputWithContext(ctx context.Context) InfluxDbClusterMaintenanceSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InfluxDbClusterMaintenanceSchedulePtrOutput)
+}
+
+// The maintenance schedule for the InfluxDB cluster.
+type InfluxDbClusterMaintenanceScheduleOutput struct{ *pulumi.OutputState }
+
+func (InfluxDbClusterMaintenanceScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InfluxDbClusterMaintenanceSchedule)(nil)).Elem()
+}
+
+func (o InfluxDbClusterMaintenanceScheduleOutput) ToInfluxDbClusterMaintenanceScheduleOutput() InfluxDbClusterMaintenanceScheduleOutput {
+	return o
+}
+
+func (o InfluxDbClusterMaintenanceScheduleOutput) ToInfluxDbClusterMaintenanceScheduleOutputWithContext(ctx context.Context) InfluxDbClusterMaintenanceScheduleOutput {
+	return o
+}
+
+func (o InfluxDbClusterMaintenanceScheduleOutput) ToInfluxDbClusterMaintenanceSchedulePtrOutput() InfluxDbClusterMaintenanceSchedulePtrOutput {
+	return o.ToInfluxDbClusterMaintenanceSchedulePtrOutputWithContext(context.Background())
+}
+
+func (o InfluxDbClusterMaintenanceScheduleOutput) ToInfluxDbClusterMaintenanceSchedulePtrOutputWithContext(ctx context.Context) InfluxDbClusterMaintenanceSchedulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InfluxDbClusterMaintenanceSchedule) *InfluxDbClusterMaintenanceSchedule {
+		return &v
+	}).(InfluxDbClusterMaintenanceSchedulePtrOutput)
+}
+
+// The preferred maintenance window in format ddd:HH:MM-ddd:HH:MM.
+func (o InfluxDbClusterMaintenanceScheduleOutput) PreferredMaintenanceWindow() pulumi.StringOutput {
+	return o.ApplyT(func(v InfluxDbClusterMaintenanceSchedule) string { return v.PreferredMaintenanceWindow }).(pulumi.StringOutput)
+}
+
+// The IANA timezone identifier for the maintenance schedule.
+func (o InfluxDbClusterMaintenanceScheduleOutput) Timezone() pulumi.StringOutput {
+	return o.ApplyT(func(v InfluxDbClusterMaintenanceSchedule) string { return v.Timezone }).(pulumi.StringOutput)
+}
+
+type InfluxDbClusterMaintenanceSchedulePtrOutput struct{ *pulumi.OutputState }
+
+func (InfluxDbClusterMaintenanceSchedulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InfluxDbClusterMaintenanceSchedule)(nil)).Elem()
+}
+
+func (o InfluxDbClusterMaintenanceSchedulePtrOutput) ToInfluxDbClusterMaintenanceSchedulePtrOutput() InfluxDbClusterMaintenanceSchedulePtrOutput {
+	return o
+}
+
+func (o InfluxDbClusterMaintenanceSchedulePtrOutput) ToInfluxDbClusterMaintenanceSchedulePtrOutputWithContext(ctx context.Context) InfluxDbClusterMaintenanceSchedulePtrOutput {
+	return o
+}
+
+func (o InfluxDbClusterMaintenanceSchedulePtrOutput) Elem() InfluxDbClusterMaintenanceScheduleOutput {
+	return o.ApplyT(func(v *InfluxDbClusterMaintenanceSchedule) InfluxDbClusterMaintenanceSchedule {
+		if v != nil {
+			return *v
+		}
+		var ret InfluxDbClusterMaintenanceSchedule
+		return ret
+	}).(InfluxDbClusterMaintenanceScheduleOutput)
+}
+
+// The preferred maintenance window in format ddd:HH:MM-ddd:HH:MM.
+func (o InfluxDbClusterMaintenanceSchedulePtrOutput) PreferredMaintenanceWindow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InfluxDbClusterMaintenanceSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PreferredMaintenanceWindow
+	}).(pulumi.StringPtrOutput)
+}
+
+// The IANA timezone identifier for the maintenance schedule.
+func (o InfluxDbClusterMaintenanceSchedulePtrOutput) Timezone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InfluxDbClusterMaintenanceSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Timezone
+	}).(pulumi.StringPtrOutput)
+}
+
 // A key-value pair to associate with a resource.
 type InfluxDbClusterTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Key string `pulumi:"key"`
 	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value *string `pulumi:"value"`
+}
+
+// The maintenance schedule for the InfluxDB instance.
+type InfluxDbInstanceMaintenanceSchedule struct {
+	// The preferred maintenance window in format ddd:HH:MM-ddd:HH:MM.
+	PreferredMaintenanceWindow string `pulumi:"preferredMaintenanceWindow"`
+	// The IANA timezone identifier for the maintenance schedule.
+	Timezone string `pulumi:"timezone"`
+}
+
+// InfluxDbInstanceMaintenanceScheduleInput is an input type that accepts InfluxDbInstanceMaintenanceScheduleArgs and InfluxDbInstanceMaintenanceScheduleOutput values.
+// You can construct a concrete instance of `InfluxDbInstanceMaintenanceScheduleInput` via:
+//
+//	InfluxDbInstanceMaintenanceScheduleArgs{...}
+type InfluxDbInstanceMaintenanceScheduleInput interface {
+	pulumi.Input
+
+	ToInfluxDbInstanceMaintenanceScheduleOutput() InfluxDbInstanceMaintenanceScheduleOutput
+	ToInfluxDbInstanceMaintenanceScheduleOutputWithContext(context.Context) InfluxDbInstanceMaintenanceScheduleOutput
+}
+
+// The maintenance schedule for the InfluxDB instance.
+type InfluxDbInstanceMaintenanceScheduleArgs struct {
+	// The preferred maintenance window in format ddd:HH:MM-ddd:HH:MM.
+	PreferredMaintenanceWindow pulumi.StringInput `pulumi:"preferredMaintenanceWindow"`
+	// The IANA timezone identifier for the maintenance schedule.
+	Timezone pulumi.StringInput `pulumi:"timezone"`
+}
+
+func (InfluxDbInstanceMaintenanceScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InfluxDbInstanceMaintenanceSchedule)(nil)).Elem()
+}
+
+func (i InfluxDbInstanceMaintenanceScheduleArgs) ToInfluxDbInstanceMaintenanceScheduleOutput() InfluxDbInstanceMaintenanceScheduleOutput {
+	return i.ToInfluxDbInstanceMaintenanceScheduleOutputWithContext(context.Background())
+}
+
+func (i InfluxDbInstanceMaintenanceScheduleArgs) ToInfluxDbInstanceMaintenanceScheduleOutputWithContext(ctx context.Context) InfluxDbInstanceMaintenanceScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InfluxDbInstanceMaintenanceScheduleOutput)
+}
+
+func (i InfluxDbInstanceMaintenanceScheduleArgs) ToInfluxDbInstanceMaintenanceSchedulePtrOutput() InfluxDbInstanceMaintenanceSchedulePtrOutput {
+	return i.ToInfluxDbInstanceMaintenanceSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i InfluxDbInstanceMaintenanceScheduleArgs) ToInfluxDbInstanceMaintenanceSchedulePtrOutputWithContext(ctx context.Context) InfluxDbInstanceMaintenanceSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InfluxDbInstanceMaintenanceScheduleOutput).ToInfluxDbInstanceMaintenanceSchedulePtrOutputWithContext(ctx)
+}
+
+// InfluxDbInstanceMaintenanceSchedulePtrInput is an input type that accepts InfluxDbInstanceMaintenanceScheduleArgs, InfluxDbInstanceMaintenanceSchedulePtr and InfluxDbInstanceMaintenanceSchedulePtrOutput values.
+// You can construct a concrete instance of `InfluxDbInstanceMaintenanceSchedulePtrInput` via:
+//
+//	        InfluxDbInstanceMaintenanceScheduleArgs{...}
+//
+//	or:
+//
+//	        nil
+type InfluxDbInstanceMaintenanceSchedulePtrInput interface {
+	pulumi.Input
+
+	ToInfluxDbInstanceMaintenanceSchedulePtrOutput() InfluxDbInstanceMaintenanceSchedulePtrOutput
+	ToInfluxDbInstanceMaintenanceSchedulePtrOutputWithContext(context.Context) InfluxDbInstanceMaintenanceSchedulePtrOutput
+}
+
+type influxDbInstanceMaintenanceSchedulePtrType InfluxDbInstanceMaintenanceScheduleArgs
+
+func InfluxDbInstanceMaintenanceSchedulePtr(v *InfluxDbInstanceMaintenanceScheduleArgs) InfluxDbInstanceMaintenanceSchedulePtrInput {
+	return (*influxDbInstanceMaintenanceSchedulePtrType)(v)
+}
+
+func (*influxDbInstanceMaintenanceSchedulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InfluxDbInstanceMaintenanceSchedule)(nil)).Elem()
+}
+
+func (i *influxDbInstanceMaintenanceSchedulePtrType) ToInfluxDbInstanceMaintenanceSchedulePtrOutput() InfluxDbInstanceMaintenanceSchedulePtrOutput {
+	return i.ToInfluxDbInstanceMaintenanceSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i *influxDbInstanceMaintenanceSchedulePtrType) ToInfluxDbInstanceMaintenanceSchedulePtrOutputWithContext(ctx context.Context) InfluxDbInstanceMaintenanceSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InfluxDbInstanceMaintenanceSchedulePtrOutput)
+}
+
+// The maintenance schedule for the InfluxDB instance.
+type InfluxDbInstanceMaintenanceScheduleOutput struct{ *pulumi.OutputState }
+
+func (InfluxDbInstanceMaintenanceScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InfluxDbInstanceMaintenanceSchedule)(nil)).Elem()
+}
+
+func (o InfluxDbInstanceMaintenanceScheduleOutput) ToInfluxDbInstanceMaintenanceScheduleOutput() InfluxDbInstanceMaintenanceScheduleOutput {
+	return o
+}
+
+func (o InfluxDbInstanceMaintenanceScheduleOutput) ToInfluxDbInstanceMaintenanceScheduleOutputWithContext(ctx context.Context) InfluxDbInstanceMaintenanceScheduleOutput {
+	return o
+}
+
+func (o InfluxDbInstanceMaintenanceScheduleOutput) ToInfluxDbInstanceMaintenanceSchedulePtrOutput() InfluxDbInstanceMaintenanceSchedulePtrOutput {
+	return o.ToInfluxDbInstanceMaintenanceSchedulePtrOutputWithContext(context.Background())
+}
+
+func (o InfluxDbInstanceMaintenanceScheduleOutput) ToInfluxDbInstanceMaintenanceSchedulePtrOutputWithContext(ctx context.Context) InfluxDbInstanceMaintenanceSchedulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InfluxDbInstanceMaintenanceSchedule) *InfluxDbInstanceMaintenanceSchedule {
+		return &v
+	}).(InfluxDbInstanceMaintenanceSchedulePtrOutput)
+}
+
+// The preferred maintenance window in format ddd:HH:MM-ddd:HH:MM.
+func (o InfluxDbInstanceMaintenanceScheduleOutput) PreferredMaintenanceWindow() pulumi.StringOutput {
+	return o.ApplyT(func(v InfluxDbInstanceMaintenanceSchedule) string { return v.PreferredMaintenanceWindow }).(pulumi.StringOutput)
+}
+
+// The IANA timezone identifier for the maintenance schedule.
+func (o InfluxDbInstanceMaintenanceScheduleOutput) Timezone() pulumi.StringOutput {
+	return o.ApplyT(func(v InfluxDbInstanceMaintenanceSchedule) string { return v.Timezone }).(pulumi.StringOutput)
+}
+
+type InfluxDbInstanceMaintenanceSchedulePtrOutput struct{ *pulumi.OutputState }
+
+func (InfluxDbInstanceMaintenanceSchedulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InfluxDbInstanceMaintenanceSchedule)(nil)).Elem()
+}
+
+func (o InfluxDbInstanceMaintenanceSchedulePtrOutput) ToInfluxDbInstanceMaintenanceSchedulePtrOutput() InfluxDbInstanceMaintenanceSchedulePtrOutput {
+	return o
+}
+
+func (o InfluxDbInstanceMaintenanceSchedulePtrOutput) ToInfluxDbInstanceMaintenanceSchedulePtrOutputWithContext(ctx context.Context) InfluxDbInstanceMaintenanceSchedulePtrOutput {
+	return o
+}
+
+func (o InfluxDbInstanceMaintenanceSchedulePtrOutput) Elem() InfluxDbInstanceMaintenanceScheduleOutput {
+	return o.ApplyT(func(v *InfluxDbInstanceMaintenanceSchedule) InfluxDbInstanceMaintenanceSchedule {
+		if v != nil {
+			return *v
+		}
+		var ret InfluxDbInstanceMaintenanceSchedule
+		return ret
+	}).(InfluxDbInstanceMaintenanceScheduleOutput)
+}
+
+// The preferred maintenance window in format ddd:HH:MM-ddd:HH:MM.
+func (o InfluxDbInstanceMaintenanceSchedulePtrOutput) PreferredMaintenanceWindow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InfluxDbInstanceMaintenanceSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PreferredMaintenanceWindow
+	}).(pulumi.StringPtrOutput)
+}
+
+// The IANA timezone identifier for the maintenance schedule.
+func (o InfluxDbInstanceMaintenanceSchedulePtrOutput) Timezone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InfluxDbInstanceMaintenanceSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Timezone
+	}).(pulumi.StringPtrOutput)
 }
 
 // A key-value pair to associate with a resource.
@@ -2466,6 +2784,10 @@ type TableTag struct {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*InfluxDbClusterMaintenanceScheduleInput)(nil)).Elem(), InfluxDbClusterMaintenanceScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InfluxDbClusterMaintenanceSchedulePtrInput)(nil)).Elem(), InfluxDbClusterMaintenanceScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InfluxDbInstanceMaintenanceScheduleInput)(nil)).Elem(), InfluxDbInstanceMaintenanceScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InfluxDbInstanceMaintenanceSchedulePtrInput)(nil)).Elem(), InfluxDbInstanceMaintenanceScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogDeliveryConfigurationPropertiesInput)(nil)).Elem(), LogDeliveryConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogDeliveryConfigurationPropertiesPtrInput)(nil)).Elem(), LogDeliveryConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesInput)(nil)).Elem(), LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesArgs{})
@@ -2499,6 +2821,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaPropertiesPtrInput)(nil)).Elem(), SchemaPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TablePartitionKeyInput)(nil)).Elem(), TablePartitionKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TablePartitionKeyArrayInput)(nil)).Elem(), TablePartitionKeyArray{})
+	pulumi.RegisterOutputType(InfluxDbClusterMaintenanceScheduleOutput{})
+	pulumi.RegisterOutputType(InfluxDbClusterMaintenanceSchedulePtrOutput{})
+	pulumi.RegisterOutputType(InfluxDbInstanceMaintenanceScheduleOutput{})
+	pulumi.RegisterOutputType(InfluxDbInstanceMaintenanceSchedulePtrOutput{})
 	pulumi.RegisterOutputType(LogDeliveryConfigurationPropertiesOutput{})
 	pulumi.RegisterOutputType(LogDeliveryConfigurationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesOutput{})

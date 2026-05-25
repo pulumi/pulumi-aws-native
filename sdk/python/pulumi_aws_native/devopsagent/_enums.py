@@ -38,3 +38,4 @@ class ServiceType(_builtins.str, Enum):
     PAGERDUTY = "pagerduty"
     AZUREIDENTITY = "azureidentity"
     MCPSERVERSIGV4 = "mcpserversigv4"
+    MCPSERVERGRAFANA = "mcpservergrafana"

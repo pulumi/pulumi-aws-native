@@ -88,6 +88,12 @@ namespace Pulumi.AwsNative.Timestream
         public Output<Outputs.LogDeliveryConfigurationProperties?> LogDeliveryConfiguration { get; private set; } = null!;
 
         /// <summary>
+        /// The maintenance schedule for the InfluxDB instance.
+        /// </summary>
+        [Output("maintenanceSchedule")]
+        public Output<Outputs.InfluxDbInstanceMaintenanceSchedule?> MaintenanceSchedule { get; private set; } = null!;
+
+        /// <summary>
         /// The unique name that is associated with the InfluxDB instance.
         /// </summary>
         [Output("name")]
@@ -98,6 +104,12 @@ namespace Pulumi.AwsNative.Timestream
         /// </summary>
         [Output("networkType")]
         public Output<Pulumi.AwsNative.Timestream.InfluxDbInstanceNetworkType?> NetworkType { get; private set; } = null!;
+
+        /// <summary>
+        /// The timestamp of the next scheduled maintenance event.
+        /// </summary>
+        [Output("nextMaintenanceTime")]
+        public Output<string> NextMaintenanceTime { get; private set; } = null!;
 
         /// <summary>
         /// The organization for the InfluxDB instance.
@@ -257,6 +269,12 @@ namespace Pulumi.AwsNative.Timestream
         /// </summary>
         [Input("logDeliveryConfiguration")]
         public Input<Inputs.LogDeliveryConfigurationPropertiesArgs>? LogDeliveryConfiguration { get; set; }
+
+        /// <summary>
+        /// The maintenance schedule for the InfluxDB instance.
+        /// </summary>
+        [Input("maintenanceSchedule")]
+        public Input<Inputs.InfluxDbInstanceMaintenanceScheduleArgs>? MaintenanceSchedule { get; set; }
 
         /// <summary>
         /// The unique name that is associated with the InfluxDB instance.

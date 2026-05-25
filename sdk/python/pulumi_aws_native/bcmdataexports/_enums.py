@@ -41,3 +41,5 @@ class ExportOverwriteOption(_builtins.str, Enum):
 @pulumi.type_token("aws-native:bcmdataexports:ExportS3OutputType")
 class ExportS3OutputType(_builtins.str, Enum):
     CUSTOM = "CUSTOM"
+    ATHENA = "ATHENA"
+    REDSHIFT = "REDSHIFT"

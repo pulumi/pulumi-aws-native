@@ -51,7 +51,7 @@
   "primaryIdentifier" : [ "/properties/InstanceArn", "/properties/TargetId", "/properties/TargetType", "/properties/PermissionSetArn", "/properties/PrincipalType", "/properties/PrincipalId" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "sso:CreateAccountAssignment", "sso:DescribeAccountAssignmentCreationStatus", "sso:ListAccountAssignments", "iam:GetSAMLProvider", "iam:CreateSAMLProvider", "iam:AttachRolePolicy", "iam:PutRolePolicy", "iam:CreateRole", "iam:ListRolePolicies" ]
+      "permissions" : [ "sso:CreateAccountAssignment", "sso:DescribeAccountAssignmentCreationStatus", "sso:ListAccountAssignments", "iam:GetSAMLProvider", "iam:CreateSAMLProvider", "iam:UpdateSAMLProvider", "iam:AttachRolePolicy", "iam:PutRolePolicy", "iam:CreateRole", "iam:ListRolePolicies" ]
     },
     "read" : {
       "permissions" : [ "sso:ListAccountAssignments", "iam:GetSAMLProvider", "iam:ListRolePolicies" ]

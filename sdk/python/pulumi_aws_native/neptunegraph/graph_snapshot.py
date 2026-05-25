@@ -22,7 +22,7 @@ __all__ = ['GraphSnapshotArgs', 'GraphSnapshot']
 @pulumi.input_type
 class GraphSnapshotArgs:
     def __init__(__self__, *,
-                 graph_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+                 graph_identifier: pulumi.Input[_builtins.str],
                  snapshot_name: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
@@ -32,8 +32,7 @@ class GraphSnapshotArgs:
         :param pulumi.Input[_builtins.str] snapshot_name: The snapshot name.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        if graph_identifier is not None:
-            pulumi.set(__self__, "graph_identifier", graph_identifier)
+        pulumi.set(__self__, "graph_identifier", graph_identifier)
         if snapshot_name is not None:
             pulumi.set(__self__, "snapshot_name", snapshot_name)
         if tags is not None:
@@ -41,14 +40,14 @@ class GraphSnapshotArgs:
 
     @_builtins.property
     @pulumi.getter(name="graphIdentifier")
-    def graph_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def graph_identifier(self) -> pulumi.Input[_builtins.str]:
         """
         The unique identifier of the Neptune Analytics graph to create the snapshot from.
         """
         return pulumi.get(self, "graph_identifier")
 
     @graph_identifier.setter
-    def graph_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def graph_identifier(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "graph_identifier", value)
 
     @_builtins.property
@@ -100,7 +99,7 @@ class GraphSnapshot(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[GraphSnapshotArgs] = None,
+                 args: GraphSnapshotArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::NeptuneGraph::GraphSnapshot
@@ -133,6 +132,8 @@ class GraphSnapshot(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = GraphSnapshotArgs.__new__(GraphSnapshotArgs)
 
+            if graph_identifier is None and not opts.urn:
+                raise TypeError("Missing required property 'graph_identifier'")
             __props__.__dict__["graph_identifier"] = graph_identifier
             __props__.__dict__["snapshot_name"] = snapshot_name
             __props__.__dict__["tags"] = tags
@@ -193,7 +194,7 @@ class GraphSnapshot(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="graphIdentifier")
-    def graph_identifier(self) -> pulumi.Output[Optional[_builtins.str]]:
+    def graph_identifier(self) -> pulumi.Output[_builtins.str]:
         """
         The unique identifier of the Neptune Analytics graph to create the snapshot from.
         """

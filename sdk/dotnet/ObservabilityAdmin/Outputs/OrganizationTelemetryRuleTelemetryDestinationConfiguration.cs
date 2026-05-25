@@ -33,6 +33,10 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Outputs
         /// </summary>
         public readonly Outputs.OrganizationTelemetryRuleElbLoadBalancerLoggingParameters? ElbLoadBalancerLoggingParameters;
         /// <summary>
+        /// Parameters for log delivery configuration
+        /// </summary>
+        public readonly Outputs.OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties? LogDeliveryParameters;
+        /// <summary>
         /// The number of days to retain the telemetry data in the destination.
         /// </summary>
         public readonly int? RetentionInDays;
@@ -55,6 +59,8 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Outputs
 
             Outputs.OrganizationTelemetryRuleElbLoadBalancerLoggingParameters? elbLoadBalancerLoggingParameters,
 
+            Outputs.OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties? logDeliveryParameters,
+
             int? retentionInDays,
 
             Outputs.OrganizationTelemetryRuleVpcFlowLogParameters? vpcFlowLogParameters,
@@ -65,6 +71,7 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Outputs
             DestinationPattern = destinationPattern;
             DestinationType = destinationType;
             ElbLoadBalancerLoggingParameters = elbLoadBalancerLoggingParameters;
+            LogDeliveryParameters = logDeliveryParameters;
             RetentionInDays = retentionInDays;
             VpcFlowLogParameters = vpcFlowLogParameters;
             WafLoggingParameters = wafLoggingParameters;

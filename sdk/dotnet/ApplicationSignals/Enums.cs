@@ -135,6 +135,35 @@ namespace Pulumi.AwsNative.ApplicationSignals
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct ServiceLevelObjectiveSelectionType : IEquatable<ServiceLevelObjectiveSelectionType>
+    {
+        private readonly string _value;
+
+        private ServiceLevelObjectiveSelectionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ServiceLevelObjectiveSelectionType Explicit { get; } = new ServiceLevelObjectiveSelectionType("EXPLICIT");
+        public static ServiceLevelObjectiveSelectionType Prefix { get; } = new ServiceLevelObjectiveSelectionType("PREFIX");
+        public static ServiceLevelObjectiveSelectionType Regex { get; } = new ServiceLevelObjectiveSelectionType("REGEX");
+
+        public static bool operator ==(ServiceLevelObjectiveSelectionType left, ServiceLevelObjectiveSelectionType right) => left.Equals(right);
+        public static bool operator !=(ServiceLevelObjectiveSelectionType left, ServiceLevelObjectiveSelectionType right) => !left.Equals(right);
+
+        public static explicit operator string(ServiceLevelObjectiveSelectionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ServiceLevelObjectiveSelectionType other && Equals(other);
+        public bool Equals(ServiceLevelObjectiveSelectionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// The arithmetic operation used when comparing the specified metric to the threshold.
     /// </summary>

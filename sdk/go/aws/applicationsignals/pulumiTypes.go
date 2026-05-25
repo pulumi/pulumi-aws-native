@@ -407,6 +407,252 @@ func (o ServiceLevelObjectiveCalendarIntervalPtrOutput) StartTime() pulumi.IntPt
 	}).(pulumi.IntPtrOutput)
 }
 
+type ServiceLevelObjectiveCompositeSliComponent struct {
+	OperationName string `pulumi:"operationName"`
+}
+
+// ServiceLevelObjectiveCompositeSliComponentInput is an input type that accepts ServiceLevelObjectiveCompositeSliComponentArgs and ServiceLevelObjectiveCompositeSliComponentOutput values.
+// You can construct a concrete instance of `ServiceLevelObjectiveCompositeSliComponentInput` via:
+//
+//	ServiceLevelObjectiveCompositeSliComponentArgs{...}
+type ServiceLevelObjectiveCompositeSliComponentInput interface {
+	pulumi.Input
+
+	ToServiceLevelObjectiveCompositeSliComponentOutput() ServiceLevelObjectiveCompositeSliComponentOutput
+	ToServiceLevelObjectiveCompositeSliComponentOutputWithContext(context.Context) ServiceLevelObjectiveCompositeSliComponentOutput
+}
+
+type ServiceLevelObjectiveCompositeSliComponentArgs struct {
+	OperationName pulumi.StringInput `pulumi:"operationName"`
+}
+
+func (ServiceLevelObjectiveCompositeSliComponentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelObjectiveCompositeSliComponent)(nil)).Elem()
+}
+
+func (i ServiceLevelObjectiveCompositeSliComponentArgs) ToServiceLevelObjectiveCompositeSliComponentOutput() ServiceLevelObjectiveCompositeSliComponentOutput {
+	return i.ToServiceLevelObjectiveCompositeSliComponentOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelObjectiveCompositeSliComponentArgs) ToServiceLevelObjectiveCompositeSliComponentOutputWithContext(ctx context.Context) ServiceLevelObjectiveCompositeSliComponentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveCompositeSliComponentOutput)
+}
+
+// ServiceLevelObjectiveCompositeSliComponentArrayInput is an input type that accepts ServiceLevelObjectiveCompositeSliComponentArray and ServiceLevelObjectiveCompositeSliComponentArrayOutput values.
+// You can construct a concrete instance of `ServiceLevelObjectiveCompositeSliComponentArrayInput` via:
+//
+//	ServiceLevelObjectiveCompositeSliComponentArray{ ServiceLevelObjectiveCompositeSliComponentArgs{...} }
+type ServiceLevelObjectiveCompositeSliComponentArrayInput interface {
+	pulumi.Input
+
+	ToServiceLevelObjectiveCompositeSliComponentArrayOutput() ServiceLevelObjectiveCompositeSliComponentArrayOutput
+	ToServiceLevelObjectiveCompositeSliComponentArrayOutputWithContext(context.Context) ServiceLevelObjectiveCompositeSliComponentArrayOutput
+}
+
+type ServiceLevelObjectiveCompositeSliComponentArray []ServiceLevelObjectiveCompositeSliComponentInput
+
+func (ServiceLevelObjectiveCompositeSliComponentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceLevelObjectiveCompositeSliComponent)(nil)).Elem()
+}
+
+func (i ServiceLevelObjectiveCompositeSliComponentArray) ToServiceLevelObjectiveCompositeSliComponentArrayOutput() ServiceLevelObjectiveCompositeSliComponentArrayOutput {
+	return i.ToServiceLevelObjectiveCompositeSliComponentArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelObjectiveCompositeSliComponentArray) ToServiceLevelObjectiveCompositeSliComponentArrayOutputWithContext(ctx context.Context) ServiceLevelObjectiveCompositeSliComponentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveCompositeSliComponentArrayOutput)
+}
+
+type ServiceLevelObjectiveCompositeSliComponentOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelObjectiveCompositeSliComponentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelObjectiveCompositeSliComponent)(nil)).Elem()
+}
+
+func (o ServiceLevelObjectiveCompositeSliComponentOutput) ToServiceLevelObjectiveCompositeSliComponentOutput() ServiceLevelObjectiveCompositeSliComponentOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveCompositeSliComponentOutput) ToServiceLevelObjectiveCompositeSliComponentOutputWithContext(ctx context.Context) ServiceLevelObjectiveCompositeSliComponentOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveCompositeSliComponentOutput) OperationName() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceLevelObjectiveCompositeSliComponent) string { return v.OperationName }).(pulumi.StringOutput)
+}
+
+type ServiceLevelObjectiveCompositeSliComponentArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelObjectiveCompositeSliComponentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceLevelObjectiveCompositeSliComponent)(nil)).Elem()
+}
+
+func (o ServiceLevelObjectiveCompositeSliComponentArrayOutput) ToServiceLevelObjectiveCompositeSliComponentArrayOutput() ServiceLevelObjectiveCompositeSliComponentArrayOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveCompositeSliComponentArrayOutput) ToServiceLevelObjectiveCompositeSliComponentArrayOutputWithContext(ctx context.Context) ServiceLevelObjectiveCompositeSliComponentArrayOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveCompositeSliComponentArrayOutput) Index(i pulumi.IntInput) ServiceLevelObjectiveCompositeSliComponentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceLevelObjectiveCompositeSliComponent {
+		return vs[0].([]ServiceLevelObjectiveCompositeSliComponent)[vs[1].(int)]
+	}).(ServiceLevelObjectiveCompositeSliComponentOutput)
+}
+
+type ServiceLevelObjectiveCompositeSliConfig struct {
+	CompositeSliComponents []ServiceLevelObjectiveCompositeSliComponent `pulumi:"compositeSliComponents"`
+	SelectionConfig        ServiceLevelObjectiveSelectionConfig         `pulumi:"selectionConfig"`
+}
+
+// ServiceLevelObjectiveCompositeSliConfigInput is an input type that accepts ServiceLevelObjectiveCompositeSliConfigArgs and ServiceLevelObjectiveCompositeSliConfigOutput values.
+// You can construct a concrete instance of `ServiceLevelObjectiveCompositeSliConfigInput` via:
+//
+//	ServiceLevelObjectiveCompositeSliConfigArgs{...}
+type ServiceLevelObjectiveCompositeSliConfigInput interface {
+	pulumi.Input
+
+	ToServiceLevelObjectiveCompositeSliConfigOutput() ServiceLevelObjectiveCompositeSliConfigOutput
+	ToServiceLevelObjectiveCompositeSliConfigOutputWithContext(context.Context) ServiceLevelObjectiveCompositeSliConfigOutput
+}
+
+type ServiceLevelObjectiveCompositeSliConfigArgs struct {
+	CompositeSliComponents ServiceLevelObjectiveCompositeSliComponentArrayInput `pulumi:"compositeSliComponents"`
+	SelectionConfig        ServiceLevelObjectiveSelectionConfigInput            `pulumi:"selectionConfig"`
+}
+
+func (ServiceLevelObjectiveCompositeSliConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelObjectiveCompositeSliConfig)(nil)).Elem()
+}
+
+func (i ServiceLevelObjectiveCompositeSliConfigArgs) ToServiceLevelObjectiveCompositeSliConfigOutput() ServiceLevelObjectiveCompositeSliConfigOutput {
+	return i.ToServiceLevelObjectiveCompositeSliConfigOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelObjectiveCompositeSliConfigArgs) ToServiceLevelObjectiveCompositeSliConfigOutputWithContext(ctx context.Context) ServiceLevelObjectiveCompositeSliConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveCompositeSliConfigOutput)
+}
+
+func (i ServiceLevelObjectiveCompositeSliConfigArgs) ToServiceLevelObjectiveCompositeSliConfigPtrOutput() ServiceLevelObjectiveCompositeSliConfigPtrOutput {
+	return i.ToServiceLevelObjectiveCompositeSliConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelObjectiveCompositeSliConfigArgs) ToServiceLevelObjectiveCompositeSliConfigPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveCompositeSliConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveCompositeSliConfigOutput).ToServiceLevelObjectiveCompositeSliConfigPtrOutputWithContext(ctx)
+}
+
+// ServiceLevelObjectiveCompositeSliConfigPtrInput is an input type that accepts ServiceLevelObjectiveCompositeSliConfigArgs, ServiceLevelObjectiveCompositeSliConfigPtr and ServiceLevelObjectiveCompositeSliConfigPtrOutput values.
+// You can construct a concrete instance of `ServiceLevelObjectiveCompositeSliConfigPtrInput` via:
+//
+//	        ServiceLevelObjectiveCompositeSliConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceLevelObjectiveCompositeSliConfigPtrInput interface {
+	pulumi.Input
+
+	ToServiceLevelObjectiveCompositeSliConfigPtrOutput() ServiceLevelObjectiveCompositeSliConfigPtrOutput
+	ToServiceLevelObjectiveCompositeSliConfigPtrOutputWithContext(context.Context) ServiceLevelObjectiveCompositeSliConfigPtrOutput
+}
+
+type serviceLevelObjectiveCompositeSliConfigPtrType ServiceLevelObjectiveCompositeSliConfigArgs
+
+func ServiceLevelObjectiveCompositeSliConfigPtr(v *ServiceLevelObjectiveCompositeSliConfigArgs) ServiceLevelObjectiveCompositeSliConfigPtrInput {
+	return (*serviceLevelObjectiveCompositeSliConfigPtrType)(v)
+}
+
+func (*serviceLevelObjectiveCompositeSliConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLevelObjectiveCompositeSliConfig)(nil)).Elem()
+}
+
+func (i *serviceLevelObjectiveCompositeSliConfigPtrType) ToServiceLevelObjectiveCompositeSliConfigPtrOutput() ServiceLevelObjectiveCompositeSliConfigPtrOutput {
+	return i.ToServiceLevelObjectiveCompositeSliConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceLevelObjectiveCompositeSliConfigPtrType) ToServiceLevelObjectiveCompositeSliConfigPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveCompositeSliConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveCompositeSliConfigPtrOutput)
+}
+
+type ServiceLevelObjectiveCompositeSliConfigOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelObjectiveCompositeSliConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelObjectiveCompositeSliConfig)(nil)).Elem()
+}
+
+func (o ServiceLevelObjectiveCompositeSliConfigOutput) ToServiceLevelObjectiveCompositeSliConfigOutput() ServiceLevelObjectiveCompositeSliConfigOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveCompositeSliConfigOutput) ToServiceLevelObjectiveCompositeSliConfigOutputWithContext(ctx context.Context) ServiceLevelObjectiveCompositeSliConfigOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveCompositeSliConfigOutput) ToServiceLevelObjectiveCompositeSliConfigPtrOutput() ServiceLevelObjectiveCompositeSliConfigPtrOutput {
+	return o.ToServiceLevelObjectiveCompositeSliConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceLevelObjectiveCompositeSliConfigOutput) ToServiceLevelObjectiveCompositeSliConfigPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveCompositeSliConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceLevelObjectiveCompositeSliConfig) *ServiceLevelObjectiveCompositeSliConfig {
+		return &v
+	}).(ServiceLevelObjectiveCompositeSliConfigPtrOutput)
+}
+
+func (o ServiceLevelObjectiveCompositeSliConfigOutput) CompositeSliComponents() ServiceLevelObjectiveCompositeSliComponentArrayOutput {
+	return o.ApplyT(func(v ServiceLevelObjectiveCompositeSliConfig) []ServiceLevelObjectiveCompositeSliComponent {
+		return v.CompositeSliComponents
+	}).(ServiceLevelObjectiveCompositeSliComponentArrayOutput)
+}
+
+func (o ServiceLevelObjectiveCompositeSliConfigOutput) SelectionConfig() ServiceLevelObjectiveSelectionConfigOutput {
+	return o.ApplyT(func(v ServiceLevelObjectiveCompositeSliConfig) ServiceLevelObjectiveSelectionConfig {
+		return v.SelectionConfig
+	}).(ServiceLevelObjectiveSelectionConfigOutput)
+}
+
+type ServiceLevelObjectiveCompositeSliConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelObjectiveCompositeSliConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLevelObjectiveCompositeSliConfig)(nil)).Elem()
+}
+
+func (o ServiceLevelObjectiveCompositeSliConfigPtrOutput) ToServiceLevelObjectiveCompositeSliConfigPtrOutput() ServiceLevelObjectiveCompositeSliConfigPtrOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveCompositeSliConfigPtrOutput) ToServiceLevelObjectiveCompositeSliConfigPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveCompositeSliConfigPtrOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveCompositeSliConfigPtrOutput) Elem() ServiceLevelObjectiveCompositeSliConfigOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveCompositeSliConfig) ServiceLevelObjectiveCompositeSliConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceLevelObjectiveCompositeSliConfig
+		return ret
+	}).(ServiceLevelObjectiveCompositeSliConfigOutput)
+}
+
+func (o ServiceLevelObjectiveCompositeSliConfigPtrOutput) CompositeSliComponents() ServiceLevelObjectiveCompositeSliComponentArrayOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveCompositeSliConfig) []ServiceLevelObjectiveCompositeSliComponent {
+		if v == nil {
+			return nil
+		}
+		return v.CompositeSliComponents
+	}).(ServiceLevelObjectiveCompositeSliComponentArrayOutput)
+}
+
+func (o ServiceLevelObjectiveCompositeSliConfigPtrOutput) SelectionConfig() ServiceLevelObjectiveSelectionConfigPtrOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveCompositeSliConfig) *ServiceLevelObjectiveSelectionConfig {
+		if v == nil {
+			return nil
+		}
+		return &v.SelectionConfig
+	}).(ServiceLevelObjectiveSelectionConfigPtrOutput)
+}
+
 // Configuration for identifying a dependency and its operation
 type ServiceLevelObjectiveDependencyConfig struct {
 	// If this SLO is related to a metric collected by Application Signals, you must use this field to specify which dependency the SLO metric is related to.
@@ -1493,6 +1739,157 @@ func (o ServiceLevelObjectiveMetricDataQueryArrayOutput) Index(i pulumi.IntInput
 	}).(ServiceLevelObjectiveMetricDataQueryOutput)
 }
 
+// Configuration for identifying the source of metrics for non-Application Signals services
+type ServiceLevelObjectiveMetricSource struct {
+	MetricSourceAttributes    map[string]string `pulumi:"metricSourceAttributes"`
+	MetricSourceKeyAttributes map[string]string `pulumi:"metricSourceKeyAttributes"`
+}
+
+// ServiceLevelObjectiveMetricSourceInput is an input type that accepts ServiceLevelObjectiveMetricSourceArgs and ServiceLevelObjectiveMetricSourceOutput values.
+// You can construct a concrete instance of `ServiceLevelObjectiveMetricSourceInput` via:
+//
+//	ServiceLevelObjectiveMetricSourceArgs{...}
+type ServiceLevelObjectiveMetricSourceInput interface {
+	pulumi.Input
+
+	ToServiceLevelObjectiveMetricSourceOutput() ServiceLevelObjectiveMetricSourceOutput
+	ToServiceLevelObjectiveMetricSourceOutputWithContext(context.Context) ServiceLevelObjectiveMetricSourceOutput
+}
+
+// Configuration for identifying the source of metrics for non-Application Signals services
+type ServiceLevelObjectiveMetricSourceArgs struct {
+	MetricSourceAttributes    pulumi.StringMapInput `pulumi:"metricSourceAttributes"`
+	MetricSourceKeyAttributes pulumi.StringMapInput `pulumi:"metricSourceKeyAttributes"`
+}
+
+func (ServiceLevelObjectiveMetricSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelObjectiveMetricSource)(nil)).Elem()
+}
+
+func (i ServiceLevelObjectiveMetricSourceArgs) ToServiceLevelObjectiveMetricSourceOutput() ServiceLevelObjectiveMetricSourceOutput {
+	return i.ToServiceLevelObjectiveMetricSourceOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelObjectiveMetricSourceArgs) ToServiceLevelObjectiveMetricSourceOutputWithContext(ctx context.Context) ServiceLevelObjectiveMetricSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveMetricSourceOutput)
+}
+
+func (i ServiceLevelObjectiveMetricSourceArgs) ToServiceLevelObjectiveMetricSourcePtrOutput() ServiceLevelObjectiveMetricSourcePtrOutput {
+	return i.ToServiceLevelObjectiveMetricSourcePtrOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelObjectiveMetricSourceArgs) ToServiceLevelObjectiveMetricSourcePtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveMetricSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveMetricSourceOutput).ToServiceLevelObjectiveMetricSourcePtrOutputWithContext(ctx)
+}
+
+// ServiceLevelObjectiveMetricSourcePtrInput is an input type that accepts ServiceLevelObjectiveMetricSourceArgs, ServiceLevelObjectiveMetricSourcePtr and ServiceLevelObjectiveMetricSourcePtrOutput values.
+// You can construct a concrete instance of `ServiceLevelObjectiveMetricSourcePtrInput` via:
+//
+//	        ServiceLevelObjectiveMetricSourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceLevelObjectiveMetricSourcePtrInput interface {
+	pulumi.Input
+
+	ToServiceLevelObjectiveMetricSourcePtrOutput() ServiceLevelObjectiveMetricSourcePtrOutput
+	ToServiceLevelObjectiveMetricSourcePtrOutputWithContext(context.Context) ServiceLevelObjectiveMetricSourcePtrOutput
+}
+
+type serviceLevelObjectiveMetricSourcePtrType ServiceLevelObjectiveMetricSourceArgs
+
+func ServiceLevelObjectiveMetricSourcePtr(v *ServiceLevelObjectiveMetricSourceArgs) ServiceLevelObjectiveMetricSourcePtrInput {
+	return (*serviceLevelObjectiveMetricSourcePtrType)(v)
+}
+
+func (*serviceLevelObjectiveMetricSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLevelObjectiveMetricSource)(nil)).Elem()
+}
+
+func (i *serviceLevelObjectiveMetricSourcePtrType) ToServiceLevelObjectiveMetricSourcePtrOutput() ServiceLevelObjectiveMetricSourcePtrOutput {
+	return i.ToServiceLevelObjectiveMetricSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *serviceLevelObjectiveMetricSourcePtrType) ToServiceLevelObjectiveMetricSourcePtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveMetricSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveMetricSourcePtrOutput)
+}
+
+// Configuration for identifying the source of metrics for non-Application Signals services
+type ServiceLevelObjectiveMetricSourceOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelObjectiveMetricSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelObjectiveMetricSource)(nil)).Elem()
+}
+
+func (o ServiceLevelObjectiveMetricSourceOutput) ToServiceLevelObjectiveMetricSourceOutput() ServiceLevelObjectiveMetricSourceOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveMetricSourceOutput) ToServiceLevelObjectiveMetricSourceOutputWithContext(ctx context.Context) ServiceLevelObjectiveMetricSourceOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveMetricSourceOutput) ToServiceLevelObjectiveMetricSourcePtrOutput() ServiceLevelObjectiveMetricSourcePtrOutput {
+	return o.ToServiceLevelObjectiveMetricSourcePtrOutputWithContext(context.Background())
+}
+
+func (o ServiceLevelObjectiveMetricSourceOutput) ToServiceLevelObjectiveMetricSourcePtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveMetricSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceLevelObjectiveMetricSource) *ServiceLevelObjectiveMetricSource {
+		return &v
+	}).(ServiceLevelObjectiveMetricSourcePtrOutput)
+}
+
+func (o ServiceLevelObjectiveMetricSourceOutput) MetricSourceAttributes() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ServiceLevelObjectiveMetricSource) map[string]string { return v.MetricSourceAttributes }).(pulumi.StringMapOutput)
+}
+
+func (o ServiceLevelObjectiveMetricSourceOutput) MetricSourceKeyAttributes() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ServiceLevelObjectiveMetricSource) map[string]string { return v.MetricSourceKeyAttributes }).(pulumi.StringMapOutput)
+}
+
+type ServiceLevelObjectiveMetricSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelObjectiveMetricSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLevelObjectiveMetricSource)(nil)).Elem()
+}
+
+func (o ServiceLevelObjectiveMetricSourcePtrOutput) ToServiceLevelObjectiveMetricSourcePtrOutput() ServiceLevelObjectiveMetricSourcePtrOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveMetricSourcePtrOutput) ToServiceLevelObjectiveMetricSourcePtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveMetricSourcePtrOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveMetricSourcePtrOutput) Elem() ServiceLevelObjectiveMetricSourceOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveMetricSource) ServiceLevelObjectiveMetricSource {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceLevelObjectiveMetricSource
+		return ret
+	}).(ServiceLevelObjectiveMetricSourceOutput)
+}
+
+func (o ServiceLevelObjectiveMetricSourcePtrOutput) MetricSourceAttributes() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveMetricSource) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.MetricSourceAttributes
+	}).(pulumi.StringMapOutput)
+}
+
+func (o ServiceLevelObjectiveMetricSourcePtrOutput) MetricSourceKeyAttributes() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveMetricSource) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.MetricSourceKeyAttributes
+	}).(pulumi.StringMapOutput)
+}
+
 // A metric to be used directly for the SLO, or to be used in the math expression that will be used for the SLO. Within one MetricDataQuery object, you must specify either Expression or MetricStat but not both.
 type ServiceLevelObjectiveMetricStat struct {
 	Metric ServiceLevelObjectiveMetric `pulumi:"metric"`
@@ -2173,6 +2570,7 @@ func (o ServiceLevelObjectiveRequestBasedSliPtrOutput) RequestBasedSliMetric() S
 
 // This structure contains the information about the metric that is used for a request-based SLO.
 type ServiceLevelObjectiveRequestBasedSliMetric struct {
+	CompositeSliConfig *ServiceLevelObjectiveCompositeSliConfig `pulumi:"compositeSliConfig"`
 	// Identifies the dependency using the `DependencyKeyAttributes` and `DependencyOperationName` .
 	DependencyConfig *ServiceLevelObjectiveDependencyConfig `pulumi:"dependencyConfig"`
 	// This is a string-to-string map that contains information about the type of object that this SLO is related to. It can include the following fields.
@@ -2183,7 +2581,9 @@ type ServiceLevelObjectiveRequestBasedSliMetric struct {
 	// - `Identifier` identifies the resource objects of this resource. This is used only if the value of the `Type` field is `Resource` or `AWS::Resource` .
 	// - `Environment` specifies the location where this object is hosted, or what it belongs to.
 	// - `AwsAccountId` allows you to create an SLO for an object that exists in another account.
-	KeyAttributes map[string]string `pulumi:"keyAttributes"`
+	KeyAttributes map[string]string                  `pulumi:"keyAttributes"`
+	MetricName    *string                            `pulumi:"metricName"`
+	MetricSource  *ServiceLevelObjectiveMetricSource `pulumi:"metricSource"`
 	// If the SLO monitors either the LATENCY or AVAILABILITY metric that Application Signals collects, this field displays which of those metrics is used.
 	MetricType *ServiceLevelObjectiveRequestBasedSliMetricMetricType `pulumi:"metricType"`
 	// Use this structure to define the metric that you want to use as the "good request" or "bad request" value for a request-based SLO. This value observed for the metric defined in `TotalRequestCountMetric` will be divided by the number found for `MonitoredRequestCountMetric` to determine the percentage of successful requests that this SLO tracks.
@@ -2207,6 +2607,7 @@ type ServiceLevelObjectiveRequestBasedSliMetricInput interface {
 
 // This structure contains the information about the metric that is used for a request-based SLO.
 type ServiceLevelObjectiveRequestBasedSliMetricArgs struct {
+	CompositeSliConfig ServiceLevelObjectiveCompositeSliConfigPtrInput `pulumi:"compositeSliConfig"`
 	// Identifies the dependency using the `DependencyKeyAttributes` and `DependencyOperationName` .
 	DependencyConfig ServiceLevelObjectiveDependencyConfigPtrInput `pulumi:"dependencyConfig"`
 	// This is a string-to-string map that contains information about the type of object that this SLO is related to. It can include the following fields.
@@ -2217,7 +2618,9 @@ type ServiceLevelObjectiveRequestBasedSliMetricArgs struct {
 	// - `Identifier` identifies the resource objects of this resource. This is used only if the value of the `Type` field is `Resource` or `AWS::Resource` .
 	// - `Environment` specifies the location where this object is hosted, or what it belongs to.
 	// - `AwsAccountId` allows you to create an SLO for an object that exists in another account.
-	KeyAttributes pulumi.StringMapInput `pulumi:"keyAttributes"`
+	KeyAttributes pulumi.StringMapInput                     `pulumi:"keyAttributes"`
+	MetricName    pulumi.StringPtrInput                     `pulumi:"metricName"`
+	MetricSource  ServiceLevelObjectiveMetricSourcePtrInput `pulumi:"metricSource"`
 	// If the SLO monitors either the LATENCY or AVAILABILITY metric that Application Signals collects, this field displays which of those metrics is used.
 	MetricType ServiceLevelObjectiveRequestBasedSliMetricMetricTypePtrInput `pulumi:"metricType"`
 	// Use this structure to define the metric that you want to use as the "good request" or "bad request" value for a request-based SLO. This value observed for the metric defined in `TotalRequestCountMetric` will be divided by the number found for `MonitoredRequestCountMetric` to determine the percentage of successful requests that this SLO tracks.
@@ -2306,6 +2709,12 @@ func (o ServiceLevelObjectiveRequestBasedSliMetricOutput) ToServiceLevelObjectiv
 	}).(ServiceLevelObjectiveRequestBasedSliMetricPtrOutput)
 }
 
+func (o ServiceLevelObjectiveRequestBasedSliMetricOutput) CompositeSliConfig() ServiceLevelObjectiveCompositeSliConfigPtrOutput {
+	return o.ApplyT(func(v ServiceLevelObjectiveRequestBasedSliMetric) *ServiceLevelObjectiveCompositeSliConfig {
+		return v.CompositeSliConfig
+	}).(ServiceLevelObjectiveCompositeSliConfigPtrOutput)
+}
+
 // Identifies the dependency using the `DependencyKeyAttributes` and `DependencyOperationName` .
 func (o ServiceLevelObjectiveRequestBasedSliMetricOutput) DependencyConfig() ServiceLevelObjectiveDependencyConfigPtrOutput {
 	return o.ApplyT(func(v ServiceLevelObjectiveRequestBasedSliMetric) *ServiceLevelObjectiveDependencyConfig {
@@ -2323,6 +2732,16 @@ func (o ServiceLevelObjectiveRequestBasedSliMetricOutput) DependencyConfig() Ser
 // - `AwsAccountId` allows you to create an SLO for an object that exists in another account.
 func (o ServiceLevelObjectiveRequestBasedSliMetricOutput) KeyAttributes() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ServiceLevelObjectiveRequestBasedSliMetric) map[string]string { return v.KeyAttributes }).(pulumi.StringMapOutput)
+}
+
+func (o ServiceLevelObjectiveRequestBasedSliMetricOutput) MetricName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceLevelObjectiveRequestBasedSliMetric) *string { return v.MetricName }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceLevelObjectiveRequestBasedSliMetricOutput) MetricSource() ServiceLevelObjectiveMetricSourcePtrOutput {
+	return o.ApplyT(func(v ServiceLevelObjectiveRequestBasedSliMetric) *ServiceLevelObjectiveMetricSource {
+		return v.MetricSource
+	}).(ServiceLevelObjectiveMetricSourcePtrOutput)
 }
 
 // If the SLO monitors either the LATENCY or AVAILABILITY metric that Application Signals collects, this field displays which of those metrics is used.
@@ -2375,6 +2794,15 @@ func (o ServiceLevelObjectiveRequestBasedSliMetricPtrOutput) Elem() ServiceLevel
 	}).(ServiceLevelObjectiveRequestBasedSliMetricOutput)
 }
 
+func (o ServiceLevelObjectiveRequestBasedSliMetricPtrOutput) CompositeSliConfig() ServiceLevelObjectiveCompositeSliConfigPtrOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveRequestBasedSliMetric) *ServiceLevelObjectiveCompositeSliConfig {
+		if v == nil {
+			return nil
+		}
+		return v.CompositeSliConfig
+	}).(ServiceLevelObjectiveCompositeSliConfigPtrOutput)
+}
+
 // Identifies the dependency using the `DependencyKeyAttributes` and `DependencyOperationName` .
 func (o ServiceLevelObjectiveRequestBasedSliMetricPtrOutput) DependencyConfig() ServiceLevelObjectiveDependencyConfigPtrOutput {
 	return o.ApplyT(func(v *ServiceLevelObjectiveRequestBasedSliMetric) *ServiceLevelObjectiveDependencyConfig {
@@ -2400,6 +2828,24 @@ func (o ServiceLevelObjectiveRequestBasedSliMetricPtrOutput) KeyAttributes() pul
 		}
 		return v.KeyAttributes
 	}).(pulumi.StringMapOutput)
+}
+
+func (o ServiceLevelObjectiveRequestBasedSliMetricPtrOutput) MetricName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveRequestBasedSliMetric) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MetricName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceLevelObjectiveRequestBasedSliMetricPtrOutput) MetricSource() ServiceLevelObjectiveMetricSourcePtrOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveRequestBasedSliMetric) *ServiceLevelObjectiveMetricSource {
+		if v == nil {
+			return nil
+		}
+		return v.MetricSource
+	}).(ServiceLevelObjectiveMetricSourcePtrOutput)
 }
 
 // If the SLO monitors either the LATENCY or AVAILABILITY metric that Application Signals collects, this field displays which of those metrics is used.
@@ -2601,6 +3047,154 @@ func (o ServiceLevelObjectiveRollingIntervalPtrOutput) DurationUnit() ServiceLev
 	}).(ServiceLevelObjectiveDurationUnitPtrOutput)
 }
 
+type ServiceLevelObjectiveSelectionConfig struct {
+	Pattern *string                            `pulumi:"pattern"`
+	Type    ServiceLevelObjectiveSelectionType `pulumi:"type"`
+}
+
+// ServiceLevelObjectiveSelectionConfigInput is an input type that accepts ServiceLevelObjectiveSelectionConfigArgs and ServiceLevelObjectiveSelectionConfigOutput values.
+// You can construct a concrete instance of `ServiceLevelObjectiveSelectionConfigInput` via:
+//
+//	ServiceLevelObjectiveSelectionConfigArgs{...}
+type ServiceLevelObjectiveSelectionConfigInput interface {
+	pulumi.Input
+
+	ToServiceLevelObjectiveSelectionConfigOutput() ServiceLevelObjectiveSelectionConfigOutput
+	ToServiceLevelObjectiveSelectionConfigOutputWithContext(context.Context) ServiceLevelObjectiveSelectionConfigOutput
+}
+
+type ServiceLevelObjectiveSelectionConfigArgs struct {
+	Pattern pulumi.StringPtrInput                   `pulumi:"pattern"`
+	Type    ServiceLevelObjectiveSelectionTypeInput `pulumi:"type"`
+}
+
+func (ServiceLevelObjectiveSelectionConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelObjectiveSelectionConfig)(nil)).Elem()
+}
+
+func (i ServiceLevelObjectiveSelectionConfigArgs) ToServiceLevelObjectiveSelectionConfigOutput() ServiceLevelObjectiveSelectionConfigOutput {
+	return i.ToServiceLevelObjectiveSelectionConfigOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelObjectiveSelectionConfigArgs) ToServiceLevelObjectiveSelectionConfigOutputWithContext(ctx context.Context) ServiceLevelObjectiveSelectionConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveSelectionConfigOutput)
+}
+
+func (i ServiceLevelObjectiveSelectionConfigArgs) ToServiceLevelObjectiveSelectionConfigPtrOutput() ServiceLevelObjectiveSelectionConfigPtrOutput {
+	return i.ToServiceLevelObjectiveSelectionConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelObjectiveSelectionConfigArgs) ToServiceLevelObjectiveSelectionConfigPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveSelectionConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveSelectionConfigOutput).ToServiceLevelObjectiveSelectionConfigPtrOutputWithContext(ctx)
+}
+
+// ServiceLevelObjectiveSelectionConfigPtrInput is an input type that accepts ServiceLevelObjectiveSelectionConfigArgs, ServiceLevelObjectiveSelectionConfigPtr and ServiceLevelObjectiveSelectionConfigPtrOutput values.
+// You can construct a concrete instance of `ServiceLevelObjectiveSelectionConfigPtrInput` via:
+//
+//	        ServiceLevelObjectiveSelectionConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceLevelObjectiveSelectionConfigPtrInput interface {
+	pulumi.Input
+
+	ToServiceLevelObjectiveSelectionConfigPtrOutput() ServiceLevelObjectiveSelectionConfigPtrOutput
+	ToServiceLevelObjectiveSelectionConfigPtrOutputWithContext(context.Context) ServiceLevelObjectiveSelectionConfigPtrOutput
+}
+
+type serviceLevelObjectiveSelectionConfigPtrType ServiceLevelObjectiveSelectionConfigArgs
+
+func ServiceLevelObjectiveSelectionConfigPtr(v *ServiceLevelObjectiveSelectionConfigArgs) ServiceLevelObjectiveSelectionConfigPtrInput {
+	return (*serviceLevelObjectiveSelectionConfigPtrType)(v)
+}
+
+func (*serviceLevelObjectiveSelectionConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLevelObjectiveSelectionConfig)(nil)).Elem()
+}
+
+func (i *serviceLevelObjectiveSelectionConfigPtrType) ToServiceLevelObjectiveSelectionConfigPtrOutput() ServiceLevelObjectiveSelectionConfigPtrOutput {
+	return i.ToServiceLevelObjectiveSelectionConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceLevelObjectiveSelectionConfigPtrType) ToServiceLevelObjectiveSelectionConfigPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveSelectionConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveSelectionConfigPtrOutput)
+}
+
+type ServiceLevelObjectiveSelectionConfigOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelObjectiveSelectionConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelObjectiveSelectionConfig)(nil)).Elem()
+}
+
+func (o ServiceLevelObjectiveSelectionConfigOutput) ToServiceLevelObjectiveSelectionConfigOutput() ServiceLevelObjectiveSelectionConfigOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveSelectionConfigOutput) ToServiceLevelObjectiveSelectionConfigOutputWithContext(ctx context.Context) ServiceLevelObjectiveSelectionConfigOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveSelectionConfigOutput) ToServiceLevelObjectiveSelectionConfigPtrOutput() ServiceLevelObjectiveSelectionConfigPtrOutput {
+	return o.ToServiceLevelObjectiveSelectionConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceLevelObjectiveSelectionConfigOutput) ToServiceLevelObjectiveSelectionConfigPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveSelectionConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceLevelObjectiveSelectionConfig) *ServiceLevelObjectiveSelectionConfig {
+		return &v
+	}).(ServiceLevelObjectiveSelectionConfigPtrOutput)
+}
+
+func (o ServiceLevelObjectiveSelectionConfigOutput) Pattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceLevelObjectiveSelectionConfig) *string { return v.Pattern }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceLevelObjectiveSelectionConfigOutput) Type() ServiceLevelObjectiveSelectionTypeOutput {
+	return o.ApplyT(func(v ServiceLevelObjectiveSelectionConfig) ServiceLevelObjectiveSelectionType { return v.Type }).(ServiceLevelObjectiveSelectionTypeOutput)
+}
+
+type ServiceLevelObjectiveSelectionConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelObjectiveSelectionConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLevelObjectiveSelectionConfig)(nil)).Elem()
+}
+
+func (o ServiceLevelObjectiveSelectionConfigPtrOutput) ToServiceLevelObjectiveSelectionConfigPtrOutput() ServiceLevelObjectiveSelectionConfigPtrOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveSelectionConfigPtrOutput) ToServiceLevelObjectiveSelectionConfigPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveSelectionConfigPtrOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveSelectionConfigPtrOutput) Elem() ServiceLevelObjectiveSelectionConfigOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveSelectionConfig) ServiceLevelObjectiveSelectionConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceLevelObjectiveSelectionConfig
+		return ret
+	}).(ServiceLevelObjectiveSelectionConfigOutput)
+}
+
+func (o ServiceLevelObjectiveSelectionConfigPtrOutput) Pattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveSelectionConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Pattern
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceLevelObjectiveSelectionConfigPtrOutput) Type() ServiceLevelObjectiveSelectionTypePtrOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveSelectionConfig) *ServiceLevelObjectiveSelectionType {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(ServiceLevelObjectiveSelectionTypePtrOutput)
+}
+
 // This structure contains information about the performance metric that an SLO monitors.
 type ServiceLevelObjectiveSli struct {
 	// The arithmetic operation used when comparing the specified metric to the threshold.
@@ -2783,6 +3377,7 @@ func (o ServiceLevelObjectiveSliPtrOutput) SliMetric() ServiceLevelObjectiveSliM
 
 // A structure that contains information about the metric that the SLO monitors.
 type ServiceLevelObjectiveSliMetric struct {
+	CompositeSliConfig *ServiceLevelObjectiveCompositeSliConfig `pulumi:"compositeSliConfig"`
 	// Identifies the dependency using the `DependencyKeyAttributes` and `DependencyOperationName` .
 	DependencyConfig *ServiceLevelObjectiveDependencyConfig `pulumi:"dependencyConfig"`
 	// If this SLO is related to a metric collected by Application Signals, you must use this field to specify which service the SLO metric is related to. To do so, you must specify at least the `Type` , `Name` , and `Environment` attributes.
@@ -2797,6 +3392,8 @@ type ServiceLevelObjectiveSliMetric struct {
 	KeyAttributes map[string]string `pulumi:"keyAttributes"`
 	// If this SLO monitors a CloudWatch metric or the result of a CloudWatch metric math expression, use this structure to specify that metric or expression.
 	MetricDataQueries []ServiceLevelObjectiveMetricDataQuery `pulumi:"metricDataQueries"`
+	MetricName        *string                                `pulumi:"metricName"`
+	MetricSource      *ServiceLevelObjectiveMetricSource     `pulumi:"metricSource"`
 	// If the SLO monitors either the LATENCY or AVAILABILITY metric that Application Signals collects, this field displays which of those metrics is used.
 	MetricType *ServiceLevelObjectiveSliMetricMetricType `pulumi:"metricType"`
 	// If the SLO monitors a specific operation of the service, this field displays that operation name.
@@ -2820,6 +3417,7 @@ type ServiceLevelObjectiveSliMetricInput interface {
 
 // A structure that contains information about the metric that the SLO monitors.
 type ServiceLevelObjectiveSliMetricArgs struct {
+	CompositeSliConfig ServiceLevelObjectiveCompositeSliConfigPtrInput `pulumi:"compositeSliConfig"`
 	// Identifies the dependency using the `DependencyKeyAttributes` and `DependencyOperationName` .
 	DependencyConfig ServiceLevelObjectiveDependencyConfigPtrInput `pulumi:"dependencyConfig"`
 	// If this SLO is related to a metric collected by Application Signals, you must use this field to specify which service the SLO metric is related to. To do so, you must specify at least the `Type` , `Name` , and `Environment` attributes.
@@ -2834,6 +3432,8 @@ type ServiceLevelObjectiveSliMetricArgs struct {
 	KeyAttributes pulumi.StringMapInput `pulumi:"keyAttributes"`
 	// If this SLO monitors a CloudWatch metric or the result of a CloudWatch metric math expression, use this structure to specify that metric or expression.
 	MetricDataQueries ServiceLevelObjectiveMetricDataQueryArrayInput `pulumi:"metricDataQueries"`
+	MetricName        pulumi.StringPtrInput                          `pulumi:"metricName"`
+	MetricSource      ServiceLevelObjectiveMetricSourcePtrInput      `pulumi:"metricSource"`
 	// If the SLO monitors either the LATENCY or AVAILABILITY metric that Application Signals collects, this field displays which of those metrics is used.
 	MetricType ServiceLevelObjectiveSliMetricMetricTypePtrInput `pulumi:"metricType"`
 	// If the SLO monitors a specific operation of the service, this field displays that operation name.
@@ -2922,6 +3522,12 @@ func (o ServiceLevelObjectiveSliMetricOutput) ToServiceLevelObjectiveSliMetricPt
 	}).(ServiceLevelObjectiveSliMetricPtrOutput)
 }
 
+func (o ServiceLevelObjectiveSliMetricOutput) CompositeSliConfig() ServiceLevelObjectiveCompositeSliConfigPtrOutput {
+	return o.ApplyT(func(v ServiceLevelObjectiveSliMetric) *ServiceLevelObjectiveCompositeSliConfig {
+		return v.CompositeSliConfig
+	}).(ServiceLevelObjectiveCompositeSliConfigPtrOutput)
+}
+
 // Identifies the dependency using the `DependencyKeyAttributes` and `DependencyOperationName` .
 func (o ServiceLevelObjectiveSliMetricOutput) DependencyConfig() ServiceLevelObjectiveDependencyConfigPtrOutput {
 	return o.ApplyT(func(v ServiceLevelObjectiveSliMetric) *ServiceLevelObjectiveDependencyConfig {
@@ -2947,6 +3553,14 @@ func (o ServiceLevelObjectiveSliMetricOutput) MetricDataQueries() ServiceLevelOb
 	return o.ApplyT(func(v ServiceLevelObjectiveSliMetric) []ServiceLevelObjectiveMetricDataQuery {
 		return v.MetricDataQueries
 	}).(ServiceLevelObjectiveMetricDataQueryArrayOutput)
+}
+
+func (o ServiceLevelObjectiveSliMetricOutput) MetricName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceLevelObjectiveSliMetric) *string { return v.MetricName }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceLevelObjectiveSliMetricOutput) MetricSource() ServiceLevelObjectiveMetricSourcePtrOutput {
+	return o.ApplyT(func(v ServiceLevelObjectiveSliMetric) *ServiceLevelObjectiveMetricSource { return v.MetricSource }).(ServiceLevelObjectiveMetricSourcePtrOutput)
 }
 
 // If the SLO monitors either the LATENCY or AVAILABILITY metric that Application Signals collects, this field displays which of those metrics is used.
@@ -2993,6 +3607,15 @@ func (o ServiceLevelObjectiveSliMetricPtrOutput) Elem() ServiceLevelObjectiveSli
 	}).(ServiceLevelObjectiveSliMetricOutput)
 }
 
+func (o ServiceLevelObjectiveSliMetricPtrOutput) CompositeSliConfig() ServiceLevelObjectiveCompositeSliConfigPtrOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveSliMetric) *ServiceLevelObjectiveCompositeSliConfig {
+		if v == nil {
+			return nil
+		}
+		return v.CompositeSliConfig
+	}).(ServiceLevelObjectiveCompositeSliConfigPtrOutput)
+}
+
 // Identifies the dependency using the `DependencyKeyAttributes` and `DependencyOperationName` .
 func (o ServiceLevelObjectiveSliMetricPtrOutput) DependencyConfig() ServiceLevelObjectiveDependencyConfigPtrOutput {
 	return o.ApplyT(func(v *ServiceLevelObjectiveSliMetric) *ServiceLevelObjectiveDependencyConfig {
@@ -3029,6 +3652,24 @@ func (o ServiceLevelObjectiveSliMetricPtrOutput) MetricDataQueries() ServiceLeve
 		}
 		return v.MetricDataQueries
 	}).(ServiceLevelObjectiveMetricDataQueryArrayOutput)
+}
+
+func (o ServiceLevelObjectiveSliMetricPtrOutput) MetricName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveSliMetric) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MetricName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceLevelObjectiveSliMetricPtrOutput) MetricSource() ServiceLevelObjectiveMetricSourcePtrOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveSliMetric) *ServiceLevelObjectiveMetricSource {
+		if v == nil {
+			return nil
+		}
+		return v.MetricSource
+	}).(ServiceLevelObjectiveMetricSourcePtrOutput)
 }
 
 // If the SLO monitors either the LATENCY or AVAILABILITY metric that Application Signals collects, this field displays which of those metrics is used.
@@ -3143,6 +3784,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveBurnRateConfigurationArrayInput)(nil)).Elem(), ServiceLevelObjectiveBurnRateConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveCalendarIntervalInput)(nil)).Elem(), ServiceLevelObjectiveCalendarIntervalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveCalendarIntervalPtrInput)(nil)).Elem(), ServiceLevelObjectiveCalendarIntervalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveCompositeSliComponentInput)(nil)).Elem(), ServiceLevelObjectiveCompositeSliComponentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveCompositeSliComponentArrayInput)(nil)).Elem(), ServiceLevelObjectiveCompositeSliComponentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveCompositeSliConfigInput)(nil)).Elem(), ServiceLevelObjectiveCompositeSliConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveCompositeSliConfigPtrInput)(nil)).Elem(), ServiceLevelObjectiveCompositeSliConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveDependencyConfigInput)(nil)).Elem(), ServiceLevelObjectiveDependencyConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveDependencyConfigPtrInput)(nil)).Elem(), ServiceLevelObjectiveDependencyConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveDimensionInput)(nil)).Elem(), ServiceLevelObjectiveDimensionArgs{})
@@ -3157,6 +3802,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveMetricPtrInput)(nil)).Elem(), ServiceLevelObjectiveMetricArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveMetricDataQueryInput)(nil)).Elem(), ServiceLevelObjectiveMetricDataQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveMetricDataQueryArrayInput)(nil)).Elem(), ServiceLevelObjectiveMetricDataQueryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveMetricSourceInput)(nil)).Elem(), ServiceLevelObjectiveMetricSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveMetricSourcePtrInput)(nil)).Elem(), ServiceLevelObjectiveMetricSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveMetricStatInput)(nil)).Elem(), ServiceLevelObjectiveMetricStatArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveMetricStatPtrInput)(nil)).Elem(), ServiceLevelObjectiveMetricStatArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveMonitoredRequestCountMetricInput)(nil)).Elem(), ServiceLevelObjectiveMonitoredRequestCountMetricArgs{})
@@ -3169,6 +3816,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveRequestBasedSliMetricPtrInput)(nil)).Elem(), ServiceLevelObjectiveRequestBasedSliMetricArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveRollingIntervalInput)(nil)).Elem(), ServiceLevelObjectiveRollingIntervalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveRollingIntervalPtrInput)(nil)).Elem(), ServiceLevelObjectiveRollingIntervalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveSelectionConfigInput)(nil)).Elem(), ServiceLevelObjectiveSelectionConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveSelectionConfigPtrInput)(nil)).Elem(), ServiceLevelObjectiveSelectionConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveSliInput)(nil)).Elem(), ServiceLevelObjectiveSliArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveSliPtrInput)(nil)).Elem(), ServiceLevelObjectiveSliArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveSliMetricInput)(nil)).Elem(), ServiceLevelObjectiveSliMetricArgs{})
@@ -3180,6 +3829,10 @@ func init() {
 	pulumi.RegisterOutputType(ServiceLevelObjectiveBurnRateConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveCalendarIntervalOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveCalendarIntervalPtrOutput{})
+	pulumi.RegisterOutputType(ServiceLevelObjectiveCompositeSliComponentOutput{})
+	pulumi.RegisterOutputType(ServiceLevelObjectiveCompositeSliComponentArrayOutput{})
+	pulumi.RegisterOutputType(ServiceLevelObjectiveCompositeSliConfigOutput{})
+	pulumi.RegisterOutputType(ServiceLevelObjectiveCompositeSliConfigPtrOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveDependencyConfigOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveDependencyConfigPtrOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveDimensionOutput{})
@@ -3194,6 +3847,8 @@ func init() {
 	pulumi.RegisterOutputType(ServiceLevelObjectiveMetricPtrOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveMetricDataQueryOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveMetricDataQueryArrayOutput{})
+	pulumi.RegisterOutputType(ServiceLevelObjectiveMetricSourceOutput{})
+	pulumi.RegisterOutputType(ServiceLevelObjectiveMetricSourcePtrOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveMetricStatOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveMetricStatPtrOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveMonitoredRequestCountMetricOutput{})
@@ -3206,6 +3861,8 @@ func init() {
 	pulumi.RegisterOutputType(ServiceLevelObjectiveRequestBasedSliMetricPtrOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveRollingIntervalOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveRollingIntervalPtrOutput{})
+	pulumi.RegisterOutputType(ServiceLevelObjectiveSelectionConfigOutput{})
+	pulumi.RegisterOutputType(ServiceLevelObjectiveSelectionConfigPtrOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveSliOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveSliPtrOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveSliMetricOutput{})

@@ -1585,6 +1585,10 @@ class WebAppVpcArgsDict(TypedDict):
     """
     You can provide a structure that contains the details for the VPC endpoint to use with your web app.
     """
+    ip_address_type: NotRequired[pulumi.Input['WebAppVpcIpAddressType']]
+    """
+    The IP address type for the VPC endpoint used by the web app.
+    """
     security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     vpc_id: NotRequired[pulumi.Input[_builtins.str]]
@@ -1592,18 +1596,35 @@ class WebAppVpcArgsDict(TypedDict):
 @pulumi.input_type
 class WebAppVpcArgs:
     def __init__(__self__, *,
+                 ip_address_type: Optional[pulumi.Input['WebAppVpcIpAddressType']] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         You can provide a structure that contains the details for the VPC endpoint to use with your web app.
+
+        :param pulumi.Input['WebAppVpcIpAddressType'] ip_address_type: The IP address type for the VPC endpoint used by the web app.
         """
+        if ip_address_type is not None:
+            pulumi.set(__self__, "ip_address_type", ip_address_type)
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
         if subnet_ids is not None:
             pulumi.set(__self__, "subnet_ids", subnet_ids)
         if vpc_id is not None:
             pulumi.set(__self__, "vpc_id", vpc_id)
+
+    @_builtins.property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> Optional[pulumi.Input['WebAppVpcIpAddressType']]:
+        """
+        The IP address type for the VPC endpoint used by the web app.
+        """
+        return pulumi.get(self, "ip_address_type")
+
+    @ip_address_type.setter
+    def ip_address_type(self, value: Optional[pulumi.Input['WebAppVpcIpAddressType']]):
+        pulumi.set(self, "ip_address_type", value)
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")

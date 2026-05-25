@@ -117,6 +117,7 @@ const (
 	ServiceTypePagerduty         = ServiceType("pagerduty")
 	ServiceTypeAzureidentity     = ServiceType("azureidentity")
 	ServiceTypeMcpserversigv4    = ServiceType("mcpserversigv4")
+	ServiceTypeMcpservergrafana  = ServiceType("mcpservergrafana")
 )
 
 func (ServiceType) ElementType() reflect.Type {
@@ -250,6 +251,7 @@ func (o ServiceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) 
 //	ServiceTypePagerduty
 //	ServiceTypeAzureidentity
 //	ServiceTypeMcpserversigv4
+//	ServiceTypeMcpservergrafana
 type ServiceTypeInput interface {
 	pulumi.Input
 

@@ -3415,9 +3415,11 @@ func (o WebAppUnitsPropertiesPtrOutput) Provisioned() pulumi.IntPtrOutput {
 
 // You can provide a structure that contains the details for the VPC endpoint to use with your web app.
 type WebAppVpc struct {
-	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	SubnetIds        []string `pulumi:"subnetIds"`
-	VpcId            *string  `pulumi:"vpcId"`
+	// The IP address type for the VPC endpoint used by the web app.
+	IpAddressType    *WebAppVpcIpAddressType `pulumi:"ipAddressType"`
+	SecurityGroupIds []string                `pulumi:"securityGroupIds"`
+	SubnetIds        []string                `pulumi:"subnetIds"`
+	VpcId            *string                 `pulumi:"vpcId"`
 }
 
 // WebAppVpcInput is an input type that accepts WebAppVpcArgs and WebAppVpcOutput values.
@@ -3433,9 +3435,11 @@ type WebAppVpcInput interface {
 
 // You can provide a structure that contains the details for the VPC endpoint to use with your web app.
 type WebAppVpcArgs struct {
-	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
-	SubnetIds        pulumi.StringArrayInput `pulumi:"subnetIds"`
-	VpcId            pulumi.StringPtrInput   `pulumi:"vpcId"`
+	// The IP address type for the VPC endpoint used by the web app.
+	IpAddressType    WebAppVpcIpAddressTypePtrInput `pulumi:"ipAddressType"`
+	SecurityGroupIds pulumi.StringArrayInput        `pulumi:"securityGroupIds"`
+	SubnetIds        pulumi.StringArrayInput        `pulumi:"subnetIds"`
+	VpcId            pulumi.StringPtrInput          `pulumi:"vpcId"`
 }
 
 func (WebAppVpcArgs) ElementType() reflect.Type {
@@ -3516,6 +3520,11 @@ func (o WebAppVpcOutput) ToWebAppVpcPtrOutputWithContext(ctx context.Context) We
 	}).(WebAppVpcPtrOutput)
 }
 
+// The IP address type for the VPC endpoint used by the web app.
+func (o WebAppVpcOutput) IpAddressType() WebAppVpcIpAddressTypePtrOutput {
+	return o.ApplyT(func(v WebAppVpc) *WebAppVpcIpAddressType { return v.IpAddressType }).(WebAppVpcIpAddressTypePtrOutput)
+}
+
 func (o WebAppVpcOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v WebAppVpc) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
@@ -3550,6 +3559,16 @@ func (o WebAppVpcPtrOutput) Elem() WebAppVpcOutput {
 		var ret WebAppVpc
 		return ret
 	}).(WebAppVpcOutput)
+}
+
+// The IP address type for the VPC endpoint used by the web app.
+func (o WebAppVpcPtrOutput) IpAddressType() WebAppVpcIpAddressTypePtrOutput {
+	return o.ApplyT(func(v *WebAppVpc) *WebAppVpcIpAddressType {
+		if v == nil {
+			return nil
+		}
+		return v.IpAddressType
+	}).(WebAppVpcIpAddressTypePtrOutput)
 }
 
 func (o WebAppVpcPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {

@@ -362,6 +362,20 @@ export const ServiceDeploymentLifecycleHookLifecycleStagesItem = {
 
 export type ServiceDeploymentLifecycleHookLifecycleStagesItem = (typeof ServiceDeploymentLifecycleHookLifecycleStagesItem)[keyof typeof ServiceDeploymentLifecycleHookLifecycleStagesItem];
 
+export const ServiceDeploymentLifecycleHookTargetType = {
+    AwsLambda: "AWS_LAMBDA",
+    Pause: "PAUSE",
+} as const;
+
+/**
+ * The type of action the lifecycle hook performs. Valid values are:
+ *   +  ``AWS_LAMBDA`` - Invokes a Lambda function at the specified lifecycle stage. This is the default value.
+ *   +  ``PAUSE`` - Pauses the deployment at the specified lifecycle stage until you call ``ContinueServiceDeployment`` to continue or roll back.
+ *   
+ *  This field is optional. If not specified, the default value is ``AWS_LAMBDA``.
+ */
+export type ServiceDeploymentLifecycleHookTargetType = (typeof ServiceDeploymentLifecycleHookTargetType)[keyof typeof ServiceDeploymentLifecycleHookTargetType];
+
 export const ServiceEbsTagSpecificationPropagateTags = {
     Service: "SERVICE",
     TaskDefinition: "TASK_DEFINITION",
@@ -371,6 +385,13 @@ export const ServiceEbsTagSpecificationPropagateTags = {
  * Determines whether to propagate the tags from the task definition to the Amazon EBS volume. Tags can only propagate to a ``SERVICE`` specified in ``ServiceVolumeConfiguration``. If no value is specified, the tags aren't propagated.
  */
 export type ServiceEbsTagSpecificationPropagateTags = (typeof ServiceEbsTagSpecificationPropagateTags)[keyof typeof ServiceEbsTagSpecificationPropagateTags];
+
+export const ServiceHookTimeoutConfigAction = {
+    Rollback: "ROLLBACK",
+    Continue: "CONTINUE",
+} as const;
+
+export type ServiceHookTimeoutConfigAction = (typeof ServiceHookTimeoutConfigAction)[keyof typeof ServiceHookTimeoutConfigAction];
 
 export const ServiceLaunchType = {
     Ec2: "EC2",

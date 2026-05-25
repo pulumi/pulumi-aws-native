@@ -158,12 +158,15 @@ AWS::BedrockAgentCore::ApiKeyCredentialProvider
 AWS::BedrockAgentCore::BrowserCustom
 AWS::BedrockAgentCore::BrowserProfile
 AWS::BedrockAgentCore::CodeInterpreterCustom
+AWS::BedrockAgentCore::Dataset
 AWS::BedrockAgentCore::Evaluator
 AWS::BedrockAgentCore::Gateway
 AWS::BedrockAgentCore::GatewayTarget
+AWS::BedrockAgentCore::Harness
 AWS::BedrockAgentCore::Memory
 AWS::BedrockAgentCore::OAuth2CredentialProvider
 AWS::BedrockAgentCore::OnlineEvaluationConfig
+AWS::BedrockAgentCore::PaymentCredentialProvider
 AWS::BedrockAgentCore::Policy
 AWS::BedrockAgentCore::PolicyEngine
 AWS::BedrockAgentCore::Runtime

@@ -25,6 +25,7 @@ export const ServiceType = {
     Pagerduty: "pagerduty",
     Azureidentity: "azureidentity",
     Mcpserversigv4: "mcpserversigv4",
+    Mcpservergrafana: "mcpservergrafana",
 } as const;
 
 /**

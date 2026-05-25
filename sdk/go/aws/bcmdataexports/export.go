@@ -35,7 +35,6 @@ func NewExport(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Export'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
-		"export.dataQuery.tableConfigurations.*",
 		"export.name",
 		"export.refreshCadence",
 	})

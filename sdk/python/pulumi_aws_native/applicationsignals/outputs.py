@@ -20,6 +20,8 @@ __all__ = [
     'GroupingConfigurationGroupingAttributeDefinition',
     'ServiceLevelObjectiveBurnRateConfiguration',
     'ServiceLevelObjectiveCalendarInterval',
+    'ServiceLevelObjectiveCompositeSliComponent',
+    'ServiceLevelObjectiveCompositeSliConfig',
     'ServiceLevelObjectiveDependencyConfig',
     'ServiceLevelObjectiveDimension',
     'ServiceLevelObjectiveExclusionWindow',
@@ -27,12 +29,14 @@ __all__ = [
     'ServiceLevelObjectiveInterval',
     'ServiceLevelObjectiveMetric',
     'ServiceLevelObjectiveMetricDataQuery',
+    'ServiceLevelObjectiveMetricSource',
     'ServiceLevelObjectiveMetricStat',
     'ServiceLevelObjectiveMonitoredRequestCountMetric',
     'ServiceLevelObjectiveRecurrenceRule',
     'ServiceLevelObjectiveRequestBasedSli',
     'ServiceLevelObjectiveRequestBasedSliMetric',
     'ServiceLevelObjectiveRollingInterval',
+    'ServiceLevelObjectiveSelectionConfig',
     'ServiceLevelObjectiveSli',
     'ServiceLevelObjectiveSliMetric',
     'ServiceLevelObjectiveWindow',
@@ -194,6 +198,74 @@ class ServiceLevelObjectiveCalendarInterval(dict):
         As soon as one calendar interval ends, another automatically begins.
         """
         return pulumi.get(self, "start_time")
+
+
+@pulumi.output_type
+class ServiceLevelObjectiveCompositeSliComponent(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "operationName":
+            suggest = "operation_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceLevelObjectiveCompositeSliComponent. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceLevelObjectiveCompositeSliComponent.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceLevelObjectiveCompositeSliComponent.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 operation_name: _builtins.str):
+        pulumi.set(__self__, "operation_name", operation_name)
+
+    @_builtins.property
+    @pulumi.getter(name="operationName")
+    def operation_name(self) -> _builtins.str:
+        return pulumi.get(self, "operation_name")
+
+
+@pulumi.output_type
+class ServiceLevelObjectiveCompositeSliConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "selectionConfig":
+            suggest = "selection_config"
+        elif key == "compositeSliComponents":
+            suggest = "composite_sli_components"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceLevelObjectiveCompositeSliConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceLevelObjectiveCompositeSliConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceLevelObjectiveCompositeSliConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 selection_config: 'outputs.ServiceLevelObjectiveSelectionConfig',
+                 composite_sli_components: Optional[Sequence['outputs.ServiceLevelObjectiveCompositeSliComponent']] = None):
+        pulumi.set(__self__, "selection_config", selection_config)
+        if composite_sli_components is not None:
+            pulumi.set(__self__, "composite_sli_components", composite_sli_components)
+
+    @_builtins.property
+    @pulumi.getter(name="selectionConfig")
+    def selection_config(self) -> 'outputs.ServiceLevelObjectiveSelectionConfig':
+        return pulumi.get(self, "selection_config")
+
+    @_builtins.property
+    @pulumi.getter(name="compositeSliComponents")
+    def composite_sli_components(self) -> Optional[Sequence['outputs.ServiceLevelObjectiveCompositeSliComponent']]:
+        return pulumi.get(self, "composite_sli_components")
 
 
 @pulumi.output_type
@@ -655,6 +727,51 @@ class ServiceLevelObjectiveMetricDataQuery(dict):
 
 
 @pulumi.output_type
+class ServiceLevelObjectiveMetricSource(dict):
+    """
+    Configuration for identifying the source of metrics for non-Application Signals services
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricSourceKeyAttributes":
+            suggest = "metric_source_key_attributes"
+        elif key == "metricSourceAttributes":
+            suggest = "metric_source_attributes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceLevelObjectiveMetricSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceLevelObjectiveMetricSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceLevelObjectiveMetricSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 metric_source_key_attributes: Mapping[str, _builtins.str],
+                 metric_source_attributes: Optional[Mapping[str, _builtins.str]] = None):
+        """
+        Configuration for identifying the source of metrics for non-Application Signals services
+        """
+        pulumi.set(__self__, "metric_source_key_attributes", metric_source_key_attributes)
+        if metric_source_attributes is not None:
+            pulumi.set(__self__, "metric_source_attributes", metric_source_attributes)
+
+    @_builtins.property
+    @pulumi.getter(name="metricSourceKeyAttributes")
+    def metric_source_key_attributes(self) -> Mapping[str, _builtins.str]:
+        return pulumi.get(self, "metric_source_key_attributes")
+
+    @_builtins.property
+    @pulumi.getter(name="metricSourceAttributes")
+    def metric_source_attributes(self) -> Optional[Mapping[str, _builtins.str]]:
+        return pulumi.get(self, "metric_source_attributes")
+
+
+@pulumi.output_type
 class ServiceLevelObjectiveMetricStat(dict):
     """
     A metric to be used directly for the SLO, or to be used in the math expression that will be used for the SLO. Within one MetricDataQuery object, you must specify either Expression or MetricStat but not both.
@@ -861,10 +978,16 @@ class ServiceLevelObjectiveRequestBasedSliMetric(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "dependencyConfig":
+        if key == "compositeSliConfig":
+            suggest = "composite_sli_config"
+        elif key == "dependencyConfig":
             suggest = "dependency_config"
         elif key == "keyAttributes":
             suggest = "key_attributes"
+        elif key == "metricName":
+            suggest = "metric_name"
+        elif key == "metricSource":
+            suggest = "metric_source"
         elif key == "metricType":
             suggest = "metric_type"
         elif key == "monitoredRequestCountMetric":
@@ -886,8 +1009,11 @@ class ServiceLevelObjectiveRequestBasedSliMetric(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 composite_sli_config: Optional['outputs.ServiceLevelObjectiveCompositeSliConfig'] = None,
                  dependency_config: Optional['outputs.ServiceLevelObjectiveDependencyConfig'] = None,
                  key_attributes: Optional[Mapping[str, _builtins.str]] = None,
+                 metric_name: Optional[_builtins.str] = None,
+                 metric_source: Optional['outputs.ServiceLevelObjectiveMetricSource'] = None,
                  metric_type: Optional['ServiceLevelObjectiveRequestBasedSliMetricMetricType'] = None,
                  monitored_request_count_metric: Optional['outputs.ServiceLevelObjectiveMonitoredRequestCountMetric'] = None,
                  operation_name: Optional[_builtins.str] = None,
@@ -909,10 +1035,16 @@ class ServiceLevelObjectiveRequestBasedSliMetric(dict):
         :param _builtins.str operation_name: If the SLO monitors a specific operation of the service, this field displays that operation name.
         :param Sequence['ServiceLevelObjectiveMetricDataQuery'] total_request_count_metric: This structure defines the metric that is used as the "total requests" number for a request-based SLO. The number observed for this metric is divided by the number of "good requests" or "bad requests" that is observed for the metric defined in `MonitoredRequestCountMetric`.
         """
+        if composite_sli_config is not None:
+            pulumi.set(__self__, "composite_sli_config", composite_sli_config)
         if dependency_config is not None:
             pulumi.set(__self__, "dependency_config", dependency_config)
         if key_attributes is not None:
             pulumi.set(__self__, "key_attributes", key_attributes)
+        if metric_name is not None:
+            pulumi.set(__self__, "metric_name", metric_name)
+        if metric_source is not None:
+            pulumi.set(__self__, "metric_source", metric_source)
         if metric_type is not None:
             pulumi.set(__self__, "metric_type", metric_type)
         if monitored_request_count_metric is not None:
@@ -921,6 +1053,11 @@ class ServiceLevelObjectiveRequestBasedSliMetric(dict):
             pulumi.set(__self__, "operation_name", operation_name)
         if total_request_count_metric is not None:
             pulumi.set(__self__, "total_request_count_metric", total_request_count_metric)
+
+    @_builtins.property
+    @pulumi.getter(name="compositeSliConfig")
+    def composite_sli_config(self) -> Optional['outputs.ServiceLevelObjectiveCompositeSliConfig']:
+        return pulumi.get(self, "composite_sli_config")
 
     @_builtins.property
     @pulumi.getter(name="dependencyConfig")
@@ -944,6 +1081,16 @@ class ServiceLevelObjectiveRequestBasedSliMetric(dict):
         - `AwsAccountId` allows you to create an SLO for an object that exists in another account.
         """
         return pulumi.get(self, "key_attributes")
+
+    @_builtins.property
+    @pulumi.getter(name="metricName")
+    def metric_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "metric_name")
+
+    @_builtins.property
+    @pulumi.getter(name="metricSource")
+    def metric_source(self) -> Optional['outputs.ServiceLevelObjectiveMetricSource']:
+        return pulumi.get(self, "metric_source")
 
     @_builtins.property
     @pulumi.getter(name="metricType")
@@ -1030,6 +1177,26 @@ class ServiceLevelObjectiveRollingInterval(dict):
 
 
 @pulumi.output_type
+class ServiceLevelObjectiveSelectionConfig(dict):
+    def __init__(__self__, *,
+                 type: 'ServiceLevelObjectiveSelectionType',
+                 pattern: Optional[_builtins.str] = None):
+        pulumi.set(__self__, "type", type)
+        if pattern is not None:
+            pulumi.set(__self__, "pattern", pattern)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> 'ServiceLevelObjectiveSelectionType':
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter
+    def pattern(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "pattern")
+
+
+@pulumi.output_type
 class ServiceLevelObjectiveSli(dict):
     """
     This structure contains information about the performance metric that an SLO monitors.
@@ -1103,12 +1270,18 @@ class ServiceLevelObjectiveSliMetric(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "dependencyConfig":
+        if key == "compositeSliConfig":
+            suggest = "composite_sli_config"
+        elif key == "dependencyConfig":
             suggest = "dependency_config"
         elif key == "keyAttributes":
             suggest = "key_attributes"
         elif key == "metricDataQueries":
             suggest = "metric_data_queries"
+        elif key == "metricName":
+            suggest = "metric_name"
+        elif key == "metricSource":
+            suggest = "metric_source"
         elif key == "metricType":
             suggest = "metric_type"
         elif key == "operationName":
@@ -1128,9 +1301,12 @@ class ServiceLevelObjectiveSliMetric(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 composite_sli_config: Optional['outputs.ServiceLevelObjectiveCompositeSliConfig'] = None,
                  dependency_config: Optional['outputs.ServiceLevelObjectiveDependencyConfig'] = None,
                  key_attributes: Optional[Mapping[str, _builtins.str]] = None,
                  metric_data_queries: Optional[Sequence['outputs.ServiceLevelObjectiveMetricDataQuery']] = None,
+                 metric_name: Optional[_builtins.str] = None,
+                 metric_source: Optional['outputs.ServiceLevelObjectiveMetricSource'] = None,
                  metric_type: Optional['ServiceLevelObjectiveSliMetricMetricType'] = None,
                  operation_name: Optional[_builtins.str] = None,
                  period_seconds: Optional[_builtins.int] = None,
@@ -1154,12 +1330,18 @@ class ServiceLevelObjectiveSliMetric(dict):
         :param _builtins.int period_seconds: The number of seconds to use as the period for SLO evaluation. Your application's performance is compared to the SLI during each period. For each period, the application is determined to have either achieved or not achieved the necessary performance.
         :param _builtins.str statistic: The statistic to use for comparison to the threshold. It can be any CloudWatch statistic or extended statistic
         """
+        if composite_sli_config is not None:
+            pulumi.set(__self__, "composite_sli_config", composite_sli_config)
         if dependency_config is not None:
             pulumi.set(__self__, "dependency_config", dependency_config)
         if key_attributes is not None:
             pulumi.set(__self__, "key_attributes", key_attributes)
         if metric_data_queries is not None:
             pulumi.set(__self__, "metric_data_queries", metric_data_queries)
+        if metric_name is not None:
+            pulumi.set(__self__, "metric_name", metric_name)
+        if metric_source is not None:
+            pulumi.set(__self__, "metric_source", metric_source)
         if metric_type is not None:
             pulumi.set(__self__, "metric_type", metric_type)
         if operation_name is not None:
@@ -1168,6 +1350,11 @@ class ServiceLevelObjectiveSliMetric(dict):
             pulumi.set(__self__, "period_seconds", period_seconds)
         if statistic is not None:
             pulumi.set(__self__, "statistic", statistic)
+
+    @_builtins.property
+    @pulumi.getter(name="compositeSliConfig")
+    def composite_sli_config(self) -> Optional['outputs.ServiceLevelObjectiveCompositeSliConfig']:
+        return pulumi.get(self, "composite_sli_config")
 
     @_builtins.property
     @pulumi.getter(name="dependencyConfig")
@@ -1200,6 +1387,16 @@ class ServiceLevelObjectiveSliMetric(dict):
         If this SLO monitors a CloudWatch metric or the result of a CloudWatch metric math expression, use this structure to specify that metric or expression.
         """
         return pulumi.get(self, "metric_data_queries")
+
+    @_builtins.property
+    @pulumi.getter(name="metricName")
+    def metric_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "metric_name")
+
+    @_builtins.property
+    @pulumi.getter(name="metricSource")
+    def metric_source(self) -> Optional['outputs.ServiceLevelObjectiveMetricSource']:
+        return pulumi.get(self, "metric_source")
 
     @_builtins.property
     @pulumi.getter(name="metricType")

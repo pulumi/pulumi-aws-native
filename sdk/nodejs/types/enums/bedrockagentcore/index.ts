@@ -73,6 +73,31 @@ export const CodeInterpreterCustomCodeInterpreterStatus = {
  */
 export type CodeInterpreterCustomCodeInterpreterStatus = (typeof CodeInterpreterCustomCodeInterpreterStatus)[keyof typeof CodeInterpreterCustomCodeInterpreterStatus];
 
+export const DatasetSchemaType = {
+    AgentcoreEvaluationPredefinedV1: "AGENTCORE_EVALUATION_PREDEFINED_V1",
+    AgentcoreEvaluationSimulatedV1: "AGENTCORE_EVALUATION_SIMULATED_V1",
+} as const;
+
+/**
+ * Versioned schema type governing the structure of examples. Immutable after creation.
+ */
+export type DatasetSchemaType = (typeof DatasetSchemaType)[keyof typeof DatasetSchemaType];
+
+export const DatasetStatus = {
+    Creating: "CREATING",
+    Updating: "UPDATING",
+    Deleting: "DELETING",
+    Active: "ACTIVE",
+    CreateFailed: "CREATE_FAILED",
+    UpdateFailed: "UPDATE_FAILED",
+    DeleteFailed: "DELETE_FAILED",
+} as const;
+
+/**
+ * The current status of the dataset.
+ */
+export type DatasetStatus = (typeof DatasetStatus)[keyof typeof DatasetStatus];
+
 export const EvaluatorLevel = {
     ToolCall: "TOOL_CALL",
     Trace: "TRACE",
@@ -231,6 +256,65 @@ export const GatewayTargetTargetStatus = {
 } as const;
 
 export type GatewayTargetTargetStatus = (typeof GatewayTargetTargetStatus)[keyof typeof GatewayTargetTargetStatus];
+
+export const HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator = {
+    Equals: "EQUALS",
+    Contains: "CONTAINS",
+    ContainsAny: "CONTAINS_ANY",
+} as const;
+
+export type HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator = (typeof HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator)[keyof typeof HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator];
+
+export const HarnessCustomClaimValidationTypeInboundTokenClaimValueType = {
+    String: "STRING",
+    StringArray: "STRING_ARRAY",
+} as const;
+
+export type HarnessCustomClaimValidationTypeInboundTokenClaimValueType = (typeof HarnessCustomClaimValidationTypeInboundTokenClaimValueType)[keyof typeof HarnessCustomClaimValidationTypeInboundTokenClaimValueType];
+
+export const HarnessNetworkConfigurationNetworkMode = {
+    Public: "PUBLIC",
+    Vpc: "VPC",
+} as const;
+
+export type HarnessNetworkConfigurationNetworkMode = (typeof HarnessNetworkConfigurationNetworkMode)[keyof typeof HarnessNetworkConfigurationNetworkMode];
+
+export const HarnessOAuthCredentialProviderGrantType = {
+    ClientCredentials: "CLIENT_CREDENTIALS",
+    AuthorizationCode: "AUTHORIZATION_CODE",
+} as const;
+
+export type HarnessOAuthCredentialProviderGrantType = (typeof HarnessOAuthCredentialProviderGrantType)[keyof typeof HarnessOAuthCredentialProviderGrantType];
+
+export const HarnessStatus = {
+    Creating: "CREATING",
+    CreateFailed: "CREATE_FAILED",
+    Updating: "UPDATING",
+    UpdateFailed: "UPDATE_FAILED",
+    Ready: "READY",
+    Deleting: "DELETING",
+    DeleteFailed: "DELETE_FAILED",
+} as const;
+
+export type HarnessStatus = (typeof HarnessStatus)[keyof typeof HarnessStatus];
+
+export const HarnessToolType = {
+    RemoteMcp: "remote_mcp",
+    AgentcoreBrowser: "agentcore_browser",
+    AgentcoreGateway: "agentcore_gateway",
+    InlineFunction: "inline_function",
+    AgentcoreCodeInterpreter: "agentcore_code_interpreter",
+} as const;
+
+export type HarnessToolType = (typeof HarnessToolType)[keyof typeof HarnessToolType];
+
+export const HarnessTruncationConfigurationStrategy = {
+    SlidingWindow: "sliding_window",
+    Summarization: "summarization",
+    None: "none",
+} as const;
+
+export type HarnessTruncationConfigurationStrategy = (typeof HarnessTruncationConfigurationStrategy)[keyof typeof HarnessTruncationConfigurationStrategy];
 
 export const MemoryContentConfigurationLevel = {
     MetadataOnly: "METADATA_ONLY",
@@ -486,6 +570,16 @@ export const OnlineEvaluationConfigStatus = {
 } as const;
 
 export type OnlineEvaluationConfigStatus = (typeof OnlineEvaluationConfigStatus)[keyof typeof OnlineEvaluationConfigStatus];
+
+export const PaymentCredentialProviderVendorType = {
+    CoinbaseCdp: "CoinbaseCDP",
+    StripePrivy: "StripePrivy",
+} as const;
+
+/**
+ * Supported vendor types for payment providers
+ */
+export type PaymentCredentialProviderVendorType = (typeof PaymentCredentialProviderVendorType)[keyof typeof PaymentCredentialProviderVendorType];
 
 export const PolicyEngineStatus = {
     Creating: "CREATING",

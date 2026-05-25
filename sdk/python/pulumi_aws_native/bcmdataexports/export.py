@@ -115,7 +115,7 @@ class Export(pulumi.CustomResource):
             __props__.__dict__["export"] = export
             __props__.__dict__["tags"] = tags
             __props__.__dict__["export_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["export.dataQuery.tableConfigurations.*", "export.name", "export.refreshCadence"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["export.name", "export.refreshCadence"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Export, __self__).__init__(
             'aws-native:bcmdataexports:Export',

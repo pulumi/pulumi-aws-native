@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.Ecs.Outputs
         /// </summary>
         public readonly Outputs.ServiceDeploymentCircuitBreaker? DeploymentCircuitBreaker;
         /// <summary>
-        /// An array of deployment lifecycle hook objects to run custom logic at specific stages of the deployment lifecycle.
+        /// An array of deployment lifecycle hook objects to run custom logic or pause the deployment at specific stages of the deployment lifecycle.
         /// </summary>
         public readonly ImmutableArray<Outputs.ServiceDeploymentLifecycleHook> LifecycleHooks;
         /// <summary>

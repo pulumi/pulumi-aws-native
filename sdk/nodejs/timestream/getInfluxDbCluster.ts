@@ -62,6 +62,14 @@ export interface GetInfluxDbClusterResult {
      */
     readonly logDeliveryConfiguration?: outputs.timestream.LogDeliveryConfigurationProperties;
     /**
+     * The maintenance schedule for the InfluxDB cluster.
+     */
+    readonly maintenanceSchedule?: outputs.timestream.InfluxDbClusterMaintenanceSchedule;
+    /**
+     * The timestamp of the next scheduled maintenance event.
+     */
+    readonly nextMaintenanceTime?: string;
+    /**
      * The port number on which InfluxDB accepts connections.
      */
     readonly port?: number;

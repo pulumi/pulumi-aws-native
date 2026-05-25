@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -21,7 +22,7 @@ type GraphSnapshot struct {
 	// The unique identifier of the graph snapshot.
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// The unique identifier of the Neptune Analytics graph to create the snapshot from.
-	GraphIdentifier pulumi.StringPtrOutput `pulumi:"graphIdentifier"`
+	GraphIdentifier pulumi.StringOutput `pulumi:"graphIdentifier"`
 	// The ID of the KMS key used to encrypt and decrypt the snapshot.
 	KmsKeyIdentifier pulumi.StringOutput `pulumi:"kmsKeyIdentifier"`
 	// The time when the snapshot was created.
@@ -38,9 +39,12 @@ type GraphSnapshot struct {
 func NewGraphSnapshot(ctx *pulumi.Context,
 	name string, args *GraphSnapshotArgs, opts ...pulumi.ResourceOption) (*GraphSnapshot, error) {
 	if args == nil {
-		args = &GraphSnapshotArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.GraphIdentifier == nil {
+		return nil, errors.New("invalid value for required argument 'GraphIdentifier'")
+	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"graphIdentifier",
 		"snapshotName",
@@ -80,7 +84,7 @@ func (GraphSnapshotState) ElementType() reflect.Type {
 
 type graphSnapshotArgs struct {
 	// The unique identifier of the Neptune Analytics graph to create the snapshot from.
-	GraphIdentifier *string `pulumi:"graphIdentifier"`
+	GraphIdentifier string `pulumi:"graphIdentifier"`
 	// The snapshot name.
 	SnapshotName *string `pulumi:"snapshotName"`
 	// An array of key-value pairs to apply to this resource.
@@ -90,7 +94,7 @@ type graphSnapshotArgs struct {
 // The set of arguments for constructing a GraphSnapshot resource.
 type GraphSnapshotArgs struct {
 	// The unique identifier of the Neptune Analytics graph to create the snapshot from.
-	GraphIdentifier pulumi.StringPtrInput
+	GraphIdentifier pulumi.StringInput
 	// The snapshot name.
 	SnapshotName pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
@@ -145,8 +149,8 @@ func (o GraphSnapshotOutput) AwsId() pulumi.StringOutput {
 }
 
 // The unique identifier of the Neptune Analytics graph to create the snapshot from.
-func (o GraphSnapshotOutput) GraphIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GraphSnapshot) pulumi.StringPtrOutput { return v.GraphIdentifier }).(pulumi.StringPtrOutput)
+func (o GraphSnapshotOutput) GraphIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v *GraphSnapshot) pulumi.StringOutput { return v.GraphIdentifier }).(pulumi.StringOutput)
 }
 
 // The ID of the KMS key used to encrypt and decrypt the snapshot.

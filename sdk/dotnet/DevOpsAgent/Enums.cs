@@ -63,6 +63,7 @@ namespace Pulumi.AwsNative.DevOpsAgent
         public static ServiceType Pagerduty { get; } = new ServiceType("pagerduty");
         public static ServiceType Azureidentity { get; } = new ServiceType("azureidentity");
         public static ServiceType Mcpserversigv4 { get; } = new ServiceType("mcpserversigv4");
+        public static ServiceType Mcpservergrafana { get; } = new ServiceType("mcpservergrafana");
 
         public static bool operator ==(ServiceType left, ServiceType right) => left.Equals(right);
         public static bool operator !=(ServiceType left, ServiceType right) => !left.Equals(right);

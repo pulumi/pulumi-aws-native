@@ -2771,6 +2771,8 @@ type OrganizationTelemetryRuleTelemetryDestinationConfiguration struct {
 	DestinationType *OrganizationTelemetryRuleDestinationType `pulumi:"destinationType"`
 	// Configuration parameters specific to ELB load balancer logging when ELB is the resource type.
 	ElbLoadBalancerLoggingParameters *OrganizationTelemetryRuleElbLoadBalancerLoggingParameters `pulumi:"elbLoadBalancerLoggingParameters"`
+	// Parameters for log delivery configuration
+	LogDeliveryParameters *OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties `pulumi:"logDeliveryParameters"`
 	// The number of days to retain the telemetry data in the destination.
 	RetentionInDays *int `pulumi:"retentionInDays"`
 	// Configuration parameters specific to VPC Flow Logs when VPC is the resource type.
@@ -2800,6 +2802,8 @@ type OrganizationTelemetryRuleTelemetryDestinationConfigurationArgs struct {
 	DestinationType OrganizationTelemetryRuleDestinationTypePtrInput `pulumi:"destinationType"`
 	// Configuration parameters specific to ELB load balancer logging when ELB is the resource type.
 	ElbLoadBalancerLoggingParameters OrganizationTelemetryRuleElbLoadBalancerLoggingParametersPtrInput `pulumi:"elbLoadBalancerLoggingParameters"`
+	// Parameters for log delivery configuration
+	LogDeliveryParameters OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrInput `pulumi:"logDeliveryParameters"`
 	// The number of days to retain the telemetry data in the destination.
 	RetentionInDays pulumi.IntPtrInput `pulumi:"retentionInDays"`
 	// Configuration parameters specific to VPC Flow Logs when VPC is the resource type.
@@ -2914,6 +2918,13 @@ func (o OrganizationTelemetryRuleTelemetryDestinationConfigurationOutput) ElbLoa
 	}).(OrganizationTelemetryRuleElbLoadBalancerLoggingParametersPtrOutput)
 }
 
+// Parameters for log delivery configuration
+func (o OrganizationTelemetryRuleTelemetryDestinationConfigurationOutput) LogDeliveryParameters() OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutput {
+	return o.ApplyT(func(v OrganizationTelemetryRuleTelemetryDestinationConfiguration) *OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties {
+		return v.LogDeliveryParameters
+	}).(OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutput)
+}
+
 // The number of days to retain the telemetry data in the destination.
 func (o OrganizationTelemetryRuleTelemetryDestinationConfigurationOutput) RetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OrganizationTelemetryRuleTelemetryDestinationConfiguration) *int { return v.RetentionInDays }).(pulumi.IntPtrOutput)
@@ -2997,6 +3008,16 @@ func (o OrganizationTelemetryRuleTelemetryDestinationConfigurationPtrOutput) Elb
 	}).(OrganizationTelemetryRuleElbLoadBalancerLoggingParametersPtrOutput)
 }
 
+// Parameters for log delivery configuration
+func (o OrganizationTelemetryRuleTelemetryDestinationConfigurationPtrOutput) LogDeliveryParameters() OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutput {
+	return o.ApplyT(func(v *OrganizationTelemetryRuleTelemetryDestinationConfiguration) *OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties {
+		if v == nil {
+			return nil
+		}
+		return v.LogDeliveryParameters
+	}).(OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutput)
+}
+
 // The number of days to retain the telemetry data in the destination.
 func (o OrganizationTelemetryRuleTelemetryDestinationConfigurationPtrOutput) RetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *OrganizationTelemetryRuleTelemetryDestinationConfiguration) *int {
@@ -3025,6 +3046,148 @@ func (o OrganizationTelemetryRuleTelemetryDestinationConfigurationPtrOutput) Waf
 		}
 		return v.WafLoggingParameters
 	}).(OrganizationTelemetryRuleWafLoggingParametersPtrOutput)
+}
+
+// Parameters for log delivery configuration
+type OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties struct {
+	// Types of logs to deliver
+	LogTypes []OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem `pulumi:"logTypes"`
+}
+
+// OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesInput is an input type that accepts OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesArgs and OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesOutput values.
+// You can construct a concrete instance of `OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesInput` via:
+//
+//	OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesArgs{...}
+type OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesInput interface {
+	pulumi.Input
+
+	ToOrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesOutput() OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesOutput
+	ToOrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesOutputWithContext(context.Context) OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesOutput
+}
+
+// Parameters for log delivery configuration
+type OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesArgs struct {
+	// Types of logs to deliver
+	LogTypes OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItemArrayInput `pulumi:"logTypes"`
+}
+
+func (OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties)(nil)).Elem()
+}
+
+func (i OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesArgs) ToOrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesOutput() OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesOutput {
+	return i.ToOrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesOutputWithContext(context.Background())
+}
+
+func (i OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesArgs) ToOrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesOutputWithContext(ctx context.Context) OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesOutput)
+}
+
+func (i OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesArgs) ToOrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutput() OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutput {
+	return i.ToOrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesArgs) ToOrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutputWithContext(ctx context.Context) OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesOutput).ToOrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutputWithContext(ctx)
+}
+
+// OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrInput is an input type that accepts OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesArgs, OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtr and OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutput values.
+// You can construct a concrete instance of `OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrInput` via:
+//
+//	        OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToOrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutput() OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutput
+	ToOrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutputWithContext(context.Context) OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutput
+}
+
+type organizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrType OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesArgs
+
+func OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtr(v *OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesArgs) OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrInput {
+	return (*organizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrType)(v)
+}
+
+func (*organizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties)(nil)).Elem()
+}
+
+func (i *organizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrType) ToOrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutput() OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutput {
+	return i.ToOrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *organizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrType) ToOrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutputWithContext(ctx context.Context) OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutput)
+}
+
+// Parameters for log delivery configuration
+type OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesOutput struct{ *pulumi.OutputState }
+
+func (OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties)(nil)).Elem()
+}
+
+func (o OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesOutput) ToOrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesOutput() OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesOutput {
+	return o
+}
+
+func (o OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesOutput) ToOrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesOutputWithContext(ctx context.Context) OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesOutput {
+	return o
+}
+
+func (o OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesOutput) ToOrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutput() OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutput {
+	return o.ToOrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesOutput) ToOrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutputWithContext(ctx context.Context) OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties) *OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties {
+		return &v
+	}).(OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutput)
+}
+
+// Types of logs to deliver
+func (o OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesOutput) LogTypes() OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItemArrayOutput {
+	return o.ApplyT(func(v OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties) []OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem {
+		return v.LogTypes
+	}).(OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItemArrayOutput)
+}
+
+type OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties)(nil)).Elem()
+}
+
+func (o OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutput) ToOrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutput() OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutput {
+	return o
+}
+
+func (o OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutput) ToOrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutputWithContext(ctx context.Context) OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutput {
+	return o
+}
+
+func (o OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutput) Elem() OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesOutput {
+	return o.ApplyT(func(v *OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties) OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties {
+		if v != nil {
+			return *v
+		}
+		var ret OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties
+		return ret
+	}).(OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesOutput)
+}
+
+// Types of logs to deliver
+func (o OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutput) LogTypes() OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItemArrayOutput {
+	return o.ApplyT(func(v *OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties) []OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem {
+		if v == nil {
+			return nil
+		}
+		return v.LogTypes
+	}).(OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItemArrayOutput)
 }
 
 // The telemetry rule
@@ -5983,7 +6146,7 @@ type TelemetryRuleTelemetryDestinationConfiguration struct {
 	DestinationType *TelemetryRuleDestinationType `pulumi:"destinationType"`
 	// Configuration parameters specific to ELB load balancer logging when ELB is the resource type.
 	ElbLoadBalancerLoggingParameters *TelemetryRuleElbLoadBalancerLoggingParameters `pulumi:"elbLoadBalancerLoggingParameters"`
-	// Parameters for BedrockAgentCore log delivery
+	// Parameters for log delivery configuration
 	LogDeliveryParameters *TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties `pulumi:"logDeliveryParameters"`
 	// The number of days to retain the telemetry data in the destination.
 	RetentionInDays *int `pulumi:"retentionInDays"`
@@ -6014,7 +6177,7 @@ type TelemetryRuleTelemetryDestinationConfigurationArgs struct {
 	DestinationType TelemetryRuleDestinationTypePtrInput `pulumi:"destinationType"`
 	// Configuration parameters specific to ELB load balancer logging when ELB is the resource type.
 	ElbLoadBalancerLoggingParameters TelemetryRuleElbLoadBalancerLoggingParametersPtrInput `pulumi:"elbLoadBalancerLoggingParameters"`
-	// Parameters for BedrockAgentCore log delivery
+	// Parameters for log delivery configuration
 	LogDeliveryParameters TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrInput `pulumi:"logDeliveryParameters"`
 	// The number of days to retain the telemetry data in the destination.
 	RetentionInDays pulumi.IntPtrInput `pulumi:"retentionInDays"`
@@ -6128,7 +6291,7 @@ func (o TelemetryRuleTelemetryDestinationConfigurationOutput) ElbLoadBalancerLog
 	}).(TelemetryRuleElbLoadBalancerLoggingParametersPtrOutput)
 }
 
-// Parameters for BedrockAgentCore log delivery
+// Parameters for log delivery configuration
 func (o TelemetryRuleTelemetryDestinationConfigurationOutput) LogDeliveryParameters() TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutput {
 	return o.ApplyT(func(v TelemetryRuleTelemetryDestinationConfiguration) *TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties {
 		return v.LogDeliveryParameters
@@ -6218,7 +6381,7 @@ func (o TelemetryRuleTelemetryDestinationConfigurationPtrOutput) ElbLoadBalancer
 	}).(TelemetryRuleElbLoadBalancerLoggingParametersPtrOutput)
 }
 
-// Parameters for BedrockAgentCore log delivery
+// Parameters for log delivery configuration
 func (o TelemetryRuleTelemetryDestinationConfigurationPtrOutput) LogDeliveryParameters() TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutput {
 	return o.ApplyT(func(v *TelemetryRuleTelemetryDestinationConfiguration) *TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties {
 		if v == nil {
@@ -6258,9 +6421,9 @@ func (o TelemetryRuleTelemetryDestinationConfigurationPtrOutput) WafLoggingParam
 	}).(TelemetryRuleWafLoggingParametersPtrOutput)
 }
 
-// Parameters for BedrockAgentCore log delivery
+// Parameters for log delivery configuration
 type TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties struct {
-	// Types of logs to deliver for BedrockAgentCore resources
+	// Types of logs to deliver
 	LogTypes []TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem `pulumi:"logTypes"`
 }
 
@@ -6275,9 +6438,9 @@ type TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperti
 	ToTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesOutputWithContext(context.Context) TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesOutput
 }
 
-// Parameters for BedrockAgentCore log delivery
+// Parameters for log delivery configuration
 type TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesArgs struct {
-	// Types of logs to deliver for BedrockAgentCore resources
+	// Types of logs to deliver
 	LogTypes TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItemArrayInput `pulumi:"logTypes"`
 }
 
@@ -6334,7 +6497,7 @@ func (i *telemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProp
 	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutput)
 }
 
-// Parameters for BedrockAgentCore log delivery
+// Parameters for log delivery configuration
 type TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesOutput struct{ *pulumi.OutputState }
 
 func (TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesOutput) ElementType() reflect.Type {
@@ -6359,7 +6522,7 @@ func (o TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPrope
 	}).(TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutput)
 }
 
-// Types of logs to deliver for BedrockAgentCore resources
+// Types of logs to deliver
 func (o TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesOutput) LogTypes() TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItemArrayOutput {
 	return o.ApplyT(func(v TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties) []TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem {
 		return v.LogTypes
@@ -6390,7 +6553,7 @@ func (o TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPrope
 	}).(TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesOutput)
 }
 
-// Types of logs to deliver for BedrockAgentCore resources
+// Types of logs to deliver
 func (o TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutput) LogTypes() TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItemArrayOutput {
 	return o.ApplyT(func(v *TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties) []TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem {
 		if v == nil {
@@ -6794,6 +6957,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationTelemetryRuleSingleHeaderPtrInput)(nil)).Elem(), OrganizationTelemetryRuleSingleHeaderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationTelemetryRuleTelemetryDestinationConfigurationInput)(nil)).Elem(), OrganizationTelemetryRuleTelemetryDestinationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationTelemetryRuleTelemetryDestinationConfigurationPtrInput)(nil)).Elem(), OrganizationTelemetryRuleTelemetryDestinationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesInput)(nil)).Elem(), OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrInput)(nil)).Elem(), OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationTelemetryRuleTelemetryRuleInput)(nil)).Elem(), OrganizationTelemetryRuleTelemetryRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationTelemetryRuleVpcFlowLogParametersInput)(nil)).Elem(), OrganizationTelemetryRuleVpcFlowLogParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationTelemetryRuleVpcFlowLogParametersPtrInput)(nil)).Elem(), OrganizationTelemetryRuleVpcFlowLogParametersArgs{})
@@ -6876,6 +7041,8 @@ func init() {
 	pulumi.RegisterOutputType(OrganizationTelemetryRuleSingleHeaderPtrOutput{})
 	pulumi.RegisterOutputType(OrganizationTelemetryRuleTelemetryDestinationConfigurationOutput{})
 	pulumi.RegisterOutputType(OrganizationTelemetryRuleTelemetryDestinationConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesOutput{})
+	pulumi.RegisterOutputType(OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(OrganizationTelemetryRuleTelemetryRuleOutput{})
 	pulumi.RegisterOutputType(OrganizationTelemetryRuleTelemetryRulePtrOutput{})
 	pulumi.RegisterOutputType(OrganizationTelemetryRuleVpcFlowLogParametersOutput{})

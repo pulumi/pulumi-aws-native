@@ -90,6 +90,10 @@ export class InfluxDbCluster extends pulumi.CustomResource {
      */
     declare public readonly logDeliveryConfiguration: pulumi.Output<outputs.timestream.LogDeliveryConfigurationProperties | undefined>;
     /**
+     * The maintenance schedule for the InfluxDB cluster.
+     */
+    declare public readonly maintenanceSchedule: pulumi.Output<outputs.timestream.InfluxDbClusterMaintenanceSchedule | undefined>;
+    /**
      * The unique name that is associated with the InfluxDB cluster.
      */
     declare public readonly name: pulumi.Output<string | undefined>;
@@ -97,6 +101,10 @@ export class InfluxDbCluster extends pulumi.CustomResource {
      * Network type of the InfluxDB cluster.
      */
     declare public readonly networkType: pulumi.Output<enums.timestream.InfluxDbClusterNetworkType | undefined>;
+    /**
+     * The timestamp of the next scheduled maintenance event.
+     */
+    declare public /*out*/ readonly nextMaintenanceTime: pulumi.Output<string>;
     /**
      * The organization for the InfluxDB cluster.
      */
@@ -157,6 +165,7 @@ export class InfluxDbCluster extends pulumi.CustomResource {
             resourceInputs["deploymentType"] = args?.deploymentType;
             resourceInputs["failoverMode"] = args?.failoverMode;
             resourceInputs["logDeliveryConfiguration"] = args?.logDeliveryConfiguration;
+            resourceInputs["maintenanceSchedule"] = args?.maintenanceSchedule;
             resourceInputs["name"] = args?.name;
             resourceInputs["networkType"] = args?.networkType;
             resourceInputs["organization"] = args?.organization;
@@ -172,6 +181,7 @@ export class InfluxDbCluster extends pulumi.CustomResource {
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["engineType"] = undefined /*out*/;
             resourceInputs["influxAuthParametersSecretArn"] = undefined /*out*/;
+            resourceInputs["nextMaintenanceTime"] = undefined /*out*/;
             resourceInputs["readerEndpoint"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
         } else {
@@ -188,8 +198,10 @@ export class InfluxDbCluster extends pulumi.CustomResource {
             resourceInputs["failoverMode"] = undefined /*out*/;
             resourceInputs["influxAuthParametersSecretArn"] = undefined /*out*/;
             resourceInputs["logDeliveryConfiguration"] = undefined /*out*/;
+            resourceInputs["maintenanceSchedule"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["networkType"] = undefined /*out*/;
+            resourceInputs["nextMaintenanceTime"] = undefined /*out*/;
             resourceInputs["organization"] = undefined /*out*/;
             resourceInputs["password"] = undefined /*out*/;
             resourceInputs["port"] = undefined /*out*/;
@@ -244,6 +256,10 @@ export interface InfluxDbClusterArgs {
      * Configuration for sending logs to customer account from the InfluxDB cluster.
      */
     logDeliveryConfiguration?: pulumi.Input<inputs.timestream.LogDeliveryConfigurationPropertiesArgs>;
+    /**
+     * The maintenance schedule for the InfluxDB cluster.
+     */
+    maintenanceSchedule?: pulumi.Input<inputs.timestream.InfluxDbClusterMaintenanceScheduleArgs>;
     /**
      * The unique name that is associated with the InfluxDB cluster.
      */

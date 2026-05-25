@@ -16,6 +16,7 @@ namespace Pulumi.AwsNative.ApplicationSignals.Outputs
     [OutputType]
     public sealed class ServiceLevelObjectiveSliMetric
     {
+        public readonly Outputs.ServiceLevelObjectiveCompositeSliConfig? CompositeSliConfig;
         /// <summary>
         /// Identifies the dependency using the `DependencyKeyAttributes` and `DependencyOperationName` .
         /// </summary>
@@ -36,6 +37,8 @@ namespace Pulumi.AwsNative.ApplicationSignals.Outputs
         /// If this SLO monitors a CloudWatch metric or the result of a CloudWatch metric math expression, use this structure to specify that metric or expression.
         /// </summary>
         public readonly ImmutableArray<Outputs.ServiceLevelObjectiveMetricDataQuery> MetricDataQueries;
+        public readonly string? MetricName;
+        public readonly Outputs.ServiceLevelObjectiveMetricSource? MetricSource;
         /// <summary>
         /// If the SLO monitors either the LATENCY or AVAILABILITY metric that Application Signals collects, this field displays which of those metrics is used.
         /// </summary>
@@ -55,11 +58,17 @@ namespace Pulumi.AwsNative.ApplicationSignals.Outputs
 
         [OutputConstructor]
         private ServiceLevelObjectiveSliMetric(
+            Outputs.ServiceLevelObjectiveCompositeSliConfig? compositeSliConfig,
+
             Outputs.ServiceLevelObjectiveDependencyConfig? dependencyConfig,
 
             ImmutableDictionary<string, string>? keyAttributes,
 
             ImmutableArray<Outputs.ServiceLevelObjectiveMetricDataQuery> metricDataQueries,
+
+            string? metricName,
+
+            Outputs.ServiceLevelObjectiveMetricSource? metricSource,
 
             Pulumi.AwsNative.ApplicationSignals.ServiceLevelObjectiveSliMetricMetricType? metricType,
 
@@ -69,9 +78,12 @@ namespace Pulumi.AwsNative.ApplicationSignals.Outputs
 
             string? statistic)
         {
+            CompositeSliConfig = compositeSliConfig;
             DependencyConfig = dependencyConfig;
             KeyAttributes = keyAttributes;
             MetricDataQueries = metricDataQueries;
+            MetricName = metricName;
+            MetricSource = metricSource;
             MetricType = metricType;
             OperationName = operationName;
             PeriodSeconds = periodSeconds;

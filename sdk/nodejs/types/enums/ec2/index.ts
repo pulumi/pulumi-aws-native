@@ -669,6 +669,16 @@ export const LaunchTemplateCpuOptionsAmdSevSnp = {
  */
 export type LaunchTemplateCpuOptionsAmdSevSnp = (typeof LaunchTemplateCpuOptionsAmdSevSnp)[keyof typeof LaunchTemplateCpuOptionsAmdSevSnp];
 
+export const LaunchTemplateCpuOptionsNestedVirtualization = {
+    Enabled: "enabled",
+    Disabled: "disabled",
+} as const;
+
+/**
+ * Indicates whether the instance is enabled for nested virtualization.
+ */
+export type LaunchTemplateCpuOptionsNestedVirtualization = (typeof LaunchTemplateCpuOptionsNestedVirtualization)[keyof typeof LaunchTemplateCpuOptionsNestedVirtualization];
+
 export const NetworkInsightsAccessScopeAnalysisFindingsFound = {
     True: "true",
     False: "false",

@@ -16,6 +16,7 @@ __all__ = [
     'OrganizationTelemetryRuleFilterBehavior',
     'OrganizationTelemetryRuleFilterRequirement',
     'OrganizationTelemetryRuleResourceType',
+    'OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem',
     'OrganizationTelemetryRuleTelemetrySourceType',
     'OrganizationTelemetryRuleTelemetryType',
     'OrganizationTelemetryRuleWafLogType',
@@ -122,6 +123,12 @@ class OrganizationTelemetryRuleResourceType(_builtins.str, Enum):
     AWSEKS_CLUSTER = "AWS::EKS::Cluster"
     AWS_ELASTIC_LOAD_BALANCING_V2_LOAD_BALANCER = "AWS::ElasticLoadBalancingV2::LoadBalancer"
     AWSEC2_INSTANCE = "AWS::EC2::Instance"
+    AWS_SECURITY_HUB_HUB = "AWS::SecurityHub::Hub"
+
+
+@pulumi.type_token("aws-native:observabilityadmin:OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem")
+class OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem(_builtins.str, Enum):
+    SECURITY_FINDING_LOGS = "SECURITY_FINDING_LOGS"
 
 
 @pulumi.type_token("aws-native:observabilityadmin:OrganizationTelemetryRuleTelemetrySourceType")
@@ -254,12 +261,14 @@ class TelemetryRuleResourceType(_builtins.str, Enum):
     AWS_BEDROCK_AGENT_CORE_RUNTIME = "AWS::BedrockAgentCore::Runtime"
     AWS_BEDROCK_AGENT_CORE_BROWSER = "AWS::BedrockAgentCore::Browser"
     AWS_BEDROCK_AGENT_CORE_CODE_INTERPRETER = "AWS::BedrockAgentCore::CodeInterpreter"
+    AWS_SECURITY_HUB_HUB = "AWS::SecurityHub::Hub"
 
 
 @pulumi.type_token("aws-native:observabilityadmin:TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem")
 class TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem(_builtins.str, Enum):
     APPLICATION_LOGS = "APPLICATION_LOGS"
     USAGE_LOGS = "USAGE_LOGS"
+    SECURITY_FINDING_LOGS = "SECURITY_FINDING_LOGS"
 
 
 @pulumi.type_token("aws-native:observabilityadmin:TelemetryRuleTelemetrySourceType")

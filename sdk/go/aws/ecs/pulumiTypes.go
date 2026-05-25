@@ -13303,7 +13303,7 @@ type ServiceDeploymentConfiguration struct {
 	// The deployment circuit breaker can only be used for services using the rolling update (``ECS``) deployment type.
 	//   The *deployment circuit breaker* determines whether a service deployment will fail if the service can't reach a steady state. If you use the deployment circuit breaker, a service deployment will transition to a failed state and stop launching new tasks. If you use the rollback option, when a service deployment fails, the service is rolled back to the last deployment that completed successfully. For more information, see [Rolling update](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html) in the *Amazon Elastic Container Service Developer Guide*
 	DeploymentCircuitBreaker *ServiceDeploymentCircuitBreaker `pulumi:"deploymentCircuitBreaker"`
-	// An array of deployment lifecycle hook objects to run custom logic at specific stages of the deployment lifecycle.
+	// An array of deployment lifecycle hook objects to run custom logic or pause the deployment at specific stages of the deployment lifecycle.
 	LifecycleHooks []ServiceDeploymentLifecycleHook `pulumi:"lifecycleHooks"`
 	// Configuration for linear deployment strategy. Only valid when the deployment strategy is ``LINEAR``. This configuration enables progressive traffic shifting in equal percentage increments with configurable bake times between each step.
 	LinearConfiguration *ServiceLinearConfiguration `pulumi:"linearConfiguration"`
@@ -13366,7 +13366,7 @@ type ServiceDeploymentConfigurationArgs struct {
 	// The deployment circuit breaker can only be used for services using the rolling update (``ECS``) deployment type.
 	//   The *deployment circuit breaker* determines whether a service deployment will fail if the service can't reach a steady state. If you use the deployment circuit breaker, a service deployment will transition to a failed state and stop launching new tasks. If you use the rollback option, when a service deployment fails, the service is rolled back to the last deployment that completed successfully. For more information, see [Rolling update](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html) in the *Amazon Elastic Container Service Developer Guide*
 	DeploymentCircuitBreaker ServiceDeploymentCircuitBreakerPtrInput `pulumi:"deploymentCircuitBreaker"`
-	// An array of deployment lifecycle hook objects to run custom logic at specific stages of the deployment lifecycle.
+	// An array of deployment lifecycle hook objects to run custom logic or pause the deployment at specific stages of the deployment lifecycle.
 	LifecycleHooks ServiceDeploymentLifecycleHookArrayInput `pulumi:"lifecycleHooks"`
 	// Configuration for linear deployment strategy. Only valid when the deployment strategy is ``LINEAR``. This configuration enables progressive traffic shifting in equal percentage increments with configurable bake times between each step.
 	LinearConfiguration ServiceLinearConfigurationPtrInput `pulumi:"linearConfiguration"`
@@ -13510,7 +13510,7 @@ func (o ServiceDeploymentConfigurationOutput) DeploymentCircuitBreaker() Service
 	}).(ServiceDeploymentCircuitBreakerPtrOutput)
 }
 
-// An array of deployment lifecycle hook objects to run custom logic at specific stages of the deployment lifecycle.
+// An array of deployment lifecycle hook objects to run custom logic or pause the deployment at specific stages of the deployment lifecycle.
 func (o ServiceDeploymentConfigurationOutput) LifecycleHooks() ServiceDeploymentLifecycleHookArrayOutput {
 	return o.ApplyT(func(v ServiceDeploymentConfiguration) []ServiceDeploymentLifecycleHook { return v.LifecycleHooks }).(ServiceDeploymentLifecycleHookArrayOutput)
 }
@@ -13633,7 +13633,7 @@ func (o ServiceDeploymentConfigurationPtrOutput) DeploymentCircuitBreaker() Serv
 	}).(ServiceDeploymentCircuitBreakerPtrOutput)
 }
 
-// An array of deployment lifecycle hook objects to run custom logic at specific stages of the deployment lifecycle.
+// An array of deployment lifecycle hook objects to run custom logic or pause the deployment at specific stages of the deployment lifecycle.
 func (o ServiceDeploymentConfigurationPtrOutput) LifecycleHooks() ServiceDeploymentLifecycleHookArrayOutput {
 	return o.ApplyT(func(v *ServiceDeploymentConfiguration) []ServiceDeploymentLifecycleHook {
 		if v == nil {
@@ -13978,15 +13978,15 @@ func (o ServiceDeploymentControllerPtrOutput) Type() ServiceDeploymentController
 	}).(ServiceDeploymentControllerTypePtrOutput)
 }
 
-// A deployment lifecycle hook runs custom logic at specific stages of the deployment process. Currently, you can use Lambda functions as hook targets.
+// A deployment lifecycle hook runs custom logic or pauses the deployment at specific stages of the deployment process. You can use Lambda functions or pause hooks as hook targets.
 //
 //	For more information, see [Lifecycle hooks for Amazon ECS service deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-lifecycle-hooks.html) in the *Amazon Elastic Container Service Developer Guide*.
 type ServiceDeploymentLifecycleHook struct {
 	// Use this field to specify custom parameters that ECS passes to your hook target invocations (such as a Lambda function).
 	//  This field must be a JSON object as a string.
 	HookDetails interface{} `pulumi:"hookDetails"`
-	// The Amazon Resource Name (ARN) of the hook target. Currently, only Lambda function ARNs are supported.
-	//  You must provide this parameter when configuring a deployment lifecycle hook.
+	// The Amazon Resource Name (ARN) of the hook target. For ``AWS_LAMBDA`` hooks, this is the Lambda function ARN. This field is not applicable for ``PAUSE`` hooks.
+	//  You must provide this parameter when configuring an ``AWS_LAMBDA`` lifecycle hook.
 	HookTargetArn *string `pulumi:"hookTargetArn"`
 	// The lifecycle stages at which to run the hook. Choose from these valid values:
 	//   +  RECONCILE_SERVICE
@@ -14004,19 +14004,30 @@ type ServiceDeploymentLifecycleHook struct {
 	//   +  POST_TEST_TRAFFIC_SHIFT
 	//       The test traffic shift is complete. The green service revision handles 100% of the test traffic.
 	//       You can use a lifecycle hook for this stage.
+	//   +  PRE_PRODUCTION_TRAFFIC_SHIFT
+	//       Occurs before production traffic shift. For linear and canary deployments, this stage is invoked before every traffic shift step.
+	//       You can use a lifecycle hook for this stage.
 	//   +  PRODUCTION_TRAFFIC_SHIFT
-	//       Production traffic is shifting to the green service revision. The green service revision is migrating from 0% to 100% of production traffic.
+	//       Production traffic is shifting to the green service revision. The green service revision is migrating from 0% to 100% of production traffic. For linear and canary deployments, this stage is invoked at every traffic shift step.
 	//       You can use a lifecycle hook for this stage.
 	//   +  POST_PRODUCTION_TRAFFIC_SHIFT
 	//       The production traffic shift is complete.
 	//       You can use a lifecycle hook for this stage.
 	//
-	//  You must provide this parameter when configuring a deployment lifecycle hook.
+	//   ``PAUSE`` hooks cannot be configured at ``TEST_TRAFFIC_SHIFT`` or ``PRODUCTION_TRAFFIC_SHIFT`` stages. These stages are only valid for ``AWS_LAMBDA`` hooks.
+	//   You must provide this parameter when configuring a deployment lifecycle hook.
 	LifecycleStages []ServiceDeploymentLifecycleHookLifecycleStagesItem `pulumi:"lifecycleStages"`
 	// The Amazon Resource Name (ARN) of the IAM role that grants Amazon ECS permission to call Lambda functions on your behalf.
 	//  For more information, see [Permissions required for Lambda functions in Amazon ECS blue/green deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/blue-green-permissions.html) in the *Amazon Elastic Container Service Developer Guide*.
-	RoleArn              *string     `pulumi:"roleArn"`
-	TimeoutConfiguration interface{} `pulumi:"timeoutConfiguration"`
+	RoleArn *string `pulumi:"roleArn"`
+	// The type of action the lifecycle hook performs. Valid values are:
+	//   +  ``AWS_LAMBDA`` - Invokes a Lambda function at the specified lifecycle stage. This is the default value.
+	//   +  ``PAUSE`` - Pauses the deployment at the specified lifecycle stage until you call ``ContinueServiceDeployment`` to continue or roll back.
+	//
+	//  This field is optional. If not specified, the default value is ``AWS_LAMBDA``.
+	TargetType *ServiceDeploymentLifecycleHookTargetType `pulumi:"targetType"`
+	// The timeout configuration for the lifecycle hook. This specifies how long Amazon ECS waits before taking the timeout action if the hook is not resolved.
+	TimeoutConfiguration *ServiceHookTimeoutConfig `pulumi:"timeoutConfiguration"`
 }
 
 // ServiceDeploymentLifecycleHookInput is an input type that accepts ServiceDeploymentLifecycleHookArgs and ServiceDeploymentLifecycleHookOutput values.
@@ -14030,15 +14041,15 @@ type ServiceDeploymentLifecycleHookInput interface {
 	ToServiceDeploymentLifecycleHookOutputWithContext(context.Context) ServiceDeploymentLifecycleHookOutput
 }
 
-// A deployment lifecycle hook runs custom logic at specific stages of the deployment process. Currently, you can use Lambda functions as hook targets.
+// A deployment lifecycle hook runs custom logic or pauses the deployment at specific stages of the deployment process. You can use Lambda functions or pause hooks as hook targets.
 //
 //	For more information, see [Lifecycle hooks for Amazon ECS service deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-lifecycle-hooks.html) in the *Amazon Elastic Container Service Developer Guide*.
 type ServiceDeploymentLifecycleHookArgs struct {
 	// Use this field to specify custom parameters that ECS passes to your hook target invocations (such as a Lambda function).
 	//  This field must be a JSON object as a string.
 	HookDetails pulumi.Input `pulumi:"hookDetails"`
-	// The Amazon Resource Name (ARN) of the hook target. Currently, only Lambda function ARNs are supported.
-	//  You must provide this parameter when configuring a deployment lifecycle hook.
+	// The Amazon Resource Name (ARN) of the hook target. For ``AWS_LAMBDA`` hooks, this is the Lambda function ARN. This field is not applicable for ``PAUSE`` hooks.
+	//  You must provide this parameter when configuring an ``AWS_LAMBDA`` lifecycle hook.
 	HookTargetArn pulumi.StringPtrInput `pulumi:"hookTargetArn"`
 	// The lifecycle stages at which to run the hook. Choose from these valid values:
 	//   +  RECONCILE_SERVICE
@@ -14056,19 +14067,30 @@ type ServiceDeploymentLifecycleHookArgs struct {
 	//   +  POST_TEST_TRAFFIC_SHIFT
 	//       The test traffic shift is complete. The green service revision handles 100% of the test traffic.
 	//       You can use a lifecycle hook for this stage.
+	//   +  PRE_PRODUCTION_TRAFFIC_SHIFT
+	//       Occurs before production traffic shift. For linear and canary deployments, this stage is invoked before every traffic shift step.
+	//       You can use a lifecycle hook for this stage.
 	//   +  PRODUCTION_TRAFFIC_SHIFT
-	//       Production traffic is shifting to the green service revision. The green service revision is migrating from 0% to 100% of production traffic.
+	//       Production traffic is shifting to the green service revision. The green service revision is migrating from 0% to 100% of production traffic. For linear and canary deployments, this stage is invoked at every traffic shift step.
 	//       You can use a lifecycle hook for this stage.
 	//   +  POST_PRODUCTION_TRAFFIC_SHIFT
 	//       The production traffic shift is complete.
 	//       You can use a lifecycle hook for this stage.
 	//
-	//  You must provide this parameter when configuring a deployment lifecycle hook.
+	//   ``PAUSE`` hooks cannot be configured at ``TEST_TRAFFIC_SHIFT`` or ``PRODUCTION_TRAFFIC_SHIFT`` stages. These stages are only valid for ``AWS_LAMBDA`` hooks.
+	//   You must provide this parameter when configuring a deployment lifecycle hook.
 	LifecycleStages ServiceDeploymentLifecycleHookLifecycleStagesItemArrayInput `pulumi:"lifecycleStages"`
 	// The Amazon Resource Name (ARN) of the IAM role that grants Amazon ECS permission to call Lambda functions on your behalf.
 	//  For more information, see [Permissions required for Lambda functions in Amazon ECS blue/green deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/blue-green-permissions.html) in the *Amazon Elastic Container Service Developer Guide*.
-	RoleArn              pulumi.StringPtrInput `pulumi:"roleArn"`
-	TimeoutConfiguration pulumi.Input          `pulumi:"timeoutConfiguration"`
+	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
+	// The type of action the lifecycle hook performs. Valid values are:
+	//   +  ``AWS_LAMBDA`` - Invokes a Lambda function at the specified lifecycle stage. This is the default value.
+	//   +  ``PAUSE`` - Pauses the deployment at the specified lifecycle stage until you call ``ContinueServiceDeployment`` to continue or roll back.
+	//
+	//  This field is optional. If not specified, the default value is ``AWS_LAMBDA``.
+	TargetType ServiceDeploymentLifecycleHookTargetTypePtrInput `pulumi:"targetType"`
+	// The timeout configuration for the lifecycle hook. This specifies how long Amazon ECS waits before taking the timeout action if the hook is not resolved.
+	TimeoutConfiguration ServiceHookTimeoutConfigPtrInput `pulumi:"timeoutConfiguration"`
 }
 
 func (ServiceDeploymentLifecycleHookArgs) ElementType() reflect.Type {
@@ -14108,7 +14130,7 @@ func (i ServiceDeploymentLifecycleHookArray) ToServiceDeploymentLifecycleHookArr
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceDeploymentLifecycleHookArrayOutput)
 }
 
-// A deployment lifecycle hook runs custom logic at specific stages of the deployment process. Currently, you can use Lambda functions as hook targets.
+// A deployment lifecycle hook runs custom logic or pauses the deployment at specific stages of the deployment process. You can use Lambda functions or pause hooks as hook targets.
 //
 //	For more information, see [Lifecycle hooks for Amazon ECS service deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-lifecycle-hooks.html) in the *Amazon Elastic Container Service Developer Guide*.
 type ServiceDeploymentLifecycleHookOutput struct{ *pulumi.OutputState }
@@ -14132,9 +14154,9 @@ func (o ServiceDeploymentLifecycleHookOutput) HookDetails() pulumi.AnyOutput {
 	return o.ApplyT(func(v ServiceDeploymentLifecycleHook) interface{} { return v.HookDetails }).(pulumi.AnyOutput)
 }
 
-// The Amazon Resource Name (ARN) of the hook target. Currently, only Lambda function ARNs are supported.
+// The Amazon Resource Name (ARN) of the hook target. For “AWS_LAMBDA“ hooks, this is the Lambda function ARN. This field is not applicable for “PAUSE“ hooks.
 //
-//	You must provide this parameter when configuring a deployment lifecycle hook.
+//	You must provide this parameter when configuring an ``AWS_LAMBDA`` lifecycle hook.
 func (o ServiceDeploymentLifecycleHookOutput) HookTargetArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceDeploymentLifecycleHook) *string { return v.HookTargetArn }).(pulumi.StringPtrOutput)
 }
@@ -14161,14 +14183,19 @@ func (o ServiceDeploymentLifecycleHookOutput) HookTargetArn() pulumi.StringPtrOu
 //     The test traffic shift is complete. The green service revision handles 100% of the test traffic.
 //     You can use a lifecycle hook for this stage.
 //
+//   - PRE_PRODUCTION_TRAFFIC_SHIFT
+//     Occurs before production traffic shift. For linear and canary deployments, this stage is invoked before every traffic shift step.
+//     You can use a lifecycle hook for this stage.
+//
 //   - PRODUCTION_TRAFFIC_SHIFT
-//     Production traffic is shifting to the green service revision. The green service revision is migrating from 0% to 100% of production traffic.
+//     Production traffic is shifting to the green service revision. The green service revision is migrating from 0% to 100% of production traffic. For linear and canary deployments, this stage is invoked at every traffic shift step.
 //     You can use a lifecycle hook for this stage.
 //
 //   - POST_PRODUCTION_TRAFFIC_SHIFT
 //     The production traffic shift is complete.
 //     You can use a lifecycle hook for this stage.
 //
+//     “PAUSE“ hooks cannot be configured at “TEST_TRAFFIC_SHIFT“ or “PRODUCTION_TRAFFIC_SHIFT“ stages. These stages are only valid for “AWS_LAMBDA“ hooks.
 //     You must provide this parameter when configuring a deployment lifecycle hook.
 func (o ServiceDeploymentLifecycleHookOutput) LifecycleStages() ServiceDeploymentLifecycleHookLifecycleStagesItemArrayOutput {
 	return o.ApplyT(func(v ServiceDeploymentLifecycleHook) []ServiceDeploymentLifecycleHookLifecycleStagesItem {
@@ -14183,8 +14210,20 @@ func (o ServiceDeploymentLifecycleHookOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceDeploymentLifecycleHook) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
-func (o ServiceDeploymentLifecycleHookOutput) TimeoutConfiguration() pulumi.AnyOutput {
-	return o.ApplyT(func(v ServiceDeploymentLifecycleHook) interface{} { return v.TimeoutConfiguration }).(pulumi.AnyOutput)
+// The type of action the lifecycle hook performs. Valid values are:
+//
+//   - “AWS_LAMBDA“ - Invokes a Lambda function at the specified lifecycle stage. This is the default value.
+//
+//   - “PAUSE“ - Pauses the deployment at the specified lifecycle stage until you call “ContinueServiceDeployment“ to continue or roll back.
+//
+//     This field is optional. If not specified, the default value is “AWS_LAMBDA“.
+func (o ServiceDeploymentLifecycleHookOutput) TargetType() ServiceDeploymentLifecycleHookTargetTypePtrOutput {
+	return o.ApplyT(func(v ServiceDeploymentLifecycleHook) *ServiceDeploymentLifecycleHookTargetType { return v.TargetType }).(ServiceDeploymentLifecycleHookTargetTypePtrOutput)
+}
+
+// The timeout configuration for the lifecycle hook. This specifies how long Amazon ECS waits before taking the timeout action if the hook is not resolved.
+func (o ServiceDeploymentLifecycleHookOutput) TimeoutConfiguration() ServiceHookTimeoutConfigPtrOutput {
+	return o.ApplyT(func(v ServiceDeploymentLifecycleHook) *ServiceHookTimeoutConfig { return v.TimeoutConfiguration }).(ServiceHookTimeoutConfigPtrOutput)
 }
 
 type ServiceDeploymentLifecycleHookArrayOutput struct{ *pulumi.OutputState }
@@ -14482,6 +14521,154 @@ func (o ServiceForceNewDeploymentPtrOutput) ForceNewDeploymentNonce() pulumi.Str
 		}
 		return v.ForceNewDeploymentNonce
 	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceHookTimeoutConfig struct {
+	Action           *ServiceHookTimeoutConfigAction `pulumi:"action"`
+	TimeoutInMinutes *int                            `pulumi:"timeoutInMinutes"`
+}
+
+// ServiceHookTimeoutConfigInput is an input type that accepts ServiceHookTimeoutConfigArgs and ServiceHookTimeoutConfigOutput values.
+// You can construct a concrete instance of `ServiceHookTimeoutConfigInput` via:
+//
+//	ServiceHookTimeoutConfigArgs{...}
+type ServiceHookTimeoutConfigInput interface {
+	pulumi.Input
+
+	ToServiceHookTimeoutConfigOutput() ServiceHookTimeoutConfigOutput
+	ToServiceHookTimeoutConfigOutputWithContext(context.Context) ServiceHookTimeoutConfigOutput
+}
+
+type ServiceHookTimeoutConfigArgs struct {
+	Action           ServiceHookTimeoutConfigActionPtrInput `pulumi:"action"`
+	TimeoutInMinutes pulumi.IntPtrInput                     `pulumi:"timeoutInMinutes"`
+}
+
+func (ServiceHookTimeoutConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceHookTimeoutConfig)(nil)).Elem()
+}
+
+func (i ServiceHookTimeoutConfigArgs) ToServiceHookTimeoutConfigOutput() ServiceHookTimeoutConfigOutput {
+	return i.ToServiceHookTimeoutConfigOutputWithContext(context.Background())
+}
+
+func (i ServiceHookTimeoutConfigArgs) ToServiceHookTimeoutConfigOutputWithContext(ctx context.Context) ServiceHookTimeoutConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceHookTimeoutConfigOutput)
+}
+
+func (i ServiceHookTimeoutConfigArgs) ToServiceHookTimeoutConfigPtrOutput() ServiceHookTimeoutConfigPtrOutput {
+	return i.ToServiceHookTimeoutConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceHookTimeoutConfigArgs) ToServiceHookTimeoutConfigPtrOutputWithContext(ctx context.Context) ServiceHookTimeoutConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceHookTimeoutConfigOutput).ToServiceHookTimeoutConfigPtrOutputWithContext(ctx)
+}
+
+// ServiceHookTimeoutConfigPtrInput is an input type that accepts ServiceHookTimeoutConfigArgs, ServiceHookTimeoutConfigPtr and ServiceHookTimeoutConfigPtrOutput values.
+// You can construct a concrete instance of `ServiceHookTimeoutConfigPtrInput` via:
+//
+//	        ServiceHookTimeoutConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceHookTimeoutConfigPtrInput interface {
+	pulumi.Input
+
+	ToServiceHookTimeoutConfigPtrOutput() ServiceHookTimeoutConfigPtrOutput
+	ToServiceHookTimeoutConfigPtrOutputWithContext(context.Context) ServiceHookTimeoutConfigPtrOutput
+}
+
+type serviceHookTimeoutConfigPtrType ServiceHookTimeoutConfigArgs
+
+func ServiceHookTimeoutConfigPtr(v *ServiceHookTimeoutConfigArgs) ServiceHookTimeoutConfigPtrInput {
+	return (*serviceHookTimeoutConfigPtrType)(v)
+}
+
+func (*serviceHookTimeoutConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceHookTimeoutConfig)(nil)).Elem()
+}
+
+func (i *serviceHookTimeoutConfigPtrType) ToServiceHookTimeoutConfigPtrOutput() ServiceHookTimeoutConfigPtrOutput {
+	return i.ToServiceHookTimeoutConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceHookTimeoutConfigPtrType) ToServiceHookTimeoutConfigPtrOutputWithContext(ctx context.Context) ServiceHookTimeoutConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceHookTimeoutConfigPtrOutput)
+}
+
+type ServiceHookTimeoutConfigOutput struct{ *pulumi.OutputState }
+
+func (ServiceHookTimeoutConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceHookTimeoutConfig)(nil)).Elem()
+}
+
+func (o ServiceHookTimeoutConfigOutput) ToServiceHookTimeoutConfigOutput() ServiceHookTimeoutConfigOutput {
+	return o
+}
+
+func (o ServiceHookTimeoutConfigOutput) ToServiceHookTimeoutConfigOutputWithContext(ctx context.Context) ServiceHookTimeoutConfigOutput {
+	return o
+}
+
+func (o ServiceHookTimeoutConfigOutput) ToServiceHookTimeoutConfigPtrOutput() ServiceHookTimeoutConfigPtrOutput {
+	return o.ToServiceHookTimeoutConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceHookTimeoutConfigOutput) ToServiceHookTimeoutConfigPtrOutputWithContext(ctx context.Context) ServiceHookTimeoutConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceHookTimeoutConfig) *ServiceHookTimeoutConfig {
+		return &v
+	}).(ServiceHookTimeoutConfigPtrOutput)
+}
+
+func (o ServiceHookTimeoutConfigOutput) Action() ServiceHookTimeoutConfigActionPtrOutput {
+	return o.ApplyT(func(v ServiceHookTimeoutConfig) *ServiceHookTimeoutConfigAction { return v.Action }).(ServiceHookTimeoutConfigActionPtrOutput)
+}
+
+func (o ServiceHookTimeoutConfigOutput) TimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceHookTimeoutConfig) *int { return v.TimeoutInMinutes }).(pulumi.IntPtrOutput)
+}
+
+type ServiceHookTimeoutConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceHookTimeoutConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceHookTimeoutConfig)(nil)).Elem()
+}
+
+func (o ServiceHookTimeoutConfigPtrOutput) ToServiceHookTimeoutConfigPtrOutput() ServiceHookTimeoutConfigPtrOutput {
+	return o
+}
+
+func (o ServiceHookTimeoutConfigPtrOutput) ToServiceHookTimeoutConfigPtrOutputWithContext(ctx context.Context) ServiceHookTimeoutConfigPtrOutput {
+	return o
+}
+
+func (o ServiceHookTimeoutConfigPtrOutput) Elem() ServiceHookTimeoutConfigOutput {
+	return o.ApplyT(func(v *ServiceHookTimeoutConfig) ServiceHookTimeoutConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceHookTimeoutConfig
+		return ret
+	}).(ServiceHookTimeoutConfigOutput)
+}
+
+func (o ServiceHookTimeoutConfigPtrOutput) Action() ServiceHookTimeoutConfigActionPtrOutput {
+	return o.ApplyT(func(v *ServiceHookTimeoutConfig) *ServiceHookTimeoutConfigAction {
+		if v == nil {
+			return nil
+		}
+		return v.Action
+	}).(ServiceHookTimeoutConfigActionPtrOutput)
+}
+
+func (o ServiceHookTimeoutConfigPtrOutput) TimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServiceHookTimeoutConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TimeoutInMinutes
+	}).(pulumi.IntPtrOutput)
 }
 
 // Configuration for a linear deployment strategy that shifts production traffic in equal percentage increments with configurable wait times between each step until 100 percent of traffic is shifted to the new service revision.
@@ -24077,6 +24264,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEbsTagSpecificationArrayInput)(nil)).Elem(), ServiceEbsTagSpecificationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceForceNewDeploymentInput)(nil)).Elem(), ServiceForceNewDeploymentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceForceNewDeploymentPtrInput)(nil)).Elem(), ServiceForceNewDeploymentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceHookTimeoutConfigInput)(nil)).Elem(), ServiceHookTimeoutConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceHookTimeoutConfigPtrInput)(nil)).Elem(), ServiceHookTimeoutConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLinearConfigurationInput)(nil)).Elem(), ServiceLinearConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLinearConfigurationPtrInput)(nil)).Elem(), ServiceLinearConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLoadBalancerInput)(nil)).Elem(), ServiceLoadBalancerArgs{})
@@ -24347,6 +24536,8 @@ func init() {
 	pulumi.RegisterOutputType(ServiceEbsTagSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(ServiceForceNewDeploymentOutput{})
 	pulumi.RegisterOutputType(ServiceForceNewDeploymentPtrOutput{})
+	pulumi.RegisterOutputType(ServiceHookTimeoutConfigOutput{})
+	pulumi.RegisterOutputType(ServiceHookTimeoutConfigPtrOutput{})
 	pulumi.RegisterOutputType(ServiceLinearConfigurationOutput{})
 	pulumi.RegisterOutputType(ServiceLinearConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceLoadBalancerOutput{})

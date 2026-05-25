@@ -11,13 +11,13 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Outputs
 {
 
     /// <summary>
-    /// Parameters for BedrockAgentCore log delivery
+    /// Parameters for log delivery configuration
     /// </summary>
     [OutputType]
     public sealed class TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties
     {
         /// <summary>
-        /// Types of logs to deliver for BedrockAgentCore resources
+        /// Types of logs to deliver
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.ObservabilityAdmin.TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem> LogTypes;
 
