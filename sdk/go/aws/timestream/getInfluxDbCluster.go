@@ -47,6 +47,10 @@ type LookupInfluxDbClusterResult struct {
 	InfluxAuthParametersSecretArn *string `pulumi:"influxAuthParametersSecretArn"`
 	// Configuration for sending logs to customer account from the InfluxDB cluster.
 	LogDeliveryConfiguration *LogDeliveryConfigurationProperties `pulumi:"logDeliveryConfiguration"`
+	// The maintenance schedule for the InfluxDB cluster.
+	MaintenanceSchedule *InfluxDbClusterMaintenanceSchedule `pulumi:"maintenanceSchedule"`
+	// The timestamp of the next scheduled maintenance event.
+	NextMaintenanceTime *string `pulumi:"nextMaintenanceTime"`
 	// The port number on which InfluxDB accepts connections.
 	Port *int `pulumi:"port"`
 	// The reader endpoint for the InfluxDB cluster.
@@ -134,6 +138,16 @@ func (o LookupInfluxDbClusterResultOutput) LogDeliveryConfiguration() LogDeliver
 	return o.ApplyT(func(v LookupInfluxDbClusterResult) *LogDeliveryConfigurationProperties {
 		return v.LogDeliveryConfiguration
 	}).(LogDeliveryConfigurationPropertiesPtrOutput)
+}
+
+// The maintenance schedule for the InfluxDB cluster.
+func (o LookupInfluxDbClusterResultOutput) MaintenanceSchedule() InfluxDbClusterMaintenanceSchedulePtrOutput {
+	return o.ApplyT(func(v LookupInfluxDbClusterResult) *InfluxDbClusterMaintenanceSchedule { return v.MaintenanceSchedule }).(InfluxDbClusterMaintenanceSchedulePtrOutput)
+}
+
+// The timestamp of the next scheduled maintenance event.
+func (o LookupInfluxDbClusterResultOutput) NextMaintenanceTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupInfluxDbClusterResult) *string { return v.NextMaintenanceTime }).(pulumi.StringPtrOutput)
 }
 
 // The port number on which InfluxDB accepts connections.

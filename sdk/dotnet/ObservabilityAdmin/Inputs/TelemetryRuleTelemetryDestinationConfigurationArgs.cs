@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Inputs
         public Input<Inputs.TelemetryRuleElbLoadBalancerLoggingParametersArgs>? ElbLoadBalancerLoggingParameters { get; set; }
 
         /// <summary>
-        /// Parameters for BedrockAgentCore log delivery
+        /// Parameters for log delivery configuration
         /// </summary>
         [Input("logDeliveryParameters")]
         public Input<Inputs.TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesArgs>? LogDeliveryParameters { get; set; }

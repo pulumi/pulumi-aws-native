@@ -40,16 +40,16 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "servicecatalog:AssociateAttributeGroup" ]
+      "permissions" : [ "servicecatalog:AssociateAttributeGroup", "servicecatalog:ListAssociatedAttributeGroups" ]
     },
     "read" : {
-      "permissions" : [ "servicecatalog:ListAttributeGroupsForApplication" ]
+      "permissions" : [ "servicecatalog:ListAssociatedAttributeGroups" ]
     },
     "delete" : {
       "permissions" : [ "servicecatalog:DisassociateAttributeGroup" ]
     },
     "list" : {
-      "permissions" : [ "servicecatalog:ListAttributeGroupsForApplication" ],
+      "permissions" : [ "servicecatalog:ListAssociatedAttributeGroups" ],
       "handlerSchema" : {
         "properties" : {
           "ApplicationArn" : {

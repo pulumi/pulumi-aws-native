@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.ApplicationSignals.Inputs
     /// </summary>
     public sealed class ServiceLevelObjectiveRequestBasedSliMetricArgs : global::Pulumi.ResourceArgs
     {
+        [Input("compositeSliConfig")]
+        public Input<Inputs.ServiceLevelObjectiveCompositeSliConfigArgs>? CompositeSliConfig { get; set; }
+
         /// <summary>
         /// Identifies the dependency using the `DependencyKeyAttributes` and `DependencyOperationName` .
         /// </summary>
@@ -39,6 +42,12 @@ namespace Pulumi.AwsNative.ApplicationSignals.Inputs
             get => _keyAttributes ?? (_keyAttributes = new InputMap<string>());
             set => _keyAttributes = value;
         }
+
+        [Input("metricName")]
+        public Input<string>? MetricName { get; set; }
+
+        [Input("metricSource")]
+        public Input<Inputs.ServiceLevelObjectiveMetricSourceArgs>? MetricSource { get; set; }
 
         /// <summary>
         /// If the SLO monitors either the LATENCY or AVAILABILITY metric that Application Signals collects, this field displays which of those metrics is used.

@@ -70,7 +70,7 @@ export class Export extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["export.dataQuery.tableConfigurations.*", "export.name", "export.refreshCadence"] };
+        const replaceOnChanges = { replaceOnChanges: ["export.name", "export.refreshCadence"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Export.__pulumiType, name, resourceInputs, opts);
     }

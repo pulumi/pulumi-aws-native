@@ -37,6 +37,7 @@ __all__ = [
     'UserHomeDirectoryType',
     'UserMapType',
     'WebAppEndpointPolicy',
+    'WebAppVpcIpAddressType',
     'WorkflowStepCopyStepDetailsPropertiesOverwriteExisting',
     'WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting',
     'WorkflowStepDecryptStepDetailsPropertiesType',
@@ -292,6 +293,15 @@ class UserMapType(_builtins.str, Enum):
 class WebAppEndpointPolicy(_builtins.str, Enum):
     STANDARD = "STANDARD"
     FIPS = "FIPS"
+
+
+@pulumi.type_token("aws-native:transfer:WebAppVpcIpAddressType")
+class WebAppVpcIpAddressType(_builtins.str, Enum):
+    """
+    The IP address type for the VPC endpoint used by the web app.
+    """
+    IPV4 = "IPV4"
+    DUALSTACK = "DUALSTACK"
 
 
 @pulumi.type_token("aws-native:transfer:WorkflowStepCopyStepDetailsPropertiesOverwriteExisting")

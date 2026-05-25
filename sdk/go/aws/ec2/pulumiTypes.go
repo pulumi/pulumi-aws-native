@@ -13959,6 +13959,8 @@ type LaunchTemplateCpuOptions struct {
 	AmdSevSnp *LaunchTemplateCpuOptionsAmdSevSnp `pulumi:"amdSevSnp"`
 	// The number of CPU cores for the instance.
 	CoreCount *int `pulumi:"coreCount"`
+	// Indicates whether the instance is enabled for nested virtualization.
+	NestedVirtualization *LaunchTemplateCpuOptionsNestedVirtualization `pulumi:"nestedVirtualization"`
 	// The number of threads per CPU core. To disable multithreading for the instance, specify a value of ``1``. Otherwise, specify the default value of ``2``.
 	ThreadsPerCore *int `pulumi:"threadsPerCore"`
 }
@@ -13982,6 +13984,8 @@ type LaunchTemplateCpuOptionsArgs struct {
 	AmdSevSnp LaunchTemplateCpuOptionsAmdSevSnpPtrInput `pulumi:"amdSevSnp"`
 	// The number of CPU cores for the instance.
 	CoreCount pulumi.IntPtrInput `pulumi:"coreCount"`
+	// Indicates whether the instance is enabled for nested virtualization.
+	NestedVirtualization LaunchTemplateCpuOptionsNestedVirtualizationPtrInput `pulumi:"nestedVirtualization"`
 	// The number of threads per CPU core. To disable multithreading for the instance, specify a value of ``1``. Otherwise, specify the default value of ``2``.
 	ThreadsPerCore pulumi.IntPtrInput `pulumi:"threadsPerCore"`
 }
@@ -14076,6 +14080,13 @@ func (o LaunchTemplateCpuOptionsOutput) CoreCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateCpuOptions) *int { return v.CoreCount }).(pulumi.IntPtrOutput)
 }
 
+// Indicates whether the instance is enabled for nested virtualization.
+func (o LaunchTemplateCpuOptionsOutput) NestedVirtualization() LaunchTemplateCpuOptionsNestedVirtualizationPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateCpuOptions) *LaunchTemplateCpuOptionsNestedVirtualization {
+		return v.NestedVirtualization
+	}).(LaunchTemplateCpuOptionsNestedVirtualizationPtrOutput)
+}
+
 // The number of threads per CPU core. To disable multithreading for the instance, specify a value of “1“. Otherwise, specify the default value of “2“.
 func (o LaunchTemplateCpuOptionsOutput) ThreadsPerCore() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateCpuOptions) *int { return v.ThreadsPerCore }).(pulumi.IntPtrOutput)
@@ -14123,6 +14134,16 @@ func (o LaunchTemplateCpuOptionsPtrOutput) CoreCount() pulumi.IntPtrOutput {
 		}
 		return v.CoreCount
 	}).(pulumi.IntPtrOutput)
+}
+
+// Indicates whether the instance is enabled for nested virtualization.
+func (o LaunchTemplateCpuOptionsPtrOutput) NestedVirtualization() LaunchTemplateCpuOptionsNestedVirtualizationPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateCpuOptions) *LaunchTemplateCpuOptionsNestedVirtualization {
+		if v == nil {
+			return nil
+		}
+		return v.NestedVirtualization
+	}).(LaunchTemplateCpuOptionsNestedVirtualizationPtrOutput)
 }
 
 // The number of threads per CPU core. To disable multithreading for the instance, specify a value of “1“. Otherwise, specify the default value of “2“.
@@ -16068,12 +16089,19 @@ type LaunchTemplateInstanceRequirements struct {
 	//   +  For instance types with NVIDIA A100 GPUs, specify ``a100``.
 	//   +  For instance types with NVIDIA H100 GPUs, specify ``h100``.
 	//   +  For instance types with AWS Inferentia chips, specify ``inferentia``.
+	//   +  For instance types with AWS Inferentia2 chips, specify ``inferentia2``.
+	//   +  For instance types with Habana Gaudi HL-205 GPUs, specify ``gaudi-hl-205``.
 	//   +  For instance types with NVIDIA GRID K520 GPUs, specify ``k520``.
 	//   +  For instance types with NVIDIA K80 GPUs, specify ``k80``.
+	//   +  For instance types with NVIDIA L4 GPUs, specify ``l4``.
+	//   +  For instance types with NVIDIA L40S GPUs, specify ``l40s``.
 	//   +  For instance types with NVIDIA M60 GPUs, specify ``m60``.
 	//   +  For instance types with AMD Radeon Pro V520 GPUs, specify ``radeon-pro-v520``.
+	//   +  For instance types with AWS Trainium chips, specify ``trainium``.
+	//   +  For instance types with AWS Trainium2 chips, specify ``trainium2``.
 	//   +  For instance types with NVIDIA T4 GPUs, specify ``t4``.
 	//   +  For instance types with NVIDIA T4G GPUs, specify ``t4g``.
+	//   +  For instance types with Xilinx U30 cards, specify ``u30``.
 	//   +  For instance types with Xilinx VU9P FPGAs, specify ``vu9p``.
 	//   +  For instance types with NVIDIA V100 GPUs, specify ``v100``.
 	//
@@ -16086,6 +16114,7 @@ type LaunchTemplateInstanceRequirements struct {
 	//   +  For instance types with FPGA accelerators, specify ``fpga``.
 	//   +  For instance types with GPU accelerators, specify ``gpu``.
 	//   +  For instance types with Inference accelerators, specify ``inference``.
+	//   +  For instance types with Media accelerators, specify ``media``.
 	//
 	//  Default: Any accelerator type
 	AcceleratorTypes []string `pulumi:"acceleratorTypes"`
@@ -16229,12 +16258,19 @@ type LaunchTemplateInstanceRequirementsArgs struct {
 	//   +  For instance types with NVIDIA A100 GPUs, specify ``a100``.
 	//   +  For instance types with NVIDIA H100 GPUs, specify ``h100``.
 	//   +  For instance types with AWS Inferentia chips, specify ``inferentia``.
+	//   +  For instance types with AWS Inferentia2 chips, specify ``inferentia2``.
+	//   +  For instance types with Habana Gaudi HL-205 GPUs, specify ``gaudi-hl-205``.
 	//   +  For instance types with NVIDIA GRID K520 GPUs, specify ``k520``.
 	//   +  For instance types with NVIDIA K80 GPUs, specify ``k80``.
+	//   +  For instance types with NVIDIA L4 GPUs, specify ``l4``.
+	//   +  For instance types with NVIDIA L40S GPUs, specify ``l40s``.
 	//   +  For instance types with NVIDIA M60 GPUs, specify ``m60``.
 	//   +  For instance types with AMD Radeon Pro V520 GPUs, specify ``radeon-pro-v520``.
+	//   +  For instance types with AWS Trainium chips, specify ``trainium``.
+	//   +  For instance types with AWS Trainium2 chips, specify ``trainium2``.
 	//   +  For instance types with NVIDIA T4 GPUs, specify ``t4``.
 	//   +  For instance types with NVIDIA T4G GPUs, specify ``t4g``.
+	//   +  For instance types with Xilinx U30 cards, specify ``u30``.
 	//   +  For instance types with Xilinx VU9P FPGAs, specify ``vu9p``.
 	//   +  For instance types with NVIDIA V100 GPUs, specify ``v100``.
 	//
@@ -16247,6 +16283,7 @@ type LaunchTemplateInstanceRequirementsArgs struct {
 	//   +  For instance types with FPGA accelerators, specify ``fpga``.
 	//   +  For instance types with GPU accelerators, specify ``gpu``.
 	//   +  For instance types with Inference accelerators, specify ``inference``.
+	//   +  For instance types with Media accelerators, specify ``media``.
 	//
 	//  Default: Any accelerator type
 	AcceleratorTypes pulumi.StringArrayInput `pulumi:"acceleratorTypes"`
@@ -16472,17 +16509,31 @@ func (o LaunchTemplateInstanceRequirementsOutput) AcceleratorManufacturers() pul
 //
 //   - For instance types with AWS Inferentia chips, specify “inferentia“.
 //
+//   - For instance types with AWS Inferentia2 chips, specify “inferentia2“.
+//
+//   - For instance types with Habana Gaudi HL-205 GPUs, specify “gaudi-hl-205“.
+//
 //   - For instance types with NVIDIA GRID K520 GPUs, specify “k520“.
 //
 //   - For instance types with NVIDIA K80 GPUs, specify “k80“.
+//
+//   - For instance types with NVIDIA L4 GPUs, specify “l4“.
+//
+//   - For instance types with NVIDIA L40S GPUs, specify “l40s“.
 //
 //   - For instance types with NVIDIA M60 GPUs, specify “m60“.
 //
 //   - For instance types with AMD Radeon Pro V520 GPUs, specify “radeon-pro-v520“.
 //
+//   - For instance types with AWS Trainium chips, specify “trainium“.
+//
+//   - For instance types with AWS Trainium2 chips, specify “trainium2“.
+//
 //   - For instance types with NVIDIA T4 GPUs, specify “t4“.
 //
 //   - For instance types with NVIDIA T4G GPUs, specify “t4g“.
+//
+//   - For instance types with Xilinx U30 cards, specify “u30“.
 //
 //   - For instance types with Xilinx VU9P FPGAs, specify “vu9p“.
 //
@@ -16509,6 +16560,8 @@ func (o LaunchTemplateInstanceRequirementsOutput) AcceleratorTotalMemoryMiB() La
 //   - For instance types with GPU accelerators, specify “gpu“.
 //
 //   - For instance types with Inference accelerators, specify “inference“.
+//
+//   - For instance types with Media accelerators, specify “media“.
 //
 //     Default: Any accelerator type
 func (o LaunchTemplateInstanceRequirementsOutput) AcceleratorTypes() pulumi.StringArrayOutput {
@@ -16780,17 +16833,31 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) AcceleratorManufacturers() 
 //
 //   - For instance types with AWS Inferentia chips, specify “inferentia“.
 //
+//   - For instance types with AWS Inferentia2 chips, specify “inferentia2“.
+//
+//   - For instance types with Habana Gaudi HL-205 GPUs, specify “gaudi-hl-205“.
+//
 //   - For instance types with NVIDIA GRID K520 GPUs, specify “k520“.
 //
 //   - For instance types with NVIDIA K80 GPUs, specify “k80“.
+//
+//   - For instance types with NVIDIA L4 GPUs, specify “l4“.
+//
+//   - For instance types with NVIDIA L40S GPUs, specify “l40s“.
 //
 //   - For instance types with NVIDIA M60 GPUs, specify “m60“.
 //
 //   - For instance types with AMD Radeon Pro V520 GPUs, specify “radeon-pro-v520“.
 //
+//   - For instance types with AWS Trainium chips, specify “trainium“.
+//
+//   - For instance types with AWS Trainium2 chips, specify “trainium2“.
+//
 //   - For instance types with NVIDIA T4 GPUs, specify “t4“.
 //
 //   - For instance types with NVIDIA T4G GPUs, specify “t4g“.
+//
+//   - For instance types with Xilinx U30 cards, specify “u30“.
 //
 //   - For instance types with Xilinx VU9P FPGAs, specify “vu9p“.
 //
@@ -16825,6 +16892,8 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) AcceleratorTotalMemoryMiB()
 //   - For instance types with GPU accelerators, specify “gpu“.
 //
 //   - For instance types with Inference accelerators, specify “inference“.
+//
+//   - For instance types with Media accelerators, specify “media“.
 //
 //     Default: Any accelerator type
 func (o LaunchTemplateInstanceRequirementsPtrOutput) AcceleratorTypes() pulumi.StringArrayOutput {

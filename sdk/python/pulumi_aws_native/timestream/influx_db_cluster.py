@@ -32,6 +32,7 @@ class InfluxDbClusterArgs:
                  deployment_type: Optional[pulumi.Input['InfluxDbClusterDeploymentType']] = None,
                  failover_mode: Optional[pulumi.Input['InfluxDbClusterFailoverMode']] = None,
                  log_delivery_configuration: Optional[pulumi.Input['LogDeliveryConfigurationPropertiesArgs']] = None,
+                 maintenance_schedule: Optional[pulumi.Input['InfluxDbClusterMaintenanceScheduleArgs']] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  network_type: Optional[pulumi.Input['InfluxDbClusterNetworkType']] = None,
                  organization: Optional[pulumi.Input[_builtins.str]] = None,
@@ -53,6 +54,7 @@ class InfluxDbClusterArgs:
         :param pulumi.Input['InfluxDbClusterDeploymentType'] deployment_type: Deployment type of the InfluxDB cluster.
         :param pulumi.Input['InfluxDbClusterFailoverMode'] failover_mode: Failover mode of the InfluxDB cluster.
         :param pulumi.Input['LogDeliveryConfigurationPropertiesArgs'] log_delivery_configuration: Configuration for sending logs to customer account from the InfluxDB cluster.
+        :param pulumi.Input['InfluxDbClusterMaintenanceScheduleArgs'] maintenance_schedule: The maintenance schedule for the InfluxDB cluster.
         :param pulumi.Input[_builtins.str] name: The unique name that is associated with the InfluxDB cluster.
         :param pulumi.Input['InfluxDbClusterNetworkType'] network_type: Network type of the InfluxDB cluster.
         :param pulumi.Input[_builtins.str] organization: The organization for the InfluxDB cluster.
@@ -80,6 +82,8 @@ class InfluxDbClusterArgs:
             pulumi.set(__self__, "failover_mode", failover_mode)
         if log_delivery_configuration is not None:
             pulumi.set(__self__, "log_delivery_configuration", log_delivery_configuration)
+        if maintenance_schedule is not None:
+            pulumi.set(__self__, "maintenance_schedule", maintenance_schedule)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if network_type is not None:
@@ -196,6 +200,18 @@ class InfluxDbClusterArgs:
     @log_delivery_configuration.setter
     def log_delivery_configuration(self, value: Optional[pulumi.Input['LogDeliveryConfigurationPropertiesArgs']]):
         pulumi.set(self, "log_delivery_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maintenanceSchedule")
+    def maintenance_schedule(self) -> Optional[pulumi.Input['InfluxDbClusterMaintenanceScheduleArgs']]:
+        """
+        The maintenance schedule for the InfluxDB cluster.
+        """
+        return pulumi.get(self, "maintenance_schedule")
+
+    @maintenance_schedule.setter
+    def maintenance_schedule(self, value: Optional[pulumi.Input['InfluxDbClusterMaintenanceScheduleArgs']]):
+        pulumi.set(self, "maintenance_schedule", value)
 
     @_builtins.property
     @pulumi.getter
@@ -332,6 +348,7 @@ class InfluxDbCluster(pulumi.CustomResource):
                  deployment_type: Optional[pulumi.Input['InfluxDbClusterDeploymentType']] = None,
                  failover_mode: Optional[pulumi.Input['InfluxDbClusterFailoverMode']] = None,
                  log_delivery_configuration: Optional[pulumi.Input[Union['LogDeliveryConfigurationPropertiesArgs', 'LogDeliveryConfigurationPropertiesArgsDict']]] = None,
+                 maintenance_schedule: Optional[pulumi.Input[Union['InfluxDbClusterMaintenanceScheduleArgs', 'InfluxDbClusterMaintenanceScheduleArgsDict']]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  network_type: Optional[pulumi.Input['InfluxDbClusterNetworkType']] = None,
                  organization: Optional[pulumi.Input[_builtins.str]] = None,
@@ -357,6 +374,7 @@ class InfluxDbCluster(pulumi.CustomResource):
         :param pulumi.Input['InfluxDbClusterDeploymentType'] deployment_type: Deployment type of the InfluxDB cluster.
         :param pulumi.Input['InfluxDbClusterFailoverMode'] failover_mode: Failover mode of the InfluxDB cluster.
         :param pulumi.Input[Union['LogDeliveryConfigurationPropertiesArgs', 'LogDeliveryConfigurationPropertiesArgsDict']] log_delivery_configuration: Configuration for sending logs to customer account from the InfluxDB cluster.
+        :param pulumi.Input[Union['InfluxDbClusterMaintenanceScheduleArgs', 'InfluxDbClusterMaintenanceScheduleArgsDict']] maintenance_schedule: The maintenance schedule for the InfluxDB cluster.
         :param pulumi.Input[_builtins.str] name: The unique name that is associated with the InfluxDB cluster.
         :param pulumi.Input['InfluxDbClusterNetworkType'] network_type: Network type of the InfluxDB cluster.
         :param pulumi.Input[_builtins.str] organization: The organization for the InfluxDB cluster.
@@ -401,6 +419,7 @@ class InfluxDbCluster(pulumi.CustomResource):
                  deployment_type: Optional[pulumi.Input['InfluxDbClusterDeploymentType']] = None,
                  failover_mode: Optional[pulumi.Input['InfluxDbClusterFailoverMode']] = None,
                  log_delivery_configuration: Optional[pulumi.Input[Union['LogDeliveryConfigurationPropertiesArgs', 'LogDeliveryConfigurationPropertiesArgsDict']]] = None,
+                 maintenance_schedule: Optional[pulumi.Input[Union['InfluxDbClusterMaintenanceScheduleArgs', 'InfluxDbClusterMaintenanceScheduleArgsDict']]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  network_type: Optional[pulumi.Input['InfluxDbClusterNetworkType']] = None,
                  organization: Optional[pulumi.Input[_builtins.str]] = None,
@@ -428,6 +447,7 @@ class InfluxDbCluster(pulumi.CustomResource):
             __props__.__dict__["deployment_type"] = deployment_type
             __props__.__dict__["failover_mode"] = failover_mode
             __props__.__dict__["log_delivery_configuration"] = log_delivery_configuration
+            __props__.__dict__["maintenance_schedule"] = maintenance_schedule
             __props__.__dict__["name"] = name
             __props__.__dict__["network_type"] = network_type
             __props__.__dict__["organization"] = organization
@@ -443,6 +463,7 @@ class InfluxDbCluster(pulumi.CustomResource):
             __props__.__dict__["endpoint"] = None
             __props__.__dict__["engine_type"] = None
             __props__.__dict__["influx_auth_parameters_secret_arn"] = None
+            __props__.__dict__["next_maintenance_time"] = None
             __props__.__dict__["reader_endpoint"] = None
             __props__.__dict__["status"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["allocatedStorage", "bucket", "dbStorageType", "deploymentType", "name", "networkType", "organization", "password", "publiclyAccessible", "username", "vpcSecurityGroupIds[*]", "vpcSubnetIds[*]"])
@@ -482,8 +503,10 @@ class InfluxDbCluster(pulumi.CustomResource):
         __props__.__dict__["failover_mode"] = None
         __props__.__dict__["influx_auth_parameters_secret_arn"] = None
         __props__.__dict__["log_delivery_configuration"] = None
+        __props__.__dict__["maintenance_schedule"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["network_type"] = None
+        __props__.__dict__["next_maintenance_time"] = None
         __props__.__dict__["organization"] = None
         __props__.__dict__["password"] = None
         __props__.__dict__["port"] = None
@@ -601,6 +624,14 @@ class InfluxDbCluster(pulumi.CustomResource):
         return pulumi.get(self, "log_delivery_configuration")
 
     @_builtins.property
+    @pulumi.getter(name="maintenanceSchedule")
+    def maintenance_schedule(self) -> pulumi.Output[Optional['outputs.InfluxDbClusterMaintenanceSchedule']]:
+        """
+        The maintenance schedule for the InfluxDB cluster.
+        """
+        return pulumi.get(self, "maintenance_schedule")
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
@@ -615,6 +646,14 @@ class InfluxDbCluster(pulumi.CustomResource):
         Network type of the InfluxDB cluster.
         """
         return pulumi.get(self, "network_type")
+
+    @_builtins.property
+    @pulumi.getter(name="nextMaintenanceTime")
+    def next_maintenance_time(self) -> pulumi.Output[_builtins.str]:
+        """
+        The timestamp of the next scheduled maintenance event.
+        """
+        return pulumi.get(self, "next_maintenance_time")
 
     @_builtins.property
     @pulumi.getter

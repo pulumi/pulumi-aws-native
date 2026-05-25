@@ -13,6 +13,8 @@ __all__ = [
     'BrowserProfileStatus',
     'CodeInterpreterCustomCodeInterpreterNetworkMode',
     'CodeInterpreterCustomCodeInterpreterStatus',
+    'DatasetSchemaType',
+    'DatasetStatus',
     'EvaluatorLevel',
     'EvaluatorStatus',
     'GatewayAuthorizerType',
@@ -31,6 +33,13 @@ __all__ = [
     'GatewayTargetRestApiMethod',
     'GatewayTargetSchemaType',
     'GatewayTargetTargetStatus',
+    'HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator',
+    'HarnessCustomClaimValidationTypeInboundTokenClaimValueType',
+    'HarnessNetworkConfigurationNetworkMode',
+    'HarnessOAuthCredentialProviderGrantType',
+    'HarnessStatus',
+    'HarnessToolType',
+    'HarnessTruncationConfigurationStrategy',
     'MemoryContentConfigurationLevel',
     'MemoryContentConfigurationType',
     'MemoryCustomMemoryStrategyStatus',
@@ -51,6 +60,7 @@ __all__ = [
     'OnlineEvaluationConfigExecutionStatus',
     'OnlineEvaluationConfigFilterOperator',
     'OnlineEvaluationConfigStatus',
+    'PaymentCredentialProviderVendorType',
     'PolicyEngineStatus',
     'PolicyStatus',
     'PolicyValidationMode',
@@ -127,6 +137,29 @@ class CodeInterpreterCustomCodeInterpreterStatus(_builtins.str, Enum):
     DELETING = "DELETING"
     DELETE_FAILED = "DELETE_FAILED"
     DELETED = "DELETED"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:DatasetSchemaType")
+class DatasetSchemaType(_builtins.str, Enum):
+    """
+    Versioned schema type governing the structure of examples. Immutable after creation.
+    """
+    AGENTCORE_EVALUATION_PREDEFINED_V1 = "AGENTCORE_EVALUATION_PREDEFINED_V1"
+    AGENTCORE_EVALUATION_SIMULATED_V1 = "AGENTCORE_EVALUATION_SIMULATED_V1"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:DatasetStatus")
+class DatasetStatus(_builtins.str, Enum):
+    """
+    The current status of the dataset.
+    """
+    CREATING = "CREATING"
+    UPDATING = "UPDATING"
+    DELETING = "DELETING"
+    ACTIVE = "ACTIVE"
+    CREATE_FAILED = "CREATE_FAILED"
+    UPDATE_FAILED = "UPDATE_FAILED"
+    DELETE_FAILED = "DELETE_FAILED"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:EvaluatorLevel")
@@ -268,6 +301,58 @@ class GatewayTargetTargetStatus(_builtins.str, Enum):
     FAILED = "FAILED"
     SYNCHRONIZING = "SYNCHRONIZING"
     SYNCHRONIZE_UNSUCCESSFUL = "SYNCHRONIZE_UNSUCCESSFUL"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator")
+class HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator(_builtins.str, Enum):
+    EQUALS = "EQUALS"
+    CONTAINS = "CONTAINS"
+    CONTAINS_ANY = "CONTAINS_ANY"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:HarnessCustomClaimValidationTypeInboundTokenClaimValueType")
+class HarnessCustomClaimValidationTypeInboundTokenClaimValueType(_builtins.str, Enum):
+    STRING = "STRING"
+    STRING_ARRAY = "STRING_ARRAY"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:HarnessNetworkConfigurationNetworkMode")
+class HarnessNetworkConfigurationNetworkMode(_builtins.str, Enum):
+    PUBLIC = "PUBLIC"
+    VPC = "VPC"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:HarnessOAuthCredentialProviderGrantType")
+class HarnessOAuthCredentialProviderGrantType(_builtins.str, Enum):
+    CLIENT_CREDENTIALS = "CLIENT_CREDENTIALS"
+    AUTHORIZATION_CODE = "AUTHORIZATION_CODE"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:HarnessStatus")
+class HarnessStatus(_builtins.str, Enum):
+    CREATING = "CREATING"
+    CREATE_FAILED = "CREATE_FAILED"
+    UPDATING = "UPDATING"
+    UPDATE_FAILED = "UPDATE_FAILED"
+    READY = "READY"
+    DELETING = "DELETING"
+    DELETE_FAILED = "DELETE_FAILED"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:HarnessToolType")
+class HarnessToolType(_builtins.str, Enum):
+    REMOTE_MCP = "remote_mcp"
+    AGENTCORE_BROWSER = "agentcore_browser"
+    AGENTCORE_GATEWAY = "agentcore_gateway"
+    INLINE_FUNCTION = "inline_function"
+    AGENTCORE_CODE_INTERPRETER = "agentcore_code_interpreter"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:HarnessTruncationConfigurationStrategy")
+class HarnessTruncationConfigurationStrategy(_builtins.str, Enum):
+    SLIDING_WINDOW = "sliding_window"
+    SUMMARIZATION = "summarization"
+    NONE = "none"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:MemoryContentConfigurationLevel")
@@ -503,6 +588,15 @@ class OnlineEvaluationConfigStatus(_builtins.str, Enum):
     UPDATING = "UPDATING"
     UPDATE_FAILED = "UPDATE_FAILED"
     DELETING = "DELETING"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:PaymentCredentialProviderVendorType")
+class PaymentCredentialProviderVendorType(_builtins.str, Enum):
+    """
+    Supported vendor types for payment providers
+    """
+    COINBASE_CDP = "CoinbaseCDP"
+    STRIPE_PRIVY = "StripePrivy"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:PolicyEngineStatus")

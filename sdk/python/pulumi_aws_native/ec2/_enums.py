@@ -61,6 +61,7 @@ __all__ = [
     'KeyPairKeyFormat',
     'KeyPairKeyType',
     'LaunchTemplateCpuOptionsAmdSevSnp',
+    'LaunchTemplateCpuOptionsNestedVirtualization',
     'NetworkInsightsAccessScopeAnalysisFindingsFound',
     'NetworkInsightsAccessScopeAnalysisStatus',
     'NetworkInsightsAccessScopeProtocol',
@@ -736,6 +737,15 @@ class KeyPairKeyType(_builtins.str, Enum):
 class LaunchTemplateCpuOptionsAmdSevSnp(_builtins.str, Enum):
     """
     Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. For more information, see [AMD SEV-SNP for Amazon EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sev-snp.html).
+    """
+    ENABLED = "enabled"
+    DISABLED = "disabled"
+
+
+@pulumi.type_token("aws-native:ec2:LaunchTemplateCpuOptionsNestedVirtualization")
+class LaunchTemplateCpuOptionsNestedVirtualization(_builtins.str, Enum):
+    """
+    Indicates whether the instance is enabled for nested virtualization.
     """
     ENABLED = "enabled"
     DISABLED = "disabled"

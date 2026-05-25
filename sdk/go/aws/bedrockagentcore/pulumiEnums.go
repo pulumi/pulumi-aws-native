@@ -793,6 +793,268 @@ func (o CodeInterpreterCustomCodeInterpreterStatusPtrOutput) ToStringPtrOutputWi
 	}).(pulumi.StringPtrOutput)
 }
 
+// Versioned schema type governing the structure of examples. Immutable after creation.
+type DatasetSchemaType string
+
+const (
+	DatasetSchemaTypeAgentcoreEvaluationPredefinedV1 = DatasetSchemaType("AGENTCORE_EVALUATION_PREDEFINED_V1")
+	DatasetSchemaTypeAgentcoreEvaluationSimulatedV1  = DatasetSchemaType("AGENTCORE_EVALUATION_SIMULATED_V1")
+)
+
+func (DatasetSchemaType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetSchemaType)(nil)).Elem()
+}
+
+func (e DatasetSchemaType) ToDatasetSchemaTypeOutput() DatasetSchemaTypeOutput {
+	return pulumi.ToOutput(e).(DatasetSchemaTypeOutput)
+}
+
+func (e DatasetSchemaType) ToDatasetSchemaTypeOutputWithContext(ctx context.Context) DatasetSchemaTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DatasetSchemaTypeOutput)
+}
+
+func (e DatasetSchemaType) ToDatasetSchemaTypePtrOutput() DatasetSchemaTypePtrOutput {
+	return e.ToDatasetSchemaTypePtrOutputWithContext(context.Background())
+}
+
+func (e DatasetSchemaType) ToDatasetSchemaTypePtrOutputWithContext(ctx context.Context) DatasetSchemaTypePtrOutput {
+	return DatasetSchemaType(e).ToDatasetSchemaTypeOutputWithContext(ctx).ToDatasetSchemaTypePtrOutputWithContext(ctx)
+}
+
+func (e DatasetSchemaType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DatasetSchemaType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DatasetSchemaType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DatasetSchemaType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DatasetSchemaTypeOutput struct{ *pulumi.OutputState }
+
+func (DatasetSchemaTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetSchemaType)(nil)).Elem()
+}
+
+func (o DatasetSchemaTypeOutput) ToDatasetSchemaTypeOutput() DatasetSchemaTypeOutput {
+	return o
+}
+
+func (o DatasetSchemaTypeOutput) ToDatasetSchemaTypeOutputWithContext(ctx context.Context) DatasetSchemaTypeOutput {
+	return o
+}
+
+func (o DatasetSchemaTypeOutput) ToDatasetSchemaTypePtrOutput() DatasetSchemaTypePtrOutput {
+	return o.ToDatasetSchemaTypePtrOutputWithContext(context.Background())
+}
+
+func (o DatasetSchemaTypeOutput) ToDatasetSchemaTypePtrOutputWithContext(ctx context.Context) DatasetSchemaTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasetSchemaType) *DatasetSchemaType {
+		return &v
+	}).(DatasetSchemaTypePtrOutput)
+}
+
+func (o DatasetSchemaTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DatasetSchemaTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DatasetSchemaType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DatasetSchemaTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DatasetSchemaTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DatasetSchemaType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DatasetSchemaTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DatasetSchemaTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetSchemaType)(nil)).Elem()
+}
+
+func (o DatasetSchemaTypePtrOutput) ToDatasetSchemaTypePtrOutput() DatasetSchemaTypePtrOutput {
+	return o
+}
+
+func (o DatasetSchemaTypePtrOutput) ToDatasetSchemaTypePtrOutputWithContext(ctx context.Context) DatasetSchemaTypePtrOutput {
+	return o
+}
+
+func (o DatasetSchemaTypePtrOutput) Elem() DatasetSchemaTypeOutput {
+	return o.ApplyT(func(v *DatasetSchemaType) DatasetSchemaType {
+		if v != nil {
+			return *v
+		}
+		var ret DatasetSchemaType
+		return ret
+	}).(DatasetSchemaTypeOutput)
+}
+
+func (o DatasetSchemaTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DatasetSchemaTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DatasetSchemaType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DatasetSchemaTypeInput is an input type that accepts values of the DatasetSchemaType enum
+// A concrete instance of `DatasetSchemaTypeInput` can be one of the following:
+//
+//	DatasetSchemaTypeAgentcoreEvaluationPredefinedV1
+//	DatasetSchemaTypeAgentcoreEvaluationSimulatedV1
+type DatasetSchemaTypeInput interface {
+	pulumi.Input
+
+	ToDatasetSchemaTypeOutput() DatasetSchemaTypeOutput
+	ToDatasetSchemaTypeOutputWithContext(context.Context) DatasetSchemaTypeOutput
+}
+
+var datasetSchemaTypePtrType = reflect.TypeOf((**DatasetSchemaType)(nil)).Elem()
+
+type DatasetSchemaTypePtrInput interface {
+	pulumi.Input
+
+	ToDatasetSchemaTypePtrOutput() DatasetSchemaTypePtrOutput
+	ToDatasetSchemaTypePtrOutputWithContext(context.Context) DatasetSchemaTypePtrOutput
+}
+
+type datasetSchemaTypePtr string
+
+func DatasetSchemaTypePtr(v string) DatasetSchemaTypePtrInput {
+	return (*datasetSchemaTypePtr)(&v)
+}
+
+func (*datasetSchemaTypePtr) ElementType() reflect.Type {
+	return datasetSchemaTypePtrType
+}
+
+func (in *datasetSchemaTypePtr) ToDatasetSchemaTypePtrOutput() DatasetSchemaTypePtrOutput {
+	return pulumi.ToOutput(in).(DatasetSchemaTypePtrOutput)
+}
+
+func (in *datasetSchemaTypePtr) ToDatasetSchemaTypePtrOutputWithContext(ctx context.Context) DatasetSchemaTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DatasetSchemaTypePtrOutput)
+}
+
+// The current status of the dataset.
+type DatasetStatus string
+
+const (
+	DatasetStatusCreating     = DatasetStatus("CREATING")
+	DatasetStatusUpdating     = DatasetStatus("UPDATING")
+	DatasetStatusDeleting     = DatasetStatus("DELETING")
+	DatasetStatusActive       = DatasetStatus("ACTIVE")
+	DatasetStatusCreateFailed = DatasetStatus("CREATE_FAILED")
+	DatasetStatusUpdateFailed = DatasetStatus("UPDATE_FAILED")
+	DatasetStatusDeleteFailed = DatasetStatus("DELETE_FAILED")
+)
+
+type DatasetStatusOutput struct{ *pulumi.OutputState }
+
+func (DatasetStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetStatus)(nil)).Elem()
+}
+
+func (o DatasetStatusOutput) ToDatasetStatusOutput() DatasetStatusOutput {
+	return o
+}
+
+func (o DatasetStatusOutput) ToDatasetStatusOutputWithContext(ctx context.Context) DatasetStatusOutput {
+	return o
+}
+
+func (o DatasetStatusOutput) ToDatasetStatusPtrOutput() DatasetStatusPtrOutput {
+	return o.ToDatasetStatusPtrOutputWithContext(context.Background())
+}
+
+func (o DatasetStatusOutput) ToDatasetStatusPtrOutputWithContext(ctx context.Context) DatasetStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasetStatus) *DatasetStatus {
+		return &v
+	}).(DatasetStatusPtrOutput)
+}
+
+func (o DatasetStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DatasetStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DatasetStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DatasetStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DatasetStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DatasetStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DatasetStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (DatasetStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetStatus)(nil)).Elem()
+}
+
+func (o DatasetStatusPtrOutput) ToDatasetStatusPtrOutput() DatasetStatusPtrOutput {
+	return o
+}
+
+func (o DatasetStatusPtrOutput) ToDatasetStatusPtrOutputWithContext(ctx context.Context) DatasetStatusPtrOutput {
+	return o
+}
+
+func (o DatasetStatusPtrOutput) Elem() DatasetStatusOutput {
+	return o.ApplyT(func(v *DatasetStatus) DatasetStatus {
+		if v != nil {
+			return *v
+		}
+		var ret DatasetStatus
+		return ret
+	}).(DatasetStatusOutput)
+}
+
+func (o DatasetStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DatasetStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DatasetStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 type EvaluatorLevel string
 
 const (
@@ -3663,6 +3925,1101 @@ func (o GatewayTargetTargetStatusPtrOutput) ToStringPtrOutputWithContext(ctx con
 		v := string(*e)
 		return &v
 	}).(pulumi.StringPtrOutput)
+}
+
+type HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator string
+
+const (
+	HarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorEquals      = HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator("EQUALS")
+	HarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorContains    = HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator("CONTAINS")
+	HarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorContainsAny = HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator("CONTAINS_ANY")
+)
+
+func (HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator) ElementType() reflect.Type {
+	return reflect.TypeOf((*HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator)(nil)).Elem()
+}
+
+func (e HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator) ToHarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorOutput() HarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorOutput {
+	return pulumi.ToOutput(e).(HarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorOutput)
+}
+
+func (e HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator) ToHarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorOutputWithContext(ctx context.Context) HarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(HarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorOutput)
+}
+
+func (e HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator) ToHarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrOutput() HarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrOutput {
+	return e.ToHarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrOutputWithContext(context.Background())
+}
+
+func (e HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator) ToHarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrOutputWithContext(ctx context.Context) HarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrOutput {
+	return HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator(e).ToHarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorOutputWithContext(ctx).ToHarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrOutputWithContext(ctx)
+}
+
+func (e HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type HarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorOutput struct{ *pulumi.OutputState }
+
+func (HarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator)(nil)).Elem()
+}
+
+func (o HarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorOutput) ToHarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorOutput() HarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorOutput {
+	return o
+}
+
+func (o HarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorOutput) ToHarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorOutputWithContext(ctx context.Context) HarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorOutput {
+	return o
+}
+
+func (o HarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorOutput) ToHarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrOutput() HarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrOutput {
+	return o.ToHarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrOutputWithContext(context.Background())
+}
+
+func (o HarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorOutput) ToHarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrOutputWithContext(ctx context.Context) HarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator) *HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator {
+		return &v
+	}).(HarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrOutput)
+}
+
+func (o HarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o HarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o HarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type HarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrOutput struct{ *pulumi.OutputState }
+
+func (HarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator)(nil)).Elem()
+}
+
+func (o HarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrOutput) ToHarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrOutput() HarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrOutput {
+	return o
+}
+
+func (o HarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrOutput) ToHarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrOutputWithContext(ctx context.Context) HarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrOutput {
+	return o
+}
+
+func (o HarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrOutput) Elem() HarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorOutput {
+	return o.ApplyT(func(v *HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator) HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator {
+		if v != nil {
+			return *v
+		}
+		var ret HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator
+		return ret
+	}).(HarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorOutput)
+}
+
+func (o HarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// HarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorInput is an input type that accepts values of the HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator enum
+// A concrete instance of `HarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorInput` can be one of the following:
+//
+//	HarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorEquals
+//	HarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorContains
+//	HarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorContainsAny
+type HarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorInput interface {
+	pulumi.Input
+
+	ToHarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorOutput() HarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorOutput
+	ToHarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorOutputWithContext(context.Context) HarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorOutput
+}
+
+var harnessAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrType = reflect.TypeOf((**HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator)(nil)).Elem()
+
+type HarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrInput interface {
+	pulumi.Input
+
+	ToHarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrOutput() HarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrOutput
+	ToHarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrOutputWithContext(context.Context) HarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrOutput
+}
+
+type harnessAuthorizingClaimMatchValueTypeClaimMatchOperatorPtr string
+
+func HarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorPtr(v string) HarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrInput {
+	return (*harnessAuthorizingClaimMatchValueTypeClaimMatchOperatorPtr)(&v)
+}
+
+func (*harnessAuthorizingClaimMatchValueTypeClaimMatchOperatorPtr) ElementType() reflect.Type {
+	return harnessAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrType
+}
+
+func (in *harnessAuthorizingClaimMatchValueTypeClaimMatchOperatorPtr) ToHarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrOutput() HarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrOutput {
+	return pulumi.ToOutput(in).(HarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrOutput)
+}
+
+func (in *harnessAuthorizingClaimMatchValueTypeClaimMatchOperatorPtr) ToHarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrOutputWithContext(ctx context.Context) HarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(HarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrOutput)
+}
+
+type HarnessCustomClaimValidationTypeInboundTokenClaimValueType string
+
+const (
+	HarnessCustomClaimValidationTypeInboundTokenClaimValueTypeString      = HarnessCustomClaimValidationTypeInboundTokenClaimValueType("STRING")
+	HarnessCustomClaimValidationTypeInboundTokenClaimValueTypeStringArray = HarnessCustomClaimValidationTypeInboundTokenClaimValueType("STRING_ARRAY")
+)
+
+func (HarnessCustomClaimValidationTypeInboundTokenClaimValueType) ElementType() reflect.Type {
+	return reflect.TypeOf((*HarnessCustomClaimValidationTypeInboundTokenClaimValueType)(nil)).Elem()
+}
+
+func (e HarnessCustomClaimValidationTypeInboundTokenClaimValueType) ToHarnessCustomClaimValidationTypeInboundTokenClaimValueTypeOutput() HarnessCustomClaimValidationTypeInboundTokenClaimValueTypeOutput {
+	return pulumi.ToOutput(e).(HarnessCustomClaimValidationTypeInboundTokenClaimValueTypeOutput)
+}
+
+func (e HarnessCustomClaimValidationTypeInboundTokenClaimValueType) ToHarnessCustomClaimValidationTypeInboundTokenClaimValueTypeOutputWithContext(ctx context.Context) HarnessCustomClaimValidationTypeInboundTokenClaimValueTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(HarnessCustomClaimValidationTypeInboundTokenClaimValueTypeOutput)
+}
+
+func (e HarnessCustomClaimValidationTypeInboundTokenClaimValueType) ToHarnessCustomClaimValidationTypeInboundTokenClaimValueTypePtrOutput() HarnessCustomClaimValidationTypeInboundTokenClaimValueTypePtrOutput {
+	return e.ToHarnessCustomClaimValidationTypeInboundTokenClaimValueTypePtrOutputWithContext(context.Background())
+}
+
+func (e HarnessCustomClaimValidationTypeInboundTokenClaimValueType) ToHarnessCustomClaimValidationTypeInboundTokenClaimValueTypePtrOutputWithContext(ctx context.Context) HarnessCustomClaimValidationTypeInboundTokenClaimValueTypePtrOutput {
+	return HarnessCustomClaimValidationTypeInboundTokenClaimValueType(e).ToHarnessCustomClaimValidationTypeInboundTokenClaimValueTypeOutputWithContext(ctx).ToHarnessCustomClaimValidationTypeInboundTokenClaimValueTypePtrOutputWithContext(ctx)
+}
+
+func (e HarnessCustomClaimValidationTypeInboundTokenClaimValueType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e HarnessCustomClaimValidationTypeInboundTokenClaimValueType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e HarnessCustomClaimValidationTypeInboundTokenClaimValueType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e HarnessCustomClaimValidationTypeInboundTokenClaimValueType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type HarnessCustomClaimValidationTypeInboundTokenClaimValueTypeOutput struct{ *pulumi.OutputState }
+
+func (HarnessCustomClaimValidationTypeInboundTokenClaimValueTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HarnessCustomClaimValidationTypeInboundTokenClaimValueType)(nil)).Elem()
+}
+
+func (o HarnessCustomClaimValidationTypeInboundTokenClaimValueTypeOutput) ToHarnessCustomClaimValidationTypeInboundTokenClaimValueTypeOutput() HarnessCustomClaimValidationTypeInboundTokenClaimValueTypeOutput {
+	return o
+}
+
+func (o HarnessCustomClaimValidationTypeInboundTokenClaimValueTypeOutput) ToHarnessCustomClaimValidationTypeInboundTokenClaimValueTypeOutputWithContext(ctx context.Context) HarnessCustomClaimValidationTypeInboundTokenClaimValueTypeOutput {
+	return o
+}
+
+func (o HarnessCustomClaimValidationTypeInboundTokenClaimValueTypeOutput) ToHarnessCustomClaimValidationTypeInboundTokenClaimValueTypePtrOutput() HarnessCustomClaimValidationTypeInboundTokenClaimValueTypePtrOutput {
+	return o.ToHarnessCustomClaimValidationTypeInboundTokenClaimValueTypePtrOutputWithContext(context.Background())
+}
+
+func (o HarnessCustomClaimValidationTypeInboundTokenClaimValueTypeOutput) ToHarnessCustomClaimValidationTypeInboundTokenClaimValueTypePtrOutputWithContext(ctx context.Context) HarnessCustomClaimValidationTypeInboundTokenClaimValueTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HarnessCustomClaimValidationTypeInboundTokenClaimValueType) *HarnessCustomClaimValidationTypeInboundTokenClaimValueType {
+		return &v
+	}).(HarnessCustomClaimValidationTypeInboundTokenClaimValueTypePtrOutput)
+}
+
+func (o HarnessCustomClaimValidationTypeInboundTokenClaimValueTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o HarnessCustomClaimValidationTypeInboundTokenClaimValueTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HarnessCustomClaimValidationTypeInboundTokenClaimValueType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o HarnessCustomClaimValidationTypeInboundTokenClaimValueTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HarnessCustomClaimValidationTypeInboundTokenClaimValueTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HarnessCustomClaimValidationTypeInboundTokenClaimValueType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type HarnessCustomClaimValidationTypeInboundTokenClaimValueTypePtrOutput struct{ *pulumi.OutputState }
+
+func (HarnessCustomClaimValidationTypeInboundTokenClaimValueTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HarnessCustomClaimValidationTypeInboundTokenClaimValueType)(nil)).Elem()
+}
+
+func (o HarnessCustomClaimValidationTypeInboundTokenClaimValueTypePtrOutput) ToHarnessCustomClaimValidationTypeInboundTokenClaimValueTypePtrOutput() HarnessCustomClaimValidationTypeInboundTokenClaimValueTypePtrOutput {
+	return o
+}
+
+func (o HarnessCustomClaimValidationTypeInboundTokenClaimValueTypePtrOutput) ToHarnessCustomClaimValidationTypeInboundTokenClaimValueTypePtrOutputWithContext(ctx context.Context) HarnessCustomClaimValidationTypeInboundTokenClaimValueTypePtrOutput {
+	return o
+}
+
+func (o HarnessCustomClaimValidationTypeInboundTokenClaimValueTypePtrOutput) Elem() HarnessCustomClaimValidationTypeInboundTokenClaimValueTypeOutput {
+	return o.ApplyT(func(v *HarnessCustomClaimValidationTypeInboundTokenClaimValueType) HarnessCustomClaimValidationTypeInboundTokenClaimValueType {
+		if v != nil {
+			return *v
+		}
+		var ret HarnessCustomClaimValidationTypeInboundTokenClaimValueType
+		return ret
+	}).(HarnessCustomClaimValidationTypeInboundTokenClaimValueTypeOutput)
+}
+
+func (o HarnessCustomClaimValidationTypeInboundTokenClaimValueTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HarnessCustomClaimValidationTypeInboundTokenClaimValueTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *HarnessCustomClaimValidationTypeInboundTokenClaimValueType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// HarnessCustomClaimValidationTypeInboundTokenClaimValueTypeInput is an input type that accepts values of the HarnessCustomClaimValidationTypeInboundTokenClaimValueType enum
+// A concrete instance of `HarnessCustomClaimValidationTypeInboundTokenClaimValueTypeInput` can be one of the following:
+//
+//	HarnessCustomClaimValidationTypeInboundTokenClaimValueTypeString
+//	HarnessCustomClaimValidationTypeInboundTokenClaimValueTypeStringArray
+type HarnessCustomClaimValidationTypeInboundTokenClaimValueTypeInput interface {
+	pulumi.Input
+
+	ToHarnessCustomClaimValidationTypeInboundTokenClaimValueTypeOutput() HarnessCustomClaimValidationTypeInboundTokenClaimValueTypeOutput
+	ToHarnessCustomClaimValidationTypeInboundTokenClaimValueTypeOutputWithContext(context.Context) HarnessCustomClaimValidationTypeInboundTokenClaimValueTypeOutput
+}
+
+var harnessCustomClaimValidationTypeInboundTokenClaimValueTypePtrType = reflect.TypeOf((**HarnessCustomClaimValidationTypeInboundTokenClaimValueType)(nil)).Elem()
+
+type HarnessCustomClaimValidationTypeInboundTokenClaimValueTypePtrInput interface {
+	pulumi.Input
+
+	ToHarnessCustomClaimValidationTypeInboundTokenClaimValueTypePtrOutput() HarnessCustomClaimValidationTypeInboundTokenClaimValueTypePtrOutput
+	ToHarnessCustomClaimValidationTypeInboundTokenClaimValueTypePtrOutputWithContext(context.Context) HarnessCustomClaimValidationTypeInboundTokenClaimValueTypePtrOutput
+}
+
+type harnessCustomClaimValidationTypeInboundTokenClaimValueTypePtr string
+
+func HarnessCustomClaimValidationTypeInboundTokenClaimValueTypePtr(v string) HarnessCustomClaimValidationTypeInboundTokenClaimValueTypePtrInput {
+	return (*harnessCustomClaimValidationTypeInboundTokenClaimValueTypePtr)(&v)
+}
+
+func (*harnessCustomClaimValidationTypeInboundTokenClaimValueTypePtr) ElementType() reflect.Type {
+	return harnessCustomClaimValidationTypeInboundTokenClaimValueTypePtrType
+}
+
+func (in *harnessCustomClaimValidationTypeInboundTokenClaimValueTypePtr) ToHarnessCustomClaimValidationTypeInboundTokenClaimValueTypePtrOutput() HarnessCustomClaimValidationTypeInboundTokenClaimValueTypePtrOutput {
+	return pulumi.ToOutput(in).(HarnessCustomClaimValidationTypeInboundTokenClaimValueTypePtrOutput)
+}
+
+func (in *harnessCustomClaimValidationTypeInboundTokenClaimValueTypePtr) ToHarnessCustomClaimValidationTypeInboundTokenClaimValueTypePtrOutputWithContext(ctx context.Context) HarnessCustomClaimValidationTypeInboundTokenClaimValueTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(HarnessCustomClaimValidationTypeInboundTokenClaimValueTypePtrOutput)
+}
+
+type HarnessNetworkConfigurationNetworkMode string
+
+const (
+	HarnessNetworkConfigurationNetworkModePublic = HarnessNetworkConfigurationNetworkMode("PUBLIC")
+	HarnessNetworkConfigurationNetworkModeVpc    = HarnessNetworkConfigurationNetworkMode("VPC")
+)
+
+func (HarnessNetworkConfigurationNetworkMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*HarnessNetworkConfigurationNetworkMode)(nil)).Elem()
+}
+
+func (e HarnessNetworkConfigurationNetworkMode) ToHarnessNetworkConfigurationNetworkModeOutput() HarnessNetworkConfigurationNetworkModeOutput {
+	return pulumi.ToOutput(e).(HarnessNetworkConfigurationNetworkModeOutput)
+}
+
+func (e HarnessNetworkConfigurationNetworkMode) ToHarnessNetworkConfigurationNetworkModeOutputWithContext(ctx context.Context) HarnessNetworkConfigurationNetworkModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(HarnessNetworkConfigurationNetworkModeOutput)
+}
+
+func (e HarnessNetworkConfigurationNetworkMode) ToHarnessNetworkConfigurationNetworkModePtrOutput() HarnessNetworkConfigurationNetworkModePtrOutput {
+	return e.ToHarnessNetworkConfigurationNetworkModePtrOutputWithContext(context.Background())
+}
+
+func (e HarnessNetworkConfigurationNetworkMode) ToHarnessNetworkConfigurationNetworkModePtrOutputWithContext(ctx context.Context) HarnessNetworkConfigurationNetworkModePtrOutput {
+	return HarnessNetworkConfigurationNetworkMode(e).ToHarnessNetworkConfigurationNetworkModeOutputWithContext(ctx).ToHarnessNetworkConfigurationNetworkModePtrOutputWithContext(ctx)
+}
+
+func (e HarnessNetworkConfigurationNetworkMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e HarnessNetworkConfigurationNetworkMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e HarnessNetworkConfigurationNetworkMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e HarnessNetworkConfigurationNetworkMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type HarnessNetworkConfigurationNetworkModeOutput struct{ *pulumi.OutputState }
+
+func (HarnessNetworkConfigurationNetworkModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HarnessNetworkConfigurationNetworkMode)(nil)).Elem()
+}
+
+func (o HarnessNetworkConfigurationNetworkModeOutput) ToHarnessNetworkConfigurationNetworkModeOutput() HarnessNetworkConfigurationNetworkModeOutput {
+	return o
+}
+
+func (o HarnessNetworkConfigurationNetworkModeOutput) ToHarnessNetworkConfigurationNetworkModeOutputWithContext(ctx context.Context) HarnessNetworkConfigurationNetworkModeOutput {
+	return o
+}
+
+func (o HarnessNetworkConfigurationNetworkModeOutput) ToHarnessNetworkConfigurationNetworkModePtrOutput() HarnessNetworkConfigurationNetworkModePtrOutput {
+	return o.ToHarnessNetworkConfigurationNetworkModePtrOutputWithContext(context.Background())
+}
+
+func (o HarnessNetworkConfigurationNetworkModeOutput) ToHarnessNetworkConfigurationNetworkModePtrOutputWithContext(ctx context.Context) HarnessNetworkConfigurationNetworkModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HarnessNetworkConfigurationNetworkMode) *HarnessNetworkConfigurationNetworkMode {
+		return &v
+	}).(HarnessNetworkConfigurationNetworkModePtrOutput)
+}
+
+func (o HarnessNetworkConfigurationNetworkModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o HarnessNetworkConfigurationNetworkModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HarnessNetworkConfigurationNetworkMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o HarnessNetworkConfigurationNetworkModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HarnessNetworkConfigurationNetworkModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HarnessNetworkConfigurationNetworkMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type HarnessNetworkConfigurationNetworkModePtrOutput struct{ *pulumi.OutputState }
+
+func (HarnessNetworkConfigurationNetworkModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HarnessNetworkConfigurationNetworkMode)(nil)).Elem()
+}
+
+func (o HarnessNetworkConfigurationNetworkModePtrOutput) ToHarnessNetworkConfigurationNetworkModePtrOutput() HarnessNetworkConfigurationNetworkModePtrOutput {
+	return o
+}
+
+func (o HarnessNetworkConfigurationNetworkModePtrOutput) ToHarnessNetworkConfigurationNetworkModePtrOutputWithContext(ctx context.Context) HarnessNetworkConfigurationNetworkModePtrOutput {
+	return o
+}
+
+func (o HarnessNetworkConfigurationNetworkModePtrOutput) Elem() HarnessNetworkConfigurationNetworkModeOutput {
+	return o.ApplyT(func(v *HarnessNetworkConfigurationNetworkMode) HarnessNetworkConfigurationNetworkMode {
+		if v != nil {
+			return *v
+		}
+		var ret HarnessNetworkConfigurationNetworkMode
+		return ret
+	}).(HarnessNetworkConfigurationNetworkModeOutput)
+}
+
+func (o HarnessNetworkConfigurationNetworkModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HarnessNetworkConfigurationNetworkModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *HarnessNetworkConfigurationNetworkMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// HarnessNetworkConfigurationNetworkModeInput is an input type that accepts values of the HarnessNetworkConfigurationNetworkMode enum
+// A concrete instance of `HarnessNetworkConfigurationNetworkModeInput` can be one of the following:
+//
+//	HarnessNetworkConfigurationNetworkModePublic
+//	HarnessNetworkConfigurationNetworkModeVpc
+type HarnessNetworkConfigurationNetworkModeInput interface {
+	pulumi.Input
+
+	ToHarnessNetworkConfigurationNetworkModeOutput() HarnessNetworkConfigurationNetworkModeOutput
+	ToHarnessNetworkConfigurationNetworkModeOutputWithContext(context.Context) HarnessNetworkConfigurationNetworkModeOutput
+}
+
+var harnessNetworkConfigurationNetworkModePtrType = reflect.TypeOf((**HarnessNetworkConfigurationNetworkMode)(nil)).Elem()
+
+type HarnessNetworkConfigurationNetworkModePtrInput interface {
+	pulumi.Input
+
+	ToHarnessNetworkConfigurationNetworkModePtrOutput() HarnessNetworkConfigurationNetworkModePtrOutput
+	ToHarnessNetworkConfigurationNetworkModePtrOutputWithContext(context.Context) HarnessNetworkConfigurationNetworkModePtrOutput
+}
+
+type harnessNetworkConfigurationNetworkModePtr string
+
+func HarnessNetworkConfigurationNetworkModePtr(v string) HarnessNetworkConfigurationNetworkModePtrInput {
+	return (*harnessNetworkConfigurationNetworkModePtr)(&v)
+}
+
+func (*harnessNetworkConfigurationNetworkModePtr) ElementType() reflect.Type {
+	return harnessNetworkConfigurationNetworkModePtrType
+}
+
+func (in *harnessNetworkConfigurationNetworkModePtr) ToHarnessNetworkConfigurationNetworkModePtrOutput() HarnessNetworkConfigurationNetworkModePtrOutput {
+	return pulumi.ToOutput(in).(HarnessNetworkConfigurationNetworkModePtrOutput)
+}
+
+func (in *harnessNetworkConfigurationNetworkModePtr) ToHarnessNetworkConfigurationNetworkModePtrOutputWithContext(ctx context.Context) HarnessNetworkConfigurationNetworkModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(HarnessNetworkConfigurationNetworkModePtrOutput)
+}
+
+type HarnessOAuthCredentialProviderGrantType string
+
+const (
+	HarnessOAuthCredentialProviderGrantTypeClientCredentials = HarnessOAuthCredentialProviderGrantType("CLIENT_CREDENTIALS")
+	HarnessOAuthCredentialProviderGrantTypeAuthorizationCode = HarnessOAuthCredentialProviderGrantType("AUTHORIZATION_CODE")
+)
+
+func (HarnessOAuthCredentialProviderGrantType) ElementType() reflect.Type {
+	return reflect.TypeOf((*HarnessOAuthCredentialProviderGrantType)(nil)).Elem()
+}
+
+func (e HarnessOAuthCredentialProviderGrantType) ToHarnessOAuthCredentialProviderGrantTypeOutput() HarnessOAuthCredentialProviderGrantTypeOutput {
+	return pulumi.ToOutput(e).(HarnessOAuthCredentialProviderGrantTypeOutput)
+}
+
+func (e HarnessOAuthCredentialProviderGrantType) ToHarnessOAuthCredentialProviderGrantTypeOutputWithContext(ctx context.Context) HarnessOAuthCredentialProviderGrantTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(HarnessOAuthCredentialProviderGrantTypeOutput)
+}
+
+func (e HarnessOAuthCredentialProviderGrantType) ToHarnessOAuthCredentialProviderGrantTypePtrOutput() HarnessOAuthCredentialProviderGrantTypePtrOutput {
+	return e.ToHarnessOAuthCredentialProviderGrantTypePtrOutputWithContext(context.Background())
+}
+
+func (e HarnessOAuthCredentialProviderGrantType) ToHarnessOAuthCredentialProviderGrantTypePtrOutputWithContext(ctx context.Context) HarnessOAuthCredentialProviderGrantTypePtrOutput {
+	return HarnessOAuthCredentialProviderGrantType(e).ToHarnessOAuthCredentialProviderGrantTypeOutputWithContext(ctx).ToHarnessOAuthCredentialProviderGrantTypePtrOutputWithContext(ctx)
+}
+
+func (e HarnessOAuthCredentialProviderGrantType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e HarnessOAuthCredentialProviderGrantType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e HarnessOAuthCredentialProviderGrantType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e HarnessOAuthCredentialProviderGrantType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type HarnessOAuthCredentialProviderGrantTypeOutput struct{ *pulumi.OutputState }
+
+func (HarnessOAuthCredentialProviderGrantTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HarnessOAuthCredentialProviderGrantType)(nil)).Elem()
+}
+
+func (o HarnessOAuthCredentialProviderGrantTypeOutput) ToHarnessOAuthCredentialProviderGrantTypeOutput() HarnessOAuthCredentialProviderGrantTypeOutput {
+	return o
+}
+
+func (o HarnessOAuthCredentialProviderGrantTypeOutput) ToHarnessOAuthCredentialProviderGrantTypeOutputWithContext(ctx context.Context) HarnessOAuthCredentialProviderGrantTypeOutput {
+	return o
+}
+
+func (o HarnessOAuthCredentialProviderGrantTypeOutput) ToHarnessOAuthCredentialProviderGrantTypePtrOutput() HarnessOAuthCredentialProviderGrantTypePtrOutput {
+	return o.ToHarnessOAuthCredentialProviderGrantTypePtrOutputWithContext(context.Background())
+}
+
+func (o HarnessOAuthCredentialProviderGrantTypeOutput) ToHarnessOAuthCredentialProviderGrantTypePtrOutputWithContext(ctx context.Context) HarnessOAuthCredentialProviderGrantTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HarnessOAuthCredentialProviderGrantType) *HarnessOAuthCredentialProviderGrantType {
+		return &v
+	}).(HarnessOAuthCredentialProviderGrantTypePtrOutput)
+}
+
+func (o HarnessOAuthCredentialProviderGrantTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o HarnessOAuthCredentialProviderGrantTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HarnessOAuthCredentialProviderGrantType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o HarnessOAuthCredentialProviderGrantTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HarnessOAuthCredentialProviderGrantTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HarnessOAuthCredentialProviderGrantType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type HarnessOAuthCredentialProviderGrantTypePtrOutput struct{ *pulumi.OutputState }
+
+func (HarnessOAuthCredentialProviderGrantTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HarnessOAuthCredentialProviderGrantType)(nil)).Elem()
+}
+
+func (o HarnessOAuthCredentialProviderGrantTypePtrOutput) ToHarnessOAuthCredentialProviderGrantTypePtrOutput() HarnessOAuthCredentialProviderGrantTypePtrOutput {
+	return o
+}
+
+func (o HarnessOAuthCredentialProviderGrantTypePtrOutput) ToHarnessOAuthCredentialProviderGrantTypePtrOutputWithContext(ctx context.Context) HarnessOAuthCredentialProviderGrantTypePtrOutput {
+	return o
+}
+
+func (o HarnessOAuthCredentialProviderGrantTypePtrOutput) Elem() HarnessOAuthCredentialProviderGrantTypeOutput {
+	return o.ApplyT(func(v *HarnessOAuthCredentialProviderGrantType) HarnessOAuthCredentialProviderGrantType {
+		if v != nil {
+			return *v
+		}
+		var ret HarnessOAuthCredentialProviderGrantType
+		return ret
+	}).(HarnessOAuthCredentialProviderGrantTypeOutput)
+}
+
+func (o HarnessOAuthCredentialProviderGrantTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HarnessOAuthCredentialProviderGrantTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *HarnessOAuthCredentialProviderGrantType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// HarnessOAuthCredentialProviderGrantTypeInput is an input type that accepts values of the HarnessOAuthCredentialProviderGrantType enum
+// A concrete instance of `HarnessOAuthCredentialProviderGrantTypeInput` can be one of the following:
+//
+//	HarnessOAuthCredentialProviderGrantTypeClientCredentials
+//	HarnessOAuthCredentialProviderGrantTypeAuthorizationCode
+type HarnessOAuthCredentialProviderGrantTypeInput interface {
+	pulumi.Input
+
+	ToHarnessOAuthCredentialProviderGrantTypeOutput() HarnessOAuthCredentialProviderGrantTypeOutput
+	ToHarnessOAuthCredentialProviderGrantTypeOutputWithContext(context.Context) HarnessOAuthCredentialProviderGrantTypeOutput
+}
+
+var harnessOAuthCredentialProviderGrantTypePtrType = reflect.TypeOf((**HarnessOAuthCredentialProviderGrantType)(nil)).Elem()
+
+type HarnessOAuthCredentialProviderGrantTypePtrInput interface {
+	pulumi.Input
+
+	ToHarnessOAuthCredentialProviderGrantTypePtrOutput() HarnessOAuthCredentialProviderGrantTypePtrOutput
+	ToHarnessOAuthCredentialProviderGrantTypePtrOutputWithContext(context.Context) HarnessOAuthCredentialProviderGrantTypePtrOutput
+}
+
+type harnessOAuthCredentialProviderGrantTypePtr string
+
+func HarnessOAuthCredentialProviderGrantTypePtr(v string) HarnessOAuthCredentialProviderGrantTypePtrInput {
+	return (*harnessOAuthCredentialProviderGrantTypePtr)(&v)
+}
+
+func (*harnessOAuthCredentialProviderGrantTypePtr) ElementType() reflect.Type {
+	return harnessOAuthCredentialProviderGrantTypePtrType
+}
+
+func (in *harnessOAuthCredentialProviderGrantTypePtr) ToHarnessOAuthCredentialProviderGrantTypePtrOutput() HarnessOAuthCredentialProviderGrantTypePtrOutput {
+	return pulumi.ToOutput(in).(HarnessOAuthCredentialProviderGrantTypePtrOutput)
+}
+
+func (in *harnessOAuthCredentialProviderGrantTypePtr) ToHarnessOAuthCredentialProviderGrantTypePtrOutputWithContext(ctx context.Context) HarnessOAuthCredentialProviderGrantTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(HarnessOAuthCredentialProviderGrantTypePtrOutput)
+}
+
+type HarnessStatus string
+
+const (
+	HarnessStatusCreating     = HarnessStatus("CREATING")
+	HarnessStatusCreateFailed = HarnessStatus("CREATE_FAILED")
+	HarnessStatusUpdating     = HarnessStatus("UPDATING")
+	HarnessStatusUpdateFailed = HarnessStatus("UPDATE_FAILED")
+	HarnessStatusReady        = HarnessStatus("READY")
+	HarnessStatusDeleting     = HarnessStatus("DELETING")
+	HarnessStatusDeleteFailed = HarnessStatus("DELETE_FAILED")
+)
+
+type HarnessStatusOutput struct{ *pulumi.OutputState }
+
+func (HarnessStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HarnessStatus)(nil)).Elem()
+}
+
+func (o HarnessStatusOutput) ToHarnessStatusOutput() HarnessStatusOutput {
+	return o
+}
+
+func (o HarnessStatusOutput) ToHarnessStatusOutputWithContext(ctx context.Context) HarnessStatusOutput {
+	return o
+}
+
+func (o HarnessStatusOutput) ToHarnessStatusPtrOutput() HarnessStatusPtrOutput {
+	return o.ToHarnessStatusPtrOutputWithContext(context.Background())
+}
+
+func (o HarnessStatusOutput) ToHarnessStatusPtrOutputWithContext(ctx context.Context) HarnessStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HarnessStatus) *HarnessStatus {
+		return &v
+	}).(HarnessStatusPtrOutput)
+}
+
+func (o HarnessStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o HarnessStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HarnessStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o HarnessStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HarnessStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HarnessStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type HarnessStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (HarnessStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HarnessStatus)(nil)).Elem()
+}
+
+func (o HarnessStatusPtrOutput) ToHarnessStatusPtrOutput() HarnessStatusPtrOutput {
+	return o
+}
+
+func (o HarnessStatusPtrOutput) ToHarnessStatusPtrOutputWithContext(ctx context.Context) HarnessStatusPtrOutput {
+	return o
+}
+
+func (o HarnessStatusPtrOutput) Elem() HarnessStatusOutput {
+	return o.ApplyT(func(v *HarnessStatus) HarnessStatus {
+		if v != nil {
+			return *v
+		}
+		var ret HarnessStatus
+		return ret
+	}).(HarnessStatusOutput)
+}
+
+func (o HarnessStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HarnessStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *HarnessStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type HarnessToolType string
+
+const (
+	HarnessToolTypeRemoteMcp                = HarnessToolType("remote_mcp")
+	HarnessToolTypeAgentcoreBrowser         = HarnessToolType("agentcore_browser")
+	HarnessToolTypeAgentcoreGateway         = HarnessToolType("agentcore_gateway")
+	HarnessToolTypeInlineFunction           = HarnessToolType("inline_function")
+	HarnessToolTypeAgentcoreCodeInterpreter = HarnessToolType("agentcore_code_interpreter")
+)
+
+func (HarnessToolType) ElementType() reflect.Type {
+	return reflect.TypeOf((*HarnessToolType)(nil)).Elem()
+}
+
+func (e HarnessToolType) ToHarnessToolTypeOutput() HarnessToolTypeOutput {
+	return pulumi.ToOutput(e).(HarnessToolTypeOutput)
+}
+
+func (e HarnessToolType) ToHarnessToolTypeOutputWithContext(ctx context.Context) HarnessToolTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(HarnessToolTypeOutput)
+}
+
+func (e HarnessToolType) ToHarnessToolTypePtrOutput() HarnessToolTypePtrOutput {
+	return e.ToHarnessToolTypePtrOutputWithContext(context.Background())
+}
+
+func (e HarnessToolType) ToHarnessToolTypePtrOutputWithContext(ctx context.Context) HarnessToolTypePtrOutput {
+	return HarnessToolType(e).ToHarnessToolTypeOutputWithContext(ctx).ToHarnessToolTypePtrOutputWithContext(ctx)
+}
+
+func (e HarnessToolType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e HarnessToolType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e HarnessToolType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e HarnessToolType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type HarnessToolTypeOutput struct{ *pulumi.OutputState }
+
+func (HarnessToolTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HarnessToolType)(nil)).Elem()
+}
+
+func (o HarnessToolTypeOutput) ToHarnessToolTypeOutput() HarnessToolTypeOutput {
+	return o
+}
+
+func (o HarnessToolTypeOutput) ToHarnessToolTypeOutputWithContext(ctx context.Context) HarnessToolTypeOutput {
+	return o
+}
+
+func (o HarnessToolTypeOutput) ToHarnessToolTypePtrOutput() HarnessToolTypePtrOutput {
+	return o.ToHarnessToolTypePtrOutputWithContext(context.Background())
+}
+
+func (o HarnessToolTypeOutput) ToHarnessToolTypePtrOutputWithContext(ctx context.Context) HarnessToolTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HarnessToolType) *HarnessToolType {
+		return &v
+	}).(HarnessToolTypePtrOutput)
+}
+
+func (o HarnessToolTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o HarnessToolTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HarnessToolType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o HarnessToolTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HarnessToolTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HarnessToolType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type HarnessToolTypePtrOutput struct{ *pulumi.OutputState }
+
+func (HarnessToolTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HarnessToolType)(nil)).Elem()
+}
+
+func (o HarnessToolTypePtrOutput) ToHarnessToolTypePtrOutput() HarnessToolTypePtrOutput {
+	return o
+}
+
+func (o HarnessToolTypePtrOutput) ToHarnessToolTypePtrOutputWithContext(ctx context.Context) HarnessToolTypePtrOutput {
+	return o
+}
+
+func (o HarnessToolTypePtrOutput) Elem() HarnessToolTypeOutput {
+	return o.ApplyT(func(v *HarnessToolType) HarnessToolType {
+		if v != nil {
+			return *v
+		}
+		var ret HarnessToolType
+		return ret
+	}).(HarnessToolTypeOutput)
+}
+
+func (o HarnessToolTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HarnessToolTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *HarnessToolType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// HarnessToolTypeInput is an input type that accepts values of the HarnessToolType enum
+// A concrete instance of `HarnessToolTypeInput` can be one of the following:
+//
+//	HarnessToolTypeRemoteMcp
+//	HarnessToolTypeAgentcoreBrowser
+//	HarnessToolTypeAgentcoreGateway
+//	HarnessToolTypeInlineFunction
+//	HarnessToolTypeAgentcoreCodeInterpreter
+type HarnessToolTypeInput interface {
+	pulumi.Input
+
+	ToHarnessToolTypeOutput() HarnessToolTypeOutput
+	ToHarnessToolTypeOutputWithContext(context.Context) HarnessToolTypeOutput
+}
+
+var harnessToolTypePtrType = reflect.TypeOf((**HarnessToolType)(nil)).Elem()
+
+type HarnessToolTypePtrInput interface {
+	pulumi.Input
+
+	ToHarnessToolTypePtrOutput() HarnessToolTypePtrOutput
+	ToHarnessToolTypePtrOutputWithContext(context.Context) HarnessToolTypePtrOutput
+}
+
+type harnessToolTypePtr string
+
+func HarnessToolTypePtr(v string) HarnessToolTypePtrInput {
+	return (*harnessToolTypePtr)(&v)
+}
+
+func (*harnessToolTypePtr) ElementType() reflect.Type {
+	return harnessToolTypePtrType
+}
+
+func (in *harnessToolTypePtr) ToHarnessToolTypePtrOutput() HarnessToolTypePtrOutput {
+	return pulumi.ToOutput(in).(HarnessToolTypePtrOutput)
+}
+
+func (in *harnessToolTypePtr) ToHarnessToolTypePtrOutputWithContext(ctx context.Context) HarnessToolTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(HarnessToolTypePtrOutput)
+}
+
+type HarnessTruncationConfigurationStrategy string
+
+const (
+	HarnessTruncationConfigurationStrategySlidingWindow = HarnessTruncationConfigurationStrategy("sliding_window")
+	HarnessTruncationConfigurationStrategySummarization = HarnessTruncationConfigurationStrategy("summarization")
+	HarnessTruncationConfigurationStrategyNone          = HarnessTruncationConfigurationStrategy("none")
+)
+
+func (HarnessTruncationConfigurationStrategy) ElementType() reflect.Type {
+	return reflect.TypeOf((*HarnessTruncationConfigurationStrategy)(nil)).Elem()
+}
+
+func (e HarnessTruncationConfigurationStrategy) ToHarnessTruncationConfigurationStrategyOutput() HarnessTruncationConfigurationStrategyOutput {
+	return pulumi.ToOutput(e).(HarnessTruncationConfigurationStrategyOutput)
+}
+
+func (e HarnessTruncationConfigurationStrategy) ToHarnessTruncationConfigurationStrategyOutputWithContext(ctx context.Context) HarnessTruncationConfigurationStrategyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(HarnessTruncationConfigurationStrategyOutput)
+}
+
+func (e HarnessTruncationConfigurationStrategy) ToHarnessTruncationConfigurationStrategyPtrOutput() HarnessTruncationConfigurationStrategyPtrOutput {
+	return e.ToHarnessTruncationConfigurationStrategyPtrOutputWithContext(context.Background())
+}
+
+func (e HarnessTruncationConfigurationStrategy) ToHarnessTruncationConfigurationStrategyPtrOutputWithContext(ctx context.Context) HarnessTruncationConfigurationStrategyPtrOutput {
+	return HarnessTruncationConfigurationStrategy(e).ToHarnessTruncationConfigurationStrategyOutputWithContext(ctx).ToHarnessTruncationConfigurationStrategyPtrOutputWithContext(ctx)
+}
+
+func (e HarnessTruncationConfigurationStrategy) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e HarnessTruncationConfigurationStrategy) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e HarnessTruncationConfigurationStrategy) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e HarnessTruncationConfigurationStrategy) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type HarnessTruncationConfigurationStrategyOutput struct{ *pulumi.OutputState }
+
+func (HarnessTruncationConfigurationStrategyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HarnessTruncationConfigurationStrategy)(nil)).Elem()
+}
+
+func (o HarnessTruncationConfigurationStrategyOutput) ToHarnessTruncationConfigurationStrategyOutput() HarnessTruncationConfigurationStrategyOutput {
+	return o
+}
+
+func (o HarnessTruncationConfigurationStrategyOutput) ToHarnessTruncationConfigurationStrategyOutputWithContext(ctx context.Context) HarnessTruncationConfigurationStrategyOutput {
+	return o
+}
+
+func (o HarnessTruncationConfigurationStrategyOutput) ToHarnessTruncationConfigurationStrategyPtrOutput() HarnessTruncationConfigurationStrategyPtrOutput {
+	return o.ToHarnessTruncationConfigurationStrategyPtrOutputWithContext(context.Background())
+}
+
+func (o HarnessTruncationConfigurationStrategyOutput) ToHarnessTruncationConfigurationStrategyPtrOutputWithContext(ctx context.Context) HarnessTruncationConfigurationStrategyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HarnessTruncationConfigurationStrategy) *HarnessTruncationConfigurationStrategy {
+		return &v
+	}).(HarnessTruncationConfigurationStrategyPtrOutput)
+}
+
+func (o HarnessTruncationConfigurationStrategyOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o HarnessTruncationConfigurationStrategyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HarnessTruncationConfigurationStrategy) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o HarnessTruncationConfigurationStrategyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HarnessTruncationConfigurationStrategyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HarnessTruncationConfigurationStrategy) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type HarnessTruncationConfigurationStrategyPtrOutput struct{ *pulumi.OutputState }
+
+func (HarnessTruncationConfigurationStrategyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HarnessTruncationConfigurationStrategy)(nil)).Elem()
+}
+
+func (o HarnessTruncationConfigurationStrategyPtrOutput) ToHarnessTruncationConfigurationStrategyPtrOutput() HarnessTruncationConfigurationStrategyPtrOutput {
+	return o
+}
+
+func (o HarnessTruncationConfigurationStrategyPtrOutput) ToHarnessTruncationConfigurationStrategyPtrOutputWithContext(ctx context.Context) HarnessTruncationConfigurationStrategyPtrOutput {
+	return o
+}
+
+func (o HarnessTruncationConfigurationStrategyPtrOutput) Elem() HarnessTruncationConfigurationStrategyOutput {
+	return o.ApplyT(func(v *HarnessTruncationConfigurationStrategy) HarnessTruncationConfigurationStrategy {
+		if v != nil {
+			return *v
+		}
+		var ret HarnessTruncationConfigurationStrategy
+		return ret
+	}).(HarnessTruncationConfigurationStrategyOutput)
+}
+
+func (o HarnessTruncationConfigurationStrategyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HarnessTruncationConfigurationStrategyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *HarnessTruncationConfigurationStrategy) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// HarnessTruncationConfigurationStrategyInput is an input type that accepts values of the HarnessTruncationConfigurationStrategy enum
+// A concrete instance of `HarnessTruncationConfigurationStrategyInput` can be one of the following:
+//
+//	HarnessTruncationConfigurationStrategySlidingWindow
+//	HarnessTruncationConfigurationStrategySummarization
+//	HarnessTruncationConfigurationStrategyNone
+type HarnessTruncationConfigurationStrategyInput interface {
+	pulumi.Input
+
+	ToHarnessTruncationConfigurationStrategyOutput() HarnessTruncationConfigurationStrategyOutput
+	ToHarnessTruncationConfigurationStrategyOutputWithContext(context.Context) HarnessTruncationConfigurationStrategyOutput
+}
+
+var harnessTruncationConfigurationStrategyPtrType = reflect.TypeOf((**HarnessTruncationConfigurationStrategy)(nil)).Elem()
+
+type HarnessTruncationConfigurationStrategyPtrInput interface {
+	pulumi.Input
+
+	ToHarnessTruncationConfigurationStrategyPtrOutput() HarnessTruncationConfigurationStrategyPtrOutput
+	ToHarnessTruncationConfigurationStrategyPtrOutputWithContext(context.Context) HarnessTruncationConfigurationStrategyPtrOutput
+}
+
+type harnessTruncationConfigurationStrategyPtr string
+
+func HarnessTruncationConfigurationStrategyPtr(v string) HarnessTruncationConfigurationStrategyPtrInput {
+	return (*harnessTruncationConfigurationStrategyPtr)(&v)
+}
+
+func (*harnessTruncationConfigurationStrategyPtr) ElementType() reflect.Type {
+	return harnessTruncationConfigurationStrategyPtrType
+}
+
+func (in *harnessTruncationConfigurationStrategyPtr) ToHarnessTruncationConfigurationStrategyPtrOutput() HarnessTruncationConfigurationStrategyPtrOutput {
+	return pulumi.ToOutput(in).(HarnessTruncationConfigurationStrategyPtrOutput)
+}
+
+func (in *harnessTruncationConfigurationStrategyPtr) ToHarnessTruncationConfigurationStrategyPtrOutputWithContext(ctx context.Context) HarnessTruncationConfigurationStrategyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(HarnessTruncationConfigurationStrategyPtrOutput)
 }
 
 // The level of content detail to deliver
@@ -6949,6 +8306,172 @@ func (o OnlineEvaluationConfigStatusPtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
+// Supported vendor types for payment providers
+type PaymentCredentialProviderVendorType string
+
+const (
+	PaymentCredentialProviderVendorTypeCoinbaseCdp = PaymentCredentialProviderVendorType("CoinbaseCDP")
+	PaymentCredentialProviderVendorTypeStripePrivy = PaymentCredentialProviderVendorType("StripePrivy")
+)
+
+func (PaymentCredentialProviderVendorType) ElementType() reflect.Type {
+	return reflect.TypeOf((*PaymentCredentialProviderVendorType)(nil)).Elem()
+}
+
+func (e PaymentCredentialProviderVendorType) ToPaymentCredentialProviderVendorTypeOutput() PaymentCredentialProviderVendorTypeOutput {
+	return pulumi.ToOutput(e).(PaymentCredentialProviderVendorTypeOutput)
+}
+
+func (e PaymentCredentialProviderVendorType) ToPaymentCredentialProviderVendorTypeOutputWithContext(ctx context.Context) PaymentCredentialProviderVendorTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PaymentCredentialProviderVendorTypeOutput)
+}
+
+func (e PaymentCredentialProviderVendorType) ToPaymentCredentialProviderVendorTypePtrOutput() PaymentCredentialProviderVendorTypePtrOutput {
+	return e.ToPaymentCredentialProviderVendorTypePtrOutputWithContext(context.Background())
+}
+
+func (e PaymentCredentialProviderVendorType) ToPaymentCredentialProviderVendorTypePtrOutputWithContext(ctx context.Context) PaymentCredentialProviderVendorTypePtrOutput {
+	return PaymentCredentialProviderVendorType(e).ToPaymentCredentialProviderVendorTypeOutputWithContext(ctx).ToPaymentCredentialProviderVendorTypePtrOutputWithContext(ctx)
+}
+
+func (e PaymentCredentialProviderVendorType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PaymentCredentialProviderVendorType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PaymentCredentialProviderVendorType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PaymentCredentialProviderVendorType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PaymentCredentialProviderVendorTypeOutput struct{ *pulumi.OutputState }
+
+func (PaymentCredentialProviderVendorTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PaymentCredentialProviderVendorType)(nil)).Elem()
+}
+
+func (o PaymentCredentialProviderVendorTypeOutput) ToPaymentCredentialProviderVendorTypeOutput() PaymentCredentialProviderVendorTypeOutput {
+	return o
+}
+
+func (o PaymentCredentialProviderVendorTypeOutput) ToPaymentCredentialProviderVendorTypeOutputWithContext(ctx context.Context) PaymentCredentialProviderVendorTypeOutput {
+	return o
+}
+
+func (o PaymentCredentialProviderVendorTypeOutput) ToPaymentCredentialProviderVendorTypePtrOutput() PaymentCredentialProviderVendorTypePtrOutput {
+	return o.ToPaymentCredentialProviderVendorTypePtrOutputWithContext(context.Background())
+}
+
+func (o PaymentCredentialProviderVendorTypeOutput) ToPaymentCredentialProviderVendorTypePtrOutputWithContext(ctx context.Context) PaymentCredentialProviderVendorTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PaymentCredentialProviderVendorType) *PaymentCredentialProviderVendorType {
+		return &v
+	}).(PaymentCredentialProviderVendorTypePtrOutput)
+}
+
+func (o PaymentCredentialProviderVendorTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PaymentCredentialProviderVendorTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PaymentCredentialProviderVendorType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PaymentCredentialProviderVendorTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PaymentCredentialProviderVendorTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PaymentCredentialProviderVendorType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PaymentCredentialProviderVendorTypePtrOutput struct{ *pulumi.OutputState }
+
+func (PaymentCredentialProviderVendorTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PaymentCredentialProviderVendorType)(nil)).Elem()
+}
+
+func (o PaymentCredentialProviderVendorTypePtrOutput) ToPaymentCredentialProviderVendorTypePtrOutput() PaymentCredentialProviderVendorTypePtrOutput {
+	return o
+}
+
+func (o PaymentCredentialProviderVendorTypePtrOutput) ToPaymentCredentialProviderVendorTypePtrOutputWithContext(ctx context.Context) PaymentCredentialProviderVendorTypePtrOutput {
+	return o
+}
+
+func (o PaymentCredentialProviderVendorTypePtrOutput) Elem() PaymentCredentialProviderVendorTypeOutput {
+	return o.ApplyT(func(v *PaymentCredentialProviderVendorType) PaymentCredentialProviderVendorType {
+		if v != nil {
+			return *v
+		}
+		var ret PaymentCredentialProviderVendorType
+		return ret
+	}).(PaymentCredentialProviderVendorTypeOutput)
+}
+
+func (o PaymentCredentialProviderVendorTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PaymentCredentialProviderVendorTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PaymentCredentialProviderVendorType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PaymentCredentialProviderVendorTypeInput is an input type that accepts values of the PaymentCredentialProviderVendorType enum
+// A concrete instance of `PaymentCredentialProviderVendorTypeInput` can be one of the following:
+//
+//	PaymentCredentialProviderVendorTypeCoinbaseCdp
+//	PaymentCredentialProviderVendorTypeStripePrivy
+type PaymentCredentialProviderVendorTypeInput interface {
+	pulumi.Input
+
+	ToPaymentCredentialProviderVendorTypeOutput() PaymentCredentialProviderVendorTypeOutput
+	ToPaymentCredentialProviderVendorTypeOutputWithContext(context.Context) PaymentCredentialProviderVendorTypeOutput
+}
+
+var paymentCredentialProviderVendorTypePtrType = reflect.TypeOf((**PaymentCredentialProviderVendorType)(nil)).Elem()
+
+type PaymentCredentialProviderVendorTypePtrInput interface {
+	pulumi.Input
+
+	ToPaymentCredentialProviderVendorTypePtrOutput() PaymentCredentialProviderVendorTypePtrOutput
+	ToPaymentCredentialProviderVendorTypePtrOutputWithContext(context.Context) PaymentCredentialProviderVendorTypePtrOutput
+}
+
+type paymentCredentialProviderVendorTypePtr string
+
+func PaymentCredentialProviderVendorTypePtr(v string) PaymentCredentialProviderVendorTypePtrInput {
+	return (*paymentCredentialProviderVendorTypePtr)(&v)
+}
+
+func (*paymentCredentialProviderVendorTypePtr) ElementType() reflect.Type {
+	return paymentCredentialProviderVendorTypePtrType
+}
+
+func (in *paymentCredentialProviderVendorTypePtr) ToPaymentCredentialProviderVendorTypePtrOutput() PaymentCredentialProviderVendorTypePtrOutput {
+	return pulumi.ToOutput(in).(PaymentCredentialProviderVendorTypePtrOutput)
+}
+
+func (in *paymentCredentialProviderVendorTypePtr) ToPaymentCredentialProviderVendorTypePtrOutputWithContext(ctx context.Context) PaymentCredentialProviderVendorTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PaymentCredentialProviderVendorTypePtrOutput)
+}
+
 type PolicyEngineStatus string
 
 const (
@@ -8343,6 +9866,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BrowserCustomBrowserNetworkModePtrInput)(nil)).Elem(), BrowserCustomBrowserNetworkMode("PUBLIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeInterpreterCustomCodeInterpreterNetworkModeInput)(nil)).Elem(), CodeInterpreterCustomCodeInterpreterNetworkMode("PUBLIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeInterpreterCustomCodeInterpreterNetworkModePtrInput)(nil)).Elem(), CodeInterpreterCustomCodeInterpreterNetworkMode("PUBLIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetSchemaTypeInput)(nil)).Elem(), DatasetSchemaType("AGENTCORE_EVALUATION_PREDEFINED_V1"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetSchemaTypePtrInput)(nil)).Elem(), DatasetSchemaType("AGENTCORE_EVALUATION_PREDEFINED_V1"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluatorLevelInput)(nil)).Elem(), EvaluatorLevel("TOOL_CALL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluatorLevelPtrInput)(nil)).Elem(), EvaluatorLevel("TOOL_CALL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayAuthorizerTypeInput)(nil)).Elem(), GatewayAuthorizerType("CUSTOM_JWT"))
@@ -8375,6 +9900,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetRestApiMethodArrayInput)(nil)).Elem(), GatewayTargetRestApiMethodArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetSchemaTypeInput)(nil)).Elem(), GatewayTargetSchemaType("string"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetSchemaTypePtrInput)(nil)).Elem(), GatewayTargetSchemaType("string"))
+	pulumi.RegisterInputType(reflect.TypeOf((*HarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorInput)(nil)).Elem(), HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator("EQUALS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*HarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrInput)(nil)).Elem(), HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator("EQUALS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*HarnessCustomClaimValidationTypeInboundTokenClaimValueTypeInput)(nil)).Elem(), HarnessCustomClaimValidationTypeInboundTokenClaimValueType("STRING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*HarnessCustomClaimValidationTypeInboundTokenClaimValueTypePtrInput)(nil)).Elem(), HarnessCustomClaimValidationTypeInboundTokenClaimValueType("STRING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*HarnessNetworkConfigurationNetworkModeInput)(nil)).Elem(), HarnessNetworkConfigurationNetworkMode("PUBLIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*HarnessNetworkConfigurationNetworkModePtrInput)(nil)).Elem(), HarnessNetworkConfigurationNetworkMode("PUBLIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*HarnessOAuthCredentialProviderGrantTypeInput)(nil)).Elem(), HarnessOAuthCredentialProviderGrantType("CLIENT_CREDENTIALS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*HarnessOAuthCredentialProviderGrantTypePtrInput)(nil)).Elem(), HarnessOAuthCredentialProviderGrantType("CLIENT_CREDENTIALS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*HarnessToolTypeInput)(nil)).Elem(), HarnessToolType("remote_mcp"))
+	pulumi.RegisterInputType(reflect.TypeOf((*HarnessToolTypePtrInput)(nil)).Elem(), HarnessToolType("remote_mcp"))
+	pulumi.RegisterInputType(reflect.TypeOf((*HarnessTruncationConfigurationStrategyInput)(nil)).Elem(), HarnessTruncationConfigurationStrategy("sliding_window"))
+	pulumi.RegisterInputType(reflect.TypeOf((*HarnessTruncationConfigurationStrategyPtrInput)(nil)).Elem(), HarnessTruncationConfigurationStrategy("sliding_window"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryContentConfigurationLevelInput)(nil)).Elem(), MemoryContentConfigurationLevel("METADATA_ONLY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryContentConfigurationLevelPtrInput)(nil)).Elem(), MemoryContentConfigurationLevel("METADATA_ONLY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryContentConfigurationTypeInput)(nil)).Elem(), MemoryContentConfigurationType("MEMORY_RECORDS"))
@@ -8411,6 +9948,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigExecutionStatusPtrInput)(nil)).Elem(), OnlineEvaluationConfigExecutionStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigFilterOperatorInput)(nil)).Elem(), OnlineEvaluationConfigFilterOperator("Equals"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigFilterOperatorPtrInput)(nil)).Elem(), OnlineEvaluationConfigFilterOperator("Equals"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PaymentCredentialProviderVendorTypeInput)(nil)).Elem(), PaymentCredentialProviderVendorType("CoinbaseCDP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PaymentCredentialProviderVendorTypePtrInput)(nil)).Elem(), PaymentCredentialProviderVendorType("CoinbaseCDP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyValidationModeInput)(nil)).Elem(), PolicyValidationMode("FAIL_ON_ANY_FINDINGS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyValidationModePtrInput)(nil)).Elem(), PolicyValidationMode("FAIL_ON_ANY_FINDINGS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeAgentManagedRuntimeTypeInput)(nil)).Elem(), RuntimeAgentManagedRuntimeType("PYTHON_3_10"))
@@ -8435,6 +9974,10 @@ func init() {
 	pulumi.RegisterOutputType(CodeInterpreterCustomCodeInterpreterNetworkModePtrOutput{})
 	pulumi.RegisterOutputType(CodeInterpreterCustomCodeInterpreterStatusOutput{})
 	pulumi.RegisterOutputType(CodeInterpreterCustomCodeInterpreterStatusPtrOutput{})
+	pulumi.RegisterOutputType(DatasetSchemaTypeOutput{})
+	pulumi.RegisterOutputType(DatasetSchemaTypePtrOutput{})
+	pulumi.RegisterOutputType(DatasetStatusOutput{})
+	pulumi.RegisterOutputType(DatasetStatusPtrOutput{})
 	pulumi.RegisterOutputType(EvaluatorLevelOutput{})
 	pulumi.RegisterOutputType(EvaluatorLevelPtrOutput{})
 	pulumi.RegisterOutputType(EvaluatorStatusOutput{})
@@ -8473,6 +10016,20 @@ func init() {
 	pulumi.RegisterOutputType(GatewayTargetSchemaTypePtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetTargetStatusOutput{})
 	pulumi.RegisterOutputType(GatewayTargetTargetStatusPtrOutput{})
+	pulumi.RegisterOutputType(HarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorOutput{})
+	pulumi.RegisterOutputType(HarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrOutput{})
+	pulumi.RegisterOutputType(HarnessCustomClaimValidationTypeInboundTokenClaimValueTypeOutput{})
+	pulumi.RegisterOutputType(HarnessCustomClaimValidationTypeInboundTokenClaimValueTypePtrOutput{})
+	pulumi.RegisterOutputType(HarnessNetworkConfigurationNetworkModeOutput{})
+	pulumi.RegisterOutputType(HarnessNetworkConfigurationNetworkModePtrOutput{})
+	pulumi.RegisterOutputType(HarnessOAuthCredentialProviderGrantTypeOutput{})
+	pulumi.RegisterOutputType(HarnessOAuthCredentialProviderGrantTypePtrOutput{})
+	pulumi.RegisterOutputType(HarnessStatusOutput{})
+	pulumi.RegisterOutputType(HarnessStatusPtrOutput{})
+	pulumi.RegisterOutputType(HarnessToolTypeOutput{})
+	pulumi.RegisterOutputType(HarnessToolTypePtrOutput{})
+	pulumi.RegisterOutputType(HarnessTruncationConfigurationStrategyOutput{})
+	pulumi.RegisterOutputType(HarnessTruncationConfigurationStrategyPtrOutput{})
 	pulumi.RegisterOutputType(MemoryContentConfigurationLevelOutput{})
 	pulumi.RegisterOutputType(MemoryContentConfigurationLevelPtrOutput{})
 	pulumi.RegisterOutputType(MemoryContentConfigurationTypeOutput{})
@@ -8513,6 +10070,8 @@ func init() {
 	pulumi.RegisterOutputType(OnlineEvaluationConfigFilterOperatorPtrOutput{})
 	pulumi.RegisterOutputType(OnlineEvaluationConfigStatusOutput{})
 	pulumi.RegisterOutputType(OnlineEvaluationConfigStatusPtrOutput{})
+	pulumi.RegisterOutputType(PaymentCredentialProviderVendorTypeOutput{})
+	pulumi.RegisterOutputType(PaymentCredentialProviderVendorTypePtrOutput{})
 	pulumi.RegisterOutputType(PolicyEngineStatusOutput{})
 	pulumi.RegisterOutputType(PolicyEngineStatusPtrOutput{})
 	pulumi.RegisterOutputType(PolicyStatusOutput{})

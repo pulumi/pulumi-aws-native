@@ -9225,6 +9225,172 @@ func (in *launchTemplateCpuOptionsAmdSevSnpPtr) ToLaunchTemplateCpuOptionsAmdSev
 	return pulumi.ToOutputWithContext(ctx, in).(LaunchTemplateCpuOptionsAmdSevSnpPtrOutput)
 }
 
+// Indicates whether the instance is enabled for nested virtualization.
+type LaunchTemplateCpuOptionsNestedVirtualization string
+
+const (
+	LaunchTemplateCpuOptionsNestedVirtualizationEnabled  = LaunchTemplateCpuOptionsNestedVirtualization("enabled")
+	LaunchTemplateCpuOptionsNestedVirtualizationDisabled = LaunchTemplateCpuOptionsNestedVirtualization("disabled")
+)
+
+func (LaunchTemplateCpuOptionsNestedVirtualization) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateCpuOptionsNestedVirtualization)(nil)).Elem()
+}
+
+func (e LaunchTemplateCpuOptionsNestedVirtualization) ToLaunchTemplateCpuOptionsNestedVirtualizationOutput() LaunchTemplateCpuOptionsNestedVirtualizationOutput {
+	return pulumi.ToOutput(e).(LaunchTemplateCpuOptionsNestedVirtualizationOutput)
+}
+
+func (e LaunchTemplateCpuOptionsNestedVirtualization) ToLaunchTemplateCpuOptionsNestedVirtualizationOutputWithContext(ctx context.Context) LaunchTemplateCpuOptionsNestedVirtualizationOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(LaunchTemplateCpuOptionsNestedVirtualizationOutput)
+}
+
+func (e LaunchTemplateCpuOptionsNestedVirtualization) ToLaunchTemplateCpuOptionsNestedVirtualizationPtrOutput() LaunchTemplateCpuOptionsNestedVirtualizationPtrOutput {
+	return e.ToLaunchTemplateCpuOptionsNestedVirtualizationPtrOutputWithContext(context.Background())
+}
+
+func (e LaunchTemplateCpuOptionsNestedVirtualization) ToLaunchTemplateCpuOptionsNestedVirtualizationPtrOutputWithContext(ctx context.Context) LaunchTemplateCpuOptionsNestedVirtualizationPtrOutput {
+	return LaunchTemplateCpuOptionsNestedVirtualization(e).ToLaunchTemplateCpuOptionsNestedVirtualizationOutputWithContext(ctx).ToLaunchTemplateCpuOptionsNestedVirtualizationPtrOutputWithContext(ctx)
+}
+
+func (e LaunchTemplateCpuOptionsNestedVirtualization) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LaunchTemplateCpuOptionsNestedVirtualization) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LaunchTemplateCpuOptionsNestedVirtualization) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e LaunchTemplateCpuOptionsNestedVirtualization) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type LaunchTemplateCpuOptionsNestedVirtualizationOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateCpuOptionsNestedVirtualizationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateCpuOptionsNestedVirtualization)(nil)).Elem()
+}
+
+func (o LaunchTemplateCpuOptionsNestedVirtualizationOutput) ToLaunchTemplateCpuOptionsNestedVirtualizationOutput() LaunchTemplateCpuOptionsNestedVirtualizationOutput {
+	return o
+}
+
+func (o LaunchTemplateCpuOptionsNestedVirtualizationOutput) ToLaunchTemplateCpuOptionsNestedVirtualizationOutputWithContext(ctx context.Context) LaunchTemplateCpuOptionsNestedVirtualizationOutput {
+	return o
+}
+
+func (o LaunchTemplateCpuOptionsNestedVirtualizationOutput) ToLaunchTemplateCpuOptionsNestedVirtualizationPtrOutput() LaunchTemplateCpuOptionsNestedVirtualizationPtrOutput {
+	return o.ToLaunchTemplateCpuOptionsNestedVirtualizationPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplateCpuOptionsNestedVirtualizationOutput) ToLaunchTemplateCpuOptionsNestedVirtualizationPtrOutputWithContext(ctx context.Context) LaunchTemplateCpuOptionsNestedVirtualizationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateCpuOptionsNestedVirtualization) *LaunchTemplateCpuOptionsNestedVirtualization {
+		return &v
+	}).(LaunchTemplateCpuOptionsNestedVirtualizationPtrOutput)
+}
+
+func (o LaunchTemplateCpuOptionsNestedVirtualizationOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplateCpuOptionsNestedVirtualizationOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LaunchTemplateCpuOptionsNestedVirtualization) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o LaunchTemplateCpuOptionsNestedVirtualizationOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplateCpuOptionsNestedVirtualizationOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LaunchTemplateCpuOptionsNestedVirtualization) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type LaunchTemplateCpuOptionsNestedVirtualizationPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateCpuOptionsNestedVirtualizationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateCpuOptionsNestedVirtualization)(nil)).Elem()
+}
+
+func (o LaunchTemplateCpuOptionsNestedVirtualizationPtrOutput) ToLaunchTemplateCpuOptionsNestedVirtualizationPtrOutput() LaunchTemplateCpuOptionsNestedVirtualizationPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateCpuOptionsNestedVirtualizationPtrOutput) ToLaunchTemplateCpuOptionsNestedVirtualizationPtrOutputWithContext(ctx context.Context) LaunchTemplateCpuOptionsNestedVirtualizationPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateCpuOptionsNestedVirtualizationPtrOutput) Elem() LaunchTemplateCpuOptionsNestedVirtualizationOutput {
+	return o.ApplyT(func(v *LaunchTemplateCpuOptionsNestedVirtualization) LaunchTemplateCpuOptionsNestedVirtualization {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateCpuOptionsNestedVirtualization
+		return ret
+	}).(LaunchTemplateCpuOptionsNestedVirtualizationOutput)
+}
+
+func (o LaunchTemplateCpuOptionsNestedVirtualizationPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplateCpuOptionsNestedVirtualizationPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LaunchTemplateCpuOptionsNestedVirtualization) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// LaunchTemplateCpuOptionsNestedVirtualizationInput is an input type that accepts values of the LaunchTemplateCpuOptionsNestedVirtualization enum
+// A concrete instance of `LaunchTemplateCpuOptionsNestedVirtualizationInput` can be one of the following:
+//
+//	LaunchTemplateCpuOptionsNestedVirtualizationEnabled
+//	LaunchTemplateCpuOptionsNestedVirtualizationDisabled
+type LaunchTemplateCpuOptionsNestedVirtualizationInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateCpuOptionsNestedVirtualizationOutput() LaunchTemplateCpuOptionsNestedVirtualizationOutput
+	ToLaunchTemplateCpuOptionsNestedVirtualizationOutputWithContext(context.Context) LaunchTemplateCpuOptionsNestedVirtualizationOutput
+}
+
+var launchTemplateCpuOptionsNestedVirtualizationPtrType = reflect.TypeOf((**LaunchTemplateCpuOptionsNestedVirtualization)(nil)).Elem()
+
+type LaunchTemplateCpuOptionsNestedVirtualizationPtrInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateCpuOptionsNestedVirtualizationPtrOutput() LaunchTemplateCpuOptionsNestedVirtualizationPtrOutput
+	ToLaunchTemplateCpuOptionsNestedVirtualizationPtrOutputWithContext(context.Context) LaunchTemplateCpuOptionsNestedVirtualizationPtrOutput
+}
+
+type launchTemplateCpuOptionsNestedVirtualizationPtr string
+
+func LaunchTemplateCpuOptionsNestedVirtualizationPtr(v string) LaunchTemplateCpuOptionsNestedVirtualizationPtrInput {
+	return (*launchTemplateCpuOptionsNestedVirtualizationPtr)(&v)
+}
+
+func (*launchTemplateCpuOptionsNestedVirtualizationPtr) ElementType() reflect.Type {
+	return launchTemplateCpuOptionsNestedVirtualizationPtrType
+}
+
+func (in *launchTemplateCpuOptionsNestedVirtualizationPtr) ToLaunchTemplateCpuOptionsNestedVirtualizationPtrOutput() LaunchTemplateCpuOptionsNestedVirtualizationPtrOutput {
+	return pulumi.ToOutput(in).(LaunchTemplateCpuOptionsNestedVirtualizationPtrOutput)
+}
+
+func (in *launchTemplateCpuOptionsNestedVirtualizationPtr) ToLaunchTemplateCpuOptionsNestedVirtualizationPtrOutputWithContext(ctx context.Context) LaunchTemplateCpuOptionsNestedVirtualizationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(LaunchTemplateCpuOptionsNestedVirtualizationPtrOutput)
+}
+
 // Indicates whether there are findings (true | false | unknown).
 type NetworkInsightsAccessScopeAnalysisFindingsFound string
 
@@ -20106,6 +20272,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KeyPairKeyTypePtrInput)(nil)).Elem(), KeyPairKeyType("rsa"))
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateCpuOptionsAmdSevSnpInput)(nil)).Elem(), LaunchTemplateCpuOptionsAmdSevSnp("enabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateCpuOptionsAmdSevSnpPtrInput)(nil)).Elem(), LaunchTemplateCpuOptionsAmdSevSnp("enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateCpuOptionsNestedVirtualizationInput)(nil)).Elem(), LaunchTemplateCpuOptionsNestedVirtualization("enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateCpuOptionsNestedVirtualizationPtrInput)(nil)).Elem(), LaunchTemplateCpuOptionsNestedVirtualization("enabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAccessScopeProtocolInput)(nil)).Elem(), NetworkInsightsAccessScopeProtocol("tcp"))
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAccessScopeProtocolPtrInput)(nil)).Elem(), NetworkInsightsAccessScopeProtocol("tcp"))
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAccessScopeProtocolArrayInput)(nil)).Elem(), NetworkInsightsAccessScopeProtocolArray{})
@@ -20344,6 +20512,8 @@ func init() {
 	pulumi.RegisterOutputType(KeyPairKeyTypePtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateCpuOptionsAmdSevSnpOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateCpuOptionsAmdSevSnpPtrOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateCpuOptionsNestedVirtualizationOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateCpuOptionsNestedVirtualizationPtrOutput{})
 	pulumi.RegisterOutputType(NetworkInsightsAccessScopeAnalysisFindingsFoundOutput{})
 	pulumi.RegisterOutputType(NetworkInsightsAccessScopeAnalysisFindingsFoundPtrOutput{})
 	pulumi.RegisterOutputType(NetworkInsightsAccessScopeAnalysisStatusOutput{})

@@ -77,7 +77,7 @@
     }
   },
   "additionalProperties" : false,
-  "required" : [ "SnapshotName" ],
+  "required" : [ "GraphIdentifier", "SnapshotName" ],
   "readOnlyProperties" : [ "/properties/Id", "/properties/Arn", "/properties/SnapshotCreateTime", "/properties/Status", "/properties/KmsKeyIdentifier" ],
   "createOnlyProperties" : [ "/properties/SnapshotName", "/properties/GraphIdentifier" ],
   "primaryIdentifier" : [ "/properties/Arn" ],

@@ -13,7 +13,7 @@
       "permissions" : [ "ec2:CreateLaunchTemplate", "ec2:CreateTags" ]
     },
     "update" : {
-      "permissions" : [ "ec2:CreateLaunchTemplateVersion" ]
+      "permissions" : [ "ec2:CreateLaunchTemplateVersion", "ec2:CreateTags", "ec2:DeleteTags" ]
     },
     "list" : {
       "permissions" : [ "ec2:DescribeLaunchTemplates" ]
@@ -535,6 +535,11 @@
           "type" : "string",
           "enum" : [ "enabled", "disabled" ]
         },
+        "NestedVirtualization" : {
+          "description" : "Indicates whether the instance is enabled for nested virtualization.",
+          "type" : "string",
+          "enum" : [ "enabled", "disabled" ]
+        },
         "CoreCount" : {
           "description" : "The number of CPU cores for the instance.",
           "type" : "integer"
@@ -880,7 +885,7 @@
         },
         "AcceleratorTypes" : {
           "uniqueItems" : false,
-          "description" : "The accelerator types that must be on the instance type.\n  +  For instance types with FPGA accelerators, specify ``fpga``.\n  +  For instance types with GPU accelerators, specify ``gpu``.\n  +  For instance types with Inference accelerators, specify ``inference``.\n  \n Default: Any accelerator type",
+          "description" : "The accelerator types that must be on the instance type.\n  +  For instance types with FPGA accelerators, specify ``fpga``.\n  +  For instance types with GPU accelerators, specify ``gpu``.\n  +  For instance types with Inference accelerators, specify ``inference``.\n  +  For instance types with Media accelerators, specify ``media``.\n  \n Default: Any accelerator type",
           "type" : "array",
           "items" : {
             "type" : "string"
@@ -981,7 +986,7 @@
         },
         "AcceleratorNames" : {
           "uniqueItems" : false,
-          "description" : "The accelerators that must be on the instance type.\n  +  For instance types with NVIDIA A10G GPUs, specify ``a10g``.\n  +  For instance types with NVIDIA A100 GPUs, specify ``a100``.\n  +  For instance types with NVIDIA H100 GPUs, specify ``h100``.\n  +  For instance types with AWS Inferentia chips, specify ``inferentia``.\n  +  For instance types with NVIDIA GRID K520 GPUs, specify ``k520``.\n  +  For instance types with NVIDIA K80 GPUs, specify ``k80``.\n  +  For instance types with NVIDIA M60 GPUs, specify ``m60``.\n  +  For instance types with AMD Radeon Pro V520 GPUs, specify ``radeon-pro-v520``.\n  +  For instance types with NVIDIA T4 GPUs, specify ``t4``.\n  +  For instance types with NVIDIA T4G GPUs, specify ``t4g``.\n  +  For instance types with Xilinx VU9P FPGAs, specify ``vu9p``.\n  +  For instance types with NVIDIA V100 GPUs, specify ``v100``.\n  \n Default: Any accelerator",
+          "description" : "The accelerators that must be on the instance type.\n  +  For instance types with NVIDIA A10G GPUs, specify ``a10g``.\n  +  For instance types with NVIDIA A100 GPUs, specify ``a100``.\n  +  For instance types with NVIDIA H100 GPUs, specify ``h100``.\n  +  For instance types with AWS Inferentia chips, specify ``inferentia``.\n  +  For instance types with AWS Inferentia2 chips, specify ``inferentia2``.\n  +  For instance types with Habana Gaudi HL-205 GPUs, specify ``gaudi-hl-205``.\n  +  For instance types with NVIDIA GRID K520 GPUs, specify ``k520``.\n  +  For instance types with NVIDIA K80 GPUs, specify ``k80``.\n  +  For instance types with NVIDIA L4 GPUs, specify ``l4``.\n  +  For instance types with NVIDIA L40S GPUs, specify ``l40s``.\n  +  For instance types with NVIDIA M60 GPUs, specify ``m60``.\n  +  For instance types with AMD Radeon Pro V520 GPUs, specify ``radeon-pro-v520``.\n  +  For instance types with AWS Trainium chips, specify ``trainium``.\n  +  For instance types with AWS Trainium2 chips, specify ``trainium2``.\n  +  For instance types with NVIDIA T4 GPUs, specify ``t4``.\n  +  For instance types with NVIDIA T4G GPUs, specify ``t4g``.\n  +  For instance types with Xilinx U30 cards, specify ``u30``.\n  +  For instance types with Xilinx VU9P FPGAs, specify ``vu9p``.\n  +  For instance types with NVIDIA V100 GPUs, specify ``v100``.\n  \n Default: Any accelerator",
           "type" : "array",
           "items" : {
             "type" : "string"

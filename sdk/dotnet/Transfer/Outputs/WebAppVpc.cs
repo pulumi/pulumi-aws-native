@@ -16,18 +16,25 @@ namespace Pulumi.AwsNative.Transfer.Outputs
     [OutputType]
     public sealed class WebAppVpc
     {
+        /// <summary>
+        /// The IP address type for the VPC endpoint used by the web app.
+        /// </summary>
+        public readonly Pulumi.AwsNative.Transfer.WebAppVpcIpAddressType? IpAddressType;
         public readonly ImmutableArray<string> SecurityGroupIds;
         public readonly ImmutableArray<string> SubnetIds;
         public readonly string? VpcId;
 
         [OutputConstructor]
         private WebAppVpc(
+            Pulumi.AwsNative.Transfer.WebAppVpcIpAddressType? ipAddressType,
+
             ImmutableArray<string> securityGroupIds,
 
             ImmutableArray<string> subnetIds,
 
             string? vpcId)
         {
+            IpAddressType = ipAddressType;
             SecurityGroupIds = securityGroupIds;
             SubnetIds = subnetIds;
             VpcId = vpcId;

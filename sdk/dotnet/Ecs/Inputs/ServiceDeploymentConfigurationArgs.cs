@@ -50,7 +50,7 @@ namespace Pulumi.AwsNative.Ecs.Inputs
         private InputList<Inputs.ServiceDeploymentLifecycleHookArgs>? _lifecycleHooks;
 
         /// <summary>
-        /// An array of deployment lifecycle hook objects to run custom logic at specific stages of the deployment lifecycle.
+        /// An array of deployment lifecycle hook objects to run custom logic or pause the deployment at specific stages of the deployment lifecycle.
         /// </summary>
         public InputList<Inputs.ServiceDeploymentLifecycleHookArgs> LifecycleHooks
         {

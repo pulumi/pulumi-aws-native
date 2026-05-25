@@ -204,6 +204,73 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Versioned schema type governing the structure of examples. Immutable after creation.
+    /// </summary>
+    [EnumType]
+    public readonly struct DatasetSchemaType : IEquatable<DatasetSchemaType>
+    {
+        private readonly string _value;
+
+        private DatasetSchemaType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DatasetSchemaType AgentcoreEvaluationPredefinedV1 { get; } = new DatasetSchemaType("AGENTCORE_EVALUATION_PREDEFINED_V1");
+        public static DatasetSchemaType AgentcoreEvaluationSimulatedV1 { get; } = new DatasetSchemaType("AGENTCORE_EVALUATION_SIMULATED_V1");
+
+        public static bool operator ==(DatasetSchemaType left, DatasetSchemaType right) => left.Equals(right);
+        public static bool operator !=(DatasetSchemaType left, DatasetSchemaType right) => !left.Equals(right);
+
+        public static explicit operator string(DatasetSchemaType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DatasetSchemaType other && Equals(other);
+        public bool Equals(DatasetSchemaType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The current status of the dataset.
+    /// </summary>
+    [EnumType]
+    public readonly struct DatasetStatus : IEquatable<DatasetStatus>
+    {
+        private readonly string _value;
+
+        private DatasetStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DatasetStatus Creating { get; } = new DatasetStatus("CREATING");
+        public static DatasetStatus Updating { get; } = new DatasetStatus("UPDATING");
+        public static DatasetStatus Deleting { get; } = new DatasetStatus("DELETING");
+        public static DatasetStatus Active { get; } = new DatasetStatus("ACTIVE");
+        public static DatasetStatus CreateFailed { get; } = new DatasetStatus("CREATE_FAILED");
+        public static DatasetStatus UpdateFailed { get; } = new DatasetStatus("UPDATE_FAILED");
+        public static DatasetStatus DeleteFailed { get; } = new DatasetStatus("DELETE_FAILED");
+
+        public static bool operator ==(DatasetStatus left, DatasetStatus right) => left.Equals(right);
+        public static bool operator !=(DatasetStatus left, DatasetStatus right) => !left.Equals(right);
+
+        public static explicit operator string(DatasetStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DatasetStatus other && Equals(other);
+        public bool Equals(DatasetStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct EvaluatorLevel : IEquatable<EvaluatorLevel>
     {
@@ -734,6 +801,212 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is GatewayTargetTargetStatus other && Equals(other);
         public bool Equals(GatewayTargetTargetStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator : IEquatable<HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator>
+    {
+        private readonly string _value;
+
+        private HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator EqualsValue { get; } = new HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator("EQUALS");
+        public static HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator Contains { get; } = new HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator("CONTAINS");
+        public static HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator ContainsAny { get; } = new HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator("CONTAINS_ANY");
+
+        public static bool operator ==(HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator left, HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator right) => left.Equals(right);
+        public static bool operator !=(HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator left, HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator right) => !left.Equals(right);
+
+        public static explicit operator string(HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator other && Equals(other);
+        public bool Equals(HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct HarnessCustomClaimValidationTypeInboundTokenClaimValueType : IEquatable<HarnessCustomClaimValidationTypeInboundTokenClaimValueType>
+    {
+        private readonly string _value;
+
+        private HarnessCustomClaimValidationTypeInboundTokenClaimValueType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static HarnessCustomClaimValidationTypeInboundTokenClaimValueType String { get; } = new HarnessCustomClaimValidationTypeInboundTokenClaimValueType("STRING");
+        public static HarnessCustomClaimValidationTypeInboundTokenClaimValueType StringArray { get; } = new HarnessCustomClaimValidationTypeInboundTokenClaimValueType("STRING_ARRAY");
+
+        public static bool operator ==(HarnessCustomClaimValidationTypeInboundTokenClaimValueType left, HarnessCustomClaimValidationTypeInboundTokenClaimValueType right) => left.Equals(right);
+        public static bool operator !=(HarnessCustomClaimValidationTypeInboundTokenClaimValueType left, HarnessCustomClaimValidationTypeInboundTokenClaimValueType right) => !left.Equals(right);
+
+        public static explicit operator string(HarnessCustomClaimValidationTypeInboundTokenClaimValueType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is HarnessCustomClaimValidationTypeInboundTokenClaimValueType other && Equals(other);
+        public bool Equals(HarnessCustomClaimValidationTypeInboundTokenClaimValueType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct HarnessNetworkConfigurationNetworkMode : IEquatable<HarnessNetworkConfigurationNetworkMode>
+    {
+        private readonly string _value;
+
+        private HarnessNetworkConfigurationNetworkMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static HarnessNetworkConfigurationNetworkMode Public { get; } = new HarnessNetworkConfigurationNetworkMode("PUBLIC");
+        public static HarnessNetworkConfigurationNetworkMode Vpc { get; } = new HarnessNetworkConfigurationNetworkMode("VPC");
+
+        public static bool operator ==(HarnessNetworkConfigurationNetworkMode left, HarnessNetworkConfigurationNetworkMode right) => left.Equals(right);
+        public static bool operator !=(HarnessNetworkConfigurationNetworkMode left, HarnessNetworkConfigurationNetworkMode right) => !left.Equals(right);
+
+        public static explicit operator string(HarnessNetworkConfigurationNetworkMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is HarnessNetworkConfigurationNetworkMode other && Equals(other);
+        public bool Equals(HarnessNetworkConfigurationNetworkMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct HarnessOAuthCredentialProviderGrantType : IEquatable<HarnessOAuthCredentialProviderGrantType>
+    {
+        private readonly string _value;
+
+        private HarnessOAuthCredentialProviderGrantType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static HarnessOAuthCredentialProviderGrantType ClientCredentials { get; } = new HarnessOAuthCredentialProviderGrantType("CLIENT_CREDENTIALS");
+        public static HarnessOAuthCredentialProviderGrantType AuthorizationCode { get; } = new HarnessOAuthCredentialProviderGrantType("AUTHORIZATION_CODE");
+
+        public static bool operator ==(HarnessOAuthCredentialProviderGrantType left, HarnessOAuthCredentialProviderGrantType right) => left.Equals(right);
+        public static bool operator !=(HarnessOAuthCredentialProviderGrantType left, HarnessOAuthCredentialProviderGrantType right) => !left.Equals(right);
+
+        public static explicit operator string(HarnessOAuthCredentialProviderGrantType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is HarnessOAuthCredentialProviderGrantType other && Equals(other);
+        public bool Equals(HarnessOAuthCredentialProviderGrantType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct HarnessStatus : IEquatable<HarnessStatus>
+    {
+        private readonly string _value;
+
+        private HarnessStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static HarnessStatus Creating { get; } = new HarnessStatus("CREATING");
+        public static HarnessStatus CreateFailed { get; } = new HarnessStatus("CREATE_FAILED");
+        public static HarnessStatus Updating { get; } = new HarnessStatus("UPDATING");
+        public static HarnessStatus UpdateFailed { get; } = new HarnessStatus("UPDATE_FAILED");
+        public static HarnessStatus Ready { get; } = new HarnessStatus("READY");
+        public static HarnessStatus Deleting { get; } = new HarnessStatus("DELETING");
+        public static HarnessStatus DeleteFailed { get; } = new HarnessStatus("DELETE_FAILED");
+
+        public static bool operator ==(HarnessStatus left, HarnessStatus right) => left.Equals(right);
+        public static bool operator !=(HarnessStatus left, HarnessStatus right) => !left.Equals(right);
+
+        public static explicit operator string(HarnessStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is HarnessStatus other && Equals(other);
+        public bool Equals(HarnessStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct HarnessToolType : IEquatable<HarnessToolType>
+    {
+        private readonly string _value;
+
+        private HarnessToolType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static HarnessToolType RemoteMcp { get; } = new HarnessToolType("remote_mcp");
+        public static HarnessToolType AgentcoreBrowser { get; } = new HarnessToolType("agentcore_browser");
+        public static HarnessToolType AgentcoreGateway { get; } = new HarnessToolType("agentcore_gateway");
+        public static HarnessToolType InlineFunction { get; } = new HarnessToolType("inline_function");
+        public static HarnessToolType AgentcoreCodeInterpreter { get; } = new HarnessToolType("agentcore_code_interpreter");
+
+        public static bool operator ==(HarnessToolType left, HarnessToolType right) => left.Equals(right);
+        public static bool operator !=(HarnessToolType left, HarnessToolType right) => !left.Equals(right);
+
+        public static explicit operator string(HarnessToolType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is HarnessToolType other && Equals(other);
+        public bool Equals(HarnessToolType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct HarnessTruncationConfigurationStrategy : IEquatable<HarnessTruncationConfigurationStrategy>
+    {
+        private readonly string _value;
+
+        private HarnessTruncationConfigurationStrategy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static HarnessTruncationConfigurationStrategy SlidingWindow { get; } = new HarnessTruncationConfigurationStrategy("sliding_window");
+        public static HarnessTruncationConfigurationStrategy Summarization { get; } = new HarnessTruncationConfigurationStrategy("summarization");
+        public static HarnessTruncationConfigurationStrategy None { get; } = new HarnessTruncationConfigurationStrategy("none");
+
+        public static bool operator ==(HarnessTruncationConfigurationStrategy left, HarnessTruncationConfigurationStrategy right) => left.Equals(right);
+        public static bool operator !=(HarnessTruncationConfigurationStrategy left, HarnessTruncationConfigurationStrategy right) => !left.Equals(right);
+
+        public static explicit operator string(HarnessTruncationConfigurationStrategy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is HarnessTruncationConfigurationStrategy other && Equals(other);
+        public bool Equals(HarnessTruncationConfigurationStrategy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1409,6 +1682,37 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is OnlineEvaluationConfigStatus other && Equals(other);
         public bool Equals(OnlineEvaluationConfigStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Supported vendor types for payment providers
+    /// </summary>
+    [EnumType]
+    public readonly struct PaymentCredentialProviderVendorType : IEquatable<PaymentCredentialProviderVendorType>
+    {
+        private readonly string _value;
+
+        private PaymentCredentialProviderVendorType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PaymentCredentialProviderVendorType CoinbaseCdp { get; } = new PaymentCredentialProviderVendorType("CoinbaseCDP");
+        public static PaymentCredentialProviderVendorType StripePrivy { get; } = new PaymentCredentialProviderVendorType("StripePrivy");
+
+        public static bool operator ==(PaymentCredentialProviderVendorType left, PaymentCredentialProviderVendorType right) => left.Equals(right);
+        public static bool operator !=(PaymentCredentialProviderVendorType left, PaymentCredentialProviderVendorType right) => !left.Equals(right);
+
+        public static explicit operator string(PaymentCredentialProviderVendorType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PaymentCredentialProviderVendorType other && Equals(other);
+        public bool Equals(PaymentCredentialProviderVendorType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

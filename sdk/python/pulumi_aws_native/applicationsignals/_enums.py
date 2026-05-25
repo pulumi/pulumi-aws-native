@@ -11,6 +11,7 @@ __all__ = [
     'ServiceLevelObjectiveEvaluationType',
     'ServiceLevelObjectiveRequestBasedSliComparisonOperator',
     'ServiceLevelObjectiveRequestBasedSliMetricMetricType',
+    'ServiceLevelObjectiveSelectionType',
     'ServiceLevelObjectiveSliComparisonOperator',
     'ServiceLevelObjectiveSliMetricMetricType',
 ]
@@ -54,6 +55,13 @@ class ServiceLevelObjectiveRequestBasedSliMetricMetricType(_builtins.str, Enum):
     """
     LATENCY = "LATENCY"
     AVAILABILITY = "AVAILABILITY"
+
+
+@pulumi.type_token("aws-native:applicationsignals:ServiceLevelObjectiveSelectionType")
+class ServiceLevelObjectiveSelectionType(_builtins.str, Enum):
+    EXPLICIT = "EXPLICIT"
+    PREFIX = "PREFIX"
+    REGEX = "REGEX"
 
 
 @pulumi.type_token("aws-native:applicationsignals:ServiceLevelObjectiveSliComparisonOperator")

@@ -40,10 +40,14 @@ type InfluxDbInstance struct {
 	InfluxAuthParametersSecretArn pulumi.StringOutput `pulumi:"influxAuthParametersSecretArn"`
 	// Configuration for sending logs to customer account from the InfluxDB instance.
 	LogDeliveryConfiguration LogDeliveryConfigurationPropertiesPtrOutput `pulumi:"logDeliveryConfiguration"`
+	// The maintenance schedule for the InfluxDB instance.
+	MaintenanceSchedule InfluxDbInstanceMaintenanceSchedulePtrOutput `pulumi:"maintenanceSchedule"`
 	// The unique name that is associated with the InfluxDB instance.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// Network type of the InfluxDB Instance.
 	NetworkType InfluxDbInstanceNetworkTypePtrOutput `pulumi:"networkType"`
+	// The timestamp of the next scheduled maintenance event.
+	NextMaintenanceTime pulumi.StringOutput `pulumi:"nextMaintenanceTime"`
 	// The organization for the InfluxDB instance.
 	Organization pulumi.StringPtrOutput `pulumi:"organization"`
 	// The password for the InfluxDB instance.
@@ -132,6 +136,8 @@ type influxDbInstanceArgs struct {
 	DeploymentType *InfluxDbInstanceDeploymentType `pulumi:"deploymentType"`
 	// Configuration for sending logs to customer account from the InfluxDB instance.
 	LogDeliveryConfiguration *LogDeliveryConfigurationProperties `pulumi:"logDeliveryConfiguration"`
+	// The maintenance schedule for the InfluxDB instance.
+	MaintenanceSchedule *InfluxDbInstanceMaintenanceSchedule `pulumi:"maintenanceSchedule"`
 	// The unique name that is associated with the InfluxDB instance.
 	Name *string `pulumi:"name"`
 	// Network type of the InfluxDB Instance.
@@ -170,6 +176,8 @@ type InfluxDbInstanceArgs struct {
 	DeploymentType InfluxDbInstanceDeploymentTypePtrInput
 	// Configuration for sending logs to customer account from the InfluxDB instance.
 	LogDeliveryConfiguration LogDeliveryConfigurationPropertiesPtrInput
+	// The maintenance schedule for the InfluxDB instance.
+	MaintenanceSchedule InfluxDbInstanceMaintenanceSchedulePtrInput
 	// The unique name that is associated with the InfluxDB instance.
 	Name pulumi.StringPtrInput
 	// Network type of the InfluxDB Instance.
@@ -291,6 +299,11 @@ func (o InfluxDbInstanceOutput) LogDeliveryConfiguration() LogDeliveryConfigurat
 	}).(LogDeliveryConfigurationPropertiesPtrOutput)
 }
 
+// The maintenance schedule for the InfluxDB instance.
+func (o InfluxDbInstanceOutput) MaintenanceSchedule() InfluxDbInstanceMaintenanceSchedulePtrOutput {
+	return o.ApplyT(func(v *InfluxDbInstance) InfluxDbInstanceMaintenanceSchedulePtrOutput { return v.MaintenanceSchedule }).(InfluxDbInstanceMaintenanceSchedulePtrOutput)
+}
+
 // The unique name that is associated with the InfluxDB instance.
 func (o InfluxDbInstanceOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InfluxDbInstance) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
@@ -299,6 +312,11 @@ func (o InfluxDbInstanceOutput) Name() pulumi.StringPtrOutput {
 // Network type of the InfluxDB Instance.
 func (o InfluxDbInstanceOutput) NetworkType() InfluxDbInstanceNetworkTypePtrOutput {
 	return o.ApplyT(func(v *InfluxDbInstance) InfluxDbInstanceNetworkTypePtrOutput { return v.NetworkType }).(InfluxDbInstanceNetworkTypePtrOutput)
+}
+
+// The timestamp of the next scheduled maintenance event.
+func (o InfluxDbInstanceOutput) NextMaintenanceTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *InfluxDbInstance) pulumi.StringOutput { return v.NextMaintenanceTime }).(pulumi.StringOutput)
 }
 
 // The organization for the InfluxDB instance.

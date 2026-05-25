@@ -282,6 +282,16 @@ export const WebAppEndpointPolicy = {
 
 export type WebAppEndpointPolicy = (typeof WebAppEndpointPolicy)[keyof typeof WebAppEndpointPolicy];
 
+export const WebAppVpcIpAddressType = {
+    Ipv4: "IPV4",
+    Dualstack: "DUALSTACK",
+} as const;
+
+/**
+ * The IP address type for the VPC endpoint used by the web app.
+ */
+export type WebAppVpcIpAddressType = (typeof WebAppVpcIpAddressType)[keyof typeof WebAppVpcIpAddressType];
+
 export const WorkflowStepCopyStepDetailsPropertiesOverwriteExisting = {
     True: "TRUE",
     False: "FALSE",

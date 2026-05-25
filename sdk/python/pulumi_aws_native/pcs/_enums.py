@@ -93,11 +93,12 @@ class ClusterStatus(_builtins.str, Enum):
 @pulumi.type_token("aws-native:pcs:ComputeNodeGroupPurchaseOption")
 class ComputeNodeGroupPurchaseOption(_builtins.str, Enum):
     """
-    Specifies how EC2 instances are purchased on your behalf. AWS PCS supports On-Demand, Spot and Capacity Block instances. For more information, see Instance purchasing options in the Amazon Elastic Compute Cloud User Guide. If you don't provide this option, it defaults to On-Demand.
+    Specifies how EC2 instances are purchased on your behalf. AWS PCS supports On-Demand, Spot, Capacity Block, and Interruptible Capacity Reservation instances. For more information, see Instance purchasing options in the Amazon Elastic Compute Cloud User Guide. If you don't provide this option, it defaults to On-Demand.
     """
     ONDEMAND = "ONDEMAND"
     SPOT = "SPOT"
     CAPACITY_BLOCK = "CAPACITY_BLOCK"
+    INTERRUPTIBLE_CAPACITY_RESERVATION = "INTERRUPTIBLE_CAPACITY_RESERVATION"
 
 
 @pulumi.type_token("aws-native:pcs:ComputeNodeGroupSpotOptionsPropertiesAllocationStrategy")

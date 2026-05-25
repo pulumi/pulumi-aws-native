@@ -42,10 +42,14 @@ type InfluxDbCluster struct {
 	InfluxAuthParametersSecretArn pulumi.StringOutput `pulumi:"influxAuthParametersSecretArn"`
 	// Configuration for sending logs to customer account from the InfluxDB cluster.
 	LogDeliveryConfiguration LogDeliveryConfigurationPropertiesPtrOutput `pulumi:"logDeliveryConfiguration"`
+	// The maintenance schedule for the InfluxDB cluster.
+	MaintenanceSchedule InfluxDbClusterMaintenanceSchedulePtrOutput `pulumi:"maintenanceSchedule"`
 	// The unique name that is associated with the InfluxDB cluster.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// Network type of the InfluxDB cluster.
 	NetworkType InfluxDbClusterNetworkTypePtrOutput `pulumi:"networkType"`
+	// The timestamp of the next scheduled maintenance event.
+	NextMaintenanceTime pulumi.StringOutput `pulumi:"nextMaintenanceTime"`
 	// The organization for the InfluxDB cluster.
 	Organization pulumi.StringPtrOutput `pulumi:"organization"`
 	// The password for the InfluxDB cluster.
@@ -139,6 +143,8 @@ type influxDbClusterArgs struct {
 	FailoverMode *InfluxDbClusterFailoverMode `pulumi:"failoverMode"`
 	// Configuration for sending logs to customer account from the InfluxDB cluster.
 	LogDeliveryConfiguration *LogDeliveryConfigurationProperties `pulumi:"logDeliveryConfiguration"`
+	// The maintenance schedule for the InfluxDB cluster.
+	MaintenanceSchedule *InfluxDbClusterMaintenanceSchedule `pulumi:"maintenanceSchedule"`
 	// The unique name that is associated with the InfluxDB cluster.
 	Name *string `pulumi:"name"`
 	// Network type of the InfluxDB cluster.
@@ -179,6 +185,8 @@ type InfluxDbClusterArgs struct {
 	FailoverMode InfluxDbClusterFailoverModePtrInput
 	// Configuration for sending logs to customer account from the InfluxDB cluster.
 	LogDeliveryConfiguration LogDeliveryConfigurationPropertiesPtrInput
+	// The maintenance schedule for the InfluxDB cluster.
+	MaintenanceSchedule InfluxDbClusterMaintenanceSchedulePtrInput
 	// The unique name that is associated with the InfluxDB cluster.
 	Name pulumi.StringPtrInput
 	// Network type of the InfluxDB cluster.
@@ -305,6 +313,11 @@ func (o InfluxDbClusterOutput) LogDeliveryConfiguration() LogDeliveryConfigurati
 	}).(LogDeliveryConfigurationPropertiesPtrOutput)
 }
 
+// The maintenance schedule for the InfluxDB cluster.
+func (o InfluxDbClusterOutput) MaintenanceSchedule() InfluxDbClusterMaintenanceSchedulePtrOutput {
+	return o.ApplyT(func(v *InfluxDbCluster) InfluxDbClusterMaintenanceSchedulePtrOutput { return v.MaintenanceSchedule }).(InfluxDbClusterMaintenanceSchedulePtrOutput)
+}
+
 // The unique name that is associated with the InfluxDB cluster.
 func (o InfluxDbClusterOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InfluxDbCluster) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
@@ -313,6 +326,11 @@ func (o InfluxDbClusterOutput) Name() pulumi.StringPtrOutput {
 // Network type of the InfluxDB cluster.
 func (o InfluxDbClusterOutput) NetworkType() InfluxDbClusterNetworkTypePtrOutput {
 	return o.ApplyT(func(v *InfluxDbCluster) InfluxDbClusterNetworkTypePtrOutput { return v.NetworkType }).(InfluxDbClusterNetworkTypePtrOutput)
+}
+
+// The timestamp of the next scheduled maintenance event.
+func (o InfluxDbClusterOutput) NextMaintenanceTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *InfluxDbCluster) pulumi.StringOutput { return v.NextMaintenanceTime }).(pulumi.StringOutput)
 }
 
 // The organization for the InfluxDB cluster.

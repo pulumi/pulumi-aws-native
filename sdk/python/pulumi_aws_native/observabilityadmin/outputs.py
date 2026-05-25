@@ -38,6 +38,7 @@ __all__ = [
     'OrganizationTelemetryRuleRegionStatus',
     'OrganizationTelemetryRuleSingleHeader',
     'OrganizationTelemetryRuleTelemetryDestinationConfiguration',
+    'OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties',
     'OrganizationTelemetryRuleTelemetryRule',
     'OrganizationTelemetryRuleVpcFlowLogParameters',
     'OrganizationTelemetryRuleWafLoggingParameters',
@@ -1114,6 +1115,8 @@ class OrganizationTelemetryRuleTelemetryDestinationConfiguration(dict):
             suggest = "destination_type"
         elif key == "elbLoadBalancerLoggingParameters":
             suggest = "elb_load_balancer_logging_parameters"
+        elif key == "logDeliveryParameters":
+            suggest = "log_delivery_parameters"
         elif key == "retentionInDays":
             suggest = "retention_in_days"
         elif key == "vpcFlowLogParameters":
@@ -1137,6 +1140,7 @@ class OrganizationTelemetryRuleTelemetryDestinationConfiguration(dict):
                  destination_pattern: Optional[_builtins.str] = None,
                  destination_type: Optional['OrganizationTelemetryRuleDestinationType'] = None,
                  elb_load_balancer_logging_parameters: Optional['outputs.OrganizationTelemetryRuleElbLoadBalancerLoggingParameters'] = None,
+                 log_delivery_parameters: Optional['outputs.OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties'] = None,
                  retention_in_days: Optional[_builtins.int] = None,
                  vpc_flow_log_parameters: Optional['outputs.OrganizationTelemetryRuleVpcFlowLogParameters'] = None,
                  waf_logging_parameters: Optional['outputs.OrganizationTelemetryRuleWafLoggingParameters'] = None):
@@ -1147,6 +1151,7 @@ class OrganizationTelemetryRuleTelemetryDestinationConfiguration(dict):
         :param _builtins.str destination_pattern: The pattern used to generate the destination path or name, supporting macros like <resourceId> and <accountId>.
         :param 'OrganizationTelemetryRuleDestinationType' destination_type: The type of destination for the telemetry data (e.g., "Amazon CloudWatch Logs", "S3").
         :param 'OrganizationTelemetryRuleElbLoadBalancerLoggingParameters' elb_load_balancer_logging_parameters: Configuration parameters specific to ELB load balancer logging when ELB is the resource type.
+        :param 'OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties' log_delivery_parameters: Parameters for log delivery configuration
         :param _builtins.int retention_in_days: The number of days to retain the telemetry data in the destination.
         :param 'OrganizationTelemetryRuleVpcFlowLogParameters' vpc_flow_log_parameters: Configuration parameters specific to VPC Flow Logs when VPC is the resource type.
         :param 'OrganizationTelemetryRuleWafLoggingParameters' waf_logging_parameters: Configuration parameters specific to WAF logging when WAF is the resource type.
@@ -1159,6 +1164,8 @@ class OrganizationTelemetryRuleTelemetryDestinationConfiguration(dict):
             pulumi.set(__self__, "destination_type", destination_type)
         if elb_load_balancer_logging_parameters is not None:
             pulumi.set(__self__, "elb_load_balancer_logging_parameters", elb_load_balancer_logging_parameters)
+        if log_delivery_parameters is not None:
+            pulumi.set(__self__, "log_delivery_parameters", log_delivery_parameters)
         if retention_in_days is not None:
             pulumi.set(__self__, "retention_in_days", retention_in_days)
         if vpc_flow_log_parameters is not None:
@@ -1199,6 +1206,14 @@ class OrganizationTelemetryRuleTelemetryDestinationConfiguration(dict):
         return pulumi.get(self, "elb_load_balancer_logging_parameters")
 
     @_builtins.property
+    @pulumi.getter(name="logDeliveryParameters")
+    def log_delivery_parameters(self) -> Optional['outputs.OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties']:
+        """
+        Parameters for log delivery configuration
+        """
+        return pulumi.get(self, "log_delivery_parameters")
+
+    @_builtins.property
     @pulumi.getter(name="retentionInDays")
     def retention_in_days(self) -> Optional[_builtins.int]:
         """
@@ -1221,6 +1236,47 @@ class OrganizationTelemetryRuleTelemetryDestinationConfiguration(dict):
         Configuration parameters specific to WAF logging when WAF is the resource type.
         """
         return pulumi.get(self, "waf_logging_parameters")
+
+
+@pulumi.output_type
+class OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties(dict):
+    """
+    Parameters for log delivery configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logTypes":
+            suggest = "log_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 log_types: Optional[Sequence['OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem']] = None):
+        """
+        Parameters for log delivery configuration
+
+        :param Sequence['OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem'] log_types: Types of logs to deliver
+        """
+        if log_types is not None:
+            pulumi.set(__self__, "log_types", log_types)
+
+    @_builtins.property
+    @pulumi.getter(name="logTypes")
+    def log_types(self) -> Optional[Sequence['OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem']]:
+        """
+        Types of logs to deliver
+        """
+        return pulumi.get(self, "log_types")
 
 
 @pulumi.output_type
@@ -2609,7 +2665,7 @@ class TelemetryRuleTelemetryDestinationConfiguration(dict):
         :param _builtins.str destination_pattern: The pattern used to generate the destination path or name, supporting macros like <resourceId> and <accountId>.
         :param 'TelemetryRuleDestinationType' destination_type: The type of destination for the telemetry data (e.g., "Amazon CloudWatch Logs", "S3").
         :param 'TelemetryRuleElbLoadBalancerLoggingParameters' elb_load_balancer_logging_parameters: Configuration parameters specific to ELB load balancer logging when ELB is the resource type.
-        :param 'TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties' log_delivery_parameters: Parameters for BedrockAgentCore log delivery
+        :param 'TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties' log_delivery_parameters: Parameters for log delivery configuration
         :param _builtins.int retention_in_days: The number of days to retain the telemetry data in the destination.
         :param 'TelemetryRuleVpcFlowLogParameters' vpc_flow_log_parameters: Configuration parameters specific to VPC Flow Logs when VPC is the resource type.
         :param 'TelemetryRuleWafLoggingParameters' waf_logging_parameters: Configuration parameters specific to WAF logging when WAF is the resource type.
@@ -2667,7 +2723,7 @@ class TelemetryRuleTelemetryDestinationConfiguration(dict):
     @pulumi.getter(name="logDeliveryParameters")
     def log_delivery_parameters(self) -> Optional['outputs.TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties']:
         """
-        Parameters for BedrockAgentCore log delivery
+        Parameters for log delivery configuration
         """
         return pulumi.get(self, "log_delivery_parameters")
 
@@ -2699,7 +2755,7 @@ class TelemetryRuleTelemetryDestinationConfiguration(dict):
 @pulumi.output_type
 class TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties(dict):
     """
-    Parameters for BedrockAgentCore log delivery
+    Parameters for log delivery configuration
     """
     @staticmethod
     def __key_warning(key: str):
@@ -2721,9 +2777,9 @@ class TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropert
     def __init__(__self__, *,
                  log_types: Optional[Sequence['TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem']] = None):
         """
-        Parameters for BedrockAgentCore log delivery
+        Parameters for log delivery configuration
 
-        :param Sequence['TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem'] log_types: Types of logs to deliver for BedrockAgentCore resources
+        :param Sequence['TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem'] log_types: Types of logs to deliver
         """
         if log_types is not None:
             pulumi.set(__self__, "log_types", log_types)
@@ -2732,7 +2788,7 @@ class TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropert
     @pulumi.getter(name="logTypes")
     def log_types(self) -> Optional[Sequence['TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem']]:
         """
-        Types of logs to deliver for BedrockAgentCore resources
+        Types of logs to deliver
         """
         return pulumi.get(self, "log_types")
 

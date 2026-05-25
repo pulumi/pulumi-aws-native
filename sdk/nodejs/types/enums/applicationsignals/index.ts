@@ -46,6 +46,14 @@ export const ServiceLevelObjectiveRequestBasedSliMetricMetricType = {
  */
 export type ServiceLevelObjectiveRequestBasedSliMetricMetricType = (typeof ServiceLevelObjectiveRequestBasedSliMetricMetricType)[keyof typeof ServiceLevelObjectiveRequestBasedSliMetricMetricType];
 
+export const ServiceLevelObjectiveSelectionType = {
+    Explicit: "EXPLICIT",
+    Prefix: "PREFIX",
+    Regex: "REGEX",
+} as const;
+
+export type ServiceLevelObjectiveSelectionType = (typeof ServiceLevelObjectiveSelectionType)[keyof typeof ServiceLevelObjectiveSelectionType];
+
 export const ServiceLevelObjectiveSliComparisonOperator = {
     GreaterThanOrEqualTo: "GreaterThanOrEqualTo",
     LessThanOrEqualTo: "LessThanOrEqualTo",

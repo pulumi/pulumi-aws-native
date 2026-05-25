@@ -5906,6 +5906,8 @@ class LaunchTemplateCpuOptions(dict):
             suggest = "amd_sev_snp"
         elif key == "coreCount":
             suggest = "core_count"
+        elif key == "nestedVirtualization":
+            suggest = "nested_virtualization"
         elif key == "threadsPerCore":
             suggest = "threads_per_core"
 
@@ -5923,6 +5925,7 @@ class LaunchTemplateCpuOptions(dict):
     def __init__(__self__, *,
                  amd_sev_snp: Optional['LaunchTemplateCpuOptionsAmdSevSnp'] = None,
                  core_count: Optional[_builtins.int] = None,
+                 nested_virtualization: Optional['LaunchTemplateCpuOptionsNestedVirtualization'] = None,
                  threads_per_core: Optional[_builtins.int] = None):
         """
         Specifies the CPU options for an instance. For more information, see [Optimize CPU options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) in the *User Guide*.
@@ -5930,12 +5933,15 @@ class LaunchTemplateCpuOptions(dict):
 
         :param 'LaunchTemplateCpuOptionsAmdSevSnp' amd_sev_snp: Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. For more information, see [AMD SEV-SNP for Amazon EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sev-snp.html).
         :param _builtins.int core_count: The number of CPU cores for the instance.
+        :param 'LaunchTemplateCpuOptionsNestedVirtualization' nested_virtualization: Indicates whether the instance is enabled for nested virtualization.
         :param _builtins.int threads_per_core: The number of threads per CPU core. To disable multithreading for the instance, specify a value of ``1``. Otherwise, specify the default value of ``2``.
         """
         if amd_sev_snp is not None:
             pulumi.set(__self__, "amd_sev_snp", amd_sev_snp)
         if core_count is not None:
             pulumi.set(__self__, "core_count", core_count)
+        if nested_virtualization is not None:
+            pulumi.set(__self__, "nested_virtualization", nested_virtualization)
         if threads_per_core is not None:
             pulumi.set(__self__, "threads_per_core", threads_per_core)
 
@@ -5954,6 +5960,14 @@ class LaunchTemplateCpuOptions(dict):
         The number of CPU cores for the instance.
         """
         return pulumi.get(self, "core_count")
+
+    @_builtins.property
+    @pulumi.getter(name="nestedVirtualization")
+    def nested_virtualization(self) -> Optional['LaunchTemplateCpuOptionsNestedVirtualization']:
+        """
+        Indicates whether the instance is enabled for nested virtualization.
+        """
+        return pulumi.get(self, "nested_virtualization")
 
     @_builtins.property
     @pulumi.getter(name="threadsPerCore")
@@ -7087,12 +7101,19 @@ class LaunchTemplateInstanceRequirements(dict):
                  +  For instance types with NVIDIA A100 GPUs, specify ``a100``.
                  +  For instance types with NVIDIA H100 GPUs, specify ``h100``.
                  +  For instance types with AWS Inferentia chips, specify ``inferentia``.
+                 +  For instance types with AWS Inferentia2 chips, specify ``inferentia2``.
+                 +  For instance types with Habana Gaudi HL-205 GPUs, specify ``gaudi-hl-205``.
                  +  For instance types with NVIDIA GRID K520 GPUs, specify ``k520``.
                  +  For instance types with NVIDIA K80 GPUs, specify ``k80``.
+                 +  For instance types with NVIDIA L4 GPUs, specify ``l4``.
+                 +  For instance types with NVIDIA L40S GPUs, specify ``l40s``.
                  +  For instance types with NVIDIA M60 GPUs, specify ``m60``.
                  +  For instance types with AMD Radeon Pro V520 GPUs, specify ``radeon-pro-v520``.
+                 +  For instance types with AWS Trainium chips, specify ``trainium``.
+                 +  For instance types with AWS Trainium2 chips, specify ``trainium2``.
                  +  For instance types with NVIDIA T4 GPUs, specify ``t4``.
                  +  For instance types with NVIDIA T4G GPUs, specify ``t4g``.
+                 +  For instance types with Xilinx U30 cards, specify ``u30``.
                  +  For instance types with Xilinx VU9P FPGAs, specify ``vu9p``.
                  +  For instance types with NVIDIA V100 GPUs, specify ``v100``.
                  
@@ -7103,6 +7124,7 @@ class LaunchTemplateInstanceRequirements(dict):
                  +  For instance types with FPGA accelerators, specify ``fpga``.
                  +  For instance types with GPU accelerators, specify ``gpu``.
                  +  For instance types with Inference accelerators, specify ``inference``.
+                 +  For instance types with Media accelerators, specify ``media``.
                  
                 Default: Any accelerator type
         :param Sequence[_builtins.str] allowed_instance_types: The instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes.
@@ -7268,12 +7290,19 @@ class LaunchTemplateInstanceRequirements(dict):
           +  For instance types with NVIDIA A100 GPUs, specify ``a100``.
           +  For instance types with NVIDIA H100 GPUs, specify ``h100``.
           +  For instance types with AWS Inferentia chips, specify ``inferentia``.
+          +  For instance types with AWS Inferentia2 chips, specify ``inferentia2``.
+          +  For instance types with Habana Gaudi HL-205 GPUs, specify ``gaudi-hl-205``.
           +  For instance types with NVIDIA GRID K520 GPUs, specify ``k520``.
           +  For instance types with NVIDIA K80 GPUs, specify ``k80``.
+          +  For instance types with NVIDIA L4 GPUs, specify ``l4``.
+          +  For instance types with NVIDIA L40S GPUs, specify ``l40s``.
           +  For instance types with NVIDIA M60 GPUs, specify ``m60``.
           +  For instance types with AMD Radeon Pro V520 GPUs, specify ``radeon-pro-v520``.
+          +  For instance types with AWS Trainium chips, specify ``trainium``.
+          +  For instance types with AWS Trainium2 chips, specify ``trainium2``.
           +  For instance types with NVIDIA T4 GPUs, specify ``t4``.
           +  For instance types with NVIDIA T4G GPUs, specify ``t4g``.
+          +  For instance types with Xilinx U30 cards, specify ``u30``.
           +  For instance types with Xilinx VU9P FPGAs, specify ``vu9p``.
           +  For instance types with NVIDIA V100 GPUs, specify ``v100``.
           
@@ -7298,6 +7327,7 @@ class LaunchTemplateInstanceRequirements(dict):
           +  For instance types with FPGA accelerators, specify ``fpga``.
           +  For instance types with GPU accelerators, specify ``gpu``.
           +  For instance types with Inference accelerators, specify ``inference``.
+          +  For instance types with Media accelerators, specify ``media``.
           
          Default: Any accelerator type
         """

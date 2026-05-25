@@ -25,6 +25,11 @@ export type CodeInterpreterCustom = import("./codeInterpreterCustom").CodeInterp
 export const CodeInterpreterCustom: typeof import("./codeInterpreterCustom").CodeInterpreterCustom = null as any;
 utilities.lazyLoad(exports, ["CodeInterpreterCustom"], () => require("./codeInterpreterCustom"));
 
+export { DatasetArgs } from "./dataset";
+export type Dataset = import("./dataset").Dataset;
+export const Dataset: typeof import("./dataset").Dataset = null as any;
+utilities.lazyLoad(exports, ["Dataset"], () => require("./dataset"));
+
 export { EvaluatorArgs } from "./evaluator";
 export type Evaluator = import("./evaluator").Evaluator;
 export const Evaluator: typeof import("./evaluator").Evaluator = null as any;
@@ -60,6 +65,11 @@ export const getCodeInterpreterCustom: typeof import("./getCodeInterpreterCustom
 export const getCodeInterpreterCustomOutput: typeof import("./getCodeInterpreterCustom").getCodeInterpreterCustomOutput = null as any;
 utilities.lazyLoad(exports, ["getCodeInterpreterCustom","getCodeInterpreterCustomOutput"], () => require("./getCodeInterpreterCustom"));
 
+export { GetDatasetArgs, GetDatasetResult, GetDatasetOutputArgs } from "./getDataset";
+export const getDataset: typeof import("./getDataset").getDataset = null as any;
+export const getDatasetOutput: typeof import("./getDataset").getDatasetOutput = null as any;
+utilities.lazyLoad(exports, ["getDataset","getDatasetOutput"], () => require("./getDataset"));
+
 export { GetEvaluatorArgs, GetEvaluatorResult, GetEvaluatorOutputArgs } from "./getEvaluator";
 export const getEvaluator: typeof import("./getEvaluator").getEvaluator = null as any;
 export const getEvaluatorOutput: typeof import("./getEvaluator").getEvaluatorOutput = null as any;
@@ -75,6 +85,11 @@ export const getGatewayTarget: typeof import("./getGatewayTarget").getGatewayTar
 export const getGatewayTargetOutput: typeof import("./getGatewayTarget").getGatewayTargetOutput = null as any;
 utilities.lazyLoad(exports, ["getGatewayTarget","getGatewayTargetOutput"], () => require("./getGatewayTarget"));
 
+export { GetHarnessArgs, GetHarnessResult, GetHarnessOutputArgs } from "./getHarness";
+export const getHarness: typeof import("./getHarness").getHarness = null as any;
+export const getHarnessOutput: typeof import("./getHarness").getHarnessOutput = null as any;
+utilities.lazyLoad(exports, ["getHarness","getHarnessOutput"], () => require("./getHarness"));
+
 export { GetMemoryArgs, GetMemoryResult, GetMemoryOutputArgs } from "./getMemory";
 export const getMemory: typeof import("./getMemory").getMemory = null as any;
 export const getMemoryOutput: typeof import("./getMemory").getMemoryOutput = null as any;
@@ -89,6 +104,11 @@ export { GetOnlineEvaluationConfigArgs, GetOnlineEvaluationConfigResult, GetOnli
 export const getOnlineEvaluationConfig: typeof import("./getOnlineEvaluationConfig").getOnlineEvaluationConfig = null as any;
 export const getOnlineEvaluationConfigOutput: typeof import("./getOnlineEvaluationConfig").getOnlineEvaluationConfigOutput = null as any;
 utilities.lazyLoad(exports, ["getOnlineEvaluationConfig","getOnlineEvaluationConfigOutput"], () => require("./getOnlineEvaluationConfig"));
+
+export { GetPaymentCredentialProviderArgs, GetPaymentCredentialProviderResult, GetPaymentCredentialProviderOutputArgs } from "./getPaymentCredentialProvider";
+export const getPaymentCredentialProvider: typeof import("./getPaymentCredentialProvider").getPaymentCredentialProvider = null as any;
+export const getPaymentCredentialProviderOutput: typeof import("./getPaymentCredentialProvider").getPaymentCredentialProviderOutput = null as any;
+utilities.lazyLoad(exports, ["getPaymentCredentialProvider","getPaymentCredentialProviderOutput"], () => require("./getPaymentCredentialProvider"));
 
 export { GetPolicyArgs, GetPolicyResult, GetPolicyOutputArgs } from "./getPolicy";
 export const getPolicy: typeof import("./getPolicy").getPolicy = null as any;
@@ -115,6 +135,11 @@ export const getWorkloadIdentity: typeof import("./getWorkloadIdentity").getWork
 export const getWorkloadIdentityOutput: typeof import("./getWorkloadIdentity").getWorkloadIdentityOutput = null as any;
 utilities.lazyLoad(exports, ["getWorkloadIdentity","getWorkloadIdentityOutput"], () => require("./getWorkloadIdentity"));
 
+export { HarnessArgs } from "./harness";
+export type Harness = import("./harness").Harness;
+export const Harness: typeof import("./harness").Harness = null as any;
+utilities.lazyLoad(exports, ["Harness"], () => require("./harness"));
+
 export { MemoryArgs } from "./memory";
 export type Memory = import("./memory").Memory;
 export const Memory: typeof import("./memory").Memory = null as any;
@@ -129,6 +154,11 @@ export { OnlineEvaluationConfigArgs } from "./onlineEvaluationConfig";
 export type OnlineEvaluationConfig = import("./onlineEvaluationConfig").OnlineEvaluationConfig;
 export const OnlineEvaluationConfig: typeof import("./onlineEvaluationConfig").OnlineEvaluationConfig = null as any;
 utilities.lazyLoad(exports, ["OnlineEvaluationConfig"], () => require("./onlineEvaluationConfig"));
+
+export { PaymentCredentialProviderArgs } from "./paymentCredentialProvider";
+export type PaymentCredentialProvider = import("./paymentCredentialProvider").PaymentCredentialProvider;
+export const PaymentCredentialProvider: typeof import("./paymentCredentialProvider").PaymentCredentialProvider = null as any;
+utilities.lazyLoad(exports, ["PaymentCredentialProvider"], () => require("./paymentCredentialProvider"));
 
 export { PolicyArgs } from "./policy";
 export type Policy = import("./policy").Policy;
@@ -171,18 +201,24 @@ const _module = {
                 return new BrowserProfile(name, <any>undefined, { urn })
             case "aws-native:bedrockagentcore:CodeInterpreterCustom":
                 return new CodeInterpreterCustom(name, <any>undefined, { urn })
+            case "aws-native:bedrockagentcore:Dataset":
+                return new Dataset(name, <any>undefined, { urn })
             case "aws-native:bedrockagentcore:Evaluator":
                 return new Evaluator(name, <any>undefined, { urn })
             case "aws-native:bedrockagentcore:Gateway":
                 return new Gateway(name, <any>undefined, { urn })
             case "aws-native:bedrockagentcore:GatewayTarget":
                 return new GatewayTarget(name, <any>undefined, { urn })
+            case "aws-native:bedrockagentcore:Harness":
+                return new Harness(name, <any>undefined, { urn })
             case "aws-native:bedrockagentcore:Memory":
                 return new Memory(name, <any>undefined, { urn })
             case "aws-native:bedrockagentcore:OAuth2CredentialProvider":
                 return new OAuth2CredentialProvider(name, <any>undefined, { urn })
             case "aws-native:bedrockagentcore:OnlineEvaluationConfig":
                 return new OnlineEvaluationConfig(name, <any>undefined, { urn })
+            case "aws-native:bedrockagentcore:PaymentCredentialProvider":
+                return new PaymentCredentialProvider(name, <any>undefined, { urn })
             case "aws-native:bedrockagentcore:Policy":
                 return new Policy(name, <any>undefined, { urn })
             case "aws-native:bedrockagentcore:PolicyEngine":

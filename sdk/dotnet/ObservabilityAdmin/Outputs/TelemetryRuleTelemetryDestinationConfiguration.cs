@@ -33,7 +33,7 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Outputs
         /// </summary>
         public readonly Outputs.TelemetryRuleElbLoadBalancerLoggingParameters? ElbLoadBalancerLoggingParameters;
         /// <summary>
-        /// Parameters for BedrockAgentCore log delivery
+        /// Parameters for log delivery configuration
         /// </summary>
         public readonly Outputs.TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties? LogDeliveryParameters;
         /// <summary>

@@ -918,6 +918,37 @@ namespace Pulumi.AwsNative.Transfer
     }
 
     /// <summary>
+    /// The IP address type for the VPC endpoint used by the web app.
+    /// </summary>
+    [EnumType]
+    public readonly struct WebAppVpcIpAddressType : IEquatable<WebAppVpcIpAddressType>
+    {
+        private readonly string _value;
+
+        private WebAppVpcIpAddressType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WebAppVpcIpAddressType Ipv4 { get; } = new WebAppVpcIpAddressType("IPV4");
+        public static WebAppVpcIpAddressType Dualstack { get; } = new WebAppVpcIpAddressType("DUALSTACK");
+
+        public static bool operator ==(WebAppVpcIpAddressType left, WebAppVpcIpAddressType right) => left.Equals(right);
+        public static bool operator !=(WebAppVpcIpAddressType left, WebAppVpcIpAddressType right) => !left.Equals(right);
+
+        public static explicit operator string(WebAppVpcIpAddressType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WebAppVpcIpAddressType other && Equals(other);
+        public bool Equals(WebAppVpcIpAddressType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// A flag that indicates whether or not to overwrite an existing file of the same name. The default is FALSE.
     /// </summary>
     [EnumType]

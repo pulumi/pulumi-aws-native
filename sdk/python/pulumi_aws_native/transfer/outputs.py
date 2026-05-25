@@ -1318,7 +1318,9 @@ class WebAppVpc(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "securityGroupIds":
+        if key == "ipAddressType":
+            suggest = "ip_address_type"
+        elif key == "securityGroupIds":
             suggest = "security_group_ids"
         elif key == "subnetIds":
             suggest = "subnet_ids"
@@ -1337,18 +1339,31 @@ class WebAppVpc(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 ip_address_type: Optional['WebAppVpcIpAddressType'] = None,
                  security_group_ids: Optional[Sequence[_builtins.str]] = None,
                  subnet_ids: Optional[Sequence[_builtins.str]] = None,
                  vpc_id: Optional[_builtins.str] = None):
         """
         You can provide a structure that contains the details for the VPC endpoint to use with your web app.
+
+        :param 'WebAppVpcIpAddressType' ip_address_type: The IP address type for the VPC endpoint used by the web app.
         """
+        if ip_address_type is not None:
+            pulumi.set(__self__, "ip_address_type", ip_address_type)
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
         if subnet_ids is not None:
             pulumi.set(__self__, "subnet_ids", subnet_ids)
         if vpc_id is not None:
             pulumi.set(__self__, "vpc_id", vpc_id)
+
+    @_builtins.property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> Optional['WebAppVpcIpAddressType']:
+        """
+        The IP address type for the VPC endpoint used by the web app.
+        """
+        return pulumi.get(self, "ip_address_type")
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")

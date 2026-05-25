@@ -99,6 +99,7 @@ __all__ = [
     'ServiceDeploymentLifecycleHook',
     'ServiceEbsTagSpecification',
     'ServiceForceNewDeployment',
+    'ServiceHookTimeoutConfig',
     'ServiceLinearConfiguration',
     'ServiceLoadBalancer',
     'ServiceLogConfiguration',
@@ -5626,7 +5627,7 @@ class ServiceDeploymentConfiguration(dict):
         :param 'ServiceCanaryConfiguration' canary_configuration: Configuration for canary deployment strategy. Only valid when the deployment strategy is ``CANARY``. This configuration enables shifting a fixed percentage of traffic for testing, followed by shifting the remaining traffic after a bake period.
         :param 'ServiceDeploymentCircuitBreaker' deployment_circuit_breaker: The deployment circuit breaker can only be used for services using the rolling update (``ECS``) deployment type.
                  The *deployment circuit breaker* determines whether a service deployment will fail if the service can't reach a steady state. If you use the deployment circuit breaker, a service deployment will transition to a failed state and stop launching new tasks. If you use the rollback option, when a service deployment fails, the service is rolled back to the last deployment that completed successfully. For more information, see [Rolling update](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html) in the *Amazon Elastic Container Service Developer Guide*
-        :param Sequence['ServiceDeploymentLifecycleHook'] lifecycle_hooks: An array of deployment lifecycle hook objects to run custom logic at specific stages of the deployment lifecycle.
+        :param Sequence['ServiceDeploymentLifecycleHook'] lifecycle_hooks: An array of deployment lifecycle hook objects to run custom logic or pause the deployment at specific stages of the deployment lifecycle.
         :param 'ServiceLinearConfiguration' linear_configuration: Configuration for linear deployment strategy. Only valid when the deployment strategy is ``LINEAR``. This configuration enables progressive traffic shifting in equal percentage increments with configurable bake times between each step.
         :param _builtins.int maximum_percent: If a service is using the rolling update (``ECS``) deployment type, the ``maximumPercent`` parameter represents an upper limit on the number of your service's tasks that are allowed in the ``RUNNING`` or ``PENDING`` state during a deployment, as a percentage of the ``desiredCount`` (rounded down to the nearest integer). This parameter enables you to define the deployment batch size. For example, if your service is using the ``REPLICA`` service scheduler and has a ``desiredCount`` of four tasks and a ``maximumPercent`` value of 200%, the scheduler may start four new tasks before stopping the four older tasks (provided that the cluster resources required to do this are available). The default ``maximumPercent`` value for a service using the ``REPLICA`` service scheduler is 200%.
                 The Amazon ECS scheduler uses this parameter to replace unhealthy tasks by starting replacement tasks first and then stopping the unhealthy tasks, as long as cluster resources for starting replacement tasks are available. For more information about how the scheduler replaces unhealthy tasks, see [Amazon ECS services](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html).
@@ -5717,7 +5718,7 @@ class ServiceDeploymentConfiguration(dict):
     @pulumi.getter(name="lifecycleHooks")
     def lifecycle_hooks(self) -> Optional[Sequence['outputs.ServiceDeploymentLifecycleHook']]:
         """
-        An array of deployment lifecycle hook objects to run custom logic at specific stages of the deployment lifecycle.
+        An array of deployment lifecycle hook objects to run custom logic or pause the deployment at specific stages of the deployment lifecycle.
         """
         return pulumi.get(self, "lifecycle_hooks")
 
@@ -5870,7 +5871,7 @@ class ServiceDeploymentController(dict):
 @pulumi.output_type
 class ServiceDeploymentLifecycleHook(dict):
     """
-    A deployment lifecycle hook runs custom logic at specific stages of the deployment process. Currently, you can use Lambda functions as hook targets.
+    A deployment lifecycle hook runs custom logic or pauses the deployment at specific stages of the deployment process. You can use Lambda functions or pause hooks as hook targets.
      For more information, see [Lifecycle hooks for Amazon ECS service deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-lifecycle-hooks.html) in the *Amazon Elastic Container Service Developer Guide*.
     """
     @staticmethod
@@ -5884,6 +5885,8 @@ class ServiceDeploymentLifecycleHook(dict):
             suggest = "hook_target_arn"
         elif key == "roleArn":
             suggest = "role_arn"
+        elif key == "targetType":
+            suggest = "target_type"
         elif key == "timeoutConfiguration":
             suggest = "timeout_configuration"
 
@@ -5903,9 +5906,10 @@ class ServiceDeploymentLifecycleHook(dict):
                  hook_details: Optional[Any] = None,
                  hook_target_arn: Optional[_builtins.str] = None,
                  role_arn: Optional[_builtins.str] = None,
-                 timeout_configuration: Optional[Any] = None):
+                 target_type: Optional['ServiceDeploymentLifecycleHookTargetType'] = None,
+                 timeout_configuration: Optional['outputs.ServiceHookTimeoutConfig'] = None):
         """
-        A deployment lifecycle hook runs custom logic at specific stages of the deployment process. Currently, you can use Lambda functions as hook targets.
+        A deployment lifecycle hook runs custom logic or pauses the deployment at specific stages of the deployment process. You can use Lambda functions or pause hooks as hook targets.
          For more information, see [Lifecycle hooks for Amazon ECS service deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-lifecycle-hooks.html) in the *Amazon Elastic Container Service Developer Guide*.
 
         :param Sequence['ServiceDeploymentLifecycleHookLifecycleStagesItem'] lifecycle_stages: The lifecycle stages at which to run the hook. Choose from these valid values:
@@ -5924,20 +5928,30 @@ class ServiceDeploymentLifecycleHook(dict):
                  +  POST_TEST_TRAFFIC_SHIFT
                 The test traffic shift is complete. The green service revision handles 100% of the test traffic.
                 You can use a lifecycle hook for this stage.
+                 +  PRE_PRODUCTION_TRAFFIC_SHIFT
+                Occurs before production traffic shift. For linear and canary deployments, this stage is invoked before every traffic shift step.
+                You can use a lifecycle hook for this stage.
                  +  PRODUCTION_TRAFFIC_SHIFT
-                Production traffic is shifting to the green service revision. The green service revision is migrating from 0% to 100% of production traffic.
+                Production traffic is shifting to the green service revision. The green service revision is migrating from 0% to 100% of production traffic. For linear and canary deployments, this stage is invoked at every traffic shift step.
                 You can use a lifecycle hook for this stage.
                  +  POST_PRODUCTION_TRAFFIC_SHIFT
                 The production traffic shift is complete.
                 You can use a lifecycle hook for this stage.
                  
-                You must provide this parameter when configuring a deployment lifecycle hook.
+                 ``PAUSE`` hooks cannot be configured at ``TEST_TRAFFIC_SHIFT`` or ``PRODUCTION_TRAFFIC_SHIFT`` stages. These stages are only valid for ``AWS_LAMBDA`` hooks.
+                 You must provide this parameter when configuring a deployment lifecycle hook.
         :param Any hook_details: Use this field to specify custom parameters that ECS passes to your hook target invocations (such as a Lambda function).
                 This field must be a JSON object as a string.
-        :param _builtins.str hook_target_arn: The Amazon Resource Name (ARN) of the hook target. Currently, only Lambda function ARNs are supported.
-                You must provide this parameter when configuring a deployment lifecycle hook.
+        :param _builtins.str hook_target_arn: The Amazon Resource Name (ARN) of the hook target. For ``AWS_LAMBDA`` hooks, this is the Lambda function ARN. This field is not applicable for ``PAUSE`` hooks.
+                You must provide this parameter when configuring an ``AWS_LAMBDA`` lifecycle hook.
         :param _builtins.str role_arn: The Amazon Resource Name (ARN) of the IAM role that grants Amazon ECS permission to call Lambda functions on your behalf.
                 For more information, see [Permissions required for Lambda functions in Amazon ECS blue/green deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/blue-green-permissions.html) in the *Amazon Elastic Container Service Developer Guide*.
+        :param 'ServiceDeploymentLifecycleHookTargetType' target_type: The type of action the lifecycle hook performs. Valid values are:
+                 +  ``AWS_LAMBDA`` - Invokes a Lambda function at the specified lifecycle stage. This is the default value.
+                 +  ``PAUSE`` - Pauses the deployment at the specified lifecycle stage until you call ``ContinueServiceDeployment`` to continue or roll back.
+                 
+                This field is optional. If not specified, the default value is ``AWS_LAMBDA``.
+        :param 'ServiceHookTimeoutConfig' timeout_configuration: The timeout configuration for the lifecycle hook. This specifies how long Amazon ECS waits before taking the timeout action if the hook is not resolved.
         """
         pulumi.set(__self__, "lifecycle_stages", lifecycle_stages)
         if hook_details is not None:
@@ -5946,6 +5960,8 @@ class ServiceDeploymentLifecycleHook(dict):
             pulumi.set(__self__, "hook_target_arn", hook_target_arn)
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
+        if target_type is not None:
+            pulumi.set(__self__, "target_type", target_type)
         if timeout_configuration is not None:
             pulumi.set(__self__, "timeout_configuration", timeout_configuration)
 
@@ -5969,14 +5985,18 @@ class ServiceDeploymentLifecycleHook(dict):
           +  POST_TEST_TRAFFIC_SHIFT
          The test traffic shift is complete. The green service revision handles 100% of the test traffic.
          You can use a lifecycle hook for this stage.
+          +  PRE_PRODUCTION_TRAFFIC_SHIFT
+         Occurs before production traffic shift. For linear and canary deployments, this stage is invoked before every traffic shift step.
+         You can use a lifecycle hook for this stage.
           +  PRODUCTION_TRAFFIC_SHIFT
-         Production traffic is shifting to the green service revision. The green service revision is migrating from 0% to 100% of production traffic.
+         Production traffic is shifting to the green service revision. The green service revision is migrating from 0% to 100% of production traffic. For linear and canary deployments, this stage is invoked at every traffic shift step.
          You can use a lifecycle hook for this stage.
           +  POST_PRODUCTION_TRAFFIC_SHIFT
          The production traffic shift is complete.
          You can use a lifecycle hook for this stage.
           
-         You must provide this parameter when configuring a deployment lifecycle hook.
+          ``PAUSE`` hooks cannot be configured at ``TEST_TRAFFIC_SHIFT`` or ``PRODUCTION_TRAFFIC_SHIFT`` stages. These stages are only valid for ``AWS_LAMBDA`` hooks.
+          You must provide this parameter when configuring a deployment lifecycle hook.
         """
         return pulumi.get(self, "lifecycle_stages")
 
@@ -5993,8 +6013,8 @@ class ServiceDeploymentLifecycleHook(dict):
     @pulumi.getter(name="hookTargetArn")
     def hook_target_arn(self) -> Optional[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the hook target. Currently, only Lambda function ARNs are supported.
-         You must provide this parameter when configuring a deployment lifecycle hook.
+        The Amazon Resource Name (ARN) of the hook target. For ``AWS_LAMBDA`` hooks, this is the Lambda function ARN. This field is not applicable for ``PAUSE`` hooks.
+         You must provide this parameter when configuring an ``AWS_LAMBDA`` lifecycle hook.
         """
         return pulumi.get(self, "hook_target_arn")
 
@@ -6008,8 +6028,23 @@ class ServiceDeploymentLifecycleHook(dict):
         return pulumi.get(self, "role_arn")
 
     @_builtins.property
+    @pulumi.getter(name="targetType")
+    def target_type(self) -> Optional['ServiceDeploymentLifecycleHookTargetType']:
+        """
+        The type of action the lifecycle hook performs. Valid values are:
+          +  ``AWS_LAMBDA`` - Invokes a Lambda function at the specified lifecycle stage. This is the default value.
+          +  ``PAUSE`` - Pauses the deployment at the specified lifecycle stage until you call ``ContinueServiceDeployment`` to continue or roll back.
+          
+         This field is optional. If not specified, the default value is ``AWS_LAMBDA``.
+        """
+        return pulumi.get(self, "target_type")
+
+    @_builtins.property
     @pulumi.getter(name="timeoutConfiguration")
-    def timeout_configuration(self) -> Optional[Any]:
+    def timeout_configuration(self) -> Optional['outputs.ServiceHookTimeoutConfig']:
+        """
+        The timeout configuration for the lifecycle hook. This specifies how long Amazon ECS waits before taking the timeout action if the hook is not resolved.
+        """
         return pulumi.get(self, "timeout_configuration")
 
 
@@ -6131,6 +6166,44 @@ class ServiceForceNewDeployment(dict):
         When you change the``ForceNewDeploymentNonce`` value in your template, it signals ECS to start a new deployment even though no other service parameters have changed. The value must be a unique, time- varying value like a timestamp, random string, or sequence number. Use this property when you want to ensure your tasks pick up the latest version of a Docker image that uses the same tag but has been updated in the registry.
         """
         return pulumi.get(self, "force_new_deployment_nonce")
+
+
+@pulumi.output_type
+class ServiceHookTimeoutConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "timeoutInMinutes":
+            suggest = "timeout_in_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceHookTimeoutConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceHookTimeoutConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceHookTimeoutConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 action: Optional['ServiceHookTimeoutConfigAction'] = None,
+                 timeout_in_minutes: Optional[_builtins.int] = None):
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if timeout_in_minutes is not None:
+            pulumi.set(__self__, "timeout_in_minutes", timeout_in_minutes)
+
+    @_builtins.property
+    @pulumi.getter
+    def action(self) -> Optional['ServiceHookTimeoutConfigAction']:
+        return pulumi.get(self, "action")
+
+    @_builtins.property
+    @pulumi.getter(name="timeoutInMinutes")
+    def timeout_in_minutes(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "timeout_in_minutes")
 
 
 @pulumi.output_type

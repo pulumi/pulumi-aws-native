@@ -29,18 +29,24 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &BrowserProfile{}
 	case "aws-native:bedrockagentcore:CodeInterpreterCustom":
 		r = &CodeInterpreterCustom{}
+	case "aws-native:bedrockagentcore:Dataset":
+		r = &Dataset{}
 	case "aws-native:bedrockagentcore:Evaluator":
 		r = &Evaluator{}
 	case "aws-native:bedrockagentcore:Gateway":
 		r = &Gateway{}
 	case "aws-native:bedrockagentcore:GatewayTarget":
 		r = &GatewayTarget{}
+	case "aws-native:bedrockagentcore:Harness":
+		r = &Harness{}
 	case "aws-native:bedrockagentcore:Memory":
 		r = &Memory{}
 	case "aws-native:bedrockagentcore:OAuth2CredentialProvider":
 		r = &OAuth2CredentialProvider{}
 	case "aws-native:bedrockagentcore:OnlineEvaluationConfig":
 		r = &OnlineEvaluationConfig{}
+	case "aws-native:bedrockagentcore:PaymentCredentialProvider":
+		r = &PaymentCredentialProvider{}
 	case "aws-native:bedrockagentcore:Policy":
 		r = &Policy{}
 	case "aws-native:bedrockagentcore:PolicyEngine":

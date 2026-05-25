@@ -38,7 +38,9 @@ __all__ = [
     'ServiceDeploymentConfigurationStrategy',
     'ServiceDeploymentControllerType',
     'ServiceDeploymentLifecycleHookLifecycleStagesItem',
+    'ServiceDeploymentLifecycleHookTargetType',
     'ServiceEbsTagSpecificationPropagateTags',
+    'ServiceHookTimeoutConfigAction',
     'ServiceLaunchType',
     'ServicePlacementConstraintType',
     'ServicePlacementStrategyType',
@@ -383,6 +385,19 @@ class ServiceDeploymentLifecycleHookLifecycleStagesItem(_builtins.str, Enum):
     POST_PRODUCTION_TRAFFIC_SHIFT = "POST_PRODUCTION_TRAFFIC_SHIFT"
 
 
+@pulumi.type_token("aws-native:ecs:ServiceDeploymentLifecycleHookTargetType")
+class ServiceDeploymentLifecycleHookTargetType(_builtins.str, Enum):
+    """
+    The type of action the lifecycle hook performs. Valid values are:
+      +  ``AWS_LAMBDA`` - Invokes a Lambda function at the specified lifecycle stage. This is the default value.
+      +  ``PAUSE`` - Pauses the deployment at the specified lifecycle stage until you call ``ContinueServiceDeployment`` to continue or roll back.
+      
+     This field is optional. If not specified, the default value is ``AWS_LAMBDA``.
+    """
+    AWS_LAMBDA = "AWS_LAMBDA"
+    PAUSE = "PAUSE"
+
+
 @pulumi.type_token("aws-native:ecs:ServiceEbsTagSpecificationPropagateTags")
 class ServiceEbsTagSpecificationPropagateTags(_builtins.str, Enum):
     """
@@ -390,6 +405,12 @@ class ServiceEbsTagSpecificationPropagateTags(_builtins.str, Enum):
     """
     SERVICE = "SERVICE"
     TASK_DEFINITION = "TASK_DEFINITION"
+
+
+@pulumi.type_token("aws-native:ecs:ServiceHookTimeoutConfigAction")
+class ServiceHookTimeoutConfigAction(_builtins.str, Enum):
+    ROLLBACK = "ROLLBACK"
+    CONTINUE_ = "CONTINUE"
 
 
 @pulumi.type_token("aws-native:ecs:ServiceLaunchType")

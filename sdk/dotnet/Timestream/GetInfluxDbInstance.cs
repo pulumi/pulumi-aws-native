@@ -108,6 +108,14 @@ namespace Pulumi.AwsNative.Timestream
         /// </summary>
         public readonly Outputs.LogDeliveryConfigurationProperties? LogDeliveryConfiguration;
         /// <summary>
+        /// The maintenance schedule for the InfluxDB instance.
+        /// </summary>
+        public readonly Outputs.InfluxDbInstanceMaintenanceSchedule? MaintenanceSchedule;
+        /// <summary>
+        /// The timestamp of the next scheduled maintenance event.
+        /// </summary>
+        public readonly string? NextMaintenanceTime;
+        /// <summary>
         /// The port number on which InfluxDB accepts connections.
         /// </summary>
         public readonly int? Port;
@@ -148,6 +156,10 @@ namespace Pulumi.AwsNative.Timestream
 
             Outputs.LogDeliveryConfigurationProperties? logDeliveryConfiguration,
 
+            Outputs.InfluxDbInstanceMaintenanceSchedule? maintenanceSchedule,
+
+            string? nextMaintenanceTime,
+
             int? port,
 
             string? secondaryAvailabilityZone,
@@ -167,6 +179,8 @@ namespace Pulumi.AwsNative.Timestream
             Id = id;
             InfluxAuthParametersSecretArn = influxAuthParametersSecretArn;
             LogDeliveryConfiguration = logDeliveryConfiguration;
+            MaintenanceSchedule = maintenanceSchedule;
+            NextMaintenanceTime = nextMaintenanceTime;
             Port = port;
             SecondaryAvailabilityZone = secondaryAvailabilityZone;
             Status = status;

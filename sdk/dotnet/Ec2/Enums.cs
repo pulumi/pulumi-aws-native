@@ -1809,6 +1809,37 @@ namespace Pulumi.AwsNative.Ec2
     }
 
     /// <summary>
+    /// Indicates whether the instance is enabled for nested virtualization.
+    /// </summary>
+    [EnumType]
+    public readonly struct LaunchTemplateCpuOptionsNestedVirtualization : IEquatable<LaunchTemplateCpuOptionsNestedVirtualization>
+    {
+        private readonly string _value;
+
+        private LaunchTemplateCpuOptionsNestedVirtualization(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LaunchTemplateCpuOptionsNestedVirtualization Enabled { get; } = new LaunchTemplateCpuOptionsNestedVirtualization("enabled");
+        public static LaunchTemplateCpuOptionsNestedVirtualization Disabled { get; } = new LaunchTemplateCpuOptionsNestedVirtualization("disabled");
+
+        public static bool operator ==(LaunchTemplateCpuOptionsNestedVirtualization left, LaunchTemplateCpuOptionsNestedVirtualization right) => left.Equals(right);
+        public static bool operator !=(LaunchTemplateCpuOptionsNestedVirtualization left, LaunchTemplateCpuOptionsNestedVirtualization right) => !left.Equals(right);
+
+        public static explicit operator string(LaunchTemplateCpuOptionsNestedVirtualization value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LaunchTemplateCpuOptionsNestedVirtualization other && Equals(other);
+        public bool Equals(LaunchTemplateCpuOptionsNestedVirtualization other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Indicates whether there are findings (true | false | unknown).
     /// </summary>
     [EnumType]

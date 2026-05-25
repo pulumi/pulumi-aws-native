@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.NeptuneGraph
         /// The unique identifier of the Neptune Analytics graph to create the snapshot from.
         /// </summary>
         [Output("graphIdentifier")]
-        public Output<string?> GraphIdentifier { get; private set; } = null!;
+        public Output<string> GraphIdentifier { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the KMS key used to encrypt and decrypt the snapshot.
@@ -71,7 +71,7 @@ namespace Pulumi.AwsNative.NeptuneGraph
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public GraphSnapshot(string name, GraphSnapshotArgs? args = null, CustomResourceOptions? options = null)
+        public GraphSnapshot(string name, GraphSnapshotArgs args, CustomResourceOptions? options = null)
             : base("aws-native:neptunegraph:GraphSnapshot", name, args ?? new GraphSnapshotArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -116,8 +116,8 @@ namespace Pulumi.AwsNative.NeptuneGraph
         /// <summary>
         /// The unique identifier of the Neptune Analytics graph to create the snapshot from.
         /// </summary>
-        [Input("graphIdentifier")]
-        public Input<string>? GraphIdentifier { get; set; }
+        [Input("graphIdentifier", required: true)]
+        public Input<string> GraphIdentifier { get; set; } = null!;
 
         /// <summary>
         /// The snapshot name.

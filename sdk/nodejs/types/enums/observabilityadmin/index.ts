@@ -92,12 +92,19 @@ export const OrganizationTelemetryRuleResourceType = {
     AwseksCluster: "AWS::EKS::Cluster",
     AwsElasticLoadBalancingV2LoadBalancer: "AWS::ElasticLoadBalancingV2::LoadBalancer",
     Awsec2Instance: "AWS::EC2::Instance",
+    AwsSecurityHubHub: "AWS::SecurityHub::Hub",
 } as const;
 
 /**
  * Resource Type associated with the Organization Telemetry Rule
  */
 export type OrganizationTelemetryRuleResourceType = (typeof OrganizationTelemetryRuleResourceType)[keyof typeof OrganizationTelemetryRuleResourceType];
+
+export const OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem = {
+    SecurityFindingLogs: "SECURITY_FINDING_LOGS",
+} as const;
+
+export type OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem = (typeof OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem)[keyof typeof OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem];
 
 export const OrganizationTelemetryRuleTelemetrySourceType = {
     VpcFlowLogs: "VPC_FLOW_LOGS",
@@ -237,6 +244,7 @@ export const TelemetryRuleResourceType = {
     AwsBedrockAgentCoreRuntime: "AWS::BedrockAgentCore::Runtime",
     AwsBedrockAgentCoreBrowser: "AWS::BedrockAgentCore::Browser",
     AwsBedrockAgentCoreCodeInterpreter: "AWS::BedrockAgentCore::CodeInterpreter",
+    AwsSecurityHubHub: "AWS::SecurityHub::Hub",
 } as const;
 
 /**
@@ -247,6 +255,7 @@ export type TelemetryRuleResourceType = (typeof TelemetryRuleResourceType)[keyof
 export const TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem = {
     ApplicationLogs: "APPLICATION_LOGS",
     UsageLogs: "USAGE_LOGS",
+    SecurityFindingLogs: "SECURITY_FINDING_LOGS",
 } as const;
 
 export type TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem = (typeof TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem)[keyof typeof TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem];
