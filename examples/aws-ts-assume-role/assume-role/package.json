@@ -5,7 +5,7 @@
     },
     "dependencies": {
         "@pulumi/pulumi": "3.243.0",
-        "@pulumi/aws": "7.30.0",
+        "@pulumi/aws": "7.31.0",
         "@pulumi/random": "4.21.0"
     },
     "peerDependencies": {
