@@ -133,7 +133,7 @@ export interface IntegrationResponseArgs {
      *   ``CONVERT_TO_TEXT``: Converts a response payload from a binary blob to a Base64-encoded string.
      *  If this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification.
      */
-    contentHandlingStrategy?: pulumi.Input<string>;
+    contentHandlingStrategy?: pulumi.Input<string | undefined>;
     /**
      * The integration ID.
      */
@@ -147,15 +147,15 @@ export interface IntegrationResponseArgs {
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::IntegrationResponse` for more information about the expected schema for this property.
      */
-    responseParameters?: any;
+    responseParameters?: any | undefined;
     /**
      * The collection of response templates for the integration response as a string-to-string map of key-value pairs. Response templates are represented as a key/value map, with a content-type as the key and a template as the value.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::IntegrationResponse` for more information about the expected schema for this property.
      */
-    responseTemplates?: any;
+    responseTemplates?: any | undefined;
     /**
      * The template selection expression for the integration response. Supported only for WebSocket APIs.
      */
-    templateSelectionExpression?: pulumi.Input<string>;
+    templateSelectionExpression?: pulumi.Input<string | undefined>;
 }

@@ -143,21 +143,21 @@ export interface DeliveryArgs {
     /**
      * The field delimiter to use between record fields when the final output format of a delivery is in Plain , W3C , or Raw format.
      */
-    fieldDelimiter?: pulumi.Input<string>;
+    fieldDelimiter?: pulumi.Input<string | undefined>;
     /**
      * The list of record fields to be delivered to the destination, in order. If the delivery's log source has mandatory fields, they must be included in this list.
      */
-    recordFields?: pulumi.Input<pulumi.Input<string>[]>;
+    recordFields?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * This parameter causes the S3 objects that contain delivered logs to use a prefix structure that allows for integration with Apache Hive.
      */
-    s3EnableHiveCompatiblePath?: pulumi.Input<boolean>;
+    s3EnableHiveCompatiblePath?: pulumi.Input<boolean | undefined>;
     /**
      * This string allows re-configuring the S3 object prefix to contain either static or variable sections. The valid variables to use in the suffix path will vary by each log source. See ConfigurationTemplate$allowedSuffixPathFields for more info on what values are supported in the suffix path for each log source.
      */
-    s3SuffixPath?: pulumi.Input<string>;
+    s3SuffixPath?: pulumi.Input<string | undefined>;
     /**
      * The tags that have been assigned to this delivery.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

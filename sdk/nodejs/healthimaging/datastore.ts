@@ -113,13 +113,13 @@ export interface DatastoreArgs {
     /**
      * The data store name.
      */
-    datastoreName?: pulumi.Input<string>;
+    datastoreName?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) assigned to the Key Management Service (KMS) key for accessing encrypted data.
      */
-    kmsKeyArn?: pulumi.Input<string>;
+    kmsKeyArn?: pulumi.Input<string | undefined>;
     /**
      * The tags provided when creating a data store.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -138,11 +138,11 @@ export interface DatasetArgs {
     /**
      * Dataset format
      */
-    format?: pulumi.Input<enums.databrew.DatasetFormat>;
+    format?: pulumi.Input<enums.databrew.DatasetFormat | undefined>;
     /**
      * Format options for dataset
      */
-    formatOptions?: pulumi.Input<inputs.databrew.DatasetFormatOptionsArgs>;
+    formatOptions?: pulumi.Input<inputs.databrew.DatasetFormatOptionsArgs | undefined>;
     /**
      * Input
      */
@@ -150,17 +150,17 @@ export interface DatasetArgs {
     /**
      * Dataset name
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * PathOptions
      */
-    pathOptions?: pulumi.Input<inputs.databrew.DatasetPathOptionsArgs>;
+    pathOptions?: pulumi.Input<inputs.databrew.DatasetPathOptionsArgs | undefined>;
     /**
      * Source type of the dataset
      */
-    source?: pulumi.Input<enums.databrew.DatasetSource>;
+    source?: pulumi.Input<enums.databrew.DatasetSource | undefined>;
     /**
      * Metadata tags that have been applied to the dataset.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

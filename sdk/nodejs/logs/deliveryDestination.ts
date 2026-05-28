@@ -117,25 +117,25 @@ export interface DeliveryDestinationArgs {
      *
      * Length Constraints: Maximum length of 51200
      */
-    deliveryDestinationPolicy?: pulumi.Input<inputs.logs.DeliveryDestinationDestinationPolicyArgs>;
+    deliveryDestinationPolicy?: pulumi.Input<inputs.logs.DeliveryDestinationDestinationPolicyArgs | undefined>;
     /**
      * Displays whether this delivery destination is CloudWatch Logs, Amazon S3, Kinesis Data Firehose, or XRay.
      */
-    deliveryDestinationType?: pulumi.Input<string>;
+    deliveryDestinationType?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the Amazon Web Services destination that this delivery destination represents. That Amazon Web Services destination can be a log group in CloudWatch Logs, an Amazon S3 bucket, or a delivery stream in Firehose.
      */
-    destinationResourceArn?: pulumi.Input<string>;
+    destinationResourceArn?: pulumi.Input<string | undefined>;
     /**
      * The name of this delivery destination.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The format of the logs that are sent to this delivery destination.
      */
-    outputFormat?: pulumi.Input<string>;
+    outputFormat?: pulumi.Input<string | undefined>;
     /**
      * The tags that have been assigned to this delivery destination.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

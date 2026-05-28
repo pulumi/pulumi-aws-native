@@ -133,15 +133,15 @@ export interface BlueprintArgs {
     /**
      * Name of the Blueprint
      */
-    blueprintName?: pulumi.Input<string>;
+    blueprintName?: pulumi.Input<string | undefined>;
     /**
      * KMS encryption context
      */
-    kmsEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    kmsEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * KMS key identifier
      */
-    kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * Schema of the blueprint
      *
@@ -151,7 +151,7 @@ export interface BlueprintArgs {
     /**
      * List of Tags
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * Modality Type
      */

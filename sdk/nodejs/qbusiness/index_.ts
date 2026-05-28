@@ -152,11 +152,11 @@ export interface IndexArgs {
     /**
      * The capacity units you want to provision for your index. You can add and remove capacity to fit your usage needs.
      */
-    capacityConfiguration?: pulumi.Input<inputs.qbusiness.IndexCapacityConfigurationArgs>;
+    capacityConfiguration?: pulumi.Input<inputs.qbusiness.IndexCapacityConfigurationArgs | undefined>;
     /**
      * A description for the Amazon Q Business index.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the index.
      */
@@ -166,13 +166,13 @@ export interface IndexArgs {
      *
      * For more information, see [Understanding document attributes](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/doc-attributes.html) .
      */
-    documentAttributeConfigurations?: pulumi.Input<pulumi.Input<inputs.qbusiness.IndexDocumentAttributeConfigurationArgs>[]>;
+    documentAttributeConfigurations?: pulumi.Input<pulumi.Input<inputs.qbusiness.IndexDocumentAttributeConfigurationArgs>[] | undefined>;
     /**
      * A list of key-value pairs that identify or categorize the index. You can also use tags to help control access to the index. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The index type that's suitable for your needs. For more information on what's included in each type of index, see [Amazon Q Business tiers](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/tiers.html#index-tiers) .
      */
-    type?: pulumi.Input<enums.qbusiness.IndexType>;
+    type?: pulumi.Input<enums.qbusiness.IndexType | undefined>;
 }

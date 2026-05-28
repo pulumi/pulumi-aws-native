@@ -125,7 +125,7 @@ export interface FlowVersionArgs {
     /**
      * Description of the flow version
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Arn representation of the Flow
      */

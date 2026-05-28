@@ -88,13 +88,13 @@ export interface ResourceDefaultVersionArgs {
      *
      * We recommend that type names adhere to the following pattern: company_or_organization::service::type.
      */
-    typeName?: pulumi.Input<string>;
+    typeName?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the type version.
      */
-    typeVersionArn?: pulumi.Input<string>;
+    typeVersionArn?: pulumi.Input<string | undefined>;
     /**
      * The ID of an existing version of the resource to set as the default.
      */
-    versionId?: pulumi.Input<string>;
+    versionId?: pulumi.Input<string | undefined>;
 }

@@ -170,23 +170,23 @@ export interface DbProxyArgs {
     /**
      * The authorization mechanism that the proxy uses.
      */
-    auth?: pulumi.Input<pulumi.Input<inputs.rds.DbProxyAuthFormatArgs>[]>;
+    auth?: pulumi.Input<pulumi.Input<inputs.rds.DbProxyAuthFormatArgs>[] | undefined>;
     /**
      * The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
      */
-    dbProxyName?: pulumi.Input<string>;
+    dbProxyName?: pulumi.Input<string | undefined>;
     /**
      * Whether the proxy includes detailed information about SQL statements in its logs.
      */
-    debugLogging?: pulumi.Input<boolean>;
+    debugLogging?: pulumi.Input<boolean | undefined>;
     /**
      * The default authentication scheme that the proxy uses for client connections to the proxy and connections from the proxy to the underlying database.
      */
-    defaultAuthScheme?: pulumi.Input<enums.rds.DbProxyDefaultAuthScheme>;
+    defaultAuthScheme?: pulumi.Input<enums.rds.DbProxyDefaultAuthScheme | undefined>;
     /**
      * The network type of the DB proxy endpoint. The network type determines the IP version that the proxy endpoint supports.
      */
-    endpointNetworkType?: pulumi.Input<enums.rds.DbProxyEndpointNetworkType>;
+    endpointNetworkType?: pulumi.Input<enums.rds.DbProxyEndpointNetworkType | undefined>;
     /**
      * The kinds of databases that the proxy can connect to.
      */
@@ -194,11 +194,11 @@ export interface DbProxyArgs {
     /**
      * The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it.
      */
-    idleClientTimeout?: pulumi.Input<number>;
+    idleClientTimeout?: pulumi.Input<number | undefined>;
     /**
      * A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
      */
-    requireTls?: pulumi.Input<boolean>;
+    requireTls?: pulumi.Input<boolean | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
      */
@@ -206,15 +206,15 @@ export interface DbProxyArgs {
     /**
      * An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The network type that the proxy uses to connect to the target database. The network type determines the IP version that the proxy uses for connections to the database.
      */
-    targetConnectionNetworkType?: pulumi.Input<enums.rds.DbProxyTargetConnectionNetworkType>;
+    targetConnectionNetworkType?: pulumi.Input<enums.rds.DbProxyTargetConnectionNetworkType | undefined>;
     /**
      * VPC security group IDs to associate with the new proxy.
      */
-    vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * VPC subnet IDs to associate with the new proxy.
      */

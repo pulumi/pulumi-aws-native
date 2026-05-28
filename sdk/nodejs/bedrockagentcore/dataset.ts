@@ -137,22 +137,22 @@ export interface DatasetArgs {
     /**
      * Human-readable name for the dataset. Unique within the account (case-insensitive). Immutable after creation.
      */
-    datasetName?: pulumi.Input<string>;
+    datasetName?: pulumi.Input<string | undefined>;
     /**
      * A description of the dataset.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Optional AWS KMS key ARN for SSE-KMS on service S3 writes.
      */
-    kmsKeyArn?: pulumi.Input<string>;
+    kmsKeyArn?: pulumi.Input<string | undefined>;
     /**
      * Versioned schema type governing the structure of examples. Immutable after creation.
      */
     schemaType: pulumi.Input<enums.bedrockagentcore.DatasetSchemaType>;
-    source?: pulumi.Input<inputs.bedrockagentcore.DatasetDataSourceTypeArgs>;
+    source?: pulumi.Input<inputs.bedrockagentcore.DatasetDataSourceTypeArgs | undefined>;
     /**
      * A list of tags to assign to the dataset.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

@@ -179,25 +179,25 @@ export interface LocationHdfsArgs {
     /**
      * Size of chunks (blocks) in bytes that the data is divided into when stored in the HDFS cluster.
      */
-    blockSize?: pulumi.Input<number>;
-    cmkSecretConfig?: pulumi.Input<inputs.datasync.LocationHdfsCmkSecretConfigArgs>;
-    customSecretConfig?: pulumi.Input<inputs.datasync.LocationHdfsCustomSecretConfigArgs>;
+    blockSize?: pulumi.Input<number | undefined>;
+    cmkSecretConfig?: pulumi.Input<inputs.datasync.LocationHdfsCmkSecretConfigArgs | undefined>;
+    customSecretConfig?: pulumi.Input<inputs.datasync.LocationHdfsCustomSecretConfigArgs | undefined>;
     /**
      * The Base64 string representation of the Keytab file.
      */
-    kerberosKeytab?: pulumi.Input<string>;
+    kerberosKeytab?: pulumi.Input<string | undefined>;
     /**
      * The string representation of the Krb5Conf file, or the presigned URL to access the Krb5.conf file within an S3 bucket.
      */
-    kerberosKrb5Conf?: pulumi.Input<string>;
+    kerberosKrb5Conf?: pulumi.Input<string | undefined>;
     /**
      * The unique identity, or principal, to which Kerberos can assign tickets.
      */
-    kerberosPrincipal?: pulumi.Input<string>;
+    kerberosPrincipal?: pulumi.Input<string | undefined>;
     /**
      * The identifier for the Key Management Server where the encryption keys that encrypt data inside HDFS clusters are stored.
      */
-    kmsKeyProviderUri?: pulumi.Input<string>;
+    kmsKeyProviderUri?: pulumi.Input<string | undefined>;
     /**
      * An array of Name Node(s) of the HDFS location.
      */
@@ -205,21 +205,21 @@ export interface LocationHdfsArgs {
     /**
      * The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `QopConfiguration` isn't specified, `RpcProtection` and `DataTransferProtection` default to `PRIVACY` . If you set `RpcProtection` or `DataTransferProtection` , the other parameter assumes the same value.
      */
-    qopConfiguration?: pulumi.Input<inputs.datasync.LocationHdfsQopConfigurationArgs>;
+    qopConfiguration?: pulumi.Input<inputs.datasync.LocationHdfsQopConfigurationArgs | undefined>;
     /**
      * Number of copies of each block that exists inside the HDFS cluster.
      */
-    replicationFactor?: pulumi.Input<number>;
+    replicationFactor?: pulumi.Input<number | undefined>;
     /**
      * The user name that has read and write permissions on the specified HDFS cluster.
      */
-    simpleUser?: pulumi.Input<string>;
+    simpleUser?: pulumi.Input<string | undefined>;
     /**
      * The subdirectory in HDFS that is used to read data from the HDFS source location or write data to the HDFS destination.
      */
-    subdirectory?: pulumi.Input<string>;
+    subdirectory?: pulumi.Input<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

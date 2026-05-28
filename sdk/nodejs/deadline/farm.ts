@@ -108,13 +108,13 @@ export class Farm extends pulumi.CustomResource {
  * The set of arguments for constructing a Farm resource.
  */
 export interface FarmArgs {
-    costScaleFactor?: pulumi.Input<number>;
+    costScaleFactor?: pulumi.Input<number | undefined>;
     /**
      * A description of the farm that helps identify what the farm is used for.
      *
      * > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The display name of the farm.
      *
@@ -124,9 +124,9 @@ export interface FarmArgs {
     /**
      * The ARN for the KMS key.
      */
-    kmsKeyArn?: pulumi.Input<string>;
+    kmsKeyArn?: pulumi.Input<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

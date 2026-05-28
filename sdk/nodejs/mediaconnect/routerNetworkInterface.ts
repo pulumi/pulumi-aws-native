@@ -138,13 +138,13 @@ export interface RouterNetworkInterfaceArgs {
     /**
      * The name of the router network interface.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The AWS Region for the router network interface. Defaults to the current region if not specified.
      */
-    regionName?: pulumi.Input<string>;
+    regionName?: pulumi.Input<string | undefined>;
     /**
      * Key-value pairs that can be used to tag and organize this router network interface.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

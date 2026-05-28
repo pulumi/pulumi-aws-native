@@ -92,7 +92,7 @@ export interface PortfolioShareArgs {
     /**
      * The language code.
      */
-    acceptLanguage?: pulumi.Input<string>;
+    acceptLanguage?: pulumi.Input<string | undefined>;
     /**
      * The AWS account ID.
      */
@@ -104,5 +104,5 @@ export interface PortfolioShareArgs {
     /**
      * Enables or disables TagOptions sharing when creating the portfolio share.
      */
-    shareTagOptions?: pulumi.Input<boolean>;
+    shareTagOptions?: pulumi.Input<boolean | undefined>;
 }

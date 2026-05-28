@@ -192,15 +192,15 @@ export interface RobotApplicationArgs {
     /**
      * The revision ID of robot application.
      */
-    currentRevisionId?: pulumi.Input<string>;
+    currentRevisionId?: pulumi.Input<string | undefined>;
     /**
      * The URI of the Docker image for the robot application.
      */
-    environment?: pulumi.Input<string>;
+    environment?: pulumi.Input<string | undefined>;
     /**
      * The name of the robot application.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The robot software suite used by the robot application.
      */
@@ -208,9 +208,9 @@ export interface RobotApplicationArgs {
     /**
      * The sources of the robot application.
      */
-    sources?: pulumi.Input<pulumi.Input<inputs.robomaker.RobotApplicationSourceConfigArgs>[]>;
+    sources?: pulumi.Input<pulumi.Input<inputs.robomaker.RobotApplicationSourceConfigArgs>[] | undefined>;
     /**
      * A map that contains tag keys and tag values that are attached to the robot application.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

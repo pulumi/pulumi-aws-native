@@ -104,11 +104,11 @@ export interface DeploymentArgs {
     /**
      * The input configuration for a canary deployment.
      */
-    deploymentCanarySettings?: pulumi.Input<inputs.apigateway.DeploymentCanarySettingsArgs>;
+    deploymentCanarySettings?: pulumi.Input<inputs.apigateway.DeploymentCanarySettingsArgs | undefined>;
     /**
      * The description for the Deployment resource to create.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The string identifier of the associated RestApi.
      */
@@ -116,9 +116,9 @@ export interface DeploymentArgs {
     /**
      * The description of the Stage resource for the Deployment resource to create. To specify a stage description, you must also provide a stage name.
      */
-    stageDescription?: pulumi.Input<inputs.apigateway.DeploymentStageDescriptionArgs>;
+    stageDescription?: pulumi.Input<inputs.apigateway.DeploymentStageDescriptionArgs | undefined>;
     /**
      * The name of the Stage resource for the Deployment resource to create.
      */
-    stageName?: pulumi.Input<string>;
+    stageName?: pulumi.Input<string | undefined>;
 }

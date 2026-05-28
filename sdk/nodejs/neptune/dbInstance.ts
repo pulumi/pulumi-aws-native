@@ -160,21 +160,21 @@ export interface DbInstanceArgs {
     /**
      * Indicates that major version upgrades are allowed. Changing this parameter doesn't result in an outage and the change is asynchronously applied as soon as possible. This parameter must be set to true when specifying a value for the EngineVersion parameter that is a different major version than the DB instance's current version.
      */
-    allowMajorVersionUpgrade?: pulumi.Input<boolean>;
+    allowMajorVersionUpgrade?: pulumi.Input<boolean | undefined>;
     /**
      * Indicates that minor version patches are applied automatically.
      *
      * When updating this property, some interruptions may occur.
      */
-    autoMinorVersionUpgrade?: pulumi.Input<boolean>;
+    autoMinorVersionUpgrade?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the name of the Availability Zone the DB instance is located in.
      */
-    availabilityZone?: pulumi.Input<string>;
+    availabilityZone?: pulumi.Input<string | undefined>;
     /**
      * If the DB instance is a member of a DB cluster, contains the name of the DB cluster that the DB instance is a member of.
      */
-    dbClusterIdentifier?: pulumi.Input<string>;
+    dbClusterIdentifier?: pulumi.Input<string | undefined>;
     /**
      * Contains the name of the compute and memory capacity class of the DB instance.
      *
@@ -184,11 +184,11 @@ export interface DbInstanceArgs {
     /**
      * Contains a user-supplied database identifier. This identifier is the unique key that identifies a DB instance.
      */
-    dbInstanceIdentifier?: pulumi.Input<string>;
+    dbInstanceIdentifier?: pulumi.Input<string | undefined>;
     /**
      * The name of an existing DB parameter group or a reference to an AWS::Neptune::DBParameterGroup resource created in the template. If any of the data members of the referenced parameter group are changed during an update, the DB instance might need to be restarted, which causes some interruption. If the parameter group contains static parameters, whether they were changed or not, an update triggers a reboot.
      */
-    dbParameterGroupName?: pulumi.Input<string>;
+    dbParameterGroupName?: pulumi.Input<string | undefined>;
     /**
      * This parameter is not supported.
      *
@@ -196,21 +196,21 @@ export interface DbInstanceArgs {
      *
      * `AWS::Neptune::DBCluster` does support restoring from snapshots.
      */
-    dbSnapshotIdentifier?: pulumi.Input<string>;
+    dbSnapshotIdentifier?: pulumi.Input<string | undefined>;
     /**
      * A DB subnet group to associate with the DB instance. If you update this value, the new subnet group must be a subnet group in a new virtual private cloud (VPC).
      */
-    dbSubnetGroupName?: pulumi.Input<string>;
+    dbSubnetGroupName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
      */
-    preferredMaintenanceWindow?: pulumi.Input<string>;
+    preferredMaintenanceWindow?: pulumi.Input<string | undefined>;
     /**
      * Indicates that public accessibility is enabled. This should be enabled in combination with IAM Auth enabled on the DBCluster
      */
-    publiclyAccessible?: pulumi.Input<boolean>;
+    publiclyAccessible?: pulumi.Input<boolean | undefined>;
     /**
      * An arbitrary set of tags (key-value pairs) for this DB instance.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

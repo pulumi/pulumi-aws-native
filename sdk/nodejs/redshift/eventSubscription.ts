@@ -149,33 +149,33 @@ export interface EventSubscriptionArgs {
     /**
      * A boolean value; set to true to activate the subscription, and set to false to create the subscription but not activate it.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the Amazon Redshift event categories to be published by the event notification subscription.
      */
-    eventCategories?: pulumi.Input<pulumi.Input<enums.redshift.EventSubscriptionEventCategoriesItem>[]>;
+    eventCategories?: pulumi.Input<pulumi.Input<enums.redshift.EventSubscriptionEventCategoriesItem>[] | undefined>;
     /**
      * Specifies the Amazon Redshift event severity to be published by the event notification subscription.
      */
-    severity?: pulumi.Input<enums.redshift.EventSubscriptionSeverity>;
+    severity?: pulumi.Input<enums.redshift.EventSubscriptionSeverity | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the Amazon SNS topic used to transmit the event notifications.
      */
-    snsTopicArn?: pulumi.Input<string>;
+    snsTopicArn?: pulumi.Input<string | undefined>;
     /**
      * A list of one or more identifiers of Amazon Redshift source objects.
      */
-    sourceIds?: pulumi.Input<pulumi.Input<string>[]>;
+    sourceIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The type of source that will be generating the events.
      */
-    sourceType?: pulumi.Input<enums.redshift.EventSubscriptionSourceType>;
+    sourceType?: pulumi.Input<enums.redshift.EventSubscriptionSourceType | undefined>;
     /**
      * The name of the Amazon Redshift event notification subscription
      */
-    subscriptionName?: pulumi.Input<string>;
+    subscriptionName?: pulumi.Input<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

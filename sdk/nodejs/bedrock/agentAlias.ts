@@ -144,7 +144,7 @@ export interface AgentAliasArgs {
     /**
      * Name for a resource.
      */
-    agentAliasName?: pulumi.Input<string>;
+    agentAliasName?: pulumi.Input<string | undefined>;
     /**
      * Identifier for a resource.
      */
@@ -152,16 +152,16 @@ export interface AgentAliasArgs {
     /**
      * Description of the Resource.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Routing configuration for an Agent alias.
      */
-    routingConfiguration?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentAliasRoutingConfigurationListItemArgs>[]>;
+    routingConfiguration?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentAliasRoutingConfigurationListItemArgs>[] | undefined>;
     /**
      * Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
      *
      * - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
      * - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

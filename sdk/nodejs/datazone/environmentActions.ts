@@ -119,25 +119,25 @@ export interface EnvironmentActionsArgs {
     /**
      * The description of the Amazon DataZone environment action.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The identifier of the Amazon DataZone domain in which the environment would be created.
      */
-    domainIdentifier?: pulumi.Input<string>;
+    domainIdentifier?: pulumi.Input<string | undefined>;
     /**
      * The identifier of the Amazon DataZone environment in which the action is taking place
      */
-    environmentIdentifier?: pulumi.Input<string>;
+    environmentIdentifier?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Amazon DataZone environment action.
      */
-    identifier?: pulumi.Input<string>;
+    identifier?: pulumi.Input<string | undefined>;
     /**
      * The name of the environment action.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The parameters of the environment action.
      */
-    parameters?: pulumi.Input<inputs.datazone.EnvironmentActionsAwsConsoleLinkParametersArgs>;
+    parameters?: pulumi.Input<inputs.datazone.EnvironmentActionsAwsConsoleLinkParametersArgs | undefined>;
 }

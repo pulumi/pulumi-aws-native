@@ -128,7 +128,7 @@ export interface EventTypeArgs {
     /**
      * The description of the event type.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The event type entity types.
      */
@@ -144,9 +144,9 @@ export interface EventTypeArgs {
     /**
      * The name for the event type
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Tags associated with this event type.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

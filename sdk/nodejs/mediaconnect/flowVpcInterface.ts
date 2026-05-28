@@ -123,7 +123,7 @@ export interface FlowVpcInterfaceArgs {
     /**
      * Immutable and has to be a unique against other VpcInterfaces in this Flow.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Role Arn MediaConnect can assume to create ENIs in customer's account.
      */
@@ -139,5 +139,5 @@ export interface FlowVpcInterfaceArgs {
     /**
      * Key-value pairs that can be used to tag and organize this VPC network interface.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

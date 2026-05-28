@@ -137,42 +137,42 @@ export interface CampaignArgs {
     /**
      * Contains channel subtype configuration for an outbound campaign.
      */
-    channelSubtypeConfig?: pulumi.Input<inputs.connectcampaignsv2.CampaignChannelSubtypeConfigArgs>;
+    channelSubtypeConfig?: pulumi.Input<inputs.connectcampaignsv2.CampaignChannelSubtypeConfigArgs | undefined>;
     /**
      * Communication limits configuration for an outbound campaign.
      */
-    communicationLimitsOverride?: pulumi.Input<inputs.connectcampaignsv2.CampaignCommunicationLimitsConfigArgs>;
+    communicationLimitsOverride?: pulumi.Input<inputs.connectcampaignsv2.CampaignCommunicationLimitsConfigArgs | undefined>;
     /**
      * Contains communication time configuration for an outbound campaign.
      */
-    communicationTimeConfig?: pulumi.Input<inputs.connectcampaignsv2.CampaignCommunicationTimeConfigArgs>;
+    communicationTimeConfig?: pulumi.Input<inputs.connectcampaignsv2.CampaignCommunicationTimeConfigArgs | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the Amazon Connect campaign flow associated with the outbound campaign.
      */
-    connectCampaignFlowArn?: pulumi.Input<string>;
+    connectCampaignFlowArn?: pulumi.Input<string | undefined>;
     /**
      * The identifier of the Amazon Connect instance. You can find the `instanceId` in the ARN of the instance.
      */
     connectInstanceId: pulumi.Input<string>;
-    entryLimitsConfig?: pulumi.Input<inputs.connectcampaignsv2.CampaignEntryLimitsConfigArgs>;
+    entryLimitsConfig?: pulumi.Input<inputs.connectcampaignsv2.CampaignEntryLimitsConfigArgs | undefined>;
     /**
      * The name of the outbound campaign.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Contains the schedule configuration.
      */
-    schedule?: pulumi.Input<inputs.connectcampaignsv2.CampaignScheduleArgs>;
+    schedule?: pulumi.Input<inputs.connectcampaignsv2.CampaignScheduleArgs | undefined>;
     /**
      * Contains source configuration.
      */
-    source?: pulumi.Input<inputs.connectcampaignsv2.CampaignSourceArgs>;
+    source?: pulumi.Input<inputs.connectcampaignsv2.CampaignSourceArgs | undefined>;
     /**
      * One or more tags.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The type of campaign.
      */
-    type?: pulumi.Input<enums.connectcampaignsv2.CampaignType>;
+    type?: pulumi.Input<enums.connectcampaignsv2.CampaignType | undefined>;
 }

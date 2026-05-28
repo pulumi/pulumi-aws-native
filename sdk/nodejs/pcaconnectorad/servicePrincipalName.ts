@@ -74,9 +74,9 @@ export interface ServicePrincipalNameArgs {
     /**
      * The Amazon Resource Name (ARN) that was returned when you called [CreateConnector.html](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html) .
      */
-    connectorArn?: pulumi.Input<string>;
+    connectorArn?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) that was returned when you called [CreateDirectoryRegistration](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html) .
      */
-    directoryRegistrationArn?: pulumi.Input<string>;
+    directoryRegistrationArn?: pulumi.Input<string | undefined>;
 }

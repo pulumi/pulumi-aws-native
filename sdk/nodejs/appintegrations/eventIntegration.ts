@@ -107,7 +107,7 @@ export interface EventIntegrationArgs {
     /**
      * The event integration description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Eventbridge bus for the event integration.
      */
@@ -119,9 +119,9 @@ export interface EventIntegrationArgs {
     /**
      * The name of the event integration.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The tags (keys and values) associated with the event integration.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

@@ -121,35 +121,35 @@ export interface EventBusArgs {
     /**
      * Dead Letter Queue for the event bus.
      */
-    deadLetterConfig?: pulumi.Input<inputs.events.DeadLetterConfigPropertiesArgs>;
+    deadLetterConfig?: pulumi.Input<inputs.events.DeadLetterConfigPropertiesArgs | undefined>;
     /**
      * The description of the event bus.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * If you are creating a partner event bus, this specifies the partner event source that the new event bus will be matched with.
      */
-    eventSourceName?: pulumi.Input<string>;
+    eventSourceName?: pulumi.Input<string | undefined>;
     /**
      * Kms Key Identifier used to encrypt events at rest in the event bus.
      */
-    kmsKeyIdentifier?: pulumi.Input<string>;
+    kmsKeyIdentifier?: pulumi.Input<string | undefined>;
     /**
      * The logging configuration settings for vended logs.
      */
-    logConfig?: pulumi.Input<inputs.events.LogConfigPropertiesArgs>;
+    logConfig?: pulumi.Input<inputs.events.LogConfigPropertiesArgs | undefined>;
     /**
      * The name of the event bus.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A JSON string that describes the permission policy statement for the event bus.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::EventBus` for more information about the expected schema for this property.
      */
-    policy?: any;
+    policy?: any | undefined;
     /**
      * Any tags assigned to the event bus.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

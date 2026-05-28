@@ -101,11 +101,11 @@ export interface DeviceFleetArgs {
     /**
      * Description for the edge device fleet
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the edge device fleet
      */
-    deviceFleetName?: pulumi.Input<string>;
+    deviceFleetName?: pulumi.Input<string | undefined>;
     /**
      * S3 bucket and an ecryption key id (if available) to store outputs for the fleet
      */
@@ -117,5 +117,5 @@ export interface DeviceFleetArgs {
     /**
      * Associate tags with the resource
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

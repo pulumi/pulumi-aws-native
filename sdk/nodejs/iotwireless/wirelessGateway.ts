@@ -120,11 +120,11 @@ export interface WirelessGatewayArgs {
     /**
      * Description of Wireless Gateway.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The date and time when the most recent uplink was received.
      */
-    lastUplinkReceivedAt?: pulumi.Input<string>;
+    lastUplinkReceivedAt?: pulumi.Input<string | undefined>;
     /**
      * The combination of Package, Station and Model which represents the version of the LoRaWAN Wireless Gateway.
      */
@@ -132,17 +132,17 @@ export interface WirelessGatewayArgs {
     /**
      * Name of Wireless Gateway.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A list of key-value pairs that contain metadata for the gateway.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * Thing Arn. Passed into Update to associate a Thing with the Wireless Gateway.
      */
-    thingArn?: pulumi.Input<string>;
+    thingArn?: pulumi.Input<string | undefined>;
     /**
      * Thing Name. If there is a Thing created, this can be returned with a Get call.
      */
-    thingName?: pulumi.Input<string>;
+    thingName?: pulumi.Input<string | undefined>;
 }

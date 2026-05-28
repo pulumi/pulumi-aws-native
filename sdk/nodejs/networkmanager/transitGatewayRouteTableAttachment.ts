@@ -191,7 +191,7 @@ export interface TransitGatewayRouteTableAttachmentArgs {
     /**
      * The name of the network function group attachment.
      */
-    networkFunctionGroupName?: pulumi.Input<string>;
+    networkFunctionGroupName?: pulumi.Input<string | undefined>;
     /**
      * The Id of peering between transit gateway and core network.
      */
@@ -199,19 +199,19 @@ export interface TransitGatewayRouteTableAttachmentArgs {
     /**
      * The attachment to move from one network function group to another.
      */
-    proposedNetworkFunctionGroupChange?: pulumi.Input<inputs.networkmanager.TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangeArgs>;
+    proposedNetworkFunctionGroupChange?: pulumi.Input<inputs.networkmanager.TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangeArgs | undefined>;
     /**
      * The attachment to move from one segment to another.
      */
-    proposedSegmentChange?: pulumi.Input<inputs.networkmanager.TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs>;
+    proposedSegmentChange?: pulumi.Input<inputs.networkmanager.TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs | undefined>;
     /**
      * Routing policy label
      */
-    routingPolicyLabel?: pulumi.Input<string>;
+    routingPolicyLabel?: pulumi.Input<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The Arn of transit gateway route table.
      */

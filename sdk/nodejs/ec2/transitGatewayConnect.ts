@@ -117,7 +117,7 @@ export interface TransitGatewayConnectArgs {
     /**
      * The tags for the attachment.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The ID of the attachment from which the Connect attachment was created.
      */

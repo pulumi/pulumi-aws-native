@@ -165,47 +165,47 @@ export interface RouteArgs {
      * The ID of the carrier gateway.
      *  You can only use this option when the VPC contains a subnet which is associated with a Wavelength Zone.
      */
-    carrierGatewayId?: pulumi.Input<string>;
+    carrierGatewayId?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the core network.
      */
-    coreNetworkArn?: pulumi.Input<string>;
+    coreNetworkArn?: pulumi.Input<string | undefined>;
     /**
      * The IPv4 CIDR address block used for the destination match. Routing decisions are based on the most specific match. We modify the specified CIDR block to its canonical form; for example, if you specify ``100.68.0.18/18``, we modify it to ``100.68.0.0/18``.
      */
-    destinationCidrBlock?: pulumi.Input<string>;
+    destinationCidrBlock?: pulumi.Input<string | undefined>;
     /**
      * The IPv6 CIDR block used for the destination match. Routing decisions are based on the most specific match.
      */
-    destinationIpv6CidrBlock?: pulumi.Input<string>;
+    destinationIpv6CidrBlock?: pulumi.Input<string | undefined>;
     /**
      * The ID of a prefix list used for the destination match.
      */
-    destinationPrefixListId?: pulumi.Input<string>;
+    destinationPrefixListId?: pulumi.Input<string | undefined>;
     /**
      * [IPv6 traffic only] The ID of an egress-only internet gateway.
      */
-    egressOnlyInternetGatewayId?: pulumi.Input<string>;
+    egressOnlyInternetGatewayId?: pulumi.Input<string | undefined>;
     /**
      * The ID of an internet gateway or virtual private gateway attached to your VPC.
      */
-    gatewayId?: pulumi.Input<string>;
+    gatewayId?: pulumi.Input<string | undefined>;
     /**
      * The ID of a NAT instance in your VPC. The operation fails if you specify an instance ID unless exactly one network interface is attached.
      */
-    instanceId?: pulumi.Input<string>;
+    instanceId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the local gateway.
      */
-    localGatewayId?: pulumi.Input<string>;
+    localGatewayId?: pulumi.Input<string | undefined>;
     /**
      * [IPv4 traffic only] The ID of a NAT gateway.
      */
-    natGatewayId?: pulumi.Input<string>;
+    natGatewayId?: pulumi.Input<string | undefined>;
     /**
      * The ID of a network interface.
      */
-    networkInterfaceId?: pulumi.Input<string>;
+    networkInterfaceId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the route table for the route.
      */
@@ -213,13 +213,13 @@ export interface RouteArgs {
     /**
      * The ID of a transit gateway.
      */
-    transitGatewayId?: pulumi.Input<string>;
+    transitGatewayId?: pulumi.Input<string | undefined>;
     /**
      * The ID of a VPC endpoint. Supported for Gateway Load Balancer endpoints only.
      */
-    vpcEndpointId?: pulumi.Input<string>;
+    vpcEndpointId?: pulumi.Input<string | undefined>;
     /**
      * The ID of a VPC peering connection.
      */
-    vpcPeeringConnectionId?: pulumi.Input<string>;
+    vpcPeeringConnectionId?: pulumi.Input<string | undefined>;
 }

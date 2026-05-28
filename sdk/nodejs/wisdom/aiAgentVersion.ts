@@ -103,5 +103,5 @@ export interface AiAgentVersionArgs {
     /**
      * The time the AI Agent version was last modified in seconds.
      */
-    modifiedTimeSeconds?: pulumi.Input<number>;
+    modifiedTimeSeconds?: pulumi.Input<number | undefined>;
 }

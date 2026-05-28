@@ -113,7 +113,7 @@ export interface AliasArgs {
     /**
      * A description of the alias.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the Lambda function.
      */
@@ -125,13 +125,13 @@ export interface AliasArgs {
     /**
      * The name of the alias.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies a provisioned concurrency configuration for a function's alias.
      */
-    provisionedConcurrencyConfig?: pulumi.Input<inputs.lambda.AliasProvisionedConcurrencyConfigurationArgs>;
+    provisionedConcurrencyConfig?: pulumi.Input<inputs.lambda.AliasProvisionedConcurrencyConfigurationArgs | undefined>;
     /**
      * The routing configuration of the alias.
      */
-    routingConfig?: pulumi.Input<inputs.lambda.AliasRoutingConfigurationArgs>;
+    routingConfig?: pulumi.Input<inputs.lambda.AliasRoutingConfigurationArgs | undefined>;
 }

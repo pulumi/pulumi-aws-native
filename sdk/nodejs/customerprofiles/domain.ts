@@ -125,15 +125,15 @@ export class Domain extends pulumi.CustomResource {
  * The set of arguments for constructing a Domain resource.
  */
 export interface DomainArgs {
-    dataStore?: pulumi.Input<inputs.customerprofiles.DomainDataStoreArgs>;
+    dataStore?: pulumi.Input<inputs.customerprofiles.DomainDataStoreArgs | undefined>;
     /**
      * The URL of the SQS dead letter queue
      */
-    deadLetterQueueUrl?: pulumi.Input<string>;
+    deadLetterQueueUrl?: pulumi.Input<string | undefined>;
     /**
      * The default encryption key
      */
-    defaultEncryptionKey?: pulumi.Input<string>;
+    defaultEncryptionKey?: pulumi.Input<string | undefined>;
     /**
      * The default number of days until the data within the domain expires.
      */
@@ -141,17 +141,17 @@ export interface DomainArgs {
     /**
      * The unique name of the domain.
      */
-    domainName?: pulumi.Input<string>;
+    domainName?: pulumi.Input<string | undefined>;
     /**
      * The process of matching duplicate profiles.
      */
-    matching?: pulumi.Input<inputs.customerprofiles.DomainMatchingArgs>;
+    matching?: pulumi.Input<inputs.customerprofiles.DomainMatchingArgs | undefined>;
     /**
      * The process of matching duplicate profiles using Rule-Based matching.
      */
-    ruleBasedMatching?: pulumi.Input<inputs.customerprofiles.DomainRuleBasedMatchingArgs>;
+    ruleBasedMatching?: pulumi.Input<inputs.customerprofiles.DomainRuleBasedMatchingArgs | undefined>;
     /**
      * The tags (keys and values) associated with the domain
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

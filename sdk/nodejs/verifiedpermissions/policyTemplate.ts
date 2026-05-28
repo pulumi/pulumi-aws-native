@@ -112,7 +112,7 @@ export interface PolicyTemplateArgs {
     /**
      * The description to attach to the new or updated policy template.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The unique identifier of the policy store that contains the template.
      */

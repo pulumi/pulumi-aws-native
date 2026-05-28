@@ -202,11 +202,11 @@ export interface MissionProfileArgs {
     /**
      * Post-pass time needed after the contact.
      */
-    contactPostPassDurationSeconds?: pulumi.Input<number>;
+    contactPostPassDurationSeconds?: pulumi.Input<number | undefined>;
     /**
      * Pre-pass time needed before the contact.
      */
-    contactPrePassDurationSeconds?: pulumi.Input<number>;
+    contactPrePassDurationSeconds?: pulumi.Input<number | undefined>;
     /**
      * A list containing lists of config ARNs. Each list of config ARNs is an edge, with a "from" config and a "to" config.
      */
@@ -218,23 +218,23 @@ export interface MissionProfileArgs {
     /**
      * A name used to identify a mission profile.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ARN of a KMS Key used for encrypting data during transmission from the source to destination locations.
      */
-    streamsKmsKey?: pulumi.Input<inputs.groundstation.MissionProfileStreamsKmsKeyArgs>;
+    streamsKmsKey?: pulumi.Input<inputs.groundstation.MissionProfileStreamsKmsKeyArgs | undefined>;
     /**
      * The ARN of the KMS Key or Alias Key role used to define permissions on KMS Key usage.
      */
-    streamsKmsRole?: pulumi.Input<string>;
+    streamsKmsRole?: pulumi.Input<string | undefined>;
     /**
      * Tags assigned to the mission profile.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * ARN of a Config resource of type TelemetrySinkConfig used for telemetry data sink configuration.
      */
-    telemetrySinkConfigArn?: pulumi.Input<string>;
+    telemetrySinkConfigArn?: pulumi.Input<string | undefined>;
     /**
      * The ARN of a tracking config objects that defines how to track the satellite through the sky during a contact.
      */

@@ -122,15 +122,15 @@ export interface AssetArgs {
     /**
      * A description for the asset
      */
-    assetDescription?: pulumi.Input<string>;
+    assetDescription?: pulumi.Input<string | undefined>;
     /**
      * The External ID of the asset
      */
-    assetExternalId?: pulumi.Input<string>;
+    assetExternalId?: pulumi.Input<string | undefined>;
     /**
      * A list of asset hierarchies that each contain a `hierarchyId` . A hierarchy specifies allowed parent/child asset relationships.
      */
-    assetHierarchies?: pulumi.Input<pulumi.Input<inputs.iotsitewise.AssetHierarchyArgs>[]>;
+    assetHierarchies?: pulumi.Input<pulumi.Input<inputs.iotsitewise.AssetHierarchyArgs>[] | undefined>;
     /**
      * The ID of the asset model from which to create the asset.
      */
@@ -138,15 +138,15 @@ export interface AssetArgs {
     /**
      * A unique, friendly name for the asset.
      */
-    assetName?: pulumi.Input<string>;
+    assetName?: pulumi.Input<string | undefined>;
     /**
      * The list of asset properties for the asset.
      *
      * This object doesn't include properties that you define in composite models. You can find composite model properties in the `assetCompositeModels` object.
      */
-    assetProperties?: pulumi.Input<pulumi.Input<inputs.iotsitewise.AssetPropertyArgs>[]>;
+    assetProperties?: pulumi.Input<pulumi.Input<inputs.iotsitewise.AssetPropertyArgs>[] | undefined>;
     /**
      * A list of key-value pairs that contain metadata for the asset.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

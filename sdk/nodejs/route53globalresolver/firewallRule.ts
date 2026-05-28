@@ -126,17 +126,17 @@ export class FirewallRule extends pulumi.CustomResource {
  */
 export interface FirewallRuleArgs {
     action: pulumi.Input<enums.route53globalresolver.FirewallRuleAction>;
-    blockOverrideDnsType?: pulumi.Input<enums.route53globalresolver.FirewallRuleBlockOverrideDnsQueryType>;
-    blockOverrideDomain?: pulumi.Input<string>;
-    blockOverrideTtl?: pulumi.Input<number>;
-    blockResponse?: pulumi.Input<enums.route53globalresolver.FirewallRuleFirewallBlockResponse>;
-    clientToken?: pulumi.Input<string>;
-    confidenceThreshold?: pulumi.Input<enums.route53globalresolver.FirewallRuleConfidenceThreshold>;
-    description?: pulumi.Input<string>;
-    dnsAdvancedProtection?: pulumi.Input<enums.route53globalresolver.FirewallRuleDnsAdvancedProtection>;
+    blockOverrideDnsType?: pulumi.Input<enums.route53globalresolver.FirewallRuleBlockOverrideDnsQueryType | undefined>;
+    blockOverrideDomain?: pulumi.Input<string | undefined>;
+    blockOverrideTtl?: pulumi.Input<number | undefined>;
+    blockResponse?: pulumi.Input<enums.route53globalresolver.FirewallRuleFirewallBlockResponse | undefined>;
+    clientToken?: pulumi.Input<string | undefined>;
+    confidenceThreshold?: pulumi.Input<enums.route53globalresolver.FirewallRuleConfidenceThreshold | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    dnsAdvancedProtection?: pulumi.Input<enums.route53globalresolver.FirewallRuleDnsAdvancedProtection | undefined>;
     dnsViewId: pulumi.Input<string>;
-    firewallDomainListId?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    priority?: pulumi.Input<number>;
-    qType?: pulumi.Input<string>;
+    firewallDomainListId?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    priority?: pulumi.Input<number | undefined>;
+    qType?: pulumi.Input<string | undefined>;
 }

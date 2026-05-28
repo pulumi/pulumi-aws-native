@@ -85,5 +85,5 @@ export interface ResourcePolicyArgs {
     /**
      * A name for resource policy
      */
-    policyName?: pulumi.Input<string>;
+    policyName?: pulumi.Input<string | undefined>;
 }

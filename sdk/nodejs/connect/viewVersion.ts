@@ -95,7 +95,7 @@ export interface ViewVersionArgs {
     /**
      * The description for the view version.
      */
-    versionDescription?: pulumi.Input<string>;
+    versionDescription?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the view for which a version is being created.
      */
@@ -103,5 +103,5 @@ export interface ViewVersionArgs {
     /**
      * The view content hash to be checked.
      */
-    viewContentSha256?: pulumi.Input<string>;
+    viewContentSha256?: pulumi.Input<string | undefined>;
 }

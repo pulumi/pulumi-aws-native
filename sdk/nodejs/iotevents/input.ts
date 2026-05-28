@@ -143,14 +143,14 @@ export interface InputArgs {
     /**
      * A brief description of the input.
      */
-    inputDescription?: pulumi.Input<string>;
+    inputDescription?: pulumi.Input<string | undefined>;
     /**
      * The name of the input.
      */
-    inputName?: pulumi.Input<string>;
+    inputName?: pulumi.Input<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      *  For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

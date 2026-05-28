@@ -243,34 +243,34 @@ export interface DomainArgs {
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpenSearchService::Domain` for more information about the expected schema for this property.
      */
-    accessPolicies?: any;
+    accessPolicies?: any | undefined;
     /**
      * Additional options to specify for the OpenSearch Service domain. For more information, see [AdvancedOptions](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_CreateDomain.html#API_CreateDomain_RequestBody) in the OpenSearch Service API reference.
      */
-    advancedOptions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    advancedOptions?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies options for fine-grained access control and SAML authentication.
      *
      * If you specify advanced security options, you must also enable node-to-node encryption ( [NodeToNodeEncryptionOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-nodetonodeencryptionoptions.html) ) and encryption at rest ( [EncryptionAtRestOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-encryptionatrestoptions.html) ). You must also enable `EnforceHTTPS` within [DomainEndpointOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-domainendpointoptions.html) , which requires HTTPS for all traffic to the domain.
      */
-    advancedSecurityOptions?: pulumi.Input<inputs.opensearchservice.DomainAdvancedSecurityOptionsInputArgs>;
+    advancedSecurityOptions?: pulumi.Input<inputs.opensearchservice.DomainAdvancedSecurityOptionsInputArgs | undefined>;
     /**
      * Container for parameters required to enable all machine learning features.
      */
-    aimlOptions?: pulumi.Input<inputs.opensearchservice.DomainAimlOptionsArgs>;
+    aimlOptions?: pulumi.Input<inputs.opensearchservice.DomainAimlOptionsArgs | undefined>;
     /**
      * Container for the cluster configuration of a domain.
      */
-    clusterConfig?: pulumi.Input<inputs.opensearchservice.DomainClusterConfigArgs>;
+    clusterConfig?: pulumi.Input<inputs.opensearchservice.DomainClusterConfigArgs | undefined>;
     /**
      * Configures OpenSearch Service to use Amazon Cognito authentication for OpenSearch Dashboards.
      */
-    cognitoOptions?: pulumi.Input<inputs.opensearchservice.DomainCognitoOptionsArgs>;
-    deploymentStrategyOptions?: pulumi.Input<inputs.opensearchservice.DomainDeploymentStrategyOptionsArgs>;
+    cognitoOptions?: pulumi.Input<inputs.opensearchservice.DomainCognitoOptionsArgs | undefined>;
+    deploymentStrategyOptions?: pulumi.Input<inputs.opensearchservice.DomainDeploymentStrategyOptionsArgs | undefined>;
     /**
      * Specifies additional options for the domain endpoint, such as whether to require HTTPS for all traffic or whether to use a custom endpoint rather than the default endpoint.
      */
-    domainEndpointOptions?: pulumi.Input<inputs.opensearchservice.DomainEndpointOptionsArgs>;
+    domainEndpointOptions?: pulumi.Input<inputs.opensearchservice.DomainEndpointOptionsArgs | undefined>;
     /**
      * A name for the OpenSearch Service domain. The name must have a minimum length of 3 and a maximum length of 28. If you don't specify a name, CloudFormation generates a unique physical ID and uses that ID for the domain name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
      *
@@ -278,60 +278,60 @@ export interface DomainArgs {
      *
      * > If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
      */
-    domainName?: pulumi.Input<string>;
+    domainName?: pulumi.Input<string | undefined>;
     /**
      * The configurations of Amazon Elastic Block Store (Amazon EBS) volumes that are attached to data nodes in the OpenSearch Service domain. For more information, see [EBS volume size limits](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/limits.html#ebsresource) in the *Amazon OpenSearch Service Developer Guide* .
      */
-    ebsOptions?: pulumi.Input<inputs.opensearchservice.DomainEbsOptionsArgs>;
+    ebsOptions?: pulumi.Input<inputs.opensearchservice.DomainEbsOptionsArgs | undefined>;
     /**
      * Whether the domain should encrypt data at rest, and if so, the AWS  key to use. See [Encryption of data at rest for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html) .
      *
      * If no encryption at rest options were initially specified in the template, updating this property by adding it causes no interruption. However, if you change this property after it's already been set within a template, the domain is deleted and recreated in order to modify the property.
      */
-    encryptionAtRestOptions?: pulumi.Input<inputs.opensearchservice.DomainEncryptionAtRestOptionsArgs>;
+    encryptionAtRestOptions?: pulumi.Input<inputs.opensearchservice.DomainEncryptionAtRestOptionsArgs | undefined>;
     /**
      * The version of OpenSearch to use. The value must be in the format `OpenSearch_X.Y` or `Elasticsearch_X.Y` . If not specified, the latest version of OpenSearch is used. For information about the versions that OpenSearch Service supports, see [Supported versions of OpenSearch and Elasticsearch](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/what-is.html#choosing-version) in the *Amazon OpenSearch Service Developer Guide* .
      *
      * If you set the [EnableVersionUpgrade](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html#cfn-attributes-updatepolicy-upgradeopensearchdomain) update policy to `true` , you can update `EngineVersion` without interruption. When `EnableVersionUpgrade` is set to `false` , or is not specified, updating `EngineVersion` results in [replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement) .
      */
-    engineVersion?: pulumi.Input<string>;
+    engineVersion?: pulumi.Input<string | undefined>;
     /**
      * Configuration options for controlling IAM Identity Center integration within a domain.
      */
-    identityCenterOptions?: pulumi.Input<inputs.opensearchservice.DomainIdentityCenterOptionsArgs>;
+    identityCenterOptions?: pulumi.Input<inputs.opensearchservice.DomainIdentityCenterOptionsArgs | undefined>;
     /**
      * Choose either dual stack or IPv4 as your IP address type. Dual stack allows you to share domain resources across IPv4 and IPv6 address types, and is the recommended option. If you set your IP address type to dual stack, you can't change your address type later.
      */
-    ipAddressType?: pulumi.Input<string>;
+    ipAddressType?: pulumi.Input<string | undefined>;
     /**
      * An object with one or more of the following keys: `SEARCH_SLOW_LOGS` , `ES_APPLICATION_LOGS` , `INDEX_SLOW_LOGS` , `AUDIT_LOGS` , depending on the types of logs you want to publish. Each key needs a valid `LogPublishingOption` value. For the full syntax, see the [examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#aws-resource-opensearchservice-domain--examples) .
      */
-    logPublishingOptions?: pulumi.Input<{[key: string]: pulumi.Input<inputs.opensearchservice.DomainLogPublishingOptionArgs>}>;
+    logPublishingOptions?: pulumi.Input<{[key: string]: pulumi.Input<inputs.opensearchservice.DomainLogPublishingOptionArgs>} | undefined>;
     /**
      * Specifies whether node-to-node encryption is enabled. See [Node-to-node encryption for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ntn.html) .
      */
-    nodeToNodeEncryptionOptions?: pulumi.Input<inputs.opensearchservice.DomainNodeToNodeEncryptionOptionsArgs>;
+    nodeToNodeEncryptionOptions?: pulumi.Input<inputs.opensearchservice.DomainNodeToNodeEncryptionOptionsArgs | undefined>;
     /**
      * Options for a domain's off-peak window, during which OpenSearch Service can perform mandatory configuration changes on the domain.
      */
-    offPeakWindowOptions?: pulumi.Input<inputs.opensearchservice.DomainOffPeakWindowOptionsArgs>;
-    skipShardMigrationWait?: pulumi.Input<boolean>;
+    offPeakWindowOptions?: pulumi.Input<inputs.opensearchservice.DomainOffPeakWindowOptionsArgs | undefined>;
+    skipShardMigrationWait?: pulumi.Input<boolean | undefined>;
     /**
      * *DEPRECATED* . The automated snapshot configuration for the OpenSearch Service domain indexes.
      */
-    snapshotOptions?: pulumi.Input<inputs.opensearchservice.DomainSnapshotOptionsArgs>;
+    snapshotOptions?: pulumi.Input<inputs.opensearchservice.DomainSnapshotOptionsArgs | undefined>;
     /**
      * Service software update options for the domain.
      */
-    softwareUpdateOptions?: pulumi.Input<inputs.opensearchservice.DomainSoftwareUpdateOptionsArgs>;
+    softwareUpdateOptions?: pulumi.Input<inputs.opensearchservice.DomainSoftwareUpdateOptionsArgs | undefined>;
     /**
      * An arbitrary set of tags (key-value pairs) for this Domain.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The virtual private cloud (VPC) configuration for the OpenSearch Service domain. For more information, see [Launching your Amazon OpenSearch Service domains within a VPC](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html) in the *Amazon OpenSearch Service Developer Guide* .
      *
      * If you remove this entity altogether, along with its associated properties, it causes a replacement. You might encounter this scenario if you're updating your security configuration from a VPC to a public endpoint.
      */
-    vpcOptions?: pulumi.Input<inputs.opensearchservice.DomainVpcOptionsArgs>;
+    vpcOptions?: pulumi.Input<inputs.opensearchservice.DomainVpcOptionsArgs | undefined>;
 }

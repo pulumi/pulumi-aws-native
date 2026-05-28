@@ -303,23 +303,23 @@ export interface ComponentArgs {
     /**
      * The change description of the component.
      */
-    changeDescription?: pulumi.Input<string>;
+    changeDescription?: pulumi.Input<string | undefined>;
     /**
      * The data of the component.
      */
-    data?: pulumi.Input<string>;
+    data?: pulumi.Input<string | undefined>;
     /**
      * The description of the component.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The KMS key identifier used to encrypt the component.
      */
-    kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * The name of the component.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The platform of the component.
      */
@@ -327,15 +327,15 @@ export interface ComponentArgs {
     /**
      * The operating system (OS) version supported by the component.
      */
-    supportedOsVersions?: pulumi.Input<pulumi.Input<string>[]>;
+    supportedOsVersions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The tags associated with the component.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The uri of the component.
      */
-    uri?: pulumi.Input<string>;
+    uri?: pulumi.Input<string | undefined>;
     /**
      * The version of the component.
      */

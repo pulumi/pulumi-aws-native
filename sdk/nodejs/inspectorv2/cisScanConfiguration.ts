@@ -123,7 +123,7 @@ export interface CisScanConfigurationArgs {
     /**
      * The CIS scan configuration's tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The CIS scan configuration's targets.
      */

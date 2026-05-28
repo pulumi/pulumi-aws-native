@@ -125,11 +125,11 @@ export interface RecipeArgs {
     /**
      * Description of the recipe
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Recipe name
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A list of steps that are defined by the recipe.
      */
@@ -137,5 +137,5 @@ export interface RecipeArgs {
     /**
      * Metadata tags that have been applied to the recipe.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

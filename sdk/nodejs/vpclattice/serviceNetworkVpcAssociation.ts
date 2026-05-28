@@ -149,25 +149,25 @@ export interface ServiceNetworkVpcAssociationArgs {
     /**
      * The DNS options for the service network VPC association.
      */
-    dnsOptions?: pulumi.Input<inputs.vpclattice.ServiceNetworkVpcAssociationDnsOptionsArgs>;
+    dnsOptions?: pulumi.Input<inputs.vpclattice.ServiceNetworkVpcAssociationDnsOptionsArgs | undefined>;
     /**
      * Indicates if private DNS is enabled for the service network VPC association.
      */
-    privateDnsEnabled?: pulumi.Input<boolean>;
+    privateDnsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The IDs of the security groups. Security groups aren't added by default. You can add a security group to apply network level controls to control which resources in a VPC are allowed to access the service network and its services. For more information, see [Control traffic to resources using security groups](https://docs.aws.amazon.com//vpc/latest/userguide/VPC_SecurityGroups.html) in the *Amazon VPC User Guide* .
      */
-    securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    securityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The ID or ARN of the service network. You must use an ARN if the resources are in different accounts.
      */
-    serviceNetworkIdentifier?: pulumi.Input<string>;
+    serviceNetworkIdentifier?: pulumi.Input<string | undefined>;
     /**
      * The tags for the association.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The ID of the VPC.
      */
-    vpcIdentifier?: pulumi.Input<string>;
+    vpcIdentifier?: pulumi.Input<string | undefined>;
 }

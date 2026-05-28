@@ -158,23 +158,23 @@ export interface DomainArgs {
     /**
      * Sets the branch patterns for automatic subdomain creation.
      */
-    autoSubDomainCreationPatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    autoSubDomainCreationPatterns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The required AWS Identity and Access Management (IAMlong) service role for the Amazon Resource Name (ARN) for automatically creating subdomains.
      */
-    autoSubDomainIamRole?: pulumi.Input<string>;
+    autoSubDomainIamRole?: pulumi.Input<string | undefined>;
     /**
      * The type of SSL/TLS certificate to use for your custom domain. If you don't specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
      */
-    certificateSettings?: pulumi.Input<inputs.amplify.DomainCertificateSettingsArgs>;
+    certificateSettings?: pulumi.Input<inputs.amplify.DomainCertificateSettingsArgs | undefined>;
     /**
      * The domain name for the domain association.
      */
-    domainName?: pulumi.Input<string>;
+    domainName?: pulumi.Input<string | undefined>;
     /**
      * Enables the automated creation of subdomains for branches.
      */
-    enableAutoSubDomain?: pulumi.Input<boolean>;
+    enableAutoSubDomain?: pulumi.Input<boolean | undefined>;
     /**
      * The setting for the subdomain.
      */

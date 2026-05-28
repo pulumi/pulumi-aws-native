@@ -80,9 +80,9 @@ export interface AssessmentTargetArgs {
     /**
      * The name of the Amazon Inspector assessment target. The name must be unique within the AWS account .
      */
-    assessmentTargetName?: pulumi.Input<string>;
+    assessmentTargetName?: pulumi.Input<string | undefined>;
     /**
      * The ARN that specifies the resource group that is used to create the assessment target. If `resourceGroupArn` is not specified, all EC2 instances in the current AWS account and Region are included in the assessment target.
      */
-    resourceGroupArn?: pulumi.Input<string>;
+    resourceGroupArn?: pulumi.Input<string | undefined>;
 }

@@ -123,29 +123,29 @@ export interface ScheduledActionArgs {
     /**
      * The desired capacity is the initial capacity of the Auto Scaling group after the scheduled action runs and the capacity it attempts to maintain.
      */
-    desiredCapacity?: pulumi.Input<number>;
+    desiredCapacity?: pulumi.Input<number | undefined>;
     /**
      * The latest scheduled start time to return. If scheduled action names are provided, this parameter is ignored.
      */
-    endTime?: pulumi.Input<string>;
+    endTime?: pulumi.Input<string | undefined>;
     /**
      * The minimum size of the Auto Scaling group.
      */
-    maxSize?: pulumi.Input<number>;
+    maxSize?: pulumi.Input<number | undefined>;
     /**
      * The minimum size of the Auto Scaling group.
      */
-    minSize?: pulumi.Input<number>;
+    minSize?: pulumi.Input<number | undefined>;
     /**
      * The recurring schedule for the action, in Unix cron syntax format. When StartTime and EndTime are specified with Recurrence , they form the boundaries of when the recurring action starts and stops.
      */
-    recurrence?: pulumi.Input<string>;
+    recurrence?: pulumi.Input<string | undefined>;
     /**
      * The earliest scheduled start time to return. If scheduled action names are provided, this parameter is ignored.
      */
-    startTime?: pulumi.Input<string>;
+    startTime?: pulumi.Input<string | undefined>;
     /**
      * The time zone for the cron expression.
      */
-    timeZone?: pulumi.Input<string>;
+    timeZone?: pulumi.Input<string | undefined>;
 }

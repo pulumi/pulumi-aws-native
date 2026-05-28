@@ -116,27 +116,27 @@ export interface RotationScheduleArgs {
     /**
      * The list of metadata needed to successfully rotate a managed external secret.
      */
-    externalSecretRotationMetadata?: pulumi.Input<pulumi.Input<inputs.secretsmanager.RotationScheduleExternalSecretRotationMetadataItemArgs>[]>;
+    externalSecretRotationMetadata?: pulumi.Input<pulumi.Input<inputs.secretsmanager.RotationScheduleExternalSecretRotationMetadataItemArgs>[] | undefined>;
     /**
      * The ARN of the IAM role that is used by Secrets Manager to rotate a managed external secret.
      */
-    externalSecretRotationRoleArn?: pulumi.Input<string>;
+    externalSecretRotationRoleArn?: pulumi.Input<string | undefined>;
     /**
      * Creates a new Lambda rotation function based on one of the Secrets Manager rotation function templates. To use a rotation function that already exists, specify RotationLambdaARN instead.
      */
-    hostedRotationLambda?: pulumi.Input<inputs.secretsmanager.RotationScheduleHostedRotationLambdaArgs>;
+    hostedRotationLambda?: pulumi.Input<inputs.secretsmanager.RotationScheduleHostedRotationLambdaArgs | undefined>;
     /**
      * Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window.
      */
-    rotateImmediatelyOnUpdate?: pulumi.Input<boolean>;
+    rotateImmediatelyOnUpdate?: pulumi.Input<boolean | undefined>;
     /**
      * The ARN of an existing Lambda rotation function. To specify a rotation function that is also defined in this template, use the Ref function.
      */
-    rotationLambdaArn?: pulumi.Input<string>;
+    rotationLambdaArn?: pulumi.Input<string | undefined>;
     /**
      * A structure that defines the rotation configuration for this secret.
      */
-    rotationRules?: pulumi.Input<inputs.secretsmanager.RotationScheduleRotationRulesArgs>;
+    rotationRules?: pulumi.Input<inputs.secretsmanager.RotationScheduleRotationRulesArgs | undefined>;
     /**
      * The ARN or name of the secret to rotate.
      */

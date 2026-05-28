@@ -102,14 +102,14 @@ export class SdiSource extends pulumi.CustomResource {
  * The set of arguments for constructing a SdiSource resource.
  */
 export interface SdiSourceArgs {
-    mode?: pulumi.Input<enums.medialive.SdiSourceMode>;
+    mode?: pulumi.Input<enums.medialive.SdiSourceMode | undefined>;
     /**
      * The name of the SdiSource.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A collection of key-value pairs.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     type: pulumi.Input<enums.medialive.SdiSourceType>;
 }

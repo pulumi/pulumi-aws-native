@@ -101,17 +101,17 @@ export interface ServiceNetworkResourceAssociationArgs {
     /**
      * Indicates if private DNS is enabled for the service network resource association.
      */
-    privateDnsEnabled?: pulumi.Input<boolean>;
+    privateDnsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the resource configuration associated with the service network.
      */
-    resourceConfigurationId?: pulumi.Input<string>;
+    resourceConfigurationId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the service network associated with the resource configuration.
      */
-    serviceNetworkId?: pulumi.Input<string>;
+    serviceNetworkId?: pulumi.Input<string | undefined>;
     /**
      * A key-value pair to associate with a resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

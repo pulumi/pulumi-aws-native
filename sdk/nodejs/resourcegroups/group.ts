@@ -117,31 +117,31 @@ export interface GroupArgs {
      *
      * > You can include either a `Configuration` or a `ResourceQuery` , but not both.
      */
-    configuration?: pulumi.Input<pulumi.Input<inputs.resourcegroups.GroupConfigurationItemArgs>[]>;
+    configuration?: pulumi.Input<pulumi.Input<inputs.resourcegroups.GroupConfigurationItemArgs>[] | undefined>;
     /**
      * The description of the resource group
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The resource query structure that is used to dynamically determine which AWS resources are members of the associated resource group. For more information about queries and how to construct them, see [Build queries and groups in Resource Groups](https://docs.aws.amazon.com//ARG/latest/userguide/gettingstarted-query.html) in the *Resource Groups User Guide*
      *
      * > - You can include either a `ResourceQuery` or a `Configuration` , but not both.
      * > - You can specify the group's membership either by using a `ResourceQuery` or by using a list of `Resources` , but not both.
      */
-    resourceQuery?: pulumi.Input<inputs.resourcegroups.GroupResourceQueryArgs>;
+    resourceQuery?: pulumi.Input<inputs.resourcegroups.GroupResourceQueryArgs | undefined>;
     /**
      * A list of the Amazon Resource Names (ARNs) of AWS resources that you want to add to the specified group.
      *
      * > - You can specify the group membership either by using a list of `Resources` or by using a `ResourceQuery` , but not both.
      * > - You can include a `Resources` property only if you also specify a `Configuration` property.
      */
-    resources?: pulumi.Input<pulumi.Input<string>[]>;
+    resources?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The tag key and value pairs that are attached to the resource group.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

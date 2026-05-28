@@ -117,11 +117,11 @@ export interface PortfolioArgs {
      * - `jp` - Japanese
      * - `zh` - Chinese
      */
-    acceptLanguage?: pulumi.Input<string>;
+    acceptLanguage?: pulumi.Input<string | undefined>;
     /**
      * The description of the portfolio.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name to use for display purposes.
      */
@@ -133,5 +133,5 @@ export interface PortfolioArgs {
     /**
      * One or more tags.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

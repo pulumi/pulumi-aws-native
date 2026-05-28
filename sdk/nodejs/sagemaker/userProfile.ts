@@ -114,21 +114,21 @@ export interface UserProfileArgs {
     /**
      * A specifier for the type of value specified in SingleSignOnUserValue. Currently, the only supported value is "UserName". If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.
      */
-    singleSignOnUserIdentifier?: pulumi.Input<string>;
+    singleSignOnUserIdentifier?: pulumi.Input<string | undefined>;
     /**
      * The username of the associated AWS Single Sign-On User for this UserProfile. If the Domain's AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot be specified.
      */
-    singleSignOnUserValue?: pulumi.Input<string>;
+    singleSignOnUserValue?: pulumi.Input<string | undefined>;
     /**
      * A list of tags to apply to the user profile.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[] | undefined>;
     /**
      * A name for the UserProfile.
      */
-    userProfileName?: pulumi.Input<string>;
+    userProfileName?: pulumi.Input<string | undefined>;
     /**
      * A collection of settings.
      */
-    userSettings?: pulumi.Input<inputs.sagemaker.UserProfileUserSettingsArgs>;
+    userSettings?: pulumi.Input<inputs.sagemaker.UserProfileUserSettingsArgs | undefined>;
 }

@@ -128,8 +128,8 @@ export interface IdMappingWorkflowArgs {
     /**
      * The description of the IdMappingWorkflow
      */
-    description?: pulumi.Input<string>;
-    idMappingIncrementalRunConfig?: pulumi.Input<inputs.entityresolution.IdMappingWorkflowIdMappingIncrementalRunConfigArgs>;
+    description?: pulumi.Input<string | undefined>;
+    idMappingIncrementalRunConfig?: pulumi.Input<inputs.entityresolution.IdMappingWorkflowIdMappingIncrementalRunConfigArgs | undefined>;
     /**
      * An object which defines the ID mapping technique and any additional configurations.
      */
@@ -141,7 +141,7 @@ export interface IdMappingWorkflowArgs {
     /**
      * A list of `IdMappingWorkflowOutputSource` objects, each of which contains fields `outputS3Path` and `KMSArn` .
      */
-    outputSourceConfig?: pulumi.Input<pulumi.Input<inputs.entityresolution.IdMappingWorkflowOutputSourceArgs>[]>;
+    outputSourceConfig?: pulumi.Input<pulumi.Input<inputs.entityresolution.IdMappingWorkflowOutputSourceArgs>[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role. AWS Entity Resolution assumes this role to create resources on your behalf as part of workflow execution.
      */
@@ -149,9 +149,9 @@ export interface IdMappingWorkflowArgs {
     /**
      * The tags used to organize, track, or control access for this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The name of the IdMappingWorkflow
      */
-    workflowName?: pulumi.Input<string>;
+    workflowName?: pulumi.Input<string | undefined>;
 }

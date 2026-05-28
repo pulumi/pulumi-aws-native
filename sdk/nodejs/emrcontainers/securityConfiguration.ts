@@ -104,11 +104,11 @@ export interface SecurityConfigurationArgs {
     /**
      * Container provider for the security configuration.
      */
-    containerProvider?: pulumi.Input<inputs.emrcontainers.SecurityConfigurationContainerProviderArgs>;
+    containerProvider?: pulumi.Input<inputs.emrcontainers.SecurityConfigurationContainerProviderArgs | undefined>;
     /**
      * The name of the security configuration.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Security configuration input for the security configuration.
      */
@@ -116,5 +116,5 @@ export interface SecurityConfigurationArgs {
     /**
      * An array of key-value pairs to apply to this security configuration.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

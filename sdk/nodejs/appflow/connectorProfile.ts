@@ -123,15 +123,15 @@ export interface ConnectorProfileArgs {
     /**
      * The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for CUSTOMCONNECTOR connector type/.
      */
-    connectorLabel?: pulumi.Input<string>;
+    connectorLabel?: pulumi.Input<string | undefined>;
     /**
      * Connector specific configurations needed to create connector profile
      */
-    connectorProfileConfig?: pulumi.Input<inputs.appflow.ConnectorProfileConfigArgs>;
+    connectorProfileConfig?: pulumi.Input<inputs.appflow.ConnectorProfileConfigArgs | undefined>;
     /**
      * The maximum number of items to retrieve in a single batch.
      */
-    connectorProfileName?: pulumi.Input<string>;
+    connectorProfileName?: pulumi.Input<string | undefined>;
     /**
      * List of Saas providers that need connector profile to be created
      */
@@ -139,5 +139,5 @@ export interface ConnectorProfileArgs {
     /**
      * The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
      */
-    kmsArn?: pulumi.Input<string>;
+    kmsArn?: pulumi.Input<string | undefined>;
 }

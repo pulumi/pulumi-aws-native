@@ -125,7 +125,7 @@ export interface IpamPrefixListResolverTargetArgs {
     /**
      * The desired version of the Prefix List Resolver that this Target should synchronize with.
      */
-    desiredVersion?: pulumi.Input<number>;
+    desiredVersion?: pulumi.Input<number | undefined>;
     /**
      * The Id of the IPAM Prefix List Resolver associated with this Target.
      */
@@ -141,7 +141,7 @@ export interface IpamPrefixListResolverTargetArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * Indicates whether this Target automatically tracks the latest version of the Prefix List Resolver.
      */

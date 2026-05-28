@@ -102,5 +102,5 @@ export interface ConnectionAliasArgs {
     /**
      * The tags to associate with the connection alias.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[] | undefined>;
 }

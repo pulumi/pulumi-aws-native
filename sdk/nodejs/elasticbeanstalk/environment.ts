@@ -156,45 +156,45 @@ export interface EnvironmentArgs {
     /**
      * If specified, the environment attempts to use this value as the prefix for the CNAME in your Elastic Beanstalk environment URL. If not specified, the CNAME is generated automatically by appending a random alphanumeric string to the environment name.
      */
-    cnamePrefix?: pulumi.Input<string>;
+    cnamePrefix?: pulumi.Input<string | undefined>;
     /**
      * Your description for this environment.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A unique name for the environment.
      */
-    environmentName?: pulumi.Input<string>;
+    environmentName?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of an existing IAM role to be used as the environment's operations role.
      */
-    operationsRole?: pulumi.Input<string>;
+    operationsRole?: pulumi.Input<string | undefined>;
     /**
      * Key-value pairs defining configuration options for this environment, such as the instance type.
      */
-    optionSettings?: pulumi.Input<pulumi.Input<inputs.elasticbeanstalk.EnvironmentOptionSettingArgs>[]>;
+    optionSettings?: pulumi.Input<pulumi.Input<inputs.elasticbeanstalk.EnvironmentOptionSettingArgs>[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the custom platform to use with the environment.
      */
-    platformArn?: pulumi.Input<string>;
+    platformArn?: pulumi.Input<string | undefined>;
     /**
      * The name of an Elastic Beanstalk solution stack (platform version) to use with the environment.
      */
-    solutionStackName?: pulumi.Input<string>;
+    solutionStackName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the tags applied to resources in the environment.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The name of the Elastic Beanstalk configuration template to use with the environment.
      */
-    templateName?: pulumi.Input<string>;
+    templateName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the tier to use in creating this environment. The environment tier that you choose determines whether Elastic Beanstalk provisions resources to support a web application that handles HTTP(S) requests or a web application that handles background-processing tasks.
      */
-    tier?: pulumi.Input<inputs.elasticbeanstalk.EnvironmentTierArgs>;
+    tier?: pulumi.Input<inputs.elasticbeanstalk.EnvironmentTierArgs | undefined>;
     /**
      * The name of the application version to deploy.
      */
-    versionLabel?: pulumi.Input<string>;
+    versionLabel?: pulumi.Input<string | undefined>;
 }

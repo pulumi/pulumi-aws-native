@@ -168,25 +168,25 @@ export interface EnvironmentBlueprintConfigurationArgs {
     /**
      * The environment role permission boundary.
      */
-    environmentRolePermissionBoundary?: pulumi.Input<string>;
+    environmentRolePermissionBoundary?: pulumi.Input<string | undefined>;
     /**
      * Region-agnostic environment blueprint parameters.
      */
-    globalParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    globalParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The ARN of the manage access role.
      */
-    manageAccessRoleArn?: pulumi.Input<string>;
+    manageAccessRoleArn?: pulumi.Input<string | undefined>;
     /**
      * The provisioning configuration of a blueprint.
      */
-    provisioningConfigurations?: pulumi.Input<pulumi.Input<inputs.datazone.EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArgs>[]>;
+    provisioningConfigurations?: pulumi.Input<pulumi.Input<inputs.datazone.EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArgs>[] | undefined>;
     /**
      * The ARN of the provisioning role.
      */
-    provisioningRoleArn?: pulumi.Input<string>;
+    provisioningRoleArn?: pulumi.Input<string | undefined>;
     /**
      * The regional parameters of the environment blueprint.
      */
-    regionalParameters?: pulumi.Input<pulumi.Input<inputs.datazone.EnvironmentBlueprintConfigurationRegionalParameterArgs>[]>;
+    regionalParameters?: pulumi.Input<pulumi.Input<inputs.datazone.EnvironmentBlueprintConfigurationRegionalParameterArgs>[] | undefined>;
 }

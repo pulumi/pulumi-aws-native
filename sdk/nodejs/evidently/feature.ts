@@ -135,23 +135,23 @@ export interface FeatureArgs {
      *
      * If you omit `DefaultVariation` , the first variation listed in the `Variations` structure is used as the default variation.
      */
-    defaultVariation?: pulumi.Input<string>;
+    defaultVariation?: pulumi.Input<string | undefined>;
     /**
      * An optional description of the feature.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specify users that should always be served a specific variation of a feature. Each user is specified by a key-value pair . For each key, specify a user by entering their user ID, account ID, or some other identifier. For the value, specify the name of the variation that they are to be served.
      */
-    entityOverrides?: pulumi.Input<pulumi.Input<inputs.evidently.FeatureEntityOverrideArgs>[]>;
+    entityOverrides?: pulumi.Input<pulumi.Input<inputs.evidently.FeatureEntityOverrideArgs>[] | undefined>;
     /**
      * Specify `ALL_RULES` to activate the traffic allocation specified by any ongoing launches or experiments. Specify `DEFAULT_VARIATION` to serve the default variation to all users instead.
      */
-    evaluationStrategy?: pulumi.Input<enums.evidently.FeatureEvaluationStrategy>;
+    evaluationStrategy?: pulumi.Input<enums.evidently.FeatureEvaluationStrategy | undefined>;
     /**
      * The name for the feature. It can include up to 127 characters.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name or ARN of the project that is to contain the new feature.
      */
@@ -159,7 +159,7 @@ export interface FeatureArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * An array of structures that contain the configuration of the feature's different variations.
      *

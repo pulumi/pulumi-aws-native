@@ -155,7 +155,7 @@ export interface PhoneNumberArgs {
     /**
      * When set to true the sender ID can't be deleted. By default this is set to false.
      */
-    deletionProtectionEnabled?: pulumi.Input<boolean>;
+    deletionProtectionEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
      */
@@ -175,21 +175,21 @@ export interface PhoneNumberArgs {
     /**
      * The name of the OptOutList to associate with the phone number. You can use the OptOutListName or OptOutListArn.
      */
-    optOutListName?: pulumi.Input<string>;
+    optOutListName?: pulumi.Input<string | undefined>;
     /**
      * A keyword is a word that you can search for on a particular phone number or pool. It is also a specific word or phrase that an end user can send to your number to elicit a response, such as an informational message or a special offer. When your number receives a message that begins with a keyword, AWS End User Messaging SMS and Voice responds with a customizable message.
      */
-    optionalKeywords?: pulumi.Input<pulumi.Input<inputs.smsvoice.PhoneNumberOptionalKeywordArgs>[]>;
+    optionalKeywords?: pulumi.Input<pulumi.Input<inputs.smsvoice.PhoneNumberOptionalKeywordArgs>[] | undefined>;
     /**
      * By default this is set to false. When an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, AWS End User Messaging SMS and Voice automatically replies with a customizable message and adds the end recipient to the OptOutList. When set to true you're responsible for responding to HELP and STOP requests. You're also responsible for tracking and honoring opt-out requests.
      */
-    selfManagedOptOutsEnabled?: pulumi.Input<boolean>;
+    selfManagedOptOutsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * When you set up two-way SMS, you can receive incoming messages from your customers. When one of your customers sends a message to your phone number, the message body is sent to an Amazon SNS topic or Amazon Connect for processing.
      */
-    twoWay?: pulumi.Input<inputs.smsvoice.TwoWayPropertiesArgs>;
+    twoWay?: pulumi.Input<inputs.smsvoice.TwoWayPropertiesArgs | undefined>;
 }

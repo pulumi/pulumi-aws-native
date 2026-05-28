@@ -167,23 +167,23 @@ export interface StreamProcessorArgs {
     /**
      * The BoundingBoxRegionsOfInterest specifies an array of bounding boxes of interest in the video frames to analyze, as part of connected home feature. If an object is partially in a region of interest, Rekognition will tag it as detected if the overlap of the object with the region-of-interest is greater than 20%.
      */
-    boundingBoxRegionsOfInterest?: pulumi.Input<pulumi.Input<inputs.rekognition.StreamProcessorBoundingBoxArgs>[]>;
+    boundingBoxRegionsOfInterest?: pulumi.Input<pulumi.Input<inputs.rekognition.StreamProcessorBoundingBoxArgs>[] | undefined>;
     /**
      * Connected home settings to use on a streaming video. You can use a stream processor for connected home features and select what you want the stream processor to detect, such as people or pets. When the stream processor has started, one notification is sent for each object class specified. For more information, see the ConnectedHome section of [StreamProcessorSettings](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StreamProcessorSettings) .
      */
-    connectedHomeSettings?: pulumi.Input<inputs.rekognition.StreamProcessorConnectedHomeSettingsArgs>;
+    connectedHomeSettings?: pulumi.Input<inputs.rekognition.StreamProcessorConnectedHomeSettingsArgs | undefined>;
     /**
      * Allows you to opt in or opt out to share data with Rekognition to improve model performance. You can choose this option at the account level or on a per-stream basis. Note that if you opt out at the account level this setting is ignored on individual streams. For more information, see [StreamProcessorDataSharingPreference](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StreamProcessorDataSharingPreference) .
      */
-    dataSharingPreference?: pulumi.Input<inputs.rekognition.StreamProcessorDataSharingPreferenceArgs>;
+    dataSharingPreference?: pulumi.Input<inputs.rekognition.StreamProcessorDataSharingPreferenceArgs | undefined>;
     /**
      * The input parameters used to recognize faces in a streaming video analyzed by an Amazon Rekognition stream processor. For more information regarding the contents of the parameters, see [FaceSearchSettings](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_FaceSearchSettings) .
      */
-    faceSearchSettings?: pulumi.Input<inputs.rekognition.StreamProcessorFaceSearchSettingsArgs>;
+    faceSearchSettings?: pulumi.Input<inputs.rekognition.StreamProcessorFaceSearchSettingsArgs | undefined>;
     /**
      * Amazon Rekognition's Video Stream Processor takes a Kinesis video stream as input. This is the Amazon Kinesis Data Streams instance to which the Amazon Rekognition stream processor streams the analysis results. This must be created within the constraints specified at [KinesisDataStream](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_KinesisDataStream) .
      */
-    kinesisDataStream?: pulumi.Input<inputs.rekognition.StreamProcessorKinesisDataStreamArgs>;
+    kinesisDataStream?: pulumi.Input<inputs.rekognition.StreamProcessorKinesisDataStreamArgs | undefined>;
     /**
      * The Kinesis video stream that provides the source of the streaming video for an Amazon Rekognition Video stream processor. For more information, see [KinesisVideoStream](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_KinesisVideoStream) .
      */
@@ -191,19 +191,19 @@ export interface StreamProcessorArgs {
     /**
      * The KMS key that is used by Rekognition to encrypt any intermediate customer metadata and store in the customer's S3 bucket.
      */
-    kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * Name of the stream processor. It's an identifier you assign to the stream processor. You can use it to manage the stream processor.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the object detection results and completion status of a video analysis operation. Amazon Rekognition publishes a notification the first time an object of interest or a person is detected in the video stream. Amazon Rekognition also publishes an end-of-session notification with a summary when the stream processing session is complete. For more information, see [StreamProcessorNotificationChannel](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StreamProcessorNotificationChannel) .
      */
-    notificationChannel?: pulumi.Input<inputs.rekognition.StreamProcessorNotificationChannelArgs>;
+    notificationChannel?: pulumi.Input<inputs.rekognition.StreamProcessorNotificationChannelArgs | undefined>;
     /**
      * The PolygonRegionsOfInterest specifies a set of polygon areas of interest in the video frames to analyze, as part of connected home feature. Each polygon is in turn, an ordered list of Point
      */
-    polygonRegionsOfInterest?: pulumi.Input<pulumi.Input<pulumi.Input<inputs.rekognition.StreamProcessorPointArgs>[]>[]>;
+    polygonRegionsOfInterest?: pulumi.Input<pulumi.Input<pulumi.Input<inputs.rekognition.StreamProcessorPointArgs>[]>[] | undefined>;
     /**
      * ARN of the IAM role that allows access to the stream processor, and provides Rekognition read permissions for KVS stream and write permissions to S3 bucket and SNS topic.
      */
@@ -211,9 +211,9 @@ export interface StreamProcessorArgs {
     /**
      * The Amazon S3 bucket location to which Amazon Rekognition publishes the detailed inference results of a video analysis operation. For more information, see the S3Destination section of [StreamProcessorOutput](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StreamProcessorOutput) .
      */
-    s3Destination?: pulumi.Input<inputs.rekognition.StreamProcessorS3DestinationArgs>;
+    s3Destination?: pulumi.Input<inputs.rekognition.StreamProcessorS3DestinationArgs | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

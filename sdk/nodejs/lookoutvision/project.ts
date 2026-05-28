@@ -74,5 +74,5 @@ export interface ProjectArgs {
     /**
      * The name of the project.
      */
-    projectName?: pulumi.Input<string>;
+    projectName?: pulumi.Input<string | undefined>;
 }

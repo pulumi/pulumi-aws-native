@@ -126,15 +126,15 @@ export interface InstanceStorageConfigArgs {
     /**
      * The configuration of the Kinesis Firehose delivery stream.
      */
-    kinesisFirehoseConfig?: pulumi.Input<inputs.connect.InstanceStorageConfigKinesisFirehoseConfigArgs>;
+    kinesisFirehoseConfig?: pulumi.Input<inputs.connect.InstanceStorageConfigKinesisFirehoseConfigArgs | undefined>;
     /**
      * The configuration of the Kinesis data stream.
      */
-    kinesisStreamConfig?: pulumi.Input<inputs.connect.InstanceStorageConfigKinesisStreamConfigArgs>;
+    kinesisStreamConfig?: pulumi.Input<inputs.connect.InstanceStorageConfigKinesisStreamConfigArgs | undefined>;
     /**
      * The configuration of the Kinesis video stream.
      */
-    kinesisVideoStreamConfig?: pulumi.Input<inputs.connect.InstanceStorageConfigKinesisVideoStreamConfigArgs>;
+    kinesisVideoStreamConfig?: pulumi.Input<inputs.connect.InstanceStorageConfigKinesisVideoStreamConfigArgs | undefined>;
     /**
      * A valid resource type. Following are the valid resource types: `CHAT_TRANSCRIPTS` | `CALL_RECORDINGS` | `SCHEDULED_REPORTS` | `MEDIA_STREAMS` | `CONTACT_TRACE_RECORDS` | `AGENT_EVENTS`
      */
@@ -142,7 +142,7 @@ export interface InstanceStorageConfigArgs {
     /**
      * The S3 bucket configuration.
      */
-    s3Config?: pulumi.Input<inputs.connect.InstanceStorageConfigS3ConfigArgs>;
+    s3Config?: pulumi.Input<inputs.connect.InstanceStorageConfigS3ConfigArgs | undefined>;
     /**
      * A valid storage type.
      */

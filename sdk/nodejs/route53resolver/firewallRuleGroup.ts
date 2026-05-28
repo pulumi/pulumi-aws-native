@@ -143,13 +143,13 @@ export interface FirewallRuleGroupArgs {
     /**
      * FirewallRules
      */
-    firewallRules?: pulumi.Input<pulumi.Input<inputs.route53resolver.FirewallRuleGroupFirewallRuleArgs>[]>;
+    firewallRules?: pulumi.Input<pulumi.Input<inputs.route53resolver.FirewallRuleGroupFirewallRuleArgs>[] | undefined>;
     /**
      * FirewallRuleGroupName
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Tags
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

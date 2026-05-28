@@ -134,11 +134,11 @@ export interface LaunchArgs {
     /**
      * An optional description for the launch.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Start or Stop Launch Launch. Default is not started.
      */
-    executionStatus?: pulumi.Input<inputs.evidently.LaunchExecutionStatusObjectArgs>;
+    executionStatus?: pulumi.Input<inputs.evidently.LaunchExecutionStatusObjectArgs | undefined>;
     /**
      * An array of structures that contains the feature and variations that are to be used for the launch. You can up to five launch groups in a launch.
      */
@@ -146,11 +146,11 @@ export interface LaunchArgs {
     /**
      * An array of structures that define the metrics that will be used to monitor the launch performance. You can have up to three metric monitors in the array.
      */
-    metricMonitors?: pulumi.Input<pulumi.Input<inputs.evidently.LaunchMetricDefinitionObjectArgs>[]>;
+    metricMonitors?: pulumi.Input<pulumi.Input<inputs.evidently.LaunchMetricDefinitionObjectArgs>[] | undefined>;
     /**
      * The name for the launch. It can include up to 127 characters.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name or ARN of the project that you want to create the launch in.
      */
@@ -158,7 +158,7 @@ export interface LaunchArgs {
     /**
      * When Evidently assigns a particular user session to a launch, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and `randomizationSalt` . If you omit `randomizationSalt` , Evidently uses the launch name as the `randomizationsSalt` .
      */
-    randomizationSalt?: pulumi.Input<string>;
+    randomizationSalt?: pulumi.Input<string | undefined>;
     /**
      * An array of structures that define the traffic allocation percentages among the feature variations during each step of the launch.
      */
@@ -166,5 +166,5 @@ export interface LaunchArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

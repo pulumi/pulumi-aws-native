@@ -122,7 +122,7 @@ export interface AccountAuditConfigurationArgs {
     /**
      * Information about the targets to which audit notifications are sent.
      */
-    auditNotificationTargetConfigurations?: pulumi.Input<inputs.iot.AccountAuditConfigurationAuditNotificationTargetConfigurationsArgs>;
+    auditNotificationTargetConfigurations?: pulumi.Input<inputs.iot.AccountAuditConfigurationAuditNotificationTargetConfigurationsArgs | undefined>;
     /**
      * The ARN of the role that grants permission to AWS IoT to access information about your devices, policies, certificates and other items as required when performing an audit.
      */

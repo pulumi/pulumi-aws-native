@@ -113,23 +113,23 @@ export interface ThingGroupArgs {
      *
      * A Dynamic Thing Group does not have `parentGroupName` defined.
      */
-    parentGroupName?: pulumi.Input<string>;
+    parentGroupName?: pulumi.Input<string | undefined>;
     /**
      * The dynamic thing group search query string.
      *
      * The `queryString` attribute *is* required for `CreateDynamicThingGroup` . The `queryString` attribute *is not* required for `CreateThingGroup` .
      */
-    queryString?: pulumi.Input<string>;
+    queryString?: pulumi.Input<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The thing group name.
      */
-    thingGroupName?: pulumi.Input<string>;
+    thingGroupName?: pulumi.Input<string | undefined>;
     /**
      * Thing group properties.
      */
-    thingGroupProperties?: pulumi.Input<inputs.iot.ThingGroupPropertiesPropertiesArgs>;
+    thingGroupProperties?: pulumi.Input<inputs.iot.ThingGroupPropertiesPropertiesArgs | undefined>;
 }

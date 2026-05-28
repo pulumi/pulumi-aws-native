@@ -132,28 +132,28 @@ export interface PromptArgs {
     /**
      * A KMS key ARN
      */
-    customerEncryptionKeyArn?: pulumi.Input<string>;
+    customerEncryptionKeyArn?: pulumi.Input<string | undefined>;
     /**
      * Name for a variant.
      */
-    defaultVariant?: pulumi.Input<string>;
+    defaultVariant?: pulumi.Input<string | undefined>;
     /**
      * Name for a prompt resource.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Name for a prompt resource.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
      *
      * - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
      * - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * List of prompt variants
      */
-    variants?: pulumi.Input<pulumi.Input<inputs.bedrock.PromptVariantArgs>[]>;
+    variants?: pulumi.Input<pulumi.Input<inputs.bedrock.PromptVariantArgs>[] | undefined>;
 }

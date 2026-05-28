@@ -190,19 +190,19 @@ export interface ApplicationArgs {
     /**
      * Configuration information for the file upload during chat feature.
      */
-    attachmentsConfiguration?: pulumi.Input<inputs.qbusiness.ApplicationAttachmentsConfigurationArgs>;
+    attachmentsConfiguration?: pulumi.Input<inputs.qbusiness.ApplicationAttachmentsConfigurationArgs | undefined>;
     /**
      * Subscription configuration information for an Amazon Q Business application using IAM identity federation for user management.
      */
-    autoSubscriptionConfiguration?: pulumi.Input<inputs.qbusiness.ApplicationAutoSubscriptionConfigurationArgs>;
+    autoSubscriptionConfiguration?: pulumi.Input<inputs.qbusiness.ApplicationAutoSubscriptionConfigurationArgs | undefined>;
     /**
      * The OIDC client ID for a Amazon Q Business application.
      */
-    clientIdsForOidc?: pulumi.Input<pulumi.Input<string>[]>;
+    clientIdsForOidc?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A description for the Amazon Q Business application.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the Amazon Q Business application.
      */
@@ -210,39 +210,39 @@ export interface ApplicationArgs {
     /**
      * Provides the identifier of the AWS  key used to encrypt data indexed by Amazon Q Business. Amazon Q Business doesn't support asymmetric keys.
      */
-    encryptionConfiguration?: pulumi.Input<inputs.qbusiness.ApplicationEncryptionConfigurationArgs>;
+    encryptionConfiguration?: pulumi.Input<inputs.qbusiness.ApplicationEncryptionConfigurationArgs | undefined>;
     /**
      * The Amazon Resource Name (ARN) of an identity provider being used by an Amazon Q Business application.
      */
-    iamIdentityProviderArn?: pulumi.Input<string>;
+    iamIdentityProviderArn?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the IAM Identity Center instance you are either creating for—or connecting to—your Amazon Q Business application.
      *
      * *Required* : `Yes`
      */
-    identityCenterInstanceArn?: pulumi.Input<string>;
+    identityCenterInstanceArn?: pulumi.Input<string | undefined>;
     /**
      * The authentication type being used by a Amazon Q Business application.
      */
-    identityType?: pulumi.Input<enums.qbusiness.ApplicationIdentityType>;
+    identityType?: pulumi.Input<enums.qbusiness.ApplicationIdentityType | undefined>;
     /**
      * Configuration information about chat response personalization. For more information, see [Personalizing chat responses](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/personalizing-chat-responses.html) .
      */
-    personalizationConfiguration?: pulumi.Input<inputs.qbusiness.ApplicationPersonalizationConfigurationArgs>;
+    personalizationConfiguration?: pulumi.Input<inputs.qbusiness.ApplicationPersonalizationConfigurationArgs | undefined>;
     /**
      * Configuration information about Amazon Q Apps.
      */
-    qAppsConfiguration?: pulumi.Input<inputs.qbusiness.ApplicationQAppsConfigurationArgs>;
+    qAppsConfiguration?: pulumi.Input<inputs.qbusiness.ApplicationQAppsConfigurationArgs | undefined>;
     /**
      * The Amazon Quick Suite configuration for an Amazon Q Business application that uses Quick Suite as the identity provider.
      */
-    quickSightConfiguration?: pulumi.Input<inputs.qbusiness.ApplicationQuickSightConfigurationArgs>;
+    quickSightConfiguration?: pulumi.Input<inputs.qbusiness.ApplicationQuickSightConfigurationArgs | undefined>;
     /**
      * The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon CloudWatch logs and metrics. If this property is not specified, Amazon Q Business will create a [service linked role (SLR)](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/using-service-linked-roles.html#slr-permissions) and use it as the application's role.
      */
-    roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string | undefined>;
     /**
      * A list of key-value pairs that identify or categorize your Amazon Q Business application. You can also use tags to help control access to the application. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

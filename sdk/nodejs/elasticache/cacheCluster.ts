@@ -236,11 +236,11 @@ export interface CacheClusterArgs {
     /**
      * If you are running Redis engine version 6.0 or later, set this parameter to yes if you want to opt-in to the next minor version upgrade campaign.
      */
-    autoMinorVersionUpgrade?: pulumi.Input<boolean>;
+    autoMinorVersionUpgrade?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies whether the nodes in this Memcached cluster are created in a single Availability Zone or created across multiple Availability Zones in the cluster's region.
      */
-    azMode?: pulumi.Input<string>;
+    azMode?: pulumi.Input<string | undefined>;
     /**
      * The compute and memory capacity of the nodes in the node group (shard).
      */
@@ -248,19 +248,19 @@ export interface CacheClusterArgs {
     /**
      * The name of the parameter group to associate with this cluster.
      */
-    cacheParameterGroupName?: pulumi.Input<string>;
+    cacheParameterGroupName?: pulumi.Input<string | undefined>;
     /**
      * A list of security group names to associate with this cluster.
      */
-    cacheSecurityGroupNames?: pulumi.Input<pulumi.Input<string>[]>;
+    cacheSecurityGroupNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name of the subnet group to be used for the cluster.
      */
-    cacheSubnetGroupName?: pulumi.Input<string>;
+    cacheSubnetGroupName?: pulumi.Input<string | undefined>;
     /**
      * A name for the cache cluster.
      */
-    clusterName?: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string | undefined>;
     /**
      * The name of the cache engine to be used for this cluster.
      */
@@ -268,23 +268,23 @@ export interface CacheClusterArgs {
     /**
      * The version number of the cache engine to be used for this cluster
      */
-    engineVersion?: pulumi.Input<string>;
+    engineVersion?: pulumi.Input<string | undefined>;
     /**
      * The Ip Discovery parameter for cachecluster.
      */
-    ipDiscovery?: pulumi.Input<string>;
+    ipDiscovery?: pulumi.Input<string | undefined>;
     /**
      * Specifies the destination, format and type of the logs
      */
-    logDeliveryConfigurations?: pulumi.Input<pulumi.Input<inputs.elasticache.CacheClusterLogDeliveryConfigurationRequestArgs>[]>;
+    logDeliveryConfigurations?: pulumi.Input<pulumi.Input<inputs.elasticache.CacheClusterLogDeliveryConfigurationRequestArgs>[] | undefined>;
     /**
      * The network type parameter for cachecluster.
      */
-    networkType?: pulumi.Input<string>;
+    networkType?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) topic to which notifications are sent.
      */
-    notificationTopicArn?: pulumi.Input<string>;
+    notificationTopicArn?: pulumi.Input<string | undefined>;
     /**
      * The number of cache nodes that the cache cluster should have.
      */
@@ -292,45 +292,45 @@ export interface CacheClusterArgs {
     /**
      * The port number on which each of the cache nodes accepts connections.
      */
-    port?: pulumi.Input<number>;
+    port?: pulumi.Input<number | undefined>;
     /**
      * The EC2 Availability Zone in which the cluster is created.
      */
-    preferredAvailabilityZone?: pulumi.Input<string>;
+    preferredAvailabilityZone?: pulumi.Input<string | undefined>;
     /**
      * A list of the Availability Zones in which cache nodes are created. The order of the zones in the list is not important.
      */
-    preferredAvailabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
+    preferredAvailabilityZones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the weekly time range during which maintenance on the cluster is performed.
      */
-    preferredMaintenanceWindow?: pulumi.Input<string>;
+    preferredMaintenanceWindow?: pulumi.Input<string | undefined>;
     /**
      * A single-element string list containing an Amazon Resource Name (ARN) that uniquely identifies a Redis RDB snapshot file stored in Amazon S3.
      */
-    snapshotArns?: pulumi.Input<pulumi.Input<string>[]>;
+    snapshotArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name of a Redis snapshot from which to restore data into the new node group (shard).
      */
-    snapshotName?: pulumi.Input<string>;
+    snapshotName?: pulumi.Input<string | undefined>;
     /**
      * The number of days for which ElastiCache retains automatic snapshots before deleting them.
      */
-    snapshotRetentionLimit?: pulumi.Input<number>;
+    snapshotRetentionLimit?: pulumi.Input<number | undefined>;
     /**
      * The daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your node group (shard).
      */
-    snapshotWindow?: pulumi.Input<string>;
+    snapshotWindow?: pulumi.Input<string | undefined>;
     /**
      * A list of tags to be added to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * A flag that enables in-transit encryption when set to true. You cannot modify the value of TransitEncryptionEnabled after the cluster is created
      */
-    transitEncryptionEnabled?: pulumi.Input<boolean>;
+    transitEncryptionEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * One or more VPC security groups associated with the cluster.
      */
-    vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

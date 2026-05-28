@@ -108,10 +108,10 @@ export class AccessSource extends pulumi.CustomResource {
  */
 export interface AccessSourceArgs {
     cidr: pulumi.Input<string>;
-    clientToken?: pulumi.Input<string>;
+    clientToken?: pulumi.Input<string | undefined>;
     dnsViewId: pulumi.Input<string>;
-    ipAddressType?: pulumi.Input<enums.route53globalresolver.AccessSourceIpAddressType>;
-    name?: pulumi.Input<string>;
+    ipAddressType?: pulumi.Input<enums.route53globalresolver.AccessSourceIpAddressType | undefined>;
+    name?: pulumi.Input<string | undefined>;
     protocol: pulumi.Input<enums.route53globalresolver.AccessSourceDnsProtocol>;
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

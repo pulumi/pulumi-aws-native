@@ -86,7 +86,7 @@ export interface LogDeliveryConfigurationArgs {
     /**
      * A logging destination of a user pool. User pools can have multiple logging destinations for message-delivery and user-activity logs.
      */
-    logConfigurations?: pulumi.Input<pulumi.Input<inputs.cognito.LogDeliveryConfigurationLogConfigurationArgs>[]>;
+    logConfigurations?: pulumi.Input<pulumi.Input<inputs.cognito.LogDeliveryConfigurationLogConfigurationArgs>[] | undefined>;
     /**
      * The ID of the user pool where you configured logging.
      */

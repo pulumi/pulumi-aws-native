@@ -147,25 +147,25 @@ export interface RoomArgs {
     /**
      * Array of logging configuration identifiers attached to the room.
      */
-    loggingConfigurationIdentifiers?: pulumi.Input<pulumi.Input<string>[]>;
+    loggingConfigurationIdentifiers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The maximum number of characters in a single message.
      */
-    maximumMessageLength?: pulumi.Input<number>;
+    maximumMessageLength?: pulumi.Input<number | undefined>;
     /**
      * The maximum number of messages per second that can be sent to the room.
      */
-    maximumMessageRatePerSecond?: pulumi.Input<number>;
+    maximumMessageRatePerSecond?: pulumi.Input<number | undefined>;
     /**
      * Configuration information for optional review of messages.
      */
-    messageReviewHandler?: pulumi.Input<inputs.ivschat.RoomMessageReviewHandlerArgs>;
+    messageReviewHandler?: pulumi.Input<inputs.ivschat.RoomMessageReviewHandlerArgs | undefined>;
     /**
      * The name of the room. The value does not need to be unique.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

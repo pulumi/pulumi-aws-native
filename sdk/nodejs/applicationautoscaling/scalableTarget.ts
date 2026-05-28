@@ -215,7 +215,7 @@ export interface ScalableTargetArgs {
      * Specify the Amazon Resource Name (ARN) of an Identity and Access Management (IAM) role that allows Application Auto Scaling to modify the scalable target on your behalf. This can be either an IAM service role that Application Auto Scaling can assume to make calls to other AWS resources on your behalf, or a service-linked role for the specified service. For more information, see [How Application Auto Scaling works with IAM](https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html) in the *Application Auto Scaling User Guide*.
      *  To automatically create a service-linked role (recommended), specify the full ARN of the service-linked role in your stack template. To find the exact ARN of the service-linked role for your AWS or custom resource, see the [Service-linked roles](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-service-linked-roles.html) topic in the *Application Auto Scaling User Guide*. Look for the ARN in the table at the bottom of the page.
      */
-    roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string | undefined>;
     /**
      * The scalable dimension associated with the scalable target. This string consists of the service namespace, resource type, and scaling property.
      *   +  ``ecs:service:DesiredCount`` - The task count of an ECS service.
@@ -247,7 +247,7 @@ export interface ScalableTargetArgs {
     /**
      * The scheduled actions for the scalable target. Duplicates aren't allowed.
      */
-    scheduledActions?: pulumi.Input<pulumi.Input<inputs.applicationautoscaling.ScalableTargetScheduledActionArgs>[]>;
+    scheduledActions?: pulumi.Input<pulumi.Input<inputs.applicationautoscaling.ScalableTargetScheduledActionArgs>[] | undefined>;
     /**
      * The namespace of the AWS service that provides the resource, or a ``custom-resource``.
      */
@@ -259,5 +259,5 @@ export interface ScalableTargetArgs {
      *   +  For ``DynamicScalingOutSuspended``, while a suspension is in effect, all scale-out activities that are triggered by a scaling policy are suspended.
      *   +  For ``ScheduledScalingSuspended``, while a suspension is in effect, all scaling activities that involve scheduled actions are suspended.
      */
-    suspendedState?: pulumi.Input<inputs.applicationautoscaling.ScalableTargetSuspendedStateArgs>;
+    suspendedState?: pulumi.Input<inputs.applicationautoscaling.ScalableTargetSuspendedStateArgs | undefined>;
 }

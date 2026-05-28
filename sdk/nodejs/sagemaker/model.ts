@@ -119,33 +119,33 @@ export interface ModelArgs {
     /**
      * Specifies the containers in the inference pipeline.
      */
-    containers?: pulumi.Input<pulumi.Input<inputs.sagemaker.ModelContainerDefinitionArgs>[]>;
+    containers?: pulumi.Input<pulumi.Input<inputs.sagemaker.ModelContainerDefinitionArgs>[] | undefined>;
     /**
      * Isolates the model container. No inbound or outbound network calls can be made to or from the model container.
      */
-    enableNetworkIsolation?: pulumi.Input<boolean>;
+    enableNetworkIsolation?: pulumi.Input<boolean | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role that you specified for the model.
      */
-    executionRoleArn?: pulumi.Input<string>;
+    executionRoleArn?: pulumi.Input<string | undefined>;
     /**
      * Specifies details of how containers in a multi-container endpoint are called.
      */
-    inferenceExecutionConfig?: pulumi.Input<inputs.sagemaker.ModelInferenceExecutionConfigArgs>;
+    inferenceExecutionConfig?: pulumi.Input<inputs.sagemaker.ModelInferenceExecutionConfigArgs | undefined>;
     /**
      * The name of the new model.
      */
-    modelName?: pulumi.Input<string>;
+    modelName?: pulumi.Input<string | undefined>;
     /**
      * The location of the primary docker image containing inference code, associated artifacts, and custom environment map that the inference code uses when the model is deployed for predictions.
      */
-    primaryContainer?: pulumi.Input<inputs.sagemaker.ModelContainerDefinitionArgs>;
+    primaryContainer?: pulumi.Input<inputs.sagemaker.ModelContainerDefinitionArgs | undefined>;
     /**
      * An array of key-value pairs. You can use tags to categorize your AWS resources in different ways, for example, by purpose, owner, or environment. For more information, see [Tagging AWS Resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html).
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * A [VpcConfig](https://docs.aws.amazon.com/sagemaker/latest/dg/API_VpcConfig.html) object that specifies the VPC that you want your model to connect to. Control access to and from your model container by configuring the VPC. `VpcConfig` is used in hosting services and in batch transform. For more information, see [Protect Endpoints by Using an Amazon Virtual Private Cloud](https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html) and [Protect Data in Batch Transform Jobs by Using an Amazon Virtual Private Cloud](https://docs.aws.amazon.com/sagemaker/latest/dg/batch-vpc.html) .
      */
-    vpcConfig?: pulumi.Input<inputs.sagemaker.ModelVpcConfigArgs>;
+    vpcConfig?: pulumi.Input<inputs.sagemaker.ModelVpcConfigArgs | undefined>;
 }

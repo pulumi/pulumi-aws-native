@@ -122,32 +122,32 @@ export interface TopicArgs {
     /**
      * The ID of the AWS account that you want to create a topic in.
      */
-    awsAccountId?: pulumi.Input<string>;
+    awsAccountId?: pulumi.Input<string | undefined>;
     /**
      * Configuration options for a `Topic` .
      */
-    configOptions?: pulumi.Input<inputs.quicksight.TopicConfigOptionsArgs>;
-    customInstructions?: pulumi.Input<inputs.quicksight.TopicCustomInstructionsArgs>;
+    configOptions?: pulumi.Input<inputs.quicksight.TopicConfigOptionsArgs | undefined>;
+    customInstructions?: pulumi.Input<inputs.quicksight.TopicCustomInstructionsArgs | undefined>;
     /**
      * The data sets that the topic is associated with.
      */
-    dataSets?: pulumi.Input<pulumi.Input<inputs.quicksight.TopicDatasetMetadataArgs>[]>;
+    dataSets?: pulumi.Input<pulumi.Input<inputs.quicksight.TopicDatasetMetadataArgs>[] | undefined>;
     /**
      * The description of the topic.
      */
-    description?: pulumi.Input<string>;
-    folderArns?: pulumi.Input<pulumi.Input<string>[]>;
+    description?: pulumi.Input<string | undefined>;
+    folderArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name of the topic.
      */
-    name?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
+    name?: pulumi.Input<string | undefined>;
+    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[] | undefined>;
     /**
      * The ID for the topic. This ID is unique per AWS Region for each AWS account.
      */
-    topicId?: pulumi.Input<string>;
+    topicId?: pulumi.Input<string | undefined>;
     /**
      * The user experience version of the topic.
      */
-    userExperienceVersion?: pulumi.Input<enums.quicksight.TopicUserExperienceVersion>;
+    userExperienceVersion?: pulumi.Input<enums.quicksight.TopicUserExperienceVersion | undefined>;
 }

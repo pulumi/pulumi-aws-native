@@ -152,11 +152,11 @@ export interface DeviceArgs {
     /**
      * The Amazon Web Services location of the device, if applicable.
      */
-    awsLocation?: pulumi.Input<inputs.networkmanager.DeviceAwsLocationArgs>;
+    awsLocation?: pulumi.Input<inputs.networkmanager.DeviceAwsLocationArgs | undefined>;
     /**
      * The description of the device.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The ID of the global network.
      */
@@ -164,29 +164,29 @@ export interface DeviceArgs {
     /**
      * The site location.
      */
-    location?: pulumi.Input<inputs.networkmanager.DeviceLocationArgs>;
+    location?: pulumi.Input<inputs.networkmanager.DeviceLocationArgs | undefined>;
     /**
      * The device model
      */
-    model?: pulumi.Input<string>;
+    model?: pulumi.Input<string | undefined>;
     /**
      * The device serial number.
      */
-    serialNumber?: pulumi.Input<string>;
+    serialNumber?: pulumi.Input<string | undefined>;
     /**
      * The site ID.
      */
-    siteId?: pulumi.Input<string>;
+    siteId?: pulumi.Input<string | undefined>;
     /**
      * The tags for the device.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The device type.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * The device vendor.
      */
-    vendor?: pulumi.Input<string>;
+    vendor?: pulumi.Input<string | undefined>;
 }

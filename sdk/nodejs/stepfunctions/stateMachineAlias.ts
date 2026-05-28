@@ -130,15 +130,15 @@ export interface StateMachineAliasArgs {
      *
      * In the first increment, a small percentage of traffic, for example, 10 percent is shifted to the new version. In the second increment, before a specified time interval in seconds gets over, the remaining traffic is shifted to the new version. The shift to the new version for the remaining traffic takes place only if no CloudWatch alarms are triggered during the specified time interval.
      */
-    deploymentPreference?: pulumi.Input<inputs.stepfunctions.StateMachineAliasDeploymentPreferenceArgs>;
+    deploymentPreference?: pulumi.Input<inputs.stepfunctions.StateMachineAliasDeploymentPreferenceArgs | undefined>;
     /**
      * An optional description of the alias.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The alias name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The routing configuration of an alias. Routing configuration splits [StartExecution](https://docs.aws.amazon.com/step-functions/latest/apireference/API_StartExecution.html) requests between one or two versions of the same state machine.
      *
@@ -146,6 +146,6 @@ export interface StateMachineAliasArgs {
      *
      * > `RoutingConfiguration` and `DeploymentPreference` are mutually exclusive properties. You must define only one of these properties.
      */
-    routingConfiguration?: pulumi.Input<pulumi.Input<inputs.stepfunctions.StateMachineAliasRoutingConfigurationVersionArgs>[]>;
-    stateMachineArn?: pulumi.Input<string>;
+    routingConfiguration?: pulumi.Input<pulumi.Input<inputs.stepfunctions.StateMachineAliasRoutingConfigurationVersionArgs>[] | undefined>;
+    stateMachineArn?: pulumi.Input<string | undefined>;
 }

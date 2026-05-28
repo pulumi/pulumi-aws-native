@@ -138,35 +138,35 @@ export interface GlobalReplicationGroupArgs {
     /**
      * AutomaticFailoverEnabled
      */
-    automaticFailoverEnabled?: pulumi.Input<boolean>;
+    automaticFailoverEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The cache node type of the Global Datastore
      */
-    cacheNodeType?: pulumi.Input<string>;
+    cacheNodeType?: pulumi.Input<string | undefined>;
     /**
      * Cache parameter group name to use for the new engine version. This parameter cannot be modified independently.
      */
-    cacheParameterGroupName?: pulumi.Input<string>;
+    cacheParameterGroupName?: pulumi.Input<string | undefined>;
     /**
      * The engine of the Global Datastore.
      */
-    engine?: pulumi.Input<string>;
+    engine?: pulumi.Input<string | undefined>;
     /**
      * The engine version of the Global Datastore.
      */
-    engineVersion?: pulumi.Input<string>;
+    engineVersion?: pulumi.Input<string | undefined>;
     /**
      * Indicates the number of node groups in the Global Datastore.
      */
-    globalNodeGroupCount?: pulumi.Input<number>;
+    globalNodeGroupCount?: pulumi.Input<number | undefined>;
     /**
      * The optional description of the Global Datastore
      */
-    globalReplicationGroupDescription?: pulumi.Input<string>;
+    globalReplicationGroupDescription?: pulumi.Input<string | undefined>;
     /**
      * The suffix name of a Global Datastore. Amazon ElastiCache automatically applies a prefix to the Global Datastore ID when it is created. Each AWS Region has its own prefix. 
      */
-    globalReplicationGroupIdSuffix?: pulumi.Input<string>;
+    globalReplicationGroupIdSuffix?: pulumi.Input<string | undefined>;
     /**
      * The replication groups that comprise the Global Datastore.
      */
@@ -174,5 +174,5 @@ export interface GlobalReplicationGroupArgs {
     /**
      * Describes the replication group IDs, the AWS regions where they are stored and the shard configuration for each that comprise the Global Datastore 
      */
-    regionalConfigurations?: pulumi.Input<pulumi.Input<inputs.elasticache.GlobalReplicationGroupRegionalConfigurationArgs>[]>;
+    regionalConfigurations?: pulumi.Input<pulumi.Input<inputs.elasticache.GlobalReplicationGroupRegionalConfigurationArgs>[] | undefined>;
 }

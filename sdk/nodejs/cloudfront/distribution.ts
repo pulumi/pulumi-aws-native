@@ -94,5 +94,5 @@ export interface DistributionArgs {
     /**
      * A complex type that contains zero or more ``Tag`` elements.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

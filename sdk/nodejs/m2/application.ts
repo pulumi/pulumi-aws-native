@@ -128,11 +128,11 @@ export interface ApplicationArgs {
      *
      * For information about application definitions, see the [AWS Mainframe Modernization User Guide](https://docs.aws.amazon.com/m2/latest/userguide/applications-m2-definition.html) .
      */
-    definition?: pulumi.Input<inputs.m2.ApplicationDefinition0PropertiesArgs | inputs.m2.ApplicationDefinition1PropertiesArgs>;
+    definition?: pulumi.Input<inputs.m2.ApplicationDefinition0PropertiesArgs | inputs.m2.ApplicationDefinition1PropertiesArgs | undefined>;
     /**
      * The description of the application.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The type of the target platform for this application.
      */
@@ -140,19 +140,19 @@ export interface ApplicationArgs {
     /**
      * The ID or the Amazon Resource Name (ARN) of the customer managed KMS Key used for encrypting application-related resources.
      */
-    kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * The name of the application.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the role associated with the application.
      */
-    roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      *
      * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

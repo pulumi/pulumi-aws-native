@@ -104,11 +104,11 @@ export interface SubnetGroupArgs {
     /**
      * An optional description of the subnet group.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the subnet group. This value must be unique as it also serves as the subnet group identifier.
      */
-    subnetGroupName?: pulumi.Input<string>;
+    subnetGroupName?: pulumi.Input<string | undefined>;
     /**
      * A list of VPC subnet IDs for the subnet group.
      */
@@ -116,5 +116,5 @@ export interface SubnetGroupArgs {
     /**
      * An array of key-value pairs to apply to this subnet group.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

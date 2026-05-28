@@ -98,7 +98,7 @@ export interface DirectoryConfigArgs {
     /**
      * The certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances.
      */
-    certificateBasedAuthProperties?: pulumi.Input<inputs.appstream.DirectoryConfigCertificateBasedAuthPropertiesArgs>;
+    certificateBasedAuthProperties?: pulumi.Input<inputs.appstream.DirectoryConfigCertificateBasedAuthPropertiesArgs | undefined>;
     /**
      * The fully qualified name of the directory (for example, corp.example.com).
      */

@@ -134,7 +134,7 @@ export interface AccessGrantArgs {
     /**
      * The configuration options of the grant location, which is the S3 path to the data to which you are granting access.
      */
-    accessGrantsLocationConfiguration?: pulumi.Input<inputs.s3.AccessGrantsLocationConfigurationArgs>;
+    accessGrantsLocationConfiguration?: pulumi.Input<inputs.s3.AccessGrantsLocationConfigurationArgs | undefined>;
     /**
      * The custom S3 location to be accessed by the grantee
      */
@@ -142,7 +142,7 @@ export interface AccessGrantArgs {
     /**
      * The ARN of the application grantees will use to access the location
      */
-    applicationArn?: pulumi.Input<string>;
+    applicationArn?: pulumi.Input<string | undefined>;
     /**
      * The principal who will be granted permission to access S3.
      */
@@ -154,9 +154,9 @@ export interface AccessGrantArgs {
     /**
      * The type of S3SubPrefix.
      */
-    s3PrefixType?: pulumi.Input<enums.s3.AccessGrantS3PrefixType>;
+    s3PrefixType?: pulumi.Input<enums.s3.AccessGrantS3PrefixType | undefined>;
     /**
      * The AWS resource tags that you are adding to the access grant. Each tag is a label consisting of a user-defined key and value. Tags can help you manage, identify, organize, search for, and filter resources.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[] | undefined>;
 }

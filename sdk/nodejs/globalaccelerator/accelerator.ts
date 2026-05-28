@@ -125,23 +125,23 @@ export interface AcceleratorArgs {
     /**
      * Indicates whether an accelerator is enabled. The value is true or false.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * IP Address type.
      */
-    ipAddressType?: pulumi.Input<enums.globalaccelerator.AcceleratorIpAddressType>;
+    ipAddressType?: pulumi.Input<enums.globalaccelerator.AcceleratorIpAddressType | undefined>;
     /**
      * The IP addresses from BYOIP Prefix pool.
      */
-    ipAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    ipAddresses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Name of accelerator.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Create tags for an accelerator.
      *
      * For more information, see [Tagging](https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html) in the *AWS Global Accelerator Developer Guide* .
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }
