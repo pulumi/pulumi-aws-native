@@ -141,8 +141,8 @@ def get_channel_placement_group(cluster_id: Optional[_builtins.str] = None,
         nodes=pulumi.get(__ret__, 'nodes'),
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_channel_placement_group_output(cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                       id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_channel_placement_group_output(cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                       id: pulumi.Input[Optional[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetChannelPlacementGroupResult]:
     """
     Definition of AWS::MediaLive::ChannelPlacementGroup Resource Type

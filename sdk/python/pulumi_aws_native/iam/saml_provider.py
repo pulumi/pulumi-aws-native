@@ -24,13 +24,13 @@ __all__ = ['SamlProviderArgs', 'SamlProvider']
 @pulumi.input_type
 class SamlProviderArgs:
     def __init__(__self__, *,
-                 add_private_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 assertion_encryption_mode: Optional[pulumi.Input['SamlProviderAssertionEncryptionMode']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_key_list: Optional[pulumi.Input[Sequence[pulumi.Input['SamlProviderSamlPrivateKeyArgs']]]] = None,
-                 remove_private_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 saml_metadata_document: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 add_private_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 assertion_encryption_mode: pulumi.Input[Optional['SamlProviderAssertionEncryptionMode']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_key_list: pulumi.Input[Optional[Sequence[pulumi.Input['SamlProviderSamlPrivateKeyArgs']]]] = None,
+                 remove_private_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 saml_metadata_document: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a SamlProvider resource.
 
@@ -65,31 +65,31 @@ class SamlProviderArgs:
 
     @_builtins.property
     @pulumi.getter(name="addPrivateKey")
-    def add_private_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def add_private_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The private key from your external identity provider
         """
         return pulumi.get(self, "add_private_key")
 
     @add_private_key.setter
-    def add_private_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def add_private_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "add_private_key", value)
 
     @_builtins.property
     @pulumi.getter(name="assertionEncryptionMode")
-    def assertion_encryption_mode(self) -> Optional[pulumi.Input['SamlProviderAssertionEncryptionMode']]:
+    def assertion_encryption_mode(self) -> pulumi.Input[Optional['SamlProviderAssertionEncryptionMode']]:
         """
         The encryption setting for the SAML provider
         """
         return pulumi.get(self, "assertion_encryption_mode")
 
     @assertion_encryption_mode.setter
-    def assertion_encryption_mode(self, value: Optional[pulumi.Input['SamlProviderAssertionEncryptionMode']]):
+    def assertion_encryption_mode(self, value: pulumi.Input[Optional['SamlProviderAssertionEncryptionMode']]):
         pulumi.set(self, "assertion_encryption_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the provider to create.
 
@@ -98,36 +98,36 @@ class SamlProviderArgs:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="privateKeyList")
-    def private_key_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SamlProviderSamlPrivateKeyArgs']]]]:
+    def private_key_list(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SamlProviderSamlPrivateKeyArgs']]]]:
         """
         The private key metadata for the SAML provider.
         """
         return pulumi.get(self, "private_key_list")
 
     @private_key_list.setter
-    def private_key_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SamlProviderSamlPrivateKeyArgs']]]]):
+    def private_key_list(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SamlProviderSamlPrivateKeyArgs']]]]):
         pulumi.set(self, "private_key_list", value)
 
     @_builtins.property
     @pulumi.getter(name="removePrivateKey")
-    def remove_private_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def remove_private_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Key ID of the private key to remove
         """
         return pulumi.get(self, "remove_private_key")
 
     @remove_private_key.setter
-    def remove_private_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def remove_private_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "remove_private_key", value)
 
     @_builtins.property
     @pulumi.getter(name="samlMetadataDocument")
-    def saml_metadata_document(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def saml_metadata_document(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An XML document generated by an identity provider (IdP) that supports SAML 2.0. The document includes the issuer's name, expiration information, and keys that can be used to validate the SAML authentication response (assertions) that are received from the IdP. You must generate the metadata document using the identity management software that is used as your organization's IdP.
 
@@ -136,12 +136,12 @@ class SamlProviderArgs:
         return pulumi.get(self, "saml_metadata_document")
 
     @saml_metadata_document.setter
-    def saml_metadata_document(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def saml_metadata_document(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "saml_metadata_document", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A list of tags that you want to attach to the new IAM SAML provider. Each tag consists of a key name and an associated value. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide* .
 
@@ -150,7 +150,7 @@ class SamlProviderArgs:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -160,13 +160,13 @@ class SamlProvider(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 add_private_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 assertion_encryption_mode: Optional[pulumi.Input['SamlProviderAssertionEncryptionMode']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_key_list: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SamlProviderSamlPrivateKeyArgs', 'SamlProviderSamlPrivateKeyArgsDict']]]]] = None,
-                 remove_private_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 saml_metadata_document: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 add_private_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 assertion_encryption_mode: pulumi.Input[Optional['SamlProviderAssertionEncryptionMode']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_key_list: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SamlProviderSamlPrivateKeyArgs', 'SamlProviderSamlPrivateKeyArgsDict']]]]] = None,
+                 remove_private_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 saml_metadata_document: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::IAM::SAMLProvider
@@ -213,13 +213,13 @@ class SamlProvider(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 add_private_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 assertion_encryption_mode: Optional[pulumi.Input['SamlProviderAssertionEncryptionMode']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_key_list: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SamlProviderSamlPrivateKeyArgs', 'SamlProviderSamlPrivateKeyArgsDict']]]]] = None,
-                 remove_private_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 saml_metadata_document: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 add_private_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 assertion_encryption_mode: pulumi.Input[Optional['SamlProviderAssertionEncryptionMode']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_key_list: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SamlProviderSamlPrivateKeyArgs', 'SamlProviderSamlPrivateKeyArgsDict']]]]] = None,
+                 remove_private_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 saml_metadata_document: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

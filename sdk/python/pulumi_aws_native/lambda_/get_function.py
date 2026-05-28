@@ -434,7 +434,7 @@ def get_function(function_name: Optional[_builtins.str] = None,
         timeout=pulumi.get(__ret__, 'timeout'),
         tracing_config=pulumi.get(__ret__, 'tracing_config'),
         vpc_config=pulumi.get(__ret__, 'vpc_config'))
-def get_function_output(function_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_function_output(function_name: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFunctionResult]:
     """
     The ``AWS::Lambda::Function`` resource creates a Lambda function. To create a function, you need a [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html) and an [execution role](https://docs.aws.amazon.com/lambda/latest/dg/lambda-intro-execution-role.html). The deployment package is a .zip file archive or container image that contains your function code. The execution role grants the function permission to use AWS services, such as Amazon CloudWatch Logs for log streaming and AWS X-Ray for request tracing.

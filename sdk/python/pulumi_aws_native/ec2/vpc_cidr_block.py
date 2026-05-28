@@ -20,15 +20,15 @@ __all__ = ['VpcCidrBlockArgs', 'VpcCidrBlock']
 class VpcCidrBlockArgs:
     def __init__(__self__, *,
                  vpc_id: pulumi.Input[_builtins.str],
-                 amazon_provided_ipv6_cidr_block: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipv4_ipam_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipv4_netmask_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 ipv6_cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipv6_cidr_block_network_border_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipv6_ipam_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipv6_netmask_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 ipv6_pool: Optional[pulumi.Input[_builtins.str]] = None):
+                 amazon_provided_ipv6_cidr_block: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv4_ipam_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv4_netmask_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 ipv6_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv6_cidr_block_network_border_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv6_ipam_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv6_netmask_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 ipv6_pool: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a VpcCidrBlock resource.
 
@@ -77,110 +77,110 @@ class VpcCidrBlockArgs:
 
     @_builtins.property
     @pulumi.getter(name="amazonProvidedIpv6CidrBlock")
-    def amazon_provided_ipv6_cidr_block(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def amazon_provided_ipv6_cidr_block(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IPv6 addresses, or the size of the CIDR block.
         """
         return pulumi.get(self, "amazon_provided_ipv6_cidr_block")
 
     @amazon_provided_ipv6_cidr_block.setter
-    def amazon_provided_ipv6_cidr_block(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def amazon_provided_ipv6_cidr_block(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "amazon_provided_ipv6_cidr_block", value)
 
     @_builtins.property
     @pulumi.getter(name="cidrBlock")
-    def cidr_block(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cidr_block(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An IPv4 CIDR block to associate with the VPC.
         """
         return pulumi.get(self, "cidr_block")
 
     @cidr_block.setter
-    def cidr_block(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cidr_block(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cidr_block", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv4IpamPoolId")
-    def ipv4_ipam_pool_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ipv4_ipam_pool_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the IPv4 IPAM pool to Associate a CIDR from to a VPC.
         """
         return pulumi.get(self, "ipv4_ipam_pool_id")
 
     @ipv4_ipam_pool_id.setter
-    def ipv4_ipam_pool_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ipv4_ipam_pool_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ipv4_ipam_pool_id", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv4NetmaskLength")
-    def ipv4_netmask_length(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ipv4_netmask_length(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The netmask length of the IPv4 CIDR you would like to associate from an Amazon VPC IP Address Manager (IPAM) pool.
         """
         return pulumi.get(self, "ipv4_netmask_length")
 
     @ipv4_netmask_length.setter
-    def ipv4_netmask_length(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ipv4_netmask_length(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ipv4_netmask_length", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv6CidrBlock")
-    def ipv6_cidr_block(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ipv6_cidr_block(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An IPv6 CIDR block from the IPv6 address pool.
         """
         return pulumi.get(self, "ipv6_cidr_block")
 
     @ipv6_cidr_block.setter
-    def ipv6_cidr_block(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ipv6_cidr_block(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ipv6_cidr_block", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv6CidrBlockNetworkBorderGroup")
-    def ipv6_cidr_block_network_border_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ipv6_cidr_block_network_border_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the location from which we advertise the IPV6 CIDR block.
         """
         return pulumi.get(self, "ipv6_cidr_block_network_border_group")
 
     @ipv6_cidr_block_network_border_group.setter
-    def ipv6_cidr_block_network_border_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ipv6_cidr_block_network_border_group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ipv6_cidr_block_network_border_group", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv6IpamPoolId")
-    def ipv6_ipam_pool_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ipv6_ipam_pool_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the IPv6 IPAM pool to Associate a CIDR from to a VPC.
         """
         return pulumi.get(self, "ipv6_ipam_pool_id")
 
     @ipv6_ipam_pool_id.setter
-    def ipv6_ipam_pool_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ipv6_ipam_pool_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ipv6_ipam_pool_id", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv6NetmaskLength")
-    def ipv6_netmask_length(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ipv6_netmask_length(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The netmask length of the IPv6 CIDR you would like to associate from an Amazon VPC IP Address Manager (IPAM) pool.
         """
         return pulumi.get(self, "ipv6_netmask_length")
 
     @ipv6_netmask_length.setter
-    def ipv6_netmask_length(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ipv6_netmask_length(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ipv6_netmask_length", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv6Pool")
-    def ipv6_pool(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ipv6_pool(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of an IPv6 address pool from which to allocate the IPv6 CIDR block.
         """
         return pulumi.get(self, "ipv6_pool")
 
     @ipv6_pool.setter
-    def ipv6_pool(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ipv6_pool(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ipv6_pool", value)
 
 
@@ -190,16 +190,16 @@ class VpcCidrBlock(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 amazon_provided_ipv6_cidr_block: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipv4_ipam_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipv4_netmask_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 ipv6_cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipv6_cidr_block_network_border_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipv6_ipam_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipv6_netmask_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 ipv6_pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 amazon_provided_ipv6_cidr_block: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv4_ipam_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv4_netmask_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 ipv6_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv6_cidr_block_network_border_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv6_ipam_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv6_netmask_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 ipv6_pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::EC2::VPCCidrBlock
@@ -243,16 +243,16 @@ class VpcCidrBlock(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 amazon_provided_ipv6_cidr_block: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipv4_ipam_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipv4_netmask_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 ipv6_cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipv6_cidr_block_network_border_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipv6_ipam_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipv6_netmask_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 ipv6_pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 amazon_provided_ipv6_cidr_block: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv4_ipam_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv4_netmask_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 ipv6_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv6_cidr_block_network_border_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv6_ipam_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv6_netmask_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 ipv6_pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

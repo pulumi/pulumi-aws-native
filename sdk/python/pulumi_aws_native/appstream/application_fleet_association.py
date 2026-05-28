@@ -61,8 +61,8 @@ class ApplicationFleetAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 fleet_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 application_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 fleet_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::AppStream::ApplicationFleetAssociation
@@ -98,8 +98,8 @@ class ApplicationFleetAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 fleet_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 application_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 fleet_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

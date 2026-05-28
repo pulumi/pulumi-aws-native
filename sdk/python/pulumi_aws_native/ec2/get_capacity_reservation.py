@@ -296,7 +296,7 @@ def get_capacity_reservation(id: Optional[_builtins.str] = None,
         start_date=pulumi.get(__ret__, 'start_date'),
         state=pulumi.get(__ret__, 'state'),
         total_instance_count=pulumi.get(__ret__, 'total_instance_count'))
-def get_capacity_reservation_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_capacity_reservation_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCapacityReservationResult]:
     """
     Resource Type definition for AWS::EC2::CapacityReservation

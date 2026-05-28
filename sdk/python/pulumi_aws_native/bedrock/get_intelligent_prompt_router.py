@@ -128,7 +128,7 @@ def get_intelligent_prompt_router(prompt_router_arn: Optional[_builtins.str] = N
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-def get_intelligent_prompt_router_output(prompt_router_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_intelligent_prompt_router_output(prompt_router_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIntelligentPromptRouterResult]:
     """
     Definition of AWS::Bedrock::IntelligentPromptRouter Resource Type

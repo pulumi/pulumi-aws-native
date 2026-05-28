@@ -20,11 +20,11 @@ __all__ = ['ContactChannelArgs', 'ContactChannel']
 @pulumi.input_type
 class ContactChannelArgs:
     def __init__(__self__, *,
-                 channel_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 channel_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 channel_type: Optional[pulumi.Input['ContactChannelChannelType']] = None,
-                 contact_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 defer_activation: Optional[pulumi.Input[_builtins.bool]] = None):
+                 channel_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 channel_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 channel_type: pulumi.Input[Optional['ContactChannelChannelType']] = None,
+                 contact_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 defer_activation: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ContactChannel resource.
 
@@ -47,62 +47,62 @@ class ContactChannelArgs:
 
     @_builtins.property
     @pulumi.getter(name="channelAddress")
-    def channel_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def channel_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The details that SSM Incident Manager uses when trying to engage the contact channel.
         """
         return pulumi.get(self, "channel_address")
 
     @channel_address.setter
-    def channel_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def channel_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "channel_address", value)
 
     @_builtins.property
     @pulumi.getter(name="channelName")
-    def channel_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def channel_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The device name. String of 6 to 50 alphabetical, numeric, dash, and underscore characters.
         """
         return pulumi.get(self, "channel_name")
 
     @channel_name.setter
-    def channel_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def channel_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "channel_name", value)
 
     @_builtins.property
     @pulumi.getter(name="channelType")
-    def channel_type(self) -> Optional[pulumi.Input['ContactChannelChannelType']]:
+    def channel_type(self) -> pulumi.Input[Optional['ContactChannelChannelType']]:
         """
         Device type, which specify notification channel. Currently supported values: "SMS", "VOICE", "EMAIL", "CHATBOT.
         """
         return pulumi.get(self, "channel_type")
 
     @channel_type.setter
-    def channel_type(self, value: Optional[pulumi.Input['ContactChannelChannelType']]):
+    def channel_type(self, value: pulumi.Input[Optional['ContactChannelChannelType']]):
         pulumi.set(self, "channel_type", value)
 
     @_builtins.property
     @pulumi.getter(name="contactId")
-    def contact_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def contact_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the contact resource
         """
         return pulumi.get(self, "contact_id")
 
     @contact_id.setter
-    def contact_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def contact_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "contact_id", value)
 
     @_builtins.property
     @pulumi.getter(name="deferActivation")
-    def defer_activation(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def defer_activation(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If you want to activate the channel at a later time, you can choose to defer activation. SSM Incident Manager can't engage your contact channel until it has been activated.
         """
         return pulumi.get(self, "defer_activation")
 
     @defer_activation.setter
-    def defer_activation(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def defer_activation(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "defer_activation", value)
 
 
@@ -112,11 +112,11 @@ class ContactChannel(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 channel_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 channel_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 channel_type: Optional[pulumi.Input['ContactChannelChannelType']] = None,
-                 contact_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 defer_activation: Optional[pulumi.Input[_builtins.bool]] = None,
+                 channel_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 channel_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 channel_type: pulumi.Input[Optional['ContactChannelChannelType']] = None,
+                 contact_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 defer_activation: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SSMContacts::ContactChannel
@@ -155,11 +155,11 @@ class ContactChannel(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 channel_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 channel_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 channel_type: Optional[pulumi.Input['ContactChannelChannelType']] = None,
-                 contact_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 defer_activation: Optional[pulumi.Input[_builtins.bool]] = None,
+                 channel_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 channel_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 channel_type: pulumi.Input[Optional['ContactChannelChannelType']] = None,
+                 contact_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 defer_activation: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

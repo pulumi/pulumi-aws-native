@@ -24,10 +24,10 @@ __all__ = ['TrustStoreArgs', 'TrustStore']
 @pulumi.input_type
 class TrustStoreArgs:
     def __init__(__self__, *,
-                 ca_certificates_bundle_source: Optional[pulumi.Input['TrustStoreCaCertificatesBundleSourceArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 use_client_certificate_ocsp_endpoint: Optional[pulumi.Input[_builtins.bool]] = None):
+                 ca_certificates_bundle_source: pulumi.Input[Optional['TrustStoreCaCertificatesBundleSourceArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 use_client_certificate_ocsp_endpoint: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a TrustStore resource.
 
@@ -47,50 +47,50 @@ class TrustStoreArgs:
 
     @_builtins.property
     @pulumi.getter(name="caCertificatesBundleSource")
-    def ca_certificates_bundle_source(self) -> Optional[pulumi.Input['TrustStoreCaCertificatesBundleSourceArgs']]:
+    def ca_certificates_bundle_source(self) -> pulumi.Input[Optional['TrustStoreCaCertificatesBundleSourceArgs']]:
         """
         A CA certificates bundle source.
         """
         return pulumi.get(self, "ca_certificates_bundle_source")
 
     @ca_certificates_bundle_source.setter
-    def ca_certificates_bundle_source(self, value: Optional[pulumi.Input['TrustStoreCaCertificatesBundleSourceArgs']]):
+    def ca_certificates_bundle_source(self, value: pulumi.Input[Optional['TrustStoreCaCertificatesBundleSourceArgs']]):
         pulumi.set(self, "ca_certificates_bundle_source", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The trust store's name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A complex type that contains zero or more ``Tag`` elements.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="useClientCertificateOcspEndpoint")
-    def use_client_certificate_ocsp_endpoint(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_client_certificate_ocsp_endpoint(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A boolean. When true, performs real-time certificate revocation checks by querying the OCSP endpoint specified within the client certificate.
         """
         return pulumi.get(self, "use_client_certificate_ocsp_endpoint")
 
     @use_client_certificate_ocsp_endpoint.setter
-    def use_client_certificate_ocsp_endpoint(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_client_certificate_ocsp_endpoint(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_client_certificate_ocsp_endpoint", value)
 
 
@@ -100,10 +100,10 @@ class TrustStore(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 ca_certificates_bundle_source: Optional[pulumi.Input[Union['TrustStoreCaCertificatesBundleSourceArgs', 'TrustStoreCaCertificatesBundleSourceArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 use_client_certificate_ocsp_endpoint: Optional[pulumi.Input[_builtins.bool]] = None,
+                 ca_certificates_bundle_source: pulumi.Input[Optional[Union['TrustStoreCaCertificatesBundleSourceArgs', 'TrustStoreCaCertificatesBundleSourceArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 use_client_certificate_ocsp_endpoint: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         A trust store.
@@ -141,10 +141,10 @@ class TrustStore(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 ca_certificates_bundle_source: Optional[pulumi.Input[Union['TrustStoreCaCertificatesBundleSourceArgs', 'TrustStoreCaCertificatesBundleSourceArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 use_client_certificate_ocsp_endpoint: Optional[pulumi.Input[_builtins.bool]] = None,
+                 ca_certificates_bundle_source: pulumi.Input[Optional[Union['TrustStoreCaCertificatesBundleSourceArgs', 'TrustStoreCaCertificatesBundleSourceArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 use_client_certificate_ocsp_endpoint: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

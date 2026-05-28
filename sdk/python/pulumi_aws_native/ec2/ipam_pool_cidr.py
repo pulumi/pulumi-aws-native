@@ -20,8 +20,8 @@ __all__ = ['IpamPoolCidrArgs', 'IpamPoolCidr']
 class IpamPoolCidrArgs:
     def __init__(__self__, *,
                  ipam_pool_id: pulumi.Input[_builtins.str],
-                 cidr: Optional[pulumi.Input[_builtins.str]] = None,
-                 netmask_length: Optional[pulumi.Input[_builtins.int]] = None):
+                 cidr: pulumi.Input[Optional[_builtins.str]] = None,
+                 netmask_length: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a IpamPoolCidr resource.
 
@@ -49,26 +49,26 @@ class IpamPoolCidrArgs:
 
     @_builtins.property
     @pulumi.getter
-    def cidr(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cidr(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Represents a single IPv4 or IPv6 CIDR
         """
         return pulumi.get(self, "cidr")
 
     @cidr.setter
-    def cidr(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cidr(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cidr", value)
 
     @_builtins.property
     @pulumi.getter(name="netmaskLength")
-    def netmask_length(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def netmask_length(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The desired netmask length of the provision. If set, IPAM will choose a block of free space with this size and return the CIDR representing it.
         """
         return pulumi.get(self, "netmask_length")
 
     @netmask_length.setter
-    def netmask_length(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def netmask_length(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "netmask_length", value)
 
 
@@ -78,9 +78,9 @@ class IpamPoolCidr(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cidr: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipam_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 netmask_length: Optional[pulumi.Input[_builtins.int]] = None,
+                 cidr: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipam_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 netmask_length: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         Resource Schema of AWS::EC2::IPAMPoolCidr Type
@@ -117,9 +117,9 @@ class IpamPoolCidr(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cidr: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipam_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 netmask_length: Optional[pulumi.Input[_builtins.int]] = None,
+                 cidr: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipam_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 netmask_length: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

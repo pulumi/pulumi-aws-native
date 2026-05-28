@@ -100,11 +100,11 @@ def get_policy_grant(domain_identifier: Optional[_builtins.str] = None,
         created_at=pulumi.get(__ret__, 'created_at'),
         created_by=pulumi.get(__ret__, 'created_by'),
         grant_id=pulumi.get(__ret__, 'grant_id'))
-def get_policy_grant_output(domain_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                            entity_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                            entity_type: Optional[pulumi.Input['PolicyGrantTargetEntityType']] = None,
-                            grant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                            policy_type: Optional[pulumi.Input['PolicyGrantManagedPolicyType']] = None,
+def get_policy_grant_output(domain_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                            entity_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                            entity_type: pulumi.Input[Optional['PolicyGrantTargetEntityType']] = None,
+                            grant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                            policy_type: pulumi.Input[Optional['PolicyGrantManagedPolicyType']] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicyGrantResult]:
     """
     Policy Grant in AWS DataZone is an explicit authorization assignment that allows a specific principal (user, group, or project) to perform particular actions (such as creating glossary terms, managing projects, or accessing resources) on governed resources within a certain scope (like a Domain Unit or Project). Policy Grants are essentially the mechanism by which DataZone enforces fine-grained, role-based access control beyond what is possible through AWS IAM alone.

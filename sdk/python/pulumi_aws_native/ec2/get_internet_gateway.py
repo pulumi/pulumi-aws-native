@@ -75,7 +75,7 @@ def get_internet_gateway(internet_gateway_id: Optional[_builtins.str] = None,
     return AwaitableGetInternetGatewayResult(
         internet_gateway_id=pulumi.get(__ret__, 'internet_gateway_id'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_internet_gateway_output(internet_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_internet_gateway_output(internet_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInternetGatewayResult]:
     """
     Allocates an internet gateway for use with a VPC. After creating the Internet gateway, you then attach it to a VPC.

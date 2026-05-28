@@ -193,7 +193,7 @@ def get_automation_rule_v2(rule_arn: Optional[_builtins.str] = None,
         rule_status=pulumi.get(__ret__, 'rule_status'),
         tags=pulumi.get(__ret__, 'tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-def get_automation_rule_v2_output(rule_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_automation_rule_v2_output(rule_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAutomationRuleV2Result]:
     """
     Resource schema for AWS::SecurityHub::AutomationRuleV2

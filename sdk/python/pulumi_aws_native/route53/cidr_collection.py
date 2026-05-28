@@ -21,8 +21,8 @@ __all__ = ['CidrCollectionArgs', 'CidrCollection']
 @pulumi.input_type
 class CidrCollectionArgs:
     def __init__(__self__, *,
-                 locations: Optional[pulumi.Input[Sequence[pulumi.Input['CidrCollectionLocationArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 locations: pulumi.Input[Optional[Sequence[pulumi.Input['CidrCollectionLocationArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a CidrCollection resource.
 
@@ -36,26 +36,26 @@ class CidrCollectionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CidrCollectionLocationArgs']]]]:
+    def locations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CidrCollectionLocationArgs']]]]:
         """
         A complex type that contains information about the list of CIDR locations.
         """
         return pulumi.get(self, "locations")
 
     @locations.setter
-    def locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CidrCollectionLocationArgs']]]]):
+    def locations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CidrCollectionLocationArgs']]]]):
         pulumi.set(self, "locations", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A unique name for the CIDR collection.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -65,8 +65,8 @@ class CidrCollection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 locations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CidrCollectionLocationArgs', 'CidrCollectionLocationArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 locations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CidrCollectionLocationArgs', 'CidrCollectionLocationArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Route53::CidrCollection.
@@ -102,8 +102,8 @@ class CidrCollection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 locations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CidrCollectionLocationArgs', 'CidrCollectionLocationArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 locations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CidrCollectionLocationArgs', 'CidrCollectionLocationArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

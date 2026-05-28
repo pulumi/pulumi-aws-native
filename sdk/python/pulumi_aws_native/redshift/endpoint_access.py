@@ -24,7 +24,7 @@ class EndpointAccessArgs:
                  endpoint_name: pulumi.Input[_builtins.str],
                  subnet_group_name: pulumi.Input[_builtins.str],
                  vpc_security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 resource_owner: Optional[pulumi.Input[_builtins.str]] = None):
+                 resource_owner: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a EndpointAccess resource.
 
@@ -91,14 +91,14 @@ class EndpointAccessArgs:
 
     @_builtins.property
     @pulumi.getter(name="resourceOwner")
-    def resource_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_owner(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS account ID of the owner of the cluster.
         """
         return pulumi.get(self, "resource_owner")
 
     @resource_owner.setter
-    def resource_owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_owner(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_owner", value)
 
 
@@ -108,11 +108,11 @@ class EndpointAccess(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Resource schema for a Redshift-managed VPC endpoint.
@@ -151,11 +151,11 @@ class EndpointAccess(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

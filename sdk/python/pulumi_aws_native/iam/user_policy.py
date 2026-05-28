@@ -21,7 +21,7 @@ class UserPolicyInitArgs:
     def __init__(__self__, *,
                  user_name: pulumi.Input[_builtins.str],
                  policy_document: Optional[Any] = None,
-                 policy_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 policy_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a UserPolicy resource.
 
@@ -78,7 +78,7 @@ class UserPolicyInitArgs:
 
     @_builtins.property
     @pulumi.getter(name="policyName")
-    def policy_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the policy document.
          This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
@@ -86,7 +86,7 @@ class UserPolicyInitArgs:
         return pulumi.get(self, "policy_name")
 
     @policy_name.setter
-    def policy_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_name", value)
 
 
@@ -97,8 +97,8 @@ class UserPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  policy_document: Optional[Any] = None,
-                 policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Adds or updates an inline policy document that is embedded in the specified IAM user.
@@ -149,8 +149,8 @@ class UserPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  policy_document: Optional[Any] = None,
-                 policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

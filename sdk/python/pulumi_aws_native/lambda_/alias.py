@@ -23,10 +23,10 @@ class AliasArgs:
     def __init__(__self__, *,
                  function_name: pulumi.Input[_builtins.str],
                  function_version: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 provisioned_concurrency_config: Optional[pulumi.Input['AliasProvisionedConcurrencyConfigurationArgs']] = None,
-                 routing_config: Optional[pulumi.Input['AliasRoutingConfigurationArgs']] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 provisioned_concurrency_config: pulumi.Input[Optional['AliasProvisionedConcurrencyConfigurationArgs']] = None,
+                 routing_config: pulumi.Input[Optional['AliasRoutingConfigurationArgs']] = None):
         """
         The set of arguments for constructing a Alias resource.
 
@@ -74,50 +74,50 @@ class AliasArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the alias.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the alias.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="provisionedConcurrencyConfig")
-    def provisioned_concurrency_config(self) -> Optional[pulumi.Input['AliasProvisionedConcurrencyConfigurationArgs']]:
+    def provisioned_concurrency_config(self) -> pulumi.Input[Optional['AliasProvisionedConcurrencyConfigurationArgs']]:
         """
         Specifies a provisioned concurrency configuration for a function's alias.
         """
         return pulumi.get(self, "provisioned_concurrency_config")
 
     @provisioned_concurrency_config.setter
-    def provisioned_concurrency_config(self, value: Optional[pulumi.Input['AliasProvisionedConcurrencyConfigurationArgs']]):
+    def provisioned_concurrency_config(self, value: pulumi.Input[Optional['AliasProvisionedConcurrencyConfigurationArgs']]):
         pulumi.set(self, "provisioned_concurrency_config", value)
 
     @_builtins.property
     @pulumi.getter(name="routingConfig")
-    def routing_config(self) -> Optional[pulumi.Input['AliasRoutingConfigurationArgs']]:
+    def routing_config(self) -> pulumi.Input[Optional['AliasRoutingConfigurationArgs']]:
         """
         The routing configuration of the alias.
         """
         return pulumi.get(self, "routing_config")
 
     @routing_config.setter
-    def routing_config(self, value: Optional[pulumi.Input['AliasRoutingConfigurationArgs']]):
+    def routing_config(self, value: pulumi.Input[Optional['AliasRoutingConfigurationArgs']]):
         pulumi.set(self, "routing_config", value)
 
 
@@ -127,12 +127,12 @@ class Alias(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 function_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 function_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 provisioned_concurrency_config: Optional[pulumi.Input[Union['AliasProvisionedConcurrencyConfigurationArgs', 'AliasProvisionedConcurrencyConfigurationArgsDict']]] = None,
-                 routing_config: Optional[pulumi.Input[Union['AliasRoutingConfigurationArgs', 'AliasRoutingConfigurationArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 function_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 function_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 provisioned_concurrency_config: pulumi.Input[Optional[Union['AliasProvisionedConcurrencyConfigurationArgs', 'AliasProvisionedConcurrencyConfigurationArgsDict']]] = None,
+                 routing_config: pulumi.Input[Optional[Union['AliasRoutingConfigurationArgs', 'AliasRoutingConfigurationArgsDict']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Lambda::Alias
@@ -172,12 +172,12 @@ class Alias(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 function_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 function_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 provisioned_concurrency_config: Optional[pulumi.Input[Union['AliasProvisionedConcurrencyConfigurationArgs', 'AliasProvisionedConcurrencyConfigurationArgsDict']]] = None,
-                 routing_config: Optional[pulumi.Input[Union['AliasRoutingConfigurationArgs', 'AliasRoutingConfigurationArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 function_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 function_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 provisioned_concurrency_config: pulumi.Input[Optional[Union['AliasProvisionedConcurrencyConfigurationArgs', 'AliasProvisionedConcurrencyConfigurationArgsDict']]] = None,
+                 routing_config: pulumi.Input[Optional[Union['AliasRoutingConfigurationArgs', 'AliasRoutingConfigurationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

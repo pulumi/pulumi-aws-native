@@ -115,7 +115,7 @@ def get_service(service_id: Optional[_builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         service_id=pulumi.get(__ret__, 'service_id'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_service_output(service_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_service_output(service_id: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceResult]:
     """
     The AWS::DevOpsAgent::Service resource registers external services (like Dynatrace, MCP servers, GitLab) for integration with DevOpsAgent.

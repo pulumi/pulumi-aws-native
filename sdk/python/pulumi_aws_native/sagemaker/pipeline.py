@@ -25,11 +25,11 @@ class PipelineArgs:
     def __init__(__self__, *,
                  pipeline_definition: pulumi.Input[Union['PipelineDefinition0PropertiesArgs', 'PipelineDefinition1PropertiesArgs']],
                  role_arn: pulumi.Input[_builtins.str],
-                 parallelism_configuration: Optional[pulumi.Input['ParallelismConfigurationPropertiesArgs']] = None,
-                 pipeline_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 pipeline_display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 pipeline_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 parallelism_configuration: pulumi.Input[Optional['ParallelismConfigurationPropertiesArgs']] = None,
+                 pipeline_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 pipeline_display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pipeline_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Pipeline resource.
 
@@ -80,62 +80,62 @@ class PipelineArgs:
 
     @_builtins.property
     @pulumi.getter(name="parallelismConfiguration")
-    def parallelism_configuration(self) -> Optional[pulumi.Input['ParallelismConfigurationPropertiesArgs']]:
+    def parallelism_configuration(self) -> pulumi.Input[Optional['ParallelismConfigurationPropertiesArgs']]:
         """
         The parallelism configuration applied to the pipeline.
         """
         return pulumi.get(self, "parallelism_configuration")
 
     @parallelism_configuration.setter
-    def parallelism_configuration(self, value: Optional[pulumi.Input['ParallelismConfigurationPropertiesArgs']]):
+    def parallelism_configuration(self, value: pulumi.Input[Optional['ParallelismConfigurationPropertiesArgs']]):
         pulumi.set(self, "parallelism_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="pipelineDescription")
-    def pipeline_description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pipeline_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the Pipeline.
         """
         return pulumi.get(self, "pipeline_description")
 
     @pipeline_description.setter
-    def pipeline_description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pipeline_description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pipeline_description", value)
 
     @_builtins.property
     @pulumi.getter(name="pipelineDisplayName")
-    def pipeline_display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pipeline_display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The display name of the Pipeline.
         """
         return pulumi.get(self, "pipeline_display_name")
 
     @pipeline_display_name.setter
-    def pipeline_display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pipeline_display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pipeline_display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="pipelineName")
-    def pipeline_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pipeline_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Pipeline.
         """
         return pulumi.get(self, "pipeline_name")
 
     @pipeline_name.setter
-    def pipeline_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pipeline_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pipeline_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags of the pipeline.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -145,13 +145,13 @@ class Pipeline(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 parallelism_configuration: Optional[pulumi.Input[Union['ParallelismConfigurationPropertiesArgs', 'ParallelismConfigurationPropertiesArgsDict']]] = None,
-                 pipeline_definition: Optional[pulumi.Input[Union[Union['PipelineDefinition0PropertiesArgs', 'PipelineDefinition0PropertiesArgsDict'], Union['PipelineDefinition1PropertiesArgs', 'PipelineDefinition1PropertiesArgsDict']]]] = None,
-                 pipeline_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 pipeline_display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 pipeline_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 parallelism_configuration: pulumi.Input[Optional[Union['ParallelismConfigurationPropertiesArgs', 'ParallelismConfigurationPropertiesArgsDict']]] = None,
+                 pipeline_definition: pulumi.Input[Optional[Union[Union['PipelineDefinition0PropertiesArgs', 'PipelineDefinition0PropertiesArgsDict'], Union['PipelineDefinition1PropertiesArgs', 'PipelineDefinition1PropertiesArgsDict']]]] = None,
+                 pipeline_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 pipeline_display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pipeline_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SageMaker::Pipeline
@@ -266,13 +266,13 @@ class Pipeline(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 parallelism_configuration: Optional[pulumi.Input[Union['ParallelismConfigurationPropertiesArgs', 'ParallelismConfigurationPropertiesArgsDict']]] = None,
-                 pipeline_definition: Optional[pulumi.Input[Union[Union['PipelineDefinition0PropertiesArgs', 'PipelineDefinition0PropertiesArgsDict'], Union['PipelineDefinition1PropertiesArgs', 'PipelineDefinition1PropertiesArgsDict']]]] = None,
-                 pipeline_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 pipeline_display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 pipeline_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 parallelism_configuration: pulumi.Input[Optional[Union['ParallelismConfigurationPropertiesArgs', 'ParallelismConfigurationPropertiesArgsDict']]] = None,
+                 pipeline_definition: pulumi.Input[Optional[Union[Union['PipelineDefinition0PropertiesArgs', 'PipelineDefinition0PropertiesArgsDict'], Union['PipelineDefinition1PropertiesArgs', 'PipelineDefinition1PropertiesArgsDict']]]] = None,
+                 pipeline_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 pipeline_display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pipeline_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

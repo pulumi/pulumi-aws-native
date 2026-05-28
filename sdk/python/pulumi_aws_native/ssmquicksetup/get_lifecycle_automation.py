@@ -100,7 +100,7 @@ def get_lifecycle_automation(association_id: Optional[_builtins.str] = None,
         automation_document=pulumi.get(__ret__, 'automation_document'),
         automation_parameters=pulumi.get(__ret__, 'automation_parameters'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_lifecycle_automation_output(association_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_lifecycle_automation_output(association_id: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLifecycleAutomationResult]:
     """
     Resource Type definition for AWS::SSMQuickSetup::LifecycleAutomation that executes SSM Automation documents in response to CloudFormation lifecycle events.

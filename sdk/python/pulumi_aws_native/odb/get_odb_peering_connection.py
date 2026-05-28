@@ -140,7 +140,7 @@ def get_odb_peering_connection(odb_peering_connection_arn: Optional[_builtins.st
         peer_network_arn=pulumi.get(__ret__, 'peer_network_arn'),
         peer_network_cidrs=pulumi.get(__ret__, 'peer_network_cidrs'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_odb_peering_connection_output(odb_peering_connection_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_odb_peering_connection_output(odb_peering_connection_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOdbPeeringConnectionResult]:
     """
     Resource Type definition for AWS::ODB::OdbPeeringConnection.

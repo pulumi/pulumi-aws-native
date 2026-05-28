@@ -288,7 +288,7 @@ def get_db_cluster(db_cluster_identifier: Optional[_builtins.str] = None,
         serverless_scaling_configuration=pulumi.get(__ret__, 'serverless_scaling_configuration'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_security_group_ids=pulumi.get(__ret__, 'vpc_security_group_ids'))
-def get_db_cluster_output(db_cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+def get_db_cluster_output(db_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDbClusterResult]:
     """
     The AWS::Neptune::DBCluster resource creates an Amazon Neptune DB cluster.

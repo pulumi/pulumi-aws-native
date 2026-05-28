@@ -167,7 +167,7 @@ def get_multicast_group(id: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_multicast_group_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_multicast_group_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMulticastGroupResult]:
     """
     Create and manage Multicast groups.

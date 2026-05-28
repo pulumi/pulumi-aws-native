@@ -22,18 +22,18 @@ __all__ = ['FormArgs', 'Form']
 @pulumi.input_type
 class FormArgs:
     def __init__(__self__, *,
-                 app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 cta: Optional[pulumi.Input['FormCtaArgs']] = None,
-                 data_type: Optional[pulumi.Input['FormDataTypeConfigArgs']] = None,
-                 environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 fields: Optional[pulumi.Input[Mapping[str, pulumi.Input['FormFieldConfigArgs']]]] = None,
-                 form_action_type: Optional[pulumi.Input['FormActionType']] = None,
-                 label_decorator: Optional[pulumi.Input['FormLabelDecorator']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 sectional_elements: Optional[pulumi.Input[Mapping[str, pulumi.Input['FormSectionalElementArgs']]]] = None,
-                 style: Optional[pulumi.Input['FormStyleArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cta: pulumi.Input[Optional['FormCtaArgs']] = None,
+                 data_type: pulumi.Input[Optional['FormDataTypeConfigArgs']] = None,
+                 environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 fields: pulumi.Input[Optional[Mapping[str, pulumi.Input['FormFieldConfigArgs']]]] = None,
+                 form_action_type: pulumi.Input[Optional['FormActionType']] = None,
+                 label_decorator: pulumi.Input[Optional['FormLabelDecorator']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 sectional_elements: pulumi.Input[Optional[Mapping[str, pulumi.Input['FormSectionalElementArgs']]]] = None,
+                 style: pulumi.Input[Optional['FormStyleArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Form resource.
 
@@ -77,146 +77,146 @@ class FormArgs:
 
     @_builtins.property
     @pulumi.getter(name="appId")
-    def app_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique ID of the Amplify app associated with the form.
         """
         return pulumi.get(self, "app_id")
 
     @app_id.setter
-    def app_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def cta(self) -> Optional[pulumi.Input['FormCtaArgs']]:
+    def cta(self) -> pulumi.Input[Optional['FormCtaArgs']]:
         """
         The `FormCTA` object that stores the call to action configuration for the form.
         """
         return pulumi.get(self, "cta")
 
     @cta.setter
-    def cta(self, value: Optional[pulumi.Input['FormCtaArgs']]):
+    def cta(self, value: pulumi.Input[Optional['FormCtaArgs']]):
         pulumi.set(self, "cta", value)
 
     @_builtins.property
     @pulumi.getter(name="dataType")
-    def data_type(self) -> Optional[pulumi.Input['FormDataTypeConfigArgs']]:
+    def data_type(self) -> pulumi.Input[Optional['FormDataTypeConfigArgs']]:
         """
         The type of data source to use to create the form.
         """
         return pulumi.get(self, "data_type")
 
     @data_type.setter
-    def data_type(self, value: Optional[pulumi.Input['FormDataTypeConfigArgs']]):
+    def data_type(self, value: pulumi.Input[Optional['FormDataTypeConfigArgs']]):
         pulumi.set(self, "data_type", value)
 
     @_builtins.property
     @pulumi.getter(name="environmentName")
-    def environment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def environment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the backend environment that is a part of the Amplify app.
         """
         return pulumi.get(self, "environment_name")
 
     @environment_name.setter
-    def environment_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def environment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "environment_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def fields(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['FormFieldConfigArgs']]]]:
+    def fields(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['FormFieldConfigArgs']]]]:
         """
         The configuration information for the form's fields.
         """
         return pulumi.get(self, "fields")
 
     @fields.setter
-    def fields(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['FormFieldConfigArgs']]]]):
+    def fields(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['FormFieldConfigArgs']]]]):
         pulumi.set(self, "fields", value)
 
     @_builtins.property
     @pulumi.getter(name="formActionType")
-    def form_action_type(self) -> Optional[pulumi.Input['FormActionType']]:
+    def form_action_type(self) -> pulumi.Input[Optional['FormActionType']]:
         """
         Specifies whether to perform a create or update action on the form.
         """
         return pulumi.get(self, "form_action_type")
 
     @form_action_type.setter
-    def form_action_type(self, value: Optional[pulumi.Input['FormActionType']]):
+    def form_action_type(self, value: pulumi.Input[Optional['FormActionType']]):
         pulumi.set(self, "form_action_type", value)
 
     @_builtins.property
     @pulumi.getter(name="labelDecorator")
-    def label_decorator(self) -> Optional[pulumi.Input['FormLabelDecorator']]:
+    def label_decorator(self) -> pulumi.Input[Optional['FormLabelDecorator']]:
         """
         Specifies an icon or decoration to display on the form.
         """
         return pulumi.get(self, "label_decorator")
 
     @label_decorator.setter
-    def label_decorator(self, value: Optional[pulumi.Input['FormLabelDecorator']]):
+    def label_decorator(self, value: pulumi.Input[Optional['FormLabelDecorator']]):
         pulumi.set(self, "label_decorator", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the form.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaVersion")
-    def schema_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def schema_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The schema version of the form.
         """
         return pulumi.get(self, "schema_version")
 
     @schema_version.setter
-    def schema_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def schema_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schema_version", value)
 
     @_builtins.property
     @pulumi.getter(name="sectionalElements")
-    def sectional_elements(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['FormSectionalElementArgs']]]]:
+    def sectional_elements(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['FormSectionalElementArgs']]]]:
         """
         The configuration information for the visual helper elements for the form. These elements are not associated with any data.
         """
         return pulumi.get(self, "sectional_elements")
 
     @sectional_elements.setter
-    def sectional_elements(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['FormSectionalElementArgs']]]]):
+    def sectional_elements(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['FormSectionalElementArgs']]]]):
         pulumi.set(self, "sectional_elements", value)
 
     @_builtins.property
     @pulumi.getter
-    def style(self) -> Optional[pulumi.Input['FormStyleArgs']]:
+    def style(self) -> pulumi.Input[Optional['FormStyleArgs']]:
         """
         The configuration for the form's style.
         """
         return pulumi.get(self, "style")
 
     @style.setter
-    def style(self, value: Optional[pulumi.Input['FormStyleArgs']]):
+    def style(self, value: pulumi.Input[Optional['FormStyleArgs']]):
         pulumi.set(self, "style", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         One or more key-value pairs to use when tagging the form data.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -226,18 +226,18 @@ class Form(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 cta: Optional[pulumi.Input[Union['FormCtaArgs', 'FormCtaArgsDict']]] = None,
-                 data_type: Optional[pulumi.Input[Union['FormDataTypeConfigArgs', 'FormDataTypeConfigArgsDict']]] = None,
-                 environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 fields: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['FormFieldConfigArgs', 'FormFieldConfigArgsDict']]]]] = None,
-                 form_action_type: Optional[pulumi.Input['FormActionType']] = None,
-                 label_decorator: Optional[pulumi.Input['FormLabelDecorator']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 sectional_elements: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['FormSectionalElementArgs', 'FormSectionalElementArgsDict']]]]] = None,
-                 style: Optional[pulumi.Input[Union['FormStyleArgs', 'FormStyleArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cta: pulumi.Input[Optional[Union['FormCtaArgs', 'FormCtaArgsDict']]] = None,
+                 data_type: pulumi.Input[Optional[Union['FormDataTypeConfigArgs', 'FormDataTypeConfigArgsDict']]] = None,
+                 environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 fields: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['FormFieldConfigArgs', 'FormFieldConfigArgsDict']]]]] = None,
+                 form_action_type: pulumi.Input[Optional['FormActionType']] = None,
+                 label_decorator: pulumi.Input[Optional['FormLabelDecorator']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 sectional_elements: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['FormSectionalElementArgs', 'FormSectionalElementArgsDict']]]]] = None,
+                 style: pulumi.Input[Optional[Union['FormStyleArgs', 'FormStyleArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Definition of AWS::AmplifyUIBuilder::Form Resource Type
@@ -283,18 +283,18 @@ class Form(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 cta: Optional[pulumi.Input[Union['FormCtaArgs', 'FormCtaArgsDict']]] = None,
-                 data_type: Optional[pulumi.Input[Union['FormDataTypeConfigArgs', 'FormDataTypeConfigArgsDict']]] = None,
-                 environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 fields: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['FormFieldConfigArgs', 'FormFieldConfigArgsDict']]]]] = None,
-                 form_action_type: Optional[pulumi.Input['FormActionType']] = None,
-                 label_decorator: Optional[pulumi.Input['FormLabelDecorator']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 sectional_elements: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['FormSectionalElementArgs', 'FormSectionalElementArgsDict']]]]] = None,
-                 style: Optional[pulumi.Input[Union['FormStyleArgs', 'FormStyleArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cta: pulumi.Input[Optional[Union['FormCtaArgs', 'FormCtaArgsDict']]] = None,
+                 data_type: pulumi.Input[Optional[Union['FormDataTypeConfigArgs', 'FormDataTypeConfigArgsDict']]] = None,
+                 environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 fields: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['FormFieldConfigArgs', 'FormFieldConfigArgsDict']]]]] = None,
+                 form_action_type: pulumi.Input[Optional['FormActionType']] = None,
+                 label_decorator: pulumi.Input[Optional['FormLabelDecorator']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 sectional_elements: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['FormSectionalElementArgs', 'FormSectionalElementArgsDict']]]]] = None,
+                 style: pulumi.Input[Optional[Union['FormStyleArgs', 'FormStyleArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

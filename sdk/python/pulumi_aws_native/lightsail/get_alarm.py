@@ -178,7 +178,7 @@ def get_alarm(alarm_name: Optional[_builtins.str] = None,
         state=pulumi.get(__ret__, 'state'),
         threshold=pulumi.get(__ret__, 'threshold'),
         treat_missing_data=pulumi.get(__ret__, 'treat_missing_data'))
-def get_alarm_output(alarm_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_alarm_output(alarm_name: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAlarmResult]:
     """
     Resource Type definition for AWS::Lightsail::Alarm

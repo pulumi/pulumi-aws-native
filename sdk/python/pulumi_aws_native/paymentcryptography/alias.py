@@ -19,8 +19,8 @@ __all__ = ['AliasArgs', 'Alias']
 @pulumi.input_type
 class AliasArgs:
     def __init__(__self__, *,
-                 alias_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 alias_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Alias resource.
 
@@ -36,7 +36,7 @@ class AliasArgs:
 
     @_builtins.property
     @pulumi.getter(name="aliasName")
-    def alias_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def alias_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A friendly name that you can use to refer to a key. The value must begin with `alias/` .
 
@@ -45,19 +45,19 @@ class AliasArgs:
         return pulumi.get(self, "alias_name")
 
     @alias_name.setter
-    def alias_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def alias_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "alias_name", value)
 
     @_builtins.property
     @pulumi.getter(name="keyArn")
-    def key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The `KeyARN` of the key associated with the alias.
         """
         return pulumi.get(self, "key_arn")
 
     @key_arn.setter
-    def key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_arn", value)
 
 
@@ -67,8 +67,8 @@ class Alias(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alias_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 alias_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Definition of AWS::PaymentCryptography::Alias Resource Type
@@ -106,8 +106,8 @@ class Alias(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alias_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 alias_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

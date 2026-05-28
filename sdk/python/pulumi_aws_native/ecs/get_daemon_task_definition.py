@@ -66,7 +66,7 @@ def get_daemon_task_definition(daemon_task_definition_arn: Optional[_builtins.st
     return AwaitableGetDaemonTaskDefinitionResult(
         daemon_task_definition_arn=pulumi.get(__ret__, 'daemon_task_definition_arn'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_daemon_task_definition_output(daemon_task_definition_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_daemon_task_definition_output(daemon_task_definition_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDaemonTaskDefinitionResult]:
     """
     The details of a daemon task definition. A daemon task definition is a template that describes the containers that form a daemon. Daemons deploy cross-cutting software agents independently across your Amazon ECS infrastructure.

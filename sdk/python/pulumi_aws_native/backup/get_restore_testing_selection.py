@@ -123,8 +123,8 @@ def get_restore_testing_selection(restore_testing_plan_name: Optional[_builtins.
         protected_resource_conditions=pulumi.get(__ret__, 'protected_resource_conditions'),
         restore_metadata_overrides=pulumi.get(__ret__, 'restore_metadata_overrides'),
         validation_window_hours=pulumi.get(__ret__, 'validation_window_hours'))
-def get_restore_testing_selection_output(restore_testing_plan_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                         restore_testing_selection_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_restore_testing_selection_output(restore_testing_plan_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                         restore_testing_selection_name: pulumi.Input[Optional[_builtins.str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRestoreTestingSelectionResult]:
     """
     Resource Type definition for AWS::Backup::RestoreTestingSelection

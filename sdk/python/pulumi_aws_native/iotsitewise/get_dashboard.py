@@ -127,7 +127,7 @@ def get_dashboard(dashboard_id: Optional[_builtins.str] = None,
         dashboard_id=pulumi.get(__ret__, 'dashboard_id'),
         dashboard_name=pulumi.get(__ret__, 'dashboard_name'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_dashboard_output(dashboard_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_dashboard_output(dashboard_id: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDashboardResult]:
     """
     Resource schema for AWS::IoTSiteWise::Dashboard

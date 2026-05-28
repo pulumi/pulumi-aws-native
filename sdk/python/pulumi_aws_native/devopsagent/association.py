@@ -24,7 +24,7 @@ class AssociationArgs:
                  agent_space_id: pulumi.Input[_builtins.str],
                  configuration: pulumi.Input['AssociationServiceConfigurationArgs'],
                  service_id: pulumi.Input[_builtins.str],
-                 linked_association_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 linked_association_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Association resource.
 
@@ -77,14 +77,14 @@ class AssociationArgs:
 
     @_builtins.property
     @pulumi.getter(name="linkedAssociationIds")
-    def linked_association_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def linked_association_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Set of linked association IDs for parent-child relationships
         """
         return pulumi.get(self, "linked_association_ids")
 
     @linked_association_ids.setter
-    def linked_association_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def linked_association_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "linked_association_ids", value)
 
 
@@ -94,10 +94,10 @@ class Association(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_space_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 configuration: Optional[pulumi.Input[Union['AssociationServiceConfigurationArgs', 'AssociationServiceConfigurationArgsDict']]] = None,
-                 linked_association_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 service_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 agent_space_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration: pulumi.Input[Optional[Union['AssociationServiceConfigurationArgs', 'AssociationServiceConfigurationArgsDict']]] = None,
+                 linked_association_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 service_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::DevOpsAgent::Association defining how the AgentSpace interacts with external services like GitHub, Slack, AWS accounts, and others.
@@ -135,10 +135,10 @@ class Association(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_space_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 configuration: Optional[pulumi.Input[Union['AssociationServiceConfigurationArgs', 'AssociationServiceConfigurationArgsDict']]] = None,
-                 linked_association_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 service_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 agent_space_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration: pulumi.Input[Optional[Union['AssociationServiceConfigurationArgs', 'AssociationServiceConfigurationArgsDict']]] = None,
+                 linked_association_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 service_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -135,7 +135,7 @@ def get_replica_key(key_id: Optional[_builtins.str] = None,
         key_id=pulumi.get(__ret__, 'key_id'),
         key_policy=pulumi.get(__ret__, 'key_policy'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_replica_key_output(key_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_replica_key_output(key_id: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReplicaKeyResult]:
     """
     The AWS::KMS::ReplicaKey resource specifies a multi-region replica AWS KMS key in AWS Key Management Service (AWS KMS).

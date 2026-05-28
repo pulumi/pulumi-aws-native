@@ -91,7 +91,7 @@ def get_continuous_deployment_policy(id: Optional[_builtins.str] = None,
         continuous_deployment_policy_config=pulumi.get(__ret__, 'continuous_deployment_policy_config'),
         id=pulumi.get(__ret__, 'id'),
         last_modified_time=pulumi.get(__ret__, 'last_modified_time'))
-def get_continuous_deployment_policy_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_continuous_deployment_policy_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetContinuousDeploymentPolicyResult]:
     """
     Creates a continuous deployment policy that routes a subset of production traffic from a primary distribution to a staging distribution.

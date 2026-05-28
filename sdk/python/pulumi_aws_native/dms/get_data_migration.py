@@ -168,7 +168,7 @@ def get_data_migration(data_migration_arn: Optional[_builtins.str] = None,
         service_access_role_arn=pulumi.get(__ret__, 'service_access_role_arn'),
         source_data_settings=pulumi.get(__ret__, 'source_data_settings'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_data_migration_output(data_migration_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_data_migration_output(data_migration_arn: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataMigrationResult]:
     """
     Resource schema for AWS::DMS::DataMigration.

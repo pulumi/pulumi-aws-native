@@ -21,7 +21,7 @@ __all__ = ['PublisherArgs', 'Publisher']
 class PublisherArgs:
     def __init__(__self__, *,
                  accept_terms_and_conditions: pulumi.Input[_builtins.bool],
-                 connection_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 connection_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Publisher resource.
 
@@ -46,14 +46,14 @@ class PublisherArgs:
 
     @_builtins.property
     @pulumi.getter(name="connectionArn")
-    def connection_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connection_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If you are using a Bitbucket or GitHub account for identity verification, the Amazon Resource Name (ARN) for your connection to that account.
         """
         return pulumi.get(self, "connection_arn")
 
     @connection_arn.setter
-    def connection_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connection_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connection_arn", value)
 
 
@@ -63,8 +63,8 @@ class Publisher(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 accept_terms_and_conditions: Optional[pulumi.Input[_builtins.bool]] = None,
-                 connection_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 accept_terms_and_conditions: pulumi.Input[Optional[_builtins.bool]] = None,
+                 connection_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Register as a publisher in the CloudFormation Registry.
@@ -100,8 +100,8 @@ class Publisher(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 accept_terms_and_conditions: Optional[pulumi.Input[_builtins.bool]] = None,
-                 connection_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 accept_terms_and_conditions: pulumi.Input[Optional[_builtins.bool]] = None,
+                 connection_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

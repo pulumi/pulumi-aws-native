@@ -23,11 +23,11 @@ class MultiRegionPropertiesPropertiesArgsDict(TypedDict):
     """
     The Multi-region properties associated to this cluster.
     """
-    clusters: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    clusters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The set of peered clusters that form the multi-Region cluster configuration. Each peered cluster represents a database instance in a different Region.
     """
-    witness_region: NotRequired[pulumi.Input[_builtins.str]]
+    witness_region: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The witness region in a multi-region cluster.
     """
@@ -35,8 +35,8 @@ class MultiRegionPropertiesPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class MultiRegionPropertiesPropertiesArgs:
     def __init__(__self__, *,
-                 clusters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 witness_region: Optional[pulumi.Input[_builtins.str]] = None):
+                 clusters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 witness_region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The Multi-region properties associated to this cluster.
 
@@ -50,26 +50,26 @@ class MultiRegionPropertiesPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def clusters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def clusters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The set of peered clusters that form the multi-Region cluster configuration. Each peered cluster represents a database instance in a different Region.
         """
         return pulumi.get(self, "clusters")
 
     @clusters.setter
-    def clusters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def clusters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "clusters", value)
 
     @_builtins.property
     @pulumi.getter(name="witnessRegion")
-    def witness_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def witness_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The witness region in a multi-region cluster.
         """
         return pulumi.get(self, "witness_region")
 
     @witness_region.setter
-    def witness_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def witness_region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "witness_region", value)
 
 

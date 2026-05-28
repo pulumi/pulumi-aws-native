@@ -195,7 +195,7 @@ def get_schedule(name: Optional[_builtins.str] = None,
         start_date=pulumi.get(__ret__, 'start_date'),
         state=pulumi.get(__ret__, 'state'),
         target=pulumi.get(__ret__, 'target'))
-def get_schedule_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_schedule_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetScheduleResult]:
     """
     Definition of AWS::Scheduler::Schedule Resource Type

@@ -22,17 +22,17 @@ __all__ = ['DbInstanceArgs', 'DbInstance']
 class DbInstanceArgs:
     def __init__(__self__, *,
                  db_instance_class: pulumi.Input[_builtins.str],
-                 allow_major_version_upgrade: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auto_minor_version_upgrade: Optional[pulumi.Input[_builtins.bool]] = None,
-                 availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 db_cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 db_instance_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 db_parameter_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 db_snapshot_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 db_subnet_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 preferred_maintenance_window: Optional[pulumi.Input[_builtins.str]] = None,
-                 publicly_accessible: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 allow_major_version_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auto_minor_version_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
+                 availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 db_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 db_instance_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 db_parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 db_snapshot_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 db_subnet_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 preferred_maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DbInstance resource.
 
@@ -97,19 +97,19 @@ class DbInstanceArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowMajorVersionUpgrade")
-    def allow_major_version_upgrade(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_major_version_upgrade(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates that major version upgrades are allowed. Changing this parameter doesn't result in an outage and the change is asynchronously applied as soon as possible. This parameter must be set to true when specifying a value for the EngineVersion parameter that is a different major version than the DB instance's current version.
         """
         return pulumi.get(self, "allow_major_version_upgrade")
 
     @allow_major_version_upgrade.setter
-    def allow_major_version_upgrade(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_major_version_upgrade(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_major_version_upgrade", value)
 
     @_builtins.property
     @pulumi.getter(name="autoMinorVersionUpgrade")
-    def auto_minor_version_upgrade(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_minor_version_upgrade(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates that minor version patches are applied automatically.
 
@@ -118,60 +118,60 @@ class DbInstanceArgs:
         return pulumi.get(self, "auto_minor_version_upgrade")
 
     @auto_minor_version_upgrade.setter
-    def auto_minor_version_upgrade(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_minor_version_upgrade(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_minor_version_upgrade", value)
 
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def availability_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Availability Zone the DB instance is located in.
         """
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
-    def availability_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def availability_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "availability_zone", value)
 
     @_builtins.property
     @pulumi.getter(name="dbClusterIdentifier")
-    def db_cluster_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def db_cluster_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If the DB instance is a member of a DB cluster, contains the name of the DB cluster that the DB instance is a member of.
         """
         return pulumi.get(self, "db_cluster_identifier")
 
     @db_cluster_identifier.setter
-    def db_cluster_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def db_cluster_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "db_cluster_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="dbInstanceIdentifier")
-    def db_instance_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def db_instance_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Contains a user-supplied database identifier. This identifier is the unique key that identifies a DB instance.
         """
         return pulumi.get(self, "db_instance_identifier")
 
     @db_instance_identifier.setter
-    def db_instance_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def db_instance_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "db_instance_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="dbParameterGroupName")
-    def db_parameter_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def db_parameter_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of an existing DB parameter group or a reference to an AWS::Neptune::DBParameterGroup resource created in the template. If any of the data members of the referenced parameter group are changed during an update, the DB instance might need to be restarted, which causes some interruption. If the parameter group contains static parameters, whether they were changed or not, an update triggers a reboot.
         """
         return pulumi.get(self, "db_parameter_group_name")
 
     @db_parameter_group_name.setter
-    def db_parameter_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def db_parameter_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "db_parameter_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="dbSnapshotIdentifier")
-    def db_snapshot_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def db_snapshot_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This parameter is not supported.
 
@@ -182,55 +182,55 @@ class DbInstanceArgs:
         return pulumi.get(self, "db_snapshot_identifier")
 
     @db_snapshot_identifier.setter
-    def db_snapshot_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def db_snapshot_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "db_snapshot_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="dbSubnetGroupName")
-    def db_subnet_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def db_subnet_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A DB subnet group to associate with the DB instance. If you update this value, the new subnet group must be a subnet group in a new virtual private cloud (VPC).
         """
         return pulumi.get(self, "db_subnet_group_name")
 
     @db_subnet_group_name.setter
-    def db_subnet_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def db_subnet_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "db_subnet_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="preferredMaintenanceWindow")
-    def preferred_maintenance_window(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def preferred_maintenance_window(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
         """
         return pulumi.get(self, "preferred_maintenance_window")
 
     @preferred_maintenance_window.setter
-    def preferred_maintenance_window(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def preferred_maintenance_window(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "preferred_maintenance_window", value)
 
     @_builtins.property
     @pulumi.getter(name="publiclyAccessible")
-    def publicly_accessible(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def publicly_accessible(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates that public accessibility is enabled. This should be enabled in combination with IAM Auth enabled on the DBCluster
         """
         return pulumi.get(self, "publicly_accessible")
 
     @publicly_accessible.setter
-    def publicly_accessible(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def publicly_accessible(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "publicly_accessible", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An arbitrary set of tags (key-value pairs) for this DB instance.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -240,18 +240,18 @@ class DbInstance(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_major_version_upgrade: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auto_minor_version_upgrade: Optional[pulumi.Input[_builtins.bool]] = None,
-                 availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 db_cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 db_instance_class: Optional[pulumi.Input[_builtins.str]] = None,
-                 db_instance_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 db_parameter_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 db_snapshot_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 db_subnet_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 preferred_maintenance_window: Optional[pulumi.Input[_builtins.str]] = None,
-                 publicly_accessible: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 allow_major_version_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auto_minor_version_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
+                 availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 db_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 db_instance_class: pulumi.Input[Optional[_builtins.str]] = None,
+                 db_instance_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 db_parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 db_snapshot_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 db_subnet_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 preferred_maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         The AWS::Neptune::DBInstance resource creates an Amazon Neptune DB instance.
@@ -305,18 +305,18 @@ class DbInstance(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_major_version_upgrade: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auto_minor_version_upgrade: Optional[pulumi.Input[_builtins.bool]] = None,
-                 availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 db_cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 db_instance_class: Optional[pulumi.Input[_builtins.str]] = None,
-                 db_instance_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 db_parameter_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 db_snapshot_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 db_subnet_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 preferred_maintenance_window: Optional[pulumi.Input[_builtins.str]] = None,
-                 publicly_accessible: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 allow_major_version_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auto_minor_version_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
+                 availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 db_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 db_instance_class: pulumi.Input[Optional[_builtins.str]] = None,
+                 db_instance_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 db_parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 db_snapshot_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 db_subnet_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 preferred_maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

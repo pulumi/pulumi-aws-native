@@ -79,15 +79,15 @@ class LicenseBorrowConfigurationArgs:
 
 
 class LicenseConsumptionConfigurationArgsDict(TypedDict):
-    borrow_configuration: NotRequired[pulumi.Input['LicenseBorrowConfigurationArgsDict']]
+    borrow_configuration: NotRequired[pulumi.Input[Optional['LicenseBorrowConfigurationArgsDict']]]
     """
     Details about a borrow configuration.
     """
-    provisional_configuration: NotRequired[pulumi.Input['LicenseProvisionalConfigurationArgsDict']]
+    provisional_configuration: NotRequired[pulumi.Input[Optional['LicenseProvisionalConfigurationArgsDict']]]
     """
     Details about a provisional configuration.
     """
-    renew_type: NotRequired[pulumi.Input[_builtins.str]]
+    renew_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Renewal frequency.
     """
@@ -95,9 +95,9 @@ class LicenseConsumptionConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class LicenseConsumptionConfigurationArgs:
     def __init__(__self__, *,
-                 borrow_configuration: Optional[pulumi.Input['LicenseBorrowConfigurationArgs']] = None,
-                 provisional_configuration: Optional[pulumi.Input['LicenseProvisionalConfigurationArgs']] = None,
-                 renew_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 borrow_configuration: pulumi.Input[Optional['LicenseBorrowConfigurationArgs']] = None,
+                 provisional_configuration: pulumi.Input[Optional['LicenseProvisionalConfigurationArgs']] = None,
+                 renew_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input['LicenseBorrowConfigurationArgs'] borrow_configuration: Details about a borrow configuration.
         :param pulumi.Input['LicenseProvisionalConfigurationArgs'] provisional_configuration: Details about a provisional configuration.
@@ -112,38 +112,38 @@ class LicenseConsumptionConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="borrowConfiguration")
-    def borrow_configuration(self) -> Optional[pulumi.Input['LicenseBorrowConfigurationArgs']]:
+    def borrow_configuration(self) -> pulumi.Input[Optional['LicenseBorrowConfigurationArgs']]:
         """
         Details about a borrow configuration.
         """
         return pulumi.get(self, "borrow_configuration")
 
     @borrow_configuration.setter
-    def borrow_configuration(self, value: Optional[pulumi.Input['LicenseBorrowConfigurationArgs']]):
+    def borrow_configuration(self, value: pulumi.Input[Optional['LicenseBorrowConfigurationArgs']]):
         pulumi.set(self, "borrow_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="provisionalConfiguration")
-    def provisional_configuration(self) -> Optional[pulumi.Input['LicenseProvisionalConfigurationArgs']]:
+    def provisional_configuration(self) -> pulumi.Input[Optional['LicenseProvisionalConfigurationArgs']]:
         """
         Details about a provisional configuration.
         """
         return pulumi.get(self, "provisional_configuration")
 
     @provisional_configuration.setter
-    def provisional_configuration(self, value: Optional[pulumi.Input['LicenseProvisionalConfigurationArgs']]):
+    def provisional_configuration(self, value: pulumi.Input[Optional['LicenseProvisionalConfigurationArgs']]):
         pulumi.set(self, "provisional_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="renewType")
-    def renew_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def renew_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Renewal frequency.
         """
         return pulumi.get(self, "renew_type")
 
     @renew_type.setter
-    def renew_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def renew_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "renew_type", value)
 
 
@@ -156,19 +156,19 @@ class LicenseEntitlementArgsDict(TypedDict):
     """
     Entitlement unit.
     """
-    allow_check_in: NotRequired[pulumi.Input[_builtins.bool]]
+    allow_check_in: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether check-ins are allowed.
     """
-    max_count: NotRequired[pulumi.Input[_builtins.int]]
+    max_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Maximum entitlement count. Use if the unit is not None.
     """
-    overage: NotRequired[pulumi.Input[_builtins.bool]]
+    overage: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether overages are allowed.
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Entitlement resource. Use only if the unit is None.
     """
@@ -178,10 +178,10 @@ class LicenseEntitlementArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  unit: pulumi.Input[_builtins.str],
-                 allow_check_in: Optional[pulumi.Input[_builtins.bool]] = None,
-                 max_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 overage: Optional[pulumi.Input[_builtins.bool]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 allow_check_in: pulumi.Input[Optional[_builtins.bool]] = None,
+                 max_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 overage: pulumi.Input[Optional[_builtins.bool]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: Entitlement name.
         :param pulumi.Input[_builtins.str] unit: Entitlement unit.
@@ -227,50 +227,50 @@ class LicenseEntitlementArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowCheckIn")
-    def allow_check_in(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_check_in(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether check-ins are allowed.
         """
         return pulumi.get(self, "allow_check_in")
 
     @allow_check_in.setter
-    def allow_check_in(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_check_in(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_check_in", value)
 
     @_builtins.property
     @pulumi.getter(name="maxCount")
-    def max_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum entitlement count. Use if the unit is not None.
         """
         return pulumi.get(self, "max_count")
 
     @max_count.setter
-    def max_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_count", value)
 
     @_builtins.property
     @pulumi.getter
-    def overage(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def overage(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether overages are allowed.
         """
         return pulumi.get(self, "overage")
 
     @overage.setter
-    def overage(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def overage(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "overage", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Entitlement resource. Use only if the unit is None.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
@@ -279,7 +279,7 @@ class LicenseIssuerDataArgsDict(TypedDict):
     """
     Issuer name.
     """
-    sign_key: NotRequired[pulumi.Input[_builtins.str]]
+    sign_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Asymmetric KMS key from AWS Key Management Service . The KMS key must have a key usage of sign and verify, and support the RSASSA-PSS SHA-256 signing algorithm.
     """
@@ -288,7 +288,7 @@ class LicenseIssuerDataArgsDict(TypedDict):
 class LicenseIssuerDataArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 sign_key: Optional[pulumi.Input[_builtins.str]] = None):
+                 sign_key: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: Issuer name.
         :param pulumi.Input[_builtins.str] sign_key: Asymmetric KMS key from AWS Key Management Service . The KMS key must have a key usage of sign and verify, and support the RSASSA-PSS SHA-256 signing algorithm.
@@ -311,14 +311,14 @@ class LicenseIssuerDataArgs:
 
     @_builtins.property
     @pulumi.getter(name="signKey")
-    def sign_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sign_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Asymmetric KMS key from AWS Key Management Service . The KMS key must have a key usage of sign and verify, and support the RSASSA-PSS SHA-256 signing algorithm.
         """
         return pulumi.get(self, "sign_key")
 
     @sign_key.setter
-    def sign_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sign_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sign_key", value)
 
 

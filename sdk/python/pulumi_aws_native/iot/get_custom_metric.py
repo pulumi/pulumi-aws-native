@@ -88,7 +88,7 @@ def get_custom_metric(metric_name: Optional[_builtins.str] = None,
         display_name=pulumi.get(__ret__, 'display_name'),
         metric_arn=pulumi.get(__ret__, 'metric_arn'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_custom_metric_output(metric_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_custom_metric_output(metric_name: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCustomMetricResult]:
     """
     A custom metric published by your devices to Device Defender.

@@ -93,7 +93,7 @@ def get_cache_policy(id: Optional[_builtins.str] = None,
         cache_policy_config=pulumi.get(__ret__, 'cache_policy_config'),
         id=pulumi.get(__ret__, 'id'),
         last_modified_time=pulumi.get(__ret__, 'last_modified_time'))
-def get_cache_policy_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_cache_policy_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCachePolicyResult]:
     """
     A cache policy.

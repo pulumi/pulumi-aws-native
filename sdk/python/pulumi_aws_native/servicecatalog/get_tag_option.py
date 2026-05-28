@@ -74,7 +74,7 @@ def get_tag_option(id: Optional[_builtins.str] = None,
     return AwaitableGetTagOptionResult(
         active=pulumi.get(__ret__, 'active'),
         id=pulumi.get(__ret__, 'id'))
-def get_tag_option_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_tag_option_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTagOptionResult]:
     """
     Resource type definition for AWS::ServiceCatalog::TagOption

@@ -61,7 +61,7 @@ def get_usage_plan_key(id: Optional[_builtins.str] = None,
 
     return AwaitableGetUsagePlanKeyResult(
         id=pulumi.get(__ret__, 'id'))
-def get_usage_plan_key_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_usage_plan_key_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUsagePlanKeyResult]:
     """
     The ``AWS::ApiGateway::UsagePlanKey`` resource associates an API key with a usage plan. This association determines which users the usage plan is applied to.

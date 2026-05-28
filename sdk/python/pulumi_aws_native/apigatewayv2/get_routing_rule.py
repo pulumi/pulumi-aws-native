@@ -114,7 +114,7 @@ def get_routing_rule(routing_rule_arn: Optional[_builtins.str] = None,
         priority=pulumi.get(__ret__, 'priority'),
         routing_rule_arn=pulumi.get(__ret__, 'routing_rule_arn'),
         routing_rule_id=pulumi.get(__ret__, 'routing_rule_id'))
-def get_routing_rule_output(routing_rule_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_routing_rule_output(routing_rule_arn: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRoutingRuleResult]:
     """
     Schema for AWS::ApiGatewayV2::RoutingRule

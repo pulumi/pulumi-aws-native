@@ -22,16 +22,16 @@ __all__ = ['InstanceProfileArgs', 'InstanceProfile']
 @pulumi.input_type
 class InstanceProfileArgs:
     def __init__(__self__, *,
-                 availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_profile_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_type: Optional[pulumi.Input['InstanceProfileNetworkType']] = None,
-                 publicly_accessible: Optional[pulumi.Input[_builtins.bool]] = None,
-                 subnet_group_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 vpc_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_profile_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_type: pulumi.Input[Optional['InstanceProfileNetworkType']] = None,
+                 publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
+                 subnet_group_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 vpc_security_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a InstanceProfile resource.
 
@@ -69,122 +69,122 @@ class InstanceProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def availability_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The property describes an availability zone of the instance profile.
         """
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
-    def availability_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def availability_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "availability_zone", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The optional description of the instance profile.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceProfileIdentifier")
-    def instance_profile_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def instance_profile_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The property describes an identifier for the instance profile. It is used for describing/deleting/modifying. Can be name/arn
         """
         return pulumi.get(self, "instance_profile_identifier")
 
     @instance_profile_identifier.setter
-    def instance_profile_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def instance_profile_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "instance_profile_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceProfileName")
-    def instance_profile_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def instance_profile_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The property describes a name for the instance profile.
         """
         return pulumi.get(self, "instance_profile_name")
 
     @instance_profile_name.setter
-    def instance_profile_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def instance_profile_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "instance_profile_name", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
-    def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The property describes kms key arn for the instance profile.
         """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
-    def kms_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="networkType")
-    def network_type(self) -> Optional[pulumi.Input['InstanceProfileNetworkType']]:
+    def network_type(self) -> pulumi.Input[Optional['InstanceProfileNetworkType']]:
         """
         The property describes a network type for the instance profile.
         """
         return pulumi.get(self, "network_type")
 
     @network_type.setter
-    def network_type(self, value: Optional[pulumi.Input['InstanceProfileNetworkType']]):
+    def network_type(self, value: pulumi.Input[Optional['InstanceProfileNetworkType']]):
         pulumi.set(self, "network_type", value)
 
     @_builtins.property
     @pulumi.getter(name="publiclyAccessible")
-    def publicly_accessible(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def publicly_accessible(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The property describes the publicly accessible of the instance profile
         """
         return pulumi.get(self, "publicly_accessible")
 
     @publicly_accessible.setter
-    def publicly_accessible(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def publicly_accessible(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "publicly_accessible", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetGroupIdentifier")
-    def subnet_group_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_group_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The property describes a subnet group identifier for the instance profile.
         """
         return pulumi.get(self, "subnet_group_identifier")
 
     @subnet_group_identifier.setter
-    def subnet_group_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_group_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_group_identifier", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcSecurityGroups")
-    def vpc_security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def vpc_security_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The property describes vps security groups for the instance profile.
         """
         return pulumi.get(self, "vpc_security_groups")
 
     @vpc_security_groups.setter
-    def vpc_security_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def vpc_security_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "vpc_security_groups", value)
 
 
@@ -194,16 +194,16 @@ class InstanceProfile(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_profile_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_type: Optional[pulumi.Input['InstanceProfileNetworkType']] = None,
-                 publicly_accessible: Optional[pulumi.Input[_builtins.bool]] = None,
-                 subnet_group_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 vpc_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_profile_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_type: pulumi.Input[Optional['InstanceProfileNetworkType']] = None,
+                 publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
+                 subnet_group_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 vpc_security_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::DMS::InstanceProfile.
@@ -247,16 +247,16 @@ class InstanceProfile(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_profile_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_type: Optional[pulumi.Input['InstanceProfileNetworkType']] = None,
-                 publicly_accessible: Optional[pulumi.Input[_builtins.bool]] = None,
-                 subnet_group_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 vpc_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_profile_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_type: pulumi.Input[Optional['InstanceProfileNetworkType']] = None,
+                 publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
+                 subnet_group_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 vpc_security_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -180,7 +180,7 @@ def get_partner_app(arn: Optional[_builtins.str] = None,
         maintenance_config=pulumi.get(__ret__, 'maintenance_config'),
         tags=pulumi.get(__ret__, 'tags'),
         tier=pulumi.get(__ret__, 'tier'))
-def get_partner_app_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_partner_app_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPartnerAppResult]:
     """
     Resource Type definition for AWS::SageMaker::PartnerApp

@@ -25,15 +25,15 @@ __all__ = ['WorkspaceArgs', 'Workspace']
 class WorkspaceArgs:
     def __init__(__self__, *,
                  instance_arn: pulumi.Input[_builtins.str],
-                 associations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 media: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceMediaItemArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 pages: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspacePageArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 theme: Optional[pulumi.Input['WorkspaceThemeArgs']] = None,
-                 title: Optional[pulumi.Input[_builtins.str]] = None,
-                 visibility: Optional[pulumi.Input['WorkspaceVisibility']] = None):
+                 associations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 media: pulumi.Input[Optional[Sequence[pulumi.Input['WorkspaceMediaItemArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pages: pulumi.Input[Optional[Sequence[pulumi.Input['WorkspacePageArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 theme: pulumi.Input[Optional['WorkspaceThemeArgs']] = None,
+                 title: pulumi.Input[Optional[_builtins.str]] = None,
+                 visibility: pulumi.Input[Optional['WorkspaceVisibility']] = None):
         """
         The set of arguments for constructing a Workspace resource.
 
@@ -82,110 +82,110 @@ class WorkspaceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def associations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def associations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The resource ARNs associated with the workspace
         """
         return pulumi.get(self, "associations")
 
     @associations.setter
-    def associations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def associations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "associations", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the workspace
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def media(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceMediaItemArgs']]]]:
+    def media(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WorkspaceMediaItemArgs']]]]:
         """
         The media items for the workspace
         """
         return pulumi.get(self, "media")
 
     @media.setter
-    def media(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceMediaItemArgs']]]]):
+    def media(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WorkspaceMediaItemArgs']]]]):
         pulumi.set(self, "media", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the workspace.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def pages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkspacePageArgs']]]]:
+    def pages(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WorkspacePageArgs']]]]:
         """
         The pages associated with the workspace
         """
         return pulumi.get(self, "pages")
 
     @pages.setter
-    def pages(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspacePageArgs']]]]):
+    def pages(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WorkspacePageArgs']]]]):
         pulumi.set(self, "pages", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def theme(self) -> Optional[pulumi.Input['WorkspaceThemeArgs']]:
+    def theme(self) -> pulumi.Input[Optional['WorkspaceThemeArgs']]:
         """
         The theme configuration for the workspace
         """
         return pulumi.get(self, "theme")
 
     @theme.setter
-    def theme(self, value: Optional[pulumi.Input['WorkspaceThemeArgs']]):
+    def theme(self, value: pulumi.Input[Optional['WorkspaceThemeArgs']]):
         pulumi.set(self, "theme", value)
 
     @_builtins.property
     @pulumi.getter
-    def title(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def title(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The title of the workspace
         """
         return pulumi.get(self, "title")
 
     @title.setter
-    def title(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def title(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "title", value)
 
     @_builtins.property
     @pulumi.getter
-    def visibility(self) -> Optional[pulumi.Input['WorkspaceVisibility']]:
+    def visibility(self) -> pulumi.Input[Optional['WorkspaceVisibility']]:
         """
         The visibility of the workspace. Will always be set to ASSIGNED oninitial creation.
         """
         return pulumi.get(self, "visibility")
 
     @visibility.setter
-    def visibility(self, value: Optional[pulumi.Input['WorkspaceVisibility']]):
+    def visibility(self, value: pulumi.Input[Optional['WorkspaceVisibility']]):
         pulumi.set(self, "visibility", value)
 
 
@@ -195,16 +195,16 @@ class Workspace(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 associations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 media: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WorkspaceMediaItemArgs', 'WorkspaceMediaItemArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 pages: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WorkspacePageArgs', 'WorkspacePageArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 theme: Optional[pulumi.Input[Union['WorkspaceThemeArgs', 'WorkspaceThemeArgsDict']]] = None,
-                 title: Optional[pulumi.Input[_builtins.str]] = None,
-                 visibility: Optional[pulumi.Input['WorkspaceVisibility']] = None,
+                 associations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 media: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkspaceMediaItemArgs', 'WorkspaceMediaItemArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkspacePageArgs', 'WorkspacePageArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 theme: pulumi.Input[Optional[Union['WorkspaceThemeArgs', 'WorkspaceThemeArgsDict']]] = None,
+                 title: pulumi.Input[Optional[_builtins.str]] = None,
+                 visibility: pulumi.Input[Optional['WorkspaceVisibility']] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Connect::Workspace
@@ -248,16 +248,16 @@ class Workspace(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 associations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 media: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WorkspaceMediaItemArgs', 'WorkspaceMediaItemArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 pages: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WorkspacePageArgs', 'WorkspacePageArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 theme: Optional[pulumi.Input[Union['WorkspaceThemeArgs', 'WorkspaceThemeArgsDict']]] = None,
-                 title: Optional[pulumi.Input[_builtins.str]] = None,
-                 visibility: Optional[pulumi.Input['WorkspaceVisibility']] = None,
+                 associations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 media: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkspaceMediaItemArgs', 'WorkspaceMediaItemArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkspacePageArgs', 'WorkspacePageArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 theme: pulumi.Input[Optional[Union['WorkspaceThemeArgs', 'WorkspaceThemeArgsDict']]] = None,
+                 title: pulumi.Input[Optional[_builtins.str]] = None,
+                 visibility: pulumi.Input[Optional['WorkspaceVisibility']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

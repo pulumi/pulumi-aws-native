@@ -111,7 +111,7 @@ def get_group(group_name: Optional[_builtins.str] = None,
         managed_policy_arns=pulumi.get(__ret__, 'managed_policy_arns'),
         path=pulumi.get(__ret__, 'path'),
         policies=pulumi.get(__ret__, 'policies'))
-def get_group_output(group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_group_output(group_name: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGroupResult]:
     """
     Creates a new group.

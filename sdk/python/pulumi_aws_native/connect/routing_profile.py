@@ -28,11 +28,11 @@ class RoutingProfileArgs:
                  description: pulumi.Input[_builtins.str],
                  instance_arn: pulumi.Input[_builtins.str],
                  media_concurrencies: pulumi.Input[Sequence[pulumi.Input['RoutingProfileMediaConcurrencyArgs']]],
-                 agent_availability_timer: Optional[pulumi.Input['RoutingProfileAgentAvailabilityTimer']] = None,
-                 manual_assignment_queue_configs: Optional[pulumi.Input[Sequence[pulumi.Input['RoutingProfileManualAssignmentQueueConfigArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 queue_configs: Optional[pulumi.Input[Sequence[pulumi.Input['RoutingProfileQueueConfigArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 agent_availability_timer: pulumi.Input[Optional['RoutingProfileAgentAvailabilityTimer']] = None,
+                 manual_assignment_queue_configs: pulumi.Input[Optional[Sequence[pulumi.Input['RoutingProfileManualAssignmentQueueConfigArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 queue_configs: pulumi.Input[Optional[Sequence[pulumi.Input['RoutingProfileQueueConfigArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a RoutingProfile resource.
 
@@ -111,62 +111,62 @@ class RoutingProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="agentAvailabilityTimer")
-    def agent_availability_timer(self) -> Optional[pulumi.Input['RoutingProfileAgentAvailabilityTimer']]:
+    def agent_availability_timer(self) -> pulumi.Input[Optional['RoutingProfileAgentAvailabilityTimer']]:
         """
         Whether agents with this routing profile will have their routing order calculated based on longest idle time or time since their last inbound contact.
         """
         return pulumi.get(self, "agent_availability_timer")
 
     @agent_availability_timer.setter
-    def agent_availability_timer(self, value: Optional[pulumi.Input['RoutingProfileAgentAvailabilityTimer']]):
+    def agent_availability_timer(self, value: pulumi.Input[Optional['RoutingProfileAgentAvailabilityTimer']]):
         pulumi.set(self, "agent_availability_timer", value)
 
     @_builtins.property
     @pulumi.getter(name="manualAssignmentQueueConfigs")
-    def manual_assignment_queue_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RoutingProfileManualAssignmentQueueConfigArgs']]]]:
+    def manual_assignment_queue_configs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RoutingProfileManualAssignmentQueueConfigArgs']]]]:
         """
         The manual assignment queues to associate with this routing profile.
         """
         return pulumi.get(self, "manual_assignment_queue_configs")
 
     @manual_assignment_queue_configs.setter
-    def manual_assignment_queue_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RoutingProfileManualAssignmentQueueConfigArgs']]]]):
+    def manual_assignment_queue_configs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RoutingProfileManualAssignmentQueueConfigArgs']]]]):
         pulumi.set(self, "manual_assignment_queue_configs", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the routing profile.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="queueConfigs")
-    def queue_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RoutingProfileQueueConfigArgs']]]]:
+    def queue_configs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RoutingProfileQueueConfigArgs']]]]:
         """
         The queues to associate with this routing profile.
         """
         return pulumi.get(self, "queue_configs")
 
     @queue_configs.setter
-    def queue_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RoutingProfileQueueConfigArgs']]]]):
+    def queue_configs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RoutingProfileQueueConfigArgs']]]]):
         pulumi.set(self, "queue_configs", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -176,15 +176,15 @@ class RoutingProfile(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_availability_timer: Optional[pulumi.Input['RoutingProfileAgentAvailabilityTimer']] = None,
-                 default_outbound_queue_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 manual_assignment_queue_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RoutingProfileManualAssignmentQueueConfigArgs', 'RoutingProfileManualAssignmentQueueConfigArgsDict']]]]] = None,
-                 media_concurrencies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RoutingProfileMediaConcurrencyArgs', 'RoutingProfileMediaConcurrencyArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 queue_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RoutingProfileQueueConfigArgs', 'RoutingProfileQueueConfigArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 agent_availability_timer: pulumi.Input[Optional['RoutingProfileAgentAvailabilityTimer']] = None,
+                 default_outbound_queue_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 manual_assignment_queue_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RoutingProfileManualAssignmentQueueConfigArgs', 'RoutingProfileManualAssignmentQueueConfigArgsDict']]]]] = None,
+                 media_concurrencies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RoutingProfileMediaConcurrencyArgs', 'RoutingProfileMediaConcurrencyArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 queue_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RoutingProfileQueueConfigArgs', 'RoutingProfileQueueConfigArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Connect::RoutingProfile
@@ -227,15 +227,15 @@ class RoutingProfile(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_availability_timer: Optional[pulumi.Input['RoutingProfileAgentAvailabilityTimer']] = None,
-                 default_outbound_queue_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 manual_assignment_queue_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RoutingProfileManualAssignmentQueueConfigArgs', 'RoutingProfileManualAssignmentQueueConfigArgsDict']]]]] = None,
-                 media_concurrencies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RoutingProfileMediaConcurrencyArgs', 'RoutingProfileMediaConcurrencyArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 queue_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RoutingProfileQueueConfigArgs', 'RoutingProfileQueueConfigArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 agent_availability_timer: pulumi.Input[Optional['RoutingProfileAgentAvailabilityTimer']] = None,
+                 default_outbound_queue_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 manual_assignment_queue_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RoutingProfileManualAssignmentQueueConfigArgs', 'RoutingProfileManualAssignmentQueueConfigArgsDict']]]]] = None,
+                 media_concurrencies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RoutingProfileMediaConcurrencyArgs', 'RoutingProfileMediaConcurrencyArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 queue_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RoutingProfileQueueConfigArgs', 'RoutingProfileQueueConfigArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

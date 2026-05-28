@@ -22,11 +22,11 @@ __all__ = ['CodeSecurityScanConfigurationInitArgs', 'CodeSecurityScanConfigurati
 @pulumi.input_type
 class CodeSecurityScanConfigurationInitArgs:
     def __init__(__self__, *,
-                 configuration: Optional[pulumi.Input['CodeSecurityScanConfigurationArgs']] = None,
-                 level: Optional[pulumi.Input['CodeSecurityScanConfigurationConfigurationLevel']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope_settings: Optional[pulumi.Input['CodeSecurityScanConfigurationScopeSettingsArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 configuration: pulumi.Input[Optional['CodeSecurityScanConfigurationArgs']] = None,
+                 level: pulumi.Input[Optional['CodeSecurityScanConfigurationConfigurationLevel']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope_settings: pulumi.Input[Optional['CodeSecurityScanConfigurationScopeSettingsArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CodeSecurityScanConfiguration resource.
 
@@ -49,62 +49,62 @@ class CodeSecurityScanConfigurationInitArgs:
 
     @_builtins.property
     @pulumi.getter
-    def configuration(self) -> Optional[pulumi.Input['CodeSecurityScanConfigurationArgs']]:
+    def configuration(self) -> pulumi.Input[Optional['CodeSecurityScanConfigurationArgs']]:
         """
         Code Security Scan Configuration
         """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
-    def configuration(self, value: Optional[pulumi.Input['CodeSecurityScanConfigurationArgs']]):
+    def configuration(self, value: pulumi.Input[Optional['CodeSecurityScanConfigurationArgs']]):
         pulumi.set(self, "configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def level(self) -> Optional[pulumi.Input['CodeSecurityScanConfigurationConfigurationLevel']]:
+    def level(self) -> pulumi.Input[Optional['CodeSecurityScanConfigurationConfigurationLevel']]:
         """
         Configuration Level
         """
         return pulumi.get(self, "level")
 
     @level.setter
-    def level(self, value: Optional[pulumi.Input['CodeSecurityScanConfigurationConfigurationLevel']]):
+    def level(self, value: pulumi.Input[Optional['CodeSecurityScanConfigurationConfigurationLevel']]):
         pulumi.set(self, "level", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Code Security Scan Configuration name
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="scopeSettings")
-    def scope_settings(self) -> Optional[pulumi.Input['CodeSecurityScanConfigurationScopeSettingsArgs']]:
+    def scope_settings(self) -> pulumi.Input[Optional['CodeSecurityScanConfigurationScopeSettingsArgs']]:
         """
         Scope Settings
         """
         return pulumi.get(self, "scope_settings")
 
     @scope_settings.setter
-    def scope_settings(self, value: Optional[pulumi.Input['CodeSecurityScanConfigurationScopeSettingsArgs']]):
+    def scope_settings(self, value: pulumi.Input[Optional['CodeSecurityScanConfigurationScopeSettingsArgs']]):
         pulumi.set(self, "scope_settings", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The tags to apply to the scan configuration.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -114,11 +114,11 @@ class CodeSecurityScanConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: Optional[pulumi.Input[Union['CodeSecurityScanConfigurationArgs', 'CodeSecurityScanConfigurationArgsDict']]] = None,
-                 level: Optional[pulumi.Input['CodeSecurityScanConfigurationConfigurationLevel']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope_settings: Optional[pulumi.Input[Union['CodeSecurityScanConfigurationScopeSettingsArgs', 'CodeSecurityScanConfigurationScopeSettingsArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 configuration: pulumi.Input[Optional[Union['CodeSecurityScanConfigurationArgs', 'CodeSecurityScanConfigurationArgsDict']]] = None,
+                 level: pulumi.Input[Optional['CodeSecurityScanConfigurationConfigurationLevel']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope_settings: pulumi.Input[Optional[Union['CodeSecurityScanConfigurationScopeSettingsArgs', 'CodeSecurityScanConfigurationScopeSettingsArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Inspector CodeSecurityScanConfiguration resource schema
@@ -157,11 +157,11 @@ class CodeSecurityScanConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: Optional[pulumi.Input[Union['CodeSecurityScanConfigurationArgs', 'CodeSecurityScanConfigurationArgsDict']]] = None,
-                 level: Optional[pulumi.Input['CodeSecurityScanConfigurationConfigurationLevel']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope_settings: Optional[pulumi.Input[Union['CodeSecurityScanConfigurationScopeSettingsArgs', 'CodeSecurityScanConfigurationScopeSettingsArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 configuration: pulumi.Input[Optional[Union['CodeSecurityScanConfigurationArgs', 'CodeSecurityScanConfigurationArgsDict']]] = None,
+                 level: pulumi.Input[Optional['CodeSecurityScanConfigurationConfigurationLevel']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope_settings: pulumi.Input[Optional[Union['CodeSecurityScanConfigurationScopeSettingsArgs', 'CodeSecurityScanConfigurationScopeSettingsArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

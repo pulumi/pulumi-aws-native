@@ -22,7 +22,7 @@ class LayerVersionPermissionArgs:
                  action: pulumi.Input[_builtins.str],
                  layer_version_arn: pulumi.Input[_builtins.str],
                  principal: pulumi.Input[_builtins.str],
-                 organization_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 organization_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a LayerVersionPermission resource.
 
@@ -75,14 +75,14 @@ class LayerVersionPermissionArgs:
 
     @_builtins.property
     @pulumi.getter(name="organizationId")
-    def organization_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def organization_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         With the principal set to *, grant permission to all accounts in the specified organization.
         """
         return pulumi.get(self, "organization_id")
 
     @organization_id.setter
-    def organization_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def organization_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "organization_id", value)
 
 
@@ -92,10 +92,10 @@ class LayerVersionPermission(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: Optional[pulumi.Input[_builtins.str]] = None,
-                 layer_version_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 organization_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal: Optional[pulumi.Input[_builtins.str]] = None,
+                 action: pulumi.Input[Optional[_builtins.str]] = None,
+                 layer_version_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 organization_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Schema for Lambda LayerVersionPermission
@@ -133,10 +133,10 @@ class LayerVersionPermission(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: Optional[pulumi.Input[_builtins.str]] = None,
-                 layer_version_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 organization_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal: Optional[pulumi.Input[_builtins.str]] = None,
+                 action: pulumi.Input[Optional[_builtins.str]] = None,
+                 layer_version_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 organization_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

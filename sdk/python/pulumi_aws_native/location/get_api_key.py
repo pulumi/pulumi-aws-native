@@ -160,7 +160,7 @@ def get_api_key(key_name: Optional[_builtins.str] = None,
         restrictions=pulumi.get(__ret__, 'restrictions'),
         tags=pulumi.get(__ret__, 'tags'),
         update_time=pulumi.get(__ret__, 'update_time'))
-def get_api_key_output(key_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_api_key_output(key_name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApiKeyResult]:
     """
     Definition of AWS::Location::APIKey Resource Type

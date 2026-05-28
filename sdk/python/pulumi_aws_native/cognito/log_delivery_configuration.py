@@ -22,7 +22,7 @@ __all__ = ['LogDeliveryConfigurationArgs', 'LogDeliveryConfiguration']
 class LogDeliveryConfigurationArgs:
     def __init__(__self__, *,
                  user_pool_id: pulumi.Input[_builtins.str],
-                 log_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['LogDeliveryConfigurationLogConfigurationArgs']]]] = None):
+                 log_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['LogDeliveryConfigurationLogConfigurationArgs']]]] = None):
         """
         The set of arguments for constructing a LogDeliveryConfiguration resource.
 
@@ -47,14 +47,14 @@ class LogDeliveryConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="logConfigurations")
-    def log_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LogDeliveryConfigurationLogConfigurationArgs']]]]:
+    def log_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LogDeliveryConfigurationLogConfigurationArgs']]]]:
         """
         A logging destination of a user pool. User pools can have multiple logging destinations for message-delivery and user-activity logs.
         """
         return pulumi.get(self, "log_configurations")
 
     @log_configurations.setter
-    def log_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LogDeliveryConfigurationLogConfigurationArgs']]]]):
+    def log_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LogDeliveryConfigurationLogConfigurationArgs']]]]):
         pulumi.set(self, "log_configurations", value)
 
 
@@ -64,8 +64,8 @@ class LogDeliveryConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 log_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LogDeliveryConfigurationLogConfigurationArgs', 'LogDeliveryConfigurationLogConfigurationArgsDict']]]]] = None,
-                 user_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 log_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LogDeliveryConfigurationLogConfigurationArgs', 'LogDeliveryConfigurationLogConfigurationArgsDict']]]]] = None,
+                 user_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Cognito::LogDeliveryConfiguration
@@ -101,8 +101,8 @@ class LogDeliveryConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 log_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LogDeliveryConfigurationLogConfigurationArgs', 'LogDeliveryConfigurationLogConfigurationArgsDict']]]]] = None,
-                 user_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 log_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LogDeliveryConfigurationLogConfigurationArgs', 'LogDeliveryConfigurationLogConfigurationArgsDict']]]]] = None,
+                 user_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

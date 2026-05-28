@@ -32,11 +32,11 @@ class PipelineFieldArgsDict(TypedDict):
     """
     Specifies the name of a field for a particular object. To view valid values for a particular field, see Pipeline Object Reference in the AWS Data Pipeline Developer Guide.
     """
-    ref_value: NotRequired[pulumi.Input[_builtins.str]]
+    ref_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A field value that you specify as an identifier of another object in the same pipeline definition.
     """
-    string_value: NotRequired[pulumi.Input[_builtins.str]]
+    string_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A field value that you specify as a string. To view valid values for a particular field, see Pipeline Object Reference in the AWS Data Pipeline Developer Guide.
     """
@@ -45,8 +45,8 @@ class PipelineFieldArgsDict(TypedDict):
 class PipelineFieldArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[_builtins.str],
-                 ref_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 string_value: Optional[pulumi.Input[_builtins.str]] = None):
+                 ref_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 string_value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] key: Specifies the name of a field for a particular object. To view valid values for a particular field, see Pipeline Object Reference in the AWS Data Pipeline Developer Guide.
         :param pulumi.Input[_builtins.str] ref_value: A field value that you specify as an identifier of another object in the same pipeline definition.
@@ -72,26 +72,26 @@ class PipelineFieldArgs:
 
     @_builtins.property
     @pulumi.getter(name="refValue")
-    def ref_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ref_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A field value that you specify as an identifier of another object in the same pipeline definition.
         """
         return pulumi.get(self, "ref_value")
 
     @ref_value.setter
-    def ref_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ref_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ref_value", value)
 
     @_builtins.property
     @pulumi.getter(name="stringValue")
-    def string_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def string_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A field value that you specify as a string. To view valid values for a particular field, see Pipeline Object Reference in the AWS Data Pipeline Developer Guide.
         """
         return pulumi.get(self, "string_value")
 
     @string_value.setter
-    def string_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def string_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "string_value", value)
 
 

@@ -62,7 +62,7 @@ def get_wal_workspace(wal_workspace_name: Optional[_builtins.str] = None,
 
     return AwaitableGetWalWorkspaceResult(
         tags=pulumi.get(__ret__, 'tags'))
-def get_wal_workspace_output(wal_workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_wal_workspace_output(wal_workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWalWorkspaceResult]:
     """
     Resource schema for AWS::EMR::WALWorkspace Type

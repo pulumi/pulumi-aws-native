@@ -148,7 +148,7 @@ def get_graph(graph_id: Optional[_builtins.str] = None,
         provisioned_memory=pulumi.get(__ret__, 'provisioned_memory'),
         public_connectivity=pulumi.get(__ret__, 'public_connectivity'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_graph_output(graph_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_graph_output(graph_id: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGraphResult]:
     """
     The AWS::NeptuneGraph::Graph resource creates an Amazon NeptuneGraph Graph.

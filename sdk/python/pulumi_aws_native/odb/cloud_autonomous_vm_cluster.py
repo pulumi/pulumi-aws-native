@@ -24,23 +24,23 @@ __all__ = ['CloudAutonomousVmClusterArgs', 'CloudAutonomousVmCluster']
 @pulumi.input_type
 class CloudAutonomousVmClusterArgs:
     def __init__(__self__, *,
-                 autonomous_data_storage_size_in_tbs: Optional[pulumi.Input[_builtins.float]] = None,
-                 cloud_exadata_infrastructure_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 cpu_core_count_per_node: Optional[pulumi.Input[_builtins.int]] = None,
-                 db_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 iam_roles: Optional[pulumi.Input[Sequence[pulumi.Input['CloudAutonomousVmClusterIamRoleArgs']]]] = None,
-                 is_mtls_enabled_vm_cluster: Optional[pulumi.Input[_builtins.bool]] = None,
-                 license_model: Optional[pulumi.Input['CloudAutonomousVmClusterLicenseModel']] = None,
-                 maintenance_window: Optional[pulumi.Input['CloudAutonomousVmClusterMaintenanceWindowArgs']] = None,
-                 memory_per_oracle_compute_unit_in_gbs: Optional[pulumi.Input[_builtins.int]] = None,
-                 odb_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 scan_listener_port_non_tls: Optional[pulumi.Input[_builtins.int]] = None,
-                 scan_listener_port_tls: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 time_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 total_container_databases: Optional[pulumi.Input[_builtins.int]] = None):
+                 autonomous_data_storage_size_in_tbs: pulumi.Input[Optional[_builtins.float]] = None,
+                 cloud_exadata_infrastructure_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cpu_core_count_per_node: pulumi.Input[Optional[_builtins.int]] = None,
+                 db_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 iam_roles: pulumi.Input[Optional[Sequence[pulumi.Input['CloudAutonomousVmClusterIamRoleArgs']]]] = None,
+                 is_mtls_enabled_vm_cluster: pulumi.Input[Optional[_builtins.bool]] = None,
+                 license_model: pulumi.Input[Optional['CloudAutonomousVmClusterLicenseModel']] = None,
+                 maintenance_window: pulumi.Input[Optional['CloudAutonomousVmClusterMaintenanceWindowArgs']] = None,
+                 memory_per_oracle_compute_unit_in_gbs: pulumi.Input[Optional[_builtins.int]] = None,
+                 odb_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 scan_listener_port_non_tls: pulumi.Input[Optional[_builtins.int]] = None,
+                 scan_listener_port_tls: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 time_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 total_container_databases: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a CloudAutonomousVmCluster resource.
 
@@ -99,206 +99,206 @@ class CloudAutonomousVmClusterArgs:
 
     @_builtins.property
     @pulumi.getter(name="autonomousDataStorageSizeInTbs")
-    def autonomous_data_storage_size_in_tbs(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def autonomous_data_storage_size_in_tbs(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The data storage size allocated for Autonomous Databases in the Autonomous VM cluster, in TB.
         """
         return pulumi.get(self, "autonomous_data_storage_size_in_tbs")
 
     @autonomous_data_storage_size_in_tbs.setter
-    def autonomous_data_storage_size_in_tbs(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def autonomous_data_storage_size_in_tbs(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "autonomous_data_storage_size_in_tbs", value)
 
     @_builtins.property
     @pulumi.getter(name="cloudExadataInfrastructureId")
-    def cloud_exadata_infrastructure_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cloud_exadata_infrastructure_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique identifier of the Cloud Exadata Infrastructure containing this Autonomous VM cluster.
         """
         return pulumi.get(self, "cloud_exadata_infrastructure_id")
 
     @cloud_exadata_infrastructure_id.setter
-    def cloud_exadata_infrastructure_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cloud_exadata_infrastructure_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cloud_exadata_infrastructure_id", value)
 
     @_builtins.property
     @pulumi.getter(name="cpuCoreCountPerNode")
-    def cpu_core_count_per_node(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def cpu_core_count_per_node(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of CPU cores enabled per node in the Autonomous VM cluster.
         """
         return pulumi.get(self, "cpu_core_count_per_node")
 
     @cpu_core_count_per_node.setter
-    def cpu_core_count_per_node(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def cpu_core_count_per_node(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "cpu_core_count_per_node", value)
 
     @_builtins.property
     @pulumi.getter(name="dbServers")
-    def db_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def db_servers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of database servers associated with the Autonomous VM cluster.
         """
         return pulumi.get(self, "db_servers")
 
     @db_servers.setter
-    def db_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def db_servers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "db_servers", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The user-provided description of the Autonomous VM cluster.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The display name of the Autonomous VM cluster.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="iamRoles")
-    def iam_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CloudAutonomousVmClusterIamRoleArgs']]]]:
+    def iam_roles(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CloudAutonomousVmClusterIamRoleArgs']]]]:
         """
         The AWS Identity and Access Management (IAM) service roles associated with the Autonomous VM cluster.
         """
         return pulumi.get(self, "iam_roles")
 
     @iam_roles.setter
-    def iam_roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CloudAutonomousVmClusterIamRoleArgs']]]]):
+    def iam_roles(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CloudAutonomousVmClusterIamRoleArgs']]]]):
         pulumi.set(self, "iam_roles", value)
 
     @_builtins.property
     @pulumi.getter(name="isMtlsEnabledVmCluster")
-    def is_mtls_enabled_vm_cluster(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_mtls_enabled_vm_cluster(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether mutual TLS (mTLS) authentication is enabled for the Autonomous VM cluster.
         """
         return pulumi.get(self, "is_mtls_enabled_vm_cluster")
 
     @is_mtls_enabled_vm_cluster.setter
-    def is_mtls_enabled_vm_cluster(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_mtls_enabled_vm_cluster(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_mtls_enabled_vm_cluster", value)
 
     @_builtins.property
     @pulumi.getter(name="licenseModel")
-    def license_model(self) -> Optional[pulumi.Input['CloudAutonomousVmClusterLicenseModel']]:
+    def license_model(self) -> pulumi.Input[Optional['CloudAutonomousVmClusterLicenseModel']]:
         """
         The Oracle license model that applies to the Autonomous VM cluster. Valid values are LICENSE_INCLUDED or BRING_YOUR_OWN_LICENSE.
         """
         return pulumi.get(self, "license_model")
 
     @license_model.setter
-    def license_model(self, value: Optional[pulumi.Input['CloudAutonomousVmClusterLicenseModel']]):
+    def license_model(self, value: pulumi.Input[Optional['CloudAutonomousVmClusterLicenseModel']]):
         pulumi.set(self, "license_model", value)
 
     @_builtins.property
     @pulumi.getter(name="maintenanceWindow")
-    def maintenance_window(self) -> Optional[pulumi.Input['CloudAutonomousVmClusterMaintenanceWindowArgs']]:
+    def maintenance_window(self) -> pulumi.Input[Optional['CloudAutonomousVmClusterMaintenanceWindowArgs']]:
         """
         The scheduling details for the maintenance window. Patching and system updates take place during the maintenance window.
         """
         return pulumi.get(self, "maintenance_window")
 
     @maintenance_window.setter
-    def maintenance_window(self, value: Optional[pulumi.Input['CloudAutonomousVmClusterMaintenanceWindowArgs']]):
+    def maintenance_window(self, value: pulumi.Input[Optional['CloudAutonomousVmClusterMaintenanceWindowArgs']]):
         pulumi.set(self, "maintenance_window", value)
 
     @_builtins.property
     @pulumi.getter(name="memoryPerOracleComputeUnitInGbs")
-    def memory_per_oracle_compute_unit_in_gbs(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def memory_per_oracle_compute_unit_in_gbs(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The amount of memory allocated per Oracle Compute Unit, in GB.
         """
         return pulumi.get(self, "memory_per_oracle_compute_unit_in_gbs")
 
     @memory_per_oracle_compute_unit_in_gbs.setter
-    def memory_per_oracle_compute_unit_in_gbs(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def memory_per_oracle_compute_unit_in_gbs(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "memory_per_oracle_compute_unit_in_gbs", value)
 
     @_builtins.property
     @pulumi.getter(name="odbNetworkId")
-    def odb_network_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def odb_network_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique identifier of the ODB network associated with this Autonomous VM cluster.
         """
         return pulumi.get(self, "odb_network_id")
 
     @odb_network_id.setter
-    def odb_network_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def odb_network_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "odb_network_id", value)
 
     @_builtins.property
     @pulumi.getter(name="scanListenerPortNonTls")
-    def scan_listener_port_non_tls(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def scan_listener_port_non_tls(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The SCAN listener port for non-TLS (TCP) protocol. The default is 1521.
         """
         return pulumi.get(self, "scan_listener_port_non_tls")
 
     @scan_listener_port_non_tls.setter
-    def scan_listener_port_non_tls(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def scan_listener_port_non_tls(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "scan_listener_port_non_tls", value)
 
     @_builtins.property
     @pulumi.getter(name="scanListenerPortTls")
-    def scan_listener_port_tls(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def scan_listener_port_tls(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The SCAN listener port for TLS (TCP) protocol. The default is 2484.
         """
         return pulumi.get(self, "scan_listener_port_tls")
 
     @scan_listener_port_tls.setter
-    def scan_listener_port_tls(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def scan_listener_port_tls(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "scan_listener_port_tls", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags associated with the Autonomous VM cluster.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="timeZone")
-    def time_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def time_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The time zone of the Autonomous VM cluster.
         """
         return pulumi.get(self, "time_zone")
 
     @time_zone.setter
-    def time_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def time_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time_zone", value)
 
     @_builtins.property
     @pulumi.getter(name="totalContainerDatabases")
-    def total_container_databases(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def total_container_databases(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The total number of Autonomous Container Databases that can be created with the allocated local storage.
         """
         return pulumi.get(self, "total_container_databases")
 
     @total_container_databases.setter
-    def total_container_databases(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def total_container_databases(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "total_container_databases", value)
 
 
@@ -308,23 +308,23 @@ class CloudAutonomousVmCluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 autonomous_data_storage_size_in_tbs: Optional[pulumi.Input[_builtins.float]] = None,
-                 cloud_exadata_infrastructure_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 cpu_core_count_per_node: Optional[pulumi.Input[_builtins.int]] = None,
-                 db_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 iam_roles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CloudAutonomousVmClusterIamRoleArgs', 'CloudAutonomousVmClusterIamRoleArgsDict']]]]] = None,
-                 is_mtls_enabled_vm_cluster: Optional[pulumi.Input[_builtins.bool]] = None,
-                 license_model: Optional[pulumi.Input['CloudAutonomousVmClusterLicenseModel']] = None,
-                 maintenance_window: Optional[pulumi.Input[Union['CloudAutonomousVmClusterMaintenanceWindowArgs', 'CloudAutonomousVmClusterMaintenanceWindowArgsDict']]] = None,
-                 memory_per_oracle_compute_unit_in_gbs: Optional[pulumi.Input[_builtins.int]] = None,
-                 odb_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 scan_listener_port_non_tls: Optional[pulumi.Input[_builtins.int]] = None,
-                 scan_listener_port_tls: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 time_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 total_container_databases: Optional[pulumi.Input[_builtins.int]] = None,
+                 autonomous_data_storage_size_in_tbs: pulumi.Input[Optional[_builtins.float]] = None,
+                 cloud_exadata_infrastructure_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cpu_core_count_per_node: pulumi.Input[Optional[_builtins.int]] = None,
+                 db_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 iam_roles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CloudAutonomousVmClusterIamRoleArgs', 'CloudAutonomousVmClusterIamRoleArgsDict']]]]] = None,
+                 is_mtls_enabled_vm_cluster: pulumi.Input[Optional[_builtins.bool]] = None,
+                 license_model: pulumi.Input[Optional['CloudAutonomousVmClusterLicenseModel']] = None,
+                 maintenance_window: pulumi.Input[Optional[Union['CloudAutonomousVmClusterMaintenanceWindowArgs', 'CloudAutonomousVmClusterMaintenanceWindowArgsDict']]] = None,
+                 memory_per_oracle_compute_unit_in_gbs: pulumi.Input[Optional[_builtins.int]] = None,
+                 odb_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 scan_listener_port_non_tls: pulumi.Input[Optional[_builtins.int]] = None,
+                 scan_listener_port_tls: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 time_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 total_container_databases: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         The AWS::ODB::CloudAutonomousVmCluster resource creates a Cloud Autonomous VM Cluster
@@ -375,23 +375,23 @@ class CloudAutonomousVmCluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 autonomous_data_storage_size_in_tbs: Optional[pulumi.Input[_builtins.float]] = None,
-                 cloud_exadata_infrastructure_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 cpu_core_count_per_node: Optional[pulumi.Input[_builtins.int]] = None,
-                 db_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 iam_roles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CloudAutonomousVmClusterIamRoleArgs', 'CloudAutonomousVmClusterIamRoleArgsDict']]]]] = None,
-                 is_mtls_enabled_vm_cluster: Optional[pulumi.Input[_builtins.bool]] = None,
-                 license_model: Optional[pulumi.Input['CloudAutonomousVmClusterLicenseModel']] = None,
-                 maintenance_window: Optional[pulumi.Input[Union['CloudAutonomousVmClusterMaintenanceWindowArgs', 'CloudAutonomousVmClusterMaintenanceWindowArgsDict']]] = None,
-                 memory_per_oracle_compute_unit_in_gbs: Optional[pulumi.Input[_builtins.int]] = None,
-                 odb_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 scan_listener_port_non_tls: Optional[pulumi.Input[_builtins.int]] = None,
-                 scan_listener_port_tls: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 time_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 total_container_databases: Optional[pulumi.Input[_builtins.int]] = None,
+                 autonomous_data_storage_size_in_tbs: pulumi.Input[Optional[_builtins.float]] = None,
+                 cloud_exadata_infrastructure_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cpu_core_count_per_node: pulumi.Input[Optional[_builtins.int]] = None,
+                 db_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 iam_roles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CloudAutonomousVmClusterIamRoleArgs', 'CloudAutonomousVmClusterIamRoleArgsDict']]]]] = None,
+                 is_mtls_enabled_vm_cluster: pulumi.Input[Optional[_builtins.bool]] = None,
+                 license_model: pulumi.Input[Optional['CloudAutonomousVmClusterLicenseModel']] = None,
+                 maintenance_window: pulumi.Input[Optional[Union['CloudAutonomousVmClusterMaintenanceWindowArgs', 'CloudAutonomousVmClusterMaintenanceWindowArgsDict']]] = None,
+                 memory_per_oracle_compute_unit_in_gbs: pulumi.Input[Optional[_builtins.int]] = None,
+                 odb_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 scan_listener_port_non_tls: pulumi.Input[Optional[_builtins.int]] = None,
+                 scan_listener_port_tls: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 time_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 total_container_databases: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

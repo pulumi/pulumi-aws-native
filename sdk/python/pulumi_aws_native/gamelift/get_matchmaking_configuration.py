@@ -272,7 +272,7 @@ def get_matchmaking_configuration(name: Optional[_builtins.str] = None,
         rule_set_arn=pulumi.get(__ret__, 'rule_set_arn'),
         rule_set_name=pulumi.get(__ret__, 'rule_set_name'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_matchmaking_configuration_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_matchmaking_configuration_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMatchmakingConfigurationResult]:
     """
     The AWS::GameLift::MatchmakingConfiguration resource creates an Amazon GameLift (GameLift) matchmaking configuration.

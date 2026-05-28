@@ -79,9 +79,9 @@ class DocumentationPart(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 location: Optional[pulumi.Input[Union['DocumentationPartLocationArgs', 'DocumentationPartLocationArgsDict']]] = None,
-                 properties: Optional[pulumi.Input[_builtins.str]] = None,
-                 rest_api_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[Union['DocumentationPartLocationArgs', 'DocumentationPartLocationArgsDict']]] = None,
+                 properties: pulumi.Input[Optional[_builtins.str]] = None,
+                 rest_api_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The ``AWS::ApiGateway::DocumentationPart`` resource creates a documentation part for an API. For more information, see [Representation of API Documentation in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api-content-representation.html) in the *API Gateway Developer Guide*.
@@ -118,9 +118,9 @@ class DocumentationPart(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 location: Optional[pulumi.Input[Union['DocumentationPartLocationArgs', 'DocumentationPartLocationArgsDict']]] = None,
-                 properties: Optional[pulumi.Input[_builtins.str]] = None,
-                 rest_api_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[Union['DocumentationPartLocationArgs', 'DocumentationPartLocationArgsDict']]] = None,
+                 properties: pulumi.Input[Optional[_builtins.str]] = None,
+                 rest_api_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

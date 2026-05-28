@@ -92,10 +92,10 @@ class StudioSessionMapping(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_type: Optional[pulumi.Input['StudioSessionMappingIdentityType']] = None,
-                 session_policy_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 studio_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 identity_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_type: pulumi.Input[Optional['StudioSessionMappingIdentityType']] = None,
+                 session_policy_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 studio_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         An example resource schema demonstrating some basic constructs and validation rules.
@@ -133,10 +133,10 @@ class StudioSessionMapping(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_type: Optional[pulumi.Input['StudioSessionMappingIdentityType']] = None,
-                 session_policy_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 studio_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 identity_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_type: pulumi.Input[Optional['StudioSessionMappingIdentityType']] = None,
+                 session_policy_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 studio_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

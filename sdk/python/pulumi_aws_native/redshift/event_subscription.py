@@ -22,14 +22,14 @@ __all__ = ['EventSubscriptionArgs', 'EventSubscription']
 @pulumi.input_type
 class EventSubscriptionArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 event_categories: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionEventCategoriesItem']]]] = None,
-                 severity: Optional[pulumi.Input['EventSubscriptionSeverity']] = None,
-                 sns_topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 source_type: Optional[pulumi.Input['EventSubscriptionSourceType']] = None,
-                 subscription_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 event_categories: pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionEventCategoriesItem']]]] = None,
+                 severity: pulumi.Input[Optional['EventSubscriptionSeverity']] = None,
+                 sns_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 source_type: pulumi.Input[Optional['EventSubscriptionSourceType']] = None,
+                 subscription_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a EventSubscription resource.
 
@@ -61,98 +61,98 @@ class EventSubscriptionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A boolean value; set to true to activate the subscription, and set to false to create the subscription but not activate it.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="eventCategories")
-    def event_categories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionEventCategoriesItem']]]]:
+    def event_categories(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionEventCategoriesItem']]]]:
         """
         Specifies the Amazon Redshift event categories to be published by the event notification subscription.
         """
         return pulumi.get(self, "event_categories")
 
     @event_categories.setter
-    def event_categories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionEventCategoriesItem']]]]):
+    def event_categories(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionEventCategoriesItem']]]]):
         pulumi.set(self, "event_categories", value)
 
     @_builtins.property
     @pulumi.getter
-    def severity(self) -> Optional[pulumi.Input['EventSubscriptionSeverity']]:
+    def severity(self) -> pulumi.Input[Optional['EventSubscriptionSeverity']]:
         """
         Specifies the Amazon Redshift event severity to be published by the event notification subscription.
         """
         return pulumi.get(self, "severity")
 
     @severity.setter
-    def severity(self, value: Optional[pulumi.Input['EventSubscriptionSeverity']]):
+    def severity(self, value: pulumi.Input[Optional['EventSubscriptionSeverity']]):
         pulumi.set(self, "severity", value)
 
     @_builtins.property
     @pulumi.getter(name="snsTopicArn")
-    def sns_topic_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sns_topic_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the Amazon SNS topic used to transmit the event notifications.
         """
         return pulumi.get(self, "sns_topic_arn")
 
     @sns_topic_arn.setter
-    def sns_topic_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sns_topic_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sns_topic_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceIds")
-    def source_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def source_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of one or more identifiers of Amazon Redshift source objects.
         """
         return pulumi.get(self, "source_ids")
 
     @source_ids.setter
-    def source_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def source_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "source_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceType")
-    def source_type(self) -> Optional[pulumi.Input['EventSubscriptionSourceType']]:
+    def source_type(self) -> pulumi.Input[Optional['EventSubscriptionSourceType']]:
         """
         The type of source that will be generating the events.
         """
         return pulumi.get(self, "source_type")
 
     @source_type.setter
-    def source_type(self, value: Optional[pulumi.Input['EventSubscriptionSourceType']]):
+    def source_type(self, value: pulumi.Input[Optional['EventSubscriptionSourceType']]):
         pulumi.set(self, "source_type", value)
 
     @_builtins.property
     @pulumi.getter(name="subscriptionName")
-    def subscription_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subscription_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Amazon Redshift event notification subscription
         """
         return pulumi.get(self, "subscription_name")
 
     @subscription_name.setter
-    def subscription_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subscription_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subscription_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -162,14 +162,14 @@ class EventSubscription(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 event_categories: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionEventCategoriesItem']]]] = None,
-                 severity: Optional[pulumi.Input['EventSubscriptionSeverity']] = None,
-                 sns_topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 source_type: Optional[pulumi.Input['EventSubscriptionSourceType']] = None,
-                 subscription_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 event_categories: pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionEventCategoriesItem']]]] = None,
+                 severity: pulumi.Input[Optional['EventSubscriptionSeverity']] = None,
+                 sns_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 source_type: pulumi.Input[Optional['EventSubscriptionSourceType']] = None,
+                 subscription_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         The `AWS::Redshift::EventSubscription` resource creates an Amazon Redshift Event Subscription.
@@ -211,14 +211,14 @@ class EventSubscription(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 event_categories: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionEventCategoriesItem']]]] = None,
-                 severity: Optional[pulumi.Input['EventSubscriptionSeverity']] = None,
-                 sns_topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 source_type: Optional[pulumi.Input['EventSubscriptionSourceType']] = None,
-                 subscription_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 event_categories: pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionEventCategoriesItem']]]] = None,
+                 severity: pulumi.Input[Optional['EventSubscriptionSeverity']] = None,
+                 sns_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 source_type: pulumi.Input[Optional['EventSubscriptionSourceType']] = None,
+                 subscription_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

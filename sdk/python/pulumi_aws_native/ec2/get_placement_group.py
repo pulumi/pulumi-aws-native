@@ -61,7 +61,7 @@ def get_placement_group(group_name: Optional[_builtins.str] = None,
 
     return AwaitableGetPlacementGroupResult(
         group_name=pulumi.get(__ret__, 'group_name'))
-def get_placement_group_output(group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_placement_group_output(group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPlacementGroupResult]:
     """
     Resource Type definition for AWS::EC2::PlacementGroup

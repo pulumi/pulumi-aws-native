@@ -22,9 +22,9 @@ __all__ = ['ZonalAutoshiftConfigurationArgs', 'ZonalAutoshiftConfiguration']
 @pulumi.input_type
 class ZonalAutoshiftConfigurationArgs:
     def __init__(__self__, *,
-                 practice_run_configuration: Optional[pulumi.Input['ZonalAutoshiftConfigurationPracticeRunConfigurationArgs']] = None,
-                 resource_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 zonal_autoshift_status: Optional[pulumi.Input['ZonalAutoshiftConfigurationZonalAutoshiftStatus']] = None):
+                 practice_run_configuration: pulumi.Input[Optional['ZonalAutoshiftConfigurationPracticeRunConfigurationArgs']] = None,
+                 resource_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 zonal_autoshift_status: pulumi.Input[Optional['ZonalAutoshiftConfigurationZonalAutoshiftStatus']] = None):
         """
         The set of arguments for constructing a ZonalAutoshiftConfiguration resource.
 
@@ -47,7 +47,7 @@ class ZonalAutoshiftConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="practiceRunConfiguration")
-    def practice_run_configuration(self) -> Optional[pulumi.Input['ZonalAutoshiftConfigurationPracticeRunConfigurationArgs']]:
+    def practice_run_configuration(self) -> pulumi.Input[Optional['ZonalAutoshiftConfigurationPracticeRunConfigurationArgs']]:
         """
         A practice run configuration for a resource includes the Amazon CloudWatch alarms that you've specified for a practice run, as well as any blocked dates or blocked windows for the practice run. When a resource has a practice run configuration, ARC shifts traffic for the resource weekly for practice runs.
 
@@ -58,12 +58,12 @@ class ZonalAutoshiftConfigurationArgs:
         return pulumi.get(self, "practice_run_configuration")
 
     @practice_run_configuration.setter
-    def practice_run_configuration(self, value: Optional[pulumi.Input['ZonalAutoshiftConfigurationPracticeRunConfigurationArgs']]):
+    def practice_run_configuration(self, value: pulumi.Input[Optional['ZonalAutoshiftConfigurationPracticeRunConfigurationArgs']]):
         pulumi.set(self, "practice_run_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceIdentifier")
-    def resource_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier for the resource that AWS shifts traffic for. The identifier is the Amazon Resource Name (ARN) for the resource.
 
@@ -72,19 +72,19 @@ class ZonalAutoshiftConfigurationArgs:
         return pulumi.get(self, "resource_identifier")
 
     @resource_identifier.setter
-    def resource_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="zonalAutoshiftStatus")
-    def zonal_autoshift_status(self) -> Optional[pulumi.Input['ZonalAutoshiftConfigurationZonalAutoshiftStatus']]:
+    def zonal_autoshift_status(self) -> pulumi.Input[Optional['ZonalAutoshiftConfigurationZonalAutoshiftStatus']]:
         """
         When zonal autoshift is `ENABLED` , you authorize AWS to shift away resource traffic for an application from an Availability Zone during events, on your behalf, to help reduce time to recovery. Traffic is also shifted away for the required weekly practice runs.
         """
         return pulumi.get(self, "zonal_autoshift_status")
 
     @zonal_autoshift_status.setter
-    def zonal_autoshift_status(self, value: Optional[pulumi.Input['ZonalAutoshiftConfigurationZonalAutoshiftStatus']]):
+    def zonal_autoshift_status(self, value: pulumi.Input[Optional['ZonalAutoshiftConfigurationZonalAutoshiftStatus']]):
         pulumi.set(self, "zonal_autoshift_status", value)
 
 
@@ -94,9 +94,9 @@ class ZonalAutoshiftConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 practice_run_configuration: Optional[pulumi.Input[Union['ZonalAutoshiftConfigurationPracticeRunConfigurationArgs', 'ZonalAutoshiftConfigurationPracticeRunConfigurationArgsDict']]] = None,
-                 resource_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 zonal_autoshift_status: Optional[pulumi.Input['ZonalAutoshiftConfigurationZonalAutoshiftStatus']] = None,
+                 practice_run_configuration: pulumi.Input[Optional[Union['ZonalAutoshiftConfigurationPracticeRunConfigurationArgs', 'ZonalAutoshiftConfigurationPracticeRunConfigurationArgsDict']]] = None,
+                 resource_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 zonal_autoshift_status: pulumi.Input[Optional['ZonalAutoshiftConfigurationZonalAutoshiftStatus']] = None,
                  __props__=None):
         """
         Definition of AWS::ARCZonalShift::ZonalAutoshiftConfiguration Resource Type
@@ -139,9 +139,9 @@ class ZonalAutoshiftConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 practice_run_configuration: Optional[pulumi.Input[Union['ZonalAutoshiftConfigurationPracticeRunConfigurationArgs', 'ZonalAutoshiftConfigurationPracticeRunConfigurationArgsDict']]] = None,
-                 resource_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 zonal_autoshift_status: Optional[pulumi.Input['ZonalAutoshiftConfigurationZonalAutoshiftStatus']] = None,
+                 practice_run_configuration: pulumi.Input[Optional[Union['ZonalAutoshiftConfigurationPracticeRunConfigurationArgs', 'ZonalAutoshiftConfigurationPracticeRunConfigurationArgsDict']]] = None,
+                 resource_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 zonal_autoshift_status: pulumi.Input[Optional['ZonalAutoshiftConfigurationZonalAutoshiftStatus']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

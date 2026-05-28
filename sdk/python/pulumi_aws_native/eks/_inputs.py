@@ -22,10 +22,10 @@ __all__ = [
     'AccessEntryAccessScopeArgsDict',
     'AddonPodIdentityAssociationArgs',
     'AddonPodIdentityAssociationArgsDict',
-    'CapabilityArgoCdRoleMappingArgs',
-    'CapabilityArgoCdRoleMappingArgsDict',
     'CapabilityArgoCdArgs',
     'CapabilityArgoCdArgsDict',
+    'CapabilityArgoCdRoleMappingArgs',
+    'CapabilityArgoCdRoleMappingArgsDict',
     'CapabilityAwsIdcArgs',
     'CapabilityAwsIdcArgsDict',
     'CapabilityConfigurationArgs',
@@ -86,10 +86,10 @@ __all__ = [
     'NamespaceConfigPropertiesArgsDict',
     'NodegroupLaunchTemplateSpecificationArgs',
     'NodegroupLaunchTemplateSpecificationArgsDict',
-    'NodegroupNodeRepairConfigOverridesArgs',
-    'NodegroupNodeRepairConfigOverridesArgsDict',
     'NodegroupNodeRepairConfigArgs',
     'NodegroupNodeRepairConfigArgsDict',
+    'NodegroupNodeRepairConfigOverridesArgs',
+    'NodegroupNodeRepairConfigOverridesArgsDict',
     'NodegroupRemoteAccessArgs',
     'NodegroupRemoteAccessArgsDict',
     'NodegroupScalingConfigArgs',
@@ -162,7 +162,7 @@ class AccessEntryAccessScopeArgsDict(TypedDict):
     """
     The type of the access scope.
     """
-    namespaces: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    namespaces: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The namespaces to associate with the access scope. Only specify if Type is set to 'namespace'.
     """
@@ -171,7 +171,7 @@ class AccessEntryAccessScopeArgsDict(TypedDict):
 class AccessEntryAccessScopeArgs:
     def __init__(__self__, *,
                  type: pulumi.Input['AccessEntryAccessScopeType'],
-                 namespaces: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 namespaces: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The access scope of the access policy.
 
@@ -196,14 +196,14 @@ class AccessEntryAccessScopeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def namespaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def namespaces(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The namespaces to associate with the access scope. Only specify if Type is set to 'namespace'.
         """
         return pulumi.get(self, "namespaces")
 
     @namespaces.setter
-    def namespaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def namespaces(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "namespaces", value)
 
 
@@ -259,6 +259,105 @@ class AddonPodIdentityAssociationArgs:
         pulumi.set(self, "service_account", value)
 
 
+class CapabilityArgoCdArgsDict(TypedDict):
+    """
+    Configuration settings for an Argo CD capability. This includes the Kubernetes namespace, IAM Identity Center integration, RBAC role mappings, and network access configuration.
+    """
+    aws_idc: pulumi.Input['CapabilityAwsIdcArgsDict']
+    namespace: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The Kubernetes namespace where Argo CD resources will be created. If not specified, the default namespace is used.
+    """
+    network_access: NotRequired[pulumi.Input[Optional['CapabilityNetworkAccessArgsDict']]]
+    rbac_role_mappings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CapabilityArgoCdRoleMappingArgsDict']]]]]
+    """
+    A list of role mappings that define which IAM Identity Center users or groups have which Argo CD roles. Each mapping associates an Argo CD role (ADMIN, EDITOR, or VIEWER) with one or more IAM Identity Center identities.
+    """
+    server_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The URL of the Argo CD server. Use this URL to access the Argo CD web interface and API.
+    """
+
+@pulumi.input_type
+class CapabilityArgoCdArgs:
+    def __init__(__self__, *,
+                 aws_idc: pulumi.Input['CapabilityAwsIdcArgs'],
+                 namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_access: pulumi.Input[Optional['CapabilityNetworkAccessArgs']] = None,
+                 rbac_role_mappings: pulumi.Input[Optional[Sequence[pulumi.Input['CapabilityArgoCdRoleMappingArgs']]]] = None,
+                 server_url: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Configuration settings for an Argo CD capability. This includes the Kubernetes namespace, IAM Identity Center integration, RBAC role mappings, and network access configuration.
+
+        :param pulumi.Input[_builtins.str] namespace: The Kubernetes namespace where Argo CD resources will be created. If not specified, the default namespace is used.
+        :param pulumi.Input[Sequence[pulumi.Input['CapabilityArgoCdRoleMappingArgs']]] rbac_role_mappings: A list of role mappings that define which IAM Identity Center users or groups have which Argo CD roles. Each mapping associates an Argo CD role (ADMIN, EDITOR, or VIEWER) with one or more IAM Identity Center identities.
+        :param pulumi.Input[_builtins.str] server_url: The URL of the Argo CD server. Use this URL to access the Argo CD web interface and API.
+        """
+        pulumi.set(__self__, "aws_idc", aws_idc)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+        if network_access is not None:
+            pulumi.set(__self__, "network_access", network_access)
+        if rbac_role_mappings is not None:
+            pulumi.set(__self__, "rbac_role_mappings", rbac_role_mappings)
+        if server_url is not None:
+            pulumi.set(__self__, "server_url", server_url)
+
+    @_builtins.property
+    @pulumi.getter(name="awsIdc")
+    def aws_idc(self) -> pulumi.Input['CapabilityAwsIdcArgs']:
+        return pulumi.get(self, "aws_idc")
+
+    @aws_idc.setter
+    def aws_idc(self, value: pulumi.Input['CapabilityAwsIdcArgs']):
+        pulumi.set(self, "aws_idc", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def namespace(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Kubernetes namespace where Argo CD resources will be created. If not specified, the default namespace is used.
+        """
+        return pulumi.get(self, "namespace")
+
+    @namespace.setter
+    def namespace(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "namespace", value)
+
+    @_builtins.property
+    @pulumi.getter(name="networkAccess")
+    def network_access(self) -> pulumi.Input[Optional['CapabilityNetworkAccessArgs']]:
+        return pulumi.get(self, "network_access")
+
+    @network_access.setter
+    def network_access(self, value: pulumi.Input[Optional['CapabilityNetworkAccessArgs']]):
+        pulumi.set(self, "network_access", value)
+
+    @_builtins.property
+    @pulumi.getter(name="rbacRoleMappings")
+    def rbac_role_mappings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CapabilityArgoCdRoleMappingArgs']]]]:
+        """
+        A list of role mappings that define which IAM Identity Center users or groups have which Argo CD roles. Each mapping associates an Argo CD role (ADMIN, EDITOR, or VIEWER) with one or more IAM Identity Center identities.
+        """
+        return pulumi.get(self, "rbac_role_mappings")
+
+    @rbac_role_mappings.setter
+    def rbac_role_mappings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CapabilityArgoCdRoleMappingArgs']]]]):
+        pulumi.set(self, "rbac_role_mappings", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serverUrl")
+    def server_url(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The URL of the Argo CD server. Use this URL to access the Argo CD web interface and API.
+        """
+        return pulumi.get(self, "server_url")
+
+    @server_url.setter
+    def server_url(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "server_url", value)
+
+
 class CapabilityArgoCdRoleMappingArgsDict(TypedDict):
     """
     A mapping between an Argo CD role and IAM Identity Center identities. This defines which users or groups have specific permissions in Argo CD.
@@ -311,105 +410,6 @@ class CapabilityArgoCdRoleMappingArgs:
         pulumi.set(self, "role", value)
 
 
-class CapabilityArgoCdArgsDict(TypedDict):
-    """
-    Configuration settings for an Argo CD capability. This includes the Kubernetes namespace, IAM Identity Center integration, RBAC role mappings, and network access configuration.
-    """
-    aws_idc: pulumi.Input['CapabilityAwsIdcArgsDict']
-    namespace: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The Kubernetes namespace where Argo CD resources will be created. If not specified, the default namespace is used.
-    """
-    network_access: NotRequired[pulumi.Input['CapabilityNetworkAccessArgsDict']]
-    rbac_role_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['CapabilityArgoCdRoleMappingArgsDict']]]]
-    """
-    A list of role mappings that define which IAM Identity Center users or groups have which Argo CD roles. Each mapping associates an Argo CD role (ADMIN, EDITOR, or VIEWER) with one or more IAM Identity Center identities.
-    """
-    server_url: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The URL of the Argo CD server. Use this URL to access the Argo CD web interface and API.
-    """
-
-@pulumi.input_type
-class CapabilityArgoCdArgs:
-    def __init__(__self__, *,
-                 aws_idc: pulumi.Input['CapabilityAwsIdcArgs'],
-                 namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_access: Optional[pulumi.Input['CapabilityNetworkAccessArgs']] = None,
-                 rbac_role_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['CapabilityArgoCdRoleMappingArgs']]]] = None,
-                 server_url: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        Configuration settings for an Argo CD capability. This includes the Kubernetes namespace, IAM Identity Center integration, RBAC role mappings, and network access configuration.
-
-        :param pulumi.Input[_builtins.str] namespace: The Kubernetes namespace where Argo CD resources will be created. If not specified, the default namespace is used.
-        :param pulumi.Input[Sequence[pulumi.Input['CapabilityArgoCdRoleMappingArgs']]] rbac_role_mappings: A list of role mappings that define which IAM Identity Center users or groups have which Argo CD roles. Each mapping associates an Argo CD role (ADMIN, EDITOR, or VIEWER) with one or more IAM Identity Center identities.
-        :param pulumi.Input[_builtins.str] server_url: The URL of the Argo CD server. Use this URL to access the Argo CD web interface and API.
-        """
-        pulumi.set(__self__, "aws_idc", aws_idc)
-        if namespace is not None:
-            pulumi.set(__self__, "namespace", namespace)
-        if network_access is not None:
-            pulumi.set(__self__, "network_access", network_access)
-        if rbac_role_mappings is not None:
-            pulumi.set(__self__, "rbac_role_mappings", rbac_role_mappings)
-        if server_url is not None:
-            pulumi.set(__self__, "server_url", server_url)
-
-    @_builtins.property
-    @pulumi.getter(name="awsIdc")
-    def aws_idc(self) -> pulumi.Input['CapabilityAwsIdcArgs']:
-        return pulumi.get(self, "aws_idc")
-
-    @aws_idc.setter
-    def aws_idc(self, value: pulumi.Input['CapabilityAwsIdcArgs']):
-        pulumi.set(self, "aws_idc", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Kubernetes namespace where Argo CD resources will be created. If not specified, the default namespace is used.
-        """
-        return pulumi.get(self, "namespace")
-
-    @namespace.setter
-    def namespace(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "namespace", value)
-
-    @_builtins.property
-    @pulumi.getter(name="networkAccess")
-    def network_access(self) -> Optional[pulumi.Input['CapabilityNetworkAccessArgs']]:
-        return pulumi.get(self, "network_access")
-
-    @network_access.setter
-    def network_access(self, value: Optional[pulumi.Input['CapabilityNetworkAccessArgs']]):
-        pulumi.set(self, "network_access", value)
-
-    @_builtins.property
-    @pulumi.getter(name="rbacRoleMappings")
-    def rbac_role_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CapabilityArgoCdRoleMappingArgs']]]]:
-        """
-        A list of role mappings that define which IAM Identity Center users or groups have which Argo CD roles. Each mapping associates an Argo CD role (ADMIN, EDITOR, or VIEWER) with one or more IAM Identity Center identities.
-        """
-        return pulumi.get(self, "rbac_role_mappings")
-
-    @rbac_role_mappings.setter
-    def rbac_role_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CapabilityArgoCdRoleMappingArgs']]]]):
-        pulumi.set(self, "rbac_role_mappings", value)
-
-    @_builtins.property
-    @pulumi.getter(name="serverUrl")
-    def server_url(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The URL of the Argo CD server. Use this URL to access the Argo CD web interface and API.
-        """
-        return pulumi.get(self, "server_url")
-
-    @server_url.setter
-    def server_url(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "server_url", value)
-
-
 class CapabilityAwsIdcArgsDict(TypedDict):
     """
     Configuration for integrating Argo CD with IAM Identity Center. This allows you to use your organization's identity provider for authentication to Argo CD.
@@ -418,11 +418,11 @@ class CapabilityAwsIdcArgsDict(TypedDict):
     """
     The ARN of the IAM Identity Center instance to use for authentication.
     """
-    idc_managed_application_arn: NotRequired[pulumi.Input[_builtins.str]]
+    idc_managed_application_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of the managed application created in IAM Identity Center for this Argo CD capability. This application is automatically created and managed by EKS.
     """
-    idc_region: NotRequired[pulumi.Input[_builtins.str]]
+    idc_region: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Region where your IAM Identity Center instance is located.
     """
@@ -431,8 +431,8 @@ class CapabilityAwsIdcArgsDict(TypedDict):
 class CapabilityAwsIdcArgs:
     def __init__(__self__, *,
                  idc_instance_arn: pulumi.Input[_builtins.str],
-                 idc_managed_application_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 idc_region: Optional[pulumi.Input[_builtins.str]] = None):
+                 idc_managed_application_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 idc_region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Configuration for integrating Argo CD with IAM Identity Center. This allows you to use your organization's identity provider for authentication to Argo CD.
 
@@ -460,26 +460,26 @@ class CapabilityAwsIdcArgs:
 
     @_builtins.property
     @pulumi.getter(name="idcManagedApplicationArn")
-    def idc_managed_application_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def idc_managed_application_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the managed application created in IAM Identity Center for this Argo CD capability. This application is automatically created and managed by EKS.
         """
         return pulumi.get(self, "idc_managed_application_arn")
 
     @idc_managed_application_arn.setter
-    def idc_managed_application_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def idc_managed_application_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "idc_managed_application_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="idcRegion")
-    def idc_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def idc_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Region where your IAM Identity Center instance is located.
         """
         return pulumi.get(self, "idc_region")
 
     @idc_region.setter
-    def idc_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def idc_region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "idc_region", value)
 
 
@@ -487,12 +487,12 @@ class CapabilityConfigurationArgsDict(TypedDict):
     """
     Configuration settings for a capability. The structure of this object varies depending on the capability type.
     """
-    argo_cd: NotRequired[pulumi.Input['CapabilityArgoCdArgsDict']]
+    argo_cd: NotRequired[pulumi.Input[Optional['CapabilityArgoCdArgsDict']]]
 
 @pulumi.input_type
 class CapabilityConfigurationArgs:
     def __init__(__self__, *,
-                 argo_cd: Optional[pulumi.Input['CapabilityArgoCdArgs']] = None):
+                 argo_cd: pulumi.Input[Optional['CapabilityArgoCdArgs']] = None):
         """
         Configuration settings for a capability. The structure of this object varies depending on the capability type.
         """
@@ -501,11 +501,11 @@ class CapabilityConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="argoCd")
-    def argo_cd(self) -> Optional[pulumi.Input['CapabilityArgoCdArgs']]:
+    def argo_cd(self) -> pulumi.Input[Optional['CapabilityArgoCdArgs']]:
         return pulumi.get(self, "argo_cd")
 
     @argo_cd.setter
-    def argo_cd(self, value: Optional[pulumi.Input['CapabilityArgoCdArgs']]):
+    def argo_cd(self, value: pulumi.Input[Optional['CapabilityArgoCdArgs']]):
         pulumi.set(self, "argo_cd", value)
 
 
@@ -513,7 +513,7 @@ class CapabilityNetworkAccessArgsDict(TypedDict):
     """
     Configuration for network access to the Argo CD capability's managed API server endpoint. By default, the Argo CD server is accessible via a public endpoint. You can optionally specify one or more VPC endpoint IDs to enable private connectivity from your VPCs.
     """
-    vpce_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    vpce_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of VPC endpoint IDs to associate with the managed Argo CD API server endpoint. Each VPC endpoint provides private connectivity from a specific VPC to the Argo CD server. You can specify multiple VPC endpoint IDs to enable access from multiple VPCs.
     """
@@ -521,7 +521,7 @@ class CapabilityNetworkAccessArgsDict(TypedDict):
 @pulumi.input_type
 class CapabilityNetworkAccessArgs:
     def __init__(__self__, *,
-                 vpce_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 vpce_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Configuration for network access to the Argo CD capability's managed API server endpoint. By default, the Argo CD server is accessible via a public endpoint. You can optionally specify one or more VPC endpoint IDs to enable private connectivity from your VPCs.
 
@@ -532,14 +532,14 @@ class CapabilityNetworkAccessArgs:
 
     @_builtins.property
     @pulumi.getter(name="vpceIds")
-    def vpce_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def vpce_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of VPC endpoint IDs to associate with the managed Argo CD API server endpoint. Each VPC endpoint provides private connectivity from a specific VPC to the Argo CD server. You can specify multiple VPC endpoint IDs to enable access from multiple VPCs.
         """
         return pulumi.get(self, "vpce_ids")
 
     @vpce_ids.setter
-    def vpce_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def vpce_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "vpce_ids", value)
 
 
@@ -599,11 +599,11 @@ class ClusterAccessConfigArgsDict(TypedDict):
     """
     An object representing the Access Config to use for the cluster.
     """
-    authentication_mode: NotRequired[pulumi.Input['ClusterAccessConfigAuthenticationMode']]
+    authentication_mode: NotRequired[pulumi.Input[Optional['ClusterAccessConfigAuthenticationMode']]]
     """
     Specify the authentication mode that should be used to create your cluster.
     """
-    bootstrap_cluster_creator_admin_permissions: NotRequired[pulumi.Input[_builtins.bool]]
+    bootstrap_cluster_creator_admin_permissions: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Set this value to false to avoid creating a default cluster admin Access Entry using the IAM principal used to create the cluster.
     """
@@ -611,8 +611,8 @@ class ClusterAccessConfigArgsDict(TypedDict):
 @pulumi.input_type
 class ClusterAccessConfigArgs:
     def __init__(__self__, *,
-                 authentication_mode: Optional[pulumi.Input['ClusterAccessConfigAuthenticationMode']] = None,
-                 bootstrap_cluster_creator_admin_permissions: Optional[pulumi.Input[_builtins.bool]] = None):
+                 authentication_mode: pulumi.Input[Optional['ClusterAccessConfigAuthenticationMode']] = None,
+                 bootstrap_cluster_creator_admin_permissions: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         An object representing the Access Config to use for the cluster.
 
@@ -626,26 +626,26 @@ class ClusterAccessConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="authenticationMode")
-    def authentication_mode(self) -> Optional[pulumi.Input['ClusterAccessConfigAuthenticationMode']]:
+    def authentication_mode(self) -> pulumi.Input[Optional['ClusterAccessConfigAuthenticationMode']]:
         """
         Specify the authentication mode that should be used to create your cluster.
         """
         return pulumi.get(self, "authentication_mode")
 
     @authentication_mode.setter
-    def authentication_mode(self, value: Optional[pulumi.Input['ClusterAccessConfigAuthenticationMode']]):
+    def authentication_mode(self, value: pulumi.Input[Optional['ClusterAccessConfigAuthenticationMode']]):
         pulumi.set(self, "authentication_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="bootstrapClusterCreatorAdminPermissions")
-    def bootstrap_cluster_creator_admin_permissions(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def bootstrap_cluster_creator_admin_permissions(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set this value to false to avoid creating a default cluster admin Access Entry using the IAM principal used to create the cluster.
         """
         return pulumi.get(self, "bootstrap_cluster_creator_admin_permissions")
 
     @bootstrap_cluster_creator_admin_permissions.setter
-    def bootstrap_cluster_creator_admin_permissions(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def bootstrap_cluster_creator_admin_permissions(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "bootstrap_cluster_creator_admin_permissions", value)
 
 
@@ -653,7 +653,7 @@ class ClusterBlockStorageArgsDict(TypedDict):
     """
     Todo: add description
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Todo: add description
     """
@@ -661,7 +661,7 @@ class ClusterBlockStorageArgsDict(TypedDict):
 @pulumi.input_type
 class ClusterBlockStorageArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Todo: add description
 
@@ -672,14 +672,14 @@ class ClusterBlockStorageArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Todo: add description
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
 
@@ -687,15 +687,15 @@ class ClusterComputeConfigArgsDict(TypedDict):
     """
     Todo: add description
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Todo: add description
     """
-    node_pools: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    node_pools: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Todo: add description
     """
-    node_role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    node_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Todo: add description
     """
@@ -703,9 +703,9 @@ class ClusterComputeConfigArgsDict(TypedDict):
 @pulumi.input_type
 class ClusterComputeConfigArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 node_pools: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 node_role_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 node_pools: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 node_role_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Todo: add description
 
@@ -722,38 +722,38 @@ class ClusterComputeConfigArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Todo: add description
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="nodePools")
-    def node_pools(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def node_pools(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Todo: add description
         """
         return pulumi.get(self, "node_pools")
 
     @node_pools.setter
-    def node_pools(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def node_pools(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "node_pools", value)
 
     @_builtins.property
     @pulumi.getter(name="nodeRoleArn")
-    def node_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def node_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Todo: add description
         """
         return pulumi.get(self, "node_role_arn")
 
     @node_role_arn.setter
-    def node_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def node_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "node_role_arn", value)
 
 
@@ -761,7 +761,7 @@ class ClusterControlPlanePlacementArgsDict(TypedDict):
     """
     Specify the placement group of the control plane machines for your cluster.
     """
-    group_name: NotRequired[pulumi.Input[_builtins.str]]
+    group_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify the placement group name of the control place machines for your cluster.
     """
@@ -769,7 +769,7 @@ class ClusterControlPlanePlacementArgsDict(TypedDict):
 @pulumi.input_type
 class ClusterControlPlanePlacementArgs:
     def __init__(__self__, *,
-                 group_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 group_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Specify the placement group of the control plane machines for your cluster.
 
@@ -780,14 +780,14 @@ class ClusterControlPlanePlacementArgs:
 
     @_builtins.property
     @pulumi.getter(name="groupName")
-    def group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify the placement group name of the control place machines for your cluster.
         """
         return pulumi.get(self, "group_name")
 
     @group_name.setter
-    def group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "group_name", value)
 
 
@@ -795,7 +795,7 @@ class ClusterControlPlaneScalingConfigArgsDict(TypedDict):
     """
     Configuration for provisioned control plane scaling.
     """
-    tier: NotRequired[pulumi.Input['ClusterControlPlaneScalingConfigTier']]
+    tier: NotRequired[pulumi.Input[Optional['ClusterControlPlaneScalingConfigTier']]]
     """
     The scaling tier for the provisioned control plane.
     """
@@ -803,7 +803,7 @@ class ClusterControlPlaneScalingConfigArgsDict(TypedDict):
 @pulumi.input_type
 class ClusterControlPlaneScalingConfigArgs:
     def __init__(__self__, *,
-                 tier: Optional[pulumi.Input['ClusterControlPlaneScalingConfigTier']] = None):
+                 tier: pulumi.Input[Optional['ClusterControlPlaneScalingConfigTier']] = None):
         """
         Configuration for provisioned control plane scaling.
 
@@ -814,14 +814,14 @@ class ClusterControlPlaneScalingConfigArgs:
 
     @_builtins.property
     @pulumi.getter
-    def tier(self) -> Optional[pulumi.Input['ClusterControlPlaneScalingConfigTier']]:
+    def tier(self) -> pulumi.Input[Optional['ClusterControlPlaneScalingConfigTier']]:
         """
         The scaling tier for the provisioned control plane.
         """
         return pulumi.get(self, "tier")
 
     @tier.setter
-    def tier(self, value: Optional[pulumi.Input['ClusterControlPlaneScalingConfigTier']]):
+    def tier(self, value: pulumi.Input[Optional['ClusterControlPlaneScalingConfigTier']]):
         pulumi.set(self, "tier", value)
 
 
@@ -829,7 +829,7 @@ class ClusterElasticLoadBalancingArgsDict(TypedDict):
     """
     Todo: add description
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Todo: add description
     """
@@ -837,7 +837,7 @@ class ClusterElasticLoadBalancingArgsDict(TypedDict):
 @pulumi.input_type
 class ClusterElasticLoadBalancingArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Todo: add description
 
@@ -848,14 +848,14 @@ class ClusterElasticLoadBalancingArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Todo: add description
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
 
@@ -863,11 +863,11 @@ class ClusterEncryptionConfigArgsDict(TypedDict):
     """
     The encryption configuration for the cluster
     """
-    provider: NotRequired[pulumi.Input['ClusterProviderArgsDict']]
+    provider: NotRequired[pulumi.Input[Optional['ClusterProviderArgsDict']]]
     """
     The encryption provider for the cluster.
     """
-    resources: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    resources: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies the resources to be encrypted. The only supported value is "secrets".
     """
@@ -875,8 +875,8 @@ class ClusterEncryptionConfigArgsDict(TypedDict):
 @pulumi.input_type
 class ClusterEncryptionConfigArgs:
     def __init__(__self__, *,
-                 provider: Optional[pulumi.Input['ClusterProviderArgs']] = None,
-                 resources: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 provider: pulumi.Input[Optional['ClusterProviderArgs']] = None,
+                 resources: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The encryption configuration for the cluster
 
@@ -890,26 +890,26 @@ class ClusterEncryptionConfigArgs:
 
     @_builtins.property
     @pulumi.getter
-    def provider(self) -> Optional[pulumi.Input['ClusterProviderArgs']]:
+    def provider(self) -> pulumi.Input[Optional['ClusterProviderArgs']]:
         """
         The encryption provider for the cluster.
         """
         return pulumi.get(self, "provider")
 
     @provider.setter
-    def provider(self, value: Optional[pulumi.Input['ClusterProviderArgs']]):
+    def provider(self, value: pulumi.Input[Optional['ClusterProviderArgs']]):
         pulumi.set(self, "provider", value)
 
     @_builtins.property
     @pulumi.getter
-    def resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def resources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the resources to be encrypted. The only supported value is "secrets".
         """
         return pulumi.get(self, "resources")
 
     @resources.setter
-    def resources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def resources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "resources", value)
 
 
@@ -917,19 +917,19 @@ class ClusterKubernetesNetworkConfigArgsDict(TypedDict):
     """
     The Kubernetes network configuration for the cluster.
     """
-    elastic_load_balancing: NotRequired[pulumi.Input['ClusterElasticLoadBalancingArgsDict']]
+    elastic_load_balancing: NotRequired[pulumi.Input[Optional['ClusterElasticLoadBalancingArgsDict']]]
     """
     Todo: add description
     """
-    ip_family: NotRequired[pulumi.Input['ClusterKubernetesNetworkConfigIpFamily']]
+    ip_family: NotRequired[pulumi.Input[Optional['ClusterKubernetesNetworkConfigIpFamily']]]
     """
     Ipv4 or Ipv6. You can only specify ipv6 for 1.21 and later clusters that use version 1.10.1 or later of the Amazon VPC CNI add-on
     """
-    service_ipv4_cidr: NotRequired[pulumi.Input[_builtins.str]]
+    service_ipv4_cidr: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The CIDR block to assign Kubernetes service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. 
     """
-    service_ipv6_cidr: NotRequired[pulumi.Input[_builtins.str]]
+    service_ipv6_cidr: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The CIDR block to assign Kubernetes service IP addresses from.
     """
@@ -937,10 +937,10 @@ class ClusterKubernetesNetworkConfigArgsDict(TypedDict):
 @pulumi.input_type
 class ClusterKubernetesNetworkConfigArgs:
     def __init__(__self__, *,
-                 elastic_load_balancing: Optional[pulumi.Input['ClusterElasticLoadBalancingArgs']] = None,
-                 ip_family: Optional[pulumi.Input['ClusterKubernetesNetworkConfigIpFamily']] = None,
-                 service_ipv4_cidr: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_ipv6_cidr: Optional[pulumi.Input[_builtins.str]] = None):
+                 elastic_load_balancing: pulumi.Input[Optional['ClusterElasticLoadBalancingArgs']] = None,
+                 ip_family: pulumi.Input[Optional['ClusterKubernetesNetworkConfigIpFamily']] = None,
+                 service_ipv4_cidr: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_ipv6_cidr: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The Kubernetes network configuration for the cluster.
 
@@ -960,50 +960,50 @@ class ClusterKubernetesNetworkConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="elasticLoadBalancing")
-    def elastic_load_balancing(self) -> Optional[pulumi.Input['ClusterElasticLoadBalancingArgs']]:
+    def elastic_load_balancing(self) -> pulumi.Input[Optional['ClusterElasticLoadBalancingArgs']]:
         """
         Todo: add description
         """
         return pulumi.get(self, "elastic_load_balancing")
 
     @elastic_load_balancing.setter
-    def elastic_load_balancing(self, value: Optional[pulumi.Input['ClusterElasticLoadBalancingArgs']]):
+    def elastic_load_balancing(self, value: pulumi.Input[Optional['ClusterElasticLoadBalancingArgs']]):
         pulumi.set(self, "elastic_load_balancing", value)
 
     @_builtins.property
     @pulumi.getter(name="ipFamily")
-    def ip_family(self) -> Optional[pulumi.Input['ClusterKubernetesNetworkConfigIpFamily']]:
+    def ip_family(self) -> pulumi.Input[Optional['ClusterKubernetesNetworkConfigIpFamily']]:
         """
         Ipv4 or Ipv6. You can only specify ipv6 for 1.21 and later clusters that use version 1.10.1 or later of the Amazon VPC CNI add-on
         """
         return pulumi.get(self, "ip_family")
 
     @ip_family.setter
-    def ip_family(self, value: Optional[pulumi.Input['ClusterKubernetesNetworkConfigIpFamily']]):
+    def ip_family(self, value: pulumi.Input[Optional['ClusterKubernetesNetworkConfigIpFamily']]):
         pulumi.set(self, "ip_family", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceIpv4Cidr")
-    def service_ipv4_cidr(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_ipv4_cidr(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The CIDR block to assign Kubernetes service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. 
         """
         return pulumi.get(self, "service_ipv4_cidr")
 
     @service_ipv4_cidr.setter
-    def service_ipv4_cidr(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_ipv4_cidr(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_ipv4_cidr", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceIpv6Cidr")
-    def service_ipv6_cidr(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_ipv6_cidr(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The CIDR block to assign Kubernetes service IP addresses from.
         """
         return pulumi.get(self, "service_ipv6_cidr")
 
     @service_ipv6_cidr.setter
-    def service_ipv6_cidr(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_ipv6_cidr(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_ipv6_cidr", value)
 
 
@@ -1011,7 +1011,7 @@ class ClusterLoggingEnabledTypesArgsDict(TypedDict):
     """
     The cluster control plane logging configuration for your cluster. 
     """
-    enabled_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['ClusterLoggingTypeConfigArgsDict']]]]
+    enabled_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ClusterLoggingTypeConfigArgsDict']]]]]
     """
     The enabled control plane logs for your cluster. All log types are disabled if the array is empty.
 
@@ -1021,7 +1021,7 @@ class ClusterLoggingEnabledTypesArgsDict(TypedDict):
 @pulumi.input_type
 class ClusterLoggingEnabledTypesArgs:
     def __init__(__self__, *,
-                 enabled_types: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterLoggingTypeConfigArgs']]]] = None):
+                 enabled_types: pulumi.Input[Optional[Sequence[pulumi.Input['ClusterLoggingTypeConfigArgs']]]] = None):
         """
         The cluster control plane logging configuration for your cluster. 
 
@@ -1034,7 +1034,7 @@ class ClusterLoggingEnabledTypesArgs:
 
     @_builtins.property
     @pulumi.getter(name="enabledTypes")
-    def enabled_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterLoggingTypeConfigArgs']]]]:
+    def enabled_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ClusterLoggingTypeConfigArgs']]]]:
         """
         The enabled control plane logs for your cluster. All log types are disabled if the array is empty.
 
@@ -1043,7 +1043,7 @@ class ClusterLoggingEnabledTypesArgs:
         return pulumi.get(self, "enabled_types")
 
     @enabled_types.setter
-    def enabled_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterLoggingTypeConfigArgs']]]]):
+    def enabled_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ClusterLoggingTypeConfigArgs']]]]):
         pulumi.set(self, "enabled_types", value)
 
 
@@ -1051,7 +1051,7 @@ class ClusterLoggingTypeConfigArgsDict(TypedDict):
     """
     Enabled Logging Type
     """
-    type: NotRequired[pulumi.Input['ClusterLoggingTypeConfigType']]
+    type: NotRequired[pulumi.Input[Optional['ClusterLoggingTypeConfigType']]]
     """
     name of the log type
     """
@@ -1059,7 +1059,7 @@ class ClusterLoggingTypeConfigArgsDict(TypedDict):
 @pulumi.input_type
 class ClusterLoggingTypeConfigArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input['ClusterLoggingTypeConfigType']] = None):
+                 type: pulumi.Input[Optional['ClusterLoggingTypeConfigType']] = None):
         """
         Enabled Logging Type
 
@@ -1070,14 +1070,14 @@ class ClusterLoggingTypeConfigArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['ClusterLoggingTypeConfigType']]:
+    def type(self) -> pulumi.Input[Optional['ClusterLoggingTypeConfigType']]:
         """
         name of the log type
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['ClusterLoggingTypeConfigType']]):
+    def type(self, value: pulumi.Input[Optional['ClusterLoggingTypeConfigType']]):
         pulumi.set(self, "type", value)
 
 
@@ -1093,7 +1093,7 @@ class ClusterOutpostConfigArgsDict(TypedDict):
     """
     Specify one or more Arn(s) of Outpost(s) on which you would like to create your cluster.
     """
-    control_plane_placement: NotRequired[pulumi.Input['ClusterControlPlanePlacementArgsDict']]
+    control_plane_placement: NotRequired[pulumi.Input[Optional['ClusterControlPlanePlacementArgsDict']]]
     """
     Specify the placement group of the control plane machines for your cluster.
     """
@@ -1103,7 +1103,7 @@ class ClusterOutpostConfigArgs:
     def __init__(__self__, *,
                  control_plane_instance_type: pulumi.Input[_builtins.str],
                  outpost_arns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 control_plane_placement: Optional[pulumi.Input['ClusterControlPlanePlacementArgs']] = None):
+                 control_plane_placement: pulumi.Input[Optional['ClusterControlPlanePlacementArgs']] = None):
         """
         An object representing the Outpost configuration to use for AWS EKS outpost cluster.
 
@@ -1142,19 +1142,19 @@ class ClusterOutpostConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="controlPlanePlacement")
-    def control_plane_placement(self) -> Optional[pulumi.Input['ClusterControlPlanePlacementArgs']]:
+    def control_plane_placement(self) -> pulumi.Input[Optional['ClusterControlPlanePlacementArgs']]:
         """
         Specify the placement group of the control plane machines for your cluster.
         """
         return pulumi.get(self, "control_plane_placement")
 
     @control_plane_placement.setter
-    def control_plane_placement(self, value: Optional[pulumi.Input['ClusterControlPlanePlacementArgs']]):
+    def control_plane_placement(self, value: pulumi.Input[Optional['ClusterControlPlanePlacementArgs']]):
         pulumi.set(self, "control_plane_placement", value)
 
 
 class ClusterProviderArgsDict(TypedDict):
-    key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    key_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Amazon Resource Name (ARN) or alias of the KMS key. The KMS key must be symmetric, created in the same region as the cluster, and if the KMS key was created in a different account, the user must have access to the KMS key.
     """
@@ -1162,7 +1162,7 @@ class ClusterProviderArgsDict(TypedDict):
 @pulumi.input_type
 class ClusterProviderArgs:
     def __init__(__self__, *,
-                 key_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 key_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] key_arn: Amazon Resource Name (ARN) or alias of the KMS key. The KMS key must be symmetric, created in the same region as the cluster, and if the KMS key was created in a different account, the user must have access to the KMS key.
         """
@@ -1171,14 +1171,14 @@ class ClusterProviderArgs:
 
     @_builtins.property
     @pulumi.getter(name="keyArn")
-    def key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Resource Name (ARN) or alias of the KMS key. The KMS key must be symmetric, created in the same region as the cluster, and if the KMS key was created in a different account, the user must have access to the KMS key.
         """
         return pulumi.get(self, "key_arn")
 
     @key_arn.setter
-    def key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_arn", value)
 
 
@@ -1186,11 +1186,11 @@ class ClusterRemoteNetworkConfigArgsDict(TypedDict):
     """
     Configuration fields for specifying on-premises node and pod CIDRs that are external to the VPC passed during cluster creation.
     """
-    remote_node_networks: NotRequired[pulumi.Input[Sequence[pulumi.Input['ClusterRemoteNodeNetworkArgsDict']]]]
+    remote_node_networks: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ClusterRemoteNodeNetworkArgsDict']]]]]
     """
     Network configuration of nodes run on-premises with EKS Hybrid Nodes.
     """
-    remote_pod_networks: NotRequired[pulumi.Input[Sequence[pulumi.Input['ClusterRemotePodNetworkArgsDict']]]]
+    remote_pod_networks: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ClusterRemotePodNetworkArgsDict']]]]]
     """
     Network configuration of pods run on-premises with EKS Hybrid Nodes.
     """
@@ -1198,8 +1198,8 @@ class ClusterRemoteNetworkConfigArgsDict(TypedDict):
 @pulumi.input_type
 class ClusterRemoteNetworkConfigArgs:
     def __init__(__self__, *,
-                 remote_node_networks: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterRemoteNodeNetworkArgs']]]] = None,
-                 remote_pod_networks: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterRemotePodNetworkArgs']]]] = None):
+                 remote_node_networks: pulumi.Input[Optional[Sequence[pulumi.Input['ClusterRemoteNodeNetworkArgs']]]] = None,
+                 remote_pod_networks: pulumi.Input[Optional[Sequence[pulumi.Input['ClusterRemotePodNetworkArgs']]]] = None):
         """
         Configuration fields for specifying on-premises node and pod CIDRs that are external to the VPC passed during cluster creation.
 
@@ -1213,26 +1213,26 @@ class ClusterRemoteNetworkConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="remoteNodeNetworks")
-    def remote_node_networks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterRemoteNodeNetworkArgs']]]]:
+    def remote_node_networks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ClusterRemoteNodeNetworkArgs']]]]:
         """
         Network configuration of nodes run on-premises with EKS Hybrid Nodes.
         """
         return pulumi.get(self, "remote_node_networks")
 
     @remote_node_networks.setter
-    def remote_node_networks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterRemoteNodeNetworkArgs']]]]):
+    def remote_node_networks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ClusterRemoteNodeNetworkArgs']]]]):
         pulumi.set(self, "remote_node_networks", value)
 
     @_builtins.property
     @pulumi.getter(name="remotePodNetworks")
-    def remote_pod_networks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterRemotePodNetworkArgs']]]]:
+    def remote_pod_networks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ClusterRemotePodNetworkArgs']]]]:
         """
         Network configuration of pods run on-premises with EKS Hybrid Nodes.
         """
         return pulumi.get(self, "remote_pod_networks")
 
     @remote_pod_networks.setter
-    def remote_pod_networks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterRemotePodNetworkArgs']]]]):
+    def remote_pod_networks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ClusterRemotePodNetworkArgs']]]]):
         pulumi.set(self, "remote_pod_networks", value)
 
 
@@ -1310,19 +1310,19 @@ class ClusterResourcesVpcConfigArgsDict(TypedDict):
     """
     Specify subnets for your Amazon EKS nodes. Amazon EKS creates cross-account elastic network interfaces in these subnets to allow communication between your nodes and the Kubernetes control plane.
     """
-    endpoint_private_access: NotRequired[pulumi.Input[_builtins.bool]]
+    endpoint_private_access: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Set this value to true to enable private access for your cluster's Kubernetes API server endpoint. If you enable private access, Kubernetes API requests from within your cluster's VPC use the private VPC endpoint. The default value for this parameter is false, which disables private access for your Kubernetes API server. If you disable private access and you have nodes or AWS Fargate pods in the cluster, then ensure that publicAccessCidrs includes the necessary CIDR blocks for communication with the nodes or Fargate pods.
     """
-    endpoint_public_access: NotRequired[pulumi.Input[_builtins.bool]]
+    endpoint_public_access: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Set this value to false to disable public access to your cluster's Kubernetes API server endpoint. If you disable public access, your cluster's Kubernetes API server can only receive requests from within the cluster VPC. The default value for this parameter is true, which enables public access for your Kubernetes API server.
     """
-    public_access_cidrs: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    public_access_cidrs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The CIDR blocks that are allowed access to your cluster's public Kubernetes API server endpoint. Communication to the endpoint from addresses outside of the CIDR blocks that you specify is denied. The default value is 0.0.0.0/0. If you've disabled private endpoint access and you have nodes or AWS Fargate pods in the cluster, then ensure that you specify the necessary CIDR blocks.
     """
-    security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    security_group_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify one or more security groups for the cross-account elastic network interfaces that Amazon EKS creates to use to allow communication between your worker nodes and the Kubernetes control plane. If you don't specify a security group, the default security group for your VPC is used.
     """
@@ -1331,10 +1331,10 @@ class ClusterResourcesVpcConfigArgsDict(TypedDict):
 class ClusterResourcesVpcConfigArgs:
     def __init__(__self__, *,
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 endpoint_private_access: Optional[pulumi.Input[_builtins.bool]] = None,
-                 endpoint_public_access: Optional[pulumi.Input[_builtins.bool]] = None,
-                 public_access_cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 endpoint_private_access: pulumi.Input[Optional[_builtins.bool]] = None,
+                 endpoint_public_access: pulumi.Input[Optional[_builtins.bool]] = None,
+                 public_access_cidrs: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         An object representing the VPC configuration to use for an Amazon EKS cluster.
 
@@ -1368,50 +1368,50 @@ class ClusterResourcesVpcConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="endpointPrivateAccess")
-    def endpoint_private_access(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def endpoint_private_access(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set this value to true to enable private access for your cluster's Kubernetes API server endpoint. If you enable private access, Kubernetes API requests from within your cluster's VPC use the private VPC endpoint. The default value for this parameter is false, which disables private access for your Kubernetes API server. If you disable private access and you have nodes or AWS Fargate pods in the cluster, then ensure that publicAccessCidrs includes the necessary CIDR blocks for communication with the nodes or Fargate pods.
         """
         return pulumi.get(self, "endpoint_private_access")
 
     @endpoint_private_access.setter
-    def endpoint_private_access(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def endpoint_private_access(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "endpoint_private_access", value)
 
     @_builtins.property
     @pulumi.getter(name="endpointPublicAccess")
-    def endpoint_public_access(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def endpoint_public_access(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set this value to false to disable public access to your cluster's Kubernetes API server endpoint. If you disable public access, your cluster's Kubernetes API server can only receive requests from within the cluster VPC. The default value for this parameter is true, which enables public access for your Kubernetes API server.
         """
         return pulumi.get(self, "endpoint_public_access")
 
     @endpoint_public_access.setter
-    def endpoint_public_access(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def endpoint_public_access(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "endpoint_public_access", value)
 
     @_builtins.property
     @pulumi.getter(name="publicAccessCidrs")
-    def public_access_cidrs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def public_access_cidrs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The CIDR blocks that are allowed access to your cluster's public Kubernetes API server endpoint. Communication to the endpoint from addresses outside of the CIDR blocks that you specify is denied. The default value is 0.0.0.0/0. If you've disabled private endpoint access and you have nodes or AWS Fargate pods in the cluster, then ensure that you specify the necessary CIDR blocks.
         """
         return pulumi.get(self, "public_access_cidrs")
 
     @public_access_cidrs.setter
-    def public_access_cidrs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def public_access_cidrs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "public_access_cidrs", value)
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify one or more security groups for the cross-account elastic network interfaces that Amazon EKS creates to use to allow communication between your worker nodes and the Kubernetes control plane. If you don't specify a security group, the default security group for your VPC is used.
         """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
-    def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def security_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "security_group_ids", value)
 
 
@@ -1419,7 +1419,7 @@ class ClusterStorageConfigArgsDict(TypedDict):
     """
     Todo: add description
     """
-    block_storage: NotRequired[pulumi.Input['ClusterBlockStorageArgsDict']]
+    block_storage: NotRequired[pulumi.Input[Optional['ClusterBlockStorageArgsDict']]]
     """
     Todo: add description
     """
@@ -1427,7 +1427,7 @@ class ClusterStorageConfigArgsDict(TypedDict):
 @pulumi.input_type
 class ClusterStorageConfigArgs:
     def __init__(__self__, *,
-                 block_storage: Optional[pulumi.Input['ClusterBlockStorageArgs']] = None):
+                 block_storage: pulumi.Input[Optional['ClusterBlockStorageArgs']] = None):
         """
         Todo: add description
 
@@ -1438,14 +1438,14 @@ class ClusterStorageConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="blockStorage")
-    def block_storage(self) -> Optional[pulumi.Input['ClusterBlockStorageArgs']]:
+    def block_storage(self) -> pulumi.Input[Optional['ClusterBlockStorageArgs']]:
         """
         Todo: add description
         """
         return pulumi.get(self, "block_storage")
 
     @block_storage.setter
-    def block_storage(self, value: Optional[pulumi.Input['ClusterBlockStorageArgs']]):
+    def block_storage(self, value: pulumi.Input[Optional['ClusterBlockStorageArgs']]):
         pulumi.set(self, "block_storage", value)
 
 
@@ -1453,7 +1453,7 @@ class ClusterUpgradePolicyArgsDict(TypedDict):
     """
     An object representing the Upgrade Policy to use for the cluster.
     """
-    support_type: NotRequired[pulumi.Input['ClusterUpgradePolicySupportType']]
+    support_type: NotRequired[pulumi.Input[Optional['ClusterUpgradePolicySupportType']]]
     """
     Specify the support type for your cluster.
     """
@@ -1461,7 +1461,7 @@ class ClusterUpgradePolicyArgsDict(TypedDict):
 @pulumi.input_type
 class ClusterUpgradePolicyArgs:
     def __init__(__self__, *,
-                 support_type: Optional[pulumi.Input['ClusterUpgradePolicySupportType']] = None):
+                 support_type: pulumi.Input[Optional['ClusterUpgradePolicySupportType']] = None):
         """
         An object representing the Upgrade Policy to use for the cluster.
 
@@ -1472,14 +1472,14 @@ class ClusterUpgradePolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="supportType")
-    def support_type(self) -> Optional[pulumi.Input['ClusterUpgradePolicySupportType']]:
+    def support_type(self) -> pulumi.Input[Optional['ClusterUpgradePolicySupportType']]:
         """
         Specify the support type for your cluster.
         """
         return pulumi.get(self, "support_type")
 
     @support_type.setter
-    def support_type(self, value: Optional[pulumi.Input['ClusterUpgradePolicySupportType']]):
+    def support_type(self, value: pulumi.Input[Optional['ClusterUpgradePolicySupportType']]):
         pulumi.set(self, "support_type", value)
 
 
@@ -1487,7 +1487,7 @@ class ClusterZonalShiftConfigArgsDict(TypedDict):
     """
     The current zonal shift configuration to use for the cluster.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Set this value to true to enable zonal shift for the cluster.
     """
@@ -1495,7 +1495,7 @@ class ClusterZonalShiftConfigArgsDict(TypedDict):
 @pulumi.input_type
 class ClusterZonalShiftConfigArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The current zonal shift configuration to use for the cluster.
 
@@ -1506,14 +1506,14 @@ class ClusterZonalShiftConfigArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set this value to true to enable zonal shift for the cluster.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
 
@@ -1574,7 +1574,7 @@ class FargateProfileSelectorArgsDict(TypedDict):
     """
     The Kubernetes `namespace` that the selector should match.
     """
-    labels: NotRequired[pulumi.Input[Sequence[pulumi.Input['FargateProfileLabelArgsDict']]]]
+    labels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FargateProfileLabelArgsDict']]]]]
     """
     The Kubernetes labels that the selector should match. A pod must contain all of the labels that are specified in the selector for it to be considered a match.
     """
@@ -1583,7 +1583,7 @@ class FargateProfileSelectorArgsDict(TypedDict):
 class FargateProfileSelectorArgs:
     def __init__(__self__, *,
                  namespace: pulumi.Input[_builtins.str],
-                 labels: Optional[pulumi.Input[Sequence[pulumi.Input['FargateProfileLabelArgs']]]] = None):
+                 labels: pulumi.Input[Optional[Sequence[pulumi.Input['FargateProfileLabelArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] namespace: The Kubernetes `namespace` that the selector should match.
         :param pulumi.Input[Sequence[pulumi.Input['FargateProfileLabelArgs']]] labels: The Kubernetes labels that the selector should match. A pod must contain all of the labels that are specified in the selector for it to be considered a match.
@@ -1606,14 +1606,14 @@ class FargateProfileSelectorArgs:
 
     @_builtins.property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FargateProfileLabelArgs']]]]:
+    def labels(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FargateProfileLabelArgs']]]]:
         """
         The Kubernetes labels that the selector should match. A pod must contain all of the labels that are specified in the selector for it to be considered a match.
         """
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FargateProfileLabelArgs']]]]):
+    def labels(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FargateProfileLabelArgs']]]]):
         pulumi.set(self, "labels", value)
 
 
@@ -1629,23 +1629,23 @@ class IdentityProviderConfigOidcIdentityProviderConfigArgsDict(TypedDict):
     """
     The URL of the OpenID identity provider that allows the API server to discover public signing keys for verifying tokens.
     """
-    groups_claim: NotRequired[pulumi.Input[_builtins.str]]
+    groups_claim: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The JWT claim that the provider uses to return your groups.
     """
-    groups_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    groups_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The prefix that is prepended to group claims to prevent clashes with existing names (such as system: groups).
     """
-    required_claims: NotRequired[pulumi.Input[Sequence[pulumi.Input['IdentityProviderConfigRequiredClaimArgsDict']]]]
+    required_claims: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IdentityProviderConfigRequiredClaimArgsDict']]]]]
     """
     The key-value pairs that describe required claims in the identity token. If set, each claim is verified to be present in the token with a matching value.
     """
-    username_claim: NotRequired[pulumi.Input[_builtins.str]]
+    username_claim: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The JSON Web Token (JWT) claim to use as the username. The default is sub, which is expected to be a unique identifier of the end user. You can choose other claims, such as email or name, depending on the OpenID identity provider. Claims other than email are prefixed with the issuer URL to prevent naming clashes with other plug-ins.
     """
-    username_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    username_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The prefix that is prepended to username claims to prevent clashes with existing names. If you do not provide this field, and username is a value other than email, the prefix defaults to issuerurl#. You can use the value - to disable all prefixing.
     """
@@ -1655,11 +1655,11 @@ class IdentityProviderConfigOidcIdentityProviderConfigArgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[_builtins.str],
                  issuer_url: pulumi.Input[_builtins.str],
-                 groups_claim: Optional[pulumi.Input[_builtins.str]] = None,
-                 groups_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 required_claims: Optional[pulumi.Input[Sequence[pulumi.Input['IdentityProviderConfigRequiredClaimArgs']]]] = None,
-                 username_claim: Optional[pulumi.Input[_builtins.str]] = None,
-                 username_prefix: Optional[pulumi.Input[_builtins.str]] = None):
+                 groups_claim: pulumi.Input[Optional[_builtins.str]] = None,
+                 groups_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 required_claims: pulumi.Input[Optional[Sequence[pulumi.Input['IdentityProviderConfigRequiredClaimArgs']]]] = None,
+                 username_claim: pulumi.Input[Optional[_builtins.str]] = None,
+                 username_prefix: pulumi.Input[Optional[_builtins.str]] = None):
         """
         An object representing an OpenID Connect (OIDC) configuration.
 
@@ -1710,62 +1710,62 @@ class IdentityProviderConfigOidcIdentityProviderConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="groupsClaim")
-    def groups_claim(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def groups_claim(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The JWT claim that the provider uses to return your groups.
         """
         return pulumi.get(self, "groups_claim")
 
     @groups_claim.setter
-    def groups_claim(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def groups_claim(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "groups_claim", value)
 
     @_builtins.property
     @pulumi.getter(name="groupsPrefix")
-    def groups_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def groups_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The prefix that is prepended to group claims to prevent clashes with existing names (such as system: groups).
         """
         return pulumi.get(self, "groups_prefix")
 
     @groups_prefix.setter
-    def groups_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def groups_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "groups_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="requiredClaims")
-    def required_claims(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IdentityProviderConfigRequiredClaimArgs']]]]:
+    def required_claims(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IdentityProviderConfigRequiredClaimArgs']]]]:
         """
         The key-value pairs that describe required claims in the identity token. If set, each claim is verified to be present in the token with a matching value.
         """
         return pulumi.get(self, "required_claims")
 
     @required_claims.setter
-    def required_claims(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IdentityProviderConfigRequiredClaimArgs']]]]):
+    def required_claims(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IdentityProviderConfigRequiredClaimArgs']]]]):
         pulumi.set(self, "required_claims", value)
 
     @_builtins.property
     @pulumi.getter(name="usernameClaim")
-    def username_claim(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def username_claim(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The JSON Web Token (JWT) claim to use as the username. The default is sub, which is expected to be a unique identifier of the end user. You can choose other claims, such as email or name, depending on the OpenID identity provider. Claims other than email are prefixed with the issuer URL to prevent naming clashes with other plug-ins.
         """
         return pulumi.get(self, "username_claim")
 
     @username_claim.setter
-    def username_claim(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def username_claim(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username_claim", value)
 
     @_builtins.property
     @pulumi.getter(name="usernamePrefix")
-    def username_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def username_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The prefix that is prepended to username claims to prevent clashes with existing names. If you do not provide this field, and username is a value other than email, the prefix defaults to issuerurl#. You can use the value - to disable all prefixing.
         """
         return pulumi.get(self, "username_prefix")
 
     @username_prefix.setter
-    def username_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def username_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username_prefix", value)
 
 
@@ -1825,7 +1825,7 @@ class LoggingArgsDict(TypedDict):
     """
     Enable exporting the Kubernetes control plane logs for your cluster to CloudWatch Logs based on log types. By default, cluster control plane logs aren't exported to CloudWatch Logs.
     """
-    cluster_logging: NotRequired[pulumi.Input['ClusterLoggingEnabledTypesArgsDict']]
+    cluster_logging: NotRequired[pulumi.Input[Optional['ClusterLoggingEnabledTypesArgsDict']]]
     """
     The cluster control plane logging configuration for your cluster. 
     """
@@ -1833,7 +1833,7 @@ class LoggingArgsDict(TypedDict):
 @pulumi.input_type
 class LoggingArgs:
     def __init__(__self__, *,
-                 cluster_logging: Optional[pulumi.Input['ClusterLoggingEnabledTypesArgs']] = None):
+                 cluster_logging: pulumi.Input[Optional['ClusterLoggingEnabledTypesArgs']] = None):
         """
         Enable exporting the Kubernetes control plane logs for your cluster to CloudWatch Logs based on log types. By default, cluster control plane logs aren't exported to CloudWatch Logs.
 
@@ -1844,14 +1844,14 @@ class LoggingArgs:
 
     @_builtins.property
     @pulumi.getter(name="clusterLogging")
-    def cluster_logging(self) -> Optional[pulumi.Input['ClusterLoggingEnabledTypesArgs']]:
+    def cluster_logging(self) -> pulumi.Input[Optional['ClusterLoggingEnabledTypesArgs']]:
         """
         The cluster control plane logging configuration for your cluster. 
         """
         return pulumi.get(self, "cluster_logging")
 
     @cluster_logging.setter
-    def cluster_logging(self, value: Optional[pulumi.Input['ClusterLoggingEnabledTypesArgs']]):
+    def cluster_logging(self, value: pulumi.Input[Optional['ClusterLoggingEnabledTypesArgs']]):
         pulumi.set(self, "cluster_logging", value)
 
 
@@ -1892,19 +1892,19 @@ class NodegroupLaunchTemplateSpecificationArgsDict(TypedDict):
     """
     An object representing a launch template specification for AWS EKS Nodegroup.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the launch template.
 
     You must specify either the launch template ID or the launch template name in the request, but not both. After node group creation, you cannot use a different ID.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the launch template.
 
     You must specify either the launch template name or the launch template ID in the request, but not both. After node group creation, you cannot use a different name.
     """
-    version: NotRequired[pulumi.Input[_builtins.str]]
+    version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The version number of the launch template to use. If no version is specified, then the template's default version is used. You can use a different version for node group updates.
     """
@@ -1912,9 +1912,9 @@ class NodegroupLaunchTemplateSpecificationArgsDict(TypedDict):
 @pulumi.input_type
 class NodegroupLaunchTemplateSpecificationArgs:
     def __init__(__self__, *,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         An object representing a launch template specification for AWS EKS Nodegroup.
 
@@ -1935,7 +1935,7 @@ class NodegroupLaunchTemplateSpecificationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the launch template.
 
@@ -1944,12 +1944,12 @@ class NodegroupLaunchTemplateSpecificationArgs:
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the launch template.
 
@@ -1958,141 +1958,47 @@ class NodegroupLaunchTemplateSpecificationArgs:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version number of the launch template to use. If no version is specified, then the template's default version is used. You can use a different version for node group updates.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
-
-
-class NodegroupNodeRepairConfigOverridesArgsDict(TypedDict):
-    """
-    Specify granular overrides for specific repair actions. These overrides control the repair action and the repair delay time before a node is considered eligible for repair. If you use this, you must specify all the values.
-    """
-    min_repair_wait_time_mins: NotRequired[pulumi.Input[_builtins.int]]
-    """
-    Specify the minimum time in minutes to wait before attempting to repair a node with this specific NodeMonitoringCondition and NodeUnhealthyReason.
-    """
-    node_monitoring_condition: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Specify an unhealthy condition reported by the node monitoring agent that this override would apply to.
-    """
-    node_unhealthy_reason: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Specify a reason reported by the node monitoring agent that this override would apply to.
-    """
-    repair_action: NotRequired[pulumi.Input['NodegroupNodeRepairConfigOverridesRepairAction']]
-    """
-    Specify the repair action to take for nodes when all of the specified conditions are met.
-    """
-
-@pulumi.input_type
-class NodegroupNodeRepairConfigOverridesArgs:
-    def __init__(__self__, *,
-                 min_repair_wait_time_mins: Optional[pulumi.Input[_builtins.int]] = None,
-                 node_monitoring_condition: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_unhealthy_reason: Optional[pulumi.Input[_builtins.str]] = None,
-                 repair_action: Optional[pulumi.Input['NodegroupNodeRepairConfigOverridesRepairAction']] = None):
-        """
-        Specify granular overrides for specific repair actions. These overrides control the repair action and the repair delay time before a node is considered eligible for repair. If you use this, you must specify all the values.
-
-        :param pulumi.Input[_builtins.int] min_repair_wait_time_mins: Specify the minimum time in minutes to wait before attempting to repair a node with this specific NodeMonitoringCondition and NodeUnhealthyReason.
-        :param pulumi.Input[_builtins.str] node_monitoring_condition: Specify an unhealthy condition reported by the node monitoring agent that this override would apply to.
-        :param pulumi.Input[_builtins.str] node_unhealthy_reason: Specify a reason reported by the node monitoring agent that this override would apply to.
-        :param pulumi.Input['NodegroupNodeRepairConfigOverridesRepairAction'] repair_action: Specify the repair action to take for nodes when all of the specified conditions are met.
-        """
-        if min_repair_wait_time_mins is not None:
-            pulumi.set(__self__, "min_repair_wait_time_mins", min_repair_wait_time_mins)
-        if node_monitoring_condition is not None:
-            pulumi.set(__self__, "node_monitoring_condition", node_monitoring_condition)
-        if node_unhealthy_reason is not None:
-            pulumi.set(__self__, "node_unhealthy_reason", node_unhealthy_reason)
-        if repair_action is not None:
-            pulumi.set(__self__, "repair_action", repair_action)
-
-    @_builtins.property
-    @pulumi.getter(name="minRepairWaitTimeMins")
-    def min_repair_wait_time_mins(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Specify the minimum time in minutes to wait before attempting to repair a node with this specific NodeMonitoringCondition and NodeUnhealthyReason.
-        """
-        return pulumi.get(self, "min_repair_wait_time_mins")
-
-    @min_repair_wait_time_mins.setter
-    def min_repair_wait_time_mins(self, value: Optional[pulumi.Input[_builtins.int]]):
-        pulumi.set(self, "min_repair_wait_time_mins", value)
-
-    @_builtins.property
-    @pulumi.getter(name="nodeMonitoringCondition")
-    def node_monitoring_condition(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specify an unhealthy condition reported by the node monitoring agent that this override would apply to.
-        """
-        return pulumi.get(self, "node_monitoring_condition")
-
-    @node_monitoring_condition.setter
-    def node_monitoring_condition(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "node_monitoring_condition", value)
-
-    @_builtins.property
-    @pulumi.getter(name="nodeUnhealthyReason")
-    def node_unhealthy_reason(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specify a reason reported by the node monitoring agent that this override would apply to.
-        """
-        return pulumi.get(self, "node_unhealthy_reason")
-
-    @node_unhealthy_reason.setter
-    def node_unhealthy_reason(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "node_unhealthy_reason", value)
-
-    @_builtins.property
-    @pulumi.getter(name="repairAction")
-    def repair_action(self) -> Optional[pulumi.Input['NodegroupNodeRepairConfigOverridesRepairAction']]:
-        """
-        Specify the repair action to take for nodes when all of the specified conditions are met.
-        """
-        return pulumi.get(self, "repair_action")
-
-    @repair_action.setter
-    def repair_action(self, value: Optional[pulumi.Input['NodegroupNodeRepairConfigOverridesRepairAction']]):
-        pulumi.set(self, "repair_action", value)
 
 
 class NodegroupNodeRepairConfigArgsDict(TypedDict):
     """
     The node auto repair configuration for node group.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Set this value to true to enable node auto repair for the node group.
     """
-    max_parallel_nodes_repaired_count: NotRequired[pulumi.Input[_builtins.int]]
+    max_parallel_nodes_repaired_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specify the maximum number of nodes that can be repaired concurrently or in parallel, expressed as a count of unhealthy nodes. This gives you finer-grained control over the pace of node replacements. When using this, you cannot also set MaxParallelNodesRepairedPercentage at the same time.
     """
-    max_parallel_nodes_repaired_percentage: NotRequired[pulumi.Input[_builtins.int]]
+    max_parallel_nodes_repaired_percentage: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specify the maximum number of nodes that can be repaired concurrently or in parallel, expressed as a percentage of unhealthy nodes. This gives you finer-grained control over the pace of node replacements. When using this, you cannot also set MaxParallelNodesRepairedCount at the same time.
     """
-    max_unhealthy_node_threshold_count: NotRequired[pulumi.Input[_builtins.int]]
+    max_unhealthy_node_threshold_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specify a count threshold of unhealthy nodes, above which node auto repair actions will stop. When using this, you cannot also set MaxUnhealthyNodeThresholdPercentage at the same time.
     """
-    max_unhealthy_node_threshold_percentage: NotRequired[pulumi.Input[_builtins.int]]
+    max_unhealthy_node_threshold_percentage: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specify a percentage threshold of unhealthy nodes, above which node auto repair actions will stop. When using this, you cannot also set MaxUnhealthyNodeThresholdCount at the same time.
     """
-    node_repair_config_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['NodegroupNodeRepairConfigOverridesArgsDict']]]]
+    node_repair_config_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NodegroupNodeRepairConfigOverridesArgsDict']]]]]
     """
     Specify granular overrides for specific repair actions. These overrides control the repair action and the repair delay time before a node is considered eligible for repair. If you use this, you must specify all the values.
     """
@@ -2100,12 +2006,12 @@ class NodegroupNodeRepairConfigArgsDict(TypedDict):
 @pulumi.input_type
 class NodegroupNodeRepairConfigArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 max_parallel_nodes_repaired_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_parallel_nodes_repaired_percentage: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_unhealthy_node_threshold_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_unhealthy_node_threshold_percentage: Optional[pulumi.Input[_builtins.int]] = None,
-                 node_repair_config_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['NodegroupNodeRepairConfigOverridesArgs']]]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 max_parallel_nodes_repaired_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_parallel_nodes_repaired_percentage: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_unhealthy_node_threshold_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_unhealthy_node_threshold_percentage: pulumi.Input[Optional[_builtins.int]] = None,
+                 node_repair_config_overrides: pulumi.Input[Optional[Sequence[pulumi.Input['NodegroupNodeRepairConfigOverridesArgs']]]] = None):
         """
         The node auto repair configuration for node group.
 
@@ -2131,75 +2037,169 @@ class NodegroupNodeRepairConfigArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set this value to true to enable node auto repair for the node group.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="maxParallelNodesRepairedCount")
-    def max_parallel_nodes_repaired_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_parallel_nodes_repaired_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specify the maximum number of nodes that can be repaired concurrently or in parallel, expressed as a count of unhealthy nodes. This gives you finer-grained control over the pace of node replacements. When using this, you cannot also set MaxParallelNodesRepairedPercentage at the same time.
         """
         return pulumi.get(self, "max_parallel_nodes_repaired_count")
 
     @max_parallel_nodes_repaired_count.setter
-    def max_parallel_nodes_repaired_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_parallel_nodes_repaired_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_parallel_nodes_repaired_count", value)
 
     @_builtins.property
     @pulumi.getter(name="maxParallelNodesRepairedPercentage")
-    def max_parallel_nodes_repaired_percentage(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_parallel_nodes_repaired_percentage(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specify the maximum number of nodes that can be repaired concurrently or in parallel, expressed as a percentage of unhealthy nodes. This gives you finer-grained control over the pace of node replacements. When using this, you cannot also set MaxParallelNodesRepairedCount at the same time.
         """
         return pulumi.get(self, "max_parallel_nodes_repaired_percentage")
 
     @max_parallel_nodes_repaired_percentage.setter
-    def max_parallel_nodes_repaired_percentage(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_parallel_nodes_repaired_percentage(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_parallel_nodes_repaired_percentage", value)
 
     @_builtins.property
     @pulumi.getter(name="maxUnhealthyNodeThresholdCount")
-    def max_unhealthy_node_threshold_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_unhealthy_node_threshold_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specify a count threshold of unhealthy nodes, above which node auto repair actions will stop. When using this, you cannot also set MaxUnhealthyNodeThresholdPercentage at the same time.
         """
         return pulumi.get(self, "max_unhealthy_node_threshold_count")
 
     @max_unhealthy_node_threshold_count.setter
-    def max_unhealthy_node_threshold_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_unhealthy_node_threshold_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_unhealthy_node_threshold_count", value)
 
     @_builtins.property
     @pulumi.getter(name="maxUnhealthyNodeThresholdPercentage")
-    def max_unhealthy_node_threshold_percentage(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_unhealthy_node_threshold_percentage(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specify a percentage threshold of unhealthy nodes, above which node auto repair actions will stop. When using this, you cannot also set MaxUnhealthyNodeThresholdCount at the same time.
         """
         return pulumi.get(self, "max_unhealthy_node_threshold_percentage")
 
     @max_unhealthy_node_threshold_percentage.setter
-    def max_unhealthy_node_threshold_percentage(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_unhealthy_node_threshold_percentage(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_unhealthy_node_threshold_percentage", value)
 
     @_builtins.property
     @pulumi.getter(name="nodeRepairConfigOverrides")
-    def node_repair_config_overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NodegroupNodeRepairConfigOverridesArgs']]]]:
+    def node_repair_config_overrides(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NodegroupNodeRepairConfigOverridesArgs']]]]:
         """
         Specify granular overrides for specific repair actions. These overrides control the repair action and the repair delay time before a node is considered eligible for repair. If you use this, you must specify all the values.
         """
         return pulumi.get(self, "node_repair_config_overrides")
 
     @node_repair_config_overrides.setter
-    def node_repair_config_overrides(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NodegroupNodeRepairConfigOverridesArgs']]]]):
+    def node_repair_config_overrides(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NodegroupNodeRepairConfigOverridesArgs']]]]):
         pulumi.set(self, "node_repair_config_overrides", value)
+
+
+class NodegroupNodeRepairConfigOverridesArgsDict(TypedDict):
+    """
+    Specify granular overrides for specific repair actions. These overrides control the repair action and the repair delay time before a node is considered eligible for repair. If you use this, you must specify all the values.
+    """
+    min_repair_wait_time_mins: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Specify the minimum time in minutes to wait before attempting to repair a node with this specific NodeMonitoringCondition and NodeUnhealthyReason.
+    """
+    node_monitoring_condition: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Specify an unhealthy condition reported by the node monitoring agent that this override would apply to.
+    """
+    node_unhealthy_reason: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Specify a reason reported by the node monitoring agent that this override would apply to.
+    """
+    repair_action: NotRequired[pulumi.Input[Optional['NodegroupNodeRepairConfigOverridesRepairAction']]]
+    """
+    Specify the repair action to take for nodes when all of the specified conditions are met.
+    """
+
+@pulumi.input_type
+class NodegroupNodeRepairConfigOverridesArgs:
+    def __init__(__self__, *,
+                 min_repair_wait_time_mins: pulumi.Input[Optional[_builtins.int]] = None,
+                 node_monitoring_condition: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_unhealthy_reason: pulumi.Input[Optional[_builtins.str]] = None,
+                 repair_action: pulumi.Input[Optional['NodegroupNodeRepairConfigOverridesRepairAction']] = None):
+        """
+        Specify granular overrides for specific repair actions. These overrides control the repair action and the repair delay time before a node is considered eligible for repair. If you use this, you must specify all the values.
+
+        :param pulumi.Input[_builtins.int] min_repair_wait_time_mins: Specify the minimum time in minutes to wait before attempting to repair a node with this specific NodeMonitoringCondition and NodeUnhealthyReason.
+        :param pulumi.Input[_builtins.str] node_monitoring_condition: Specify an unhealthy condition reported by the node monitoring agent that this override would apply to.
+        :param pulumi.Input[_builtins.str] node_unhealthy_reason: Specify a reason reported by the node monitoring agent that this override would apply to.
+        :param pulumi.Input['NodegroupNodeRepairConfigOverridesRepairAction'] repair_action: Specify the repair action to take for nodes when all of the specified conditions are met.
+        """
+        if min_repair_wait_time_mins is not None:
+            pulumi.set(__self__, "min_repair_wait_time_mins", min_repair_wait_time_mins)
+        if node_monitoring_condition is not None:
+            pulumi.set(__self__, "node_monitoring_condition", node_monitoring_condition)
+        if node_unhealthy_reason is not None:
+            pulumi.set(__self__, "node_unhealthy_reason", node_unhealthy_reason)
+        if repair_action is not None:
+            pulumi.set(__self__, "repair_action", repair_action)
+
+    @_builtins.property
+    @pulumi.getter(name="minRepairWaitTimeMins")
+    def min_repair_wait_time_mins(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Specify the minimum time in minutes to wait before attempting to repair a node with this specific NodeMonitoringCondition and NodeUnhealthyReason.
+        """
+        return pulumi.get(self, "min_repair_wait_time_mins")
+
+    @min_repair_wait_time_mins.setter
+    def min_repair_wait_time_mins(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "min_repair_wait_time_mins", value)
+
+    @_builtins.property
+    @pulumi.getter(name="nodeMonitoringCondition")
+    def node_monitoring_condition(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specify an unhealthy condition reported by the node monitoring agent that this override would apply to.
+        """
+        return pulumi.get(self, "node_monitoring_condition")
+
+    @node_monitoring_condition.setter
+    def node_monitoring_condition(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "node_monitoring_condition", value)
+
+    @_builtins.property
+    @pulumi.getter(name="nodeUnhealthyReason")
+    def node_unhealthy_reason(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specify a reason reported by the node monitoring agent that this override would apply to.
+        """
+        return pulumi.get(self, "node_unhealthy_reason")
+
+    @node_unhealthy_reason.setter
+    def node_unhealthy_reason(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "node_unhealthy_reason", value)
+
+    @_builtins.property
+    @pulumi.getter(name="repairAction")
+    def repair_action(self) -> pulumi.Input[Optional['NodegroupNodeRepairConfigOverridesRepairAction']]:
+        """
+        Specify the repair action to take for nodes when all of the specified conditions are met.
+        """
+        return pulumi.get(self, "repair_action")
+
+    @repair_action.setter
+    def repair_action(self, value: pulumi.Input[Optional['NodegroupNodeRepairConfigOverridesRepairAction']]):
+        pulumi.set(self, "repair_action", value)
 
 
 class NodegroupRemoteAccessArgsDict(TypedDict):
@@ -2210,7 +2210,7 @@ class NodegroupRemoteAccessArgsDict(TypedDict):
     """
     The Amazon EC2 SSH key name that provides access for SSH communication with the nodes in the managed node group. For more information, see [Amazon EC2 key pairs and Linux instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html) in the *Amazon Elastic Compute Cloud User Guide for Linux Instances* . For Windows, an Amazon EC2 SSH key is used to obtain the RDP password. For more information, see [Amazon EC2 key pairs and Windows instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-key-pairs.html) in the *Amazon Elastic Compute Cloud User Guide for Windows Instances* .
     """
-    source_security_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    source_security_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The security group IDs that are allowed SSH access (port 22) to the nodes. For Windows, the port is 3389. If you specify an Amazon EC2 SSH key but don't specify a source security group when you create a managed node group, then the port on the nodes is opened to the internet ( `0.0.0.0/0` ). For more information, see [Security Groups for Your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html) in the *Amazon Virtual Private Cloud User Guide* .
     """
@@ -2219,7 +2219,7 @@ class NodegroupRemoteAccessArgsDict(TypedDict):
 class NodegroupRemoteAccessArgs:
     def __init__(__self__, *,
                  ec2_ssh_key: pulumi.Input[_builtins.str],
-                 source_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 source_security_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         An object representing a remote access configuration specification for AWS EKS Nodegroup.
 
@@ -2244,14 +2244,14 @@ class NodegroupRemoteAccessArgs:
 
     @_builtins.property
     @pulumi.getter(name="sourceSecurityGroups")
-    def source_security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def source_security_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The security group IDs that are allowed SSH access (port 22) to the nodes. For Windows, the port is 3389. If you specify an Amazon EC2 SSH key but don't specify a source security group when you create a managed node group, then the port on the nodes is opened to the internet ( `0.0.0.0/0` ). For more information, see [Security Groups for Your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html) in the *Amazon Virtual Private Cloud User Guide* .
         """
         return pulumi.get(self, "source_security_groups")
 
     @source_security_groups.setter
-    def source_security_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def source_security_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "source_security_groups", value)
 
 
@@ -2259,7 +2259,7 @@ class NodegroupScalingConfigArgsDict(TypedDict):
     """
     An object representing a auto scaling group specification for AWS EKS Nodegroup.
     """
-    desired_size: NotRequired[pulumi.Input[_builtins.int]]
+    desired_size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The current number of nodes that the managed node group should maintain.
 
@@ -2269,11 +2269,11 @@ class NodegroupScalingConfigArgsDict(TypedDict):
 
     This parameter can be different from `minSize` in some cases, such as when starting with extra hosts for testing. This parameter can also be different when you want to start with an estimated number of needed hosts, but let the Cluster Autoscaler reduce the number if there are too many. When the Cluster Autoscaler is used, the `desiredSize` parameter is altered by the Cluster Autoscaler (but can be out-of-date for short periods of time). the Cluster Autoscaler doesn't scale a managed node group lower than `minSize` or higher than `maxSize` .
     """
-    max_size: NotRequired[pulumi.Input[_builtins.int]]
+    max_size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum number of nodes that the managed node group can scale out to. For information about the maximum number that you can specify, see [Amazon EKS service quotas](https://docs.aws.amazon.com/eks/latest/userguide/service-quotas.html) in the *Amazon EKS User Guide* .
     """
-    min_size: NotRequired[pulumi.Input[_builtins.int]]
+    min_size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The minimum number of nodes that the managed node group can scale in to.
     """
@@ -2281,9 +2281,9 @@ class NodegroupScalingConfigArgsDict(TypedDict):
 @pulumi.input_type
 class NodegroupScalingConfigArgs:
     def __init__(__self__, *,
-                 desired_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_size: Optional[pulumi.Input[_builtins.int]] = None):
+                 desired_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_size: pulumi.Input[Optional[_builtins.int]] = None):
         """
         An object representing a auto scaling group specification for AWS EKS Nodegroup.
 
@@ -2306,7 +2306,7 @@ class NodegroupScalingConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="desiredSize")
-    def desired_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def desired_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The current number of nodes that the managed node group should maintain.
 
@@ -2319,31 +2319,31 @@ class NodegroupScalingConfigArgs:
         return pulumi.get(self, "desired_size")
 
     @desired_size.setter
-    def desired_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def desired_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "desired_size", value)
 
     @_builtins.property
     @pulumi.getter(name="maxSize")
-    def max_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of nodes that the managed node group can scale out to. For information about the maximum number that you can specify, see [Amazon EKS service quotas](https://docs.aws.amazon.com/eks/latest/userguide/service-quotas.html) in the *Amazon EKS User Guide* .
         """
         return pulumi.get(self, "max_size")
 
     @max_size.setter
-    def max_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_size", value)
 
     @_builtins.property
     @pulumi.getter(name="minSize")
-    def min_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The minimum number of nodes that the managed node group can scale in to.
         """
         return pulumi.get(self, "min_size")
 
     @min_size.setter
-    def min_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_size", value)
 
 
@@ -2351,15 +2351,15 @@ class NodegroupTaintArgsDict(TypedDict):
     """
     An object representing a Taint specification for AWS EKS Nodegroup.
     """
-    effect: NotRequired[pulumi.Input[_builtins.str]]
+    effect: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The effect of the taint.
     """
-    key: NotRequired[pulumi.Input[_builtins.str]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The key of the taint.
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The value of the taint.
     """
@@ -2367,9 +2367,9 @@ class NodegroupTaintArgsDict(TypedDict):
 @pulumi.input_type
 class NodegroupTaintArgs:
     def __init__(__self__, *,
-                 effect: Optional[pulumi.Input[_builtins.str]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 effect: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         An object representing a Taint specification for AWS EKS Nodegroup.
 
@@ -2386,38 +2386,38 @@ class NodegroupTaintArgs:
 
     @_builtins.property
     @pulumi.getter
-    def effect(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def effect(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The effect of the taint.
         """
         return pulumi.get(self, "effect")
 
     @effect.setter
-    def effect(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def effect(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "effect", value)
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The key of the taint.
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value of the taint.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
@@ -2425,15 +2425,15 @@ class NodegroupUpdateConfigArgsDict(TypedDict):
     """
     The node group update configuration.
     """
-    max_unavailable: NotRequired[pulumi.Input[_builtins.float]]
+    max_unavailable: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The maximum number of nodes unavailable at once during a version update. Nodes will be updated in parallel. This value or maxUnavailablePercentage is required to have a value.The maximum number is 100. 
     """
-    max_unavailable_percentage: NotRequired[pulumi.Input[_builtins.float]]
+    max_unavailable_percentage: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The maximum percentage of nodes unavailable during a version update. This percentage of nodes will be updated in parallel, up to 100 nodes at once. This value or maxUnavailable is required to have a value.
     """
-    update_strategy: NotRequired[pulumi.Input[_builtins.str]]
+    update_strategy: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The configuration for the behavior to follow during an node group version update of this managed node group. You choose between two possible strategies for replacing nodes during an UpdateNodegroupVersion action.
     """
@@ -2441,9 +2441,9 @@ class NodegroupUpdateConfigArgsDict(TypedDict):
 @pulumi.input_type
 class NodegroupUpdateConfigArgs:
     def __init__(__self__, *,
-                 max_unavailable: Optional[pulumi.Input[_builtins.float]] = None,
-                 max_unavailable_percentage: Optional[pulumi.Input[_builtins.float]] = None,
-                 update_strategy: Optional[pulumi.Input[_builtins.str]] = None):
+                 max_unavailable: pulumi.Input[Optional[_builtins.float]] = None,
+                 max_unavailable_percentage: pulumi.Input[Optional[_builtins.float]] = None,
+                 update_strategy: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The node group update configuration.
 
@@ -2460,38 +2460,38 @@ class NodegroupUpdateConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="maxUnavailable")
-    def max_unavailable(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def max_unavailable(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The maximum number of nodes unavailable at once during a version update. Nodes will be updated in parallel. This value or maxUnavailablePercentage is required to have a value.The maximum number is 100. 
         """
         return pulumi.get(self, "max_unavailable")
 
     @max_unavailable.setter
-    def max_unavailable(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def max_unavailable(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "max_unavailable", value)
 
     @_builtins.property
     @pulumi.getter(name="maxUnavailablePercentage")
-    def max_unavailable_percentage(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def max_unavailable_percentage(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The maximum percentage of nodes unavailable during a version update. This percentage of nodes will be updated in parallel, up to 100 nodes at once. This value or maxUnavailable is required to have a value.
         """
         return pulumi.get(self, "max_unavailable_percentage")
 
     @max_unavailable_percentage.setter
-    def max_unavailable_percentage(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def max_unavailable_percentage(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "max_unavailable_percentage", value)
 
     @_builtins.property
     @pulumi.getter(name="updateStrategy")
-    def update_strategy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def update_strategy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The configuration for the behavior to follow during an node group version update of this managed node group. You choose between two possible strategies for replacing nodes during an UpdateNodegroupVersion action.
         """
         return pulumi.get(self, "update_strategy")
 
     @update_strategy.setter
-    def update_strategy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def update_strategy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "update_strategy", value)
 
 
@@ -2499,23 +2499,23 @@ class NodegroupWarmPoolConfigArgsDict(TypedDict):
     """
     The warm pool configuration for the node group.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Enable or disable warm pool for the node group.
     """
-    max_group_prepared_capacity: NotRequired[pulumi.Input[_builtins.int]]
+    max_group_prepared_capacity: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum number of instances that are allowed to be in the warm pool.
     """
-    min_size: NotRequired[pulumi.Input[_builtins.int]]
+    min_size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The minimum number of instances to maintain in the warm pool.
     """
-    pool_state: NotRequired[pulumi.Input[_builtins.str]]
+    pool_state: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The desired state of warm pool instances.
     """
-    reuse_on_scale_in: NotRequired[pulumi.Input[_builtins.bool]]
+    reuse_on_scale_in: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to return instances to the warm pool during scale-in instead of terminating them.
     """
@@ -2523,11 +2523,11 @@ class NodegroupWarmPoolConfigArgsDict(TypedDict):
 @pulumi.input_type
 class NodegroupWarmPoolConfigArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 max_group_prepared_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 pool_state: Optional[pulumi.Input[_builtins.str]] = None,
-                 reuse_on_scale_in: Optional[pulumi.Input[_builtins.bool]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 max_group_prepared_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 pool_state: pulumi.Input[Optional[_builtins.str]] = None,
+                 reuse_on_scale_in: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The warm pool configuration for the node group.
 
@@ -2550,62 +2550,62 @@ class NodegroupWarmPoolConfigArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable or disable warm pool for the node group.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="maxGroupPreparedCapacity")
-    def max_group_prepared_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_group_prepared_capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of instances that are allowed to be in the warm pool.
         """
         return pulumi.get(self, "max_group_prepared_capacity")
 
     @max_group_prepared_capacity.setter
-    def max_group_prepared_capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_group_prepared_capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_group_prepared_capacity", value)
 
     @_builtins.property
     @pulumi.getter(name="minSize")
-    def min_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The minimum number of instances to maintain in the warm pool.
         """
         return pulumi.get(self, "min_size")
 
     @min_size.setter
-    def min_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_size", value)
 
     @_builtins.property
     @pulumi.getter(name="poolState")
-    def pool_state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pool_state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The desired state of warm pool instances.
         """
         return pulumi.get(self, "pool_state")
 
     @pool_state.setter
-    def pool_state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pool_state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pool_state", value)
 
     @_builtins.property
     @pulumi.getter(name="reuseOnScaleIn")
-    def reuse_on_scale_in(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def reuse_on_scale_in(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to return instances to the warm pool during scale-in instead of terminating them.
         """
         return pulumi.get(self, "reuse_on_scale_in")
 
     @reuse_on_scale_in.setter
-    def reuse_on_scale_in(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def reuse_on_scale_in(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "reuse_on_scale_in", value)
 
 

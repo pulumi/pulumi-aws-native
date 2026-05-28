@@ -152,7 +152,7 @@ def get_application(id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_application_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_application_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationResult]:
     """
     Resource Schema for AWS::ServiceCatalogAppRegistry::Application

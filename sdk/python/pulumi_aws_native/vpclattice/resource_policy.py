@@ -66,7 +66,7 @@ class ResourcePolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  policy: Optional[Any] = None,
-                 resource_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Retrieves information about the resource policy. The resource policy is an IAM policy created by AWS RAM on behalf of the resource owner when they share a resource.
@@ -105,7 +105,7 @@ class ResourcePolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  policy: Optional[Any] = None,
-                 resource_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

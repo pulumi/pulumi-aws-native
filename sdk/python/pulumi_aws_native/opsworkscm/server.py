@@ -26,24 +26,24 @@ class ServerArgs:
                  instance_profile_arn: pulumi.Input[_builtins.str],
                  instance_type: pulumi.Input[_builtins.str],
                  service_role_arn: pulumi.Input[_builtins.str],
-                 associate_public_ip_address: Optional[pulumi.Input[_builtins.bool]] = None,
-                 backup_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 backup_retention_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 custom_certificate: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_private_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 disable_automated_backup: Optional[pulumi.Input[_builtins.bool]] = None,
-                 engine: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['ServerEngineAttributeArgs']]]] = None,
-                 engine_model: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_pair: Optional[pulumi.Input[_builtins.str]] = None,
-                 preferred_backup_window: Optional[pulumi.Input[_builtins.str]] = None,
-                 preferred_maintenance_window: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 associate_public_ip_address: pulumi.Input[Optional[_builtins.bool]] = None,
+                 backup_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 backup_retention_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 custom_certificate: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_private_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 disable_automated_backup: pulumi.Input[Optional[_builtins.bool]] = None,
+                 engine: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine_attributes: pulumi.Input[Optional[Sequence[pulumi.Input['ServerEngineAttributeArgs']]]] = None,
+                 engine_model: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_pair: pulumi.Input[Optional[_builtins.str]] = None,
+                 preferred_backup_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 preferred_maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Server resource.
 
@@ -185,43 +185,43 @@ class ServerArgs:
 
     @_builtins.property
     @pulumi.getter(name="associatePublicIpAddress")
-    def associate_public_ip_address(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def associate_public_ip_address(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Associate a public IP address with a server that you are launching. Valid values are `true` or `false` . The default value is `true` .
         """
         return pulumi.get(self, "associate_public_ip_address")
 
     @associate_public_ip_address.setter
-    def associate_public_ip_address(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def associate_public_ip_address(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "associate_public_ip_address", value)
 
     @_builtins.property
     @pulumi.getter(name="backupId")
-    def backup_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def backup_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If you specify this field, AWS OpsWorks CM creates the server by using the backup represented by BackupId.
         """
         return pulumi.get(self, "backup_id")
 
     @backup_id.setter
-    def backup_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def backup_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "backup_id", value)
 
     @_builtins.property
     @pulumi.getter(name="backupRetentionCount")
-    def backup_retention_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def backup_retention_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of automated backups that you want to keep. Whenever a new backup is created, AWS OpsWorks CM deletes the oldest backups if this number is exceeded. The default value is `1` .
         """
         return pulumi.get(self, "backup_retention_count")
 
     @backup_retention_count.setter
-    def backup_retention_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def backup_retention_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "backup_retention_count", value)
 
     @_builtins.property
     @pulumi.getter(name="customCertificate")
-    def custom_certificate(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_certificate(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Supported on servers running Chef Automate 2.0 only. A PEM-formatted HTTPS certificate. The value can be be a single, self-signed certificate, or a certificate chain. If you specify a custom certificate, you must also specify values for `CustomDomain` and `CustomPrivateKey` . The following are requirements for the `CustomCertificate` value:
 
@@ -234,60 +234,60 @@ class ServerArgs:
         return pulumi.get(self, "custom_certificate")
 
     @custom_certificate.setter
-    def custom_certificate(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_certificate(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_certificate", value)
 
     @_builtins.property
     @pulumi.getter(name="customDomain")
-    def custom_domain(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_domain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Supported on servers running Chef Automate 2.0 only. An optional public endpoint of a server, such as `https://aws.my-company.com` . To access the server, create a CNAME DNS record in your preferred DNS service that points the custom domain to the endpoint that is generated when the server is created (the value of the CreateServer Endpoint attribute). You cannot access the server by using the generated `Endpoint` value if the server is using a custom domain. If you specify a custom domain, you must also specify values for `CustomCertificate` and `CustomPrivateKey` .
         """
         return pulumi.get(self, "custom_domain")
 
     @custom_domain.setter
-    def custom_domain(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_domain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_domain", value)
 
     @_builtins.property
     @pulumi.getter(name="customPrivateKey")
-    def custom_private_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_private_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Supported on servers running Chef Automate 2.0 only. A private key in PEM format for connecting to the server by using HTTPS. The private key must not be encrypted; it cannot be protected by a password or passphrase. If you specify a custom private key, you must also specify values for `CustomDomain` and `CustomCertificate` .
         """
         return pulumi.get(self, "custom_private_key")
 
     @custom_private_key.setter
-    def custom_private_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_private_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_private_key", value)
 
     @_builtins.property
     @pulumi.getter(name="disableAutomatedBackup")
-    def disable_automated_backup(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_automated_backup(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable or disable scheduled backups. Valid values are `true` or `false` . The default value is `true` .
         """
         return pulumi.get(self, "disable_automated_backup")
 
     @disable_automated_backup.setter
-    def disable_automated_backup(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_automated_backup(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_automated_backup", value)
 
     @_builtins.property
     @pulumi.getter
-    def engine(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def engine(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The configuration management engine to use. Valid values include `ChefAutomate` and `Puppet` .
         """
         return pulumi.get(self, "engine")
 
     @engine.setter
-    def engine(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def engine(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "engine", value)
 
     @_builtins.property
     @pulumi.getter(name="engineAttributes")
-    def engine_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServerEngineAttributeArgs']]]]:
+    def engine_attributes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServerEngineAttributeArgs']]]]:
         """
         Optional engine attributes on a specified server.
 
@@ -301,48 +301,48 @@ class ServerArgs:
         return pulumi.get(self, "engine_attributes")
 
     @engine_attributes.setter
-    def engine_attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServerEngineAttributeArgs']]]]):
+    def engine_attributes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServerEngineAttributeArgs']]]]):
         pulumi.set(self, "engine_attributes", value)
 
     @_builtins.property
     @pulumi.getter(name="engineModel")
-    def engine_model(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def engine_model(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The engine model of the server. Valid values in this release include `Monolithic` for Puppet and `Single` for Chef.
         """
         return pulumi.get(self, "engine_model")
 
     @engine_model.setter
-    def engine_model(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def engine_model(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "engine_model", value)
 
     @_builtins.property
     @pulumi.getter(name="engineVersion")
-    def engine_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def engine_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The major release version of the engine that you want to use. For a Chef server, the valid value for EngineVersion is currently `2` . For a Puppet server, valid values are `2019` or `2017` .
         """
         return pulumi.get(self, "engine_version")
 
     @engine_version.setter
-    def engine_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def engine_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "engine_version", value)
 
     @_builtins.property
     @pulumi.getter(name="keyPair")
-    def key_pair(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_pair(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon EC2 key pair to set for the instance. This parameter is optional; if desired, you may specify this parameter to connect to your instances by using SSH.
         """
         return pulumi.get(self, "key_pair")
 
     @key_pair.setter
-    def key_pair(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_pair(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_pair", value)
 
     @_builtins.property
     @pulumi.getter(name="preferredBackupWindow")
-    def preferred_backup_window(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def preferred_backup_window(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The start time for a one-hour period during which AWS OpsWorks CM backs up application-level data on your server if automated backups are enabled. Valid values must be specified in one of the following formats:
 
@@ -358,12 +358,12 @@ class ServerArgs:
         return pulumi.get(self, "preferred_backup_window")
 
     @preferred_backup_window.setter
-    def preferred_backup_window(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def preferred_backup_window(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "preferred_backup_window", value)
 
     @_builtins.property
     @pulumi.getter(name="preferredMaintenanceWindow")
-    def preferred_maintenance_window(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def preferred_maintenance_window(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The start time for a one-hour period each week during which AWS OpsWorks CM performs maintenance on the instance. Valid values must be specified in the following format: `DDD:HH:MM` . `MM` must be specified as `00` . The specified time is in coordinated universal time (UTC). The default value is a random one-hour period on Tuesday, Wednesday, or Friday. See `TimeWindowDefinition` for more information.
 
@@ -372,12 +372,12 @@ class ServerArgs:
         return pulumi.get(self, "preferred_maintenance_window")
 
     @preferred_maintenance_window.setter
-    def preferred_maintenance_window(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def preferred_maintenance_window(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "preferred_maintenance_window", value)
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of security group IDs to attach to the Amazon EC2 instance. If you add this parameter, the specified security groups must be within the VPC that is specified by `SubnetIds` .
 
@@ -386,24 +386,24 @@ class ServerArgs:
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
-    def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def security_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "security_group_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="serverName")
-    def server_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def server_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the server. The server name must be unique within your AWS account, within each region. Server names must start with a letter; then letters, numbers, or hyphens (-) are allowed, up to a maximum of 40 characters.
         """
         return pulumi.get(self, "server_name")
 
     @server_name.setter
-    def server_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def server_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "server_name", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def subnet_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The IDs of subnets in which to launch the server EC2 instance.
 
@@ -416,12 +416,12 @@ class ServerArgs:
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
-    def subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def subnet_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "subnet_ids", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A map that contains tag keys and tag values to attach to an AWS OpsWorks for Chef Automate or OpsWorks for Puppet Enterprise server.
 
@@ -434,7 +434,7 @@ class ServerArgs:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -444,27 +444,27 @@ class Server(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 associate_public_ip_address: Optional[pulumi.Input[_builtins.bool]] = None,
-                 backup_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 backup_retention_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 custom_certificate: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_private_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 disable_automated_backup: Optional[pulumi.Input[_builtins.bool]] = None,
-                 engine: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServerEngineAttributeArgs', 'ServerEngineAttributeArgsDict']]]]] = None,
-                 engine_model: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_profile_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_pair: Optional[pulumi.Input[_builtins.str]] = None,
-                 preferred_backup_window: Optional[pulumi.Input[_builtins.str]] = None,
-                 preferred_maintenance_window: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 associate_public_ip_address: pulumi.Input[Optional[_builtins.bool]] = None,
+                 backup_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 backup_retention_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 custom_certificate: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_private_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 disable_automated_backup: pulumi.Input[Optional[_builtins.bool]] = None,
+                 engine: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServerEngineAttributeArgs', 'ServerEngineAttributeArgsDict']]]]] = None,
+                 engine_model: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_profile_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_pair: pulumi.Input[Optional[_builtins.str]] = None,
+                 preferred_backup_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 preferred_maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::OpsWorksCM::Server
@@ -653,27 +653,27 @@ class Server(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 associate_public_ip_address: Optional[pulumi.Input[_builtins.bool]] = None,
-                 backup_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 backup_retention_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 custom_certificate: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_private_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 disable_automated_backup: Optional[pulumi.Input[_builtins.bool]] = None,
-                 engine: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServerEngineAttributeArgs', 'ServerEngineAttributeArgsDict']]]]] = None,
-                 engine_model: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_profile_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_pair: Optional[pulumi.Input[_builtins.str]] = None,
-                 preferred_backup_window: Optional[pulumi.Input[_builtins.str]] = None,
-                 preferred_maintenance_window: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 associate_public_ip_address: pulumi.Input[Optional[_builtins.bool]] = None,
+                 backup_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 backup_retention_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 custom_certificate: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_private_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 disable_automated_backup: pulumi.Input[Optional[_builtins.bool]] = None,
+                 engine: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServerEngineAttributeArgs', 'ServerEngineAttributeArgsDict']]]]] = None,
+                 engine_model: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_profile_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_pair: pulumi.Input[Optional[_builtins.str]] = None,
+                 preferred_backup_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 preferred_maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

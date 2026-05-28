@@ -27,9 +27,9 @@ class StreamArgs:
                  kinesis_configuration: pulumi.Input['StreamKinesisConfigurationArgs'],
                  ledger_name: pulumi.Input[_builtins.str],
                  role_arn: pulumi.Input[_builtins.str],
-                 exclusive_end_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 stream_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 exclusive_end_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 stream_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Stream resource.
 
@@ -118,7 +118,7 @@ class StreamArgs:
 
     @_builtins.property
     @pulumi.getter(name="exclusiveEndTime")
-    def exclusive_end_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def exclusive_end_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The exclusive date and time that specifies when the stream ends. If you don't define this parameter, the stream runs indefinitely until you cancel it.
 
@@ -127,12 +127,12 @@ class StreamArgs:
         return pulumi.get(self, "exclusive_end_time")
 
     @exclusive_end_time.setter
-    def exclusive_end_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def exclusive_end_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "exclusive_end_time", value)
 
     @_builtins.property
     @pulumi.getter(name="streamName")
-    def stream_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def stream_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name that you want to assign to the QLDB journal stream. User-defined names can help identify and indicate the purpose of a stream.
 
@@ -141,19 +141,19 @@ class StreamArgs:
         return pulumi.get(self, "stream_name")
 
     @stream_name.setter
-    def stream_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def stream_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "stream_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -163,13 +163,13 @@ class Stream(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 exclusive_end_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 inclusive_start_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 kinesis_configuration: Optional[pulumi.Input[Union['StreamKinesisConfigurationArgs', 'StreamKinesisConfigurationArgsDict']]] = None,
-                 ledger_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 stream_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 exclusive_end_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 inclusive_start_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 kinesis_configuration: pulumi.Input[Optional[Union['StreamKinesisConfigurationArgs', 'StreamKinesisConfigurationArgsDict']]] = None,
+                 ledger_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 stream_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::QLDB::Stream.
@@ -312,13 +312,13 @@ class Stream(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 exclusive_end_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 inclusive_start_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 kinesis_configuration: Optional[pulumi.Input[Union['StreamKinesisConfigurationArgs', 'StreamKinesisConfigurationArgsDict']]] = None,
-                 ledger_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 stream_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 exclusive_end_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 inclusive_start_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 kinesis_configuration: pulumi.Input[Optional[Union['StreamKinesisConfigurationArgs', 'StreamKinesisConfigurationArgsDict']]] = None,
+                 ledger_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 stream_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

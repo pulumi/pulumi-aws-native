@@ -25,8 +25,8 @@ __all__ = ['OrganizationCentralizationRuleArgs', 'OrganizationCentralizationRule
 class OrganizationCentralizationRuleArgs:
     def __init__(__self__, *,
                  rule: pulumi.Input['OrganizationCentralizationRuleCentralizationRuleArgs'],
-                 rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a OrganizationCentralizationRule resource.
 
@@ -50,26 +50,26 @@ class OrganizationCentralizationRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="ruleName")
-    def rule_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the organization centralization rule.
         """
         return pulumi.get(self, "rule_name")
 
     @rule_name.setter
-    def rule_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rule_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -79,9 +79,9 @@ class OrganizationCentralizationRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 rule: Optional[pulumi.Input[Union['OrganizationCentralizationRuleCentralizationRuleArgs', 'OrganizationCentralizationRuleCentralizationRuleArgsDict']]] = None,
-                 rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 rule: pulumi.Input[Optional[Union['OrganizationCentralizationRuleCentralizationRuleArgs', 'OrganizationCentralizationRuleCentralizationRuleArgsDict']]] = None,
+                 rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS:ObservabilityAdmin:OrganizationCentralizationRule
@@ -117,9 +117,9 @@ class OrganizationCentralizationRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 rule: Optional[pulumi.Input[Union['OrganizationCentralizationRuleCentralizationRuleArgs', 'OrganizationCentralizationRuleCentralizationRuleArgsDict']]] = None,
-                 rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 rule: pulumi.Input[Optional[Union['OrganizationCentralizationRuleCentralizationRuleArgs', 'OrganizationCentralizationRuleCentralizationRuleArgsDict']]] = None,
+                 rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

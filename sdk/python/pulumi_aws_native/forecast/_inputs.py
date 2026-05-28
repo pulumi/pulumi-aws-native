@@ -25,11 +25,11 @@ __all__ = [
 ]
 
 class DatasetAttributesItemPropertiesArgsDict(TypedDict):
-    attribute_name: NotRequired[pulumi.Input[_builtins.str]]
+    attribute_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the dataset field
     """
-    attribute_type: NotRequired[pulumi.Input['DatasetAttributesItemPropertiesAttributeType']]
+    attribute_type: NotRequired[pulumi.Input[Optional['DatasetAttributesItemPropertiesAttributeType']]]
     """
     Data type of the field
     """
@@ -37,8 +37,8 @@ class DatasetAttributesItemPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class DatasetAttributesItemPropertiesArgs:
     def __init__(__self__, *,
-                 attribute_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 attribute_type: Optional[pulumi.Input['DatasetAttributesItemPropertiesAttributeType']] = None):
+                 attribute_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 attribute_type: pulumi.Input[Optional['DatasetAttributesItemPropertiesAttributeType']] = None):
         """
         :param pulumi.Input[_builtins.str] attribute_name: Name of the dataset field
         :param pulumi.Input['DatasetAttributesItemPropertiesAttributeType'] attribute_type: Data type of the field
@@ -50,26 +50,26 @@ class DatasetAttributesItemPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="attributeName")
-    def attribute_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def attribute_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the dataset field
         """
         return pulumi.get(self, "attribute_name")
 
     @attribute_name.setter
-    def attribute_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def attribute_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "attribute_name", value)
 
     @_builtins.property
     @pulumi.getter(name="attributeType")
-    def attribute_type(self) -> Optional[pulumi.Input['DatasetAttributesItemPropertiesAttributeType']]:
+    def attribute_type(self) -> pulumi.Input[Optional['DatasetAttributesItemPropertiesAttributeType']]:
         """
         Data type of the field
         """
         return pulumi.get(self, "attribute_type")
 
     @attribute_type.setter
-    def attribute_type(self, value: Optional[pulumi.Input['DatasetAttributesItemPropertiesAttributeType']]):
+    def attribute_type(self, value: pulumi.Input[Optional['DatasetAttributesItemPropertiesAttributeType']]):
         pulumi.set(self, "attribute_type", value)
 
 
@@ -77,11 +77,11 @@ class EncryptionConfigPropertiesArgsDict(TypedDict):
     """
     A Key Management Service (KMS) key and the Identity and Access Management (IAM) role that Amazon Forecast can assume to access the key.
     """
-    kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    kms_key_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon Resource Name (ARN) of the KMS key.
     """
-    role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of the IAM role that Amazon Forecast can assume to access the AWS  key.
 
@@ -91,8 +91,8 @@ class EncryptionConfigPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class EncryptionConfigPropertiesArgs:
     def __init__(__self__, *,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         A Key Management Service (KMS) key and the Identity and Access Management (IAM) role that Amazon Forecast can assume to access the key.
 
@@ -108,19 +108,19 @@ class EncryptionConfigPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
-    def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the KMS key.
         """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
-    def kms_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the IAM role that Amazon Forecast can assume to access the AWS  key.
 
@@ -129,7 +129,7 @@ class EncryptionConfigPropertiesArgs:
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
-    def role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_arn", value)
 
 
@@ -137,7 +137,7 @@ class SchemaPropertiesArgsDict(TypedDict):
     """
     The schema for the dataset. The schema attributes and their order must match the fields in your data. The dataset `Domain` and `DatasetType` that you choose determine the minimum required fields in your training data. For information about the required fields for a specific dataset domain and type, see [Dataset Domains and Dataset Types](https://docs.aws.amazon.com/forecast/latest/dg/howitworks-domains-ds-types.html) .
     """
-    attributes: NotRequired[pulumi.Input[Sequence[pulumi.Input['DatasetAttributesItemPropertiesArgsDict']]]]
+    attributes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DatasetAttributesItemPropertiesArgsDict']]]]]
     """
     An array of attributes specifying the name and type of each field in a dataset.
     """
@@ -145,7 +145,7 @@ class SchemaPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class SchemaPropertiesArgs:
     def __init__(__self__, *,
-                 attributes: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetAttributesItemPropertiesArgs']]]] = None):
+                 attributes: pulumi.Input[Optional[Sequence[pulumi.Input['DatasetAttributesItemPropertiesArgs']]]] = None):
         """
         The schema for the dataset. The schema attributes and their order must match the fields in your data. The dataset `Domain` and `DatasetType` that you choose determine the minimum required fields in your training data. For information about the required fields for a specific dataset domain and type, see [Dataset Domains and Dataset Types](https://docs.aws.amazon.com/forecast/latest/dg/howitworks-domains-ds-types.html) .
 
@@ -156,14 +156,14 @@ class SchemaPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatasetAttributesItemPropertiesArgs']]]]:
+    def attributes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DatasetAttributesItemPropertiesArgs']]]]:
         """
         An array of attributes specifying the name and type of each field in a dataset.
         """
         return pulumi.get(self, "attributes")
 
     @attributes.setter
-    def attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetAttributesItemPropertiesArgs']]]]):
+    def attributes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DatasetAttributesItemPropertiesArgs']]]]):
         pulumi.set(self, "attributes", value)
 
 

@@ -116,7 +116,7 @@ def get_domain(arn: Optional[_builtins.str] = None,
         owner=pulumi.get(__ret__, 'owner'),
         permissions_policy_document=pulumi.get(__ret__, 'permissions_policy_document'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_domain_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_domain_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDomainResult]:
     """
     The resource schema to create a CodeArtifact domain.

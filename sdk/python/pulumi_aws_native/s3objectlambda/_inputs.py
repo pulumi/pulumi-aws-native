@@ -19,21 +19,21 @@ __all__ = [
     'AccessPointAwsLambdaArgsDict',
     'AccessPointObjectLambdaConfigurationArgs',
     'AccessPointObjectLambdaConfigurationArgsDict',
-    'AccessPointTransformationConfigurationContentTransformationPropertiesArgs',
-    'AccessPointTransformationConfigurationContentTransformationPropertiesArgsDict',
     'AccessPointTransformationConfigurationArgs',
     'AccessPointTransformationConfigurationArgsDict',
+    'AccessPointTransformationConfigurationContentTransformationPropertiesArgs',
+    'AccessPointTransformationConfigurationContentTransformationPropertiesArgsDict',
 ]
 
 class AccessPointAwsLambdaArgsDict(TypedDict):
     function_arn: pulumi.Input[_builtins.str]
-    function_payload: NotRequired[pulumi.Input[_builtins.str]]
+    function_payload: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class AccessPointAwsLambdaArgs:
     def __init__(__self__, *,
                  function_arn: pulumi.Input[_builtins.str],
-                 function_payload: Optional[pulumi.Input[_builtins.str]] = None):
+                 function_payload: pulumi.Input[Optional[_builtins.str]] = None):
         pulumi.set(__self__, "function_arn", function_arn)
         if function_payload is not None:
             pulumi.set(__self__, "function_payload", function_payload)
@@ -49,11 +49,11 @@ class AccessPointAwsLambdaArgs:
 
     @_builtins.property
     @pulumi.getter(name="functionPayload")
-    def function_payload(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def function_payload(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "function_payload")
 
     @function_payload.setter
-    def function_payload(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def function_payload(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "function_payload", value)
 
 
@@ -69,11 +69,11 @@ class AccessPointObjectLambdaConfigurationArgsDict(TypedDict):
     """
     A container for transformation configurations for an Object Lambda Access Point.
     """
-    allowed_features: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    allowed_features: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A container for allowed features. Valid inputs are `GetObject-Range` , `GetObject-PartNumber` , `HeadObject-Range` , and `HeadObject-PartNumber` .
     """
-    cloud_watch_metrics_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    cloud_watch_metrics_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     A container for whether the CloudWatch metrics configuration is enabled.
     """
@@ -83,8 +83,8 @@ class AccessPointObjectLambdaConfigurationArgs:
     def __init__(__self__, *,
                  supporting_access_point: pulumi.Input[_builtins.str],
                  transformation_configurations: pulumi.Input[Sequence[pulumi.Input['AccessPointTransformationConfigurationArgs']]],
-                 allowed_features: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 cloud_watch_metrics_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 allowed_features: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cloud_watch_metrics_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Configuration to be applied to this Object lambda Access Point. It specifies Supporting Access Point, Transformation Configurations. Customers can also set if they like to enable Cloudwatch metrics for accesses to this Object lambda Access Point. Default setting for Cloudwatch metrics is disable.
 
@@ -126,52 +126,27 @@ class AccessPointObjectLambdaConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowedFeatures")
-    def allowed_features(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_features(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A container for allowed features. Valid inputs are `GetObject-Range` , `GetObject-PartNumber` , `HeadObject-Range` , and `HeadObject-PartNumber` .
         """
         return pulumi.get(self, "allowed_features")
 
     @allowed_features.setter
-    def allowed_features(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_features(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_features", value)
 
     @_builtins.property
     @pulumi.getter(name="cloudWatchMetricsEnabled")
-    def cloud_watch_metrics_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def cloud_watch_metrics_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A container for whether the CloudWatch metrics configuration is enabled.
         """
         return pulumi.get(self, "cloud_watch_metrics_enabled")
 
     @cloud_watch_metrics_enabled.setter
-    def cloud_watch_metrics_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def cloud_watch_metrics_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "cloud_watch_metrics_enabled", value)
-
-
-class AccessPointTransformationConfigurationContentTransformationPropertiesArgsDict(TypedDict):
-    """
-    A container for the content transformation of an Object Lambda Access Point configuration. Can include the FunctionArn and FunctionPayload. For more information, see [AwsLambdaTransformation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_AwsLambdaTransformation.html) in the *Amazon S3 API Reference* .
-    """
-    aws_lambda: pulumi.Input['AccessPointAwsLambdaArgsDict']
-
-@pulumi.input_type
-class AccessPointTransformationConfigurationContentTransformationPropertiesArgs:
-    def __init__(__self__, *,
-                 aws_lambda: pulumi.Input['AccessPointAwsLambdaArgs']):
-        """
-        A container for the content transformation of an Object Lambda Access Point configuration. Can include the FunctionArn and FunctionPayload. For more information, see [AwsLambdaTransformation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_AwsLambdaTransformation.html) in the *Amazon S3 API Reference* .
-        """
-        pulumi.set(__self__, "aws_lambda", aws_lambda)
-
-    @_builtins.property
-    @pulumi.getter(name="awsLambda")
-    def aws_lambda(self) -> pulumi.Input['AccessPointAwsLambdaArgs']:
-        return pulumi.get(self, "aws_lambda")
-
-    @aws_lambda.setter
-    def aws_lambda(self, value: pulumi.Input['AccessPointAwsLambdaArgs']):
-        pulumi.set(self, "aws_lambda", value)
 
 
 class AccessPointTransformationConfigurationArgsDict(TypedDict):
@@ -224,5 +199,30 @@ class AccessPointTransformationConfigurationArgs:
     @content_transformation.setter
     def content_transformation(self, value: pulumi.Input['AccessPointTransformationConfigurationContentTransformationPropertiesArgs']):
         pulumi.set(self, "content_transformation", value)
+
+
+class AccessPointTransformationConfigurationContentTransformationPropertiesArgsDict(TypedDict):
+    """
+    A container for the content transformation of an Object Lambda Access Point configuration. Can include the FunctionArn and FunctionPayload. For more information, see [AwsLambdaTransformation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_AwsLambdaTransformation.html) in the *Amazon S3 API Reference* .
+    """
+    aws_lambda: pulumi.Input['AccessPointAwsLambdaArgsDict']
+
+@pulumi.input_type
+class AccessPointTransformationConfigurationContentTransformationPropertiesArgs:
+    def __init__(__self__, *,
+                 aws_lambda: pulumi.Input['AccessPointAwsLambdaArgs']):
+        """
+        A container for the content transformation of an Object Lambda Access Point configuration. Can include the FunctionArn and FunctionPayload. For more information, see [AwsLambdaTransformation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_AwsLambdaTransformation.html) in the *Amazon S3 API Reference* .
+        """
+        pulumi.set(__self__, "aws_lambda", aws_lambda)
+
+    @_builtins.property
+    @pulumi.getter(name="awsLambda")
+    def aws_lambda(self) -> pulumi.Input['AccessPointAwsLambdaArgs']:
+        return pulumi.get(self, "aws_lambda")
+
+    @aws_lambda.setter
+    def aws_lambda(self, value: pulumi.Input['AccessPointAwsLambdaArgs']):
+        pulumi.set(self, "aws_lambda", value)
 
 

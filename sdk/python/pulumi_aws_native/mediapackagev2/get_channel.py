@@ -164,7 +164,7 @@ def get_channel(arn: Optional[_builtins.str] = None,
         modified_at=pulumi.get(__ret__, 'modified_at'),
         output_header_configuration=pulumi.get(__ret__, 'output_header_configuration'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_channel_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_channel_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetChannelResult]:
     """
     <p>Represents an entry point into AWS Elemental MediaPackage for an ABR video content stream sent from an upstream encoder such as AWS Elemental MediaLive. The channel continuously analyzes the content that it receives and prepares it to be distributed to consumers via one or more origin endpoints.</p>

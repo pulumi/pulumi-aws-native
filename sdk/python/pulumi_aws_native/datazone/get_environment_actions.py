@@ -133,9 +133,9 @@ def get_environment_actions(domain_id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         parameters=pulumi.get(__ret__, 'parameters'))
-def get_environment_actions_output(domain_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                   environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                   id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_environment_actions_output(domain_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                   environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                   id: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnvironmentActionsResult]:
     """
     Definition of AWS::DataZone::EnvironmentActions Resource Type

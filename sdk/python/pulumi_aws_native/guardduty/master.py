@@ -21,7 +21,7 @@ class MasterArgs:
     def __init__(__self__, *,
                  detector_id: pulumi.Input[_builtins.str],
                  master_id: pulumi.Input[_builtins.str],
-                 invitation_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 invitation_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Master resource.
 
@@ -60,14 +60,14 @@ class MasterArgs:
 
     @_builtins.property
     @pulumi.getter(name="invitationId")
-    def invitation_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def invitation_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Value used to validate the master account to the member account.
         """
         return pulumi.get(self, "invitation_id")
 
     @invitation_id.setter
-    def invitation_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def invitation_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "invitation_id", value)
 
 
@@ -77,9 +77,9 @@ class Master(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 detector_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 invitation_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 master_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 detector_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 invitation_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 master_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         GuardDuty Master resource schema
@@ -116,9 +116,9 @@ class Master(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 detector_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 invitation_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 master_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 detector_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 invitation_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 master_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

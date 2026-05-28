@@ -93,8 +93,8 @@ def get_vod_source(source_location_name: Optional[_builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         http_package_configurations=pulumi.get(__ret__, 'http_package_configurations'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_vod_source_output(source_location_name: Optional[pulumi.Input[_builtins.str]] = None,
-                          vod_source_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_vod_source_output(source_location_name: pulumi.Input[Optional[_builtins.str]] = None,
+                          vod_source_name: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVodSourceResult]:
     """
     Definition of AWS::MediaTailor::VodSource Resource Type

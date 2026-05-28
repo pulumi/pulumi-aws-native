@@ -63,7 +63,7 @@ def get_access_point_policy(object_lambda_access_point: Optional[_builtins.str] 
 
     return AwaitableGetAccessPointPolicyResult(
         policy_document=pulumi.get(__ret__, 'policy_document'))
-def get_access_point_policy_output(object_lambda_access_point: Optional[pulumi.Input[_builtins.str]] = None,
+def get_access_point_policy_output(object_lambda_access_point: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccessPointPolicyResult]:
     """
     AWS::S3ObjectLambda::AccessPointPolicy resource is an Amazon S3ObjectLambda policy type that you can use to control permissions for your S3ObjectLambda

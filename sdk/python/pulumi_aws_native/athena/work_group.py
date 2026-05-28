@@ -24,13 +24,13 @@ __all__ = ['WorkGroupArgs', 'WorkGroup']
 @pulumi.input_type
 class WorkGroupArgs:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 recursive_delete_option: Optional[pulumi.Input[_builtins.bool]] = None,
-                 state: Optional[pulumi.Input['WorkGroupState']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 work_group_configuration: Optional[pulumi.Input['WorkGroupConfigurationArgs']] = None,
-                 work_group_configuration_updates: Optional[pulumi.Input['WorkGroupConfigurationUpdatesArgs']] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 recursive_delete_option: pulumi.Input[Optional[_builtins.bool]] = None,
+                 state: pulumi.Input[Optional['WorkGroupState']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 work_group_configuration: pulumi.Input[Optional['WorkGroupConfigurationArgs']] = None,
+                 work_group_configuration_updates: pulumi.Input[Optional['WorkGroupConfigurationUpdatesArgs']] = None):
         """
         The set of arguments for constructing a WorkGroup resource.
 
@@ -59,86 +59,86 @@ class WorkGroupArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The workgroup description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The workGroup name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="recursiveDeleteOption")
-    def recursive_delete_option(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def recursive_delete_option(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The option to delete the workgroup and its contents even if the workgroup contains any named queries.
         """
         return pulumi.get(self, "recursive_delete_option")
 
     @recursive_delete_option.setter
-    def recursive_delete_option(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def recursive_delete_option(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "recursive_delete_option", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input['WorkGroupState']]:
+    def state(self) -> pulumi.Input[Optional['WorkGroupState']]:
         """
         The state of the workgroup: ENABLED or DISABLED.
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input['WorkGroupState']]):
+    def state(self, value: pulumi.Input[Optional['WorkGroupState']]):
         pulumi.set(self, "state", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         One or more tags, separated by commas, that you want to attach to the workgroup as you create it
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="workGroupConfiguration")
-    def work_group_configuration(self) -> Optional[pulumi.Input['WorkGroupConfigurationArgs']]:
+    def work_group_configuration(self) -> pulumi.Input[Optional['WorkGroupConfigurationArgs']]:
         """
         The workgroup configuration
         """
         return pulumi.get(self, "work_group_configuration")
 
     @work_group_configuration.setter
-    def work_group_configuration(self, value: Optional[pulumi.Input['WorkGroupConfigurationArgs']]):
+    def work_group_configuration(self, value: pulumi.Input[Optional['WorkGroupConfigurationArgs']]):
         pulumi.set(self, "work_group_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="workGroupConfigurationUpdates")
-    def work_group_configuration_updates(self) -> Optional[pulumi.Input['WorkGroupConfigurationUpdatesArgs']]:
+    def work_group_configuration_updates(self) -> pulumi.Input[Optional['WorkGroupConfigurationUpdatesArgs']]:
         """
         The workgroup configuration update object
         """
         return pulumi.get(self, "work_group_configuration_updates")
 
     @work_group_configuration_updates.setter
-    def work_group_configuration_updates(self, value: Optional[pulumi.Input['WorkGroupConfigurationUpdatesArgs']]):
+    def work_group_configuration_updates(self, value: pulumi.Input[Optional['WorkGroupConfigurationUpdatesArgs']]):
         pulumi.set(self, "work_group_configuration_updates", value)
 
 
@@ -148,13 +148,13 @@ class WorkGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 recursive_delete_option: Optional[pulumi.Input[_builtins.bool]] = None,
-                 state: Optional[pulumi.Input['WorkGroupState']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 work_group_configuration: Optional[pulumi.Input[Union['WorkGroupConfigurationArgs', 'WorkGroupConfigurationArgsDict']]] = None,
-                 work_group_configuration_updates: Optional[pulumi.Input[Union['WorkGroupConfigurationUpdatesArgs', 'WorkGroupConfigurationUpdatesArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 recursive_delete_option: pulumi.Input[Optional[_builtins.bool]] = None,
+                 state: pulumi.Input[Optional['WorkGroupState']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 work_group_configuration: pulumi.Input[Optional[Union['WorkGroupConfigurationArgs', 'WorkGroupConfigurationArgsDict']]] = None,
+                 work_group_configuration_updates: pulumi.Input[Optional[Union['WorkGroupConfigurationUpdatesArgs', 'WorkGroupConfigurationUpdatesArgsDict']]] = None,
                  __props__=None):
         """
         Resource schema for AWS::Athena::WorkGroup
@@ -459,13 +459,13 @@ class WorkGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 recursive_delete_option: Optional[pulumi.Input[_builtins.bool]] = None,
-                 state: Optional[pulumi.Input['WorkGroupState']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 work_group_configuration: Optional[pulumi.Input[Union['WorkGroupConfigurationArgs', 'WorkGroupConfigurationArgsDict']]] = None,
-                 work_group_configuration_updates: Optional[pulumi.Input[Union['WorkGroupConfigurationUpdatesArgs', 'WorkGroupConfigurationUpdatesArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 recursive_delete_option: pulumi.Input[Optional[_builtins.bool]] = None,
+                 state: pulumi.Input[Optional['WorkGroupState']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 work_group_configuration: pulumi.Input[Optional[Union['WorkGroupConfigurationArgs', 'WorkGroupConfigurationArgsDict']]] = None,
+                 work_group_configuration_updates: pulumi.Input[Optional[Union['WorkGroupConfigurationUpdatesArgs', 'WorkGroupConfigurationUpdatesArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

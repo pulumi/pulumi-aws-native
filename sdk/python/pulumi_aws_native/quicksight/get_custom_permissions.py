@@ -93,8 +93,8 @@ def get_custom_permissions(aws_account_id: Optional[_builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         capabilities=pulumi.get(__ret__, 'capabilities'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_custom_permissions_output(aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                  custom_permissions_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_custom_permissions_output(aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                  custom_permissions_name: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCustomPermissionsResult]:
     """
     Definition of the AWS::QuickSight::CustomPermissions Resource Type.

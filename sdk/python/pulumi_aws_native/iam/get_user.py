@@ -169,7 +169,7 @@ def get_user(user_name: Optional[_builtins.str] = None,
         permissions_boundary=pulumi.get(__ret__, 'permissions_boundary'),
         policies=pulumi.get(__ret__, 'policies'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_user_output(user_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_user_output(user_name: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserResult]:
     """
     Creates a new IAM user for your AWS-account.

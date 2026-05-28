@@ -165,7 +165,7 @@ def get_odb_network(odb_network_arn: Optional[_builtins.str] = None,
         odb_network_arn=pulumi.get(__ret__, 'odb_network_arn'),
         odb_network_id=pulumi.get(__ret__, 'odb_network_id'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_odb_network_output(odb_network_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_odb_network_output(odb_network_arn: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOdbNetworkResult]:
     """
     The AWS::ODB::OdbNetwork resource creates an ODB Network

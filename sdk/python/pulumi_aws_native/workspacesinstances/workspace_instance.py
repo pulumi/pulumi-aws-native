@@ -24,8 +24,8 @@ __all__ = ['WorkspaceInstanceArgs', 'WorkspaceInstance']
 @pulumi.input_type
 class WorkspaceInstanceArgs:
     def __init__(__self__, *,
-                 managed_instance: Optional[pulumi.Input['ManagedInstancePropertiesArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 managed_instance: pulumi.Input[Optional['ManagedInstancePropertiesArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a WorkspaceInstance resource.
         """
@@ -36,20 +36,20 @@ class WorkspaceInstanceArgs:
 
     @_builtins.property
     @pulumi.getter(name="managedInstance")
-    def managed_instance(self) -> Optional[pulumi.Input['ManagedInstancePropertiesArgs']]:
+    def managed_instance(self) -> pulumi.Input[Optional['ManagedInstancePropertiesArgs']]:
         return pulumi.get(self, "managed_instance")
 
     @managed_instance.setter
-    def managed_instance(self, value: Optional[pulumi.Input['ManagedInstancePropertiesArgs']]):
+    def managed_instance(self, value: pulumi.Input[Optional['ManagedInstancePropertiesArgs']]):
         pulumi.set(self, "managed_instance", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -59,8 +59,8 @@ class WorkspaceInstance(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 managed_instance: Optional[pulumi.Input[Union['ManagedInstancePropertiesArgs', 'ManagedInstancePropertiesArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 managed_instance: pulumi.Input[Optional[Union['ManagedInstancePropertiesArgs', 'ManagedInstancePropertiesArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::WorkspacesInstances::WorkspaceInstance
@@ -94,8 +94,8 @@ class WorkspaceInstance(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 managed_instance: Optional[pulumi.Input[Union['ManagedInstancePropertiesArgs', 'ManagedInstancePropertiesArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 managed_instance: pulumi.Input[Optional[Union['ManagedInstancePropertiesArgs', 'ManagedInstancePropertiesArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

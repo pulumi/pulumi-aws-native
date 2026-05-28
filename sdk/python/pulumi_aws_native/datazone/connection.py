@@ -23,15 +23,15 @@ __all__ = ['ConnectionArgs', 'Connection']
 class ConnectionArgs:
     def __init__(__self__, *,
                  domain_identifier: pulumi.Input[_builtins.str],
-                 aws_location: Optional[pulumi.Input['ConnectionAwsLocationArgs']] = None,
-                 configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionConfigurationArgs']]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_trusted_identity_propagation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 environment_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 props: Optional[pulumi.Input[Union['ConnectionPropertiesInput0PropertiesArgs', 'ConnectionPropertiesInput1PropertiesArgs', 'ConnectionPropertiesInput2PropertiesArgs', 'ConnectionPropertiesInput3PropertiesArgs', 'ConnectionPropertiesInput4PropertiesArgs', 'ConnectionPropertiesInput5PropertiesArgs', 'ConnectionPropertiesInput6PropertiesArgs', 'ConnectionPropertiesInput7PropertiesArgs', 'ConnectionPropertiesInput8PropertiesArgs', 'ConnectionPropertiesInput9PropertiesArgs', 'ConnectionPropertiesInput10PropertiesArgs', 'ConnectionPropertiesInput11PropertiesArgs', 'ConnectionPropertiesInput12PropertiesArgs']]] = None,
-                 scope: Optional[pulumi.Input['ConnectionScope']] = None):
+                 aws_location: pulumi.Input[Optional['ConnectionAwsLocationArgs']] = None,
+                 configurations: pulumi.Input[Optional[Sequence[pulumi.Input['ConnectionConfigurationArgs']]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_trusted_identity_propagation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 environment_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 props: pulumi.Input[Optional[Union['ConnectionPropertiesInput0PropertiesArgs', 'ConnectionPropertiesInput1PropertiesArgs', 'ConnectionPropertiesInput2PropertiesArgs', 'ConnectionPropertiesInput3PropertiesArgs', 'ConnectionPropertiesInput4PropertiesArgs', 'ConnectionPropertiesInput5PropertiesArgs', 'ConnectionPropertiesInput6PropertiesArgs', 'ConnectionPropertiesInput7PropertiesArgs', 'ConnectionPropertiesInput8PropertiesArgs', 'ConnectionPropertiesInput9PropertiesArgs', 'ConnectionPropertiesInput10PropertiesArgs', 'ConnectionPropertiesInput11PropertiesArgs', 'ConnectionPropertiesInput12PropertiesArgs']]] = None,
+                 scope: pulumi.Input[Optional['ConnectionScope']] = None):
         """
         The set of arguments for constructing a Connection resource.
 
@@ -80,110 +80,110 @@ class ConnectionArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsLocation")
-    def aws_location(self) -> Optional[pulumi.Input['ConnectionAwsLocationArgs']]:
+    def aws_location(self) -> pulumi.Input[Optional['ConnectionAwsLocationArgs']]:
         """
         The location where the connection is created.
         """
         return pulumi.get(self, "aws_location")
 
     @aws_location.setter
-    def aws_location(self, value: Optional[pulumi.Input['ConnectionAwsLocationArgs']]):
+    def aws_location(self, value: pulumi.Input[Optional['ConnectionAwsLocationArgs']]):
         pulumi.set(self, "aws_location", value)
 
     @_builtins.property
     @pulumi.getter
-    def configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionConfigurationArgs']]]]:
+    def configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ConnectionConfigurationArgs']]]]:
         """
         The configurations of the connection.
         """
         return pulumi.get(self, "configurations")
 
     @configurations.setter
-    def configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionConfigurationArgs']]]]):
+    def configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ConnectionConfigurationArgs']]]]):
         pulumi.set(self, "configurations", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the connection.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="enableTrustedIdentityPropagation")
-    def enable_trusted_identity_propagation(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_trusted_identity_propagation(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the trusted identity propagation is enabled
         """
         return pulumi.get(self, "enable_trusted_identity_propagation")
 
     @enable_trusted_identity_propagation.setter
-    def enable_trusted_identity_propagation(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_trusted_identity_propagation(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_trusted_identity_propagation", value)
 
     @_builtins.property
     @pulumi.getter(name="environmentIdentifier")
-    def environment_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def environment_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier of the environment in which the connection is created.
         """
         return pulumi.get(self, "environment_identifier")
 
     @environment_identifier.setter
-    def environment_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def environment_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "environment_identifier", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the connection.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="projectIdentifier")
-    def project_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier of the project in which the connection should be created. If 
         """
         return pulumi.get(self, "project_identifier")
 
     @project_identifier.setter
-    def project_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_identifier", value)
 
     @_builtins.property
     @pulumi.getter
-    def props(self) -> Optional[pulumi.Input[Union['ConnectionPropertiesInput0PropertiesArgs', 'ConnectionPropertiesInput1PropertiesArgs', 'ConnectionPropertiesInput2PropertiesArgs', 'ConnectionPropertiesInput3PropertiesArgs', 'ConnectionPropertiesInput4PropertiesArgs', 'ConnectionPropertiesInput5PropertiesArgs', 'ConnectionPropertiesInput6PropertiesArgs', 'ConnectionPropertiesInput7PropertiesArgs', 'ConnectionPropertiesInput8PropertiesArgs', 'ConnectionPropertiesInput9PropertiesArgs', 'ConnectionPropertiesInput10PropertiesArgs', 'ConnectionPropertiesInput11PropertiesArgs', 'ConnectionPropertiesInput12PropertiesArgs']]]:
+    def props(self) -> pulumi.Input[Optional[Union['ConnectionPropertiesInput0PropertiesArgs', 'ConnectionPropertiesInput1PropertiesArgs', 'ConnectionPropertiesInput2PropertiesArgs', 'ConnectionPropertiesInput3PropertiesArgs', 'ConnectionPropertiesInput4PropertiesArgs', 'ConnectionPropertiesInput5PropertiesArgs', 'ConnectionPropertiesInput6PropertiesArgs', 'ConnectionPropertiesInput7PropertiesArgs', 'ConnectionPropertiesInput8PropertiesArgs', 'ConnectionPropertiesInput9PropertiesArgs', 'ConnectionPropertiesInput10PropertiesArgs', 'ConnectionPropertiesInput11PropertiesArgs', 'ConnectionPropertiesInput12PropertiesArgs']]]:
         """
         Connection props.
         """
         return pulumi.get(self, "props")
 
     @props.setter
-    def props(self, value: Optional[pulumi.Input[Union['ConnectionPropertiesInput0PropertiesArgs', 'ConnectionPropertiesInput1PropertiesArgs', 'ConnectionPropertiesInput2PropertiesArgs', 'ConnectionPropertiesInput3PropertiesArgs', 'ConnectionPropertiesInput4PropertiesArgs', 'ConnectionPropertiesInput5PropertiesArgs', 'ConnectionPropertiesInput6PropertiesArgs', 'ConnectionPropertiesInput7PropertiesArgs', 'ConnectionPropertiesInput8PropertiesArgs', 'ConnectionPropertiesInput9PropertiesArgs', 'ConnectionPropertiesInput10PropertiesArgs', 'ConnectionPropertiesInput11PropertiesArgs', 'ConnectionPropertiesInput12PropertiesArgs']]]):
+    def props(self, value: pulumi.Input[Optional[Union['ConnectionPropertiesInput0PropertiesArgs', 'ConnectionPropertiesInput1PropertiesArgs', 'ConnectionPropertiesInput2PropertiesArgs', 'ConnectionPropertiesInput3PropertiesArgs', 'ConnectionPropertiesInput4PropertiesArgs', 'ConnectionPropertiesInput5PropertiesArgs', 'ConnectionPropertiesInput6PropertiesArgs', 'ConnectionPropertiesInput7PropertiesArgs', 'ConnectionPropertiesInput8PropertiesArgs', 'ConnectionPropertiesInput9PropertiesArgs', 'ConnectionPropertiesInput10PropertiesArgs', 'ConnectionPropertiesInput11PropertiesArgs', 'ConnectionPropertiesInput12PropertiesArgs']]]):
         pulumi.set(self, "props", value)
 
     @_builtins.property
     @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input['ConnectionScope']]:
+    def scope(self) -> pulumi.Input[Optional['ConnectionScope']]:
         """
         The scope of the connection.
         """
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: Optional[pulumi.Input['ConnectionScope']]):
+    def scope(self, value: pulumi.Input[Optional['ConnectionScope']]):
         pulumi.set(self, "scope", value)
 
 
@@ -193,16 +193,16 @@ class Connection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws_location: Optional[pulumi.Input[Union['ConnectionAwsLocationArgs', 'ConnectionAwsLocationArgsDict']]] = None,
-                 configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConnectionConfigurationArgs', 'ConnectionConfigurationArgsDict']]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_trusted_identity_propagation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 environment_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 props: Optional[pulumi.Input[Union[Union['ConnectionPropertiesInput0PropertiesArgs', 'ConnectionPropertiesInput0PropertiesArgsDict'], Union['ConnectionPropertiesInput1PropertiesArgs', 'ConnectionPropertiesInput1PropertiesArgsDict'], Union['ConnectionPropertiesInput2PropertiesArgs', 'ConnectionPropertiesInput2PropertiesArgsDict'], Union['ConnectionPropertiesInput3PropertiesArgs', 'ConnectionPropertiesInput3PropertiesArgsDict'], Union['ConnectionPropertiesInput4PropertiesArgs', 'ConnectionPropertiesInput4PropertiesArgsDict'], Union['ConnectionPropertiesInput5PropertiesArgs', 'ConnectionPropertiesInput5PropertiesArgsDict'], Union['ConnectionPropertiesInput6PropertiesArgs', 'ConnectionPropertiesInput6PropertiesArgsDict'], Union['ConnectionPropertiesInput7PropertiesArgs', 'ConnectionPropertiesInput7PropertiesArgsDict'], Union['ConnectionPropertiesInput8PropertiesArgs', 'ConnectionPropertiesInput8PropertiesArgsDict'], Union['ConnectionPropertiesInput9PropertiesArgs', 'ConnectionPropertiesInput9PropertiesArgsDict'], Union['ConnectionPropertiesInput10PropertiesArgs', 'ConnectionPropertiesInput10PropertiesArgsDict'], Union['ConnectionPropertiesInput11PropertiesArgs', 'ConnectionPropertiesInput11PropertiesArgsDict'], Union['ConnectionPropertiesInput12PropertiesArgs', 'ConnectionPropertiesInput12PropertiesArgsDict']]]] = None,
-                 scope: Optional[pulumi.Input['ConnectionScope']] = None,
+                 aws_location: pulumi.Input[Optional[Union['ConnectionAwsLocationArgs', 'ConnectionAwsLocationArgsDict']]] = None,
+                 configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConnectionConfigurationArgs', 'ConnectionConfigurationArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_trusted_identity_propagation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 environment_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 props: pulumi.Input[Optional[Union[Union['ConnectionPropertiesInput0PropertiesArgs', 'ConnectionPropertiesInput0PropertiesArgsDict'], Union['ConnectionPropertiesInput1PropertiesArgs', 'ConnectionPropertiesInput1PropertiesArgsDict'], Union['ConnectionPropertiesInput2PropertiesArgs', 'ConnectionPropertiesInput2PropertiesArgsDict'], Union['ConnectionPropertiesInput3PropertiesArgs', 'ConnectionPropertiesInput3PropertiesArgsDict'], Union['ConnectionPropertiesInput4PropertiesArgs', 'ConnectionPropertiesInput4PropertiesArgsDict'], Union['ConnectionPropertiesInput5PropertiesArgs', 'ConnectionPropertiesInput5PropertiesArgsDict'], Union['ConnectionPropertiesInput6PropertiesArgs', 'ConnectionPropertiesInput6PropertiesArgsDict'], Union['ConnectionPropertiesInput7PropertiesArgs', 'ConnectionPropertiesInput7PropertiesArgsDict'], Union['ConnectionPropertiesInput8PropertiesArgs', 'ConnectionPropertiesInput8PropertiesArgsDict'], Union['ConnectionPropertiesInput9PropertiesArgs', 'ConnectionPropertiesInput9PropertiesArgsDict'], Union['ConnectionPropertiesInput10PropertiesArgs', 'ConnectionPropertiesInput10PropertiesArgsDict'], Union['ConnectionPropertiesInput11PropertiesArgs', 'ConnectionPropertiesInput11PropertiesArgsDict'], Union['ConnectionPropertiesInput12PropertiesArgs', 'ConnectionPropertiesInput12PropertiesArgsDict']]]] = None,
+                 scope: pulumi.Input[Optional['ConnectionScope']] = None,
                  __props__=None):
         """
         Connections enables users to connect their DataZone resources (domains, projects, and environments) to external resources/services (data, compute, etc)
@@ -246,16 +246,16 @@ class Connection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws_location: Optional[pulumi.Input[Union['ConnectionAwsLocationArgs', 'ConnectionAwsLocationArgsDict']]] = None,
-                 configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConnectionConfigurationArgs', 'ConnectionConfigurationArgsDict']]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_trusted_identity_propagation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 environment_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 props: Optional[pulumi.Input[Union[Union['ConnectionPropertiesInput0PropertiesArgs', 'ConnectionPropertiesInput0PropertiesArgsDict'], Union['ConnectionPropertiesInput1PropertiesArgs', 'ConnectionPropertiesInput1PropertiesArgsDict'], Union['ConnectionPropertiesInput2PropertiesArgs', 'ConnectionPropertiesInput2PropertiesArgsDict'], Union['ConnectionPropertiesInput3PropertiesArgs', 'ConnectionPropertiesInput3PropertiesArgsDict'], Union['ConnectionPropertiesInput4PropertiesArgs', 'ConnectionPropertiesInput4PropertiesArgsDict'], Union['ConnectionPropertiesInput5PropertiesArgs', 'ConnectionPropertiesInput5PropertiesArgsDict'], Union['ConnectionPropertiesInput6PropertiesArgs', 'ConnectionPropertiesInput6PropertiesArgsDict'], Union['ConnectionPropertiesInput7PropertiesArgs', 'ConnectionPropertiesInput7PropertiesArgsDict'], Union['ConnectionPropertiesInput8PropertiesArgs', 'ConnectionPropertiesInput8PropertiesArgsDict'], Union['ConnectionPropertiesInput9PropertiesArgs', 'ConnectionPropertiesInput9PropertiesArgsDict'], Union['ConnectionPropertiesInput10PropertiesArgs', 'ConnectionPropertiesInput10PropertiesArgsDict'], Union['ConnectionPropertiesInput11PropertiesArgs', 'ConnectionPropertiesInput11PropertiesArgsDict'], Union['ConnectionPropertiesInput12PropertiesArgs', 'ConnectionPropertiesInput12PropertiesArgsDict']]]] = None,
-                 scope: Optional[pulumi.Input['ConnectionScope']] = None,
+                 aws_location: pulumi.Input[Optional[Union['ConnectionAwsLocationArgs', 'ConnectionAwsLocationArgsDict']]] = None,
+                 configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConnectionConfigurationArgs', 'ConnectionConfigurationArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_trusted_identity_propagation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 environment_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 props: pulumi.Input[Optional[Union[Union['ConnectionPropertiesInput0PropertiesArgs', 'ConnectionPropertiesInput0PropertiesArgsDict'], Union['ConnectionPropertiesInput1PropertiesArgs', 'ConnectionPropertiesInput1PropertiesArgsDict'], Union['ConnectionPropertiesInput2PropertiesArgs', 'ConnectionPropertiesInput2PropertiesArgsDict'], Union['ConnectionPropertiesInput3PropertiesArgs', 'ConnectionPropertiesInput3PropertiesArgsDict'], Union['ConnectionPropertiesInput4PropertiesArgs', 'ConnectionPropertiesInput4PropertiesArgsDict'], Union['ConnectionPropertiesInput5PropertiesArgs', 'ConnectionPropertiesInput5PropertiesArgsDict'], Union['ConnectionPropertiesInput6PropertiesArgs', 'ConnectionPropertiesInput6PropertiesArgsDict'], Union['ConnectionPropertiesInput7PropertiesArgs', 'ConnectionPropertiesInput7PropertiesArgsDict'], Union['ConnectionPropertiesInput8PropertiesArgs', 'ConnectionPropertiesInput8PropertiesArgsDict'], Union['ConnectionPropertiesInput9PropertiesArgs', 'ConnectionPropertiesInput9PropertiesArgsDict'], Union['ConnectionPropertiesInput10PropertiesArgs', 'ConnectionPropertiesInput10PropertiesArgsDict'], Union['ConnectionPropertiesInput11PropertiesArgs', 'ConnectionPropertiesInput11PropertiesArgsDict'], Union['ConnectionPropertiesInput12PropertiesArgs', 'ConnectionPropertiesInput12PropertiesArgsDict']]]] = None,
+                 scope: pulumi.Input[Optional['ConnectionScope']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

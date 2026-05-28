@@ -271,7 +271,7 @@ def get_target_group(target_group_arn: Optional[_builtins.str] = None,
         target_group_name=pulumi.get(__ret__, 'target_group_name'),
         targets=pulumi.get(__ret__, 'targets'),
         unhealthy_threshold_count=pulumi.get(__ret__, 'unhealthy_threshold_count'))
-def get_target_group_output(target_group_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_target_group_output(target_group_arn: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTargetGroupResult]:
     """
     Resource Type definition for AWS::ElasticLoadBalancingV2::TargetGroup

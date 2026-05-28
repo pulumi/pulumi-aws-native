@@ -193,7 +193,7 @@ def get_configured_table(configured_table_identifier: Optional[_builtins.str] = 
         selected_analysis_methods=pulumi.get(__ret__, 'selected_analysis_methods'),
         table_reference=pulumi.get(__ret__, 'table_reference'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_configured_table_output(configured_table_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+def get_configured_table_output(configured_table_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfiguredTableResult]:
     """
     Represents a table that can be associated with collaborations

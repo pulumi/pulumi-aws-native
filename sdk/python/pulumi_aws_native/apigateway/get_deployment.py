@@ -77,8 +77,8 @@ def get_deployment(deployment_id: Optional[_builtins.str] = None,
     return AwaitableGetDeploymentResult(
         deployment_id=pulumi.get(__ret__, 'deployment_id'),
         description=pulumi.get(__ret__, 'description'))
-def get_deployment_output(deployment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                          rest_api_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_deployment_output(deployment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                          rest_api_id: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDeploymentResult]:
     """
     The ``AWS::ApiGateway::Deployment`` resource deploys an API Gateway ``RestApi`` resource to a stage so that clients can call the API over the internet. The stage acts as an environment.

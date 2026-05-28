@@ -21,8 +21,8 @@ class PortfolioShareArgs:
     def __init__(__self__, *,
                  account_id: pulumi.Input[_builtins.str],
                  portfolio_id: pulumi.Input[_builtins.str],
-                 accept_language: Optional[pulumi.Input[_builtins.str]] = None,
-                 share_tag_options: Optional[pulumi.Input[_builtins.bool]] = None):
+                 accept_language: pulumi.Input[Optional[_builtins.str]] = None,
+                 share_tag_options: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a PortfolioShare resource.
 
@@ -64,26 +64,26 @@ class PortfolioShareArgs:
 
     @_builtins.property
     @pulumi.getter(name="acceptLanguage")
-    def accept_language(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def accept_language(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The language code.
         """
         return pulumi.get(self, "accept_language")
 
     @accept_language.setter
-    def accept_language(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def accept_language(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "accept_language", value)
 
     @_builtins.property
     @pulumi.getter(name="shareTagOptions")
-    def share_tag_options(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def share_tag_options(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables or disables TagOptions sharing when creating the portfolio share.
         """
         return pulumi.get(self, "share_tag_options")
 
     @share_tag_options.setter
-    def share_tag_options(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def share_tag_options(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "share_tag_options", value)
 
 
@@ -93,10 +93,10 @@ class PortfolioShare(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 accept_language: Optional[pulumi.Input[_builtins.str]] = None,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 portfolio_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 share_tag_options: Optional[pulumi.Input[_builtins.bool]] = None,
+                 accept_language: pulumi.Input[Optional[_builtins.str]] = None,
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 portfolio_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 share_tag_options: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::ServiceCatalog::PortfolioShare
@@ -134,10 +134,10 @@ class PortfolioShare(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 accept_language: Optional[pulumi.Input[_builtins.str]] = None,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 portfolio_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 share_tag_options: Optional[pulumi.Input[_builtins.bool]] = None,
+                 accept_language: pulumi.Input[Optional[_builtins.str]] = None,
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 portfolio_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 share_tag_options: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

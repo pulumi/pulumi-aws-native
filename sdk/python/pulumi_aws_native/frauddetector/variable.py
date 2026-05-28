@@ -25,10 +25,10 @@ class VariableArgs:
                  data_source: pulumi.Input['VariableDataSource'],
                  data_type: pulumi.Input['VariableDataType'],
                  default_value: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 variable_type: Optional[pulumi.Input['VariableType']] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 variable_type: pulumi.Input[Optional['VariableType']] = None):
         """
         The set of arguments for constructing a Variable resource.
 
@@ -90,50 +90,50 @@ class VariableArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the variable.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Tags associated with this variable.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="variableType")
-    def variable_type(self) -> Optional[pulumi.Input['VariableType']]:
+    def variable_type(self) -> pulumi.Input[Optional['VariableType']]:
         """
         The variable type. For more information see https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types
         """
         return pulumi.get(self, "variable_type")
 
     @variable_type.setter
-    def variable_type(self, value: Optional[pulumi.Input['VariableType']]):
+    def variable_type(self, value: pulumi.Input[Optional['VariableType']]):
         pulumi.set(self, "variable_type", value)
 
 
@@ -143,13 +143,13 @@ class Variable(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_source: Optional[pulumi.Input['VariableDataSource']] = None,
-                 data_type: Optional[pulumi.Input['VariableDataType']] = None,
-                 default_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 variable_type: Optional[pulumi.Input['VariableType']] = None,
+                 data_source: pulumi.Input[Optional['VariableDataSource']] = None,
+                 data_type: pulumi.Input[Optional['VariableDataType']] = None,
+                 default_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 variable_type: pulumi.Input[Optional['VariableType']] = None,
                  __props__=None):
         """
         A resource schema for a Variable in Amazon Fraud Detector.
@@ -190,13 +190,13 @@ class Variable(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_source: Optional[pulumi.Input['VariableDataSource']] = None,
-                 data_type: Optional[pulumi.Input['VariableDataType']] = None,
-                 default_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 variable_type: Optional[pulumi.Input['VariableType']] = None,
+                 data_source: pulumi.Input[Optional['VariableDataSource']] = None,
+                 data_type: pulumi.Input[Optional['VariableDataType']] = None,
+                 default_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 variable_type: pulumi.Input[Optional['VariableType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

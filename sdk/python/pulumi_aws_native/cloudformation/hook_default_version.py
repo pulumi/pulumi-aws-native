@@ -19,9 +19,9 @@ __all__ = ['HookDefaultVersionArgs', 'HookDefaultVersion']
 @pulumi.input_type
 class HookDefaultVersionArgs:
     def __init__(__self__, *,
-                 type_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 type_version_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 version_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 type_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 type_version_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a HookDefaultVersion resource.
 
@@ -40,7 +40,7 @@ class HookDefaultVersionArgs:
 
     @_builtins.property
     @pulumi.getter(name="typeName")
-    def type_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the type being registered.
 
@@ -49,31 +49,31 @@ class HookDefaultVersionArgs:
         return pulumi.get(self, "type_name")
 
     @type_name.setter
-    def type_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type_name", value)
 
     @_builtins.property
     @pulumi.getter(name="typeVersionArn")
-    def type_version_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type_version_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the type version.
         """
         return pulumi.get(self, "type_version_arn")
 
     @type_version_arn.setter
-    def type_version_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type_version_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type_version_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="versionId")
-    def version_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of an existing version of the hook to set as the default.
         """
         return pulumi.get(self, "version_id")
 
     @version_id.setter
-    def version_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version_id", value)
 
 
@@ -83,9 +83,9 @@ class HookDefaultVersion(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 type_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 type_version_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 version_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 type_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 type_version_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Set a version as default version for a hook in CloudFormation Registry.
@@ -208,9 +208,9 @@ class HookDefaultVersion(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 type_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 type_version_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 version_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 type_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 type_version_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

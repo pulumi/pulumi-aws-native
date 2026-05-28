@@ -24,8 +24,8 @@ __all__ = ['DiskSnapshotArgs', 'DiskSnapshot']
 class DiskSnapshotArgs:
     def __init__(__self__, *,
                  disk_name: pulumi.Input[_builtins.str],
-                 disk_snapshot_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 disk_snapshot_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DiskSnapshot resource.
 
@@ -53,26 +53,26 @@ class DiskSnapshotArgs:
 
     @_builtins.property
     @pulumi.getter(name="diskSnapshotName")
-    def disk_snapshot_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def disk_snapshot_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the disk snapshot (e.g., my-disk-snapshot).
         """
         return pulumi.get(self, "disk_snapshot_name")
 
     @disk_snapshot_name.setter
-    def disk_snapshot_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def disk_snapshot_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "disk_snapshot_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -82,9 +82,9 @@ class DiskSnapshot(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 disk_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 disk_snapshot_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 disk_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 disk_snapshot_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Lightsail::DiskSnapshot
@@ -121,9 +121,9 @@ class DiskSnapshot(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 disk_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 disk_snapshot_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 disk_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 disk_snapshot_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

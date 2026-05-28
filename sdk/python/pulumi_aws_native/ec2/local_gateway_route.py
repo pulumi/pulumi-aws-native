@@ -19,10 +19,10 @@ __all__ = ['LocalGatewayRouteArgs', 'LocalGatewayRoute']
 @pulumi.input_type
 class LocalGatewayRouteArgs:
     def __init__(__self__, *,
-                 destination_cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
-                 local_gateway_route_table_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 local_gateway_virtual_interface_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_interface_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 destination_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+                 local_gateway_route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 local_gateway_virtual_interface_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interface_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a LocalGatewayRoute resource.
 
@@ -42,50 +42,50 @@ class LocalGatewayRouteArgs:
 
     @_builtins.property
     @pulumi.getter(name="destinationCidrBlock")
-    def destination_cidr_block(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination_cidr_block(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The CIDR block used for destination matches.
         """
         return pulumi.get(self, "destination_cidr_block")
 
     @destination_cidr_block.setter
-    def destination_cidr_block(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination_cidr_block(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination_cidr_block", value)
 
     @_builtins.property
     @pulumi.getter(name="localGatewayRouteTableId")
-    def local_gateway_route_table_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def local_gateway_route_table_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the local gateway route table.
         """
         return pulumi.get(self, "local_gateway_route_table_id")
 
     @local_gateway_route_table_id.setter
-    def local_gateway_route_table_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def local_gateway_route_table_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "local_gateway_route_table_id", value)
 
     @_builtins.property
     @pulumi.getter(name="localGatewayVirtualInterfaceGroupId")
-    def local_gateway_virtual_interface_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def local_gateway_virtual_interface_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the virtual interface group.
         """
         return pulumi.get(self, "local_gateway_virtual_interface_group_id")
 
     @local_gateway_virtual_interface_group_id.setter
-    def local_gateway_virtual_interface_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def local_gateway_virtual_interface_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "local_gateway_virtual_interface_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="networkInterfaceId")
-    def network_interface_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_interface_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the network interface.
         """
         return pulumi.get(self, "network_interface_id")
 
     @network_interface_id.setter
-    def network_interface_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_interface_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_interface_id", value)
 
 
@@ -95,10 +95,10 @@ class LocalGatewayRoute(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destination_cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
-                 local_gateway_route_table_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 local_gateway_virtual_interface_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_interface_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 destination_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+                 local_gateway_route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 local_gateway_virtual_interface_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interface_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for Local Gateway Route which describes a route for a local gateway route table.
@@ -136,10 +136,10 @@ class LocalGatewayRoute(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destination_cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
-                 local_gateway_route_table_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 local_gateway_virtual_interface_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_interface_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 destination_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+                 local_gateway_route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 local_gateway_virtual_interface_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interface_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

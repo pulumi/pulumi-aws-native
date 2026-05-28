@@ -115,7 +115,7 @@ def get_backup_plan(backup_plan_id: Optional[_builtins.str] = None,
         backup_plan_id=pulumi.get(__ret__, 'backup_plan_id'),
         backup_plan_tags=pulumi.get(__ret__, 'backup_plan_tags'),
         version_id=pulumi.get(__ret__, 'version_id'))
-def get_backup_plan_output(backup_plan_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_backup_plan_output(backup_plan_id: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBackupPlanResult]:
     """
     Resource Type definition for AWS::Backup::BackupPlan

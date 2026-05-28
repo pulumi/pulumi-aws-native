@@ -20,8 +20,8 @@ __all__ = ['InstanceProfileArgs', 'InstanceProfile']
 class InstanceProfileArgs:
     def __init__(__self__, *,
                  roles: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 instance_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 path: Optional[pulumi.Input[_builtins.str]] = None):
+                 instance_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 path: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a InstanceProfile resource.
 
@@ -52,7 +52,7 @@ class InstanceProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="instanceProfileName")
-    def instance_profile_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def instance_profile_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the instance profile to create.
          This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
@@ -60,12 +60,12 @@ class InstanceProfileArgs:
         return pulumi.get(self, "instance_profile_name")
 
     @instance_profile_name.setter
-    def instance_profile_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def instance_profile_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "instance_profile_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The path to the instance profile. For more information about paths, see [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the *IAM User Guide*.
          This parameter is optional. If it is not included, it defaults to a slash (/).
@@ -74,7 +74,7 @@ class InstanceProfileArgs:
         return pulumi.get(self, "path")
 
     @path.setter
-    def path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "path", value)
 
 
@@ -84,9 +84,9 @@ class InstanceProfile(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 instance_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 path: Optional[pulumi.Input[_builtins.str]] = None,
-                 roles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 instance_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 path: pulumi.Input[Optional[_builtins.str]] = None,
+                 roles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Creates a new instance profile. For information about instance profiles, see [Using instance profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html).
@@ -228,9 +228,9 @@ class InstanceProfile(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 instance_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 path: Optional[pulumi.Input[_builtins.str]] = None,
-                 roles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 instance_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 path: pulumi.Input[Optional[_builtins.str]] = None,
+                 roles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

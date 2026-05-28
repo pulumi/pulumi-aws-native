@@ -87,7 +87,7 @@ def get_deployment(application_id: Optional[_builtins.str] = None,
         application_version=pulumi.get(__ret__, 'application_version'),
         deployment_id=pulumi.get(__ret__, 'deployment_id'),
         status=pulumi.get(__ret__, 'status'))
-def get_deployment_output(application_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_deployment_output(application_id: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDeploymentResult]:
     """
     Represents a deployment resource of an AWS Mainframe Modernization (M2) application to a specified environment

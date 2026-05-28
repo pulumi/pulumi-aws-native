@@ -75,7 +75,7 @@ def get_model(model_arn: Optional[_builtins.str] = None,
     return AwaitableGetModelResult(
         model_arn=pulumi.get(__ret__, 'model_arn'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_model_output(model_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_model_output(model_arn: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetModelResult]:
     """
     Resource type definition for AWS::SageMaker::Model

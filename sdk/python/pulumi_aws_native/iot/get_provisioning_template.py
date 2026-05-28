@@ -141,7 +141,7 @@ def get_provisioning_template(template_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         template_arn=pulumi.get(__ret__, 'template_arn'),
         template_body=pulumi.get(__ret__, 'template_body'))
-def get_provisioning_template_output(template_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_provisioning_template_output(template_name: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProvisioningTemplateResult]:
     """
     Creates a fleet provisioning template.

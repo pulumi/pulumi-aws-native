@@ -24,8 +24,8 @@ class DbClusterParameterGroupArgs:
                  description: pulumi.Input[_builtins.str],
                  family: pulumi.Input[_builtins.str],
                  parameters: Any,
-                 db_cluster_parameter_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 db_cluster_parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DbClusterParameterGroup resource.
 
@@ -125,7 +125,7 @@ class DbClusterParameterGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="dbClusterParameterGroupName")
-    def db_cluster_parameter_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def db_cluster_parameter_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the DB cluster parameter group.
          Constraints:
@@ -136,19 +136,19 @@ class DbClusterParameterGroupArgs:
         return pulumi.get(self, "db_cluster_parameter_group_name")
 
     @db_cluster_parameter_group_name.setter
-    def db_cluster_parameter_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def db_cluster_parameter_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "db_cluster_parameter_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Tags to assign to the DB cluster parameter group.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -158,11 +158,11 @@ class DbClusterParameterGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 db_cluster_parameter_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 family: Optional[pulumi.Input[_builtins.str]] = None,
+                 db_cluster_parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 family: pulumi.Input[Optional[_builtins.str]] = None,
                  parameters: Optional[Any] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         The ``AWS::RDS::DBClusterParameterGroup`` resource creates a new Amazon RDS DB cluster parameter group.
@@ -231,11 +231,11 @@ class DbClusterParameterGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 db_cluster_parameter_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 family: Optional[pulumi.Input[_builtins.str]] = None,
+                 db_cluster_parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 family: pulumi.Input[Optional[_builtins.str]] = None,
                  parameters: Optional[Any] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

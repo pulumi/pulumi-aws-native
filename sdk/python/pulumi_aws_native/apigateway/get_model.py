@@ -80,8 +80,8 @@ def get_model(name: Optional[_builtins.str] = None,
     return AwaitableGetModelResult(
         description=pulumi.get(__ret__, 'description'),
         schema=pulumi.get(__ret__, 'schema'))
-def get_model_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                     rest_api_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_model_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                     rest_api_id: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetModelResult]:
     """
     The ``AWS::ApiGateway::Model`` resource defines the structure of a request or response payload for an API method.

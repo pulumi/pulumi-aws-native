@@ -142,7 +142,7 @@ def get_logically_air_gapped_backup_vault(backup_vault_name: Optional[_builtins.
         notifications=pulumi.get(__ret__, 'notifications'),
         vault_state=pulumi.get(__ret__, 'vault_state'),
         vault_type=pulumi.get(__ret__, 'vault_type'))
-def get_logically_air_gapped_backup_vault_output(backup_vault_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_logically_air_gapped_backup_vault_output(backup_vault_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLogicallyAirGappedBackupVaultResult]:
     """
     Resource Type definition for AWS::Backup::LogicallyAirGappedBackupVault

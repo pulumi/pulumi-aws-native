@@ -168,7 +168,7 @@ def get_hosted_zone(id: Optional[_builtins.str] = None,
         name_servers=pulumi.get(__ret__, 'name_servers'),
         query_logging_config=pulumi.get(__ret__, 'query_logging_config'),
         vpcs=pulumi.get(__ret__, 'vpcs'))
-def get_hosted_zone_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_hosted_zone_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHostedZoneResult]:
     """
     Creates a new public or private hosted zone. You create records in a public hosted zone to define how you want to route traffic on the internet for a domain, such as example.com, and its subdomains (apex.example.com, acme.example.com). You create records in a private hosted zone to define how you want to route traffic for a domain and its subdomains within one or more Amazon Virtual Private Clouds (Amazon VPCs).

@@ -74,7 +74,7 @@ def get_vpc_connector(vpc_connector_arn: Optional[_builtins.str] = None,
     return AwaitableGetVpcConnectorResult(
         vpc_connector_arn=pulumi.get(__ret__, 'vpc_connector_arn'),
         vpc_connector_revision=pulumi.get(__ret__, 'vpc_connector_revision'))
-def get_vpc_connector_output(vpc_connector_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_vpc_connector_output(vpc_connector_arn: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcConnectorResult]:
     """
     The AWS::AppRunner::VpcConnector resource specifies an App Runner VpcConnector.

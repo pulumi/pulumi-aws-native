@@ -204,7 +204,7 @@ def get_domain_configuration(domain_configuration_name: Optional[_builtins.str] 
         server_certificates=pulumi.get(__ret__, 'server_certificates'),
         tags=pulumi.get(__ret__, 'tags'),
         tls_config=pulumi.get(__ret__, 'tls_config'))
-def get_domain_configuration_output(domain_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_domain_configuration_output(domain_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDomainConfigurationResult]:
     """
     Create and manage a Domain Configuration

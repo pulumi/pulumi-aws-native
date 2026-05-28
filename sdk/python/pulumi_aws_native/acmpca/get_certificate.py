@@ -77,8 +77,8 @@ def get_certificate(arn: Optional[_builtins.str] = None,
     return AwaitableGetCertificateResult(
         arn=pulumi.get(__ret__, 'arn'),
         certificate=pulumi.get(__ret__, 'certificate'))
-def get_certificate_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
-                           certificate_authority_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_certificate_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
+                           certificate_authority_arn: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCertificateResult]:
     """
     The ``AWS::ACMPCA::Certificate`` resource is used to issue a certificate using your private certificate authority. For more information, see the [IssueCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html) action.

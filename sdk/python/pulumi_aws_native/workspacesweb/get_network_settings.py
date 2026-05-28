@@ -133,7 +133,7 @@ def get_network_settings(network_settings_arn: Optional[_builtins.str] = None,
         subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
-def get_network_settings_output(network_settings_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_network_settings_output(network_settings_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkSettingsResult]:
     """
     Definition of AWS::WorkSpacesWeb::NetworkSettings Resource Type

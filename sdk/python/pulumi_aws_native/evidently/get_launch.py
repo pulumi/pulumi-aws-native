@@ -154,7 +154,7 @@ def get_launch(arn: Optional[_builtins.str] = None,
         randomization_salt=pulumi.get(__ret__, 'randomization_salt'),
         scheduled_splits_config=pulumi.get(__ret__, 'scheduled_splits_config'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_launch_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_launch_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLaunchResult]:
     """
     Resource Type definition for AWS::Evidently::Launch.

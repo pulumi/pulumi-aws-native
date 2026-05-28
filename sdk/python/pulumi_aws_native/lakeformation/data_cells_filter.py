@@ -24,10 +24,10 @@ class DataCellsFilterArgs:
                  database_name: pulumi.Input[_builtins.str],
                  table_catalog_id: pulumi.Input[_builtins.str],
                  table_name: pulumi.Input[_builtins.str],
-                 column_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 column_wildcard: Optional[pulumi.Input['DataCellsFilterColumnWildcardArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 row_filter: Optional[pulumi.Input['DataCellsFilterRowFilterArgs']] = None):
+                 column_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 column_wildcard: pulumi.Input[Optional['DataCellsFilterColumnWildcardArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 row_filter: pulumi.Input[Optional['DataCellsFilterRowFilterArgs']] = None):
         """
         The set of arguments for constructing a DataCellsFilter resource.
 
@@ -89,50 +89,50 @@ class DataCellsFilterArgs:
 
     @_builtins.property
     @pulumi.getter(name="columnNames")
-    def column_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def column_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of columns to be included in this Data Cells Filter.
         """
         return pulumi.get(self, "column_names")
 
     @column_names.setter
-    def column_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def column_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "column_names", value)
 
     @_builtins.property
     @pulumi.getter(name="columnWildcard")
-    def column_wildcard(self) -> Optional[pulumi.Input['DataCellsFilterColumnWildcardArgs']]:
+    def column_wildcard(self) -> pulumi.Input[Optional['DataCellsFilterColumnWildcardArgs']]:
         """
         An object representing the Data Cells Filter's Columns. Either Column Names or a Wildcard is required
         """
         return pulumi.get(self, "column_wildcard")
 
     @column_wildcard.setter
-    def column_wildcard(self, value: Optional[pulumi.Input['DataCellsFilterColumnWildcardArgs']]):
+    def column_wildcard(self, value: pulumi.Input[Optional['DataCellsFilterColumnWildcardArgs']]):
         pulumi.set(self, "column_wildcard", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The desired name of the Data Cells Filter.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="rowFilter")
-    def row_filter(self) -> Optional[pulumi.Input['DataCellsFilterRowFilterArgs']]:
+    def row_filter(self) -> pulumi.Input[Optional['DataCellsFilterRowFilterArgs']]:
         """
         An object representing the Data Cells Filter's Row Filter. Either a Filter Expression or a Wildcard is required
         """
         return pulumi.get(self, "row_filter")
 
     @row_filter.setter
-    def row_filter(self, value: Optional[pulumi.Input['DataCellsFilterRowFilterArgs']]):
+    def row_filter(self, value: pulumi.Input[Optional['DataCellsFilterRowFilterArgs']]):
         pulumi.set(self, "row_filter", value)
 
 
@@ -142,13 +142,13 @@ class DataCellsFilter(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 column_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 column_wildcard: Optional[pulumi.Input[Union['DataCellsFilterColumnWildcardArgs', 'DataCellsFilterColumnWildcardArgsDict']]] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 row_filter: Optional[pulumi.Input[Union['DataCellsFilterRowFilterArgs', 'DataCellsFilterRowFilterArgsDict']]] = None,
-                 table_catalog_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 table_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 column_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 column_wildcard: pulumi.Input[Optional[Union['DataCellsFilterColumnWildcardArgs', 'DataCellsFilterColumnWildcardArgsDict']]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 row_filter: pulumi.Input[Optional[Union['DataCellsFilterRowFilterArgs', 'DataCellsFilterRowFilterArgsDict']]] = None,
+                 table_catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 table_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A resource schema representing a Lake Formation Data Cells Filter.
@@ -189,13 +189,13 @@ class DataCellsFilter(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 column_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 column_wildcard: Optional[pulumi.Input[Union['DataCellsFilterColumnWildcardArgs', 'DataCellsFilterColumnWildcardArgsDict']]] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 row_filter: Optional[pulumi.Input[Union['DataCellsFilterRowFilterArgs', 'DataCellsFilterRowFilterArgsDict']]] = None,
-                 table_catalog_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 table_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 column_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 column_wildcard: pulumi.Input[Optional[Union['DataCellsFilterColumnWildcardArgs', 'DataCellsFilterColumnWildcardArgsDict']]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 row_filter: pulumi.Input[Optional[Union['DataCellsFilterRowFilterArgs', 'DataCellsFilterRowFilterArgsDict']]] = None,
+                 table_catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 table_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -27,15 +27,15 @@ class TaskSetArgs:
                  cluster: pulumi.Input[_builtins.str],
                  service: pulumi.Input[_builtins.str],
                  task_definition: pulumi.Input[_builtins.str],
-                 capacity_provider_strategy: Optional[pulumi.Input[Sequence[pulumi.Input['TaskSetCapacityProviderStrategyItemArgs']]]] = None,
-                 external_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 launch_type: Optional[pulumi.Input['TaskSetLaunchType']] = None,
-                 load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input['TaskSetLoadBalancerArgs']]]] = None,
-                 network_configuration: Optional[pulumi.Input['TaskSetNetworkConfigurationArgs']] = None,
-                 platform_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 scale: Optional[pulumi.Input['TaskSetScaleArgs']] = None,
-                 service_registries: Optional[pulumi.Input[Sequence[pulumi.Input['TaskSetServiceRegistryArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 capacity_provider_strategy: pulumi.Input[Optional[Sequence[pulumi.Input['TaskSetCapacityProviderStrategyItemArgs']]]] = None,
+                 external_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 launch_type: pulumi.Input[Optional['TaskSetLaunchType']] = None,
+                 load_balancers: pulumi.Input[Optional[Sequence[pulumi.Input['TaskSetLoadBalancerArgs']]]] = None,
+                 network_configuration: pulumi.Input[Optional['TaskSetNetworkConfigurationArgs']] = None,
+                 platform_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 scale: pulumi.Input[Optional['TaskSetScaleArgs']] = None,
+                 service_registries: pulumi.Input[Optional[Sequence[pulumi.Input['TaskSetServiceRegistryArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a TaskSet resource.
 
@@ -122,103 +122,103 @@ class TaskSetArgs:
 
     @_builtins.property
     @pulumi.getter(name="capacityProviderStrategy")
-    def capacity_provider_strategy(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskSetCapacityProviderStrategyItemArgs']]]]:
+    def capacity_provider_strategy(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TaskSetCapacityProviderStrategyItemArgs']]]]:
         """
         The capacity provider strategy that are associated with the task set.
         """
         return pulumi.get(self, "capacity_provider_strategy")
 
     @capacity_provider_strategy.setter
-    def capacity_provider_strategy(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskSetCapacityProviderStrategyItemArgs']]]]):
+    def capacity_provider_strategy(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TaskSetCapacityProviderStrategyItemArgs']]]]):
         pulumi.set(self, "capacity_provider_strategy", value)
 
     @_builtins.property
     @pulumi.getter(name="externalId")
-    def external_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def external_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An optional non-unique tag that identifies this task set in external systems. If the task set is associated with a service discovery registry, the tasks in this task set will have the ECS_TASK_SET_EXTERNAL_ID AWS Cloud Map attribute set to the provided value. 
         """
         return pulumi.get(self, "external_id")
 
     @external_id.setter
-    def external_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def external_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "external_id", value)
 
     @_builtins.property
     @pulumi.getter(name="launchType")
-    def launch_type(self) -> Optional[pulumi.Input['TaskSetLaunchType']]:
+    def launch_type(self) -> pulumi.Input[Optional['TaskSetLaunchType']]:
         """
         The launch type that new tasks in the task set will use. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html in the Amazon Elastic Container Service Developer Guide. 
         """
         return pulumi.get(self, "launch_type")
 
     @launch_type.setter
-    def launch_type(self, value: Optional[pulumi.Input['TaskSetLaunchType']]):
+    def launch_type(self, value: pulumi.Input[Optional['TaskSetLaunchType']]):
         pulumi.set(self, "launch_type", value)
 
     @_builtins.property
     @pulumi.getter(name="loadBalancers")
-    def load_balancers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskSetLoadBalancerArgs']]]]:
+    def load_balancers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TaskSetLoadBalancerArgs']]]]:
         """
         A load balancer object representing the load balancer to use with the task set. The supported load balancer types are either an Application Load Balancer or a Network Load Balancer.
         """
         return pulumi.get(self, "load_balancers")
 
     @load_balancers.setter
-    def load_balancers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskSetLoadBalancerArgs']]]]):
+    def load_balancers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TaskSetLoadBalancerArgs']]]]):
         pulumi.set(self, "load_balancers", value)
 
     @_builtins.property
     @pulumi.getter(name="networkConfiguration")
-    def network_configuration(self) -> Optional[pulumi.Input['TaskSetNetworkConfigurationArgs']]:
+    def network_configuration(self) -> pulumi.Input[Optional['TaskSetNetworkConfigurationArgs']]:
         """
         The network configuration for the task set.
         """
         return pulumi.get(self, "network_configuration")
 
     @network_configuration.setter
-    def network_configuration(self, value: Optional[pulumi.Input['TaskSetNetworkConfigurationArgs']]):
+    def network_configuration(self, value: pulumi.Input[Optional['TaskSetNetworkConfigurationArgs']]):
         pulumi.set(self, "network_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="platformVersion")
-    def platform_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def platform_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The platform version that the tasks in the task set should use. A platform version is specified only for tasks using the Fargate launch type. If one isn't specified, the LATEST platform version is used by default.
         """
         return pulumi.get(self, "platform_version")
 
     @platform_version.setter
-    def platform_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def platform_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "platform_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def scale(self) -> Optional[pulumi.Input['TaskSetScaleArgs']]:
+    def scale(self) -> pulumi.Input[Optional['TaskSetScaleArgs']]:
         """
         A floating-point percentage of the desired number of tasks to place and keep running in the task set.
         """
         return pulumi.get(self, "scale")
 
     @scale.setter
-    def scale(self, value: Optional[pulumi.Input['TaskSetScaleArgs']]):
+    def scale(self, value: pulumi.Input[Optional['TaskSetScaleArgs']]):
         pulumi.set(self, "scale", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceRegistries")
-    def service_registries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskSetServiceRegistryArgs']]]]:
+    def service_registries(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TaskSetServiceRegistryArgs']]]]:
         """
         The details of the service discovery registries to assign to this task set. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html.
         """
         return pulumi.get(self, "service_registries")
 
     @service_registries.setter
-    def service_registries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskSetServiceRegistryArgs']]]]):
+    def service_registries(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TaskSetServiceRegistryArgs']]]]):
         pulumi.set(self, "service_registries", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The metadata that you apply to the task set to help you categorize and organize them. Each tag consists of a key and an optional value. You define both.
 
@@ -235,7 +235,7 @@ class TaskSetArgs:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -245,18 +245,18 @@ class TaskSet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capacity_provider_strategy: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TaskSetCapacityProviderStrategyItemArgs', 'TaskSetCapacityProviderStrategyItemArgsDict']]]]] = None,
-                 cluster: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 launch_type: Optional[pulumi.Input['TaskSetLaunchType']] = None,
-                 load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TaskSetLoadBalancerArgs', 'TaskSetLoadBalancerArgsDict']]]]] = None,
-                 network_configuration: Optional[pulumi.Input[Union['TaskSetNetworkConfigurationArgs', 'TaskSetNetworkConfigurationArgsDict']]] = None,
-                 platform_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 scale: Optional[pulumi.Input[Union['TaskSetScaleArgs', 'TaskSetScaleArgsDict']]] = None,
-                 service: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_registries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TaskSetServiceRegistryArgs', 'TaskSetServiceRegistryArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 task_definition: Optional[pulumi.Input[_builtins.str]] = None,
+                 capacity_provider_strategy: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TaskSetCapacityProviderStrategyItemArgs', 'TaskSetCapacityProviderStrategyItemArgsDict']]]]] = None,
+                 cluster: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 launch_type: pulumi.Input[Optional['TaskSetLaunchType']] = None,
+                 load_balancers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TaskSetLoadBalancerArgs', 'TaskSetLoadBalancerArgsDict']]]]] = None,
+                 network_configuration: pulumi.Input[Optional[Union['TaskSetNetworkConfigurationArgs', 'TaskSetNetworkConfigurationArgsDict']]] = None,
+                 platform_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 scale: pulumi.Input[Optional[Union['TaskSetScaleArgs', 'TaskSetScaleArgsDict']]] = None,
+                 service: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_registries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TaskSetServiceRegistryArgs', 'TaskSetServiceRegistryArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 task_definition: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Create a task set in the specified cluster and service. This is used when a service uses the EXTERNAL deployment controller type. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.htmlin the Amazon Elastic Container Service Developer Guide.
@@ -312,18 +312,18 @@ class TaskSet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capacity_provider_strategy: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TaskSetCapacityProviderStrategyItemArgs', 'TaskSetCapacityProviderStrategyItemArgsDict']]]]] = None,
-                 cluster: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 launch_type: Optional[pulumi.Input['TaskSetLaunchType']] = None,
-                 load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TaskSetLoadBalancerArgs', 'TaskSetLoadBalancerArgsDict']]]]] = None,
-                 network_configuration: Optional[pulumi.Input[Union['TaskSetNetworkConfigurationArgs', 'TaskSetNetworkConfigurationArgsDict']]] = None,
-                 platform_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 scale: Optional[pulumi.Input[Union['TaskSetScaleArgs', 'TaskSetScaleArgsDict']]] = None,
-                 service: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_registries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TaskSetServiceRegistryArgs', 'TaskSetServiceRegistryArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 task_definition: Optional[pulumi.Input[_builtins.str]] = None,
+                 capacity_provider_strategy: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TaskSetCapacityProviderStrategyItemArgs', 'TaskSetCapacityProviderStrategyItemArgsDict']]]]] = None,
+                 cluster: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 launch_type: pulumi.Input[Optional['TaskSetLaunchType']] = None,
+                 load_balancers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TaskSetLoadBalancerArgs', 'TaskSetLoadBalancerArgsDict']]]]] = None,
+                 network_configuration: pulumi.Input[Optional[Union['TaskSetNetworkConfigurationArgs', 'TaskSetNetworkConfigurationArgsDict']]] = None,
+                 platform_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 scale: pulumi.Input[Optional[Union['TaskSetScaleArgs', 'TaskSetScaleArgsDict']]] = None,
+                 service: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_registries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TaskSetServiceRegistryArgs', 'TaskSetServiceRegistryArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 task_definition: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

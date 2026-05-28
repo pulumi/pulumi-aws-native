@@ -26,8 +26,8 @@ class SyncConfigurationArgs:
                  resource_name: pulumi.Input[_builtins.str],
                  role_arn: pulumi.Input[_builtins.str],
                  sync_type: pulumi.Input[_builtins.str],
-                 publish_deployment_status: Optional[pulumi.Input['SyncConfigurationPublishDeploymentStatus']] = None,
-                 trigger_resource_update_on: Optional[pulumi.Input['SyncConfigurationTriggerResourceUpdateOn']] = None):
+                 publish_deployment_status: pulumi.Input[Optional['SyncConfigurationPublishDeploymentStatus']] = None,
+                 trigger_resource_update_on: pulumi.Input[Optional['SyncConfigurationTriggerResourceUpdateOn']] = None):
         """
         The set of arguments for constructing a SyncConfiguration resource.
 
@@ -125,26 +125,26 @@ class SyncConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="publishDeploymentStatus")
-    def publish_deployment_status(self) -> Optional[pulumi.Input['SyncConfigurationPublishDeploymentStatus']]:
+    def publish_deployment_status(self) -> pulumi.Input[Optional['SyncConfigurationPublishDeploymentStatus']]:
         """
         Whether to enable or disable publishing of deployment status to source providers.
         """
         return pulumi.get(self, "publish_deployment_status")
 
     @publish_deployment_status.setter
-    def publish_deployment_status(self, value: Optional[pulumi.Input['SyncConfigurationPublishDeploymentStatus']]):
+    def publish_deployment_status(self, value: pulumi.Input[Optional['SyncConfigurationPublishDeploymentStatus']]):
         pulumi.set(self, "publish_deployment_status", value)
 
     @_builtins.property
     @pulumi.getter(name="triggerResourceUpdateOn")
-    def trigger_resource_update_on(self) -> Optional[pulumi.Input['SyncConfigurationTriggerResourceUpdateOn']]:
+    def trigger_resource_update_on(self) -> pulumi.Input[Optional['SyncConfigurationTriggerResourceUpdateOn']]:
         """
         When to trigger Git sync to begin the stack update.
         """
         return pulumi.get(self, "trigger_resource_update_on")
 
     @trigger_resource_update_on.setter
-    def trigger_resource_update_on(self, value: Optional[pulumi.Input['SyncConfigurationTriggerResourceUpdateOn']]):
+    def trigger_resource_update_on(self, value: pulumi.Input[Optional['SyncConfigurationTriggerResourceUpdateOn']]):
         pulumi.set(self, "trigger_resource_update_on", value)
 
 
@@ -154,14 +154,14 @@ class SyncConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 branch: Optional[pulumi.Input[_builtins.str]] = None,
-                 config_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 publish_deployment_status: Optional[pulumi.Input['SyncConfigurationPublishDeploymentStatus']] = None,
-                 repository_link_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 sync_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 trigger_resource_update_on: Optional[pulumi.Input['SyncConfigurationTriggerResourceUpdateOn']] = None,
+                 branch: pulumi.Input[Optional[_builtins.str]] = None,
+                 config_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 publish_deployment_status: pulumi.Input[Optional['SyncConfigurationPublishDeploymentStatus']] = None,
+                 repository_link_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 sync_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 trigger_resource_update_on: pulumi.Input[Optional['SyncConfigurationTriggerResourceUpdateOn']] = None,
                  __props__=None):
         """
         Schema for AWS::CodeStarConnections::SyncConfiguration resource which is used to enables an AWS resource to be synchronized from a source-provider.
@@ -203,14 +203,14 @@ class SyncConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 branch: Optional[pulumi.Input[_builtins.str]] = None,
-                 config_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 publish_deployment_status: Optional[pulumi.Input['SyncConfigurationPublishDeploymentStatus']] = None,
-                 repository_link_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 sync_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 trigger_resource_update_on: Optional[pulumi.Input['SyncConfigurationTriggerResourceUpdateOn']] = None,
+                 branch: pulumi.Input[Optional[_builtins.str]] = None,
+                 config_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 publish_deployment_status: pulumi.Input[Optional['SyncConfigurationPublishDeploymentStatus']] = None,
+                 repository_link_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 sync_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 trigger_resource_update_on: pulumi.Input[Optional['SyncConfigurationTriggerResourceUpdateOn']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

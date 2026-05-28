@@ -22,11 +22,11 @@ __all__ = ['StateMachineAliasArgs', 'StateMachineAlias']
 @pulumi.input_type
 class StateMachineAliasArgs:
     def __init__(__self__, *,
-                 deployment_preference: Optional[pulumi.Input['StateMachineAliasDeploymentPreferenceArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_configuration: Optional[pulumi.Input[Sequence[pulumi.Input['StateMachineAliasRoutingConfigurationVersionArgs']]]] = None,
-                 state_machine_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 deployment_preference: pulumi.Input[Optional['StateMachineAliasDeploymentPreferenceArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_configuration: pulumi.Input[Optional[Sequence[pulumi.Input['StateMachineAliasRoutingConfigurationVersionArgs']]]] = None,
+                 state_machine_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a StateMachineAlias resource.
 
@@ -66,7 +66,7 @@ class StateMachineAliasArgs:
 
     @_builtins.property
     @pulumi.getter(name="deploymentPreference")
-    def deployment_preference(self) -> Optional[pulumi.Input['StateMachineAliasDeploymentPreferenceArgs']]:
+    def deployment_preference(self) -> pulumi.Input[Optional['StateMachineAliasDeploymentPreferenceArgs']]:
         """
         The settings that enable gradual state machine deployments. These settings include [Alarms](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachinealias-deploymentpreference.html#cfn-stepfunctions-statemachinealias-deploymentpreference-alarms) , [Interval](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachinealias-deploymentpreference.html#cfn-stepfunctions-statemachinealias-deploymentpreference-interval) , [Percentage](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachinealias-deploymentpreference.html#cfn-stepfunctions-statemachinealias-deploymentpreference-percentage) , [StateMachineVersionArn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachinealias-deploymentpreference.html#cfn-stepfunctions-statemachinealias-deploymentpreference-statemachineversionarn) , and [Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachinealias-deploymentpreference.html#cfn-stepfunctions-statemachinealias-deploymentpreference-type) .
 
@@ -87,36 +87,36 @@ class StateMachineAliasArgs:
         return pulumi.get(self, "deployment_preference")
 
     @deployment_preference.setter
-    def deployment_preference(self, value: Optional[pulumi.Input['StateMachineAliasDeploymentPreferenceArgs']]):
+    def deployment_preference(self, value: pulumi.Input[Optional['StateMachineAliasDeploymentPreferenceArgs']]):
         pulumi.set(self, "deployment_preference", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An optional description of the alias.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The alias name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="routingConfiguration")
-    def routing_configuration(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StateMachineAliasRoutingConfigurationVersionArgs']]]]:
+    def routing_configuration(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['StateMachineAliasRoutingConfigurationVersionArgs']]]]:
         """
         The routing configuration of an alias. Routing configuration splits [StartExecution](https://docs.aws.amazon.com/step-functions/latest/apireference/API_StartExecution.html) requests between one or two versions of the same state machine.
 
@@ -127,16 +127,16 @@ class StateMachineAliasArgs:
         return pulumi.get(self, "routing_configuration")
 
     @routing_configuration.setter
-    def routing_configuration(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StateMachineAliasRoutingConfigurationVersionArgs']]]]):
+    def routing_configuration(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['StateMachineAliasRoutingConfigurationVersionArgs']]]]):
         pulumi.set(self, "routing_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="stateMachineArn")
-    def state_machine_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def state_machine_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "state_machine_arn")
 
     @state_machine_arn.setter
-    def state_machine_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def state_machine_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "state_machine_arn", value)
 
 
@@ -146,11 +146,11 @@ class StateMachineAlias(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 deployment_preference: Optional[pulumi.Input[Union['StateMachineAliasDeploymentPreferenceArgs', 'StateMachineAliasDeploymentPreferenceArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_configuration: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StateMachineAliasRoutingConfigurationVersionArgs', 'StateMachineAliasRoutingConfigurationVersionArgsDict']]]]] = None,
-                 state_machine_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 deployment_preference: pulumi.Input[Optional[Union['StateMachineAliasDeploymentPreferenceArgs', 'StateMachineAliasDeploymentPreferenceArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_configuration: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StateMachineAliasRoutingConfigurationVersionArgs', 'StateMachineAliasRoutingConfigurationVersionArgsDict']]]]] = None,
+                 state_machine_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource schema for StateMachineAlias
@@ -206,11 +206,11 @@ class StateMachineAlias(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 deployment_preference: Optional[pulumi.Input[Union['StateMachineAliasDeploymentPreferenceArgs', 'StateMachineAliasDeploymentPreferenceArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_configuration: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StateMachineAliasRoutingConfigurationVersionArgs', 'StateMachineAliasRoutingConfigurationVersionArgsDict']]]]] = None,
-                 state_machine_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 deployment_preference: pulumi.Input[Optional[Union['StateMachineAliasDeploymentPreferenceArgs', 'StateMachineAliasDeploymentPreferenceArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_configuration: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StateMachineAliasRoutingConfigurationVersionArgs', 'StateMachineAliasRoutingConfigurationVersionArgsDict']]]]] = None,
+                 state_machine_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

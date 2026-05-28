@@ -74,7 +74,7 @@ def get_hypervisor(hypervisor_arn: Optional[_builtins.str] = None,
     return AwaitableGetHypervisorResult(
         host=pulumi.get(__ret__, 'host'),
         hypervisor_arn=pulumi.get(__ret__, 'hypervisor_arn'))
-def get_hypervisor_output(hypervisor_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_hypervisor_output(hypervisor_arn: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHypervisorResult]:
     """
     Definition of AWS::BackupGateway::Hypervisor Resource Type

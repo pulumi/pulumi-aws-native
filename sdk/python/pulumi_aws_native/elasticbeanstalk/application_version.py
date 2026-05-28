@@ -23,7 +23,7 @@ class ApplicationVersionArgs:
     def __init__(__self__, *,
                  application_name: pulumi.Input[_builtins.str],
                  source_bundle: pulumi.Input['ApplicationVersionSourceBundleArgs'],
-                 description: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ApplicationVersion resource.
 
@@ -62,14 +62,14 @@ class ApplicationVersionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of this application version.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
 
@@ -79,9 +79,9 @@ class ApplicationVersion(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_bundle: Optional[pulumi.Input[Union['ApplicationVersionSourceBundleArgs', 'ApplicationVersionSourceBundleArgsDict']]] = None,
+                 application_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_bundle: pulumi.Input[Optional[Union['ApplicationVersionSourceBundleArgs', 'ApplicationVersionSourceBundleArgsDict']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::ElasticBeanstalk::ApplicationVersion
@@ -118,9 +118,9 @@ class ApplicationVersion(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_bundle: Optional[pulumi.Input[Union['ApplicationVersionSourceBundleArgs', 'ApplicationVersionSourceBundleArgsDict']]] = None,
+                 application_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_bundle: pulumi.Input[Optional[Union['ApplicationVersionSourceBundleArgs', 'ApplicationVersionSourceBundleArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

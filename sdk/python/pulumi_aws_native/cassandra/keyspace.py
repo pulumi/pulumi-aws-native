@@ -24,10 +24,10 @@ __all__ = ['KeyspaceArgs', 'Keyspace']
 @pulumi.input_type
 class KeyspaceArgs:
     def __init__(__self__, *,
-                 client_side_timestamps_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 keyspace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 replication_specification: Optional[pulumi.Input['KeyspaceReplicationSpecificationArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 client_side_timestamps_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 keyspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 replication_specification: pulumi.Input[Optional['KeyspaceReplicationSpecificationArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Keyspace resource.
 
@@ -54,31 +54,31 @@ class KeyspaceArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientSideTimestampsEnabled")
-    def client_side_timestamps_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def client_side_timestamps_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether client-side timestamps are enabled (true) or disabled (false) for all tables in the keyspace. To add a Region to a single-Region keyspace with at least one table, the value must be set to true. After you enabled client-side timestamps for a table, you can’t disable it again.
         """
         return pulumi.get(self, "client_side_timestamps_enabled")
 
     @client_side_timestamps_enabled.setter
-    def client_side_timestamps_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def client_side_timestamps_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "client_side_timestamps_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="keyspaceName")
-    def keyspace_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def keyspace_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name for Cassandra keyspace
         """
         return pulumi.get(self, "keyspace_name")
 
     @keyspace_name.setter
-    def keyspace_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def keyspace_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "keyspace_name", value)
 
     @_builtins.property
     @pulumi.getter(name="replicationSpecification")
-    def replication_specification(self) -> Optional[pulumi.Input['KeyspaceReplicationSpecificationArgs']]:
+    def replication_specification(self) -> pulumi.Input[Optional['KeyspaceReplicationSpecificationArgs']]:
         """
         Specifies the `ReplicationStrategy` of a keyspace. The options are:
 
@@ -90,12 +90,12 @@ class KeyspaceArgs:
         return pulumi.get(self, "replication_specification")
 
     @replication_specification.setter
-    def replication_specification(self, value: Optional[pulumi.Input['KeyspaceReplicationSpecificationArgs']]):
+    def replication_specification(self, value: pulumi.Input[Optional['KeyspaceReplicationSpecificationArgs']]):
         pulumi.set(self, "replication_specification", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
 
@@ -104,7 +104,7 @@ class KeyspaceArgs:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -114,10 +114,10 @@ class Keyspace(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 client_side_timestamps_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 keyspace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 replication_specification: Optional[pulumi.Input[Union['KeyspaceReplicationSpecificationArgs', 'KeyspaceReplicationSpecificationArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 client_side_timestamps_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 keyspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 replication_specification: pulumi.Input[Optional[Union['KeyspaceReplicationSpecificationArgs', 'KeyspaceReplicationSpecificationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::Cassandra::Keyspace
@@ -278,10 +278,10 @@ class Keyspace(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 client_side_timestamps_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 keyspace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 replication_specification: Optional[pulumi.Input[Union['KeyspaceReplicationSpecificationArgs', 'KeyspaceReplicationSpecificationArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 client_side_timestamps_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 keyspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 replication_specification: pulumi.Input[Optional[Union['KeyspaceReplicationSpecificationArgs', 'KeyspaceReplicationSpecificationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

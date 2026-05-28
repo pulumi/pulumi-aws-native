@@ -20,7 +20,7 @@ __all__ = ['SlackWorkspaceConfigurationArgs', 'SlackWorkspaceConfiguration']
 class SlackWorkspaceConfigurationArgs:
     def __init__(__self__, *,
                  team_id: pulumi.Input[_builtins.str],
-                 version_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 version_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SlackWorkspaceConfiguration resource.
 
@@ -45,14 +45,14 @@ class SlackWorkspaceConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="versionId")
-    def version_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An identifier used to update an existing Slack workspace configuration in AWS CloudFormation.
         """
         return pulumi.get(self, "version_id")
 
     @version_id.setter
-    def version_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version_id", value)
 
 
@@ -62,8 +62,8 @@ class SlackWorkspaceConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 team_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 version_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 team_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         An AWS Support App resource that creates, updates, lists, and deletes Slack workspace configurations.
@@ -147,8 +147,8 @@ class SlackWorkspaceConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 team_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 version_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 team_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

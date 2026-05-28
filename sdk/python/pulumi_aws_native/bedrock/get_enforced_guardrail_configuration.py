@@ -197,7 +197,7 @@ def get_enforced_guardrail_configuration(config_id: Optional[_builtins.str] = No
         selective_content_guarding=pulumi.get(__ret__, 'selective_content_guarding'),
         updated_at=pulumi.get(__ret__, 'updated_at'),
         updated_by=pulumi.get(__ret__, 'updated_by'))
-def get_enforced_guardrail_configuration_output(config_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_enforced_guardrail_configuration_output(config_id: pulumi.Input[Optional[_builtins.str]] = None,
                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnforcedGuardrailConfigurationResult]:
     """
     Definition of AWS::Bedrock::EnforcedGuardrailConfiguration Resource Type

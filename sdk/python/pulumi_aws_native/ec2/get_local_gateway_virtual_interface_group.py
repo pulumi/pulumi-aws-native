@@ -127,7 +127,7 @@ def get_local_gateway_virtual_interface_group(local_gateway_virtual_interface_gr
         local_gateway_virtual_interface_ids=pulumi.get(__ret__, 'local_gateway_virtual_interface_ids'),
         owner_id=pulumi.get(__ret__, 'owner_id'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_local_gateway_virtual_interface_group_output(local_gateway_virtual_interface_group_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_local_gateway_virtual_interface_group_output(local_gateway_virtual_interface_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocalGatewayVirtualInterfaceGroupResult]:
     """
     Resource Type definition for LocalGatewayVirtualInterfaceGroup which describes a group of LocalGateway VirtualInterfaces

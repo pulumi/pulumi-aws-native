@@ -76,7 +76,7 @@ def get_route_table(route_table_id: Optional[_builtins.str] = None,
     return AwaitableGetRouteTableResult(
         route_table_id=pulumi.get(__ret__, 'route_table_id'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_route_table_output(route_table_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_route_table_output(route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRouteTableResult]:
     """
     Specifies a route table for the specified VPC. After you create a route table, you can add routes and associate the table with a subnet.

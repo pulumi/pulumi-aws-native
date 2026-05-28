@@ -25,12 +25,12 @@ __all__ = ['ResolverRuleArgs', 'ResolverRule']
 class ResolverRuleArgs:
     def __init__(__self__, *,
                  rule_type: pulumi.Input['ResolverRuleRuleType'],
-                 delegation_record: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resolver_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 target_ips: Optional[pulumi.Input[Sequence[pulumi.Input['ResolverRuleTargetAddressArgs']]]] = None):
+                 delegation_record: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resolver_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 target_ips: pulumi.Input[Optional[Sequence[pulumi.Input['ResolverRuleTargetAddressArgs']]]] = None):
         """
         The set of arguments for constructing a ResolverRule resource.
 
@@ -70,74 +70,74 @@ class ResolverRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="delegationRecord")
-    def delegation_record(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delegation_record(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name server domain for queries to be delegated to if a query matches the delegation record.
         """
         return pulumi.get(self, "delegation_record")
 
     @delegation_record.setter
-    def delegation_record(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delegation_record(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delegation_record", value)
 
     @_builtins.property
     @pulumi.getter(name="domainName")
-    def domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         DNS queries for this domain name are forwarded to the IP addresses that are specified in TargetIps
         """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
-    def domain_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name for the Resolver rule
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resolverEndpointId")
-    def resolver_endpoint_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resolver_endpoint_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the endpoint that the rule is associated with.
         """
         return pulumi.get(self, "resolver_endpoint_id")
 
     @resolver_endpoint_id.setter
-    def resolver_endpoint_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resolver_endpoint_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resolver_endpoint_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="targetIps")
-    def target_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResolverRuleTargetAddressArgs']]]]:
+    def target_ips(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ResolverRuleTargetAddressArgs']]]]:
         """
         An array that contains the IP addresses and ports that an outbound endpoint forwards DNS queries to. Typically, these are the IP addresses of DNS resolvers on your network. Specify IPv4 addresses. IPv6 is not supported.
         """
         return pulumi.get(self, "target_ips")
 
     @target_ips.setter
-    def target_ips(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResolverRuleTargetAddressArgs']]]]):
+    def target_ips(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ResolverRuleTargetAddressArgs']]]]):
         pulumi.set(self, "target_ips", value)
 
 
@@ -147,13 +147,13 @@ class ResolverRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 delegation_record: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resolver_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_type: Optional[pulumi.Input['ResolverRuleRuleType']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 target_ips: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResolverRuleTargetAddressArgs', 'ResolverRuleTargetAddressArgsDict']]]]] = None,
+                 delegation_record: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resolver_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_type: pulumi.Input[Optional['ResolverRuleRuleType']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 target_ips: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResolverRuleTargetAddressArgs', 'ResolverRuleTargetAddressArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Route53Resolver::ResolverRule
@@ -194,13 +194,13 @@ class ResolverRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 delegation_record: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resolver_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_type: Optional[pulumi.Input['ResolverRuleRuleType']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 target_ips: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResolverRuleTargetAddressArgs', 'ResolverRuleTargetAddressArgsDict']]]]] = None,
+                 delegation_record: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resolver_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_type: pulumi.Input[Optional['ResolverRuleRuleType']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 target_ips: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResolverRuleTargetAddressArgs', 'ResolverRuleTargetAddressArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

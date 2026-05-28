@@ -26,19 +26,19 @@ class DashboardArgs:
     def __init__(__self__, *,
                  aws_account_id: pulumi.Input[_builtins.str],
                  dashboard_id: pulumi.Input[_builtins.str],
-                 dashboard_publish_options: Optional[pulumi.Input['DashboardPublishOptionsArgs']] = None,
-                 definition: Optional[pulumi.Input['DashboardVersionDefinitionArgs']] = None,
-                 folder_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 link_entities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 link_sharing_configuration: Optional[pulumi.Input['DashboardLinkSharingConfigurationArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input['DashboardParametersArgs']] = None,
-                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardResourcePermissionArgs']]]] = None,
-                 source_entity: Optional[pulumi.Input['DashboardSourceEntityArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 theme_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 validation_strategy: Optional[pulumi.Input['DashboardValidationStrategyArgs']] = None,
-                 version_description: Optional[pulumi.Input[_builtins.str]] = None):
+                 dashboard_publish_options: pulumi.Input[Optional['DashboardPublishOptionsArgs']] = None,
+                 definition: pulumi.Input[Optional['DashboardVersionDefinitionArgs']] = None,
+                 folder_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 link_entities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 link_sharing_configuration: pulumi.Input[Optional['DashboardLinkSharingConfigurationArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional['DashboardParametersArgs']] = None,
+                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input['DashboardResourcePermissionArgs']]]] = None,
+                 source_entity: pulumi.Input[Optional['DashboardSourceEntityArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 theme_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 validation_strategy: pulumi.Input[Optional['DashboardValidationStrategyArgs']] = None,
+                 version_description: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Dashboard resource.
 
@@ -122,7 +122,7 @@ class DashboardArgs:
 
     @_builtins.property
     @pulumi.getter(name="dashboardPublishOptions")
-    def dashboard_publish_options(self) -> Optional[pulumi.Input['DashboardPublishOptionsArgs']]:
+    def dashboard_publish_options(self) -> pulumi.Input[Optional['DashboardPublishOptionsArgs']]:
         """
         Options for publishing the dashboard when you create it:
 
@@ -136,78 +136,78 @@ class DashboardArgs:
         return pulumi.get(self, "dashboard_publish_options")
 
     @dashboard_publish_options.setter
-    def dashboard_publish_options(self, value: Optional[pulumi.Input['DashboardPublishOptionsArgs']]):
+    def dashboard_publish_options(self, value: pulumi.Input[Optional['DashboardPublishOptionsArgs']]):
         pulumi.set(self, "dashboard_publish_options", value)
 
     @_builtins.property
     @pulumi.getter
-    def definition(self) -> Optional[pulumi.Input['DashboardVersionDefinitionArgs']]:
+    def definition(self) -> pulumi.Input[Optional['DashboardVersionDefinitionArgs']]:
         return pulumi.get(self, "definition")
 
     @definition.setter
-    def definition(self, value: Optional[pulumi.Input['DashboardVersionDefinitionArgs']]):
+    def definition(self, value: pulumi.Input[Optional['DashboardVersionDefinitionArgs']]):
         pulumi.set(self, "definition", value)
 
     @_builtins.property
     @pulumi.getter(name="folderArns")
-    def folder_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def folder_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "folder_arns")
 
     @folder_arns.setter
-    def folder_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def folder_arns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "folder_arns", value)
 
     @_builtins.property
     @pulumi.getter(name="linkEntities")
-    def link_entities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def link_entities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of analysis Amazon Resource Names (ARNs) to be linked to the dashboard.
         """
         return pulumi.get(self, "link_entities")
 
     @link_entities.setter
-    def link_entities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def link_entities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "link_entities", value)
 
     @_builtins.property
     @pulumi.getter(name="linkSharingConfiguration")
-    def link_sharing_configuration(self) -> Optional[pulumi.Input['DashboardLinkSharingConfigurationArgs']]:
+    def link_sharing_configuration(self) -> pulumi.Input[Optional['DashboardLinkSharingConfigurationArgs']]:
         """
         A structure that contains the link sharing configurations that you want to apply overrides to.
         """
         return pulumi.get(self, "link_sharing_configuration")
 
     @link_sharing_configuration.setter
-    def link_sharing_configuration(self, value: Optional[pulumi.Input['DashboardLinkSharingConfigurationArgs']]):
+    def link_sharing_configuration(self, value: pulumi.Input[Optional['DashboardLinkSharingConfigurationArgs']]):
         pulumi.set(self, "link_sharing_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The display name of the dashboard.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input['DashboardParametersArgs']]:
+    def parameters(self) -> pulumi.Input[Optional['DashboardParametersArgs']]:
         """
         The parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input['DashboardParametersArgs']]):
+    def parameters(self, value: pulumi.Input[Optional['DashboardParametersArgs']]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter
-    def permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardResourcePermissionArgs']]]]:
+    def permissions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DashboardResourcePermissionArgs']]]]:
         """
         A structure that contains the permissions of the dashboard. You can use this structure for granting permissions by providing a list of IAM action information for each principal ARN.
 
@@ -216,12 +216,12 @@ class DashboardArgs:
         return pulumi.get(self, "permissions")
 
     @permissions.setter
-    def permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardResourcePermissionArgs']]]]):
+    def permissions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DashboardResourcePermissionArgs']]]]):
         pulumi.set(self, "permissions", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceEntity")
-    def source_entity(self) -> Optional[pulumi.Input['DashboardSourceEntityArgs']]:
+    def source_entity(self) -> pulumi.Input[Optional['DashboardSourceEntityArgs']]:
         """
         The entity that you are using as a source when you create the dashboard. In `SourceEntity` , you specify the type of object that you want to use. You can only create a dashboard from a template, so you use a `SourceTemplate` entity. If you need to create a dashboard from an analysis, first convert the analysis to a template by using the `CreateTemplate` API operation. For `SourceTemplate` , specify the Amazon Resource Name (ARN) of the source template. The `SourceTemplate` ARN can contain any AWS account; and any QuickSight-supported AWS Region .
 
@@ -230,55 +230,55 @@ class DashboardArgs:
         return pulumi.get(self, "source_entity")
 
     @source_entity.setter
-    def source_entity(self, value: Optional[pulumi.Input['DashboardSourceEntityArgs']]):
+    def source_entity(self, value: pulumi.Input[Optional['DashboardSourceEntityArgs']]):
         pulumi.set(self, "source_entity", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Contains a map of the key-value pairs for the resource tag or tags assigned to the dashboard.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="themeArn")
-    def theme_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def theme_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. If you add a value for this field, it overrides the value that is used in the source entity. The theme ARN must exist in the same AWS account where you create the dashboard.
         """
         return pulumi.get(self, "theme_arn")
 
     @theme_arn.setter
-    def theme_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def theme_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "theme_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="validationStrategy")
-    def validation_strategy(self) -> Optional[pulumi.Input['DashboardValidationStrategyArgs']]:
+    def validation_strategy(self) -> pulumi.Input[Optional['DashboardValidationStrategyArgs']]:
         """
         The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to `LENIENT` , validation is skipped for specific errors.
         """
         return pulumi.get(self, "validation_strategy")
 
     @validation_strategy.setter
-    def validation_strategy(self, value: Optional[pulumi.Input['DashboardValidationStrategyArgs']]):
+    def validation_strategy(self, value: pulumi.Input[Optional['DashboardValidationStrategyArgs']]):
         pulumi.set(self, "validation_strategy", value)
 
     @_builtins.property
     @pulumi.getter(name="versionDescription")
-    def version_description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description for the first version of the dashboard being created.
         """
         return pulumi.get(self, "version_description")
 
     @version_description.setter
-    def version_description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version_description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version_description", value)
 
 
@@ -288,21 +288,21 @@ class Dashboard(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 dashboard_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 dashboard_publish_options: Optional[pulumi.Input[Union['DashboardPublishOptionsArgs', 'DashboardPublishOptionsArgsDict']]] = None,
-                 definition: Optional[pulumi.Input[Union['DashboardVersionDefinitionArgs', 'DashboardVersionDefinitionArgsDict']]] = None,
-                 folder_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 link_entities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 link_sharing_configuration: Optional[pulumi.Input[Union['DashboardLinkSharingConfigurationArgs', 'DashboardLinkSharingConfigurationArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Union['DashboardParametersArgs', 'DashboardParametersArgsDict']]] = None,
-                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DashboardResourcePermissionArgs', 'DashboardResourcePermissionArgsDict']]]]] = None,
-                 source_entity: Optional[pulumi.Input[Union['DashboardSourceEntityArgs', 'DashboardSourceEntityArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 theme_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 validation_strategy: Optional[pulumi.Input[Union['DashboardValidationStrategyArgs', 'DashboardValidationStrategyArgsDict']]] = None,
-                 version_description: Optional[pulumi.Input[_builtins.str]] = None,
+                 aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 dashboard_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 dashboard_publish_options: pulumi.Input[Optional[Union['DashboardPublishOptionsArgs', 'DashboardPublishOptionsArgsDict']]] = None,
+                 definition: pulumi.Input[Optional[Union['DashboardVersionDefinitionArgs', 'DashboardVersionDefinitionArgsDict']]] = None,
+                 folder_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 link_entities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 link_sharing_configuration: pulumi.Input[Optional[Union['DashboardLinkSharingConfigurationArgs', 'DashboardLinkSharingConfigurationArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Union['DashboardParametersArgs', 'DashboardParametersArgsDict']]] = None,
+                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DashboardResourcePermissionArgs', 'DashboardResourcePermissionArgsDict']]]]] = None,
+                 source_entity: pulumi.Input[Optional[Union['DashboardSourceEntityArgs', 'DashboardSourceEntityArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 theme_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 validation_strategy: pulumi.Input[Optional[Union['DashboardValidationStrategyArgs', 'DashboardValidationStrategyArgsDict']]] = None,
+                 version_description: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Definition of the AWS::QuickSight::Dashboard Resource Type.
@@ -360,21 +360,21 @@ class Dashboard(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 dashboard_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 dashboard_publish_options: Optional[pulumi.Input[Union['DashboardPublishOptionsArgs', 'DashboardPublishOptionsArgsDict']]] = None,
-                 definition: Optional[pulumi.Input[Union['DashboardVersionDefinitionArgs', 'DashboardVersionDefinitionArgsDict']]] = None,
-                 folder_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 link_entities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 link_sharing_configuration: Optional[pulumi.Input[Union['DashboardLinkSharingConfigurationArgs', 'DashboardLinkSharingConfigurationArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Union['DashboardParametersArgs', 'DashboardParametersArgsDict']]] = None,
-                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DashboardResourcePermissionArgs', 'DashboardResourcePermissionArgsDict']]]]] = None,
-                 source_entity: Optional[pulumi.Input[Union['DashboardSourceEntityArgs', 'DashboardSourceEntityArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 theme_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 validation_strategy: Optional[pulumi.Input[Union['DashboardValidationStrategyArgs', 'DashboardValidationStrategyArgsDict']]] = None,
-                 version_description: Optional[pulumi.Input[_builtins.str]] = None,
+                 aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 dashboard_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 dashboard_publish_options: pulumi.Input[Optional[Union['DashboardPublishOptionsArgs', 'DashboardPublishOptionsArgsDict']]] = None,
+                 definition: pulumi.Input[Optional[Union['DashboardVersionDefinitionArgs', 'DashboardVersionDefinitionArgsDict']]] = None,
+                 folder_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 link_entities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 link_sharing_configuration: pulumi.Input[Optional[Union['DashboardLinkSharingConfigurationArgs', 'DashboardLinkSharingConfigurationArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Union['DashboardParametersArgs', 'DashboardParametersArgsDict']]] = None,
+                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DashboardResourcePermissionArgs', 'DashboardResourcePermissionArgsDict']]]]] = None,
+                 source_entity: pulumi.Input[Optional[Union['DashboardSourceEntityArgs', 'DashboardSourceEntityArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 theme_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 validation_strategy: pulumi.Input[Optional[Union['DashboardValidationStrategyArgs', 'DashboardValidationStrategyArgsDict']]] = None,
+                 version_description: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

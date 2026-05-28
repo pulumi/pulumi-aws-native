@@ -50,7 +50,7 @@ class DbClusterDbClusterRoleArgsDict(TypedDict):
     """
     The Amazon Resource Name (ARN) of the IAM role that is associated with the DB cluster.
     """
-    feature_name: NotRequired[pulumi.Input[_builtins.str]]
+    feature_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the feature associated with the AWS Identity and Access Management (IAM) role. IAM roles that are associated with a DB cluster grant permission for the DB cluster to access other AWS services on your behalf. For the list of supported feature names, see the ``SupportedFeatureNames`` description in [DBEngineVersion](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DBEngineVersion.html) in the *Amazon RDS API Reference*.
     """
@@ -59,7 +59,7 @@ class DbClusterDbClusterRoleArgsDict(TypedDict):
 class DbClusterDbClusterRoleArgs:
     def __init__(__self__, *,
                  role_arn: pulumi.Input[_builtins.str],
-                 feature_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 feature_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Describes an AWS Identity and Access Management (IAM) role that is associated with a DB cluster.
 
@@ -84,14 +84,14 @@ class DbClusterDbClusterRoleArgs:
 
     @_builtins.property
     @pulumi.getter(name="featureName")
-    def feature_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def feature_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the feature associated with the AWS Identity and Access Management (IAM) role. IAM roles that are associated with a DB cluster grant permission for the DB cluster to access other AWS services on your behalf. For the list of supported feature names, see the ``SupportedFeatureNames`` description in [DBEngineVersion](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DBEngineVersion.html) in the *Amazon RDS API Reference*.
         """
         return pulumi.get(self, "feature_name")
 
     @feature_name.setter
-    def feature_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def feature_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "feature_name", value)
 
 
@@ -100,11 +100,11 @@ class DbClusterMasterUserSecretArgsDict(TypedDict):
     The ``MasterUserSecret`` return value specifies the secret managed by RDS in AWS Secrets Manager for the master user password.
      For more information, see [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html) in the *Amazon RDS User Guide* and [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html) in the *Amazon Aurora User Guide.*
     """
-    kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    kms_key_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The AWS KMS key identifier that is used to encrypt the secret.
     """
-    secret_arn: NotRequired[pulumi.Input[_builtins.str]]
+    secret_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon Resource Name (ARN) of the secret. This parameter is a return value that you can retrieve using the ``Fn::GetAtt`` intrinsic function. For more information, see [Return values](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#aws-resource-rds-dbcluster-return-values).
     """
@@ -112,8 +112,8 @@ class DbClusterMasterUserSecretArgsDict(TypedDict):
 @pulumi.input_type
 class DbClusterMasterUserSecretArgs:
     def __init__(__self__, *,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The ``MasterUserSecret`` return value specifies the secret managed by RDS in AWS Secrets Manager for the master user password.
          For more information, see [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html) in the *Amazon RDS User Guide* and [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html) in the *Amazon Aurora User Guide.*
@@ -128,26 +128,26 @@ class DbClusterMasterUserSecretArgs:
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS KMS key identifier that is used to encrypt the secret.
         """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="secretArn")
-    def secret_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secret_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the secret. This parameter is a return value that you can retrieve using the ``Fn::GetAtt`` intrinsic function. For more information, see [Return values](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#aws-resource-rds-dbcluster-return-values).
         """
         return pulumi.get(self, "secret_arn")
 
     @secret_arn.setter
-    def secret_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secret_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secret_arn", value)
 
 
@@ -158,36 +158,36 @@ class DbClusterScalingConfigurationArgsDict(TypedDict):
      This property is only supported for Aurora Serverless v1. For Aurora Serverless v2, Use the ``ServerlessV2ScalingConfiguration`` property.
      Valid for: Aurora Serverless v1 DB clusters only
     """
-    auto_pause: NotRequired[pulumi.Input[_builtins.bool]]
+    auto_pause: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether to allow or disallow automatic pause for an Aurora DB cluster in ``serverless`` DB engine mode. A DB cluster can be paused only when it's idle (it has no connections).
       If a DB cluster is paused for more than seven days, the DB cluster might be backed up with a snapshot. In this case, the DB cluster is restored when there is a request to connect to it.
     """
-    max_capacity: NotRequired[pulumi.Input[_builtins.int]]
+    max_capacity: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum capacity for an Aurora DB cluster in ``serverless`` DB engine mode.
      For Aurora MySQL, valid capacity values are ``1``, ``2``, ``4``, ``8``, ``16``, ``32``, ``64``, ``128``, and ``256``.
      For Aurora PostgreSQL, valid capacity values are ``2``, ``4``, ``8``, ``16``, ``32``, ``64``, ``192``, and ``384``.
      The maximum capacity must be greater than or equal to the minimum capacity.
     """
-    min_capacity: NotRequired[pulumi.Input[_builtins.int]]
+    min_capacity: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The minimum capacity for an Aurora DB cluster in ``serverless`` DB engine mode.
      For Aurora MySQL, valid capacity values are ``1``, ``2``, ``4``, ``8``, ``16``, ``32``, ``64``, ``128``, and ``256``.
      For Aurora PostgreSQL, valid capacity values are ``2``, ``4``, ``8``, ``16``, ``32``, ``64``, ``192``, and ``384``.
      The minimum capacity must be less than or equal to the maximum capacity.
     """
-    seconds_before_timeout: NotRequired[pulumi.Input[_builtins.int]]
+    seconds_before_timeout: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The amount of time, in seconds, that Aurora Serverless v1 tries to find a scaling point to perform seamless scaling before enforcing the timeout action. The default is 300.
      Specify a value between 60 and 600 seconds.
     """
-    seconds_until_auto_pause: NotRequired[pulumi.Input[_builtins.int]]
+    seconds_until_auto_pause: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The time, in seconds, before an Aurora DB cluster in ``serverless`` mode is paused.
      Specify a value between 300 and 86,400 seconds.
     """
-    timeout_action: NotRequired[pulumi.Input[_builtins.str]]
+    timeout_action: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The action to take when the timeout is reached, either ``ForceApplyCapacityChange`` or ``RollbackCapacityChange``.
      ``ForceApplyCapacityChange`` sets the capacity to the specified value as soon as possible.
@@ -199,12 +199,12 @@ class DbClusterScalingConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class DbClusterScalingConfigurationArgs:
     def __init__(__self__, *,
-                 auto_pause: Optional[pulumi.Input[_builtins.bool]] = None,
-                 max_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 seconds_before_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 seconds_until_auto_pause: Optional[pulumi.Input[_builtins.int]] = None,
-                 timeout_action: Optional[pulumi.Input[_builtins.str]] = None):
+                 auto_pause: pulumi.Input[Optional[_builtins.bool]] = None,
+                 max_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 seconds_before_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 seconds_until_auto_pause: pulumi.Input[Optional[_builtins.int]] = None,
+                 timeout_action: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The ``ScalingConfiguration`` property type specifies the scaling configuration of an Aurora Serverless v1 DB cluster. 
          For more information, see [Using Amazon Aurora Serverless](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html) in the *Amazon Aurora User Guide*.
@@ -246,7 +246,7 @@ class DbClusterScalingConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoPause")
-    def auto_pause(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_pause(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether to allow or disallow automatic pause for an Aurora DB cluster in ``serverless`` DB engine mode. A DB cluster can be paused only when it's idle (it has no connections).
           If a DB cluster is paused for more than seven days, the DB cluster might be backed up with a snapshot. In this case, the DB cluster is restored when there is a request to connect to it.
@@ -254,12 +254,12 @@ class DbClusterScalingConfigurationArgs:
         return pulumi.get(self, "auto_pause")
 
     @auto_pause.setter
-    def auto_pause(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_pause(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_pause", value)
 
     @_builtins.property
     @pulumi.getter(name="maxCapacity")
-    def max_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum capacity for an Aurora DB cluster in ``serverless`` DB engine mode.
          For Aurora MySQL, valid capacity values are ``1``, ``2``, ``4``, ``8``, ``16``, ``32``, ``64``, ``128``, and ``256``.
@@ -269,12 +269,12 @@ class DbClusterScalingConfigurationArgs:
         return pulumi.get(self, "max_capacity")
 
     @max_capacity.setter
-    def max_capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_capacity", value)
 
     @_builtins.property
     @pulumi.getter(name="minCapacity")
-    def min_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The minimum capacity for an Aurora DB cluster in ``serverless`` DB engine mode.
          For Aurora MySQL, valid capacity values are ``1``, ``2``, ``4``, ``8``, ``16``, ``32``, ``64``, ``128``, and ``256``.
@@ -284,12 +284,12 @@ class DbClusterScalingConfigurationArgs:
         return pulumi.get(self, "min_capacity")
 
     @min_capacity.setter
-    def min_capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_capacity", value)
 
     @_builtins.property
     @pulumi.getter(name="secondsBeforeTimeout")
-    def seconds_before_timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def seconds_before_timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The amount of time, in seconds, that Aurora Serverless v1 tries to find a scaling point to perform seamless scaling before enforcing the timeout action. The default is 300.
          Specify a value between 60 and 600 seconds.
@@ -297,12 +297,12 @@ class DbClusterScalingConfigurationArgs:
         return pulumi.get(self, "seconds_before_timeout")
 
     @seconds_before_timeout.setter
-    def seconds_before_timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def seconds_before_timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "seconds_before_timeout", value)
 
     @_builtins.property
     @pulumi.getter(name="secondsUntilAutoPause")
-    def seconds_until_auto_pause(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def seconds_until_auto_pause(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The time, in seconds, before an Aurora DB cluster in ``serverless`` mode is paused.
          Specify a value between 300 and 86,400 seconds.
@@ -310,12 +310,12 @@ class DbClusterScalingConfigurationArgs:
         return pulumi.get(self, "seconds_until_auto_pause")
 
     @seconds_until_auto_pause.setter
-    def seconds_until_auto_pause(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def seconds_until_auto_pause(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "seconds_until_auto_pause", value)
 
     @_builtins.property
     @pulumi.getter(name="timeoutAction")
-    def timeout_action(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def timeout_action(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The action to take when the timeout is reached, either ``ForceApplyCapacityChange`` or ``RollbackCapacityChange``.
          ``ForceApplyCapacityChange`` sets the capacity to the specified value as soon as possible.
@@ -326,7 +326,7 @@ class DbClusterScalingConfigurationArgs:
         return pulumi.get(self, "timeout_action")
 
     @timeout_action.setter
-    def timeout_action(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def timeout_action(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "timeout_action", value)
 
 
@@ -337,17 +337,17 @@ class DbClusterServerlessV2ScalingConfigurationArgsDict(TypedDict):
      This property is only supported for Aurora Serverless v2. For Aurora Serverless v1, use the ``ScalingConfiguration`` property.
      Valid for: Aurora Serverless v2 DB clusters
     """
-    max_capacity: NotRequired[pulumi.Input[_builtins.float]]
+    max_capacity: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The maximum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster. You can specify ACU values in half-step increments, such as 40, 40.5, 41, and so on. The largest value that you can use is 128.
      The maximum capacity must be higher than 0.5 ACUs. For more information, see [Choosing the maximum Aurora Serverless v2 capacity setting for a cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.setting-capacity.html#aurora-serverless-v2.max_capacity_considerations) in the *Amazon Aurora User Guide*.
      Aurora automatically sets certain parameters for Aurora Serverless V2 DB instances to values that depend on the maximum ACU value in the capacity range. When you update the maximum capacity value, the ``ParameterApplyStatus`` value for the DB instance changes to ``pending-reboot``. You can update the parameter values by rebooting the DB instance after changing the capacity range.
     """
-    min_capacity: NotRequired[pulumi.Input[_builtins.float]]
+    min_capacity: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The minimum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster. You can specify ACU values in half-step increments, such as 8, 8.5, 9, and so on. For Aurora versions that support the Aurora Serverless v2 auto-pause feature, the smallest value that you can use is 0. For versions that don't support Aurora Serverless v2 auto-pause, the smallest value that you can use is 0.5.
     """
-    seconds_until_auto_pause: NotRequired[pulumi.Input[_builtins.int]]
+    seconds_until_auto_pause: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the number of seconds an Aurora Serverless v2 DB instance must be idle before Aurora attempts to automatically pause it. 
      Specify a value between 300 seconds (five minutes) and 86,400 seconds (one day). The default is 300 seconds.
@@ -356,9 +356,9 @@ class DbClusterServerlessV2ScalingConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class DbClusterServerlessV2ScalingConfigurationArgs:
     def __init__(__self__, *,
-                 max_capacity: Optional[pulumi.Input[_builtins.float]] = None,
-                 min_capacity: Optional[pulumi.Input[_builtins.float]] = None,
-                 seconds_until_auto_pause: Optional[pulumi.Input[_builtins.int]] = None):
+                 max_capacity: pulumi.Input[Optional[_builtins.float]] = None,
+                 min_capacity: pulumi.Input[Optional[_builtins.float]] = None,
+                 seconds_until_auto_pause: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The ``ServerlessV2ScalingConfiguration`` property type specifies the scaling configuration of an Aurora Serverless V2 DB cluster. For more information, see [Using Amazon Aurora Serverless v2](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.html) in the *Amazon Aurora User Guide*.
          If you have an Aurora cluster, you must set this attribute before you add a DB instance that uses the ``db.serverless`` DB instance class. For more information, see [Clusters that use Aurora Serverless v2 must have a capacity range specified](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.requirements.html#aurora-serverless-v2.requirements.capacity-range) in the *Amazon Aurora User Guide*.
@@ -381,7 +381,7 @@ class DbClusterServerlessV2ScalingConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="maxCapacity")
-    def max_capacity(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def max_capacity(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The maximum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster. You can specify ACU values in half-step increments, such as 40, 40.5, 41, and so on. The largest value that you can use is 128.
          The maximum capacity must be higher than 0.5 ACUs. For more information, see [Choosing the maximum Aurora Serverless v2 capacity setting for a cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.setting-capacity.html#aurora-serverless-v2.max_capacity_considerations) in the *Amazon Aurora User Guide*.
@@ -390,24 +390,24 @@ class DbClusterServerlessV2ScalingConfigurationArgs:
         return pulumi.get(self, "max_capacity")
 
     @max_capacity.setter
-    def max_capacity(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def max_capacity(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "max_capacity", value)
 
     @_builtins.property
     @pulumi.getter(name="minCapacity")
-    def min_capacity(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def min_capacity(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The minimum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster. You can specify ACU values in half-step increments, such as 8, 8.5, 9, and so on. For Aurora versions that support the Aurora Serverless v2 auto-pause feature, the smallest value that you can use is 0. For versions that don't support Aurora Serverless v2 auto-pause, the smallest value that you can use is 0.5.
         """
         return pulumi.get(self, "min_capacity")
 
     @min_capacity.setter
-    def min_capacity(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def min_capacity(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "min_capacity", value)
 
     @_builtins.property
     @pulumi.getter(name="secondsUntilAutoPause")
-    def seconds_until_auto_pause(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def seconds_until_auto_pause(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of seconds an Aurora Serverless v2 DB instance must be idle before Aurora attempts to automatically pause it. 
          Specify a value between 300 seconds (five minutes) and 86,400 seconds (one day). The default is 300 seconds.
@@ -415,7 +415,7 @@ class DbClusterServerlessV2ScalingConfigurationArgs:
         return pulumi.get(self, "seconds_until_auto_pause")
 
     @seconds_until_auto_pause.setter
-    def seconds_until_auto_pause(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def seconds_until_auto_pause(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "seconds_until_auto_pause", value)
 
 
@@ -423,28 +423,28 @@ class DbInstanceAdditionalStorageVolumeArgsDict(TypedDict):
     """
     Contains details about an additional storage volume for a DB instance. RDS support additional storage volumes for RDS for Oracle and RDS for SQL Server.
     """
-    allocated_storage: NotRequired[pulumi.Input[_builtins.str]]
+    allocated_storage: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The amount of storage allocated for the additional storage volume, in gibibytes (GiB). The minimum is 20 GiB. The maximum is 65,536 GiB (64 TiB).
     """
-    iops: NotRequired[pulumi.Input[_builtins.int]]
+    iops: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The number of I/O operations per second (IOPS) provisioned for the additional storage volume.
     """
-    max_allocated_storage: NotRequired[pulumi.Input[_builtins.int]]
+    max_allocated_storage: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The upper limit in gibibytes (GiB) to which RDS can automatically scale the storage of the additional storage volume.
     """
-    storage_throughput: NotRequired[pulumi.Input[_builtins.int]]
+    storage_throughput: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The storage throughput value for the additional storage volume, in mebibytes per second (MiBps). This setting applies only to the General Purpose SSD (``gp3``) storage type.
     """
-    storage_type: NotRequired[pulumi.Input[_builtins.str]]
+    storage_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The storage type for the additional storage volume.
      Valid Values: ``GP3 | IO2``
     """
-    volume_name: NotRequired[pulumi.Input[_builtins.str]]
+    volume_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the additional storage volume.
      Valid Values: ``RDSDBDATA2 | RDSDBDATA3 | RDSDBDATA4``
@@ -453,12 +453,12 @@ class DbInstanceAdditionalStorageVolumeArgsDict(TypedDict):
 @pulumi.input_type
 class DbInstanceAdditionalStorageVolumeArgs:
     def __init__(__self__, *,
-                 allocated_storage: Optional[pulumi.Input[_builtins.str]] = None,
-                 iops: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_allocated_storage: Optional[pulumi.Input[_builtins.int]] = None,
-                 storage_throughput: Optional[pulumi.Input[_builtins.int]] = None,
-                 storage_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 volume_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 allocated_storage: pulumi.Input[Optional[_builtins.str]] = None,
+                 iops: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_allocated_storage: pulumi.Input[Optional[_builtins.int]] = None,
+                 storage_throughput: pulumi.Input[Optional[_builtins.int]] = None,
+                 storage_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 volume_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Contains details about an additional storage volume for a DB instance. RDS support additional storage volumes for RDS for Oracle and RDS for SQL Server.
 
@@ -486,55 +486,55 @@ class DbInstanceAdditionalStorageVolumeArgs:
 
     @_builtins.property
     @pulumi.getter(name="allocatedStorage")
-    def allocated_storage(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def allocated_storage(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The amount of storage allocated for the additional storage volume, in gibibytes (GiB). The minimum is 20 GiB. The maximum is 65,536 GiB (64 TiB).
         """
         return pulumi.get(self, "allocated_storage")
 
     @allocated_storage.setter
-    def allocated_storage(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def allocated_storage(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "allocated_storage", value)
 
     @_builtins.property
     @pulumi.getter
-    def iops(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def iops(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of I/O operations per second (IOPS) provisioned for the additional storage volume.
         """
         return pulumi.get(self, "iops")
 
     @iops.setter
-    def iops(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def iops(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "iops", value)
 
     @_builtins.property
     @pulumi.getter(name="maxAllocatedStorage")
-    def max_allocated_storage(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_allocated_storage(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The upper limit in gibibytes (GiB) to which RDS can automatically scale the storage of the additional storage volume.
         """
         return pulumi.get(self, "max_allocated_storage")
 
     @max_allocated_storage.setter
-    def max_allocated_storage(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_allocated_storage(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_allocated_storage", value)
 
     @_builtins.property
     @pulumi.getter(name="storageThroughput")
-    def storage_throughput(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def storage_throughput(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The storage throughput value for the additional storage volume, in mebibytes per second (MiBps). This setting applies only to the General Purpose SSD (``gp3``) storage type.
         """
         return pulumi.get(self, "storage_throughput")
 
     @storage_throughput.setter
-    def storage_throughput(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def storage_throughput(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "storage_throughput", value)
 
     @_builtins.property
     @pulumi.getter(name="storageType")
-    def storage_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The storage type for the additional storage volume.
          Valid Values: ``GP3 | IO2``
@@ -542,12 +542,12 @@ class DbInstanceAdditionalStorageVolumeArgs:
         return pulumi.get(self, "storage_type")
 
     @storage_type.setter
-    def storage_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_type", value)
 
     @_builtins.property
     @pulumi.getter(name="volumeName")
-    def volume_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def volume_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the additional storage volume.
          Valid Values: ``RDSDBDATA2 | RDSDBDATA3 | RDSDBDATA4``
@@ -555,7 +555,7 @@ class DbInstanceAdditionalStorageVolumeArgs:
         return pulumi.get(self, "volume_name")
 
     @volume_name.setter
-    def volume_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def volume_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "volume_name", value)
 
 
@@ -616,11 +616,11 @@ class DbInstanceMasterUserSecretArgsDict(TypedDict):
     The ``MasterUserSecret`` return value specifies the secret managed by RDS in AWS Secrets Manager for the master user password.
      For more information, see [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html) in the *Amazon RDS User Guide* and [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html) in the *Amazon Aurora User Guide.*
     """
-    kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    kms_key_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The AWS KMS key identifier that is used to encrypt the secret.
     """
-    secret_arn: NotRequired[pulumi.Input[_builtins.str]]
+    secret_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon Resource Name (ARN) of the secret. This parameter is a return value that you can retrieve using the ``Fn::GetAtt`` intrinsic function. For more information, see [Return values](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#aws-resource-rds-dbinstance-return-values).
     """
@@ -628,8 +628,8 @@ class DbInstanceMasterUserSecretArgsDict(TypedDict):
 @pulumi.input_type
 class DbInstanceMasterUserSecretArgs:
     def __init__(__self__, *,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The ``MasterUserSecret`` return value specifies the secret managed by RDS in AWS Secrets Manager for the master user password.
          For more information, see [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html) in the *Amazon RDS User Guide* and [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html) in the *Amazon Aurora User Guide.*
@@ -644,26 +644,26 @@ class DbInstanceMasterUserSecretArgs:
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS KMS key identifier that is used to encrypt the secret.
         """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="secretArn")
-    def secret_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secret_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the secret. This parameter is a return value that you can retrieve using the ``Fn::GetAtt`` intrinsic function. For more information, see [Return values](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#aws-resource-rds-dbinstance-return-values).
         """
         return pulumi.get(self, "secret_arn")
 
     @secret_arn.setter
-    def secret_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secret_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secret_arn", value)
 
 
@@ -671,11 +671,11 @@ class DbInstanceProcessorFeatureArgsDict(TypedDict):
     """
     The ``ProcessorFeature`` property type specifies the processor features of a DB instance class.
     """
-    name: NotRequired[pulumi.Input['DbInstanceProcessorFeatureName']]
+    name: NotRequired[pulumi.Input[Optional['DbInstanceProcessorFeatureName']]]
     """
     The name of the processor feature. Valid names are ``coreCount`` and ``threadsPerCore``.
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The value of a processor feature.
     """
@@ -683,8 +683,8 @@ class DbInstanceProcessorFeatureArgsDict(TypedDict):
 @pulumi.input_type
 class DbInstanceProcessorFeatureArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input['DbInstanceProcessorFeatureName']] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional['DbInstanceProcessorFeatureName']] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The ``ProcessorFeature`` property type specifies the processor features of a DB instance class.
 
@@ -698,47 +698,47 @@ class DbInstanceProcessorFeatureArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input['DbInstanceProcessorFeatureName']]:
+    def name(self) -> pulumi.Input[Optional['DbInstanceProcessorFeatureName']]:
         """
         The name of the processor feature. Valid names are ``coreCount`` and ``threadsPerCore``.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input['DbInstanceProcessorFeatureName']]):
+    def name(self, value: pulumi.Input[Optional['DbInstanceProcessorFeatureName']]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value of a processor feature.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
 class DbProxyAuthFormatArgsDict(TypedDict):
-    auth_scheme: NotRequired[pulumi.Input['DbProxyAuthFormatAuthScheme']]
+    auth_scheme: NotRequired[pulumi.Input[Optional['DbProxyAuthFormatAuthScheme']]]
     """
     The type of authentication that the proxy uses for connections from the proxy to the underlying database. 
     """
-    client_password_auth_type: NotRequired[pulumi.Input['DbProxyAuthFormatClientPasswordAuthType']]
+    client_password_auth_type: NotRequired[pulumi.Input[Optional['DbProxyAuthFormatClientPasswordAuthType']]]
     """
     The type of authentication the proxy uses for connections from clients.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A user-specified description about the authentication used by a proxy to log in as a specific database user. 
     """
-    iam_auth: NotRequired[pulumi.Input['DbProxyAuthFormatIamAuth']]
+    iam_auth: NotRequired[pulumi.Input[Optional['DbProxyAuthFormatIamAuth']]]
     """
     Whether to require or disallow Amazon Web Services Identity and Access Management (IAM) authentication for connections to the proxy. The ENABLED value is valid only for proxies with RDS for Microsoft SQL Server.
     """
-    secret_arn: NotRequired[pulumi.Input[_builtins.str]]
+    secret_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager. 
     """
@@ -746,11 +746,11 @@ class DbProxyAuthFormatArgsDict(TypedDict):
 @pulumi.input_type
 class DbProxyAuthFormatArgs:
     def __init__(__self__, *,
-                 auth_scheme: Optional[pulumi.Input['DbProxyAuthFormatAuthScheme']] = None,
-                 client_password_auth_type: Optional[pulumi.Input['DbProxyAuthFormatClientPasswordAuthType']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 iam_auth: Optional[pulumi.Input['DbProxyAuthFormatIamAuth']] = None,
-                 secret_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 auth_scheme: pulumi.Input[Optional['DbProxyAuthFormatAuthScheme']] = None,
+                 client_password_auth_type: pulumi.Input[Optional['DbProxyAuthFormatClientPasswordAuthType']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 iam_auth: pulumi.Input[Optional['DbProxyAuthFormatIamAuth']] = None,
+                 secret_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input['DbProxyAuthFormatAuthScheme'] auth_scheme: The type of authentication that the proxy uses for connections from the proxy to the underlying database. 
         :param pulumi.Input['DbProxyAuthFormatClientPasswordAuthType'] client_password_auth_type: The type of authentication the proxy uses for connections from clients.
@@ -771,83 +771,83 @@ class DbProxyAuthFormatArgs:
 
     @_builtins.property
     @pulumi.getter(name="authScheme")
-    def auth_scheme(self) -> Optional[pulumi.Input['DbProxyAuthFormatAuthScheme']]:
+    def auth_scheme(self) -> pulumi.Input[Optional['DbProxyAuthFormatAuthScheme']]:
         """
         The type of authentication that the proxy uses for connections from the proxy to the underlying database. 
         """
         return pulumi.get(self, "auth_scheme")
 
     @auth_scheme.setter
-    def auth_scheme(self, value: Optional[pulumi.Input['DbProxyAuthFormatAuthScheme']]):
+    def auth_scheme(self, value: pulumi.Input[Optional['DbProxyAuthFormatAuthScheme']]):
         pulumi.set(self, "auth_scheme", value)
 
     @_builtins.property
     @pulumi.getter(name="clientPasswordAuthType")
-    def client_password_auth_type(self) -> Optional[pulumi.Input['DbProxyAuthFormatClientPasswordAuthType']]:
+    def client_password_auth_type(self) -> pulumi.Input[Optional['DbProxyAuthFormatClientPasswordAuthType']]:
         """
         The type of authentication the proxy uses for connections from clients.
         """
         return pulumi.get(self, "client_password_auth_type")
 
     @client_password_auth_type.setter
-    def client_password_auth_type(self, value: Optional[pulumi.Input['DbProxyAuthFormatClientPasswordAuthType']]):
+    def client_password_auth_type(self, value: pulumi.Input[Optional['DbProxyAuthFormatClientPasswordAuthType']]):
         pulumi.set(self, "client_password_auth_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A user-specified description about the authentication used by a proxy to log in as a specific database user. 
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="iamAuth")
-    def iam_auth(self) -> Optional[pulumi.Input['DbProxyAuthFormatIamAuth']]:
+    def iam_auth(self) -> pulumi.Input[Optional['DbProxyAuthFormatIamAuth']]:
         """
         Whether to require or disallow Amazon Web Services Identity and Access Management (IAM) authentication for connections to the proxy. The ENABLED value is valid only for proxies with RDS for Microsoft SQL Server.
         """
         return pulumi.get(self, "iam_auth")
 
     @iam_auth.setter
-    def iam_auth(self, value: Optional[pulumi.Input['DbProxyAuthFormatIamAuth']]):
+    def iam_auth(self, value: pulumi.Input[Optional['DbProxyAuthFormatIamAuth']]):
         pulumi.set(self, "iam_auth", value)
 
     @_builtins.property
     @pulumi.getter(name="secretArn")
-    def secret_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secret_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager. 
         """
         return pulumi.get(self, "secret_arn")
 
     @secret_arn.setter
-    def secret_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secret_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secret_arn", value)
 
 
 class DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgsDict(TypedDict):
-    connection_borrow_timeout: NotRequired[pulumi.Input[_builtins.int]]
+    connection_borrow_timeout: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The number of seconds for a proxy to wait for a connection to become available in the connection pool.
     """
-    init_query: NotRequired[pulumi.Input[_builtins.str]]
+    init_query: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     One or more SQL statements for the proxy to run when opening each new database connection.
     """
-    max_connections_percent: NotRequired[pulumi.Input[_builtins.int]]
+    max_connections_percent: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum size of the connection pool for each target in a target group.
     """
-    max_idle_connections_percent: NotRequired[pulumi.Input[_builtins.int]]
+    max_idle_connections_percent: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Controls how actively the proxy closes idle database connections in the connection pool.
     """
-    session_pinning_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    session_pinning_filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Each item in the list represents a class of SQL operations that normally cause all later statements in a session using a proxy to be pinned to the same underlying database connection.
     """
@@ -855,11 +855,11 @@ class DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgsDict(TypedDict)
 @pulumi.input_type
 class DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs:
     def __init__(__self__, *,
-                 connection_borrow_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 init_query: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_connections_percent: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_idle_connections_percent: Optional[pulumi.Input[_builtins.int]] = None,
-                 session_pinning_filters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 connection_borrow_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 init_query: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_connections_percent: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_idle_connections_percent: pulumi.Input[Optional[_builtins.int]] = None,
+                 session_pinning_filters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.int] connection_borrow_timeout: The number of seconds for a proxy to wait for a connection to become available in the connection pool.
         :param pulumi.Input[_builtins.str] init_query: One or more SQL statements for the proxy to run when opening each new database connection.
@@ -880,62 +880,62 @@ class DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs:
 
     @_builtins.property
     @pulumi.getter(name="connectionBorrowTimeout")
-    def connection_borrow_timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def connection_borrow_timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of seconds for a proxy to wait for a connection to become available in the connection pool.
         """
         return pulumi.get(self, "connection_borrow_timeout")
 
     @connection_borrow_timeout.setter
-    def connection_borrow_timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def connection_borrow_timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "connection_borrow_timeout", value)
 
     @_builtins.property
     @pulumi.getter(name="initQuery")
-    def init_query(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def init_query(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         One or more SQL statements for the proxy to run when opening each new database connection.
         """
         return pulumi.get(self, "init_query")
 
     @init_query.setter
-    def init_query(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def init_query(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "init_query", value)
 
     @_builtins.property
     @pulumi.getter(name="maxConnectionsPercent")
-    def max_connections_percent(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_connections_percent(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum size of the connection pool for each target in a target group.
         """
         return pulumi.get(self, "max_connections_percent")
 
     @max_connections_percent.setter
-    def max_connections_percent(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_connections_percent(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_connections_percent", value)
 
     @_builtins.property
     @pulumi.getter(name="maxIdleConnectionsPercent")
-    def max_idle_connections_percent(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_idle_connections_percent(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Controls how actively the proxy closes idle database connections in the connection pool.
         """
         return pulumi.get(self, "max_idle_connections_percent")
 
     @max_idle_connections_percent.setter
-    def max_idle_connections_percent(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_idle_connections_percent(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_idle_connections_percent", value)
 
     @_builtins.property
     @pulumi.getter(name="sessionPinningFilters")
-    def session_pinning_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def session_pinning_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Each item in the list represents a class of SQL operations that normally cause all later statements in a session using a proxy to be pinned to the same underlying database connection.
         """
         return pulumi.get(self, "session_pinning_filters")
 
     @session_pinning_filters.setter
-    def session_pinning_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def session_pinning_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "session_pinning_filters", value)
 
 
@@ -947,23 +947,23 @@ class OptionGroupOptionConfigurationArgsDict(TypedDict):
     """
     The configuration of options to include in a group.
     """
-    db_security_group_memberships: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    db_security_group_memberships: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of DB security groups used for this option.
     """
-    option_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionSettingArgsDict']]]]
+    option_settings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OptionGroupOptionSettingArgsDict']]]]]
     """
     The option settings to include in an option group.
     """
-    option_version: NotRequired[pulumi.Input[_builtins.str]]
+    option_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The version for the option.
     """
-    port: NotRequired[pulumi.Input[_builtins.int]]
+    port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The optional port for the option.
     """
-    vpc_security_group_memberships: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    vpc_security_group_memberships: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of VPC security group names used for this option.
     """
@@ -972,11 +972,11 @@ class OptionGroupOptionConfigurationArgsDict(TypedDict):
 class OptionGroupOptionConfigurationArgs:
     def __init__(__self__, *,
                  option_name: pulumi.Input[_builtins.str],
-                 db_security_group_memberships: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 option_settings: Optional[pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionSettingArgs']]]] = None,
-                 option_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 vpc_security_group_memberships: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 db_security_group_memberships: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 option_settings: pulumi.Input[Optional[Sequence[pulumi.Input['OptionGroupOptionSettingArgs']]]] = None,
+                 option_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 vpc_security_group_memberships: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The ``OptionConfiguration`` property type specifies an individual option, and its settings, within an ``AWS::RDS::OptionGroup`` resource.
 
@@ -1013,62 +1013,62 @@ class OptionGroupOptionConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="dbSecurityGroupMemberships")
-    def db_security_group_memberships(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def db_security_group_memberships(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of DB security groups used for this option.
         """
         return pulumi.get(self, "db_security_group_memberships")
 
     @db_security_group_memberships.setter
-    def db_security_group_memberships(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def db_security_group_memberships(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "db_security_group_memberships", value)
 
     @_builtins.property
     @pulumi.getter(name="optionSettings")
-    def option_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionSettingArgs']]]]:
+    def option_settings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['OptionGroupOptionSettingArgs']]]]:
         """
         The option settings to include in an option group.
         """
         return pulumi.get(self, "option_settings")
 
     @option_settings.setter
-    def option_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionSettingArgs']]]]):
+    def option_settings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['OptionGroupOptionSettingArgs']]]]):
         pulumi.set(self, "option_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="optionVersion")
-    def option_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def option_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version for the option.
         """
         return pulumi.get(self, "option_version")
 
     @option_version.setter
-    def option_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def option_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "option_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The optional port for the option.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcSecurityGroupMemberships")
-    def vpc_security_group_memberships(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def vpc_security_group_memberships(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of VPC security group names used for this option.
         """
         return pulumi.get(self, "vpc_security_group_memberships")
 
     @vpc_security_group_memberships.setter
-    def vpc_security_group_memberships(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def vpc_security_group_memberships(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "vpc_security_group_memberships", value)
 
 
@@ -1076,11 +1076,11 @@ class OptionGroupOptionSettingArgsDict(TypedDict):
     """
     The ``OptionSetting`` property type specifies the value for an option within an ``OptionSetting`` property.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the option that has settings that you can set.
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The current value of the option setting.
     """
@@ -1088,8 +1088,8 @@ class OptionGroupOptionSettingArgsDict(TypedDict):
 @pulumi.input_type
 class OptionGroupOptionSettingArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The ``OptionSetting`` property type specifies the value for an option within an ``OptionSetting`` property.
 
@@ -1103,26 +1103,26 @@ class OptionGroupOptionSettingArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the option that has settings that you can set.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The current value of the option setting.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 

@@ -153,7 +153,7 @@ def get_deployment_strategy(id: Optional[_builtins.str] = None,
         growth_type=pulumi.get(__ret__, 'growth_type'),
         id=pulumi.get(__ret__, 'id'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_deployment_strategy_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_deployment_strategy_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDeploymentStrategyResult]:
     """
     Resource Type definition for AWS::AppConfig::DeploymentStrategy

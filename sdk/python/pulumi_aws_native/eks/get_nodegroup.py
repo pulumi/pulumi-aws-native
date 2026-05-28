@@ -200,7 +200,7 @@ def get_nodegroup(id: Optional[_builtins.str] = None,
         update_config=pulumi.get(__ret__, 'update_config'),
         version=pulumi.get(__ret__, 'version'),
         warm_pool_config=pulumi.get(__ret__, 'warm_pool_config'))
-def get_nodegroup_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_nodegroup_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNodegroupResult]:
     """
     Resource schema for AWS::EKS::Nodegroup

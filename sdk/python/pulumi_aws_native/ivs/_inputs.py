@@ -32,10 +32,10 @@ __all__ = [
     'StageHlsConfigurationArgsDict',
     'StageParticipantRecordingHlsConfigurationArgs',
     'StageParticipantRecordingHlsConfigurationArgsDict',
-    'StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesArgs',
-    'StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesArgsDict',
     'StageThumbnailConfigurationArgs',
     'StageThumbnailConfigurationArgsDict',
+    'StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesArgs',
+    'StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesArgsDict',
     'StorageConfigurationS3StorageConfigurationArgs',
     'StorageConfigurationS3StorageConfigurationArgsDict',
     'VideoPropertiesArgs',
@@ -43,15 +43,15 @@ __all__ = [
 ]
 
 class ChannelMultitrackInputConfigurationArgsDict(TypedDict):
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether multitrack input is enabled. Can be set to true only if channel type is STANDARD. Setting enabled to true with any other channel type will cause an exception. If true, then policy, maximumResolution, and containerFormat are required, and containerFormat must be set to FRAGMENTED_MP4. Default: false.
     """
-    maximum_resolution: NotRequired[pulumi.Input['ChannelMultitrackInputConfigurationMaximumResolution']]
+    maximum_resolution: NotRequired[pulumi.Input[Optional['ChannelMultitrackInputConfigurationMaximumResolution']]]
     """
     Maximum resolution for multitrack input. Required if enabled is true.
     """
-    policy: NotRequired[pulumi.Input['ChannelMultitrackInputConfigurationPolicy']]
+    policy: NotRequired[pulumi.Input[Optional['ChannelMultitrackInputConfigurationPolicy']]]
     """
     Indicates whether multitrack input is allowed or required. Required if enabled is true.
     """
@@ -59,9 +59,9 @@ class ChannelMultitrackInputConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class ChannelMultitrackInputConfigurationArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 maximum_resolution: Optional[pulumi.Input['ChannelMultitrackInputConfigurationMaximumResolution']] = None,
-                 policy: Optional[pulumi.Input['ChannelMultitrackInputConfigurationPolicy']] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 maximum_resolution: pulumi.Input[Optional['ChannelMultitrackInputConfigurationMaximumResolution']] = None,
+                 policy: pulumi.Input[Optional['ChannelMultitrackInputConfigurationPolicy']] = None):
         """
         :param pulumi.Input[_builtins.bool] enabled: Indicates whether multitrack input is enabled. Can be set to true only if channel type is STANDARD. Setting enabled to true with any other channel type will cause an exception. If true, then policy, maximumResolution, and containerFormat are required, and containerFormat must be set to FRAGMENTED_MP4. Default: false.
         :param pulumi.Input['ChannelMultitrackInputConfigurationMaximumResolution'] maximum_resolution: Maximum resolution for multitrack input. Required if enabled is true.
@@ -76,38 +76,38 @@ class ChannelMultitrackInputConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether multitrack input is enabled. Can be set to true only if channel type is STANDARD. Setting enabled to true with any other channel type will cause an exception. If true, then policy, maximumResolution, and containerFormat are required, and containerFormat must be set to FRAGMENTED_MP4. Default: false.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="maximumResolution")
-    def maximum_resolution(self) -> Optional[pulumi.Input['ChannelMultitrackInputConfigurationMaximumResolution']]:
+    def maximum_resolution(self) -> pulumi.Input[Optional['ChannelMultitrackInputConfigurationMaximumResolution']]:
         """
         Maximum resolution for multitrack input. Required if enabled is true.
         """
         return pulumi.get(self, "maximum_resolution")
 
     @maximum_resolution.setter
-    def maximum_resolution(self, value: Optional[pulumi.Input['ChannelMultitrackInputConfigurationMaximumResolution']]):
+    def maximum_resolution(self, value: pulumi.Input[Optional['ChannelMultitrackInputConfigurationMaximumResolution']]):
         pulumi.set(self, "maximum_resolution", value)
 
     @_builtins.property
     @pulumi.getter
-    def policy(self) -> Optional[pulumi.Input['ChannelMultitrackInputConfigurationPolicy']]:
+    def policy(self) -> pulumi.Input[Optional['ChannelMultitrackInputConfigurationPolicy']]:
         """
         Indicates whether multitrack input is allowed or required. Required if enabled is true.
         """
         return pulumi.get(self, "policy")
 
     @policy.setter
-    def policy(self, value: Optional[pulumi.Input['ChannelMultitrackInputConfigurationPolicy']]):
+    def policy(self, value: pulumi.Input[Optional['ChannelMultitrackInputConfigurationPolicy']]):
         pulumi.set(self, "policy", value)
 
 
@@ -115,7 +115,7 @@ class RecordingConfigurationDestinationConfigurationArgsDict(TypedDict):
     """
     Recording Destination Configuration.
     """
-    s3: NotRequired[pulumi.Input['RecordingConfigurationS3DestinationConfigurationArgsDict']]
+    s3: NotRequired[pulumi.Input[Optional['RecordingConfigurationS3DestinationConfigurationArgsDict']]]
     """
     An S3 destination configuration where recorded videos will be stored. See the [S3DestinationConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-s3destinationconfiguration.html) property type for more information.
     """
@@ -123,7 +123,7 @@ class RecordingConfigurationDestinationConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class RecordingConfigurationDestinationConfigurationArgs:
     def __init__(__self__, *,
-                 s3: Optional[pulumi.Input['RecordingConfigurationS3DestinationConfigurationArgs']] = None):
+                 s3: pulumi.Input[Optional['RecordingConfigurationS3DestinationConfigurationArgs']] = None):
         """
         Recording Destination Configuration.
 
@@ -134,14 +134,14 @@ class RecordingConfigurationDestinationConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def s3(self) -> Optional[pulumi.Input['RecordingConfigurationS3DestinationConfigurationArgs']]:
+    def s3(self) -> pulumi.Input[Optional['RecordingConfigurationS3DestinationConfigurationArgs']]:
         """
         An S3 destination configuration where recorded videos will be stored. See the [S3DestinationConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-s3destinationconfiguration.html) property type for more information.
         """
         return pulumi.get(self, "s3")
 
     @s3.setter
-    def s3(self, value: Optional[pulumi.Input['RecordingConfigurationS3DestinationConfigurationArgs']]):
+    def s3(self, value: pulumi.Input[Optional['RecordingConfigurationS3DestinationConfigurationArgs']]):
         pulumi.set(self, "s3", value)
 
 
@@ -149,11 +149,11 @@ class RecordingConfigurationRenditionConfigurationArgsDict(TypedDict):
     """
     Rendition Configuration describes which renditions should be recorded for a stream.
     """
-    rendition_selection: NotRequired[pulumi.Input['RecordingConfigurationRenditionConfigurationRenditionSelection']]
+    rendition_selection: NotRequired[pulumi.Input[Optional['RecordingConfigurationRenditionConfigurationRenditionSelection']]]
     """
     Resolution Selection indicates which set of renditions are recorded for a stream.
     """
-    renditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['RecordingConfigurationRenditionConfigurationRenditionsItem']]]]
+    renditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RecordingConfigurationRenditionConfigurationRenditionsItem']]]]]
     """
     Renditions indicates which renditions are recorded for a stream.
     """
@@ -161,8 +161,8 @@ class RecordingConfigurationRenditionConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class RecordingConfigurationRenditionConfigurationArgs:
     def __init__(__self__, *,
-                 rendition_selection: Optional[pulumi.Input['RecordingConfigurationRenditionConfigurationRenditionSelection']] = None,
-                 renditions: Optional[pulumi.Input[Sequence[pulumi.Input['RecordingConfigurationRenditionConfigurationRenditionsItem']]]] = None):
+                 rendition_selection: pulumi.Input[Optional['RecordingConfigurationRenditionConfigurationRenditionSelection']] = None,
+                 renditions: pulumi.Input[Optional[Sequence[pulumi.Input['RecordingConfigurationRenditionConfigurationRenditionsItem']]]] = None):
         """
         Rendition Configuration describes which renditions should be recorded for a stream.
 
@@ -176,26 +176,26 @@ class RecordingConfigurationRenditionConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="renditionSelection")
-    def rendition_selection(self) -> Optional[pulumi.Input['RecordingConfigurationRenditionConfigurationRenditionSelection']]:
+    def rendition_selection(self) -> pulumi.Input[Optional['RecordingConfigurationRenditionConfigurationRenditionSelection']]:
         """
         Resolution Selection indicates which set of renditions are recorded for a stream.
         """
         return pulumi.get(self, "rendition_selection")
 
     @rendition_selection.setter
-    def rendition_selection(self, value: Optional[pulumi.Input['RecordingConfigurationRenditionConfigurationRenditionSelection']]):
+    def rendition_selection(self, value: pulumi.Input[Optional['RecordingConfigurationRenditionConfigurationRenditionSelection']]):
         pulumi.set(self, "rendition_selection", value)
 
     @_builtins.property
     @pulumi.getter
-    def renditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RecordingConfigurationRenditionConfigurationRenditionsItem']]]]:
+    def renditions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RecordingConfigurationRenditionConfigurationRenditionsItem']]]]:
         """
         Renditions indicates which renditions are recorded for a stream.
         """
         return pulumi.get(self, "renditions")
 
     @renditions.setter
-    def renditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RecordingConfigurationRenditionConfigurationRenditionsItem']]]]):
+    def renditions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RecordingConfigurationRenditionConfigurationRenditionsItem']]]]):
         pulumi.set(self, "renditions", value)
 
 
@@ -236,19 +236,19 @@ class RecordingConfigurationThumbnailConfigurationArgsDict(TypedDict):
     """
     Recording Thumbnail Configuration.
     """
-    recording_mode: NotRequired[pulumi.Input['RecordingConfigurationThumbnailConfigurationRecordingMode']]
+    recording_mode: NotRequired[pulumi.Input[Optional['RecordingConfigurationThumbnailConfigurationRecordingMode']]]
     """
     Thumbnail Recording Mode, which determines whether thumbnails are recorded at an interval or are disabled.
     """
-    resolution: NotRequired[pulumi.Input['RecordingConfigurationThumbnailConfigurationResolution']]
+    resolution: NotRequired[pulumi.Input[Optional['RecordingConfigurationThumbnailConfigurationResolution']]]
     """
     Resolution indicates the desired resolution of recorded thumbnails.
     """
-    storage: NotRequired[pulumi.Input[Sequence[pulumi.Input['RecordingConfigurationThumbnailConfigurationStorageItem']]]]
+    storage: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RecordingConfigurationThumbnailConfigurationStorageItem']]]]]
     """
     Storage indicates the format in which thumbnails are recorded.
     """
-    target_interval_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    target_interval_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Target Interval Seconds defines the interval at which thumbnails are recorded. This field is required if RecordingMode is INTERVAL.
     """
@@ -256,10 +256,10 @@ class RecordingConfigurationThumbnailConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class RecordingConfigurationThumbnailConfigurationArgs:
     def __init__(__self__, *,
-                 recording_mode: Optional[pulumi.Input['RecordingConfigurationThumbnailConfigurationRecordingMode']] = None,
-                 resolution: Optional[pulumi.Input['RecordingConfigurationThumbnailConfigurationResolution']] = None,
-                 storage: Optional[pulumi.Input[Sequence[pulumi.Input['RecordingConfigurationThumbnailConfigurationStorageItem']]]] = None,
-                 target_interval_seconds: Optional[pulumi.Input[_builtins.int]] = None):
+                 recording_mode: pulumi.Input[Optional['RecordingConfigurationThumbnailConfigurationRecordingMode']] = None,
+                 resolution: pulumi.Input[Optional['RecordingConfigurationThumbnailConfigurationResolution']] = None,
+                 storage: pulumi.Input[Optional[Sequence[pulumi.Input['RecordingConfigurationThumbnailConfigurationStorageItem']]]] = None,
+                 target_interval_seconds: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Recording Thumbnail Configuration.
 
@@ -279,50 +279,50 @@ class RecordingConfigurationThumbnailConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="recordingMode")
-    def recording_mode(self) -> Optional[pulumi.Input['RecordingConfigurationThumbnailConfigurationRecordingMode']]:
+    def recording_mode(self) -> pulumi.Input[Optional['RecordingConfigurationThumbnailConfigurationRecordingMode']]:
         """
         Thumbnail Recording Mode, which determines whether thumbnails are recorded at an interval or are disabled.
         """
         return pulumi.get(self, "recording_mode")
 
     @recording_mode.setter
-    def recording_mode(self, value: Optional[pulumi.Input['RecordingConfigurationThumbnailConfigurationRecordingMode']]):
+    def recording_mode(self, value: pulumi.Input[Optional['RecordingConfigurationThumbnailConfigurationRecordingMode']]):
         pulumi.set(self, "recording_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def resolution(self) -> Optional[pulumi.Input['RecordingConfigurationThumbnailConfigurationResolution']]:
+    def resolution(self) -> pulumi.Input[Optional['RecordingConfigurationThumbnailConfigurationResolution']]:
         """
         Resolution indicates the desired resolution of recorded thumbnails.
         """
         return pulumi.get(self, "resolution")
 
     @resolution.setter
-    def resolution(self, value: Optional[pulumi.Input['RecordingConfigurationThumbnailConfigurationResolution']]):
+    def resolution(self, value: pulumi.Input[Optional['RecordingConfigurationThumbnailConfigurationResolution']]):
         pulumi.set(self, "resolution", value)
 
     @_builtins.property
     @pulumi.getter
-    def storage(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RecordingConfigurationThumbnailConfigurationStorageItem']]]]:
+    def storage(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RecordingConfigurationThumbnailConfigurationStorageItem']]]]:
         """
         Storage indicates the format in which thumbnails are recorded.
         """
         return pulumi.get(self, "storage")
 
     @storage.setter
-    def storage(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RecordingConfigurationThumbnailConfigurationStorageItem']]]]):
+    def storage(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RecordingConfigurationThumbnailConfigurationStorageItem']]]]):
         pulumi.set(self, "storage", value)
 
     @_builtins.property
     @pulumi.getter(name="targetIntervalSeconds")
-    def target_interval_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def target_interval_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Target Interval Seconds defines the interval at which thumbnails are recorded. This field is required if RecordingMode is INTERVAL.
         """
         return pulumi.get(self, "target_interval_seconds")
 
     @target_interval_seconds.setter
-    def target_interval_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def target_interval_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "target_interval_seconds", value)
 
 
@@ -334,19 +334,19 @@ class StageAutoParticipantRecordingConfigurationArgsDict(TypedDict):
     """
     ARN of the StorageConfiguration resource to use for individual participant recording.
     """
-    hls_configuration: NotRequired[pulumi.Input['StageHlsConfigurationArgsDict']]
+    hls_configuration: NotRequired[pulumi.Input[Optional['StageHlsConfigurationArgsDict']]]
     """
     HLS configuration object for individual participant recording.
     """
-    media_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['StageAutoParticipantRecordingConfigurationMediaTypesItem']]]]
+    media_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageAutoParticipantRecordingConfigurationMediaTypesItem']]]]]
     """
     Types of media to be recorded. Default: AUDIO_VIDEO.
     """
-    recording_reconnect_window_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    recording_reconnect_window_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     If a stage publisher disconnects and then reconnects within the specified interval, the multiple recordings will be considered a single recording and merged together. The default value is 0, which disables merging.
     """
-    thumbnail_configuration: NotRequired[pulumi.Input['StageThumbnailConfigurationArgsDict']]
+    thumbnail_configuration: NotRequired[pulumi.Input[Optional['StageThumbnailConfigurationArgsDict']]]
     """
     A complex type that allows you to enable/disable the recording of thumbnails for individual participant recording and modify the interval at which thumbnails are generated for the live session.
     """
@@ -355,10 +355,10 @@ class StageAutoParticipantRecordingConfigurationArgsDict(TypedDict):
 class StageAutoParticipantRecordingConfigurationArgs:
     def __init__(__self__, *,
                  storage_configuration_arn: pulumi.Input[_builtins.str],
-                 hls_configuration: Optional[pulumi.Input['StageHlsConfigurationArgs']] = None,
-                 media_types: Optional[pulumi.Input[Sequence[pulumi.Input['StageAutoParticipantRecordingConfigurationMediaTypesItem']]]] = None,
-                 recording_reconnect_window_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 thumbnail_configuration: Optional[pulumi.Input['StageThumbnailConfigurationArgs']] = None):
+                 hls_configuration: pulumi.Input[Optional['StageHlsConfigurationArgs']] = None,
+                 media_types: pulumi.Input[Optional[Sequence[pulumi.Input['StageAutoParticipantRecordingConfigurationMediaTypesItem']]]] = None,
+                 recording_reconnect_window_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 thumbnail_configuration: pulumi.Input[Optional['StageThumbnailConfigurationArgs']] = None):
         """
         Configuration object for individual participant recording, to attach to the new stage.
 
@@ -392,50 +392,50 @@ class StageAutoParticipantRecordingConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="hlsConfiguration")
-    def hls_configuration(self) -> Optional[pulumi.Input['StageHlsConfigurationArgs']]:
+    def hls_configuration(self) -> pulumi.Input[Optional['StageHlsConfigurationArgs']]:
         """
         HLS configuration object for individual participant recording.
         """
         return pulumi.get(self, "hls_configuration")
 
     @hls_configuration.setter
-    def hls_configuration(self, value: Optional[pulumi.Input['StageHlsConfigurationArgs']]):
+    def hls_configuration(self, value: pulumi.Input[Optional['StageHlsConfigurationArgs']]):
         pulumi.set(self, "hls_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="mediaTypes")
-    def media_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StageAutoParticipantRecordingConfigurationMediaTypesItem']]]]:
+    def media_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['StageAutoParticipantRecordingConfigurationMediaTypesItem']]]]:
         """
         Types of media to be recorded. Default: AUDIO_VIDEO.
         """
         return pulumi.get(self, "media_types")
 
     @media_types.setter
-    def media_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StageAutoParticipantRecordingConfigurationMediaTypesItem']]]]):
+    def media_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['StageAutoParticipantRecordingConfigurationMediaTypesItem']]]]):
         pulumi.set(self, "media_types", value)
 
     @_builtins.property
     @pulumi.getter(name="recordingReconnectWindowSeconds")
-    def recording_reconnect_window_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def recording_reconnect_window_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         If a stage publisher disconnects and then reconnects within the specified interval, the multiple recordings will be considered a single recording and merged together. The default value is 0, which disables merging.
         """
         return pulumi.get(self, "recording_reconnect_window_seconds")
 
     @recording_reconnect_window_seconds.setter
-    def recording_reconnect_window_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def recording_reconnect_window_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "recording_reconnect_window_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="thumbnailConfiguration")
-    def thumbnail_configuration(self) -> Optional[pulumi.Input['StageThumbnailConfigurationArgs']]:
+    def thumbnail_configuration(self) -> pulumi.Input[Optional['StageThumbnailConfigurationArgs']]:
         """
         A complex type that allows you to enable/disable the recording of thumbnails for individual participant recording and modify the interval at which thumbnails are generated for the live session.
         """
         return pulumi.get(self, "thumbnail_configuration")
 
     @thumbnail_configuration.setter
-    def thumbnail_configuration(self, value: Optional[pulumi.Input['StageThumbnailConfigurationArgs']]):
+    def thumbnail_configuration(self, value: pulumi.Input[Optional['StageThumbnailConfigurationArgs']]):
         pulumi.set(self, "thumbnail_configuration", value)
 
 
@@ -443,7 +443,7 @@ class StageHlsConfigurationArgsDict(TypedDict):
     """
     HLS configuration object for individual participant recording.
     """
-    participant_recording_hls_configuration: NotRequired[pulumi.Input['StageParticipantRecordingHlsConfigurationArgsDict']]
+    participant_recording_hls_configuration: NotRequired[pulumi.Input[Optional['StageParticipantRecordingHlsConfigurationArgsDict']]]
     """
     Object specifying a configuration of participant HLS recordings for individual participant recording.
     """
@@ -451,7 +451,7 @@ class StageHlsConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class StageHlsConfigurationArgs:
     def __init__(__self__, *,
-                 participant_recording_hls_configuration: Optional[pulumi.Input['StageParticipantRecordingHlsConfigurationArgs']] = None):
+                 participant_recording_hls_configuration: pulumi.Input[Optional['StageParticipantRecordingHlsConfigurationArgs']] = None):
         """
         HLS configuration object for individual participant recording.
 
@@ -462,14 +462,14 @@ class StageHlsConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="participantRecordingHlsConfiguration")
-    def participant_recording_hls_configuration(self) -> Optional[pulumi.Input['StageParticipantRecordingHlsConfigurationArgs']]:
+    def participant_recording_hls_configuration(self) -> pulumi.Input[Optional['StageParticipantRecordingHlsConfigurationArgs']]:
         """
         Object specifying a configuration of participant HLS recordings for individual participant recording.
         """
         return pulumi.get(self, "participant_recording_hls_configuration")
 
     @participant_recording_hls_configuration.setter
-    def participant_recording_hls_configuration(self, value: Optional[pulumi.Input['StageParticipantRecordingHlsConfigurationArgs']]):
+    def participant_recording_hls_configuration(self, value: pulumi.Input[Optional['StageParticipantRecordingHlsConfigurationArgs']]):
         pulumi.set(self, "participant_recording_hls_configuration", value)
 
 
@@ -477,7 +477,7 @@ class StageParticipantRecordingHlsConfigurationArgsDict(TypedDict):
     """
     An object representing a configuration of participant HLS recordings for individual participant recording.
     """
-    target_segment_duration_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    target_segment_duration_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Defines the target duration for recorded segments generated when recording a stage participant. Segments may have durations longer than the specified value when needed to ensure each segment begins with a keyframe. Default: 6.
     """
@@ -485,7 +485,7 @@ class StageParticipantRecordingHlsConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class StageParticipantRecordingHlsConfigurationArgs:
     def __init__(__self__, *,
-                 target_segment_duration_seconds: Optional[pulumi.Input[_builtins.int]] = None):
+                 target_segment_duration_seconds: pulumi.Input[Optional[_builtins.int]] = None):
         """
         An object representing a configuration of participant HLS recordings for individual participant recording.
 
@@ -496,30 +496,64 @@ class StageParticipantRecordingHlsConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="targetSegmentDurationSeconds")
-    def target_segment_duration_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def target_segment_duration_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Defines the target duration for recorded segments generated when recording a stage participant. Segments may have durations longer than the specified value when needed to ensure each segment begins with a keyframe. Default: 6.
         """
         return pulumi.get(self, "target_segment_duration_seconds")
 
     @target_segment_duration_seconds.setter
-    def target_segment_duration_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def target_segment_duration_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "target_segment_duration_seconds", value)
+
+
+class StageThumbnailConfigurationArgsDict(TypedDict):
+    """
+    A complex type that allows you to enable/disable the recording of thumbnails for individual participant recording and modify the interval at which thumbnails are generated for the live session.
+    """
+    participant_thumbnail_configuration: NotRequired[pulumi.Input[Optional['StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesArgsDict']]]
+    """
+    An object representing a configuration of thumbnails for recorded video from an individual participant.
+    """
+
+@pulumi.input_type
+class StageThumbnailConfigurationArgs:
+    def __init__(__self__, *,
+                 participant_thumbnail_configuration: pulumi.Input[Optional['StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesArgs']] = None):
+        """
+        A complex type that allows you to enable/disable the recording of thumbnails for individual participant recording and modify the interval at which thumbnails are generated for the live session.
+
+        :param pulumi.Input['StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesArgs'] participant_thumbnail_configuration: An object representing a configuration of thumbnails for recorded video from an individual participant.
+        """
+        if participant_thumbnail_configuration is not None:
+            pulumi.set(__self__, "participant_thumbnail_configuration", participant_thumbnail_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="participantThumbnailConfiguration")
+    def participant_thumbnail_configuration(self) -> pulumi.Input[Optional['StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesArgs']]:
+        """
+        An object representing a configuration of thumbnails for recorded video from an individual participant.
+        """
+        return pulumi.get(self, "participant_thumbnail_configuration")
+
+    @participant_thumbnail_configuration.setter
+    def participant_thumbnail_configuration(self, value: pulumi.Input[Optional['StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesArgs']]):
+        pulumi.set(self, "participant_thumbnail_configuration", value)
 
 
 class StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesArgsDict(TypedDict):
     """
     An object representing a configuration of thumbnails for recorded video from an individual participant.
     """
-    recording_mode: NotRequired[pulumi.Input['StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesRecordingMode']]
+    recording_mode: NotRequired[pulumi.Input[Optional['StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesRecordingMode']]]
     """
     Thumbnail recording mode. Default: DISABLED.
     """
-    storage: NotRequired[pulumi.Input[Sequence[pulumi.Input['StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesStorageItem']]]]
+    storage: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesStorageItem']]]]]
     """
     Indicates the format in which thumbnails are recorded. SEQUENTIAL records all generated thumbnails in a serial manner, to the media/thumbnails/high directory. LATEST saves the latest thumbnail in media/latest_thumbnail/high/thumb.jpg and overwrites it at the interval specified by targetIntervalSeconds. You can enable both SEQUENTIAL and LATEST. Default: SEQUENTIAL.
     """
-    target_interval_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    target_interval_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The targeted thumbnail-generation interval in seconds. This is configurable only if recordingMode is INTERVAL. Default: 60.
     """
@@ -527,9 +561,9 @@ class StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesArgs
 @pulumi.input_type
 class StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesArgs:
     def __init__(__self__, *,
-                 recording_mode: Optional[pulumi.Input['StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesRecordingMode']] = None,
-                 storage: Optional[pulumi.Input[Sequence[pulumi.Input['StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesStorageItem']]]] = None,
-                 target_interval_seconds: Optional[pulumi.Input[_builtins.int]] = None):
+                 recording_mode: pulumi.Input[Optional['StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesRecordingMode']] = None,
+                 storage: pulumi.Input[Optional[Sequence[pulumi.Input['StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesStorageItem']]]] = None,
+                 target_interval_seconds: pulumi.Input[Optional[_builtins.int]] = None):
         """
         An object representing a configuration of thumbnails for recorded video from an individual participant.
 
@@ -546,73 +580,39 @@ class StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesArgs
 
     @_builtins.property
     @pulumi.getter(name="recordingMode")
-    def recording_mode(self) -> Optional[pulumi.Input['StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesRecordingMode']]:
+    def recording_mode(self) -> pulumi.Input[Optional['StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesRecordingMode']]:
         """
         Thumbnail recording mode. Default: DISABLED.
         """
         return pulumi.get(self, "recording_mode")
 
     @recording_mode.setter
-    def recording_mode(self, value: Optional[pulumi.Input['StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesRecordingMode']]):
+    def recording_mode(self, value: pulumi.Input[Optional['StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesRecordingMode']]):
         pulumi.set(self, "recording_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def storage(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesStorageItem']]]]:
+    def storage(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesStorageItem']]]]:
         """
         Indicates the format in which thumbnails are recorded. SEQUENTIAL records all generated thumbnails in a serial manner, to the media/thumbnails/high directory. LATEST saves the latest thumbnail in media/latest_thumbnail/high/thumb.jpg and overwrites it at the interval specified by targetIntervalSeconds. You can enable both SEQUENTIAL and LATEST. Default: SEQUENTIAL.
         """
         return pulumi.get(self, "storage")
 
     @storage.setter
-    def storage(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesStorageItem']]]]):
+    def storage(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesStorageItem']]]]):
         pulumi.set(self, "storage", value)
 
     @_builtins.property
     @pulumi.getter(name="targetIntervalSeconds")
-    def target_interval_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def target_interval_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The targeted thumbnail-generation interval in seconds. This is configurable only if recordingMode is INTERVAL. Default: 60.
         """
         return pulumi.get(self, "target_interval_seconds")
 
     @target_interval_seconds.setter
-    def target_interval_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def target_interval_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "target_interval_seconds", value)
-
-
-class StageThumbnailConfigurationArgsDict(TypedDict):
-    """
-    A complex type that allows you to enable/disable the recording of thumbnails for individual participant recording and modify the interval at which thumbnails are generated for the live session.
-    """
-    participant_thumbnail_configuration: NotRequired[pulumi.Input['StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesArgsDict']]
-    """
-    An object representing a configuration of thumbnails for recorded video from an individual participant.
-    """
-
-@pulumi.input_type
-class StageThumbnailConfigurationArgs:
-    def __init__(__self__, *,
-                 participant_thumbnail_configuration: Optional[pulumi.Input['StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesArgs']] = None):
-        """
-        A complex type that allows you to enable/disable the recording of thumbnails for individual participant recording and modify the interval at which thumbnails are generated for the live session.
-
-        :param pulumi.Input['StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesArgs'] participant_thumbnail_configuration: An object representing a configuration of thumbnails for recorded video from an individual participant.
-        """
-        if participant_thumbnail_configuration is not None:
-            pulumi.set(__self__, "participant_thumbnail_configuration", participant_thumbnail_configuration)
-
-    @_builtins.property
-    @pulumi.getter(name="participantThumbnailConfiguration")
-    def participant_thumbnail_configuration(self) -> Optional[pulumi.Input['StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesArgs']]:
-        """
-        An object representing a configuration of thumbnails for recorded video from an individual participant.
-        """
-        return pulumi.get(self, "participant_thumbnail_configuration")
-
-    @participant_thumbnail_configuration.setter
-    def participant_thumbnail_configuration(self, value: Optional[pulumi.Input['StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesArgs']]):
-        pulumi.set(self, "participant_thumbnail_configuration", value)
 
 
 class StorageConfigurationS3StorageConfigurationArgsDict(TypedDict):
@@ -652,19 +652,19 @@ class VideoPropertiesArgsDict(TypedDict):
     """
     Video configuration. Default: video resolution 1280x720, bitrate 2500 kbps, 30 fps
     """
-    bitrate: NotRequired[pulumi.Input[_builtins.int]]
+    bitrate: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Bitrate for generated output, in bps. Default: 2500000.
     """
-    framerate: NotRequired[pulumi.Input[_builtins.float]]
+    framerate: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Video frame rate, in fps. Default: 30.
     """
-    height: NotRequired[pulumi.Input[_builtins.int]]
+    height: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Video-resolution height. This must be an even number. Note that the maximum value is determined by width times height, such that the maximum total pixels is 2073600 (1920x1080 or 1080x1920). Default: 720.
     """
-    width: NotRequired[pulumi.Input[_builtins.int]]
+    width: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Video-resolution width. This must be an even number. Note that the maximum value is determined by width times height, such that the maximum total pixels is 2073600 (1920x1080 or 1080x1920). Default: 1280.
     """
@@ -672,10 +672,10 @@ class VideoPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class VideoPropertiesArgs:
     def __init__(__self__, *,
-                 bitrate: Optional[pulumi.Input[_builtins.int]] = None,
-                 framerate: Optional[pulumi.Input[_builtins.float]] = None,
-                 height: Optional[pulumi.Input[_builtins.int]] = None,
-                 width: Optional[pulumi.Input[_builtins.int]] = None):
+                 bitrate: pulumi.Input[Optional[_builtins.int]] = None,
+                 framerate: pulumi.Input[Optional[_builtins.float]] = None,
+                 height: pulumi.Input[Optional[_builtins.int]] = None,
+                 width: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Video configuration. Default: video resolution 1280x720, bitrate 2500 kbps, 30 fps
 
@@ -695,50 +695,50 @@ class VideoPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def bitrate(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def bitrate(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Bitrate for generated output, in bps. Default: 2500000.
         """
         return pulumi.get(self, "bitrate")
 
     @bitrate.setter
-    def bitrate(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def bitrate(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "bitrate", value)
 
     @_builtins.property
     @pulumi.getter
-    def framerate(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def framerate(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Video frame rate, in fps. Default: 30.
         """
         return pulumi.get(self, "framerate")
 
     @framerate.setter
-    def framerate(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def framerate(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "framerate", value)
 
     @_builtins.property
     @pulumi.getter
-    def height(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def height(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Video-resolution height. This must be an even number. Note that the maximum value is determined by width times height, such that the maximum total pixels is 2073600 (1920x1080 or 1080x1920). Default: 720.
         """
         return pulumi.get(self, "height")
 
     @height.setter
-    def height(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def height(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "height", value)
 
     @_builtins.property
     @pulumi.getter
-    def width(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def width(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Video-resolution width. This must be an even number. Note that the maximum value is determined by width times height, such that the maximum total pixels is 2073600 (1920x1080 or 1080x1920). Default: 1280.
         """
         return pulumi.get(self, "width")
 
     @width.setter
-    def width(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def width(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "width", value)
 
 

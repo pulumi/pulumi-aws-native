@@ -22,8 +22,8 @@ __all__ = ['VpnGatewayArgs', 'VpnGateway']
 class VpnGatewayArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 amazon_side_asn: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 amazon_side_asn: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a VpnGateway resource.
 
@@ -51,26 +51,26 @@ class VpnGatewayArgs:
 
     @_builtins.property
     @pulumi.getter(name="amazonSideAsn")
-    def amazon_side_asn(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def amazon_side_asn(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The private Autonomous System Number (ASN) for the Amazon side of a BGP session.
         """
         return pulumi.get(self, "amazon_side_asn")
 
     @amazon_side_asn.setter
-    def amazon_side_asn(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def amazon_side_asn(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "amazon_side_asn", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Any tags assigned to the virtual private gateway.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -80,9 +80,9 @@ class VpnGateway(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 amazon_side_asn: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 amazon_side_asn: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Specifies a virtual private gateway. A virtual private gateway is the endpoint on the VPC side of your VPN connection. You can create a virtual private gateway before creating the VPC itself.
@@ -121,9 +121,9 @@ class VpnGateway(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 amazon_side_asn: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 amazon_side_asn: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

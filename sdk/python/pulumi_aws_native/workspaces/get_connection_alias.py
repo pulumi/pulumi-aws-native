@@ -89,7 +89,7 @@ def get_connection_alias(alias_id: Optional[_builtins.str] = None,
         alias_id=pulumi.get(__ret__, 'alias_id'),
         associations=pulumi.get(__ret__, 'associations'),
         connection_alias_state=pulumi.get(__ret__, 'connection_alias_state'))
-def get_connection_alias_output(alias_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_connection_alias_output(alias_id: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectionAliasResult]:
     """
     Resource Type definition for AWS::WorkSpaces::ConnectionAlias

@@ -74,7 +74,7 @@ def get_assistant(assistant_id: Optional[_builtins.str] = None,
     return AwaitableGetAssistantResult(
         assistant_arn=pulumi.get(__ret__, 'assistant_arn'),
         assistant_id=pulumi.get(__ret__, 'assistant_id'))
-def get_assistant_output(assistant_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_assistant_output(assistant_id: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAssistantResult]:
     """
     Definition of AWS::Wisdom::Assistant Resource Type
