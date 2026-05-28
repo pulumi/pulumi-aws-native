@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AwsNative
+namespace Pulumi.AwsNative.Index.Region
 {
     /// <summary>
     /// A Region represents any valid Amazon region that may be targeted with deployments.
