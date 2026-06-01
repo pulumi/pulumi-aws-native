@@ -150,7 +150,7 @@
   "required" : [ "Name" ],
   "readOnlyProperties" : [ "/properties/Id", "/properties/Arn", "/properties/CollectionEndpoint", "/properties/DashboardEndpoint", "/properties/FipsEndpoints", "/properties/KmsKeyArn" ],
   "writeOnlyProperties" : [ "/properties/Tags", "/properties/EncryptionConfig" ],
-  "createOnlyProperties" : [ "/properties/Name", "/properties/Tags", "/properties/Type", "/properties/StandbyReplicas", "/properties/CollectionGroupName", "/properties/EncryptionConfig", "/properties/VectorOptions", "/properties/VectorOptions/ServerlessVectorAcceleration" ],
+  "createOnlyProperties" : [ "/properties/Name", "/properties/Tags", "/properties/Type", "/properties/StandbyReplicas", "/properties/CollectionGroupName", "/properties/EncryptionConfig" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "additionalIdentifiers" : [ [ "/properties/Name" ], [ "/properties/Arn" ] ],
   "handlers" : {

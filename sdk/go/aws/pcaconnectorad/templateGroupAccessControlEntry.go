@@ -21,9 +21,9 @@ type TemplateGroupAccessControlEntry struct {
 	// Name of the Active Directory group. This name does not need to match the group name in Active Directory.
 	GroupDisplayName pulumi.StringOutput `pulumi:"groupDisplayName"`
 	// Security identifier (SID) of the group object from Active Directory. The SID starts with "S-".
-	GroupSecurityIdentifier pulumi.StringPtrOutput `pulumi:"groupSecurityIdentifier"`
+	GroupSecurityIdentifier pulumi.StringOutput `pulumi:"groupSecurityIdentifier"`
 	// The Amazon Resource Name (ARN) that was returned when you called [CreateTemplate](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html) .
-	TemplateArn pulumi.StringPtrOutput `pulumi:"templateArn"`
+	TemplateArn pulumi.StringOutput `pulumi:"templateArn"`
 }
 
 // NewTemplateGroupAccessControlEntry registers a new resource with the given unique name, arguments, and options.
@@ -38,6 +38,12 @@ func NewTemplateGroupAccessControlEntry(ctx *pulumi.Context,
 	}
 	if args.GroupDisplayName == nil {
 		return nil, errors.New("invalid value for required argument 'GroupDisplayName'")
+	}
+	if args.GroupSecurityIdentifier == nil {
+		return nil, errors.New("invalid value for required argument 'GroupSecurityIdentifier'")
+	}
+	if args.TemplateArn == nil {
+		return nil, errors.New("invalid value for required argument 'TemplateArn'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"groupSecurityIdentifier",
@@ -82,9 +88,9 @@ type templateGroupAccessControlEntryArgs struct {
 	// Name of the Active Directory group. This name does not need to match the group name in Active Directory.
 	GroupDisplayName string `pulumi:"groupDisplayName"`
 	// Security identifier (SID) of the group object from Active Directory. The SID starts with "S-".
-	GroupSecurityIdentifier *string `pulumi:"groupSecurityIdentifier"`
+	GroupSecurityIdentifier string `pulumi:"groupSecurityIdentifier"`
 	// The Amazon Resource Name (ARN) that was returned when you called [CreateTemplate](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html) .
-	TemplateArn *string `pulumi:"templateArn"`
+	TemplateArn string `pulumi:"templateArn"`
 }
 
 // The set of arguments for constructing a TemplateGroupAccessControlEntry resource.
@@ -94,9 +100,9 @@ type TemplateGroupAccessControlEntryArgs struct {
 	// Name of the Active Directory group. This name does not need to match the group name in Active Directory.
 	GroupDisplayName pulumi.StringInput
 	// Security identifier (SID) of the group object from Active Directory. The SID starts with "S-".
-	GroupSecurityIdentifier pulumi.StringPtrInput
+	GroupSecurityIdentifier pulumi.StringInput
 	// The Amazon Resource Name (ARN) that was returned when you called [CreateTemplate](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html) .
-	TemplateArn pulumi.StringPtrInput
+	TemplateArn pulumi.StringInput
 }
 
 func (TemplateGroupAccessControlEntryArgs) ElementType() reflect.Type {
@@ -149,13 +155,13 @@ func (o TemplateGroupAccessControlEntryOutput) GroupDisplayName() pulumi.StringO
 }
 
 // Security identifier (SID) of the group object from Active Directory. The SID starts with "S-".
-func (o TemplateGroupAccessControlEntryOutput) GroupSecurityIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TemplateGroupAccessControlEntry) pulumi.StringPtrOutput { return v.GroupSecurityIdentifier }).(pulumi.StringPtrOutput)
+func (o TemplateGroupAccessControlEntryOutput) GroupSecurityIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v *TemplateGroupAccessControlEntry) pulumi.StringOutput { return v.GroupSecurityIdentifier }).(pulumi.StringOutput)
 }
 
 // The Amazon Resource Name (ARN) that was returned when you called [CreateTemplate](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html) .
-func (o TemplateGroupAccessControlEntryOutput) TemplateArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TemplateGroupAccessControlEntry) pulumi.StringPtrOutput { return v.TemplateArn }).(pulumi.StringPtrOutput)
+func (o TemplateGroupAccessControlEntryOutput) TemplateArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *TemplateGroupAccessControlEntry) pulumi.StringOutput { return v.TemplateArn }).(pulumi.StringOutput)
 }
 
 func init() {

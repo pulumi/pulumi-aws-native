@@ -34,6 +34,10 @@ export interface GetApplicationResult {
      */
     readonly description?: string;
     /**
+     * The ARN of the identity store associated with the Identity Center instance
+     */
+    readonly identityStoreArn?: string;
+    /**
      * The name you want to assign to this Identity Center (SSO) Application
      */
     readonly name?: string;

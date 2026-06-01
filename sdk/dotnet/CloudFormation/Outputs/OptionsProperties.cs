@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.CloudFormation.Outputs
     public sealed class OptionsProperties
     {
         /// <summary>
-        /// Specifies the S3 location where your input parameters are located.
+        /// Specifies the S3 location of input parameter files for your Guard rules. You can specify either a single S3 location or an array of up to 10 S3 locations.
         /// </summary>
         public readonly Union<Outputs.GuardHookS3Location, ImmutableArray<Outputs.GuardHookS3Location>>? InputParams;
 

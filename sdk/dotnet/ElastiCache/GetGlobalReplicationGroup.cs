@@ -64,10 +64,6 @@ namespace Pulumi.AwsNative.ElastiCache
     public sealed class GetGlobalReplicationGroupResult
     {
         /// <summary>
-        /// Cache parameter group name to use for the new engine version. This parameter cannot be modified independently.
-        /// </summary>
-        public readonly string? CacheParameterGroupName;
-        /// <summary>
         /// The engine of the Global Datastore.
         /// </summary>
         public readonly string? Engine;
@@ -90,8 +86,6 @@ namespace Pulumi.AwsNative.ElastiCache
 
         [OutputConstructor]
         private GetGlobalReplicationGroupResult(
-            string? cacheParameterGroupName,
-
             string? engine,
 
             string? globalReplicationGroupDescription,
@@ -102,7 +96,6 @@ namespace Pulumi.AwsNative.ElastiCache
 
             string? status)
         {
-            CacheParameterGroupName = cacheParameterGroupName;
             Engine = engine;
             GlobalReplicationGroupDescription = globalReplicationGroupDescription;
             GlobalReplicationGroupId = globalReplicationGroupId;

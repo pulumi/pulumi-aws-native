@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Collection{}
 	case "aws-native:opensearchserverless:CollectionGroup":
 		r = &CollectionGroup{}
+	case "aws-native:opensearchserverless:CollectionIndex":
+		r = &CollectionIndex{}
 	case "aws-native:opensearchserverless:Index":
 		r = &Index{}
 	case "aws-native:opensearchserverless:LifecyclePolicy":

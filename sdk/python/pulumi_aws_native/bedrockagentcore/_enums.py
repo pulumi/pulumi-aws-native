@@ -23,7 +23,6 @@ __all__ = [
     'GatewayInboundTokenClaimValueType',
     'GatewayInterceptionPoint',
     'GatewayPolicyEngineMode',
-    'GatewayProtocolType',
     'GatewaySearchType',
     'GatewayStatus',
     'GatewayTargetApiKeyCredentialLocation',
@@ -32,6 +31,7 @@ __all__ = [
     'GatewayTargetOAuthGrantType',
     'GatewayTargetRestApiMethod',
     'GatewayTargetSchemaType',
+    'GatewayTargetTargetProtocolType',
     'GatewayTargetTargetStatus',
     'HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator',
     'HarnessCustomClaimValidationTypeInboundTokenClaimValueType',
@@ -184,6 +184,7 @@ class GatewayAuthorizerType(_builtins.str, Enum):
     CUSTOM_JWT = "CUSTOM_JWT"
     AWS_IAM = "AWS_IAM"
     NONE = "NONE"
+    AUTHENTICATE_ONLY = "AUTHENTICATE_ONLY"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:GatewayClaimMatchOperator")
@@ -225,11 +226,6 @@ class GatewayPolicyEngineMode(_builtins.str, Enum):
     ENFORCE = "ENFORCE"
 
 
-@pulumi.type_token("aws-native:bedrockagentcore:GatewayProtocolType")
-class GatewayProtocolType(_builtins.str, Enum):
-    MCP = "MCP"
-
-
 @pulumi.type_token("aws-native:bedrockagentcore:GatewaySearchType")
 class GatewaySearchType(_builtins.str, Enum):
     SEMANTIC = "SEMANTIC"
@@ -256,6 +252,8 @@ class GatewayTargetCredentialProviderType(_builtins.str, Enum):
     GATEWAY_IAM_ROLE = "GATEWAY_IAM_ROLE"
     OAUTH = "OAUTH"
     API_KEY = "API_KEY"
+    CALLER_IAM_CREDENTIALS = "CALLER_IAM_CREDENTIALS"
+    JWT_PASSTHROUGH = "JWT_PASSTHROUGH"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:GatewayTargetMcpServerListingMode")
@@ -268,6 +266,7 @@ class GatewayTargetMcpServerListingMode(_builtins.str, Enum):
 class GatewayTargetOAuthGrantType(_builtins.str, Enum):
     AUTHORIZATION_CODE = "AUTHORIZATION_CODE"
     CLIENT_CREDENTIALS = "CLIENT_CREDENTIALS"
+    TOKEN_EXCHANGE = "TOKEN_EXCHANGE"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:GatewayTargetRestApiMethod")
@@ -291,6 +290,12 @@ class GatewayTargetSchemaType(_builtins.str, Enum):
     INTEGER = "integer"
 
 
+@pulumi.type_token("aws-native:bedrockagentcore:GatewayTargetTargetProtocolType")
+class GatewayTargetTargetProtocolType(_builtins.str, Enum):
+    MCP = "MCP"
+    HTTP = "HTTP"
+
+
 @pulumi.type_token("aws-native:bedrockagentcore:GatewayTargetTargetStatus")
 class GatewayTargetTargetStatus(_builtins.str, Enum):
     CREATING = "CREATING"
@@ -301,6 +306,9 @@ class GatewayTargetTargetStatus(_builtins.str, Enum):
     FAILED = "FAILED"
     SYNCHRONIZING = "SYNCHRONIZING"
     SYNCHRONIZE_UNSUCCESSFUL = "SYNCHRONIZE_UNSUCCESSFUL"
+    CREATE_PENDING_AUTH = "CREATE_PENDING_AUTH"
+    UPDATE_PENDING_AUTH = "UPDATE_PENDING_AUTH"
+    SYNCHRONIZE_PENDING_AUTH = "SYNCHRONIZE_PENDING_AUTH"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator")

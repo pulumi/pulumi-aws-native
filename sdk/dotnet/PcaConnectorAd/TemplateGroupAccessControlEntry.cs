@@ -31,13 +31,13 @@ namespace Pulumi.AwsNative.PcaConnectorAd
         /// Security identifier (SID) of the group object from Active Directory. The SID starts with "S-".
         /// </summary>
         [Output("groupSecurityIdentifier")]
-        public Output<string?> GroupSecurityIdentifier { get; private set; } = null!;
+        public Output<string> GroupSecurityIdentifier { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) that was returned when you called [CreateTemplate](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html) .
         /// </summary>
         [Output("templateArn")]
-        public Output<string?> TemplateArn { get; private set; } = null!;
+        public Output<string> TemplateArn { get; private set; } = null!;
 
 
         /// <summary>
@@ -104,14 +104,14 @@ namespace Pulumi.AwsNative.PcaConnectorAd
         /// <summary>
         /// Security identifier (SID) of the group object from Active Directory. The SID starts with "S-".
         /// </summary>
-        [Input("groupSecurityIdentifier")]
-        public Input<string>? GroupSecurityIdentifier { get; set; }
+        [Input("groupSecurityIdentifier", required: true)]
+        public Input<string> GroupSecurityIdentifier { get; set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) that was returned when you called [CreateTemplate](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html) .
         /// </summary>
-        [Input("templateArn")]
-        public Input<string>? TemplateArn { get; set; }
+        [Input("templateArn", required: true)]
+        public Input<string> TemplateArn { get; set; } = null!;
 
         public TemplateGroupAccessControlEntryArgs()
         {

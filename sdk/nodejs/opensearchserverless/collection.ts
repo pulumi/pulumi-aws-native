@@ -177,7 +177,7 @@ export class Collection extends pulumi.CustomResource {
             resourceInputs["vectorOptions"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["collectionGroupName", "encryptionConfig", "name", "standbyReplicas", "tags[*]", "type", "vectorOptions"] };
+        const replaceOnChanges = { replaceOnChanges: ["collectionGroupName", "encryptionConfig", "name", "standbyReplicas", "tags[*]", "type"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Collection.__pulumiType, name, resourceInputs, opts);
     }

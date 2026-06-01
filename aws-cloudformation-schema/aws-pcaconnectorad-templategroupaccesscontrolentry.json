@@ -43,7 +43,7 @@
       "pattern" : "^arn:[\\w-]+:pca-connector-ad:[\\w-]+:[0-9]+:connector(\\/[\\w-]+)\\/template(\\/[\\w-]+)$"
     }
   },
-  "required" : [ "AccessRights", "GroupDisplayName" ],
+  "required" : [ "AccessRights", "GroupDisplayName", "GroupSecurityIdentifier", "TemplateArn" ],
   "tagging" : {
     "taggable" : false,
     "tagOnCreate" : false,

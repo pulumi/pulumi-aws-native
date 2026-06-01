@@ -10,14 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
 {
 
-    public sealed class GatewayTargetTargetConfigurationPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class GatewayTargetTargetConfiguration0PropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("mcp", required: true)]
         public object Mcp { get; set; } = null!;
 
-        public GatewayTargetTargetConfigurationPropertiesArgs()
+        public GatewayTargetTargetConfiguration0PropertiesArgs()
         {
         }
-        public static new GatewayTargetTargetConfigurationPropertiesArgs Empty => new GatewayTargetTargetConfigurationPropertiesArgs();
+        public static new GatewayTargetTargetConfiguration0PropertiesArgs Empty => new GatewayTargetTargetConfiguration0PropertiesArgs();
     }
 }

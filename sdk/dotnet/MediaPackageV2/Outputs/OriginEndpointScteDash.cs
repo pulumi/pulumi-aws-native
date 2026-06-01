@@ -25,11 +25,16 @@ namespace Pulumi.AwsNative.MediaPackageV2.Outputs
         /// - `XML` - The SCTE marker is expressed fully in XML.
         /// </summary>
         public readonly Pulumi.AwsNative.MediaPackageV2.OriginEndpointAdMarkerDash? AdMarkerDash;
+        public readonly Pulumi.AwsNative.MediaPackageV2.OriginEndpointScteInManifests? ScteInManifests;
 
         [OutputConstructor]
-        private OriginEndpointScteDash(Pulumi.AwsNative.MediaPackageV2.OriginEndpointAdMarkerDash? adMarkerDash)
+        private OriginEndpointScteDash(
+            Pulumi.AwsNative.MediaPackageV2.OriginEndpointAdMarkerDash? adMarkerDash,
+
+            Pulumi.AwsNative.MediaPackageV2.OriginEndpointScteInManifests? scteInManifests)
         {
             AdMarkerDash = adMarkerDash;
+            ScteInManifests = scteInManifests;
         }
     }
 }

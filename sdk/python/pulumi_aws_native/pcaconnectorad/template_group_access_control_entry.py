@@ -24,8 +24,8 @@ class TemplateGroupAccessControlEntryArgs:
     def __init__(__self__, *,
                  access_rights: pulumi.Input['TemplateGroupAccessControlEntryAccessRightsArgs'],
                  group_display_name: pulumi.Input[_builtins.str],
-                 group_security_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 template_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 group_security_identifier: pulumi.Input[_builtins.str],
+                 template_arn: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a TemplateGroupAccessControlEntry resource.
 
@@ -36,10 +36,8 @@ class TemplateGroupAccessControlEntryArgs:
         """
         pulumi.set(__self__, "access_rights", access_rights)
         pulumi.set(__self__, "group_display_name", group_display_name)
-        if group_security_identifier is not None:
-            pulumi.set(__self__, "group_security_identifier", group_security_identifier)
-        if template_arn is not None:
-            pulumi.set(__self__, "template_arn", template_arn)
+        pulumi.set(__self__, "group_security_identifier", group_security_identifier)
+        pulumi.set(__self__, "template_arn", template_arn)
 
     @_builtins.property
     @pulumi.getter(name="accessRights")
@@ -67,26 +65,26 @@ class TemplateGroupAccessControlEntryArgs:
 
     @_builtins.property
     @pulumi.getter(name="groupSecurityIdentifier")
-    def group_security_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def group_security_identifier(self) -> pulumi.Input[_builtins.str]:
         """
         Security identifier (SID) of the group object from Active Directory. The SID starts with "S-".
         """
         return pulumi.get(self, "group_security_identifier")
 
     @group_security_identifier.setter
-    def group_security_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def group_security_identifier(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "group_security_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="templateArn")
-    def template_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def template_arn(self) -> pulumi.Input[_builtins.str]:
         """
         The Amazon Resource Name (ARN) that was returned when you called [CreateTemplate](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html) .
         """
         return pulumi.get(self, "template_arn")
 
     @template_arn.setter
-    def template_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def template_arn(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "template_arn", value)
 
 
@@ -156,7 +154,11 @@ class TemplateGroupAccessControlEntry(pulumi.CustomResource):
             if group_display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'group_display_name'")
             __props__.__dict__["group_display_name"] = group_display_name
+            if group_security_identifier is None and not opts.urn:
+                raise TypeError("Missing required property 'group_security_identifier'")
             __props__.__dict__["group_security_identifier"] = group_security_identifier
+            if template_arn is None and not opts.urn:
+                raise TypeError("Missing required property 'template_arn'")
             __props__.__dict__["template_arn"] = template_arn
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["groupSecurityIdentifier", "templateArn"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -206,7 +208,7 @@ class TemplateGroupAccessControlEntry(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="groupSecurityIdentifier")
-    def group_security_identifier(self) -> pulumi.Output[Optional[_builtins.str]]:
+    def group_security_identifier(self) -> pulumi.Output[_builtins.str]:
         """
         Security identifier (SID) of the group object from Active Directory. The SID starts with "S-".
         """
@@ -214,7 +216,7 @@ class TemplateGroupAccessControlEntry(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="templateArn")
-    def template_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
+    def template_arn(self) -> pulumi.Output[_builtins.str]:
         """
         The Amazon Resource Name (ARN) that was returned when you called [CreateTemplate](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html) .
         """

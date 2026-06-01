@@ -55,7 +55,8 @@ type OriginEndpoint struct {
 	// <p>The size of the window (in seconds) to create a window of the live stream that's available for on-demand viewing. Viewers can start-over or catch-up on content that falls within the window. The maximum startover window is 1,209,600 seconds (14 days).</p>
 	StartoverWindowSeconds pulumi.IntPtrOutput `pulumi:"startoverWindowSeconds"`
 	// The tags associated with the origin endpoint.
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	Tags         aws.TagArrayOutput                  `pulumi:"tags"`
+	UriSeparator OriginEndpointUriSeparatorPtrOutput `pulumi:"uriSeparator"`
 }
 
 // NewOriginEndpoint registers a new resource with the given unique name, arguments, and options.
@@ -138,7 +139,8 @@ type originEndpointArgs struct {
 	// <p>The size of the window (in seconds) to create a window of the live stream that's available for on-demand viewing. Viewers can start-over or catch-up on content that falls within the window. The maximum startover window is 1,209,600 seconds (14 days).</p>
 	StartoverWindowSeconds *int `pulumi:"startoverWindowSeconds"`
 	// The tags associated with the origin endpoint.
-	Tags []aws.Tag `pulumi:"tags"`
+	Tags         []aws.Tag                   `pulumi:"tags"`
+	UriSeparator *OriginEndpointUriSeparator `pulumi:"uriSeparator"`
 }
 
 // The set of arguments for constructing a OriginEndpoint resource.
@@ -168,7 +170,8 @@ type OriginEndpointArgs struct {
 	// <p>The size of the window (in seconds) to create a window of the live stream that's available for on-demand viewing. Viewers can start-over or catch-up on content that falls within the window. The maximum startover window is 1,209,600 seconds (14 days).</p>
 	StartoverWindowSeconds pulumi.IntPtrInput
 	// The tags associated with the origin endpoint.
-	Tags aws.TagArrayInput
+	Tags         aws.TagArrayInput
+	UriSeparator OriginEndpointUriSeparatorPtrInput
 }
 
 func (OriginEndpointArgs) ElementType() reflect.Type {
@@ -309,6 +312,10 @@ func (o OriginEndpointOutput) StartoverWindowSeconds() pulumi.IntPtrOutput {
 // The tags associated with the origin endpoint.
 func (o OriginEndpointOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *OriginEndpoint) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
+}
+
+func (o OriginEndpointOutput) UriSeparator() OriginEndpointUriSeparatorPtrOutput {
+	return o.ApplyT(func(v *OriginEndpoint) OriginEndpointUriSeparatorPtrOutput { return v.UriSeparator }).(OriginEndpointUriSeparatorPtrOutput)
 }
 
 func init() {

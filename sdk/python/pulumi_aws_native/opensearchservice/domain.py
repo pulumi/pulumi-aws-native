@@ -28,6 +28,7 @@ class DomainArgs:
                  advanced_options: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  advanced_security_options: Optional[pulumi.Input['DomainAdvancedSecurityOptionsInputArgs']] = None,
                  aiml_options: Optional[pulumi.Input['DomainAimlOptionsArgs']] = None,
+                 automated_snapshot_pause_options: Optional[pulumi.Input['DomainAutomatedSnapshotPauseOptionsArgs']] = None,
                  cluster_config: Optional[pulumi.Input['DomainClusterConfigArgs']] = None,
                  cognito_options: Optional[pulumi.Input['DomainCognitoOptionsArgs']] = None,
                  deployment_strategy_options: Optional[pulumi.Input['DomainDeploymentStrategyOptionsArgs']] = None,
@@ -92,6 +93,8 @@ class DomainArgs:
             pulumi.set(__self__, "advanced_security_options", advanced_security_options)
         if aiml_options is not None:
             pulumi.set(__self__, "aiml_options", aiml_options)
+        if automated_snapshot_pause_options is not None:
+            pulumi.set(__self__, "automated_snapshot_pause_options", automated_snapshot_pause_options)
         if cluster_config is not None:
             pulumi.set(__self__, "cluster_config", cluster_config)
         if cognito_options is not None:
@@ -180,6 +183,15 @@ class DomainArgs:
     @aiml_options.setter
     def aiml_options(self, value: Optional[pulumi.Input['DomainAimlOptionsArgs']]):
         pulumi.set(self, "aiml_options", value)
+
+    @_builtins.property
+    @pulumi.getter(name="automatedSnapshotPauseOptions")
+    def automated_snapshot_pause_options(self) -> Optional[pulumi.Input['DomainAutomatedSnapshotPauseOptionsArgs']]:
+        return pulumi.get(self, "automated_snapshot_pause_options")
+
+    @automated_snapshot_pause_options.setter
+    def automated_snapshot_pause_options(self, value: Optional[pulumi.Input['DomainAutomatedSnapshotPauseOptionsArgs']]):
+        pulumi.set(self, "automated_snapshot_pause_options", value)
 
     @_builtins.property
     @pulumi.getter(name="clusterConfig")
@@ -412,6 +424,7 @@ class Domain(pulumi.CustomResource):
                  advanced_options: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  advanced_security_options: Optional[pulumi.Input[Union['DomainAdvancedSecurityOptionsInputArgs', 'DomainAdvancedSecurityOptionsInputArgsDict']]] = None,
                  aiml_options: Optional[pulumi.Input[Union['DomainAimlOptionsArgs', 'DomainAimlOptionsArgsDict']]] = None,
+                 automated_snapshot_pause_options: Optional[pulumi.Input[Union['DomainAutomatedSnapshotPauseOptionsArgs', 'DomainAutomatedSnapshotPauseOptionsArgsDict']]] = None,
                  cluster_config: Optional[pulumi.Input[Union['DomainClusterConfigArgs', 'DomainClusterConfigArgsDict']]] = None,
                  cognito_options: Optional[pulumi.Input[Union['DomainCognitoOptionsArgs', 'DomainCognitoOptionsArgsDict']]] = None,
                  deployment_strategy_options: Optional[pulumi.Input[Union['DomainDeploymentStrategyOptionsArgs', 'DomainDeploymentStrategyOptionsArgsDict']]] = None,
@@ -501,6 +514,7 @@ class Domain(pulumi.CustomResource):
                  advanced_options: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  advanced_security_options: Optional[pulumi.Input[Union['DomainAdvancedSecurityOptionsInputArgs', 'DomainAdvancedSecurityOptionsInputArgsDict']]] = None,
                  aiml_options: Optional[pulumi.Input[Union['DomainAimlOptionsArgs', 'DomainAimlOptionsArgsDict']]] = None,
+                 automated_snapshot_pause_options: Optional[pulumi.Input[Union['DomainAutomatedSnapshotPauseOptionsArgs', 'DomainAutomatedSnapshotPauseOptionsArgsDict']]] = None,
                  cluster_config: Optional[pulumi.Input[Union['DomainClusterConfigArgs', 'DomainClusterConfigArgsDict']]] = None,
                  cognito_options: Optional[pulumi.Input[Union['DomainCognitoOptionsArgs', 'DomainCognitoOptionsArgsDict']]] = None,
                  deployment_strategy_options: Optional[pulumi.Input[Union['DomainDeploymentStrategyOptionsArgs', 'DomainDeploymentStrategyOptionsArgsDict']]] = None,
@@ -532,6 +546,7 @@ class Domain(pulumi.CustomResource):
             __props__.__dict__["advanced_options"] = advanced_options
             __props__.__dict__["advanced_security_options"] = advanced_security_options
             __props__.__dict__["aiml_options"] = aiml_options
+            __props__.__dict__["automated_snapshot_pause_options"] = automated_snapshot_pause_options
             __props__.__dict__["cluster_config"] = cluster_config
             __props__.__dict__["cognito_options"] = cognito_options
             __props__.__dict__["deployment_strategy_options"] = deployment_strategy_options
@@ -586,6 +601,7 @@ class Domain(pulumi.CustomResource):
         __props__.__dict__["advanced_security_options"] = None
         __props__.__dict__["aiml_options"] = None
         __props__.__dict__["arn"] = None
+        __props__.__dict__["automated_snapshot_pause_options"] = None
         __props__.__dict__["aws_id"] = None
         __props__.__dict__["cluster_config"] = None
         __props__.__dict__["cognito_options"] = None
@@ -655,6 +671,11 @@ class Domain(pulumi.CustomResource):
         The Amazon Resource Name (ARN) of the CloudFormation stack.
         """
         return pulumi.get(self, "arn")
+
+    @_builtins.property
+    @pulumi.getter(name="automatedSnapshotPauseOptions")
+    def automated_snapshot_pause_options(self) -> pulumi.Output[Optional['outputs.DomainAutomatedSnapshotPauseOptions']]:
+        return pulumi.get(self, "automated_snapshot_pause_options")
 
     @_builtins.property
     @pulumi.getter(name="awsId")

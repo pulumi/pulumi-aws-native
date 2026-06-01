@@ -12,6 +12,12 @@ namespace Pulumi.AwsNative.OpenSearchService.Inputs
 
     public sealed class DomainVpcOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Controls whether egress traffic from the domain is routed through the customer VPC.
+        /// </summary>
+        [Input("egressEnabled")]
+        public Input<bool>? EgressEnabled { get; set; }
+
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;
 

@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.OpenSearchService.Outputs
     public sealed class DomainVpcOptions
     {
         /// <summary>
+        /// Controls whether egress traffic from the domain is routed through the customer VPC.
+        /// </summary>
+        public readonly bool? EgressEnabled;
+        /// <summary>
         /// The list of security group IDs that are associated with the VPC endpoints for the domain. If you don't provide a security group ID, OpenSearch Service uses the default security group for the VPC. To learn more, see [Security groups for your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html) in the *Amazon VPC User Guide* .
         /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIds;
@@ -26,10 +30,13 @@ namespace Pulumi.AwsNative.OpenSearchService.Outputs
 
         [OutputConstructor]
         private DomainVpcOptions(
+            bool? egressEnabled,
+
             ImmutableArray<string> securityGroupIds,
 
             ImmutableArray<string> subnetIds)
         {
+            EgressEnabled = egressEnabled;
             SecurityGroupIds = securityGroupIds;
             SubnetIds = subnetIds;
         }

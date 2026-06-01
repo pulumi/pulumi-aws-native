@@ -28,8 +28,6 @@ type LookupGlobalReplicationGroupArgs struct {
 }
 
 type LookupGlobalReplicationGroupResult struct {
-	// Cache parameter group name to use for the new engine version. This parameter cannot be modified independently.
-	CacheParameterGroupName *string `pulumi:"cacheParameterGroupName"`
 	// The engine of the Global Datastore.
 	Engine *string `pulumi:"engine"`
 	// The optional description of the Global Datastore
@@ -72,11 +70,6 @@ func (o LookupGlobalReplicationGroupResultOutput) ToLookupGlobalReplicationGroup
 
 func (o LookupGlobalReplicationGroupResultOutput) ToLookupGlobalReplicationGroupResultOutputWithContext(ctx context.Context) LookupGlobalReplicationGroupResultOutput {
 	return o
-}
-
-// Cache parameter group name to use for the new engine version. This parameter cannot be modified independently.
-func (o LookupGlobalReplicationGroupResultOutput) CacheParameterGroupName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupGlobalReplicationGroupResult) *string { return v.CacheParameterGroupName }).(pulumi.StringPtrOutput)
 }
 
 // The engine of the Global Datastore.

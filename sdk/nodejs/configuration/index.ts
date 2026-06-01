@@ -50,6 +50,11 @@ export const getOrganizationConformancePack: typeof import("./getOrganizationCon
 export const getOrganizationConformancePackOutput: typeof import("./getOrganizationConformancePack").getOrganizationConformancePackOutput = null as any;
 utilities.lazyLoad(exports, ["getOrganizationConformancePack","getOrganizationConformancePackOutput"], () => require("./getOrganizationConformancePack"));
 
+export { GetRemediationConfigurationArgs, GetRemediationConfigurationResult, GetRemediationConfigurationOutputArgs } from "./getRemediationConfiguration";
+export const getRemediationConfiguration: typeof import("./getRemediationConfiguration").getRemediationConfiguration = null as any;
+export const getRemediationConfigurationOutput: typeof import("./getRemediationConfiguration").getRemediationConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getRemediationConfiguration","getRemediationConfigurationOutput"], () => require("./getRemediationConfiguration"));
+
 export { GetStoredQueryArgs, GetStoredQueryResult, GetStoredQueryOutputArgs } from "./getStoredQuery";
 export const getStoredQuery: typeof import("./getStoredQuery").getStoredQuery = null as any;
 export const getStoredQueryOutput: typeof import("./getStoredQuery").getStoredQueryOutput = null as any;
@@ -59,6 +64,11 @@ export { OrganizationConformancePackArgs } from "./organizationConformancePack";
 export type OrganizationConformancePack = import("./organizationConformancePack").OrganizationConformancePack;
 export const OrganizationConformancePack: typeof import("./organizationConformancePack").OrganizationConformancePack = null as any;
 utilities.lazyLoad(exports, ["OrganizationConformancePack"], () => require("./organizationConformancePack"));
+
+export { RemediationConfigurationArgs } from "./remediationConfiguration";
+export type RemediationConfiguration = import("./remediationConfiguration").RemediationConfiguration;
+export const RemediationConfiguration: typeof import("./remediationConfiguration").RemediationConfiguration = null as any;
+utilities.lazyLoad(exports, ["RemediationConfiguration"], () => require("./remediationConfiguration"));
 
 export { StoredQueryArgs } from "./storedQuery";
 export type StoredQuery = import("./storedQuery").StoredQuery;
@@ -80,6 +90,8 @@ const _module = {
                 return new ConformancePack(name, <any>undefined, { urn })
             case "aws-native:configuration:OrganizationConformancePack":
                 return new OrganizationConformancePack(name, <any>undefined, { urn })
+            case "aws-native:configuration:RemediationConfiguration":
+                return new RemediationConfiguration(name, <any>undefined, { urn })
             case "aws-native:configuration:StoredQuery":
                 return new StoredQuery(name, <any>undefined, { urn })
             default:

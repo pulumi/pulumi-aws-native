@@ -657,6 +657,169 @@ func (o DomainAimlOptionsPtrOutput) ServerlessVectorAcceleration() DomainServerl
 	}).(DomainServerlessVectorAccelerationPtrOutput)
 }
 
+type DomainAutomatedSnapshotPauseOptions struct {
+	Enabled   bool    `pulumi:"enabled"`
+	EndTime   *string `pulumi:"endTime"`
+	StartTime *string `pulumi:"startTime"`
+}
+
+// DomainAutomatedSnapshotPauseOptionsInput is an input type that accepts DomainAutomatedSnapshotPauseOptionsArgs and DomainAutomatedSnapshotPauseOptionsOutput values.
+// You can construct a concrete instance of `DomainAutomatedSnapshotPauseOptionsInput` via:
+//
+//	DomainAutomatedSnapshotPauseOptionsArgs{...}
+type DomainAutomatedSnapshotPauseOptionsInput interface {
+	pulumi.Input
+
+	ToDomainAutomatedSnapshotPauseOptionsOutput() DomainAutomatedSnapshotPauseOptionsOutput
+	ToDomainAutomatedSnapshotPauseOptionsOutputWithContext(context.Context) DomainAutomatedSnapshotPauseOptionsOutput
+}
+
+type DomainAutomatedSnapshotPauseOptionsArgs struct {
+	Enabled   pulumi.BoolInput      `pulumi:"enabled"`
+	EndTime   pulumi.StringPtrInput `pulumi:"endTime"`
+	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
+}
+
+func (DomainAutomatedSnapshotPauseOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainAutomatedSnapshotPauseOptions)(nil)).Elem()
+}
+
+func (i DomainAutomatedSnapshotPauseOptionsArgs) ToDomainAutomatedSnapshotPauseOptionsOutput() DomainAutomatedSnapshotPauseOptionsOutput {
+	return i.ToDomainAutomatedSnapshotPauseOptionsOutputWithContext(context.Background())
+}
+
+func (i DomainAutomatedSnapshotPauseOptionsArgs) ToDomainAutomatedSnapshotPauseOptionsOutputWithContext(ctx context.Context) DomainAutomatedSnapshotPauseOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainAutomatedSnapshotPauseOptionsOutput)
+}
+
+func (i DomainAutomatedSnapshotPauseOptionsArgs) ToDomainAutomatedSnapshotPauseOptionsPtrOutput() DomainAutomatedSnapshotPauseOptionsPtrOutput {
+	return i.ToDomainAutomatedSnapshotPauseOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i DomainAutomatedSnapshotPauseOptionsArgs) ToDomainAutomatedSnapshotPauseOptionsPtrOutputWithContext(ctx context.Context) DomainAutomatedSnapshotPauseOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainAutomatedSnapshotPauseOptionsOutput).ToDomainAutomatedSnapshotPauseOptionsPtrOutputWithContext(ctx)
+}
+
+// DomainAutomatedSnapshotPauseOptionsPtrInput is an input type that accepts DomainAutomatedSnapshotPauseOptionsArgs, DomainAutomatedSnapshotPauseOptionsPtr and DomainAutomatedSnapshotPauseOptionsPtrOutput values.
+// You can construct a concrete instance of `DomainAutomatedSnapshotPauseOptionsPtrInput` via:
+//
+//	        DomainAutomatedSnapshotPauseOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainAutomatedSnapshotPauseOptionsPtrInput interface {
+	pulumi.Input
+
+	ToDomainAutomatedSnapshotPauseOptionsPtrOutput() DomainAutomatedSnapshotPauseOptionsPtrOutput
+	ToDomainAutomatedSnapshotPauseOptionsPtrOutputWithContext(context.Context) DomainAutomatedSnapshotPauseOptionsPtrOutput
+}
+
+type domainAutomatedSnapshotPauseOptionsPtrType DomainAutomatedSnapshotPauseOptionsArgs
+
+func DomainAutomatedSnapshotPauseOptionsPtr(v *DomainAutomatedSnapshotPauseOptionsArgs) DomainAutomatedSnapshotPauseOptionsPtrInput {
+	return (*domainAutomatedSnapshotPauseOptionsPtrType)(v)
+}
+
+func (*domainAutomatedSnapshotPauseOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainAutomatedSnapshotPauseOptions)(nil)).Elem()
+}
+
+func (i *domainAutomatedSnapshotPauseOptionsPtrType) ToDomainAutomatedSnapshotPauseOptionsPtrOutput() DomainAutomatedSnapshotPauseOptionsPtrOutput {
+	return i.ToDomainAutomatedSnapshotPauseOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *domainAutomatedSnapshotPauseOptionsPtrType) ToDomainAutomatedSnapshotPauseOptionsPtrOutputWithContext(ctx context.Context) DomainAutomatedSnapshotPauseOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainAutomatedSnapshotPauseOptionsPtrOutput)
+}
+
+type DomainAutomatedSnapshotPauseOptionsOutput struct{ *pulumi.OutputState }
+
+func (DomainAutomatedSnapshotPauseOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainAutomatedSnapshotPauseOptions)(nil)).Elem()
+}
+
+func (o DomainAutomatedSnapshotPauseOptionsOutput) ToDomainAutomatedSnapshotPauseOptionsOutput() DomainAutomatedSnapshotPauseOptionsOutput {
+	return o
+}
+
+func (o DomainAutomatedSnapshotPauseOptionsOutput) ToDomainAutomatedSnapshotPauseOptionsOutputWithContext(ctx context.Context) DomainAutomatedSnapshotPauseOptionsOutput {
+	return o
+}
+
+func (o DomainAutomatedSnapshotPauseOptionsOutput) ToDomainAutomatedSnapshotPauseOptionsPtrOutput() DomainAutomatedSnapshotPauseOptionsPtrOutput {
+	return o.ToDomainAutomatedSnapshotPauseOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainAutomatedSnapshotPauseOptionsOutput) ToDomainAutomatedSnapshotPauseOptionsPtrOutputWithContext(ctx context.Context) DomainAutomatedSnapshotPauseOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainAutomatedSnapshotPauseOptions) *DomainAutomatedSnapshotPauseOptions {
+		return &v
+	}).(DomainAutomatedSnapshotPauseOptionsPtrOutput)
+}
+
+func (o DomainAutomatedSnapshotPauseOptionsOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v DomainAutomatedSnapshotPauseOptions) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+func (o DomainAutomatedSnapshotPauseOptionsOutput) EndTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainAutomatedSnapshotPauseOptions) *string { return v.EndTime }).(pulumi.StringPtrOutput)
+}
+
+func (o DomainAutomatedSnapshotPauseOptionsOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainAutomatedSnapshotPauseOptions) *string { return v.StartTime }).(pulumi.StringPtrOutput)
+}
+
+type DomainAutomatedSnapshotPauseOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainAutomatedSnapshotPauseOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainAutomatedSnapshotPauseOptions)(nil)).Elem()
+}
+
+func (o DomainAutomatedSnapshotPauseOptionsPtrOutput) ToDomainAutomatedSnapshotPauseOptionsPtrOutput() DomainAutomatedSnapshotPauseOptionsPtrOutput {
+	return o
+}
+
+func (o DomainAutomatedSnapshotPauseOptionsPtrOutput) ToDomainAutomatedSnapshotPauseOptionsPtrOutputWithContext(ctx context.Context) DomainAutomatedSnapshotPauseOptionsPtrOutput {
+	return o
+}
+
+func (o DomainAutomatedSnapshotPauseOptionsPtrOutput) Elem() DomainAutomatedSnapshotPauseOptionsOutput {
+	return o.ApplyT(func(v *DomainAutomatedSnapshotPauseOptions) DomainAutomatedSnapshotPauseOptions {
+		if v != nil {
+			return *v
+		}
+		var ret DomainAutomatedSnapshotPauseOptions
+		return ret
+	}).(DomainAutomatedSnapshotPauseOptionsOutput)
+}
+
+func (o DomainAutomatedSnapshotPauseOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DomainAutomatedSnapshotPauseOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o DomainAutomatedSnapshotPauseOptionsPtrOutput) EndTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainAutomatedSnapshotPauseOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EndTime
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DomainAutomatedSnapshotPauseOptionsPtrOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainAutomatedSnapshotPauseOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StartTime
+	}).(pulumi.StringPtrOutput)
+}
+
 type DomainClusterConfig struct {
 	// Container for cold storage configuration options.
 	ColdStorageOptions *DomainColdStorageOptions `pulumi:"coldStorageOptions"`
@@ -4852,6 +5015,8 @@ type DomainTag struct {
 }
 
 type DomainVpcOptions struct {
+	// Controls whether egress traffic from the domain is routed through the customer VPC.
+	EgressEnabled *bool `pulumi:"egressEnabled"`
 	// The list of security group IDs that are associated with the VPC endpoints for the domain. If you don't provide a security group ID, OpenSearch Service uses the default security group for the VPC. To learn more, see [Security groups for your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html) in the *Amazon VPC User Guide* .
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// Provide one subnet ID for each Availability Zone that your domain uses. For example, you must specify three subnet IDs for a three-AZ domain. To learn more, see [VPCs and subnets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html) in the *Amazon VPC User Guide* .
@@ -4872,6 +5037,8 @@ type DomainVpcOptionsInput interface {
 }
 
 type DomainVpcOptionsArgs struct {
+	// Controls whether egress traffic from the domain is routed through the customer VPC.
+	EgressEnabled pulumi.BoolPtrInput `pulumi:"egressEnabled"`
 	// The list of security group IDs that are associated with the VPC endpoints for the domain. If you don't provide a security group ID, OpenSearch Service uses the default security group for the VPC. To learn more, see [Security groups for your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html) in the *Amazon VPC User Guide* .
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
 	// Provide one subnet ID for each Availability Zone that your domain uses. For example, you must specify three subnet IDs for a three-AZ domain. To learn more, see [VPCs and subnets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html) in the *Amazon VPC User Guide* .
@@ -4957,6 +5124,11 @@ func (o DomainVpcOptionsOutput) ToDomainVpcOptionsPtrOutputWithContext(ctx conte
 	}).(DomainVpcOptionsPtrOutput)
 }
 
+// Controls whether egress traffic from the domain is routed through the customer VPC.
+func (o DomainVpcOptionsOutput) EgressEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DomainVpcOptions) *bool { return v.EgressEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // The list of security group IDs that are associated with the VPC endpoints for the domain. If you don't provide a security group ID, OpenSearch Service uses the default security group for the VPC. To learn more, see [Security groups for your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html) in the *Amazon VPC User Guide* .
 func (o DomainVpcOptionsOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DomainVpcOptions) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
@@ -4991,6 +5163,16 @@ func (o DomainVpcOptionsPtrOutput) Elem() DomainVpcOptionsOutput {
 		var ret DomainVpcOptions
 		return ret
 	}).(DomainVpcOptionsOutput)
+}
+
+// Controls whether egress traffic from the domain is routed through the customer VPC.
+func (o DomainVpcOptionsPtrOutput) EgressEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DomainVpcOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EgressEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The list of security group IDs that are associated with the VPC endpoints for the domain. If you don't provide a security group ID, OpenSearch Service uses the default security group for the VPC. To learn more, see [Security groups for your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html) in the *Amazon VPC User Guide* .
@@ -5503,6 +5685,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainAdvancedSecurityOptionsInputPtrInput)(nil)).Elem(), DomainAdvancedSecurityOptionsInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainAimlOptionsInput)(nil)).Elem(), DomainAimlOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainAimlOptionsPtrInput)(nil)).Elem(), DomainAimlOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainAutomatedSnapshotPauseOptionsInput)(nil)).Elem(), DomainAutomatedSnapshotPauseOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainAutomatedSnapshotPauseOptionsPtrInput)(nil)).Elem(), DomainAutomatedSnapshotPauseOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainClusterConfigInput)(nil)).Elem(), DomainClusterConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainClusterConfigPtrInput)(nil)).Elem(), DomainClusterConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainCognitoOptionsInput)(nil)).Elem(), DomainCognitoOptionsArgs{})
@@ -5565,6 +5749,8 @@ func init() {
 	pulumi.RegisterOutputType(DomainAdvancedSecurityOptionsInputPtrOutput{})
 	pulumi.RegisterOutputType(DomainAimlOptionsOutput{})
 	pulumi.RegisterOutputType(DomainAimlOptionsPtrOutput{})
+	pulumi.RegisterOutputType(DomainAutomatedSnapshotPauseOptionsOutput{})
+	pulumi.RegisterOutputType(DomainAutomatedSnapshotPauseOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainClusterConfigOutput{})
 	pulumi.RegisterOutputType(DomainClusterConfigPtrOutput{})
 	pulumi.RegisterOutputType(DomainCognitoOptionsOutput{})

@@ -110,6 +110,8 @@ __all__ = [
     'GatewayTargetCredentialProvider2PropertiesArgsDict',
     'GatewayTargetCredentialProviderConfigurationArgs',
     'GatewayTargetCredentialProviderConfigurationArgsDict',
+    'GatewayTargetHttpTargetConfigurationPropertiesArgs',
+    'GatewayTargetHttpTargetConfigurationPropertiesArgsDict',
     'GatewayTargetIamCredentialProviderArgs',
     'GatewayTargetIamCredentialProviderArgsDict',
     'GatewayTargetMcpLambdaTargetConfigurationArgs',
@@ -126,16 +128,24 @@ __all__ = [
     'GatewayTargetMcpTargetConfiguration3PropertiesArgsDict',
     'GatewayTargetMcpTargetConfiguration4PropertiesArgs',
     'GatewayTargetMcpTargetConfiguration4PropertiesArgsDict',
+    'GatewayTargetMcpToolSchemaConfiguration0PropertiesArgs',
+    'GatewayTargetMcpToolSchemaConfiguration0PropertiesArgsDict',
+    'GatewayTargetMcpToolSchemaConfiguration1PropertiesArgs',
+    'GatewayTargetMcpToolSchemaConfiguration1PropertiesArgsDict',
     'GatewayTargetMetadataConfigurationArgs',
     'GatewayTargetMetadataConfigurationArgsDict',
     'GatewayTargetOAuthCredentialProviderArgs',
     'GatewayTargetOAuthCredentialProviderArgsDict',
+    'GatewayTargetRuntimeTargetConfigurationArgs',
+    'GatewayTargetRuntimeTargetConfigurationArgsDict',
     'GatewayTargetS3ConfigurationArgs',
     'GatewayTargetS3ConfigurationArgsDict',
     'GatewayTargetSchemaDefinitionArgs',
     'GatewayTargetSchemaDefinitionArgsDict',
-    'GatewayTargetTargetConfigurationPropertiesArgs',
-    'GatewayTargetTargetConfigurationPropertiesArgsDict',
+    'GatewayTargetTargetConfiguration0PropertiesArgs',
+    'GatewayTargetTargetConfiguration0PropertiesArgsDict',
+    'GatewayTargetTargetConfiguration1PropertiesArgs',
+    'GatewayTargetTargetConfiguration1PropertiesArgsDict',
     'GatewayTargetToolDefinitionArgs',
     'GatewayTargetToolDefinitionArgsDict',
     'GatewayTargetToolSchema0PropertiesArgs',
@@ -2229,6 +2239,25 @@ class GatewayTargetCredentialProviderConfigurationArgs:
         pulumi.set(self, "credential_provider", value)
 
 
+class GatewayTargetHttpTargetConfigurationPropertiesArgsDict(TypedDict):
+    agentcore_runtime: pulumi.Input['GatewayTargetRuntimeTargetConfigurationArgsDict']
+
+@pulumi.input_type
+class GatewayTargetHttpTargetConfigurationPropertiesArgs:
+    def __init__(__self__, *,
+                 agentcore_runtime: pulumi.Input['GatewayTargetRuntimeTargetConfigurationArgs']):
+        pulumi.set(__self__, "agentcore_runtime", agentcore_runtime)
+
+    @_builtins.property
+    @pulumi.getter(name="agentcoreRuntime")
+    def agentcore_runtime(self) -> pulumi.Input['GatewayTargetRuntimeTargetConfigurationArgs']:
+        return pulumi.get(self, "agentcore_runtime")
+
+    @agentcore_runtime.setter
+    def agentcore_runtime(self, value: pulumi.Input['GatewayTargetRuntimeTargetConfigurationArgs']):
+        pulumi.set(self, "agentcore_runtime", value)
+
+
 class GatewayTargetIamCredentialProviderArgsDict(TypedDict):
     service: pulumi.Input[_builtins.str]
     region: NotRequired[pulumi.Input[_builtins.str]]
@@ -2295,15 +2324,19 @@ class GatewayTargetMcpLambdaTargetConfigurationArgs:
 class GatewayTargetMcpServerTargetConfigurationArgsDict(TypedDict):
     endpoint: pulumi.Input[_builtins.str]
     listing_mode: NotRequired[pulumi.Input['GatewayTargetMcpServerListingMode']]
+    mcp_tool_schema: NotRequired[pulumi.Input[Union['GatewayTargetMcpToolSchemaConfiguration0PropertiesArgsDict', 'GatewayTargetMcpToolSchemaConfiguration1PropertiesArgsDict']]]
 
 @pulumi.input_type
 class GatewayTargetMcpServerTargetConfigurationArgs:
     def __init__(__self__, *,
                  endpoint: pulumi.Input[_builtins.str],
-                 listing_mode: Optional[pulumi.Input['GatewayTargetMcpServerListingMode']] = None):
+                 listing_mode: Optional[pulumi.Input['GatewayTargetMcpServerListingMode']] = None,
+                 mcp_tool_schema: Optional[pulumi.Input[Union['GatewayTargetMcpToolSchemaConfiguration0PropertiesArgs', 'GatewayTargetMcpToolSchemaConfiguration1PropertiesArgs']]] = None):
         pulumi.set(__self__, "endpoint", endpoint)
         if listing_mode is not None:
             pulumi.set(__self__, "listing_mode", listing_mode)
+        if mcp_tool_schema is not None:
+            pulumi.set(__self__, "mcp_tool_schema", mcp_tool_schema)
 
     @_builtins.property
     @pulumi.getter
@@ -2322,6 +2355,15 @@ class GatewayTargetMcpServerTargetConfigurationArgs:
     @listing_mode.setter
     def listing_mode(self, value: Optional[pulumi.Input['GatewayTargetMcpServerListingMode']]):
         pulumi.set(self, "listing_mode", value)
+
+    @_builtins.property
+    @pulumi.getter(name="mcpToolSchema")
+    def mcp_tool_schema(self) -> Optional[pulumi.Input[Union['GatewayTargetMcpToolSchemaConfiguration0PropertiesArgs', 'GatewayTargetMcpToolSchemaConfiguration1PropertiesArgs']]]:
+        return pulumi.get(self, "mcp_tool_schema")
+
+    @mcp_tool_schema.setter
+    def mcp_tool_schema(self, value: Optional[pulumi.Input[Union['GatewayTargetMcpToolSchemaConfiguration0PropertiesArgs', 'GatewayTargetMcpToolSchemaConfiguration1PropertiesArgs']]]):
+        pulumi.set(self, "mcp_tool_schema", value)
 
 
 class GatewayTargetMcpTargetConfiguration0PropertiesArgsDict(TypedDict):
@@ -2417,6 +2459,44 @@ class GatewayTargetMcpTargetConfiguration4PropertiesArgs:
     @api_gateway.setter
     def api_gateway(self, value: pulumi.Input['GatewayTargetApiGatewayTargetConfigurationArgs']):
         pulumi.set(self, "api_gateway", value)
+
+
+class GatewayTargetMcpToolSchemaConfiguration0PropertiesArgsDict(TypedDict):
+    s3: pulumi.Input['GatewayTargetS3ConfigurationArgsDict']
+
+@pulumi.input_type
+class GatewayTargetMcpToolSchemaConfiguration0PropertiesArgs:
+    def __init__(__self__, *,
+                 s3: pulumi.Input['GatewayTargetS3ConfigurationArgs']):
+        pulumi.set(__self__, "s3", s3)
+
+    @_builtins.property
+    @pulumi.getter
+    def s3(self) -> pulumi.Input['GatewayTargetS3ConfigurationArgs']:
+        return pulumi.get(self, "s3")
+
+    @s3.setter
+    def s3(self, value: pulumi.Input['GatewayTargetS3ConfigurationArgs']):
+        pulumi.set(self, "s3", value)
+
+
+class GatewayTargetMcpToolSchemaConfiguration1PropertiesArgsDict(TypedDict):
+    inline_payload: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class GatewayTargetMcpToolSchemaConfiguration1PropertiesArgs:
+    def __init__(__self__, *,
+                 inline_payload: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "inline_payload", inline_payload)
+
+    @_builtins.property
+    @pulumi.getter(name="inlinePayload")
+    def inline_payload(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "inline_payload")
+
+    @inline_payload.setter
+    def inline_payload(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "inline_payload", value)
 
 
 class GatewayTargetMetadataConfigurationArgsDict(TypedDict):
@@ -2544,6 +2624,38 @@ class GatewayTargetOAuthCredentialProviderArgs:
         pulumi.set(self, "grant_type", value)
 
 
+class GatewayTargetRuntimeTargetConfigurationArgsDict(TypedDict):
+    arn: pulumi.Input[_builtins.str]
+    qualifier: NotRequired[pulumi.Input[_builtins.str]]
+
+@pulumi.input_type
+class GatewayTargetRuntimeTargetConfigurationArgs:
+    def __init__(__self__, *,
+                 arn: pulumi.Input[_builtins.str],
+                 qualifier: Optional[pulumi.Input[_builtins.str]] = None):
+        pulumi.set(__self__, "arn", arn)
+        if qualifier is not None:
+            pulumi.set(__self__, "qualifier", qualifier)
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "arn", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def qualifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "qualifier")
+
+    @qualifier.setter
+    def qualifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "qualifier", value)
+
+
 class GatewayTargetS3ConfigurationArgsDict(TypedDict):
     bucket_owner_account_id: NotRequired[pulumi.Input[_builtins.str]]
     uri: NotRequired[pulumi.Input[_builtins.str]]
@@ -2648,11 +2760,11 @@ class GatewayTargetSchemaDefinitionArgs:
         pulumi.set(self, "required", value)
 
 
-class GatewayTargetTargetConfigurationPropertiesArgsDict(TypedDict):
+class GatewayTargetTargetConfiguration0PropertiesArgsDict(TypedDict):
     mcp: pulumi.Input[Union['GatewayTargetMcpTargetConfiguration0PropertiesArgsDict', 'GatewayTargetMcpTargetConfiguration1PropertiesArgsDict', 'GatewayTargetMcpTargetConfiguration2PropertiesArgsDict', 'GatewayTargetMcpTargetConfiguration3PropertiesArgsDict', 'GatewayTargetMcpTargetConfiguration4PropertiesArgsDict']]
 
 @pulumi.input_type
-class GatewayTargetTargetConfigurationPropertiesArgs:
+class GatewayTargetTargetConfiguration0PropertiesArgs:
     def __init__(__self__, *,
                  mcp: pulumi.Input[Union['GatewayTargetMcpTargetConfiguration0PropertiesArgs', 'GatewayTargetMcpTargetConfiguration1PropertiesArgs', 'GatewayTargetMcpTargetConfiguration2PropertiesArgs', 'GatewayTargetMcpTargetConfiguration3PropertiesArgs', 'GatewayTargetMcpTargetConfiguration4PropertiesArgs']]):
         pulumi.set(__self__, "mcp", mcp)
@@ -2665,6 +2777,25 @@ class GatewayTargetTargetConfigurationPropertiesArgs:
     @mcp.setter
     def mcp(self, value: pulumi.Input[Union['GatewayTargetMcpTargetConfiguration0PropertiesArgs', 'GatewayTargetMcpTargetConfiguration1PropertiesArgs', 'GatewayTargetMcpTargetConfiguration2PropertiesArgs', 'GatewayTargetMcpTargetConfiguration3PropertiesArgs', 'GatewayTargetMcpTargetConfiguration4PropertiesArgs']]):
         pulumi.set(self, "mcp", value)
+
+
+class GatewayTargetTargetConfiguration1PropertiesArgsDict(TypedDict):
+    http: pulumi.Input['GatewayTargetHttpTargetConfigurationPropertiesArgsDict']
+
+@pulumi.input_type
+class GatewayTargetTargetConfiguration1PropertiesArgs:
+    def __init__(__self__, *,
+                 http: pulumi.Input['GatewayTargetHttpTargetConfigurationPropertiesArgs']):
+        pulumi.set(__self__, "http", http)
+
+    @_builtins.property
+    @pulumi.getter
+    def http(self) -> pulumi.Input['GatewayTargetHttpTargetConfigurationPropertiesArgs']:
+        return pulumi.get(self, "http")
+
+    @http.setter
+    def http(self, value: pulumi.Input['GatewayTargetHttpTargetConfigurationPropertiesArgs']):
+        pulumi.set(self, "http", value)
 
 
 class GatewayTargetToolDefinitionArgsDict(TypedDict):

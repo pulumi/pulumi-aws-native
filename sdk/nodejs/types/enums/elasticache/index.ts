@@ -21,6 +21,17 @@ export const ServerlessCacheDataStorageUnit = {
  */
 export type ServerlessCacheDataStorageUnit = (typeof ServerlessCacheDataStorageUnit)[keyof typeof ServerlessCacheDataStorageUnit];
 
+export const ServerlessCacheNetworkType = {
+    Ipv4: "ipv4",
+    Ipv6: "ipv6",
+    DualStack: "dual_stack",
+} as const;
+
+/**
+ * The network type for the serverless cache. Valid values are ipv4, ipv6, or dual_stack.
+ */
+export type ServerlessCacheNetworkType = (typeof ServerlessCacheNetworkType)[keyof typeof ServerlessCacheNetworkType];
+
 export const UserAuthenticationModePropertiesType = {
     Password: "password",
     NoPasswordRequired: "no-password-required",

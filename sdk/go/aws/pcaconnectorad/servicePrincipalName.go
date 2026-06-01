@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -16,18 +17,24 @@ type ServicePrincipalName struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) that was returned when you called [CreateConnector.html](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html) .
-	ConnectorArn pulumi.StringPtrOutput `pulumi:"connectorArn"`
+	ConnectorArn pulumi.StringOutput `pulumi:"connectorArn"`
 	// The Amazon Resource Name (ARN) that was returned when you called [CreateDirectoryRegistration](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html) .
-	DirectoryRegistrationArn pulumi.StringPtrOutput `pulumi:"directoryRegistrationArn"`
+	DirectoryRegistrationArn pulumi.StringOutput `pulumi:"directoryRegistrationArn"`
 }
 
 // NewServicePrincipalName registers a new resource with the given unique name, arguments, and options.
 func NewServicePrincipalName(ctx *pulumi.Context,
 	name string, args *ServicePrincipalNameArgs, opts ...pulumi.ResourceOption) (*ServicePrincipalName, error) {
 	if args == nil {
-		args = &ServicePrincipalNameArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.ConnectorArn == nil {
+		return nil, errors.New("invalid value for required argument 'ConnectorArn'")
+	}
+	if args.DirectoryRegistrationArn == nil {
+		return nil, errors.New("invalid value for required argument 'DirectoryRegistrationArn'")
+	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"connectorArn",
 		"directoryRegistrationArn",
@@ -67,17 +74,17 @@ func (ServicePrincipalNameState) ElementType() reflect.Type {
 
 type servicePrincipalNameArgs struct {
 	// The Amazon Resource Name (ARN) that was returned when you called [CreateConnector.html](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html) .
-	ConnectorArn *string `pulumi:"connectorArn"`
+	ConnectorArn string `pulumi:"connectorArn"`
 	// The Amazon Resource Name (ARN) that was returned when you called [CreateDirectoryRegistration](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html) .
-	DirectoryRegistrationArn *string `pulumi:"directoryRegistrationArn"`
+	DirectoryRegistrationArn string `pulumi:"directoryRegistrationArn"`
 }
 
 // The set of arguments for constructing a ServicePrincipalName resource.
 type ServicePrincipalNameArgs struct {
 	// The Amazon Resource Name (ARN) that was returned when you called [CreateConnector.html](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html) .
-	ConnectorArn pulumi.StringPtrInput
+	ConnectorArn pulumi.StringInput
 	// The Amazon Resource Name (ARN) that was returned when you called [CreateDirectoryRegistration](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html) .
-	DirectoryRegistrationArn pulumi.StringPtrInput
+	DirectoryRegistrationArn pulumi.StringInput
 }
 
 func (ServicePrincipalNameArgs) ElementType() reflect.Type {
@@ -118,13 +125,13 @@ func (o ServicePrincipalNameOutput) ToServicePrincipalNameOutputWithContext(ctx 
 }
 
 // The Amazon Resource Name (ARN) that was returned when you called [CreateConnector.html](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html) .
-func (o ServicePrincipalNameOutput) ConnectorArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServicePrincipalName) pulumi.StringPtrOutput { return v.ConnectorArn }).(pulumi.StringPtrOutput)
+func (o ServicePrincipalNameOutput) ConnectorArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServicePrincipalName) pulumi.StringOutput { return v.ConnectorArn }).(pulumi.StringOutput)
 }
 
 // The Amazon Resource Name (ARN) that was returned when you called [CreateDirectoryRegistration](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html) .
-func (o ServicePrincipalNameOutput) DirectoryRegistrationArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServicePrincipalName) pulumi.StringPtrOutput { return v.DirectoryRegistrationArn }).(pulumi.StringPtrOutput)
+func (o ServicePrincipalNameOutput) DirectoryRegistrationArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServicePrincipalName) pulumi.StringOutput { return v.DirectoryRegistrationArn }).(pulumi.StringOutput)
 }
 
 func init() {

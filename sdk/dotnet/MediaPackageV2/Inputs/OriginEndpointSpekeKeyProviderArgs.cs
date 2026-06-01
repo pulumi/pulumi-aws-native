@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.MediaPackageV2.Inputs
     public sealed class OriginEndpointSpekeKeyProviderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// &lt;p&gt;The ARN for the certificate that you imported to AWS Certificate Manager to add content key encryption to this endpoint. For this feature to work, your DRM key provider must support content key encryption.&lt;/p&gt;
+        /// &lt;p&gt;The ARN for the certificate that you imported to Amazon Web Services Certificate Manager to add content key encryption to this endpoint. For this feature to work, your DRM key provider must support content key encryption.&lt;/p&gt;
         /// </summary>
         [Input("certificateArn")]
         public Input<string>? CertificateArn { get; set; }

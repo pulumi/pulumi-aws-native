@@ -75,9 +75,9 @@ func (o ChannelIngestEndpointArrayOutput) Index(i pulumi.IntInput) ChannelIngest
 
 // <p>The configuration for input switching based on the media quality confidence score (MQCS) as provided from AWS Elemental MediaLive.</p>
 type ChannelInputSwitchConfiguration struct {
-	// <p>When true, AWS Elemental MediaPackage performs input switching based on the MQCS. Default is true. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
+	// <p>When true, AWS Elemental MediaPackage performs input switching based on the MQCS. Default is false. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
 	MqcsInputSwitching *bool `pulumi:"mqcsInputSwitching"`
-	// For CMAF inputs, indicates which input MediaPackage should prefer when both inputs have equal MQCS scores. Select `1` to prefer the first ingest endpoint, or `2` to prefer the second ingest endpoint. If you don't specify a preferred input, MediaPackage uses its default switching behavior when MQCS scores are equal.
+	// <p>For CMAF inputs, indicates which input MediaPackage should prefer when both inputs have equal MQCS scores. Select <code>1</code> to prefer the first ingest endpoint, or <code>2</code> to prefer the second ingest endpoint. If you don't specify a preferred input, MediaPackage uses its default switching behavior when MQCS scores are equal.</p>
 	PreferredInput *int `pulumi:"preferredInput"`
 }
 
@@ -94,9 +94,9 @@ type ChannelInputSwitchConfigurationInput interface {
 
 // <p>The configuration for input switching based on the media quality confidence score (MQCS) as provided from AWS Elemental MediaLive.</p>
 type ChannelInputSwitchConfigurationArgs struct {
-	// <p>When true, AWS Elemental MediaPackage performs input switching based on the MQCS. Default is true. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
+	// <p>When true, AWS Elemental MediaPackage performs input switching based on the MQCS. Default is false. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
 	MqcsInputSwitching pulumi.BoolPtrInput `pulumi:"mqcsInputSwitching"`
-	// For CMAF inputs, indicates which input MediaPackage should prefer when both inputs have equal MQCS scores. Select `1` to prefer the first ingest endpoint, or `2` to prefer the second ingest endpoint. If you don't specify a preferred input, MediaPackage uses its default switching behavior when MQCS scores are equal.
+	// <p>For CMAF inputs, indicates which input MediaPackage should prefer when both inputs have equal MQCS scores. Select <code>1</code> to prefer the first ingest endpoint, or <code>2</code> to prefer the second ingest endpoint. If you don't specify a preferred input, MediaPackage uses its default switching behavior when MQCS scores are equal.</p>
 	PreferredInput pulumi.IntPtrInput `pulumi:"preferredInput"`
 }
 
@@ -178,12 +178,12 @@ func (o ChannelInputSwitchConfigurationOutput) ToChannelInputSwitchConfiguration
 	}).(ChannelInputSwitchConfigurationPtrOutput)
 }
 
-// <p>When true, AWS Elemental MediaPackage performs input switching based on the MQCS. Default is true. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
+// <p>When true, AWS Elemental MediaPackage performs input switching based on the MQCS. Default is false. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
 func (o ChannelInputSwitchConfigurationOutput) MqcsInputSwitching() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ChannelInputSwitchConfiguration) *bool { return v.MqcsInputSwitching }).(pulumi.BoolPtrOutput)
 }
 
-// For CMAF inputs, indicates which input MediaPackage should prefer when both inputs have equal MQCS scores. Select `1` to prefer the first ingest endpoint, or `2` to prefer the second ingest endpoint. If you don't specify a preferred input, MediaPackage uses its default switching behavior when MQCS scores are equal.
+// <p>For CMAF inputs, indicates which input MediaPackage should prefer when both inputs have equal MQCS scores. Select <code>1</code> to prefer the first ingest endpoint, or <code>2</code> to prefer the second ingest endpoint. If you don't specify a preferred input, MediaPackage uses its default switching behavior when MQCS scores are equal.</p>
 func (o ChannelInputSwitchConfigurationOutput) PreferredInput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ChannelInputSwitchConfiguration) *int { return v.PreferredInput }).(pulumi.IntPtrOutput)
 }
@@ -212,7 +212,7 @@ func (o ChannelInputSwitchConfigurationPtrOutput) Elem() ChannelInputSwitchConfi
 	}).(ChannelInputSwitchConfigurationOutput)
 }
 
-// <p>When true, AWS Elemental MediaPackage performs input switching based on the MQCS. Default is true. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
+// <p>When true, AWS Elemental MediaPackage performs input switching based on the MQCS. Default is false. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
 func (o ChannelInputSwitchConfigurationPtrOutput) MqcsInputSwitching() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ChannelInputSwitchConfiguration) *bool {
 		if v == nil {
@@ -222,7 +222,7 @@ func (o ChannelInputSwitchConfigurationPtrOutput) MqcsInputSwitching() pulumi.Bo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// For CMAF inputs, indicates which input MediaPackage should prefer when both inputs have equal MQCS scores. Select `1` to prefer the first ingest endpoint, or `2` to prefer the second ingest endpoint. If you don't specify a preferred input, MediaPackage uses its default switching behavior when MQCS scores are equal.
+// <p>For CMAF inputs, indicates which input MediaPackage should prefer when both inputs have equal MQCS scores. Select <code>1</code> to prefer the first ingest endpoint, or <code>2</code> to prefer the second ingest endpoint. If you don't specify a preferred input, MediaPackage uses its default switching behavior when MQCS scores are equal.</p>
 func (o ChannelInputSwitchConfigurationPtrOutput) PreferredInput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ChannelInputSwitchConfiguration) *int {
 		if v == nil {
@@ -377,6 +377,145 @@ type ChannelTag struct {
 	Key *string `pulumi:"key"`
 	// The value in the key:value pair for the tag.
 	Value *string `pulumi:"value"`
+}
+
+type OriginEndpointDashAvailabilityStartTimeConfiguration0Properties struct {
+	FixedAvailabilityStartTime string `pulumi:"fixedAvailabilityStartTime"`
+}
+
+type OriginEndpointDashAvailabilityStartTimeConfigurationProperties struct {
+	FixedAvailabilityStartTime string `pulumi:"fixedAvailabilityStartTime"`
+}
+
+// OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesInput is an input type that accepts OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesArgs and OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesOutput values.
+// You can construct a concrete instance of `OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesInput` via:
+//
+//	OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesArgs{...}
+type OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesInput interface {
+	pulumi.Input
+
+	ToOriginEndpointDashAvailabilityStartTimeConfigurationPropertiesOutput() OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesOutput
+	ToOriginEndpointDashAvailabilityStartTimeConfigurationPropertiesOutputWithContext(context.Context) OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesOutput
+}
+
+type OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesArgs struct {
+	FixedAvailabilityStartTime pulumi.StringInput `pulumi:"fixedAvailabilityStartTime"`
+}
+
+func (OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginEndpointDashAvailabilityStartTimeConfigurationProperties)(nil)).Elem()
+}
+
+func (i OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesArgs) ToOriginEndpointDashAvailabilityStartTimeConfigurationPropertiesOutput() OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesOutput {
+	return i.ToOriginEndpointDashAvailabilityStartTimeConfigurationPropertiesOutputWithContext(context.Background())
+}
+
+func (i OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesArgs) ToOriginEndpointDashAvailabilityStartTimeConfigurationPropertiesOutputWithContext(ctx context.Context) OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesOutput)
+}
+
+func (i OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesArgs) ToOriginEndpointDashAvailabilityStartTimeConfigurationPropertiesPtrOutput() OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesPtrOutput {
+	return i.ToOriginEndpointDashAvailabilityStartTimeConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesArgs) ToOriginEndpointDashAvailabilityStartTimeConfigurationPropertiesPtrOutputWithContext(ctx context.Context) OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesOutput).ToOriginEndpointDashAvailabilityStartTimeConfigurationPropertiesPtrOutputWithContext(ctx)
+}
+
+// OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesPtrInput is an input type that accepts OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesArgs, OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesPtr and OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesPtrOutput values.
+// You can construct a concrete instance of `OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesPtrInput` via:
+//
+//	        OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToOriginEndpointDashAvailabilityStartTimeConfigurationPropertiesPtrOutput() OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesPtrOutput
+	ToOriginEndpointDashAvailabilityStartTimeConfigurationPropertiesPtrOutputWithContext(context.Context) OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesPtrOutput
+}
+
+type originEndpointDashAvailabilityStartTimeConfigurationPropertiesPtrType OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesArgs
+
+func OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesPtr(v *OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesArgs) OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesPtrInput {
+	return (*originEndpointDashAvailabilityStartTimeConfigurationPropertiesPtrType)(v)
+}
+
+func (*originEndpointDashAvailabilityStartTimeConfigurationPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OriginEndpointDashAvailabilityStartTimeConfigurationProperties)(nil)).Elem()
+}
+
+func (i *originEndpointDashAvailabilityStartTimeConfigurationPropertiesPtrType) ToOriginEndpointDashAvailabilityStartTimeConfigurationPropertiesPtrOutput() OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesPtrOutput {
+	return i.ToOriginEndpointDashAvailabilityStartTimeConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *originEndpointDashAvailabilityStartTimeConfigurationPropertiesPtrType) ToOriginEndpointDashAvailabilityStartTimeConfigurationPropertiesPtrOutputWithContext(ctx context.Context) OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesPtrOutput)
+}
+
+type OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginEndpointDashAvailabilityStartTimeConfigurationProperties)(nil)).Elem()
+}
+
+func (o OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesOutput) ToOriginEndpointDashAvailabilityStartTimeConfigurationPropertiesOutput() OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesOutput {
+	return o
+}
+
+func (o OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesOutput) ToOriginEndpointDashAvailabilityStartTimeConfigurationPropertiesOutputWithContext(ctx context.Context) OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesOutput {
+	return o
+}
+
+func (o OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesOutput) ToOriginEndpointDashAvailabilityStartTimeConfigurationPropertiesPtrOutput() OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesPtrOutput {
+	return o.ToOriginEndpointDashAvailabilityStartTimeConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesOutput) ToOriginEndpointDashAvailabilityStartTimeConfigurationPropertiesPtrOutputWithContext(ctx context.Context) OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OriginEndpointDashAvailabilityStartTimeConfigurationProperties) *OriginEndpointDashAvailabilityStartTimeConfigurationProperties {
+		return &v
+	}).(OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesPtrOutput)
+}
+
+func (o OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesOutput) FixedAvailabilityStartTime() pulumi.StringOutput {
+	return o.ApplyT(func(v OriginEndpointDashAvailabilityStartTimeConfigurationProperties) string {
+		return v.FixedAvailabilityStartTime
+	}).(pulumi.StringOutput)
+}
+
+type OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OriginEndpointDashAvailabilityStartTimeConfigurationProperties)(nil)).Elem()
+}
+
+func (o OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesPtrOutput) ToOriginEndpointDashAvailabilityStartTimeConfigurationPropertiesPtrOutput() OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesPtrOutput) ToOriginEndpointDashAvailabilityStartTimeConfigurationPropertiesPtrOutputWithContext(ctx context.Context) OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesPtrOutput) Elem() OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesOutput {
+	return o.ApplyT(func(v *OriginEndpointDashAvailabilityStartTimeConfigurationProperties) OriginEndpointDashAvailabilityStartTimeConfigurationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret OriginEndpointDashAvailabilityStartTimeConfigurationProperties
+		return ret
+	}).(OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesOutput)
+}
+
+func (o OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesPtrOutput) FixedAvailabilityStartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OriginEndpointDashAvailabilityStartTimeConfigurationProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FixedAvailabilityStartTime
+	}).(pulumi.StringPtrOutput)
 }
 
 // <p>The base URLs to use for retrieving segments. You can specify multiple locations and indicate the priority and weight for when each should be used, for use in mutli-CDN workflows.</p>
@@ -954,6 +1093,7 @@ func (o OriginEndpointDashDvbSettingsPtrOutput) FontDownload() OriginEndpointDas
 
 // <p>Retrieve the DASH manifest configuration.</p>
 type OriginEndpointDashManifestConfiguration struct {
+	AvailabilityStartTimeConfiguration *OriginEndpointDashAvailabilityStartTimeConfigurationProperties `pulumi:"availabilityStartTimeConfiguration"`
 	// <p>The base URL to use for retrieving segments.</p>
 	BaseUrls []OriginEndpointDashBaseUrl `pulumi:"baseUrls"`
 	// The layout of the DASH manifest that MediaPackage produces. `STANDARD` indicates a default manifest, which is compacted. `NONE` indicates a full manifest.
@@ -991,7 +1131,8 @@ type OriginEndpointDashManifestConfiguration struct {
 	// The configuration for DASH subtitles.
 	SubtitleConfiguration *OriginEndpointDashSubtitleConfiguration `pulumi:"subtitleConfiguration"`
 	// <p>The amount of time (in seconds) that the player should be from the end of the manifest.</p>
-	SuggestedPresentationDelaySeconds *int `pulumi:"suggestedPresentationDelaySeconds"`
+	SuggestedPresentationDelaySeconds *int                       `pulumi:"suggestedPresentationDelaySeconds"`
+	UriPathType                       *OriginEndpointUriPathType `pulumi:"uriPathType"`
 	// Determines the type of UTC timing included in the DASH Media Presentation Description (MPD).
 	UtcTiming *OriginEndpointDashUtcTiming `pulumi:"utcTiming"`
 }
@@ -1009,6 +1150,7 @@ type OriginEndpointDashManifestConfigurationInput interface {
 
 // <p>Retrieve the DASH manifest configuration.</p>
 type OriginEndpointDashManifestConfigurationArgs struct {
+	AvailabilityStartTimeConfiguration OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesPtrInput `pulumi:"availabilityStartTimeConfiguration"`
 	// <p>The base URL to use for retrieving segments.</p>
 	BaseUrls OriginEndpointDashBaseUrlArrayInput `pulumi:"baseUrls"`
 	// The layout of the DASH manifest that MediaPackage produces. `STANDARD` indicates a default manifest, which is compacted. `NONE` indicates a full manifest.
@@ -1046,7 +1188,8 @@ type OriginEndpointDashManifestConfigurationArgs struct {
 	// The configuration for DASH subtitles.
 	SubtitleConfiguration OriginEndpointDashSubtitleConfigurationPtrInput `pulumi:"subtitleConfiguration"`
 	// <p>The amount of time (in seconds) that the player should be from the end of the manifest.</p>
-	SuggestedPresentationDelaySeconds pulumi.IntPtrInput `pulumi:"suggestedPresentationDelaySeconds"`
+	SuggestedPresentationDelaySeconds pulumi.IntPtrInput                `pulumi:"suggestedPresentationDelaySeconds"`
+	UriPathType                       OriginEndpointUriPathTypePtrInput `pulumi:"uriPathType"`
 	// Determines the type of UTC timing included in the DASH Media Presentation Description (MPD).
 	UtcTiming OriginEndpointDashUtcTimingPtrInput `pulumi:"utcTiming"`
 }
@@ -1101,6 +1244,12 @@ func (o OriginEndpointDashManifestConfigurationOutput) ToOriginEndpointDashManif
 
 func (o OriginEndpointDashManifestConfigurationOutput) ToOriginEndpointDashManifestConfigurationOutputWithContext(ctx context.Context) OriginEndpointDashManifestConfigurationOutput {
 	return o
+}
+
+func (o OriginEndpointDashManifestConfigurationOutput) AvailabilityStartTimeConfiguration() OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v OriginEndpointDashManifestConfiguration) *OriginEndpointDashAvailabilityStartTimeConfigurationProperties {
+		return v.AvailabilityStartTimeConfiguration
+	}).(OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesPtrOutput)
 }
 
 // <p>The base URL to use for retrieving segments.</p>
@@ -1197,6 +1346,10 @@ func (o OriginEndpointDashManifestConfigurationOutput) SubtitleConfiguration() O
 // <p>The amount of time (in seconds) that the player should be from the end of the manifest.</p>
 func (o OriginEndpointDashManifestConfigurationOutput) SuggestedPresentationDelaySeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OriginEndpointDashManifestConfiguration) *int { return v.SuggestedPresentationDelaySeconds }).(pulumi.IntPtrOutput)
+}
+
+func (o OriginEndpointDashManifestConfigurationOutput) UriPathType() OriginEndpointUriPathTypePtrOutput {
+	return o.ApplyT(func(v OriginEndpointDashManifestConfiguration) *OriginEndpointUriPathType { return v.UriPathType }).(OriginEndpointUriPathTypePtrOutput)
 }
 
 // Determines the type of UTC timing included in the DASH Media Presentation Description (MPD).
@@ -2926,7 +3079,8 @@ type OriginEndpointHlsManifestConfiguration struct {
 	// THE SCTE-35 HLS configuration associated with the HLS manifest configuration.
 	ScteHls *OriginEndpointScteHls `pulumi:"scteHls"`
 	// To insert an EXT-X-START tag in your HLS playlist, specify a StartTag configuration object with a valid TimeOffset. When you do, you can also optionally specify whether to include a PRECISE value in the EXT-X-START tag.
-	StartTag *OriginEndpointStartTag `pulumi:"startTag"`
+	StartTag    *OriginEndpointStartTag    `pulumi:"startTag"`
+	UriPathType *OriginEndpointUriPathType `pulumi:"uriPathType"`
 	// <p>The egress domain URL for stream delivery from MediaPackage.</p>
 	Url *string `pulumi:"url"`
 	// <p>When enabled, MediaPackage URL-encodes the query string for API requests for HLS child manifests to comply with Amazon Web Services Signature Version 4 (SigV4) signature signing protocol. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html">Amazon Web Services Signature Version 4 for API requests</a> in <i>Identity and Access Management User Guide</i>.</p>
@@ -2959,7 +3113,8 @@ type OriginEndpointHlsManifestConfigurationArgs struct {
 	// THE SCTE-35 HLS configuration associated with the HLS manifest configuration.
 	ScteHls OriginEndpointScteHlsPtrInput `pulumi:"scteHls"`
 	// To insert an EXT-X-START tag in your HLS playlist, specify a StartTag configuration object with a valid TimeOffset. When you do, you can also optionally specify whether to include a PRECISE value in the EXT-X-START tag.
-	StartTag OriginEndpointStartTagPtrInput `pulumi:"startTag"`
+	StartTag    OriginEndpointStartTagPtrInput    `pulumi:"startTag"`
+	UriPathType OriginEndpointUriPathTypePtrInput `pulumi:"uriPathType"`
 	// <p>The egress domain URL for stream delivery from MediaPackage.</p>
 	Url pulumi.StringPtrInput `pulumi:"url"`
 	// <p>When enabled, MediaPackage URL-encodes the query string for API requests for HLS child manifests to comply with Amazon Web Services Signature Version 4 (SigV4) signature signing protocol. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html">Amazon Web Services Signature Version 4 for API requests</a> in <i>Identity and Access Management User Guide</i>.</p>
@@ -3055,6 +3210,10 @@ func (o OriginEndpointHlsManifestConfigurationOutput) StartTag() OriginEndpointS
 	return o.ApplyT(func(v OriginEndpointHlsManifestConfiguration) *OriginEndpointStartTag { return v.StartTag }).(OriginEndpointStartTagPtrOutput)
 }
 
+func (o OriginEndpointHlsManifestConfigurationOutput) UriPathType() OriginEndpointUriPathTypePtrOutput {
+	return o.ApplyT(func(v OriginEndpointHlsManifestConfiguration) *OriginEndpointUriPathType { return v.UriPathType }).(OriginEndpointUriPathTypePtrOutput)
+}
+
 // <p>The egress domain URL for stream delivery from MediaPackage.</p>
 func (o OriginEndpointHlsManifestConfigurationOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OriginEndpointHlsManifestConfiguration) *string { return v.Url }).(pulumi.StringPtrOutput)
@@ -3100,7 +3259,8 @@ type OriginEndpointLowLatencyHlsManifestConfiguration struct {
 	// The SCTE-35 HLS configuration associated with the low-latency HLS (LL-HLS) manifest configuration of the origin endpoint.
 	ScteHls *OriginEndpointScteHls `pulumi:"scteHls"`
 	// To insert an EXT-X-START tag in your HLS playlist, specify a StartTag configuration object with a valid TimeOffset. When you do, you can also optionally specify whether to include a PRECISE value in the EXT-X-START tag.
-	StartTag *OriginEndpointStartTag `pulumi:"startTag"`
+	StartTag    *OriginEndpointStartTag    `pulumi:"startTag"`
+	UriPathType *OriginEndpointUriPathType `pulumi:"uriPathType"`
 	// <p>The egress domain URL for stream delivery from MediaPackage.</p>
 	Url *string `pulumi:"url"`
 	// <p>When enabled, MediaPackage URL-encodes the query string for API requests for LL-HLS child manifests to comply with Amazon Web Services Signature Version 4 (SigV4) signature signing protocol. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html">Amazon Web Services Signature Version 4 for API requests</a> in <i>Identity and Access Management User Guide</i>.</p>
@@ -3133,7 +3293,8 @@ type OriginEndpointLowLatencyHlsManifestConfigurationArgs struct {
 	// The SCTE-35 HLS configuration associated with the low-latency HLS (LL-HLS) manifest configuration of the origin endpoint.
 	ScteHls OriginEndpointScteHlsPtrInput `pulumi:"scteHls"`
 	// To insert an EXT-X-START tag in your HLS playlist, specify a StartTag configuration object with a valid TimeOffset. When you do, you can also optionally specify whether to include a PRECISE value in the EXT-X-START tag.
-	StartTag OriginEndpointStartTagPtrInput `pulumi:"startTag"`
+	StartTag    OriginEndpointStartTagPtrInput    `pulumi:"startTag"`
+	UriPathType OriginEndpointUriPathTypePtrInput `pulumi:"uriPathType"`
 	// <p>The egress domain URL for stream delivery from MediaPackage.</p>
 	Url pulumi.StringPtrInput `pulumi:"url"`
 	// <p>When enabled, MediaPackage URL-encodes the query string for API requests for LL-HLS child manifests to comply with Amazon Web Services Signature Version 4 (SigV4) signature signing protocol. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html">Amazon Web Services Signature Version 4 for API requests</a> in <i>Identity and Access Management User Guide</i>.</p>
@@ -3227,6 +3388,12 @@ func (o OriginEndpointLowLatencyHlsManifestConfigurationOutput) ScteHls() Origin
 // To insert an EXT-X-START tag in your HLS playlist, specify a StartTag configuration object with a valid TimeOffset. When you do, you can also optionally specify whether to include a PRECISE value in the EXT-X-START tag.
 func (o OriginEndpointLowLatencyHlsManifestConfigurationOutput) StartTag() OriginEndpointStartTagPtrOutput {
 	return o.ApplyT(func(v OriginEndpointLowLatencyHlsManifestConfiguration) *OriginEndpointStartTag { return v.StartTag }).(OriginEndpointStartTagPtrOutput)
+}
+
+func (o OriginEndpointLowLatencyHlsManifestConfigurationOutput) UriPathType() OriginEndpointUriPathTypePtrOutput {
+	return o.ApplyT(func(v OriginEndpointLowLatencyHlsManifestConfiguration) *OriginEndpointUriPathType {
+		return v.UriPathType
+	}).(OriginEndpointUriPathTypePtrOutput)
 }
 
 // <p>The egress domain URL for stream delivery from MediaPackage.</p>
@@ -3384,10 +3551,11 @@ func (o OriginEndpointMssManifestConfigurationArrayOutput) Index(i pulumi.IntInp
 	}).(OriginEndpointMssManifestConfigurationOutput)
 }
 
+// <p>The settings to enable CDN authorization headers in MediaPackage.</p>
 type OriginEndpointPolicyCdnAuthConfiguration struct {
-	// The ARN for the secret in Secrets Manager that your CDN uses for authorization to access the endpoint.
+	// <p>The ARN for the secret in Secrets Manager that your CDN uses for authorization to access the endpoint.</p>
 	CdnIdentifierSecretArns []string `pulumi:"cdnIdentifierSecretArns"`
-	// The ARN for the IAM role that gives MediaPackage read access to Secrets Manager and AWS  for CDN authorization.
+	// <p>The ARN for the IAM role that gives MediaPackage read access to Secrets Manager and KMS for CDN authorization.</p>
 	SecretsRoleArn string `pulumi:"secretsRoleArn"`
 }
 
@@ -3402,10 +3570,11 @@ type OriginEndpointPolicyCdnAuthConfigurationInput interface {
 	ToOriginEndpointPolicyCdnAuthConfigurationOutputWithContext(context.Context) OriginEndpointPolicyCdnAuthConfigurationOutput
 }
 
+// <p>The settings to enable CDN authorization headers in MediaPackage.</p>
 type OriginEndpointPolicyCdnAuthConfigurationArgs struct {
-	// The ARN for the secret in Secrets Manager that your CDN uses for authorization to access the endpoint.
+	// <p>The ARN for the secret in Secrets Manager that your CDN uses for authorization to access the endpoint.</p>
 	CdnIdentifierSecretArns pulumi.StringArrayInput `pulumi:"cdnIdentifierSecretArns"`
-	// The ARN for the IAM role that gives MediaPackage read access to Secrets Manager and AWS  for CDN authorization.
+	// <p>The ARN for the IAM role that gives MediaPackage read access to Secrets Manager and KMS for CDN authorization.</p>
 	SecretsRoleArn pulumi.StringInput `pulumi:"secretsRoleArn"`
 }
 
@@ -3462,6 +3631,7 @@ func (i *originEndpointPolicyCdnAuthConfigurationPtrType) ToOriginEndpointPolicy
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointPolicyCdnAuthConfigurationPtrOutput)
 }
 
+// <p>The settings to enable CDN authorization headers in MediaPackage.</p>
 type OriginEndpointPolicyCdnAuthConfigurationOutput struct{ *pulumi.OutputState }
 
 func (OriginEndpointPolicyCdnAuthConfigurationOutput) ElementType() reflect.Type {
@@ -3486,12 +3656,12 @@ func (o OriginEndpointPolicyCdnAuthConfigurationOutput) ToOriginEndpointPolicyCd
 	}).(OriginEndpointPolicyCdnAuthConfigurationPtrOutput)
 }
 
-// The ARN for the secret in Secrets Manager that your CDN uses for authorization to access the endpoint.
+// <p>The ARN for the secret in Secrets Manager that your CDN uses for authorization to access the endpoint.</p>
 func (o OriginEndpointPolicyCdnAuthConfigurationOutput) CdnIdentifierSecretArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v OriginEndpointPolicyCdnAuthConfiguration) []string { return v.CdnIdentifierSecretArns }).(pulumi.StringArrayOutput)
 }
 
-// The ARN for the IAM role that gives MediaPackage read access to Secrets Manager and AWS  for CDN authorization.
+// <p>The ARN for the IAM role that gives MediaPackage read access to Secrets Manager and KMS for CDN authorization.</p>
 func (o OriginEndpointPolicyCdnAuthConfigurationOutput) SecretsRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v OriginEndpointPolicyCdnAuthConfiguration) string { return v.SecretsRoleArn }).(pulumi.StringOutput)
 }
@@ -3520,7 +3690,7 @@ func (o OriginEndpointPolicyCdnAuthConfigurationPtrOutput) Elem() OriginEndpoint
 	}).(OriginEndpointPolicyCdnAuthConfigurationOutput)
 }
 
-// The ARN for the secret in Secrets Manager that your CDN uses for authorization to access the endpoint.
+// <p>The ARN for the secret in Secrets Manager that your CDN uses for authorization to access the endpoint.</p>
 func (o OriginEndpointPolicyCdnAuthConfigurationPtrOutput) CdnIdentifierSecretArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OriginEndpointPolicyCdnAuthConfiguration) []string {
 		if v == nil {
@@ -3530,7 +3700,7 @@ func (o OriginEndpointPolicyCdnAuthConfigurationPtrOutput) CdnIdentifierSecretAr
 	}).(pulumi.StringArrayOutput)
 }
 
-// The ARN for the IAM role that gives MediaPackage read access to Secrets Manager and AWS  for CDN authorization.
+// <p>The ARN for the IAM role that gives MediaPackage read access to Secrets Manager and KMS for CDN authorization.</p>
 func (o OriginEndpointPolicyCdnAuthConfigurationPtrOutput) SecretsRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointPolicyCdnAuthConfiguration) *string {
 		if v == nil {
@@ -3542,6 +3712,8 @@ func (o OriginEndpointPolicyCdnAuthConfigurationPtrOutput) SecretsRoleArn() pulu
 
 // <p>The SCTE configuration.</p>
 type OriginEndpointScte struct {
+	// <p>A list of additional non-Ad SCTE-35 event types to treat as advertisements. When configured, events matching these types produce ad markers (such as <code>SCTE35-OUT</code> and <code>SCTE35-IN</code> in HLS DATERANGE tags) in manifests.</p> <p>Valid values: <code>PROGRAM</code> | <code>CHAPTER</code> | <code>UNSCHEDULED_EVENT</code> | <code>ALTERNATE_CONTENT_OPPORTUNITY</code> | <code>NETWORK</code> </p> <p>If you don't specify any values, the default is empty (only default ad types are used).</p>
+	CustomAdTypes []OriginEndpointCustomAdType `pulumi:"customAdTypes"`
 	// <p>The SCTE-35 message types that you want to be treated as ad markers in the output.</p>
 	ScteFilter []OriginEndpointScteFilter `pulumi:"scteFilter"`
 	// Controls whether SCTE-35 messages are included in segment files.
@@ -3566,6 +3738,8 @@ type OriginEndpointScteInput interface {
 
 // <p>The SCTE configuration.</p>
 type OriginEndpointScteArgs struct {
+	// <p>A list of additional non-Ad SCTE-35 event types to treat as advertisements. When configured, events matching these types produce ad markers (such as <code>SCTE35-OUT</code> and <code>SCTE35-IN</code> in HLS DATERANGE tags) in manifests.</p> <p>Valid values: <code>PROGRAM</code> | <code>CHAPTER</code> | <code>UNSCHEDULED_EVENT</code> | <code>ALTERNATE_CONTENT_OPPORTUNITY</code> | <code>NETWORK</code> </p> <p>If you don't specify any values, the default is empty (only default ad types are used).</p>
+	CustomAdTypes OriginEndpointCustomAdTypeArrayInput `pulumi:"customAdTypes"`
 	// <p>The SCTE-35 message types that you want to be treated as ad markers in the output.</p>
 	ScteFilter OriginEndpointScteFilterArrayInput `pulumi:"scteFilter"`
 	// Controls whether SCTE-35 messages are included in segment files.
@@ -3655,6 +3829,11 @@ func (o OriginEndpointScteOutput) ToOriginEndpointSctePtrOutputWithContext(ctx c
 	}).(OriginEndpointSctePtrOutput)
 }
 
+// <p>A list of additional non-Ad SCTE-35 event types to treat as advertisements. When configured, events matching these types produce ad markers (such as <code>SCTE35-OUT</code> and <code>SCTE35-IN</code> in HLS DATERANGE tags) in manifests.</p> <p>Valid values: <code>PROGRAM</code> | <code>CHAPTER</code> | <code>UNSCHEDULED_EVENT</code> | <code>ALTERNATE_CONTENT_OPPORTUNITY</code> | <code>NETWORK</code> </p> <p>If you don't specify any values, the default is empty (only default ad types are used).</p>
+func (o OriginEndpointScteOutput) CustomAdTypes() OriginEndpointCustomAdTypeArrayOutput {
+	return o.ApplyT(func(v OriginEndpointScte) []OriginEndpointCustomAdType { return v.CustomAdTypes }).(OriginEndpointCustomAdTypeArrayOutput)
+}
+
 // <p>The SCTE-35 message types that you want to be treated as ad markers in the output.</p>
 func (o OriginEndpointScteOutput) ScteFilter() OriginEndpointScteFilterArrayOutput {
 	return o.ApplyT(func(v OriginEndpointScte) []OriginEndpointScteFilter { return v.ScteFilter }).(OriginEndpointScteFilterArrayOutput)
@@ -3694,6 +3873,16 @@ func (o OriginEndpointSctePtrOutput) Elem() OriginEndpointScteOutput {
 	}).(OriginEndpointScteOutput)
 }
 
+// <p>A list of additional non-Ad SCTE-35 event types to treat as advertisements. When configured, events matching these types produce ad markers (such as <code>SCTE35-OUT</code> and <code>SCTE35-IN</code> in HLS DATERANGE tags) in manifests.</p> <p>Valid values: <code>PROGRAM</code> | <code>CHAPTER</code> | <code>UNSCHEDULED_EVENT</code> | <code>ALTERNATE_CONTENT_OPPORTUNITY</code> | <code>NETWORK</code> </p> <p>If you don't specify any values, the default is empty (only default ad types are used).</p>
+func (o OriginEndpointSctePtrOutput) CustomAdTypes() OriginEndpointCustomAdTypeArrayOutput {
+	return o.ApplyT(func(v *OriginEndpointScte) []OriginEndpointCustomAdType {
+		if v == nil {
+			return nil
+		}
+		return v.CustomAdTypes
+	}).(OriginEndpointCustomAdTypeArrayOutput)
+}
+
 // <p>The SCTE-35 message types that you want to be treated as ad markers in the output.</p>
 func (o OriginEndpointSctePtrOutput) ScteFilter() OriginEndpointScteFilterArrayOutput {
 	return o.ApplyT(func(v *OriginEndpointScte) []OriginEndpointScteFilter {
@@ -3727,7 +3916,8 @@ type OriginEndpointScteDash struct {
 	//
 	// - `Binary` - The SCTE-35 marker is expressed as a hex-string (Base64 string) rather than full XML.
 	// - `XML` - The SCTE marker is expressed fully in XML.
-	AdMarkerDash *OriginEndpointAdMarkerDash `pulumi:"adMarkerDash"`
+	AdMarkerDash    *OriginEndpointAdMarkerDash    `pulumi:"adMarkerDash"`
+	ScteInManifests *OriginEndpointScteInManifests `pulumi:"scteInManifests"`
 }
 
 // OriginEndpointScteDashInput is an input type that accepts OriginEndpointScteDashArgs and OriginEndpointScteDashOutput values.
@@ -3749,7 +3939,8 @@ type OriginEndpointScteDashArgs struct {
 	//
 	// - `Binary` - The SCTE-35 marker is expressed as a hex-string (Base64 string) rather than full XML.
 	// - `XML` - The SCTE marker is expressed fully in XML.
-	AdMarkerDash OriginEndpointAdMarkerDashPtrInput `pulumi:"adMarkerDash"`
+	AdMarkerDash    OriginEndpointAdMarkerDashPtrInput    `pulumi:"adMarkerDash"`
+	ScteInManifests OriginEndpointScteInManifestsPtrInput `pulumi:"scteInManifests"`
 }
 
 func (OriginEndpointScteDashArgs) ElementType() reflect.Type {
@@ -3840,6 +4031,10 @@ func (o OriginEndpointScteDashOutput) AdMarkerDash() OriginEndpointAdMarkerDashP
 	return o.ApplyT(func(v OriginEndpointScteDash) *OriginEndpointAdMarkerDash { return v.AdMarkerDash }).(OriginEndpointAdMarkerDashPtrOutput)
 }
 
+func (o OriginEndpointScteDashOutput) ScteInManifests() OriginEndpointScteInManifestsPtrOutput {
+	return o.ApplyT(func(v OriginEndpointScteDash) *OriginEndpointScteInManifests { return v.ScteInManifests }).(OriginEndpointScteInManifestsPtrOutput)
+}
+
 type OriginEndpointScteDashPtrOutput struct{ *pulumi.OutputState }
 
 func (OriginEndpointScteDashPtrOutput) ElementType() reflect.Type {
@@ -3879,10 +4074,20 @@ func (o OriginEndpointScteDashPtrOutput) AdMarkerDash() OriginEndpointAdMarkerDa
 	}).(OriginEndpointAdMarkerDashPtrOutput)
 }
 
+func (o OriginEndpointScteDashPtrOutput) ScteInManifests() OriginEndpointScteInManifestsPtrOutput {
+	return o.ApplyT(func(v *OriginEndpointScteDash) *OriginEndpointScteInManifests {
+		if v == nil {
+			return nil
+		}
+		return v.ScteInManifests
+	}).(OriginEndpointScteInManifestsPtrOutput)
+}
+
 // <p>The SCTE configuration.</p>
 type OriginEndpointScteHls struct {
 	// The SCTE-35 HLS ad-marker configuration.
-	AdMarkerHls *OriginEndpointAdMarkerHls `pulumi:"adMarkerHls"`
+	AdMarkerHls     *OriginEndpointAdMarkerHls     `pulumi:"adMarkerHls"`
+	ScteInManifests *OriginEndpointScteInManifests `pulumi:"scteInManifests"`
 }
 
 // OriginEndpointScteHlsInput is an input type that accepts OriginEndpointScteHlsArgs and OriginEndpointScteHlsOutput values.
@@ -3899,7 +4104,8 @@ type OriginEndpointScteHlsInput interface {
 // <p>The SCTE configuration.</p>
 type OriginEndpointScteHlsArgs struct {
 	// The SCTE-35 HLS ad-marker configuration.
-	AdMarkerHls OriginEndpointAdMarkerHlsPtrInput `pulumi:"adMarkerHls"`
+	AdMarkerHls     OriginEndpointAdMarkerHlsPtrInput     `pulumi:"adMarkerHls"`
+	ScteInManifests OriginEndpointScteInManifestsPtrInput `pulumi:"scteInManifests"`
 }
 
 func (OriginEndpointScteHlsArgs) ElementType() reflect.Type {
@@ -3985,6 +4191,10 @@ func (o OriginEndpointScteHlsOutput) AdMarkerHls() OriginEndpointAdMarkerHlsPtrO
 	return o.ApplyT(func(v OriginEndpointScteHls) *OriginEndpointAdMarkerHls { return v.AdMarkerHls }).(OriginEndpointAdMarkerHlsPtrOutput)
 }
 
+func (o OriginEndpointScteHlsOutput) ScteInManifests() OriginEndpointScteInManifestsPtrOutput {
+	return o.ApplyT(func(v OriginEndpointScteHls) *OriginEndpointScteInManifests { return v.ScteInManifests }).(OriginEndpointScteInManifestsPtrOutput)
+}
+
 type OriginEndpointScteHlsPtrOutput struct{ *pulumi.OutputState }
 
 func (OriginEndpointScteHlsPtrOutput) ElementType() reflect.Type {
@@ -4017,6 +4227,15 @@ func (o OriginEndpointScteHlsPtrOutput) AdMarkerHls() OriginEndpointAdMarkerHlsP
 		}
 		return v.AdMarkerHls
 	}).(OriginEndpointAdMarkerHlsPtrOutput)
+}
+
+func (o OriginEndpointScteHlsPtrOutput) ScteInManifests() OriginEndpointScteInManifestsPtrOutput {
+	return o.ApplyT(func(v *OriginEndpointScteHls) *OriginEndpointScteInManifests {
+		if v == nil {
+			return nil
+		}
+		return v.ScteInManifests
+	}).(OriginEndpointScteInManifestsPtrOutput)
 }
 
 // <p>The segment configuration, including the segment name, duration, and other configuration values.</p>
@@ -4275,7 +4494,7 @@ func (o OriginEndpointSegmentPtrOutput) TsUseAudioRenditionGroup() pulumi.BoolPt
 
 // <p>The parameters for the SPEKE key provider.</p>
 type OriginEndpointSpekeKeyProvider struct {
-	// <p>The ARN for the certificate that you imported to AWS Certificate Manager to add content key encryption to this endpoint. For this feature to work, your DRM key provider must support content key encryption.</p>
+	// <p>The ARN for the certificate that you imported to Amazon Web Services Certificate Manager to add content key encryption to this endpoint. For this feature to work, your DRM key provider must support content key encryption.</p>
 	CertificateArn *string `pulumi:"certificateArn"`
 	// <p>The DRM solution provider you're using to protect your content during distribution.</p>
 	DrmSystems []OriginEndpointDrmSystem `pulumi:"drmSystems"`
@@ -4302,7 +4521,7 @@ type OriginEndpointSpekeKeyProviderInput interface {
 
 // <p>The parameters for the SPEKE key provider.</p>
 type OriginEndpointSpekeKeyProviderArgs struct {
-	// <p>The ARN for the certificate that you imported to AWS Certificate Manager to add content key encryption to this endpoint. For this feature to work, your DRM key provider must support content key encryption.</p>
+	// <p>The ARN for the certificate that you imported to Amazon Web Services Certificate Manager to add content key encryption to this endpoint. For this feature to work, your DRM key provider must support content key encryption.</p>
 	CertificateArn pulumi.StringPtrInput `pulumi:"certificateArn"`
 	// <p>The DRM solution provider you're using to protect your content during distribution.</p>
 	DrmSystems OriginEndpointDrmSystemArrayInput `pulumi:"drmSystems"`
@@ -4394,7 +4613,7 @@ func (o OriginEndpointSpekeKeyProviderOutput) ToOriginEndpointSpekeKeyProviderPt
 	}).(OriginEndpointSpekeKeyProviderPtrOutput)
 }
 
-// <p>The ARN for the certificate that you imported to AWS Certificate Manager to add content key encryption to this endpoint. For this feature to work, your DRM key provider must support content key encryption.</p>
+// <p>The ARN for the certificate that you imported to Amazon Web Services Certificate Manager to add content key encryption to this endpoint. For this feature to work, your DRM key provider must support content key encryption.</p>
 func (o OriginEndpointSpekeKeyProviderOutput) CertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OriginEndpointSpekeKeyProvider) *string { return v.CertificateArn }).(pulumi.StringPtrOutput)
 }
@@ -4450,7 +4669,7 @@ func (o OriginEndpointSpekeKeyProviderPtrOutput) Elem() OriginEndpointSpekeKeyPr
 	}).(OriginEndpointSpekeKeyProviderOutput)
 }
 
-// <p>The ARN for the certificate that you imported to AWS Certificate Manager to add content key encryption to this endpoint. For this feature to work, your DRM key provider must support content key encryption.</p>
+// <p>The ARN for the certificate that you imported to Amazon Web Services Certificate Manager to add content key encryption to this endpoint. For this feature to work, your DRM key provider must support content key encryption.</p>
 func (o OriginEndpointSpekeKeyProviderPtrOutput) CertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointSpekeKeyProvider) *string {
 		if v == nil {
@@ -4681,6 +4900,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelInputSwitchConfigurationPtrInput)(nil)).Elem(), ChannelInputSwitchConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelOutputHeaderConfigurationInput)(nil)).Elem(), ChannelOutputHeaderConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelOutputHeaderConfigurationPtrInput)(nil)).Elem(), ChannelOutputHeaderConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesInput)(nil)).Elem(), OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesPtrInput)(nil)).Elem(), OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointDashBaseUrlInput)(nil)).Elem(), OriginEndpointDashBaseUrlArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointDashBaseUrlArrayInput)(nil)).Elem(), OriginEndpointDashBaseUrlArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointDashDvbFontDownloadInput)(nil)).Elem(), OriginEndpointDashDvbFontDownloadArgs{})
@@ -4735,6 +4956,8 @@ func init() {
 	pulumi.RegisterOutputType(ChannelInputSwitchConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ChannelOutputHeaderConfigurationOutput{})
 	pulumi.RegisterOutputType(ChannelOutputHeaderConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesOutput{})
+	pulumi.RegisterOutputType(OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointDashBaseUrlOutput{})
 	pulumi.RegisterOutputType(OriginEndpointDashBaseUrlArrayOutput{})
 	pulumi.RegisterOutputType(OriginEndpointDashDvbFontDownloadOutput{})

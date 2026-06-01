@@ -84,6 +84,7 @@ AWS::AppStream::DirectoryConfig
 AWS::AppStream::Entitlement
 AWS::AppStream::ImageBuilder
 AWS::AppStream::Stack
+AWS::AppStream::StackUserAssociation
 AWS::AppSync::Api
 AWS::AppSync::ChannelNamespace
 AWS::AppSync::DataSource
@@ -286,6 +287,7 @@ AWS::Config::ConfigRule
 AWS::Config::ConfigurationAggregator
 AWS::Config::ConformancePack
 AWS::Config::OrganizationConformancePack
+AWS::Config::RemediationConfiguration
 AWS::Config::StoredQuery
 AWS::Connect::AgentStatus
 AWS::Connect::ApprovedOrigin
@@ -977,6 +979,7 @@ AWS::Omics::WorkflowVersion
 AWS::OpenSearchServerless::AccessPolicy
 AWS::OpenSearchServerless::Collection
 AWS::OpenSearchServerless::CollectionGroup
+AWS::OpenSearchServerless::CollectionIndex
 AWS::OpenSearchServerless::Index
 AWS::OpenSearchServerless::LifecyclePolicy
 AWS::OpenSearchServerless::SecurityConfig
@@ -1323,6 +1326,7 @@ AWS::Transfer::Workflow
 AWS::VerifiedPermissions::IdentitySource
 AWS::VerifiedPermissions::Policy
 AWS::VerifiedPermissions::PolicyStore
+AWS::VerifiedPermissions::PolicyStoreAlias
 AWS::VerifiedPermissions::PolicyTemplate
 AWS::VoiceID::Domain
 AWS::VpcLattice::AccessLogSubscription

@@ -81,6 +81,9 @@ namespace Pulumi.AwsNative.ElastiCache
         [Output("majorEngineVersion")]
         public Output<string?> MajorEngineVersion { get; private set; } = null!;
 
+        [Output("networkType")]
+        public Output<Pulumi.AwsNative.ElastiCache.ServerlessCacheNetworkType?> NetworkType { get; private set; } = null!;
+
         /// <summary>
         /// Represents the information required for client programs to connect to a cache node. This value is read-only.
         /// </summary>
@@ -161,6 +164,7 @@ namespace Pulumi.AwsNative.ElastiCache
                 ReplaceOnChanges =
                 {
                     "kmsKeyId",
+                    "networkType",
                     "serverlessCacheName",
                     "snapshotArnsToRestore[*]",
                     "subnetIds[*]",
@@ -234,6 +238,9 @@ namespace Pulumi.AwsNative.ElastiCache
         /// </summary>
         [Input("majorEngineVersion")]
         public Input<string>? MajorEngineVersion { get; set; }
+
+        [Input("networkType")]
+        public Input<Pulumi.AwsNative.ElastiCache.ServerlessCacheNetworkType>? NetworkType { get; set; }
 
         /// <summary>
         /// Represents the information required for client programs to connect to a cache node. This value is read-only.

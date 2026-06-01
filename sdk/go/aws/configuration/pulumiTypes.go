@@ -1471,6 +1471,301 @@ func (o OrganizationConformancePackConformancePackInputParameterArrayOutput) Ind
 	}).(OrganizationConformancePackConformancePackInputParameterOutput)
 }
 
+type RemediationConfigurationExecutionControls struct {
+	// A SsmControls object.
+	SsmControls *RemediationConfigurationSsmControls `pulumi:"ssmControls"`
+}
+
+// RemediationConfigurationExecutionControlsInput is an input type that accepts RemediationConfigurationExecutionControlsArgs and RemediationConfigurationExecutionControlsOutput values.
+// You can construct a concrete instance of `RemediationConfigurationExecutionControlsInput` via:
+//
+//	RemediationConfigurationExecutionControlsArgs{...}
+type RemediationConfigurationExecutionControlsInput interface {
+	pulumi.Input
+
+	ToRemediationConfigurationExecutionControlsOutput() RemediationConfigurationExecutionControlsOutput
+	ToRemediationConfigurationExecutionControlsOutputWithContext(context.Context) RemediationConfigurationExecutionControlsOutput
+}
+
+type RemediationConfigurationExecutionControlsArgs struct {
+	// A SsmControls object.
+	SsmControls RemediationConfigurationSsmControlsPtrInput `pulumi:"ssmControls"`
+}
+
+func (RemediationConfigurationExecutionControlsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemediationConfigurationExecutionControls)(nil)).Elem()
+}
+
+func (i RemediationConfigurationExecutionControlsArgs) ToRemediationConfigurationExecutionControlsOutput() RemediationConfigurationExecutionControlsOutput {
+	return i.ToRemediationConfigurationExecutionControlsOutputWithContext(context.Background())
+}
+
+func (i RemediationConfigurationExecutionControlsArgs) ToRemediationConfigurationExecutionControlsOutputWithContext(ctx context.Context) RemediationConfigurationExecutionControlsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemediationConfigurationExecutionControlsOutput)
+}
+
+func (i RemediationConfigurationExecutionControlsArgs) ToRemediationConfigurationExecutionControlsPtrOutput() RemediationConfigurationExecutionControlsPtrOutput {
+	return i.ToRemediationConfigurationExecutionControlsPtrOutputWithContext(context.Background())
+}
+
+func (i RemediationConfigurationExecutionControlsArgs) ToRemediationConfigurationExecutionControlsPtrOutputWithContext(ctx context.Context) RemediationConfigurationExecutionControlsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemediationConfigurationExecutionControlsOutput).ToRemediationConfigurationExecutionControlsPtrOutputWithContext(ctx)
+}
+
+// RemediationConfigurationExecutionControlsPtrInput is an input type that accepts RemediationConfigurationExecutionControlsArgs, RemediationConfigurationExecutionControlsPtr and RemediationConfigurationExecutionControlsPtrOutput values.
+// You can construct a concrete instance of `RemediationConfigurationExecutionControlsPtrInput` via:
+//
+//	        RemediationConfigurationExecutionControlsArgs{...}
+//
+//	or:
+//
+//	        nil
+type RemediationConfigurationExecutionControlsPtrInput interface {
+	pulumi.Input
+
+	ToRemediationConfigurationExecutionControlsPtrOutput() RemediationConfigurationExecutionControlsPtrOutput
+	ToRemediationConfigurationExecutionControlsPtrOutputWithContext(context.Context) RemediationConfigurationExecutionControlsPtrOutput
+}
+
+type remediationConfigurationExecutionControlsPtrType RemediationConfigurationExecutionControlsArgs
+
+func RemediationConfigurationExecutionControlsPtr(v *RemediationConfigurationExecutionControlsArgs) RemediationConfigurationExecutionControlsPtrInput {
+	return (*remediationConfigurationExecutionControlsPtrType)(v)
+}
+
+func (*remediationConfigurationExecutionControlsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RemediationConfigurationExecutionControls)(nil)).Elem()
+}
+
+func (i *remediationConfigurationExecutionControlsPtrType) ToRemediationConfigurationExecutionControlsPtrOutput() RemediationConfigurationExecutionControlsPtrOutput {
+	return i.ToRemediationConfigurationExecutionControlsPtrOutputWithContext(context.Background())
+}
+
+func (i *remediationConfigurationExecutionControlsPtrType) ToRemediationConfigurationExecutionControlsPtrOutputWithContext(ctx context.Context) RemediationConfigurationExecutionControlsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemediationConfigurationExecutionControlsPtrOutput)
+}
+
+type RemediationConfigurationExecutionControlsOutput struct{ *pulumi.OutputState }
+
+func (RemediationConfigurationExecutionControlsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemediationConfigurationExecutionControls)(nil)).Elem()
+}
+
+func (o RemediationConfigurationExecutionControlsOutput) ToRemediationConfigurationExecutionControlsOutput() RemediationConfigurationExecutionControlsOutput {
+	return o
+}
+
+func (o RemediationConfigurationExecutionControlsOutput) ToRemediationConfigurationExecutionControlsOutputWithContext(ctx context.Context) RemediationConfigurationExecutionControlsOutput {
+	return o
+}
+
+func (o RemediationConfigurationExecutionControlsOutput) ToRemediationConfigurationExecutionControlsPtrOutput() RemediationConfigurationExecutionControlsPtrOutput {
+	return o.ToRemediationConfigurationExecutionControlsPtrOutputWithContext(context.Background())
+}
+
+func (o RemediationConfigurationExecutionControlsOutput) ToRemediationConfigurationExecutionControlsPtrOutputWithContext(ctx context.Context) RemediationConfigurationExecutionControlsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RemediationConfigurationExecutionControls) *RemediationConfigurationExecutionControls {
+		return &v
+	}).(RemediationConfigurationExecutionControlsPtrOutput)
+}
+
+// A SsmControls object.
+func (o RemediationConfigurationExecutionControlsOutput) SsmControls() RemediationConfigurationSsmControlsPtrOutput {
+	return o.ApplyT(func(v RemediationConfigurationExecutionControls) *RemediationConfigurationSsmControls {
+		return v.SsmControls
+	}).(RemediationConfigurationSsmControlsPtrOutput)
+}
+
+type RemediationConfigurationExecutionControlsPtrOutput struct{ *pulumi.OutputState }
+
+func (RemediationConfigurationExecutionControlsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RemediationConfigurationExecutionControls)(nil)).Elem()
+}
+
+func (o RemediationConfigurationExecutionControlsPtrOutput) ToRemediationConfigurationExecutionControlsPtrOutput() RemediationConfigurationExecutionControlsPtrOutput {
+	return o
+}
+
+func (o RemediationConfigurationExecutionControlsPtrOutput) ToRemediationConfigurationExecutionControlsPtrOutputWithContext(ctx context.Context) RemediationConfigurationExecutionControlsPtrOutput {
+	return o
+}
+
+func (o RemediationConfigurationExecutionControlsPtrOutput) Elem() RemediationConfigurationExecutionControlsOutput {
+	return o.ApplyT(func(v *RemediationConfigurationExecutionControls) RemediationConfigurationExecutionControls {
+		if v != nil {
+			return *v
+		}
+		var ret RemediationConfigurationExecutionControls
+		return ret
+	}).(RemediationConfigurationExecutionControlsOutput)
+}
+
+// A SsmControls object.
+func (o RemediationConfigurationExecutionControlsPtrOutput) SsmControls() RemediationConfigurationSsmControlsPtrOutput {
+	return o.ApplyT(func(v *RemediationConfigurationExecutionControls) *RemediationConfigurationSsmControls {
+		if v == nil {
+			return nil
+		}
+		return v.SsmControls
+	}).(RemediationConfigurationSsmControlsPtrOutput)
+}
+
+type RemediationConfigurationSsmControls struct {
+	// The maximum percentage of remediation actions allowed to run in parallel on the non-compliant resources for that specific rule. You can specify a percentage, such as 10%. The default value is 10.
+	ConcurrentExecutionRatePercentage *int `pulumi:"concurrentExecutionRatePercentage"`
+	// The percentage of errors that are allowed before SSM stops running automations on non-compliant resources for that specific rule. You can specify a percentage of errors, for example 10%. If you do not specifiy a percentage, the default is 50%. For example, if you set the ErrorPercentage to 40% for 10 non-compliant resources, then SSM stops running the automations when the fifth error is received.
+	ErrorPercentage *int `pulumi:"errorPercentage"`
+}
+
+// RemediationConfigurationSsmControlsInput is an input type that accepts RemediationConfigurationSsmControlsArgs and RemediationConfigurationSsmControlsOutput values.
+// You can construct a concrete instance of `RemediationConfigurationSsmControlsInput` via:
+//
+//	RemediationConfigurationSsmControlsArgs{...}
+type RemediationConfigurationSsmControlsInput interface {
+	pulumi.Input
+
+	ToRemediationConfigurationSsmControlsOutput() RemediationConfigurationSsmControlsOutput
+	ToRemediationConfigurationSsmControlsOutputWithContext(context.Context) RemediationConfigurationSsmControlsOutput
+}
+
+type RemediationConfigurationSsmControlsArgs struct {
+	// The maximum percentage of remediation actions allowed to run in parallel on the non-compliant resources for that specific rule. You can specify a percentage, such as 10%. The default value is 10.
+	ConcurrentExecutionRatePercentage pulumi.IntPtrInput `pulumi:"concurrentExecutionRatePercentage"`
+	// The percentage of errors that are allowed before SSM stops running automations on non-compliant resources for that specific rule. You can specify a percentage of errors, for example 10%. If you do not specifiy a percentage, the default is 50%. For example, if you set the ErrorPercentage to 40% for 10 non-compliant resources, then SSM stops running the automations when the fifth error is received.
+	ErrorPercentage pulumi.IntPtrInput `pulumi:"errorPercentage"`
+}
+
+func (RemediationConfigurationSsmControlsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemediationConfigurationSsmControls)(nil)).Elem()
+}
+
+func (i RemediationConfigurationSsmControlsArgs) ToRemediationConfigurationSsmControlsOutput() RemediationConfigurationSsmControlsOutput {
+	return i.ToRemediationConfigurationSsmControlsOutputWithContext(context.Background())
+}
+
+func (i RemediationConfigurationSsmControlsArgs) ToRemediationConfigurationSsmControlsOutputWithContext(ctx context.Context) RemediationConfigurationSsmControlsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemediationConfigurationSsmControlsOutput)
+}
+
+func (i RemediationConfigurationSsmControlsArgs) ToRemediationConfigurationSsmControlsPtrOutput() RemediationConfigurationSsmControlsPtrOutput {
+	return i.ToRemediationConfigurationSsmControlsPtrOutputWithContext(context.Background())
+}
+
+func (i RemediationConfigurationSsmControlsArgs) ToRemediationConfigurationSsmControlsPtrOutputWithContext(ctx context.Context) RemediationConfigurationSsmControlsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemediationConfigurationSsmControlsOutput).ToRemediationConfigurationSsmControlsPtrOutputWithContext(ctx)
+}
+
+// RemediationConfigurationSsmControlsPtrInput is an input type that accepts RemediationConfigurationSsmControlsArgs, RemediationConfigurationSsmControlsPtr and RemediationConfigurationSsmControlsPtrOutput values.
+// You can construct a concrete instance of `RemediationConfigurationSsmControlsPtrInput` via:
+//
+//	        RemediationConfigurationSsmControlsArgs{...}
+//
+//	or:
+//
+//	        nil
+type RemediationConfigurationSsmControlsPtrInput interface {
+	pulumi.Input
+
+	ToRemediationConfigurationSsmControlsPtrOutput() RemediationConfigurationSsmControlsPtrOutput
+	ToRemediationConfigurationSsmControlsPtrOutputWithContext(context.Context) RemediationConfigurationSsmControlsPtrOutput
+}
+
+type remediationConfigurationSsmControlsPtrType RemediationConfigurationSsmControlsArgs
+
+func RemediationConfigurationSsmControlsPtr(v *RemediationConfigurationSsmControlsArgs) RemediationConfigurationSsmControlsPtrInput {
+	return (*remediationConfigurationSsmControlsPtrType)(v)
+}
+
+func (*remediationConfigurationSsmControlsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RemediationConfigurationSsmControls)(nil)).Elem()
+}
+
+func (i *remediationConfigurationSsmControlsPtrType) ToRemediationConfigurationSsmControlsPtrOutput() RemediationConfigurationSsmControlsPtrOutput {
+	return i.ToRemediationConfigurationSsmControlsPtrOutputWithContext(context.Background())
+}
+
+func (i *remediationConfigurationSsmControlsPtrType) ToRemediationConfigurationSsmControlsPtrOutputWithContext(ctx context.Context) RemediationConfigurationSsmControlsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemediationConfigurationSsmControlsPtrOutput)
+}
+
+type RemediationConfigurationSsmControlsOutput struct{ *pulumi.OutputState }
+
+func (RemediationConfigurationSsmControlsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemediationConfigurationSsmControls)(nil)).Elem()
+}
+
+func (o RemediationConfigurationSsmControlsOutput) ToRemediationConfigurationSsmControlsOutput() RemediationConfigurationSsmControlsOutput {
+	return o
+}
+
+func (o RemediationConfigurationSsmControlsOutput) ToRemediationConfigurationSsmControlsOutputWithContext(ctx context.Context) RemediationConfigurationSsmControlsOutput {
+	return o
+}
+
+func (o RemediationConfigurationSsmControlsOutput) ToRemediationConfigurationSsmControlsPtrOutput() RemediationConfigurationSsmControlsPtrOutput {
+	return o.ToRemediationConfigurationSsmControlsPtrOutputWithContext(context.Background())
+}
+
+func (o RemediationConfigurationSsmControlsOutput) ToRemediationConfigurationSsmControlsPtrOutputWithContext(ctx context.Context) RemediationConfigurationSsmControlsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RemediationConfigurationSsmControls) *RemediationConfigurationSsmControls {
+		return &v
+	}).(RemediationConfigurationSsmControlsPtrOutput)
+}
+
+// The maximum percentage of remediation actions allowed to run in parallel on the non-compliant resources for that specific rule. You can specify a percentage, such as 10%. The default value is 10.
+func (o RemediationConfigurationSsmControlsOutput) ConcurrentExecutionRatePercentage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RemediationConfigurationSsmControls) *int { return v.ConcurrentExecutionRatePercentage }).(pulumi.IntPtrOutput)
+}
+
+// The percentage of errors that are allowed before SSM stops running automations on non-compliant resources for that specific rule. You can specify a percentage of errors, for example 10%. If you do not specifiy a percentage, the default is 50%. For example, if you set the ErrorPercentage to 40% for 10 non-compliant resources, then SSM stops running the automations when the fifth error is received.
+func (o RemediationConfigurationSsmControlsOutput) ErrorPercentage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RemediationConfigurationSsmControls) *int { return v.ErrorPercentage }).(pulumi.IntPtrOutput)
+}
+
+type RemediationConfigurationSsmControlsPtrOutput struct{ *pulumi.OutputState }
+
+func (RemediationConfigurationSsmControlsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RemediationConfigurationSsmControls)(nil)).Elem()
+}
+
+func (o RemediationConfigurationSsmControlsPtrOutput) ToRemediationConfigurationSsmControlsPtrOutput() RemediationConfigurationSsmControlsPtrOutput {
+	return o
+}
+
+func (o RemediationConfigurationSsmControlsPtrOutput) ToRemediationConfigurationSsmControlsPtrOutputWithContext(ctx context.Context) RemediationConfigurationSsmControlsPtrOutput {
+	return o
+}
+
+func (o RemediationConfigurationSsmControlsPtrOutput) Elem() RemediationConfigurationSsmControlsOutput {
+	return o.ApplyT(func(v *RemediationConfigurationSsmControls) RemediationConfigurationSsmControls {
+		if v != nil {
+			return *v
+		}
+		var ret RemediationConfigurationSsmControls
+		return ret
+	}).(RemediationConfigurationSsmControlsOutput)
+}
+
+// The maximum percentage of remediation actions allowed to run in parallel on the non-compliant resources for that specific rule. You can specify a percentage, such as 10%. The default value is 10.
+func (o RemediationConfigurationSsmControlsPtrOutput) ConcurrentExecutionRatePercentage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RemediationConfigurationSsmControls) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ConcurrentExecutionRatePercentage
+	}).(pulumi.IntPtrOutput)
+}
+
+// The percentage of errors that are allowed before SSM stops running automations on non-compliant resources for that specific rule. You can specify a percentage of errors, for example 10%. If you do not specifiy a percentage, the default is 50%. For example, if you set the ErrorPercentage to 40% for 10 non-compliant resources, then SSM stops running the automations when the fifth error is received.
+func (o RemediationConfigurationSsmControlsPtrOutput) ErrorPercentage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RemediationConfigurationSsmControls) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ErrorPercentage
+	}).(pulumi.IntPtrOutput)
+}
+
 // A key-value pair to associate with a resource.
 type StoredQueryTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -1666,6 +1961,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConformancePackInputParameterArrayInput)(nil)).Elem(), ConformancePackInputParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConformancePackConformancePackInputParameterInput)(nil)).Elem(), OrganizationConformancePackConformancePackInputParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConformancePackConformancePackInputParameterArrayInput)(nil)).Elem(), OrganizationConformancePackConformancePackInputParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RemediationConfigurationExecutionControlsInput)(nil)).Elem(), RemediationConfigurationExecutionControlsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RemediationConfigurationExecutionControlsPtrInput)(nil)).Elem(), RemediationConfigurationExecutionControlsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RemediationConfigurationSsmControlsInput)(nil)).Elem(), RemediationConfigurationSsmControlsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RemediationConfigurationSsmControlsPtrInput)(nil)).Elem(), RemediationConfigurationSsmControlsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSsmDocumentDetailsPropertiesInput)(nil)).Elem(), TemplateSsmDocumentDetailsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSsmDocumentDetailsPropertiesPtrInput)(nil)).Elem(), TemplateSsmDocumentDetailsPropertiesArgs{})
 	pulumi.RegisterOutputType(CompliancePropertiesOutput{})
@@ -1688,6 +1987,10 @@ func init() {
 	pulumi.RegisterOutputType(ConformancePackInputParameterArrayOutput{})
 	pulumi.RegisterOutputType(OrganizationConformancePackConformancePackInputParameterOutput{})
 	pulumi.RegisterOutputType(OrganizationConformancePackConformancePackInputParameterArrayOutput{})
+	pulumi.RegisterOutputType(RemediationConfigurationExecutionControlsOutput{})
+	pulumi.RegisterOutputType(RemediationConfigurationExecutionControlsPtrOutput{})
+	pulumi.RegisterOutputType(RemediationConfigurationSsmControlsOutput{})
+	pulumi.RegisterOutputType(RemediationConfigurationSsmControlsPtrOutput{})
 	pulumi.RegisterOutputType(TemplateSsmDocumentDetailsPropertiesOutput{})
 	pulumi.RegisterOutputType(TemplateSsmDocumentDetailsPropertiesPtrOutput{})
 }

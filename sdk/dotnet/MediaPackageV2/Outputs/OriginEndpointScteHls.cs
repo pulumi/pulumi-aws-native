@@ -20,11 +20,16 @@ namespace Pulumi.AwsNative.MediaPackageV2.Outputs
         /// The SCTE-35 HLS ad-marker configuration.
         /// </summary>
         public readonly Pulumi.AwsNative.MediaPackageV2.OriginEndpointAdMarkerHls? AdMarkerHls;
+        public readonly Pulumi.AwsNative.MediaPackageV2.OriginEndpointScteInManifests? ScteInManifests;
 
         [OutputConstructor]
-        private OriginEndpointScteHls(Pulumi.AwsNative.MediaPackageV2.OriginEndpointAdMarkerHls? adMarkerHls)
+        private OriginEndpointScteHls(
+            Pulumi.AwsNative.MediaPackageV2.OriginEndpointAdMarkerHls? adMarkerHls,
+
+            Pulumi.AwsNative.MediaPackageV2.OriginEndpointScteInManifests? scteInManifests)
         {
             AdMarkerHls = adMarkerHls;
+            ScteInManifests = scteInManifests;
         }
     }
 }

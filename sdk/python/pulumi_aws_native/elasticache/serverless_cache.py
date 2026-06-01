@@ -32,6 +32,7 @@ class ServerlessCacheArgs:
                  final_snapshot_name: Optional[pulumi.Input[_builtins.str]] = None,
                  kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
                  major_engine_version: Optional[pulumi.Input[_builtins.str]] = None,
+                 network_type: Optional[pulumi.Input['ServerlessCacheNetworkType']] = None,
                  reader_endpoint: Optional[pulumi.Input['ServerlessCacheEndpointArgs']] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  serverless_cache_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -75,6 +76,8 @@ class ServerlessCacheArgs:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if major_engine_version is not None:
             pulumi.set(__self__, "major_engine_version", major_engine_version)
+        if network_type is not None:
+            pulumi.set(__self__, "network_type", network_type)
         if reader_endpoint is not None:
             pulumi.set(__self__, "reader_endpoint", reader_endpoint)
         if security_group_ids is not None:
@@ -189,6 +192,15 @@ class ServerlessCacheArgs:
         pulumi.set(self, "major_engine_version", value)
 
     @_builtins.property
+    @pulumi.getter(name="networkType")
+    def network_type(self) -> Optional[pulumi.Input['ServerlessCacheNetworkType']]:
+        return pulumi.get(self, "network_type")
+
+    @network_type.setter
+    def network_type(self, value: Optional[pulumi.Input['ServerlessCacheNetworkType']]):
+        pulumi.set(self, "network_type", value)
+
+    @_builtins.property
     @pulumi.getter(name="readerEndpoint")
     def reader_endpoint(self) -> Optional[pulumi.Input['ServerlessCacheEndpointArgs']]:
         """
@@ -299,6 +311,7 @@ class ServerlessCache(pulumi.CustomResource):
                  final_snapshot_name: Optional[pulumi.Input[_builtins.str]] = None,
                  kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
                  major_engine_version: Optional[pulumi.Input[_builtins.str]] = None,
+                 network_type: Optional[pulumi.Input['ServerlessCacheNetworkType']] = None,
                  reader_endpoint: Optional[pulumi.Input[Union['ServerlessCacheEndpointArgs', 'ServerlessCacheEndpointArgsDict']]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  serverless_cache_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -364,6 +377,7 @@ class ServerlessCache(pulumi.CustomResource):
                  final_snapshot_name: Optional[pulumi.Input[_builtins.str]] = None,
                  kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
                  major_engine_version: Optional[pulumi.Input[_builtins.str]] = None,
+                 network_type: Optional[pulumi.Input['ServerlessCacheNetworkType']] = None,
                  reader_endpoint: Optional[pulumi.Input[Union['ServerlessCacheEndpointArgs', 'ServerlessCacheEndpointArgsDict']]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  serverless_cache_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -391,6 +405,7 @@ class ServerlessCache(pulumi.CustomResource):
             __props__.__dict__["final_snapshot_name"] = final_snapshot_name
             __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["major_engine_version"] = major_engine_version
+            __props__.__dict__["network_type"] = network_type
             __props__.__dict__["reader_endpoint"] = reader_endpoint
             __props__.__dict__["security_group_ids"] = security_group_ids
             __props__.__dict__["serverless_cache_name"] = serverless_cache_name
@@ -403,7 +418,7 @@ class ServerlessCache(pulumi.CustomResource):
             __props__.__dict__["create_time"] = None
             __props__.__dict__["full_engine_version"] = None
             __props__.__dict__["status"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["kmsKeyId", "serverlessCacheName", "snapshotArnsToRestore[*]", "subnetIds[*]"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["kmsKeyId", "networkType", "serverlessCacheName", "snapshotArnsToRestore[*]", "subnetIds[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ServerlessCache, __self__).__init__(
             'aws-native:elasticache:ServerlessCache',
@@ -438,6 +453,7 @@ class ServerlessCache(pulumi.CustomResource):
         __props__.__dict__["full_engine_version"] = None
         __props__.__dict__["kms_key_id"] = None
         __props__.__dict__["major_engine_version"] = None
+        __props__.__dict__["network_type"] = None
         __props__.__dict__["reader_endpoint"] = None
         __props__.__dict__["security_group_ids"] = None
         __props__.__dict__["serverless_cache_name"] = None
@@ -536,6 +552,11 @@ class ServerlessCache(pulumi.CustomResource):
         The major engine version of the Serverless Cache.
         """
         return pulumi.get(self, "major_engine_version")
+
+    @_builtins.property
+    @pulumi.getter(name="networkType")
+    def network_type(self) -> pulumi.Output[Optional['ServerlessCacheNetworkType']]:
+        return pulumi.get(self, "network_type")
 
     @_builtins.property
     @pulumi.getter(name="readerEndpoint")

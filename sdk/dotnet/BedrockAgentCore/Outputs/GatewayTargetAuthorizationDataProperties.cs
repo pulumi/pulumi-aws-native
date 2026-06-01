@@ -11,14 +11,14 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
 {
 
     [OutputType]
-    public sealed class GatewayTargetTargetConfigurationProperties
+    public sealed class GatewayTargetAuthorizationDataProperties
     {
-        public readonly object Mcp;
+        public readonly Outputs.GatewayTargetOAuth2AuthorizationData Oauth2;
 
         [OutputConstructor]
-        private GatewayTargetTargetConfigurationProperties(object mcp)
+        private GatewayTargetAuthorizationDataProperties(Outputs.GatewayTargetOAuth2AuthorizationData oauth2)
         {
-            Mcp = mcp;
+            Oauth2 = oauth2;
         }
     }
 }

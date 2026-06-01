@@ -31,6 +31,7 @@ __all__ = [
     'BotAliasTextLogSetting',
     'BotAllowedInputTypes',
     'BotAudioAndDtmfInputSpecification',
+    'BotAudioFillerSettings',
     'BotAudioLogDestination',
     'BotAudioLogSetting',
     'BotAudioSpecification',
@@ -742,6 +743,73 @@ class BotAudioAndDtmfInputSpecification(dict):
     @pulumi.getter(name="dtmfSpecification")
     def dtmf_specification(self) -> Optional['outputs.BotDtmfSpecification']:
         return pulumi.get(self, "dtmf_specification")
+
+
+@pulumi.output_type
+class BotAudioFillerSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "audioType":
+            suggest = "audio_type"
+        elif key == "minimumPlayDurationInMilliseconds":
+            suggest = "minimum_play_duration_in_milliseconds"
+        elif key == "responseDeliveryDelayInMilliseconds":
+            suggest = "response_delivery_delay_in_milliseconds"
+        elif key == "startDelayInMilliseconds":
+            suggest = "start_delay_in_milliseconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BotAudioFillerSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BotAudioFillerSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BotAudioFillerSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: _builtins.bool,
+                 audio_type: Optional['BotAudioFillerSettingsAudioType'] = None,
+                 minimum_play_duration_in_milliseconds: Optional[_builtins.int] = None,
+                 response_delivery_delay_in_milliseconds: Optional[_builtins.int] = None,
+                 start_delay_in_milliseconds: Optional[_builtins.int] = None):
+        pulumi.set(__self__, "enabled", enabled)
+        if audio_type is not None:
+            pulumi.set(__self__, "audio_type", audio_type)
+        if minimum_play_duration_in_milliseconds is not None:
+            pulumi.set(__self__, "minimum_play_duration_in_milliseconds", minimum_play_duration_in_milliseconds)
+        if response_delivery_delay_in_milliseconds is not None:
+            pulumi.set(__self__, "response_delivery_delay_in_milliseconds", response_delivery_delay_in_milliseconds)
+        if start_delay_in_milliseconds is not None:
+            pulumi.set(__self__, "start_delay_in_milliseconds", start_delay_in_milliseconds)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> _builtins.bool:
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="audioType")
+    def audio_type(self) -> Optional['BotAudioFillerSettingsAudioType']:
+        return pulumi.get(self, "audio_type")
+
+    @_builtins.property
+    @pulumi.getter(name="minimumPlayDurationInMilliseconds")
+    def minimum_play_duration_in_milliseconds(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "minimum_play_duration_in_milliseconds")
+
+    @_builtins.property
+    @pulumi.getter(name="responseDeliveryDelayInMilliseconds")
+    def response_delivery_delay_in_milliseconds(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "response_delivery_delay_in_milliseconds")
+
+    @_builtins.property
+    @pulumi.getter(name="startDelayInMilliseconds")
+    def start_delay_in_milliseconds(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "start_delay_in_milliseconds")
 
 
 @pulumi.output_type
@@ -3349,6 +3417,8 @@ class BotLocale(dict):
             suggest = "locale_id"
         elif key == "nluConfidenceThreshold":
             suggest = "nlu_confidence_threshold"
+        elif key == "audioFillerSettings":
+            suggest = "audio_filler_settings"
         elif key == "customVocabulary":
             suggest = "custom_vocabulary"
         elif key == "generativeAiSettings":
@@ -3378,6 +3448,7 @@ class BotLocale(dict):
     def __init__(__self__, *,
                  locale_id: _builtins.str,
                  nlu_confidence_threshold: _builtins.float,
+                 audio_filler_settings: Optional['outputs.BotAudioFillerSettings'] = None,
                  custom_vocabulary: Optional['outputs.BotCustomVocabulary'] = None,
                  description: Optional[_builtins.str] = None,
                  generative_ai_settings: Optional['outputs.BotGenerativeAiSettings'] = None,
@@ -3405,6 +3476,8 @@ class BotLocale(dict):
         """
         pulumi.set(__self__, "locale_id", locale_id)
         pulumi.set(__self__, "nlu_confidence_threshold", nlu_confidence_threshold)
+        if audio_filler_settings is not None:
+            pulumi.set(__self__, "audio_filler_settings", audio_filler_settings)
         if custom_vocabulary is not None:
             pulumi.set(__self__, "custom_vocabulary", custom_vocabulary)
         if description is not None:
@@ -3439,6 +3512,11 @@ class BotLocale(dict):
         Determines the threshold where Amazon Lex will insert the `AMAZON.FallbackIntent` , `AMAZON.KendraSearchIntent` , or both when returning alternative intents. You must configure an `AMAZON.FallbackIntent` . `AMAZON.KendraSearchIntent` is only inserted if it is configured for the bot.
         """
         return pulumi.get(self, "nlu_confidence_threshold")
+
+    @_builtins.property
+    @pulumi.getter(name="audioFillerSettings")
+    def audio_filler_settings(self) -> Optional['outputs.BotAudioFillerSettings']:
+        return pulumi.get(self, "audio_filler_settings")
 
     @_builtins.property
     @pulumi.getter(name="customVocabulary")

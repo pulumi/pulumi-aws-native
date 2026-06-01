@@ -30,7 +30,7 @@ type LookupServiceArgs struct {
 
 type LookupServiceResult struct {
 	// List of accessible resources for this service
-	AccessibleResources []interface{} `pulumi:"accessibleResources"`
+	AccessibleResources []map[string]string `pulumi:"accessibleResources"`
 	// Additional details specific to the service type
 	AdditionalServiceDetails *ServiceAdditionalServiceDetails `pulumi:"additionalServiceDetails"`
 	// The Amazon Resource Name (ARN) of the Service.
@@ -74,8 +74,8 @@ func (o LookupServiceResultOutput) ToLookupServiceResultOutputWithContext(ctx co
 }
 
 // List of accessible resources for this service
-func (o LookupServiceResultOutput) AccessibleResources() pulumi.ArrayOutput {
-	return o.ApplyT(func(v LookupServiceResult) []interface{} { return v.AccessibleResources }).(pulumi.ArrayOutput)
+func (o LookupServiceResultOutput) AccessibleResources() pulumi.StringMapArrayOutput {
+	return o.ApplyT(func(v LookupServiceResult) []map[string]string { return v.AccessibleResources }).(pulumi.StringMapArrayOutput)
 }
 
 // Additional details specific to the service type

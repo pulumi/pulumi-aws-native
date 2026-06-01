@@ -22,5 +22,6 @@ from .get_image_builder import *
 from .get_stack import *
 from .image_builder import *
 from .stack import *
+from .stack_user_association import *
 from ._inputs import *
 from . import outputs

@@ -18,6 +18,9 @@
     "Arn" : {
       "type" : "string"
     },
+    "MaximumConcurrentFeeds" : {
+      "type" : "integer"
+    },
     "Tags" : {
       "type" : "object"
     },

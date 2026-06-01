@@ -23,7 +23,6 @@ __all__ = ['GatewayArgs', 'Gateway']
 class GatewayArgs:
     def __init__(__self__, *,
                  authorizer_type: pulumi.Input['GatewayAuthorizerType'],
-                 protocol_type: pulumi.Input['GatewayProtocolType'],
                  role_arn: pulumi.Input[_builtins.str],
                  authorizer_configuration: Optional[pulumi.Input['GatewayAuthorizerConfigurationPropertiesArgs']] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
@@ -33,21 +32,23 @@ class GatewayArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  policy_engine_configuration: Optional[pulumi.Input['GatewayPolicyEngineConfigurationArgs']] = None,
                  protocol_configuration: Optional[pulumi.Input['GatewayProtocolConfigurationPropertiesArgs']] = None,
+                 protocol_type: Optional[Any] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Gateway resource.
 
         :param pulumi.Input['GatewayAuthorizerType'] authorizer_type: The authorizer type for the gateway.
-        :param pulumi.Input['GatewayProtocolType'] protocol_type: The protocol type for the gateway target.
         :param pulumi.Input[_builtins.str] description: The description for the gateway.
         :param pulumi.Input['GatewayExceptionLevel'] exception_level: The exception level for the gateway.
         :param pulumi.Input[_builtins.str] kms_key_arn: The KMS key ARN for the gateway.
         :param pulumi.Input[_builtins.str] name: The name for the gateway.
         :param pulumi.Input['GatewayProtocolConfigurationPropertiesArgs'] protocol_configuration: The protocol configuration for the gateway target.
+        :param Any protocol_type: The protocol type for the gateway target.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::BedrockAgentCore::Gateway` for more information about the expected schema for this property.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The tags for the gateway.
         """
         pulumi.set(__self__, "authorizer_type", authorizer_type)
-        pulumi.set(__self__, "protocol_type", protocol_type)
         pulumi.set(__self__, "role_arn", role_arn)
         if authorizer_configuration is not None:
             pulumi.set(__self__, "authorizer_configuration", authorizer_configuration)
@@ -65,6 +66,8 @@ class GatewayArgs:
             pulumi.set(__self__, "policy_engine_configuration", policy_engine_configuration)
         if protocol_configuration is not None:
             pulumi.set(__self__, "protocol_configuration", protocol_configuration)
+        if protocol_type is not None:
+            pulumi.set(__self__, "protocol_type", protocol_type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -79,18 +82,6 @@ class GatewayArgs:
     @authorizer_type.setter
     def authorizer_type(self, value: pulumi.Input['GatewayAuthorizerType']):
         pulumi.set(self, "authorizer_type", value)
-
-    @_builtins.property
-    @pulumi.getter(name="protocolType")
-    def protocol_type(self) -> pulumi.Input['GatewayProtocolType']:
-        """
-        The protocol type for the gateway target.
-        """
-        return pulumi.get(self, "protocol_type")
-
-    @protocol_type.setter
-    def protocol_type(self, value: pulumi.Input['GatewayProtocolType']):
-        pulumi.set(self, "protocol_type", value)
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
@@ -189,6 +180,20 @@ class GatewayArgs:
         pulumi.set(self, "protocol_configuration", value)
 
     @_builtins.property
+    @pulumi.getter(name="protocolType")
+    def protocol_type(self) -> Optional[Any]:
+        """
+        The protocol type for the gateway target.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::BedrockAgentCore::Gateway` for more information about the expected schema for this property.
+        """
+        return pulumi.get(self, "protocol_type")
+
+    @protocol_type.setter
+    def protocol_type(self, value: Optional[Any]):
+        pulumi.set(self, "protocol_type", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
@@ -216,7 +221,7 @@ class Gateway(pulumi.CustomResource):
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  policy_engine_configuration: Optional[pulumi.Input[Union['GatewayPolicyEngineConfigurationArgs', 'GatewayPolicyEngineConfigurationArgsDict']]] = None,
                  protocol_configuration: Optional[pulumi.Input[Union['GatewayProtocolConfigurationPropertiesArgs', 'GatewayProtocolConfigurationPropertiesArgsDict']]] = None,
-                 protocol_type: Optional[pulumi.Input['GatewayProtocolType']] = None,
+                 protocol_type: Optional[Any] = None,
                  role_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -232,7 +237,9 @@ class Gateway(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] kms_key_arn: The KMS key ARN for the gateway.
         :param pulumi.Input[_builtins.str] name: The name for the gateway.
         :param pulumi.Input[Union['GatewayProtocolConfigurationPropertiesArgs', 'GatewayProtocolConfigurationPropertiesArgsDict']] protocol_configuration: The protocol configuration for the gateway target.
-        :param pulumi.Input['GatewayProtocolType'] protocol_type: The protocol type for the gateway target.
+        :param Any protocol_type: The protocol type for the gateway target.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::BedrockAgentCore::Gateway` for more information about the expected schema for this property.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The tags for the gateway.
         """
         ...
@@ -269,7 +276,7 @@ class Gateway(pulumi.CustomResource):
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  policy_engine_configuration: Optional[pulumi.Input[Union['GatewayPolicyEngineConfigurationArgs', 'GatewayPolicyEngineConfigurationArgsDict']]] = None,
                  protocol_configuration: Optional[pulumi.Input[Union['GatewayProtocolConfigurationPropertiesArgs', 'GatewayProtocolConfigurationPropertiesArgsDict']]] = None,
-                 protocol_type: Optional[pulumi.Input['GatewayProtocolType']] = None,
+                 protocol_type: Optional[Any] = None,
                  role_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -292,8 +299,6 @@ class Gateway(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["policy_engine_configuration"] = policy_engine_configuration
             __props__.__dict__["protocol_configuration"] = protocol_configuration
-            if protocol_type is None and not opts.urn:
-                raise TypeError("Missing required property 'protocol_type'")
             __props__.__dict__["protocol_type"] = protocol_type
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
@@ -445,9 +450,11 @@ class Gateway(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="protocolType")
-    def protocol_type(self) -> pulumi.Output['GatewayProtocolType']:
+    def protocol_type(self) -> pulumi.Output[Optional[Any]]:
         """
         The protocol type for the gateway target.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::BedrockAgentCore::Gateway` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "protocol_type")
 

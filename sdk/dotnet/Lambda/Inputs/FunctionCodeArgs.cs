@@ -35,9 +35,6 @@ namespace Pulumi.AwsNative.Lambda.Inputs
         [Input("s3Key")]
         public Input<string>? S3Key { get; set; }
 
-        [Input("s3ObjectStorageMode")]
-        public Input<Pulumi.AwsNative.Lambda.FunctionCodeS3ObjectStorageMode>? S3ObjectStorageMode { get; set; }
-
         /// <summary>
         /// For versioned objects, the version of the deployment package object to use.
         /// </summary>

@@ -340,6 +340,174 @@ func (in *serverlessCacheDataStorageUnitPtr) ToServerlessCacheDataStorageUnitPtr
 	return pulumi.ToOutputWithContext(ctx, in).(ServerlessCacheDataStorageUnitPtrOutput)
 }
 
+// The network type for the serverless cache. Valid values are ipv4, ipv6, or dual_stack.
+type ServerlessCacheNetworkType string
+
+const (
+	ServerlessCacheNetworkTypeIpv4      = ServerlessCacheNetworkType("ipv4")
+	ServerlessCacheNetworkTypeIpv6      = ServerlessCacheNetworkType("ipv6")
+	ServerlessCacheNetworkTypeDualStack = ServerlessCacheNetworkType("dual_stack")
+)
+
+func (ServerlessCacheNetworkType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerlessCacheNetworkType)(nil)).Elem()
+}
+
+func (e ServerlessCacheNetworkType) ToServerlessCacheNetworkTypeOutput() ServerlessCacheNetworkTypeOutput {
+	return pulumi.ToOutput(e).(ServerlessCacheNetworkTypeOutput)
+}
+
+func (e ServerlessCacheNetworkType) ToServerlessCacheNetworkTypeOutputWithContext(ctx context.Context) ServerlessCacheNetworkTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ServerlessCacheNetworkTypeOutput)
+}
+
+func (e ServerlessCacheNetworkType) ToServerlessCacheNetworkTypePtrOutput() ServerlessCacheNetworkTypePtrOutput {
+	return e.ToServerlessCacheNetworkTypePtrOutputWithContext(context.Background())
+}
+
+func (e ServerlessCacheNetworkType) ToServerlessCacheNetworkTypePtrOutputWithContext(ctx context.Context) ServerlessCacheNetworkTypePtrOutput {
+	return ServerlessCacheNetworkType(e).ToServerlessCacheNetworkTypeOutputWithContext(ctx).ToServerlessCacheNetworkTypePtrOutputWithContext(ctx)
+}
+
+func (e ServerlessCacheNetworkType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServerlessCacheNetworkType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServerlessCacheNetworkType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ServerlessCacheNetworkType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ServerlessCacheNetworkTypeOutput struct{ *pulumi.OutputState }
+
+func (ServerlessCacheNetworkTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerlessCacheNetworkType)(nil)).Elem()
+}
+
+func (o ServerlessCacheNetworkTypeOutput) ToServerlessCacheNetworkTypeOutput() ServerlessCacheNetworkTypeOutput {
+	return o
+}
+
+func (o ServerlessCacheNetworkTypeOutput) ToServerlessCacheNetworkTypeOutputWithContext(ctx context.Context) ServerlessCacheNetworkTypeOutput {
+	return o
+}
+
+func (o ServerlessCacheNetworkTypeOutput) ToServerlessCacheNetworkTypePtrOutput() ServerlessCacheNetworkTypePtrOutput {
+	return o.ToServerlessCacheNetworkTypePtrOutputWithContext(context.Background())
+}
+
+func (o ServerlessCacheNetworkTypeOutput) ToServerlessCacheNetworkTypePtrOutputWithContext(ctx context.Context) ServerlessCacheNetworkTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerlessCacheNetworkType) *ServerlessCacheNetworkType {
+		return &v
+	}).(ServerlessCacheNetworkTypePtrOutput)
+}
+
+func (o ServerlessCacheNetworkTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ServerlessCacheNetworkTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServerlessCacheNetworkType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ServerlessCacheNetworkTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServerlessCacheNetworkTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServerlessCacheNetworkType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServerlessCacheNetworkTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ServerlessCacheNetworkTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerlessCacheNetworkType)(nil)).Elem()
+}
+
+func (o ServerlessCacheNetworkTypePtrOutput) ToServerlessCacheNetworkTypePtrOutput() ServerlessCacheNetworkTypePtrOutput {
+	return o
+}
+
+func (o ServerlessCacheNetworkTypePtrOutput) ToServerlessCacheNetworkTypePtrOutputWithContext(ctx context.Context) ServerlessCacheNetworkTypePtrOutput {
+	return o
+}
+
+func (o ServerlessCacheNetworkTypePtrOutput) Elem() ServerlessCacheNetworkTypeOutput {
+	return o.ApplyT(func(v *ServerlessCacheNetworkType) ServerlessCacheNetworkType {
+		if v != nil {
+			return *v
+		}
+		var ret ServerlessCacheNetworkType
+		return ret
+	}).(ServerlessCacheNetworkTypeOutput)
+}
+
+func (o ServerlessCacheNetworkTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServerlessCacheNetworkTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ServerlessCacheNetworkType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ServerlessCacheNetworkTypeInput is an input type that accepts values of the ServerlessCacheNetworkType enum
+// A concrete instance of `ServerlessCacheNetworkTypeInput` can be one of the following:
+//
+//	ServerlessCacheNetworkTypeIpv4
+//	ServerlessCacheNetworkTypeIpv6
+//	ServerlessCacheNetworkTypeDualStack
+type ServerlessCacheNetworkTypeInput interface {
+	pulumi.Input
+
+	ToServerlessCacheNetworkTypeOutput() ServerlessCacheNetworkTypeOutput
+	ToServerlessCacheNetworkTypeOutputWithContext(context.Context) ServerlessCacheNetworkTypeOutput
+}
+
+var serverlessCacheNetworkTypePtrType = reflect.TypeOf((**ServerlessCacheNetworkType)(nil)).Elem()
+
+type ServerlessCacheNetworkTypePtrInput interface {
+	pulumi.Input
+
+	ToServerlessCacheNetworkTypePtrOutput() ServerlessCacheNetworkTypePtrOutput
+	ToServerlessCacheNetworkTypePtrOutputWithContext(context.Context) ServerlessCacheNetworkTypePtrOutput
+}
+
+type serverlessCacheNetworkTypePtr string
+
+func ServerlessCacheNetworkTypePtr(v string) ServerlessCacheNetworkTypePtrInput {
+	return (*serverlessCacheNetworkTypePtr)(&v)
+}
+
+func (*serverlessCacheNetworkTypePtr) ElementType() reflect.Type {
+	return serverlessCacheNetworkTypePtrType
+}
+
+func (in *serverlessCacheNetworkTypePtr) ToServerlessCacheNetworkTypePtrOutput() ServerlessCacheNetworkTypePtrOutput {
+	return pulumi.ToOutput(in).(ServerlessCacheNetworkTypePtrOutput)
+}
+
+func (in *serverlessCacheNetworkTypePtr) ToServerlessCacheNetworkTypePtrOutputWithContext(ctx context.Context) ServerlessCacheNetworkTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ServerlessCacheNetworkTypePtrOutput)
+}
+
 // Authentication Type
 type UserAuthenticationModePropertiesType string
 
@@ -845,6 +1013,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalReplicationGroupMemberRolePtrInput)(nil)).Elem(), GlobalReplicationGroupMemberRole("PRIMARY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCacheDataStorageUnitInput)(nil)).Elem(), ServerlessCacheDataStorageUnit("GB"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCacheDataStorageUnitPtrInput)(nil)).Elem(), ServerlessCacheDataStorageUnit("GB"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCacheNetworkTypeInput)(nil)).Elem(), ServerlessCacheNetworkType("ipv4"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCacheNetworkTypePtrInput)(nil)).Elem(), ServerlessCacheNetworkType("ipv4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserAuthenticationModePropertiesTypeInput)(nil)).Elem(), UserAuthenticationModePropertiesType("password"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserAuthenticationModePropertiesTypePtrInput)(nil)).Elem(), UserAuthenticationModePropertiesType("password"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserEngineInput)(nil)).Elem(), UserEngine("redis"))
@@ -855,6 +1025,8 @@ func init() {
 	pulumi.RegisterOutputType(GlobalReplicationGroupMemberRolePtrOutput{})
 	pulumi.RegisterOutputType(ServerlessCacheDataStorageUnitOutput{})
 	pulumi.RegisterOutputType(ServerlessCacheDataStorageUnitPtrOutput{})
+	pulumi.RegisterOutputType(ServerlessCacheNetworkTypeOutput{})
+	pulumi.RegisterOutputType(ServerlessCacheNetworkTypePtrOutput{})
 	pulumi.RegisterOutputType(UserAuthenticationModePropertiesTypeOutput{})
 	pulumi.RegisterOutputType(UserAuthenticationModePropertiesTypePtrOutput{})
 	pulumi.RegisterOutputType(UserEngineOutput{})

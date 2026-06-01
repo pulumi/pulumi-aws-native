@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'GetCollectionResult',
@@ -24,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetCollectionResult:
-    def __init__(__self__, arn=None, collection_endpoint=None, dashboard_endpoint=None, description=None, fips_endpoints=None, id=None, kms_key_arn=None):
+    def __init__(__self__, arn=None, collection_endpoint=None, dashboard_endpoint=None, description=None, fips_endpoints=None, id=None, kms_key_arn=None, vector_options=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -46,6 +47,9 @@ class GetCollectionResult:
         if kms_key_arn and not isinstance(kms_key_arn, str):
             raise TypeError("Expected argument 'kms_key_arn' to be a str")
         pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+        if vector_options and not isinstance(vector_options, dict):
+            raise TypeError("Expected argument 'vector_options' to be a dict")
+        pulumi.set(__self__, "vector_options", vector_options)
 
     @_builtins.property
     @pulumi.getter
@@ -100,6 +104,11 @@ class GetCollectionResult:
         """
         return pulumi.get(self, "kms_key_arn")
 
+    @_builtins.property
+    @pulumi.getter(name="vectorOptions")
+    def vector_options(self) -> Optional['outputs.CollectionVectorOptions']:
+        return pulumi.get(self, "vector_options")
+
 
 class AwaitableGetCollectionResult(GetCollectionResult):
     # pylint: disable=using-constant-test
@@ -113,7 +122,8 @@ class AwaitableGetCollectionResult(GetCollectionResult):
             description=self.description,
             fips_endpoints=self.fips_endpoints,
             id=self.id,
-            kms_key_arn=self.kms_key_arn)
+            kms_key_arn=self.kms_key_arn,
+            vector_options=self.vector_options)
 
 
 def get_collection(id: Optional[_builtins.str] = None,
@@ -136,7 +146,8 @@ def get_collection(id: Optional[_builtins.str] = None,
         description=pulumi.get(__ret__, 'description'),
         fips_endpoints=pulumi.get(__ret__, 'fips_endpoints'),
         id=pulumi.get(__ret__, 'id'),
-        kms_key_arn=pulumi.get(__ret__, 'kms_key_arn'))
+        kms_key_arn=pulumi.get(__ret__, 'kms_key_arn'),
+        vector_options=pulumi.get(__ret__, 'vector_options'))
 def get_collection_output(id: Optional[pulumi.Input[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCollectionResult]:
     """
@@ -156,4 +167,5 @@ def get_collection_output(id: Optional[pulumi.Input[_builtins.str]] = None,
         description=pulumi.get(__response__, 'description'),
         fips_endpoints=pulumi.get(__response__, 'fips_endpoints'),
         id=pulumi.get(__response__, 'id'),
-        kms_key_arn=pulumi.get(__response__, 'kms_key_arn')))
+        kms_key_arn=pulumi.get(__response__, 'kms_key_arn'),
+        vector_options=pulumi.get(__response__, 'vector_options')))

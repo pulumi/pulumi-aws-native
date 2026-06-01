@@ -61,7 +61,8 @@ type LookupOriginEndpointResult struct {
 	// <p>The size of the window (in seconds) to create a window of the live stream that's available for on-demand viewing. Viewers can start-over or catch-up on content that falls within the window. The maximum startover window is 1,209,600 seconds (14 days).</p>
 	StartoverWindowSeconds *int `pulumi:"startoverWindowSeconds"`
 	// The tags associated with the origin endpoint.
-	Tags []aws.Tag `pulumi:"tags"`
+	Tags         []aws.Tag                   `pulumi:"tags"`
+	UriSeparator *OriginEndpointUriSeparator `pulumi:"uriSeparator"`
 }
 
 func LookupOriginEndpointOutput(ctx *pulumi.Context, args LookupOriginEndpointOutputArgs, opts ...pulumi.InvokeOption) LookupOriginEndpointResultOutput {
@@ -182,6 +183,10 @@ func (o LookupOriginEndpointResultOutput) StartoverWindowSeconds() pulumi.IntPtr
 // The tags associated with the origin endpoint.
 func (o LookupOriginEndpointResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupOriginEndpointResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
+}
+
+func (o LookupOriginEndpointResultOutput) UriSeparator() OriginEndpointUriSeparatorPtrOutput {
+	return o.ApplyT(func(v LookupOriginEndpointResult) *OriginEndpointUriSeparator { return v.UriSeparator }).(OriginEndpointUriSeparatorPtrOutput)
 }
 
 func init() {

@@ -158,13 +158,13 @@
   "primaryIdentifier" : [ "/properties/DBProxyName" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "rds:CreateDBProxy", "rds:DescribeDBProxies", "iam:PassRole" ]
+      "permissions" : [ "rds:CreateDBProxy", "rds:DescribeDBProxies", "rds:AddTagsToResource", "iam:PassRole" ]
     },
     "read" : {
-      "permissions" : [ "rds:DescribeDBProxies" ]
+      "permissions" : [ "rds:DescribeDBProxies", "rds:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "rds:ModifyDBProxy", "rds:AddTagsToResource", "rds:RemoveTagsFromResource", "iam:PassRole" ]
+      "permissions" : [ "rds:ModifyDBProxy", "rds:DescribeDBProxies", "rds:AddTagsToResource", "rds:RemoveTagsFromResource", "iam:PassRole" ]
     },
     "delete" : {
       "permissions" : [ "rds:DescribeDBProxies", "rds:DeleteDBProxy" ]

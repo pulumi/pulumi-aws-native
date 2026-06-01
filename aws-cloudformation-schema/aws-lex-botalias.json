@@ -338,6 +338,14 @@
       "permissions" : [ "lex:DeleteBotAlias" ]
     },
     "list" : {
+      "handlerSchema" : {
+        "properties" : {
+          "BotId" : {
+            "$ref" : "resource-schema.json#/properties/BotId"
+          }
+        },
+        "required" : [ "BotId" ]
+      },
       "permissions" : [ "lex:ListBotAliases", "lex:ListTagsForResource" ]
     }
   },

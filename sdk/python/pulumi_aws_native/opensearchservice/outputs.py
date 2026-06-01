@@ -21,6 +21,7 @@ __all__ = [
     'ApplicationDataSource',
     'DomainAdvancedSecurityOptionsInput',
     'DomainAimlOptions',
+    'DomainAutomatedSnapshotPauseOptions',
     'DomainClusterConfig',
     'DomainCognitoOptions',
     'DomainColdStorageOptions',
@@ -309,6 +310,53 @@ class DomainAimlOptions(dict):
     @pulumi.getter(name="serverlessVectorAcceleration")
     def serverless_vector_acceleration(self) -> Optional['outputs.DomainServerlessVectorAcceleration']:
         return pulumi.get(self, "serverless_vector_acceleration")
+
+
+@pulumi.output_type
+class DomainAutomatedSnapshotPauseOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endTime":
+            suggest = "end_time"
+        elif key == "startTime":
+            suggest = "start_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainAutomatedSnapshotPauseOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainAutomatedSnapshotPauseOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainAutomatedSnapshotPauseOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: _builtins.bool,
+                 end_time: Optional[_builtins.str] = None,
+                 start_time: Optional[_builtins.str] = None):
+        pulumi.set(__self__, "enabled", enabled)
+        if end_time is not None:
+            pulumi.set(__self__, "end_time", end_time)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> _builtins.bool:
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="endTime")
+    def end_time(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "end_time")
+
+    @_builtins.property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "start_time")
 
 
 @pulumi.output_type
@@ -1831,7 +1879,9 @@ class DomainVpcOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "securityGroupIds":
+        if key == "egressEnabled":
+            suggest = "egress_enabled"
+        elif key == "securityGroupIds":
             suggest = "security_group_ids"
         elif key == "subnetIds":
             suggest = "subnet_ids"
@@ -1848,18 +1898,30 @@ class DomainVpcOptions(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 egress_enabled: Optional[_builtins.bool] = None,
                  security_group_ids: Optional[Sequence[_builtins.str]] = None,
                  subnet_ids: Optional[Sequence[_builtins.str]] = None):
         """
+        :param _builtins.bool egress_enabled: Controls whether egress traffic from the domain is routed through the customer VPC.
         :param Sequence[_builtins.str] security_group_ids: The list of security group IDs that are associated with the VPC endpoints for the domain. If you don't provide a security group ID, OpenSearch Service uses the default security group for the VPC. To learn more, see [Security groups for your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html) in the *Amazon VPC User Guide* .
         :param Sequence[_builtins.str] subnet_ids: Provide one subnet ID for each Availability Zone that your domain uses. For example, you must specify three subnet IDs for a three-AZ domain. To learn more, see [VPCs and subnets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html) in the *Amazon VPC User Guide* .
                
                If you specify more than one subnet, you must also configure `ZoneAwarenessEnabled` and `ZoneAwarenessConfig` within [ClusterConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-clusterconfig.html) , otherwise you'll see the error "You must specify exactly one subnet" during template creation.
         """
+        if egress_enabled is not None:
+            pulumi.set(__self__, "egress_enabled", egress_enabled)
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
         if subnet_ids is not None:
             pulumi.set(__self__, "subnet_ids", subnet_ids)
+
+    @_builtins.property
+    @pulumi.getter(name="egressEnabled")
+    def egress_enabled(self) -> Optional[_builtins.bool]:
+        """
+        Controls whether egress traffic from the domain is routed through the customer VPC.
+        """
+        return pulumi.get(self, "egress_enabled")
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")

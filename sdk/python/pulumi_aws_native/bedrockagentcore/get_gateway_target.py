@@ -25,7 +25,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetGatewayTargetResult:
-    def __init__(__self__, created_at=None, credential_provider_configurations=None, description=None, gateway_arn=None, last_synchronized_at=None, metadata_configuration=None, name=None, status=None, status_reasons=None, target_configuration=None, target_id=None, updated_at=None):
+    def __init__(__self__, authorization_data=None, created_at=None, credential_provider_configurations=None, description=None, gateway_arn=None, last_synchronized_at=None, metadata_configuration=None, name=None, protocol_type=None, status=None, status_reasons=None, target_configuration=None, target_id=None, updated_at=None):
+        if authorization_data and not isinstance(authorization_data, dict):
+            raise TypeError("Expected argument 'authorization_data' to be a dict")
+        pulumi.set(__self__, "authorization_data", authorization_data)
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -47,6 +50,9 @@ class GetGatewayTargetResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if protocol_type and not isinstance(protocol_type, str):
+            raise TypeError("Expected argument 'protocol_type' to be a str")
+        pulumi.set(__self__, "protocol_type", protocol_type)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
@@ -62,6 +68,11 @@ class GetGatewayTargetResult:
         if updated_at and not isinstance(updated_at, str):
             raise TypeError("Expected argument 'updated_at' to be a str")
         pulumi.set(__self__, "updated_at", updated_at)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationData")
+    def authorization_data(self) -> Optional['outputs.GatewayTargetAuthorizationDataProperties']:
+        return pulumi.get(self, "authorization_data")
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
@@ -111,6 +122,11 @@ class GetGatewayTargetResult:
         return pulumi.get(self, "name")
 
     @_builtins.property
+    @pulumi.getter(name="protocolType")
+    def protocol_type(self) -> Optional['GatewayTargetTargetProtocolType']:
+        return pulumi.get(self, "protocol_type")
+
+    @_builtins.property
     @pulumi.getter
     def status(self) -> Optional['GatewayTargetTargetStatus']:
         """
@@ -128,7 +144,7 @@ class GetGatewayTargetResult:
 
     @_builtins.property
     @pulumi.getter(name="targetConfiguration")
-    def target_configuration(self) -> Optional['outputs.GatewayTargetTargetConfigurationProperties']:
+    def target_configuration(self) -> Optional[Any]:
         """
         The target configuration for the Smithy model target.
         """
@@ -157,6 +173,7 @@ class AwaitableGetGatewayTargetResult(GetGatewayTargetResult):
         if False:
             yield self
         return GetGatewayTargetResult(
+            authorization_data=self.authorization_data,
             created_at=self.created_at,
             credential_provider_configurations=self.credential_provider_configurations,
             description=self.description,
@@ -164,6 +181,7 @@ class AwaitableGetGatewayTargetResult(GetGatewayTargetResult):
             last_synchronized_at=self.last_synchronized_at,
             metadata_configuration=self.metadata_configuration,
             name=self.name,
+            protocol_type=self.protocol_type,
             status=self.status,
             status_reasons=self.status_reasons,
             target_configuration=self.target_configuration,
@@ -188,6 +206,7 @@ def get_gateway_target(gateway_identifier: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:bedrockagentcore:getGatewayTarget', __args__, opts=opts, typ=GetGatewayTargetResult).value
 
     return AwaitableGetGatewayTargetResult(
+        authorization_data=pulumi.get(__ret__, 'authorization_data'),
         created_at=pulumi.get(__ret__, 'created_at'),
         credential_provider_configurations=pulumi.get(__ret__, 'credential_provider_configurations'),
         description=pulumi.get(__ret__, 'description'),
@@ -195,6 +214,7 @@ def get_gateway_target(gateway_identifier: Optional[_builtins.str] = None,
         last_synchronized_at=pulumi.get(__ret__, 'last_synchronized_at'),
         metadata_configuration=pulumi.get(__ret__, 'metadata_configuration'),
         name=pulumi.get(__ret__, 'name'),
+        protocol_type=pulumi.get(__ret__, 'protocol_type'),
         status=pulumi.get(__ret__, 'status'),
         status_reasons=pulumi.get(__ret__, 'status_reasons'),
         target_configuration=pulumi.get(__ret__, 'target_configuration'),
@@ -216,6 +236,7 @@ def get_gateway_target_output(gateway_identifier: Optional[pulumi.Input[_builtin
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:bedrockagentcore:getGatewayTarget', __args__, opts=opts, typ=GetGatewayTargetResult)
     return __ret__.apply(lambda __response__: GetGatewayTargetResult(
+        authorization_data=pulumi.get(__response__, 'authorization_data'),
         created_at=pulumi.get(__response__, 'created_at'),
         credential_provider_configurations=pulumi.get(__response__, 'credential_provider_configurations'),
         description=pulumi.get(__response__, 'description'),
@@ -223,6 +244,7 @@ def get_gateway_target_output(gateway_identifier: Optional[pulumi.Input[_builtin
         last_synchronized_at=pulumi.get(__response__, 'last_synchronized_at'),
         metadata_configuration=pulumi.get(__response__, 'metadata_configuration'),
         name=pulumi.get(__response__, 'name'),
+        protocol_type=pulumi.get(__response__, 'protocol_type'),
         status=pulumi.get(__response__, 'status'),
         status_reasons=pulumi.get(__response__, 'status_reasons'),
         target_configuration=pulumi.get(__response__, 'target_configuration'),

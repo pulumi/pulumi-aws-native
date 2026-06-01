@@ -26,6 +26,8 @@ __all__ = [
     'ConfigurationAggregatorOrganizationAggregationSource',
     'ConformancePackInputParameter',
     'OrganizationConformancePackConformancePackInputParameter',
+    'RemediationConfigurationExecutionControls',
+    'RemediationConfigurationSsmControls',
     'TemplateSsmDocumentDetailsProperties',
 ]
 
@@ -632,6 +634,92 @@ class OrganizationConformancePackConformancePackInputParameter(dict):
         One part of a key-value pair.
         """
         return pulumi.get(self, "parameter_value")
+
+
+@pulumi.output_type
+class RemediationConfigurationExecutionControls(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ssmControls":
+            suggest = "ssm_controls"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RemediationConfigurationExecutionControls. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RemediationConfigurationExecutionControls.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RemediationConfigurationExecutionControls.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ssm_controls: Optional['outputs.RemediationConfigurationSsmControls'] = None):
+        """
+        :param 'RemediationConfigurationSsmControls' ssm_controls: A SsmControls object.
+        """
+        if ssm_controls is not None:
+            pulumi.set(__self__, "ssm_controls", ssm_controls)
+
+    @_builtins.property
+    @pulumi.getter(name="ssmControls")
+    def ssm_controls(self) -> Optional['outputs.RemediationConfigurationSsmControls']:
+        """
+        A SsmControls object.
+        """
+        return pulumi.get(self, "ssm_controls")
+
+
+@pulumi.output_type
+class RemediationConfigurationSsmControls(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "concurrentExecutionRatePercentage":
+            suggest = "concurrent_execution_rate_percentage"
+        elif key == "errorPercentage":
+            suggest = "error_percentage"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RemediationConfigurationSsmControls. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RemediationConfigurationSsmControls.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RemediationConfigurationSsmControls.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 concurrent_execution_rate_percentage: Optional[_builtins.int] = None,
+                 error_percentage: Optional[_builtins.int] = None):
+        """
+        :param _builtins.int concurrent_execution_rate_percentage: The maximum percentage of remediation actions allowed to run in parallel on the non-compliant resources for that specific rule. You can specify a percentage, such as 10%. The default value is 10.
+        :param _builtins.int error_percentage: The percentage of errors that are allowed before SSM stops running automations on non-compliant resources for that specific rule. You can specify a percentage of errors, for example 10%. If you do not specifiy a percentage, the default is 50%. For example, if you set the ErrorPercentage to 40% for 10 non-compliant resources, then SSM stops running the automations when the fifth error is received.
+        """
+        if concurrent_execution_rate_percentage is not None:
+            pulumi.set(__self__, "concurrent_execution_rate_percentage", concurrent_execution_rate_percentage)
+        if error_percentage is not None:
+            pulumi.set(__self__, "error_percentage", error_percentage)
+
+    @_builtins.property
+    @pulumi.getter(name="concurrentExecutionRatePercentage")
+    def concurrent_execution_rate_percentage(self) -> Optional[_builtins.int]:
+        """
+        The maximum percentage of remediation actions allowed to run in parallel on the non-compliant resources for that specific rule. You can specify a percentage, such as 10%. The default value is 10.
+        """
+        return pulumi.get(self, "concurrent_execution_rate_percentage")
+
+    @_builtins.property
+    @pulumi.getter(name="errorPercentage")
+    def error_percentage(self) -> Optional[_builtins.int]:
+        """
+        The percentage of errors that are allowed before SSM stops running automations on non-compliant resources for that specific rule. You can specify a percentage of errors, for example 10%. If you do not specifiy a percentage, the default is 50%. For example, if you set the ErrorPercentage to 40% for 10 non-compliant resources, then SSM stops running the automations when the fifth error is received.
+        """
+        return pulumi.get(self, "error_percentage")
 
 
 @pulumi.output_type

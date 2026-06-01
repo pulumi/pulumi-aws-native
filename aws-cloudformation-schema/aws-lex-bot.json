@@ -787,7 +787,7 @@
     },
     "SpeechModelPreference" : {
       "type" : "string",
-      "enum" : [ "Standard", "Neural", "Deepgram", "Enhanced" ]
+      "enum" : [ "Standard", "Neural", "Deepgram", "Advanced" ]
     },
     "UnifiedSpeechSettings" : {
       "additionalProperties" : false,
@@ -1109,6 +1109,9 @@
         },
         "UnifiedSpeechSettings" : {
           "$ref" : "#/definitions/UnifiedSpeechSettings"
+        },
+        "AudioFillerSettings" : {
+          "$ref" : "#/definitions/AudioFillerSettings"
         },
         "SpeechDetectionSensitivity" : {
           "$ref" : "#/definitions/SpeechDetectionSensitivity"
@@ -2021,6 +2024,35 @@
         }
       },
       "required" : [ "Title" ]
+    },
+    "AudioFillerSettings" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "Enabled" : {
+          "type" : "boolean"
+        },
+        "AudioType" : {
+          "type" : "string",
+          "enum" : [ "MELODY_CHIPPER_CHIME", "MELODY_CURIOUS_CRAWL", "MELODY_RISING_RIPPLE", "MELODY_PATIENT_PING", "MELODY_PONDERING_PONG", "TYPING_KINETIC_KEYS", "TYPING_QUIET_QWERTY" ]
+        },
+        "MinimumPlayDurationInMilliseconds" : {
+          "maximum" : 5000,
+          "type" : "integer",
+          "minimum" : 1000
+        },
+        "ResponseDeliveryDelayInMilliseconds" : {
+          "maximum" : 1000,
+          "type" : "integer",
+          "minimum" : 200
+        },
+        "StartDelayInMilliseconds" : {
+          "maximum" : 5000,
+          "type" : "integer",
+          "minimum" : 500
+        }
+      },
+      "required" : [ "Enabled" ]
     },
     "InputContext" : {
       "additionalProperties" : false,

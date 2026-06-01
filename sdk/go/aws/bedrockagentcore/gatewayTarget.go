@@ -16,6 +16,7 @@ import (
 type GatewayTarget struct {
 	pulumi.CustomResourceState
 
+	AuthorizationData GatewayTargetAuthorizationDataPropertiesOutput `pulumi:"authorizationData"`
 	// The date and time at which the gateway target was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// The OAuth credential provider configuration.
@@ -28,13 +29,14 @@ type GatewayTarget struct {
 	LastSynchronizedAt    pulumi.StringOutput                         `pulumi:"lastSynchronizedAt"`
 	MetadataConfiguration GatewayTargetMetadataConfigurationPtrOutput `pulumi:"metadataConfiguration"`
 	// The name for the gateway target.
-	Name pulumi.StringOutput `pulumi:"name"`
+	Name         pulumi.StringOutput                   `pulumi:"name"`
+	ProtocolType GatewayTargetTargetProtocolTypeOutput `pulumi:"protocolType"`
 	// The status for the gateway target.
 	Status GatewayTargetTargetStatusOutput `pulumi:"status"`
 	// The status reasons for the gateway target.
 	StatusReasons pulumi.StringArrayOutput `pulumi:"statusReasons"`
 	// The target configuration for the Smithy model target.
-	TargetConfiguration GatewayTargetTargetConfigurationPropertiesOutput `pulumi:"targetConfiguration"`
+	TargetConfiguration pulumi.AnyOutput `pulumi:"targetConfiguration"`
 	// The target ID for the gateway target.
 	TargetId pulumi.StringOutput `pulumi:"targetId"`
 	// The time at which the resource was updated.
@@ -98,7 +100,7 @@ type gatewayTargetArgs struct {
 	// The name for the gateway target.
 	Name *string `pulumi:"name"`
 	// The target configuration for the Smithy model target.
-	TargetConfiguration GatewayTargetTargetConfigurationProperties `pulumi:"targetConfiguration"`
+	TargetConfiguration interface{} `pulumi:"targetConfiguration"`
 }
 
 // The set of arguments for constructing a GatewayTarget resource.
@@ -113,7 +115,7 @@ type GatewayTargetArgs struct {
 	// The name for the gateway target.
 	Name pulumi.StringPtrInput
 	// The target configuration for the Smithy model target.
-	TargetConfiguration GatewayTargetTargetConfigurationPropertiesInput
+	TargetConfiguration pulumi.Input
 }
 
 func (GatewayTargetArgs) ElementType() reflect.Type {
@@ -151,6 +153,10 @@ func (o GatewayTargetOutput) ToGatewayTargetOutput() GatewayTargetOutput {
 
 func (o GatewayTargetOutput) ToGatewayTargetOutputWithContext(ctx context.Context) GatewayTargetOutput {
 	return o
+}
+
+func (o GatewayTargetOutput) AuthorizationData() GatewayTargetAuthorizationDataPropertiesOutput {
+	return o.ApplyT(func(v *GatewayTarget) GatewayTargetAuthorizationDataPropertiesOutput { return v.AuthorizationData }).(GatewayTargetAuthorizationDataPropertiesOutput)
 }
 
 // The date and time at which the gateway target was created.
@@ -192,6 +198,10 @@ func (o GatewayTargetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *GatewayTarget) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+func (o GatewayTargetOutput) ProtocolType() GatewayTargetTargetProtocolTypeOutput {
+	return o.ApplyT(func(v *GatewayTarget) GatewayTargetTargetProtocolTypeOutput { return v.ProtocolType }).(GatewayTargetTargetProtocolTypeOutput)
+}
+
 // The status for the gateway target.
 func (o GatewayTargetOutput) Status() GatewayTargetTargetStatusOutput {
 	return o.ApplyT(func(v *GatewayTarget) GatewayTargetTargetStatusOutput { return v.Status }).(GatewayTargetTargetStatusOutput)
@@ -203,8 +213,8 @@ func (o GatewayTargetOutput) StatusReasons() pulumi.StringArrayOutput {
 }
 
 // The target configuration for the Smithy model target.
-func (o GatewayTargetOutput) TargetConfiguration() GatewayTargetTargetConfigurationPropertiesOutput {
-	return o.ApplyT(func(v *GatewayTarget) GatewayTargetTargetConfigurationPropertiesOutput { return v.TargetConfiguration }).(GatewayTargetTargetConfigurationPropertiesOutput)
+func (o GatewayTargetOutput) TargetConfiguration() pulumi.AnyOutput {
+	return o.ApplyT(func(v *GatewayTarget) pulumi.AnyOutput { return v.TargetConfiguration }).(pulumi.AnyOutput)
 }
 
 // The target ID for the gateway target.

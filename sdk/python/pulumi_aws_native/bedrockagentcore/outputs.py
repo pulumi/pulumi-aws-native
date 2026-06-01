@@ -61,10 +61,12 @@ __all__ = [
     'GatewayTargetApiKeyCredentialProvider',
     'GatewayTargetApiSchemaConfiguration0Properties',
     'GatewayTargetApiSchemaConfiguration1Properties',
+    'GatewayTargetAuthorizationDataProperties',
     'GatewayTargetCredentialProvider0Properties',
     'GatewayTargetCredentialProvider1Properties',
     'GatewayTargetCredentialProvider2Properties',
     'GatewayTargetCredentialProviderConfiguration',
+    'GatewayTargetHttpTargetConfigurationProperties',
     'GatewayTargetIamCredentialProvider',
     'GatewayTargetMcpLambdaTargetConfiguration',
     'GatewayTargetMcpServerTargetConfiguration',
@@ -73,11 +75,16 @@ __all__ = [
     'GatewayTargetMcpTargetConfiguration2Properties',
     'GatewayTargetMcpTargetConfiguration3Properties',
     'GatewayTargetMcpTargetConfiguration4Properties',
+    'GatewayTargetMcpToolSchemaConfiguration0Properties',
+    'GatewayTargetMcpToolSchemaConfiguration1Properties',
     'GatewayTargetMetadataConfiguration',
+    'GatewayTargetOAuth2AuthorizationData',
     'GatewayTargetOAuthCredentialProvider',
+    'GatewayTargetRuntimeTargetConfiguration',
     'GatewayTargetS3Configuration',
     'GatewayTargetSchemaDefinition',
-    'GatewayTargetTargetConfigurationProperties',
+    'GatewayTargetTargetConfiguration0Properties',
+    'GatewayTargetTargetConfiguration1Properties',
     'GatewayTargetToolDefinition',
     'GatewayTargetToolSchema0Properties',
     'GatewayTargetToolSchema1Properties',
@@ -1974,6 +1981,18 @@ class GatewayTargetApiSchemaConfiguration1Properties(dict):
 
 
 @pulumi.output_type
+class GatewayTargetAuthorizationDataProperties(dict):
+    def __init__(__self__, *,
+                 oauth2: 'outputs.GatewayTargetOAuth2AuthorizationData'):
+        pulumi.set(__self__, "oauth2", oauth2)
+
+    @_builtins.property
+    @pulumi.getter
+    def oauth2(self) -> 'outputs.GatewayTargetOAuth2AuthorizationData':
+        return pulumi.get(self, "oauth2")
+
+
+@pulumi.output_type
 class GatewayTargetCredentialProvider0Properties(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2110,6 +2129,35 @@ class GatewayTargetCredentialProviderConfiguration(dict):
 
 
 @pulumi.output_type
+class GatewayTargetHttpTargetConfigurationProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "agentcoreRuntime":
+            suggest = "agentcore_runtime"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayTargetHttpTargetConfigurationProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayTargetHttpTargetConfigurationProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayTargetHttpTargetConfigurationProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 agentcore_runtime: 'outputs.GatewayTargetRuntimeTargetConfiguration'):
+        pulumi.set(__self__, "agentcore_runtime", agentcore_runtime)
+
+    @_builtins.property
+    @pulumi.getter(name="agentcoreRuntime")
+    def agentcore_runtime(self) -> 'outputs.GatewayTargetRuntimeTargetConfiguration':
+        return pulumi.get(self, "agentcore_runtime")
+
+
+@pulumi.output_type
 class GatewayTargetIamCredentialProvider(dict):
     def __init__(__self__, *,
                  service: _builtins.str,
@@ -2174,6 +2222,8 @@ class GatewayTargetMcpServerTargetConfiguration(dict):
         suggest = None
         if key == "listingMode":
             suggest = "listing_mode"
+        elif key == "mcpToolSchema":
+            suggest = "mcp_tool_schema"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in GatewayTargetMcpServerTargetConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -2188,10 +2238,13 @@ class GatewayTargetMcpServerTargetConfiguration(dict):
 
     def __init__(__self__, *,
                  endpoint: _builtins.str,
-                 listing_mode: Optional['GatewayTargetMcpServerListingMode'] = None):
+                 listing_mode: Optional['GatewayTargetMcpServerListingMode'] = None,
+                 mcp_tool_schema: Optional[Any] = None):
         pulumi.set(__self__, "endpoint", endpoint)
         if listing_mode is not None:
             pulumi.set(__self__, "listing_mode", listing_mode)
+        if mcp_tool_schema is not None:
+            pulumi.set(__self__, "mcp_tool_schema", mcp_tool_schema)
 
     @_builtins.property
     @pulumi.getter
@@ -2202,6 +2255,11 @@ class GatewayTargetMcpServerTargetConfiguration(dict):
     @pulumi.getter(name="listingMode")
     def listing_mode(self) -> Optional['GatewayTargetMcpServerListingMode']:
         return pulumi.get(self, "listing_mode")
+
+    @_builtins.property
+    @pulumi.getter(name="mcpToolSchema")
+    def mcp_tool_schema(self) -> Optional[Any]:
+        return pulumi.get(self, "mcp_tool_schema")
 
 
 @pulumi.output_type
@@ -2350,6 +2408,47 @@ class GatewayTargetMcpTargetConfiguration4Properties(dict):
 
 
 @pulumi.output_type
+class GatewayTargetMcpToolSchemaConfiguration0Properties(dict):
+    def __init__(__self__, *,
+                 s3: 'outputs.GatewayTargetS3Configuration'):
+        pulumi.set(__self__, "s3", s3)
+
+    @_builtins.property
+    @pulumi.getter
+    def s3(self) -> 'outputs.GatewayTargetS3Configuration':
+        return pulumi.get(self, "s3")
+
+
+@pulumi.output_type
+class GatewayTargetMcpToolSchemaConfiguration1Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inlinePayload":
+            suggest = "inline_payload"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayTargetMcpToolSchemaConfiguration1Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayTargetMcpToolSchemaConfiguration1Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayTargetMcpToolSchemaConfiguration1Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 inline_payload: _builtins.str):
+        pulumi.set(__self__, "inline_payload", inline_payload)
+
+    @_builtins.property
+    @pulumi.getter(name="inlinePayload")
+    def inline_payload(self) -> _builtins.str:
+        return pulumi.get(self, "inline_payload")
+
+
+@pulumi.output_type
 class GatewayTargetMetadataConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2397,6 +2496,45 @@ class GatewayTargetMetadataConfiguration(dict):
     @pulumi.getter(name="allowedResponseHeaders")
     def allowed_response_headers(self) -> Optional[Sequence[_builtins.str]]:
         return pulumi.get(self, "allowed_response_headers")
+
+
+@pulumi.output_type
+class GatewayTargetOAuth2AuthorizationData(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorizationUrl":
+            suggest = "authorization_url"
+        elif key == "userId":
+            suggest = "user_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayTargetOAuth2AuthorizationData. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayTargetOAuth2AuthorizationData.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayTargetOAuth2AuthorizationData.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authorization_url: _builtins.str,
+                 user_id: Optional[_builtins.str] = None):
+        pulumi.set(__self__, "authorization_url", authorization_url)
+        if user_id is not None:
+            pulumi.set(__self__, "user_id", user_id)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationUrl")
+    def authorization_url(self) -> _builtins.str:
+        return pulumi.get(self, "authorization_url")
+
+    @_builtins.property
+    @pulumi.getter(name="userId")
+    def user_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "user_id")
 
 
 @pulumi.output_type
@@ -2469,6 +2607,26 @@ class GatewayTargetOAuthCredentialProvider(dict):
     @pulumi.getter(name="grantType")
     def grant_type(self) -> Optional['GatewayTargetOAuthGrantType']:
         return pulumi.get(self, "grant_type")
+
+
+@pulumi.output_type
+class GatewayTargetRuntimeTargetConfiguration(dict):
+    def __init__(__self__, *,
+                 arn: _builtins.str,
+                 qualifier: Optional[_builtins.str] = None):
+        pulumi.set(__self__, "arn", arn)
+        if qualifier is not None:
+            pulumi.set(__self__, "qualifier", qualifier)
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> _builtins.str:
+        return pulumi.get(self, "arn")
+
+    @_builtins.property
+    @pulumi.getter
+    def qualifier(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "qualifier")
 
 
 @pulumi.output_type
@@ -2554,7 +2712,7 @@ class GatewayTargetSchemaDefinition(dict):
 
 
 @pulumi.output_type
-class GatewayTargetTargetConfigurationProperties(dict):
+class GatewayTargetTargetConfiguration0Properties(dict):
     def __init__(__self__, *,
                  mcp: Any):
         pulumi.set(__self__, "mcp", mcp)
@@ -2563,6 +2721,18 @@ class GatewayTargetTargetConfigurationProperties(dict):
     @pulumi.getter
     def mcp(self) -> Any:
         return pulumi.get(self, "mcp")
+
+
+@pulumi.output_type
+class GatewayTargetTargetConfiguration1Properties(dict):
+    def __init__(__self__, *,
+                 http: 'outputs.GatewayTargetHttpTargetConfigurationProperties'):
+        pulumi.set(__self__, "http", http)
+
+    @_builtins.property
+    @pulumi.getter
+    def http(self) -> 'outputs.GatewayTargetHttpTargetConfigurationProperties':
+        return pulumi.get(self, "http")
 
 
 @pulumi.output_type

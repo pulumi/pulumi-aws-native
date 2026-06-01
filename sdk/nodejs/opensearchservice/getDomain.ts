@@ -53,6 +53,7 @@ export interface GetDomainResult {
      * The Amazon Resource Name (ARN) of the CloudFormation stack.
      */
     readonly arn?: string;
+    readonly automatedSnapshotPauseOptions?: outputs.opensearchservice.DomainAutomatedSnapshotPauseOptions;
     /**
      * Container for the cluster configuration of a domain.
      */

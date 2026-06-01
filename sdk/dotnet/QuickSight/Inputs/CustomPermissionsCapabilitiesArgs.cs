@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class CustomPermissionsCapabilitiesArgs : global::Pulumi.ResourceArgs
     {
+        [Input("accessAppsNativeDataStore")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? AccessAppsNativeDataStore { get; set; }
+
         [Input("action")]
         public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? Action { get; set; }
 
@@ -41,6 +44,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("approveFlowShareRequests")]
         public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ApproveFlowShareRequests { get; set; }
+
+        [Input("apps")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? Apps { get; set; }
 
         [Input("asanaAction")]
         public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? AsanaAction { get; set; }
@@ -83,6 +89,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("createAndUpdateAmazonSThreeAction")]
         public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? CreateAndUpdateAmazonSThreeAction { get; set; }
+
+        [Input("createAndUpdateApps")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? CreateAndUpdateApps { get; set; }
 
         [Input("createAndUpdateAsanaAction")]
         public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? CreateAndUpdateAsanaAction { get; set; }
@@ -246,6 +255,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("createSharedFolders")]
         public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? CreateSharedFolders { get; set; }
 
+        [Input("createSpaces")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? CreateSpaces { get; set; }
+
         /// <summary>
         /// The ability to create a SPICE dataset.
         /// </summary>
@@ -329,6 +341,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("intercomAction")]
         public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? IntercomAction { get; set; }
+
+        [Input("invokeAppsAiInference")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? InvokeAppsAiInference { get; set; }
 
         [Input("jiraAction")]
         public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? JiraAction { get; set; }
@@ -435,6 +450,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("shareAnalyses")]
         public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ShareAnalyses { get; set; }
 
+        [Input("shareApps")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ShareApps { get; set; }
+
         [Input("shareAsanaAction")]
         public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ShareAsanaAction { get; set; }
 
@@ -446,6 +464,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("shareCanvaAgentAction")]
         public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ShareCanvaAgentAction { get; set; }
+
+        [Input("shareChatAgents")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ShareChatAgents { get; set; }
 
         [Input("shareComprehendAction")]
         public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ShareComprehendAction { get; set; }
@@ -569,6 +590,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("shareSmartsheetAction")]
         public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ShareSmartsheetAction { get; set; }
+
+        [Input("shareSpaces")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ShareSpaces { get; set; }
 
         [Input("shareTextractAction")]
         public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ShareTextractAction { get; set; }

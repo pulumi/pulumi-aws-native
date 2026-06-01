@@ -141,7 +141,6 @@ func NewCollection(ctx *pulumi.Context,
 		"standbyReplicas",
 		"tags[*]",
 		"type",
-		"vectorOptions",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)

@@ -26,13 +26,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetApplicationResult:
-    def __init__(__self__, application_arn=None, description=None, name=None, portal_options=None, status=None, tags=None):
+    def __init__(__self__, application_arn=None, description=None, identity_store_arn=None, name=None, portal_options=None, status=None, tags=None):
         if application_arn and not isinstance(application_arn, str):
             raise TypeError("Expected argument 'application_arn' to be a str")
         pulumi.set(__self__, "application_arn", application_arn)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if identity_store_arn and not isinstance(identity_store_arn, str):
+            raise TypeError("Expected argument 'identity_store_arn' to be a str")
+        pulumi.set(__self__, "identity_store_arn", identity_store_arn)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -61,6 +64,14 @@ class GetApplicationResult:
         The description information for the Identity Center (SSO) Application
         """
         return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="identityStoreArn")
+    def identity_store_arn(self) -> Optional[_builtins.str]:
+        """
+        The ARN of the identity store associated with the Identity Center instance
+        """
+        return pulumi.get(self, "identity_store_arn")
 
     @_builtins.property
     @pulumi.getter
@@ -103,6 +114,7 @@ class AwaitableGetApplicationResult(GetApplicationResult):
         return GetApplicationResult(
             application_arn=self.application_arn,
             description=self.description,
+            identity_store_arn=self.identity_store_arn,
             name=self.name,
             portal_options=self.portal_options,
             status=self.status,
@@ -125,6 +137,7 @@ def get_application(application_arn: Optional[_builtins.str] = None,
     return AwaitableGetApplicationResult(
         application_arn=pulumi.get(__ret__, 'application_arn'),
         description=pulumi.get(__ret__, 'description'),
+        identity_store_arn=pulumi.get(__ret__, 'identity_store_arn'),
         name=pulumi.get(__ret__, 'name'),
         portal_options=pulumi.get(__ret__, 'portal_options'),
         status=pulumi.get(__ret__, 'status'),
@@ -144,6 +157,7 @@ def get_application_output(application_arn: Optional[pulumi.Input[_builtins.str]
     return __ret__.apply(lambda __response__: GetApplicationResult(
         application_arn=pulumi.get(__response__, 'application_arn'),
         description=pulumi.get(__response__, 'description'),
+        identity_store_arn=pulumi.get(__response__, 'identity_store_arn'),
         name=pulumi.get(__response__, 'name'),
         portal_options=pulumi.get(__response__, 'portal_options'),
         status=pulumi.get(__response__, 'status'),
