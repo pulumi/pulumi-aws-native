@@ -102,6 +102,181 @@ func (o BotAliasStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 	}).(pulumi.StringPtrOutput)
 }
 
+type BotAudioFillerSettingsAudioType string
+
+const (
+	BotAudioFillerSettingsAudioTypeMelodyChipperChime  = BotAudioFillerSettingsAudioType("MELODY_CHIPPER_CHIME")
+	BotAudioFillerSettingsAudioTypeMelodyCuriousCrawl  = BotAudioFillerSettingsAudioType("MELODY_CURIOUS_CRAWL")
+	BotAudioFillerSettingsAudioTypeMelodyRisingRipple  = BotAudioFillerSettingsAudioType("MELODY_RISING_RIPPLE")
+	BotAudioFillerSettingsAudioTypeMelodyPatientPing   = BotAudioFillerSettingsAudioType("MELODY_PATIENT_PING")
+	BotAudioFillerSettingsAudioTypeMelodyPonderingPong = BotAudioFillerSettingsAudioType("MELODY_PONDERING_PONG")
+	BotAudioFillerSettingsAudioTypeTypingKineticKeys   = BotAudioFillerSettingsAudioType("TYPING_KINETIC_KEYS")
+	BotAudioFillerSettingsAudioTypeTypingQuietQwerty   = BotAudioFillerSettingsAudioType("TYPING_QUIET_QWERTY")
+)
+
+func (BotAudioFillerSettingsAudioType) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotAudioFillerSettingsAudioType)(nil)).Elem()
+}
+
+func (e BotAudioFillerSettingsAudioType) ToBotAudioFillerSettingsAudioTypeOutput() BotAudioFillerSettingsAudioTypeOutput {
+	return pulumi.ToOutput(e).(BotAudioFillerSettingsAudioTypeOutput)
+}
+
+func (e BotAudioFillerSettingsAudioType) ToBotAudioFillerSettingsAudioTypeOutputWithContext(ctx context.Context) BotAudioFillerSettingsAudioTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(BotAudioFillerSettingsAudioTypeOutput)
+}
+
+func (e BotAudioFillerSettingsAudioType) ToBotAudioFillerSettingsAudioTypePtrOutput() BotAudioFillerSettingsAudioTypePtrOutput {
+	return e.ToBotAudioFillerSettingsAudioTypePtrOutputWithContext(context.Background())
+}
+
+func (e BotAudioFillerSettingsAudioType) ToBotAudioFillerSettingsAudioTypePtrOutputWithContext(ctx context.Context) BotAudioFillerSettingsAudioTypePtrOutput {
+	return BotAudioFillerSettingsAudioType(e).ToBotAudioFillerSettingsAudioTypeOutputWithContext(ctx).ToBotAudioFillerSettingsAudioTypePtrOutputWithContext(ctx)
+}
+
+func (e BotAudioFillerSettingsAudioType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BotAudioFillerSettingsAudioType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BotAudioFillerSettingsAudioType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e BotAudioFillerSettingsAudioType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type BotAudioFillerSettingsAudioTypeOutput struct{ *pulumi.OutputState }
+
+func (BotAudioFillerSettingsAudioTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotAudioFillerSettingsAudioType)(nil)).Elem()
+}
+
+func (o BotAudioFillerSettingsAudioTypeOutput) ToBotAudioFillerSettingsAudioTypeOutput() BotAudioFillerSettingsAudioTypeOutput {
+	return o
+}
+
+func (o BotAudioFillerSettingsAudioTypeOutput) ToBotAudioFillerSettingsAudioTypeOutputWithContext(ctx context.Context) BotAudioFillerSettingsAudioTypeOutput {
+	return o
+}
+
+func (o BotAudioFillerSettingsAudioTypeOutput) ToBotAudioFillerSettingsAudioTypePtrOutput() BotAudioFillerSettingsAudioTypePtrOutput {
+	return o.ToBotAudioFillerSettingsAudioTypePtrOutputWithContext(context.Background())
+}
+
+func (o BotAudioFillerSettingsAudioTypeOutput) ToBotAudioFillerSettingsAudioTypePtrOutputWithContext(ctx context.Context) BotAudioFillerSettingsAudioTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotAudioFillerSettingsAudioType) *BotAudioFillerSettingsAudioType {
+		return &v
+	}).(BotAudioFillerSettingsAudioTypePtrOutput)
+}
+
+func (o BotAudioFillerSettingsAudioTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o BotAudioFillerSettingsAudioTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BotAudioFillerSettingsAudioType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o BotAudioFillerSettingsAudioTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BotAudioFillerSettingsAudioTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BotAudioFillerSettingsAudioType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type BotAudioFillerSettingsAudioTypePtrOutput struct{ *pulumi.OutputState }
+
+func (BotAudioFillerSettingsAudioTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotAudioFillerSettingsAudioType)(nil)).Elem()
+}
+
+func (o BotAudioFillerSettingsAudioTypePtrOutput) ToBotAudioFillerSettingsAudioTypePtrOutput() BotAudioFillerSettingsAudioTypePtrOutput {
+	return o
+}
+
+func (o BotAudioFillerSettingsAudioTypePtrOutput) ToBotAudioFillerSettingsAudioTypePtrOutputWithContext(ctx context.Context) BotAudioFillerSettingsAudioTypePtrOutput {
+	return o
+}
+
+func (o BotAudioFillerSettingsAudioTypePtrOutput) Elem() BotAudioFillerSettingsAudioTypeOutput {
+	return o.ApplyT(func(v *BotAudioFillerSettingsAudioType) BotAudioFillerSettingsAudioType {
+		if v != nil {
+			return *v
+		}
+		var ret BotAudioFillerSettingsAudioType
+		return ret
+	}).(BotAudioFillerSettingsAudioTypeOutput)
+}
+
+func (o BotAudioFillerSettingsAudioTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BotAudioFillerSettingsAudioTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *BotAudioFillerSettingsAudioType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// BotAudioFillerSettingsAudioTypeInput is an input type that accepts values of the BotAudioFillerSettingsAudioType enum
+// A concrete instance of `BotAudioFillerSettingsAudioTypeInput` can be one of the following:
+//
+//	BotAudioFillerSettingsAudioTypeMelodyChipperChime
+//	BotAudioFillerSettingsAudioTypeMelodyCuriousCrawl
+//	BotAudioFillerSettingsAudioTypeMelodyRisingRipple
+//	BotAudioFillerSettingsAudioTypeMelodyPatientPing
+//	BotAudioFillerSettingsAudioTypeMelodyPonderingPong
+//	BotAudioFillerSettingsAudioTypeTypingKineticKeys
+//	BotAudioFillerSettingsAudioTypeTypingQuietQwerty
+type BotAudioFillerSettingsAudioTypeInput interface {
+	pulumi.Input
+
+	ToBotAudioFillerSettingsAudioTypeOutput() BotAudioFillerSettingsAudioTypeOutput
+	ToBotAudioFillerSettingsAudioTypeOutputWithContext(context.Context) BotAudioFillerSettingsAudioTypeOutput
+}
+
+var botAudioFillerSettingsAudioTypePtrType = reflect.TypeOf((**BotAudioFillerSettingsAudioType)(nil)).Elem()
+
+type BotAudioFillerSettingsAudioTypePtrInput interface {
+	pulumi.Input
+
+	ToBotAudioFillerSettingsAudioTypePtrOutput() BotAudioFillerSettingsAudioTypePtrOutput
+	ToBotAudioFillerSettingsAudioTypePtrOutputWithContext(context.Context) BotAudioFillerSettingsAudioTypePtrOutput
+}
+
+type botAudioFillerSettingsAudioTypePtr string
+
+func BotAudioFillerSettingsAudioTypePtr(v string) BotAudioFillerSettingsAudioTypePtrInput {
+	return (*botAudioFillerSettingsAudioTypePtr)(&v)
+}
+
+func (*botAudioFillerSettingsAudioTypePtr) ElementType() reflect.Type {
+	return botAudioFillerSettingsAudioTypePtrType
+}
+
+func (in *botAudioFillerSettingsAudioTypePtr) ToBotAudioFillerSettingsAudioTypePtrOutput() BotAudioFillerSettingsAudioTypePtrOutput {
+	return pulumi.ToOutput(in).(BotAudioFillerSettingsAudioTypePtrOutput)
+}
+
+func (in *botAudioFillerSettingsAudioTypePtr) ToBotAudioFillerSettingsAudioTypePtrOutputWithContext(ctx context.Context) BotAudioFillerSettingsAudioTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(BotAudioFillerSettingsAudioTypePtrOutput)
+}
+
 type BotAudioRecognitionStrategy string
 
 const (
@@ -1775,7 +1950,7 @@ const (
 	BotSpeechModelPreferenceStandard = BotSpeechModelPreference("Standard")
 	BotSpeechModelPreferenceNeural   = BotSpeechModelPreference("Neural")
 	BotSpeechModelPreferenceDeepgram = BotSpeechModelPreference("Deepgram")
-	BotSpeechModelPreferenceEnhanced = BotSpeechModelPreference("Enhanced")
+	BotSpeechModelPreferenceAdvanced = BotSpeechModelPreference("Advanced")
 )
 
 func (BotSpeechModelPreference) ElementType() reflect.Type {
@@ -1903,7 +2078,7 @@ func (o BotSpeechModelPreferencePtrOutput) ToStringPtrOutputWithContext(ctx cont
 //	BotSpeechModelPreferenceStandard
 //	BotSpeechModelPreferenceNeural
 //	BotSpeechModelPreferenceDeepgram
-//	BotSpeechModelPreferenceEnhanced
+//	BotSpeechModelPreferenceAdvanced
 type BotSpeechModelPreferenceInput interface {
 	pulumi.Input
 
@@ -2111,6 +2286,8 @@ func (in *botVoiceSettingsEnginePtr) ToBotVoiceSettingsEnginePtrOutputWithContex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BotAudioFillerSettingsAudioTypeInput)(nil)).Elem(), BotAudioFillerSettingsAudioType("MELODY_CHIPPER_CHIME"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BotAudioFillerSettingsAudioTypePtrInput)(nil)).Elem(), BotAudioFillerSettingsAudioType("MELODY_CHIPPER_CHIME"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BotAudioRecognitionStrategyInput)(nil)).Elem(), BotAudioRecognitionStrategy("UseSlotValuesAsCustomVocabulary"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BotAudioRecognitionStrategyPtrInput)(nil)).Elem(), BotAudioRecognitionStrategy("UseSlotValuesAsCustomVocabulary"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BotBedrockModelSpecificationBedrockTraceStatusInput)(nil)).Elem(), BotBedrockModelSpecificationBedrockTraceStatus("ENABLED"))
@@ -2137,6 +2314,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BotVoiceSettingsEnginePtrInput)(nil)).Elem(), BotVoiceSettingsEngine("standard"))
 	pulumi.RegisterOutputType(BotAliasStatusOutput{})
 	pulumi.RegisterOutputType(BotAliasStatusPtrOutput{})
+	pulumi.RegisterOutputType(BotAudioFillerSettingsAudioTypeOutput{})
+	pulumi.RegisterOutputType(BotAudioFillerSettingsAudioTypePtrOutput{})
 	pulumi.RegisterOutputType(BotAudioRecognitionStrategyOutput{})
 	pulumi.RegisterOutputType(BotAudioRecognitionStrategyPtrOutput{})
 	pulumi.RegisterOutputType(BotBedrockModelSpecificationBedrockTraceStatusOutput{})

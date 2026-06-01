@@ -85,6 +85,11 @@ export type Stack = import("./stack").Stack;
 export const Stack: typeof import("./stack").Stack = null as any;
 utilities.lazyLoad(exports, ["Stack"], () => require("./stack"));
 
+export { StackUserAssociationArgs } from "./stackUserAssociation";
+export type StackUserAssociation = import("./stackUserAssociation").StackUserAssociation;
+export const StackUserAssociation: typeof import("./stackUserAssociation").StackUserAssociation = null as any;
+utilities.lazyLoad(exports, ["StackUserAssociation"], () => require("./stackUserAssociation"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -108,6 +113,8 @@ const _module = {
                 return new ImageBuilder(name, <any>undefined, { urn })
             case "aws-native:appstream:Stack":
                 return new Stack(name, <any>undefined, { urn })
+            case "aws-native:appstream:StackUserAssociation":
+                return new StackUserAssociation(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

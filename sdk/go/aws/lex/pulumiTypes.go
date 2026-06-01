@@ -1441,6 +1441,199 @@ func (o BotAudioAndDtmfInputSpecificationPtrOutput) StartTimeoutMs() pulumi.IntP
 	}).(pulumi.IntPtrOutput)
 }
 
+type BotAudioFillerSettings struct {
+	AudioType                           *BotAudioFillerSettingsAudioType `pulumi:"audioType"`
+	Enabled                             bool                             `pulumi:"enabled"`
+	MinimumPlayDurationInMilliseconds   *int                             `pulumi:"minimumPlayDurationInMilliseconds"`
+	ResponseDeliveryDelayInMilliseconds *int                             `pulumi:"responseDeliveryDelayInMilliseconds"`
+	StartDelayInMilliseconds            *int                             `pulumi:"startDelayInMilliseconds"`
+}
+
+// BotAudioFillerSettingsInput is an input type that accepts BotAudioFillerSettingsArgs and BotAudioFillerSettingsOutput values.
+// You can construct a concrete instance of `BotAudioFillerSettingsInput` via:
+//
+//	BotAudioFillerSettingsArgs{...}
+type BotAudioFillerSettingsInput interface {
+	pulumi.Input
+
+	ToBotAudioFillerSettingsOutput() BotAudioFillerSettingsOutput
+	ToBotAudioFillerSettingsOutputWithContext(context.Context) BotAudioFillerSettingsOutput
+}
+
+type BotAudioFillerSettingsArgs struct {
+	AudioType                           BotAudioFillerSettingsAudioTypePtrInput `pulumi:"audioType"`
+	Enabled                             pulumi.BoolInput                        `pulumi:"enabled"`
+	MinimumPlayDurationInMilliseconds   pulumi.IntPtrInput                      `pulumi:"minimumPlayDurationInMilliseconds"`
+	ResponseDeliveryDelayInMilliseconds pulumi.IntPtrInput                      `pulumi:"responseDeliveryDelayInMilliseconds"`
+	StartDelayInMilliseconds            pulumi.IntPtrInput                      `pulumi:"startDelayInMilliseconds"`
+}
+
+func (BotAudioFillerSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotAudioFillerSettings)(nil)).Elem()
+}
+
+func (i BotAudioFillerSettingsArgs) ToBotAudioFillerSettingsOutput() BotAudioFillerSettingsOutput {
+	return i.ToBotAudioFillerSettingsOutputWithContext(context.Background())
+}
+
+func (i BotAudioFillerSettingsArgs) ToBotAudioFillerSettingsOutputWithContext(ctx context.Context) BotAudioFillerSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotAudioFillerSettingsOutput)
+}
+
+func (i BotAudioFillerSettingsArgs) ToBotAudioFillerSettingsPtrOutput() BotAudioFillerSettingsPtrOutput {
+	return i.ToBotAudioFillerSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i BotAudioFillerSettingsArgs) ToBotAudioFillerSettingsPtrOutputWithContext(ctx context.Context) BotAudioFillerSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotAudioFillerSettingsOutput).ToBotAudioFillerSettingsPtrOutputWithContext(ctx)
+}
+
+// BotAudioFillerSettingsPtrInput is an input type that accepts BotAudioFillerSettingsArgs, BotAudioFillerSettingsPtr and BotAudioFillerSettingsPtrOutput values.
+// You can construct a concrete instance of `BotAudioFillerSettingsPtrInput` via:
+//
+//	        BotAudioFillerSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type BotAudioFillerSettingsPtrInput interface {
+	pulumi.Input
+
+	ToBotAudioFillerSettingsPtrOutput() BotAudioFillerSettingsPtrOutput
+	ToBotAudioFillerSettingsPtrOutputWithContext(context.Context) BotAudioFillerSettingsPtrOutput
+}
+
+type botAudioFillerSettingsPtrType BotAudioFillerSettingsArgs
+
+func BotAudioFillerSettingsPtr(v *BotAudioFillerSettingsArgs) BotAudioFillerSettingsPtrInput {
+	return (*botAudioFillerSettingsPtrType)(v)
+}
+
+func (*botAudioFillerSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotAudioFillerSettings)(nil)).Elem()
+}
+
+func (i *botAudioFillerSettingsPtrType) ToBotAudioFillerSettingsPtrOutput() BotAudioFillerSettingsPtrOutput {
+	return i.ToBotAudioFillerSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *botAudioFillerSettingsPtrType) ToBotAudioFillerSettingsPtrOutputWithContext(ctx context.Context) BotAudioFillerSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotAudioFillerSettingsPtrOutput)
+}
+
+type BotAudioFillerSettingsOutput struct{ *pulumi.OutputState }
+
+func (BotAudioFillerSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotAudioFillerSettings)(nil)).Elem()
+}
+
+func (o BotAudioFillerSettingsOutput) ToBotAudioFillerSettingsOutput() BotAudioFillerSettingsOutput {
+	return o
+}
+
+func (o BotAudioFillerSettingsOutput) ToBotAudioFillerSettingsOutputWithContext(ctx context.Context) BotAudioFillerSettingsOutput {
+	return o
+}
+
+func (o BotAudioFillerSettingsOutput) ToBotAudioFillerSettingsPtrOutput() BotAudioFillerSettingsPtrOutput {
+	return o.ToBotAudioFillerSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o BotAudioFillerSettingsOutput) ToBotAudioFillerSettingsPtrOutputWithContext(ctx context.Context) BotAudioFillerSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotAudioFillerSettings) *BotAudioFillerSettings {
+		return &v
+	}).(BotAudioFillerSettingsPtrOutput)
+}
+
+func (o BotAudioFillerSettingsOutput) AudioType() BotAudioFillerSettingsAudioTypePtrOutput {
+	return o.ApplyT(func(v BotAudioFillerSettings) *BotAudioFillerSettingsAudioType { return v.AudioType }).(BotAudioFillerSettingsAudioTypePtrOutput)
+}
+
+func (o BotAudioFillerSettingsOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v BotAudioFillerSettings) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+func (o BotAudioFillerSettingsOutput) MinimumPlayDurationInMilliseconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v BotAudioFillerSettings) *int { return v.MinimumPlayDurationInMilliseconds }).(pulumi.IntPtrOutput)
+}
+
+func (o BotAudioFillerSettingsOutput) ResponseDeliveryDelayInMilliseconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v BotAudioFillerSettings) *int { return v.ResponseDeliveryDelayInMilliseconds }).(pulumi.IntPtrOutput)
+}
+
+func (o BotAudioFillerSettingsOutput) StartDelayInMilliseconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v BotAudioFillerSettings) *int { return v.StartDelayInMilliseconds }).(pulumi.IntPtrOutput)
+}
+
+type BotAudioFillerSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (BotAudioFillerSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotAudioFillerSettings)(nil)).Elem()
+}
+
+func (o BotAudioFillerSettingsPtrOutput) ToBotAudioFillerSettingsPtrOutput() BotAudioFillerSettingsPtrOutput {
+	return o
+}
+
+func (o BotAudioFillerSettingsPtrOutput) ToBotAudioFillerSettingsPtrOutputWithContext(ctx context.Context) BotAudioFillerSettingsPtrOutput {
+	return o
+}
+
+func (o BotAudioFillerSettingsPtrOutput) Elem() BotAudioFillerSettingsOutput {
+	return o.ApplyT(func(v *BotAudioFillerSettings) BotAudioFillerSettings {
+		if v != nil {
+			return *v
+		}
+		var ret BotAudioFillerSettings
+		return ret
+	}).(BotAudioFillerSettingsOutput)
+}
+
+func (o BotAudioFillerSettingsPtrOutput) AudioType() BotAudioFillerSettingsAudioTypePtrOutput {
+	return o.ApplyT(func(v *BotAudioFillerSettings) *BotAudioFillerSettingsAudioType {
+		if v == nil {
+			return nil
+		}
+		return v.AudioType
+	}).(BotAudioFillerSettingsAudioTypePtrOutput)
+}
+
+func (o BotAudioFillerSettingsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BotAudioFillerSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o BotAudioFillerSettingsPtrOutput) MinimumPlayDurationInMilliseconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BotAudioFillerSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinimumPlayDurationInMilliseconds
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o BotAudioFillerSettingsPtrOutput) ResponseDeliveryDelayInMilliseconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BotAudioFillerSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ResponseDeliveryDelayInMilliseconds
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o BotAudioFillerSettingsPtrOutput) StartDelayInMilliseconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BotAudioFillerSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.StartDelayInMilliseconds
+	}).(pulumi.IntPtrOutput)
+}
+
 type BotAudioLogDestination struct {
 	S3Bucket BotS3BucketLogDestination `pulumi:"s3Bucket"`
 }
@@ -9086,6 +9279,7 @@ type BotLambdaCodeHook struct {
 }
 
 type BotLocale struct {
+	AudioFillerSettings *BotAudioFillerSettings `pulumi:"audioFillerSettings"`
 	// Specifies a custom vocabulary to use with a specific locale.
 	CustomVocabulary *BotCustomVocabulary `pulumi:"customVocabulary"`
 	// A description of the bot locale. Use this to help identify the bot locale in lists.
@@ -9125,6 +9319,7 @@ type BotLocaleInput interface {
 }
 
 type BotLocaleArgs struct {
+	AudioFillerSettings BotAudioFillerSettingsPtrInput `pulumi:"audioFillerSettings"`
 	// Specifies a custom vocabulary to use with a specific locale.
 	CustomVocabulary BotCustomVocabularyPtrInput `pulumi:"customVocabulary"`
 	// A description of the bot locale. Use this to help identify the bot locale in lists.
@@ -9201,6 +9396,10 @@ func (o BotLocaleOutput) ToBotLocaleOutput() BotLocaleOutput {
 
 func (o BotLocaleOutput) ToBotLocaleOutputWithContext(ctx context.Context) BotLocaleOutput {
 	return o
+}
+
+func (o BotLocaleOutput) AudioFillerSettings() BotAudioFillerSettingsPtrOutput {
+	return o.ApplyT(func(v BotLocale) *BotAudioFillerSettings { return v.AudioFillerSettings }).(BotAudioFillerSettingsPtrOutput)
 }
 
 // Specifies a custom vocabulary to use with a specific locale.
@@ -18227,6 +18426,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BotAllowedInputTypesInput)(nil)).Elem(), BotAllowedInputTypesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotAudioAndDtmfInputSpecificationInput)(nil)).Elem(), BotAudioAndDtmfInputSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotAudioAndDtmfInputSpecificationPtrInput)(nil)).Elem(), BotAudioAndDtmfInputSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotAudioFillerSettingsInput)(nil)).Elem(), BotAudioFillerSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotAudioFillerSettingsPtrInput)(nil)).Elem(), BotAudioFillerSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotAudioLogDestinationInput)(nil)).Elem(), BotAudioLogDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotAudioLogSettingInput)(nil)).Elem(), BotAudioLogSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotAudioLogSettingArrayInput)(nil)).Elem(), BotAudioLogSettingArray{})
@@ -18466,6 +18667,8 @@ func init() {
 	pulumi.RegisterOutputType(BotAllowedInputTypesOutput{})
 	pulumi.RegisterOutputType(BotAudioAndDtmfInputSpecificationOutput{})
 	pulumi.RegisterOutputType(BotAudioAndDtmfInputSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(BotAudioFillerSettingsOutput{})
+	pulumi.RegisterOutputType(BotAudioFillerSettingsPtrOutput{})
 	pulumi.RegisterOutputType(BotAudioLogDestinationOutput{})
 	pulumi.RegisterOutputType(BotAudioLogSettingOutput{})
 	pulumi.RegisterOutputType(BotAudioLogSettingArrayOutput{})

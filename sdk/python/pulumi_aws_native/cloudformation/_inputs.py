@@ -261,7 +261,7 @@ class OptionsPropertiesArgsDict(TypedDict):
     """
     input_params: NotRequired[pulumi.Input[Union['GuardHookS3LocationArgsDict', Sequence[pulumi.Input['GuardHookS3LocationArgsDict']]]]]
     """
-    Specifies the S3 location where your input parameters are located.
+    Specifies the S3 location of input parameter files for your Guard rules. You can specify either a single S3 location or an array of up to 10 S3 locations.
     """
 
 @pulumi.input_type
@@ -271,7 +271,7 @@ class OptionsPropertiesArgs:
         """
         Specifies the S3 location of your input parameters.
 
-        :param pulumi.Input[Union['GuardHookS3LocationArgs', Sequence[pulumi.Input['GuardHookS3LocationArgs']]]] input_params: Specifies the S3 location where your input parameters are located.
+        :param pulumi.Input[Union['GuardHookS3LocationArgs', Sequence[pulumi.Input['GuardHookS3LocationArgs']]]] input_params: Specifies the S3 location of input parameter files for your Guard rules. You can specify either a single S3 location or an array of up to 10 S3 locations.
         """
         if input_params is not None:
             pulumi.set(__self__, "input_params", input_params)
@@ -280,7 +280,7 @@ class OptionsPropertiesArgs:
     @pulumi.getter(name="inputParams")
     def input_params(self) -> Optional[pulumi.Input[Union['GuardHookS3LocationArgs', Sequence[pulumi.Input['GuardHookS3LocationArgs']]]]]:
         """
-        Specifies the S3 location where your input parameters are located.
+        Specifies the S3 location of input parameter files for your Guard rules. You can specify either a single S3 location or an array of up to 10 S3 locations.
         """
         return pulumi.get(self, "input_params")
 

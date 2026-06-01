@@ -197,7 +197,6 @@ namespace Pulumi.AwsNative.OpenSearchServerless
                     "standbyReplicas",
                     "tags[*]",
                     "type",
-                    "vectorOptions",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

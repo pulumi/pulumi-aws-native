@@ -39,8 +39,10 @@ type Gateway struct {
 	// The protocol configuration for the gateway target.
 	ProtocolConfiguration GatewayProtocolConfigurationPropertiesPtrOutput `pulumi:"protocolConfiguration"`
 	// The protocol type for the gateway target.
-	ProtocolType GatewayProtocolTypeOutput `pulumi:"protocolType"`
-	RoleArn      pulumi.StringOutput       `pulumi:"roleArn"`
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::BedrockAgentCore::Gateway` for more information about the expected schema for this property.
+	ProtocolType pulumi.AnyOutput    `pulumi:"protocolType"`
+	RoleArn      pulumi.StringOutput `pulumi:"roleArn"`
 	// The status for the gateway.
 	Status GatewayStatusOutput `pulumi:"status"`
 	// The status reasons for the gateway.
@@ -60,9 +62,6 @@ func NewGateway(ctx *pulumi.Context,
 
 	if args.AuthorizerType == nil {
 		return nil, errors.New("invalid value for required argument 'AuthorizerType'")
-	}
-	if args.ProtocolType == nil {
-		return nil, errors.New("invalid value for required argument 'ProtocolType'")
 	}
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
@@ -116,8 +115,10 @@ type gatewayArgs struct {
 	// The protocol configuration for the gateway target.
 	ProtocolConfiguration *GatewayProtocolConfigurationProperties `pulumi:"protocolConfiguration"`
 	// The protocol type for the gateway target.
-	ProtocolType GatewayProtocolType `pulumi:"protocolType"`
-	RoleArn      string              `pulumi:"roleArn"`
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::BedrockAgentCore::Gateway` for more information about the expected schema for this property.
+	ProtocolType interface{} `pulumi:"protocolType"`
+	RoleArn      string      `pulumi:"roleArn"`
 	// The tags for the gateway.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -140,7 +141,9 @@ type GatewayArgs struct {
 	// The protocol configuration for the gateway target.
 	ProtocolConfiguration GatewayProtocolConfigurationPropertiesPtrInput
 	// The protocol type for the gateway target.
-	ProtocolType GatewayProtocolTypeInput
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::BedrockAgentCore::Gateway` for more information about the expected schema for this property.
+	ProtocolType pulumi.Input
 	RoleArn      pulumi.StringInput
 	// The tags for the gateway.
 	Tags pulumi.StringMapInput
@@ -245,8 +248,10 @@ func (o GatewayOutput) ProtocolConfiguration() GatewayProtocolConfigurationPrope
 }
 
 // The protocol type for the gateway target.
-func (o GatewayOutput) ProtocolType() GatewayProtocolTypeOutput {
-	return o.ApplyT(func(v *Gateway) GatewayProtocolTypeOutput { return v.ProtocolType }).(GatewayProtocolTypeOutput)
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::BedrockAgentCore::Gateway` for more information about the expected schema for this property.
+func (o GatewayOutput) ProtocolType() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Gateway) pulumi.AnyOutput { return v.ProtocolType }).(pulumi.AnyOutput)
 }
 
 func (o GatewayOutput) RoleArn() pulumi.StringOutput {

@@ -88,6 +88,7 @@ namespace Pulumi.AwsNative.OpenSearchServerless
         /// Key Management Service key used to encrypt the collection.
         /// </summary>
         public readonly string? KmsKeyArn;
+        public readonly Outputs.CollectionVectorOptions? VectorOptions;
 
         [OutputConstructor]
         private GetCollectionResult(
@@ -103,7 +104,9 @@ namespace Pulumi.AwsNative.OpenSearchServerless
 
             string? id,
 
-            string? kmsKeyArn)
+            string? kmsKeyArn,
+
+            Outputs.CollectionVectorOptions? vectorOptions)
         {
             Arn = arn;
             CollectionEndpoint = collectionEndpoint;
@@ -112,6 +115,7 @@ namespace Pulumi.AwsNative.OpenSearchServerless
             FipsEndpoints = fipsEndpoints;
             Id = id;
             KmsKeyArn = kmsKeyArn;
+            VectorOptions = vectorOptions;
         }
     }
 }

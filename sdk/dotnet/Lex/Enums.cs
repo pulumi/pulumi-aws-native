@@ -38,6 +38,39 @@ namespace Pulumi.AwsNative.Lex
     }
 
     [EnumType]
+    public readonly struct BotAudioFillerSettingsAudioType : IEquatable<BotAudioFillerSettingsAudioType>
+    {
+        private readonly string _value;
+
+        private BotAudioFillerSettingsAudioType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static BotAudioFillerSettingsAudioType MelodyChipperChime { get; } = new BotAudioFillerSettingsAudioType("MELODY_CHIPPER_CHIME");
+        public static BotAudioFillerSettingsAudioType MelodyCuriousCrawl { get; } = new BotAudioFillerSettingsAudioType("MELODY_CURIOUS_CRAWL");
+        public static BotAudioFillerSettingsAudioType MelodyRisingRipple { get; } = new BotAudioFillerSettingsAudioType("MELODY_RISING_RIPPLE");
+        public static BotAudioFillerSettingsAudioType MelodyPatientPing { get; } = new BotAudioFillerSettingsAudioType("MELODY_PATIENT_PING");
+        public static BotAudioFillerSettingsAudioType MelodyPonderingPong { get; } = new BotAudioFillerSettingsAudioType("MELODY_PONDERING_PONG");
+        public static BotAudioFillerSettingsAudioType TypingKineticKeys { get; } = new BotAudioFillerSettingsAudioType("TYPING_KINETIC_KEYS");
+        public static BotAudioFillerSettingsAudioType TypingQuietQwerty { get; } = new BotAudioFillerSettingsAudioType("TYPING_QUIET_QWERTY");
+
+        public static bool operator ==(BotAudioFillerSettingsAudioType left, BotAudioFillerSettingsAudioType right) => left.Equals(right);
+        public static bool operator !=(BotAudioFillerSettingsAudioType left, BotAudioFillerSettingsAudioType right) => !left.Equals(right);
+
+        public static explicit operator string(BotAudioFillerSettingsAudioType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BotAudioFillerSettingsAudioType other && Equals(other);
+        public bool Equals(BotAudioFillerSettingsAudioType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct BotAudioRecognitionStrategy : IEquatable<BotAudioRecognitionStrategy>
     {
         private readonly string _value;
@@ -341,7 +374,7 @@ namespace Pulumi.AwsNative.Lex
         public static BotSpeechModelPreference Standard { get; } = new BotSpeechModelPreference("Standard");
         public static BotSpeechModelPreference Neural { get; } = new BotSpeechModelPreference("Neural");
         public static BotSpeechModelPreference Deepgram { get; } = new BotSpeechModelPreference("Deepgram");
-        public static BotSpeechModelPreference Enhanced { get; } = new BotSpeechModelPreference("Enhanced");
+        public static BotSpeechModelPreference Advanced { get; } = new BotSpeechModelPreference("Advanced");
 
         public static bool operator ==(BotSpeechModelPreference left, BotSpeechModelPreference right) => left.Equals(right);
         public static bool operator !=(BotSpeechModelPreference left, BotSpeechModelPreference right) => !left.Equals(right);

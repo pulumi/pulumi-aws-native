@@ -26,6 +26,9 @@ namespace Pulumi.AwsNative.MediaPackageV2.Inputs
         [Input("adMarkerDash")]
         public Input<Pulumi.AwsNative.MediaPackageV2.OriginEndpointAdMarkerDash>? AdMarkerDash { get; set; }
 
+        [Input("scteInManifests")]
+        public Input<Pulumi.AwsNative.MediaPackageV2.OriginEndpointScteInManifests>? ScteInManifests { get; set; }
+
         public OriginEndpointScteDashArgs()
         {
         }

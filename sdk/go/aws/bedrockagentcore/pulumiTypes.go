@@ -5328,6 +5328,65 @@ func (o GatewayTargetApiSchemaConfiguration1PropertiesPtrOutput) InlinePayload()
 	}).(pulumi.StringPtrOutput)
 }
 
+type GatewayTargetAuthorizationData0Properties struct {
+	Oauth2 GatewayTargetOAuth2AuthorizationData `pulumi:"oauth2"`
+}
+
+type GatewayTargetAuthorizationDataProperties struct {
+	Oauth2 GatewayTargetOAuth2AuthorizationData `pulumi:"oauth2"`
+}
+
+type GatewayTargetAuthorizationDataPropertiesOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetAuthorizationDataPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetAuthorizationDataProperties)(nil)).Elem()
+}
+
+func (o GatewayTargetAuthorizationDataPropertiesOutput) ToGatewayTargetAuthorizationDataPropertiesOutput() GatewayTargetAuthorizationDataPropertiesOutput {
+	return o
+}
+
+func (o GatewayTargetAuthorizationDataPropertiesOutput) ToGatewayTargetAuthorizationDataPropertiesOutputWithContext(ctx context.Context) GatewayTargetAuthorizationDataPropertiesOutput {
+	return o
+}
+
+func (o GatewayTargetAuthorizationDataPropertiesOutput) Oauth2() GatewayTargetOAuth2AuthorizationDataOutput {
+	return o.ApplyT(func(v GatewayTargetAuthorizationDataProperties) GatewayTargetOAuth2AuthorizationData { return v.Oauth2 }).(GatewayTargetOAuth2AuthorizationDataOutput)
+}
+
+type GatewayTargetAuthorizationDataPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetAuthorizationDataPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayTargetAuthorizationDataProperties)(nil)).Elem()
+}
+
+func (o GatewayTargetAuthorizationDataPropertiesPtrOutput) ToGatewayTargetAuthorizationDataPropertiesPtrOutput() GatewayTargetAuthorizationDataPropertiesPtrOutput {
+	return o
+}
+
+func (o GatewayTargetAuthorizationDataPropertiesPtrOutput) ToGatewayTargetAuthorizationDataPropertiesPtrOutputWithContext(ctx context.Context) GatewayTargetAuthorizationDataPropertiesPtrOutput {
+	return o
+}
+
+func (o GatewayTargetAuthorizationDataPropertiesPtrOutput) Elem() GatewayTargetAuthorizationDataPropertiesOutput {
+	return o.ApplyT(func(v *GatewayTargetAuthorizationDataProperties) GatewayTargetAuthorizationDataProperties {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayTargetAuthorizationDataProperties
+		return ret
+	}).(GatewayTargetAuthorizationDataPropertiesOutput)
+}
+
+func (o GatewayTargetAuthorizationDataPropertiesPtrOutput) Oauth2() GatewayTargetOAuth2AuthorizationDataPtrOutput {
+	return o.ApplyT(func(v *GatewayTargetAuthorizationDataProperties) *GatewayTargetOAuth2AuthorizationData {
+		if v == nil {
+			return nil
+		}
+		return &v.Oauth2
+	}).(GatewayTargetOAuth2AuthorizationDataPtrOutput)
+}
+
 type GatewayTargetCredentialProvider0Properties struct {
 	OauthCredentialProvider GatewayTargetOAuthCredentialProvider `pulumi:"oauthCredentialProvider"`
 }
@@ -5841,6 +5900,94 @@ func (o GatewayTargetCredentialProviderConfigurationArrayOutput) Index(i pulumi.
 	}).(GatewayTargetCredentialProviderConfigurationOutput)
 }
 
+type GatewayTargetHttpTargetConfiguration0Properties struct {
+	AgentcoreRuntime GatewayTargetRuntimeTargetConfiguration `pulumi:"agentcoreRuntime"`
+}
+
+type GatewayTargetHttpTargetConfigurationProperties struct {
+	AgentcoreRuntime GatewayTargetRuntimeTargetConfiguration `pulumi:"agentcoreRuntime"`
+}
+
+// GatewayTargetHttpTargetConfigurationPropertiesInput is an input type that accepts GatewayTargetHttpTargetConfigurationPropertiesArgs and GatewayTargetHttpTargetConfigurationPropertiesOutput values.
+// You can construct a concrete instance of `GatewayTargetHttpTargetConfigurationPropertiesInput` via:
+//
+//	GatewayTargetHttpTargetConfigurationPropertiesArgs{...}
+type GatewayTargetHttpTargetConfigurationPropertiesInput interface {
+	pulumi.Input
+
+	ToGatewayTargetHttpTargetConfigurationPropertiesOutput() GatewayTargetHttpTargetConfigurationPropertiesOutput
+	ToGatewayTargetHttpTargetConfigurationPropertiesOutputWithContext(context.Context) GatewayTargetHttpTargetConfigurationPropertiesOutput
+}
+
+type GatewayTargetHttpTargetConfigurationPropertiesArgs struct {
+	AgentcoreRuntime GatewayTargetRuntimeTargetConfigurationInput `pulumi:"agentcoreRuntime"`
+}
+
+func (GatewayTargetHttpTargetConfigurationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetHttpTargetConfigurationProperties)(nil)).Elem()
+}
+
+func (i GatewayTargetHttpTargetConfigurationPropertiesArgs) ToGatewayTargetHttpTargetConfigurationPropertiesOutput() GatewayTargetHttpTargetConfigurationPropertiesOutput {
+	return i.ToGatewayTargetHttpTargetConfigurationPropertiesOutputWithContext(context.Background())
+}
+
+func (i GatewayTargetHttpTargetConfigurationPropertiesArgs) ToGatewayTargetHttpTargetConfigurationPropertiesOutputWithContext(ctx context.Context) GatewayTargetHttpTargetConfigurationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetHttpTargetConfigurationPropertiesOutput)
+}
+
+type GatewayTargetHttpTargetConfigurationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetHttpTargetConfigurationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetHttpTargetConfigurationProperties)(nil)).Elem()
+}
+
+func (o GatewayTargetHttpTargetConfigurationPropertiesOutput) ToGatewayTargetHttpTargetConfigurationPropertiesOutput() GatewayTargetHttpTargetConfigurationPropertiesOutput {
+	return o
+}
+
+func (o GatewayTargetHttpTargetConfigurationPropertiesOutput) ToGatewayTargetHttpTargetConfigurationPropertiesOutputWithContext(ctx context.Context) GatewayTargetHttpTargetConfigurationPropertiesOutput {
+	return o
+}
+
+func (o GatewayTargetHttpTargetConfigurationPropertiesOutput) AgentcoreRuntime() GatewayTargetRuntimeTargetConfigurationOutput {
+	return o.ApplyT(func(v GatewayTargetHttpTargetConfigurationProperties) GatewayTargetRuntimeTargetConfiguration {
+		return v.AgentcoreRuntime
+	}).(GatewayTargetRuntimeTargetConfigurationOutput)
+}
+
+type GatewayTargetHttpTargetConfigurationPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetHttpTargetConfigurationPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayTargetHttpTargetConfigurationProperties)(nil)).Elem()
+}
+
+func (o GatewayTargetHttpTargetConfigurationPropertiesPtrOutput) ToGatewayTargetHttpTargetConfigurationPropertiesPtrOutput() GatewayTargetHttpTargetConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o GatewayTargetHttpTargetConfigurationPropertiesPtrOutput) ToGatewayTargetHttpTargetConfigurationPropertiesPtrOutputWithContext(ctx context.Context) GatewayTargetHttpTargetConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o GatewayTargetHttpTargetConfigurationPropertiesPtrOutput) Elem() GatewayTargetHttpTargetConfigurationPropertiesOutput {
+	return o.ApplyT(func(v *GatewayTargetHttpTargetConfigurationProperties) GatewayTargetHttpTargetConfigurationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayTargetHttpTargetConfigurationProperties
+		return ret
+	}).(GatewayTargetHttpTargetConfigurationPropertiesOutput)
+}
+
+func (o GatewayTargetHttpTargetConfigurationPropertiesPtrOutput) AgentcoreRuntime() GatewayTargetRuntimeTargetConfigurationPtrOutput {
+	return o.ApplyT(func(v *GatewayTargetHttpTargetConfigurationProperties) *GatewayTargetRuntimeTargetConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.AgentcoreRuntime
+	}).(GatewayTargetRuntimeTargetConfigurationPtrOutput)
+}
+
 type GatewayTargetIamCredentialProvider struct {
 	Region  *string `pulumi:"region"`
 	Service string  `pulumi:"service"`
@@ -6087,8 +6234,9 @@ func (o GatewayTargetMcpLambdaTargetConfigurationPtrOutput) ToolSchema() pulumi.
 }
 
 type GatewayTargetMcpServerTargetConfiguration struct {
-	Endpoint    string                             `pulumi:"endpoint"`
-	ListingMode *GatewayTargetMcpServerListingMode `pulumi:"listingMode"`
+	Endpoint      string                             `pulumi:"endpoint"`
+	ListingMode   *GatewayTargetMcpServerListingMode `pulumi:"listingMode"`
+	McpToolSchema interface{}                        `pulumi:"mcpToolSchema"`
 }
 
 // GatewayTargetMcpServerTargetConfigurationInput is an input type that accepts GatewayTargetMcpServerTargetConfigurationArgs and GatewayTargetMcpServerTargetConfigurationOutput values.
@@ -6103,8 +6251,9 @@ type GatewayTargetMcpServerTargetConfigurationInput interface {
 }
 
 type GatewayTargetMcpServerTargetConfigurationArgs struct {
-	Endpoint    pulumi.StringInput                        `pulumi:"endpoint"`
-	ListingMode GatewayTargetMcpServerListingModePtrInput `pulumi:"listingMode"`
+	Endpoint      pulumi.StringInput                        `pulumi:"endpoint"`
+	ListingMode   GatewayTargetMcpServerListingModePtrInput `pulumi:"listingMode"`
+	McpToolSchema pulumi.Input                              `pulumi:"mcpToolSchema"`
 }
 
 func (GatewayTargetMcpServerTargetConfigurationArgs) ElementType() reflect.Type {
@@ -6141,6 +6290,10 @@ func (o GatewayTargetMcpServerTargetConfigurationOutput) ListingMode() GatewayTa
 	return o.ApplyT(func(v GatewayTargetMcpServerTargetConfiguration) *GatewayTargetMcpServerListingMode {
 		return v.ListingMode
 	}).(GatewayTargetMcpServerListingModePtrOutput)
+}
+
+func (o GatewayTargetMcpServerTargetConfigurationOutput) McpToolSchema() pulumi.AnyOutput {
+	return o.ApplyT(func(v GatewayTargetMcpServerTargetConfiguration) interface{} { return v.McpToolSchema }).(pulumi.AnyOutput)
 }
 
 type GatewayTargetMcpServerTargetConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -6183,6 +6336,15 @@ func (o GatewayTargetMcpServerTargetConfigurationPtrOutput) ListingMode() Gatewa
 		}
 		return v.ListingMode
 	}).(GatewayTargetMcpServerListingModePtrOutput)
+}
+
+func (o GatewayTargetMcpServerTargetConfigurationPtrOutput) McpToolSchema() pulumi.AnyOutput {
+	return o.ApplyT(func(v *GatewayTargetMcpServerTargetConfiguration) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.McpToolSchema
+	}).(pulumi.AnyOutput)
 }
 
 type GatewayTargetMcpTargetConfiguration0Properties struct {
@@ -6601,6 +6763,272 @@ func (o GatewayTargetMcpTargetConfiguration4PropertiesPtrOutput) ApiGateway() Ga
 	}).(GatewayTargetApiGatewayTargetConfigurationPtrOutput)
 }
 
+type GatewayTargetMcpToolSchemaConfiguration0Properties struct {
+	S3 GatewayTargetS3Configuration `pulumi:"s3"`
+}
+
+// GatewayTargetMcpToolSchemaConfiguration0PropertiesInput is an input type that accepts GatewayTargetMcpToolSchemaConfiguration0PropertiesArgs and GatewayTargetMcpToolSchemaConfiguration0PropertiesOutput values.
+// You can construct a concrete instance of `GatewayTargetMcpToolSchemaConfiguration0PropertiesInput` via:
+//
+//	GatewayTargetMcpToolSchemaConfiguration0PropertiesArgs{...}
+type GatewayTargetMcpToolSchemaConfiguration0PropertiesInput interface {
+	pulumi.Input
+
+	ToGatewayTargetMcpToolSchemaConfiguration0PropertiesOutput() GatewayTargetMcpToolSchemaConfiguration0PropertiesOutput
+	ToGatewayTargetMcpToolSchemaConfiguration0PropertiesOutputWithContext(context.Context) GatewayTargetMcpToolSchemaConfiguration0PropertiesOutput
+}
+
+type GatewayTargetMcpToolSchemaConfiguration0PropertiesArgs struct {
+	S3 GatewayTargetS3ConfigurationInput `pulumi:"s3"`
+}
+
+func (GatewayTargetMcpToolSchemaConfiguration0PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetMcpToolSchemaConfiguration0Properties)(nil)).Elem()
+}
+
+func (i GatewayTargetMcpToolSchemaConfiguration0PropertiesArgs) ToGatewayTargetMcpToolSchemaConfiguration0PropertiesOutput() GatewayTargetMcpToolSchemaConfiguration0PropertiesOutput {
+	return i.ToGatewayTargetMcpToolSchemaConfiguration0PropertiesOutputWithContext(context.Background())
+}
+
+func (i GatewayTargetMcpToolSchemaConfiguration0PropertiesArgs) ToGatewayTargetMcpToolSchemaConfiguration0PropertiesOutputWithContext(ctx context.Context) GatewayTargetMcpToolSchemaConfiguration0PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetMcpToolSchemaConfiguration0PropertiesOutput)
+}
+
+func (i GatewayTargetMcpToolSchemaConfiguration0PropertiesArgs) ToGatewayTargetMcpToolSchemaConfiguration0PropertiesPtrOutput() GatewayTargetMcpToolSchemaConfiguration0PropertiesPtrOutput {
+	return i.ToGatewayTargetMcpToolSchemaConfiguration0PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i GatewayTargetMcpToolSchemaConfiguration0PropertiesArgs) ToGatewayTargetMcpToolSchemaConfiguration0PropertiesPtrOutputWithContext(ctx context.Context) GatewayTargetMcpToolSchemaConfiguration0PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetMcpToolSchemaConfiguration0PropertiesOutput).ToGatewayTargetMcpToolSchemaConfiguration0PropertiesPtrOutputWithContext(ctx)
+}
+
+// GatewayTargetMcpToolSchemaConfiguration0PropertiesPtrInput is an input type that accepts GatewayTargetMcpToolSchemaConfiguration0PropertiesArgs, GatewayTargetMcpToolSchemaConfiguration0PropertiesPtr and GatewayTargetMcpToolSchemaConfiguration0PropertiesPtrOutput values.
+// You can construct a concrete instance of `GatewayTargetMcpToolSchemaConfiguration0PropertiesPtrInput` via:
+//
+//	        GatewayTargetMcpToolSchemaConfiguration0PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type GatewayTargetMcpToolSchemaConfiguration0PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToGatewayTargetMcpToolSchemaConfiguration0PropertiesPtrOutput() GatewayTargetMcpToolSchemaConfiguration0PropertiesPtrOutput
+	ToGatewayTargetMcpToolSchemaConfiguration0PropertiesPtrOutputWithContext(context.Context) GatewayTargetMcpToolSchemaConfiguration0PropertiesPtrOutput
+}
+
+type gatewayTargetMcpToolSchemaConfiguration0PropertiesPtrType GatewayTargetMcpToolSchemaConfiguration0PropertiesArgs
+
+func GatewayTargetMcpToolSchemaConfiguration0PropertiesPtr(v *GatewayTargetMcpToolSchemaConfiguration0PropertiesArgs) GatewayTargetMcpToolSchemaConfiguration0PropertiesPtrInput {
+	return (*gatewayTargetMcpToolSchemaConfiguration0PropertiesPtrType)(v)
+}
+
+func (*gatewayTargetMcpToolSchemaConfiguration0PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayTargetMcpToolSchemaConfiguration0Properties)(nil)).Elem()
+}
+
+func (i *gatewayTargetMcpToolSchemaConfiguration0PropertiesPtrType) ToGatewayTargetMcpToolSchemaConfiguration0PropertiesPtrOutput() GatewayTargetMcpToolSchemaConfiguration0PropertiesPtrOutput {
+	return i.ToGatewayTargetMcpToolSchemaConfiguration0PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *gatewayTargetMcpToolSchemaConfiguration0PropertiesPtrType) ToGatewayTargetMcpToolSchemaConfiguration0PropertiesPtrOutputWithContext(ctx context.Context) GatewayTargetMcpToolSchemaConfiguration0PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetMcpToolSchemaConfiguration0PropertiesPtrOutput)
+}
+
+type GatewayTargetMcpToolSchemaConfiguration0PropertiesOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetMcpToolSchemaConfiguration0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetMcpToolSchemaConfiguration0Properties)(nil)).Elem()
+}
+
+func (o GatewayTargetMcpToolSchemaConfiguration0PropertiesOutput) ToGatewayTargetMcpToolSchemaConfiguration0PropertiesOutput() GatewayTargetMcpToolSchemaConfiguration0PropertiesOutput {
+	return o
+}
+
+func (o GatewayTargetMcpToolSchemaConfiguration0PropertiesOutput) ToGatewayTargetMcpToolSchemaConfiguration0PropertiesOutputWithContext(ctx context.Context) GatewayTargetMcpToolSchemaConfiguration0PropertiesOutput {
+	return o
+}
+
+func (o GatewayTargetMcpToolSchemaConfiguration0PropertiesOutput) ToGatewayTargetMcpToolSchemaConfiguration0PropertiesPtrOutput() GatewayTargetMcpToolSchemaConfiguration0PropertiesPtrOutput {
+	return o.ToGatewayTargetMcpToolSchemaConfiguration0PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayTargetMcpToolSchemaConfiguration0PropertiesOutput) ToGatewayTargetMcpToolSchemaConfiguration0PropertiesPtrOutputWithContext(ctx context.Context) GatewayTargetMcpToolSchemaConfiguration0PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayTargetMcpToolSchemaConfiguration0Properties) *GatewayTargetMcpToolSchemaConfiguration0Properties {
+		return &v
+	}).(GatewayTargetMcpToolSchemaConfiguration0PropertiesPtrOutput)
+}
+
+func (o GatewayTargetMcpToolSchemaConfiguration0PropertiesOutput) S3() GatewayTargetS3ConfigurationOutput {
+	return o.ApplyT(func(v GatewayTargetMcpToolSchemaConfiguration0Properties) GatewayTargetS3Configuration { return v.S3 }).(GatewayTargetS3ConfigurationOutput)
+}
+
+type GatewayTargetMcpToolSchemaConfiguration0PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetMcpToolSchemaConfiguration0PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayTargetMcpToolSchemaConfiguration0Properties)(nil)).Elem()
+}
+
+func (o GatewayTargetMcpToolSchemaConfiguration0PropertiesPtrOutput) ToGatewayTargetMcpToolSchemaConfiguration0PropertiesPtrOutput() GatewayTargetMcpToolSchemaConfiguration0PropertiesPtrOutput {
+	return o
+}
+
+func (o GatewayTargetMcpToolSchemaConfiguration0PropertiesPtrOutput) ToGatewayTargetMcpToolSchemaConfiguration0PropertiesPtrOutputWithContext(ctx context.Context) GatewayTargetMcpToolSchemaConfiguration0PropertiesPtrOutput {
+	return o
+}
+
+func (o GatewayTargetMcpToolSchemaConfiguration0PropertiesPtrOutput) Elem() GatewayTargetMcpToolSchemaConfiguration0PropertiesOutput {
+	return o.ApplyT(func(v *GatewayTargetMcpToolSchemaConfiguration0Properties) GatewayTargetMcpToolSchemaConfiguration0Properties {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayTargetMcpToolSchemaConfiguration0Properties
+		return ret
+	}).(GatewayTargetMcpToolSchemaConfiguration0PropertiesOutput)
+}
+
+func (o GatewayTargetMcpToolSchemaConfiguration0PropertiesPtrOutput) S3() GatewayTargetS3ConfigurationPtrOutput {
+	return o.ApplyT(func(v *GatewayTargetMcpToolSchemaConfiguration0Properties) *GatewayTargetS3Configuration {
+		if v == nil {
+			return nil
+		}
+		return &v.S3
+	}).(GatewayTargetS3ConfigurationPtrOutput)
+}
+
+type GatewayTargetMcpToolSchemaConfiguration1Properties struct {
+	InlinePayload string `pulumi:"inlinePayload"`
+}
+
+// GatewayTargetMcpToolSchemaConfiguration1PropertiesInput is an input type that accepts GatewayTargetMcpToolSchemaConfiguration1PropertiesArgs and GatewayTargetMcpToolSchemaConfiguration1PropertiesOutput values.
+// You can construct a concrete instance of `GatewayTargetMcpToolSchemaConfiguration1PropertiesInput` via:
+//
+//	GatewayTargetMcpToolSchemaConfiguration1PropertiesArgs{...}
+type GatewayTargetMcpToolSchemaConfiguration1PropertiesInput interface {
+	pulumi.Input
+
+	ToGatewayTargetMcpToolSchemaConfiguration1PropertiesOutput() GatewayTargetMcpToolSchemaConfiguration1PropertiesOutput
+	ToGatewayTargetMcpToolSchemaConfiguration1PropertiesOutputWithContext(context.Context) GatewayTargetMcpToolSchemaConfiguration1PropertiesOutput
+}
+
+type GatewayTargetMcpToolSchemaConfiguration1PropertiesArgs struct {
+	InlinePayload pulumi.StringInput `pulumi:"inlinePayload"`
+}
+
+func (GatewayTargetMcpToolSchemaConfiguration1PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetMcpToolSchemaConfiguration1Properties)(nil)).Elem()
+}
+
+func (i GatewayTargetMcpToolSchemaConfiguration1PropertiesArgs) ToGatewayTargetMcpToolSchemaConfiguration1PropertiesOutput() GatewayTargetMcpToolSchemaConfiguration1PropertiesOutput {
+	return i.ToGatewayTargetMcpToolSchemaConfiguration1PropertiesOutputWithContext(context.Background())
+}
+
+func (i GatewayTargetMcpToolSchemaConfiguration1PropertiesArgs) ToGatewayTargetMcpToolSchemaConfiguration1PropertiesOutputWithContext(ctx context.Context) GatewayTargetMcpToolSchemaConfiguration1PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetMcpToolSchemaConfiguration1PropertiesOutput)
+}
+
+func (i GatewayTargetMcpToolSchemaConfiguration1PropertiesArgs) ToGatewayTargetMcpToolSchemaConfiguration1PropertiesPtrOutput() GatewayTargetMcpToolSchemaConfiguration1PropertiesPtrOutput {
+	return i.ToGatewayTargetMcpToolSchemaConfiguration1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i GatewayTargetMcpToolSchemaConfiguration1PropertiesArgs) ToGatewayTargetMcpToolSchemaConfiguration1PropertiesPtrOutputWithContext(ctx context.Context) GatewayTargetMcpToolSchemaConfiguration1PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetMcpToolSchemaConfiguration1PropertiesOutput).ToGatewayTargetMcpToolSchemaConfiguration1PropertiesPtrOutputWithContext(ctx)
+}
+
+// GatewayTargetMcpToolSchemaConfiguration1PropertiesPtrInput is an input type that accepts GatewayTargetMcpToolSchemaConfiguration1PropertiesArgs, GatewayTargetMcpToolSchemaConfiguration1PropertiesPtr and GatewayTargetMcpToolSchemaConfiguration1PropertiesPtrOutput values.
+// You can construct a concrete instance of `GatewayTargetMcpToolSchemaConfiguration1PropertiesPtrInput` via:
+//
+//	        GatewayTargetMcpToolSchemaConfiguration1PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type GatewayTargetMcpToolSchemaConfiguration1PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToGatewayTargetMcpToolSchemaConfiguration1PropertiesPtrOutput() GatewayTargetMcpToolSchemaConfiguration1PropertiesPtrOutput
+	ToGatewayTargetMcpToolSchemaConfiguration1PropertiesPtrOutputWithContext(context.Context) GatewayTargetMcpToolSchemaConfiguration1PropertiesPtrOutput
+}
+
+type gatewayTargetMcpToolSchemaConfiguration1PropertiesPtrType GatewayTargetMcpToolSchemaConfiguration1PropertiesArgs
+
+func GatewayTargetMcpToolSchemaConfiguration1PropertiesPtr(v *GatewayTargetMcpToolSchemaConfiguration1PropertiesArgs) GatewayTargetMcpToolSchemaConfiguration1PropertiesPtrInput {
+	return (*gatewayTargetMcpToolSchemaConfiguration1PropertiesPtrType)(v)
+}
+
+func (*gatewayTargetMcpToolSchemaConfiguration1PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayTargetMcpToolSchemaConfiguration1Properties)(nil)).Elem()
+}
+
+func (i *gatewayTargetMcpToolSchemaConfiguration1PropertiesPtrType) ToGatewayTargetMcpToolSchemaConfiguration1PropertiesPtrOutput() GatewayTargetMcpToolSchemaConfiguration1PropertiesPtrOutput {
+	return i.ToGatewayTargetMcpToolSchemaConfiguration1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *gatewayTargetMcpToolSchemaConfiguration1PropertiesPtrType) ToGatewayTargetMcpToolSchemaConfiguration1PropertiesPtrOutputWithContext(ctx context.Context) GatewayTargetMcpToolSchemaConfiguration1PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetMcpToolSchemaConfiguration1PropertiesPtrOutput)
+}
+
+type GatewayTargetMcpToolSchemaConfiguration1PropertiesOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetMcpToolSchemaConfiguration1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetMcpToolSchemaConfiguration1Properties)(nil)).Elem()
+}
+
+func (o GatewayTargetMcpToolSchemaConfiguration1PropertiesOutput) ToGatewayTargetMcpToolSchemaConfiguration1PropertiesOutput() GatewayTargetMcpToolSchemaConfiguration1PropertiesOutput {
+	return o
+}
+
+func (o GatewayTargetMcpToolSchemaConfiguration1PropertiesOutput) ToGatewayTargetMcpToolSchemaConfiguration1PropertiesOutputWithContext(ctx context.Context) GatewayTargetMcpToolSchemaConfiguration1PropertiesOutput {
+	return o
+}
+
+func (o GatewayTargetMcpToolSchemaConfiguration1PropertiesOutput) ToGatewayTargetMcpToolSchemaConfiguration1PropertiesPtrOutput() GatewayTargetMcpToolSchemaConfiguration1PropertiesPtrOutput {
+	return o.ToGatewayTargetMcpToolSchemaConfiguration1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayTargetMcpToolSchemaConfiguration1PropertiesOutput) ToGatewayTargetMcpToolSchemaConfiguration1PropertiesPtrOutputWithContext(ctx context.Context) GatewayTargetMcpToolSchemaConfiguration1PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayTargetMcpToolSchemaConfiguration1Properties) *GatewayTargetMcpToolSchemaConfiguration1Properties {
+		return &v
+	}).(GatewayTargetMcpToolSchemaConfiguration1PropertiesPtrOutput)
+}
+
+func (o GatewayTargetMcpToolSchemaConfiguration1PropertiesOutput) InlinePayload() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayTargetMcpToolSchemaConfiguration1Properties) string { return v.InlinePayload }).(pulumi.StringOutput)
+}
+
+type GatewayTargetMcpToolSchemaConfiguration1PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetMcpToolSchemaConfiguration1PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayTargetMcpToolSchemaConfiguration1Properties)(nil)).Elem()
+}
+
+func (o GatewayTargetMcpToolSchemaConfiguration1PropertiesPtrOutput) ToGatewayTargetMcpToolSchemaConfiguration1PropertiesPtrOutput() GatewayTargetMcpToolSchemaConfiguration1PropertiesPtrOutput {
+	return o
+}
+
+func (o GatewayTargetMcpToolSchemaConfiguration1PropertiesPtrOutput) ToGatewayTargetMcpToolSchemaConfiguration1PropertiesPtrOutputWithContext(ctx context.Context) GatewayTargetMcpToolSchemaConfiguration1PropertiesPtrOutput {
+	return o
+}
+
+func (o GatewayTargetMcpToolSchemaConfiguration1PropertiesPtrOutput) Elem() GatewayTargetMcpToolSchemaConfiguration1PropertiesOutput {
+	return o.ApplyT(func(v *GatewayTargetMcpToolSchemaConfiguration1Properties) GatewayTargetMcpToolSchemaConfiguration1Properties {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayTargetMcpToolSchemaConfiguration1Properties
+		return ret
+	}).(GatewayTargetMcpToolSchemaConfiguration1PropertiesOutput)
+}
+
+func (o GatewayTargetMcpToolSchemaConfiguration1PropertiesPtrOutput) InlinePayload() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayTargetMcpToolSchemaConfiguration1Properties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.InlinePayload
+	}).(pulumi.StringPtrOutput)
+}
+
 type GatewayTargetMetadataConfiguration struct {
 	AllowedQueryParameters []string `pulumi:"allowedQueryParameters"`
 	AllowedRequestHeaders  []string `pulumi:"allowedRequestHeaders"`
@@ -6762,6 +7190,75 @@ func (o GatewayTargetMetadataConfigurationPtrOutput) AllowedResponseHeaders() pu
 		}
 		return v.AllowedResponseHeaders
 	}).(pulumi.StringArrayOutput)
+}
+
+type GatewayTargetOAuth2AuthorizationData struct {
+	AuthorizationUrl string  `pulumi:"authorizationUrl"`
+	UserId           *string `pulumi:"userId"`
+}
+
+type GatewayTargetOAuth2AuthorizationDataOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetOAuth2AuthorizationDataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetOAuth2AuthorizationData)(nil)).Elem()
+}
+
+func (o GatewayTargetOAuth2AuthorizationDataOutput) ToGatewayTargetOAuth2AuthorizationDataOutput() GatewayTargetOAuth2AuthorizationDataOutput {
+	return o
+}
+
+func (o GatewayTargetOAuth2AuthorizationDataOutput) ToGatewayTargetOAuth2AuthorizationDataOutputWithContext(ctx context.Context) GatewayTargetOAuth2AuthorizationDataOutput {
+	return o
+}
+
+func (o GatewayTargetOAuth2AuthorizationDataOutput) AuthorizationUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayTargetOAuth2AuthorizationData) string { return v.AuthorizationUrl }).(pulumi.StringOutput)
+}
+
+func (o GatewayTargetOAuth2AuthorizationDataOutput) UserId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GatewayTargetOAuth2AuthorizationData) *string { return v.UserId }).(pulumi.StringPtrOutput)
+}
+
+type GatewayTargetOAuth2AuthorizationDataPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetOAuth2AuthorizationDataPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayTargetOAuth2AuthorizationData)(nil)).Elem()
+}
+
+func (o GatewayTargetOAuth2AuthorizationDataPtrOutput) ToGatewayTargetOAuth2AuthorizationDataPtrOutput() GatewayTargetOAuth2AuthorizationDataPtrOutput {
+	return o
+}
+
+func (o GatewayTargetOAuth2AuthorizationDataPtrOutput) ToGatewayTargetOAuth2AuthorizationDataPtrOutputWithContext(ctx context.Context) GatewayTargetOAuth2AuthorizationDataPtrOutput {
+	return o
+}
+
+func (o GatewayTargetOAuth2AuthorizationDataPtrOutput) Elem() GatewayTargetOAuth2AuthorizationDataOutput {
+	return o.ApplyT(func(v *GatewayTargetOAuth2AuthorizationData) GatewayTargetOAuth2AuthorizationData {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayTargetOAuth2AuthorizationData
+		return ret
+	}).(GatewayTargetOAuth2AuthorizationDataOutput)
+}
+
+func (o GatewayTargetOAuth2AuthorizationDataPtrOutput) AuthorizationUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayTargetOAuth2AuthorizationData) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AuthorizationUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GatewayTargetOAuth2AuthorizationDataPtrOutput) UserId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayTargetOAuth2AuthorizationData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserId
+	}).(pulumi.StringPtrOutput)
 }
 
 type GatewayTargetOAuthCredentialProvider struct {
@@ -6961,6 +7458,103 @@ func (o GatewayTargetOAuthCredentialProviderPtrOutput) Scopes() pulumi.StringArr
 	}).(pulumi.StringArrayOutput)
 }
 
+type GatewayTargetRuntimeTargetConfiguration struct {
+	Arn       string  `pulumi:"arn"`
+	Qualifier *string `pulumi:"qualifier"`
+}
+
+// GatewayTargetRuntimeTargetConfigurationInput is an input type that accepts GatewayTargetRuntimeTargetConfigurationArgs and GatewayTargetRuntimeTargetConfigurationOutput values.
+// You can construct a concrete instance of `GatewayTargetRuntimeTargetConfigurationInput` via:
+//
+//	GatewayTargetRuntimeTargetConfigurationArgs{...}
+type GatewayTargetRuntimeTargetConfigurationInput interface {
+	pulumi.Input
+
+	ToGatewayTargetRuntimeTargetConfigurationOutput() GatewayTargetRuntimeTargetConfigurationOutput
+	ToGatewayTargetRuntimeTargetConfigurationOutputWithContext(context.Context) GatewayTargetRuntimeTargetConfigurationOutput
+}
+
+type GatewayTargetRuntimeTargetConfigurationArgs struct {
+	Arn       pulumi.StringInput    `pulumi:"arn"`
+	Qualifier pulumi.StringPtrInput `pulumi:"qualifier"`
+}
+
+func (GatewayTargetRuntimeTargetConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetRuntimeTargetConfiguration)(nil)).Elem()
+}
+
+func (i GatewayTargetRuntimeTargetConfigurationArgs) ToGatewayTargetRuntimeTargetConfigurationOutput() GatewayTargetRuntimeTargetConfigurationOutput {
+	return i.ToGatewayTargetRuntimeTargetConfigurationOutputWithContext(context.Background())
+}
+
+func (i GatewayTargetRuntimeTargetConfigurationArgs) ToGatewayTargetRuntimeTargetConfigurationOutputWithContext(ctx context.Context) GatewayTargetRuntimeTargetConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetRuntimeTargetConfigurationOutput)
+}
+
+type GatewayTargetRuntimeTargetConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetRuntimeTargetConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetRuntimeTargetConfiguration)(nil)).Elem()
+}
+
+func (o GatewayTargetRuntimeTargetConfigurationOutput) ToGatewayTargetRuntimeTargetConfigurationOutput() GatewayTargetRuntimeTargetConfigurationOutput {
+	return o
+}
+
+func (o GatewayTargetRuntimeTargetConfigurationOutput) ToGatewayTargetRuntimeTargetConfigurationOutputWithContext(ctx context.Context) GatewayTargetRuntimeTargetConfigurationOutput {
+	return o
+}
+
+func (o GatewayTargetRuntimeTargetConfigurationOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayTargetRuntimeTargetConfiguration) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o GatewayTargetRuntimeTargetConfigurationOutput) Qualifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GatewayTargetRuntimeTargetConfiguration) *string { return v.Qualifier }).(pulumi.StringPtrOutput)
+}
+
+type GatewayTargetRuntimeTargetConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetRuntimeTargetConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayTargetRuntimeTargetConfiguration)(nil)).Elem()
+}
+
+func (o GatewayTargetRuntimeTargetConfigurationPtrOutput) ToGatewayTargetRuntimeTargetConfigurationPtrOutput() GatewayTargetRuntimeTargetConfigurationPtrOutput {
+	return o
+}
+
+func (o GatewayTargetRuntimeTargetConfigurationPtrOutput) ToGatewayTargetRuntimeTargetConfigurationPtrOutputWithContext(ctx context.Context) GatewayTargetRuntimeTargetConfigurationPtrOutput {
+	return o
+}
+
+func (o GatewayTargetRuntimeTargetConfigurationPtrOutput) Elem() GatewayTargetRuntimeTargetConfigurationOutput {
+	return o.ApplyT(func(v *GatewayTargetRuntimeTargetConfiguration) GatewayTargetRuntimeTargetConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayTargetRuntimeTargetConfiguration
+		return ret
+	}).(GatewayTargetRuntimeTargetConfigurationOutput)
+}
+
+func (o GatewayTargetRuntimeTargetConfigurationPtrOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayTargetRuntimeTargetConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Arn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GatewayTargetRuntimeTargetConfigurationPtrOutput) Qualifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayTargetRuntimeTargetConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Qualifier
+	}).(pulumi.StringPtrOutput)
+}
+
 type GatewayTargetS3Configuration struct {
 	BucketOwnerAccountId *string `pulumi:"bucketOwnerAccountId"`
 	Uri                  *string `pulumi:"uri"`
@@ -6994,6 +7588,47 @@ func (i GatewayTargetS3ConfigurationArgs) ToGatewayTargetS3ConfigurationOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetS3ConfigurationOutput)
 }
 
+func (i GatewayTargetS3ConfigurationArgs) ToGatewayTargetS3ConfigurationPtrOutput() GatewayTargetS3ConfigurationPtrOutput {
+	return i.ToGatewayTargetS3ConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i GatewayTargetS3ConfigurationArgs) ToGatewayTargetS3ConfigurationPtrOutputWithContext(ctx context.Context) GatewayTargetS3ConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetS3ConfigurationOutput).ToGatewayTargetS3ConfigurationPtrOutputWithContext(ctx)
+}
+
+// GatewayTargetS3ConfigurationPtrInput is an input type that accepts GatewayTargetS3ConfigurationArgs, GatewayTargetS3ConfigurationPtr and GatewayTargetS3ConfigurationPtrOutput values.
+// You can construct a concrete instance of `GatewayTargetS3ConfigurationPtrInput` via:
+//
+//	        GatewayTargetS3ConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type GatewayTargetS3ConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToGatewayTargetS3ConfigurationPtrOutput() GatewayTargetS3ConfigurationPtrOutput
+	ToGatewayTargetS3ConfigurationPtrOutputWithContext(context.Context) GatewayTargetS3ConfigurationPtrOutput
+}
+
+type gatewayTargetS3ConfigurationPtrType GatewayTargetS3ConfigurationArgs
+
+func GatewayTargetS3ConfigurationPtr(v *GatewayTargetS3ConfigurationArgs) GatewayTargetS3ConfigurationPtrInput {
+	return (*gatewayTargetS3ConfigurationPtrType)(v)
+}
+
+func (*gatewayTargetS3ConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayTargetS3Configuration)(nil)).Elem()
+}
+
+func (i *gatewayTargetS3ConfigurationPtrType) ToGatewayTargetS3ConfigurationPtrOutput() GatewayTargetS3ConfigurationPtrOutput {
+	return i.ToGatewayTargetS3ConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *gatewayTargetS3ConfigurationPtrType) ToGatewayTargetS3ConfigurationPtrOutputWithContext(ctx context.Context) GatewayTargetS3ConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetS3ConfigurationPtrOutput)
+}
+
 type GatewayTargetS3ConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GatewayTargetS3ConfigurationOutput) ElementType() reflect.Type {
@@ -7006,6 +7641,16 @@ func (o GatewayTargetS3ConfigurationOutput) ToGatewayTargetS3ConfigurationOutput
 
 func (o GatewayTargetS3ConfigurationOutput) ToGatewayTargetS3ConfigurationOutputWithContext(ctx context.Context) GatewayTargetS3ConfigurationOutput {
 	return o
+}
+
+func (o GatewayTargetS3ConfigurationOutput) ToGatewayTargetS3ConfigurationPtrOutput() GatewayTargetS3ConfigurationPtrOutput {
+	return o.ToGatewayTargetS3ConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayTargetS3ConfigurationOutput) ToGatewayTargetS3ConfigurationPtrOutputWithContext(ctx context.Context) GatewayTargetS3ConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayTargetS3Configuration) *GatewayTargetS3Configuration {
+		return &v
+	}).(GatewayTargetS3ConfigurationPtrOutput)
 }
 
 func (o GatewayTargetS3ConfigurationOutput) BucketOwnerAccountId() pulumi.StringPtrOutput {
@@ -7300,86 +7945,166 @@ type GatewayTargetTargetConfiguration0Properties struct {
 	Mcp interface{} `pulumi:"mcp"`
 }
 
-type GatewayTargetTargetConfigurationProperties struct {
-	Mcp interface{} `pulumi:"mcp"`
-}
-
-// GatewayTargetTargetConfigurationPropertiesInput is an input type that accepts GatewayTargetTargetConfigurationPropertiesArgs and GatewayTargetTargetConfigurationPropertiesOutput values.
-// You can construct a concrete instance of `GatewayTargetTargetConfigurationPropertiesInput` via:
+// GatewayTargetTargetConfiguration0PropertiesInput is an input type that accepts GatewayTargetTargetConfiguration0PropertiesArgs and GatewayTargetTargetConfiguration0PropertiesOutput values.
+// You can construct a concrete instance of `GatewayTargetTargetConfiguration0PropertiesInput` via:
 //
-//	GatewayTargetTargetConfigurationPropertiesArgs{...}
-type GatewayTargetTargetConfigurationPropertiesInput interface {
+//	GatewayTargetTargetConfiguration0PropertiesArgs{...}
+type GatewayTargetTargetConfiguration0PropertiesInput interface {
 	pulumi.Input
 
-	ToGatewayTargetTargetConfigurationPropertiesOutput() GatewayTargetTargetConfigurationPropertiesOutput
-	ToGatewayTargetTargetConfigurationPropertiesOutputWithContext(context.Context) GatewayTargetTargetConfigurationPropertiesOutput
+	ToGatewayTargetTargetConfiguration0PropertiesOutput() GatewayTargetTargetConfiguration0PropertiesOutput
+	ToGatewayTargetTargetConfiguration0PropertiesOutputWithContext(context.Context) GatewayTargetTargetConfiguration0PropertiesOutput
 }
 
-type GatewayTargetTargetConfigurationPropertiesArgs struct {
+type GatewayTargetTargetConfiguration0PropertiesArgs struct {
 	Mcp pulumi.Input `pulumi:"mcp"`
 }
 
-func (GatewayTargetTargetConfigurationPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayTargetTargetConfigurationProperties)(nil)).Elem()
+func (GatewayTargetTargetConfiguration0PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetTargetConfiguration0Properties)(nil)).Elem()
 }
 
-func (i GatewayTargetTargetConfigurationPropertiesArgs) ToGatewayTargetTargetConfigurationPropertiesOutput() GatewayTargetTargetConfigurationPropertiesOutput {
-	return i.ToGatewayTargetTargetConfigurationPropertiesOutputWithContext(context.Background())
+func (i GatewayTargetTargetConfiguration0PropertiesArgs) ToGatewayTargetTargetConfiguration0PropertiesOutput() GatewayTargetTargetConfiguration0PropertiesOutput {
+	return i.ToGatewayTargetTargetConfiguration0PropertiesOutputWithContext(context.Background())
 }
 
-func (i GatewayTargetTargetConfigurationPropertiesArgs) ToGatewayTargetTargetConfigurationPropertiesOutputWithContext(ctx context.Context) GatewayTargetTargetConfigurationPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetTargetConfigurationPropertiesOutput)
+func (i GatewayTargetTargetConfiguration0PropertiesArgs) ToGatewayTargetTargetConfiguration0PropertiesOutputWithContext(ctx context.Context) GatewayTargetTargetConfiguration0PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetTargetConfiguration0PropertiesOutput)
 }
 
-type GatewayTargetTargetConfigurationPropertiesOutput struct{ *pulumi.OutputState }
+type GatewayTargetTargetConfiguration0PropertiesOutput struct{ *pulumi.OutputState }
 
-func (GatewayTargetTargetConfigurationPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayTargetTargetConfigurationProperties)(nil)).Elem()
+func (GatewayTargetTargetConfiguration0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetTargetConfiguration0Properties)(nil)).Elem()
 }
 
-func (o GatewayTargetTargetConfigurationPropertiesOutput) ToGatewayTargetTargetConfigurationPropertiesOutput() GatewayTargetTargetConfigurationPropertiesOutput {
+func (o GatewayTargetTargetConfiguration0PropertiesOutput) ToGatewayTargetTargetConfiguration0PropertiesOutput() GatewayTargetTargetConfiguration0PropertiesOutput {
 	return o
 }
 
-func (o GatewayTargetTargetConfigurationPropertiesOutput) ToGatewayTargetTargetConfigurationPropertiesOutputWithContext(ctx context.Context) GatewayTargetTargetConfigurationPropertiesOutput {
+func (o GatewayTargetTargetConfiguration0PropertiesOutput) ToGatewayTargetTargetConfiguration0PropertiesOutputWithContext(ctx context.Context) GatewayTargetTargetConfiguration0PropertiesOutput {
 	return o
 }
 
-func (o GatewayTargetTargetConfigurationPropertiesOutput) Mcp() pulumi.AnyOutput {
-	return o.ApplyT(func(v GatewayTargetTargetConfigurationProperties) interface{} { return v.Mcp }).(pulumi.AnyOutput)
+func (o GatewayTargetTargetConfiguration0PropertiesOutput) Mcp() pulumi.AnyOutput {
+	return o.ApplyT(func(v GatewayTargetTargetConfiguration0Properties) interface{} { return v.Mcp }).(pulumi.AnyOutput)
 }
 
-type GatewayTargetTargetConfigurationPropertiesPtrOutput struct{ *pulumi.OutputState }
+type GatewayTargetTargetConfiguration0PropertiesPtrOutput struct{ *pulumi.OutputState }
 
-func (GatewayTargetTargetConfigurationPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GatewayTargetTargetConfigurationProperties)(nil)).Elem()
+func (GatewayTargetTargetConfiguration0PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayTargetTargetConfiguration0Properties)(nil)).Elem()
 }
 
-func (o GatewayTargetTargetConfigurationPropertiesPtrOutput) ToGatewayTargetTargetConfigurationPropertiesPtrOutput() GatewayTargetTargetConfigurationPropertiesPtrOutput {
+func (o GatewayTargetTargetConfiguration0PropertiesPtrOutput) ToGatewayTargetTargetConfiguration0PropertiesPtrOutput() GatewayTargetTargetConfiguration0PropertiesPtrOutput {
 	return o
 }
 
-func (o GatewayTargetTargetConfigurationPropertiesPtrOutput) ToGatewayTargetTargetConfigurationPropertiesPtrOutputWithContext(ctx context.Context) GatewayTargetTargetConfigurationPropertiesPtrOutput {
+func (o GatewayTargetTargetConfiguration0PropertiesPtrOutput) ToGatewayTargetTargetConfiguration0PropertiesPtrOutputWithContext(ctx context.Context) GatewayTargetTargetConfiguration0PropertiesPtrOutput {
 	return o
 }
 
-func (o GatewayTargetTargetConfigurationPropertiesPtrOutput) Elem() GatewayTargetTargetConfigurationPropertiesOutput {
-	return o.ApplyT(func(v *GatewayTargetTargetConfigurationProperties) GatewayTargetTargetConfigurationProperties {
+func (o GatewayTargetTargetConfiguration0PropertiesPtrOutput) Elem() GatewayTargetTargetConfiguration0PropertiesOutput {
+	return o.ApplyT(func(v *GatewayTargetTargetConfiguration0Properties) GatewayTargetTargetConfiguration0Properties {
 		if v != nil {
 			return *v
 		}
-		var ret GatewayTargetTargetConfigurationProperties
+		var ret GatewayTargetTargetConfiguration0Properties
 		return ret
-	}).(GatewayTargetTargetConfigurationPropertiesOutput)
+	}).(GatewayTargetTargetConfiguration0PropertiesOutput)
 }
 
-func (o GatewayTargetTargetConfigurationPropertiesPtrOutput) Mcp() pulumi.AnyOutput {
-	return o.ApplyT(func(v *GatewayTargetTargetConfigurationProperties) interface{} {
+func (o GatewayTargetTargetConfiguration0PropertiesPtrOutput) Mcp() pulumi.AnyOutput {
+	return o.ApplyT(func(v *GatewayTargetTargetConfiguration0Properties) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Mcp
 	}).(pulumi.AnyOutput)
+}
+
+type GatewayTargetTargetConfiguration1Properties struct {
+	Http GatewayTargetHttpTargetConfigurationProperties `pulumi:"http"`
+}
+
+// GatewayTargetTargetConfiguration1PropertiesInput is an input type that accepts GatewayTargetTargetConfiguration1PropertiesArgs and GatewayTargetTargetConfiguration1PropertiesOutput values.
+// You can construct a concrete instance of `GatewayTargetTargetConfiguration1PropertiesInput` via:
+//
+//	GatewayTargetTargetConfiguration1PropertiesArgs{...}
+type GatewayTargetTargetConfiguration1PropertiesInput interface {
+	pulumi.Input
+
+	ToGatewayTargetTargetConfiguration1PropertiesOutput() GatewayTargetTargetConfiguration1PropertiesOutput
+	ToGatewayTargetTargetConfiguration1PropertiesOutputWithContext(context.Context) GatewayTargetTargetConfiguration1PropertiesOutput
+}
+
+type GatewayTargetTargetConfiguration1PropertiesArgs struct {
+	Http GatewayTargetHttpTargetConfigurationPropertiesInput `pulumi:"http"`
+}
+
+func (GatewayTargetTargetConfiguration1PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetTargetConfiguration1Properties)(nil)).Elem()
+}
+
+func (i GatewayTargetTargetConfiguration1PropertiesArgs) ToGatewayTargetTargetConfiguration1PropertiesOutput() GatewayTargetTargetConfiguration1PropertiesOutput {
+	return i.ToGatewayTargetTargetConfiguration1PropertiesOutputWithContext(context.Background())
+}
+
+func (i GatewayTargetTargetConfiguration1PropertiesArgs) ToGatewayTargetTargetConfiguration1PropertiesOutputWithContext(ctx context.Context) GatewayTargetTargetConfiguration1PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetTargetConfiguration1PropertiesOutput)
+}
+
+type GatewayTargetTargetConfiguration1PropertiesOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetTargetConfiguration1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetTargetConfiguration1Properties)(nil)).Elem()
+}
+
+func (o GatewayTargetTargetConfiguration1PropertiesOutput) ToGatewayTargetTargetConfiguration1PropertiesOutput() GatewayTargetTargetConfiguration1PropertiesOutput {
+	return o
+}
+
+func (o GatewayTargetTargetConfiguration1PropertiesOutput) ToGatewayTargetTargetConfiguration1PropertiesOutputWithContext(ctx context.Context) GatewayTargetTargetConfiguration1PropertiesOutput {
+	return o
+}
+
+func (o GatewayTargetTargetConfiguration1PropertiesOutput) Http() GatewayTargetHttpTargetConfigurationPropertiesOutput {
+	return o.ApplyT(func(v GatewayTargetTargetConfiguration1Properties) GatewayTargetHttpTargetConfigurationProperties {
+		return v.Http
+	}).(GatewayTargetHttpTargetConfigurationPropertiesOutput)
+}
+
+type GatewayTargetTargetConfiguration1PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetTargetConfiguration1PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayTargetTargetConfiguration1Properties)(nil)).Elem()
+}
+
+func (o GatewayTargetTargetConfiguration1PropertiesPtrOutput) ToGatewayTargetTargetConfiguration1PropertiesPtrOutput() GatewayTargetTargetConfiguration1PropertiesPtrOutput {
+	return o
+}
+
+func (o GatewayTargetTargetConfiguration1PropertiesPtrOutput) ToGatewayTargetTargetConfiguration1PropertiesPtrOutputWithContext(ctx context.Context) GatewayTargetTargetConfiguration1PropertiesPtrOutput {
+	return o
+}
+
+func (o GatewayTargetTargetConfiguration1PropertiesPtrOutput) Elem() GatewayTargetTargetConfiguration1PropertiesOutput {
+	return o.ApplyT(func(v *GatewayTargetTargetConfiguration1Properties) GatewayTargetTargetConfiguration1Properties {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayTargetTargetConfiguration1Properties
+		return ret
+	}).(GatewayTargetTargetConfiguration1PropertiesOutput)
+}
+
+func (o GatewayTargetTargetConfiguration1PropertiesPtrOutput) Http() GatewayTargetHttpTargetConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v *GatewayTargetTargetConfiguration1Properties) *GatewayTargetHttpTargetConfigurationProperties {
+		if v == nil {
+			return nil
+		}
+		return &v.Http
+	}).(GatewayTargetHttpTargetConfigurationPropertiesPtrOutput)
 }
 
 type GatewayTargetToolDefinition struct {
@@ -26260,6 +26985,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetCredentialProvider2PropertiesPtrInput)(nil)).Elem(), GatewayTargetCredentialProvider2PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetCredentialProviderConfigurationInput)(nil)).Elem(), GatewayTargetCredentialProviderConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetCredentialProviderConfigurationArrayInput)(nil)).Elem(), GatewayTargetCredentialProviderConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetHttpTargetConfigurationPropertiesInput)(nil)).Elem(), GatewayTargetHttpTargetConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetIamCredentialProviderInput)(nil)).Elem(), GatewayTargetIamCredentialProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetIamCredentialProviderPtrInput)(nil)).Elem(), GatewayTargetIamCredentialProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetMcpLambdaTargetConfigurationInput)(nil)).Elem(), GatewayTargetMcpLambdaTargetConfigurationArgs{})
@@ -26269,15 +26995,22 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetMcpTargetConfiguration2PropertiesInput)(nil)).Elem(), GatewayTargetMcpTargetConfiguration2PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetMcpTargetConfiguration3PropertiesInput)(nil)).Elem(), GatewayTargetMcpTargetConfiguration3PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetMcpTargetConfiguration4PropertiesInput)(nil)).Elem(), GatewayTargetMcpTargetConfiguration4PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetMcpToolSchemaConfiguration0PropertiesInput)(nil)).Elem(), GatewayTargetMcpToolSchemaConfiguration0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetMcpToolSchemaConfiguration0PropertiesPtrInput)(nil)).Elem(), GatewayTargetMcpToolSchemaConfiguration0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetMcpToolSchemaConfiguration1PropertiesInput)(nil)).Elem(), GatewayTargetMcpToolSchemaConfiguration1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetMcpToolSchemaConfiguration1PropertiesPtrInput)(nil)).Elem(), GatewayTargetMcpToolSchemaConfiguration1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetMetadataConfigurationInput)(nil)).Elem(), GatewayTargetMetadataConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetMetadataConfigurationPtrInput)(nil)).Elem(), GatewayTargetMetadataConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetOAuthCredentialProviderInput)(nil)).Elem(), GatewayTargetOAuthCredentialProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetOAuthCredentialProviderPtrInput)(nil)).Elem(), GatewayTargetOAuthCredentialProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetRuntimeTargetConfigurationInput)(nil)).Elem(), GatewayTargetRuntimeTargetConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetS3ConfigurationInput)(nil)).Elem(), GatewayTargetS3ConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetS3ConfigurationPtrInput)(nil)).Elem(), GatewayTargetS3ConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetSchemaDefinitionInput)(nil)).Elem(), GatewayTargetSchemaDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetSchemaDefinitionPtrInput)(nil)).Elem(), GatewayTargetSchemaDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetSchemaDefinitionMapInput)(nil)).Elem(), GatewayTargetSchemaDefinitionMap{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetTargetConfigurationPropertiesInput)(nil)).Elem(), GatewayTargetTargetConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetTargetConfiguration0PropertiesInput)(nil)).Elem(), GatewayTargetTargetConfiguration0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetTargetConfiguration1PropertiesInput)(nil)).Elem(), GatewayTargetTargetConfiguration1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetToolDefinitionInput)(nil)).Elem(), GatewayTargetToolDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetToolDefinitionArrayInput)(nil)).Elem(), GatewayTargetToolDefinitionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetToolSchema0PropertiesInput)(nil)).Elem(), GatewayTargetToolSchema0PropertiesArgs{})
@@ -26589,6 +27322,8 @@ func init() {
 	pulumi.RegisterOutputType(GatewayTargetApiSchemaConfiguration0PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetApiSchemaConfiguration1PropertiesOutput{})
 	pulumi.RegisterOutputType(GatewayTargetApiSchemaConfiguration1PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(GatewayTargetAuthorizationDataPropertiesOutput{})
+	pulumi.RegisterOutputType(GatewayTargetAuthorizationDataPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetCredentialProvider0PropertiesOutput{})
 	pulumi.RegisterOutputType(GatewayTargetCredentialProvider0PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetCredentialProvider1PropertiesOutput{})
@@ -26597,6 +27332,8 @@ func init() {
 	pulumi.RegisterOutputType(GatewayTargetCredentialProvider2PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetCredentialProviderConfigurationOutput{})
 	pulumi.RegisterOutputType(GatewayTargetCredentialProviderConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GatewayTargetHttpTargetConfigurationPropertiesOutput{})
+	pulumi.RegisterOutputType(GatewayTargetHttpTargetConfigurationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetIamCredentialProviderOutput{})
 	pulumi.RegisterOutputType(GatewayTargetIamCredentialProviderPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetMcpLambdaTargetConfigurationOutput{})
@@ -26613,17 +27350,27 @@ func init() {
 	pulumi.RegisterOutputType(GatewayTargetMcpTargetConfiguration3PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetMcpTargetConfiguration4PropertiesOutput{})
 	pulumi.RegisterOutputType(GatewayTargetMcpTargetConfiguration4PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(GatewayTargetMcpToolSchemaConfiguration0PropertiesOutput{})
+	pulumi.RegisterOutputType(GatewayTargetMcpToolSchemaConfiguration0PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(GatewayTargetMcpToolSchemaConfiguration1PropertiesOutput{})
+	pulumi.RegisterOutputType(GatewayTargetMcpToolSchemaConfiguration1PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetMetadataConfigurationOutput{})
 	pulumi.RegisterOutputType(GatewayTargetMetadataConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(GatewayTargetOAuth2AuthorizationDataOutput{})
+	pulumi.RegisterOutputType(GatewayTargetOAuth2AuthorizationDataPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetOAuthCredentialProviderOutput{})
 	pulumi.RegisterOutputType(GatewayTargetOAuthCredentialProviderPtrOutput{})
+	pulumi.RegisterOutputType(GatewayTargetRuntimeTargetConfigurationOutput{})
+	pulumi.RegisterOutputType(GatewayTargetRuntimeTargetConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetS3ConfigurationOutput{})
 	pulumi.RegisterOutputType(GatewayTargetS3ConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetSchemaDefinitionOutput{})
 	pulumi.RegisterOutputType(GatewayTargetSchemaDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetSchemaDefinitionMapOutput{})
-	pulumi.RegisterOutputType(GatewayTargetTargetConfigurationPropertiesOutput{})
-	pulumi.RegisterOutputType(GatewayTargetTargetConfigurationPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(GatewayTargetTargetConfiguration0PropertiesOutput{})
+	pulumi.RegisterOutputType(GatewayTargetTargetConfiguration0PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(GatewayTargetTargetConfiguration1PropertiesOutput{})
+	pulumi.RegisterOutputType(GatewayTargetTargetConfiguration1PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetToolDefinitionOutput{})
 	pulumi.RegisterOutputType(GatewayTargetToolDefinitionArrayOutput{})
 	pulumi.RegisterOutputType(GatewayTargetToolSchema0PropertiesOutput{})

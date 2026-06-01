@@ -4346,8 +4346,7 @@ type FunctionCode struct {
 	// An Amazon S3 bucket in the same AWS-Region as your function. The bucket can be in a different AWS-account.
 	S3Bucket *string `pulumi:"s3Bucket"`
 	// The Amazon S3 key of the deployment package.
-	S3Key               *string                          `pulumi:"s3Key"`
-	S3ObjectStorageMode *FunctionCodeS3ObjectStorageMode `pulumi:"s3ObjectStorageMode"`
+	S3Key *string `pulumi:"s3Key"`
 	// For versioned objects, the version of the deployment package object to use.
 	S3ObjectVersion *string `pulumi:"s3ObjectVersion"`
 	// The ARN of the KMSlong (KMS) customer managed key that's used to encrypt your function's .zip deployment package. If you don't provide a customer managed key, Lambda uses an [owned key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk).
@@ -4381,8 +4380,7 @@ type FunctionCodeArgs struct {
 	// An Amazon S3 bucket in the same AWS-Region as your function. The bucket can be in a different AWS-account.
 	S3Bucket pulumi.StringPtrInput `pulumi:"s3Bucket"`
 	// The Amazon S3 key of the deployment package.
-	S3Key               pulumi.StringPtrInput                   `pulumi:"s3Key"`
-	S3ObjectStorageMode FunctionCodeS3ObjectStorageModePtrInput `pulumi:"s3ObjectStorageMode"`
+	S3Key pulumi.StringPtrInput `pulumi:"s3Key"`
 	// For versioned objects, the version of the deployment package object to use.
 	S3ObjectVersion pulumi.StringPtrInput `pulumi:"s3ObjectVersion"`
 	// The ARN of the KMSlong (KMS) customer managed key that's used to encrypt your function's .zip deployment package. If you don't provide a customer managed key, Lambda uses an [owned key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk).
@@ -4438,10 +4436,6 @@ func (o FunctionCodeOutput) S3Bucket() pulumi.StringPtrOutput {
 // The Amazon S3 key of the deployment package.
 func (o FunctionCodeOutput) S3Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionCode) *string { return v.S3Key }).(pulumi.StringPtrOutput)
-}
-
-func (o FunctionCodeOutput) S3ObjectStorageMode() FunctionCodeS3ObjectStorageModePtrOutput {
-	return o.ApplyT(func(v FunctionCode) *FunctionCodeS3ObjectStorageMode { return v.S3ObjectStorageMode }).(FunctionCodeS3ObjectStorageModePtrOutput)
 }
 
 // For versioned objects, the version of the deployment package object to use.
@@ -4516,15 +4510,6 @@ func (o FunctionCodePtrOutput) S3Key() pulumi.StringPtrOutput {
 		}
 		return v.S3Key
 	}).(pulumi.StringPtrOutput)
-}
-
-func (o FunctionCodePtrOutput) S3ObjectStorageMode() FunctionCodeS3ObjectStorageModePtrOutput {
-	return o.ApplyT(func(v *FunctionCode) *FunctionCodeS3ObjectStorageMode {
-		if v == nil {
-			return nil
-		}
-		return v.S3ObjectStorageMode
-	}).(FunctionCodeS3ObjectStorageModePtrOutput)
 }
 
 // For versioned objects, the version of the deployment package object to use.
@@ -5147,9 +5132,9 @@ func (o FunctionEphemeralStoragePtrOutput) Size() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Details about the connection between a Lambda function and an [Amazon EFS file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html).
+// Details about the connection between a Lambda function and an [Amazon EFS file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html) or an [Amazon S3 Files file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html).
 type FunctionFileSystemConfig struct {
-	// The Amazon Resource Name (ARN) of the Amazon EFS access point that provides access to the file system.
+	// The Amazon Resource Name (ARN) of the Amazon EFS or Amazon S3 Files access point that provides access to the file system.
 	Arn string `pulumi:"arn"`
 	// The path where the function can access the file system, starting with ``/mnt/``.
 	LocalMountPath string `pulumi:"localMountPath"`
@@ -5166,9 +5151,9 @@ type FunctionFileSystemConfigInput interface {
 	ToFunctionFileSystemConfigOutputWithContext(context.Context) FunctionFileSystemConfigOutput
 }
 
-// Details about the connection between a Lambda function and an [Amazon EFS file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html).
+// Details about the connection between a Lambda function and an [Amazon EFS file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html) or an [Amazon S3 Files file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html).
 type FunctionFileSystemConfigArgs struct {
-	// The Amazon Resource Name (ARN) of the Amazon EFS access point that provides access to the file system.
+	// The Amazon Resource Name (ARN) of the Amazon EFS or Amazon S3 Files access point that provides access to the file system.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// The path where the function can access the file system, starting with ``/mnt/``.
 	LocalMountPath pulumi.StringInput `pulumi:"localMountPath"`
@@ -5211,7 +5196,7 @@ func (i FunctionFileSystemConfigArray) ToFunctionFileSystemConfigArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionFileSystemConfigArrayOutput)
 }
 
-// Details about the connection between a Lambda function and an [Amazon EFS file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html).
+// Details about the connection between a Lambda function and an [Amazon EFS file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html) or an [Amazon S3 Files file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html).
 type FunctionFileSystemConfigOutput struct{ *pulumi.OutputState }
 
 func (FunctionFileSystemConfigOutput) ElementType() reflect.Type {
@@ -5226,7 +5211,7 @@ func (o FunctionFileSystemConfigOutput) ToFunctionFileSystemConfigOutputWithCont
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the Amazon EFS access point that provides access to the file system.
+// The Amazon Resource Name (ARN) of the Amazon EFS or Amazon S3 Files access point that provides access to the file system.
 func (o FunctionFileSystemConfigOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionFileSystemConfig) string { return v.Arn }).(pulumi.StringOutput)
 }

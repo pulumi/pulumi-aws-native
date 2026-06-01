@@ -928,7 +928,12 @@
       "description" : "List of accessible resources for this service",
       "type" : "array",
       "items" : {
-        "type" : "object"
+        "type" : "object",
+        "patternProperties" : {
+          ".*" : {
+            "type" : "string"
+          }
+        }
       }
     },
     "AdditionalServiceDetails" : {

@@ -27,9 +27,6 @@
     "MaximumAutomaticAttempts" : {
       "type" : "integer"
     },
-    "Id" : {
-      "type" : "string"
-    },
     "TargetId" : {
       "type" : "string"
     },
@@ -62,6 +59,25 @@
   },
   "required" : [ "TargetType", "ConfigRuleName", "TargetId" ],
   "createOnlyProperties" : [ "/properties/ConfigRuleName" ],
-  "primaryIdentifier" : [ "/properties/Id" ],
-  "readOnlyProperties" : [ "/properties/Id" ]
+  "primaryIdentifier" : [ "/properties/ConfigRuleName" ],
+  "tagging" : {
+    "taggable" : false
+  },
+  "handlers" : {
+    "create" : {
+      "permissions" : [ "config:DescribeRemediationConfigurations", "config:PutRemediationConfigurations", "iam:PassRole" ]
+    },
+    "update" : {
+      "permissions" : [ "config:PutRemediationConfigurations", "config:DescribeRemediationConfigurations", "iam:PassRole" ]
+    },
+    "delete" : {
+      "permissions" : [ "config:DeleteRemediationConfiguration" ]
+    },
+    "read" : {
+      "permissions" : [ "config:DescribeRemediationConfigurations" ]
+    },
+    "list" : {
+      "permissions" : [ "config:DescribeRemediationConfigurations", "config:DescribeConfigRules" ]
+    }
+  }
 }

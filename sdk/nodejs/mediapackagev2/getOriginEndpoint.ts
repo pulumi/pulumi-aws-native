@@ -90,6 +90,7 @@ export interface GetOriginEndpointResult {
      * The tags associated with the origin endpoint.
      */
     readonly tags?: outputs.Tag[];
+    readonly uriSeparator?: enums.mediapackagev2.OriginEndpointUriSeparator;
 }
 /**
  * <p>Represents an origin endpoint that is associated with a channel, offering a dynamically repackaged version of its content through various streaming media protocols. The content can be efficiently disseminated to end-users via a Content Delivery Network (CDN), like Amazon CloudFront.</p>

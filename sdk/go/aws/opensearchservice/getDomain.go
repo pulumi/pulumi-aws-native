@@ -46,7 +46,8 @@ type LookupDomainResult struct {
 	// Container for parameters required to enable all machine learning features.
 	AimlOptions *DomainAimlOptions `pulumi:"aimlOptions"`
 	// The Amazon Resource Name (ARN) of the CloudFormation stack.
-	Arn *string `pulumi:"arn"`
+	Arn                           *string                              `pulumi:"arn"`
+	AutomatedSnapshotPauseOptions *DomainAutomatedSnapshotPauseOptions `pulumi:"automatedSnapshotPauseOptions"`
 	// Container for the cluster configuration of a domain.
 	ClusterConfig *DomainClusterConfig `pulumi:"clusterConfig"`
 	// Configures OpenSearch Service to use Amazon Cognito authentication for OpenSearch Dashboards.
@@ -160,6 +161,12 @@ func (o LookupDomainResultOutput) AimlOptions() DomainAimlOptionsPtrOutput {
 // The Amazon Resource Name (ARN) of the CloudFormation stack.
 func (o LookupDomainResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDomainResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupDomainResultOutput) AutomatedSnapshotPauseOptions() DomainAutomatedSnapshotPauseOptionsPtrOutput {
+	return o.ApplyT(func(v LookupDomainResult) *DomainAutomatedSnapshotPauseOptions {
+		return v.AutomatedSnapshotPauseOptions
+	}).(DomainAutomatedSnapshotPauseOptionsPtrOutput)
 }
 
 // Container for the cluster configuration of a domain.

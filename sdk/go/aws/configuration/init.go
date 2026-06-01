@@ -31,6 +31,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ConformancePack{}
 	case "aws-native:configuration:OrganizationConformancePack":
 		r = &OrganizationConformancePack{}
+	case "aws-native:configuration:RemediationConfiguration":
+		r = &RemediationConfiguration{}
 	case "aws-native:configuration:StoredQuery":
 		r = &StoredQuery{}
 	default:

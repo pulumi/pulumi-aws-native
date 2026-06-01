@@ -982,7 +982,8 @@ _utilities.register(
    "aws-native:appstream:DirectoryConfig": "DirectoryConfig",
    "aws-native:appstream:Entitlement": "Entitlement",
    "aws-native:appstream:ImageBuilder": "ImageBuilder",
-   "aws-native:appstream:Stack": "Stack"
+   "aws-native:appstream:Stack": "Stack",
+   "aws-native:appstream:StackUserAssociation": "StackUserAssociation"
   }
  },
  {
@@ -1497,6 +1498,7 @@ _utilities.register(
    "aws-native:configuration:ConfigurationAggregator": "ConfigurationAggregator",
    "aws-native:configuration:ConformancePack": "ConformancePack",
    "aws-native:configuration:OrganizationConformancePack": "OrganizationConformancePack",
+   "aws-native:configuration:RemediationConfiguration": "RemediationConfiguration",
    "aws-native:configuration:StoredQuery": "StoredQuery"
   }
  },
@@ -2975,6 +2977,7 @@ _utilities.register(
    "aws-native:opensearchserverless:AccessPolicy": "AccessPolicy",
    "aws-native:opensearchserverless:Collection": "Collection",
    "aws-native:opensearchserverless:CollectionGroup": "CollectionGroup",
+   "aws-native:opensearchserverless:CollectionIndex": "CollectionIndex",
    "aws-native:opensearchserverless:Index": "Index",
    "aws-native:opensearchserverless:LifecyclePolicy": "LifecyclePolicy",
    "aws-native:opensearchserverless:SecurityConfig": "SecurityConfig",
@@ -3826,6 +3829,7 @@ _utilities.register(
    "aws-native:verifiedpermissions:IdentitySource": "IdentitySource",
    "aws-native:verifiedpermissions:Policy": "Policy",
    "aws-native:verifiedpermissions:PolicyStore": "PolicyStore",
+   "aws-native:verifiedpermissions:PolicyStoreAlias": "PolicyStoreAlias",
    "aws-native:verifiedpermissions:PolicyTemplate": "PolicyTemplate"
   }
  },

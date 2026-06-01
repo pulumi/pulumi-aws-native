@@ -83,9 +83,11 @@ namespace Pulumi.AwsNative.BedrockAgentCore
 
         /// <summary>
         /// The protocol type for the gateway target.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::BedrockAgentCore::Gateway` for more information about the expected schema for this property.
         /// </summary>
         [Output("protocolType")]
-        public Output<Pulumi.AwsNative.BedrockAgentCore.GatewayProtocolType> ProtocolType { get; private set; } = null!;
+        public Output<object?> ProtocolType { get; private set; } = null!;
 
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
@@ -211,9 +213,11 @@ namespace Pulumi.AwsNative.BedrockAgentCore
 
         /// <summary>
         /// The protocol type for the gateway target.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::BedrockAgentCore::Gateway` for more information about the expected schema for this property.
         /// </summary>
-        [Input("protocolType", required: true)]
-        public Input<Pulumi.AwsNative.BedrockAgentCore.GatewayProtocolType> ProtocolType { get; set; } = null!;
+        [Input("protocolType")]
+        public Input<object>? ProtocolType { get; set; }
 
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;

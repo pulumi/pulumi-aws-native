@@ -38,6 +38,16 @@ export const OriginEndpointContainerType = {
 
 export type OriginEndpointContainerType = (typeof OriginEndpointContainerType)[keyof typeof OriginEndpointContainerType];
 
+export const OriginEndpointCustomAdType = {
+    Program: "PROGRAM",
+    Chapter: "CHAPTER",
+    UnscheduledEvent: "UNSCHEDULED_EVENT",
+    AlternateContentOpportunity: "ALTERNATE_CONTENT_OPPORTUNITY",
+    Network: "NETWORK",
+} as const;
+
+export type OriginEndpointCustomAdType = (typeof OriginEndpointCustomAdType)[keyof typeof OriginEndpointCustomAdType];
+
 export const OriginEndpointDashCompactness = {
     Standard: "STANDARD",
     None: "NONE",
@@ -157,13 +167,29 @@ export const OriginEndpointScteFilter = {
     ProviderOverlayPlacementOpportunity: "PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY",
     DistributorOverlayPlacementOpportunity: "DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY",
     Program: "PROGRAM",
+    Chapter: "CHAPTER",
+    UnscheduledEvent: "UNSCHEDULED_EVENT",
+    AlternateContentOpportunity: "ALTERNATE_CONTENT_OPPORTUNITY",
+    Network: "NETWORK",
+    ProviderPromo: "PROVIDER_PROMO",
+    DistributorPromo: "DISTRIBUTOR_PROMO",
+    ProviderAdBlock: "PROVIDER_AD_BLOCK",
+    DistributorAdBlock: "DISTRIBUTOR_AD_BLOCK",
 } as const;
 
 export type OriginEndpointScteFilter = (typeof OriginEndpointScteFilter)[keyof typeof OriginEndpointScteFilter];
 
+export const OriginEndpointScteInManifests = {
+    All: "ALL",
+    MatchesFilter: "MATCHES_FILTER",
+} as const;
+
+export type OriginEndpointScteInManifests = (typeof OriginEndpointScteInManifests)[keyof typeof OriginEndpointScteInManifests];
+
 export const OriginEndpointScteInSegments = {
     None: "NONE",
     All: "ALL",
+    MatchesFilter: "MATCHES_FILTER",
 } as const;
 
 export type OriginEndpointScteInSegments = (typeof OriginEndpointScteInSegments)[keyof typeof OriginEndpointScteInSegments];
@@ -174,3 +200,17 @@ export const OriginEndpointTsEncryptionMethod = {
 } as const;
 
 export type OriginEndpointTsEncryptionMethod = (typeof OriginEndpointTsEncryptionMethod)[keyof typeof OriginEndpointTsEncryptionMethod];
+
+export const OriginEndpointUriPathType = {
+    Leaf: "LEAF",
+    Root: "ROOT",
+} as const;
+
+export type OriginEndpointUriPathType = (typeof OriginEndpointUriPathType)[keyof typeof OriginEndpointUriPathType];
+
+export const OriginEndpointUriSeparator = {
+    Underscore: "UNDERSCORE",
+    Hyphen: "HYPHEN",
+} as const;
+
+export type OriginEndpointUriSeparator = (typeof OriginEndpointUriSeparator)[keyof typeof OriginEndpointUriSeparator];

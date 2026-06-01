@@ -12,6 +12,7 @@ __all__ = [
     'OriginEndpointAdMarkerHls',
     'OriginEndpointCmafEncryptionMethod',
     'OriginEndpointContainerType',
+    'OriginEndpointCustomAdType',
     'OriginEndpointDashCompactness',
     'OriginEndpointDashDrmSignaling',
     'OriginEndpointDashPeriodTrigger',
@@ -26,8 +27,11 @@ __all__ = [
     'OriginEndpointPresetSpeke20Audio',
     'OriginEndpointPresetSpeke20Video',
     'OriginEndpointScteFilter',
+    'OriginEndpointScteInManifests',
     'OriginEndpointScteInSegments',
     'OriginEndpointTsEncryptionMethod',
+    'OriginEndpointUriPathType',
+    'OriginEndpointUriSeparator',
 ]
 
 
@@ -60,6 +64,15 @@ class OriginEndpointContainerType(_builtins.str, Enum):
     TS = "TS"
     CMAF = "CMAF"
     ISM = "ISM"
+
+
+@pulumi.type_token("aws-native:mediapackagev2:OriginEndpointCustomAdType")
+class OriginEndpointCustomAdType(_builtins.str, Enum):
+    PROGRAM = "PROGRAM"
+    CHAPTER = "CHAPTER"
+    UNSCHEDULED_EVENT = "UNSCHEDULED_EVENT"
+    ALTERNATE_CONTENT_OPPORTUNITY = "ALTERNATE_CONTENT_OPPORTUNITY"
+    NETWORK = "NETWORK"
 
 
 @pulumi.type_token("aws-native:mediapackagev2:OriginEndpointDashCompactness")
@@ -169,15 +182,42 @@ class OriginEndpointScteFilter(_builtins.str, Enum):
     PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY = "PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY"
     DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY = "DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY"
     PROGRAM = "PROGRAM"
+    CHAPTER = "CHAPTER"
+    UNSCHEDULED_EVENT = "UNSCHEDULED_EVENT"
+    ALTERNATE_CONTENT_OPPORTUNITY = "ALTERNATE_CONTENT_OPPORTUNITY"
+    NETWORK = "NETWORK"
+    PROVIDER_PROMO = "PROVIDER_PROMO"
+    DISTRIBUTOR_PROMO = "DISTRIBUTOR_PROMO"
+    PROVIDER_AD_BLOCK = "PROVIDER_AD_BLOCK"
+    DISTRIBUTOR_AD_BLOCK = "DISTRIBUTOR_AD_BLOCK"
+
+
+@pulumi.type_token("aws-native:mediapackagev2:OriginEndpointScteInManifests")
+class OriginEndpointScteInManifests(_builtins.str, Enum):
+    ALL = "ALL"
+    MATCHES_FILTER = "MATCHES_FILTER"
 
 
 @pulumi.type_token("aws-native:mediapackagev2:OriginEndpointScteInSegments")
 class OriginEndpointScteInSegments(_builtins.str, Enum):
     NONE = "NONE"
     ALL = "ALL"
+    MATCHES_FILTER = "MATCHES_FILTER"
 
 
 @pulumi.type_token("aws-native:mediapackagev2:OriginEndpointTsEncryptionMethod")
 class OriginEndpointTsEncryptionMethod(_builtins.str, Enum):
     AES128 = "AES_128"
     SAMPLE_AES = "SAMPLE_AES"
+
+
+@pulumi.type_token("aws-native:mediapackagev2:OriginEndpointUriPathType")
+class OriginEndpointUriPathType(_builtins.str, Enum):
+    LEAF = "LEAF"
+    ROOT = "ROOT"
+
+
+@pulumi.type_token("aws-native:mediapackagev2:OriginEndpointUriSeparator")
+class OriginEndpointUriSeparator(_builtins.str, Enum):
+    UNDERSCORE = "UNDERSCORE"
+    HYPHEN = "HYPHEN"

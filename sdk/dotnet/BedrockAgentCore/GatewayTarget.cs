@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.BedrockAgentCore
     [AwsNativeResourceType("aws-native:bedrockagentcore:GatewayTarget")]
     public partial class GatewayTarget : global::Pulumi.CustomResource
     {
+        [Output("authorizationData")]
+        public Output<Outputs.GatewayTargetAuthorizationDataProperties> AuthorizationData { get; private set; } = null!;
+
         /// <summary>
         /// The date and time at which the gateway target was created.
         /// </summary>
@@ -54,6 +57,9 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        [Output("protocolType")]
+        public Output<Pulumi.AwsNative.BedrockAgentCore.GatewayTargetTargetProtocolType> ProtocolType { get; private set; } = null!;
+
         /// <summary>
         /// The status for the gateway target.
         /// </summary>
@@ -70,7 +76,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         /// The target configuration for the Smithy model target.
         /// </summary>
         [Output("targetConfiguration")]
-        public Output<Outputs.GatewayTargetTargetConfigurationProperties> TargetConfiguration { get; private set; } = null!;
+        public Output<Union<Outputs.GatewayTargetTargetConfiguration0Properties, Outputs.GatewayTargetTargetConfiguration1Properties>> TargetConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// The target ID for the gateway target.
@@ -170,7 +176,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         /// The target configuration for the Smithy model target.
         /// </summary>
         [Input("targetConfiguration", required: true)]
-        public Input<Inputs.GatewayTargetTargetConfigurationPropertiesArgs> TargetConfiguration { get; set; } = null!;
+        public InputUnion<Inputs.GatewayTargetTargetConfiguration0PropertiesArgs, Inputs.GatewayTargetTargetConfiguration1PropertiesArgs> TargetConfiguration { get; set; } = null!;
 
         public GatewayTargetArgs()
         {

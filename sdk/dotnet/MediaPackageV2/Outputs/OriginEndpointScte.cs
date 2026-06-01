@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.MediaPackageV2.Outputs
     public sealed class OriginEndpointScte
     {
         /// <summary>
+        /// &lt;p&gt;A list of additional non-Ad SCTE-35 event types to treat as advertisements. When configured, events matching these types produce ad markers (such as &lt;code&gt;SCTE35-OUT&lt;/code&gt; and &lt;code&gt;SCTE35-IN&lt;/code&gt; in HLS DATERANGE tags) in manifests.&lt;/p&gt; &lt;p&gt;Valid values: &lt;code&gt;PROGRAM&lt;/code&gt; | &lt;code&gt;CHAPTER&lt;/code&gt; | &lt;code&gt;UNSCHEDULED_EVENT&lt;/code&gt; | &lt;code&gt;ALTERNATE_CONTENT_OPPORTUNITY&lt;/code&gt; | &lt;code&gt;NETWORK&lt;/code&gt; &lt;/p&gt; &lt;p&gt;If you don't specify any values, the default is empty (only default ad types are used).&lt;/p&gt;
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.MediaPackageV2.OriginEndpointCustomAdType> CustomAdTypes;
+        /// <summary>
         /// &lt;p&gt;The SCTE-35 message types that you want to be treated as ad markers in the output.&lt;/p&gt;
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.MediaPackageV2.OriginEndpointScteFilter> ScteFilter;
@@ -32,10 +36,13 @@ namespace Pulumi.AwsNative.MediaPackageV2.Outputs
 
         [OutputConstructor]
         private OriginEndpointScte(
+            ImmutableArray<Pulumi.AwsNative.MediaPackageV2.OriginEndpointCustomAdType> customAdTypes,
+
             ImmutableArray<Pulumi.AwsNative.MediaPackageV2.OriginEndpointScteFilter> scteFilter,
 
             Pulumi.AwsNative.MediaPackageV2.OriginEndpointScteInSegments? scteInSegments)
         {
+            CustomAdTypes = customAdTypes;
             ScteFilter = scteFilter;
             ScteInSegments = scteInSegments;
         }

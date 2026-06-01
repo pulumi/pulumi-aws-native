@@ -44,7 +44,7 @@ class GetServiceResult:
 
     @_builtins.property
     @pulumi.getter(name="accessibleResources")
-    def accessible_resources(self) -> Optional[Sequence[Any]]:
+    def accessible_resources(self) -> Optional[Sequence[Mapping[str, _builtins.str]]]:
         """
         List of accessible resources for this service
         """

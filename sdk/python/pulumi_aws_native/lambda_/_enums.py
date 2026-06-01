@@ -21,7 +21,6 @@ __all__ = [
     'EventSourceMappingSchemaValidationConfigAttribute',
     'EventSourceMappingSourceAccessConfigurationType',
     'FunctionArchitecturesItem',
-    'FunctionCodeS3ObjectStorageMode',
     'FunctionLoggingConfigApplicationLogLevel',
     'FunctionLoggingConfigLogFormat',
     'FunctionLoggingConfigSystemLogLevel',
@@ -175,12 +174,6 @@ class EventSourceMappingSourceAccessConfigurationType(_builtins.str, Enum):
 class FunctionArchitecturesItem(_builtins.str, Enum):
     X8664 = "x86_64"
     ARM64 = "arm64"
-
-
-@pulumi.type_token("aws-native:lambda:FunctionCodeS3ObjectStorageMode")
-class FunctionCodeS3ObjectStorageMode(_builtins.str, Enum):
-    COPY = "COPY"
-    REFERENCE = "REFERENCE"
 
 
 @pulumi.type_token("aws-native:lambda:FunctionLoggingConfigApplicationLogLevel")

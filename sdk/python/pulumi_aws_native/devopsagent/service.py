@@ -199,7 +199,7 @@ class Service(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="accessibleResources")
-    def accessible_resources(self) -> pulumi.Output[Sequence[Any]]:
+    def accessible_resources(self) -> pulumi.Output[Sequence[Mapping[str, _builtins.str]]]:
         """
         List of accessible resources for this service
         """

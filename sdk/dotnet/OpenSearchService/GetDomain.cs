@@ -95,6 +95,7 @@ namespace Pulumi.AwsNative.OpenSearchService
         /// The Amazon Resource Name (ARN) of the CloudFormation stack.
         /// </summary>
         public readonly string? Arn;
+        public readonly Outputs.DomainAutomatedSnapshotPauseOptions? AutomatedSnapshotPauseOptions;
         /// <summary>
         /// Container for the cluster configuration of a domain.
         /// </summary>
@@ -194,6 +195,8 @@ namespace Pulumi.AwsNative.OpenSearchService
 
             string? arn,
 
+            Outputs.DomainAutomatedSnapshotPauseOptions? automatedSnapshotPauseOptions,
+
             Outputs.DomainClusterConfig? clusterConfig,
 
             Outputs.DomainCognitoOptions? cognitoOptions,
@@ -245,6 +248,7 @@ namespace Pulumi.AwsNative.OpenSearchService
             AdvancedSecurityOptions = advancedSecurityOptions;
             AimlOptions = aimlOptions;
             Arn = arn;
+            AutomatedSnapshotPauseOptions = automatedSnapshotPauseOptions;
             ClusterConfig = clusterConfig;
             CognitoOptions = cognitoOptions;
             DeploymentStrategyOptions = deploymentStrategyOptions;

@@ -345,6 +345,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         public static GatewayAuthorizerType CustomJwt { get; } = new GatewayAuthorizerType("CUSTOM_JWT");
         public static GatewayAuthorizerType AwsIam { get; } = new GatewayAuthorizerType("AWS_IAM");
         public static GatewayAuthorizerType None { get; } = new GatewayAuthorizerType("NONE");
+        public static GatewayAuthorizerType AuthenticateOnly { get; } = new GatewayAuthorizerType("AUTHENTICATE_ONLY");
 
         public static bool operator ==(GatewayAuthorizerType left, GatewayAuthorizerType right) => left.Equals(right);
         public static bool operator !=(GatewayAuthorizerType left, GatewayAuthorizerType right) => !left.Equals(right);
@@ -511,33 +512,6 @@ namespace Pulumi.AwsNative.BedrockAgentCore
     }
 
     [EnumType]
-    public readonly struct GatewayProtocolType : IEquatable<GatewayProtocolType>
-    {
-        private readonly string _value;
-
-        private GatewayProtocolType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static GatewayProtocolType Mcp { get; } = new GatewayProtocolType("MCP");
-
-        public static bool operator ==(GatewayProtocolType left, GatewayProtocolType right) => left.Equals(right);
-        public static bool operator !=(GatewayProtocolType left, GatewayProtocolType right) => !left.Equals(right);
-
-        public static explicit operator string(GatewayProtocolType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is GatewayProtocolType other && Equals(other);
-        public bool Equals(GatewayProtocolType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    [EnumType]
     public readonly struct GatewaySearchType : IEquatable<GatewaySearchType>
     {
         private readonly string _value;
@@ -637,6 +611,8 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         public static GatewayTargetCredentialProviderType GatewayIamRole { get; } = new GatewayTargetCredentialProviderType("GATEWAY_IAM_ROLE");
         public static GatewayTargetCredentialProviderType Oauth { get; } = new GatewayTargetCredentialProviderType("OAUTH");
         public static GatewayTargetCredentialProviderType ApiKey { get; } = new GatewayTargetCredentialProviderType("API_KEY");
+        public static GatewayTargetCredentialProviderType CallerIamCredentials { get; } = new GatewayTargetCredentialProviderType("CALLER_IAM_CREDENTIALS");
+        public static GatewayTargetCredentialProviderType JwtPassthrough { get; } = new GatewayTargetCredentialProviderType("JWT_PASSTHROUGH");
 
         public static bool operator ==(GatewayTargetCredentialProviderType left, GatewayTargetCredentialProviderType right) => left.Equals(right);
         public static bool operator !=(GatewayTargetCredentialProviderType left, GatewayTargetCredentialProviderType right) => !left.Equals(right);
@@ -693,6 +669,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
 
         public static GatewayTargetOAuthGrantType AuthorizationCode { get; } = new GatewayTargetOAuthGrantType("AUTHORIZATION_CODE");
         public static GatewayTargetOAuthGrantType ClientCredentials { get; } = new GatewayTargetOAuthGrantType("CLIENT_CREDENTIALS");
+        public static GatewayTargetOAuthGrantType TokenExchange { get; } = new GatewayTargetOAuthGrantType("TOKEN_EXCHANGE");
 
         public static bool operator ==(GatewayTargetOAuthGrantType left, GatewayTargetOAuthGrantType right) => left.Equals(right);
         public static bool operator !=(GatewayTargetOAuthGrantType left, GatewayTargetOAuthGrantType right) => !left.Equals(right);
@@ -775,6 +752,34 @@ namespace Pulumi.AwsNative.BedrockAgentCore
     }
 
     [EnumType]
+    public readonly struct GatewayTargetTargetProtocolType : IEquatable<GatewayTargetTargetProtocolType>
+    {
+        private readonly string _value;
+
+        private GatewayTargetTargetProtocolType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GatewayTargetTargetProtocolType Mcp { get; } = new GatewayTargetTargetProtocolType("MCP");
+        public static GatewayTargetTargetProtocolType Http { get; } = new GatewayTargetTargetProtocolType("HTTP");
+
+        public static bool operator ==(GatewayTargetTargetProtocolType left, GatewayTargetTargetProtocolType right) => left.Equals(right);
+        public static bool operator !=(GatewayTargetTargetProtocolType left, GatewayTargetTargetProtocolType right) => !left.Equals(right);
+
+        public static explicit operator string(GatewayTargetTargetProtocolType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GatewayTargetTargetProtocolType other && Equals(other);
+        public bool Equals(GatewayTargetTargetProtocolType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct GatewayTargetTargetStatus : IEquatable<GatewayTargetTargetStatus>
     {
         private readonly string _value;
@@ -792,6 +797,9 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         public static GatewayTargetTargetStatus Failed { get; } = new GatewayTargetTargetStatus("FAILED");
         public static GatewayTargetTargetStatus Synchronizing { get; } = new GatewayTargetTargetStatus("SYNCHRONIZING");
         public static GatewayTargetTargetStatus SynchronizeUnsuccessful { get; } = new GatewayTargetTargetStatus("SYNCHRONIZE_UNSUCCESSFUL");
+        public static GatewayTargetTargetStatus CreatePendingAuth { get; } = new GatewayTargetTargetStatus("CREATE_PENDING_AUTH");
+        public static GatewayTargetTargetStatus UpdatePendingAuth { get; } = new GatewayTargetTargetStatus("UPDATE_PENDING_AUTH");
+        public static GatewayTargetTargetStatus SynchronizePendingAuth { get; } = new GatewayTargetTargetStatus("SYNCHRONIZE_PENDING_AUTH");
 
         public static bool operator ==(GatewayTargetTargetStatus left, GatewayTargetTargetStatus right) => left.Equals(right);
         public static bool operator !=(GatewayTargetTargetStatus left, GatewayTargetTargetStatus right) => !left.Equals(right);

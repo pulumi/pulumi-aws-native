@@ -126,6 +126,10 @@
           "items" : {
             "type" : "string"
           }
+        },
+        "EgressEnabled" : {
+          "type" : "boolean",
+          "description" : "Controls whether egress traffic from the domain is routed through the customer VPC."
         }
       }
     },
@@ -469,6 +473,22 @@
         }
       }
     },
+    "AutomatedSnapshotPauseOptions" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Enabled" : {
+          "type" : "boolean"
+        },
+        "StartTime" : {
+          "type" : "string"
+        },
+        "EndTime" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "Enabled" ]
+    },
     "ColdStorageOptions" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -630,6 +650,9 @@
     },
     "DeploymentStrategyOptions" : {
       "$ref" : "#/definitions/DeploymentStrategyOptions"
+    },
+    "AutomatedSnapshotPauseOptions" : {
+      "$ref" : "#/definitions/AutomatedSnapshotPauseOptions"
     }
   },
   "propertyTransform" : {

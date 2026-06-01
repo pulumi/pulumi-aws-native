@@ -79,8 +79,10 @@ export class Gateway extends pulumi.CustomResource {
     declare public readonly protocolConfiguration: pulumi.Output<outputs.bedrockagentcore.GatewayProtocolConfigurationProperties | undefined>;
     /**
      * The protocol type for the gateway target.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::BedrockAgentCore::Gateway` for more information about the expected schema for this property.
      */
-    declare public readonly protocolType: pulumi.Output<enums.bedrockagentcore.GatewayProtocolType>;
+    declare public readonly protocolType: pulumi.Output<any | undefined>;
     declare public readonly roleArn: pulumi.Output<string>;
     /**
      * The status for the gateway.
@@ -110,9 +112,6 @@ export class Gateway extends pulumi.CustomResource {
         if (!opts.id) {
             if (args?.authorizerType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authorizerType'");
-            }
-            if (args?.protocolType === undefined && !opts.urn) {
-                throw new Error("Missing required property 'protocolType'");
             }
             if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
@@ -197,8 +196,10 @@ export interface GatewayArgs {
     protocolConfiguration?: pulumi.Input<inputs.bedrockagentcore.GatewayProtocolConfigurationPropertiesArgs>;
     /**
      * The protocol type for the gateway target.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::BedrockAgentCore::Gateway` for more information about the expected schema for this property.
      */
-    protocolType: pulumi.Input<enums.bedrockagentcore.GatewayProtocolType>;
+    protocolType?: any;
     roleArn: pulumi.Input<string>;
     /**
      * The tags for the gateway.

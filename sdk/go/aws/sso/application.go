@@ -23,6 +23,8 @@ type Application struct {
 	ApplicationProviderArn pulumi.StringOutput `pulumi:"applicationProviderArn"`
 	// The description information for the Identity Center (SSO) Application
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The ARN of the identity store associated with the Identity Center instance
+	IdentityStoreArn pulumi.StringOutput `pulumi:"identityStoreArn"`
 	// The ARN of the instance of IAM Identity Center under which the operation will run
 	InstanceArn pulumi.StringOutput `pulumi:"instanceArn"`
 	// The name you want to assign to this Identity Center (SSO) Application
@@ -170,6 +172,11 @@ func (o ApplicationOutput) ApplicationProviderArn() pulumi.StringOutput {
 // The description information for the Identity Center (SSO) Application
 func (o ApplicationOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the identity store associated with the Identity Center instance
+func (o ApplicationOutput) IdentityStoreArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.IdentityStoreArn }).(pulumi.StringOutput)
 }
 
 // The ARN of the instance of IAM Identity Center under which the operation will run

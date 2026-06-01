@@ -328,7 +328,7 @@ class Collection(pulumi.CustomResource):
             __props__.__dict__["dashboard_endpoint"] = None
             __props__.__dict__["fips_endpoints"] = None
             __props__.__dict__["kms_key_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["collectionGroupName", "encryptionConfig", "name", "standbyReplicas", "tags[*]", "type", "vectorOptions"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["collectionGroupName", "encryptionConfig", "name", "standbyReplicas", "tags[*]", "type"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Collection, __self__).__init__(
             'aws-native:opensearchserverless:Collection',

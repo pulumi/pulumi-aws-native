@@ -221,6 +221,7 @@ class Application(pulumi.CustomResource):
             __props__.__dict__["status"] = status
             __props__.__dict__["tags"] = tags
             __props__.__dict__["application_arn"] = None
+            __props__.__dict__["identity_store_arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["applicationProviderArn", "instanceArn"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Application, __self__).__init__(
@@ -248,6 +249,7 @@ class Application(pulumi.CustomResource):
         __props__.__dict__["application_arn"] = None
         __props__.__dict__["application_provider_arn"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["identity_store_arn"] = None
         __props__.__dict__["instance_arn"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["portal_options"] = None
@@ -278,6 +280,14 @@ class Application(pulumi.CustomResource):
         The description information for the Identity Center (SSO) Application
         """
         return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="identityStoreArn")
+    def identity_store_arn(self) -> pulumi.Output[_builtins.str]:
+        """
+        The ARN of the identity store associated with the Identity Center instance
+        """
+        return pulumi.get(self, "identity_store_arn")
 
     @_builtins.property
     @pulumi.getter(name="instanceArn")

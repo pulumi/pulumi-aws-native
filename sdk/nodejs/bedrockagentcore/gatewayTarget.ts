@@ -37,6 +37,7 @@ export class GatewayTarget extends pulumi.CustomResource {
         return obj['__pulumiType'] === GatewayTarget.__pulumiType;
     }
 
+    declare public /*out*/ readonly authorizationData: pulumi.Output<outputs.bedrockagentcore.GatewayTargetAuthorizationDataProperties>;
     /**
      * The date and time at which the gateway target was created.
      */
@@ -60,6 +61,7 @@ export class GatewayTarget extends pulumi.CustomResource {
      * The name for the gateway target.
      */
     declare public readonly name: pulumi.Output<string>;
+    declare public /*out*/ readonly protocolType: pulumi.Output<enums.bedrockagentcore.GatewayTargetTargetProtocolType>;
     /**
      * The status for the gateway target.
      */
@@ -71,7 +73,7 @@ export class GatewayTarget extends pulumi.CustomResource {
     /**
      * The target configuration for the Smithy model target.
      */
-    declare public readonly targetConfiguration: pulumi.Output<outputs.bedrockagentcore.GatewayTargetTargetConfigurationProperties>;
+    declare public readonly targetConfiguration: pulumi.Output<outputs.bedrockagentcore.GatewayTargetTargetConfiguration0Properties | outputs.bedrockagentcore.GatewayTargetTargetConfiguration1Properties>;
     /**
      * The target ID for the gateway target.
      */
@@ -101,14 +103,17 @@ export class GatewayTarget extends pulumi.CustomResource {
             resourceInputs["metadataConfiguration"] = args?.metadataConfiguration;
             resourceInputs["name"] = args?.name;
             resourceInputs["targetConfiguration"] = args?.targetConfiguration;
+            resourceInputs["authorizationData"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["gatewayArn"] = undefined /*out*/;
             resourceInputs["lastSynchronizedAt"] = undefined /*out*/;
+            resourceInputs["protocolType"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["statusReasons"] = undefined /*out*/;
             resourceInputs["targetId"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
         } else {
+            resourceInputs["authorizationData"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["credentialProviderConfigurations"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
@@ -117,6 +122,7 @@ export class GatewayTarget extends pulumi.CustomResource {
             resourceInputs["lastSynchronizedAt"] = undefined /*out*/;
             resourceInputs["metadataConfiguration"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["protocolType"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["statusReasons"] = undefined /*out*/;
             resourceInputs["targetConfiguration"] = undefined /*out*/;
@@ -154,5 +160,5 @@ export interface GatewayTargetArgs {
     /**
      * The target configuration for the Smithy model target.
      */
-    targetConfiguration: pulumi.Input<inputs.bedrockagentcore.GatewayTargetTargetConfigurationPropertiesArgs>;
+    targetConfiguration: pulumi.Input<inputs.bedrockagentcore.GatewayTargetTargetConfiguration0PropertiesArgs | inputs.bedrockagentcore.GatewayTargetTargetConfiguration1PropertiesArgs>;
 }

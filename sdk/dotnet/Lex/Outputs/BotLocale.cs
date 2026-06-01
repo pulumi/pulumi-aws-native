@@ -13,6 +13,7 @@ namespace Pulumi.AwsNative.Lex.Outputs
     [OutputType]
     public sealed class BotLocale
     {
+        public readonly Outputs.BotAudioFillerSettings? AudioFillerSettings;
         /// <summary>
         /// Specifies a custom vocabulary to use with a specific locale.
         /// </summary>
@@ -55,6 +56,8 @@ namespace Pulumi.AwsNative.Lex.Outputs
 
         [OutputConstructor]
         private BotLocale(
+            Outputs.BotAudioFillerSettings? audioFillerSettings,
+
             Outputs.BotCustomVocabulary? customVocabulary,
 
             string? description,
@@ -77,6 +80,7 @@ namespace Pulumi.AwsNative.Lex.Outputs
 
             Outputs.BotVoiceSettings? voiceSettings)
         {
+            AudioFillerSettings = audioFillerSettings;
             CustomVocabulary = customVocabulary;
             Description = description;
             GenerativeAiSettings = generativeAiSettings;

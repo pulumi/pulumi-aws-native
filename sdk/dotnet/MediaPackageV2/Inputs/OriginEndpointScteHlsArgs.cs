@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.MediaPackageV2.Inputs
         [Input("adMarkerHls")]
         public Input<Pulumi.AwsNative.MediaPackageV2.OriginEndpointAdMarkerHls>? AdMarkerHls { get; set; }
 
+        [Input("scteInManifests")]
+        public Input<Pulumi.AwsNative.MediaPackageV2.OriginEndpointScteInManifests>? ScteInManifests { get; set; }
+
         public OriginEndpointScteHlsArgs()
         {
         }

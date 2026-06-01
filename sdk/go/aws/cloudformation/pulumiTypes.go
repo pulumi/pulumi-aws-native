@@ -655,7 +655,7 @@ func (o ManagedExecutionPropertiesPtrOutput) Active() pulumi.BoolPtrOutput {
 
 // Specifies the S3 location of your input parameters.
 type OptionsProperties struct {
-	// Specifies the S3 location where your input parameters are located.
+	// Specifies the S3 location of input parameter files for your Guard rules. You can specify either a single S3 location or an array of up to 10 S3 locations.
 	InputParams interface{} `pulumi:"inputParams"`
 }
 
@@ -672,7 +672,7 @@ type OptionsPropertiesInput interface {
 
 // Specifies the S3 location of your input parameters.
 type OptionsPropertiesArgs struct {
-	// Specifies the S3 location where your input parameters are located.
+	// Specifies the S3 location of input parameter files for your Guard rules. You can specify either a single S3 location or an array of up to 10 S3 locations.
 	InputParams pulumi.Input `pulumi:"inputParams"`
 }
 
@@ -754,7 +754,7 @@ func (o OptionsPropertiesOutput) ToOptionsPropertiesPtrOutputWithContext(ctx con
 	}).(OptionsPropertiesPtrOutput)
 }
 
-// Specifies the S3 location where your input parameters are located.
+// Specifies the S3 location of input parameter files for your Guard rules. You can specify either a single S3 location or an array of up to 10 S3 locations.
 func (o OptionsPropertiesOutput) InputParams() pulumi.AnyOutput {
 	return o.ApplyT(func(v OptionsProperties) interface{} { return v.InputParams }).(pulumi.AnyOutput)
 }
@@ -783,7 +783,7 @@ func (o OptionsPropertiesPtrOutput) Elem() OptionsPropertiesOutput {
 	}).(OptionsPropertiesOutput)
 }
 
-// Specifies the S3 location where your input parameters are located.
+// Specifies the S3 location of input parameter files for your Guard rules. You can specify either a single S3 location or an array of up to 10 S3 locations.
 func (o OptionsPropertiesPtrOutput) InputParams() pulumi.AnyOutput {
 	return o.ApplyT(func(v *OptionsProperties) interface{} {
 		if v == nil {

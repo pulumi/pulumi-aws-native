@@ -34,6 +34,12 @@ namespace Pulumi.AwsNative.Sso
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// The ARN of the identity store associated with the Identity Center instance
+        /// </summary>
+        [Output("identityStoreArn")]
+        public Output<string> IdentityStoreArn { get; private set; } = null!;
+
+        /// <summary>
         /// The ARN of the instance of IAM Identity Center under which the operation will run
         /// </summary>
         [Output("instanceArn")]

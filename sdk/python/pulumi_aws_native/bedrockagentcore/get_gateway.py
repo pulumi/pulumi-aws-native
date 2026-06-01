@@ -65,8 +65,8 @@ class GetGatewayResult:
         if protocol_configuration and not isinstance(protocol_configuration, dict):
             raise TypeError("Expected argument 'protocol_configuration' to be a dict")
         pulumi.set(__self__, "protocol_configuration", protocol_configuration)
-        if protocol_type and not isinstance(protocol_type, str):
-            raise TypeError("Expected argument 'protocol_type' to be a str")
+        if protocol_type and not isinstance(protocol_type, dict):
+            raise TypeError("Expected argument 'protocol_type' to be a dict")
         pulumi.set(__self__, "protocol_type", protocol_type)
         if role_arn and not isinstance(role_arn, str):
             raise TypeError("Expected argument 'role_arn' to be a str")
@@ -181,9 +181,11 @@ class GetGatewayResult:
 
     @_builtins.property
     @pulumi.getter(name="protocolType")
-    def protocol_type(self) -> Optional['GatewayProtocolType']:
+    def protocol_type(self) -> Optional[Any]:
         """
         The protocol type for the gateway target.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::BedrockAgentCore::Gateway` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "protocol_type")
 

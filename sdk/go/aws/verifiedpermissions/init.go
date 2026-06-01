@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Policy{}
 	case "aws-native:verifiedpermissions:PolicyStore":
 		r = &PolicyStore{}
+	case "aws-native:verifiedpermissions:PolicyStoreAlias":
+		r = &PolicyStoreAlias{}
 	case "aws-native:verifiedpermissions:PolicyTemplate":
 		r = &PolicyTemplate{}
 	default:

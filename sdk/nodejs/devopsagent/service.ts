@@ -40,7 +40,7 @@ export class Service extends pulumi.CustomResource {
     /**
      * List of accessible resources for this service
      */
-    declare public /*out*/ readonly accessibleResources: pulumi.Output<any[]>;
+    declare public /*out*/ readonly accessibleResources: pulumi.Output<{[key: string]: string}[]>;
     /**
      * Additional details specific to the service type
      */

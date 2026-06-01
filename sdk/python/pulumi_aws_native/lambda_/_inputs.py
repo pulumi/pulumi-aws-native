@@ -1623,7 +1623,6 @@ class FunctionCodeArgsDict(TypedDict):
     """
     The Amazon S3 key of the deployment package.
     """
-    s3_object_storage_mode: NotRequired[pulumi.Input['FunctionCodeS3ObjectStorageMode']]
     s3_object_version: NotRequired[pulumi.Input[_builtins.str]]
     """
     For versioned objects, the version of the deployment package object to use.
@@ -1647,7 +1646,6 @@ class FunctionCodeArgs:
                  image_uri: Optional[pulumi.Input[_builtins.str]] = None,
                  s3_bucket: Optional[pulumi.Input[_builtins.str]] = None,
                  s3_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_object_storage_mode: Optional[pulumi.Input['FunctionCodeS3ObjectStorageMode']] = None,
                  s3_object_version: Optional[pulumi.Input[_builtins.str]] = None,
                  source_kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  zip_file: Optional[pulumi.Input[_builtins.str]] = None):
@@ -1673,8 +1671,6 @@ class FunctionCodeArgs:
             pulumi.set(__self__, "s3_bucket", s3_bucket)
         if s3_key is not None:
             pulumi.set(__self__, "s3_key", s3_key)
-        if s3_object_storage_mode is not None:
-            pulumi.set(__self__, "s3_object_storage_mode", s3_object_storage_mode)
         if s3_object_version is not None:
             pulumi.set(__self__, "s3_object_version", s3_object_version)
         if source_kms_key_arn is not None:
@@ -1717,15 +1713,6 @@ class FunctionCodeArgs:
     @s3_key.setter
     def s3_key(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "s3_key", value)
-
-    @_builtins.property
-    @pulumi.getter(name="s3ObjectStorageMode")
-    def s3_object_storage_mode(self) -> Optional[pulumi.Input['FunctionCodeS3ObjectStorageMode']]:
-        return pulumi.get(self, "s3_object_storage_mode")
-
-    @s3_object_storage_mode.setter
-    def s3_object_storage_mode(self, value: Optional[pulumi.Input['FunctionCodeS3ObjectStorageMode']]):
-        pulumi.set(self, "s3_object_storage_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="s3ObjectVersion")
@@ -1927,11 +1914,11 @@ class FunctionEphemeralStorageArgs:
 
 class FunctionFileSystemConfigArgsDict(TypedDict):
     """
-    Details about the connection between a Lambda function and an [Amazon EFS file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html).
+    Details about the connection between a Lambda function and an [Amazon EFS file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html) or an [Amazon S3 Files file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html).
     """
     arn: pulumi.Input[_builtins.str]
     """
-    The Amazon Resource Name (ARN) of the Amazon EFS access point that provides access to the file system.
+    The Amazon Resource Name (ARN) of the Amazon EFS or Amazon S3 Files access point that provides access to the file system.
     """
     local_mount_path: pulumi.Input[_builtins.str]
     """
@@ -1944,9 +1931,9 @@ class FunctionFileSystemConfigArgs:
                  arn: pulumi.Input[_builtins.str],
                  local_mount_path: pulumi.Input[_builtins.str]):
         """
-        Details about the connection between a Lambda function and an [Amazon EFS file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html).
+        Details about the connection between a Lambda function and an [Amazon EFS file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html) or an [Amazon S3 Files file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html).
 
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the Amazon EFS access point that provides access to the file system.
+        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the Amazon EFS or Amazon S3 Files access point that provides access to the file system.
         :param pulumi.Input[_builtins.str] local_mount_path: The path where the function can access the file system, starting with ``/mnt/``.
         """
         pulumi.set(__self__, "arn", arn)
@@ -1956,7 +1943,7 @@ class FunctionFileSystemConfigArgs:
     @pulumi.getter
     def arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the Amazon EFS access point that provides access to the file system.
+        The Amazon Resource Name (ARN) of the Amazon EFS or Amazon S3 Files access point that provides access to the file system.
         """
         return pulumi.get(self, "arn")
 

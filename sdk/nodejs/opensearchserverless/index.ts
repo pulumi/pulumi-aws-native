@@ -20,6 +20,11 @@ export type CollectionGroup = import("./collectionGroup").CollectionGroup;
 export const CollectionGroup: typeof import("./collectionGroup").CollectionGroup = null as any;
 utilities.lazyLoad(exports, ["CollectionGroup"], () => require("./collectionGroup"));
 
+export { CollectionIndexArgs } from "./collectionIndex";
+export type CollectionIndex = import("./collectionIndex").CollectionIndex;
+export const CollectionIndex: typeof import("./collectionIndex").CollectionIndex = null as any;
+utilities.lazyLoad(exports, ["CollectionIndex"], () => require("./collectionIndex"));
+
 export { GetAccessPolicyArgs, GetAccessPolicyResult, GetAccessPolicyOutputArgs } from "./getAccessPolicy";
 export const getAccessPolicy: typeof import("./getAccessPolicy").getAccessPolicy = null as any;
 export const getAccessPolicyOutput: typeof import("./getAccessPolicy").getAccessPolicyOutput = null as any;
@@ -34,6 +39,11 @@ export { GetCollectionGroupArgs, GetCollectionGroupResult, GetCollectionGroupOut
 export const getCollectionGroup: typeof import("./getCollectionGroup").getCollectionGroup = null as any;
 export const getCollectionGroupOutput: typeof import("./getCollectionGroup").getCollectionGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getCollectionGroup","getCollectionGroupOutput"], () => require("./getCollectionGroup"));
+
+export { GetCollectionIndexArgs, GetCollectionIndexResult, GetCollectionIndexOutputArgs } from "./getCollectionIndex";
+export const getCollectionIndex: typeof import("./getCollectionIndex").getCollectionIndex = null as any;
+export const getCollectionIndexOutput: typeof import("./getCollectionIndex").getCollectionIndexOutput = null as any;
+utilities.lazyLoad(exports, ["getCollectionIndex","getCollectionIndexOutput"], () => require("./getCollectionIndex"));
 
 export { GetIndexArgs, GetIndexResult, GetIndexOutputArgs } from "./getIndex";
 export const getIndex: typeof import("./getIndex").getIndex = null as any;
@@ -99,6 +109,8 @@ const _module = {
                 return new Collection(name, <any>undefined, { urn })
             case "aws-native:opensearchserverless:CollectionGroup":
                 return new CollectionGroup(name, <any>undefined, { urn })
+            case "aws-native:opensearchserverless:CollectionIndex":
+                return new CollectionIndex(name, <any>undefined, { urn })
             case "aws-native:opensearchserverless:Index":
                 return new Index(name, <any>undefined, { urn })
             case "aws-native:opensearchserverless:LifecyclePolicy":

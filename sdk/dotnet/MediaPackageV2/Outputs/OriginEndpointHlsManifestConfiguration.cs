@@ -44,6 +44,7 @@ namespace Pulumi.AwsNative.MediaPackageV2.Outputs
         /// To insert an EXT-X-START tag in your HLS playlist, specify a StartTag configuration object with a valid TimeOffset. When you do, you can also optionally specify whether to include a PRECISE value in the EXT-X-START tag.
         /// </summary>
         public readonly Outputs.OriginEndpointStartTag? StartTag;
+        public readonly Pulumi.AwsNative.MediaPackageV2.OriginEndpointUriPathType? UriPathType;
         /// <summary>
         /// &lt;p&gt;The egress domain URL for stream delivery from MediaPackage.&lt;/p&gt;
         /// </summary>
@@ -69,6 +70,8 @@ namespace Pulumi.AwsNative.MediaPackageV2.Outputs
 
             Outputs.OriginEndpointStartTag? startTag,
 
+            Pulumi.AwsNative.MediaPackageV2.OriginEndpointUriPathType? uriPathType,
+
             string? url,
 
             bool? urlEncodeChildManifest)
@@ -80,6 +83,7 @@ namespace Pulumi.AwsNative.MediaPackageV2.Outputs
             ProgramDateTimeIntervalSeconds = programDateTimeIntervalSeconds;
             ScteHls = scteHls;
             StartTag = startTag;
+            UriPathType = uriPathType;
             Url = url;
             UrlEncodeChildManifest = urlEncodeChildManifest;
         }

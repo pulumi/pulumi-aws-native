@@ -114,6 +114,7 @@ export class OriginEndpoint extends pulumi.CustomResource {
      * The tags associated with the origin endpoint.
      */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly uriSeparator: pulumi.Output<enums.mediapackagev2.OriginEndpointUriSeparator | undefined>;
 
     /**
      * Create a OriginEndpoint resource with the given unique name, arguments, and options.
@@ -148,6 +149,7 @@ export class OriginEndpoint extends pulumi.CustomResource {
             resourceInputs["segment"] = args?.segment;
             resourceInputs["startoverWindowSeconds"] = args?.startoverWindowSeconds;
             resourceInputs["tags"] = args?.tags;
+            resourceInputs["uriSeparator"] = args?.uriSeparator;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["dashManifestUrls"] = undefined /*out*/;
@@ -176,6 +178,7 @@ export class OriginEndpoint extends pulumi.CustomResource {
             resourceInputs["segment"] = undefined /*out*/;
             resourceInputs["startoverWindowSeconds"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["uriSeparator"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const replaceOnChanges = { replaceOnChanges: ["channelGroupName", "channelName", "originEndpointName"] };
@@ -240,4 +243,5 @@ export interface OriginEndpointArgs {
      * The tags associated with the origin endpoint.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    uriSeparator?: pulumi.Input<enums.mediapackagev2.OriginEndpointUriSeparator>;
 }

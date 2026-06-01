@@ -9,6 +9,7 @@ from enum import Enum
 __all__ = [
     'GlobalReplicationGroupMemberRole',
     'ServerlessCacheDataStorageUnit',
+    'ServerlessCacheNetworkType',
     'UserAuthenticationModePropertiesType',
     'UserEngine',
     'UserGroupEngine',
@@ -30,6 +31,16 @@ class ServerlessCacheDataStorageUnit(_builtins.str, Enum):
     The unit of cached data capacity of the Serverless Cache.
     """
     GB = "GB"
+
+
+@pulumi.type_token("aws-native:elasticache:ServerlessCacheNetworkType")
+class ServerlessCacheNetworkType(_builtins.str, Enum):
+    """
+    The network type for the serverless cache. Valid values are ipv4, ipv6, or dual_stack.
+    """
+    IPV4 = "ipv4"
+    IPV6 = "ipv6"
+    DUAL_STACK = "dual_stack"
 
 
 @pulumi.type_token("aws-native:elasticache:UserAuthenticationModePropertiesType")

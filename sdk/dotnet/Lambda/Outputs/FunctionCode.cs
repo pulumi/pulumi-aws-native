@@ -30,7 +30,6 @@ namespace Pulumi.AwsNative.Lambda.Outputs
         /// The Amazon S3 key of the deployment package.
         /// </summary>
         public readonly string? S3Key;
-        public readonly Pulumi.AwsNative.Lambda.FunctionCodeS3ObjectStorageMode? S3ObjectStorageMode;
         /// <summary>
         /// For versioned objects, the version of the deployment package object to use.
         /// </summary>
@@ -56,8 +55,6 @@ namespace Pulumi.AwsNative.Lambda.Outputs
 
             string? s3Key,
 
-            Pulumi.AwsNative.Lambda.FunctionCodeS3ObjectStorageMode? s3ObjectStorageMode,
-
             string? s3ObjectVersion,
 
             string? sourceKmsKeyArn,
@@ -67,7 +64,6 @@ namespace Pulumi.AwsNative.Lambda.Outputs
             ImageUri = imageUri;
             S3Bucket = s3Bucket;
             S3Key = s3Key;
-            S3ObjectStorageMode = s3ObjectStorageMode;
             S3ObjectVersion = s3ObjectVersion;
             SourceKmsKeyArn = sourceKmsKeyArn;
             ZipFile = zipFile;

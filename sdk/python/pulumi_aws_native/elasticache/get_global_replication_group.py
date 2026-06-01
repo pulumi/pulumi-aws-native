@@ -25,10 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetGlobalReplicationGroupResult:
-    def __init__(__self__, cache_parameter_group_name=None, engine=None, global_replication_group_description=None, global_replication_group_id=None, members=None, status=None):
-        if cache_parameter_group_name and not isinstance(cache_parameter_group_name, str):
-            raise TypeError("Expected argument 'cache_parameter_group_name' to be a str")
-        pulumi.set(__self__, "cache_parameter_group_name", cache_parameter_group_name)
+    def __init__(__self__, engine=None, global_replication_group_description=None, global_replication_group_id=None, members=None, status=None):
         if engine and not isinstance(engine, str):
             raise TypeError("Expected argument 'engine' to be a str")
         pulumi.set(__self__, "engine", engine)
@@ -44,14 +41,6 @@ class GetGlobalReplicationGroupResult:
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
-
-    @_builtins.property
-    @pulumi.getter(name="cacheParameterGroupName")
-    def cache_parameter_group_name(self) -> Optional[_builtins.str]:
-        """
-        Cache parameter group name to use for the new engine version. This parameter cannot be modified independently.
-        """
-        return pulumi.get(self, "cache_parameter_group_name")
 
     @_builtins.property
     @pulumi.getter
@@ -100,7 +89,6 @@ class AwaitableGetGlobalReplicationGroupResult(GetGlobalReplicationGroupResult):
         if False:
             yield self
         return GetGlobalReplicationGroupResult(
-            cache_parameter_group_name=self.cache_parameter_group_name,
             engine=self.engine,
             global_replication_group_description=self.global_replication_group_description,
             global_replication_group_id=self.global_replication_group_id,
@@ -122,7 +110,6 @@ def get_global_replication_group(global_replication_group_id: Optional[_builtins
     __ret__ = pulumi.runtime.invoke('aws-native:elasticache:getGlobalReplicationGroup', __args__, opts=opts, typ=GetGlobalReplicationGroupResult).value
 
     return AwaitableGetGlobalReplicationGroupResult(
-        cache_parameter_group_name=pulumi.get(__ret__, 'cache_parameter_group_name'),
         engine=pulumi.get(__ret__, 'engine'),
         global_replication_group_description=pulumi.get(__ret__, 'global_replication_group_description'),
         global_replication_group_id=pulumi.get(__ret__, 'global_replication_group_id'),
@@ -141,7 +128,6 @@ def get_global_replication_group_output(global_replication_group_id: Optional[pu
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:elasticache:getGlobalReplicationGroup', __args__, opts=opts, typ=GetGlobalReplicationGroupResult)
     return __ret__.apply(lambda __response__: GetGlobalReplicationGroupResult(
-        cache_parameter_group_name=pulumi.get(__response__, 'cache_parameter_group_name'),
         engine=pulumi.get(__response__, 'engine'),
         global_replication_group_description=pulumi.get(__response__, 'global_replication_group_description'),
         global_replication_group_id=pulumi.get(__response__, 'global_replication_group_id'),

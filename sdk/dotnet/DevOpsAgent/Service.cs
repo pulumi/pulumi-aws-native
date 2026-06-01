@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.DevOpsAgent
         /// List of accessible resources for this service
         /// </summary>
         [Output("accessibleResources")]
-        public Output<ImmutableArray<object>> AccessibleResources { get; private set; } = null!;
+        public Output<ImmutableArray<ImmutableDictionary<string, string>>> AccessibleResources { get; private set; } = null!;
 
         /// <summary>
         /// Additional details specific to the service type

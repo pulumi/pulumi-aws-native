@@ -15,15 +15,19 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
     {
         public readonly string Endpoint;
         public readonly Pulumi.AwsNative.BedrockAgentCore.GatewayTargetMcpServerListingMode? ListingMode;
+        public readonly Union<Outputs.GatewayTargetMcpToolSchemaConfiguration0Properties, Outputs.GatewayTargetMcpToolSchemaConfiguration1Properties>? McpToolSchema;
 
         [OutputConstructor]
         private GatewayTargetMcpServerTargetConfiguration(
             string endpoint,
 
-            Pulumi.AwsNative.BedrockAgentCore.GatewayTargetMcpServerListingMode? listingMode)
+            Pulumi.AwsNative.BedrockAgentCore.GatewayTargetMcpServerListingMode? listingMode,
+
+            Union<Outputs.GatewayTargetMcpToolSchemaConfiguration0Properties, Outputs.GatewayTargetMcpToolSchemaConfiguration1Properties>? mcpToolSchema)
         {
             Endpoint = endpoint;
             ListingMode = listingMode;
+            McpToolSchema = mcpToolSchema;
         }
     }
 }

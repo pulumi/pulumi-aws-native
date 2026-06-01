@@ -17,11 +17,11 @@ namespace Pulumi.AwsNative.MediaPackageV2.Outputs
     public sealed class ChannelInputSwitchConfiguration
     {
         /// <summary>
-        /// &lt;p&gt;When true, AWS Elemental MediaPackage performs input switching based on the MQCS. Default is true. This setting is valid only when &lt;code&gt;InputType&lt;/code&gt; is &lt;code&gt;CMAF&lt;/code&gt;.&lt;/p&gt;
+        /// &lt;p&gt;When true, AWS Elemental MediaPackage performs input switching based on the MQCS. Default is false. This setting is valid only when &lt;code&gt;InputType&lt;/code&gt; is &lt;code&gt;CMAF&lt;/code&gt;.&lt;/p&gt;
         /// </summary>
         public readonly bool? MqcsInputSwitching;
         /// <summary>
-        /// For CMAF inputs, indicates which input MediaPackage should prefer when both inputs have equal MQCS scores. Select `1` to prefer the first ingest endpoint, or `2` to prefer the second ingest endpoint. If you don't specify a preferred input, MediaPackage uses its default switching behavior when MQCS scores are equal.
+        /// &lt;p&gt;For CMAF inputs, indicates which input MediaPackage should prefer when both inputs have equal MQCS scores. Select &lt;code&gt;1&lt;/code&gt; to prefer the first ingest endpoint, or &lt;code&gt;2&lt;/code&gt; to prefer the second ingest endpoint. If you don't specify a preferred input, MediaPackage uses its default switching behavior when MQCS scores are equal.&lt;/p&gt;
         /// </summary>
         public readonly int? PreferredInput;
 

@@ -40,6 +40,11 @@ export type PolicyStore = import("./policyStore").PolicyStore;
 export const PolicyStore: typeof import("./policyStore").PolicyStore = null as any;
 utilities.lazyLoad(exports, ["PolicyStore"], () => require("./policyStore"));
 
+export { PolicyStoreAliasArgs } from "./policyStoreAlias";
+export type PolicyStoreAlias = import("./policyStoreAlias").PolicyStoreAlias;
+export const PolicyStoreAlias: typeof import("./policyStoreAlias").PolicyStoreAlias = null as any;
+utilities.lazyLoad(exports, ["PolicyStoreAlias"], () => require("./policyStoreAlias"));
+
 export { PolicyTemplateArgs } from "./policyTemplate";
 export type PolicyTemplate = import("./policyTemplate").PolicyTemplate;
 export const PolicyTemplate: typeof import("./policyTemplate").PolicyTemplate = null as any;
@@ -59,6 +64,8 @@ const _module = {
                 return new Policy(name, <any>undefined, { urn })
             case "aws-native:verifiedpermissions:PolicyStore":
                 return new PolicyStore(name, <any>undefined, { urn })
+            case "aws-native:verifiedpermissions:PolicyStoreAlias":
+                return new PolicyStoreAlias(name, <any>undefined, { urn })
             case "aws-native:verifiedpermissions:PolicyTemplate":
                 return new PolicyTemplate(name, <any>undefined, { urn })
             default:

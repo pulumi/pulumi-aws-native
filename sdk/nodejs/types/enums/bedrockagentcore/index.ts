@@ -121,6 +121,7 @@ export const GatewayAuthorizerType = {
     CustomJwt: "CUSTOM_JWT",
     AwsIam: "AWS_IAM",
     None: "NONE",
+    AuthenticateOnly: "AUTHENTICATE_ONLY",
 } as const;
 
 export type GatewayAuthorizerType = (typeof GatewayAuthorizerType)[keyof typeof GatewayAuthorizerType];
@@ -169,12 +170,6 @@ export const GatewayPolicyEngineMode = {
  */
 export type GatewayPolicyEngineMode = (typeof GatewayPolicyEngineMode)[keyof typeof GatewayPolicyEngineMode];
 
-export const GatewayProtocolType = {
-    Mcp: "MCP",
-} as const;
-
-export type GatewayProtocolType = (typeof GatewayProtocolType)[keyof typeof GatewayProtocolType];
-
 export const GatewaySearchType = {
     Semantic: "SEMANTIC",
 } as const;
@@ -203,6 +198,8 @@ export const GatewayTargetCredentialProviderType = {
     GatewayIamRole: "GATEWAY_IAM_ROLE",
     Oauth: "OAUTH",
     ApiKey: "API_KEY",
+    CallerIamCredentials: "CALLER_IAM_CREDENTIALS",
+    JwtPassthrough: "JWT_PASSTHROUGH",
 } as const;
 
 export type GatewayTargetCredentialProviderType = (typeof GatewayTargetCredentialProviderType)[keyof typeof GatewayTargetCredentialProviderType];
@@ -217,6 +214,7 @@ export type GatewayTargetMcpServerListingMode = (typeof GatewayTargetMcpServerLi
 export const GatewayTargetOAuthGrantType = {
     AuthorizationCode: "AUTHORIZATION_CODE",
     ClientCredentials: "CLIENT_CREDENTIALS",
+    TokenExchange: "TOKEN_EXCHANGE",
 } as const;
 
 export type GatewayTargetOAuthGrantType = (typeof GatewayTargetOAuthGrantType)[keyof typeof GatewayTargetOAuthGrantType];
@@ -244,6 +242,13 @@ export const GatewayTargetSchemaType = {
 
 export type GatewayTargetSchemaType = (typeof GatewayTargetSchemaType)[keyof typeof GatewayTargetSchemaType];
 
+export const GatewayTargetTargetProtocolType = {
+    Mcp: "MCP",
+    Http: "HTTP",
+} as const;
+
+export type GatewayTargetTargetProtocolType = (typeof GatewayTargetTargetProtocolType)[keyof typeof GatewayTargetTargetProtocolType];
+
 export const GatewayTargetTargetStatus = {
     Creating: "CREATING",
     Updating: "UPDATING",
@@ -253,6 +258,9 @@ export const GatewayTargetTargetStatus = {
     Failed: "FAILED",
     Synchronizing: "SYNCHRONIZING",
     SynchronizeUnsuccessful: "SYNCHRONIZE_UNSUCCESSFUL",
+    CreatePendingAuth: "CREATE_PENDING_AUTH",
+    UpdatePendingAuth: "UPDATE_PENDING_AUTH",
+    SynchronizePendingAuth: "SYNCHRONIZE_PENDING_AUTH",
 } as const;
 
 export type GatewayTargetTargetStatus = (typeof GatewayTargetTargetStatus)[keyof typeof GatewayTargetTargetStatus];

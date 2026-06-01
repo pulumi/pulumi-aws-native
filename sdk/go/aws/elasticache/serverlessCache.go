@@ -38,7 +38,8 @@ type ServerlessCache struct {
 	// The ID of the KMS key used to encrypt the cluster.
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
 	// The major engine version of the Serverless Cache.
-	MajorEngineVersion pulumi.StringPtrOutput `pulumi:"majorEngineVersion"`
+	MajorEngineVersion pulumi.StringPtrOutput              `pulumi:"majorEngineVersion"`
+	NetworkType        ServerlessCacheNetworkTypePtrOutput `pulumi:"networkType"`
 	// Represents the information required for client programs to connect to a cache node. This value is read-only.
 	ReaderEndpoint ServerlessCacheEndpointPtrOutput `pulumi:"readerEndpoint"`
 	// One or more Amazon VPC security groups associated with this Serverless Cache.
@@ -71,6 +72,7 @@ func NewServerlessCache(ctx *pulumi.Context,
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"kmsKeyId",
+		"networkType",
 		"serverlessCacheName",
 		"snapshotArnsToRestore[*]",
 		"subnetIds[*]",
@@ -124,7 +126,8 @@ type serverlessCacheArgs struct {
 	// The ID of the KMS key used to encrypt the cluster.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// The major engine version of the Serverless Cache.
-	MajorEngineVersion *string `pulumi:"majorEngineVersion"`
+	MajorEngineVersion *string                     `pulumi:"majorEngineVersion"`
+	NetworkType        *ServerlessCacheNetworkType `pulumi:"networkType"`
 	// Represents the information required for client programs to connect to a cache node. This value is read-only.
 	ReaderEndpoint *ServerlessCacheEndpoint `pulumi:"readerEndpoint"`
 	// One or more Amazon VPC security groups associated with this Serverless Cache.
@@ -161,6 +164,7 @@ type ServerlessCacheArgs struct {
 	KmsKeyId pulumi.StringPtrInput
 	// The major engine version of the Serverless Cache.
 	MajorEngineVersion pulumi.StringPtrInput
+	NetworkType        ServerlessCacheNetworkTypePtrInput
 	// Represents the information required for client programs to connect to a cache node. This value is read-only.
 	ReaderEndpoint ServerlessCacheEndpointPtrInput
 	// One or more Amazon VPC security groups associated with this Serverless Cache.
@@ -269,6 +273,10 @@ func (o ServerlessCacheOutput) KmsKeyId() pulumi.StringPtrOutput {
 // The major engine version of the Serverless Cache.
 func (o ServerlessCacheOutput) MajorEngineVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerlessCache) pulumi.StringPtrOutput { return v.MajorEngineVersion }).(pulumi.StringPtrOutput)
+}
+
+func (o ServerlessCacheOutput) NetworkType() ServerlessCacheNetworkTypePtrOutput {
+	return o.ApplyT(func(v *ServerlessCache) ServerlessCacheNetworkTypePtrOutput { return v.NetworkType }).(ServerlessCacheNetworkTypePtrOutput)
 }
 
 // Represents the information required for client programs to connect to a cache node. This value is read-only.

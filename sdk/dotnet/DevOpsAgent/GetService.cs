@@ -66,7 +66,7 @@ namespace Pulumi.AwsNative.DevOpsAgent
         /// <summary>
         /// List of accessible resources for this service
         /// </summary>
-        public readonly ImmutableArray<object> AccessibleResources;
+        public readonly ImmutableArray<ImmutableDictionary<string, string>> AccessibleResources;
         /// <summary>
         /// Additional details specific to the service type
         /// </summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AwsNative.DevOpsAgent
 
         [OutputConstructor]
         private GetServiceResult(
-            ImmutableArray<object> accessibleResources,
+            ImmutableArray<ImmutableDictionary<string, string>> accessibleResources,
 
             Outputs.ServiceAdditionalServiceDetails? additionalServiceDetails,
 
